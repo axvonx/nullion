@@ -7,6 +7,7 @@ import { LAYER_PALETTE, type PaletteMode } from './palettes';
 import { c, checkLibrary, drawEntity, setPaint, type RGB } from './v4/kit';
 import { V4_LIBRARIES } from './v4/libraries';
 import { FAR_F, type LayerPlacement, type Placed } from './v4/place';
+import { drawSetpiece } from './v4/setpieces';
 import { CORE_DY, RAIL_START, RAIL_STEP, placeBandForSpec, specKey, type WorldSpecV4 } from './v4/world';
 
 /**
@@ -131,10 +132,13 @@ function firstAtOrAfter(list: readonly Placed[], minY: number): number {
   return lo;
 }
 
-/** Draw a band's far plane (fogged) and near plane in O(log N + visible). Reports near entities unless this is a seam redraw. */
+/** Draw a band's monumental setpiece, far plane (fogged), and near plane in O(log N + visible). */
 function entities(ctx: Ctx, b: Band, id: LayerId) {
   const idx = bandIndexById.get(id);
   enforce(idx !== undefined, `v4: layer ${id} not in active stack`);
+  // Monumental deep-background architectural landmark sits behind all far & near trinkets
+  setPaint(mode, undefined);
+  drawSetpiece(ctx, b, id, T);
   const pl = bandPlacement(idx);
   const [y0, y1] = vis(b);
   setPaint(mode, FOG[id]);

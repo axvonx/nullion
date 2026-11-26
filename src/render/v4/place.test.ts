@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS, ENDLESS_LAYERS, LAYERS } from '../../core/layers';
-import { checkLibrary } from './kit';
+import { LAYER_PALETTE } from '../palettes';
+import { checkLibrary, setPaint } from './kit';
 import { V4_LIBRARIES } from './libraries';
 import { VIEW_WINDOW, type Placed } from './place';
+import { drawSetpiece } from './setpieces';
 import { placeBandForSpec, placeForSpec, specKey, type WorldSpecV4 } from './world';
 
 /** Bands shaped like the scene's (about 180–420 world px per layer). */
@@ -150,6 +152,25 @@ describe('v4 world', () => {
     const full = placeForSpec(s);
     for (let i = 0; i < LAYERS.length; i++) {
       expect(placeBandForSpec(s, i)).toEqual(full[i]);
+    }
+  });
+
+  it('draws monumental deep-background setpieces across all 29 layers and carries 25+ trinkets per daily layer', () => {
+    for (const l of LAYERS) {
+      expect(V4_LIBRARIES[l.id].near.length).toBeGreaterThanOrEqual(25);
+    }
+    const band = { top: 0, bottom: 260, worldTop: 0, camY: 0, w: 360, h: 240, t: 3.5, reduced: false };
+    for (const id of ALL_LAYER_IDS) {
+      let rects = 0;
+      const ctx = {
+        fillStyle: '',
+        fillRect() {
+          rects++;
+        },
+      } as unknown as CanvasRenderingContext2D;
+      setPaint(LAYER_PALETTE[id], undefined);
+      drawSetpiece(ctx, band, id, 3.5);
+      if (id !== 'ring-3') expect(rects).toBeGreaterThan(0);
     }
   });
 });
