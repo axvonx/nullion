@@ -991,18 +991,17 @@ export class Hud {
       li.append(row);
       ol.append(li);
     });
-    // The share text keeps emoji glyphs + the 7-slot frame strip (oldest first) so it pastes cleanly anywhere.
+    // The share text is emoji glyphs only (oldest first), so it pastes cleanly anywhere. Frame scores stay out of it.
     const mode = this.game?.mode ?? 'daily';
     const layerName = layerAt(depth, mode).name;
     const glyphs = rows.map((r) => (r.tier ? TIERS[r.tier].glyph : '⬛')).join('');
-    const scores = rows.map((r) => (r.tier ? String(TIERS[r.tier].frames) : '0')).join('·');
     const headline = mode === 'endless' ? `KERNEL PANIC · ${framesLabel(depth)} · ${layerName}` : `${framesLabel(depth)} · ${layerName}`;
     setText(this.els.puzzleNo!, mode === 'endless' ? 'ENDLESS' : `#${puzzle}`);
     setText(this.els.headline!, headline);
     this.shareText =
       mode === 'endless'
         ? `nullion endless · ${framesLabel(depth)} · ${layerName} (${rows.length} rounds)\n${glyphs.slice(0, 42)}`
-        : `nullion #${puzzle} · ${headline}\n${glyphs}  ${scores}`;
+        : `nullion #${puzzle} · ${headline}\n${glyphs}`;
     // Prefilled GitHub Issue links for missed answers and question ideas.
     const rejected = this.game ? this.game.rounds.flatMap((r) => r.rejected) : [];
     const missLink = document.createElement('a');

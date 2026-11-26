@@ -97,11 +97,7 @@ The user's time is the scarce resource, so per category the only manual work sho
 ## GUI loose ends (small, carried over from the Antigravity session)
 
 - **Done:** alternate critters now have their own motion sets (`ALT_SPECIES_MOTIONS` in `src/render/critters.ts`). For example, butterflies only fly, padlocks hop between props and rest, and drones hover.
-- **Decide:** should the world stay the same for everyone on a given day?
-  - Antigravity made minor props and critters re-randomize on every visit (`fbe3382`). Only the anchors stay shared.
-  - `CLAUDE.md` now describes this current behavior. Reverting it is a one-line change.
-- **Decide:** keep the frame scores (`4·13·1…`) that now end the daily share text? Antigravity added them unasked.
-- **The art from the last Antigravity passes was never checked on screen.** That covers the 29 setpieces and their detail pass, the Endless-only props and the alternate critters. A screenshot sweep of all 29 layers is due before more art is added.
+- **Decided:** the world is the same for everyone on a given day, so the per-visit scatter is reverted. The share text shows tier glyphs only, with no frame scores.
 - **Still open from earlier:**
   - Heisenbug: keep the held tint, or hold a one-way inversion like Bit Flip?
   - The settings popover overlaps the layer-entrance card.

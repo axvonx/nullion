@@ -343,6 +343,22 @@ describe('end card', () => {
     expect(issueLinks[1]!.href).toContain('question-idea');
   });
 
+  it('the share text carries tier glyphs but never the frame scores', async () => {
+    const h = setup();
+    let copied = '';
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: { writeText: async (t: string) => void (copied = t) },
+    });
+    h.hud.endOfDay([{ tier: 'race', name: 'mutex' }, { timedOut: true }, { tier: 'bitflip', name: 'fissile lock' }], 18, 1);
+    h.mount.querySelector<HTMLButtonElement>('[data-el="copy"]')!.click();
+    await Promise.resolve();
+    expect(copied).toContain(TIERS.race.glyph);
+    expect(copied).toContain(TIERS.bitflip.glyph);
+    const strip = copied.split('\n')[1]!;
+    expect(strip).not.toMatch(/\d/);
+  });
+
   it('tracks 7 round slots from "-" to tier-colored frame counts after the dive lands and 0 on timeout', () => {
     const h = setup();
     h.toAnswering();

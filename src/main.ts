@@ -62,8 +62,6 @@ async function boot() {
   if (seedOverride !== undefined) enforce(Number.isInteger(seedOverride), `?seed must be an integer, got ${seedParam}`);
   let endlessMode = DEBUG && new URLSearchParams(location.search).get('endless') === '1';
 
-  // Per-session scatter seed so minor props refresh each visit while the day's major landmarks stay recognizable.
-  const sessionScatter = Math.floor(Math.random() * 1_000_000_000) | 0;
 
   // Restarts load their categories asynchronously; a newer restart supersedes an older one still loading.
   let restartGen = 0;
@@ -80,8 +78,8 @@ async function boot() {
     if (gen !== restartGen) return;
     game = new Game(set, daySeed, { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect, mode });
     scene.setStackMode(mode);
-    // Major set pieces stay anchored to the day's puzzle seed; minor props vary freshly per session (unless ?seed=N).
-    scene.setWorldSeed(seedOverride ?? daySeed, seedOverride ?? ((daySeed * 997) ^ sessionScatter));
+    // Everyone sees the same world on a given day: landmarks and scatter are both seeded by the puzzle (or ?seed=N).
+    scene.setWorldSeed(seedOverride ?? daySeed, seedOverride ?? daySeed * 997);
     hud.setGame(game, formatLocalDate(date));
     hud.setEndlessToggle(DEBUG, endlessMode, (next) => {
       endlessMode = next;
