@@ -372,6 +372,42 @@ describe('end card', () => {
     expect(slotsAfter1[1]!.textContent).toBe('0');
     expect(slotsAfter1[1]!.classList.contains('miss')).toBe(true);
   });
+
+  it('shows 3 watchdog fuses in Endless mode and KERNEL PANIC on the 3rd strike', () => {
+    const h = setup();
+    const endless = new Game(SET, 7, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });
+    h.hud.setGame(endless, '2026-11-26');
+    let toggled = false;
+    h.hud.setEndlessToggle(true, true, () => {
+      toggled = true;
+    });
+    const btn = h.$<HTMLButtonElement>('.endless-btn');
+    expect(btn.hidden).toBe(false);
+    expect(btn.textContent).toBe('Endless: ON');
+    btn.click();
+    expect(toggled).toBe(true);
+
+    let now = 0;
+    endless.start(now);
+    h.hud.update(now, 0);
+    const fuses = () => [...h.mount.querySelectorAll<HTMLElement>('.slots .fuse')].map((f) => f.textContent);
+    expect(fuses()).toEqual(['●', '●', '●']);
+
+    // Burn 3 watchdog strikes
+    for (let s = 1; s <= 3; s++) {
+      now += READ_MS + 1;
+      endless.tick(now);
+      h.hud.update(now, endless.depth);
+      now += endless.answerMs + 1;
+      endless.tick(now);
+      h.hud.update(now, endless.depth);
+      expect(fuses().filter((c) => c === '×')).toHaveLength(s);
+      endless.advance(now);
+      h.hud.update(now, endless.depth);
+    }
+    expect(endless.phase.kind).toBe('done');
+    expect(h.$('[data-el="headline"]').textContent).toContain('KERNEL PANIC');
+  });
 });
 
 describe('console layout', () => {

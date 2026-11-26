@@ -1,4 +1,4 @@
-import { LAYERS, MAX_DEPTH, layerIndexAt, type Layer, type LayerId } from '../core/layers';
+import { layersFor, layerIndexAt, maxDepthFor, type Layer, type LayerId, type StackMode } from '../core/layers';
 import type { TierId } from '../core/tiers';
 import { look, reducedMotion } from '../looks';
 import { enforce } from '../core/enforce';
@@ -24,45 +24,56 @@ const TOP_PAD = 40;
 /** The cursor sits in clear air this far down the screen, above the floating console. */
 
 
-const KERNEL_INDEX = LAYERS.findIndex((l) => l.id === 'kernel');
-
 /**
  * Visual height decoupled from frame span: each layer gets a base height plus a little per frame, so a 3-frame
- * layer still reads as a place and a 33-frame one doesn't drag on. Shallow layers move more pixels per frame,
- * which suits early answers. Below the last threshold, depth maps at PX per frame.
+ * layer still reads as a place and a 105-frame Endless layer doesn't drag on.
  */
 const LAYER_BASE_H = 160;
-const LAYER_PER_FRAME_H = 8;
+const LAYER_PER_FRAME_H: Record<StackMode, number> = { daily: 8, endless: 2.2 };
 
-/** World y of each layer's threshold, in order. */
-const LAYER_Y: number[] = (() => {
+function buildLayerY(mode: StackMode): number[] {
+  const stack = layersFor(mode);
+  const perFrame = LAYER_PER_FRAME_H[mode];
   const ys = [TOP_PAD];
-  for (let i = 1; i < LAYERS.length; i++) {
-    const span = LAYERS[i]!.from - LAYERS[i - 1]!.from;
+  for (let i = 1; i < stack.length; i++) {
+    const span = stack[i]!.from - stack[i - 1]!.from;
     enforce(span > 0, 'layer thresholds must strictly increase');
-    ys.push(ys[i - 1]! + LAYER_BASE_H + span * LAYER_PER_FRAME_H);
+    ys.push(Math.round(ys[i - 1]! + LAYER_BASE_H + span * perFrame));
   }
   return ys;
-})();
+}
+
+const LAYER_Y_BY_MODE: Record<StackMode, number[]> = {
+  daily: buildLayerY('daily'),
+  endless: buildLayerY('endless'),
+};
+const KERNEL_INDEX_BY_MODE: Record<StackMode, number> = {
+  daily: layersFor('daily').findIndex((l) => l.id === 'kernel'),
+  endless: layersFor('endless').findIndex((l) => l.id === 'kernel-entry'),
+};
 
 /** World y of a depth in frames: piecewise linear through the layer thresholds. Dives, camera and deep links all use it. */
-export function worldY(depth: number): number {
-  const i = layerIndexAt(Math.max(0, depth));
-  const l = LAYERS[i]!;
-  if (i === LAYERS.length - 1) return LAYER_Y[i]! + (depth - l.from) * PX;
-  const span = LAYERS[i + 1]!.from - l.from;
-  return LAYER_Y[i]! + ((depth - l.from) / span) * (LAYER_Y[i + 1]! - LAYER_Y[i]!);
+export function worldY(depth: number, mode: StackMode = 'daily'): number {
+  const stack = layersFor(mode);
+  const ys = LAYER_Y_BY_MODE[mode];
+  const i = layerIndexAt(Math.max(0, depth), mode);
+  const l = stack[i]!;
+  if (i === stack.length - 1) return ys[i]! + (depth - l.from) * (mode === 'endless' ? 6 : PX);
+  const span = stack[i + 1]!.from - l.from;
+  return ys[i]! + ((depth - l.from) / span) * (ys[i + 1]! - ys[i]!);
 }
 
-function bandTop(i: number): number {
-  return i === 0 ? -1000 : LAYER_Y[i]! - 12;
+function bandTop(i: number, mode: StackMode = 'daily'): number {
+  return i === 0 ? -1000 : LAYER_Y_BY_MODE[mode][i]! - 12;
 }
-function bandBottom(i: number): number {
-  return i === LAYERS.length - 1 ? worldY(MAX_DEPTH) + 2000 : bandTop(i + 1);
+function bandBottom(i: number, mode: StackMode = 'daily'): number {
+  const stack = layersFor(mode);
+  return i === stack.length - 1 ? worldY(maxDepthFor(mode), mode) + 2000 : bandTop(i + 1, mode);
 }
-function layerIndexAtWorldY(y: number): number {
+function layerIndexAtWorldY(y: number, mode: StackMode = 'daily'): number {
+  const stack = layersFor(mode);
   let idx = 0;
-  for (let i = 0; i < LAYERS.length; i++) if (y >= bandTop(i)) idx = i;
+  for (let i = 0; i < stack.length; i++) if (y >= bandTop(i, mode)) idx = i;
   return idx;
 }
 
@@ -253,6 +264,7 @@ export class Scene {
    * v4's world seed: the puzzle number by default (main.ts), so everyone sees the same world on a given day.
    * Placement runs once per seed and viewport width, never per frame.
    */
+  private stackMode: StackMode = 'daily';
   private worldSeed = 1;
   private scatterSeed = 1;
   /** CSS pixels at the right edge covered by debug UI (the demo rail); v4 drops entities under it. 0 in production. */
@@ -299,6 +311,18 @@ export class Scene {
     this.rain = Array.from({ length: cols }, (_, i) => ({ y: hash(i) * this.H, speed: 20 + hash(i + 40) * 40 }));
   }
 
+  /** Switch between the 10-layer Daily stack and the 29-layer Endless stack. */
+  setStackMode(mode: StackMode) {
+    if (this.stackMode === mode) return;
+    this.stackMode = mode;
+    this.lastLayer = 0;
+    this.lastForm = undefined;
+  }
+
+  get mode(): StackMode {
+    return this.stackMode;
+  }
+
   /**
    * Reseed v4's world. `seed` anchors the major set pieces (iconic landmarks for the day);
    * optional `scatterSeed` varies minor props & far-plane scatter freshly per run.
@@ -329,15 +353,17 @@ export class Scene {
     const scale = pixelScale(vw);
     const cx = Math.round(W / 2);
     const consoleHalf = Math.ceil(Math.min(520, vw - 32) / 2 / scale) + 3;
-    const last = LAYERS.length - 1;
+    const stack = layersFor(this.stackMode);
+    const last = stack.length - 1;
     return {
+      mode: this.stackMode,
       seed: this.worldSeed,
       scatterSeed: this.scatterSeed,
       W,
-      bands: LAYERS.map((_, i) => ({
+      bands: stack.map((_, i) => ({
         // The first band reaches far above anything the camera shows, and the last far below: clamp both to view.
-        top: i === 0 ? TOP_PAD - 180 : bandTop(i),
-        bottom: i === last ? worldY(MAX_DEPTH) + 320 : bandBottom(i),
+        top: i === 0 ? TOP_PAD - 180 : bandTop(i, this.stackMode),
+        bottom: i === last ? worldY(maxDepthFor(this.stackMode), this.stackMode) + 320 : bandBottom(i, this.stackMode),
         keepOut: [],
       })),
       cursorLane: [cx - 16, cx + 16],
@@ -398,7 +424,7 @@ export class Scene {
   /** The cursor's bracket mark at rest, in CSS pixels: the HUD frames it with the reveal's text. */
   markCss(): { top: number; bottom: number } {
     const scale = pixelScale(window.innerWidth);
-    const m = markExtentY(this.formFor(LAYERS[layerIndexAt(this.depth)]!.id), this.cursorY);
+    const m = markExtentY(this.formFor(layersFor(this.stackMode)[layerIndexAt(this.depth, this.stackMode)]!.id), this.cursorY);
     return { top: m.top * scale, bottom: m.bottom * scale };
   }
 
@@ -487,7 +513,7 @@ export class Scene {
   react(tier: TierId, leakNow = true) {
     const now = performance.now();
     this.reaction = { tier, start: now };
-    sound.playTier(tier, LAYERS[layerIndexAt(this.depth)]!.id);
+    sound.playTier(tier, layersFor(this.stackMode)[layerIndexAt(this.depth, this.stackMode)]!.id);
     const seed = Math.floor(now);
     if (tier === 'leak' && leakNow) this.leakPending = true;
     this.cascadeLeaked = false;
@@ -684,14 +710,14 @@ export class Scene {
       // Lock all z-layers together at the moment WOMM's forced scroll starts.
       this.wommBound = true;
       this.farReleasing = false;
-      this.wommAnchorCamY = Math.round(worldY(this.cam) - this.cursorY);
+      this.wommAnchorCamY = Math.round(worldY(this.cam, this.stackMode) - this.cursorY);
       this.farShift = 0;
     } else if (this.wommBound) {
       this.wommBound = false;
       this.farReleasing = true;
     }
     if (d.react) {
-      sound.playDive(Math.round(d.to - d.from), d.react, LAYERS[layerIndexAt(this.depth)]!.id, d.dur);
+      sound.playDive(Math.round(d.to - d.from), d.react, layersFor(this.stackMode)[layerIndexAt(this.depth, this.stackMode)]!.id, d.dur);
     }
   }
 
@@ -702,7 +728,7 @@ export class Scene {
       this.landThudStart = now;
       this.landThudMag = d.to - d.from >= 10 ? 3 : 2;
     }
-    if (d.react) sound.playLand(Math.round(d.to - d.from), d.react, LAYERS[layerIndexAt(this.depth)]!.id);
+    if (d.react) sound.playLand(Math.round(d.to - d.from), d.react, layersFor(this.stackMode)[layerIndexAt(this.depth, this.stackMode)]!.id);
     if (d.react === 'leak') this.leakPending = true;
     d.onLand?.();
     if (d.pop) this.pops.push({ ...d.pop, start: now });
@@ -753,14 +779,24 @@ export class Scene {
       if (Math.abs(this.depth - this.cam) < 0.002) this.cam = this.depth;
     }
 
-    const layerIdx = layerIndexAt(this.depth);
-    const layer = LAYERS[layerIdx]!;
+    const stack = layersFor(this.stackMode);
+    const kernelIdx = KERNEL_INDEX_BY_MODE[this.stackMode];
+    const layerIdx = layerIndexAt(this.depth, this.stackMode);
+    const layer = stack[layerIdx]!;
     if (layerIdx !== this.lastLayer) {
       // Crossing a boundary plays its effect: tearing at syscall, a mirror shimmer at VM exit, a freeze-frame at
-      // SMI, the drop into 1-bit at ME. Unlabelled crossings get a light tear.
-      const crossed = LAYERS[Math.max(layerIdx, this.lastLayer)]!;
-      const fx = crossed.boundary ? CROSS_FX[crossed.boundary] : undefined;
-      if (crossed.boundary) enforce(fx, `no crossing effect for boundary '${crossed.boundary}'`);
+      // SMI, the drop into 1-bit at ME. New Endless boundaries default to tear/mirror/freeze/onebit cleanly.
+      const crossed = stack[Math.max(layerIdx, this.lastLayer)]!;
+      const fx: CrossFx | undefined = crossed.boundary
+        ? (CROSS_FX[crossed.boundary] ??
+          (crossed.boundary === 'EPT' || crossed.boundary === 'virtio'
+            ? 'mirror'
+            : crossed.boundary === 'TSEG'
+              ? 'freeze'
+              : crossed.boundary === 'AMT' || crossed.boundary === 'μop' || crossed.boundary === 'posedge' || crossed.boundary === 'kT ln 2'
+                ? 'onebit'
+                : 'tear'))
+        : undefined;
       if (!reduced && look('tearing') === 'on') {
         if (fx === 'tear' || fx === undefined) {
           this.tearStrength = fx ? 1 : 0.5;
@@ -802,7 +838,7 @@ export class Scene {
     PROP_SPOTS.length = 0;
     ENTITY_SPOTS.length = 0;
 
-    const camWorldY = worldY(this.cam);
+    const camWorldY = worldY(this.cam, this.stackMode);
     const camY = Math.round(camWorldY - this.cursorY);
     // Rigid z-layer binding during WOMM's forced scroll; eases smoothly back to natural parallax once released.
     if (this.wommBound) {
@@ -820,13 +856,13 @@ export class Scene {
       }
     }
     // Where the cursor sits relative to its resting row: below it while the camera catches up.
-    this.cursorLead = Math.max(-50, Math.min(70, Math.round(worldY(this.depth) - camWorldY)));
+    this.cursorLead = Math.max(-50, Math.min(70, Math.round(worldY(this.depth, this.stackMode) - camWorldY)));
     const ctx = this.ctx;
     resetCtx(ctx);
     const band = (i: number): Band => ({
-      top: bandTop(i) - camY,
-      bottom: bandBottom(i) - camY,
-      worldTop: bandTop(i),
+      top: bandTop(i, this.stackMode) - camY,
+      bottom: bandBottom(i, this.stackMode) - camY,
+      worldTop: bandTop(i, this.stackMode),
       camY,
       w: W,
       h: H,
@@ -836,7 +872,7 @@ export class Scene {
     });
 
     // 1. Layer bands (+ living biosphere critters in v2–v4).
-    for (let i = 0; i < LAYERS.length; i++) {
+    for (let i = 0; i < stack.length; i++) {
       const b = band(i);
       if (b.bottom < 0 || b.top > H) continue;
       ctx.save();
@@ -844,11 +880,11 @@ export class Scene {
       ctx.rect(0, Math.max(0, b.top), W, Math.min(H, b.bottom) - Math.max(0, b.top));
       ctx.clip();
       const spotStart = ENTITY_SPOTS.length;
-      art[LAYERS[i]!.id](ctx, b);
+      art[stack[i]!.id](ctx, b);
       if (detailed) {
         this.critters.drawBand(
           ctx,
-          LAYERS[i]!.id,
+          stack[i]!.id,
           b,
           i === layerIdx && !worldFrozen,
           (ev) => (ev.kind === 'exit' ? sound.playCritterExit(ev.layer, ev.pan) : sound.playCritter(ev.layer, ev.pan)),
@@ -860,12 +896,12 @@ export class Scene {
     }
 
     // 2. Boundaries. Detailed: the upper layer frays down into the lower one, and hard boundaries get a structure.
-    for (let i = 1; i < LAYERS.length; i++) {
-      const y = Math.round(bandTop(i) - camY);
+    for (let i = 1; i < stack.length; i++) {
+      const y = Math.round(bandTop(i, this.stackMode) - camY);
       if (y < -SEAM_H || y > H + 10) continue;
-      const l = LAYERS[i]!;
+      const l = stack[i]!;
       if (detailed) {
-        this.drawSeam(art[LAYERS[i - 1]!.id], band(i - 1), y);
+        this.drawSeam(art[stack[i - 1]!.id], band(i - 1), y);
         SEAM_ART[l.id]?.(ctx, y, band(i));
       } else {
         ctx.strokeStyle = 'rgba(255,255,255,0.7)';
@@ -889,7 +925,7 @@ export class Scene {
 
     // 3. Rain (kernel and below).
     const rainMode = look('rain');
-    if (rainMode !== 'off' && !reduced && layerIdx >= KERNEL_INDEX) {
+    if (rainMode !== 'off' && !reduced && layerIdx >= kernelIdx) {
       ctx.font = FONT;
       ctx.fillStyle = 'rgba(85,255,85,0.4)';
       this.rain.forEach((r, i) => {
@@ -939,8 +975,8 @@ export class Scene {
       const img = ctx.getImageData(0, 0, W, H);
       const dither = look('dither') === 'bayer';
       for (let y = 0; y < H; y++) {
-        const li = layerIndexAtWorldY(camY + y);
-        quantizeRow(img.data, y * W * 4, W, y, LAYER_PALETTE[LAYERS[li]!.id], dither);
+        const li = layerIndexAtWorldY(camY + y, this.stackMode);
+        quantizeRow(img.data, y * W * 4, W, y, LAYER_PALETTE[stack[li]!.id], dither);
       }
       ctx.putImageData(img, 0, 0);
     }
@@ -958,7 +994,7 @@ export class Scene {
 
     // 7. Scanlines.
     const sl = look('scanlines');
-    if (sl === 'always' || (sl === 'auto' && layerIdx >= KERNEL_INDEX)) {
+    if (sl === 'always' || (sl === 'auto' && layerIdx >= kernelIdx)) {
       ctx.fillStyle = 'rgba(0,0,0,0.3)';
       for (let y = 1; y < H; y += 2) ctx.fillRect(0, y, W, 1);
     }

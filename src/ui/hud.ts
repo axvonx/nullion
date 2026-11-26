@@ -140,7 +140,7 @@ export class Hud {
       <canvas class="scene" aria-label="Your cursor descending through the software stack"></canvas>
       <header class="bar">
         <span class="bar-left" data-el="barLeft"><span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span></span>
-        <span class="bar-right"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span><span class="chip depth float" data-el="depth"></span></span>
+        <span class="bar-right"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span><span class="chip depth float" data-el="depth"></span><button type="button" class="chip endless-btn float" data-el="endlessBtn" hidden aria-pressed="false" title="Toggle Endless Mode (3-strike watchdog descent)">Endless</button></span>
       </header>
       <section class="title-screen" data-el="titleScreen" aria-label="Nullion" hidden>
         <div class="title-head" data-el="titleHead"></div>
@@ -343,8 +343,40 @@ export class Hud {
     this.syncTitle();
   }
 
-  /** Render the 7 round score slots (`-` until the dive lands, then tier-colored frame count or `0` on miss). */
+  /** Wire the debug-build top-right "Endless" mode toggle button. */
+  setEndlessToggle(show: boolean, active: boolean, onToggle: (next: boolean) => void) {
+    const btn = this.els.endlessBtn as HTMLButtonElement | undefined;
+    if (!btn) return;
+    btn.hidden = !show;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+    btn.textContent = active ? 'Endless: ON' : 'Endless';
+    btn.onclick = () => onToggle(!active);
+  }
+
+  /** Render the 7 round score slots (Daily) or 3 watchdog strike fuses + round counter (Endless). */
   private syncSlots(g: Game) {
+    if (g.mode === 'endless') {
+      const sig = `endless|${g.strikes}|${g.rounds.length}`;
+      if (sig === this.slotsSig) return;
+      this.slotsSig = sig;
+      const wrap = this.els.slots!;
+      wrap.replaceChildren();
+      for (let i = 0; i < g.maxStrikes; i++) {
+        const alive = i < g.strikesLeft;
+        const f = document.createElement('span');
+        f.className = alive ? 'slot fuse' : 'slot fuse burned';
+        f.textContent = alive ? '●' : '×';
+        f.title = alive ? 'Watchdog fuse intact' : 'Watchdog strike burned';
+        wrap.append(f);
+      }
+      const rc = document.createElement('span');
+      rc.className = 'slot endless-round';
+      rc.textContent = `#${g.rounds.length}`;
+      rc.title = `Endless round ${g.rounds.length}`;
+      wrap.append(rc);
+      return;
+    }
     const active = g.phase.kind === 'reading' || g.phase.kind === 'answering' || g.phase.kind === 'between' ? g.phase.round : -1;
     // Hold the current round's slot at '-' while its dive is still sinking so we never spoil the tier/score early.
     const pendingSink =
@@ -469,9 +501,10 @@ export class Hud {
   update(now: number, depthShown: number) {
     this.syncTitle();
     if (this.titleOpen) this.positionTitle();
+    const activeMode = this.game?.mode ?? 'daily';
     if (!this.entranceBooted && !this.titleOpen) {
       this.entranceBooted = true;
-      this.enterLayer(layerAt(depthShown));
+      this.enterLayer(layerAt(depthShown, activeMode));
     }
     this.updateMotion(now, depthShown);
     this.mirrorReaction(now);
@@ -480,7 +513,7 @@ export class Hud {
       this.shownFrames = frames;
       this.els.depth!.textContent = framesLabel(frames);
     }
-    const form = this.formOverride ?? FORM_BY_LAYER[layerAt(depthShown).id];
+    const form = this.formOverride ?? FORM_BY_LAYER[layerAt(depthShown, activeMode).id];
     if (form !== this.form) this.applyForm(form);
 
     const override = this.watchdogOverride?.(now);
@@ -501,7 +534,7 @@ export class Hud {
       const secs = Math.max(1, Math.ceil((p.until - now) / 1000));
       if (secs !== this.lastReadSec) {
         this.lastReadSec = secs;
-        sound.countdownTick(secs, layerAt(depthShown).id);
+        sound.countdownTick(secs, layerAt(depthShown, g.mode).id);
       }
       const wantPlaceholder = `Starting in ${secs}s`;
       if (this.input.placeholder !== wantPlaceholder) this.input.placeholder = wantPlaceholder;
@@ -509,13 +542,13 @@ export class Hud {
       this.input.disabled = true;
     } else if (p.kind === 'answering') {
       this.showPrompt(r!.question.prompt, Infinity);
-      left = p.until === null ? 1 : Math.max(0, (p.until - now) / ANSWER_MS);
+      left = p.until === null ? 1 : Math.max(0, (p.until - now) / g.answerMs);
       const ph = answerPlaceholder();
       if (this.input.placeholder !== ph) this.input.placeholder = ph;
       if (this.input.disabled) {
         this.lastReadSec = -1;
         this.lastLowSec = -1;
-        sound.roundOpen(layerAt(depthShown).id);
+        sound.roundOpen(layerAt(depthShown, g.mode).id);
         this.input.disabled = false;
         this.input.focus();
         this.els.feedback!.textContent = '';
@@ -923,12 +956,17 @@ export class Hud {
       ol.append(li);
     });
     // The share text keeps emoji glyphs + the 7-slot frame strip (oldest first) so it pastes cleanly anywhere.
+    const mode = this.game?.mode ?? 'daily';
+    const layerName = layerAt(depth, mode).name;
     const glyphs = rows.map((r) => (r.tier ? TIERS[r.tier].glyph : '⬛')).join('');
     const scores = rows.map((r) => (r.tier ? String(TIERS[r.tier].frames) : '0')).join('·');
-    const headline = `${framesLabel(depth)} · ${layerAt(depth).name}`;
-    setText(this.els.puzzleNo!, `#${puzzle}`);
+    const headline = mode === 'endless' ? `KERNEL PANIC · ${framesLabel(depth)} · ${layerName}` : `${framesLabel(depth)} · ${layerName}`;
+    setText(this.els.puzzleNo!, mode === 'endless' ? 'ENDLESS' : `#${puzzle}`);
     setText(this.els.headline!, headline);
-    this.shareText = `nullion #${puzzle} · ${headline}\n${glyphs}  ${scores}`;
+    this.shareText =
+      mode === 'endless'
+        ? `nullion endless · ${framesLabel(depth)} · ${layerName} (${rows.length} rounds)\n${glyphs.slice(0, 42)}`
+        : `nullion #${puzzle} · ${headline}\n${glyphs}  ${scores}`;
     // Prefilled GitHub Issue links for missed answers and question ideas.
     const rejected = this.game ? this.game.rounds.flatMap((r) => r.rejected) : [];
     const missLink = document.createElement('a');

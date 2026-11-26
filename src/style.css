@@ -128,6 +128,12 @@ body {
 .slot { display: inline-block; min-width: 1.2ch; text-align: center; color: var(--dim); }
 .slot.active { color: var(--signal); border-bottom: 2px solid var(--signal); line-height: 1; padding-bottom: 1px; }
 .slot.miss { color: var(--fault); opacity: 0.7; }
+.slot.fuse { color: var(--ok); font-size: 15px; }
+.slot.fuse.burned { color: var(--fault); opacity: 0.75; }
+.slot.endless-round { color: var(--dim); margin-left: 4px; font-size: 15px; }
+.endless-btn { color: var(--dim); font: inherit; font-size: 15px; cursor: pointer; white-space: nowrap; }
+.endless-btn:hover { color: var(--ink); }
+.endless-btn.active { color: var(--signal); box-shadow: inset 0 0 0 1px var(--signal), 4px 4px 0 rgba(0, 0, 0, 0.55); }
 .depth { color: var(--signal); font-size: 17px; white-space: nowrap; }
 .scroll-mode .slots { display: none; }
 

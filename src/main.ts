@@ -45,6 +45,7 @@ async function boot() {
   const seedParam = DEBUG ? new URLSearchParams(location.search).get('seed') : null;
   const seedOverride = seedParam === null ? undefined : Number(seedParam);
   if (seedOverride !== undefined) enforce(Number.isInteger(seedOverride), `?seed must be an integer, got ${seedParam}`);
+  let endlessMode = DEBUG && new URLSearchParams(location.search).get('endless') === '1';
 
   // Per-session scatter seed so minor props refresh each visit while the day's major landmarks stay recognizable.
   const sessionScatter = Math.floor(Math.random() * 1_000_000_000) | 0;
@@ -54,14 +55,20 @@ async function boot() {
     const set = SETS[s.answerSet] ?? SETS.sample!;
     const date = s.date ? parseLocalDate(s.date) : new Date();
     const daySeed = puzzleNumber(date);
-    game = new Game(set, daySeed, { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect });
+    const mode = endlessMode ? 'endless' : 'daily';
+    game = new Game(set, daySeed, { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect, mode });
+    scene.setStackMode(mode);
     // Major set pieces stay anchored to the day's puzzle seed; minor props vary freshly per session (unless ?seed=N).
     scene.setWorldSeed(seedOverride ?? daySeed, seedOverride ?? ((daySeed * 997) ^ sessionScatter));
     hud.setGame(game, formatLocalDate(date));
+    hud.setEndlessToggle(DEBUG, endlessMode, (next) => {
+      endlessMode = next;
+      restart();
+    });
     hud.setScrollMode(s.mode === 'scroll');
     scene.setTarget(0, true);
-    sound.setPuzzleSeed(puzzleNumber(date));
-    sound.setLayer('application');
+    sound.setPuzzleSeed(daySeed);
+    sound.setLayer(mode === 'endless' ? 'internet' : 'application');
   };
 
   // A preference change applies to the game in progress; it never restarts the day.
