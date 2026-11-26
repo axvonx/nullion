@@ -16,7 +16,7 @@
   {
    "name": "spinlock",
    "tags": {
-    "lock": "off-by-one"
+    "lock": "npe"
    },
    "aliases": [
     "spin lock"
@@ -31,7 +31,7 @@
   {
    "name": "read-write lock",
    "tags": {
-    "lock": "off-by-one"
+    "lock": "npe"
    },
    "aliases": [
     "rwlock",
@@ -54,7 +54,7 @@
   {
    "name": "adaptive mutex",
    "tags": {
-    "lock": "leak"
+    "lock": "race"
    },
    "aliases": [
     "adaptive lock"
@@ -72,7 +72,7 @@
   {
    "name": "MCS lock",
    "tags": {
-    "lock": "leak"
+    "lock": "race"
    },
    "aliases": [
     "mellor-crummey scott lock"
@@ -81,7 +81,7 @@
   {
    "name": "CLH lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "race"
    },
    "aliases": [
     "craig landin hagersten lock"
@@ -90,7 +90,7 @@
   {
    "name": "qspinlock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "race"
    },
    "aliases": [
     "queued spinlock"
@@ -109,7 +109,7 @@
   {
    "name": "seqlock",
    "tags": {
-    "lock": "leak"
+    "lock": "heisenbug"
    },
    "aliases": [
     "sequence lock",
@@ -119,7 +119,7 @@
   {
    "name": "futex",
    "tags": {
-    "lock": "npe"
+    "lock": "race"
    },
    "aliases": [
     "fast userspace mutex"
@@ -137,7 +137,7 @@
   {
    "name": "big kernel lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "race"
    },
    "aliases": [
     "bkl"
@@ -146,7 +146,7 @@
   {
    "name": "test-and-set lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "npe"
    },
    "aliases": [
     "tas lock",
@@ -156,7 +156,7 @@
   {
    "name": "test-and-test-and-set lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "leak"
    },
    "aliases": [
     "ttas lock",
@@ -166,7 +166,7 @@
   {
    "name": "backoff lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "leak"
    },
    "aliases": [
     "exponential backoff lock"
@@ -175,7 +175,7 @@
   {
    "name": "Anderson lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "race"
    },
    "aliases": [
     "array-based queue lock",
@@ -185,7 +185,7 @@
   {
    "name": "Peterson lock",
    "tags": {
-    "lock": "race"
+    "lock": "leak"
    },
    "aliases": [
     "peterson's algorithm",
@@ -195,7 +195,7 @@
   {
    "name": "bakery lock",
    "tags": {
-    "lock": "npe"
+    "lock": "leak"
    },
    "aliases": [
     "lamport's bakery algorithm",
@@ -205,7 +205,7 @@
   {
    "name": "Dekker's algorithm",
    "tags": {
-    "lock": "race"
+    "lock": "leak"
    },
    "aliases": [
     "dekker lock",
@@ -215,7 +215,7 @@
   {
    "name": "filter lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "race"
    }
   },
   {
@@ -230,7 +230,7 @@
   {
    "name": "lock cohorting",
    "tags": {
-    "lock": "race"
+    "lock": "heisenbug"
    },
    "aliases": [
     "cohort lock",
@@ -240,7 +240,7 @@
   {
    "name": "CNA lock",
    "tags": {
-    "lock": "leak"
+    "lock": "heisenbug"
    },
    "aliases": [
     "compact numa-aware lock"
@@ -249,7 +249,7 @@
   {
    "name": "HMCS lock",
    "tags": {
-    "lock": "race"
+    "lock": "heisenbug"
    },
    "aliases": [
     "hierarchical mcs lock"
@@ -267,19 +267,19 @@
   {
    "name": "Malthusian lock",
    "tags": {
-    "lock": "race"
+    "lock": "heisenbug"
    }
   },
   {
    "name": "Hemlock",
    "tags": {
-    "lock": "race"
+    "lock": "heisenbug"
    }
   },
   {
    "name": "reciprocating lock",
    "tags": {
-    "lock": "race"
+    "lock": "heisenbug"
    }
   },
   {
@@ -306,7 +306,7 @@
   {
    "name": "optimistic lock",
    "tags": {
-    "lock": "leak"
+    "lock": "npe"
    },
    "aliases": [
     "optimistic locking"
@@ -315,7 +315,7 @@
   {
    "name": "pessimistic lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "npe"
    },
    "aliases": [
     "pessimistic locking"
@@ -324,7 +324,7 @@
   {
    "name": "two-phase locking",
    "tags": {
-    "lock": "off-by-one"
+    "lock": "npe"
    },
    "aliases": [
     "2pl"
@@ -333,7 +333,7 @@
   {
    "name": "intention lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "race"
    },
    "aliases": [
     "intent lock"
@@ -342,7 +342,7 @@
   {
    "name": "shared lock",
    "tags": {
-    "lock": "npe"
+    "lock": "leak"
    },
    "aliases": [
     "s lock"
@@ -351,7 +351,7 @@
   {
    "name": "exclusive lock",
    "tags": {
-    "lock": "npe"
+    "lock": "leak"
    },
    "aliases": [
     "x lock"
@@ -360,7 +360,7 @@
   {
    "name": "row-level lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "npe"
    },
    "aliases": [
     "row lock"
@@ -369,7 +369,7 @@
   {
    "name": "table lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "npe"
    },
    "aliases": [
     "table-level lock"
@@ -378,13 +378,13 @@
   {
    "name": "advisory lock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "leak"
    }
   },
   {
    "name": "file lock",
    "tags": {
-    "lock": "leak"
+    "lock": "npe"
    },
    "aliases": [
     "flock",
@@ -394,19 +394,19 @@
   {
    "name": "distributed lock",
    "tags": {
-    "lock": "npe"
+    "lock": "leak"
    }
   },
   {
    "name": "Redlock",
    "tags": {
-    "lock": "heisenbug"
+    "lock": "race"
    }
   },
   {
    "name": "biased lock",
    "tags": {
-    "lock": "leak"
+    "lock": "race"
    },
    "aliases": [
     "biased locking"
@@ -421,7 +421,7 @@
   {
    "name": "rw semaphore",
    "tags": {
-    "lock": "race"
+    "lock": "heisenbug"
    },
    "aliases": [
     "rwsem",
@@ -441,7 +441,7 @@
   {
    "name": "local lock",
    "tags": {
-    "lock": "leak"
+    "lock": "heisenbug"
    },
    "aliases": [
     "local_lock"
@@ -450,7 +450,7 @@
   {
    "name": "rt mutex",
    "tags": {
-    "lock": "race"
+    "lock": "heisenbug"
    },
    "aliases": [
     "rtmutex",
@@ -460,7 +460,7 @@
   {
    "name": "ww mutex",
    "tags": {
-    "lock": "race"
+    "lock": "heisenbug"
    },
    "aliases": [
     "wound/wait mutex",
@@ -499,7 +499,7 @@
   {
    "name": "queue lock",
    "tags": {
-    "lock": "npe"
+    "lock": "race"
    },
    "aliases": [
     "queuing lock",
@@ -515,13 +515,13 @@
   {
    "name": "linked list",
    "tags": {
-    "data-structure": "off-by-one"
+    "data-structure": "npe"
    }
   },
   {
    "name": "doubly linked list",
    "tags": {
-    "data-structure": "leak"
+    "data-structure": "npe"
    }
   },
   {
@@ -550,7 +550,7 @@
   {
    "name": "deque",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "npe"
    },
    "aliases": [
     "double-ended queue"
@@ -595,7 +595,7 @@
   {
    "name": "adjacency list",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "npe"
    }
   },
   {
@@ -607,7 +607,7 @@
   {
    "name": "trie",
    "tags": {
-    "data-structure": "off-by-one"
+    "data-structure": "npe"
    },
    "aliases": [
     "prefix tree"
@@ -616,7 +616,7 @@
   {
    "name": "red-black tree",
    "tags": {
-    "data-structure": "npe"
+    "data-structure": "leak"
    },
    "aliases": [
     "rb tree",
@@ -626,7 +626,7 @@
   {
    "name": "AVL tree",
    "tags": {
-    "data-structure": "leak"
+    "data-structure": "race"
    }
   },
   {
@@ -681,13 +681,13 @@
   {
    "name": "rope",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {
    "name": "radix tree",
    "tags": {
-    "data-structure": "npe"
+    "data-structure": "leak"
    },
    "aliases": [
     "patricia tree",
@@ -716,7 +716,7 @@
   {
    "name": "treap",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "heisenbug"
    }
   },
   {
@@ -732,13 +732,13 @@
   {
    "name": "quadtree",
    "tags": {
-    "data-structure": "npe"
+    "data-structure": "leak"
    }
   },
   {
    "name": "octree",
    "tags": {
-    "data-structure": "npe"
+    "data-structure": "leak"
    }
   },
   {
@@ -753,7 +753,7 @@
   {
    "name": "interval tree",
    "tags": {
-    "data-structure": "leak"
+    "data-structure": "race"
    }
   },
   {
@@ -771,25 +771,25 @@
   {
    "name": "Fibonacci heap",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "leak"
    }
   },
   {
    "name": "binomial heap",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {
    "name": "pairing heap",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "heisenbug"
    }
   },
   {
    "name": "leftist heap",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {
@@ -807,7 +807,7 @@
   {
    "name": "d-ary heap",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {
@@ -825,7 +825,7 @@
   {
    "name": "ring buffer",
    "tags": {
-    "data-structure": "npe"
+    "data-structure": "leak"
    },
    "aliases": [
     "circular buffer",
@@ -846,7 +846,7 @@
   {
    "name": "hash array mapped trie",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    },
    "aliases": [
     "hamt"
@@ -889,13 +889,13 @@
   {
    "name": "XArray",
    "tags": {
-    "data-structure": "leak"
+    "data-structure": "race"
    }
   },
   {
    "name": "maple tree",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "heisenbug"
    }
   },
   {
@@ -916,7 +916,7 @@
   {
    "name": "hlist",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "heisenbug"
    },
    "aliases": [
     "hash list"
@@ -953,7 +953,7 @@
   {
    "name": "cuckoo hash table",
    "tags": {
-    "data-structure": "leak"
+    "data-structure": "race"
    },
    "aliases": [
     "cuckoo hashing"
@@ -962,13 +962,13 @@
   {
    "name": "cuckoo filter",
    "tags": {
-    "data-structure": "leak"
+    "data-structure": "race"
    }
   },
   {
    "name": "quotient filter",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "heisenbug"
    }
   },
   {
@@ -992,25 +992,25 @@
   {
    "name": "zipper",
    "tags": {
-    "data-structure": "leak"
+    "data-structure": "heisenbug"
    }
   },
   {
    "name": "finger tree",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {
    "name": "gap buffer",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {
    "name": "piece table",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {
@@ -1022,13 +1022,13 @@
   {
    "name": "2-3 tree",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "leak"
    }
   },
   {
    "name": "2-3-4 tree",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {
@@ -1040,7 +1040,7 @@
   {
    "name": "adaptive radix tree",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "heisenbug"
    },
    "aliases": [
     "art"
@@ -1055,7 +1055,7 @@
   {
    "name": "B-epsilon tree",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "heisenbug"
    },
    "aliases": [
     "bε-tree",
@@ -1065,13 +1065,13 @@
   {
    "name": "wavelet tree",
    "tags": {
-    "data-structure": "leak"
+    "data-structure": "race"
    }
   },
   {
    "name": "Cartesian tree",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "heisenbug"
    }
   },
   {
@@ -1092,13 +1092,13 @@
   {
    "name": "XOR linked list",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {
    "name": "unrolled linked list",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {
@@ -1116,13 +1116,13 @@
   {
    "name": "top tree",
    "tags": {
-    "data-structure": "race"
+    "data-structure": "heisenbug"
    }
   },
   {
    "name": "order-statistic tree",
    "tags": {
-    "data-structure": "heisenbug"
+    "data-structure": "race"
    }
   },
   {

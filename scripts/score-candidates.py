@@ -13,8 +13,10 @@ Corpora count on different scales (kernel paragraphs vs paper titles), so each c
 category and table: log1p(count) / log1p(max count in that category and table). score = Σ weight[t] × that.
 Kernel docs get a lower weight: they measure what kernel hackers know, not what most players know.
 
-Unpinned entries are ranked by score within their category and cut into tiers by fixed shares; entries with zero
-evidence are kept but flagged for review.
+Counts only decide where the evidence is STRONG: some table has at least STRONG_MIN hits. Strong, unpinned entries
+are ranked by score within their category and cut into tiers by fixed shares. Below that, counts are noise (2 vs 3
+titles), so the entry's `judge` tier (a familiarity call written in-session) decides. Weak entries without a judge
+are an error: every weak entry needs a human/LLM call, and zero evidence never means "reject".
 """
 import json
 import math
@@ -29,6 +31,11 @@ WEIGHTS = {"kernel": 0.5, "dblp": 1.0, "arxiv": 1.0}
 # Shares of unpinned, evidenced entries per tier, most common first. The remainder is heisenbug.
 SHARES = [("off-by-one", 0.12), ("npe", 0.15), ("leak", 0.20), ("race", 0.23)]
 PINNABLE = {"womm", "bitflip"}
+TIERS = {"off-by-one", "womm", "npe", "leak", "race", "heisenbug", "bitflip"}
+STRONG_MIN = 10
+# Order of the count-assignable tiers, shallow → deep, for measuring how far counts and judgement disagree.
+LADDER = ["off-by-one", "npe", "leak", "race", "heisenbug"]
+MAX_DISAGREE = 1
 
 
 def phrases(entry: dict) -> list[str]:
@@ -100,7 +107,12 @@ def main() -> None:
         if len(pins) != 1:
             raise RuntimeError(f"{tag}: need exactly one bitflip pin, have {len(pins)}")
 
-        ranked = sorted((r for r in rows if not r["e"].get("pin") and r["score"] > 0), key=lambda r: -r["score"])
+        for r in rows:
+            r["strong"] = max(r["counts"].values()) >= STRONG_MIN
+            j = r["e"].get("judge")
+            if j is not None and j not in TIERS - PINNABLE:
+                raise RuntimeError(f"{tag}/{r['e']['name']}: judge must be a non-pinned tier, got {j}")
+        ranked = sorted((r for r in rows if not r["e"].get("pin") and r["strong"]), key=lambda r: -r["score"])
         i = 0
         for tier, share in SHARES:
             k = max(1, round(share * len(ranked)))
@@ -111,24 +123,37 @@ def main() -> None:
             r["tier"] = "heisenbug"
         for r in rows:
             if r["e"].get("pin"):
-                r["tier"] = r["e"]["pin"]
-            elif r["score"] == 0:
-                r["tier"] = "heisenbug"
-                r["flag"] = "no evidence"
+                r["tier"], r["source"] = r["e"]["pin"], "pin"
+            elif r["strong"]:
+                r["source"] = "counts"
+                j = r["e"].get("judge")
+                if j is not None and abs(LADDER.index(j) - LADDER.index(r["tier"])) > MAX_DISAGREE:
+                    # Counts and familiarity judgement are far apart: trust the judgement, surface it for review.
+                    r["flag"] = f"counts said {r['tier']}"
+                    r["tier"], r["source"] = j, "judge (override)"
+            else:
+                if r["e"].get("judge") is None:
+                    raise RuntimeError(f"{tag}/{r['e']['name']}: weak evidence {r['counts']} and no judge tier")
+                r["tier"], r["source"] = r["e"]["judge"], "judge"
+                if r["score"] == 0:
+                    r["flag"] = "no evidence"
 
         ours = {r["e"]["name"].lower() for r in rows}
         theirs = sample.get(tag, {})
         report += [f"## {tag}", "", f"{len(rows)} candidates; {sum(1 for r in rows if r.get('flag'))} with no evidence.", ""]
-        report += ["| answer | " + " | ".join(tables) + " | score | tier | sample tier |", "|---" * (len(tables) + 4) + "|"]
+        report += ["| answer | " + " | ".join(tables) + " | score | tier | source | judge | sample tier |", "|---" * (len(tables) + 6) + "|"]
         for r in sorted(rows, key=lambda r: -r["score"]):
             name = r["e"]["name"]
             st = theirs.get(name.lower(), "—")
             mark = "" if st in ("—", r["tier"]) else " ≠"
             flag = f" ⚠ {r['flag']}" if r.get("flag") else ""
             report.append(
-                f"| {name}{flag} | " + " | ".join(str(r["counts"][t]) for t in tables) + f" | {r['score']:.2f} | {r['tier']} | {st}{mark} |"
+                f"| {name}{flag} | " + " | ".join(str(r["counts"][t]) for t in tables) + f" | {r['score']:.2f} | {r['tier']} | {r['source']} | {r['e'].get('judge', '—')} | {st}{mark} |"
             )
         only_sample = sorted(set(theirs) - ours)
+        flagged = [r for r in rows if r.get("flag", "").startswith("counts said")]
+        report += ["", f"Counts vs judgement disagreed by more than {MAX_DISAGREE} tier (judgement used, please review): "
+                   + (", ".join(f"{r['e']['name']} ({r['flag']}, now {r['tier']})" for r in flagged) or "none")]
         report += ["", f"In the sample but not the pilot: {', '.join(only_sample) if only_sample else 'none'}", ""]
 
         for r in rows:
