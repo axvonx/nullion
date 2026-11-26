@@ -136,9 +136,11 @@ const VIGNETTE_STEPS = [0.54, 0.74, 0.88];
  * racing props, the frozen clock); the HUD reads this each frame and does the rest (grey, invert, racing panels).
  */
 export interface ScreenFx {
-  /** 0..1: entities jiggle out of sync (Race condition, Heisenbug). Always 0 under reduced motion. */
+  /** 0..~2.6: entities jiggle out of sync (Race condition, Heisenbug, WOMM buildup). Always 0 under reduced motion. */
   jiggle: number;
-  /** Works on my machine: the world hangs, grey and still. */
+  /** World clock & floating panels lock dead still in place. */
+  freeze: boolean;
+  /** Works on my machine: the world washes into grayscale. */
   hang: boolean;
   /** Bit Flip (and Heisenbug's tease): inverted colours; under reduced motion a slow, non-flashing tint instead. */
   flip: 'none' | 'invert' | 'tint';
@@ -181,7 +183,7 @@ export class Scene {
   private pops: { text: string; tier: TierId; start: number }[] = [];
   private cross: { fx: CrossFx; start: number } | undefined;
   private freezeShot: HTMLCanvasElement;
-  readonly fx: ScreenFx = { jiggle: 0, hang: false, flip: 'none' };
+  readonly fx: ScreenFx = { jiggle: 0, freeze: false, hang: false, flip: 'none' };
   private npeRect: [number, number, number, number] | undefined;
   private leakPending = false;
   private cascadeLeaked = false;
@@ -714,15 +716,20 @@ export class Scene {
     // The reaction's timeline (pure, tested in reaction-fx.test.ts): hang, jiggle, inversion or tint, black-out.
     const rf = act ? reactionFrame(act, rel, sustained, reduced) : NO_REACTION;
     this.rf = rf;
+    this.fx.freeze = rf.freeze;
     this.fx.hang = rf.hang;
     this.fx.jiggle = rf.jiggle;
     this.fx.flip = rf.flip;
-    if (act === 'bitflip' && rel >= CASCADE.leakAt && !this.cascadeLeaked) {
+    if ((act === 'bitflip' || act === 'womm') && rel >= CASCADE.leakAt && !this.cascadeLeaked) {
       this.cascadeLeaked = true;
       this.leakPending = true;
     }
-    // Works on my machine hangs the world's clock, like Ring −2 does.
-    if (!frozen && !this.fx.hang) this.artTime += dt;
+    if (act === 'womm' && rel >= WOMM.freeze && this.leaks.length) {
+      this.leaks.length = 0;
+    }
+    // Works on my machine and Ring −2 freeze the entire world clock (props, rain, cursor blink/brackets/sway, bubbles).
+    const worldFrozen = frozen || this.fx.freeze || this.fx.hang;
+    if (!worldFrozen) this.artTime += dt;
     PROP_SPOTS.length = 0;
     ENTITY_SPOTS.length = 0;
 
@@ -789,7 +796,7 @@ export class Scene {
       ctx.font = FONT;
       ctx.fillStyle = 'rgba(85,255,85,0.4)';
       this.rain.forEach((r, i) => {
-        if (!frozen) r.y = (r.y + r.speed * dt) % (H + 40);
+        if (!worldFrozen) r.y = (r.y + r.speed * dt) % (H + 40);
         for (let k = 0; k < 4; k++) {
           const v = Math.floor(hash(i * 97 + k + Math.floor(r.y / 9)) * 256);
           const s = rainMode === 'hex' ? v.toString(16).padStart(2, '0') : '01<>/\\|=+*#%&'[v % 13]!;
@@ -805,14 +812,16 @@ export class Scene {
     // 3c. Title-screen background reflections: mini "nullion" ghosts, localized palette drops, tears, voids, drips.
     this.drawTitleGlitches(now, dt, reduced);
 
-    // 4. Cursor: it sways as it sinks and settles when it arrives; static under reduced motion.
-    const speed = Math.abs(this.target - this.depth);
-    const want = reduced ? 0 : Math.min(1, speed / 2);
-    // Rises quickly, decays slowly, so arriving leaves a couple of fading swings.
-    this.swayAmp += (want - this.swayAmp) * (1 - Math.exp(-dt * (want > this.swayAmp ? 5 : 1.1)));
+    // 4. Cursor: it sways only once a dive is actually moving (never during the lead or while frozen).
+    const leading = dv !== undefined && now < dv.start;
+    const speed = leading ? 0 : Math.abs(this.target - this.depth);
+    const want = reduced || worldFrozen ? 0 : Math.min(1, speed / 2);
+    // Rises quickly, decays slowly, so arriving leaves a couple of fading swings; locks dead still while frozen.
+    if (!worldFrozen) {
+      this.swayAmp += (want - this.swayAmp) * (1 - Math.exp(-dt * (want > this.swayAmp ? 5 : 1.1)));
+    }
     if (reduced) this.swayAmp = 0;
-    // Ring −2's frozen time holds the sway and the bubbles too.
-    const swayDt = frozen ? 0 : dt;
+    const swayDt = worldFrozen ? 0 : dt;
     this.swayPhase += swayDt * 3.1;
     // The reveal's vignette dims the middle beneath the cursor pass, so the cursor and its reaction play in front of it.
     this.drawVignette(now, reduced);
@@ -1172,7 +1181,7 @@ export class Scene {
     let alpha = style.alpha;
     let x = Math.round(this.W / 2 + this.swayAmp * 6 * Math.sin(this.swayPhase));
     let y = Math.round(this.cursorY + this.cursorLead + this.swayAmp * 2 * Math.sin(this.swayPhase * 2));
-    let visible = !(style.blink && !reduced && Math.floor(now / 530) % 2 === 1);
+    let visible = !(style.blink && !reduced && Math.floor((this.artTime * 1000) / 530) % 2 === 1);
     // A blinking cursor's mark stays put while the glyph blinks, so it never vanishes into the art.
     let marked = true;
 
@@ -1257,7 +1266,7 @@ export class Scene {
         if (hel > 600) y += 2;
         if (!reduced && Math.floor(hel / (hel > 1000 ? 600 : 220)) % 2 === 1) {
           // Spin by flipping vertically.
-          this.drawMark(now, spr, x, y, layerId, reduced);
+          this.drawMark(spr, x, y, layerId, reduced);
           ctx.save();
           ctx.translate(0, 2 * y);
           ctx.scale(1, -1);
@@ -1279,7 +1288,7 @@ export class Scene {
         break;
     }
 
-    if (marked) this.drawMark(now, spr, x, y, layerId, reduced);
+    if (marked) this.drawMark(spr, x, y, layerId, reduced);
     if (visible) drawSprite(ctx, spr, x, y, fill, outline, alpha);
   }
 
@@ -1287,12 +1296,12 @@ export class Scene {
    * The player's mark: a dark backing (dithered light, so the art behind dims) and four amber corner brackets
    * with a black edge, snapped to the layer's palette so they read on every layer, including 1-bit Ring −3.
    */
-  private drawMark(now: number, spr: Sprite, x: number, y: number, layerId: LayerId, reduced: boolean) {
+  private drawMark(spr: Sprite, x: number, y: number, layerId: LayerId, reduced: boolean) {
     const ctx = this.ctx;
     // Every cursor form shares one box: centred on the glyph, except a short glyph (the underscore) sits at the
     // bottom of the box, the way it sits at the bottom of a text cell.
     const { cx, cy } = markCenter(spr, x, y);
-    const breathe = reduced ? 0 : Math.round((Math.sin(now / 420) + 1) / 2);
+    const breathe = reduced ? 0 : Math.round((Math.sin((this.artTime * 1000) / 420) + 1) / 2);
     const rx = MARK_RX + breathe;
     const ry = MARK_RY + breathe;
     // Crisp blocked-out dark backing matching the square corner brackets (no round radial halo).

@@ -16,11 +16,15 @@ import type { TierId } from '../core/tiers';
 export const CASCADE = { hang: [0, 450], blackout: [300, 700], leakAt: 550, jiggle: [700, 1300], invert: [1300, 2000] } as const;
 
 /**
- * Works on my machine is a fake-out: it opens like a Bit Flip (the cursor's 0/1 flips, a black-out pulse, the jiggle
- * starts), then stalls into gray and freezes, the cursor turns into the hourglass, and it makes only a small drop.
- * The fake never inverts (nothing to flash); under reduced motion it is a static tint, then the gray.
+ * Works on my machine is a full-length Bit Flip fake-out:
+ *   0 → 2200 ms: mirrors Bit Flip's cascade with super-intense escalating shake of everything
+ *   2200 ms (freeze): snaps dead still in place — app hung, no gray yet
+ *   2600 ms (gray):   washes out into "Not Responding" grayscale
+ *   2900 ms (hourglass): reveals the hourglass cursor
+ *   3400 ms (LEAD_MS):   sinks its tiny +1 stack frame drop
+ * Enters inversion at most once (never strobes); under reduced motion the inversion is a static tint and jiggle is 0.
  */
-export const WOMM = { blackout: [100, 450], jiggle: [300, 800], stall: 800, hourglass: 1050 } as const;
+export const WOMM = { jiggle: [700, 2200], freeze: 2200, gray: 2600, hourglass: 2900 } as const;
 
 /** Heisenbug's glitch tints the screen from here on (a held tint, never a blink of inversion). */
 export const TEASE_AT = 480;
@@ -31,7 +35,7 @@ export const HELD_JIGGLE = 0.4;
 /** How long each reaction plays on its own, unsustained. */
 export const REACTION_MS: Record<TierId, number> = {
   'off-by-one': 600,
-  womm: 1400,
+  womm: 3500,
   npe: 500,
   leak: 1600,
   race: 1000,
@@ -42,7 +46,7 @@ export const REACTION_MS: Record<TierId, number> = {
 /** How long each tier's notable part plays before its dive starts, in ms. */
 export const LEAD_MS: Record<TierId, number> = {
   'off-by-one': 1250,
-  womm: 1500,
+  womm: 3400,
   npe: 800,
   leak: 1000,
   race: 1000,
@@ -55,15 +59,18 @@ export const within = (t: number, [a, b]: readonly [number, number]) => t >= a &
 export type CursorPose = 'own' | 'flipped' | 'hourglass';
 
 export interface ReactionFrame {
+  /** World clock & floating panels stop dead in place (no grayscale yet). */
+  freeze: boolean;
+  /** Grayscale "Not Responding" wash (also implies frozen). */
   hang: boolean;
-  /** 0..1 */
+  /** 0..~2.6 */
   jiggle: number;
   flip: 'none' | 'invert' | 'tint';
   blackout: boolean;
   cursor: CursorPose;
 }
 
-export const NO_REACTION: ReactionFrame = { hang: false, jiggle: 0, flip: 'none', blackout: false, cursor: 'own' };
+export const NO_REACTION: ReactionFrame = { freeze: false, hang: false, jiggle: 0, flip: 'none', blackout: false, cursor: 'own' };
 
 /** A reaction `rel` ms in; `sustained` while its dive or reveal holds it; `reduced` for reduced motion. */
 export function reactionFrame(tier: TierId, rel: number, sustained: boolean, reduced: boolean): ReactionFrame {
@@ -72,17 +79,28 @@ export function reactionFrame(tier: TierId, rel: number, sustained: boolean, red
   switch (tier) {
     case 'bitflip':
       f.hang = within(rel, CASCADE.hang);
+      f.freeze = f.hang;
       f.blackout = within(rel, CASCADE.blackout);
       f.jiggle = within(rel, CASCADE.jiggle) ? fade(...CASCADE.jiggle) : 0;
       if (sustained ? rel >= CASCADE.invert[0] : within(rel, CASCADE.invert)) f.flip = reduced ? 'tint' : 'invert';
       f.cursor = 'flipped';
       break;
     case 'womm':
-      if (rel < WOMM.stall) {
-        f.blackout = within(rel, WOMM.blackout);
-        f.jiggle = within(rel, WOMM.jiggle) ? fade(...WOMM.jiggle) : 0;
-        if (reduced) f.flip = 'tint';
-      } else f.hang = true;
+      if (rel < WOMM.freeze) {
+        // Mirrors Bit Flip's cascade up until the moment Bit Flip would sink, with super-intense escalating shake.
+        f.hang = within(rel, CASCADE.hang);
+        f.freeze = f.hang;
+        f.blackout = within(rel, CASCADE.blackout);
+        if (within(rel, WOMM.jiggle)) {
+          const p = (rel - WOMM.jiggle[0]) / (WOMM.jiggle[1] - WOMM.jiggle[0]);
+          f.jiggle = 0.45 + 2.25 * p * p;
+        }
+        if (rel >= CASCADE.invert[0]) f.flip = reduced ? 'tint' : 'invert';
+      } else {
+        // Snap dead still first (freeze), then wash into grayscale at WOMM.gray.
+        f.freeze = true;
+        f.hang = rel >= WOMM.gray;
+      }
       f.cursor = rel < WOMM.hourglass ? 'flipped' : 'hourglass';
       break;
     case 'race':

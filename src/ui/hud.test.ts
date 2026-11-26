@@ -27,7 +27,7 @@ beforeAll(() => {
 class FakeScene {
   diving = false;
   displayDepth = 0;
-  fx = { jiggle: 0, hang: false, flip: 'none' as const };
+  fx = { jiggle: 0, freeze: false, hang: false, flip: 'none' as const };
   vignette: boolean[] = [];
   holds: boolean[] = [];
   dives: { to: number; tier: string; frames: number }[] = [];
@@ -323,6 +323,29 @@ describe('console layout', () => {
     const h = setup();
     const secs = h.$('[data-el="secs"]');
     expect(secs.parentElement?.classList.contains('prompt-line')).toBe(true);
+  });
+
+  it('grays out the prompt input and counts down 3s → 2s → 1s before opening for answers', () => {
+    const h = setup();
+    const input = h.$<HTMLInputElement>('#guess');
+    const consoleEl = h.$('.console');
+
+    h.step(100);
+    expect(consoleEl.classList.contains('reading')).toBe(true);
+    expect(input.disabled).toBe(true);
+    expect(input.placeholder).toBe('Starting in 3s');
+
+    h.step(1000);
+    expect(input.placeholder).toBe('Starting in 2s');
+
+    h.step(1000);
+    expect(input.placeholder).toBe('Starting in 1s');
+
+    h.step(1000);
+    expect(h.game.phase.kind).toBe('answering');
+    expect(consoleEl.classList.contains('reading')).toBe(false);
+    expect(input.disabled).toBe(false);
+    expect(input.placeholder).toBe('type an answer, press Enter');
   });
 });
 

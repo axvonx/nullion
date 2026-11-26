@@ -49,8 +49,10 @@ body {
 /* The tint stays on the world and the panels; the reveal and the entrance keep their own colours. */
 #app.tint :is(.scene, .panel, .chip) { filter: sepia(0.4) hue-rotate(250deg) saturate(1.3); }
 #app.still { transition: filter 500ms ease; }
+#app.freeze :is(.float, .led, .caret, .watchdog-fill),
+#app.hang :is(.float, .led, .caret, .watchdog-fill) { animation-play-state: paused; }
+#app .scene, #app .panel, #app .chip { transition: filter 260ms ease; }
 #app.hang .scene, #app.hang .panel, #app.hang .chip { filter: grayscale(1) brightness(0.88); }
-#app.hang .float { animation-play-state: paused; }
 
 /* The scene is the world; everything else floats in it. */
 .scene {
@@ -150,8 +152,7 @@ body {
 .wd-secs { flex: none; color: var(--fault); font-size: 18px; }
 .wd-secs:empty { display: none; }
 
-.call { font-family: var(--body); font-size: clamp(22px, 3.6vw, 30px); color: var(--signal); overflow-wrap: anywhere; }
-.plain { color: var(--dim); font-size: 17px; margin-top: 1px; min-height: 1.15em; }
+.plain { font-family: var(--body); font-size: clamp(24px, 4vw, 32px); color: var(--signal); margin-top: 2px; min-height: 1.15em; overflow-wrap: anywhere; }
 
 .prompt-line { display: flex; align-items: center; gap: 6px; margin-top: 6px; border-bottom: 2px solid var(--rule); }
 .prompt-line:focus-within { border-bottom-color: var(--signal); }
@@ -169,6 +170,18 @@ body {
   outline: none;
 }
 .prompt-line input:disabled { opacity: 0.45; }
+.console.reading .prompt-line {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom-color: var(--rule);
+  opacity: 0.65;
+}
+.console.reading .caret { color: var(--dim); animation: none; }
+.console.reading .prompt-line input:disabled { opacity: 1; color: var(--dim); }
+.console.reading .prompt-line input::placeholder { color: var(--dim); }
+.console.reading[data-form='gui'] .prompt-line { background: transparent; opacity: 0.72; }
+.console.reading[data-form='gui'] .prompt-line input { background: #bcb8b0; }
+.console.reading[data-form='gui'] .ok-btn { opacity: 0.5; pointer-events: none; }
+.console.reading[data-form='bios'] .prompt-line input { background: #7777aa; color: #000077; }
 
 .feedback { display: block; min-height: 1.15em; margin-top: 4px; color: var(--dim); font-size: 17px; }
 .feedback.fault { color: var(--fault); }
@@ -186,8 +199,8 @@ body {
 .result { margin-top: 8px; }
 .wordmark { font-family: var(--display); font-size: 13px; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 4px; }
 .headline { color: var(--signal); font-size: 24px; }
-/* With the result card up, the card is the whole console: the call, prompt and answer line step aside. */
-.console:has(.result:not([hidden])) :is(.call, .plain, .prompt-line, .feedback, .bios-footer) { display: none; }
+/* With the result card up, the card is the whole console: the prompt and answer line step aside. */
+.console:has(.result:not([hidden])) :is(.plain, .prompt-line, .feedback, .bios-footer) { display: none; }
 .console:has(.result:not([hidden])) { max-height: calc(100dvh - 72px); overflow-y: auto; }
 
 /*
@@ -244,7 +257,6 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 
 .scroll-mode .prompt-line,
 .scroll-mode .feedback,
-.scroll-mode .call,
 .scroll-mode .plain,
 .scroll-mode .wd-secs,
 .scroll-mode .watchdog { display: none; }
@@ -259,8 +271,6 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 /* ---------------------------------------------------------------------------------------------
  * In-play beats on the console card.
  */
-.plain { transition: opacity 200ms; }
-.plain.pending { opacity: 0; }
 .console { transition: opacity 300ms, filter 300ms; }
 .console.resting { opacity: 0.82; filter: saturate(0.6); }
 /* Rejected guess: a quick, small shake with a one-frame colour split. */
@@ -292,7 +302,6 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
  * Same fonts and tokens everywhere; each form only swaps colours, borders and which decorations show.
  */
 .titlebar, .ok-btn, .bracket, .bios-footer { display: none; }
-.pfx { color: var(--form-dim, var(--dim)); }
 .console[data-form] { --form-dim: var(--dim); }
 
 /* Application: a pixel GUI dialog. */
@@ -302,17 +311,16 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #808080, 4px 4px 0 rgba(0, 0, 0, 0.55);
 }
 .console[data-form='gui'] .titlebar {
-  display: flex; justify-content: space-between; align-items: center; gap: 8px;
-  margin: 0 -12px; padding: 2px 4px 2px 8px; background: #1d3f8f; color: #fff; font-size: 19px;
+  display: flex; justify-content: flex-end; align-items: center;
+  margin: 0 -12px; padding: 3px 4px; background: #1d3f8f; color: #fff;
 }
-.console[data-form='gui'] .title-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .console[data-form='gui'] .close {
   font-family: var(--display); font-size: 9px; color: #16141c; background: #d4d0c8; width: 16px; height: 14px;
   display: grid; place-items: center; box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #404040;
 }
 .console[data-form='gui'] .watchdog { background: #808080; margin: 0 -12px 6px; }
-.console[data-form='gui'] .call, .console[data-form='gui'] .caret { display: none; }
-.console[data-form='gui'] .plain { color: #16141c; font-size: 19px; }
+.console[data-form='gui'] .caret { display: none; }
+.console[data-form='gui'] .plain { color: #16141c; }
 .console[data-form='gui'] .prompt-line { border: 0; gap: 6px; }
 .console[data-form='gui'] .prompt-line input {
   background: #fff; color: #16141c; padding: 2px 6px; box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;
@@ -334,30 +342,27 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .console[data-form='gui'] .wordmark { color: #16141c; }
 
 /* Runtime, Libraries: a REPL. */
-.console[data-form='repl'] .call { color: #f5d76e; }
-.console[data-form='repl'] .pfx, .console[data-form='repl'] .caret { color: #7ec8e3; }
+.console[data-form='repl'] .plain { color: #f5d76e; }
+.console[data-form='repl'] .caret { color: #7ec8e3; }
 
 /* OS userspace: a shell. */
 .console[data-form='shell'] { background: rgba(4, 10, 6, 0.96); }
-.console[data-form='shell'] .call { color: var(--ok); }
-.console[data-form='shell'] .pfx, .console[data-form='shell'] .caret { color: var(--ink); }
+.console[data-form='shell'] .plain { color: var(--ok); }
+.console[data-form='shell'] .caret { color: var(--ink); }
 
-/* Kernel, Drivers: a serial console with timestamps. */
+/* Kernel, Drivers: a serial console. */
 .console[data-form='serial'] { background: rgba(12, 9, 4, 0.96); }
-.console[data-form='serial'] .pfx, .console[data-form='serial'] .caret { color: #8a7344; white-space: pre; }
-.console[data-form='serial'] .call { color: var(--signal); }
+.console[data-form='serial'] .caret { color: #8a7344; }
+.console[data-form='serial'] .plain { color: var(--signal); }
 
 /* Firmware: a BIOS setup field, in BIOS blue and gray. */
 .console[data-form='bios'] {
   background: #0000aa; color: #aaaaaa;
   border: 2px solid #000; box-shadow: inset 0 0 0 3px #0000aa, inset 0 0 0 4px #aaaaaa, inset 0 0 0 6px #0000aa, inset 0 0 0 7px #aaaaaa, 4px 4px 0 rgba(0, 0, 0, 0.55);
-  padding: 4px 16px 12px;
+  padding: 6px 16px 12px;
 }
-.console[data-form='bios'] .titlebar { display: block; text-align: center; margin: 4px 0 2px; }
-.console[data-form='bios'] .close { display: none; }
-.console[data-form='bios'] .title-text { background: #0000aa; color: #ffffff; padding: 0 8px; }
 .console[data-form='bios'] .watchdog { margin: 0 0 6px; background: #000055; }
-.console[data-form='bios'] .call, .console[data-form='bios'] .plain { display: none; }
+.console[data-form='bios'] .plain { color: #ffffff; text-align: center; }
 .console[data-form='bios'] .prompt-line { border: 0; }
 .console[data-form='bios'] .caret, .console[data-form='bios'] .bracket { display: inline; color: #ffffff; animation: none; }
 .console[data-form='bios'] .prompt-line input { background: #aaaaaa; color: #0000aa; padding: 1px 6px; }
@@ -372,35 +377,32 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 
 /* Ring −1: a hypervisor log. */
 .console[data-form='hyper'] { background: rgba(2, 14, 6, 0.97); box-shadow: inset 0 0 0 1px #1ea046, 4px 4px 0 rgba(0, 0, 0, 0.55); }
-.console[data-form='hyper'] .call { color: #8cff9c; }
-.console[data-form='hyper'] .pfx, .console[data-form='hyper'] .caret, .console[data-form='hyper'] .plain { color: #3fae5e; }
+.console[data-form='hyper'] .plain { color: #8cff9c; }
+.console[data-form='hyper'] .caret { color: #3fae5e; }
 
 /* Ring −2: a frozen SMM dump. Nothing blinks here. */
 .console[data-form='smm'] { background: rgba(12, 12, 12, 0.97); box-shadow: inset 0 0 0 1px #828282, 4px 4px 0 rgba(0, 0, 0, 0.55); }
-.console[data-form='smm'] .call { color: #f0f0f0; }
-.console[data-form='smm'] .pfx, .console[data-form='smm'] .caret, .console[data-form='smm'] .plain { color: #9a9a9a; }
+.console[data-form='smm'] .plain { color: #f0f0f0; }
+.console[data-form='smm'] .caret { color: #9a9a9a; }
 .console[data-form='smm'] .caret, .console[data-form='smm'] .watchdog-fill { animation: none; }
 .console[data-form='smm'] .watchdog-fill { background: #bebebe; }
 
 /* Ring −3: raw entry, stripped to essentials. */
 .console[data-form='raw'] { background: #000; box-shadow: inset 0 0 0 1px #e8eeff, 4px 4px 0 rgba(0, 0, 0, 0.55); }
-.console[data-form='raw'] .call { display: none; }
-.console[data-form='raw'] .plain { color: #e8eeff; font-size: 20px; margin-top: 4px; }
+.console[data-form='raw'] .plain { color: #e8eeff; margin-top: 4px; }
 .console[data-form='raw'] .caret { color: #e8eeff; }
 .console[data-form='raw'] .prompt-line { border-bottom-color: #e8eeff; }
 .console[data-form='raw'] .watchdog-fill { background: #e8eeff; }
 
 /* Debug demos show the prompt even in scroll mode. */
-.demo.scroll-mode .call, .demo.scroll-mode .plain, .demo.scroll-mode .feedback,
+.demo.scroll-mode .plain, .demo.scroll-mode .feedback,
 .demo.scroll-mode .prompt-line, .demo.scroll-mode .watchdog { display: block; }
 .demo.scroll-mode .prompt-line { display: flex; }
 .demo.scroll-mode .scroll-hint { display: none; }
 .demo.scroll-mode .console { width: min(520px, calc(100vw - 32px)); padding-top: 0; }
-.demo.scroll-mode .console[data-form='gui'] .call, .demo.scroll-mode .console[data-form='bios'] .call,
-.demo.scroll-mode .console[data-form='bios'] .plain, .demo.scroll-mode .console[data-form='raw'] .call { display: none; }
 #app.scroll-mode:not(.demo) .console[data-form] :is(.titlebar, .bios-footer) { display: none; }
 .demo.scroll-mode .console[data-form='gui'] .titlebar { display: flex; }
-.demo.scroll-mode .console[data-form='bios'] .titlebar, .demo.scroll-mode .console[data-form='bios'] .bios-footer { display: block; }
+.demo.scroll-mode .console[data-form='bios'] .bios-footer { display: block; }
 
 /* Reduced motion: everything floats still; content changes crossfade instead of moving. */
 .still .float, .still .float.settle, .still .console.low, .still .console.reject, .still .console.bark {
@@ -634,12 +636,6 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   line-height: 1.12;
   color: var(--ink);
   text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-}
-
-.title-meta {
-  font-size: 18px;
-  color: #cfcbd8;
-  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
 }
 
 .title-start {

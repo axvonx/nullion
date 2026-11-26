@@ -34,28 +34,17 @@ export const FORM_NAMES: Record<FormId, string> = {
 };
 
 export interface FormView {
-  /** Text before the call on the call line (the call itself types in after it). */
-  prefix(ts: string): string;
-  /** How the call reads in this idiom. */
-  call(call: string): string;
   /** The input's caret label. */
-  caret(ts: string): string;
+  caret(): string;
 }
-
-const asShell = (call: string) => call.replace('(', ' ').replace(/\)$/, '');
 
 export const FORMS: Record<FormId, FormView> = {
-  gui: { prefix: () => '', call: (c) => c, caret: () => '' },
-  repl: { prefix: () => '>>> ', call: (c) => c, caret: () => '...' },
-  shell: { prefix: () => '$ ', call: asShell, caret: () => '>' },
-  serial: { prefix: (ts) => `[${ts}] `, call: (c) => c, caret: (ts) => `[${ts}] >` },
-  bios: { prefix: () => '', call: (c) => c, caret: () => 'Value: [' },
-  hyper: { prefix: () => 'vmexit: ', call: (c) => c, caret: () => 'guest>' },
-  smm: { prefix: () => 'SMRAM:7F00 ', call: (c) => c, caret: () => 'smm>' },
-  raw: { prefix: () => '', call: (c) => c, caret: () => '0x' },
+  gui: { caret: () => '' },
+  repl: { caret: () => '...' },
+  shell: { caret: () => '>' },
+  serial: { caret: () => '>' },
+  bios: { caret: () => 'Value: [' },
+  hyper: { caret: () => 'guest>' },
+  smm: { caret: () => 'smm>' },
+  raw: { caret: () => '0x' },
 };
-
-/** Seconds since boot, serial-console style: "[   41.002]". */
-export function serialStamp(nowMs: number): string {
-  return (nowMs / 1000).toFixed(3).padStart(8, ' ');
-}

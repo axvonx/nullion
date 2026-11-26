@@ -9,33 +9,43 @@ const timeline = (tier: (typeof TIER_IDS)[number], sustained: boolean, reduced: 
 };
 
 describe('reaction timelines', () => {
-  it('Works on my machine opens like a Bit Flip, stalls into gray, then turns into the hourglass and drops hung', () => {
-    expect(WOMM.stall).toBeLessThan(1000);
+  it('Works on my machine mirrors Bit Flip with super-intense shake, freezes first, then grays out, reveals hourglass, then drops', () => {
+    expect(WOMM.freeze).toBe(LEAD_MS.bitflip);
     for (const f of timeline('womm', true, false)) {
-      if (f.t < WOMM.stall) {
-        // The fake Bit Flip: flipped cursor, no gray yet, and never an inversion.
-        expect(f.cursor).toBe('flipped');
-        expect(f.hang).toBe(false);
-        expect(reactionFrame('bitflip', f.t, true, false).cursor).toBe('flipped');
+      if (f.t < WOMM.freeze) {
+        const bf = reactionFrame('bitflip', f.t, true, false);
+        expect(f.cursor).toBe(bf.cursor);
+        expect(f.hang).toBe(bf.hang);
+        expect(f.blackout).toBe(bf.blackout);
+        expect(f.flip).toBe(bf.flip);
       } else {
-        expect(f.hang).toBe(true);
+        expect(f.freeze).toBe(true);
+        expect(f.hang).toBe(f.t >= WOMM.gray);
         expect(f.jiggle).toBe(0);
         expect(f.blackout).toBe(false);
+        expect(f.flip).toBe('none');
       }
       if (f.t >= WOMM.hourglass) expect(f.cursor).toBe('hourglass');
-      expect(f.flip).not.toBe('invert');
     }
-    // The fake has the Bit Flip's black-out and jiggle in it.
-    expect(timeline('womm', true, false, WOMM.stall).some((f) => f.blackout)).toBe(true);
-    expect(timeline('womm', true, false, WOMM.stall).some((f) => f.jiggle > 0)).toBe(true);
-    // It only drops once it's the hourglass, and only after the gray has taken over.
-    expect(LEAD_MS.womm).toBeGreaterThanOrEqual(WOMM.hourglass);
+    // Jiggle grows intensely up to the sudden freeze.
+    const early = reactionFrame('womm', WOMM.jiggle[0] + 100, true, false).jiggle;
+    const mid = reactionFrame('womm', Math.round((WOMM.jiggle[0] + WOMM.jiggle[1]) / 2), true, false).jiggle;
+    const peak = reactionFrame('womm', WOMM.jiggle[1] - 20, true, false).jiggle;
+    expect(early).toBeGreaterThan(0);
+    expect(mid).toBeGreaterThan(early);
+    expect(peak).toBeGreaterThan(mid);
+    expect(peak).toBeGreaterThan(2);
+    // Freeze precedes gray-out, which precedes hourglass, which precedes sinking.
+    expect(WOMM.gray).toBeGreaterThan(WOMM.freeze);
+    expect(WOMM.hourglass).toBeGreaterThan(WOMM.gray);
+    expect(LEAD_MS.womm).toBeGreaterThan(WOMM.hourglass);
   });
 
-  it('Works on my machine under reduced motion: a static tint, then the gray, then the hourglass', () => {
+  it('Works on my machine under reduced motion: mirrors Bit Flip tint, freezes, then grays out, then hourglass', () => {
     const tl = timeline('womm', true, true);
-    expect(tl.filter((f) => f.t < WOMM.stall).every((f) => f.flip === 'tint' && f.jiggle === 0 && !f.hang)).toBe(true);
-    expect(tl.filter((f) => f.t >= WOMM.stall).every((f) => f.hang)).toBe(true);
+    expect(tl.filter((f) => f.t >= CASCADE.invert[0] && f.t < WOMM.freeze).every((f) => f.flip === 'tint' && f.jiggle === 0)).toBe(true);
+    expect(tl.filter((f) => f.t >= WOMM.freeze && f.t < WOMM.gray).every((f) => f.freeze && !f.hang && f.flip === 'none')).toBe(true);
+    expect(tl.filter((f) => f.t >= WOMM.gray).every((f) => f.freeze && f.hang && f.flip === 'none')).toBe(true);
     expect(tl.at(-1)!.cursor).toBe('hourglass');
   });
 
@@ -47,9 +57,9 @@ describe('reaction timelines', () => {
         let exitsWhileSustained = 0;
         for (let k = 1; k < tl.length; k++) {
           if (tl[k]!.flip === 'invert' && tl[k - 1]!.flip !== 'invert') entries++;
-          if (sustained && tl[k - 1]!.flip === 'invert' && tl[k]!.flip !== 'invert') exitsWhileSustained++;
+          if (sustained && tier !== 'womm' && tl[k - 1]!.flip === 'invert' && tl[k]!.flip !== 'invert') exitsWhileSustained++;
         }
-        expect(entries).toBeLessThanOrEqual(tier === 'bitflip' ? 1 : 0);
+        expect(entries).toBeLessThanOrEqual(tier === 'bitflip' || tier === 'womm' ? 1 : 0);
         expect(exitsWhileSustained).toBe(0);
         // Reduced motion: no inversion and no jiggle at all.
         expect(timeline(tier, sustained, true).every((f) => f.flip !== 'invert' && f.jiggle === 0)).toBe(true);

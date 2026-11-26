@@ -1,9 +1,9 @@
-import { MAX_DEPTH, PROMPTS_PER_DAY, layerAt, type Layer, type LayerId } from '../core/layers';
+import { MAX_DEPTH, layerAt, type Layer, type LayerId } from '../core/layers';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
 import { look, reducedMotion } from '../looks';
 import type { Scene } from '../render/scene';
-import { FORMS, FORM_BY_LAYER, serialStamp, type FormId } from './forms';
+import { FORMS, FORM_BY_LAYER, type FormId } from './forms';
 import { tierIcon } from './tier-icons';
 import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
@@ -19,6 +19,7 @@ const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
 export const LOW_TIME = 0.25;
 /** The reading phase types the call in at this many ms per character. */
 const TYPE_MS = 28;
+const ANSWER_PLACEHOLDER = 'type an answer, press Enter';
 /** Demos only: how long the rail lets a reveal sit before pressing "Unwind further" for you. Play waits for the player. */
 export const REVEAL_MS = 2400;
 const REVEAL_FADE_MS = 200;
@@ -90,9 +91,8 @@ export class Hud {
   private still: boolean | undefined;
   private shownFrames = -1;
   private form: FormId | undefined;
-  /** The call line's identity (text + form); a new one restamps the serial clock and restarts typing. */
-  private callKey = '';
-  private stamp = '';
+  /** The prompt line's identity (text + form); a new one restarts typing. */
+  private promptKey = '';
   private barked = -1;
   private ended = false;
   private shareText = '';
@@ -120,7 +120,6 @@ export class Hud {
         <div class="title-head" data-el="titleHead"></div>
         <div class="title-foot">
           <p class="title-tag">Seven prompts a day. Rarer answers descend deeper into the stack.</p>
-          <div class="title-meta" data-el="titleMeta"></div>
           <button type="button" class="title-start" data-el="titleStart"><span>Unwind the stack</span><span class="title-arrow" aria-hidden="true">▾</span></button>
           <button type="button" class="title-how-btn" data-el="titleHowBtn" aria-expanded="false" aria-controls="title-how">How tiers work</button>
         </div>
@@ -134,9 +133,8 @@ export class Hud {
         </div>
       </section>
       <section class="console panel float" data-el="console" aria-label="Prompt">
-        <div class="titlebar" data-el="titlebar"><span class="title-text" data-el="titleText"></span><span class="close" aria-hidden="true">x</span></div>
+        <div class="titlebar" data-el="titlebar" aria-hidden="true"><span class="close">x</span></div>
         <div class="watchdog" data-el="watchdogWrap"><div class="watchdog-fill" data-el="watchdog"></div></div>
-        <div class="call" data-el="call"><span class="pfx" data-el="pfx"></span><span data-el="ctext"></span></div>
         <div class="plain" data-el="plain"></div>
         <form class="prompt-line" data-el="form" autocomplete="off">
           <label for="guess" class="caret" data-el="caret">&gt;</label>
@@ -289,14 +287,12 @@ export class Hud {
     this.revealRound = -1;
     this.onUnwind = undefined;
     this.hideReveal();
-    this.callKey = '';
+    this.promptKey = '';
     this.els.result!.hidden = true;
     this.els.copy!.textContent = 'Copy result';
     this.els.feedback!.textContent = '';
     this.els.metaText!.textContent = `#${g.puzzle}`;
     this.els.meta!.title = `Puzzle #${g.puzzle} · ${dateLabel}`;
-    const timerText = g.opts.timer ? `${Math.round(ANSWER_MS / 1000)}s each` : 'untimed';
-    this.els.titleMeta!.textContent = `Puzzle #${g.puzzle} · ${dateLabel} · ${PROMPTS_PER_DAY} prompts · ${timerText}`;
     this.els.titleHow!.hidden = true;
     this.els.titleHowBtn!.setAttribute('aria-expanded', 'false');
     this.els.titleHowBtn!.textContent = 'How tiers work';
@@ -409,20 +405,26 @@ export class Hud {
     const r = g.current();
     let left: number;
     this.els.console!.classList.toggle('resting', p.kind === 'between');
+    this.els.console!.classList.toggle('reading', p.kind === 'reading');
     if (p.kind === 'reading') {
-      // A short boot beat: the call types in, then the plain prompt appears; the input unlocks when answering.
-      this.showCall(r!.question.call, r!.question.prompt, now - (p.until - READ_MS));
+      // A short boot beat: the question types in while the input is grayed out with a 3s → 2s → 1s countdown.
+      this.showPrompt(r!.question.prompt, now - (p.until - READ_MS));
+      const secs = Math.max(1, Math.ceil((p.until - now) / 1000));
+      const wantPlaceholder = `Starting in ${secs}s`;
+      if (this.input.placeholder !== wantPlaceholder) this.input.placeholder = wantPlaceholder;
       left = 1;
       this.input.disabled = true;
     } else if (p.kind === 'answering') {
-      this.showCall(r!.question.call, r!.question.prompt, Infinity);
+      this.showPrompt(r!.question.prompt, Infinity);
       left = p.until === null ? 1 : Math.max(0, (p.until - now) / ANSWER_MS);
+      if (this.input.placeholder !== ANSWER_PLACEHOLDER) this.input.placeholder = ANSWER_PLACEHOLDER;
       if (this.input.disabled) {
         this.input.disabled = false;
         this.input.focus();
         this.els.feedback!.textContent = '';
       }
     } else if (p.kind === 'between') {
+      if (this.input.placeholder !== ANSWER_PLACEHOLDER) this.input.placeholder = ANSWER_PLACEHOLDER;
       this.input.disabled = true;
       left = 0;
       if (r!.timedOut && this.barked !== p.round) {
@@ -441,45 +443,37 @@ export class Hud {
       this.input.disabled = true;
       left = 0;
       if (!this.ended) this.endOfDay(rowsOf(g), g.depth, g.puzzle);
-      // The console's call line is hidden behind the result card (style.css); keep it plain anyway.
-      this.showCall('Today’s stack', '', Infinity);
+      this.showPrompt('', Infinity);
     } else {
-      this.showCall('boot…', '', Infinity);
+      this.showPrompt('', Infinity);
       left = 1;
     }
     if (override === undefined) this.setWatchdog(left, p.kind === 'answering' && p.until !== null);
   }
 
-  /** Show the call line in the current form, typed in over `elapsed` ms (all at once under reduced motion). */
-  private showCall(call: string, prompt: string, elapsed: number) {
+  /** Show the question in the current form, typed in over `elapsed` ms (all at once under reduced motion). */
+  private showPrompt(prompt: string, elapsed: number) {
     const form = this.form;
-    if (!form) throw new Error('Hud.showCall before the first update() picked a form');
+    if (!form) throw new Error('Hud.showPrompt before the first update() picked a form');
     const view = FORMS[form];
-    const key = `${form}|${call}`;
-    if (key !== this.callKey) {
-      this.callKey = key;
-      this.stamp = serialStamp(performance.now());
-      setText(this.els.caret!, view.caret(this.stamp));
-      replay(this.els.call!, 'settle-in');
+    const key = `${form}|${prompt}`;
+    if (key !== this.promptKey) {
+      this.promptKey = key;
+      setText(this.els.caret!, view.caret());
+      replay(this.els.plain!, 'settle-in');
     }
-    const text = view.call(call);
-    const n = reducedMotion() ? text.length : Math.max(0, Math.floor(elapsed / TYPE_MS));
-    const typed = n >= text.length ? text : `${text.slice(0, n)}▌`;
-    setText(this.els.pfx!, view.prefix(this.stamp));
-    setText(this.els.ctext!, typed);
-    // GUI: the call is the dialog's title. BIOS: the prompt is the setup field's title.
-    setText(this.els.titleText!, form === 'bios' ? prompt : form === 'gui' ? typed : '');
-    this.els.plain!.classList.toggle('pending', n < text.length);
-    setText(this.els.plain!, prompt);
+    const n = reducedMotion() ? prompt.length : Math.max(0, Math.floor(elapsed / TYPE_MS));
+    const typed = n >= prompt.length ? prompt : `${prompt.slice(0, n)}▌`;
+    setText(this.els.plain!, typed);
   }
 
   private applyForm(form: FormId) {
     const first = this.form === undefined;
     this.form = form;
     this.els.console!.dataset.form = form;
-    this.callKey = '';
+    this.promptKey = '';
     if (!first) replay(this.els.console!, 'morph');
-    if (this.demo) this.showCall(this.demoCall, this.demoPrompt, Infinity);
+    if (this.demo) this.showPrompt(this.demoPrompt, Infinity);
   }
 
   /** Bar fill, low-time state and the seconds readout that only appears when time is short. */
@@ -520,16 +514,26 @@ export class Hud {
   }
 
   private fxShown = '';
-  /** The floating UI's half of a tier reaction: hang grey, invert or tint, and panels racing out of sync. */
+  /** The floating UI's half of a tier reaction: freeze, hang grey, invert or tint, and racing/shaking panels + screen. */
   private mirrorReaction(now: number) {
     const fx = this.scene?.fx;
     if (!fx) return;
-    const key = `${fx.hang}|${fx.flip}`;
+    const key = `${fx.freeze}|${fx.hang}|${fx.flip}`;
     if (key !== this.fxShown) {
       this.fxShown = key;
+      this.root.classList.toggle('freeze', fx.freeze);
       this.root.classList.toggle('hang', fx.hang);
       this.root.classList.toggle('flip', fx.flip === 'invert');
       this.root.classList.toggle('tint', fx.flip === 'tint');
+    }
+    // High-intensity jiggle (WOMM's buildup) shakes the entire viewport so everything trembles right before the freeze.
+    if (fx.jiggle > 1.05) {
+      const amp = (fx.jiggle - 1.05) * 4.5;
+      const sx = Math.round(Math.sin(now / 23) * amp);
+      const sy = Math.round(Math.cos(now / 29) * amp * 0.8);
+      this.root.style.transform = `translate(${sx}px, ${sy}px)`;
+    } else if (this.root.style.transform) {
+      this.root.style.transform = '';
     }
     const panels = [this.els.console!, this.els.meta!, this.els.depth!];
     panels.forEach((el, i) => {
@@ -805,22 +809,20 @@ export class Hud {
   // ---------------------------------------------------------------------------------------------
   // Debug demos (driven by the debug rail; these only show content, they never touch game state).
 
-  private demoCall = '';
   private demoPrompt = '';
 
   /** Show a prompt in the console without a running round, even in scroll mode. */
-  demoBegin(call: string, prompt: string) {
+  demoBegin(prompt: string) {
     this.demo = true;
     this.syncTitle();
-    this.demoCall = call;
     this.demoPrompt = prompt;
     this.root.classList.add('demo');
     this.ended = false;
     this.els.result!.hidden = true;
     this.els.feedback!.textContent = '';
     this.input.disabled = true;
-    this.callKey = '';
-    this.showCall(call, prompt, Infinity);
+    this.promptKey = '';
+    this.showPrompt(prompt, Infinity);
   }
 
   /**

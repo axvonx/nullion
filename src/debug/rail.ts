@@ -181,7 +181,7 @@ export function mountRail(h: DebugHooks) {
   add('day', 'Play a sample day: seven answers, dives, reactions, then the end-of-day replay', 'var(--ok)', () => {
     cancel();
     h.scene.setTarget(0, true);
-    h.hud.demoBegin('name_a(type_of_lock)', 'Name a type of lock');
+    h.hud.demoBegin('Name a type of lock');
     let depth = 0;
     let t = 900;
     for (const { tier, name } of SAMPLE_DAY) {
@@ -217,7 +217,7 @@ export function mountRail(h: DebugHooks) {
     const layer = LAYERS.find((l) => FORM_BY_LAYER[l.id] === form);
     if (!layer) throw new Error(`rail: no layer uses form '${form}'`);
     h.scene.setTarget(layer.from + 0.5);
-    if (!h.hud.showsPrompt) h.hud.demoBegin('name_a(type_of_lock)', 'Name a type of lock');
+    if (!h.hud.showsPrompt) h.hud.demoBegin('Name a type of lock');
     formBtn.dataset.tip = `Console form: ${FORM_NAMES[form]} (${formIdx + 1}/${FORM_IDS.length})`;
   });
 
