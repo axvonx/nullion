@@ -49,7 +49,6 @@ async function boot() {
     hud.setGame(game, formatLocalDate(date));
     hud.setScrollMode(s.mode === 'scroll');
     scene.setTarget(0, true);
-    if (s.mode === 'play') game.start(performance.now());
   };
 
   // A preference change applies to the game in progress; it never restarts the day.

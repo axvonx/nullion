@@ -31,7 +31,13 @@ class FakeScene {
   vignette: boolean[] = [];
   holds: boolean[] = [];
   dives: { to: number; tier: string; frames: number }[] = [];
+  introDives = 0;
   onLayerChange: unknown;
+  introDive() {
+    this.introDives++;
+  }
+  triggerTitleGlitch() {}
+  clearTitleGlitches() {}
   setVignette(on: boolean) {
     this.vignette.push(on);
   }
@@ -317,5 +323,55 @@ describe('console layout', () => {
     const h = setup();
     const secs = h.$('[data-el="secs"]');
     expect(secs.parentElement?.classList.contains('prompt-line')).toBe(true);
+  });
+});
+
+describe('title screen', () => {
+  it('shows while the game is ready and dives into round 1 on "Unwind the stack"', () => {
+    document.body.innerHTML = '<div id="app"></div>';
+    const mount = document.getElementById('app')!;
+    const hud = new Hud(mount);
+    const scene = new FakeScene();
+    let now = 0;
+    hud.bind(scene as unknown as Scene, () => now);
+    const game = new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
+    hud.setGame(game, '2026-11-26');
+    hud.update(now, 0);
+
+    const title = mount.querySelector<HTMLElement>('[data-el="titleScreen"]')!;
+    const startBtn = mount.querySelector<HTMLButtonElement>('[data-el="titleStart"]')!;
+    expect(game.phase.kind).toBe('ready');
+    expect(title.hidden).toBe(false);
+    expect(mount.classList.contains('on-title')).toBe(true);
+    expect(startBtn.textContent).toContain('Unwind the stack');
+    expect(mount.querySelector('.title-logo')).not.toBeNull();
+
+    // Toggling the tier guide opens and closes it.
+    const howBtn = mount.querySelector<HTMLButtonElement>('[data-el="titleHowBtn"]')!;
+    const how = mount.querySelector<HTMLElement>('[data-el="titleHow"]')!;
+    expect(how.hidden).toBe(true);
+    howBtn.click();
+    expect(how.hidden).toBe(false);
+    expect(mount.querySelectorAll('.title-tiers li')).toHaveLength(7);
+
+    // Clicking "Unwind the stack" triggers the intro dive and starts round 1.
+    startBtn.click();
+    expect(game.phase.kind).toBe('reading');
+    expect(scene.introDives).toBe(1);
+    expect(mount.classList.contains('on-title')).toBe(false);
+  });
+
+  it('hides in scroll mode', () => {
+    document.body.innerHTML = '<div id="app"></div>';
+    const mount = document.getElementById('app')!;
+    const hud = new Hud(mount);
+    const scene = new FakeScene();
+    hud.bind(scene as unknown as Scene, () => 0);
+    const game = new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
+    hud.setGame(game, '2026-11-26');
+    hud.setScrollMode(true);
+    hud.update(0, 0);
+
+    expect(mount.classList.contains('on-title')).toBe(false);
   });
 });

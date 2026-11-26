@@ -7,10 +7,11 @@ import { LAYER_ART_DETAILED, SEAM_ART, SEAM_H } from './art-detailed';
 import { LAYER_ART_V3, PROP_SPOTS } from './art-v3';
 import { ENTITY_SPOTS, LAYER_ART_V4, ensureWorldV4 } from './art-v4';
 import type { WorldSpecV4 } from './v4/world';
-import { LAYER_PALETTE, quantizeRow, snapColor } from './palettes';
+import { LAYER_PALETTE, quantizeRow, snapColor, type PaletteMode } from './palettes';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
 import { CASCADE, LEAD_MS, NO_REACTION, NPE_MS, REACTION_MS, WOMM, reactionFrame, type ReactionFrame } from './reaction-fx';
 import { CURSOR_FRAC, FORM_BY_LAYER, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
+import { drawMiniNullion, type TitleGlitchEvent } from '../ui/title-logo';
 
 export { pixelScale } from './cursor-geom';
 
@@ -204,6 +205,22 @@ export class Scene {
   private bubbles: { x: number; y: number; age: number }[] = [];
   private vignette = { on: false, at: -Infinity };
   private rain: { y: number; speed: number }[] = [];
+  /** Active title-screen glitch echoes reflected in the live world behind the wordmark. */
+  private titleBurst: (TitleGlitchEvent & { start: number }) | undefined;
+  private titleGhosts: {
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    fill: string;
+    outline: string;
+    pxSize: 1 | 2;
+    flipped: boolean;
+    start: number;
+    dur: number;
+  }[] = [];
+  private titleDrips: { x: number; y: number; vy: number; color: string; start: number; dur: number }[] = [];
+  private titleHex: { x: number; y: number; text: string; start: number; dur: number }[] = [];
 
   onLayerChange: ((layer: Layer) => void) | undefined;
 
@@ -403,6 +420,113 @@ export class Scene {
       const w = Math.round(this.W * (0.28 + hash(seed) * 0.2));
       const h = Math.round(this.H * (0.18 + hash(seed + 1) * 0.15));
       this.npeRect = [Math.round(hash(seed + 2) * (this.W - w)), Math.round(hash(seed + 3) * (this.H - h)), w, h];
+    }
+  }
+
+  /**
+   * Reflect a title-screen wordmark glitch into the live background sky: mini "nullion" ghosts,
+   * drifting pixels, hex tags, localized palette drops, tears, voids, and prop shudders.
+   */
+  triggerTitleGlitch(ev: TitleGlitchEvent) {
+    if (reducedMotion() || this.W === 0) return;
+    const now = performance.now();
+    this.titleBurst = { ...ev, start: now };
+    const { W, H } = this;
+    const cx = Math.round(W / 2);
+
+    // Spawn small drifting "nullion" ghost clones in the sky for mini-ghosts, leak, stack-echo, and occasionally bitflip.
+    if (ev.kind === 'mini-ghosts' || ev.kind === 'leak' || ev.kind === 'stack-echo' || (ev.kind === 'bitflip' && hash(ev.seed) > 0.45)) {
+      const count = ev.kind === 'mini-ghosts' ? 4 : ev.kind === 'leak' ? 2 : 1;
+      const fills = ['#ebe6d6', '#5fd3e0', '#ffb000', '#c58bff', '#8cff9c', '#ff6ad5'];
+      for (let k = 0; k < count; k++) {
+        const s = ev.seed + k * 29;
+        const pxSize: 1 | 2 = hash(s + 1) > 0.72 ? 2 : 1;
+        const w = 28 * pxSize;
+        // Scatter around the sky, favouring the left/right flanks and upper-mid sky around the title.
+        let gx = Math.round(8 + hash(s + 2) * Math.max(8, W - w - 16));
+        let gy = Math.round(14 + hash(s + 3) * Math.max(12, H * 0.72));
+        if (ev.kind === 'stack-echo') {
+          gx = Math.max(6, Math.min(W - w - 6, cx - Math.round(w / 2) + Math.round((hash(s + 4) - 0.5) * 30)));
+          gy = Math.max(12, this.cursorY - 26 + k * 14);
+        }
+        this.titleGhosts.push({
+          x: gx,
+          y: gy,
+          vx: (hash(s + 5) - 0.5) * 14,
+          vy: 5 + hash(s + 6) * 12,
+          fill: fills[Math.floor(hash(s + 7) * fills.length)]!,
+          outline: '#0d0b12',
+          pxSize,
+          flipped: ev.kind === 'bitflip' || hash(s + 8) > 0.55,
+          start: now,
+          dur: 1100 + hash(s + 9) * 900,
+        });
+      }
+      if (this.titleGhosts.length > 12) this.titleGhosts.splice(0, this.titleGhosts.length - 12);
+    }
+
+    if (ev.kind === 'pixel-rain') {
+      const colors = ['#ebe6d6', '#5fd3e0', '#ffb000', '#ffffff'];
+      for (let k = 0; k < 14; k++) {
+        const s = ev.seed + k * 13;
+        this.titleDrips.push({
+          x: Math.round(cx + (hash(s + 1) - 0.5) * Math.min(W * 0.7, 160)),
+          y: Math.max(6, this.cursorY - 45 + Math.round(hash(s + 2) * 28)),
+          vy: 28 + hash(s + 3) * 36,
+          color: colors[k % colors.length]!,
+          start: now,
+          dur: 700 + hash(s + 4) * 500,
+        });
+      }
+      if (this.titleDrips.length > 28) this.titleDrips.splice(0, this.titleDrips.length - 28);
+    }
+
+    if (ev.kind === 'hex-corrupt') {
+      const addrs = ['0x0000', '0x7F00', '0xDEAD', '0xNULL', '0xFF01', '0x0007', '0xCAFE'];
+      for (let k = 0; k < 2; k++) {
+        const s = ev.seed + k * 31;
+        this.titleHex.push({
+          x: Math.round(12 + hash(s + 1) * Math.max(10, W - 56)),
+          y: Math.round(18 + hash(s + 2) * Math.max(12, H * 0.7)),
+          text: addrs[Math.floor(hash(s + 3) * addrs.length)]!,
+          start: now,
+          dur: 720,
+        });
+      }
+      if (this.titleHex.length > 6) this.titleHex.splice(0, this.titleHex.length - 6);
+    }
+
+    if (ev.kind === 'stack-echo') {
+      this.swayAmp = Math.max(this.swayAmp, 0.35);
+    }
+  }
+
+  /** Clear any active title-screen background artifacts (called when diving into round 1 or entering scroll mode). */
+  clearTitleGlitches() {
+    this.titleBurst = undefined;
+    this.titleGhosts.length = 0;
+    this.titleDrips.length = 0;
+    this.titleHex.length = 0;
+  }
+
+  /**
+   * Title-screen plunge: when the player presses "Unwind the stack", the cursor dips into Application with a
+   * brief sway and a few rising bubbles, then settles back to depth 0. No-op under reduced motion.
+   */
+  introDive() {
+    this.clearTitleGlitches();
+    if (reducedMotion()) return;
+    this.depth = 0.7;
+    this.cam = 0;
+    this.target = 0;
+    this.swayAmp = 0.9;
+    const cx = Math.round(this.W / 2);
+    for (let i = 0; i < 5; i++) {
+      this.bubbles.push({
+        x: cx + Math.round((hash(i * 17 + 3) - 0.5) * 14),
+        y: this.cursorY + Math.round(hash(i * 23 + 7) * 10),
+        age: i * 0.08,
+      });
     }
   }
 
@@ -640,6 +764,9 @@ export class Scene {
     // It sits under the vignette and the cursor: the mascot's own reaction always plays in front.
     this.drawReactionFx(now, act, rel, reduced);
 
+    // 3c. Title-screen background reflections: mini "nullion" ghosts, localized palette drops, tears, voids, drips.
+    this.drawTitleGlitches(now, dt, reduced);
+
     // 4. Cursor: it sways as it sinks and settles when it arrives; static under reduced motion.
     const speed = Math.abs(this.target - this.depth);
     const want = reduced ? 0 : Math.min(1, speed / 2);
@@ -808,6 +935,151 @@ export class Scene {
       });
     }
     ctx.globalAlpha = 1;
+  }
+
+  /**
+   * Title-screen background reflections: draws mini "nullion" ghost clones, pixel drips, hex tags,
+   * localized palette drops, horizontal tears, NPE voids, localized bit-flip patches, and prop shudders.
+   */
+  private drawTitleGlitches(now: number, dt: number, reduced: boolean) {
+    if (reduced) {
+      this.clearTitleGlitches();
+      return;
+    }
+    const ctx = this.ctx;
+    const { W, H } = this;
+
+    // 1. Active burst effects on the live sky canvas
+    const b = this.titleBurst;
+    if (b && now - b.start >= b.dur) this.titleBurst = undefined;
+    if (this.titleBurst) {
+      const tb = this.titleBurst;
+      const p = (now - tb.start) / tb.dur;
+      switch (tb.kind) {
+        case 'race':
+        case 'off-by-one': {
+          // Jiggle or shift a handful of background props in sympathy with the title.
+          this.scratchCtx.drawImage(this.canvas, 0, 0);
+          const count = tb.kind === 'race' ? 14 : 5;
+          const rects = this.entities(tb.seed, count);
+          rects.forEach(([x, y, w, h], i) => {
+            const dx =
+              tb.kind === 'race'
+                ? Math.round(Math.sin(now / 38 + i * 1.9) * 2.2)
+                : hash(tb.seed + i) > 0.5
+                  ? 1
+                  : -1;
+            const dy = tb.kind === 'race' ? Math.round(Math.cos(now / 44 + i * 2.3) * 1.4) : 0;
+            if (dx || dy) ctx.drawImage(this.scratch, x, y, w, h, x + dx, y + dy, w, h);
+          });
+          break;
+        }
+        case 'heisenbug':
+        case 'crt-warp': {
+          // Horizontal scanline tear slices across the sky.
+          this.scratchCtx.drawImage(this.canvas, 0, 0);
+          const slices = tb.kind === 'crt-warp' ? 4 : 2;
+          for (let k = 0; k < slices; k++) {
+            const sy = Math.floor(hash(tb.seed + k * 7) * (H - 12));
+            const sh = 2 + Math.floor(hash(tb.seed + k * 7 + 1) * 7);
+            const dx = Math.round(Math.sin(p * Math.PI * 2 + k) * (tb.kind === 'crt-warp' ? 6 : 9));
+            ctx.drawImage(this.scratch, 0, sy, W, sh, dx, sy, W, sh);
+          }
+          break;
+        }
+        case 'npe': {
+          // A small pixel-aligned void rectangle opens in the sky.
+          const rw = Math.round(W * (0.12 + hash(tb.seed + 1) * 0.14));
+          const rh = Math.round(H * (0.08 + hash(tb.seed + 2) * 0.1));
+          const rx = Math.round(hash(tb.seed + 3) * Math.max(1, W - rw));
+          const ry = Math.round(hash(tb.seed + 4) * Math.max(1, H - rh));
+          ctx.fillStyle = '#000000';
+          ctx.fillRect(rx, ry, rw, rh);
+          ctx.fillStyle = '#8fb7ff';
+          ctx.fillRect(rx, ry, Math.min(10, rw), 1);
+          break;
+        }
+        case 'bitflip': {
+          // Localized pixel-aligned inverted patch (clean single hold, never full-screen strobing).
+          const rw = Math.round(W * (0.14 + hash(tb.seed + 1) * 0.16));
+          const rh = Math.round(H * (0.08 + hash(tb.seed + 2) * 0.1));
+          const rx = Math.round(hash(tb.seed + 3) * Math.max(1, W - rw));
+          const ry = Math.round(hash(tb.seed + 4) * Math.max(1, H - rh));
+          if (rw > 0 && rh > 0) {
+            const img = ctx.getImageData(rx, ry, rw, rh);
+            const d = img.data;
+            for (let i = 0; i < d.length; i += 4) {
+              d[i] = 255 - d[i]!;
+              d[i + 1] = 255 - d[i + 1]!;
+              d[i + 2] = 255 - d[i + 2]!;
+            }
+            ctx.putImageData(img, rx, ry);
+            ctx.strokeStyle = '#ffe25a';
+            ctx.strokeRect(rx + 0.5, ry + 0.5, rw - 1, rh - 1);
+          }
+          break;
+        }
+        case 'palette-drop': {
+          // Foreshadow deeper layers: a horizontal band of the sky drops color depth cleanly.
+          const mode: PaletteMode = tb.palette ?? 'cga4';
+          const bh = Math.round(H * 0.24);
+          const y0 = Math.max(0, Math.min(H - bh, Math.round(hash(tb.seed + 1) * (H - bh))));
+          if (bh > 0) {
+            const img = ctx.getImageData(0, y0, W, bh);
+            for (let y = 0; y < bh; y++) quantizeRow(img.data, y * W * 4, W, y0 + y, mode, true);
+            ctx.putImageData(img, 0, y0);
+          }
+          break;
+        }
+        case 'cursor-overwrite': {
+          // A subtle horizontal terminal scan bar sweeps across a strip of the sky.
+          const barY = Math.round(p * H);
+          ctx.fillStyle = 'rgba(255, 176, 0, 0.28)';
+          ctx.fillRect(0, barY, W, 2);
+          break;
+        }
+        default:
+          break;
+      }
+    }
+
+    // 2. Drifting mini "nullion" ghost variants in the sky
+    this.titleGhosts = this.titleGhosts.filter((g) => now - g.start < g.dur);
+    for (const g of this.titleGhosts) {
+      g.x += g.vx * dt;
+      g.y += g.vy * dt;
+      const p = (now - g.start) / g.dur;
+      const a = p < 0.15 ? (p / 0.15) * 0.72 : 0.72 * (1 - (p - 0.15) / 0.85);
+      drawMiniNullion(ctx, g.x, g.y, g.fill, g.outline, Math.max(0, a), g.pxSize, g.flipped);
+    }
+
+    // 3. Detached falling pixels (pixel-rain)
+    this.titleDrips = this.titleDrips.filter((d) => now - d.start < d.dur);
+    for (const d of this.titleDrips) {
+      d.y += d.vy * dt;
+      const a = 1 - (now - d.start) / d.dur;
+      ctx.globalAlpha = Math.max(0, a);
+      ctx.fillStyle = '#000';
+      ctx.fillRect(Math.round(d.x) + 1, Math.round(d.y) + 1, 2, 2);
+      ctx.fillStyle = d.color;
+      ctx.fillRect(Math.round(d.x), Math.round(d.y), 2, 2);
+    }
+    ctx.globalAlpha = 1;
+
+    // 4. Floating hex addresses (hex-corrupt)
+    this.titleHex = this.titleHex.filter((h) => now - h.start < h.dur);
+    if (this.titleHex.length) {
+      ctx.font = FONT;
+      for (const h of this.titleHex) {
+        const a = Math.sin(((now - h.start) / h.dur) * Math.PI) * 0.85;
+        ctx.globalAlpha = Math.max(0, a);
+        ctx.fillStyle = '#000';
+        ctx.fillText(h.text, h.x + 1, h.y + 1);
+        ctx.fillStyle = '#7ee0a1';
+        ctx.fillText(h.text, h.x, h.y);
+      }
+      ctx.globalAlpha = 1;
+    }
   }
 
   /** "+N frames" and replay labels: pop off the cursor, float up and fade (only fade under reduced motion). */

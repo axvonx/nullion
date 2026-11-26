@@ -1,5 +1,5 @@
-import { MAX_DEPTH, layerAt, type Layer, type LayerId } from '../core/layers';
-import { TIERS, type TierId } from '../core/tiers';
+import { MAX_DEPTH, PROMPTS_PER_DAY, layerAt, type Layer, type LayerId } from '../core/layers';
+import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
 import { look, reducedMotion } from '../looks';
 import type { Scene } from '../render/scene';
@@ -7,6 +7,7 @@ import { FORMS, FORM_BY_LAYER, serialStamp, type FormId } from './forms';
 import { tierIcon } from './tier-icons';
 import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
+import { TitleLogo } from './title-logo';
 
 const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
   const el = root.querySelector<T>(sel);
@@ -96,6 +97,9 @@ export class Hud {
   private ended = false;
   private shareText = '';
   private demo = false;
+  private titleLogo: TitleLogo;
+  private titleOpen = false;
+  private titleTimer = 0;
 
   /**
    * Debug hooks. `watchdogOverride` shows this share of time left instead of the game's (the rail's timer demo);
@@ -112,6 +116,23 @@ export class Hud {
         <span class="bar-left" data-el="barLeft"><span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span></span>
         <span class="chip depth float" data-el="depth"></span>
       </header>
+      <section class="title-screen" data-el="titleScreen" aria-label="Nullion" hidden>
+        <div class="title-head" data-el="titleHead"></div>
+        <div class="title-foot">
+          <p class="title-tag">Seven prompts a day. Rarer answers descend deeper into the stack.</p>
+          <div class="title-meta" data-el="titleMeta"></div>
+          <button type="button" class="title-start" data-el="titleStart"><span>Unwind the stack</span><span class="title-arrow" aria-hidden="true">▾</span></button>
+          <button type="button" class="title-how-btn" data-el="titleHowBtn" aria-expanded="false" aria-controls="title-how">How tiers work</button>
+        </div>
+        <div id="title-how" class="title-how" data-el="titleHow" role="dialog" aria-label="How tiers work" hidden>
+          <div class="title-how-bar">
+            <span class="title-how-title">Tiers · stack frames</span>
+            <button type="button" class="title-how-close" data-el="titleHowClose" aria-label="Close">×</button>
+          </div>
+          <p class="title-how-note">Wrong guesses cost nothing but time. Harder-to-reproduce answers descend deeper:</p>
+          <ol class="title-tiers" data-el="titleTiers"></ol>
+        </div>
+      </section>
       <section class="console panel float" data-el="console" aria-label="Prompt">
         <div class="titlebar" data-el="titlebar"><span class="title-text" data-el="titleText"></span><span class="close" aria-hidden="true">x</span></div>
         <div class="watchdog" data-el="watchdogWrap"><div class="watchdog-fill" data-el="watchdog"></div></div>
@@ -148,7 +169,27 @@ export class Hud {
     this.canvas = $(mount, 'canvas');
     this.input = $(mount, '#guess');
     this.els = Object.fromEntries([...mount.querySelectorAll<HTMLElement>('[data-el]')].map((e) => [e.dataset.el!, e]));
+    this.titleLogo = new TitleLogo();
+    this.els.titleHead!.append(this.titleLogo.canvas);
+    this.buildTitleTiers();
     mountPrefsMenu(mount, this.els.barLeft!);
+  }
+
+  private buildTitleTiers() {
+    const ol = this.els.titleTiers!;
+    ol.replaceChildren();
+    for (const id of TIER_IDS) {
+      const t = TIERS[id];
+      const li = document.createElement('li');
+      const name = document.createElement('span');
+      name.className = `tt-name tier-${t.id}`;
+      name.textContent = t.name;
+      const frames = document.createElement('span');
+      frames.className = 'tt-frames';
+      frames.textContent = `+${t.frames}`;
+      li.append(tierIcon(t.id), name, frames);
+      ol.append(li);
+    }
   }
 
   get canvasEl() {
@@ -197,6 +238,28 @@ export class Hud {
     // "Unwind further": close the reveal and move the game on (the next prompt, or the end-of-day card).
     this.els.rvNext!.addEventListener('click', () => this.unwind(now()));
 
+    // Title screen: "Unwind the stack" dives into round 1. Hovering or clicking the logo triggers a glitch pulse.
+    this.titleLogo.onBurst = (ev) => scene.triggerTitleGlitch(ev);
+    this.els.titleStart!.addEventListener('click', () => this.startFromTitle(now()));
+    this.els.titleStart!.addEventListener('pointerenter', () => this.titleLogo.pulse('bitflip'));
+    this.titleLogo.canvas.addEventListener('click', () => this.titleLogo.pulse());
+    const setHowOpen = (open: boolean) => {
+      this.els.titleHow!.hidden = !open;
+      this.els.titleHowBtn!.setAttribute('aria-expanded', String(open));
+      this.els.titleHowBtn!.textContent = open ? 'Hide tiers' : 'How tiers work';
+    };
+    this.els.titleHowBtn!.addEventListener('click', () => setHowOpen(this.els.titleHow!.hidden !== false));
+    this.els.titleHowClose!.addEventListener('click', () => {
+      setHowOpen(false);
+      this.els.titleHowBtn!.focus();
+    });
+    window.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape' && !this.els.titleHow!.hidden) {
+        setHowOpen(false);
+        this.els.titleHowBtn!.focus();
+      }
+    });
+
     // Scroll-only mode: free movement through the stack.
     const nudge = (d: number) => scene.setTarget(Math.min(MAX_DEPTH + 4, Math.max(0, scene.displayDepth + d)));
     window.addEventListener(
@@ -234,12 +297,84 @@ export class Hud {
     this.els.landed!.textContent = '';
     this.els.metaText!.textContent = `#${g.puzzle}`;
     this.els.meta!.title = `Puzzle #${g.puzzle} · ${dateLabel}`;
+    const timerText = g.opts.timer ? `${Math.round(ANSWER_MS / 1000)}s each` : 'untimed';
+    this.els.titleMeta!.textContent = `Puzzle #${g.puzzle} · ${dateLabel} · ${PROMPTS_PER_DAY} prompts · ${timerText}`;
+    this.els.titleHow!.hidden = true;
+    this.els.titleHowBtn!.setAttribute('aria-expanded', 'false');
+    this.els.titleHowBtn!.textContent = 'How tiers work';
+    this.entranceBooted = false;
+    this.syncTitle();
   }
 
   setScrollMode(on: boolean) {
     this.scrollMode = on;
     this.root.classList.toggle('scroll-mode', on);
     this.els.scrollHint!.hidden = !on;
+    this.syncTitle();
+  }
+
+  private startFromTitle(now: number) {
+    const g = this.game;
+    if (!g || g.phase.kind !== 'ready') return;
+    this.hideTitle();
+    this.scene?.introDive();
+    g.start(now);
+    this.onPhaseChange();
+    this.entranceBooted = true;
+    this.enterLayer(layerAt(0));
+  }
+
+  private syncTitle() {
+    const want = this.game?.phase.kind === 'ready' && !this.scrollMode && !this.demo;
+    if (want) this.showTitle();
+    else this.hideTitle();
+  }
+
+  private showTitle() {
+    clearTimeout(this.titleTimer);
+    const el = this.els.titleScreen!;
+    this.positionTitle();
+    el.classList.remove('out');
+    el.hidden = false;
+    this.root.classList.add('on-title');
+    if (!this.titleOpen) {
+      this.titleOpen = true;
+      this.titleLogo.start();
+      this.els.titleStart!.focus({ preventScroll: true });
+    }
+  }
+
+  private hideTitle() {
+    this.root.classList.remove('on-title');
+    if (!this.titleOpen) {
+      this.els.titleScreen!.hidden = true;
+      return;
+    }
+    this.titleOpen = false;
+    this.titleLogo.stop();
+    this.scene?.clearTitleGlitches();
+    this.els.titleHow!.hidden = true;
+    const el = this.els.titleScreen!;
+    el.classList.add('out');
+    clearTimeout(this.titleTimer);
+    this.titleTimer = window.setTimeout(() => {
+      el.hidden = true;
+      el.classList.remove('out');
+    }, 220);
+  }
+
+  /** Frame the live cursor's bracket mark between the pixel wordmark above and the CTA below. */
+  private positionTitle() {
+    const scene = this.scene;
+    if (!scene) return;
+    const mark = scene.markCss();
+    const vh = window.innerHeight || 800;
+    const gap = Math.max(14, Math.min(28, Math.round(vh * 0.03)));
+    const logoBottom = Math.max(vh * 0.56, vh - (mark.top - gap));
+    const footTop = Math.min(vh * 0.52, mark.bottom + gap);
+    const st = this.els.titleScreen!.style;
+    st.setProperty('--logo-bottom', `${Math.round(logoBottom)}px`);
+    st.setProperty('--foot-top', `${Math.round(footTop)}px`);
   }
 
   /** The game's phase changed: the console settles into its new content. */
@@ -249,7 +384,9 @@ export class Hud {
 
   /** Per-frame refresh of the timed parts, the console's form and the panels' float. */
   update(now: number, depthShown: number) {
-    if (!this.entranceBooted) {
+    this.syncTitle();
+    if (this.titleOpen) this.positionTitle();
+    if (!this.entranceBooted && !this.titleOpen) {
       this.entranceBooted = true;
       this.enterLayer(layerAt(depthShown));
     }
@@ -692,6 +829,7 @@ export class Hud {
   /** Show a prompt in the console without a running round, even in scroll mode. */
   demoBegin(call: string, prompt: string) {
     this.demo = true;
+    this.syncTitle();
     this.demoCall = call;
     this.demoPrompt = prompt;
     this.root.classList.add('demo');
