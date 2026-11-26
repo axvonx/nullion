@@ -126,8 +126,8 @@ function easeOutBack(p: number): number {
 const easeOutCubic = (p: number) => 1 - (1 - p) ** 3;
 
 const VIGNETTE_MS = 220;
-/** The reveal's dim, outermost band to innermost: cumulative darkness. */
-const VIGNETTE_STEPS = [0.3, 0.5, 0.68, 0.8, 0.88, 0.93];
+/** The reveal's blocky dim bands, outermost to innermost: cumulative darkness. */
+const VIGNETTE_STEPS = [0.54, 0.74, 0.88];
 
 
 
@@ -370,25 +370,63 @@ export class Scene {
     const k = reduced ? 1 : Math.min(1, (now - v.at) / VIGNETTE_MS);
     const a = v.on ? k : 1 - k;
     if (a <= 0) return;
-    // Pixel-art dim: concentric hard-edged bands with stepped corners, on the scene's pixel grid, darkest in the
-    // middle (the palette pass dithers each band). Centred on the cursor: the name sits above it, details below.
+
     const ctx = this.ctx;
-    const cx = Math.round(this.W / 2);
-    const cy = this.cursorY;
-    const rx = Math.min(Math.round(this.W * 0.62), 210);
-    const ry = Math.round(this.H * 0.3);
+    const { W, H } = this;
+
+    // 1. Grayscale + blocky mosaic pixelation on the entire background behind the cursor and reveal text.
+    const bs = reduced ? 4 : a < 0.35 ? 2 : a < 0.7 ? 3 : 4;
+    const img = ctx.getImageData(0, 0, W, H);
+    const d = img.data;
+    for (let by = 0; by < H; by += bs) {
+      const sy = Math.min(H - 1, by + (bs >> 1));
+      const yEnd = Math.min(H, by + bs);
+      for (let bx = 0; bx < W; bx += bs) {
+        const sx = Math.min(W - 1, bx + (bs >> 1));
+        const si = (sy * W + sx) * 4;
+        const r = d[si]!;
+        const g = d[si + 1]!;
+        const b = d[si + 2]!;
+        const lum = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
+        const nr = Math.round(r + (lum - r) * a);
+        const ng = Math.round(g + (lum - g) * a);
+        const nb = Math.round(b + (lum - b) * a);
+        const xEnd = Math.min(W, bx + bs);
+        for (let y = by; y < yEnd; y++) {
+          let idx = (y * W + bx) * 4;
+          for (let x = bx; x < xEnd; x++, idx += 4) {
+            d[idx] = nr;
+            d[idx + 1] = ng;
+            d[idx + 2] = nb;
+          }
+        }
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+
+    // 2. Crisp blocked-out rectangular vignette (zero round corners), aligned to the 4px mosaic grid.
+    const snap = (n: number) => Math.round(n / 4) * 4;
+    const cx = snap(W / 2);
+    const cy = snap(this.cursorY);
+    const rx = snap(Math.min(Math.round(W * 0.56), 204));
+    const ry = snap(Math.round(H * 0.29));
+
+    // Light full-screen dim so the pixelated grayscale world recedes cleanly.
+    const baseDim = 0.26 * a;
+    ctx.fillStyle = `rgba(0,0,0,${baseDim.toFixed(3)})`;
+    ctx.fillRect(0, 0, W, H);
+
+    let below = baseDim;
     const steps = VIGNETTE_STEPS.length;
-    let below = 0;
-    VIGNETTE_STEPS.forEach((target, k) => {
+    VIGNETTE_STEPS.forEach((target, idx) => {
       const want = target * a;
-      // Each band adds just enough to reach its target darkness over the bands outside it.
-      const add = below >= 1 ? 0 : 1 - (1 - want) / (1 - below);
+      const add = below >= 1 ? 0 : Math.max(0, 1 - (1 - want) / (1 - below));
       below = want;
-      const hw = Math.round(rx * (1 - k / steps));
-      const hh = Math.round(ry * (1 - k / steps));
-      const c = Math.max(2, Math.round(Math.min(hw, hh) * 0.35));
-      ctx.fillStyle = `rgba(0,0,0,${Math.max(0, add).toFixed(3)})`;
-      steppedRect(ctx, cx - hw, cy - hh, hw * 2, hh * 2, c);
+      const frac = 1 - idx * (0.22 / Math.max(1, steps - 1));
+      const hw = snap(rx * frac);
+      const hh = snap(ry * frac);
+      ctx.fillStyle = `rgba(0,0,0,${add.toFixed(3)})`;
+      ctx.fillRect(cx - hw, cy - hh, hw * 2, hh * 2);
     });
   }
 
@@ -1254,19 +1292,18 @@ export class Scene {
     // Every cursor form shares one box: centred on the glyph, except a short glyph (the underscore) sits at the
     // bottom of the box, the way it sits at the bottom of a text cell.
     const { cx, cy } = markCenter(spr, x, y);
-    const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 16);
-    g.addColorStop(0, 'rgba(0,0,0,0.85)');
-    g.addColorStop(0.55, 'rgba(0,0,0,0.55)');
-    g.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = g;
-    ctx.fillRect(cx - 16, cy - 16, 32, 32);
+    const breathe = reduced ? 0 : Math.round((Math.sin(now / 420) + 1) / 2);
+    const rx = MARK_RX + breathe;
+    const ry = MARK_RY + breathe;
+    // Crisp blocked-out dark backing matching the square corner brackets (no round radial halo).
+    ctx.fillStyle = 'rgba(0,0,0,0.45)';
+    ctx.fillRect(cx - rx - 2, cy - ry - 2, (rx + 2) * 2, (ry + 2) * 2);
+    ctx.fillStyle = 'rgba(0,0,0,0.72)';
+    ctx.fillRect(cx - rx, cy - ry, rx * 2, ry * 2);
     // Amber where the palette has colour; the brightest level where it's a single-hue ramp.
     const pal = LAYER_PALETTE[layerId];
     const perLayer = look('palette') === 'per-layer';
     const amber = !perLayer ? '#ffb000' : pal === 'green' || pal === 'gray' || pal === 'onebit' ? snapColor('#ffffff', pal) : snapColor('#ffb000', pal);
-    const breathe = reduced ? 0 : Math.round((Math.sin(now / 420) + 1) / 2);
-    const rx = MARK_RX + breathe;
-    const ry = MARK_RY + breathe;
     for (const [sx, sy] of [[-1, -1], [1, -1], [-1, 1], [1, 1]] as const) {
       const bx = cx + sx * rx;
       const by = cy + sy * ry;
@@ -1337,34 +1374,6 @@ function ditherFadeMask(w: number): HTMLCanvasElement {
     }
   }
   return c;
-}
-
-/** A filled rectangle whose corners are cut in two pixel steps (a chunky rounded rectangle, no antialiasing). */
-function steppedRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: number) {
-  const h2 = Math.round(c / 2);
-  ctx.beginPath();
-  ctx.moveTo(x + c, y);
-  ctx.lineTo(x + w - c, y);
-  ctx.lineTo(x + w - c, y + h2);
-  ctx.lineTo(x + w - h2, y + h2);
-  ctx.lineTo(x + w - h2, y + c);
-  ctx.lineTo(x + w, y + c);
-  ctx.lineTo(x + w, y + h - c);
-  ctx.lineTo(x + w - h2, y + h - c);
-  ctx.lineTo(x + w - h2, y + h - h2);
-  ctx.lineTo(x + w - c, y + h - h2);
-  ctx.lineTo(x + w - c, y + h);
-  ctx.lineTo(x + c, y + h);
-  ctx.lineTo(x + c, y + h - h2);
-  ctx.lineTo(x + h2, y + h - h2);
-  ctx.lineTo(x + h2, y + h - c);
-  ctx.lineTo(x, y + h - c);
-  ctx.lineTo(x, y + c);
-  ctx.lineTo(x + h2, y + c);
-  ctx.lineTo(x + h2, y + h2);
-  ctx.lineTo(x + c, y + h2);
-  ctx.closePath();
-  ctx.fill();
 }
 
 function resetCtx(ctx: CanvasRenderingContext2D) {
