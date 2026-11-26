@@ -23,11 +23,12 @@ describe('CritterSystem (System Biosphere)', () => {
     const sys = new CritterSystem();
     sys.ensureSeed(7);
 
+    const mockSpots = [30, 60, 24, 14, 120, 90, 26, 16, 210, 75, 22, 14, 270, 110, 20, 12];
     for (const l of LAYERS) {
       const { ctx, rects } = fakeCtx();
       const calls: CritterCall[] = [];
       for (let t = 0.5; t <= 12; t += 0.5) {
-        sys.drawBand(ctx, l.id, makeBand(t), true, (ev) => calls.push(ev));
+        sys.drawBand(ctx, l.id, makeBand(t), true, (ev) => calls.push(ev), mockSpots);
       }
       expect(rects()).toBeGreaterThan(0);
       if (l.id === 'ring-2') {

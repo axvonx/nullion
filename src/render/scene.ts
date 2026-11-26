@@ -838,7 +838,14 @@ export class Scene {
       ctx.clip();
       art[LAYERS[i]!.id](ctx, b);
       if (detailed) {
-        this.critters.drawBand(ctx, LAYERS[i]!.id, b, i === layerIdx && !worldFrozen, (ev) => sound.playCritter(ev.layer, ev.pan));
+        this.critters.drawBand(
+          ctx,
+          LAYERS[i]!.id,
+          b,
+          i === layerIdx && !worldFrozen,
+          (ev) => sound.playCritter(ev.layer, ev.pan),
+          ENTITY_SPOTS,
+        );
       }
       ctx.restore();
     }

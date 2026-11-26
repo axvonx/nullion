@@ -385,9 +385,9 @@ export class SoundEngine {
 
   private ambienceLevel(layer: LayerId): number {
     if (layer === 'ring-2') return 0.0001;
-    if (layer === 'application') return 0.032;
-    if (layer === 'ring-3') return 0.038;
-    return 0.045;
+    if (layer === 'application') return 0.007;
+    if (layer === 'ring-3') return 0.008;
+    return 0.01;
   }
 
   private stopAmbience() {
