@@ -836,6 +836,7 @@ export class Scene {
       ctx.beginPath();
       ctx.rect(0, Math.max(0, b.top), W, Math.min(H, b.bottom) - Math.max(0, b.top));
       ctx.clip();
+      const spotStart = ENTITY_SPOTS.length;
       art[LAYERS[i]!.id](ctx, b);
       if (detailed) {
         this.critters.drawBand(
@@ -843,8 +844,9 @@ export class Scene {
           LAYERS[i]!.id,
           b,
           i === layerIdx && !worldFrozen,
-          (ev) => sound.playCritter(ev.layer, ev.pan),
+          (ev) => (ev.kind === 'exit' ? sound.playCritterExit(ev.layer, ev.pan) : sound.playCritter(ev.layer, ev.pan)),
           ENTITY_SPOTS,
+          spotStart,
         );
       }
       ctx.restore();

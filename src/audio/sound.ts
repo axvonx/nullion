@@ -19,8 +19,6 @@ import type { TitleGlitchKind } from '../ui/title-logo';
 export type VolumeLevel = 'low' | 'medium' | 'high';
 export type SoundMode = 'full' | 'sfx' | 'off';
 const VOLUME_GAIN: Record<VolumeLevel, number> = { low: 0.3, medium: 0.62, high: 0.95 };
-/** Pentatonic frequencies (C4..A5) for the subtle daily puzzle-seeded chiptune pulse. */
-const PENTATONIC = [261.63, 293.66, 329.63, 392.0, 440.0, 523.25, 587.33, 659.25, 783.99, 880.0] as const;
 
 export type Timbre = {
   wave: OscillatorType | 'pulse25' | 'pulse12';
@@ -156,8 +154,6 @@ export class SoundEngine {
   private ambienceEnabled = true;
   private duckUntil = 0;
   private duckTimer = 0;
-  private puzzleSeed = 1;
-  private pulseStep = 0;
   private lastEventAt = 0;
   private volume: VolumeLevel = 'medium';
   mode: SoundMode = 'full';
@@ -193,11 +189,8 @@ export class SoundEngine {
     this.setMode(on ? (this.mode === 'off' ? 'full' : this.mode) : 'off');
   }
 
-  /** Seed the subtle generative daily pentatonic pulse from today's puzzle number. */
-  setPuzzleSeed(seed: number) {
-    this.puzzleSeed = Math.max(1, Math.floor(Math.abs(seed)));
-    this.pulseStep = 0;
-  }
+  /** Seed retained for future daily audio variation. */
+  setPuzzleSeed(_seed: number) {}
 
   /** Automatically duck the ambience bed by ~10 dB while an active SFX/reaction/crossing plays. */
   private duckAmbience(durSec: number) {
@@ -226,6 +219,28 @@ export class SoundEngine {
     if (nowMs - this.lastEventAt < 1800) return;
     this.lastEventAt = nowMs;
     this.playAmbienceArtifact(this.ctx, layer);
+  }
+
+  /** Subtle exit micro-sound when a critter reaches the end of its lifespan (e.g. "GC'd!", "paged out!"). */
+  playCritterExit(layer: LayerId, pan: number) {
+    if (!this.ambienceEnabled || !this.enabled || this.ambienceFrozen || layer === 'ring-2') return;
+    if (!this.ctx || !('state' in this.ctx) || (this.ctx as AudioContext).state !== 'running') return;
+    const ctx = this.ctx;
+    const t = ctx.currentTime;
+    const p = Math.max(-0.85, Math.min(0.85, pan));
+    const tm = timbreFor(layer);
+    // Short descending dissolve blip
+    this.voice(ctx, {
+      freq: layer === 'application' ? 680 : layer === 'kernel' ? 420 : 520,
+      toFreq: 160,
+      at: t,
+      dur: 0.12,
+      wave: tm.wave,
+      filterHz: tm.filterHz * 0.6,
+      gain: 0.065 * tm.gainScale,
+      pan: p,
+      crush: layer === 'kernel' || layer === 'drivers' || layer === 'ring-3',
+    });
   }
 
   /**
@@ -448,73 +463,33 @@ export class SoundEngine {
       osc.start(now);
       stops.push(() => osc.stop());
     };
-    const addNoise = (type: BiquadFilterType, filterHz: number, q: number, gain: number) => {
-      const src = ctx.createBufferSource();
-      src.buffer = this.noise(ctx);
-      src.loop = true;
-      const f = ctx.createBiquadFilter();
-      f.type = type;
-      f.frequency.setValueAtTime(filterHz, now);
-      if (f.Q) f.Q.setValueAtTime(q, now);
-      const g = ctx.createGain();
-      g.gain.setValueAtTime(gain, now);
-      src.connect(f);
-      f.connect(g);
-      g.connect(bedGain);
-      src.start(now);
-      stops.push(() => src.stop());
-    };
 
+    // Pure seamless ultra-quiet oscillator room-tone (no looping noise buffer seam ticks, no untied timer blips;
+    // all audible ambient activity is driven directly by visible critters on screen).
     switch (layer) {
       case 'application':
-        addNoise('bandpass', 620, 0.7, 0.65);
+        addDrone(261.63, 'sine', 420, 0.22);
         break;
       case 'runtime':
       case 'libraries':
-        addDrone(110, 'triangle', 260, 0.5);
-        addNoise('bandpass', 480, 1.0, 0.45);
+        addDrone(110, 'triangle', 220, 0.35);
         break;
       case 'userspace':
       case 'kernel':
       case 'drivers':
-        addDrone(120, 'sawtooth', 220, 0.4);
-        addNoise('lowpass', 360, 0.9, 0.55);
+        addDrone(82.41, 'triangle', 190, 0.35);
         break;
       case 'firmware':
-        addDrone(60, 'square', 180, 0.55);
-        addDrone(120, 'triangle', 240, 0.35);
+        addDrone(60, 'triangle', 160, 0.4);
         break;
       case 'ring-1':
-        addDrone(82.4, 'triangle', 220, 0.55);
-        addDrone(83.9, 'triangle', 220, 0.55);
+        addDrone(82.4, 'triangle', 200, 0.42);
+        addDrone(83.9, 'triangle', 200, 0.42);
         break;
       case 'ring-3':
-        addDrone(55, 'square', 160, 0.35);
-        addNoise('highpass', 3800, 1.2, 0.35);
+        addDrone(55, 'square', 140, 0.25);
         break;
     }
-
-    // Layer-specific quiet in-game chiptune artifacts + generative daily pentatonic pulse (degrades with the stack).
-    let artifactTimer = 0;
-    let alive = true;
-    const scheduleArtifact = () => {
-      if (!alive) return;
-      const delay = 1700 + Math.floor(Math.random() * 2100);
-      artifactTimer = window.setTimeout(() => {
-        if (!alive) return;
-        if (this.enabled && this.ambienceEnabled && !this.ambienceFrozen && this.ctx === ctx && 'state' in ctx && (ctx as AudioContext).state === 'running') {
-          if (this.pulseStep % 2 === 0) this.playDailyPulse(ctx, layer);
-          else this.playAmbienceArtifact(ctx, layer);
-          this.pulseStep++;
-        }
-        scheduleArtifact();
-      }, delay);
-    };
-    if (typeof window !== 'undefined' && typeof window.setTimeout === 'function') scheduleArtifact();
-    stops.push(() => {
-      alive = false;
-      clearTimeout(artifactTimer);
-    });
 
     this.ambience = {
       layer,
@@ -525,25 +500,7 @@ export class SoundEngine {
     };
   }
 
-  /** Sparse 1–2 note generative daily motif seeded by puzzleNumber, degrading in waveform/bit-depth by layer. */
-  private playDailyPulse(ctx: BaseAudioContext, layer: LayerId) {
-    if (layer === 'ring-2') return;
-    const tm = timbreFor(layer);
-    const t = ctx.currentTime;
-    const h = (n: number) => Math.abs(Math.sin(this.puzzleSeed * 127.1 + n * 311.7) * 43758.5453) % 1;
-    const step = this.pulseStep % 8;
-    const noteA = PENTATONIC[Math.floor(h(step + 1) * PENTATONIC.length)]!;
-    const noteB = PENTATONIC[Math.floor(h(step + 5) * PENTATONIC.length)]!;
-    const pan = (h(step + 9) - 0.5) * 0.9;
-    const crush = layer === 'kernel' || layer === 'drivers' || layer === 'ring-3';
-    const dur = tm.short ? 0.045 : 0.22;
-    this.voice(ctx, { freq: noteA, at: t, dur, wave: tm.wave, filterHz: tm.filterHz * 0.65, gain: 0.055 * tm.gainScale, pan, crush, reverb: tm.reverbWet });
-    if (h(step + 13) > 0.45) {
-      this.voice(ctx, { freq: noteB, at: t + 0.14, dur: dur * 1.1, wave: tm.wave, filterHz: tm.filterHz * 0.65, gain: 0.045 * tm.gainScale, pan: -pan * 0.6, crush, reverb: tm.reverbWet });
-    }
-  }
-
-  /** Subtle, unmistakably in-game chiptune micro-artifacts layered periodically over each layer's ambience bed. */
+  /** Subtle, unmistakably in-game chiptune micro-artifacts triggered by visible on-screen events. */
   private playAmbienceArtifact(ctx: BaseAudioContext, layer: LayerId) {
     const t = ctx.currentTime;
     const pan = (Math.random() - 0.5) * 1.1;
