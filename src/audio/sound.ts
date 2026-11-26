@@ -1,49 +1,53 @@
 import type { LayerId } from '../core/layers';
 import type { TierId } from '../core/tiers';
 import { CASCADE, TEASE_AT, WOMM } from '../render/reaction-fx';
+import type { TitleGlitchKind } from '../ui/title-logo';
 
 /**
  * Rich, layered procedural Web Audio API sound engine for Nullion.
  *
- * Uses custom NES/C64 pulse-width periodic waves, detuned unison voices, sub-bass body layers,
- * sweeping resonant filters, mechanical transient clicks, and a master DynamicsCompressorNode so
- * sounds are loud, textured, and punchy without clipping.
- *
- * Audio timbre sheds abstraction as you descend the software stack (mirroring the color-depth drop):
- *   Application / Runtime / Libraries → warm layered triangle + 25% pulse chimes with soft filter sweeps
- *   OS userspace / Kernel / Drivers   → punchy 25%/12.5% pulse-wave bleeps + mechanical clicks
- *   Firmware                          → raw IBM PC speaker POST beep (~1000 Hz) + relay clack
- *   Ring −1 / Ring −2                 → darker resonant low-pass pulses + hollow sub-tones
- *   Ring −3                           → stark, high-voltage 1-bit piezo bursts + static clicks
+ * Features:
+ * - Procedural stereo ConvolverNode reverb whose wet mix adapts to the current layer
+ * - 2-operator FM synthesis (glassy, metallic, bell-like textures) + WaveShaperNode bitcrushing
+ * - Custom NES/C64 pulse-width periodic waves (25%, 12.5%), detuned unison, sub-bass thuds, LFSR noise
+ * - Subtle crossfading layer hardware ambience bed (dead silence in Ring −2 and during WOMM freeze)
+ * - StereoPannerNode + synchronized volume swells for Race condition, Memory leak, and Heisenbug
+ * - Quiet title-screen glitch micro-foley
+ * - Optional custom audio override slots (`sounds/<id>.wav`) + OfflineAudioContext WAV export helper
  */
+
+export type VolumeLevel = 'low' | 'medium' | 'high';
+const VOLUME_GAIN: Record<VolumeLevel, number> = { low: 0.3, medium: 0.62, high: 0.95 };
 
 export type Timbre = {
   wave: OscillatorType | 'pulse25' | 'pulse12';
   filterHz: number;
   q: number;
   gainScale: number;
+  reverbWet: number;
   short?: boolean;
 };
 
-/** Layer → synth timbre: sheds warmth and fidelity as you descend. */
+/** Layer → synth timbre + space depth: sheds warmth and reverb as you descend. */
 export function timbreFor(layer: LayerId): Timbre {
   switch (layer) {
     case 'application':
-      return { wave: 'triangle', filterHz: 5200, q: 0.8, gainScale: 1.0 };
+      return { wave: 'triangle', filterHz: 5200, q: 0.8, gainScale: 1.0, reverbWet: 0.24 };
     case 'runtime':
     case 'libraries':
-      return { wave: 'pulse25', filterHz: 3600, q: 1.4, gainScale: 0.92 };
+      return { wave: 'pulse25', filterHz: 3600, q: 1.4, gainScale: 0.92, reverbWet: 0.2 };
     case 'userspace':
     case 'kernel':
     case 'drivers':
-      return { wave: 'pulse12', filterHz: 2800, q: 2.0, gainScale: 0.85 };
+      return { wave: 'pulse12', filterHz: 2800, q: 2.0, gainScale: 0.86, reverbWet: 0.16 };
     case 'firmware':
-      return { wave: 'square', filterHz: 4200, q: 1.0, gainScale: 0.82 };
+      return { wave: 'square', filterHz: 4200, q: 1.0, gainScale: 0.84, reverbWet: 0.1 };
     case 'ring-1':
+      return { wave: 'pulse25', filterHz: 1500, q: 2.4, gainScale: 0.82, reverbWet: 0.32 };
     case 'ring-2':
-      return { wave: 'pulse25', filterHz: 1500, q: 2.4, gainScale: 0.8 };
+      return { wave: 'pulse25', filterHz: 1300, q: 2.2, gainScale: 0.8, reverbWet: 0 };
     case 'ring-3':
-      return { wave: 'square', filterHz: 6000, q: 0.7, gainScale: 0.85, short: true };
+      return { wave: 'square', filterHz: 6000, q: 0.7, gainScale: 0.88, reverbWet: 0, short: true };
   }
 }
 
@@ -51,10 +55,8 @@ interface ActiveNode {
   stop: () => void;
 }
 
-const MASTER_GAIN = 0.58;
-
-/** Build a band-limited pulse wave of duty cycle `duty` (e.g. 0.25 or 0.125) for authentic chiptune grit. */
-function makePulseWave(ctx: AudioContext, duty: number): PeriodicWave | null {
+/** Build a band-limited pulse wave of duty cycle `duty` (e.g. 0.25 or 0.125). */
+function makePulseWave(ctx: BaseAudioContext, duty: number): PeriodicWave | null {
   if (typeof ctx.createPeriodicWave !== 'function') return null;
   const harmonics = 24;
   const real = new Float32Array(harmonics);
@@ -65,28 +67,151 @@ function makePulseWave(ctx: AudioContext, duty: number): PeriodicWave | null {
   return ctx.createPeriodicWave(real, imag);
 }
 
+/** Build a stepped WaveShaper quantization curve for authentic retro bitcrushing. */
+function makeBitcrushCurve(bits: number): Float32Array<ArrayBuffer> {
+  const n = 256;
+  const curve = new Float32Array(new ArrayBuffer(n * 4));
+  const steps = Math.pow(2, bits);
+  for (let i = 0; i < n; i++) {
+    const x = (i * 2) / n - 1;
+    curve[i] = Math.round(x * steps) / steps;
+  }
+  return curve;
+}
+
+/** Build a tiny stereo procedural impulse response for subtle room/chamber reverb. */
+function makeImpulse(ctx: BaseAudioContext, seconds = 0.42): AudioBuffer {
+  const len = Math.floor(ctx.sampleRate * seconds);
+  const buf = ctx.createBuffer(2, len, ctx.sampleRate);
+  for (let ch = 0; ch < 2; ch++) {
+    const d = buf.getChannelData(ch);
+    let lp = 0;
+    for (let i = 0; i < len; i++) {
+      const decay = Math.pow(1 - i / len, 2.6);
+      const raw = (Math.random() * 2 - 1) * decay;
+      lp = lp * 0.65 + raw * 0.35;
+      d[i] = lp;
+    }
+  }
+  return buf;
+}
+
+/** Encode a mono/stereo AudioBuffer to a 16-bit PCM WAV Blob (for exporting to `sounds/`). */
+export function encodeWav(buf: AudioBuffer): Blob {
+  const ch = buf.numberOfChannels;
+  const len = buf.length;
+  const rate = buf.sampleRate;
+  const dataBytes = len * ch * 2;
+  const ab = new ArrayBuffer(44 + dataBytes);
+  const v = new DataView(ab);
+  const str = (off: number, s: string) => {
+    for (let i = 0; i < s.length; i++) v.setUint8(off + i, s.charCodeAt(i));
+  };
+  str(0, 'RIFF');
+  v.setUint32(4, 36 + dataBytes, true);
+  str(8, 'WAVE');
+  str(12, 'fmt ');
+  v.setUint32(16, 16, true);
+  v.setUint16(20, 1, true);
+  v.setUint16(22, ch, true);
+  v.setUint32(24, rate, true);
+  v.setUint32(28, rate * ch * 2, true);
+  v.setUint16(32, ch * 2, true);
+  v.setUint16(34, 16, true);
+  str(36, 'data');
+  v.setUint32(40, dataBytes, true);
+  let off = 44;
+  for (let i = 0; i < len; i++) {
+    for (let c = 0; c < ch; c++) {
+      const s = Math.max(-1, Math.min(1, buf.getChannelData(c)[i] ?? 0));
+      v.setInt16(off, s < 0 ? s * 0x8000 : s * 0x7fff, true);
+      off += 2;
+    }
+  }
+  return new Blob([ab], { type: 'audio/wav' });
+}
+
+interface AmbienceBed {
+  layer: LayerId;
+  gain: GainNode;
+  stop: () => void;
+}
+
 export class SoundEngine {
-  private ctx: AudioContext | null = null;
+  private ctx: BaseAudioContext | null = null;
   private master: GainNode | null = null;
+  private reverbSend: GainNode | null = null;
   private noiseBuf: AudioBuffer | null = null;
   private pulse25: PeriodicWave | null = null;
   private pulse12: PeriodicWave | null = null;
+  private crushCurve: Float32Array<ArrayBuffer> | null = null;
   private reactionNodes: ActiveNode[] = [];
+  private customBuffers = new Map<string, AudioBuffer>();
+  private ambience: AmbienceBed | null = null;
+  private currentLayer: LayerId = 'application';
+  private ambienceFrozen = false;
+  private volume: VolumeLevel = 'medium';
   enabled = true;
 
   /** Lazily create and unlock the AudioContext on a user gesture. */
   unlock() {
     if (!this.enabled) return;
     const ctx = this.ensureCtx();
-    if (ctx && ctx.state === 'suspended') void ctx.resume();
+    if (ctx && 'state' in ctx && (ctx as AudioContext).state === 'suspended') {
+      void (ctx as AudioContext).resume();
+    }
+    this.syncAmbience();
   }
 
   setEnabled(on: boolean) {
     this.enabled = on;
-    if (!on) this.stopReactions();
-    if (this.master && this.ctx) {
-      this.master.gain.setValueAtTime(on ? MASTER_GAIN : 0, this.ctx.currentTime);
+    if (!on) {
+      this.stopReactions();
+      this.stopAmbience();
+    } else {
+      this.syncAmbience();
     }
+    this.applyMasterGain();
+  }
+
+  setVolume(level: VolumeLevel) {
+    this.volume = level;
+    this.applyMasterGain();
+  }
+
+  private applyMasterGain() {
+    if (this.master && this.ctx) {
+      this.master.gain.setValueAtTime(this.enabled ? VOLUME_GAIN[this.volume] : 0, this.ctx.currentTime);
+    }
+  }
+
+  /** Optional: load a custom audio file from `/sounds/<id>.wav` to override a procedural SFX. */
+  async registerCustomSound(id: string, url = `/sounds/${id}.wav`): Promise<boolean> {
+    const ctx = this.ensureCtx();
+    if (!ctx || typeof fetch !== 'function') return false;
+    try {
+      const res = await fetch(url);
+      if (!res.ok) return false;
+      const ab = await res.arrayBuffer();
+      const buf = await ctx.decodeAudioData(ab);
+      this.customBuffers.set(id, buf);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  /** Play a registered custom override buffer if present; returns true if handled. */
+  private tryPlayCustom(id: string): boolean {
+    const buf = this.customBuffers.get(id);
+    if (!buf) return false;
+    const ctx = this.ensureCtx();
+    if (!ctx) return false;
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    src.connect(this.master!);
+    src.start(ctx.currentTime);
+    return true;
   }
 
   /** Cancel any in-flight scheduled tier reaction tones (e.g. on early unwind or restart). */
@@ -101,21 +226,157 @@ export class SoundEngine {
     this.reactionNodes.length = 0;
   }
 
-  private ensureCtx(): AudioContext | null {
-    if (!this.enabled) return null;
-    if (this.ctx) {
-      if (this.ctx.state === 'suspended') void this.ctx.resume();
-      return this.ctx;
+  /** Update the subtle hardware ambience bed & reverb depth for the current layer. */
+  setLayer(layer: LayerId) {
+    if (layer === this.currentLayer && this.ambience) return;
+    this.currentLayer = layer;
+    this.updateReverbForLayer(layer);
+    this.syncAmbience();
+  }
+
+  /** Silence the ambience bed during frozen states (WOMM freeze / Ring −2). */
+  setAmbienceFrozen(frozen: boolean) {
+    if (frozen === this.ambienceFrozen) return;
+    this.ambienceFrozen = frozen;
+    if (this.ambience && this.ctx) {
+      const now = this.ctx.currentTime;
+      const target = frozen || this.currentLayer === 'ring-2' ? 0.0001 : this.ambienceLevel(this.currentLayer);
+      this.ambience.gain.gain.cancelScheduledValues(now);
+      this.ambience.gain.gain.setTargetAtTime(target, now, 0.04);
     }
-    const Ctor =
-      typeof window !== 'undefined'
-        ? (window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)
-        : undefined;
-    if (!Ctor) return null;
-    const ctx = new Ctor();
+  }
+
+  private ambienceLevel(layer: LayerId): number {
+    if (layer === 'ring-2') return 0.0001;
+    if (layer === 'application') return 0.032;
+    if (layer === 'ring-3') return 0.038;
+    return 0.045;
+  }
+
+  private stopAmbience() {
+    if (!this.ambience) return;
+    try {
+      this.ambience.stop();
+    } catch {
+      // Ignore already-stopped nodes
+    }
+    this.ambience = null;
+  }
+
+  private syncAmbience() {
+    if (!this.enabled || !this.ctx || !this.master) return;
+    // Don't start looping ambience on an OfflineAudioContext (used for WAV export).
+    if (!('state' in this.ctx) || (this.ctx as AudioContext).state !== 'running') return;
+    const layer = this.currentLayer;
+    if (this.ambience?.layer === layer) return;
+
+    const ctx = this.ctx;
+    const now = ctx.currentTime;
+    const prev = this.ambience;
+    if (prev) {
+      prev.gain.gain.cancelScheduledValues(now);
+      prev.gain.gain.setTargetAtTime(0.0001, now, 0.12);
+      const toStop = prev;
+      setTimeout(() => {
+        try {
+          toStop.stop();
+        } catch {
+          // ignore
+        }
+      }, 450);
+      this.ambience = null;
+    }
+
+    if (layer === 'ring-2') return; // Ring −2 is dead silent.
+
+    const bedGain = ctx.createGain();
+    const target = this.ambienceFrozen ? 0.0001 : this.ambienceLevel(layer);
+    bedGain.gain.setValueAtTime(0.0001, now);
+    bedGain.gain.setTargetAtTime(target, now, 0.25);
+    bedGain.connect(this.master);
+
+    const stops: (() => void)[] = [];
+    const addDrone = (freq: number, wave: OscillatorType, filterHz: number, gain: number) => {
+      const osc = ctx.createOscillator();
+      osc.type = wave;
+      osc.frequency.setValueAtTime(freq, now);
+      const f = ctx.createBiquadFilter();
+      f.type = 'lowpass';
+      f.frequency.setValueAtTime(filterHz, now);
+      const g = ctx.createGain();
+      g.gain.setValueAtTime(gain, now);
+      osc.connect(f);
+      f.connect(g);
+      g.connect(bedGain);
+      osc.start(now);
+      stops.push(() => osc.stop());
+    };
+    const addNoise = (type: BiquadFilterType, filterHz: number, q: number, gain: number) => {
+      const src = ctx.createBufferSource();
+      src.buffer = this.noise(ctx);
+      src.loop = true;
+      const f = ctx.createBiquadFilter();
+      f.type = type;
+      f.frequency.setValueAtTime(filterHz, now);
+      if (f.Q) f.Q.setValueAtTime(q, now);
+      const g = ctx.createGain();
+      g.gain.setValueAtTime(gain, now);
+      src.connect(f);
+      f.connect(g);
+      g.connect(bedGain);
+      src.start(now);
+      stops.push(() => src.stop());
+    };
+
+    switch (layer) {
+      case 'application':
+        addNoise('bandpass', 620, 0.7, 0.65);
+        break;
+      case 'runtime':
+      case 'libraries':
+        addDrone(110, 'triangle', 260, 0.5);
+        addNoise('bandpass', 480, 1.0, 0.45);
+        break;
+      case 'userspace':
+      case 'kernel':
+      case 'drivers':
+        addDrone(120, 'sawtooth', 220, 0.4);
+        addNoise('lowpass', 360, 0.9, 0.65);
+        break;
+      case 'firmware':
+        addDrone(60, 'square', 180, 0.55);
+        addDrone(120, 'triangle', 240, 0.35);
+        break;
+      case 'ring-1':
+        addDrone(82.4, 'triangle', 220, 0.55);
+        addDrone(83.9, 'triangle', 220, 0.55);
+        break;
+      case 'ring-3':
+        addDrone(55, 'square', 160, 0.35);
+        addNoise('highpass', 3800, 1.2, 0.35);
+        break;
+    }
+
+    this.ambience = {
+      layer,
+      gain: bedGain,
+      stop: () => {
+        for (const s of stops) s();
+      },
+    };
+  }
+
+  private updateReverbForLayer(layer: LayerId) {
+    if (!this.reverbSend || !this.ctx) return;
+    this.reverbSend.gain.setValueAtTime(timbreFor(layer).reverbWet, this.ctx.currentTime);
+  }
+
+  /** Attach an existing BaseAudioContext (used by offline WAV export). */
+  private attachContext(ctx: BaseAudioContext) {
     const master = ctx.createGain();
-    master.gain.setValueAtTime(MASTER_GAIN, ctx.currentTime);
-    // Gentle master glue compressor so rich multi-voice layers stay loud and punchy without clipping.
+    master.gain.setValueAtTime(this.enabled ? VOLUME_GAIN[this.volume] : 0, ctx.currentTime);
+
+    let out: AudioNode = master;
     if (typeof ctx.createDynamicsCompressor === 'function') {
       const comp = ctx.createDynamicsCompressor();
       comp.threshold.setValueAtTime(-14, ctx.currentTime);
@@ -124,23 +385,52 @@ export class SoundEngine {
       comp.attack.setValueAtTime(0.004, ctx.currentTime);
       comp.release.setValueAtTime(0.12, ctx.currentTime);
       master.connect(comp);
-      comp.connect(ctx.destination);
-    } else {
-      master.connect(ctx.destination);
+      out = comp;
     }
+    out.connect(ctx.destination);
+
+    // Parallel procedural stereo reverb send
+    let reverbSend: GainNode | null = null;
+    if (typeof ctx.createConvolver === 'function') {
+      reverbSend = ctx.createGain();
+      reverbSend.gain.setValueAtTime(timbreFor(this.currentLayer).reverbWet, ctx.currentTime);
+      const conv = ctx.createConvolver();
+      conv.buffer = makeImpulse(ctx, 0.42);
+      reverbSend.connect(conv);
+      conv.connect(out);
+    }
+
     this.ctx = ctx;
     this.master = master;
+    this.reverbSend = reverbSend;
+    this.noiseBuf = null;
     this.pulse25 = makePulseWave(ctx, 0.25);
     this.pulse12 = makePulseWave(ctx, 0.125);
-    return ctx;
+    this.crushCurve = makeBitcrushCurve(4);
   }
 
-  private noise(ctx: AudioContext): AudioBuffer {
+  private ensureCtx(): BaseAudioContext | null {
+    if (!this.enabled) return null;
+    if (this.ctx) {
+      if ('state' in this.ctx && (this.ctx as AudioContext).state === 'suspended') {
+        void (this.ctx as AudioContext).resume();
+      }
+      return this.ctx;
+    }
+    const Ctor =
+      typeof window !== 'undefined'
+        ? (window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)
+        : undefined;
+    if (!Ctor) return null;
+    this.attachContext(new Ctor());
+    return this.ctx;
+  }
+
+  private noise(ctx: BaseAudioContext): AudioBuffer {
     if (this.noiseBuf) return this.noiseBuf;
     const len = Math.floor(ctx.sampleRate * 1.0);
     const buf = ctx.createBuffer(1, len, ctx.sampleRate);
     const data = buf.getChannelData(0);
-    // Slightly shaped retro LFSR-ish crunchy noise
     let hold = 0;
     for (let i = 0; i < len; i++) {
       if (i % 2 === 0) hold = Math.random() * 2 - 1;
@@ -160,8 +450,44 @@ export class SoundEngine {
     }
   }
 
+  /** Route a voice's output gain through optional bitcrush, stereo panner (with pan sweep), and reverb send. */
+  private routeOut(
+    ctx: BaseAudioContext,
+    src: AudioNode,
+    opts: { at: number; dur: number; pan?: number; toPan?: number; crush?: boolean; reverb?: number },
+  ) {
+    let node = src;
+    if (opts.crush && this.crushCurve && typeof ctx.createWaveShaper === 'function') {
+      const ws = ctx.createWaveShaper();
+      ws.curve = this.crushCurve;
+      ws.oversample = 'none';
+      node.connect(ws);
+      node = ws;
+    }
+    if ((opts.pan !== undefined || opts.toPan !== undefined) && typeof ctx.createStereoPanner === 'function') {
+      const p = ctx.createStereoPanner();
+      p.pan.setValueAtTime(opts.pan ?? 0, opts.at);
+      if (opts.toPan !== undefined) {
+        p.pan.linearRampToValueAtTime(opts.toPan, opts.at + opts.dur);
+      }
+      node.connect(p);
+      node = p;
+    }
+    node.connect(this.master!);
+    if (this.reverbSend && (opts.reverb ?? 1) > 0) {
+      if (opts.reverb !== undefined && opts.reverb !== 1) {
+        const send = ctx.createGain();
+        send.gain.setValueAtTime(opts.reverb, opts.at);
+        node.connect(send);
+        send.connect(this.reverbSend);
+      } else {
+        node.connect(this.reverbSend);
+      }
+    }
+  }
+
   private voice(
-    ctx: AudioContext,
+    ctx: BaseAudioContext,
     opts: {
       freq: number;
       toFreq?: number;
@@ -170,10 +496,15 @@ export class SoundEngine {
       wave?: Timbre['wave'];
       gain?: number;
       attack?: number;
+      swell?: boolean;
       filterHz?: number;
       toFilterHz?: number;
       q?: number;
       detune?: number;
+      pan?: number;
+      toPan?: number;
+      crush?: boolean;
+      reverb?: number;
       track?: boolean;
     },
   ) {
@@ -188,11 +519,18 @@ export class SoundEngine {
       osc.detune.setValueAtTime(opts.detune, opts.at);
     }
 
-    const peak = opts.gain ?? 0.32;
-    const atk = opts.attack ?? Math.min(0.012, opts.dur * 0.18);
-    g.gain.setValueAtTime(0.0001, opts.at);
-    g.gain.linearRampToValueAtTime(peak, opts.at + atk);
-    g.gain.exponentialRampToValueAtTime(0.0001, opts.at + opts.dur);
+    const peak = opts.gain ?? 0.34;
+    if (opts.swell) {
+      // Volume swell peaking in the middle (pairs with spatial pan sweeps).
+      g.gain.setValueAtTime(0.0001, opts.at);
+      g.gain.linearRampToValueAtTime(peak, opts.at + opts.dur * 0.45);
+      g.gain.exponentialRampToValueAtTime(0.0001, opts.at + opts.dur);
+    } else {
+      const atk = opts.attack ?? Math.min(0.012, opts.dur * 0.18);
+      g.gain.setValueAtTime(0.0001, opts.at);
+      g.gain.linearRampToValueAtTime(peak, opts.at + atk);
+      g.gain.exponentialRampToValueAtTime(0.0001, opts.at + opts.dur);
+    }
 
     if (opts.filterHz) {
       const f = ctx.createBiquadFilter();
@@ -207,7 +545,7 @@ export class SoundEngine {
     } else {
       osc.connect(g);
     }
-    g.connect(this.master!);
+    this.routeOut(ctx, g, opts);
     osc.start(opts.at);
     osc.stop(opts.at + opts.dur + 0.02);
     if (opts.track) {
@@ -221,9 +559,75 @@ export class SoundEngine {
     }
   }
 
-  /** Layered synth note: detuned unison pair + optional sub-octave body + filter sweep. */
+  /** 2-operator FM synth voice for metallic, glassy, bell-like, and sci-fi non-beepy textures. */
+  private fmVoice(
+    ctx: BaseAudioContext,
+    opts: {
+      carrierHz: number;
+      toCarrierHz?: number;
+      modRatio: number;
+      modIndex: number;
+      at: number;
+      dur: number;
+      gain?: number;
+      swell?: boolean;
+      pan?: number;
+      toPan?: number;
+      crush?: boolean;
+      reverb?: number;
+      track?: boolean;
+    },
+  ) {
+    const car = ctx.createOscillator();
+    const mod = ctx.createOscillator();
+    const modGain = ctx.createGain();
+    const outGain = ctx.createGain();
+
+    car.type = 'sine';
+    mod.type = 'sine';
+    car.frequency.setValueAtTime(opts.carrierHz, opts.at);
+    if (opts.toCarrierHz !== undefined) {
+      car.frequency.exponentialRampToValueAtTime(Math.max(30, opts.toCarrierHz), opts.at + opts.dur);
+    }
+    mod.frequency.setValueAtTime(opts.carrierHz * opts.modRatio, opts.at);
+    modGain.gain.setValueAtTime(opts.modIndex, opts.at);
+    modGain.gain.exponentialRampToValueAtTime(Math.max(4, opts.modIndex * 0.15), opts.at + opts.dur);
+
+    const peak = opts.gain ?? 0.3;
+    if (opts.swell) {
+      outGain.gain.setValueAtTime(0.0001, opts.at);
+      outGain.gain.linearRampToValueAtTime(peak, opts.at + opts.dur * 0.45);
+      outGain.gain.exponentialRampToValueAtTime(0.0001, opts.at + opts.dur);
+    } else {
+      outGain.gain.setValueAtTime(0.0001, opts.at);
+      outGain.gain.linearRampToValueAtTime(peak, opts.at + Math.min(0.015, opts.dur * 0.2));
+      outGain.gain.exponentialRampToValueAtTime(0.0001, opts.at + opts.dur);
+    }
+
+    mod.connect(modGain);
+    modGain.connect(car.frequency);
+    car.connect(outGain);
+    this.routeOut(ctx, outGain, opts);
+
+    mod.start(opts.at);
+    car.start(opts.at);
+    mod.stop(opts.at + opts.dur + 0.02);
+    car.stop(opts.at + opts.dur + 0.02);
+    if (opts.track) {
+      this.reactionNodes.push({
+        stop: () => {
+          outGain.gain.cancelScheduledValues(ctx.currentTime);
+          outGain.gain.setValueAtTime(0.0001, ctx.currentTime);
+          mod.stop(ctx.currentTime + 0.005);
+          car.stop(ctx.currentTime + 0.005);
+        },
+      });
+    }
+  }
+
+  /** Layered synth note: detuned unison pair + optional sub-octave body + filter sweep + pan. */
   private layered(
-    ctx: AudioContext,
+    ctx: BaseAudioContext,
     opts: {
       freq: number;
       toFreq?: number;
@@ -233,10 +637,14 @@ export class SoundEngine {
       gain?: number;
       sub?: boolean;
       click?: boolean;
+      pan?: number;
+      toPan?: number;
+      swell?: boolean;
+      crush?: boolean;
       track?: boolean;
     },
   ) {
-    const g = (opts.gain ?? 0.34) * opts.tm.gainScale;
+    const g = (opts.gain ?? 0.36) * opts.tm.gainScale;
     this.voice(ctx, {
       freq: opts.freq,
       toFreq: opts.toFreq,
@@ -248,6 +656,10 @@ export class SoundEngine {
       toFilterHz: Math.max(240, opts.tm.filterHz * 0.32),
       q: opts.tm.q,
       detune: -7,
+      pan: opts.pan,
+      toPan: opts.toPan,
+      swell: opts.swell,
+      crush: opts.crush,
       track: opts.track,
     });
     this.voice(ctx, {
@@ -261,6 +673,10 @@ export class SoundEngine {
       toFilterHz: Math.max(280, opts.tm.filterHz * 0.38),
       q: opts.tm.q,
       detune: 8,
+      pan: opts.pan,
+      toPan: opts.toPan,
+      swell: opts.swell,
+      crush: opts.crush,
       track: opts.track,
     });
     if (opts.sub) {
@@ -272,16 +688,18 @@ export class SoundEngine {
         wave: 'triangle',
         gain: g * 0.55,
         filterHz: 900,
+        pan: opts.pan,
+        toPan: opts.toPan,
         track: opts.track,
       });
     }
     if (opts.click) {
-      this.noiseBurst(ctx, { at: opts.at, dur: 0.018, filterHz: 3400, gain: g * 0.35, track: opts.track });
+      this.noiseBurst(ctx, { at: opts.at, dur: 0.018, filterHz: 3400, gain: g * 0.35, pan: opts.pan, track: opts.track });
     }
   }
 
   private noiseBurst(
-    ctx: AudioContext,
+    ctx: BaseAudioContext,
     opts: {
       at: number;
       dur: number;
@@ -291,6 +709,10 @@ export class SoundEngine {
       q?: number;
       gain?: number;
       attack?: number;
+      pan?: number;
+      toPan?: number;
+      crush?: boolean;
+      reverb?: number;
       track?: boolean;
     },
   ) {
@@ -311,7 +733,7 @@ export class SoundEngine {
     g.gain.exponentialRampToValueAtTime(0.0001, opts.at + opts.dur);
     src.connect(f);
     f.connect(g);
-    g.connect(this.master!);
+    this.routeOut(ctx, g, opts);
     src.start(opts.at);
     src.stop(opts.at + opts.dur + 0.02);
     if (opts.track) {
@@ -325,29 +747,68 @@ export class SoundEngine {
     }
   }
 
-  /** Punchy retro sub-thud (sine/triangle pitch drop + filtered body click). */
-  private thud(ctx: AudioContext, at: number, fromHz = 150, toHz = 44, dur = 0.22, gain = 0.48, track = false) {
-    this.voice(ctx, { freq: fromHz, toFreq: toHz, at, dur, wave: 'sine', gain, attack: 0.004, track });
+  /** Punchy retro sub-thud (sine pitch drop + filtered body click). */
+  private thud(ctx: BaseAudioContext, at: number, fromHz = 150, toHz = 44, dur = 0.22, gain = 0.48, track = false) {
+    this.voice(ctx, { freq: fromHz, toFreq: toHz, at, dur, wave: 'sine', gain, attack: 0.004, reverb: 0.3, track });
     this.noiseBurst(ctx, { at, dur: 0.035, type: 'lowpass', filterHz: 480, gain: gain * 0.45, track });
+  }
+
+  // -------------------------------------------------------------------------------------------
+  // Title-screen glitch micro-foley (quiet, only when audio is already unlocked)
+
+  playTitleGlitch(kind: TitleGlitchKind) {
+    if (!this.enabled || !this.ctx || !('state' in this.ctx) || (this.ctx as AudioContext).state !== 'running') return;
+    const ctx = this.ctx;
+    const t = ctx.currentTime;
+    const pan = (Math.random() - 0.5) * 0.9;
+    switch (kind) {
+      case 'mirror-flip':
+        this.fmVoice(ctx, { carrierHz: 520, toCarrierHz: 680, modRatio: 2, modIndex: 130, at: t, dur: 0.14, gain: 0.09, pan: -0.65, toPan: 0.65, swell: true });
+        this.fmVoice(ctx, { carrierHz: 680, toCarrierHz: 520, modRatio: 2, modIndex: 130, at: t + 0.04, dur: 0.14, gain: 0.08, pan: 0.65, toPan: -0.65, swell: true });
+        break;
+      case 'bitflip':
+        this.voice(ctx, { freq: 980, toFreq: 1320, at: t, dur: 0.035, wave: 'square', gain: 0.08, pan, crush: true });
+        break;
+      case 'mini-ghosts':
+      case 'stack-echo':
+        this.fmVoice(ctx, { carrierHz: 720, modRatio: 2.5, modIndex: 140, at: t, dur: 0.09, gain: 0.09, pan, toPan: -pan });
+        break;
+      case 'heisenbug':
+        this.noiseBurst(ctx, { at: t, dur: 0.05, type: 'bandpass', filterHz: 2600, toFilterHz: 900, gain: 0.09, pan, crush: true });
+        break;
+      case 'npe':
+        this.thud(ctx, t, 120, 48, 0.08, 0.14);
+        break;
+      case 'hex-corrupt':
+      case 'palette-drop':
+        this.voice(ctx, { freq: 520, toFreq: 390, at: t, dur: 0.045, wave: 'pulse12', gain: 0.08, pan, crush: true });
+        break;
+      default:
+        this.noiseBurst(ctx, { at: t, dur: 0.02, type: 'highpass', filterHz: 3200, gain: 0.07, pan });
+        break;
+    }
   }
 
   // -------------------------------------------------------------------------------------------
   // UI & Gameplay micro-SFX
 
-  /** Title "Unwind the stack" dive: layered descending plunge + air rush. */
+  /** Title "Unwind the stack" dive: layered descending plunge + FM shimmer + air rush. */
   diveStart() {
+    if (this.tryPlayCustom('diveStart')) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const t = ctx.currentTime;
     const tm = timbreFor('application');
-    this.noiseBurst(ctx, { at: t, dur: 0.28, type: 'bandpass', filterHz: 1800, toFilterHz: 320, q: 1.5, gain: 0.24 });
+    this.noiseBurst(ctx, { at: t, dur: 0.3, type: 'bandpass', filterHz: 2000, toFilterHz: 280, q: 1.6, gain: 0.26 });
     [587.33, 440, 293.66].forEach((f, i) => {
-      this.layered(ctx, { freq: f, at: t + i * 0.055, dur: 0.16, tm, gain: 0.34, sub: i === 2, click: true });
+      this.layered(ctx, { freq: f, at: t + i * 0.055, dur: 0.18, tm, gain: 0.34, sub: i === 2, click: true });
     });
+    this.fmVoice(ctx, { carrierHz: 587.33, toCarrierHz: 293.66, modRatio: 2, modIndex: 180, at: t, dur: 0.24, gain: 0.18 });
   }
 
   /** Pre-answer 3s → 2s → 1s countdown tick: tactile mechanical key-tick + soft pitched body. */
   countdownTick(secs: number, layer: LayerId) {
+    if (this.tryPlayCustom('countdownTick')) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const tm = timbreFor(layer);
@@ -364,19 +825,22 @@ export class SoundEngine {
     });
   }
 
-  /** Input unlocked for answering: bright layered two-note open chime. */
+  /** Input unlocked for answering: bright layered two-note open chime with FM bell sparkle. */
   roundOpen(layer: LayerId) {
+    if (this.tryPlayCustom('roundOpen')) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const tm = timbreFor(layer);
     const t = ctx.currentTime;
-    const d = tm.short ? 0.04 : 0.11;
+    const d = tm.short ? 0.04 : 0.12;
     this.layered(ctx, { freq: 523.25, at: t, dur: d, tm, gain: 0.28, click: true });
     this.layered(ctx, { freq: 783.99, at: t + 0.055, dur: d * 1.6, tm, gain: 0.32, sub: true });
+    this.fmVoice(ctx, { carrierHz: 783.99, modRatio: 3, modIndex: 160, at: t + 0.055, dur: 0.16, gain: 0.16 });
   }
 
-  /** Watchdog low-time warning tick (5s..1s): urgent double-pulse mechanical tick. */
+  /** Watchdog low-time warning tick (5s..1s). */
   lowTimeTick(layer: LayerId) {
+    if (this.tryPlayCustom('lowTimeTick')) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const tm = timbreFor(layer);
@@ -385,19 +849,20 @@ export class SoundEngine {
     this.voice(ctx, { freq: 330, toFreq: 280, at: t, dur: 0.055, wave: 'pulse25', filterHz: tm.filterHz * 0.7, gain: 0.24 });
   }
 
-  /** Rejected guess: crunchy low fault buzz + mechanical bonk (matches cursor + console shake). */
+  /** Rejected guess: bit-crushed fault buzz + mechanical bonk. */
   reject(layer: LayerId) {
+    if (this.tryPlayCustom('reject')) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const tm = timbreFor(layer);
     const t = ctx.currentTime;
-    this.thud(ctx, t, 140, 68, 0.12, 0.32);
-    this.voice(ctx, { freq: 175, toFreq: 112, at: t, dur: 0.13, wave: 'sawtooth', filterHz: 1100, toFilterHz: 320, q: 2.5, gain: 0.32 * tm.gainScale });
-    this.voice(ctx, { freq: 185, toFreq: 118, at: t, dur: 0.13, wave: 'square', filterHz: 900, gain: 0.18 * tm.gainScale });
+    this.thud(ctx, t, 140, 68, 0.12, 0.34);
+    this.voice(ctx, { freq: 175, toFreq: 112, at: t, dur: 0.14, wave: 'sawtooth', filterHz: 1100, toFilterHz: 320, q: 2.5, gain: 0.32 * tm.gainScale, crush: true });
   }
 
   /** Typo suggestion ("Corrected to ..."): crisp polite upward double-chirp. */
   suggest(layer: LayerId) {
+    if (this.tryPlayCustom('suggest')) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const tm = timbreFor(layer);
@@ -406,19 +871,21 @@ export class SoundEngine {
     this.layered(ctx, { freq: 659.25, at: t + 0.055, dur: 0.1, tm, gain: 0.28 });
   }
 
-  /** Watchdog timeout bark: heavy two-tone fault alarm + sub-drop. */
+  /** Watchdog timeout bark: heavy bit-crushed two-tone fault alarm + sub-drop. */
   bark() {
+    if (this.tryPlayCustom('bark')) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const t = ctx.currentTime;
-    this.thud(ctx, t, 180, 60, 0.24, 0.44);
-    this.voice(ctx, { freq: 245, at: t, dur: 0.14, wave: 'sawtooth', filterHz: 1400, toFilterHz: 500, q: 2, gain: 0.36 });
-    this.voice(ctx, { freq: 155, toFreq: 86, at: t + 0.14, dur: 0.32, wave: 'sawtooth', filterHz: 1100, toFilterHz: 260, q: 2.5, gain: 0.4 });
-    this.noiseBurst(ctx, { at: t + 0.14, dur: 0.12, type: 'bandpass', filterHz: 600, gain: 0.24 });
+    this.thud(ctx, t, 180, 60, 0.24, 0.46);
+    this.voice(ctx, { freq: 245, at: t, dur: 0.14, wave: 'sawtooth', filterHz: 1400, toFilterHz: 500, q: 2, gain: 0.36, crush: true });
+    this.voice(ctx, { freq: 155, toFreq: 86, at: t + 0.14, dur: 0.34, wave: 'sawtooth', filterHz: 1100, toFilterHz: 260, q: 2.5, gain: 0.4, crush: true });
+    this.noiseBurst(ctx, { at: t + 0.14, dur: 0.12, type: 'bandpass', filterHz: 600, gain: 0.26 });
   }
 
   /** "Unwind further" button press: tactile mechanical relay switch + downward blip. */
   unwind(layer: LayerId) {
+    if (this.tryPlayCustom('unwind')) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const tm = timbreFor(layer);
@@ -427,15 +894,18 @@ export class SoundEngine {
     this.layered(ctx, { freq: 640, toFreq: 420, at: t, dur: 0.08, tm, gain: 0.28 });
   }
 
-  /** End-of-day backtrace reveal: warm resolved chiptune arpeggio chord with sub-bass. */
+  /** End-of-day backtrace reveal: warm resolved FM + chiptune chord. */
   endOfDay() {
+    if (this.tryPlayCustom('endOfDay')) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const t = ctx.currentTime;
     const tm = timbreFor('application');
-    this.thud(ctx, t, 130, 65, 0.38, 0.34);
+    this.thud(ctx, t, 130, 65, 0.38, 0.36);
     [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
-      this.layered(ctx, { freq: f, at: t + i * 0.08, dur: 0.42, tm, gain: 0.28, sub: i === 0 });
+      const pan = -0.45 + i * 0.3;
+      this.layered(ctx, { freq: f, at: t + i * 0.08, dur: 0.45, tm, gain: 0.28, sub: i === 0, pan });
+      this.fmVoice(ctx, { carrierHz: f, modRatio: 2, modIndex: 110, at: t + i * 0.08, dur: 0.42, gain: 0.14, pan });
     });
   }
 
@@ -449,11 +919,9 @@ export class SoundEngine {
     const t = ctx.currentTime;
     const dur = Math.min(1.4, Math.max(0.22, durMs / 1000));
     if (tier === 'womm' || frames <= 1) {
-      // Short dry downward slide for tiny +1 drops
-      this.voice(ctx, { freq: 310, toFreq: 190, at: t, dur: Math.min(0.26, dur), wave: 'triangle', filterHz: 1100, gain: 0.22 });
+      this.voice(ctx, { freq: 310, toFreq: 190, at: t, dur: Math.min(0.28, dur), wave: 'triangle', filterHz: 1100, gain: 0.24 });
       return;
     }
-    // Air-rush bandpass sweep + falling sub-glide, heavier for deeper tiers
     const big = frames >= 5;
     this.noiseBurst(ctx, {
       at: t,
@@ -462,8 +930,9 @@ export class SoundEngine {
       filterHz: big ? 2400 : 1400,
       toFilterHz: big ? 240 : 320,
       q: big ? 2.2 : 1.4,
-      gain: big ? 0.34 : 0.2,
+      gain: big ? 0.36 : 0.22,
       attack: 0.04,
+      crush: big,
     });
     const tm = timbreFor(layer);
     this.voice(ctx, {
@@ -474,18 +943,19 @@ export class SoundEngine {
       wave: tm.wave,
       filterHz: big ? 1600 : 900,
       toFilterHz: 180,
-      gain: big ? 0.3 : 0.18,
+      gain: big ? 0.32 : 0.2,
     });
   }
 
-  /** Crisp pixel-shimmer when the cursor mutates into a new layer's form. */
+  /** Crisp FM crystalline shimmer when the cursor mutates into a new layer's form. */
   playMorph(layer: LayerId) {
+    if (this.tryPlayCustom('morph')) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const tm = timbreFor(layer);
     const t = ctx.currentTime;
-    this.noiseBurst(ctx, { at: t, dur: 0.035, type: 'highpass', filterHz: 3200, gain: 0.2 });
-    this.voice(ctx, { freq: 620, toFreq: 980, at: t, dur: 0.09, wave: tm.wave, filterHz: 3400, gain: 0.22 * tm.gainScale });
+    this.noiseBurst(ctx, { at: t, dur: 0.03, type: 'highpass', filterHz: 3200, gain: 0.2 });
+    this.fmVoice(ctx, { carrierHz: 660, toCarrierHz: 1040, modRatio: 3.5, modIndex: 220, at: t, dur: 0.14, gain: 0.22 * tm.gainScale });
   }
 
   // -------------------------------------------------------------------------------------------
@@ -493,6 +963,7 @@ export class SoundEngine {
 
   playTier(tier: TierId, layer: LayerId) {
     this.stopReactions();
+    if (this.tryPlayCustom(`tier-${tier}`)) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const tm = timbreFor(layer);
@@ -500,120 +971,144 @@ export class SoundEngine {
 
     switch (tier) {
       case 'off-by-one': {
-        // Mechanical click + two-voice blip where the second step lands a jarring half-step "off".
-        this.layered(ctx, { freq: 440, at: t, dur: 0.11, tm, gain: 0.34, click: true, track: true });
-        this.layered(ctx, { freq: 415.3, at: t + 0.11, dur: 0.18, tm, gain: 0.3, sub: true, track: true });
+        this.layered(ctx, { freq: 440, at: t, dur: 0.11, tm, gain: 0.34, click: true, pan: -0.25, track: true });
+        this.layered(ctx, { freq: 415.3, at: t + 0.11, dur: 0.18, tm, gain: 0.3, sub: true, pan: 0.25, track: true });
         break;
       }
       case 'npe': {
-        // Sharp glitch-crunch + resonant downward void drop + hollow sub-thud as the black chunk opens.
-        this.noiseBurst(ctx, { at: t, dur: 0.04, type: 'highpass', filterHz: 2800, gain: 0.34, track: true });
-        this.voice(ctx, { freq: 680, toFreq: 58, at: t, dur: 0.28, wave: 'pulse25', filterHz: 2600, toFilterHz: 180, q: 3, gain: 0.38, track: true });
-        this.thud(ctx, t + 0.22, 130, 38, 0.24, 0.52, true);
+        // Bit-crushed glitch crunch + downward void sweep + heavy sub-thud
+        this.noiseBurst(ctx, { at: t, dur: 0.045, type: 'highpass', filterHz: 2800, gain: 0.34, crush: true, track: true });
+        this.voice(ctx, { freq: 680, toFreq: 55, at: t, dur: 0.28, wave: 'pulse25', filterHz: 2600, toFilterHz: 180, q: 3, gain: 0.38, crush: true, track: true });
+        this.thud(ctx, t + 0.22, 130, 38, 0.24, 0.54, true);
         this.noiseBurst(ctx, { at: t + 0.22, dur: 0.12, type: 'bandpass', filterHz: 320, gain: 0.28, track: true });
         break;
       }
       case 'leak': {
-        // Resonant bubbly pluck with 4 cascading detuned echoes + watery noise tail drifting down.
+        // 4 cascading echoes drifting across the stereo field (-0.7 → +0.7) with volume swells!
+        const pans = [-0.7, -0.22, 0.26, 0.72];
         [0, 0.16, 0.34, 0.54].forEach((dt, i) => {
           const f = 587.33 * Math.pow(0.91, i);
+          const pan = pans[i]!;
           this.layered(ctx, {
             freq: f,
-            toFreq: f * 0.96,
+            toFreq: f * 0.95,
             at: t + dt,
-            dur: 0.18,
+            dur: 0.22,
             tm,
-            gain: 0.36 - i * 0.06,
+            gain: 0.38 - i * 0.065,
             sub: i === 0,
             click: i === 0,
+            pan,
+            toPan: Math.min(0.9, pan + 0.18),
+            swell: i > 0,
             track: true,
           });
-          this.noiseBurst(ctx, { at: t + dt, dur: 0.06, type: 'bandpass', filterHz: 1800 - i * 320, q: 3, gain: 0.14 - i * 0.025, track: true });
+          this.fmVoice(ctx, {
+            carrierHz: f * 2,
+            modRatio: 1.5,
+            modIndex: 140 - i * 25,
+            at: t + dt,
+            dur: 0.18,
+            gain: 0.14 - i * 0.025,
+            pan,
+            swell: i > 0,
+            track: true,
+          });
         });
         break;
       }
       case 'race': {
-        // Two competing pulse voices + percussive clock-ticks colliding out of phase.
+        // Two competing FM + pulse voices hard-panned left (-0.75) and right (+0.75), surging in volume as they pass each other!
         const motif = [392, 523.25, 659.25, 587.33];
         motif.forEach((f, i) => {
           const atA = t + i * 0.095;
           const atB = atA + 0.042;
-          this.noiseBurst(ctx, { at: atA, dur: 0.018, type: 'highpass', filterHz: 3400, gain: 0.2, track: true });
-          this.voice(ctx, { freq: f, at: atA, dur: 0.11, wave: 'pulse25', filterHz: 3200, toFilterHz: 900, q: 2.2, gain: 0.32, track: true });
-          this.voice(ctx, { freq: f * 1.03, at: atB, dur: 0.11, wave: 'pulse12', filterHz: 2800, toFilterHz: 700, q: 2.4, gain: 0.26, track: true });
+          const surgeA = i % 2 === 0 ? 0.36 : 0.22;
+          const surgeB = i % 2 === 0 ? 0.22 : 0.36;
+          this.fmVoice(ctx, { carrierHz: f, modRatio: 2.75, modIndex: 280, at: atA, dur: 0.12, gain: surgeA, pan: -0.75, toPan: 0.25, swell: true, track: true });
+          this.fmVoice(ctx, { carrierHz: f * 1.03, modRatio: 3.1, modIndex: 310, at: atB, dur: 0.12, gain: surgeB, pan: 0.75, toPan: -0.25, swell: true, track: true });
+          this.voice(ctx, { freq: f, at: atA, dur: 0.1, wave: 'pulse25', filterHz: 3000, gain: surgeA * 0.75, pan: -0.65, track: true });
+          this.voice(ctx, { freq: f * 1.03, at: atB, dur: 0.1, wave: 'pulse12', filterHz: 2600, gain: surgeB * 0.75, pan: 0.65, track: true });
         });
         this.thud(ctx, t, 150, 70, 0.18, 0.36, true);
         break;
       }
       case 'heisenbug': {
-        // Eerie shimmering 3-voice harmonic cloud + sweeping bandpass mist that swells right at TEASE_AT (480ms).
+        // Glassy FM shimmer cloud sweeping across the stereo field (-0.75 → +0.75) with matching volume swell peaking at TEASE_AT!
         const swellAt = t + TEASE_AT / 1000;
-        this.voice(ctx, { freq: 440, toFreq: 659.25, at: t, dur: 0.52, wave: 'triangle', filterHz: 2200, gain: 0.28, attack: 0.08, track: true });
-        this.voice(ctx, { freq: 659.25, toFreq: 987.77, at: t + 0.04, dur: 0.56, wave: 'sine', detune: 11, gain: 0.22, attack: 0.1, track: true });
-        this.noiseBurst(ctx, { at: swellAt, dur: 0.45, type: 'bandpass', filterHz: 2800, toFilterHz: 700, q: 3.5, gain: 0.26, attack: 0.06, track: true });
+        this.fmVoice(ctx, { carrierHz: 440, toCarrierHz: 659.25, modRatio: 2.41, modIndex: 260, at: t, dur: 0.62, gain: 0.3, swell: true, pan: -0.75, toPan: 0.75, track: true });
+        this.fmVoice(ctx, { carrierHz: 659.25, toCarrierHz: 987.77, modRatio: 1.41, modIndex: 220, at: t + 0.08, dur: 0.64, gain: 0.24, swell: true, pan: 0.75, toPan: -0.75, track: true });
+        this.noiseBurst(ctx, { at: swellAt, dur: 0.5, type: 'bandpass', filterHz: 2800, toFilterHz: 700, q: 3.5, gain: 0.26, attack: 0.12, pan: -0.6, toPan: 0.6, track: true });
         [783.99, 987.77, 1174.66].forEach((f, i) => {
-          this.voice(ctx, { freq: f, toFreq: f * 0.94, at: swellAt + i * 0.03, dur: 0.55, wave: 'triangle', detune: (i - 1) * 14, gain: 0.2, attack: 0.06, track: true });
-        });
-        break;
-      }
-      case 'bitflip': {
-        // Finale sting: mirrors CASCADE (hang → blackout → leak → jiggle → massive 5-voice inversion chord at 1300 ms).
-        this.playBitflipBuildup(ctx, t, false);
-        const inv = t + CASCADE.invert[0] / 1000;
-        // Impact sub-boom + crisp bright noise burst + 5-voice triumphant chiptune chord!
-        this.thud(ctx, inv, 160, 42, 0.42, 0.58, true);
-        this.noiseBurst(ctx, { at: inv, dur: 0.22, type: 'highpass', filterHz: 2400, gain: 0.28, track: true });
-        [261.63, 523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
-          this.voice(ctx, {
-            freq: f,
-            at: inv + i * 0.015,
-            dur: 0.88,
-            wave: i === 0 ? 'triangle' : i % 2 === 0 ? 'pulse25' : 'pulse12',
-            filterHz: 4600,
-            toFilterHz: 1400,
-            q: 1.5,
-            detune: (i - 2) * 5,
-            gain: i === 0 ? 0.34 : 0.22,
+          this.fmVoice(ctx, {
+            carrierHz: f,
+            toCarrierHz: f * 0.94,
+            modRatio: 2.0,
+            modIndex: 180,
+            at: swellAt + i * 0.04,
+            dur: 0.58,
+            gain: 0.2,
+            swell: true,
+            pan: (i - 1) * 0.65,
+            toPan: -(i - 1) * 0.65,
             track: true,
           });
         });
         break;
       }
+      case 'bitflip': {
+        // Finale sting: bit-crushed cascade into massive 5-voice FM + pulse inversion chord!
+        this.playBitflipBuildup(ctx, t, false);
+        const inv = t + CASCADE.invert[0] / 1000;
+        this.thud(ctx, inv, 165, 40, 0.44, 0.6, true);
+        this.noiseBurst(ctx, { at: inv, dur: 0.24, type: 'highpass', filterHz: 2400, gain: 0.3, crush: true, track: true });
+        const chord = [261.63, 523.25, 659.25, 783.99, 1046.5];
+        chord.forEach((f, i) => {
+          const pan = -0.6 + i * 0.3;
+          this.voice(ctx, {
+            freq: f,
+            at: inv + i * 0.015,
+            dur: 0.9,
+            wave: i === 0 ? 'triangle' : i % 2 === 0 ? 'pulse25' : 'pulse12',
+            filterHz: 4800,
+            toFilterHz: 1400,
+            q: 1.5,
+            detune: (i - 2) * 5,
+            gain: i === 0 ? 0.34 : 0.22,
+            pan,
+            track: true,
+          });
+        });
+        // Crystalline FM bell overtone crowning the Bit Flip inversion!
+        this.fmVoice(ctx, { carrierHz: 1046.5, modRatio: 3, modIndex: 320, at: inv + 0.02, dur: 0.85, gain: 0.24, track: true });
+        break;
+      }
       case 'womm': {
-        // Full-length Bit Flip audio fake-out: identical buildup through 1300 ms, then strains & shakes even
-        // harder through 2200 ms, HARD-CUTS to dead silence on WOMM.freeze (2200 ms), plays a heavy dull
-        // "Not Responding" thump at WOMM.gray (2600 ms), and a dry hourglass click at WOMM.hourglass (2900 ms).
+        // Full-length Bit Flip audio fake-out → hard-cut to dead silence on WOMM.freeze (2200ms) →
+        // heavy dry "Not Responding" thump on WOMM.gray (2850ms) → dry hourglass double-click on WOMM.hourglass (3450ms).
         this.playBitflipBuildup(ctx, t, true);
         const grayAt = t + WOMM.gray / 1000;
         const hgAt = t + WOMM.hourglass / 1000;
-        // Heavy, dull, low-pass "Not Responding" thump on grayscale wash
-        this.thud(ctx, grayAt, 115, 48, 0.24, 0.48, true);
-        this.voice(ctx, { freq: 148, toFreq: 112, at: grayAt, dur: 0.22, wave: 'triangle', filterHz: 420, gain: 0.34, track: true });
-        // Crisp dry mechanical double-tick when hourglass appears
-        this.noiseBurst(ctx, { at: hgAt, dur: 0.02, type: 'bandpass', filterHz: 2000, gain: 0.26, track: true });
-        this.voice(ctx, { freq: 360, at: hgAt, dur: 0.045, wave: 'square', filterHz: 1200, gain: 0.22, track: true });
-        this.voice(ctx, { freq: 290, at: hgAt + 0.06, dur: 0.05, wave: 'square', filterHz: 1000, gain: 0.18, track: true });
+        this.thud(ctx, grayAt, 115, 48, 0.26, 0.5, true);
+        this.voice(ctx, { freq: 148, toFreq: 112, at: grayAt, dur: 0.24, wave: 'triangle', filterHz: 420, gain: 0.34, reverb: 0, track: true });
+        this.noiseBurst(ctx, { at: hgAt, dur: 0.022, type: 'bandpass', filterHz: 2000, gain: 0.26, reverb: 0, track: true });
+        this.voice(ctx, { freq: 360, at: hgAt, dur: 0.045, wave: 'square', filterHz: 1200, gain: 0.22, reverb: 0, track: true });
+        this.voice(ctx, { freq: 290, at: hgAt + 0.06, dur: 0.05, wave: 'square', filterHz: 1000, gain: 0.18, reverb: 0, track: true });
         break;
       }
     }
   }
 
-  /** Shared Bit Flip / WOMM cascade buildup (0 → 1300ms for Bit Flip; extended straining rumble to 2200ms for WOMM). */
-  private playBitflipBuildup(ctx: AudioContext, t: number, extendToFreeze: boolean) {
-    // 0..450ms: deep tense sub-drone + metallic relay click
+  private playBitflipBuildup(ctx: BaseAudioContext, t: number, extendToFreeze: boolean) {
     this.noiseBurst(ctx, { at: t, dur: 0.025, type: 'highpass', filterHz: 2800, gain: 0.24, track: true });
-    this.voice(ctx, { freq: 110, toFreq: 102, at: t, dur: 0.4, wave: 'pulse25', filterHz: 750, q: 2, gain: 0.32, track: true });
+    this.voice(ctx, { freq: 110, toFreq: 102, at: t, dur: 0.4, wave: 'pulse25', filterHz: 750, q: 2, gain: 0.32, crush: true, track: true });
     this.voice(ctx, { freq: 55, at: t, dur: 0.42, wave: 'triangle', gain: 0.34, track: true });
 
-    // 300ms: blackout crunch + sub-drop
     this.thud(ctx, t + 0.3, 150, 52, 0.22, 0.44, true);
-    this.noiseBurst(ctx, { at: t + 0.3, dur: 0.18, type: 'bandpass', filterHz: 680, toFilterHz: 180, q: 2, gain: 0.34, track: true });
+    this.noiseBurst(ctx, { at: t + 0.3, dur: 0.18, type: 'bandpass', filterHz: 680, toFilterHz: 180, q: 2, gain: 0.34, crush: true, track: true });
 
-    // 550ms: leak crystalline ping
-    this.voice(ctx, { freq: 440, toFreq: 587.33, at: t + 0.55, dur: 0.16, wave: 'pulse25', filterHz: 3200, gain: 0.3, track: true });
-    this.voice(ctx, { freq: 880, toFreq: 1174.66, at: t + 0.57, dur: 0.14, wave: 'triangle', gain: 0.2, track: true });
+    this.fmVoice(ctx, { carrierHz: 523.25, toCarrierHz: 698.46, modRatio: 2.5, modIndex: 200, at: t + 0.55, dur: 0.18, gain: 0.26, track: true });
 
-    // 700ms+: rising 2-voice pulse arpeggio + opening noise riser
     const endMs = extendToFreeze ? WOMM.freeze - 30 : CASCADE.invert[0];
     const span = (endMs - 700) / 1000;
     this.noiseBurst(ctx, {
@@ -623,8 +1118,9 @@ export class SoundEngine {
       filterHz: 500,
       toFilterHz: extendToFreeze ? 4600 : 3200,
       q: 2.4,
-      gain: extendToFreeze ? 0.36 : 0.28,
+      gain: extendToFreeze ? 0.38 : 0.28,
       attack: span * 0.75,
+      crush: true,
       track: true,
     });
     const steps = extendToFreeze ? 18 : 8;
@@ -634,6 +1130,7 @@ export class SoundEngine {
       const freq = 261.63 * Math.pow(extendToFreeze ? 2.8 : 2.1, p);
       const dur = Math.min(0.11, endMs / 1000 - (at - t));
       if (dur <= 0.015) break;
+      const pan = (i % 2 === 0 ? -1 : 1) * (0.2 + p * 0.5);
       this.voice(ctx, {
         freq,
         at,
@@ -642,10 +1139,11 @@ export class SoundEngine {
         filterHz: 1800 + p * 3200,
         q: 1.8,
         gain: 0.22 + p * 0.16,
+        pan,
+        crush: p > 0.5,
         track: true,
       });
       if (extendToFreeze && at >= t + CASCADE.invert[0] / 1000) {
-        // Extra straining grit + sub-rumble during WOMM's 1300→2200ms over-intense shake!
         this.voice(ctx, {
           freq: freq * 0.5,
           at,
@@ -653,14 +1151,16 @@ export class SoundEngine {
           wave: 'sawtooth',
           filterHz: 900 + p * 1200,
           detune: (i % 2 === 0 ? 1 : -1) * 18,
-          gain: 0.2 + p * 0.14,
+          gain: 0.22 + p * 0.15,
+          pan: -pan,
+          crush: true,
           track: true,
         });
       }
     }
   }
 
-  /** Landing sound after a dive: tiny anticlimactic plink for +1 / WOMM, heavy sub-boom + chime for big dives. */
+  /** Landing sound after a dive: tiny anticlimactic plink for +1 / WOMM, heavy sub-boom + FM chime for big dives. */
   playLand(frames: number, tier: TierId, layer: LayerId) {
     const ctx = this.ensureCtx();
     if (!ctx) return;
@@ -671,6 +1171,7 @@ export class SoundEngine {
     } else if (frames >= 5) {
       this.thud(ctx, t, frames >= 10 ? 180 : 150, 40, frames >= 10 ? 0.34 : 0.24, frames >= 10 ? 0.6 : 0.48);
       this.layered(ctx, { freq: frames >= 10 ? 783.99 : 587.33, at: t + 0.015, dur: 0.24, tm, gain: 0.34, sub: true });
+      this.fmVoice(ctx, { carrierHz: frames >= 10 ? 783.99 : 587.33, modRatio: 2, modIndex: 180, at: t + 0.015, dur: 0.26, gain: 0.2 });
     } else {
       this.thud(ctx, t, 130, 58, 0.16, 0.34);
       this.layered(ctx, { freq: 349.23, toFreq: 261.63, at: t, dur: 0.14, tm, gain: 0.28 });
@@ -681,43 +1182,56 @@ export class SoundEngine {
   // Layer Boundary Crossings
 
   playLayerCross(layer: LayerId) {
+    this.setLayer(layer);
+    if (this.tryPlayCustom(`layer-${layer}`)) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
     const t = ctx.currentTime;
     switch (layer) {
       case 'kernel':
-        // Syscall boundary: heavy filtered tear zip + sub-thump
-        this.thud(ctx, t, 140, 50, 0.18, 0.4);
-        this.noiseBurst(ctx, { at: t, dur: 0.22, type: 'bandpass', filterHz: 2400, toFilterHz: 260, q: 2.2, gain: 0.36 });
+        this.thud(ctx, t, 140, 50, 0.18, 0.42);
+        this.noiseBurst(ctx, { at: t, dur: 0.22, type: 'bandpass', filterHz: 2400, toFilterHz: 260, q: 2.2, gain: 0.36, crush: true });
         break;
       case 'firmware':
-        // Classic IBM PC speaker POST beep (~1000 Hz raw square wave) + subtle relay clack
-        this.noiseBurst(ctx, { at: t, dur: 0.018, type: 'highpass', filterHz: 3000, gain: 0.22 });
-        this.voice(ctx, { freq: 1000, at: t + 0.015, dur: 0.15, wave: 'square', gain: 0.34, attack: 0.002 });
+        this.noiseBurst(ctx, { at: t, dur: 0.018, type: 'highpass', filterHz: 3000, gain: 0.22, reverb: 0 });
+        this.voice(ctx, { freq: 1000, at: t + 0.015, dur: 0.15, wave: 'square', gain: 0.34, attack: 0.002, reverb: 0.15 });
         break;
       case 'ring-1':
-        // VM exit: resonant dual-voice detuned mirror shimmer
-        this.voice(ctx, { freq: 440, at: t, dur: 0.28, wave: 'pulse25', filterHz: 2200, toFilterHz: 700, q: 2, gain: 0.26 });
-        this.voice(ctx, { freq: 448, at: t + 0.03, dur: 0.28, wave: 'pulse25', filterHz: 2200, toFilterHz: 700, q: 2, gain: 0.26 });
-        this.voice(ctx, { freq: 220, at: t, dur: 0.26, wave: 'triangle', gain: 0.24 });
+        this.fmVoice(ctx, { carrierHz: 440, modRatio: 2, modIndex: 140, at: t, dur: 0.32, gain: 0.24, pan: -0.6, toPan: 0.6, swell: true });
+        this.fmVoice(ctx, { carrierHz: 448, modRatio: 2, modIndex: 140, at: t + 0.03, dur: 0.32, gain: 0.24, pan: 0.6, toPan: -0.6, swell: true });
         break;
       case 'ring-2':
-        // SMI: abrupt tape-stop / clock-halt drop + mechanical lock
-        this.voice(ctx, { freq: 380, toFreq: 48, at: t, dur: 0.14, wave: 'square', filterHz: 1400, toFilterHz: 240, gain: 0.34 });
-        this.noiseBurst(ctx, { at: t + 0.12, dur: 0.025, type: 'highpass', filterHz: 2600, gain: 0.28 });
+        this.voice(ctx, { freq: 380, toFreq: 48, at: t, dur: 0.14, wave: 'square', filterHz: 1400, toFilterHz: 240, gain: 0.34, reverb: 0 });
+        this.noiseBurst(ctx, { at: t + 0.12, dur: 0.025, type: 'highpass', filterHz: 2600, gain: 0.28, reverb: 0 });
         break;
       case 'ring-3':
-        // ME: stark 1-bit high-voltage piezo double-ping + crisp static snap
-        this.noiseBurst(ctx, { at: t, dur: 0.02, type: 'highpass', filterHz: 4000, gain: 0.3 });
-        this.voice(ctx, { freq: 1760, at: t, dur: 0.045, wave: 'square', gain: 0.32, attack: 0.001 });
-        this.voice(ctx, { freq: 880, at: t + 0.06, dur: 0.035, wave: 'square', gain: 0.26, attack: 0.001 });
+        this.noiseBurst(ctx, { at: t, dur: 0.02, type: 'highpass', filterHz: 4000, gain: 0.3, crush: true, reverb: 0 });
+        this.voice(ctx, { freq: 1760, at: t, dur: 0.045, wave: 'square', gain: 0.32, attack: 0.001, reverb: 0 });
+        this.voice(ctx, { freq: 880, at: t + 0.06, dur: 0.035, wave: 'square', gain: 0.26, attack: 0.001, reverb: 0 });
         break;
       default: {
-        // Subtle layered step chime in the new layer's timbre
         const tm = timbreFor(layer);
-        this.layered(ctx, { freq: 392, toFreq: 493.88, at: t, dur: 0.11, tm, gain: 0.22, click: true });
+        this.layered(ctx, { freq: 392, toFreq: 493.88, at: t, dur: 0.12, tm, gain: 0.24, click: true });
       }
     }
+  }
+
+  /**
+   * Render any procedural sound offline to a 16-bit WAV Blob (for dumping into `sounds/` to inspect/edit in a DAW).
+   */
+  async exportWav(play: (engine: SoundEngine) => void, durationSec = 2.5, sampleRate = 44100): Promise<Blob | null> {
+    const Offline =
+      typeof window !== 'undefined'
+        ? (window.OfflineAudioContext ?? (window as unknown as { webkitOfflineAudioContext?: typeof OfflineAudioContext }).webkitOfflineAudioContext)
+        : undefined;
+    if (!Offline) return null;
+    const off = new Offline(2, Math.ceil(durationSec * sampleRate), sampleRate);
+    const temp = new SoundEngine();
+    temp.setVolume(this.volume);
+    temp.attachContext(off);
+    play(temp);
+    const rendered = await off.startRendering();
+    return encodeWav(rendered);
   }
 }
 

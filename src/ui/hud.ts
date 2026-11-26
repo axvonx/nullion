@@ -239,7 +239,10 @@ export class Hud {
     this.els.rvNext!.addEventListener('click', () => this.unwind(now()));
 
     // Title screen: "Unwind the stack" dives into round 1. Hovering or clicking the logo triggers a glitch pulse.
-    this.titleLogo.onBurst = (ev) => scene.triggerTitleGlitch(ev);
+    this.titleLogo.onBurst = (ev) => {
+      scene.triggerTitleGlitch(ev);
+      sound.playTitleGlitch(ev.kind);
+    };
     this.els.titleStart!.addEventListener('click', () => this.startFromTitle(now()));
     this.els.titleStart!.addEventListener('pointerenter', () => this.titleLogo.pulse('bitflip'));
     this.titleLogo.canvas.addEventListener('click', () => this.titleLogo.pulse());

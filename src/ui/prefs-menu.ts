@@ -23,6 +23,15 @@ const PREF_CONTROLS: ChoiceControl<keyof Prefs>[] = [
     ],
   },
   {
+    key: 'volume',
+    label: 'Volume',
+    options: [
+      { value: 'low', label: 'Low', hint: 'Quiet background level.' },
+      { value: 'medium', label: 'Medium', hint: 'Balanced default level.' },
+      { value: 'high', label: 'High', hint: 'Full punchy arcade level.' },
+    ],
+  },
+  {
     key: 'autocorrect',
     label: 'Typo correction',
     options: [

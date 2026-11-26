@@ -53,9 +53,9 @@ Current stage: **offline playtest prototype.** The open question is which answer
 
 ## Sound & favicon
 
-- **Procedural Web Audio (`src/audio/sound.ts`):** on by default (`prefs.sound = 'on'`), with a one-click pixel speaker mute button beside the gear chip in the header and a Sound row in Settings (`src/ui/prefs-menu.ts`). Audio timbre degrades with the stack (warm triangle in Application/Runtime/Libraries → crisp square in Userspace/Kernel/Drivers → raw IBM PC speaker POST beep on Firmware → low-pass square in Ring −1/−2 → stark 1-bit piezo clicks in Ring −3), with synced tier reactions (including a full-length Bit Flip audio fake-out on Works on my machine that hard-cuts to silence on freeze) and boundary crossing SFX.
+- **Procedural Web Audio (`src/audio/sound.ts`):** on by default (`prefs.sound = 'on'`, `prefs.volume = 'medium'`), with a one-click pixel speaker mute button beside the gear chip in the header and Sound + Volume (`Low / Medium / High`) rows in Settings (`src/ui/prefs-menu.ts`). Uses custom 25%/12.5% pulse waves, 2-op FM synthesis, `WaveShaperNode` bitcrushing, procedural stereo `ConvolverNode` reverb (wet mix adapts per layer, bone-dry in Ring −2/−3), `StereoPannerNode` + synchronized volume swells (Race condition, Memory leak, Heisenbug), a subtle crossfading hardware ambience bed (silent in Ring −2 and during WOMM freeze), quiet title-screen glitch micro-foley, synced dive/morph/tier/boundary SFX, plus optional `/sounds/<id>.wav` overrides and an `exportWav()` helper.
 - **`sounds/` directory:** kept locally and gitignored (`/sounds/` in `.gitignore`) for now while SFX are generated procedurally in JS; if custom recorded audio assets are added later, remove `/sounds/` from `.gitignore` to track them.
-- **Animated favicon (`src/ui/favicon.ts`, `index.html`):** stylized pixel-art slashed `0` on a dark debugger tile with periodic non-strobing glitch frames (static under reduced motion).
+- **Animated favicon (`src/ui/favicon.ts`, `index.html`):** transparent hollow pixel-art `0` with 1px dark outline and periodic non-strobing glitch frames (static under reduced motion).
 
 ## Visual alternatives
 

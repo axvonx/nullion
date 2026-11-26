@@ -172,19 +172,16 @@ export const LOGO_W = PAD_X * 2 + WORD.length * CELL_W + (WORD.length - 1) * GAP
 export const LOGO_H = PAD_Y * 2 + CELL_H + 5; // extra room below for stack-echo and pixel-rain drips
 
 export type TitleGlitchKind =
-  | 'off-by-one'
-  | 'race'
-  | 'leak'
-  | 'npe'
-  | 'heisenbug'
+  | 'mirror-flip'
   | 'bitflip'
   | 'mini-ghosts'
+  | 'heisenbug'
+  | 'race'
+  | 'npe'
   | 'hex-corrupt'
-  | 'pixel-rain'
-  | 'crt-warp'
   | 'palette-drop'
   | 'stack-echo'
-  | 'cursor-overwrite';
+  | 'pixel-rain';
 
 export interface TitleGlitchEvent {
   kind: TitleGlitchKind;
@@ -200,35 +197,30 @@ interface GlitchBurst extends TitleGlitchEvent {
 }
 
 const BURST_DUR: Record<TitleGlitchKind, number> = {
-  'off-by-one': 320,
-  race: 460,
-  leak: 680,
-  npe: 380,
-  heisenbug: 440,
+  'mirror-flip': 640,
   bitflip: 500,
-  'mini-ghosts': 760,
+  'mini-ghosts': 740,
+  heisenbug: 440,
+  race: 460,
+  npe: 380,
   'hex-corrupt': 520,
-  'pixel-rain': 640,
-  'crt-warp': 460,
   'palette-drop': 580,
   'stack-echo': 620,
-  'cursor-overwrite': 540,
+  'pixel-rain': 640,
 };
 
 const ALL_KINDS: readonly TitleGlitchKind[] = [
+  'mirror-flip',
   'bitflip',
   'mini-ghosts',
   'heisenbug',
+  'mirror-flip',
   'race',
   'hex-corrupt',
   'stack-echo',
   'palette-drop',
   'pixel-rain',
   'npe',
-  'crt-warp',
-  'cursor-overwrite',
-  'leak',
-  'off-by-one',
 ];
 
 const DROP_PALETTES = ['cga4', 'green', 'gray', 'onebit'] as const;
@@ -408,13 +400,7 @@ export class TitleLogo {
     this.seq++;
     const seed = Math.floor(now * 0.17) + this.seq * 41;
     const count =
-      kind === 'off-by-one'
-        ? 1
-        : kind === 'race' || kind === 'hex-corrupt'
-          ? 3
-          : kind === 'pixel-rain'
-            ? 4
-            : 2;
+      kind === 'race' || kind === 'hex-corrupt' ? 3 : kind === 'pixel-rain' ? 4 : 2;
     const letters: number[] = [];
     for (let k = 0; k < count + 2 && letters.length < count; k++) {
       const idx = Math.floor(hash(seed + k * 19) * WORD.length);
@@ -449,21 +435,7 @@ export class TitleLogo {
     const rel = b ? now - b.start : 0;
     const p = b ? Math.min(1, rel / b.dur) : 0;
 
-    // 1. Pre-pass: Memory leak ghost copies
-    if (b && b.kind === 'leak') {
-      const drift = Math.round(1 + p * 4);
-      ctx.save();
-      ctx.globalAlpha = 0.65 * (1 - p * 0.55);
-      for (const i of b.letters) {
-        const ch = WORD[i]!;
-        const x = PAD_X + i * (CELL_W + GAP) + drift;
-        const y = PAD_Y + drift;
-        drawGlyph(ctx, GLYPHS[ch]!, x, y, '#5fd3e0', '#0b2228');
-      }
-      ctx.restore();
-    }
-
-    // 2. Pre-pass: Stack-echo (2–3 stacked copies cascading vertically downward like stack frames)
+    // 1. Pre-pass: Stack-echo (2–3 stacked copies cascading vertically downward like stack frames)
     if (b && b.kind === 'stack-echo') {
       const reach = Math.sin(p * Math.PI);
       for (let layer = 2; layer >= 1; layer--) {
@@ -512,9 +484,6 @@ export class TitleLogo {
       }
     }
 
-    // Cursor-overwrite sweep index (0..WORD.length)
-    const sweepIdx = b && b.kind === 'cursor-overwrite' ? Math.floor(p * (WORD.length + 1)) : -1;
-
     // 4. Main pass: draw each monospace letter cell
     for (let i = 0; i < WORD.length; i++) {
       let ch: string = WORD[i]!;
@@ -526,23 +495,8 @@ export class TitleLogo {
       let highlight: string | undefined = palHi;
 
       const hit = b && b.letters.includes(i);
-      if (b && b.kind === 'cursor-overwrite' && i === sweepIdx) {
-        // Block cursor sweeps over this letter, inverting its cell cleanly
-        ctx.fillStyle = '#ffb000';
-        ctx.fillRect(x - 1, y - 1, CELL_W + 2, CELL_H + 2);
-        fill = '#131118';
-        outline = '#ffb000';
-        highlight = undefined;
-        shadow = undefined;
-      } else if (hit && b) {
+      if (hit && b) {
         switch (b.kind) {
-          case 'off-by-one': {
-            const dir = hash(b.seed) > 0.5 ? 1 : -1;
-            y += dir * 2;
-            fill = '#ffb000';
-            highlight = '#ffe25a';
-            break;
-          }
           case 'race': {
             x += Math.round(Math.sin(now / 28 + i * 2.1) * 2);
             y += Math.round(Math.cos(now / 35 + i * 1.4) * 1.4);
@@ -612,16 +566,35 @@ export class TitleLogo {
       ctx.drawImage(this.scratch, 0, sy2, LOGO_W, 2, -dx1, sy2, LOGO_W, 2);
     }
 
-    // 6. Post-pass: CRT horizontal sync wave
-    if (b && b.kind === 'crt-warp') {
+    // 6. Post-pass: Mirror-flip — flips "nullion" horizontally, vertically, and both ways across its center!
+    // Because n/u↔o/n and lli mirror cleanly across the middle l, it reads as an eerie symmetrical reflection.
+    if (b && b.kind === 'mirror-flip') {
       this.scratchCtx.clearRect(0, 0, LOGO_W, LOGO_H);
       this.scratchCtx.drawImage(this.canvas, 0, 0);
+      // 3-beat flip sequence: horizontal → both ways (H+V) → vertical (order varies by seed).
+      const phase = p < 0.34 ? 0 : p < 0.68 ? 1 : 2;
+      const rev = hash(b.seed + 4) > 0.5;
+      const flipH = phase === 1 || (rev ? phase === 2 : phase === 0);
+      const flipV = phase === 1 || (rev ? phase === 0 : phase === 2);
       ctx.clearRect(0, 0, LOGO_W, LOGO_H);
-      const amp = Math.sin(p * Math.PI) * 2.6;
-      for (let row = 0; row < LOGO_H; row++) {
-        const dx = Math.round(Math.sin(row * 0.65 + now / 45) * amp);
-        ctx.drawImage(this.scratch, 0, row, LOGO_W, 1, dx, row, LOGO_W, 1);
-      }
+      // Faint unflipped ghost behind so the mirror axis reads clearly
+      ctx.save();
+      ctx.globalAlpha = 0.25;
+      ctx.drawImage(this.scratch, 0, 0);
+      ctx.restore();
+      // Main mirrored wordmark around the glyph box center
+      const midX = PAD_X + (WORD.length * CELL_W + (WORD.length - 1) * GAP) / 2;
+      const midY = PAD_Y + CELL_H / 2;
+      ctx.save();
+      ctx.translate(midX, midY);
+      ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+      ctx.translate(-midX, -midY);
+      ctx.drawImage(this.scratch, 0, 0);
+      ctx.restore();
+      // Crisp 1px amber axis tick at the center of the middle 'l'
+      ctx.fillStyle = 'rgba(255, 176, 0, 0.7)';
+      if (flipH) ctx.fillRect(Math.round(midX), PAD_Y - 2, 1, CELL_H + 4);
+      if (flipV) ctx.fillRect(PAD_X - 2, Math.round(midY), LOGO_W - PAD_X * 2 + 4, 1);
     }
 
     // 7. Post-pass: Null pointer black void slice

@@ -1,14 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import { LAYERS } from '../core/layers';
 import { TIER_IDS } from '../core/tiers';
-import { SoundEngine, timbreFor } from './sound';
+import { SoundEngine, encodeWav, timbreFor } from './sound';
 
 function makeMockAudioContext() {
   let oscCount = 0;
   let noiseCount = 0;
+  let pannerCount = 0;
+  let shaperCount = 0;
   let stopped = 0;
   const param = () => ({
     setValueAtTime() {},
+    setTargetAtTime() {},
     linearRampToValueAtTime() {},
     exponentialRampToValueAtTime() {},
     cancelScheduledValues() {},
@@ -23,6 +26,17 @@ function makeMockAudioContext() {
     }
     createGain() {
       return { gain: param(), connect() {} };
+    }
+    createConvolver() {
+      return { buffer: null, connect() {} };
+    }
+    createWaveShaper() {
+      shaperCount++;
+      return { curve: null, oversample: 'none', connect() {} };
+    }
+    createStereoPanner() {
+      pannerCount++;
+      return { pan: param(), connect() {} };
     }
     createDynamicsCompressor() {
       return {
@@ -54,14 +68,15 @@ function makeMockAudioContext() {
         },
       };
     }
-    createBuffer(_ch: number, len: number) {
-      const data = new Float32Array(len);
-      return { getChannelData: () => data };
+    createBuffer(ch: number, len: number) {
+      const channels = Array.from({ length: ch }, () => new Float32Array(len));
+      return { numberOfChannels: ch, length: len, sampleRate: 44100, getChannelData: (i: number) => channels[i]! };
     }
     createBufferSource() {
       noiseCount++;
       return {
         buffer: null,
+        loop: false,
         connect() {},
         start() {},
         stop() {
@@ -70,7 +85,7 @@ function makeMockAudioContext() {
       };
     }
   }
-  return { MockAudioContext, counts: () => ({ oscCount, noiseCount, stopped }) };
+  return { MockAudioContext, counts: () => ({ oscCount, noiseCount, pannerCount, shaperCount, stopped }) };
 }
 
 describe('sound engine', () => {
@@ -119,11 +134,19 @@ describe('sound engine', () => {
         engine.playLand(tier === 'bitflip' ? 13 : 1, tier, 'kernel');
       }
       engine.playMorph('kernel');
+      engine.setVolume('high');
+      engine.playTitleGlitch('mirror-flip');
+      engine.playTitleGlitch('bitflip');
+      engine.playTitleGlitch('mini-ghosts');
+      engine.setAmbienceFrozen(true);
+      engine.setAmbienceFrozen(false);
       for (const l of LAYERS) engine.playLayerCross(l.id);
 
       const afterPlay = counts();
       expect(afterPlay.oscCount).toBeGreaterThan(40);
       expect(afterPlay.noiseCount).toBeGreaterThan(0);
+      expect(afterPlay.pannerCount).toBeGreaterThan(0);
+      expect(afterPlay.shaperCount).toBeGreaterThan(0);
 
       // Muting stops active reaction nodes and prevents further scheduling.
       engine.setEnabled(false);
@@ -134,5 +157,20 @@ describe('sound engine', () => {
     } finally {
       (globalThis as unknown as { window: unknown }).window = prevWin;
     }
+  });
+
+  it('encodes an AudioBuffer into a valid 16-bit PCM WAV Blob', async () => {
+    const ch0 = new Float32Array([0, 0.5, -0.5, 1]);
+    const ch1 = new Float32Array([0, -0.5, 0.5, -1]);
+    const fakeBuf = {
+      numberOfChannels: 2,
+      length: 4,
+      sampleRate: 44100,
+      getChannelData: (i: number) => (i === 0 ? ch0 : ch1),
+    } as unknown as AudioBuffer;
+    const blob = encodeWav(fakeBuf);
+    expect(blob.type).toBe('audio/wav');
+    // 44-byte WAV header + 4 samples * 2 channels * 2 bytes = 60 bytes
+    expect(blob.size).toBe(60);
   });
 });

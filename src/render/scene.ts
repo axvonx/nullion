@@ -500,9 +500,9 @@ export class Scene {
     const { W, H } = this;
     const cx = Math.round(W / 2);
 
-    // Spawn small drifting "nullion" ghost clones in the sky for mini-ghosts, leak, stack-echo, and occasionally bitflip.
-    if (ev.kind === 'mini-ghosts' || ev.kind === 'leak' || ev.kind === 'stack-echo' || (ev.kind === 'bitflip' && hash(ev.seed) > 0.45)) {
-      const count = ev.kind === 'mini-ghosts' ? 4 : ev.kind === 'leak' ? 2 : 1;
+    // Spawn small drifting "nullion" ghost clones in the sky for mini-ghosts, stack-echo, and occasionally bitflip.
+    if (ev.kind === 'mini-ghosts' || ev.kind === 'stack-echo' || (ev.kind === 'bitflip' && hash(ev.seed) > 0.45)) {
+      const count = ev.kind === 'mini-ghosts' ? 4 : 1;
       const fills = ['#ebe6d6', '#5fd3e0', '#ffb000', '#c58bff', '#8cff9c', '#ff6ad5'];
       for (let k = 0; k < count; k++) {
         const s = ev.seed + k * 29;
@@ -784,8 +784,9 @@ export class Scene {
     if (act === 'womm' && rel >= WOMM.freeze && this.leaks.length) {
       this.leaks.length = 0;
     }
-    // Works on my machine and Ring −2 freeze the entire world clock (props, rain, cursor blink/brackets/sway, bubbles).
+    // Works on my machine and Ring −2 freeze the entire world clock (props, rain, cursor blink/brackets/sway, bubbles, ambience).
     const worldFrozen = frozen || this.fx.freeze || this.fx.hang;
+    sound.setAmbienceFrozen(worldFrozen);
     if (!worldFrozen) this.artTime += dt;
     PROP_SPOTS.length = 0;
     ENTITY_SPOTS.length = 0;
@@ -1084,33 +1085,38 @@ export class Scene {
       const tb = this.titleBurst;
       const p = (now - tb.start) / tb.dur;
       switch (tb.kind) {
-        case 'race':
-        case 'off-by-one': {
-          // Jiggle or shift a handful of background props in sympathy with the title.
+        case 'mirror-flip': {
+          // Mirror shimmer across the live sky (horizontal + vertical reflection matching the wordmark flip).
           this.scratchCtx.drawImage(this.canvas, 0, 0);
-          const count = tb.kind === 'race' ? 14 : 5;
-          const rects = this.entities(tb.seed, count);
+          const phase = p < 0.34 ? 0 : p < 0.68 ? 1 : 2;
+          const flipH = phase !== 2;
+          const flipV = phase !== 0;
+          ctx.save();
+          ctx.globalAlpha = 0.28 * Math.sin(p * Math.PI);
+          ctx.translate(flipH ? W : 0, flipV ? H : 0);
+          ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+          ctx.drawImage(this.scratch, 0, 0);
+          ctx.restore();
+          break;
+        }
+        case 'race': {
+          // Jiggle a handful of background props in sympathy with the title.
+          this.scratchCtx.drawImage(this.canvas, 0, 0);
+          const rects = this.entities(tb.seed, 14);
           rects.forEach(([x, y, w, h], i) => {
-            const dx =
-              tb.kind === 'race'
-                ? Math.round(Math.sin(now / 38 + i * 1.9) * 2.2)
-                : hash(tb.seed + i) > 0.5
-                  ? 1
-                  : -1;
-            const dy = tb.kind === 'race' ? Math.round(Math.cos(now / 44 + i * 2.3) * 1.4) : 0;
+            const dx = Math.round(Math.sin(now / 38 + i * 1.9) * 2.2);
+            const dy = Math.round(Math.cos(now / 44 + i * 2.3) * 1.4);
             if (dx || dy) ctx.drawImage(this.scratch, x, y, w, h, x + dx, y + dy, w, h);
           });
           break;
         }
-        case 'heisenbug':
-        case 'crt-warp': {
+        case 'heisenbug': {
           // Horizontal scanline tear slices across the sky.
           this.scratchCtx.drawImage(this.canvas, 0, 0);
-          const slices = tb.kind === 'crt-warp' ? 4 : 2;
-          for (let k = 0; k < slices; k++) {
+          for (let k = 0; k < 3; k++) {
             const sy = Math.floor(hash(tb.seed + k * 7) * (H - 12));
             const sh = 2 + Math.floor(hash(tb.seed + k * 7 + 1) * 7);
-            const dx = Math.round(Math.sin(p * Math.PI * 2 + k) * (tb.kind === 'crt-warp' ? 6 : 9));
+            const dx = Math.round(Math.sin(p * Math.PI * 2 + k) * 9);
             ctx.drawImage(this.scratch, 0, sy, W, sh, dx, sy, W, sh);
           }
           break;
@@ -1157,13 +1163,6 @@ export class Scene {
             for (let y = 0; y < bh; y++) quantizeRow(img.data, y * W * 4, W, y0 + y, mode, true);
             ctx.putImageData(img, 0, y0);
           }
-          break;
-        }
-        case 'cursor-overwrite': {
-          // A subtle horizontal terminal scan bar sweeps across a strip of the sky.
-          const barY = Math.round(p * H);
-          ctx.fillStyle = 'rgba(255, 176, 0, 0.28)';
-          ctx.fillRect(0, barY, W, 2);
           break;
         }
         default:

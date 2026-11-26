@@ -34,6 +34,7 @@ async function boot() {
   await Promise.all([document.fonts.load('8px Silkscreen'), document.fonts.load('20px VT323')]);
   startFavicon();
   sound.setEnabled(prefs.get().sound === 'on');
+  sound.setVolume(prefs.get().volume);
   window.addEventListener('pointerdown', () => sound.unlock(), { once: true });
   window.addEventListener('keydown', () => sound.unlock(), { once: true });
 
@@ -55,12 +56,14 @@ async function boot() {
     hud.setGame(game, formatLocalDate(date));
     hud.setScrollMode(s.mode === 'scroll');
     scene.setTarget(0, true);
+    sound.setLayer('application');
   };
 
   // A preference change applies to the game in progress; it never restarts the day.
   prefs.subscribe((p) => {
     game.opts.autocorrect = p.autocorrect;
     sound.setEnabled(p.sound === 'on');
+    sound.setVolume(p.volume);
   });
 
   hud.bind(scene, () => performance.now());
