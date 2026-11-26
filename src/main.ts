@@ -11,6 +11,8 @@ import { LOOK_SLOTS, looks, type LookSlot } from './looks';
 import { Scene } from './render/scene';
 import { DEFAULT_SETTINGS, settings, type Settings } from './settings';
 import { prefs } from './prefs';
+import { sound } from './audio/sound';
+import { startFavicon } from './ui/favicon';
 import { Hud } from './ui/hud';
 
 /** Dev server and `npm run build:debug` include the 🐞 menu; `npm run build` strips it. */
@@ -30,6 +32,10 @@ async function boot() {
   enforce(mount, '#app missing');
   // Canvas text needs the pixel font loaded before the first frame, or it falls back silently.
   await Promise.all([document.fonts.load('8px Silkscreen'), document.fonts.load('20px VT323')]);
+  startFavicon();
+  sound.setEnabled(prefs.get().sound === 'on');
+  window.addEventListener('pointerdown', () => sound.unlock(), { once: true });
+  window.addEventListener('keydown', () => sound.unlock(), { once: true });
 
   const hud = new Hud(mount);
   const scene = new Scene(hud.canvasEl);
@@ -54,6 +60,7 @@ async function boot() {
   // A preference change applies to the game in progress; it never restarts the day.
   prefs.subscribe((p) => {
     game.opts.autocorrect = p.autocorrect;
+    sound.setEnabled(p.sound === 'on');
   });
 
   hud.bind(scene, () => performance.now());

@@ -30,6 +30,7 @@ class FakeScene {
   fx = { jiggle: 0, freeze: false, hang: false, flip: 'none' as const };
   vignette: boolean[] = [];
   holds: boolean[] = [];
+  unstickCalls: (boolean | undefined)[] = [];
   dives: { to: number; tier: string; frames: number }[] = [];
   introDives = 0;
   rejectNudges = 0;
@@ -49,8 +50,9 @@ class FakeScene {
   setVignette(on: boolean) {
     this.vignette.push(on);
   }
-  setHold(on: boolean) {
+  setHold(on: boolean, unstickZLayers?: boolean) {
     this.holds.push(on);
+    if (!on) this.unstickCalls.push(unstickZLayers);
   }
   markCss() {
     return { top: 250, bottom: 320 };
@@ -189,6 +191,9 @@ describe('HUD flow', () => {
     expect(h.game.phase.kind).toBe('done');
     expect(h.$('[data-el="result"]').hidden).toBe(false);
     expect(h.revealUp()).toBe(false);
+    // Unwinding earlier rounds unsticks z-layers; the last round leaves them parked behind the end card.
+    expect(h.scene.unstickCalls.slice(0, 6).every((v) => v === true)).toBe(true);
+    expect(h.scene.unstickCalls.at(-1)).toBe(false);
   });
 
   it('a timeout on the last round leads to the end card, with a timeout row at #0', () => {
@@ -287,7 +292,7 @@ describe('typo correction', () => {
     expect(h.$('[data-el="feedback"]').textContent).toBe(`read as '${name}'`);
   });
 
-  it('the settings popover switches the preference', () => {
+  it('the settings popover switches the preference and the header mute button toggles sound', () => {
     const h = setup();
     h.$<HTMLButtonElement>('.prefs-btn').click();
     expect(h.$('.prefs-pop').hidden).toBe(false);
@@ -295,6 +300,15 @@ describe('typo correction', () => {
     auto.checked = true;
     auto.dispatchEvent(new Event('change'));
     expect(prefs.get().autocorrect).toBe('auto');
+
+    const muteBtn = h.$<HTMLButtonElement>('.sound-btn');
+    expect(prefs.get().sound).toBe('on');
+    muteBtn.click();
+    expect(prefs.get().sound).toBe('off');
+    expect(muteBtn.getAttribute('aria-pressed')).toBe('true');
+    muteBtn.click();
+    expect(prefs.get().sound).toBe('on');
+    expect(muteBtn.getAttribute('aria-pressed')).toBe('false');
   });
 });
 

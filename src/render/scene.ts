@@ -6,12 +6,14 @@ import { FONT, LAYER_ART, hash, type Art, type Band } from './art';
 import { LAYER_ART_DETAILED, SEAM_ART, SEAM_H } from './art-detailed';
 import { LAYER_ART_V3, PROP_SPOTS } from './art-v3';
 import { ENTITY_SPOTS, LAYER_ART_V4, ensureWorldV4 } from './art-v4';
+import { FAR_F } from './v4/place';
 import type { WorldSpecV4 } from './v4/world';
 import { LAYER_PALETTE, quantizeRow, snapColor, type PaletteMode } from './palettes';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
 import { CASCADE, LEAD_MS, NO_REACTION, NPE_MS, REACTION_MS, WOMM, reactionFrame, type ReactionFrame } from './reaction-fx';
 import { CURSOR_FRAC, FORM_BY_LAYER, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
 import { drawMiniNullion, type TitleGlitchEvent } from '../ui/title-logo';
+import { sound } from '../audio/sound';
 
 export { pixelScale } from './cursor-geom';
 
@@ -217,6 +219,14 @@ export class Scene {
   private rejectStart = -Infinity;
   /** Watchdog low-time state: tightens the cursor brackets and shifts them to fault-red. */
   private lowTime = false;
+  /**
+   * Works-on-my-machine rigid scroll: binds far and near z-layers together while the hung screen is forced
+   * downward, then eases the far plane back to its natural parallax position when released (unless end-of-day).
+   */
+  private wommBound = false;
+  private wommAnchorCamY = 0;
+  private farShift = 0;
+  private farReleasing = false;
   /** Active title-screen glitch echoes reflected in the live world behind the wordmark. */
   private titleBurst: (TitleGlitchEvent & { start: number }) | undefined;
   private titleGhosts: {
@@ -348,12 +358,17 @@ export class Scene {
    * jiggle continues gently, Bit Flip holds its inversion). Releasing lets it end: leaked copies fade out.
    * Nothing strobes: inversions are entered once and held.
    */
-  setHold(on: boolean) {
+  setHold(on: boolean, unstickZLayers = true) {
     if (on === this.held) return;
     this.held = on;
     if (on) return;
     const now = performance.now();
     for (const b of this.leaks) b.start = Math.min(b.start, now - 0.6 * LEAK_MS);
+    if (this.wommBound) {
+      this.wommBound = false;
+      // On "Unwind further" (when not the last round), ease the bound z-layers to where they should have scrolled.
+      this.farReleasing = unstickZLayers;
+    }
     const r = this.reaction;
     if (r && now - r.start > REACTION_MS[r.tier]) this.reaction = undefined;
   }
@@ -462,6 +477,7 @@ export class Scene {
   react(tier: TierId, leakNow = true) {
     const now = performance.now();
     this.reaction = { tier, start: now };
+    sound.playTier(tier, LAYERS[layerIndexAt(this.depth)]!.id);
     const seed = Math.floor(now);
     if (tier === 'leak' && leakNow) this.leakPending = true;
     this.cascadeLeaked = false;
@@ -654,6 +670,19 @@ export class Scene {
 
   private beginMoving(d: Dive) {
     d.moving = true;
+    if (d.react === 'womm') {
+      // Lock all z-layers together at the moment WOMM's forced scroll starts.
+      this.wommBound = true;
+      this.farReleasing = false;
+      this.wommAnchorCamY = Math.round(worldY(this.cam) - this.cursorY);
+      this.farShift = 0;
+    } else if (this.wommBound) {
+      this.wommBound = false;
+      this.farReleasing = true;
+    }
+    if (d.react) {
+      sound.playDive(Math.round(d.to - d.from), d.react, LAYERS[layerIndexAt(this.depth)]!.id, d.dur);
+    }
   }
 
   private land(d: Dive, now: number) {
@@ -663,6 +692,7 @@ export class Scene {
       this.landThudStart = now;
       this.landThudMag = d.to - d.from >= 10 ? 3 : 2;
     }
+    if (d.react) sound.playLand(Math.round(d.to - d.from), d.react, LAYERS[layerIndexAt(this.depth)]!.id);
     if (d.react === 'leak') this.leakPending = true;
     d.onLand?.();
     if (d.pop) this.pops.push({ ...d.pop, start: now });
@@ -697,14 +727,16 @@ export class Scene {
     } else if (dv) {
       if (!dv.moving) this.beginMoving(dv);
       const p = Math.min(1, (now - dv.start) / dv.dur);
-      this.depth = Math.max(0, dv.from + (dv.to - dv.from) * (reduced ? easeOutCubic(p) : easeOutBack(p)));
+      // WOMM forces a rigid linear-ish scroll with no playful overshoot.
+      const ease = dv.react === 'womm' || reduced ? easeOutCubic(p) : easeOutBack(p);
+      this.depth = Math.max(0, dv.from + (dv.to - dv.from) * ease);
       if (p >= 1) this.land(dv, now);
     } else {
       this.depth += (this.target - this.depth) * (1 - Math.exp(-dt * 2.5));
       if (Math.abs(this.target - this.depth) < 0.002) this.depth = this.target;
     }
-    // The camera follows with a slight lag (none under reduced motion).
-    if (reduced) this.cam = this.depth;
+    // The camera follows with a slight lag (none under reduced motion or during WOMM's rigid forced scroll).
+    if (reduced || this.wommBound) this.cam = this.depth;
     else {
       this.cam += (this.depth - this.cam) * (1 - Math.exp(-dt * 5));
       if (Math.abs(this.depth - this.cam) < 0.002) this.cam = this.depth;
@@ -728,6 +760,7 @@ export class Scene {
         }
       }
       this.lastLayer = layerIdx;
+      sound.playLayerCross(layer.id);
       this.onLayerChange?.(layer);
     }
 
@@ -759,6 +792,21 @@ export class Scene {
 
     const camWorldY = worldY(this.cam);
     const camY = Math.round(camWorldY - this.cursorY);
+    // Rigid z-layer binding during WOMM's forced scroll; eases smoothly back to natural parallax once released.
+    if (this.wommBound) {
+      this.farShift = -(camY - this.wommAnchorCamY) * (1 - FAR_F);
+    } else if (this.farReleasing) {
+      if (reduced) {
+        this.farShift = 0;
+        this.farReleasing = false;
+      } else {
+        this.farShift *= Math.exp(-dt * 6.5);
+        if (Math.abs(this.farShift) < 0.2) {
+          this.farShift = 0;
+          this.farReleasing = false;
+        }
+      }
+    }
     // Where the cursor sits relative to its resting row: below it while the camera catches up.
     this.cursorLead = Math.max(-50, Math.min(70, Math.round(worldY(this.depth) - camWorldY)));
     const ctx = this.ctx;
@@ -772,6 +820,7 @@ export class Scene {
       h: H,
       t: this.artTime,
       reduced,
+      farShift: this.farShift,
     });
 
     // 1. Layer bands.
@@ -1313,7 +1362,10 @@ export class Scene {
   private drawCursor(now: number, layerId: LayerId, reduced: boolean, detailed: boolean) {
     const form = this.formFor(layerId);
     if (form !== this.lastForm) {
-      if (this.lastForm !== undefined && !reduced) this.morphStart = now;
+      if (this.lastForm !== undefined) {
+        if (!reduced) this.morphStart = now;
+        sound.playMorph(layerId);
+      }
       this.lastForm = form;
     }
     const style = FORM_STYLE[form];

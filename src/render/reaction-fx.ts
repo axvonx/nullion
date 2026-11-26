@@ -18,13 +18,13 @@ export const CASCADE = { hang: [0, 450], blackout: [300, 700], leakAt: 550, jigg
 /**
  * Works on my machine is a full-length Bit Flip fake-out:
  *   0 → 2200 ms: mirrors Bit Flip's cascade with super-intense escalating shake of everything
- *   2200 ms (freeze): snaps dead still in place — app hung, no gray yet
- *   2600 ms (gray):   washes out into "Not Responding" grayscale
- *   2900 ms (hourglass): reveals the hourglass cursor
- *   3400 ms (LEAD_MS):   sinks its tiny +1 stack frame drop
+ *   2200 ms (freeze):    snaps dead still in place — app hung, no gray yet (650 ms)
+ *   2850 ms (gray):      washes out into "Not Responding" grayscale (600 ms)
+ *   3450 ms (hourglass): reveals the hourglass cursor (800 ms)
+ *   4250 ms (LEAD_MS):   forces a rigid, z-layer-bound +1 stack frame scroll
  * Enters inversion at most once (never strobes); under reduced motion the inversion is a static tint and jiggle is 0.
  */
-export const WOMM = { jiggle: [700, 2200], freeze: 2200, gray: 2600, hourglass: 2900 } as const;
+export const WOMM = { jiggle: [700, 2200], freeze: 2200, gray: 2850, hourglass: 3450 } as const;
 
 /** Heisenbug's glitch tints the screen from here on (a held tint, never a blink of inversion). */
 export const TEASE_AT = 480;
@@ -35,7 +35,7 @@ export const HELD_JIGGLE = 0.4;
 /** How long each reaction plays on its own, unsustained. */
 export const REACTION_MS: Record<TierId, number> = {
   'off-by-one': 600,
-  womm: 3500,
+  womm: 4400,
   npe: 500,
   leak: 1600,
   race: 1000,
@@ -46,7 +46,7 @@ export const REACTION_MS: Record<TierId, number> = {
 /** How long each tier's notable part plays before its dive starts, in ms. */
 export const LEAD_MS: Record<TierId, number> = {
   'off-by-one': 1250,
-  womm: 3400,
+  womm: 4250,
   npe: 800,
   leak: 1000,
   race: 1000,

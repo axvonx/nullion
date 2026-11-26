@@ -8,6 +8,7 @@ import { tierIcon } from './tier-icons';
 import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
+import { sound } from '../audio/sound';
 
 const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
   const el = root.querySelector<T>(sel);
@@ -94,6 +95,8 @@ export class Hud {
   /** The prompt line's identity (text + form); a new one restarts typing. */
   private promptKey = '';
   private barked = -1;
+  private lastReadSec = -1;
+  private lastLowSec = -1;
   private ended = false;
   private shareText = '';
   private demo = false;
@@ -284,8 +287,11 @@ export class Hud {
     this.endDemo();
     this.ended = false;
     this.barked = -1;
+    this.lastReadSec = -1;
+    this.lastLowSec = -1;
     this.revealRound = -1;
     this.onUnwind = undefined;
+    sound.stopReactions();
     this.hideReveal();
     this.promptKey = '';
     this.els.result!.hidden = true;
@@ -310,6 +316,8 @@ export class Hud {
   private startFromTitle(now: number) {
     const g = this.game;
     if (!g || g.phase.kind !== 'ready') return;
+    sound.unlock();
+    sound.diveStart();
     this.hideTitle();
     this.scene?.introDive();
     g.start(now);
@@ -410,6 +418,10 @@ export class Hud {
       // A short boot beat: the question types in while the input is grayed out with a 3s → 2s → 1s countdown.
       this.showPrompt(r!.question.prompt, now - (p.until - READ_MS));
       const secs = Math.max(1, Math.ceil((p.until - now) / 1000));
+      if (secs !== this.lastReadSec) {
+        this.lastReadSec = secs;
+        sound.countdownTick(secs, layerAt(depthShown).id);
+      }
       const wantPlaceholder = `Starting in ${secs}s`;
       if (this.input.placeholder !== wantPlaceholder) this.input.placeholder = wantPlaceholder;
       left = 1;
@@ -419,6 +431,9 @@ export class Hud {
       left = p.until === null ? 1 : Math.max(0, (p.until - now) / ANSWER_MS);
       if (this.input.placeholder !== ANSWER_PLACEHOLDER) this.input.placeholder = ANSWER_PLACEHOLDER;
       if (this.input.disabled) {
+        this.lastReadSec = -1;
+        this.lastLowSec = -1;
+        sound.roundOpen(layerAt(depthShown).id);
         this.input.disabled = false;
         this.input.focus();
         this.els.feedback!.textContent = '';
@@ -483,12 +498,20 @@ export class Hud {
     this.els.watchdog!.classList.toggle('low', low);
     this.els.console!.classList.toggle('low', low);
     this.scene?.setLowTime(low);
-    setText(this.els.secs!, low ? `${Math.ceil((left * ANSWER_MS) / 1000)}s` : '');
+    const lowSecs = low ? Math.ceil((left * ANSWER_MS) / 1000) : -1;
+    if (lowSecs > 0 && lowSecs !== this.lastLowSec) {
+      this.lastLowSec = lowSecs;
+      sound.lowTimeTick(layerAt(this.scene?.displayDepth ?? 0).id);
+    } else if (!low) {
+      this.lastLowSec = -1;
+    }
+    setText(this.els.secs!, low ? `${lowSecs}s` : '');
   }
 
   /** Timeout: the watchdog barks: the card jolts and flashes red (only the flash, under reduced motion). */
   bark() {
     replay(this.els.console!, 'bark');
+    sound.bark();
     this.revealTimeout();
   }
 
@@ -506,10 +529,11 @@ export class Hud {
     const v = dt > 0 ? (depth - this.lastDepth) / dt : 0;
     this.lastNow = now;
     this.lastDepth = depth;
-    const want = still ? 0 : Math.max(-10, Math.min(10, -v * 0.9));
+    const locked = still || !!this.scene?.fx.freeze || !!this.scene?.fx.hang;
+    const want = locked ? 0 : Math.max(-10, Math.min(10, -v * 0.9));
     const next = this.lag + (want - this.lag) * (1 - Math.exp(-dt * 4));
-    if (Math.abs(next - this.lag) > 0.05 || (still && this.lag !== 0)) {
-      this.lag = still ? 0 : next;
+    if (Math.abs(next - this.lag) > 0.05 || (locked && this.lag !== 0)) {
+      this.lag = locked ? 0 : next;
       this.root.style.setProperty('--lag', `${this.lag.toFixed(1)}px`);
     }
   }
@@ -621,18 +645,22 @@ export class Hud {
   /** "Unwind further": close the reveal, then move on. */
   private unwind(now: number) {
     if (!this.revealOpen) return;
-    this.hideReveal();
+    const g = this.game;
+    const isLastRound = g?.phase.kind === 'between' && g.phase.round + 1 >= g.rounds.length;
+    sound.stopReactions();
+    sound.unwind(layerAt(this.scene?.displayDepth ?? 0).id);
+    this.hideReveal(!isLastRound);
     if (this.onUnwind) this.onUnwind(now);
-    else this.game?.advance(now);
+    else g?.advance(now);
   }
 
-  private hideReveal() {
+  private hideReveal(unstickZLayers = true) {
     if (!this.revealOpen) return;
     this.revealOpen = false;
     clearTimeout(this.revealTimer);
     this.root.classList.remove('unwinding');
     this.scene?.setVignette(false);
-    this.scene?.setHold(false);
+    this.scene?.setHold(false, unstickZLayers);
     const el = this.els.reveal!;
     el.classList.add('out');
     this.revealTimer = window.setTimeout(() => {
@@ -694,6 +722,7 @@ export class Hud {
         requestAnimationFrame(() => (fb.textContent = 'Not accepted'));
         replay(this.els.console!, 'reject');
         scene.rejectNudge();
+        sound.reject(layerAt(scene.displayDepth).id);
         return;
       case 'duplicate':
         this.input.value = '';
@@ -709,6 +738,7 @@ export class Hud {
         this.input.setSelectionRange(res.entry.name.length, res.entry.name.length);
         fb.className = 'feedback hint';
         fb.textContent = `Corrected to '${res.entry.name}'. Press Enter to submit.`;
+        sound.suggest(layerAt(scene.displayDepth).id);
         replay(fb, 'settle-in');
         return;
       case 'accepted': {
@@ -733,6 +763,7 @@ export class Hud {
     const scene = this.scene;
     if (!scene) throw new Error('Hud.endOfDay before bind()');
     this.ended = true;
+    sound.endOfDay();
     this.buildCard(rows, depth, puzzle);
     this.showCard();
   }

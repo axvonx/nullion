@@ -27,6 +27,8 @@ export interface Band {
   reduced: boolean;
   /** Rows above this screen y will not be shown (a seam redraw), so art may skip them. */
   from?: number;
+  /** Optional far-plane vertical offset (used during WOMM's rigid forced scroll to bind z-layers together). */
+  farShift?: number;
 }
 
 export type Art = (ctx: CanvasRenderingContext2D, b: Band) => void;

@@ -370,7 +370,7 @@ export class TitleLogo {
     if (this.running) return;
     this.running = true;
     const now = performance.now();
-    this.nextBurstAt = now + 380;
+    this.nextBurstAt = now + 220;
     const tick = (t: number) => {
       if (!this.running) return;
       this.render(t);
@@ -433,10 +433,10 @@ export class TitleLogo {
 
     if (!reduced && now > 0) {
       if (this.burst && now - this.burst.start >= this.burst.dur) {
-        const combo = hash(this.burst.seed + 99) < 0.34;
+        const combo = hash(this.burst.seed + 99) < 0.45;
         this.burst = undefined;
-        // Lively pacing: quick combo follow-up 34% of the time, otherwise 260–780ms calm beat.
-        this.nextBurstAt = now + (combo ? 70 + hash(Math.floor(now)) * 110 : 260 + hash(Math.floor(now)) * 520);
+        // Lively pacing: quick combo follow-up 45% of the time, otherwise 140–380ms calm beat.
+        this.nextBurstAt = now + (combo ? 40 + hash(Math.floor(now)) * 55 : 140 + hash(Math.floor(now)) * 240);
       }
       if (!this.burst && now >= this.nextBurstAt) {
         this.startBurst(this.pickKind(now), now);

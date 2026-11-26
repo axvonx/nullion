@@ -1,8 +1,9 @@
 import { enforce } from '../core/enforce';
 import { prefs, type Prefs } from '../prefs';
+import { sound } from '../audio/sound';
 
 /**
- * Player settings (in production, unlike the 🐞 debug menu): a gear chip in the header that opens a small popover.
+ * Player settings (in production, unlike the 🐞 debug menu): a gear chip and quick mute button in the header.
  * Each setting is a row in PREF_CONTROLS; add one there and it appears, bound to the prefs store.
  */
 
@@ -14,6 +15,14 @@ interface ChoiceControl<K extends keyof Prefs> {
 
 const PREF_CONTROLS: ChoiceControl<keyof Prefs>[] = [
   {
+    key: 'sound',
+    label: 'Sound',
+    options: [
+      { value: 'on', label: 'On', hint: 'Procedural chiptune SFX: blips, layer crossings, and tier stings.' },
+      { value: 'off', label: 'Muted', hint: 'All sound effects are silenced.' },
+    ],
+  },
+  {
     key: 'autocorrect',
     label: 'Typo correction',
     options: [
@@ -23,10 +32,32 @@ const PREF_CONTROLS: ChoiceControl<keyof Prefs>[] = [
   },
 ];
 
-/** 9×9 pixel gear, the same build as the debug rail's icons. */
+/** 9×9 pixel icons, the same build as the debug rail's icons. */
 const GEAR = ['   # #   ', ' ####### ', ' ##   ## ', '##  #  ##', ' # ### # ', '##  #  ##', ' ##   ## ', ' ####### ', '   # #   '];
+const SPEAKER_ON = [
+  '    #  # ',
+  '   ##   #',
+  '##### # #',
+  '##### # #',
+  '##### # #',
+  '##### # #',
+  '##### # #',
+  '   ##   #',
+  '    #  # ',
+];
+const SPEAKER_OFF = [
+  '    #    ',
+  '   ##    ',
+  '##### # #',
+  '#####  # ',
+  '##### # #',
+  '#####    ',
+  '#####    ',
+  '   ##    ',
+  '    #    ',
+];
 
-function gearIcon(): SVGSVGElement {
+function pixelIcon(rows: readonly string[]): SVGSVGElement {
   const ns = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(ns, 'svg');
   svg.setAttribute('viewBox', '0 0 9 9');
@@ -34,7 +65,7 @@ function gearIcon(): SVGSVGElement {
   svg.setAttribute('height', '18');
   svg.setAttribute('shape-rendering', 'crispEdges');
   svg.setAttribute('aria-hidden', 'true');
-  GEAR.forEach((row, y) => {
+  rows.forEach((row, y) => {
     for (let x = 0; x < row.length; x++) {
       if (row[x] !== '#') continue;
       const r = document.createElementNS(ns, 'rect');
@@ -49,7 +80,7 @@ function gearIcon(): SVGSVGElement {
   return svg;
 }
 
-/** Mount the gear chip into `slot` and its popover into `root`. */
+/** Mount the gear chip, quick mute chip, and settings popover. */
 export function mountPrefsMenu(root: HTMLElement, slot: HTMLElement) {
   const btn = document.createElement('button');
   btn.type = 'button';
@@ -58,7 +89,31 @@ export function mountPrefsMenu(root: HTMLElement, slot: HTMLElement) {
   btn.setAttribute('aria-haspopup', 'dialog');
   btn.setAttribute('aria-expanded', 'false');
   btn.setAttribute('aria-controls', 'prefs-pop');
-  btn.append(gearIcon());
+  btn.append(pixelIcon(GEAR));
+
+  // One-click sound mute/unmute chip beside the gear button.
+  const muteBtn = document.createElement('button');
+  muteBtn.type = 'button';
+  muteBtn.className = 'chip prefs-btn sound-btn float';
+  const syncMute = () => {
+    const on = prefs.get().sound === 'on';
+    muteBtn.replaceChildren(pixelIcon(on ? SPEAKER_ON : SPEAKER_OFF));
+    muteBtn.setAttribute('aria-label', on ? 'Mute sound' : 'Unmute sound');
+    muteBtn.setAttribute('aria-pressed', String(!on));
+    muteBtn.title = on ? 'Sound on (click to mute)' : 'Sound muted (click to unmute)';
+    muteBtn.classList.toggle('muted', !on);
+  };
+  muteBtn.addEventListener('click', () => {
+    const next = prefs.get().sound === 'on' ? 'off' : 'on';
+    prefs.set({ sound: next });
+    sound.setEnabled(next === 'on');
+    if (next === 'on') {
+      sound.unlock();
+      sound.unwind('application');
+    }
+  });
+  syncMute();
+  prefs.subscribe(syncMute);
 
   const pop = document.createElement('div');
   pop.id = 'prefs-pop';
@@ -121,6 +176,6 @@ export function mountPrefsMenu(root: HTMLElement, slot: HTMLElement) {
     if (!pop.hidden && ev.target instanceof Node && !pop.contains(ev.target) && !btn.contains(ev.target)) setOpen(false);
   });
 
-  slot.append(btn);
+  slot.append(btn, muteBtn);
   root.append(pop);
 }

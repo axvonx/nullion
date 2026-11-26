@@ -89,7 +89,7 @@ function entities(ctx: Ctx, b: Band, id: LayerId) {
   const pl = world[INDEX[id]]!;
   const [y0, y1] = vis(b);
   setPaint(mode, FOG[id]);
-  const ft = R(b.top * FAR_F);
+  const ft = R(b.top * FAR_F + (b.farShift ?? 0));
   for (const e of pl.far) {
     const sy = ft + e.y;
     if (sy > y1) break;
