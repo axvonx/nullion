@@ -380,8 +380,8 @@ export class TitleLogo {
     if (this.running) return;
     this.running = true;
     const now = performance.now();
-    // Let the wordmark sit crisp and calm on load before the first subtle easter egg
-    this.nextBurstAt = now + 2200;
+    // Let the wordmark sit crisp briefly on load before the ~1/sec easter-egg cadence starts
+    this.nextBurstAt = now + 850;
     const tick = (t: number) => {
       if (!this.running) return;
       this.render(t);
@@ -403,7 +403,7 @@ export class TitleLogo {
     const now = performance.now();
     const chosen = kind ?? this.pickKind(now);
     this.startBurst(chosen, now);
-    this.nextBurstAt = now + this.burst!.dur + 2600;
+    this.nextBurstAt = now + this.burst!.dur + 450;
   }
 
   private pickKind(now: number): TitleGlitchKind {
@@ -447,8 +447,8 @@ export class TitleLogo {
     if (!reduced && now > 0) {
       if (this.burst && now - this.burst.start >= this.burst.dur) {
         this.burst = undefined;
-        // Calm easter-egg cadence: 3.4–6.8s of clean wordmark between subtle artifacts.
-        this.nextBurstAt = now + 3400 + hash(Math.floor(now) + this.seq * 29) * 3400;
+        // ~1 glitch per second (~550ms burst + 400–520ms clean breathing room).
+        this.nextBurstAt = now + 400 + hash(Math.floor(now) + this.seq * 29) * 120;
       }
       if (!this.burst && now >= this.nextBurstAt) {
         this.startBurst(this.pickKind(now), now);
