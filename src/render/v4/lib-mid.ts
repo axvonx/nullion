@@ -1037,9 +1037,9 @@ export const KERNEL: EntityDef[] = [
       },
     },
   ),
-  // Replaced static kr-kthread robot (thread-bots now zip as living critters) with a scheduler runqueue rack.
+  // Replaced static kr-kthread robot (thread-bots now zip as living critters) with a scheduler slot rack.
   ent(
-    'kr-runqueue',
+    'kr-schedrack',
     [[13, 13]],
     (p) => {
       p.r(0, 0, 13, 13, C.d);

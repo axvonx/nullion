@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { LAYERS } from '../../core/layers';
+import { checkLibrary } from './kit';
 import { V4_LIBRARIES } from './libraries';
 import { VIEW_WINDOW, type Placed } from './place';
 import { placeForSpec, specKey, type WorldSpecV4 } from './world';
@@ -31,6 +32,14 @@ function spec(seed: number, W: number, scale: number): WorldSpecV4 {
 const overlap = (a: Placed, b: Placed) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
 
 describe('v4 world', () => {
+  it('all layer libraries have unique entity ids and valid sizes', () => {
+    for (const l of LAYERS) {
+      const lib = V4_LIBRARIES[l.id];
+      expect(() => checkLibrary(`v4 ${l.id}`, lib.near, 20)).not.toThrow();
+      expect(() => checkLibrary(`v4 ${l.id} anchors`, lib.anchors, 1)).not.toThrow();
+    }
+  });
+
   it('every layer has a library of at least 20 entity types and an anchor', () => {
     for (const l of LAYERS) {
       expect(V4_LIBRARIES[l.id].near.length).toBeGreaterThanOrEqual(20);
