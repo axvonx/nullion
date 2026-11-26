@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LAYERS } from '../core/layers';
+import { ALL_LAYER_IDS, LAYERS } from '../core/layers';
 import type { Band } from './art';
 import { CritterSystem, MotionType, SPECIES_MOTIONS, type CritterCall } from './critters';
 
@@ -55,38 +55,39 @@ describe('CritterSystem (System Biosphere)', () => {
       expect(Array.from(f.motions)).toEqual([MotionType.Float]);
     }
 
-    // Every layer has a non-empty species motion set
-    for (const l of LAYERS) {
-      expect(SPECIES_MOTIONS[l.id].length).toBeGreaterThan(0);
+    // Every Daily & Endless layer (all 29) has a non-empty species motion set
+    for (const id of ALL_LAYER_IDS) {
+      expect(SPECIES_MOTIONS[id].length).toBeGreaterThan(0);
     }
   });
 
-  it('draws living critters in every layer and emits stereo-panned calls (except Ring −2)', () => {
+  it('draws living critters across all 29 Daily & Endless layers and emits stereo-panned calls (except Ring −2)', () => {
     const sys = new CritterSystem();
     sys.ensureSeed(7);
 
     const mockSpots = [30, 80, 24, 14, 120, 110, 26, 16, 210, 95, 22, 14, 270, 130, 20, 12];
-    for (const l of LAYERS) {
+    for (const id of ALL_LAYER_IDS) {
       const { ctx, rects, texts } = fakeCtx();
       const calls: CritterCall[] = [];
       for (let t = 0.5; t <= 26; t += 0.4) {
-        sys.drawBand(ctx, l.id, makeBand(t), true, (ev) => calls.push(ev), mockSpots);
+        sys.drawBand(ctx, id, makeBand(t), true, (ev) => calls.push(ev), mockSpots);
       }
       expect(rects()).toBeGreaterThan(0);
-      if (l.id === 'ring-2') {
+      if (id === 'ring-2') {
         expect(calls).toHaveLength(0);
       } else {
         expect(calls.some((c) => c.kind === 'call')).toBe(true);
         expect(calls.some((c) => c.kind === 'exit')).toBe(true);
         expect(texts()).toBeGreaterThan(0);
         for (const c of calls) {
-          expect(c.layer).toBe(l.id);
+          expect(c.layer).toBe(id);
           expect(c.pan).toBeGreaterThanOrEqual(-0.85);
           expect(c.pan).toBeLessThanOrEqual(0.85);
-          if (l.id === 'ring-1') expect(c.pan).toBe(0);
+          if (id === 'ring-1') expect(c.pan).toBe(0);
         }
       }
     }
+    expect(LAYERS.length).toBe(10);
   });
 
   it('allows application birds to transition smoothly between Fly and Perch on prop tops', () => {

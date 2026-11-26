@@ -1,4 +1,4 @@
-import { ALL_LAYER_IDS, expandLayerMap, type LayerId } from '../core/layers';
+import { ALL_LAYER_IDS, DAILY_FALLBACK, type LayerId } from '../core/layers';
 import { look } from '../looks';
 import { FONT, hash, type Band } from './art';
 import { SEAM_H } from './art-detailed';
@@ -50,19 +50,44 @@ export const MotionType = {
 
 export type MotionType = (typeof MotionType)[keyof typeof MotionType];
 
-/** Allowed motion set for each layer's species. Every critter instance gets its own `ReadonlySet<MotionType>`. */
-export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = expandLayerMap({
+/** Allowed motion set for each layer's species across all 29 Daily & Endless layers. */
+export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = {
+  // Zone A — Above Application
+  internet: [MotionType.Fly, MotionType.Perch],
+  browser: [MotionType.Fly, MotionType.Perch],
   application: [MotionType.Fly, MotionType.Perch],
+  // Zone B — Expanded Runtime & Libraries
+  bytecode: [MotionType.Hop, MotionType.Perch],
+  jit: [MotionType.Zip, MotionType.Perch],
   runtime: [MotionType.Hop, MotionType.Perch],
   libraries: [MotionType.Hop, MotionType.Perch],
+  linker: [MotionType.Patrol, MotionType.Hop],
+  // Zone C — Userspace & Expanded OS Kernel
   userspace: [MotionType.Patrol, MotionType.Hop, MotionType.Perch],
+  'kernel-entry': [MotionType.Patrol, MotionType.Perch],
   kernel: [MotionType.Zip, MotionType.Perch],
+  'kernel-arch': [MotionType.Zip, MotionType.Scuttle],
+  // Zone D — Drivers, Bus & Firmware
   drivers: [MotionType.Scuttle],
+  'bus-fabric': [MotionType.Scuttle, MotionType.Zip],
   firmware: [MotionType.Float],
+  // Zone E — Expanded Hidden Rings & MINIX-Inside-ME
+  vmm: [MotionType.Mirror, MotionType.Perch],
   'ring-1': [MotionType.Mirror],
+  ept: [MotionType.Grid, MotionType.Mirror],
   'ring-2': [MotionType.Frozen],
+  smram: [MotionType.Float],
   'ring-3': [MotionType.Grid],
-});
+  'me-minix-user': [MotionType.Patrol, MotionType.Perch],
+  'me-minix-kern': [MotionType.Zip],
+  // Zone F — Deep Silicon, Lithography & Physics
+  uarch: [MotionType.Zip, MotionType.Mirror],
+  rtl: [MotionType.Scuttle, MotionType.Grid],
+  cmos: [MotionType.Scuttle, MotionType.Float],
+  litho: [MotionType.Fly, MotionType.Float],
+  bandgap: [MotionType.Float, MotionType.Grid],
+  landauer: [MotionType.Float],
+};
 
 export interface CritterCall {
   layer: LayerId;
@@ -119,31 +144,69 @@ export interface CritterState {
   init: boolean;
 }
 
-const COUNT_BY_LAYER: Record<LayerId, number> = expandLayerMap({
+const COUNT_BY_LAYER: Record<LayerId, number> = {
+  internet: 3,
+  browser: 3,
   application: 3,
+  bytecode: 3,
+  jit: 3,
   runtime: 3,
   libraries: 3,
+  linker: 3,
   userspace: 3,
+  'kernel-entry': 3,
   kernel: 3,
+  'kernel-arch': 3,
   drivers: 4,
+  'bus-fabric': 4,
   firmware: 3,
-  'ring-1': 2, // 2 mirrored pairs = 4 wisps
-  'ring-2': 3, // frozen silhouettes
+  vmm: 2,
+  'ring-1': 2,
+  ept: 2,
+  'ring-2': 3,
+  smram: 2,
   'ring-3': 4,
-});
+  'me-minix-user': 4,
+  'me-minix-kern': 3,
+  uarch: 3,
+  rtl: 4,
+  cmos: 4,
+  litho: 3,
+  bandgap: 3,
+  landauer: 2,
+};
 
-const EXIT_LABELS: Record<LayerId, readonly string[]> = expandLayerMap({
+const EXIT_LABELS: Record<LayerId, readonly string[]> = {
+  internet: ['TTL=0', 'dropped'],
+  browser: ['unmounted', 'reflow'],
   application: ['closed', 'minimized'],
+  bytecode: ['parsed', 'folded'],
+  jit: ['deopt!', 'inlined'],
   runtime: ["GC'd!", 'swept!'],
   libraries: ['unloaded', 'dlclose'],
+  linker: ['resolved', 'bound'],
   userspace: ['SIGTERM', 'reaped'],
+  'kernel-entry': ['EACCES', 'trapped'],
   kernel: ['paged out!', 'preempted'],
+  'kernel-arch': ['EOI', 'TLB flush'],
   drivers: ['unplugged', 'DMA done'],
+  'bus-fabric': ['ARB lost', 'posted'],
   firmware: ['halt', 'POST ok'],
+  vmm: ['virtio!', 'emulated'],
   'ring-1': ['vmexit', 'trapped'],
+  ept: ['EPT viol!', 'remapped'],
   'ring-2': [''],
+  smram: ['RSM', 'locked'],
   'ring-3': ['0x00', 'bit-rot'],
-});
+  'me-minix-user': ['AMT idle', 'IPC wait'],
+  'me-minix-kern': ['SENDREC', 'blocked'],
+  uarch: ['mispredict!', 'flushed'],
+  rtl: ['metastable', 'latched'],
+  cmos: ['leaked', 'drifted'],
+  litho: ['diffracted', 'etched'],
+  bandgap: ['tunneled!', 'recombined'],
+  landauer: ['kT ln 2', 'erased'],
+};
 
 const R = Math.round;
 
@@ -153,8 +216,10 @@ const R = Math.round;
  */
 function bandWorldRange(layerId: LayerId, b: Band): { minY: number; maxY: number } {
   const rawBottom = b.worldTop + (b.bottom - b.top);
-  const minY = layerId === 'application' ? Math.max(b.worldTop + 26, -60) : b.worldTop + SEAM_H + 16;
-  const maxY = layerId === 'ring-3' ? Math.min(rawBottom - 16, b.worldTop + 340) : rawBottom - 16;
+  const isTopOpen = layerId === 'application' || layerId === 'internet';
+  const isBotOpen = layerId === 'ring-3' || layerId === 'landauer';
+  const minY = isTopOpen ? Math.max(b.worldTop + 26, -60) : b.worldTop + SEAM_H + 16;
+  const maxY = isBotOpen ? Math.min(rawBottom - 16, b.worldTop + 340) : rawBottom - 16;
   return { minY, maxY: Math.max(minY + 40, maxY) };
 }
 
@@ -766,6 +831,75 @@ export class CritterSystem {
     };
 
     switch (layerId) {
+      // Bespoke Endless sprites for MINIX-inside-ME & Deep Silicon/Physics
+      case 'me-minix-user': {
+        // Miniature 4×4 uncanny amber micro-daemon
+        const step = perched ? 0 : Math.floor(t * 8 + c.phase) % 2;
+        px(0, 0, 1, 1, '#ffffff');
+        px(3, 0, 1, 1, '#ffffff');
+        px(0, 1, 4, 3, '#aaaaaa');
+        px(1, 2, 1, 1, '#000000');
+        px(2, 2, 1, 1, '#000000');
+        px(0 + step, 4, 1, 1, '#555555');
+        px(3 - step, 4, 1, 1, '#555555');
+        break;
+      }
+      case 'me-minix-kern': {
+        // Crisp tiny IPC courier packet
+        px(0, 1, 6, 3, '#aaaaaa');
+        px(1, 0, 4, 1, '#ffffff');
+        px(dir > 0 ? 5 : 0, 2, 1, 1, '#ffffff');
+        break;
+      }
+      case 'uarch': {
+        // Speculative phantom: hollow flickering μop glider
+        const ghost = Math.floor(t * 6 + c.phase) % 2 === 0;
+        px(0, 1, 6, 4, ghost ? '#ffffff' : '#aaaaaa');
+        px(1, 2, 4, 2, '#000000');
+        px(dir > 0 ? 6 : -1, 2, 1, 2, '#ffffff');
+        break;
+      }
+      case 'rtl': {
+        // Logic pulse glider
+        px(0, 2, 7, 1, '#aaaaaa');
+        px(dir > 0 ? 3 : 1, 0, 3, 3, '#ffffff');
+        px(dir > 0 ? 4 : 2, 1, 1, 1, '#000000');
+        break;
+      }
+      case 'cmos': {
+        // Charge carrier orb moving across wafer masks
+        const body = variant % 2 === 0 ? '#e88438' : '#24989c';
+        px(1, 0, 4, 4, body);
+        px(0, 1, 6, 2, body);
+        px(2, 1, 2, 2, '#ffffff');
+        break;
+      }
+      case 'litho': {
+        // Shimmering EUV photon
+        const pulse = Math.floor(t * 7 + c.phase) % 2 === 0;
+        px(2, 0, 1, 5, pulse ? '#ffffff' : '#aaaaaa');
+        px(0, 2, 5, 1, pulse ? '#ffffff' : '#aaaaaa');
+        px(2, 2, 1, 1, '#ffffff');
+        break;
+      }
+      case 'bandgap': {
+        // Tunneling electron cloud
+        px(1, 1, 4, 4, '#555555');
+        px(2, 2, 2, 2, '#ffffff');
+        px(0, 2, 1, 1, '#aaaaaa');
+        px(5, 3, 1, 1, '#aaaaaa');
+        break;
+      }
+      case 'landauer': {
+        // Lone stray bit in the void
+        const bit = Math.floor(t * 2 + c.phase) % 2 === 0;
+        px(1, 1, bit ? 2 : 3, 3, '#ffffff');
+        if (!bit) px(2, 2, 1, 1, '#000000');
+        break;
+      }
+      default:
+        // All 10 Daily layers + tinted intermediate Endless layers share their family sprite (palette-snapped!)
+        switch (DAILY_FALLBACK[layerId]) {
       case 'application': {
         const bodies = ['#ff5f7a', '#ffd166', '#4cc9f0', '#7ee0a1', '#c58bff'];
         const bellies = ['#ffe5ec', '#fff6d6', '#e0f7ff', '#e8fff0', '#f3e8ff'];
@@ -924,6 +1058,8 @@ export class CritterSystem {
         }
         break;
       }
+        }
+        break;
     }
 
     if (chirping) {

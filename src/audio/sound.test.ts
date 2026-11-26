@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LAYERS } from '../core/layers';
+import { ALL_LAYER_IDS } from '../core/layers';
 import { TIER_IDS } from '../core/tiers';
 import { SoundEngine, encodeWav, timbreFor } from './sound';
 
@@ -89,14 +89,15 @@ function makeMockAudioContext() {
 }
 
 describe('sound engine', () => {
-  it('maps every layer to a valid timbre, degrading from triangle down to short square in Ring −3', () => {
-    for (const l of LAYERS) {
-      const tm = timbreFor(l.id);
+  it('maps all 29 Daily & Endless layers to valid timbres', () => {
+    for (const id of ALL_LAYER_IDS) {
+      const tm = timbreFor(id);
       expect(tm.gainScale).toBeGreaterThan(0);
     }
     expect(timbreFor('application').wave).toBe('triangle');
     expect(timbreFor('kernel').wave).toBe('pulse12');
     expect(timbreFor('ring-3').short).toBe(true);
+    expect(timbreFor('landauer').wave).toBe('sine');
   });
 
   it('safely no-ops when AudioContext is unavailable', () => {
@@ -142,9 +143,10 @@ describe('sound engine', () => {
       engine.playAmbientEvent('kernel');
       engine.setAmbienceFrozen(true);
       engine.setAmbienceFrozen(false);
-      for (const l of LAYERS) {
-        engine.playLayerCross(l.id);
-        engine.playCritter(l.id, -0.4);
+      for (const id of ALL_LAYER_IDS) {
+        engine.playLayerCross(id);
+        engine.playCritter(id, -0.4);
+        engine.playCritterExit(id, 0.3);
       }
 
       const afterPlay = counts();

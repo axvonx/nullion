@@ -29,24 +29,47 @@ export type Timbre = {
   short?: boolean;
 };
 
-/** Layer → synth timbre + space depth: sheds warmth and reverb as you descend. */
+/** Layer → synth timbre + space depth across all 29 Daily & Endless layers. */
 export function timbreFor(layer: LayerId): Timbre {
-  switch (DAILY_FALLBACK[layer]) {
+  switch (layer) {
+    case 'internet':
+    case 'browser':
     case 'application':
       return { wave: 'triangle', filterHz: 5200, q: 0.8, gainScale: 1.0, reverbWet: 0.24 };
+    case 'bytecode':
+    case 'jit':
     case 'runtime':
     case 'libraries':
+    case 'linker':
       return { wave: 'pulse25', filterHz: 3600, q: 1.4, gainScale: 0.92, reverbWet: 0.2 };
     case 'userspace':
+    case 'kernel-entry':
     case 'kernel':
+    case 'kernel-arch':
     case 'drivers':
+    case 'bus-fabric':
       return { wave: 'pulse12', filterHz: 2800, q: 2.0, gainScale: 0.86, reverbWet: 0.16 };
     case 'firmware':
       return { wave: 'square', filterHz: 4200, q: 1.0, gainScale: 0.84, reverbWet: 0.1 };
+    case 'vmm':
     case 'ring-1':
+    case 'ept':
       return { wave: 'pulse25', filterHz: 1500, q: 2.4, gainScale: 0.82, reverbWet: 0.32 };
     case 'ring-2':
+    case 'smram':
       return { wave: 'pulse25', filterHz: 1300, q: 2.2, gainScale: 0.8, reverbWet: 0 };
+    case 'me-minix-user':
+    case 'me-minix-kern':
+      return { wave: 'pulse12', filterHz: 3400, q: 2.6, gainScale: 0.78, reverbWet: 0.08, short: true };
+    case 'uarch':
+    case 'rtl':
+      return { wave: 'square', filterHz: 5400, q: 1.2, gainScale: 0.82, reverbWet: 0.06, short: true };
+    case 'cmos':
+      return { wave: 'triangle', filterHz: 3200, q: 1.8, gainScale: 0.82, reverbWet: 0.18 };
+    case 'litho':
+    case 'bandgap':
+    case 'landauer':
+      return { wave: 'sine', filterHz: 2600, q: 1.2, gainScale: 0.76, reverbWet: 0.38 };
     case 'ring-3':
       return { wave: 'square', filterHz: 6000, q: 0.7, gainScale: 0.88, reverbWet: 0, short: true };
   }
@@ -262,7 +285,30 @@ export class SoundEngine {
     const t = ctx.currentTime;
     const p = Math.max(-0.85, Math.min(0.85, pan));
     switch (layer) {
-      case 'application': {
+      case 'me-minix-user':
+      case 'me-minix-kern': {
+        this.voice(ctx, { freq: 920 + Math.random() * 240, toFreq: 680, at: t, dur: 0.04, wave: 'pulse12', gain: 0.07, pan: p, crush: true });
+        break;
+      }
+      case 'uarch':
+      case 'rtl': {
+        this.voice(ctx, { freq: 1320, at: t, dur: 0.022, wave: 'square', gain: 0.07, pan: p, reverb: 0.05 });
+        break;
+      }
+      case 'cmos': {
+        this.fmVoice(ctx, { carrierHz: 660, modRatio: 3.1, modIndex: 120, at: t, dur: 0.09, gain: 0.075, pan: p });
+        break;
+      }
+      case 'litho':
+      case 'bandgap':
+      case 'landauer': {
+        const f = layer === 'landauer' ? 110 : 880 + Math.random() * 320;
+        this.voice(ctx, { freq: f, toFreq: f * 1.12, at: t, dur: 0.14, wave: 'sine', gain: 0.065, pan: p, reverb: 0.35 });
+        break;
+      }
+      default:
+        switch (DAILY_FALLBACK[layer]) {
+          case 'application': {
         // Cheerful little 2–3 note pixel songbird chirp
         const base = 1180 + Math.random() * 260;
         this.voice(ctx, { freq: base, toFreq: base * 1.32, at: t, dur: 0.055, wave: 'triangle', gain: 0.085, pan: p });
@@ -323,6 +369,8 @@ export class SoundEngine {
         this.voice(ctx, { freq: Math.random() > 0.5 ? 1760 : 880, at: t, dur: 0.02, wave: 'square', gain: 0.08, pan: p, crush: true, reverb: 0 });
         break;
       }
+        }
+        break;
     }
   }
 
