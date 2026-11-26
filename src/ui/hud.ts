@@ -16,9 +16,8 @@ const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
 export const LOW_TIME = 0.25;
 /** The reading phase types the call in at this many ms per character. */
 const TYPE_MS = 28;
-/** How long the tier reveal stays up after the dive lands (dismissible early with any key or click). */
-export const REVEAL_MS = 1700;
-const REVEAL_TIMEOUT_MS = 1300;
+/** Demos only: how long the rail lets a reveal sit before pressing "Unwind further" for you. Play waits for the player. */
+export const REVEAL_MS = 2400;
 const REVEAL_FADE_MS = 200;
 
 /**
@@ -123,6 +122,7 @@ export class Hud {
         <div class="rv-tier"><span class="rv-icon" data-el="rvIcon"></span><span class="rv-name" data-el="rvName"></span></div>
         <div class="rv-answer" data-el="rvAnswer"></div>
         <div class="rv-line" data-el="rvLine"></div>
+        <button type="button" class="rv-next" data-el="rvNext">Unwind further ▾</button>
       </div>`;
     this.root = mount;
     this.canvas = $(mount, 'canvas');
@@ -161,11 +161,12 @@ export class Hud {
       });
     });
 
-    // The end-of-day replay is skippable with any key or click, and so is the tier reveal.
+    // The end-of-day replay is skippable with any key or click. The tier reveal is not: it waits for its button.
     const skip = () => {
       if (this.replaying) scene.skipSequence();
-      if (this.revealUntil > 0) this.hideReveal();
     };
+    // "Unwind further": close the reveal and move the game on (the next prompt, or the end-of-day replay).
+    this.els.rvNext!.addEventListener('click', () => this.unwind(now()));
     window.addEventListener('keydown', skip, true);
     window.addEventListener('pointerdown', skip, true);
 
@@ -196,6 +197,9 @@ export class Hud {
     this.endDemo();
     this.ended = false;
     this.barked = -1;
+    this.revealRound = -1;
+    this.onUnwind = undefined;
+    this.hideReveal();
     this.callKey = '';
     if (this.replaying) this.scene?.setTarget(0, true);
     this.replaying = false;
@@ -261,6 +265,14 @@ export class Hud {
       if (r!.timedOut && this.barked !== p.round) {
         this.barked = p.round;
         this.bark();
+      }
+      // The round waits on the reveal's button. Open the reveal once the dive has landed (or at once for a timeout);
+      // opening it here rather than from the dive's callback means an interrupted dive can't strand the round.
+      if (this.revealRound !== p.round && !this.scene?.diving) {
+        this.revealRound = p.round;
+        const lk = r!.locked;
+        if (lk) this.reveal(lk.entry.tier, lk.entry.name, TIERS[lk.entry.tier].frames, lk.entry.note);
+        else this.revealTimeout();
       }
     } else if (p.kind === 'done') {
       this.input.disabled = true;
@@ -371,9 +383,13 @@ export class Hud {
   // ---------------------------------------------------------------------------------------------
   // The tier reveal: after the dive lands, the rarity front and centre, near the cursor, over a soft dim.
 
-  private revealUntil = 0;
+  private revealOpen = false;
   private revealTimer = 0;
   private quipTurn = 0;
+  /** The round whose reveal has been shown (play mode). */
+  private revealRound = -1;
+  /** What "Unwind further" does: advance the game in play; the rail's demos set their own. */
+  private onUnwind: ((now: number) => void) | undefined;
 
   /** Full-screen reveal of an accepted answer's tier. Call when the dive lands. */
   reveal(tier: TierId, name: string, frames: number, note?: string) {
@@ -384,7 +400,7 @@ export class Hud {
     setText(this.els.rvName!, t.name);
     setText(this.els.rvAnswer!, `${name} · +${framesLabel(frames)}`);
     setText(this.els.rvLine!, line);
-    this.openReveal(tier, REVEAL_MS);
+    this.openReveal(tier);
   }
 
   /** The watchdog's lower-key reveal: smaller, no icon pose or rarity, just that the round pushed nothing. */
@@ -392,11 +408,11 @@ export class Hud {
     this.els.rvIcon!.replaceChildren(tierIcon('timeout', 2));
     setText(this.els.rvName!, 'Time’s up');
     setText(this.els.rvAnswer!, 'No answer this round');
-    setText(this.els.rvLine!, 'No frames pushed. The next one is already loading.');
-    this.openReveal('timeout', REVEAL_TIMEOUT_MS);
+    setText(this.els.rvLine!, 'No frames pushed this round.');
+    this.openReveal('timeout');
   }
 
-  private openReveal(kind: TierId | 'timeout', ms: number) {
+  private openReveal(kind: TierId | 'timeout') {
     const el = this.els.reveal!;
     const at = this.scene?.cursorCss();
     // Just below the cursor, so the mascot's reaction stays in view above the text.
@@ -407,14 +423,23 @@ export class Hud {
     el.hidden = false;
     replay(el, 'in');
     this.scene?.setVignette(true);
-    this.revealUntil = performance.now() + ms;
+    this.revealOpen = true;
     clearTimeout(this.revealTimer);
-    this.revealTimer = window.setTimeout(() => this.hideReveal(), ms);
+    // Enter or Space presses it; it never closes by itself in play.
+    this.els.rvNext!.focus({ preventScroll: true });
+  }
+
+  /** "Unwind further": close the reveal, then move on. */
+  private unwind(now: number) {
+    if (!this.revealOpen) return;
+    this.hideReveal();
+    if (this.onUnwind) this.onUnwind(now);
+    else this.game?.advance(now);
   }
 
   private hideReveal() {
-    if (this.revealUntil === 0) return;
-    this.revealUntil = 0;
+    if (!this.revealOpen) return;
+    this.revealOpen = false;
     clearTimeout(this.revealTimer);
     this.scene?.setVignette(false);
     const el = this.els.reveal!;
@@ -447,10 +472,9 @@ export class Hud {
     fb.textContent = res.corrected ? `read as '${res.entry.name}'` : '';
     this.showLanded(t.id, res.entry.name, res.pushed, res.entry.note);
     // The cursor dives; the tier's reaction fires when it lands.
-    if (res.pushed > 0) {
-      const { name, note } = res.entry;
-      scene.diveTo(g.depth, t.id, res.pushed, true, () => this.reveal(t.id, name, res.pushed, note));
-    } else scene.react(t.id);
+    // The reveal opens from update() once the dive has landed (the round then waits on its button).
+    if (res.pushed > 0) scene.diveTo(g.depth, t.id, res.pushed);
+    else scene.react(t.id);
   }
 
   private showLanded(tier: TierId, name: string, pushed: number, note?: string) {
@@ -555,9 +579,17 @@ export class Hud {
     this.showLanded(tier, name, frames);
   }
 
-  /** The demo's half of a landing: the reveal (the rail plays it when its dive lands). */
-  demoReveal(tier: TierId, name: string, frames: number) {
+  /**
+   * The demo's half of a landing: the reveal (the rail plays it when its dive lands). The demo presses
+   * "Unwind further" itself after `autoMs`, so demos keep flowing; `then` runs on that press.
+   */
+  demoReveal(tier: TierId, name: string, frames: number, autoMs = REVEAL_MS, then?: () => void) {
+    this.onUnwind = () => {
+      this.onUnwind = undefined;
+      then?.();
+    };
     this.reveal(tier, name, frames);
+    this.revealTimer = window.setTimeout(() => this.unwind(performance.now()), autoMs);
   }
 
   private endDemo() {

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { buildAnswerSet } from '../core/answers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
-import { ANSWER_MS, BETWEEN_MS, Game, READ_MS } from './game';
+import { ANSWER_MS, Game, READ_MS } from './game';
 
 const set = buildAnswerSet('sample', 'Sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);
 
@@ -18,8 +18,7 @@ describe('game loop', () => {
       now += READ_MS;
       g.tick(now);
       expect(g.submit(bitflipFor(g, i), now).kind).toBe('accepted');
-      now += BETWEEN_MS;
-      g.tick(now);
+      g.advance(now); // "Unwind further"
     }
     expect(g.phase.kind).toBe('done');
     expect(g.depth).toBe(91);
@@ -54,5 +53,17 @@ describe('game loop', () => {
     expect(a).toMatchObject({ kind: 'accepted' });
     expect(b).toMatchObject({ kind: 'accepted', pushed: 0 });
     expect(g.phase.kind).toBe('answering');
+  });
+
+  it('the reveal waits for the player: no timer advances the between phase', () => {
+    const g = new Game(set, 1, { timer: true, unlimited: false });
+    g.start(0);
+    g.tick(READ_MS);
+    g.submit(bitflipFor(g, 0), READ_MS);
+    expect(g.phase.kind).toBe('between');
+    g.tick(READ_MS + 10 * 60_000);
+    expect(g.phase.kind).toBe('between');
+    g.advance(READ_MS + 10 * 60_000);
+    expect(g.phase).toMatchObject({ kind: 'reading', round: 1 });
   });
 });

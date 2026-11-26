@@ -397,6 +397,25 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 .reveal[hidden] { display: none; }
+/* The reveal waits for this. Big enough to hit on a phone; the only part of the reveal that takes pointer input. */
+.rv-next {
+  pointer-events: auto;
+  margin-top: 12px;
+  min-height: 44px;
+  padding: 6px 18px;
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: #16141c;
+  background: var(--signal);
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  text-shadow: none;
+  cursor: pointer;
+}
+.rv-next:hover { filter: brightness(1.12); }
+.rv-next:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.rv-next:active { translate: 2px 2px; box-shadow: 1px 1px 0 #000; }
 .rv-tier { display: flex; align-items: center; justify-content: center; gap: 12px; }
 .rv-icon { display: inline-flex; filter: drop-shadow(2px 2px 0 #000); }
 .rv-name { font-family: var(--display); font-size: clamp(26px, 7vw, 52px); line-height: 1.05; overflow-wrap: anywhere; }

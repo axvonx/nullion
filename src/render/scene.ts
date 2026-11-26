@@ -441,6 +441,11 @@ export class Scene {
     if (!this.queue.length) this.finishQueue();
   }
 
+  /** True while a dive (or a replay sequence) is still moving the cursor. */
+  get diving() {
+    return this.dive !== undefined || this.queue.length > 0;
+  }
+
   get sequencePlaying() {
     return this.onQueueDone !== undefined;
   }

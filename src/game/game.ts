@@ -8,8 +8,6 @@ import type { Question } from '../data/sample';
 
 export const READ_MS = 3000;
 export const ANSWER_MS = 25000;
-/** Longest dive (Bit Flip, ~1.84 s) + the 1.7 s tier reveal + margin, so a reveal never overlaps the next prompt. */
-export const BETWEEN_MS = 3600;
 
 export interface Round {
   question: Question;
@@ -25,7 +23,8 @@ export type Phase =
   | { kind: 'ready' }
   | { kind: 'reading'; round: number; until: number }
   | { kind: 'answering'; round: number; until: number | null }
-  | { kind: 'between'; round: number; until: number }
+  /** The tier reveal is up; waits for the player to press "Unwind further" (advance()). No timer. */
+  | { kind: 'between'; round: number }
   | { kind: 'done' };
 
 export type SubmitResult =
@@ -83,14 +82,10 @@ export class Game {
       this.toBetween(p.round, now);
       return true;
     }
-    if (p.kind === 'between' && now >= p.until) {
-      this.next(p.round, now);
-      return true;
-    }
     return false;
   }
 
-  /** Skip ahead (debug "Next", or Enter on an empty box when nothing more can happen). */
+  /** Move on: "Unwind further" after a reveal, debug "Next", or Enter on an empty box. */
   advance(now: number) {
     const p = this.phase;
     if (p.kind === 'reading') this.phase = { kind: 'answering', round: p.round, until: this.opts.timer ? now + ANSWER_MS : null };
@@ -119,8 +114,8 @@ export class Game {
     return { kind: 'accepted', entry: res.entry, corrected: res.corrected, pushed: 0 };
   }
 
-  private toBetween(round: number, now: number) {
-    this.phase = { kind: 'between', round, until: now + BETWEEN_MS };
+  private toBetween(round: number, _now: number) {
+    this.phase = { kind: 'between', round };
   }
 
   private next(round: number, now: number) {
