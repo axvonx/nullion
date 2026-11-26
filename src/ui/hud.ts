@@ -1,4 +1,4 @@
-import { MAX_DEPTH, layerAt, type Layer, type LayerId } from '../core/layers';
+import { layerAt, maxDepthFor, type Layer, type LayerId } from '../core/layers';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
 import { look, reducedMotion } from '../looks';
@@ -295,8 +295,18 @@ export class Hud {
       }
     });
 
-    // Scroll-only mode: free movement through the stack.
-    const nudge = (d: number) => scene.setTarget(Math.min(MAX_DEPTH + 4, Math.max(0, scene.displayDepth + d)));
+    // Scroll-only mode: fast, responsive free movement through the entire Daily or Endless stack.
+    let scrollTarget = 0;
+    const nudge = (d: number) => {
+      const mode = this.game?.mode ?? 'daily';
+      const cap = maxDepthFor(mode) + (mode === 'endless' ? 60 : 4);
+      // Accumulate on scrollTarget so rapid wheel/trackpad flicks aren't swallowed by camera smoothing
+      if (Math.abs(scrollTarget - scene.displayDepth) > (mode === 'endless' ? 220 : 24)) {
+        scrollTarget = scene.displayDepth;
+      }
+      scrollTarget = Math.min(cap, Math.max(0, scrollTarget + d));
+      scene.setTarget(scrollTarget);
+    };
     window.addEventListener(
       'wheel',
       (ev) => {
@@ -304,13 +314,34 @@ export class Hud {
         // Panels (and the debug menu) scroll themselves.
         if (ev.target instanceof Element && ev.target.closest('.panel, .dbg-panel')) return;
         ev.preventDefault();
-        nudge(ev.deltaY / 40);
+        const mode = this.game?.mode ?? 'daily';
+        const mult = ev.shiftKey ? 3 : 1;
+        nudge((ev.deltaY / (mode === 'endless' ? 3.5 : 10)) * mult);
       },
       { passive: false },
     );
     window.addEventListener('keydown', (ev) => {
       if (!this.scrollMode || ev.target instanceof HTMLInputElement || ev.target instanceof HTMLSelectElement) return;
-      const step = { ArrowDown: 1, ArrowUp: -1, PageDown: 8, PageUp: -8 }[ev.key];
+      const mode = this.game?.mode ?? 'daily';
+      const endless = mode === 'endless';
+      if (ev.key === 'Home') {
+        ev.preventDefault();
+        scrollTarget = 0;
+        scene.setTarget(0);
+        return;
+      }
+      if (ev.key === 'End') {
+        ev.preventDefault();
+        scrollTarget = maxDepthFor(mode);
+        scene.setTarget(scrollTarget);
+        return;
+      }
+      const step = {
+        ArrowDown: endless ? 25 : 3,
+        ArrowUp: endless ? -25 : -3,
+        PageDown: endless ? 180 : 24,
+        PageUp: endless ? -180 : -24,
+      }[ev.key];
       if (step === undefined) return;
       ev.preventDefault();
       nudge(step);
