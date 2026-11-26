@@ -4,6 +4,7 @@ import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
 import { reducedMotion } from '../looks';
 import type { DiveStop, Scene } from '../render/scene';
 import { FORMS, FORM_BY_LAYER, serialStamp, type FormId } from './forms';
+import { tierIcon } from './tier-icons';
 
 const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
   const el = root.querySelector<T>(sel);
@@ -15,6 +16,24 @@ const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
 export const LOW_TIME = 0.25;
 /** The reading phase types the call in at this many ms per character. */
 const TYPE_MS = 28;
+/** How long the tier reveal stays up after the dive lands (dismissible early with any key or click). */
+export const REVEAL_MS = 1700;
+const REVEAL_TIMEOUT_MS = 1300;
+const REVEAL_FADE_MS = 200;
+
+/**
+ * Plain-language lines for the reveal, used when the answer has no note of its own. They say how rare the answer
+ * was, for players who aren't systems people; no terminal in-jokes.
+ */
+export const TIER_QUIPS: Record<TierId, readonly string[]> = {
+  'off-by-one': ['Right answer. Most people said this one too.', 'A classic. Nearly everyone gets here.', 'Safe and solid. You’re in good company.'],
+  womm: ['Feels obscure, but it’s everyone’s go-to.', 'The “clever” pick lots of people make.', 'Everyone thinks they’re the only one who knows this.'],
+  npe: ['Good answer. Plenty of people found it.', 'Fairly well known, but not everyone thought of it.', 'A common pick, and a good one.'],
+  leak: ['Most players missed this one.', 'Getting into less-travelled ground.', 'Not many people reached for that.'],
+  race: ['Only a few people find this one.', 'Now you’re digging.', 'A rare find. Nicely done.'],
+  heisenbug: ['Hardly anyone thinks of this.', 'A deep cut. Very few found it.', 'That one hides from almost everyone.'],
+  bitflip: ['Today’s rarest answer. You found it.', 'The one answer almost nobody finds.', 'One in a billion. Well, almost.'],
+};
 
 export function framesLabel(n: number): string {
   return `${n} stack frame${n === 1 ? '' : 's'}`;
@@ -99,7 +118,12 @@ export class Hud {
           <button type="button" data-el="copy">Copy result</button>
         </div>
         <div class="scroll-hint" data-el="scrollHint" hidden>scroll · ↑ ↓ · PgUp PgDn</div>
-      </section>`;
+      </section>
+      <div class="reveal" data-el="reveal" hidden role="status" aria-live="polite">
+        <div class="rv-tier"><span class="rv-icon" data-el="rvIcon"></span><span class="rv-name" data-el="rvName"></span></div>
+        <div class="rv-answer" data-el="rvAnswer"></div>
+        <div class="rv-line" data-el="rvLine"></div>
+      </div>`;
     this.root = mount;
     this.canvas = $(mount, 'canvas');
     this.input = $(mount, '#guess');
@@ -137,9 +161,10 @@ export class Hud {
       });
     });
 
-    // The end-of-day replay is skippable with any key or click.
+    // The end-of-day replay is skippable with any key or click, and so is the tier reveal.
     const skip = () => {
       if (this.replaying) scene.skipSequence();
+      if (this.revealUntil > 0) this.hideReveal();
     };
     window.addEventListener('keydown', skip, true);
     window.addEventListener('pointerdown', skip, true);
@@ -293,6 +318,7 @@ export class Hud {
   /** Timeout: the watchdog barks: the card jolts and flashes red (only the flash, under reduced motion). */
   bark() {
     replay(this.els.console!, 'bark');
+    this.revealTimeout();
     this.els.landed!.textContent = 'watchdog: round timed out, no frames pushed';
   }
 
@@ -342,6 +368,63 @@ export class Hud {
     });
   }
 
+  // ---------------------------------------------------------------------------------------------
+  // The tier reveal: after the dive lands, the rarity front and centre, near the cursor, over a soft dim.
+
+  private revealUntil = 0;
+  private revealTimer = 0;
+  private quipTurn = 0;
+
+  /** Full-screen reveal of an accepted answer's tier. Call when the dive lands. */
+  reveal(tier: TierId, name: string, frames: number, note?: string) {
+    const t = TIERS[tier];
+    const quips = TIER_QUIPS[tier];
+    const line = note ?? quips[this.quipTurn++ % quips.length]!;
+    this.els.rvIcon!.replaceChildren(tierIcon(tier, 3));
+    setText(this.els.rvName!, t.name);
+    setText(this.els.rvAnswer!, `${name} · +${framesLabel(frames)}`);
+    setText(this.els.rvLine!, line);
+    this.openReveal(tier, REVEAL_MS);
+  }
+
+  /** The watchdog's lower-key reveal: smaller, no icon pose or rarity, just that the round pushed nothing. */
+  revealTimeout() {
+    this.els.rvIcon!.replaceChildren(tierIcon('timeout', 2));
+    setText(this.els.rvName!, 'Time’s up');
+    setText(this.els.rvAnswer!, 'No answer this round');
+    setText(this.els.rvLine!, 'No frames pushed. The next one is already loading.');
+    this.openReveal('timeout', REVEAL_TIMEOUT_MS);
+  }
+
+  private openReveal(kind: TierId | 'timeout', ms: number) {
+    const el = this.els.reveal!;
+    const at = this.scene?.cursorCss();
+    // Just below the cursor, so the mascot's reaction stays in view above the text.
+    if (at) el.style.top = `${Math.round(at.y + 40)}px`;
+    el.dataset.tier = kind;
+    el.classList.toggle('low-key', kind === 'timeout');
+    el.classList.remove('out');
+    el.hidden = false;
+    replay(el, 'in');
+    this.scene?.setVignette(true);
+    this.revealUntil = performance.now() + ms;
+    clearTimeout(this.revealTimer);
+    this.revealTimer = window.setTimeout(() => this.hideReveal(), ms);
+  }
+
+  private hideReveal() {
+    if (this.revealUntil === 0) return;
+    this.revealUntil = 0;
+    clearTimeout(this.revealTimer);
+    this.scene?.setVignette(false);
+    const el = this.els.reveal!;
+    el.classList.add('out');
+    this.revealTimer = window.setTimeout(() => {
+      el.hidden = true;
+      el.classList.remove('out');
+    }, REVEAL_FADE_MS);
+  }
+
   private onSubmit(res: SubmitResult, scene: Scene, g: Game) {
     const fb = this.els.feedback!;
     if (res.kind === 'rejected') {
@@ -364,8 +447,10 @@ export class Hud {
     fb.textContent = res.corrected ? `read as '${res.entry.name}'` : '';
     this.showLanded(t.id, res.entry.name, res.pushed, res.entry.note);
     // The cursor dives; the tier's reaction fires when it lands.
-    if (res.pushed > 0) scene.diveTo(g.depth, t.id, res.pushed);
-    else scene.react(t.id);
+    if (res.pushed > 0) {
+      const { name, note } = res.entry;
+      scene.diveTo(g.depth, t.id, res.pushed, true, () => this.reveal(t.id, name, res.pushed, note));
+    } else scene.react(t.id);
   }
 
   private showLanded(tier: TierId, name: string, pushed: number, note?: string) {
@@ -373,7 +458,7 @@ export class Hud {
     this.els.landed!.innerHTML = '';
     const tierEl = document.createElement('span');
     tierEl.className = `tier tier-${t.id}`;
-    tierEl.textContent = t.name;
+    tierEl.append(tierIcon(t.id), t.name);
     const rest = document.createElement('span');
     rest.textContent = pushed ? ` · ${name} · +${pushed}. ${note ?? t.blurb}` : ` · ${name} (logged; only your first answer pushes frames)`;
     this.els.landed!.append(tierEl, rest);
@@ -422,18 +507,20 @@ export class Hud {
       if (r.tier) {
         const t = TIERS[r.tier];
         li.dataset.tier = t.id;
-        li.textContent = `${t.glyph} ${r.name ?? t.name} +${t.frames}`;
+        li.title = t.name;
+        li.append(tierIcon(t.id), `${r.name ?? t.name} +${t.frames}`);
       } else {
         li.className = 'timeout';
-        li.textContent = `⬛ ${r.timedOut ? 'timed out' : 'skipped'}`;
+        li.append(tierIcon('timeout'), r.timedOut ? 'timed out' : 'skipped');
       }
       ol.append(li);
     }
+    // On screen the glyph row is the cursor icons; the share text keeps emoji so it pastes anywhere.
     const glyphs = rows.map((r) => (r.tier ? TIERS[r.tier].glyph : '⬛')).join('');
     const headline = `${framesLabel(depth)} · ${layerAt(depth).name}`;
     setText(this.els.puzzleNo!, `#${puzzle}`);
     setText(this.els.headline!, headline);
-    setText(this.els.glyphs!, glyphs);
+    this.els.glyphs!.replaceChildren(...rows.map((r) => tierIcon(r.tier ?? 'timeout', 2)));
     this.shareText = `nullion #${puzzle} · ${headline}\n${glyphs}`;
   }
 
@@ -466,6 +553,11 @@ export class Hud {
 
   demoLanded(tier: TierId, name: string, frames: number) {
     this.showLanded(tier, name, frames);
+  }
+
+  /** The demo's half of a landing: the reveal (the rail plays it when its dive lands). */
+  demoReveal(tier: TierId, name: string, frames: number) {
+    this.reveal(tier, name, frames);
   }
 
   private endDemo() {

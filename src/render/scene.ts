@@ -121,6 +121,8 @@ interface Dive {
   dur: number;
   /** Tier reaction to fire on landing. */
   react?: TierId;
+  /** Runs once when the dive lands (after the reaction starts): the HUD's tier reveal. */
+  onLand?: () => void;
   pop?: { text: string; tier: TierId };
 }
 
@@ -136,6 +138,7 @@ function easeOutBack(p: number): number {
 const easeOutCubic = (p: number) => 1 - (1 - p) ** 3;
 
 const TITLE_MS = 2400;
+const VIGNETTE_MS = 220;
 /** Each layer's name as that place would print it. */
 const LAYER_TITLES: Record<LayerId, string> = {
   application: 'Application',
@@ -235,6 +238,7 @@ export class Scene {
   private swayAmp = 0;
   private swayPhase = 0;
   private bubbles: { x: number; y: number; age: number }[] = [];
+  private vignette = { on: false, at: -Infinity };
   private rain: { y: number; speed: number }[] = [];
 
   onLayerChange: ((layer: Layer) => void) | undefined;
@@ -341,6 +345,44 @@ export class Scene {
     };
   }
 
+  /**
+   * The tier reveal's dim: a soft radial vignette over the middle of the screen, under the cursor. It eases in and
+   * out over VIGNETTE_MS; under reduced motion it is a static dim that simply appears and goes.
+   */
+  setVignette(on: boolean) {
+    if (on === this.vignette.on) return;
+    const now = performance.now();
+    // Reversing mid-fade starts from where the fade got to.
+    const k = Math.min(1, (now - this.vignette.at) / VIGNETTE_MS);
+    this.vignette = { on, at: now - (1 - k) * VIGNETTE_MS };
+  }
+
+  /** The cursor's resting point in CSS pixels (the HUD places the reveal just below it). */
+  cursorCss(): { x: number; y: number } {
+    const scale = this.W ? this.canvas.clientWidth / this.W || pixelScale(window.innerWidth) : pixelScale(window.innerWidth);
+    return { x: (this.W / 2) * scale, y: this.cursorY * scale };
+  }
+
+  private drawVignette(now: number, reduced: boolean) {
+    const v = this.vignette;
+    const k = reduced ? 1 : Math.min(1, (now - v.at) / VIGNETTE_MS);
+    const a = v.on ? k : 1 - k;
+    if (a <= 0) return;
+    const ctx = this.ctx;
+    const rx = Math.min(this.W * 0.5, 180);
+    const cy = this.cursorY + 26;
+    ctx.save();
+    ctx.translate(Math.round(this.W / 2), cy);
+    ctx.scale(1, 0.6);
+    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx);
+    g.addColorStop(0, `rgba(0,0,0,${(0.8 * a).toFixed(3)})`);
+    g.addColorStop(0.55, `rgba(0,0,0,${(0.62 * a).toFixed(3)})`);
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(-rx, -rx, rx * 2, rx * 2);
+    ctx.restore();
+  }
+
   get displayDepth() {
     return this.depth;
   }
@@ -375,11 +417,11 @@ export class Scene {
    * An accepted answer: the cursor dives to `to`, eased with a small overshoot, and the tier's reaction
    * fires on landing. A "+N frames" pops off the cursor as it lands.
    */
-  diveTo(to: number, tier: TierId, frames: number, react = true) {
+  diveTo(to: number, tier: TierId, frames: number, react = true, onLand?: () => void) {
     this.queue = [];
     this.onQueueDone = undefined;
     const pop = { text: `+${frames} frame${frames === 1 ? '' : 's'}`, tier };
-    this.startDive({ from: this.depth, to, start: performance.now(), dur: diveMs(frames), react: react ? tier : undefined, pop });
+    this.startDive({ from: this.depth, to, start: performance.now(), dur: diveMs(frames), react: react ? tier : undefined, pop, onLand });
   }
 
   /**
@@ -428,6 +470,7 @@ export class Scene {
     this.dive = undefined;
     this.depth = d.to;
     if (d.react) this.react(d.react);
+    d.onLand?.();
     if (d.pop) this.pops.push({ ...d.pop, start: now });
     if (this.queue.length) this.queueAt = now + 140;
     else if (this.onQueueDone) this.finishQueue();
@@ -600,6 +643,10 @@ export class Scene {
       });
     }
 
+    // 3b. The screen mirrors the tier reaction in the world (the HUD adds grey, invert and racing panels from this.fx).
+    // It sits under the vignette and the cursor: the mascot's own reaction always plays in front.
+    this.drawReactionFx(now, act, rel, reduced);
+
     // 4. Cursor: it sways as it sinks and settles when it arrives; static under reduced motion.
     const speed = Math.abs(this.target - this.depth);
     const want = reduced ? 0 : Math.min(1, speed / 2);
@@ -609,6 +656,8 @@ export class Scene {
     // Ring −2's frozen time holds the sway and the bubbles too.
     const swayDt = frozen ? 0 : dt;
     this.swayPhase += swayDt * 3.1;
+    // The reveal's vignette dims the middle beneath the cursor pass, so the cursor and its reaction play in front of it.
+    this.drawVignette(now, reduced);
     this.drawBubbles(swayDt, speed, reduced, layer.id);
     this.drawCursor(now, layer.id, reduced, detailed);
     this.drawPops(now, layer.id, reduced);
@@ -687,8 +736,6 @@ export class Scene {
       }
     }
 
-    // 10. The screen mirrors the tier reaction (the HUD adds grey, invert and racing panels from this.fx).
-    this.drawReactionFx(now, act, rel, reduced);
   }
 
   /**

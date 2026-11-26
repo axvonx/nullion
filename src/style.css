@@ -380,3 +380,50 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   body { font-size: 18px; }
   .console { max-height: 50dvh; }
 }
+
+/*
+ * Tier reveal: after a dive lands, the rarity front and centre, just below the cursor. No panel: the scene dims
+ * its own middle (a vignette under the cursor), so the text reads while the edges keep showing the reaction.
+ */
+.reveal {
+  position: fixed;
+  z-index: 2;
+  left: 50%;
+  top: 45%;
+  translate: -50% 0;
+  width: min(560px, calc(100vw - 32px));
+  text-align: center;
+  pointer-events: none;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+.reveal[hidden] { display: none; }
+.rv-tier { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.rv-icon { display: inline-flex; filter: drop-shadow(2px 2px 0 #000); }
+.rv-name { font-family: var(--display); font-size: clamp(26px, 7vw, 52px); line-height: 1.05; overflow-wrap: anywhere; }
+.rv-answer { margin-top: 6px; font-size: clamp(22px, 5vw, 30px); color: var(--ink); overflow-wrap: anywhere; }
+.rv-line { margin-top: 2px; font-size: clamp(18px, 4vw, 22px); color: #cfcbd8; }
+.reveal[data-tier='off-by-one'] .rv-name { color: var(--t-offbyone); }
+.reveal[data-tier='womm'] .rv-name { color: var(--t-womm); }
+.reveal[data-tier='npe'] .rv-name { color: var(--t-npe); }
+.reveal[data-tier='leak'] .rv-name { color: var(--t-leak); }
+.reveal[data-tier='race'] .rv-name { color: var(--t-race); }
+.reveal[data-tier='heisenbug'] .rv-name { color: var(--t-heisenbug); }
+.reveal[data-tier='bitflip'] .rv-name { color: var(--t-bitflip); }
+/* The watchdog's reveal is lower-key: smaller and quieter. */
+.reveal.low-key .rv-name { color: var(--fault); font-size: clamp(20px, 5vw, 30px); }
+.reveal.low-key .rv-answer { font-size: 22px; color: var(--dim); }
+.reveal.in { animation: reveal-in 260ms steps(4, end); }
+.reveal.out { opacity: 0; transition: opacity 200ms linear; }
+@keyframes reveal-in {
+  0% { opacity: 0; transform: translateY(10px) scale(0.92); }
+  100% { opacity: 1; transform: none; }
+}
+/* Reduced motion: a static reveal that only fades in and out. */
+.still .reveal.in { animation: fade-in 250ms linear; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* Tier icons: the cursor in each tier's reaction pose, pixel-scaled. */
+.tier-icon { image-rendering: pixelated; vertical-align: middle; flex: none; }
+.tier .tier-icon { margin-right: 4px; vertical-align: -4px; }
+.record li .tier-icon { margin-right: 6px; vertical-align: -3px; }
+.glyphs { display: flex; flex-wrap: wrap; gap: 2px; }

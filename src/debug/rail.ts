@@ -2,6 +2,8 @@ import { LAYERS } from '../core/layers';
 import { TIERS, TIER_IDS, type TierId } from '../core/tiers';
 import { diveMs } from '../render/scene';
 import { FORM_BY_LAYER, FORM_IDS, FORM_NAMES } from '../ui/forms';
+import { REVEAL_MS } from '../ui/hud';
+import { tierIcon } from '../ui/tier-icons';
 import type { DebugHooks } from './menu';
 
 /**
@@ -137,16 +139,16 @@ export function mountRail(h: DebugHooks) {
   };
   const later = (ms: number, fn: () => void) => timers.push(window.setTimeout(fn, ms));
 
-  function add(id: string, label: string, accent: string, run: () => void) {
+  function add(id: string, label: string, accent: string, run: () => void, img?: HTMLElement) {
     const rows = ICONS[id];
-    if (!rows) throw new Error(`rail: no icon '${id}'`);
+    if (!rows && !img) throw new Error(`rail: no icon '${id}'`);
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'dbg-rail-btn';
     b.title = label;
     b.setAttribute('aria-label', label);
     b.dataset.tip = label;
-    b.append(icon(rows, accent));
+    b.append(img ?? icon(rows!, accent));
     b.addEventListener('click', run);
     rail.append(b);
     return b;
@@ -187,9 +189,9 @@ export function mountRail(h: DebugHooks) {
       later(t, () => {
         depth += f;
         h.hud.demoLanded(tier, name, f);
-        h.scene.diveTo(depth, tier, f);
+        h.scene.diveTo(depth, tier, f, true, () => h.hud.demoReveal(tier, name, f));
       });
-      t += diveMs(f) + 1200;
+      t += diveMs(f) + REVEAL_MS + 600;
     }
     later(t, () => h.hud.endOfDay(SAMPLE_DAY, depth, 0));
   });
@@ -220,12 +222,19 @@ export function mountRail(h: DebugHooks) {
     formBtn.dataset.tip = `Console form: ${FORM_NAMES[form]} (${formIdx + 1}/${FORM_IDS.length})`;
   });
 
-  // Each tier: the full thing, a dive by its frames, then the cursor's reaction and the screen's mirror of it.
+  // Each tier: the full sequence. A dive by its frames, the cursor's reaction and the screen's mirror, then the reveal.
   for (const id of TIER_IDS) {
     const f = TIERS[id].frames;
-    add(id, `${TIERS[id].name}: dive +${f}, then its reaction`, TIER_COLOR[id], () => {
-      cancel();
-      h.scene.diveTo(h.scene.displayDepth + f, id, f);
-    });
+    const name = SAMPLE_DAY.find((d) => d.tier === id)?.name ?? TIERS[id].name;
+    add(
+      id,
+      `${TIERS[id].name}: dive +${f}, its reaction, then the reveal`,
+      TIER_COLOR[id],
+      () => {
+        cancel();
+        h.scene.diveTo(h.scene.displayDepth + f, id, f, true, () => h.hud.demoReveal(id, name, f));
+      },
+      tierIcon(id),
+    );
   }
 }

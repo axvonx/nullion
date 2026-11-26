@@ -8,7 +8,8 @@ import type { Question } from '../data/sample';
 
 export const READ_MS = 3000;
 export const ANSWER_MS = 25000;
-export const BETWEEN_MS = 1800;
+/** Longest dive (Bit Flip, ~1.84 s) + the 1.7 s tier reveal + margin, so a reveal never overlaps the next prompt. */
+export const BETWEEN_MS = 3600;
 
 export interface Round {
   question: Question;
