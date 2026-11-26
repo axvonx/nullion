@@ -459,8 +459,47 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .reveal[data-tier='npe'] .rv-name { color: var(--t-npe); }
 .reveal[data-tier='leak'] .rv-name { color: var(--t-leak); }
 .reveal[data-tier='race'] .rv-name { color: var(--t-race); }
-.reveal[data-tier='heisenbug'] .rv-name { color: var(--t-heisenbug); }
-.reveal[data-tier='bitflip'] .rv-name { color: var(--t-bitflip); }
+.reveal[data-tier='heisenbug'] .rv-name {
+  color: var(--t-heisenbug);
+}
+.reveal[data-tier='heisenbug'] .rv-name::before,
+.reveal[data-tier='heisenbug'] .rv-name::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.42;
+  text-shadow: none;
+}
+.reveal[data-tier='heisenbug'] .rv-name::before {
+  color: #5fd3e0;
+  animation: heisen-ghost-a 2.8s ease-in-out infinite;
+}
+.reveal[data-tier='heisenbug'] .rv-name::after {
+  color: var(--t-heisenbug);
+  animation: heisen-ghost-b 3.3s ease-in-out infinite;
+}
+@keyframes heisen-ghost-a {
+  0%, 100% { transform: translate(-4px, -1px); opacity: 0.38; }
+  50% { transform: translate(5px, 2px); opacity: 0.14; }
+}
+@keyframes heisen-ghost-b {
+  0%, 100% { transform: translate(4px, 1px); opacity: 0.24; }
+  50% { transform: translate(-5px, -2px); opacity: 0.45; }
+}
+.reveal[data-tier='bitflip'] .rv-name {
+  color: var(--t-bitflip);
+  animation: bitflip-shimmer 2.2s steps(1) infinite;
+}
+@keyframes bitflip-shimmer {
+  0%, 76%, 84%, 100% { color: var(--t-bitflip); transform: none; }
+  78% { color: #ffffff; transform: translate(2px, 0); }
+  80% { color: #ffb000; transform: translate(-2px, 0); }
+  82% { color: var(--t-bitflip); transform: translate(1px, -1px); }
+}
+.still .reveal[data-tier='heisenbug'] .rv-name::before,
+.still .reveal[data-tier='heisenbug'] .rv-name::after { display: none; }
+.still .reveal[data-tier='bitflip'] .rv-name { animation: none; }
 /* The watchdog's reveal is lower-key: smaller and quieter. */
 .reveal.low-key .rv-name { color: var(--fault); }
 .reveal.in .rv-name { animation: reveal-pop 260ms steps(4, end); transform-origin: 50% 100%; }

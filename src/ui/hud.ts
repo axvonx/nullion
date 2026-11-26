@@ -482,6 +482,7 @@ export class Hud {
     const low = timed && left > 0 && left < LOW_TIME;
     this.els.watchdog!.classList.toggle('low', low);
     this.els.console!.classList.toggle('low', low);
+    this.scene?.setLowTime(low);
     setText(this.els.secs!, low ? `${Math.ceil((left * ANSWER_MS) / 1000)}s` : '');
   }
 
@@ -564,6 +565,7 @@ export class Hud {
     const quips = TIER_QUIPS[tier];
     const line = note ?? quips[this.quipTurn++ % quips.length]!;
     setText(this.els.rvName!, t.name);
+    this.els.rvName!.dataset.text = t.name;
     setText(this.els.rvAnswer!, `${name} · +${framesLabel(frames)}`);
     setText(this.els.rvLine!, line);
     this.openReveal(tier);
@@ -572,6 +574,7 @@ export class Hud {
   /** The watchdog's lower-key reveal: smaller, no icon pose or rarity, just that the round pushed nothing. */
   revealTimeout() {
     setText(this.els.rvName!, 'Time’s up');
+    delete this.els.rvName!.dataset.text;
     setText(this.els.rvAnswer!, '');
     setText(this.els.rvLine!, 'No answer, so no frames this round.');
     this.openReveal('timeout');
@@ -690,6 +693,7 @@ export class Hud {
         fb.textContent = '';
         requestAnimationFrame(() => (fb.textContent = 'Not accepted'));
         replay(this.els.console!, 'reject');
+        scene.rejectNudge();
         return;
       case 'duplicate':
         this.input.value = '';

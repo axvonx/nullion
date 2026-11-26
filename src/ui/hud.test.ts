@@ -32,9 +32,17 @@ class FakeScene {
   holds: boolean[] = [];
   dives: { to: number; tier: string; frames: number }[] = [];
   introDives = 0;
+  rejectNudges = 0;
+  lowTimes: boolean[] = [];
   onLayerChange: unknown;
   introDive() {
     this.introDives++;
+  }
+  rejectNudge() {
+    this.rejectNudges++;
+  }
+  setLowTime(on: boolean) {
+    this.lowTimes.push(on);
   }
   triggerTitleGlitch() {}
   clearTitleGlitches() {}
@@ -346,6 +354,26 @@ describe('console layout', () => {
     expect(consoleEl.classList.contains('reading')).toBe(false);
     expect(input.disabled).toBe(false);
     expect(input.placeholder).toBe('type an answer, press Enter');
+  });
+
+  it('signals cursor reject nudge, low-time brackets, and reveal ghost text', () => {
+    const h = setup();
+    h.toAnswering();
+    expect(h.scene.lowTimes.at(-1)).toBe(false);
+
+    // Rejected guess nudges the cursor.
+    h.submit('not a real answer');
+    expect(h.scene.rejectNudges).toBe(1);
+
+    // Watchdog below LOW_TIME triggers low-time cursor brackets.
+    h.step(Math.round(ANSWER_MS * 0.8));
+    expect(h.scene.lowTimes.at(-1)).toBe(true);
+
+    // Accepting an answer clears low-time and sets rvName.dataset.text for tier reveal typography.
+    h.submit(h.answerFor('heisenbug'));
+    expect(h.scene.lowTimes.at(-1)).toBe(false);
+    const rvName = h.$('[data-el="rvName"]');
+    expect(rvName.dataset.text).toBe(TIERS.heisenbug.name);
   });
 });
 

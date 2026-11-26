@@ -207,6 +207,16 @@ export class Scene {
   private bubbles: { x: number; y: number; age: number }[] = [];
   private vignette = { on: false, at: -Infinity };
   private rain: { y: number; speed: number }[] = [];
+  /** Cursor morph flash when crossing into a layer with a different cursor form. */
+  private lastForm: CursorForm | undefined;
+  private morphStart = -Infinity;
+  /** Brief vertical landing thud after a big dive (>= 5 frames). */
+  private landThudStart = -Infinity;
+  private landThudMag = 0;
+  /** Rejected-guess fault flash + nudge on the cursor. */
+  private rejectStart = -Infinity;
+  /** Watchdog low-time state: tightens the cursor brackets and shifts them to fault-red. */
+  private lowTime = false;
   /** Active title-screen glitch echoes reflected in the live world behind the wordmark. */
   private titleBurst: (TitleGlitchEvent & { start: number }) | undefined;
   private titleGhosts: {
@@ -549,6 +559,16 @@ export class Scene {
     this.titleHex.length = 0;
   }
 
+  /** Tactile cursor feedback on a rejected guess: fault-red flash and quick horizontal nudge. */
+  rejectNudge() {
+    this.rejectStart = performance.now();
+  }
+
+  /** Watchdog low-time cue on the cursor's corner brackets (tighten + shift to fault-red). */
+  setLowTime(on: boolean) {
+    this.lowTime = on;
+  }
+
   /**
    * Title-screen plunge: when the player presses "Unwind the stack", the cursor dips into Application with a
    * brief sway and a few rising bubbles, then settles back to depth 0. No-op under reduced motion.
@@ -639,6 +659,10 @@ export class Scene {
   private land(d: Dive, now: number) {
     this.dive = undefined;
     this.depth = d.to;
+    if (d.to - d.from >= 5 && !reducedMotion()) {
+      this.landThudStart = now;
+      this.landThudMag = d.to - d.from >= 10 ? 3 : 2;
+    }
     if (d.react === 'leak') this.leakPending = true;
     d.onLand?.();
     if (d.pop) this.pops.push({ ...d.pop, start: now });
@@ -805,7 +829,15 @@ export class Scene {
       });
     }
 
-    // 3b. The screen mirrors the tier reaction in the world (the HUD adds grey, invert and racing panels from this.fx).
+    // 3a. Subtle per-layer ambient particles (on artTime, so frozen states hold them still; off under reduced motion).
+    this.drawAmbience(layer.id, reduced);
+
+    // 3b. Speedlines on big dives (>= 5 frames: Race, Heisenbug, Bit Flip).
+    if (dv && dv.moving && dv.to - dv.from >= 5 && !reduced && !worldFrozen) {
+      this.drawSpeedlines(now, dv, layer.id);
+    }
+
+    // 3c. The screen mirrors the tier reaction in the world (the HUD adds grey, invert and racing panels from this.fx).
     // It sits under the vignette and the cursor: the mascot's own reaction always plays in front.
     this.drawReactionFx(now, act, rel, reduced);
 
@@ -1129,6 +1161,115 @@ export class Scene {
     }
   }
 
+  /**
+   * Subtle layer-specific ambient particles on `artTime`: sky motes in Application, rising GC sparks in
+   * Runtime/Libraries, horizontal IRQ pulses in Userspace/Kernel/Drivers, phosphor dust in Firmware/Ring −1,
+   * frozen dust in Ring −2, stark 1-bit flecks in Ring −3. Off under reduced motion.
+   */
+  private drawAmbience(layerId: LayerId, reduced: boolean) {
+    if (reduced) return;
+    const ctx = this.ctx;
+    const { W, H } = this;
+    const t = this.artTime;
+    const perLayer = look('palette') === 'per-layer';
+    const pal = LAYER_PALETTE[layerId];
+    const col = (hex: string) => (perLayer ? snapColor(hex, pal) : hex);
+    const count = 12;
+
+    ctx.save();
+    for (let i = 0; i < count; i++) {
+      const s1 = hash(i * 43 + 11);
+      const s2 = hash(i * 67 + 23);
+      const s3 = hash(i * 97 + 37);
+      switch (layerId) {
+        case 'application': {
+          const x = Math.round(((s1 * W + t * (4 + s3 * 6)) % (W + 8)) - 4);
+          const y = Math.round(s2 * H);
+          ctx.globalAlpha = 0.45;
+          ctx.fillStyle = col('#ffffff');
+          ctx.fillRect(x, y, s3 > 0.65 ? 2 : 1, 1);
+          break;
+        }
+        case 'runtime':
+        case 'libraries': {
+          const x = Math.round(s1 * W);
+          const y = Math.round((((s2 * H - t * (10 + s3 * 14)) % H) + H) % H);
+          ctx.globalAlpha = 0.55;
+          ctx.fillStyle = col(i % 2 === 0 ? '#7ec8e3' : '#f5d76e');
+          ctx.fillRect(x, y, 1, 1);
+          break;
+        }
+        case 'userspace':
+        case 'kernel':
+        case 'drivers': {
+          const dir = i % 2 === 0 ? 1 : -1;
+          const speed = 28 + s3 * 42;
+          const x = Math.round((((s1 * W + dir * t * speed) % (W + 12)) + (W + 12)) % (W + 12) - 6);
+          const y = Math.round(s2 * H);
+          ctx.globalAlpha = 0.5;
+          ctx.fillStyle = col(layerId === 'drivers' ? '#55ffff' : layerId === 'kernel' ? '#ffb000' : '#7ee0a1');
+          ctx.fillRect(x, y, 3, 1);
+          break;
+        }
+        case 'firmware':
+        case 'ring-1': {
+          const x = Math.round(s1 * W + Math.sin(t * 0.8 + i) * 3);
+          const y = Math.round(((s2 * H + t * (5 + s3 * 6)) % H));
+          ctx.globalAlpha = 0.45;
+          ctx.fillStyle = col('#8cff9c');
+          ctx.fillRect(x, y, 1, 1);
+          break;
+        }
+        case 'ring-2': {
+          const x = Math.round(s1 * W);
+          const y = Math.round(s2 * H);
+          ctx.globalAlpha = 0.4;
+          ctx.fillStyle = col('#bebebe');
+          ctx.fillRect(x, y, 1, 1);
+          break;
+        }
+        case 'ring-3': {
+          if (Math.floor(t * 3 + i * 1.7) % 3 !== 0) break;
+          const x = Math.round(s1 * W);
+          const y = Math.round(s2 * H);
+          ctx.globalAlpha = 0.6;
+          ctx.fillStyle = col('#e8eeff');
+          ctx.fillRect(x, y, 1, 1);
+          break;
+        }
+      }
+    }
+    ctx.restore();
+  }
+
+  /** Vertical 1px pixel speed-streaks rushing upward along the outer margins during big dives (>= 5 frames). */
+  private drawSpeedlines(now: number, dv: Dive, layerId: LayerId) {
+    const p = Math.min(1, (now - dv.start) / dv.dur);
+    const env = Math.sin(p * Math.PI);
+    if (env <= 0.05) return;
+    const ctx = this.ctx;
+    const { W, H } = this;
+    const perLayer = look('palette') === 'per-layer';
+    const pal = LAYER_PALETTE[layerId];
+    const ink = perLayer ? snapColor('#ffffff', pal) : '#ffffff';
+    const count = dv.to - dv.from >= 10 ? 14 : 10;
+    const margin = Math.max(12, Math.round(W * 0.22));
+    ctx.save();
+    ctx.fillStyle = ink;
+    for (let i = 0; i < count; i++) {
+      const left = i % 2 === 0;
+      const sx = left
+        ? Math.round(4 + hash(i * 31 + 3) * (margin - 8))
+        : Math.round(W - margin + 4 + hash(i * 31 + 3) * (margin - 8));
+      const len = Math.round((8 + hash(i * 17 + 7) * 18) * env);
+      const speed = 160 + hash(i * 23 + 11) * 180;
+      const sy = Math.round((((hash(i * 41) * H - (now / 1000) * speed) % (H + len)) + (H + len)) % (H + len) - len);
+      ctx.globalAlpha = (0.28 + hash(i * 13) * 0.35) * env;
+      ctx.fillRect(sx, sy, 1, len);
+    }
+    ctx.restore();
+  }
+
   /** "+N frames" and replay labels: pop off the cursor, float up and fade (only fade under reduced motion). */
   private drawPops(now: number, layerId: LayerId, reduced: boolean) {
     if (!this.pops.length) return;
@@ -1171,6 +1312,10 @@ export class Scene {
 
   private drawCursor(now: number, layerId: LayerId, reduced: boolean, detailed: boolean) {
     const form = this.formFor(layerId);
+    if (form !== this.lastForm) {
+      if (this.lastForm !== undefined && !reduced) this.morphStart = now;
+      this.lastForm = form;
+    }
     const style = FORM_STYLE[form];
     // The bit is a 0/1 glyph that can't hold its value. It flickers on art time, so Ring −2's frozen time holds it too.
     let bit = reduced ? 1 : bitAt(this.artTime);
@@ -1181,6 +1326,17 @@ export class Scene {
     let alpha = style.alpha;
     let x = Math.round(this.W / 2 + this.swayAmp * 6 * Math.sin(this.swayPhase));
     let y = Math.round(this.cursorY + this.cursorLead + this.swayAmp * 2 * Math.sin(this.swayPhase * 2));
+    // Landing impact thud after a big dive (>= 5 frames).
+    if (!reduced && now - this.landThudStart < 180) {
+      const tp = (now - this.landThudStart) / 180;
+      y += Math.round(Math.sin(tp * Math.PI) * this.landThudMag * (1 - tp * 0.4));
+    }
+    // Rejected-guess feedback: brief fault-red flash + quick horizontal nudge in sync with the console shake.
+    if (now - this.rejectStart < 220) {
+      const rp = (now - this.rejectStart) / 220;
+      if (!reduced) x += Math.round(Math.sin(rp * Math.PI * 5) * 3 * (1 - rp));
+      fill = '#ff5f7a';
+    }
     let visible = !(style.blink && !reduced && Math.floor((this.artTime * 1000) / 530) % 2 === 1);
     // A blinking cursor's mark stays put while the glyph blinks, so it never vanishes into the art.
     let marked = true;
@@ -1266,7 +1422,7 @@ export class Scene {
         if (hel > 600) y += 2;
         if (!reduced && Math.floor(hel / (hel > 1000 ? 600 : 220)) % 2 === 1) {
           // Spin by flipping vertically.
-          this.drawMark(spr, x, y, layerId, reduced);
+          this.drawMark(now, spr, x, y, layerId, reduced);
           ctx.save();
           ctx.translate(0, 2 * y);
           ctx.scale(1, -1);
@@ -1288,35 +1444,45 @@ export class Scene {
         break;
     }
 
-    if (marked) this.drawMark(spr, x, y, layerId, reduced);
+    if (marked) this.drawMark(now, spr, x, y, layerId, reduced);
     if (visible) drawSprite(ctx, spr, x, y, fill, outline, alpha);
   }
 
   /**
-   * The player's mark: a dark backing (dithered light, so the art behind dims) and four amber corner brackets
-   * with a black edge, snapped to the layer's palette so they read on every layer, including 1-bit Ring −3.
+   * The player's mark: a dark backing and four amber corner brackets with a black edge, snapped to the layer's
+   * palette so they read on every layer, including 1-bit Ring −3. Tightens & turns fault-red on low time, and
+   * flashes outward with pixel sparkles when the cursor morphs at a layer boundary.
    */
-  private drawMark(spr: Sprite, x: number, y: number, layerId: LayerId, reduced: boolean) {
+  private drawMark(now: number, spr: Sprite, x: number, y: number, layerId: LayerId, reduced: boolean) {
     const ctx = this.ctx;
     // Every cursor form shares one box: centred on the glyph, except a short glyph (the underscore) sits at the
     // bottom of the box, the way it sits at the bottom of a text cell.
     const { cx, cy } = markCenter(spr, x, y);
     const breathe = reduced ? 0 : Math.round((Math.sin((this.artTime * 1000) / 420) + 1) / 2);
-    const rx = MARK_RX + breathe;
-    const ry = MARK_RY + breathe;
+    const morphRel = now - this.morphStart;
+    const morphing = !reduced && morphRel >= 0 && morphRel < 240;
+    const morphBump = morphing ? Math.round(Math.sin((morphRel / 240) * Math.PI) * 2) : 0;
+    const tighten = this.lowTime ? -1 : 0;
+    const rx = MARK_RX + breathe + morphBump + tighten;
+    const ry = MARK_RY + breathe + morphBump + tighten;
     // Crisp blocked-out dark backing matching the square corner brackets (no round radial halo).
     ctx.fillStyle = 'rgba(0,0,0,0.45)';
     ctx.fillRect(cx - rx - 2, cy - ry - 2, (rx + 2) * 2, (ry + 2) * 2);
     ctx.fillStyle = 'rgba(0,0,0,0.72)';
     ctx.fillRect(cx - rx, cy - ry, rx * 2, ry * 2);
-    // Amber where the palette has colour; the brightest level where it's a single-hue ramp.
+    // Amber normally, fault-red on low time, bright white flash during cursor morph.
     const pal = LAYER_PALETTE[layerId];
     const perLayer = look('palette') === 'per-layer';
-    const amber = !perLayer ? '#ffb000' : pal === 'green' || pal === 'gray' || pal === 'onebit' ? snapColor('#ffffff', pal) : snapColor('#ffb000', pal);
+    const baseHex = morphing ? '#ffffff' : this.lowTime ? '#ff5f7a' : '#ffb000';
+    const accent = !perLayer
+      ? baseHex
+      : pal === 'green' || pal === 'gray' || pal === 'onebit'
+        ? snapColor('#ffffff', pal)
+        : snapColor(baseHex, pal);
     for (const [sx, sy] of [[-1, -1], [1, -1], [-1, 1], [1, 1]] as const) {
       const bx = cx + sx * rx;
       const by = cy + sy * ry;
-      // Black edge first, then a 2px amber bracket on top: arms run inward from the corner.
+      // Black edge first, then a 2px bracket on top: arms run inward from the corner.
       const ax = sx > 0 ? bx - 4 : bx;
       const ay = sy > 0 ? by - 4 : by;
       const hx = sx > 0 ? bx - 1 : bx;
@@ -1324,9 +1490,21 @@ export class Scene {
       ctx.fillStyle = '#000';
       ctx.fillRect(ax - 1, hy - 1, 7, 4);
       ctx.fillRect(hx - 1, ay - 1, 4, 7);
-      ctx.fillStyle = amber;
+      ctx.fillStyle = accent;
       ctx.fillRect(ax, hy, 5, 2);
       ctx.fillRect(hx, ay, 2, 5);
+    }
+    // Cursor morph pixel sparkles radiating from the bracket box.
+    if (morphing) {
+      const mp = morphRel / 240;
+      const reach = Math.round(4 + mp * 8);
+      ctx.fillStyle = accent;
+      for (let k = 0; k < 6; k++) {
+        const ang = (k / 6) * Math.PI * 2 + 0.35;
+        const px = Math.round(cx + Math.cos(ang) * (rx + reach * 0.6));
+        const py = Math.round(cy + Math.sin(ang) * (ry + reach * 0.6));
+        ctx.fillRect(px, py, 1, 1);
+      }
     }
   }
 
