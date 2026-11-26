@@ -403,26 +403,26 @@ export const USERSPACE: EntityDef[] = [
     },
     { noFlip: true },
   ),
+  // Replaced static us-daemon (daemons now roam as living critters) with a clean service pipe manifold.
   ent(
-    'us-daemon',
-    [[26, 13]],
+    'us-manifold',
+    [[24, 12]],
     (p, w) => {
-      p.r(0, 9, w, 1, C.l);
-      p.r(0, 10, w, 1, C.d);
-      for (let k = 2; k < w; k += 6) p.r(k, 11, 1, 2, C.d);
+      p.r(0, 7, w, 2, C.l);
+      p.r(0, 9, w, 1, C.d);
+      for (let k = 2; k < w - 2; k += 6) {
+        p.r(k, 2, 4, 5, C.d);
+        p.r(k + 1, 3, 2, 3, C.k);
+      }
     },
     {
       anim: (p, w, _h, _v, t) => {
-        const ph = mod(t * 0.1, 2);
-        const x = R((ph < 1 ? ph : 2 - ph) * (w - 5));
-        const step = Math.floor(t * 4) % 2;
-        p.r(x, 3, 1, 1, C.R);
-        p.r(x + 4, 3, 1, 1, C.R);
-        p.r(x + 1, 4, 3, 3, C.r);
-        p.p(x + 2, 5, C.Y);
-        p.p(x + 1 + step, 7, C.r);
-        p.p(x + 3 - step, 7, C.r);
-        p.p(x + 2, 8, C.r);
+        const active = Math.floor(t * 2) % 4;
+        for (let i = 0; i < 4; i++) {
+          const x = 3 + i * 6;
+          if (x + 2 >= w) break;
+          p.r(x, 4, 2, 1, i === active ? C.G : C.c);
+        }
       },
     },
   ),
@@ -1001,18 +1001,24 @@ export const KERNEL: EntityDef[] = [
     p.r(9, 9, 4, 1, C.Y);
     p.r(11, 10, 1, 2, C.Y);
   }),
-  ent('kr-oom', [[13, 14]], (p) => {
-    p.r(0, 0, 13, 12, C.Y);
-    p.frame(0, 0, 13, 12, C.k);
-    p.r(4, 2, 5, 4, C.k);
-    p.r(3, 3, 7, 2, C.k);
-    p.p(5, 3, C.Y);
-    p.p(7, 3, C.Y);
-    p.r(5, 6, 3, 2, C.k);
-    p.l(2, 9, 10, 8, C.k);
-    p.l(2, 8, 10, 9, C.k);
-    p.r(6, 12, 1, 2, C.d);
-  }),
+  // Replaced kr-oom skull sign with a clean machine-room IRQ load meter.
+  ent(
+    'kr-irqmeter',
+    [[14, 13]],
+    (p) => {
+      p.r(0, 0, 14, 13, C.d);
+      p.r(1, 1, 12, 11, C.k);
+      p.r(2, 10, 10, 1, C.l);
+    },
+    {
+      anim: (p, _w, _h, _v, t) => {
+        for (let k = 0; k < 4; k++) {
+          const h = 2 + Math.floor((Math.sin(t * 3.1 + k * 1.4) * 0.5 + 0.5) * 6);
+          p.r(2 + k * 3, 10 - h, 2, h, h > 6 ? C.Y : C.C);
+        }
+      },
+    },
+  ),
   ent(
     'kr-tlb',
     [[15, 10]],
@@ -1031,24 +1037,22 @@ export const KERNEL: EntityDef[] = [
       },
     },
   ),
+  // Replaced static kr-kthread robot (thread-bots now zip as living critters) with a scheduler runqueue rack.
   ent(
-    'kr-kthread',
-    [[9, 13]],
+    'kr-runqueue',
+    [[13, 13]],
     (p) => {
-      p.r(1, 2, 7, 5, C.l);
-      p.r(2, 3, 1, 1, C.k);
-      p.r(6, 3, 1, 1, C.k);
-      p.r(4, 0, 1, 2, C.d);
-      p.r(2, 7, 5, 4, C.d);
+      p.r(0, 0, 13, 13, C.d);
+      p.r(1, 1, 11, 11, C.k);
+      for (let r = 0; r < 3; r++) p.r(2, 2 + r * 3, 9, 2, '#222222');
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const s = Math.floor(t * 3) % 2;
-        p.r(2, 11, 1, 2 - s, C.l);
-        p.r(6, 11, 1, 1 + s, C.l);
-        p.r(0, 7 + s, 1, 3, C.l);
-        p.r(8, 8 - s, 1, 3, C.l);
-        if (Math.floor(t * 1.4) % 2) p.p(4, 0, C.R);
+        const s = Math.floor(t * 2.5);
+        for (let r = 0; r < 3; r++) {
+          const w = 2 + ((s + r * 2) % 7);
+          p.r(2, 2 + r * 3, w, 2, r === s % 3 ? C.G : C.C);
+        }
       },
     },
   ),
@@ -1088,22 +1092,21 @@ export const KERNEL: EntityDef[] = [
       },
     },
   ),
+  // Replaced literal dog kr-watchdog with a readable hardware watchdog timer rack (ticking bar + reset LED).
   ent(
-    'kr-watchdog',
-    [[15, 11]],
+    'kr-wdtimer',
+    [[16, 11]],
     (p) => {
-      p.r(3, 4, 8, 4, C.n);
-      p.r(10, 1, 4, 4, C.n);
-      p.p(13, 4, C.k);
-      p.p(12, 2, C.k);
-      p.r(10, 0, 1, 2, '#552200');
-      for (const x of [3, 5, 8, 10]) p.r(x, 8, 1, 3, C.n);
-      p.r(10, 5, 2, 1, C.R);
+      p.r(0, 0, 16, 11, C.d);
+      p.r(1, 1, 14, 9, C.k);
+      p.r(2, 6, 12, 2, '#333333');
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const up = Math.floor(t * 5) % 2;
-        p.l(3, 4, 0, up ? 1 : 3, C.n);
+        const rem = 12 - (Math.floor(t * 4) % 12);
+        p.r(2, 6, rem, 2, rem <= 3 ? C.R : C.Y);
+        p.r(2, 2, 2, 2, rem <= 3 ? C.R : C.G);
+        p.r(12, 2, 2, 2, rem === 12 ? C.W : C.d);
       },
     },
   ),

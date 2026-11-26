@@ -228,6 +228,89 @@ export class SoundEngine {
     this.playAmbienceArtifact(this.ctx, layer);
   }
 
+  /**
+   * Living System Biosphere critter call, stereo-panned to the critter's exact x position on screen:
+   *   Application  → 2–3 note songbird chirp
+   *   Runtime      → bouncy upward helper-blob bloop
+   *   Libraries    → calmer, lower-pitched bookworm-blob bloop
+   *   OS userspace → mischievous low crunchy daemon mutter
+   *   Kernel       → robotic thread-bot servo blip + IRQ pip
+   *   Drivers      → fast click-clack bus-beetle skitter
+   *   Firmware     → distant miniature 1000 Hz POST ping + relay tick
+   *   Ring −1      → stereo-crossing twin mirror-wisp FM shimmer
+   *   Ring −3      → stark 1-bit piezo bit-mote snap
+   */
+  playCritter(layer: LayerId, pan: number) {
+    if (!this.ambienceEnabled || !this.enabled || this.ambienceFrozen || layer === 'ring-2') return;
+    if (!this.ctx || !('state' in this.ctx) || (this.ctx as AudioContext).state !== 'running') return;
+    const ctx = this.ctx;
+    const t = ctx.currentTime;
+    const p = Math.max(-0.85, Math.min(0.85, pan));
+    switch (layer) {
+      case 'application': {
+        // Cheerful little 2–3 note pixel songbird chirp
+        const base = 1180 + Math.random() * 260;
+        this.voice(ctx, { freq: base, toFreq: base * 1.32, at: t, dur: 0.055, wave: 'triangle', gain: 0.085, pan: p });
+        this.voice(ctx, { freq: base * 1.18, toFreq: base * 1.48, at: t + 0.065, dur: 0.065, wave: 'triangle', gain: 0.075, pan: p });
+        if (Math.random() > 0.45) {
+          this.voice(ctx, { freq: base * 1.45, toFreq: base * 1.25, at: t + 0.14, dur: 0.05, wave: 'triangle', gain: 0.06, pan: p });
+        }
+        break;
+      }
+      case 'runtime': {
+        // Bouncy helper-blob upward boing / bloop
+        const base = 360 + Math.random() * 90;
+        this.voice(ctx, { freq: base, toFreq: base * 1.75, at: t, dur: 0.095, wave: 'pulse25', filterHz: 2200, q: 2.2, gain: 0.09, pan: p });
+        this.voice(ctx, { freq: base * 1.5, at: t + 0.08, dur: 0.045, wave: 'triangle', gain: 0.06, pan: p });
+        break;
+      }
+      case 'libraries': {
+        // Same blob vocabulary, toned down a few notes and softer
+        const base = 260 + Math.random() * 60;
+        this.voice(ctx, { freq: base, toFreq: base * 1.45, at: t, dur: 0.105, wave: 'triangle', filterHz: 1400, q: 1.5, gain: 0.075, pan: p });
+        break;
+      }
+      case 'userspace': {
+        // Mischievous low crunchy daemon mutter / double chuckle
+        const base = 175 + Math.random() * 45;
+        this.voice(ctx, { freq: base, toFreq: base * 0.82, at: t, dur: 0.055, wave: 'pulse12', filterHz: 1100, gain: 0.085, pan: p, crush: true });
+        this.voice(ctx, { freq: base * 1.15, toFreq: base * 0.9, at: t + 0.068, dur: 0.065, wave: 'pulse12', filterHz: 1200, gain: 0.075, pan: p, crush: true });
+        break;
+      }
+      case 'kernel': {
+        // Robotic thread-bot servo blip + crisp 2-pip IRQ chirp
+        this.fmVoice(ctx, { carrierHz: 480, toCarrierHz: 720, modRatio: 2.5, modIndex: 140, at: t, dur: 0.065, gain: 0.08, pan: p, crush: true });
+        this.voice(ctx, { freq: 880, at: t + 0.07, dur: 0.028, wave: 'pulse12', gain: 0.07, pan: p, crush: true });
+        break;
+      }
+      case 'drivers': {
+        // Fast bus-beetle click-clack skitter
+        for (let k = 0; k < 3; k++) {
+          this.noiseBurst(ctx, { at: t + k * 0.032, dur: 0.014, type: 'highpass', filterHz: 2800 + k * 400, gain: 0.07, pan: p, crush: true });
+          this.voice(ctx, { freq: 640 + k * 140, at: t + k * 0.032, dur: 0.02, wave: 'square', gain: 0.055, pan: p, crush: true });
+        }
+        break;
+      }
+      case 'firmware': {
+        // Sentinel drone: distant miniature 1000 Hz POST ping + relay click
+        this.noiseBurst(ctx, { at: t, dur: 0.012, type: 'highpass', filterHz: 3200, gain: 0.065, pan: p, reverb: 0 });
+        this.voice(ctx, { freq: 1000, at: t + 0.012, dur: 0.045, wave: 'square', gain: 0.075, pan: p, reverb: 0.1 });
+        break;
+      }
+      case 'ring-1': {
+        // Twin mirror-wisps: stereo-crossing detuned FM shimmer (left ↔ right)
+        this.fmVoice(ctx, { carrierHz: 440, modRatio: 2, modIndex: 110, at: t, dur: 0.16, gain: 0.07, pan: p, toPan: -p, swell: true });
+        this.fmVoice(ctx, { carrierHz: 447, modRatio: 2, modIndex: 110, at: t + 0.04, dur: 0.16, gain: 0.065, pan: -p, toPan: p, swell: true });
+        break;
+      }
+      case 'ring-3': {
+        // Stark 1-bit piezo bit-mote snap
+        this.voice(ctx, { freq: Math.random() > 0.5 ? 1760 : 880, at: t, dur: 0.02, wave: 'square', gain: 0.08, pan: p, crush: true, reverb: 0 });
+        break;
+      }
+    }
+  }
+
   setVolume(level: VolumeLevel) {
     this.volume = level;
     this.applyMasterGain();

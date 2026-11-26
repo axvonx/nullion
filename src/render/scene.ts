@@ -14,6 +14,7 @@ import { CASCADE, LEAD_MS, NO_REACTION, NPE_MS, REACTION_MS, WOMM, reactionFrame
 import { CURSOR_FRAC, FORM_BY_LAYER, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
 import { drawMiniNullion, type TitleGlitchEvent } from '../ui/title-logo';
 import { sound } from '../audio/sound';
+import { CritterSystem } from './critters';
 
 export { pixelScale } from './cursor-geom';
 
@@ -209,6 +210,8 @@ export class Scene {
   private bubbles: { x: number; y: number; age: number }[] = [];
   private vignette = { on: false, at: -Infinity };
   private rain: { y: number; speed: number }[] = [];
+  /** Living System Biosphere critters (unique per layer, animated on artTime, spatial SFX). */
+  private critters = new CritterSystem();
   /** Cursor morph flash when crossing into a layer with a different cursor form. */
   private lastForm: CursorForm | undefined;
   private morphStart = -Infinity;
@@ -718,6 +721,7 @@ export class Scene {
     const detailed = style !== 'v1';
     const art = style === 'v4' ? LAYER_ART_V4 : style === 'v3' ? LAYER_ART_V3 : style === 'v2' ? LAYER_ART_DETAILED : LAYER_ART;
     if (style === 'v4') ensureWorldV4(this.worldSpec());
+    this.critters.ensureSeed(this.worldSeed);
 
     // Move the cursor: a dive (eased, with a small overshoot), or a glide toward the target.
     if (!this.dive && this.queue.length && now >= this.queueAt) this.startDive({ ...this.queue.shift()!, start: now });
@@ -824,7 +828,7 @@ export class Scene {
       farShift: this.farShift,
     });
 
-    // 1. Layer bands.
+    // 1. Layer bands (+ living biosphere critters in v2–v4).
     for (let i = 0; i < LAYERS.length; i++) {
       const b = band(i);
       if (b.bottom < 0 || b.top > H) continue;
@@ -833,6 +837,9 @@ export class Scene {
       ctx.rect(0, Math.max(0, b.top), W, Math.min(H, b.bottom) - Math.max(0, b.top));
       ctx.clip();
       art[LAYERS[i]!.id](ctx, b);
+      if (detailed) {
+        this.critters.drawBand(ctx, LAYERS[i]!.id, b, i === layerIdx && !worldFrozen, (ev) => sound.playCritter(ev.layer, ev.pan));
+      }
       ctx.restore();
     }
 

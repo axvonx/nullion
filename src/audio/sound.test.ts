@@ -142,7 +142,10 @@ describe('sound engine', () => {
       engine.playAmbientEvent('kernel');
       engine.setAmbienceFrozen(true);
       engine.setAmbienceFrozen(false);
-      for (const l of LAYERS) engine.playLayerCross(l.id);
+      for (const l of LAYERS) {
+        engine.playLayerCross(l.id);
+        engine.playCritter(l.id, -0.4);
+      }
 
       const afterPlay = counts();
       expect(afterPlay.oscCount).toBeGreaterThan(40);
