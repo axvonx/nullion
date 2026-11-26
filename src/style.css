@@ -1,0 +1,189 @@
+/*
+ * Chrome reads as a debugger attached to the scene: dark bezel, amber phosphor for signal, a backtrace panel.
+ * The scene itself owns all the color; the chrome stays quiet so the color-depth drop is the thing you notice.
+ */
+:root {
+  --bezel: #1d1a24;
+  --panel: #131118;
+  --rule: #34303f;
+  --ink: #ebe6d6;
+  --dim: #8b8598;
+  --signal: #ffb000;
+  --fault: #ff5f7a;
+  --ok: #7ee0a1;
+
+  --t-offbyone: #c9c4b4;
+  --t-womm: #ff9f43;
+  --t-npe: #8fb7ff;
+  --t-leak: #5fd3e0;
+  --t-race: #c58bff;
+  --t-heisenbug: #ff6ad5;
+  --t-bitflip: #ffe25a;
+
+  --display: 'Silkscreen', monospace;
+  --body: 'VT323', ui-monospace, monospace;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; height: 100%; overflow: hidden; }
+
+body {
+  background: #000;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+/* The scene is the world; everything else floats in it. */
+.scene {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  display: block;
+  image-rendering: pixelated;
+  background: #000;
+}
+
+/*
+ * Floating panels must read over every layer, from bright application blue to 1-bit Ring −3:
+ * near-opaque dark fill, a hard black edge, a 1px inner rule and a pixel drop shadow.
+ */
+.panel, .chip {
+  position: fixed;
+  z-index: 1;
+  background: rgba(16, 14, 22, 0.9);
+  border: 2px solid #000;
+  box-shadow: inset 0 0 0 1px var(--rule), 4px 4px 0 rgba(0, 0, 0, 0.55);
+}
+
+.bar {
+  position: fixed;
+  z-index: 1;
+  top: 12px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  pointer-events: none;
+}
+.bar .chip { position: static; padding: 3px 10px 4px; pointer-events: auto; }
+.wordmark { font-family: var(--display); font-size: 16px; letter-spacing: 0.04em; }
+.meta { color: var(--dim); font-size: 18px; margin-left: 6px; }
+.depth { color: var(--signal); font-size: 20px; white-space: nowrap; }
+
+.backtrace {
+  top: 56px;
+  right: 16px;
+  width: 260px;
+  max-height: calc(100dvh - 56px - 96px);
+  overflow-y: auto;
+  padding: 6px 12px 10px;
+}
+.backtrace summary {
+  font-family: var(--display);
+  font-size: 11px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  list-style: none;
+  padding: 2px 0;
+}
+.backtrace summary::-webkit-details-marker { display: none; }
+.backtrace summary::before { content: '▸ '; }
+.backtrace[open] summary::before { content: '▾ '; }
+.backtrace[open] summary { margin-bottom: 6px; }
+.bt-count { text-transform: none; letter-spacing: 0; }
+.backtrace ol { list-style: none; margin: 0; padding: 0; font-size: 20px; }
+.backtrace li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.backtrace .boundary { color: var(--dim); font-size: 17px; }
+.backtrace .timeout { color: var(--fault); }
+.backtrace [data-tier] { border-left: 3px solid; padding-left: 6px; }
+
+.console {
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  width: min(620px, calc(100vw - 32px));
+  max-height: calc(100dvh - 45dvh - 16px);
+  overflow-y: auto;
+  padding: 0 16px 12px;
+}
+
+.watchdog { height: 4px; background: #000; margin: 0 -16px 8px; }
+.watchdog-fill { height: 100%; background: var(--signal); transform-origin: left; }
+.watchdog-fill.low { background: var(--fault); }
+
+.call { font-family: var(--body); font-size: clamp(28px, 4.6vw, 40px); color: var(--signal); overflow-wrap: anywhere; }
+.plain { color: var(--dim); margin-top: 2px; min-height: 1.2em; }
+
+.prompt-line { display: flex; align-items: center; gap: 8px; margin-top: 8px; border-bottom: 2px solid var(--rule); }
+.prompt-line:focus-within { border-bottom-color: var(--signal); }
+.caret { color: var(--signal); }
+.prompt-line input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font: inherit;
+  font-size: 28px;
+  padding: 4px 0;
+  outline: none;
+}
+.prompt-line input:disabled { opacity: 0.45; }
+
+.feedback { display: block; min-height: 1.2em; margin-top: 6px; color: var(--dim); }
+.feedback.fault { color: var(--fault); }
+.feedback.ok { color: var(--ok); }
+.landed { min-height: 1.2em; }
+
+.tier { font-family: var(--display); font-size: 14px; }
+.tier-off-by-one, [data-tier='off-by-one'] { color: var(--t-offbyone); }
+.tier-womm, [data-tier='womm'] { color: var(--t-womm); }
+.tier-npe, [data-tier='npe'] { color: var(--t-npe); }
+.tier-leak, [data-tier='leak'] { color: var(--t-leak); }
+.tier-race, [data-tier='race'] { color: var(--t-race); }
+.tier-heisenbug, [data-tier='heisenbug'] { color: var(--t-heisenbug); }
+.tier-bitflip, [data-tier='bitflip'] { color: var(--t-bitflip); }
+
+.result { margin-top: 10px; }
+.result pre { font-family: var(--body); font-size: 24px; background: var(--panel); padding: 10px; margin: 0 0 8px; white-space: pre-wrap; }
+
+button {
+  font-family: var(--display);
+  font-size: 12px;
+  color: var(--bezel);
+  background: var(--signal);
+  border: 0;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.scroll-mode .prompt-line,
+.scroll-mode .feedback,
+.scroll-mode .landed,
+.scroll-mode .call,
+.scroll-mode .plain,
+.scroll-mode .watchdog { display: none; }
+.scroll-mode .console { padding-top: 10px; }
+.scroll-hint { color: var(--dim); }
+
+/* Narrow: the backtrace collapses to a chip under the header (it opens on tap). */
+@media (max-width: 1099px) {
+  .backtrace { width: auto; min-width: 0; max-width: min(260px, calc(100vw - 32px)); max-height: 40dvh; }
+}
+@media (max-width: 760px) {
+  body { font-size: 20px; }
+  .meta { display: none; }
+  .console { max-height: 52dvh; }
+  /* Keep clear of the debug 🐞 button (fixed bottom-right) when it exists. */
+  body:has(.dbg-toggle) .console { bottom: 76px; max-height: calc(52dvh - 60px); }
+}

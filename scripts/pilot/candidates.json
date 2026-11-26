@@ -1,0 +1,768 @@
+{
+  "_doc": "Pilot candidates, drafted by Claude in-session. Each: name, optional aliases (accepted spellings), optional search (extra phrases counted as evidence), optional pin (hand-picked tier: womm or bitflip). Tiers for unpinned entries come from corpus counts. Optional evidence: {table: [phrases]} replaces the default phrases for ambiguous words; unlisted tables count 0.",
+  "lock": [
+    {
+      "name": "mutex",
+      "aliases": [
+        "mutual exclusion lock"
+      ]
+    },
+    {
+      "name": "spinlock",
+      "aliases": [
+        "spin lock"
+      ]
+    },
+    {
+      "name": "semaphore"
+    },
+    {
+      "name": "read-write lock",
+      "aliases": [
+        "rwlock",
+        "readers-writer lock",
+        "reader-writer lock",
+        "shared-exclusive lock"
+      ]
+    },
+    {
+      "name": "recursive mutex",
+      "aliases": [
+        "reentrant lock",
+        "reentrant mutex",
+        "recursive lock"
+      ]
+    },
+    {
+      "name": "adaptive mutex",
+      "aliases": [
+        "adaptive lock"
+      ]
+    },
+    {
+      "name": "ticket lock",
+      "aliases": [
+        "ticket spinlock"
+      ]
+    },
+    {
+      "name": "MCS lock",
+      "aliases": [
+        "mellor-crummey scott lock"
+      ],
+      "search": [
+        "MCS queue lock"
+      ]
+    },
+    {
+      "name": "CLH lock",
+      "aliases": [
+        "craig landin hagersten lock"
+      ],
+      "search": [
+        "CLH queue lock"
+      ]
+    },
+    {
+      "name": "qspinlock",
+      "aliases": [
+        "queued spinlock"
+      ]
+    },
+    {
+      "name": "qrwlock",
+      "aliases": [
+        "queued rwlock",
+        "queued read-write lock"
+      ]
+    },
+    {
+      "name": "seqlock",
+      "aliases": [
+        "sequence lock",
+        "seqcount"
+      ]
+    },
+    {
+      "name": "futex",
+      "aliases": [
+        "fast userspace mutex"
+      ]
+    },
+    {
+      "name": "RCU",
+      "aliases": [
+        "read-copy-update"
+      ],
+      "pin": "womm"
+    },
+    {
+      "name": "big kernel lock",
+      "aliases": [
+        "bkl"
+      ]
+    },
+    {
+      "name": "test-and-set lock",
+      "aliases": [
+        "tas lock",
+        "test and set lock"
+      ]
+    },
+    {
+      "name": "test-and-test-and-set lock",
+      "aliases": [
+        "ttas lock",
+        "test and test and set lock"
+      ]
+    },
+    {
+      "name": "backoff lock",
+      "aliases": [
+        "exponential backoff lock"
+      ]
+    },
+    {
+      "name": "Anderson lock",
+      "aliases": [
+        "array-based queue lock",
+        "array lock"
+      ]
+    },
+    {
+      "name": "Peterson lock",
+      "aliases": [
+        "peterson's algorithm",
+        "petersons lock"
+      ],
+      "search": [
+        "Peterson's algorithm"
+      ]
+    },
+    {
+      "name": "bakery lock",
+      "aliases": [
+        "lamport's bakery algorithm",
+        "bakery algorithm"
+      ],
+      "search": [
+        "bakery algorithm"
+      ]
+    },
+    {
+      "name": "Dekker's algorithm",
+      "aliases": [
+        "dekker lock",
+        "dekkers algorithm"
+      ]
+    },
+    {
+      "name": "filter lock"
+    },
+    {
+      "name": "hierarchical backoff lock",
+      "aliases": [
+        "hbo lock"
+      ]
+    },
+    {
+      "name": "lock cohorting",
+      "aliases": [
+        "cohort lock",
+        "cohort locks"
+      ]
+    },
+    {
+      "name": "CNA lock",
+      "aliases": [
+        "compact numa-aware lock"
+      ],
+      "search": [
+        "compact NUMA-aware lock"
+      ]
+    },
+    {
+      "name": "HMCS lock",
+      "aliases": [
+        "hierarchical mcs lock"
+      ]
+    },
+    {
+      "name": "shuffle lock",
+      "aliases": [
+        "shfllock"
+      ]
+    },
+    {
+      "name": "Malthusian lock"
+    },
+    {
+      "name": "Hemlock"
+    },
+    {
+      "name": "reciprocating lock"
+    },
+    {
+      "name": "TWA lock",
+      "aliases": [
+        "ticket lock with waiting array"
+      ]
+    },
+    {
+      "name": "partitioned ticket lock"
+    },
+    {
+      "name": "fissile lock",
+      "pin": "bitflip"
+    },
+    {
+      "name": "optimistic lock",
+      "aliases": [
+        "optimistic locking"
+      ]
+    },
+    {
+      "name": "pessimistic lock",
+      "aliases": [
+        "pessimistic locking"
+      ]
+    },
+    {
+      "name": "two-phase locking",
+      "aliases": [
+        "2pl"
+      ]
+    },
+    {
+      "name": "intention lock",
+      "aliases": [
+        "intent lock"
+      ]
+    },
+    {
+      "name": "shared lock",
+      "aliases": [
+        "s lock"
+      ]
+    },
+    {
+      "name": "exclusive lock",
+      "aliases": [
+        "x lock"
+      ]
+    },
+    {
+      "name": "row-level lock",
+      "aliases": [
+        "row lock"
+      ]
+    },
+    {
+      "name": "table lock",
+      "aliases": [
+        "table-level lock"
+      ],
+      "evidence": {
+        "dblp": [
+          "table lock",
+          "table-level lock",
+          "table locking"
+        ],
+        "arxiv": [
+          "table-level lock"
+        ]
+      }
+    },
+    {
+      "name": "advisory lock"
+    },
+    {
+      "name": "file lock",
+      "aliases": [
+        "flock",
+        "file locking"
+      ]
+    },
+    {
+      "name": "distributed lock"
+    },
+    {
+      "name": "Redlock"
+    },
+    {
+      "name": "biased lock",
+      "aliases": [
+        "biased locking"
+      ]
+    },
+    {
+      "name": "thin lock"
+    },
+    {
+      "name": "rw semaphore",
+      "aliases": [
+        "rwsem",
+        "read-write semaphore"
+      ]
+    },
+    {
+      "name": "percpu rwsem",
+      "aliases": [
+        "per-cpu rwsem",
+        "percpu rw semaphore"
+      ]
+    },
+    {
+      "name": "local lock",
+      "aliases": [
+        "local_lock"
+      ]
+    },
+    {
+      "name": "rt mutex",
+      "aliases": [
+        "rtmutex",
+        "rt_mutex"
+      ]
+    },
+    {
+      "name": "ww mutex",
+      "aliases": [
+        "wound/wait mutex",
+        "wound-wait mutex",
+        "ww_mutex"
+      ]
+    },
+    {
+      "name": "lglock",
+      "aliases": [
+        "local/global lock"
+      ]
+    },
+    {
+      "name": "brlock",
+      "aliases": [
+        "big reader lock"
+      ]
+    },
+    {
+      "name": "osq lock",
+      "aliases": [
+        "optimistic spin queue",
+        "osq"
+      ]
+    },
+    {
+      "name": "queue lock",
+      "aliases": [
+        "queuing lock",
+        "queue-based lock"
+      ]
+    }
+  ],
+  "data-structure": [
+    {
+      "name": "array"
+    },
+    {
+      "name": "linked list"
+    },
+    {
+      "name": "doubly linked list"
+    },
+    {
+      "name": "hash table",
+      "aliases": [
+        "hash map",
+        "hashmap",
+        "dictionary"
+      ]
+    },
+    {
+      "name": "stack"
+    },
+    {
+      "name": "queue"
+    },
+    {
+      "name": "deque",
+      "aliases": [
+        "double-ended queue"
+      ]
+    },
+    {
+      "name": "binary tree"
+    },
+    {
+      "name": "binary search tree",
+      "aliases": [
+        "bst"
+      ]
+    },
+    {
+      "name": "heap",
+      "aliases": [
+        "binary heap"
+      ]
+    },
+    {
+      "name": "priority queue"
+    },
+    {
+      "name": "graph"
+    },
+    {
+      "name": "adjacency list"
+    },
+    {
+      "name": "adjacency matrix"
+    },
+    {
+      "name": "trie",
+      "aliases": [
+        "prefix tree"
+      ]
+    },
+    {
+      "name": "red-black tree",
+      "aliases": [
+        "rb tree",
+        "rbtree"
+      ]
+    },
+    {
+      "name": "AVL tree"
+    },
+    {
+      "name": "B-tree",
+      "aliases": [
+        "btree"
+      ]
+    },
+    {
+      "name": "B+ tree",
+      "aliases": [
+        "b+tree",
+        "bplus tree"
+      ]
+    },
+    {
+      "name": "bloom filter",
+      "pin": "womm"
+    },
+    {
+      "name": "skip list",
+      "aliases": [
+        "skiplist"
+      ]
+    },
+    {
+      "name": "segment tree"
+    },
+    {
+      "name": "Fenwick tree",
+      "aliases": [
+        "binary indexed tree"
+      ]
+    },
+    {
+      "name": "rope",
+      "evidence": {
+        "dblp": [
+          "ropes an alternative to strings",
+          "rope data structure"
+        ],
+        "arxiv": [
+          "rope data structure"
+        ]
+      }
+    },
+    {
+      "name": "radix tree",
+      "aliases": [
+        "patricia tree",
+        "patricia trie",
+        "compact prefix tree"
+      ]
+    },
+    {
+      "name": "suffix tree"
+    },
+    {
+      "name": "suffix array"
+    },
+    {
+      "name": "splay tree"
+    },
+    {
+      "name": "treap"
+    },
+    {
+      "name": "k-d tree",
+      "aliases": [
+        "kd tree",
+        "kd-tree"
+      ]
+    },
+    {
+      "name": "quadtree"
+    },
+    {
+      "name": "octree"
+    },
+    {
+      "name": "R-tree",
+      "aliases": [
+        "rtree"
+      ]
+    },
+    {
+      "name": "interval tree"
+    },
+    {
+      "name": "disjoint-set",
+      "aliases": [
+        "union-find",
+        "union find",
+        "disjoint set union",
+        "dsu"
+      ]
+    },
+    {
+      "name": "Fibonacci heap"
+    },
+    {
+      "name": "binomial heap"
+    },
+    {
+      "name": "pairing heap"
+    },
+    {
+      "name": "leftist heap"
+    },
+    {
+      "name": "skew heap"
+    },
+    {
+      "name": "soft heap"
+    },
+    {
+      "name": "d-ary heap"
+    },
+    {
+      "name": "min-max heap"
+    },
+    {
+      "name": "Brodal queue"
+    },
+    {
+      "name": "ring buffer",
+      "aliases": [
+        "circular buffer",
+        "circular queue"
+      ]
+    },
+    {
+      "name": "bit array",
+      "aliases": [
+        "bitmap",
+        "bitset",
+        "bit vector"
+      ]
+    },
+    {
+      "name": "hash array mapped trie",
+      "aliases": [
+        "hamt"
+      ]
+    },
+    {
+      "name": "CHAMP",
+      "aliases": [
+        "compressed hash-array mapped prefix-tree"
+      ],
+      "evidence": {
+        "dblp": [
+          "compressed hash-array mapped prefix"
+        ],
+        "arxiv": [
+          "compressed hash-array mapped prefix"
+        ]
+      }
+    },
+    {
+      "name": "RRB vector",
+      "aliases": [
+        "relaxed radix balanced tree",
+        "rrb tree"
+      ]
+    },
+    {
+      "name": "van Emde Boas tree",
+      "aliases": [
+        "veb tree"
+      ]
+    },
+    {
+      "name": "fusion tree",
+      "pin": "bitflip"
+    },
+    {
+      "name": "XArray"
+    },
+    {
+      "name": "maple tree"
+    },
+    {
+      "name": "IDR",
+      "aliases": [
+        "idr"
+      ],
+      "evidence": {
+        "kernel": [
+          "idr_alloc",
+          "IDR API",
+          "idr_find"
+        ]
+      }
+    },
+    {
+      "name": "kfifo"
+    },
+    {
+      "name": "hlist",
+      "aliases": [
+        "hash list"
+      ]
+    },
+    {
+      "name": "plist",
+      "aliases": [
+        "priority sorted list"
+      ]
+    },
+    {
+      "name": "LSM tree",
+      "aliases": [
+        "log-structured merge-tree",
+        "log structured merge tree"
+      ]
+    },
+    {
+      "name": "Merkle tree",
+      "aliases": [
+        "hash tree"
+      ]
+    },
+    {
+      "name": "cuckoo hash table",
+      "aliases": [
+        "cuckoo hashing"
+      ]
+    },
+    {
+      "name": "cuckoo filter"
+    },
+    {
+      "name": "quotient filter"
+    },
+    {
+      "name": "xor filter"
+    },
+    {
+      "name": "count-min sketch"
+    },
+    {
+      "name": "HyperLogLog"
+    },
+    {
+      "name": "zipper",
+      "evidence": {
+        "dblp": [
+          "the zipper",
+          "zipper data structure",
+          "zippers"
+        ],
+        "arxiv": [
+          "zipper data structure"
+        ]
+      }
+    },
+    {
+      "name": "finger tree"
+    },
+    {
+      "name": "gap buffer"
+    },
+    {
+      "name": "piece table"
+    },
+    {
+      "name": "scapegoat tree"
+    },
+    {
+      "name": "2-3 tree"
+    },
+    {
+      "name": "2-3-4 tree"
+    },
+    {
+      "name": "Judy array"
+    },
+    {
+      "name": "adaptive radix tree",
+      "aliases": [
+        "art"
+      ]
+    },
+    {
+      "name": "Bw-tree"
+    },
+    {
+      "name": "B-epsilon tree",
+      "aliases": [
+        "bε-tree",
+        "fractal tree"
+      ]
+    },
+    {
+      "name": "wavelet tree"
+    },
+    {
+      "name": "Cartesian tree"
+    },
+    {
+      "name": "BK-tree"
+    },
+    {
+      "name": "DAWG",
+      "aliases": [
+        "directed acyclic word graph"
+      ]
+    },
+    {
+      "name": "XOR linked list"
+    },
+    {
+      "name": "unrolled linked list"
+    },
+    {
+      "name": "link-cut tree"
+    },
+    {
+      "name": "Euler tour tree"
+    },
+    {
+      "name": "top tree"
+    },
+    {
+      "name": "order-statistic tree"
+    },
+    {
+      "name": "sparse table"
+    },
+    {
+      "name": "radix heap"
+    }
+  ]
+}
