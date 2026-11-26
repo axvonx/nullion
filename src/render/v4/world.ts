@@ -1,5 +1,5 @@
 import { enforce } from '../../core/enforce';
-import { LAYERS, type LayerId } from '../../core/layers';
+import { layersFor, type LayerId, type StackMode } from '../../core/layers';
 import { V4_LIBRARIES } from './libraries';
 import { placeBand, type LayerPlacement, type PlaceGeom, type Rect } from './place';
 
@@ -7,6 +7,8 @@ import { placeBand, type LayerPlacement, type PlaceGeom, type Rect } from './pla
 const SEAM_ROWS = 14;
 
 export interface WorldSpecV4 {
+  /** Stack mode ('daily' = 10 layers, 'endless' = 29 layers). Defaults to 'daily'. */
+  mode?: StackMode;
   /** Canonical seed for major anchor set pieces (e.g. daily puzzle number). */
   seed: number;
   /** Optional separate seed for minor scatter & far-plane props (lets minor components vary per run while landmarks stay put). */
@@ -74,6 +76,7 @@ export function densityForWidth(W: number): number {
 /** Everything placement depends on: equal keys mean an identical world. */
 export function specKey(spec: WorldSpecV4): string {
   return [
+    spec.mode ?? 'daily',
     spec.seed,
     spec.scatterSeed ?? spec.seed,
     spec.W,
@@ -85,14 +88,15 @@ export function specKey(spec: WorldSpecV4): string {
 }
 
 function buildGeom(spec: WorldSpecV4): PlaceGeom {
-  enforce(spec.bands.length === LAYERS.length, 'v4: one band spec per layer');
+  const stack = layersFor(spec.mode ?? 'daily');
+  enforce(spec.bands.length === stack.length, `v4: expected ${stack.length} band specs, got ${spec.bands.length}`);
   return {
     W: spec.W,
     densityScale: densityForWidth(spec.W),
     cursorLane: spec.cursorLane,
     panelLanes: spec.panelLanes,
     bands: spec.bands.map((b, i) => {
-      const id = LAYERS[i]!.id;
+      const id = stack[i]!.id;
       // Below the top boundary the upper layer frays down over this one: entities start under the fray.
       const top = i > 0 ? b.top + SEAM_ROWS + 2 : b.top;
       return { id, top, bottom: b.bottom, keepOut: [...b.keepOut, ...artKeepOut(id, b.top, b.bottom, spec.W)] };

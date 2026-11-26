@@ -1,5 +1,5 @@
 import { enforce } from '../core/enforce';
-import { LAYERS, type LayerId } from '../core/layers';
+import { DAILY_FALLBACK, expandLayerMap, LAYERS, type DailyLayerId, type LayerId } from '../core/layers';
 import { look } from '../looks';
 import { BYTECODE, DMESG, FONT, LIBS, PROCS, hash, type Art, type Band } from './art';
 import { OBJ, SPINES, SEAM_H, ACCENTS, gear, glow, line, offscreen, pix, prows, px, thread, threadPoint, tiled, vgrad, vis } from './art-detailed';
@@ -52,7 +52,7 @@ function c(hex: string): string {
   return v;
 }
 
-const FOG: Record<LayerId, [number, number, number]> = {
+const FOG: Record<DailyLayerId, [number, number, number]> = {
   application: [150, 190, 235],
   runtime: [0, 0, 51],
   libraries: [0, 0, 0],
@@ -68,7 +68,7 @@ const FOG: Record<LayerId, [number, number, number]> = {
 /** Start drawing a band: pick its palette, fog and clock. Every layer function calls this first. */
 function use(id: LayerId, b: Band) {
   mode = look('palette') === 'per-layer' ? LAYER_PALETTE[id] : 'full';
-  fog = FOG[id];
+  fog = FOG[DAILY_FALLBACK[id]];
   fogged = false;
   T = b.reduced ? 0 : b.t;
 }
@@ -744,7 +744,7 @@ function kit(entries: [Prop, number][]): Kit {
   return { props: entries.map(([p]) => p), weights: entries.map(([, w]) => w / total) };
 }
 
-const KITS: Record<LayerId, Kit> = {
+const KITS: Record<DailyLayerId, Kit> = {
   application: kit([[appWin, 5], [appCloud, 2], [appToast, 2], [appSpinner, 1], [appProgress, 2], [appIcon, 2], [appBubble, 2]]),
   runtime: kit([[rtObjects, 5], [rtSweeper, 2], [rtBytecode, 0.4], [rtMarks, 2], [rtRef, 2], [rtHeapColumn, 2]]),
   libraries: kit([[libShelf, 5], [libThread, 3], [libLinker, 2], [libPlaque, 0.4], [libLamp, 1], [libCard, 1.5]]),
@@ -774,7 +774,7 @@ function pick(k: Kit, h: number): Prop {
  */
 export const PROP_SPOTS: number[] = [];
 
-const INDEX: Record<LayerId, number> = Object.fromEntries(LAYERS.map((l, i) => [l.id, i])) as Record<LayerId, number>;
+const INDEX: Record<DailyLayerId, number> = Object.fromEntries(LAYERS.map((l, i) => [l.id, i])) as Record<DailyLayerId, number>;
 
 /** World pixels over which a layer's cells borrow props from its neighbour. */
 const BLEED = 70;
@@ -796,9 +796,10 @@ interface FieldOpts {
  * the neighbouring layer's props, more often the closer they are. All choices are seeded by row and column.
  */
 function field(ctx: Ctx, b: Band, id: LayerId, o: FieldOpts) {
-  const idx = INDEX[id];
-  const up = !o.far && idx > 0 ? KITS[LAYERS[idx - 1]!.id] : undefined;
-  const down = !o.far && idx < LAYERS.length - 1 ? KITS[LAYERS[idx + 1]!.id] : undefined;
+  const did = DAILY_FALLBACK[id];
+  const idx = INDEX[did];
+  const up = !o.far && idx > 0 ? KITS[DAILY_FALLBACK[LAYERS[idx - 1]!.id]] : undefined;
+  const down = !o.far && idx < LAYERS.length - 1 ? KITS[DAILY_FALLBACK[LAYERS[idx + 1]!.id]] : undefined;
   const bandH = b.bottom - b.top;
   const cols = Math.ceil(b.w / o.cw) + 1;
   fogged = !!o.far;
@@ -810,7 +811,7 @@ function field(ctx: Ctx, b: Band, id: LayerId, o: FieldOpts) {
       for (let k = 0; k < cols; k++) {
         const s = (i * 977 + k * 131 + o.salt * 7919) | 0;
         if (hash(s) > o.dens) continue;
-        let use = KITS[id];
+        let use = KITS[did];
         const dTop = i * o.step;
         const dBot = bandH - (i + 1) * o.step;
         if (up && hash(s + 3) < 0.6 * Math.max(0, 1 - dTop / BLEED)) use = up;
@@ -1075,7 +1076,7 @@ function ringMinus3(ctx: Ctx, b: Band) {
   rect(ctx, cx - 2, cy - 2, 5, 5, beat > 0.3 ? '#ffffff' : '#000000');
 }
 
-export const LAYER_ART_V3: Record<LayerId, Art> = {
+export const LAYER_ART_V3: Record<LayerId, Art> = expandLayerMap({
   application,
   runtime,
   libraries,
@@ -1086,4 +1087,4 @@ export const LAYER_ART_V3: Record<LayerId, Art> = {
   'ring-1': ringMinus1,
   'ring-2': ringMinus2,
   'ring-3': ringMinus3,
-};
+});

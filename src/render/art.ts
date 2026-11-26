@@ -1,4 +1,4 @@
-import type { LayerId } from '../core/layers';
+import { expandLayerMap, type DailyLayerId, type LayerId } from '../core/layers';
 
 /** Deterministic hash → [0,1). Layer art is seeded by world row so it never shimmers between frames. */
 export function hash(n: number): number {
@@ -63,7 +63,7 @@ export const DMESG = [
 ];
 const BIOS = ['Main', 'Advanced', 'Boot', 'Security', 'Exit'];
 
-export const LAYER_ART: Record<LayerId, Art> = {
+export const LAYER_ART: Record<LayerId, Art> = expandLayerMap<Art>({
   application(ctx, b) {
     ctx.fillStyle = '#4f7fb3';
     ctx.fillRect(0, b.top, b.w, b.bottom - b.top);
@@ -245,4 +245,4 @@ export const LAYER_ART: Record<LayerId, Art> = {
       ctx.fillRect(cx - 68 + hash(k + 100) * 130, dieTop + 6 + hash(k + 200) * 104, 2 + hash(k + 300) * 18, 2);
     }
   },
-};
+} satisfies Record<DailyLayerId, Art>);

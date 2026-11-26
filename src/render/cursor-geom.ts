@@ -1,4 +1,4 @@
-import type { LayerId } from '../core/layers';
+import { expandLayerMap, type LayerId } from '../core/layers';
 import { SPRITES, type Sprite } from './sprites';
 
 /**
@@ -16,7 +16,7 @@ const MARK_EDGE = 3;
 
 export type CursorForm = 'arrow' | 'ibeam' | 'block' | 'underscore' | 'bioscell' | 'bit';
 
-export const FORM_BY_LAYER: Record<LayerId, CursorForm> = {
+export const FORM_BY_LAYER: Record<LayerId, CursorForm> = expandLayerMap({
   application: 'arrow',
   runtime: 'ibeam',
   libraries: 'ibeam',
@@ -27,7 +27,7 @@ export const FORM_BY_LAYER: Record<LayerId, CursorForm> = {
   'ring-1': 'bit',
   'ring-2': 'bit',
   'ring-3': 'bit',
-};
+});
 
 /** Integer screen pixels per scene pixel: small, so the full-bleed scene can carry fine detail. */
 export function pixelScale(viewportW: number): number {

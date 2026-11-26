@@ -1,4 +1,4 @@
-import type { LayerId } from '../core/layers';
+import { DAILY_FALLBACK, type LayerId } from '../core/layers';
 import type { TierId } from '../core/tiers';
 import { CASCADE, TEASE_AT, WOMM } from '../render/reaction-fx';
 import type { TitleGlitchKind } from '../ui/title-logo';
@@ -31,7 +31,7 @@ export type Timbre = {
 
 /** Layer → synth timbre + space depth: sheds warmth and reverb as you descend. */
 export function timbreFor(layer: LayerId): Timbre {
-  switch (layer) {
+  switch (DAILY_FALLBACK[layer]) {
     case 'application':
       return { wave: 'triangle', filterHz: 5200, q: 0.8, gainScale: 1.0, reverbWet: 0.24 };
     case 'runtime':

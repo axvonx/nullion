@@ -1,5 +1,5 @@
 import { enforce } from '../core/enforce';
-import type { LayerId } from '../core/layers';
+import { expandLayerMap, type LayerId } from '../core/layers';
 import { BYTECODE, DMESG, FONT, LIBS, PROCS, hash, type Art, type Band } from './art';
 
 /**
@@ -1251,7 +1251,7 @@ function ringMinus3(ctx: CanvasRenderingContext2D, b: Band) {
   px(ctx, cx - 1, cy - 1, 3, 3, '#ffffff');
 }
 
-export const LAYER_ART_DETAILED: Record<LayerId, Art> = {
+export const LAYER_ART_DETAILED: Record<LayerId, Art> = expandLayerMap({
   application,
   runtime,
   libraries,
@@ -1262,7 +1262,7 @@ export const LAYER_ART_DETAILED: Record<LayerId, Art> = {
   'ring-1': ringMinus1,
   'ring-2': ringMinus2,
   'ring-3': ringMinus3,
-};
+});
 
 // ---------------------------------------------------------------------------------------------
 // Structures at the hard boundaries, keyed by the layer below. Drawn over the frayed seam.

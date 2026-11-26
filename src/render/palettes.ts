@@ -1,19 +1,51 @@
 import type { LayerId } from '../core/layers';
 
-/** Color depth drops as you descend: you shed color the way you shed abstraction. */
-export type PaletteMode = 'full' | 'rgb6' | 'rgb4' | 'cga16' | 'cga4' | 'green' | 'gray' | 'onebit';
+/** Color depth drops (or shifts into physical/hardware false-color masks) as you descend. */
+export type PaletteMode =
+  | 'full'
+  | 'rgb6'
+  | 'rgb4'
+  | 'cga16'
+  | 'cga4'
+  | 'green'
+  | 'gray'
+  | 'onebit'
+  | 'amber'
+  | 'blueprint'
+  | 'wafer'
+  | 'euv'
+  | 'abyss';
 
 export const LAYER_PALETTE: Record<LayerId, PaletteMode> = {
+  internet: 'full',
+  browser: 'full',
   application: 'full',
+  bytecode: 'rgb6',
+  jit: 'rgb6',
   runtime: 'rgb6',
   libraries: 'rgb4',
+  linker: 'rgb4',
   userspace: 'cga16',
+  'kernel-entry': 'cga16',
   kernel: 'cga16',
+  'kernel-arch': 'cga16',
   drivers: 'cga4',
+  'bus-fabric': 'cga4',
   firmware: 'green',
+  vmm: 'green',
   'ring-1': 'green',
+  ept: 'green',
   'ring-2': 'gray',
+  smram: 'gray',
   'ring-3': 'onebit',
+  'me-minix-user': 'amber',
+  'me-minix-kern': 'amber',
+  uarch: 'blueprint',
+  rtl: 'blueprint',
+  cmos: 'wafer',
+  litho: 'euv',
+  bandgap: 'abyss',
+  landauer: 'abyss',
 };
 
 type RGB = readonly [number, number, number];
@@ -26,6 +58,16 @@ const CGA4: RGB[] = [[0, 0, 0], [85, 255, 255], [255, 85, 255], [255, 255, 255]]
 const GREEN: RGB[] = [[2, 14, 6], [10, 70, 30], [30, 160, 70], [140, 255, 160]];
 const GRAY: RGB[] = [[12, 12, 12], [70, 70, 70], [130, 130, 130], [190, 190, 190], [240, 240, 240]];
 const ONEBIT: RGB[] = [[4, 4, 6], [232, 238, 255]];
+/** Uncanny miniature amber-phosphor CRT for ME / MINIX 3. */
+const AMBER: RGB[] = [[10, 5, 0], [88, 44, 4], [196, 114, 16], [255, 208, 96]];
+/** Crisp cyan/white blueprint schematic for Microarchitecture & RTL. */
+const BLUEPRINT: RGB[] = [[4, 12, 24], [18, 56, 102], [58, 178, 230], [228, 248, 255]];
+/** 4-color semiconductor lithography wafer masks (substrate, teal diffusion, violet poly, copper metal, white via). */
+const WAFER: RGB[] = [[8, 6, 14], [36, 152, 156], [148, 72, 212], [232, 132, 56], [248, 246, 240]];
+/** 13.5nm EUV photolithography deep-violet + stark white. */
+const EUV: RGB[] = [[8, 4, 18], [58, 24, 118], [142, 78, 232], [244, 236, 255]];
+/** Abyssal indigo & pale cyan quantum/Landauer dark-field. */
+const ABYSS: RGB[] = [[3, 4, 10], [16, 28, 64], [76, 168, 214], [230, 248, 255]];
 
 const BAYER4 = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map((v) => (v + 0.5) / 16 - 0.5);
 
@@ -43,7 +85,8 @@ function nearest(pal: RGB[], r: number, g: number, b: number): RGB {
 }
 
 const lumOf = (c: RGB) => (0.3 * c[0] + 0.59 * c[1] + 0.11 * c[2]) / 255;
-const LEVEL_LUMS = new Map<RGB[], number[]>([GREEN, GRAY, ONEBIT].map((p) => [p, p.map(lumOf)]));
+const RAMP_PALS = [GREEN, GRAY, ONEBIT, AMBER, BLUEPRINT, EUV, ABYSS];
+const LEVEL_LUMS = new Map<RGB[], number[]>(RAMP_PALS.map((p) => [p, p.map(lumOf)]));
 
 function levelAt(pal: RGB[], lum: number): RGB | undefined {
   const lums = LEVEL_LUMS.get(pal)!;
@@ -81,9 +124,25 @@ export function quantizeRow(px: Uint8ClampedArray, rowStart: number, width: numb
       case 'cga4':
         out = nearest(CGA4, r + bias * 120, g + bias * 120, b + bias * 120);
         break;
+      case 'wafer':
+        out = nearest(WAFER, r + bias * 90, g + bias * 90, b + bias * 90);
+        break;
       default: {
         const lum = (0.3 * r + 0.59 * g + 0.11 * b) / 255;
-        const pal = mode === 'green' ? GREEN : mode === 'gray' ? GRAY : ONEBIT;
+        const pal =
+          mode === 'green'
+            ? GREEN
+            : mode === 'gray'
+              ? GRAY
+              : mode === 'amber'
+                ? AMBER
+                : mode === 'blueprint'
+                  ? BLUEPRINT
+                  : mode === 'euv'
+                    ? EUV
+                    : mode === 'abyss'
+                      ? ABYSS
+                      : ONEBIT;
         // A pixel already on one of the ramp's levels stays put: the levels aren't evenly spaced, so without this
         // the dither bias would speckle solid fills (e.g. near-black backgrounds) into a dot grid.
         const exact = levelAt(pal, lum);

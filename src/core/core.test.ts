@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { LAYERS, MAX_DEPTH, layerAt } from './layers';
+import { ALL_LAYER_IDS, ENDLESS_LAYERS, ENDLESS_MAX_DEPTH, LAYERS, MAX_DEPTH, layerAt } from './layers';
+import { LAYER_PALETTE, snapColor } from '../render/palettes';
 import { TIERS } from './tiers';
 import { CategoryIndex, normalize } from './match';
 import { buildAnswerSet } from './answers';
@@ -30,6 +31,18 @@ describe('depth and layers', () => {
 
   it('layers start at 0', () => {
     expect(LAYERS[0]!.from).toBe(0);
+    expect(ENDLESS_LAYERS[0]!.from).toBe(0);
+  });
+
+  it('endless stack spans 29 unique layers up to the Landauer Limit (2,500 frames)', () => {
+    expect(ENDLESS_LAYERS).toHaveLength(29);
+    expect(new Set(ENDLESS_LAYERS.map((l) => l.id)).size).toBe(29);
+    expect(layerAt(0, 'endless').id).toBe('internet');
+    expect(layerAt(ENDLESS_MAX_DEPTH, 'endless').id).toBe('landauer');
+    expect(layerAt(ENDLESS_MAX_DEPTH - 1, 'endless').id).toBe('bandgap');
+    for (const id of ALL_LAYER_IDS) {
+      expect(snapColor('#88aa44', LAYER_PALETTE[id])).toMatch(/^#[0-9a-f]{6}$/);
+    }
   });
 });
 

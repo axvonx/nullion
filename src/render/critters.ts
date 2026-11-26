@@ -1,4 +1,4 @@
-import { LAYERS, type LayerId } from '../core/layers';
+import { ALL_LAYER_IDS, expandLayerMap, type LayerId } from '../core/layers';
 import { look } from '../looks';
 import { FONT, hash, type Band } from './art';
 import { SEAM_H } from './art-detailed';
@@ -51,7 +51,7 @@ export const MotionType = {
 export type MotionType = (typeof MotionType)[keyof typeof MotionType];
 
 /** Allowed motion set for each layer's species. Every critter instance gets its own `ReadonlySet<MotionType>`. */
-export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = {
+export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = expandLayerMap({
   application: [MotionType.Fly, MotionType.Perch],
   runtime: [MotionType.Hop, MotionType.Perch],
   libraries: [MotionType.Hop, MotionType.Perch],
@@ -62,7 +62,7 @@ export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = {
   'ring-1': [MotionType.Mirror],
   'ring-2': [MotionType.Frozen],
   'ring-3': [MotionType.Grid],
-};
+});
 
 export interface CritterCall {
   layer: LayerId;
@@ -119,7 +119,7 @@ export interface CritterState {
   init: boolean;
 }
 
-const COUNT_BY_LAYER: Record<LayerId, number> = {
+const COUNT_BY_LAYER: Record<LayerId, number> = expandLayerMap({
   application: 3,
   runtime: 3,
   libraries: 3,
@@ -130,9 +130,9 @@ const COUNT_BY_LAYER: Record<LayerId, number> = {
   'ring-1': 2, // 2 mirrored pairs = 4 wisps
   'ring-2': 3, // frozen silhouettes
   'ring-3': 4,
-};
+});
 
-const EXIT_LABELS: Record<LayerId, readonly string[]> = {
+const EXIT_LABELS: Record<LayerId, readonly string[]> = expandLayerMap({
   application: ['closed', 'minimized'],
   runtime: ["GC'd!", 'swept!'],
   libraries: ['unloaded', 'dlclose'],
@@ -143,7 +143,7 @@ const EXIT_LABELS: Record<LayerId, readonly string[]> = {
   'ring-1': ['vmexit', 'trapped'],
   'ring-2': [''],
   'ring-3': ['0x00', 'bit-rot'],
-};
+});
 
 const R = Math.round;
 
@@ -186,9 +186,9 @@ export class CritterSystem {
     this.lastGlobalCall = -Infinity;
     this.lastTByLayer.clear();
     this.byLayer.clear();
-    LAYERS.forEach((l, li) => {
-      const n = COUNT_BY_LAYER[l.id];
-      const allowed = SPECIES_MOTIONS[l.id];
+    ALL_LAYER_IDS.forEach((id, li) => {
+      const n = COUNT_BY_LAYER[id];
+      const allowed = SPECIES_MOTIONS[id];
       const list: CritterState[] = [];
       for (let i = 0; i < n; i++) {
         const s = seed * 131 + li * 37 + i * 17;
@@ -224,7 +224,7 @@ export class CritterSystem {
           init: false,
         });
       }
-      this.byLayer.set(l.id, list);
+      this.byLayer.set(id, list);
     });
   }
 

@@ -1,4 +1,4 @@
-import type { LayerId } from '../../core/layers';
+import { expandLayerMap, type LayerId } from '../../core/layers';
 import { DRIVERS, DRIVERS_ANCHORS, FIRMWARE, FIRMWARE_ANCHORS, RING1, RING1_ANCHORS, RING2, RING2_ANCHORS, RING3, RING3_ANCHORS } from './lib-lower';
 import { KERNEL, KERNEL_ANCHORS, LIBRARIES, LIBRARIES_ANCHORS, USERSPACE, USERSPACE_ANCHORS } from './lib-mid';
 import { APPLICATION, APPLICATION_ANCHORS, RUNTIME, RUNTIME_ANCHORS } from './lib-upper';
@@ -8,7 +8,7 @@ import type { Library } from './place';
  * Every layer's v4 library: its entity types, its anchors, and how densely to scatter them.
  * Ring −3 stays sparse (the calm at the bottom); text-bearing types are rare by weight and capped at one per view.
  */
-export const V4_LIBRARIES: Record<LayerId, Library> = {
+export const V4_LIBRARIES: Record<LayerId, Library> = expandLayerMap({
   application: { near: APPLICATION, anchors: APPLICATION_ANCHORS, density: 4.6, anchorCount: 2, far: 0.45 },
   runtime: { near: RUNTIME, anchors: RUNTIME_ANCHORS, density: 4.6, anchorCount: 2, far: 0.45 },
   libraries: {
@@ -33,4 +33,4 @@ export const V4_LIBRARIES: Record<LayerId, Library> = {
   'ring-1': { near: RING1, anchors: RING1_ANCHORS, density: 4.2, anchorCount: 2, far: 0.4 },
   'ring-2': { near: RING2, anchors: RING2_ANCHORS, density: 4.4, anchorCount: 2, far: 0.4 },
   'ring-3': { near: RING3, anchors: RING3_ANCHORS, density: 2.2, anchorCount: 1, far: 0 },
-};
+});

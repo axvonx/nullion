@@ -1,5 +1,5 @@
 import { enforce } from '../core/enforce';
-import { LAYERS, type LayerId } from '../core/layers';
+import { expandLayerMap, layersFor, LAYERS, type LayerId } from '../core/layers';
 import { look } from '../looks';
 import { hash, type Art, type Band } from './art';
 import { SEAM_H, glow, offscreen, prows, tiled, vgrad, vis } from './art-detailed';
@@ -31,7 +31,7 @@ for (const l of LAYERS) {
   checkLibrary(`v4 ${l.id} anchors`, lib.anchors, 1);
 }
 
-const FOG: Record<LayerId, RGB> = {
+const FOG: Record<LayerId, RGB> = expandLayerMap({
   application: [150, 190, 235],
   runtime: [0, 0, 51],
   libraries: [0, 0, 0],
@@ -42,9 +42,7 @@ const FOG: Record<LayerId, RGB> = {
   'ring-1': [0, 0, 0],
   'ring-2': [0, 0, 0],
   'ring-3': [0, 0, 0],
-};
-
-const INDEX: Record<LayerId, number> = Object.fromEntries(LAYERS.map((l, i) => [l.id, i])) as Record<LayerId, number>;
+});
 
 let mode: PaletteMode = 'full';
 let T = 0;
@@ -65,6 +63,7 @@ function rect(ctx: Ctx, x: number, y: number, w: number, h: number, col: string)
 
 let worldSpec: WorldSpecV4 | undefined;
 let bandCache: (LayerPlacement | undefined)[] = [];
+let bandIndexById = new Map<LayerId, number>();
 let worldKey = '';
 
 /** Register (or keep) the current world spec. Cheap to call every frame: only clears the band cache when spec changes. */
@@ -73,6 +72,7 @@ export function ensureWorldV4(spec: WorldSpecV4) {
   if (key === worldKey && worldSpec) return;
   worldSpec = spec;
   bandCache = new Array(spec.bands.length);
+  bandIndexById = new Map(layersFor(spec.mode ?? 'daily').map((l, i) => [l.id, i]));
   worldKey = key;
 }
 
@@ -93,7 +93,8 @@ export const ENTITY_SPOTS: number[] = [];
 /** How many entities of each layer are placed (for the debug read-out and tests of the wiring). */
 export function worldStats(): { layer: LayerId; near: number; far: number; types: number }[] {
   enforce(worldSpec, 'v4: world not built');
-  return LAYERS.map((l, i) => {
+  const stack = layersFor(worldSpec.mode ?? 'daily');
+  return stack.map((l, i) => {
     const pl = bandPlacement(i);
     return { layer: l.id, near: pl.near.length, far: pl.far.length, types: new Set(pl.near.map((e) => e.def.id)).size };
   });
@@ -113,7 +114,9 @@ function firstAtOrAfter(list: readonly Placed[], minY: number): number {
 
 /** Draw a band's far plane (fogged) and near plane in O(log N + visible). Reports near entities unless this is a seam redraw. */
 function entities(ctx: Ctx, b: Band, id: LayerId) {
-  const pl = bandPlacement(INDEX[id]!);
+  const idx = bandIndexById.get(id);
+  enforce(idx !== undefined, `v4: layer ${id} not in active stack`);
+  const pl = bandPlacement(idx);
   const [y0, y1] = vis(b);
   setPaint(mode, FOG[id]);
   const ft = R(b.top * FAR_F + (b.farShift ?? 0));
@@ -373,7 +376,7 @@ function ringMinus3(ctx: Ctx, b: Band) {
   rect(ctx, cx - 2, cy - 2, 5, 5, beat > 0.3 ? '#ffffff' : '#000000');
 }
 
-export const LAYER_ART_V4: Record<LayerId, Art> = {
+export const LAYER_ART_V4: Record<LayerId, Art> = expandLayerMap({
   application,
   runtime,
   libraries,
@@ -384,4 +387,4 @@ export const LAYER_ART_V4: Record<LayerId, Art> = {
   'ring-1': ringMinus1,
   'ring-2': ringMinus2,
   'ring-3': ringMinus3,
-};
+});

@@ -33,16 +33,35 @@ const ENTRANCE_MS = 2600;
 
 /** What each layer is, in a line a non-systems player can read. Shown under the layer's name as you enter it. */
 export const LAYER_BLURBS: Record<LayerId, string> = {
+  internet: 'Autonomous systems, BGP routes and undersea fiber above your machine',
+  browser: 'The DOM tree, CSS layout engine and GPU compositor framing your apps',
   application: 'The apps you click, tap and type into',
+  bytecode: 'Parsed syntax trees and virtual instructions before execution',
+  jit: 'Just-in-time compilers forging hot loops into native machine code',
   runtime: 'The engine that runs your code and tidies up its memory',
   libraries: 'Shared code every program leans on',
+  linker: 'The dynamic linker resolving symbols and wiring shared objects together',
   userspace: 'The operating system’s own programs and services',
+  'kernel-entry': 'The syscall gate, seccomp checks and VFS facade into Ring 0',
   kernel: 'The core of the operating system, in charge of everything above',
+  'kernel-arch': 'Interrupt controllers, spinlocks, RCU and raw hardware bridges',
   drivers: 'The translators between the operating system and the hardware',
+  'bus-fabric': 'PCIe lanes, DMA rings and memory-mapped I/O crisscrossing the board',
   firmware: 'Code built into the hardware that starts the machine',
+  vmm: 'Virtual device models pretending to be disks, NICs and consoles',
   'ring-1': 'The hypervisor, running whole operating systems as guests',
+  ept: 'Two-dimensional nested page tables and IOMMU quarantine gates',
   'ring-2': 'System Management Mode, which can pause everything above it',
+  smram: 'Locked hardware-shielded memory invisible to the OS and hypervisor',
   'ring-3': 'The Intel Management Engine, a hidden computer inside your computer',
+  'me-minix-user': 'A tiny hidden MINIX 3 userspace running even when your PC is off',
+  'me-minix-kern': 'The message-passing microkernel deep inside the management core',
+  uarch: 'Out-of-order μops, branch predictors and L1/L2/L3 cache banks',
+  rtl: 'NAND gates, flip-flops and the clock tree pulsing in lockstep',
+  cmos: 'FinFET transistors, doped wells and stacked copper metal interconnects',
+  litho: '13.5nm EUV interference fringes etched into crystalline silicon',
+  bandgap: 'Valence and conduction bands where electrons tunnel through barriers',
+  landauer: 'The thermodynamic floor of computation: kT ln 2 per erased bit',
 };
 
 /**
