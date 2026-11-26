@@ -70,7 +70,7 @@ async function boot() {
   scene.start();
 
   const tick = (now: number) => {
-    if (game.tick(now)) hud.renderFrames();
+    if (game.tick(now)) hud.onPhaseChange();
     hud.update(now, scene.displayDepth);
     requestAnimationFrame(tick);
   };
@@ -79,7 +79,7 @@ async function boot() {
   if (DEBUG) {
     settings.subscribe(() => restart());
     const { mountDebugMenu } = await import('./debug/menu');
-    mountDebugMenu({ scene, game: () => game, restart, sets: SETS });
+    mountDebugMenu({ scene, hud, game: () => game, restart, sets: SETS });
   }
 }
 

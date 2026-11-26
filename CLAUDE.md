@@ -6,12 +6,12 @@ Current stage: **offline playtest prototype.** The open question is which answer
 
 ## Commands
 
-- `npm run dev`: dev server with the 🐞 debug menu.
+- `npm run dev`: dev server with the 🐞 debug menu and the demo rail above it (timer, sink, tier reactions; `src/debug/rail.ts`).
 - `npm test`: vitest. Covers core rules, matching, data integrity and the game loop.
 - `npm run typecheck`
 - `npm run build`: production build into `dist/`. The debug menu is stripped out.
 - `npm run build:debug`: same, with the debug menu, into `dist-debug/`.
-- Debug deep links: `?depth=N` opens scroll-only mode parked at depth N. `?look.<slot>=<value>` sets a look (saved like the menu does), e.g. `?look.artStyle=v1`.
+- Debug deep links: `?depth=N` opens scroll-only mode parked at depth N. `?look.<slot>=<value>` sets a look (saved like the menu does), e.g. `?look.artStyle=v1`. Art styles: `v3` (default: small mixed props, `src/render/art-v3.ts`), `v2` (big detailed places, `art-detailed.ts`), `v1` (flat, `art.ts`).
 
 ## Locked design decisions
 
@@ -38,6 +38,10 @@ Current stage: **offline playtest prototype.** The open question is which answer
 - **Missed-answer reports and question submissions** go through prefilled GitHub Issue links. A GitHub account is required, and that's acceptable. Reports are never auto-accepted.
 - **Day rollover:** local midnight, Wordle-style. `src/core/day.ts` has the epoch.
 
+## Deferred decisions (don't lose these)
+
+- **Sound:** deferred until the visuals settle (decided 2026-11-26). When it's picked up, it's opt-in and off by default: small chiptune SFX such as a POST beep on firmware, blips for accept and reject, and a sting on a Bit Flip.
+
 ## Visual alternatives
 
 Looks are drafted live:
@@ -46,7 +50,11 @@ Looks are drafted live:
 
 The debug menu builds its controls from that table. Keep alternatives switchable rather than replacing the current look, so the user can compare them in the site.
 
-Reduced motion must keep working: flashes, tearing, rain and flicker all check `reducedMotion()`.
+Reduced motion must keep working: flashes, tearing, rain, flicker, cursor sway and bubbles all check `reducedMotion()`; the HUD adds `.still` so floating panels stop, and v3 art animates on a clock that is 0 under reduced motion.
+
+Looks are saved under `nullion.looks.2`; bump the key when a default changes and old saved choices should not mask it.
+
+The day's record of answers lives in the end-of-day result card and the share text; there is no running backtrace panel.
 
 ## Conventions
 

@@ -42,6 +42,15 @@ function nearest(pal: RGB[], r: number, g: number, b: number): RGB {
   return best;
 }
 
+const lumOf = (c: RGB) => (0.3 * c[0] + 0.59 * c[1] + 0.11 * c[2]) / 255;
+const LEVEL_LUMS = new Map<RGB[], number[]>([GREEN, GRAY, ONEBIT].map((p) => [p, p.map(lumOf)]));
+
+function levelAt(pal: RGB[], lum: number): RGB | undefined {
+  const lums = LEVEL_LUMS.get(pal)!;
+  for (let i = 0; i < lums.length; i++) if (Math.abs(lums[i]! - lum) < 1.5 / 255) return pal[i];
+  return undefined;
+}
+
 function ramp(pal: RGB[], lum: number): RGB {
   const i = Math.max(0, Math.min(pal.length - 1, Math.round(lum * (pal.length - 1))));
   return pal[i]!;
@@ -75,7 +84,10 @@ export function quantizeRow(px: Uint8ClampedArray, rowStart: number, width: numb
       default: {
         const lum = (0.3 * r + 0.59 * g + 0.11 * b) / 255;
         const pal = mode === 'green' ? GREEN : mode === 'gray' ? GRAY : ONEBIT;
-        out = ramp(pal, lum + bias / (pal.length - 1));
+        // A pixel already on one of the ramp's levels stays put: the levels aren't evenly spaced, so without this
+        // the dither bias would speckle solid fills (e.g. near-black backgrounds) into a dot grid.
+        const exact = levelAt(pal, lum);
+        out = exact ?? ramp(pal, lum + bias / (pal.length - 1));
       }
     }
     px[i] = out[0];

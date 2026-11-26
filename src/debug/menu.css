@@ -3,9 +3,9 @@
   right: 16px;
   bottom: 16px;
   z-index: 20;
-  font-size: 22px;
-  width: 48px;
-  height: 48px;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
   padding: 0;
   background: var(--panel);
   border: 1px solid var(--rule);
@@ -14,8 +14,8 @@
 .dbg-panel {
   position: fixed;
   right: 16px;
-  bottom: 74px;
-  z-index: 20;
+  bottom: 60px;
+  z-index: 21;
   width: min(380px, calc(100vw - 32px));
   max-height: calc(100dvh - 100px);
   overflow-y: auto;
@@ -42,3 +42,55 @@
 .dbg-buttons button:hover { border-color: var(--signal); }
 .dbg-panel pre { font-family: var(--body); font-size: 16px; white-space: pre-wrap; max-height: 140px; overflow-y: auto; background: var(--bezel); padding: 6px; margin: 0 0 6px; }
 .dbg-panel ul { list-style: none; padding: 0; margin: 6px 0 0; font-size: 16px; }
+
+/* Demo rail: small pixel icon buttons against the right edge, directly above the 🐞 toggle. */
+.dbg-rail {
+  position: fixed;
+  right: 16px;
+  bottom: 58px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dbg-rail-btn {
+  position: relative;
+  width: 36px;
+  height: 30px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
+}
+.dbg-rail-btn:hover, .dbg-rail-btn:focus-visible { border-color: var(--signal); }
+.dbg-rail-btn:active { translate: 1px 1px; box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6); }
+/* Tooltip to the left, for hover and keyboard focus alike. */
+.dbg-rail-btn::after {
+  content: attr(data-tip);
+  position: absolute;
+  right: calc(100% + 8px);
+  top: 50%;
+  translate: 0 -50%;
+  width: max-content;
+  max-width: 260px;
+  padding: 3px 6px;
+  font-family: var(--body);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bezel);
+  border: 1px solid var(--signal);
+  pointer-events: none;
+  opacity: 0;
+}
+.dbg-rail-btn:hover::after, .dbg-rail-btn:focus-visible::after { opacity: 1; }
+/* The menu panel covers the rail when open. */
+body:has(.dbg-panel:not([hidden])) .dbg-rail { visibility: hidden; }
+
+/* On narrow screens the console keeps clear of the rail and 🐞 column. */
+@media (max-width: 900px) {
+  body .console { left: 16px; right: 64px; width: auto; margin: 0; }
+  body .scroll-mode .console { width: max-content; max-width: calc(100vw - 80px); }
+}

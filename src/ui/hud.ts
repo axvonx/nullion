@@ -1,6 +1,7 @@
-import { LAYERS, MAX_DEPTH, layerAt } from '../core/layers';
+import { MAX_DEPTH, layerAt } from '../core/layers';
 import { TIERS } from '../core/tiers';
 import { ANSWER_MS, type Game, type SubmitResult } from '../game/game';
+import { reducedMotion } from '../looks';
 import type { Scene } from '../render/scene';
 
 const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
@@ -15,6 +16,20 @@ const REJECT_LINES = [
   (g: string) => `404: '${g}' isn't on the list`,
 ];
 
+/** Below this share of the answer time left, the watchdog goes into its low-time state. */
+export const LOW_TIME = 0.25;
+
+export function framesLabel(n: number): string {
+  return `${n} stack frame${n === 1 ? '' : 's'}`;
+}
+
+/** Restart a one-shot CSS animation class on an element (a "settle" when its content changes). */
+function replay(el: HTMLElement, cls: string) {
+  el.classList.remove(cls);
+  void el.offsetWidth;
+  el.classList.add(cls);
+}
+
 export class Hud {
   readonly root: HTMLElement;
   private canvas: HTMLCanvasElement;
@@ -23,22 +38,30 @@ export class Hud {
   private rejectCount = 0;
   private game: Game | undefined;
   private scrollMode = false;
-  private dateLabel = '';
+  private lastCall = '';
+  private lastDepth = 0;
+  private lastNow = 0;
+  private lag = 0;
+  private still: boolean | undefined;
+  private shownFrames = -1;
+
+  /**
+   * Debug hook: when set, the watchdog bar shows this share of time left instead of the game's,
+   * even in scroll mode. The debug rail's timer demo drives it.
+   */
+  watchdogOverride: ((now: number) => number) | undefined;
 
   constructor(mount: HTMLElement) {
     // The scene is a full-bleed backdrop; every piece of UI floats over it as a panel.
     mount.innerHTML = `
       <canvas class="scene" aria-label="Your cursor descending through the software stack"></canvas>
       <header class="bar">
-        <span class="chip"><span class="wordmark">nullion</span> <span class="meta" data-el="meta"></span></span>
-        <span class="chip depth" data-el="depth"></span>
+        <span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span>
+        <span class="chip depth float" data-el="depth"></span>
       </header>
-      <details class="backtrace panel" data-el="backtrace" aria-label="Backtrace">
-        <summary><span>backtrace</span> <span class="bt-count" data-el="btCount"></span></summary>
-        <ol data-el="frames"></ol>
-      </details>
-      <section class="console panel">
+      <section class="console panel float" data-el="console">
         <div class="watchdog" data-el="watchdogWrap"><div class="watchdog-fill" data-el="watchdog"></div></div>
+        <span class="wd-secs" data-el="secs" aria-hidden="true"></span>
         <div class="call" data-el="call"></div>
         <div class="plain" data-el="plain"></div>
         <form class="prompt-line" data-el="form" autocomplete="off">
@@ -48,17 +71,17 @@ export class Hud {
         <output class="feedback" data-el="feedback" aria-live="polite"></output>
         <div class="landed" data-el="landed" aria-live="polite"></div>
         <div class="result" data-el="result" hidden>
+          <div class="wordmark">nullion</div>
+          <ol class="record" data-el="record" aria-label="Your answers today"></ol>
           <pre data-el="share"></pre>
           <button type="button" data-el="copy">Copy result</button>
         </div>
-        <div class="scroll-hint" data-el="scrollHint" hidden>Scroll-only mode: scroll, or use ↑ ↓ / PgUp PgDn, to move through the stack.</div>
+        <div class="scroll-hint" data-el="scrollHint" hidden>scroll · ↑ ↓ · PgUp PgDn</div>
       </section>`;
     this.root = mount;
     this.canvas = $(mount, 'canvas');
     this.input = $(mount, '#guess');
     this.els = Object.fromEntries([...mount.querySelectorAll<HTMLElement>('[data-el]')].map((e) => [e.dataset.el!, e]));
-    // Wide screens show the backtrace as a side panel; narrow ones start it collapsed to a chip.
-    (this.els.backtrace as HTMLDetailsElement).open = matchMedia('(min-width: 1100px)').matches;
   }
 
   get canvasEl() {
@@ -110,13 +133,14 @@ export class Hud {
 
   setGame(g: Game, dateLabel: string) {
     this.game = g;
-    this.dateLabel = dateLabel;
     this.rejectCount = 0;
+    this.lastCall = '';
     this.els.result!.hidden = true;
     this.els.copy!.textContent = 'Copy result';
     this.els.feedback!.textContent = '';
     this.els.landed!.textContent = '';
-    this.renderFrames();
+    this.els.metaText!.textContent = `#${g.puzzle}`;
+    this.els.meta!.title = `Puzzle #${g.puzzle} · ${dateLabel}`;
   }
 
   setScrollMode(on: boolean) {
@@ -125,30 +149,39 @@ export class Hud {
     this.els.scrollHint!.hidden = !on;
   }
 
-  /** Per-frame refresh of the timed parts. */
+  /** The game's phase changed: the console settles into its new content. */
+  onPhaseChange() {
+    replay(this.els.console!, 'settle');
+  }
+
+  /** Per-frame refresh of the timed parts and the panels' float. */
   update(now: number, depthShown: number) {
-    const layer = layerAt(depthShown);
-    this.els.depth!.textContent = `${Math.round(depthShown)} frames · ${layer.name}`;
+    this.updateMotion(now, depthShown);
+    const frames = Math.round(depthShown);
+    if (frames !== this.shownFrames) {
+      this.shownFrames = frames;
+      this.els.depth!.textContent = framesLabel(frames);
+    }
+
+    const override = this.watchdogOverride?.(now);
+    this.root.classList.toggle('wd-demo', override !== undefined);
+    if (override !== undefined) this.setWatchdog(override);
+
     const g = this.game;
-    if (!g) return;
-    this.els.meta!.textContent = `#${g.puzzle} · ${this.dateLabel}`;
-    if (this.scrollMode) return;
+    if (!g || this.scrollMode) return;
 
     const p = g.phase;
     const r = g.current();
-    const fill = this.els.watchdog!;
+    let left: number;
     if (p.kind === 'reading') {
-      this.els.call!.textContent = r!.question.call;
+      this.setCall(r!.question.call);
       this.els.plain!.textContent = `${r!.question.prompt} · ${Math.ceil((p.until - now) / 1000)}`;
-      fill.style.transform = 'scaleX(1)';
-      fill.classList.remove('low');
+      left = 1;
       this.input.disabled = true;
     } else if (p.kind === 'answering') {
-      this.els.call!.textContent = r!.question.call;
+      this.setCall(r!.question.call);
       this.els.plain!.textContent = r!.question.prompt;
-      const left = p.until === null ? 1 : Math.max(0, (p.until - now) / ANSWER_MS);
-      fill.style.transform = `scaleX(${left})`;
-      fill.classList.toggle('low', left < 0.25);
+      left = p.until === null ? 1 : Math.max(0, (p.until - now) / ANSWER_MS);
       if (this.input.disabled) {
         this.input.disabled = false;
         this.input.focus();
@@ -157,16 +190,57 @@ export class Hud {
       }
     } else if (p.kind === 'between') {
       this.input.disabled = true;
+      left = 0;
       if (r!.timedOut && !this.els.landed!.textContent) this.els.landed!.textContent = 'watchdog: round timed out, no frames pushed';
     } else if (p.kind === 'done') {
       this.input.disabled = true;
-      this.els.call!.textContent = 'exit(0)';
+      this.setCall('exit(0)');
       this.els.plain!.textContent = 'That’s today’s stack. A new one boots at local midnight.';
-      fill.style.transform = 'scaleX(0)';
+      left = 0;
       this.showResult(g);
     } else {
-      this.els.call!.textContent = 'boot…';
+      this.setCall('boot…');
       this.els.plain!.textContent = '';
+      left = 1;
+    }
+    if (override === undefined) this.setWatchdog(left, p.kind === 'answering' && p.until !== null);
+  }
+
+  private setCall(text: string) {
+    if (text === this.lastCall) return;
+    this.lastCall = text;
+    this.els.call!.textContent = text;
+    replay(this.els.call!, 'settle-in');
+  }
+
+  /** Bar fill, low-time state and the seconds readout that only appears when time is short. */
+  private setWatchdog(left: number, timed = true) {
+    this.els.watchdog!.style.transform = `scaleX(${left})`;
+    const low = timed && left > 0 && left < LOW_TIME;
+    this.els.watchdog!.classList.toggle('low', low);
+    this.els.console!.classList.toggle('low', low);
+    this.els.secs!.textContent = low ? `${Math.ceil((left * ANSWER_MS) / 1000)}s` : '';
+  }
+
+  /**
+   * Panels float: a CSS bob, plus a lag that follows the scene's speed so they drift with the descent
+   * and ease back when it stops. Static under reduced motion.
+   */
+  private updateMotion(now: number, depth: number) {
+    const still = reducedMotion();
+    if (still !== this.still) {
+      this.still = still;
+      this.root.classList.toggle('still', still);
+    }
+    const dt = this.lastNow ? Math.min(0.1, (now - this.lastNow) / 1000) : 0;
+    const v = dt > 0 ? (depth - this.lastDepth) / dt : 0;
+    this.lastNow = now;
+    this.lastDepth = depth;
+    const want = still ? 0 : Math.max(-10, Math.min(10, -v * 0.9));
+    const next = this.lag + (want - this.lag) * (1 - Math.exp(-dt * 4));
+    if (Math.abs(next - this.lag) > 0.05 || (still && this.lag !== 0)) {
+      this.lag = still ? 0 : next;
+      this.root.style.setProperty('--lag', `${this.lag.toFixed(1)}px`);
     }
   }
 
@@ -175,11 +249,13 @@ export class Hud {
     if (res.kind === 'rejected') {
       fb.className = 'feedback fault';
       fb.textContent = REJECT_LINES[this.rejectCount++ % REJECT_LINES.length]!(res.guess);
+      replay(fb, 'settle-in');
       return;
     }
     if (res.kind === 'duplicate') {
       fb.className = 'feedback';
       fb.textContent = `${res.entry.name} is already on the stack`;
+      replay(fb, 'settle-in');
       return;
     }
     if (res.kind !== 'accepted') return;
@@ -192,51 +268,34 @@ export class Hud {
     tierEl.textContent = t.name;
     const rest = document.createElement('span');
     rest.textContent = res.pushed
-      ? ` · ${res.entry.name} · +${res.pushed} frame${res.pushed === 1 ? '' : 's'}. ${res.entry.note ?? t.blurb}`
+      ? ` · ${res.entry.name} · +${res.pushed}. ${res.entry.note ?? t.blurb}`
       : ` · ${res.entry.name} (logged; only your first answer pushes frames)`;
     this.els.landed!.append(tierEl, rest);
+    replay(this.els.landed!, 'settle-in');
     scene.react(t.id);
     scene.setTarget(g.depth);
-    this.renderFrames();
-  }
-
-  renderFrames() {
-    const g = this.game;
-    const ol = this.els.frames!;
-    ol.innerHTML = '';
-    const add = (cls: string, text: string, tierId?: string) => {
-      const li = document.createElement('li');
-      li.className = cls;
-      li.textContent = text;
-      if (tierId) li.dataset.tier = tierId;
-      ol.append(li);
-    };
-    add('frame', '#0  main');
-    this.els.btCount!.textContent = g ? `· ${g.depth} frames` : '';
-    if (!g) return;
-    let depth = 0;
-    let layerIdx = 0;
-    for (const r of g.rounds) {
-      if (!r.locked) {
-        if (r.timedOut) add('frame timeout', '#—  watchdog timeout');
-        continue;
-      }
-      const t = TIERS[r.locked.entry.tier];
-      const from = depth + 1;
-      depth += t.frames;
-      add('frame', `${from === depth ? `#${depth}` : `#${from}–${depth}`}  ${r.locked.entry.name}`, t.id);
-      while (layerIdx + 1 < LAYERS.length && depth >= LAYERS[layerIdx + 1]!.from) {
-        layerIdx++;
-        const l = LAYERS[layerIdx]!;
-        add('boundary', l.boundary ? `── ${l.boundary} → ${l.name}` : `── ${l.name}`);
-      }
-    }
   }
 
   private showResult(g: Game) {
     if (!this.els.result!.hidden) return;
+    // The record of the day's answers lives here (and in the share text's glyphs), not in a running panel.
+    const ol = this.els.record!;
+    ol.innerHTML = '';
+    for (const r of g.rounds) {
+      const li = document.createElement('li');
+      if (r.locked) {
+        const t = TIERS[r.locked.entry.tier];
+        li.dataset.tier = t.id;
+        li.textContent = `${t.glyph} ${r.locked.entry.name} +${t.frames}`;
+      } else {
+        li.className = 'timeout';
+        li.textContent = `⬛ ${r.timedOut ? 'timed out' : 'skipped'}`;
+      }
+      ol.append(li);
+    }
     const glyphs = g.rounds.map((r) => (r.locked ? TIERS[r.locked.entry.tier].glyph : '⬛')).join('');
-    this.els.share!.textContent = `nullion #${g.puzzle} · ${g.depth} frames · ${layerAt(g.depth).name}\n${glyphs}`;
+    this.els.share!.textContent = `nullion #${g.puzzle} · ${framesLabel(g.depth)} · ${layerAt(g.depth).name}\n${glyphs}`;
     this.els.result!.hidden = false;
+    replay(this.els.result!, 'settle-in');
   }
 }

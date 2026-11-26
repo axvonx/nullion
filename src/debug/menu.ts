@@ -1,14 +1,17 @@
 import type { AnswerSet } from '../core/answers';
 import { LAYERS, MAX_DEPTH } from '../core/layers';
-import { TIERS, TIER_IDS } from '../core/tiers';
+import { TIERS } from '../core/tiers';
 import type { Game } from '../game/game';
 import { LOOK_SLOTS, looks, type LookSlot } from '../looks';
 import type { Scene } from '../render/scene';
+import type { Hud } from '../ui/hud';
 import { settings } from '../settings';
 import './menu.css';
+import { mountRail } from './rail';
 
 export interface DebugHooks {
   scene: Scene;
+  hud: Hud;
   game(): Game;
   restart(): void;
   sets: Record<string, AnswerSet>;
@@ -27,6 +30,7 @@ export function mountDebugMenu(h: DebugHooks) {
   panel.className = 'dbg-panel';
   panel.hidden = true;
   document.body.append(btn, panel);
+  mountRail(h);
 
   btn.addEventListener('click', () => {
     panel.hidden = !panel.hidden;
@@ -116,12 +120,6 @@ export function mountDebugMenu(h: DebugHooks) {
     jumps.className = 'dbg-buttons';
     for (const l of LAYERS) jumps.append(button(l.name, () => h.scene.setTarget(l.from + 0.5)));
     depth.append(jumps);
-
-    const react = section('Tier reactions');
-    const rb = document.createElement('div');
-    rb.className = 'dbg-buttons';
-    for (const id of TIER_IDS) rb.append(button(TIERS[id].name, () => h.scene.react(id)));
-    react.append(rb);
 
     const lk = section('Looks');
     const state = looks.get();

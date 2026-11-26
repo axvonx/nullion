@@ -4,7 +4,8 @@ import { look, reducedMotion } from '../looks';
 import { enforce } from '../core/enforce';
 import { FONT, LAYER_ART, hash, type Art, type Band } from './art';
 import { LAYER_ART_DETAILED, SEAM_ART, SEAM_H } from './art-detailed';
-import { LAYER_PALETTE, quantizeRow } from './palettes';
+import { LAYER_ART_V3 } from './art-v3';
+import { LAYER_PALETTE, quantizeRow, snapColor } from './palettes';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
 
 /** World pixels per stack frame of depth. */
@@ -95,6 +96,9 @@ export class Scene {
   private artTime = 0;
   private lastNow = 0;
   private trail: { x: number; y: number }[] = [];
+  private swayAmp = 0;
+  private swayPhase = 0;
+  private bubbles: { x: number; y: number; age: number }[] = [];
   private rain: { y: number; speed: number }[] = [];
 
   onLayerChange: ((layer: Layer) => void) | undefined;
@@ -165,8 +169,9 @@ export class Scene {
     const dt = Math.min(0.1, this.lastNow ? (now - this.lastNow) / 1000 : 0);
     this.lastNow = now;
     const reduced = reducedMotion();
-    const detailed = look('artStyle') !== 'v1';
-    const art = detailed ? LAYER_ART_DETAILED : LAYER_ART;
+    const style = look('artStyle');
+    const detailed = style !== 'v1';
+    const art = style === 'v3' ? LAYER_ART_V3 : style === 'v2' ? LAYER_ART_DETAILED : LAYER_ART;
 
     // Ease toward the target depth: the descent is the payoff, so it should read as travel.
     this.depth += (this.target - this.depth) * (1 - Math.exp(-dt * 2.5));
@@ -233,7 +238,7 @@ export class Scene {
       const label = l.boundary ? `${l.boundary} → ${l.name}` : l.name;
       ctx.font = FONT;
       const tw = Math.ceil(ctx.measureText(label).width);
-      // Left edge: the right side carries the backtrace panel and the depth readout.
+      // Left edge: the right side carries the depth readout and the debug rail.
       const lx = 8;
       if (detailed) {
         // A small plaque bolted to the seam.
@@ -266,7 +271,16 @@ export class Scene {
       });
     }
 
-    // 4. Cursor.
+    // 4. Cursor: it sways as it sinks and settles when it arrives; static under reduced motion.
+    const speed = Math.abs(this.target - this.depth);
+    const want = reduced ? 0 : Math.min(1, speed / 2);
+    // Rises quickly, decays slowly, so arriving leaves a couple of fading swings.
+    this.swayAmp += (want - this.swayAmp) * (1 - Math.exp(-dt * (want > this.swayAmp ? 5 : 1.1)));
+    if (reduced) this.swayAmp = 0;
+    // Ring −2's frozen time holds the sway and the bubbles too.
+    const swayDt = frozen ? 0 : dt;
+    this.swayPhase += swayDt * 3.1;
+    this.drawBubbles(swayDt, speed, reduced, layer.id);
     this.drawCursor(now, layer.id, reduced, detailed);
 
     // 5. Color depth: quantize each row by the layer it shows, so the next layer's palette visibly approaches.
@@ -280,13 +294,16 @@ export class Scene {
       ctx.putImageData(img, 0, 0);
     }
 
-    // 6. Ghosting: two VMs sharing one screen.
-    if (layer.id === 'ring-1' && look('ghosting') === 'on' && !reduced) {
+    // 6. Ghosting: two VMs sharing one screen. The echo is of the clean previous frame, so it doesn't feed back
+    // into itself and smear into noise.
+    const ghost = layer.id === 'ring-1' && look('ghosting') === 'on' && !reduced;
+    if (ghost) {
+      this.scratchCtx.drawImage(this.prev, 0, 0);
+      this.prevCtx.drawImage(this.canvas, 0, 0);
       ctx.globalAlpha = 0.28;
-      ctx.drawImage(this.prev, 3, 1);
+      ctx.drawImage(this.scratch, 3, 1);
       ctx.globalAlpha = 1;
-    }
-    this.prevCtx.drawImage(this.canvas, 0, 0);
+    } else this.prevCtx.drawImage(this.canvas, 0, 0);
 
     // 7. Scanlines.
     const sl = look('scanlines');
@@ -347,9 +364,11 @@ export class Scene {
     let fill = style.fill;
     let outline = style.outline;
     let alpha = style.alpha;
-    let x = Math.round(this.W / 2);
-    let y = this.cursorY;
+    let x = Math.round(this.W / 2 + this.swayAmp * 6 * Math.sin(this.swayPhase));
+    let y = Math.round(this.cursorY + this.swayAmp * 2 * Math.sin(this.swayPhase * 2));
     let visible = !(style.blink && !reduced && Math.floor(now / 530) % 2 === 1);
+    // A blinking cursor's mark stays put while the glyph blinks, so it never vanishes into the art.
+    let marked = true;
 
     this.trail.push({ x, y });
     if (this.trail.length > 40) this.trail.shift();
@@ -396,6 +415,7 @@ export class Scene {
         // Only there when you're not looking straight at it.
         if (reduced) alpha *= 0.45;
         else visible = Math.random() > 0.55;
+        marked = visible;
         break;
       case 'womm':
         spr = SPRITES.hourglass;
@@ -405,6 +425,7 @@ export class Scene {
         visible = true;
         if (!reduced && Math.floor(el / 220) % 2 === 1) {
           // Spin by flipping vertically.
+          this.drawMark(now, spr, x, y, layerId, reduced);
           ctx.save();
           ctx.translate(0, 2 * y);
           ctx.scale(1, -1);
@@ -426,7 +447,76 @@ export class Scene {
         break;
     }
 
+    if (marked) this.drawMark(now, spr, x, y, layerId, reduced);
     if (visible) drawSprite(ctx, spr, x, y, fill, outline, alpha);
+  }
+
+  /**
+   * The player's mark: a dark backing (dithered light, so the art behind dims) and four amber corner brackets
+   * with a black edge, snapped to the layer's palette so they read on every layer, including 1-bit Ring −3.
+   */
+  private drawMark(now: number, spr: Sprite, x: number, y: number, layerId: LayerId, reduced: boolean) {
+    const ctx = this.ctx;
+    const cx = Math.round(x - spr.hx + spr.w / 2);
+    const cy = Math.round(y - spr.hy + spr.h / 2);
+    const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 16);
+    g.addColorStop(0, 'rgba(0,0,0,0.85)');
+    g.addColorStop(0.55, 'rgba(0,0,0,0.55)');
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(cx - 16, cy - 16, 32, 32);
+    // Amber where the palette has colour; the brightest level where it's a single-hue ramp.
+    const pal = LAYER_PALETTE[layerId];
+    const perLayer = look('palette') === 'per-layer';
+    const amber = !perLayer ? '#ffb000' : pal === 'green' || pal === 'gray' || pal === 'onebit' ? snapColor('#ffffff', pal) : snapColor('#ffb000', pal);
+    const breathe = reduced ? 0 : Math.round((Math.sin(now / 420) + 1) / 2);
+    const rx = Math.ceil(spr.w / 2) + 4 + breathe;
+    const ry = Math.ceil(spr.h / 2) + 4 + breathe;
+    for (const [sx, sy] of [[-1, -1], [1, -1], [-1, 1], [1, 1]] as const) {
+      const bx = cx + sx * rx;
+      const by = cy + sy * ry;
+      // Black edge first, then a 2px amber bracket on top: arms run inward from the corner.
+      const ax = sx > 0 ? bx - 4 : bx;
+      const ay = sy > 0 ? by - 4 : by;
+      const hx = sx > 0 ? bx - 1 : bx;
+      const hy = sy > 0 ? by - 1 : by;
+      ctx.fillStyle = '#000';
+      ctx.fillRect(ax - 1, hy - 1, 7, 4);
+      ctx.fillRect(hx - 1, ay - 1, 4, 7);
+      ctx.fillStyle = amber;
+      ctx.fillRect(ax, hy, 5, 2);
+      ctx.fillRect(hx, ay, 2, 5);
+    }
+  }
+
+  /** Bubbles shed while sinking: they rise past the cursor and fade. None under reduced motion. */
+  private drawBubbles(dt: number, speed: number, reduced: boolean, layerId: LayerId) {
+    if (reduced) {
+      this.bubbles.length = 0;
+      return;
+    }
+    const cx = this.W / 2 + this.swayAmp * 6 * Math.sin(this.swayPhase);
+    if (speed > 0.25 && this.bubbles.length < 24 && Math.random() < dt * (4 + speed * 2)) {
+      this.bubbles.push({ x: cx + (Math.random() - 0.5) * 10, y: this.cursorY + 4, age: 0 });
+    }
+    const ctx = this.ctx;
+    const ink = look('palette') === 'per-layer' ? snapColor('#ffffff', LAYER_PALETTE[layerId]) : '#ffffff';
+    ctx.fillStyle = ink;
+    // Bubbles rise relative to the world, and the world is scrolling up past the cursor: they stream upward.
+    const rise = 14 + speed * 10;
+    this.bubbles = this.bubbles.filter((b) => (b.age += dt) < 1.6);
+    for (const b of this.bubbles) {
+      b.y -= rise * dt;
+      b.x += Math.sin(b.age * 6 + b.y) * dt * 6;
+      const bx = Math.round(b.x);
+      const by = Math.round(b.y);
+      if (b.age < 0.8) {
+        ctx.fillRect(bx - 1, by, 1, 1);
+        ctx.fillRect(bx + 1, by, 1, 1);
+        ctx.fillRect(bx, by - 1, 1, 1);
+        ctx.fillRect(bx, by + 1, 1, 1);
+      } else ctx.fillRect(bx, by, 1, 1);
+    }
   }
 }
 
