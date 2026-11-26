@@ -1,5 +1,5 @@
 import { enforce } from '../core/enforce';
-import { expandLayerMap, layersFor, LAYERS, type LayerId } from '../core/layers';
+import { ALL_LAYER_IDS, layersFor, type LayerId } from '../core/layers';
 import { look } from '../looks';
 import { hash, type Art, type Band } from './art';
 import { SEAM_H, glow, offscreen, prows, tiled, vgrad, vis } from './art-detailed';
@@ -25,24 +25,43 @@ const R = Math.round;
 const TAU = Math.PI * 2;
 const mod = (n: number, m: number) => ((n % m) + m) % m;
 
-for (const l of LAYERS) {
-  const lib = V4_LIBRARIES[l.id];
-  checkLibrary(`v4 ${l.id}`, lib.near, 20);
-  checkLibrary(`v4 ${l.id} anchors`, lib.anchors, 1);
+for (const id of ALL_LAYER_IDS) {
+  const lib = V4_LIBRARIES[id];
+  checkLibrary(`v4 ${id}`, lib.near, 20);
+  checkLibrary(`v4 ${id} anchors`, lib.anchors, 1);
 }
 
-const FOG: Record<LayerId, RGB> = expandLayerMap({
+const FOG: Record<LayerId, RGB> = {
+  internet: [165, 208, 245],
+  browser: [155, 195, 238],
   application: [150, 190, 235],
+  bytecode: [24, 16, 48],
+  jit: [34, 12, 34],
   runtime: [0, 0, 51],
   libraries: [0, 0, 0],
+  linker: [8, 12, 22],
   userspace: [0, 0, 0],
+  'kernel-entry': [0, 16, 28],
   kernel: [0, 0, 0],
+  'kernel-arch': [26, 0, 0],
   drivers: [0, 0, 0],
+  'bus-fabric': [16, 0, 24],
   firmware: [0, 0, 0],
+  vmm: [0, 0, 0],
   'ring-1': [0, 0, 0],
+  ept: [0, 0, 0],
   'ring-2': [0, 0, 0],
+  smram: [0, 0, 0],
   'ring-3': [0, 0, 0],
-});
+  'me-minix-user': [10, 5, 0],
+  'me-minix-kern': [10, 5, 0],
+  uarch: [4, 12, 24],
+  rtl: [4, 12, 24],
+  cmos: [8, 6, 14],
+  litho: [8, 4, 18],
+  bandgap: [3, 4, 10],
+  landauer: [3, 4, 10],
+};
 
 let mode: PaletteMode = 'full';
 let T = 0;
@@ -376,15 +395,245 @@ function ringMinus3(ctx: Ctx, b: Band) {
   rect(ctx, cx - 2, cy - 2, 5, 5, beat > 0.3 ? '#ffffff' : '#000000');
 }
 
-export const LAYER_ART_V4: Record<LayerId, Art> = expandLayerMap({
+// ---------------------------------------------------------------------------------------------
+// Endless Mode layer art (Zones A–F): distinct backgrounds, grids, tints, and atmospheres.
+
+function internet(ctx: Ctx, b: Band) {
+  use('internet', b);
+  vgrad(ctx, b, b.top, b.bottom + SEAM_H, [
+    [0, '#cfefff'],
+    [0.5, '#9ed4f5'],
+    [1, '#b4e2f7'],
+  ]);
+  // Pastel fiber routing arcs across the sky
+  prows(b, 0.3, 36, (y, i) => {
+    if (hash(i * 7 + 2) < 0.45) return;
+    const x = mod(hash(i * 7 + 3) * (b.w + 30) + T * 4, b.w + 30) - 15;
+    rect(ctx, 0, y, b.w, 1, '#dfe6f6');
+    rect(ctx, x, y, 6, 1, '#5b8ee6');
+  });
+  entities(ctx, b, 'internet');
+}
+
+function browser(ctx: Ctx, b: Band) {
+  use('browser', b);
+  vgrad(ctx, b, b.top, b.bottom + SEAM_H, [
+    [0, '#c2e4f8'],
+    [0.6, '#8cbbe8'],
+    [1, '#b4e2f7'],
+  ]);
+  // Subtle compositor tile grid
+  prows(b, 0.4, 24, (y) => rect(ctx, 0, y, b.w, 1, '#a9c4f4'));
+  entities(ctx, b, 'browser');
+}
+
+function bytecode(ctx: Ctx, b: Band) {
+  use('bytecode', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000033');
+  vgrad(ctx, b, b.top, b.bottom + SEAM_H, [
+    [0, 'rgba(255,153,51,0.22)'],
+    [0.5, 'rgba(51,51,102,0.18)'],
+    [1, 'rgba(0,0,51,0)'],
+  ]);
+  entities(ctx, b, 'bytecode');
+}
+
+function jit(ctx: Ctx, b: Band) {
+  use('jit', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#330033');
+  vgrad(ctx, b, b.bottom - 60, b.bottom + SEAM_H, [
+    [0, 'rgba(255,102,51,0)'],
+    [1, 'rgba(255,102,51,0.38)'],
+  ]);
+  entities(ctx, b, 'jit');
+  prows(b, 1.1, 14, (y, i) => {
+    if (hash(i * 11) < 0.72) return;
+    const k = mod(T * 12 + hash(i * 11 + 1) * 14, 14);
+    rect(ctx, hash(i * 11 + 2) * b.w, y + 14 - k, 1, 1, k < 6 ? '#ffff66' : '#ff6633');
+  });
+}
+
+function linker(ctx: Ctx, b: Band) {
+  use('linker', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  prows(b, 0.35, 22, (y) => rect(ctx, 0, y, b.w, 1, '#555555'));
+  entities(ctx, b, 'linker');
+}
+
+function kernelEntry(ctx: Ctx, b: Band) {
+  use('kernel-entry', b);
+  const [y0, y1] = vis(b);
+  tiled(ctx, KWALL(), 0, y0, b.w, y1 - y0, 0, R(b.top * 0.5));
+  vgrad(ctx, b, b.top, b.top + 60, [
+    [0, 'rgba(85,255,255,0.28)'],
+    [1, 'rgba(85,255,255,0)'],
+  ]);
+  entities(ctx, b, 'kernel-entry');
+}
+
+function kernelArch(ctx: Ctx, b: Band) {
+  use('kernel-arch', b);
+  const [y0, y1] = vis(b);
+  tiled(ctx, KWALL(), 0, y0, b.w, y1 - y0, 0, R(b.top * 0.5));
+  vgrad(ctx, b, b.bottom - 50, b.bottom + SEAM_H, [
+    [0, 'rgba(255,85,85,0)'],
+    [1, 'rgba(255,85,85,0.4)'],
+  ]);
+  entities(ctx, b, 'kernel-arch');
+}
+
+function busFabric(ctx: Ctx, b: Band) {
+  use('bus-fabric', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  prows(b, 0.5, 16, (y, i) => {
+    rect(ctx, 0, y, b.w, 1, i % 2 ? '#ff55ff' : '#55ffff');
+  });
+  entities(ctx, b, 'bus-fabric');
+}
+
+function vmm(ctx: Ctx, b: Band) {
+  use('vmm', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  prows(b, 0.4, 20, (y) => rect(ctx, 0, y, b.w, 1, '#555555'));
+  entities(ctx, b, 'vmm');
+}
+
+function ept(ctx: Ctx, b: Band) {
+  use('ept', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  for (let x = 16; x < b.w; x += 32) rect(ctx, x, y0, 1, y1 - y0, '#555555');
+  prows(b, 0.5, 24, (y) => rect(ctx, 0, y, b.w, 1, '#555555'));
+  entities(ctx, b, 'ept');
+}
+
+function smram(ctx: Ctx, b: Band) {
+  use('smram', b);
+  const [y0, y1] = vis(b);
+  tiled(ctx, PLATE(), 0, y0, b.w, y1 - y0, 0, R(b.top * 0.5));
+  entities(ctx, b, 'smram');
+}
+
+function meMinixUser(ctx: Ctx, b: Band) {
+  use('me-minix-user', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  prows(b, 0.2, 16, (y, i) => {
+    if (hash(i * 5) > 0.22) return;
+    rect(ctx, hash(i * 5 + 1) * b.w, y, 1, 1, '#aaaaaa');
+  });
+  entities(ctx, b, 'me-minix-user');
+}
+
+function meMinixKern(ctx: Ctx, b: Band) {
+  use('me-minix-kern', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  prows(b, 0.5, 20, (y) => rect(ctx, 0, y, b.w, 1, '#555555'));
+  entities(ctx, b, 'me-minix-kern');
+}
+
+function uarch(ctx: Ctx, b: Band) {
+  use('uarch', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  // Blueprint schematic grid
+  for (let x = 20; x < b.w; x += 20) rect(ctx, x, y0, 1, y1 - y0, '#555555');
+  prows(b, 0.5, 20, (y) => rect(ctx, 0, y, b.w, 1, '#555555'));
+  entities(ctx, b, 'uarch');
+}
+
+function rtl(ctx: Ctx, b: Band) {
+  use('rtl', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  prows(b, 0.6, 26, (y, i) => {
+    const x = mod(T * 18 + i * 23, b.w);
+    rect(ctx, 0, y, b.w, 1, '#555555');
+    rect(ctx, x, y, 5, 1, '#ffffff');
+  });
+  entities(ctx, b, 'rtl');
+}
+
+function cmos(ctx: Ctx, b: Band) {
+  use('cmos', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#08060e');
+  prows(b, 0.45, 28, (y, i) => rect(ctx, 0, y, b.w, 1, i % 2 ? '#24989c' : '#9448d4'));
+  entities(ctx, b, 'cmos');
+}
+
+function litho(ctx: Ctx, b: Band) {
+  use('litho', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  prows(b, 0.35, 18, (y, i) => {
+    for (let x = (i % 2) * 8; x < b.w; x += 16) rect(ctx, x, y, 1, 1, '#555555');
+  });
+  entities(ctx, b, 'litho');
+}
+
+function bandgap(ctx: Ctx, b: Band) {
+  use('bandgap', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  vgrad(ctx, b, b.top, b.bottom + SEAM_H, [
+    [0, 'rgba(76,168,214,0.18)'],
+    [0.5, 'rgba(3,4,10,0)'],
+    [1, 'rgba(76,168,214,0.22)'],
+  ]);
+  entities(ctx, b, 'bandgap');
+}
+
+function landauer(ctx: Ctx, b: Band) {
+  use('landauer', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#000000');
+  // Rare cosmic-ray bit-flip streaks across the pure abyss
+  if (!b.reduced) {
+    const slot = Math.floor(T * 0.6);
+    if (hash(slot * 31) > 0.55) {
+      const rx = hash(slot * 17) * b.w;
+      const ry = y0 + hash(slot * 23) * Math.max(20, y1 - y0);
+      for (let k = 0; k < 12; k++) rect(ctx, rx + k, ry + k, 1, 1, k > 8 ? '#ffffff' : '#555555');
+    }
+  }
+  entities(ctx, b, 'landauer');
+}
+
+export const LAYER_ART_V4: Record<LayerId, Art> = {
+  internet,
+  browser,
   application,
+  bytecode,
+  jit,
   runtime,
   libraries,
+  linker,
   userspace,
+  'kernel-entry': kernelEntry,
   kernel,
+  'kernel-arch': kernelArch,
   drivers,
+  'bus-fabric': busFabric,
   firmware,
+  vmm,
   'ring-1': ringMinus1,
+  ept,
   'ring-2': ringMinus2,
+  smram,
   'ring-3': ringMinus3,
-});
+  'me-minix-user': meMinixUser,
+  'me-minix-kern': meMinixKern,
+  uarch,
+  rtl,
+  cmos,
+  litho,
+  bandgap,
+  landauer,
+};

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LAYERS } from '../../core/layers';
+import { ALL_LAYER_IDS, ENDLESS_LAYERS, LAYERS } from '../../core/layers';
 import { checkLibrary } from './kit';
 import { V4_LIBRARIES } from './libraries';
 import { VIEW_WINDOW, type Placed } from './place';
@@ -32,11 +32,38 @@ function spec(seed: number, W: number, scale: number): WorldSpecV4 {
 const overlap = (a: Placed, b: Placed) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
 
 describe('v4 world', () => {
-  it('all layer libraries have unique entity ids and valid sizes', () => {
-    for (const l of LAYERS) {
-      const lib = V4_LIBRARIES[l.id];
-      expect(() => checkLibrary(`v4 ${l.id}`, lib.near, 20)).not.toThrow();
-      expect(() => checkLibrary(`v4 ${l.id} anchors`, lib.anchors, 1)).not.toThrow();
+  it('all 29 daily & endless layer libraries have unique entity ids and valid sizes', () => {
+    for (const id of ALL_LAYER_IDS) {
+      const lib = V4_LIBRARIES[id];
+      expect(() => checkLibrary(`v4 ${id}`, lib.near, 20)).not.toThrow();
+      expect(() => checkLibrary(`v4 ${id} anchors`, lib.anchors, 1)).not.toThrow();
+    }
+  });
+
+  it('places a valid 29-layer endless world across all zones', () => {
+    const W = 427;
+    const cx = Math.round(W / 2);
+    let y = 28;
+    const bands = ENDLESS_LAYERS.map((_, i) => {
+      const h = 240;
+      const b = { top: i === 0 ? -140 : y, bottom: y + h, keepOut: [] };
+      y += h;
+      return b;
+    });
+    const s: WorldSpecV4 = {
+      mode: 'endless',
+      seed: 13,
+      scatterSeed: 77,
+      W,
+      bands,
+      cursorLane: [cx - 16, cx + 16],
+      panelLanes: [[cx - 88, cx + 88]],
+    };
+    const placed = placeForSpec(s);
+    expect(placed).toHaveLength(29);
+    for (let i = 0; i < placed.length; i++) {
+      expect(placed[i]!.near.some((e) => e.anchor)).toBe(true);
+      expect(placed[i]!.near.length).toBeGreaterThanOrEqual(4);
     }
   });
 
