@@ -11,7 +11,15 @@ Current stage: **offline playtest prototype.** The open question is which answer
 - `npm run typecheck`
 - `npm run build`: production build into `dist/`. The debug menu is stripped out.
 - `npm run build:debug`: same, with the debug menu, into `dist-debug/`.
-- Debug deep links: `?depth=N` opens scroll-only mode parked at depth N. `?look.<slot>=<value>` sets a look (saved like the menu does), e.g. `?look.artStyle=v1`. Art styles: `v3` (default: small mixed props, `src/render/art-v3.ts`), `v2` (big detailed places, `art-detailed.ts`), `v1` (flat, `art.ts`).
+- Debug deep links: `?depth=N` opens scroll-only mode parked at depth N. `?look.<slot>=<value>` sets a look (saved like the menu does), e.g. `?look.artStyle=v1`. Art styles: `v4` (default: a seeded world of hand-drawn entities, `src/render/art-v4.ts` + `src/render/v4/`), `v3` (small mixed props, `art-v3.ts`), `v2` (big detailed places, `art-detailed.ts`), `v1` (flat, `art.ts`).
+- More debug links: `?seed=N` pins v4's world seed; `?perf=1` times 120 scene frames and writes `PERF avg/p95/max` into the title and a box on the page (headless only schedules frames for screenshots, and virtual time freezes `performance.now()`, so measure over the DevTools protocol in real time).
+
+## v4 world (entities and placement)
+
+- Each layer has a library of 20+ entity types plus 1–2 anchor structures (`src/render/v4/lib-upper.ts`, `lib-mid.ts`, `lib-lower.ts`, registered in `libraries.ts`). An entity is `ent(id, sizes, draw, { anim, text, noFlip, cap, weight })`: `draw` is the static body, baked once per palette into a cached sprite; `anim` is a small live overlay on art time. Draw only through the `Pen` (`v4/kit.ts`), which snaps every solid colour to the band's palette; only `p.glow` (light) dithers.
+- Placement (`v4/place.ts`, pure and unit-tested in `place.test.ts`) runs once per (seed, viewport width), never per frame: anchors first, beside the centre; then a rejection-sampled scatter with bounded attempts that never overlaps, stays out of the cursor lane and keep-outs (arrival-title band, Ring −3 core and rails, floors), allows only small text-free props in the lanes under the console card and header chips, caps each type per screen height, picks least-used types first, and borrows neighbour types near band edges (bleed). A sparse fogged far plane sits behind. It `enforce()`s that libraries are complete, anchors fit and enough of the scatter lands.
+- Seeding: `main.ts` seeds the world with the puzzle number, so everyone sees the same world on a given day and it changes at rollover. The debug rail's dice button rerolls it (its tooltip shows the seed for `?seed=N`). The rail's lane is kept clear in debug builds by dropping entities under it after placement, so the rest of the layout is identical to production.
+- Known limit: panels are fixed to the screen and the world scrolls under them, so "keep-out under panels" is per x-lane, not absolute; the arrival title is kept clear for landings in a layer's first frame.
 
 ## Locked design decisions
 
@@ -51,16 +59,16 @@ Looks are drafted live:
 
 The debug menu builds its controls from that table. Keep alternatives switchable rather than replacing the current look, so the user can compare them in the site.
 
-Reduced motion must keep working: flashes, tearing, rain, flicker, cursor sway and bubbles all check `reducedMotion()`; the HUD adds `.still` so floating panels stop, and v3 art animates on a clock that is 0 under reduced motion.
+Reduced motion must keep working: flashes, tearing, rain, flicker, cursor sway and bubbles all check `reducedMotion()`; the HUD adds `.still` so floating panels stop, and v3/v4 art animates on a clock that is 0 under reduced motion.
 
-Looks are saved under `nullion.looks.2`; bump the key when a default changes and old saved choices should not mask it.
+Looks are saved under `nullion.looks.3`; bump the key when a default changes and old saved choices should not mask it.
 
 The day's record of answers lives in the end-of-day result card and the share text; there is no running backtrace panel. The day ends with a fast replay of the descent (skippable; skipped under reduced motion) before the card.
 
 In-play animation, for orientation:
 - Accepted answer: `Scene.diveTo` dives the cursor (eased, small overshoot, camera lagging), and the tier's reaction fires on landing. Boundary crossings play their effect (tear at syscall, mirror at VM exit, freeze-frame at SMI, 1-bit at ME).
 - Each tier reaction has a screen half (`Scene.fx`, mirrored onto the panels by the HUD): Works on my machine greys and hangs the world, Null pointer blacks out a chunk, Memory leak leaves copies of props, Race condition and Heisenbug jiggle props and panels out of sync, Bit Flip is the finale: over about 2 s it cascades through hang, black-out, leaked copies and racing jiggle, then holds an inversion (Heisenbug teases it). Under reduced motion: no jiggle or flash, inversion becomes a slow tint, black-out a dim.
-- Depth maps to world y piecewise-linearly (`worldY` in `src/render/scene.ts`): each layer's visual height is a base plus a little per frame, so thin layers still read as places. Layer names aren't signposted; in v2/v3 each layer's name types in once, in its own idiom, as you arrive.
+- Depth maps to world y piecewise-linearly (`worldY` in `src/render/scene.ts`): each layer's visual height is a base plus a little per frame, so thin layers still read as places. Layer names aren't signposted; in v2–v4 each layer's name types in once, in its own idiom, as you arrive.
 - The console card takes the layer's idiom (`src/ui/forms.ts`: GUI dialog, REPL, shell, serial console, BIOS setup, hypervisor log, SMM dump, raw entry). The plain prompt, the real `<input>`, the timer and the feedback stay in every form.
 
 ## Conventions

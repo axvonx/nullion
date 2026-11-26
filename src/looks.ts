@@ -8,8 +8,8 @@ import { persisted } from './store';
 export const LOOK_SLOTS = {
   artStyle: {
     label: 'Layer art',
-    options: { v3: 'Mixed small props (v3)', v2: 'Detailed places (v2)', v1: 'Flat components (v1)' },
-    default: 'v3',
+    options: { v4: 'Seeded entity world (v4)', v3: 'Mixed small props (v3)', v2: 'Detailed places (v2)', v1: 'Flat components (v1)' },
+    default: 'v4',
   },
   cursor: {
     label: 'Cursor',
@@ -65,10 +65,10 @@ type LookState = { [S in LookSlot]: LookValue<S> };
 const defaults = Object.fromEntries(Object.entries(LOOK_SLOTS).map(([k, v]) => [k, v.default])) as LookState;
 
 /**
- * Bumped when look defaults change meaningfully (v3 art, rain off), so saved choices from older builds don't
+ * Bumped when look defaults change meaningfully (v3 art, rain off; v4 art), so saved choices from older builds don't
  * mask the new defaults. Old choices are dropped: they are debug preferences, not player data.
  */
-export const looks = persisted<LookState>('nullion.looks.2', defaults);
+export const looks = persisted<LookState>('nullion.looks.3', defaults);
 
 // A saved value an older build allowed but this one doesn't (an option was renamed or removed) is expected
 // stale storage: replace it with the slot's default, and say so.

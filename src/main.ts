@@ -33,12 +33,18 @@ async function boot() {
   const hud = new Hud(mount);
   const scene = new Scene(hud.canvasEl);
   let game!: Game;
+  // Debug deep link: ?seed=N pins v4's world seed (otherwise it is the day's puzzle number).
+  const seedParam = DEBUG ? new URLSearchParams(location.search).get('seed') : null;
+  const seedOverride = seedParam === null ? undefined : Number(seedParam);
+  if (seedOverride !== undefined) enforce(Number.isInteger(seedOverride), `?seed must be an integer, got ${seedParam}`);
 
   const restart = () => {
     const s = activeSettings();
     const set = SETS[s.answerSet] ?? SETS.sample!;
     const date = s.date ? parseLocalDate(s.date) : new Date();
     game = new Game(set, puzzleNumber(date), { timer: s.timer, unlimited: s.unlimited });
+    // The world is seeded once per day: everyone sees the same arrangement, and it changes at rollover.
+    scene.setWorldSeed(seedOverride ?? puzzleNumber(date));
     hud.setGame(game, formatLocalDate(date));
     hud.setScrollMode(s.mode === 'scroll');
     scene.setTarget(0, true);
@@ -67,6 +73,8 @@ async function boot() {
       looks.set({ [slot]: v } as never);
     }
   }
+  // Debug: ?perf=1 measures the scene's frame time and prints it into the page title (read by headless runs).
+  if (DEBUG && new URLSearchParams(location.search).has('perf')) (await import('./debug/perf')).measureFrames(scene);
   scene.start();
 
   const tick = (now: number) => {

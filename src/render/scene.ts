@@ -5,6 +5,8 @@ import { enforce } from '../core/enforce';
 import { FONT, LAYER_ART, hash, type Art, type Band } from './art';
 import { LAYER_ART_DETAILED, SEAM_ART, SEAM_H } from './art-detailed';
 import { LAYER_ART_V3, PROP_SPOTS } from './art-v3';
+import { ENTITY_SPOTS, LAYER_ART_V4, ensureWorldV4 } from './art-v4';
+import type { WorldSpecV4 } from './v4/world';
 import { LAYER_PALETTE, quantizeRow, snapColor } from './palettes';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
 
@@ -237,6 +239,14 @@ export class Scene {
 
   onLayerChange: ((layer: Layer) => void) | undefined;
 
+  /**
+   * v4's world seed: the puzzle number by default (main.ts), so everyone sees the same world on a given day.
+   * Placement runs once per seed and viewport width, never per frame.
+   */
+  private worldSeed = 1;
+  /** CSS pixels at the right edge covered by debug UI (the demo rail); v4 drops entities under it. 0 in production. */
+  uiReserveRightCss = 0;
+
   constructor(private canvas: HTMLCanvasElement) {
     this.ctx = get2d(canvas);
     this.prev = document.createElement('canvas');
@@ -276,6 +286,59 @@ export class Scene {
     this.seamMask = ditherFadeMask(this.W);
     const cols = Math.ceil(this.W / 14.5);
     this.rain = Array.from({ length: cols }, (_, i) => ({ y: hash(i) * this.H, speed: 20 + hash(i + 40) * 40 }));
+  }
+
+  /** Reseed v4's world (a new day, ?seed=N, or the debug rail's reroll). It is rebuilt on the next frame. */
+  setWorldSeed(seed: number) {
+    enforce(Number.isInteger(seed), `world seed must be an integer, got ${seed}`);
+    this.worldSeed = seed;
+  }
+
+  get seed() {
+    return this.worldSeed;
+  }
+
+  /**
+   * Everything v4 placement depends on, in scene pixels. It depends on the width only (never the height), so a
+   * mobile URL bar showing or hiding doesn't reshuffle the world.
+   * - The cursor lane is the column the cursor descends through.
+   * - Panel lanes are the x-spans of the console card and the two header chips (see style.css): the world scrolls
+   *   under them, so only small props may sit there and anchors stay out.
+   * - Each layer's arrival title band is kept clear around where it types in when you land just inside the layer.
+   */
+  private worldSpec(): WorldSpecV4 {
+    const W = this.W;
+    const vw = window.innerWidth;
+    const scale = pixelScale(vw);
+    const cx = Math.round(W / 2);
+    const consoleHalf = Math.ceil(Math.min(520, vw - 32) / 2 / scale) + 3;
+    const ctx = this.ctx;
+    ctx.font = FONT;
+    const titles: { x: number; y: number; w: number; h: number }[] = LAYERS.map((l) => {
+      const tw = Math.ceil(ctx.measureText(LAYER_TITLES[l.id]).width);
+      // The title's baseline sits 58 px above the cursor; the cursor rests at worldY(depth).
+      const y0 = worldY(l.from) - 58 - 10;
+      const y1 = worldY(l.from + 1) - 58 + 4;
+      return { x: Math.round(cx - tw / 2) - 4, y: Math.round(y0), w: tw + 8, h: Math.round(y1 - y0) };
+    });
+    const last = LAYERS.length - 1;
+    return {
+      seed: this.worldSeed,
+      W,
+      bands: LAYERS.map((_, i) => ({
+        // The first band reaches far above anything the camera shows, and the last far below: clamp both to view.
+        top: i === 0 ? TOP_PAD - 180 : bandTop(i),
+        bottom: i === last ? worldY(MAX_DEPTH) + 320 : bandBottom(i),
+        keepOut: titles,
+      })),
+      cursorLane: [cx - 16, cx + 16],
+      panelLanes: [
+        [cx - consoleHalf, cx + consoleHalf],
+        [0, Math.ceil(80 / scale)],
+        [W - Math.ceil(150 / scale), W],
+      ],
+      hideLane: this.uiReserveRightCss > 0 ? [W - Math.ceil(this.uiReserveRightCss / scale), W] : undefined,
+    };
   }
 
   get displayDepth() {
@@ -386,7 +449,8 @@ export class Scene {
     const reduced = reducedMotion();
     const style = look('artStyle');
     const detailed = style !== 'v1';
-    const art = style === 'v3' ? LAYER_ART_V3 : style === 'v2' ? LAYER_ART_DETAILED : LAYER_ART;
+    const art = style === 'v4' ? LAYER_ART_V4 : style === 'v3' ? LAYER_ART_V3 : style === 'v2' ? LAYER_ART_DETAILED : LAYER_ART;
+    if (style === 'v4') ensureWorldV4(this.worldSpec());
 
     // Move the cursor: a dive (eased, with a small overshoot), or a glide toward the target.
     if (!this.dive && this.queue.length && now >= this.queueAt) this.startDive({ ...this.queue.shift()!, start: now });
@@ -462,6 +526,7 @@ export class Scene {
     // Works on my machine hangs the world's clock, like Ring −2 does.
     if (!frozen && !this.fx.hang) this.artTime += dt;
     PROP_SPOTS.length = 0;
+    ENTITY_SPOTS.length = 0;
 
     const camWorldY = worldY(this.cam);
     const camY = Math.round(camWorldY - this.cursorY);
@@ -627,11 +692,22 @@ export class Scene {
   }
 
   /**
-   * On-screen "entities" for reactions: v3 reports where it drew its near props; other art styles fall back
-   * to a seeded scatter of cells.
+   * On-screen "entities" for reactions: v4 reports the exact boxes of the props it drew, v3 where it drew its near
+   * props; other art styles fall back to a seeded scatter of cells.
    */
   private entities(seed: number, n: number): [number, number, number, number][] {
     const out: [number, number, number, number][] = [];
+    const boxes = ENTITY_SPOTS.length / 4;
+    if (boxes > 0) {
+      // Distinct props, in a seeded order: each copied or jiggled once.
+      const order = Array.from({ length: boxes }, (_, j) => j).sort((a, b) => hash(seed + a * 7) - hash(seed + b * 7));
+      for (const j of order.slice(0, n)) {
+        const [x, y, w, h] = [ENTITY_SPOTS[j * 4]!, ENTITY_SPOTS[j * 4 + 1]!, ENTITY_SPOTS[j * 4 + 2]!, ENTITY_SPOTS[j * 4 + 3]!];
+        if (x + w <= 0 || y + h <= 0 || x >= this.W || y >= this.H) continue;
+        out.push([x, y, w, h]);
+      }
+      return out;
+    }
     const spots = PROP_SPOTS.length / 2;
     for (let k = 0; out.length < n && k < n * 4; k++) {
       let x: number;

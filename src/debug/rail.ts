@@ -55,6 +55,17 @@ const ICONS: Record<string, string[]> = {
     '#       #',
     '#########',
   ],
+  reroll: [
+    '#########',
+    '#       #',
+    '# +   + #',
+    '#       #',
+    '#   +   #',
+    '#       #',
+    '# +   + #',
+    '#       #',
+    '#########',
+  ],
   'off-by-one': ['         ', ' ###     ', ' #+#     ', ' ###     ', '         ', '    ###  ', '    # #  ', '    ###  ', '         '],
   womm: ['#########', ' #     # ', '  #+++#  ', '   #+#   ', '    #    ', '   # #   ', '  # + #  ', ' # +++ # ', '#########'],
   npe: ['         ', '  #####  ', ' #     # ', '#  +++  #', '# +   + #', '#  +++  #', ' #     # ', '  #####  ', '         '],
@@ -114,6 +125,8 @@ export function mountRail(h: DebugHooks) {
   rail.className = 'dbg-rail';
   rail.setAttribute('aria-label', 'Debug demos');
   document.body.append(rail);
+  // The rail covers the right edge (right: 16px + 36px buttons, see menu.css): v4 keeps entities out from under it.
+  h.scene.uiReserveRightCss = 60;
 
   // Only one demo at a time: starting another cancels the pending steps of the last.
   let timers: number[] = [];
@@ -179,6 +192,14 @@ export function mountRail(h: DebugHooks) {
       t += diveMs(f) + 1200;
     }
     later(t, () => h.hud.endOfDay(SAMPLE_DAY, depth, 0));
+  });
+
+  // v4's world is seeded once (by the day). Reroll it to see other arrangements; ?seed=N brings one back.
+  const rerollBtn = add('reroll', `Reroll the v4 world (seed ${h.scene.seed}; reload with ?seed=N to keep one)`, 'var(--signal)', () => {
+    const seed = Math.floor(Math.random() * 1_000_000);
+    h.scene.setWorldSeed(seed);
+    rerollBtn.dataset.tip = `World seed ${seed}: reload with ?seed=${seed} to keep it`;
+    rerollBtn.title = rerollBtn.dataset.tip;
   });
 
   // Cycles the console through every layer form (and moves the scene there), then back to following the layer.
