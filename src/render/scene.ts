@@ -20,11 +20,39 @@ export function pixelScale(viewportW: number): number {
 }
 const KERNEL_INDEX = LAYERS.findIndex((l) => l.id === 'kernel');
 
+/**
+ * Visual height decoupled from frame span: each layer gets a base height plus a little per frame, so a 3-frame
+ * layer still reads as a place and a 33-frame one doesn't drag on. Shallow layers move more pixels per frame,
+ * which suits early answers. Below the last threshold, depth maps at PX per frame.
+ */
+const LAYER_BASE_H = 160;
+const LAYER_PER_FRAME_H = 8;
+
+/** World y of each layer's threshold, in order. */
+const LAYER_Y: number[] = (() => {
+  const ys = [TOP_PAD];
+  for (let i = 1; i < LAYERS.length; i++) {
+    const span = LAYERS[i]!.from - LAYERS[i - 1]!.from;
+    enforce(span > 0, 'layer thresholds must strictly increase');
+    ys.push(ys[i - 1]! + LAYER_BASE_H + span * LAYER_PER_FRAME_H);
+  }
+  return ys;
+})();
+
+/** World y of a depth in frames: piecewise linear through the layer thresholds. Dives, camera and deep links all use it. */
+export function worldY(depth: number): number {
+  const i = layerIndexAt(Math.max(0, depth));
+  const l = LAYERS[i]!;
+  if (i === LAYERS.length - 1) return LAYER_Y[i]! + (depth - l.from) * PX;
+  const span = LAYERS[i + 1]!.from - l.from;
+  return LAYER_Y[i]! + ((depth - l.from) / span) * (LAYER_Y[i + 1]! - LAYER_Y[i]!);
+}
+
 function bandTop(i: number): number {
-  return i === 0 ? -1000 : TOP_PAD + LAYERS[i]!.from * PX - 12;
+  return i === 0 ? -1000 : LAYER_Y[i]! - 12;
 }
 function bandBottom(i: number): number {
-  return i === LAYERS.length - 1 ? TOP_PAD + MAX_DEPTH * PX + 2000 : bandTop(i + 1);
+  return i === LAYERS.length - 1 ? worldY(MAX_DEPTH) + 2000 : bandTop(i + 1);
 }
 function layerIndexAtWorldY(y: number): number {
   let idx = 0;
@@ -105,6 +133,21 @@ function easeOutBack(p: number): number {
 }
 const easeOutCubic = (p: number) => 1 - (1 - p) ** 3;
 
+const TITLE_MS = 2400;
+/** Each layer's name as that place would print it. */
+const LAYER_TITLES: Record<LayerId, string> = {
+  application: 'Application',
+  runtime: '>>> import runtime',
+  libraries: 'ld.so: loading libraries',
+  userspace: '$ cd /usr  # OS userspace',
+  kernel: '[ 0.000000] syscall: entering kernel',
+  drivers: '[ 0.420000] drivers: probing devices',
+  firmware: '== BIOS SETUP: Firmware ==',
+  'ring-1': 'VMEXIT: Ring -1 (hypervisor)',
+  'ring-2': 'SMI#: Ring -2 (SMM)',
+  'ring-3': 'ME: Ring -3',
+};
+
 /** Half-size of the cursor's bracket box, the same for every cursor form. */
 const MARK_RX = 9;
 const MARK_RY = 11;
@@ -122,8 +165,13 @@ export interface ScreenFx {
   flip: 'none' | 'invert' | 'tint';
 }
 
-/** Bit Flip holds its inversion this long; Heisenbug teases it for a moment. One transition in and one out. */
-const FLIP_MS = 650;
+/**
+ * Bit Flip is the finale: it compounds every other tier's screen effect as an escalating cascade, in ms after
+ * landing: hang (grey, frozen), then a black-out, leaked copies, racing jiggle, and last a held inversion
+ * (one transition in, one out). It ends clean at 2200 ms.
+ */
+const CASCADE = { hang: [0, 450], blackout: [300, 700], leakAt: 550, jiggle: [700, 1300], invert: [1300, 2000] } as const;
+const within = (t: number, [a, b]: readonly [number, number]) => t >= a && t < b;
 const TEASE = [480, 600] as const;
 const LEAK_MS = 2600;
 const NPE_MS = 460;
@@ -135,7 +183,7 @@ const REACTION_MS: Record<TierId, number> = {
   leak: 1600,
   race: 1000,
   heisenbug: 1400,
-  bitflip: 1200,
+  bitflip: 2200,
 };
 
 export class Scene {
@@ -169,6 +217,7 @@ export class Scene {
   readonly fx: ScreenFx = { jiggle: 0, hang: false, flip: 'none' };
   private npeRect: [number, number, number, number] | undefined;
   private leakPending = false;
+  private cascadeLeaked = false;
   private leak: { start: number; seed: number; rects: [number, number, number, number][] } | undefined;
   private leakShot: HTMLCanvasElement;
   private lastLayer = 0;
@@ -179,6 +228,8 @@ export class Scene {
   private lastNow = 0;
   private trail: { x: number; y: number }[] = [];
   private cursorLead = 0;
+  /** The layer's name, shown briefly in its own idiom when you arrive (and once at boot). */
+  private title: { layer: LayerId; start: number } | undefined = { layer: 'application', start: 0 };
   private swayAmp = 0;
   private swayPhase = 0;
   private bubbles: { x: number; y: number; age: number }[] = [];
@@ -248,7 +299,8 @@ export class Scene {
     this.reaction = { tier, start: now };
     const seed = Math.floor(now);
     if (tier === 'leak') this.leakPending = true;
-    if (tier === 'npe') {
+    this.cascadeLeaked = false;
+    if (tier === 'npe' || tier === 'bitflip') {
       // A pixel-aligned chunk of the screen that "isn't there".
       const w = Math.round(this.W * (0.28 + hash(seed) * 0.2));
       const h = Math.round(this.H * (0.18 + hash(seed + 1) * 0.15));
@@ -372,6 +424,7 @@ export class Scene {
         }
       }
       this.lastLayer = layerIdx;
+      this.title = { layer: layer.id, start: now };
       this.onLayerChange?.(layer);
     }
 
@@ -380,16 +433,26 @@ export class Scene {
     const rx = this.reaction;
     const rel = rx ? now - rx.start : Infinity;
     const act = rx && rel <= REACTION_MS[rx.tier] ? rx.tier : undefined;
-    this.fx.hang = act === 'womm';
-    this.fx.jiggle = reduced ? 0 : act === 'race' || act === 'heisenbug' ? Math.max(0, 1 - rel / REACTION_MS[act]) : 0;
-    this.fx.flip =
-      act === 'bitflip'
+    const flip = act === 'bitflip';
+    this.fx.hang = act === 'womm' || (flip && within(rel, CASCADE.hang));
+    this.fx.jiggle = reduced
+      ? 0
+      : act === 'race' || act === 'heisenbug'
+        ? Math.max(0, 1 - rel / REACTION_MS[act])
+        : flip && within(rel, CASCADE.jiggle)
+          ? 1 - (rel - CASCADE.jiggle[0]) / (CASCADE.jiggle[1] - CASCADE.jiggle[0])
+          : 0;
+    if (flip && rel >= CASCADE.leakAt && !this.cascadeLeaked) {
+      this.cascadeLeaked = true;
+      this.leakPending = true;
+    }
+    this.fx.flip = flip
+      ? within(rel, CASCADE.invert)
         ? reduced
           ? 'tint'
-          : rel < FLIP_MS
-            ? 'invert'
-            : 'none'
-        : act === 'heisenbug'
+          : 'invert'
+        : 'none'
+      : act === 'heisenbug'
           ? reduced
             ? 'tint'
             : rel >= TEASE[0] && rel < TEASE[1]
@@ -400,10 +463,10 @@ export class Scene {
     if (!frozen && !this.fx.hang) this.artTime += dt;
     PROP_SPOTS.length = 0;
 
-    const camWorldY = TOP_PAD + this.cam * PX;
+    const camWorldY = worldY(this.cam);
     const camY = Math.round(camWorldY - this.cursorY);
     // Where the cursor sits relative to its resting row: below it while the camera catches up.
-    this.cursorLead = Math.max(-50, Math.min(70, Math.round((this.depth - this.cam) * PX)));
+    this.cursorLead = Math.max(-50, Math.min(70, Math.round(worldY(this.depth) - camWorldY)));
     const ctx = this.ctx;
     resetCtx(ctx);
     const band = (i: number): Band => ({
@@ -446,25 +509,15 @@ export class Scene {
         ctx.stroke();
         ctx.setLineDash([]);
       }
+      // v1 keeps its plain seam labels for comparison; detailed styles name a layer only as you arrive in it.
+      if (detailed) continue;
       const label = l.boundary ? `${l.boundary} → ${l.name}` : l.name;
       ctx.font = FONT;
       const tw = Math.ceil(ctx.measureText(label).width);
-      // Left edge: the right side carries the depth readout and the debug rail.
-      const lx = 8;
-      if (detailed) {
-        // A small plaque bolted to the seam.
-        ctx.fillStyle = '#000';
-        ctx.fillRect(lx - 2, y - 7, tw + 10, 13);
-        ctx.fillStyle = '#9a9a9a';
-        ctx.fillRect(lx - 1, y - 6, tw + 8, 11);
-        ctx.fillStyle = '#111';
-        ctx.fillRect(lx, y - 5, tw + 6, 9);
-      } else {
-        ctx.fillStyle = '#000';
-        ctx.fillRect(lx, y - 5, tw + 6, 10);
-      }
+      ctx.fillStyle = '#000';
+      ctx.fillRect(8, y - 5, tw + 6, 10);
       ctx.fillStyle = '#fff';
-      ctx.fillText(label, lx + 3, y + 3);
+      ctx.fillText(label, 11, y + 3);
     }
 
     // 3. Rain (kernel and below).
@@ -494,6 +547,7 @@ export class Scene {
     this.drawBubbles(swayDt, speed, reduced, layer.id);
     this.drawCursor(now, layer.id, reduced, detailed);
     this.drawPops(now, layer.id, reduced);
+    if (detailed) this.drawTitle(now, layer.id, reduced);
 
     // 5. Color depth: quantize each row by the layer it shows, so the next layer's palette visibly approaches.
     if (look('palette') === 'per-layer') {
@@ -599,7 +653,7 @@ export class Scene {
   private drawReactionFx(now: number, act: TierId | undefined, rel: number, reduced: boolean) {
     const ctx = this.ctx;
     // Null pointer: a chunk of the screen blacks out, as if that memory isn't there (a static dim when reduced).
-    if (act === 'npe' && this.npeRect && rel < NPE_MS) {
+    if (this.npeRect && ((act === 'npe' && rel < NPE_MS) || (act === 'bitflip' && within(rel, CASCADE.blackout)))) {
       const [x, y, w, h] = this.npeRect;
       ctx.fillStyle = reduced ? 'rgba(0,0,0,0.6)' : '#000';
       ctx.fillRect(x, y, w, h);
@@ -634,6 +688,36 @@ export class Scene {
         ctx.globalAlpha = 1;
       }
     }
+  }
+
+  /**
+   * Arriving in a layer: its name appears in that place's own idiom (a dmesg line, a BIOS header, a shell
+   * prompt), types in, holds, and fades. No permanent signage.
+   */
+  private drawTitle(now: number, layerId: LayerId, reduced: boolean) {
+    const t = this.title;
+    if (!t) return;
+    if (t.start === 0) t.start = now;
+    if (t.layer !== layerId) return;
+    const age = now - t.start;
+    if (age > TITLE_MS) {
+      this.title = undefined;
+      return;
+    }
+    const text = LAYER_TITLES[layerId];
+    const shown = reduced ? text : text.slice(0, Math.ceil(age / 30));
+    const ctx = this.ctx;
+    ctx.font = FONT;
+    const tw = Math.ceil(ctx.measureText(text).width);
+    const x = Math.round(this.W / 2 - tw / 2);
+    const y = Math.round(Math.max(14, this.cursorY - 58));
+    ctx.globalAlpha = age < TITLE_MS - 500 ? 1 : (TITLE_MS - age) / 500;
+    ctx.fillStyle = '#000';
+    for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1], [1, 1]] as const) ctx.fillText(shown, x + dx, y + dy);
+    const perLayer = look('palette') === 'per-layer';
+    ctx.fillStyle = perLayer ? snapColor('#ffffff', LAYER_PALETTE[layerId]) : '#ffffff';
+    ctx.fillText(shown, x, y);
+    ctx.globalAlpha = 1;
   }
 
   /** "+N frames" and replay labels: pop off the cursor, float up and fade (only fade under reduced motion). */

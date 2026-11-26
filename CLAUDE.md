@@ -59,7 +59,8 @@ The day's record of answers lives in the end-of-day result card and the share te
 
 In-play animation, for orientation:
 - Accepted answer: `Scene.diveTo` dives the cursor (eased, small overshoot, camera lagging), and the tier's reaction fires on landing. Boundary crossings play their effect (tear at syscall, mirror at VM exit, freeze-frame at SMI, 1-bit at ME).
-- Each tier reaction has a screen half (`Scene.fx`, mirrored onto the panels by the HUD): Works on my machine greys and hangs the world, Null pointer blacks out a chunk, Memory leak leaves copies of props, Race condition and Heisenbug jiggle props and panels out of sync, Bit Flip inverts the screen (Heisenbug teases it). Under reduced motion: no jiggle or flash, inversion becomes a slow tint, black-out a dim.
+- Each tier reaction has a screen half (`Scene.fx`, mirrored onto the panels by the HUD): Works on my machine greys and hangs the world, Null pointer blacks out a chunk, Memory leak leaves copies of props, Race condition and Heisenbug jiggle props and panels out of sync, Bit Flip is the finale: over about 2 s it cascades through hang, black-out, leaked copies and racing jiggle, then holds an inversion (Heisenbug teases it). Under reduced motion: no jiggle or flash, inversion becomes a slow tint, black-out a dim.
+- Depth maps to world y piecewise-linearly (`worldY` in `src/render/scene.ts`): each layer's visual height is a base plus a little per frame, so thin layers still read as places. Layer names aren't signposted; in v2/v3 each layer's name types in once, in its own idiom, as you arrive.
 - The console card takes the layer's idiom (`src/ui/forms.ts`: GUI dialog, REPL, shell, serial console, BIOS setup, hypervisor log, SMM dump, raw entry). The plain prompt, the real `<input>`, the timer and the feedback stay in every form.
 
 ## Conventions
