@@ -754,7 +754,7 @@ export class Scene {
     const detailed = style !== 'v1';
     const art = style === 'v4' ? LAYER_ART_V4 : style === 'v3' ? LAYER_ART_V3 : style === 'v2' ? LAYER_ART_DETAILED : LAYER_ART;
     if (style === 'v4') ensureWorldV4(this.worldSpec());
-    this.critters.ensureSeed(this.worldSeed);
+    this.critters.ensureSeed(this.scatterSeed);
 
     // Move the cursor: a dive (eased, with a small overshoot), or a glide toward the target.
     if (!this.dive && this.queue.length && now >= this.queueAt) this.startDive({ ...this.queue.shift()!, start: now });
