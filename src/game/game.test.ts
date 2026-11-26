@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { buildAnswerSet } from '../core/answers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
-import { ANSWER_MS, Game, READ_MS } from './game';
+import { ANSWER_MS, ENDLESS_MAX_STRIKES, Game, READ_MS, endlessAnswerMs } from './game';
 
 const set = buildAnswerSet('sample', 'Sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);
 
@@ -111,6 +111,51 @@ describe('game loop', () => {
       const { g, now } = atLockRound('confirm');
       g.opts.autocorrect = 'auto';
       expect(g.submit('fisile lock', now)).toMatchObject({ kind: 'accepted', corrected: true });
+    });
+  });
+
+  describe('endless mode (3-strike watchdog)', () => {
+    it('continues past 7 rounds with anti-repeat prompts and ends on the 3rd watchdog strike', () => {
+      const g = new Game(set, 42, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });
+      expect(g.mode).toBe('endless');
+      expect(g.strikes).toBe(0);
+      expect(g.strikesLeft).toBe(ENDLESS_MAX_STRIKES);
+      let now = 0;
+      g.start(now);
+
+      // Play 10 successful rounds (more than a daily's 7!) without repeating back-to-back
+      let prevId = '';
+      for (let i = 0; i < 10; i++) {
+        now += READ_MS;
+        g.tick(now);
+        const qid = g.current()!.question.id;
+        expect(qid).not.toBe(prevId);
+        prevId = qid;
+        expect(g.submit(bitflipFor(g, i), now).kind).toBe('accepted');
+        g.advance(now);
+        expect(g.phase).toMatchObject({ kind: 'reading', round: i + 1 });
+      }
+      expect(g.depth).toBe(130);
+      expect(g.strikes).toBe(0);
+
+      // Now burn 3 watchdog strikes
+      for (let s = 1; s <= ENDLESS_MAX_STRIKES; s++) {
+        now += READ_MS;
+        g.tick(now);
+        now += g.answerMs;
+        g.tick(now);
+        expect(g.strikes).toBe(s);
+        expect(g.strikesLeft).toBe(ENDLESS_MAX_STRIKES - s);
+        g.advance(now);
+      }
+      expect(g.phase.kind).toBe('done');
+    });
+
+    it('tightens the per-prompt watchdog timer at deeper layers', () => {
+      expect(endlessAnswerMs(0)).toBe(30000);
+      expect(endlessAnswerMs(700)).toBe(25000);
+      expect(endlessAnswerMs(1500)).toBe(20000);
+      expect(endlessAnswerMs(2200)).toBe(16000);
     });
   });
 });
