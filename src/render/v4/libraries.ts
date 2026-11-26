@@ -31,6 +31,6 @@ export const V4_LIBRARIES: Record<LayerId, Library> = {
   drivers: { near: DRIVERS, anchors: DRIVERS_ANCHORS, density: 6.0, anchorCount: 2, far: 0.45 },
   firmware: { near: FIRMWARE, anchors: FIRMWARE_ANCHORS, density: 5.6, anchorCount: 2, far: 0.45 },
   'ring-1': { near: RING1, anchors: RING1_ANCHORS, density: 5.2, anchorCount: 2, far: 0.45 },
-  'ring-2': { near: RING2, anchors: RING2_ANCHORS, density: 4.5, anchorCount: 2, far: 0.45 },
+  'ring-2': { near: RING2, anchors: RING2_ANCHORS, density: 5.6, anchorCount: 2, far: 0.45 },
   'ring-3': { near: RING3, anchors: RING3_ANCHORS, density: 2.4, anchorCount: 1, far: 0 },
 };

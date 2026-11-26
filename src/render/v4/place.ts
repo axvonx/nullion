@@ -83,6 +83,8 @@ export const VIEW_WINDOW = 360;
 /** Same-type copies keep at least this far apart (centre to centre). */
 const SAME_TYPE_GAP = 70;
 const PAD = 3;
+/** Spatial-grid cell size for overlap tests, world px. */
+const CELL = 32;
 const BLEED = 64;
 /** Far plane parallax factor (screen y = band top × FAR_F + local y). */
 export const FAR_F = 0.55;
@@ -93,17 +95,6 @@ const SMALL_AREA = 260;
 
 const overlaps = (a: Rect, b: Rect, pad = 0) => a.x < b.x + b.w + pad && b.x < a.x + a.w + pad && a.y < b.y + b.h + pad && b.y < a.y + a.h + pad;
 const inLane = (x: number, w: number, lane: readonly [number, number]) => x < lane[1] && x + w > lane[0];
-
-function avgArea(defs: readonly EntityDef[]): number {
-  let a = 0;
-  let n = 0;
-  for (const d of defs)
-    for (const [w, h] of d.sizes) {
-      a += w * h;
-      n++;
-    }
-  return a / n;
-}
 
 /** Weighted pick that favours types used least so far (variety first, repeats last). */
 function pickType(rand: () => number, defs: readonly EntityDef[], used: Map<string, number>, blocked: Set<string>): EntityDef | undefined {
@@ -124,11 +115,11 @@ function pickType(rand: () => number, defs: readonly EntityDef[], used: Map<stri
   return defs[defs.length - 1];
 }
 
-function sameTypeOk(def: EntityDef, cx: number, cy: number, placed: readonly Placed[]): boolean {
+function sameTypeOk(def: EntityDef, cx: number, cy: number, sameType: readonly Placed[] | undefined): boolean {
+  if (!sameType) return true;
   const cap = def.cap ?? 2;
   let inWindow = 0;
-  for (const p of placed) {
-    if (p.def !== def) continue;
+  for (const p of sameType) {
     const px = p.x + p.w / 2;
     const py = p.y + p.h / 2;
     if (Math.hypot(px - cx, py - cy) < SAME_TYPE_GAP) return false;
@@ -167,14 +158,32 @@ function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<Layer
   enforce(bandH > 40 && W > 60, `v4 placement: band ${band.id} too small (${W}×${bandH})`);
   const near: Placed[] = [];
   const keep = band.keepOut;
+  // A coarse spatial grid and per-type lists keep each rejection test to a handful of neighbours.
+  const grid = new Map<number, Placed[]>();
+  const byType = new Map<string, Placed[]>();
+  const cellsOf = (r: Rect, pad: number, fn: (key: number) => boolean | void) => {
+    for (let gy = Math.floor((r.y - top - pad) / CELL); gy <= Math.floor((r.y + r.h - top + pad) / CELL); gy++)
+      for (let gx = Math.floor((r.x - pad) / CELL); gx <= Math.floor((r.x + r.w + pad) / CELL); gx++) if (fn(gy * 4096 + gx) === false) return false;
+    return true;
+  };
+  const add = (e: Placed) => {
+    near.push(e);
+    cellsOf(e, 0, (k) => {
+      const list = grid.get(k);
+      if (list) list.push(e);
+      else grid.set(k, [e]);
+    });
+    const t = byType.get(e.def.id);
+    if (t) t.push(e);
+    else byType.set(e.def.id, [e]);
+  };
 
   const clear = (r: Rect) => {
     if (r.y < top + 2 || r.y + r.h > bottom - 2 || r.x < 1 || r.x + r.w > W - 1) return false;
     if (inLane(r.x, r.w, geom.cursorLane)) return false;
     // Keep-out rects carry their own margins, so floors can be stood on exactly.
     for (const k of keep) if (overlaps(r, k)) return false;
-    for (const p of near) if (overlaps(r, p, PAD)) return false;
-    return true;
+    return cellsOf(r, PAD, (k) => !grid.get(k)?.some((p) => overlaps(r, p, PAD)));
   };
 
   // 1. Anchors, beside the centre: out from under the panels where the width allows, else anywhere off the lane.
@@ -203,7 +212,7 @@ function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<Layer
       const y = Math.round(top + 6 + rand() * (bandH - h - 12));
       const r = { x, y, w, h };
       if (!clear(r)) continue;
-      near.push({ def, v, look: Math.floor(rand() * LOOKS), x, y, w, h, flip: !def.noFlip && !def.text && rand() < 0.5, ph: rand() * 20, anchor: true });
+      add({ def, v, look: Math.floor(rand() * LOOKS), x, y, w, h, flip: !def.noFlip && !def.text && rand() < 0.5, ph: rand() * 20, anchor: true });
       lastSide = x + w / 2 < centre ? -1 : 1;
       break;
     }
@@ -237,12 +246,12 @@ function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<Layer
     const r = { x, y, w, h };
     let ok = clear(r);
     if (ok && geom.panelLanes.some((l) => inLane(x, w, l))) ok = !def.text && w * h <= SMALL_AREA;
-    if (ok) ok = sameTypeOk(def, x + w / 2, y + h / 2, near);
+    if (ok) ok = sameTypeOk(def, x + w / 2, y + h / 2, byType.get(def.id));
     if (!ok) {
       if (rand() < 0.04) blocked.add(def.id);
       continue;
     }
-    near.push({ def, v, look: Math.floor(rand() * LOOKS), x, y, w, h, flip: !def.noFlip && !def.text && rand() < 0.5, ph: rand() * 20, anchor: false });
+    add({ def, v, look: Math.floor(rand() * LOOKS), x, y, w, h, flip: !def.noFlip && !def.text && rand() < 0.5, ph: rand() * 20, anchor: false });
     used.set(def.id, (used.get(def.id) ?? 0) + 1);
     scattered++;
   }
@@ -272,7 +281,7 @@ function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<Layer
     const r = { x, y, w, h };
     if (inLane(x, w, geom.cursorLane)) continue;
     if (far.some((p) => overlaps(r, p, 6))) continue;
-    if (!sameTypeOk(def, x + w / 2, y + h / 2, far)) continue;
+    if (!sameTypeOk(def, x + w / 2, y + h / 2, far.filter((p) => p.def === def))) continue;
     far.push({ def, v, look: Math.floor(rand() * LOOKS), x, y, w, h, flip: !def.noFlip && rand() < 0.5, ph: rand() * 20, anchor: false });
     farUsed.set(def.id, (farUsed.get(def.id) ?? 0) + 1);
   }
@@ -286,9 +295,4 @@ function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<Layer
 export function placeWorld(seed: number, geom: PlaceGeom, libs: Record<LayerId, Library>): LayerPlacement[] {
   enforce(Number.isInteger(seed), `v4 placement: seed must be an integer, got ${seed}`);
   return geom.bands.map((_, i) => placeBand(seed, i, geom, libs));
-}
-
-/** Mean entity area of a library, for tuning density. */
-export function libraryArea(lib: Library): number {
-  return avgArea(lib.near);
 }
