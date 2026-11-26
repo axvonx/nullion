@@ -1,4 +1,4 @@
-import { layersFor, layerIndexAt, maxDepthFor, type Layer, type LayerId, type StackMode } from '../core/layers';
+import { ENDLESS_LAYERS, layersFor, layerIndexAt, maxDepthFor, type Layer, type LayerId, type StackMode } from '../core/layers';
 import type { TierId } from '../core/tiers';
 import { look, reducedMotion } from '../looks';
 import { enforce } from '../core/enforce';
@@ -129,7 +129,32 @@ interface Dive {
 }
 
 type CrossFx = 'tear' | 'mirror' | 'freeze' | 'onebit';
-const CROSS_FX: Record<string, CrossFx> = { syscall: 'tear', 'VM exit': 'mirror', SMI: 'freeze', ME: 'onebit' };
+const CROSS_FX: Record<string, CrossFx> = {
+  syscall: 'tear',
+  'VM exit': 'mirror',
+  SMI: 'freeze',
+  ME: 'onebit',
+  // Endless-only boundaries.
+  render: 'tear',
+  parse: 'tear',
+  compile: 'tear',
+  dlopen: 'tear',
+  IRQ: 'tear',
+  DMA: 'tear',
+  ACPI: 'tear',
+  IPC: 'tear',
+  M1: 'tear',
+  '13.5nm': 'tear',
+  '1.1eV': 'tear',
+  virtio: 'mirror',
+  EPT: 'mirror',
+  TSEG: 'freeze',
+  AMT: 'onebit',
+  'μop': 'onebit',
+  posedge: 'onebit',
+  'kT ln 2': 'onebit',
+};
+for (const l of ENDLESS_LAYERS) if (l.boundary) enforce(CROSS_FX[l.boundary], `no crossing effect for boundary '${l.boundary}'`);
 const CROSS_MS: Record<CrossFx, number> = { tear: 380, mirror: 650, freeze: 420, onebit: 520 };
 
 function easeOutBack(p: number): number {
@@ -785,18 +810,10 @@ export class Scene {
     const layer = stack[layerIdx]!;
     if (layerIdx !== this.lastLayer) {
       // Crossing a boundary plays its effect: tearing at syscall, a mirror shimmer at VM exit, a freeze-frame at
-      // SMI, the drop into 1-bit at ME. New Endless boundaries default to tear/mirror/freeze/onebit cleanly.
+      // SMI, the drop into 1-bit at ME. Every boundary label must have an entry in CROSS_FX.
       const crossed = stack[Math.max(layerIdx, this.lastLayer)]!;
-      const fx: CrossFx | undefined = crossed.boundary
-        ? (CROSS_FX[crossed.boundary] ??
-          (crossed.boundary === 'EPT' || crossed.boundary === 'virtio'
-            ? 'mirror'
-            : crossed.boundary === 'TSEG'
-              ? 'freeze'
-              : crossed.boundary === 'AMT' || crossed.boundary === 'μop' || crossed.boundary === 'posedge' || crossed.boundary === 'kT ln 2'
-                ? 'onebit'
-                : 'tear'))
-        : undefined;
+      const fx: CrossFx | undefined = crossed.boundary ? CROSS_FX[crossed.boundary] : undefined;
+      if (crossed.boundary) enforce(fx, `no crossing effect for boundary '${crossed.boundary}'`);
       if (!reduced && look('tearing') === 'on') {
         if (fx === 'tear' || fx === undefined) {
           this.tearStrength = fx ? 1 : 0.5;
