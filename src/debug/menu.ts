@@ -1,4 +1,4 @@
-import type { AnswerSet } from '../core/answers';
+import type { AnswerSetSource } from '../core/answers';
 import { LAYERS, MAX_DEPTH } from '../core/layers';
 import { TIERS } from '../core/tiers';
 import type { Game } from '../game/game';
@@ -14,7 +14,7 @@ export interface DebugHooks {
   hud: Hud;
   game(): Game;
   restart(): void;
-  sets: Record<string, AnswerSet>;
+  sets: Record<string, AnswerSetSource>;
 }
 
 /** Debug build only. Everything here is generated from the settings, looks and tier tables. */

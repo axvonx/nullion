@@ -2,19 +2,23 @@
 """Score candidate answers against the local corpora and assign tiers (pilot of option 3: counts + hand pins).
 
 Usage: python3 -I scripts/score-candidates.py scripts/pilot/candidates.json ~/nullion-corpora
-Writes src/data/generated/pilot.json and scripts/pilot/report.md.
+Writes one file per category to src/data/generated/categories/<tag>.json, and scripts/pilot/report.md.
 
 Evidence for an entry = rows matching ANY of its phrases (name, `search` phrases, and multi-word or long aliases),
 counted per corpus table. An entry whose words mean something else elsewhere ("rope" in robotics, "IDR" as an
 unrelated acronym) sets `evidence: {table: [phrases]}`, which REPLACES the default phrases: tables it doesn't list
 count as 0 for that entry.
 
-Corpora count on different scales (kernel paragraphs vs paper titles), so each count is normalised within its
-category and table: log1p(count) / log1p(max count in that category and table). score = Σ weight[t] × that.
+Corpora count on different scales (kernel paragraphs vs paper titles), and categories differ in how often they
+appear in titles at all, so each count is normalised within its category and table against a reference count: the
+(NORM_RANK+1)-th largest count, not the largest, so one generic word ("graph": 200k titles) can't squash the rest.
+n = min(1, log1p(count) / log1p(reference)); score = Σ weight[t] × n / Σ weight, in [0, 1].
 Kernel docs get a lower weight: they measure what kernel hackers know, not what most players know.
 
 Counts only decide where the evidence is STRONG: some table has at least STRONG_MIN hits. Strong, unpinned entries
-are ranked by score within their category and cut into tiers by fixed shares. Below that, counts are noise (2 vs 3
+get the first tier whose CUTOFF their score reaches. The cut-offs are absolute, not shares of the list, so adding
+obscure candidates never pushes common answers deeper. They were fitted (scratch fit, 2026-11-26) to the 78 strong
+pilot entries' judge tiers: 2 of 78 land more than one tier from their judge, and those are flagged below. Below that, counts are noise (2 vs 3
 titles), so the entry's `judge` tier (a familiarity call written in-session) decides. Weak entries without a judge
 are an error: every weak entry needs a human/LLM call, and zero evidence never means "reject".
 """
@@ -28,8 +32,9 @@ import sys
 REPO = pathlib.Path(__file__).resolve().parent.parent
 TABLES = ["kernel", "dblp", "arxiv"]
 WEIGHTS = {"kernel": 0.5, "dblp": 1.0, "arxiv": 1.0}
-# Shares of unpinned, evidenced entries per tier, most common first. The remainder is heisenbug.
-SHARES = [("off-by-one", 0.12), ("npe", 0.15), ("leak", 0.20), ("race", 0.23)]
+# Minimum score per tier, most common first; anything below the last is heisenbug. Fitted to pilot judgements.
+CUTOFFS = [("off-by-one", 0.88), ("npe", 0.56), ("leak", 0.32), ("race", 0.22)]
+NORM_RANK = 2
 PINNABLE = {"womm", "bitflip"}
 TIERS = {"off-by-one", "womm", "npe", "leak", "race", "heisenbug", "bitflip"}
 STRONG_MIN = 10
@@ -75,7 +80,7 @@ def main() -> None:
         raise RuntimeError("no corpus tables indexed")
     sample = sample_tiers()
 
-    terms, report = [], ["# Pilot scoring report", "", f"Corpora: {', '.join(tables)}. score = Σ weight × log1p(count)/log1p(category max); weights {WEIGHTS}.", ""]
+    outputs, report = {}, ["# Pilot scoring report", "", f"Corpora: {', '.join(tables)}. score = Σ weight × min(1, log1p(count)/log1p(reference)) / Σ weight, reference = count ranked {NORM_RANK + 1} in the category; weights {WEIGHTS}; cut-offs {CUTOFFS}.", ""]
     for tag, entries in cands.items():
         if tag.startswith("_"):
             continue
@@ -99,9 +104,15 @@ def main() -> None:
                 counts[t] = con.execute(f"SELECT count(*) FROM {t} WHERE {t} MATCH ?", (fts_query(ps),)).fetchone()[0] if ps else 0
             rows.append({"e": e, "counts": counts})
 
-        top = {t: max(r["counts"][t] for r in rows) for t in tables}
+        ref = {}
+        for t in tables:
+            vs = sorted((r["counts"][t] for r in rows), reverse=True)
+            ref[t] = vs[min(NORM_RANK, len(vs) - 1)]
+        wsum = sum(WEIGHTS[t] for t in tables)
         for r in rows:
-            r["score"] = sum(WEIGHTS[t] * math.log1p(r["counts"][t]) / math.log1p(top[t]) for t in tables if top[t] > 0)
+            r["score"] = sum(
+                WEIGHTS[t] * min(1.0, math.log1p(r["counts"][t]) / math.log1p(ref[t])) for t in tables if ref[t] > 0
+            ) / wsum
 
         pins = [r for r in rows if r["e"].get("pin") == "bitflip"]
         if len(pins) != 1:
@@ -112,15 +123,9 @@ def main() -> None:
             j = r["e"].get("judge")
             if j is not None and j not in TIERS - PINNABLE:
                 raise RuntimeError(f"{tag}/{r['e']['name']}: judge must be a non-pinned tier, got {j}")
-        ranked = sorted((r for r in rows if not r["e"].get("pin") and r["strong"]), key=lambda r: -r["score"])
-        i = 0
-        for tier, share in SHARES:
-            k = max(1, round(share * len(ranked)))
-            for r in ranked[i : i + k]:
-                r["tier"] = tier
-            i += k
-        for r in ranked[i:]:
-            r["tier"] = "heisenbug"
+        for r in rows:
+            if not r["e"].get("pin") and r["strong"]:
+                r["tier"] = next((tier for tier, cut in CUTOFFS if r["score"] >= cut), "heisenbug")
         for r in rows:
             if r["e"].get("pin"):
                 r["tier"], r["source"] = r["e"]["pin"], "pin"
@@ -156,18 +161,21 @@ def main() -> None:
                    + (", ".join(f"{r['e']['name']} ({r['flag']}, now {r['tier']})" for r in flagged) or "none")]
         report += ["", f"In the sample but not the pilot: {', '.join(only_sample) if only_sample else 'none'}", ""]
 
+        terms = []
         for r in rows:
             e = r["e"]
-            t = {"name": e["name"], "tags": {tag: r["tier"]}}
+            t = {"name": e["name"], "tier": r["tier"]}
             if e.get("aliases"):
                 t["aliases"] = e["aliases"]
             terms.append(t)
+        outputs[tag] = {"tag": tag, "terms": terms}
 
-    out = REPO / "src" / "data" / "generated" / "pilot.json"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps({"tags": [t for t in cands if not t.startswith("_")], "terms": terms}, indent=1, ensure_ascii=False) + "\n")
+    out_dir = REPO / "src" / "data" / "generated" / "categories"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for tag, body in outputs.items():
+        (out_dir / f"{tag}.json").write_text(json.dumps(body, indent=1, ensure_ascii=False) + "\n")
     (REPO / "scripts" / "pilot" / "report.md").write_text("\n".join(report) + "\n")
-    print(f"wrote {out.relative_to(REPO)} ({len(terms)} terms) and scripts/pilot/report.md")
+    print(f"wrote {len(outputs)} category files to {out_dir.relative_to(REPO)} and scripts/pilot/report.md")
 
 
 if __name__ == "__main__":

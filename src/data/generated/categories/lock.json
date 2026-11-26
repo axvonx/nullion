@@ -1,0 +1,393 @@
+{
+ "tag": "lock",
+ "terms": [
+  {
+   "name": "mutex",
+   "tier": "off-by-one",
+   "aliases": [
+    "mutual exclusion lock"
+   ]
+  },
+  {
+   "name": "spinlock",
+   "tier": "off-by-one",
+   "aliases": [
+    "spin lock"
+   ]
+  },
+  {
+   "name": "semaphore",
+   "tier": "off-by-one"
+  },
+  {
+   "name": "read-write lock",
+   "tier": "npe",
+   "aliases": [
+    "rwlock",
+    "readers-writer lock",
+    "reader-writer lock",
+    "shared-exclusive lock"
+   ]
+  },
+  {
+   "name": "recursive mutex",
+   "tier": "leak",
+   "aliases": [
+    "reentrant lock",
+    "reentrant mutex",
+    "recursive lock"
+   ]
+  },
+  {
+   "name": "adaptive mutex",
+   "tier": "leak",
+   "aliases": [
+    "adaptive lock"
+   ]
+  },
+  {
+   "name": "ticket lock",
+   "tier": "leak",
+   "aliases": [
+    "ticket spinlock"
+   ]
+  },
+  {
+   "name": "MCS lock",
+   "tier": "race",
+   "aliases": [
+    "mellor-crummey scott lock"
+   ]
+  },
+  {
+   "name": "CLH lock",
+   "tier": "race",
+   "aliases": [
+    "craig landin hagersten lock"
+   ]
+  },
+  {
+   "name": "qspinlock",
+   "tier": "race",
+   "aliases": [
+    "queued spinlock"
+   ]
+  },
+  {
+   "name": "qrwlock",
+   "tier": "heisenbug",
+   "aliases": [
+    "queued rwlock",
+    "queued read-write lock"
+   ]
+  },
+  {
+   "name": "seqlock",
+   "tier": "leak",
+   "aliases": [
+    "sequence lock",
+    "seqcount"
+   ]
+  },
+  {
+   "name": "futex",
+   "tier": "leak",
+   "aliases": [
+    "fast userspace mutex"
+   ]
+  },
+  {
+   "name": "RCU",
+   "tier": "womm",
+   "aliases": [
+    "read-copy-update"
+   ]
+  },
+  {
+   "name": "big kernel lock",
+   "tier": "race",
+   "aliases": [
+    "bkl"
+   ]
+  },
+  {
+   "name": "test-and-set lock",
+   "tier": "npe",
+   "aliases": [
+    "tas lock",
+    "test and set lock"
+   ]
+  },
+  {
+   "name": "test-and-test-and-set lock",
+   "tier": "leak",
+   "aliases": [
+    "ttas lock",
+    "test and test and set lock"
+   ]
+  },
+  {
+   "name": "backoff lock",
+   "tier": "leak",
+   "aliases": [
+    "exponential backoff lock"
+   ]
+  },
+  {
+   "name": "Anderson lock",
+   "tier": "race",
+   "aliases": [
+    "array-based queue lock",
+    "array lock"
+   ]
+  },
+  {
+   "name": "Peterson lock",
+   "tier": "leak",
+   "aliases": [
+    "peterson's algorithm",
+    "petersons lock"
+   ]
+  },
+  {
+   "name": "bakery lock",
+   "tier": "leak",
+   "aliases": [
+    "lamport's bakery algorithm",
+    "bakery algorithm"
+   ]
+  },
+  {
+   "name": "Dekker's algorithm",
+   "tier": "leak",
+   "aliases": [
+    "dekker lock",
+    "dekkers algorithm"
+   ]
+  },
+  {
+   "name": "filter lock",
+   "tier": "race"
+  },
+  {
+   "name": "hierarchical backoff lock",
+   "tier": "heisenbug",
+   "aliases": [
+    "hbo lock"
+   ]
+  },
+  {
+   "name": "lock cohorting",
+   "tier": "heisenbug",
+   "aliases": [
+    "cohort lock",
+    "cohort locks"
+   ]
+  },
+  {
+   "name": "CNA lock",
+   "tier": "heisenbug",
+   "aliases": [
+    "compact numa-aware lock"
+   ]
+  },
+  {
+   "name": "HMCS lock",
+   "tier": "heisenbug",
+   "aliases": [
+    "hierarchical mcs lock"
+   ]
+  },
+  {
+   "name": "shuffle lock",
+   "tier": "heisenbug",
+   "aliases": [
+    "shfllock"
+   ]
+  },
+  {
+   "name": "Malthusian lock",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "Hemlock",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "reciprocating lock",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "TWA lock",
+   "tier": "heisenbug",
+   "aliases": [
+    "ticket lock with waiting array"
+   ]
+  },
+  {
+   "name": "partitioned ticket lock",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "fissile lock",
+   "tier": "bitflip"
+  },
+  {
+   "name": "optimistic lock",
+   "tier": "npe",
+   "aliases": [
+    "optimistic locking"
+   ]
+  },
+  {
+   "name": "pessimistic lock",
+   "tier": "npe",
+   "aliases": [
+    "pessimistic locking"
+   ]
+  },
+  {
+   "name": "two-phase locking",
+   "tier": "npe",
+   "aliases": [
+    "2pl"
+   ]
+  },
+  {
+   "name": "intention lock",
+   "tier": "race",
+   "aliases": [
+    "intent lock"
+   ]
+  },
+  {
+   "name": "shared lock",
+   "tier": "npe",
+   "aliases": [
+    "s lock"
+   ]
+  },
+  {
+   "name": "exclusive lock",
+   "tier": "leak",
+   "aliases": [
+    "x lock"
+   ]
+  },
+  {
+   "name": "row-level lock",
+   "tier": "npe",
+   "aliases": [
+    "row lock"
+   ]
+  },
+  {
+   "name": "table lock",
+   "tier": "npe",
+   "aliases": [
+    "table-level lock"
+   ]
+  },
+  {
+   "name": "advisory lock",
+   "tier": "leak"
+  },
+  {
+   "name": "file lock",
+   "tier": "npe",
+   "aliases": [
+    "flock",
+    "file locking"
+   ]
+  },
+  {
+   "name": "distributed lock",
+   "tier": "npe"
+  },
+  {
+   "name": "Redlock",
+   "tier": "race"
+  },
+  {
+   "name": "biased lock",
+   "tier": "race",
+   "aliases": [
+    "biased locking"
+   ]
+  },
+  {
+   "name": "thin lock",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "rw semaphore",
+   "tier": "heisenbug",
+   "aliases": [
+    "rwsem",
+    "read-write semaphore"
+   ]
+  },
+  {
+   "name": "percpu rwsem",
+   "tier": "heisenbug",
+   "aliases": [
+    "per-cpu rwsem",
+    "percpu rw semaphore"
+   ]
+  },
+  {
+   "name": "local lock",
+   "tier": "heisenbug",
+   "aliases": [
+    "local_lock"
+   ]
+  },
+  {
+   "name": "rt mutex",
+   "tier": "heisenbug",
+   "aliases": [
+    "rtmutex",
+    "rt_mutex"
+   ]
+  },
+  {
+   "name": "ww mutex",
+   "tier": "heisenbug",
+   "aliases": [
+    "wound/wait mutex",
+    "wound-wait mutex",
+    "ww_mutex"
+   ]
+  },
+  {
+   "name": "lglock",
+   "tier": "heisenbug",
+   "aliases": [
+    "local/global lock"
+   ]
+  },
+  {
+   "name": "brlock",
+   "tier": "heisenbug",
+   "aliases": [
+    "big reader lock"
+   ]
+  },
+  {
+   "name": "osq lock",
+   "tier": "heisenbug",
+   "aliases": [
+    "optimistic spin queue",
+    "osq"
+   ]
+  },
+  {
+   "name": "queue lock",
+   "tier": "leak",
+   "aliases": [
+    "queuing lock",
+    "queue-based lock"
+   ]
+  }
+ ]
+}

@@ -1,11 +1,12 @@
 import '@fontsource/silkscreen/400.css';
 import '@fontsource/vt323/400.css';
 import './style.css';
-import { buildAnswerSet, type AnswerSet } from './core/answers';
+import { buildAnswerSet, type AnswerSetSource } from './core/answers';
 import { enforce } from './core/enforce';
-import { formatLocalDate, parseLocalDate, puzzleNumber } from './core/day';
+import { formatLocalDate, parseLocalDate, pickForDay, puzzleNumber } from './core/day';
+import { PROMPTS_PER_DAY } from './core/layers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from './data/sample';
-import { PILOT_TERMS } from './data/pilot';
+import { loadPilotTerms } from './data/pilot';
 import { Game } from './game/game';
 import { LOOK_SLOTS, looks, type LookSlot } from './looks';
 import { Scene } from './render/scene';
@@ -18,10 +19,24 @@ import { Hud } from './ui/hud';
 /** Dev server and `npm run build:debug` include the 🐞 menu; `npm run build` strips it. */
 const DEBUG = import.meta.env.DEV || import.meta.env.VITE_DEBUG === '1';
 
-const SETS: Record<string, AnswerSet> = {
-  sample: buildAnswerSet('sample', 'Hand-written sample', SAMPLE_TERMS, SAMPLE_QUESTIONS),
-  pilot: buildAnswerSet('pilot', 'Pilot: corpus-scored locks + data structures', PILOT_TERMS, SAMPLE_QUESTIONS),
+const SETS: Record<string, AnswerSetSource> = {
+  sample: {
+    id: 'sample',
+    label: 'Hand-written sample',
+    load: async (qs) => buildAnswerSet('sample', 'Hand-written sample', SAMPLE_TERMS, qs),
+  },
+  pilot: {
+    id: 'pilot',
+    label: 'Pilot: corpus-scored locks + data structures',
+    load: async (qs) => buildAnswerSet('pilot', 'Pilot', await loadPilotTerms(qs.map((q) => q.tag)), qs),
+  },
 };
+
+/** A failure after boot is a bug too: show it on the page, not just in a console nobody has open. */
+function showFatal(err: unknown): never {
+  document.body.innerHTML = `<pre style="color:#ff5f7a;padding:16px;white-space:pre-wrap">nullion failed:\n${String(err instanceof Error ? (err.stack ?? err.message) : err)}</pre>`;
+  throw err;
+}
 
 function activeSettings(): Settings {
   return DEBUG ? settings.get() : DEFAULT_SETTINGS;
@@ -50,12 +65,19 @@ async function boot() {
   // Per-session scatter seed so minor props refresh each visit while the day's major landmarks stay recognizable.
   const sessionScatter = Math.floor(Math.random() * 1_000_000_000) | 0;
 
-  const restart = () => {
+  // Restarts load their categories asynchronously; a newer restart supersedes an older one still loading.
+  let restartGen = 0;
+  const startDay = async () => {
+    const gen = ++restartGen;
     const s = activeSettings();
-    const set = SETS[s.answerSet] ?? SETS.sample!;
+    const source = SETS[s.answerSet] ?? SETS.sample!;
     const date = s.date ? parseLocalDate(s.date) : new Date();
     const daySeed = puzzleNumber(date);
     const mode = endlessMode ? 'endless' : 'daily';
+    // Load only what this game asks: the day's prompts, or the whole pool for Endless.
+    const questions = mode === 'daily' ? pickForDay(SAMPLE_QUESTIONS, daySeed, PROMPTS_PER_DAY) : SAMPLE_QUESTIONS;
+    const set = await source.load(questions);
+    if (gen !== restartGen) return;
     game = new Game(set, daySeed, { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect, mode });
     scene.setStackMode(mode);
     // Major set pieces stay anchored to the day's puzzle seed; minor props vary freshly per session (unless ?seed=N).
@@ -78,8 +100,12 @@ async function boot() {
     sound.setVolume(p.volume);
   });
 
+  const restart = () => {
+    startDay().catch(showFatal);
+  };
+
   hud.bind(scene, () => performance.now());
-  restart();
+  await startDay();
 
   // Debug deep link: ?depth=N opens scroll-only mode parked at that depth (not persisted).
   const depthParam = DEBUG ? new URLSearchParams(location.search).get('depth') : null;
@@ -118,8 +144,4 @@ async function boot() {
   }
 }
 
-boot().catch((err: unknown) => {
-  // A boot failure is a bug: show it on the page, not just in a console nobody has open.
-  document.body.innerHTML = `<pre style="color:#ff5f7a;padding:16px;white-space:pre-wrap">nullion failed to boot:\n${String(err instanceof Error ? (err.stack ?? err.message) : err)}</pre>`;
-  throw err;
-});
+boot().catch(showFatal);

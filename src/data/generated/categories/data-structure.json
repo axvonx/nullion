@@ -1,0 +1,460 @@
+{
+ "tag": "data-structure",
+ "terms": [
+  {
+   "name": "array",
+   "tier": "off-by-one"
+  },
+  {
+   "name": "linked list",
+   "tier": "npe"
+  },
+  {
+   "name": "doubly linked list",
+   "tier": "leak"
+  },
+  {
+   "name": "hash table",
+   "tier": "off-by-one",
+   "aliases": [
+    "hash map",
+    "hashmap",
+    "dictionary"
+   ]
+  },
+  {
+   "name": "stack",
+   "tier": "off-by-one"
+  },
+  {
+   "name": "queue",
+   "tier": "off-by-one"
+  },
+  {
+   "name": "deque",
+   "tier": "leak",
+   "aliases": [
+    "double-ended queue"
+   ]
+  },
+  {
+   "name": "binary tree",
+   "tier": "npe"
+  },
+  {
+   "name": "binary search tree",
+   "tier": "leak",
+   "aliases": [
+    "bst"
+   ]
+  },
+  {
+   "name": "heap",
+   "tier": "npe",
+   "aliases": [
+    "binary heap"
+   ]
+  },
+  {
+   "name": "priority queue",
+   "tier": "npe"
+  },
+  {
+   "name": "graph",
+   "tier": "off-by-one"
+  },
+  {
+   "name": "adjacency list",
+   "tier": "leak"
+  },
+  {
+   "name": "adjacency matrix",
+   "tier": "leak"
+  },
+  {
+   "name": "trie",
+   "tier": "npe",
+   "aliases": [
+    "prefix tree"
+   ]
+  },
+  {
+   "name": "red-black tree",
+   "tier": "leak",
+   "aliases": [
+    "rb tree",
+    "rbtree"
+   ]
+  },
+  {
+   "name": "AVL tree",
+   "tier": "leak"
+  },
+  {
+   "name": "B-tree",
+   "tier": "npe",
+   "aliases": [
+    "btree"
+   ]
+  },
+  {
+   "name": "B+ tree",
+   "tier": "npe",
+   "aliases": [
+    "b+tree",
+    "bplus tree"
+   ]
+  },
+  {
+   "name": "bloom filter",
+   "tier": "womm"
+  },
+  {
+   "name": "skip list",
+   "tier": "leak",
+   "aliases": [
+    "skiplist"
+   ]
+  },
+  {
+   "name": "segment tree",
+   "tier": "leak"
+  },
+  {
+   "name": "Fenwick tree",
+   "tier": "race",
+   "aliases": [
+    "binary indexed tree"
+   ]
+  },
+  {
+   "name": "rope",
+   "tier": "race"
+  },
+  {
+   "name": "radix tree",
+   "tier": "leak",
+   "aliases": [
+    "patricia tree",
+    "patricia trie",
+    "compact prefix tree"
+   ]
+  },
+  {
+   "name": "suffix tree",
+   "tier": "leak"
+  },
+  {
+   "name": "suffix array",
+   "tier": "leak"
+  },
+  {
+   "name": "splay tree",
+   "tier": "leak"
+  },
+  {
+   "name": "treap",
+   "tier": "race"
+  },
+  {
+   "name": "k-d tree",
+   "tier": "leak",
+   "aliases": [
+    "kd tree",
+    "kd-tree"
+   ]
+  },
+  {
+   "name": "quadtree",
+   "tier": "leak"
+  },
+  {
+   "name": "octree",
+   "tier": "leak"
+  },
+  {
+   "name": "R-tree",
+   "tier": "leak",
+   "aliases": [
+    "rtree"
+   ]
+  },
+  {
+   "name": "interval tree",
+   "tier": "leak"
+  },
+  {
+   "name": "disjoint-set",
+   "tier": "leak",
+   "aliases": [
+    "union-find",
+    "union find",
+    "disjoint set union",
+    "dsu"
+   ]
+  },
+  {
+   "name": "Fibonacci heap",
+   "tier": "race"
+  },
+  {
+   "name": "binomial heap",
+   "tier": "race"
+  },
+  {
+   "name": "pairing heap",
+   "tier": "race"
+  },
+  {
+   "name": "leftist heap",
+   "tier": "race"
+  },
+  {
+   "name": "skew heap",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "soft heap",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "d-ary heap",
+   "tier": "race"
+  },
+  {
+   "name": "min-max heap",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "Brodal queue",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "ring buffer",
+   "tier": "leak",
+   "aliases": [
+    "circular buffer",
+    "circular queue"
+   ]
+  },
+  {
+   "name": "bit array",
+   "tier": "npe",
+   "aliases": [
+    "bitmap",
+    "bitset",
+    "bit vector"
+   ]
+  },
+  {
+   "name": "hash array mapped trie",
+   "tier": "race",
+   "aliases": [
+    "hamt"
+   ]
+  },
+  {
+   "name": "CHAMP",
+   "tier": "heisenbug",
+   "aliases": [
+    "compressed hash-array mapped prefix-tree"
+   ]
+  },
+  {
+   "name": "RRB vector",
+   "tier": "heisenbug",
+   "aliases": [
+    "relaxed radix balanced tree",
+    "rrb tree"
+   ]
+  },
+  {
+   "name": "van Emde Boas tree",
+   "tier": "heisenbug",
+   "aliases": [
+    "veb tree"
+   ]
+  },
+  {
+   "name": "fusion tree",
+   "tier": "bitflip"
+  },
+  {
+   "name": "XArray",
+   "tier": "race"
+  },
+  {
+   "name": "maple tree",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "IDR",
+   "tier": "heisenbug",
+   "aliases": [
+    "idr"
+   ]
+  },
+  {
+   "name": "kfifo",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "hlist",
+   "tier": "heisenbug",
+   "aliases": [
+    "hash list"
+   ]
+  },
+  {
+   "name": "plist",
+   "tier": "heisenbug",
+   "aliases": [
+    "priority sorted list"
+   ]
+  },
+  {
+   "name": "LSM tree",
+   "tier": "leak",
+   "aliases": [
+    "log-structured merge-tree",
+    "log structured merge tree"
+   ]
+  },
+  {
+   "name": "Merkle tree",
+   "tier": "npe",
+   "aliases": [
+    "hash tree"
+   ]
+  },
+  {
+   "name": "cuckoo hash table",
+   "tier": "leak",
+   "aliases": [
+    "cuckoo hashing"
+   ]
+  },
+  {
+   "name": "cuckoo filter",
+   "tier": "leak"
+  },
+  {
+   "name": "quotient filter",
+   "tier": "race"
+  },
+  {
+   "name": "xor filter",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "count-min sketch",
+   "tier": "leak"
+  },
+  {
+   "name": "HyperLogLog",
+   "tier": "leak"
+  },
+  {
+   "name": "zipper",
+   "tier": "race"
+  },
+  {
+   "name": "finger tree",
+   "tier": "race"
+  },
+  {
+   "name": "gap buffer",
+   "tier": "race"
+  },
+  {
+   "name": "piece table",
+   "tier": "race"
+  },
+  {
+   "name": "scapegoat tree",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "2-3 tree",
+   "tier": "race"
+  },
+  {
+   "name": "2-3-4 tree",
+   "tier": "race"
+  },
+  {
+   "name": "Judy array",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "adaptive radix tree",
+   "tier": "heisenbug",
+   "aliases": [
+    "art"
+   ]
+  },
+  {
+   "name": "Bw-tree",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "B-epsilon tree",
+   "tier": "race",
+   "aliases": [
+    "bε-tree",
+    "fractal tree"
+   ]
+  },
+  {
+   "name": "wavelet tree",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "Cartesian tree",
+   "tier": "race"
+  },
+  {
+   "name": "BK-tree",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "DAWG",
+   "tier": "leak",
+   "aliases": [
+    "directed acyclic word graph"
+   ]
+  },
+  {
+   "name": "XOR linked list",
+   "tier": "race"
+  },
+  {
+   "name": "unrolled linked list",
+   "tier": "race"
+  },
+  {
+   "name": "link-cut tree",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "Euler tour tree",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "top tree",
+   "tier": "race"
+  },
+  {
+   "name": "order-statistic tree",
+   "tier": "race"
+  },
+  {
+   "name": "sparse table",
+   "tier": "heisenbug"
+  },
+  {
+   "name": "radix heap",
+   "tier": "heisenbug"
+  }
+ ]
+}

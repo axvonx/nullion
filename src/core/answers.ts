@@ -14,6 +14,16 @@ export interface AnswerSet {
   entries(questionId: string): readonly CategoryEntry[];
 }
 
+/**
+ * Where an answer set comes from. Categories load lazily, so a source builds a set for just the questions a
+ * game will ask (the day's 7, or the whole pool for Endless).
+ */
+export interface AnswerSetSource {
+  id: string;
+  label: string;
+  load(questions: readonly Question[]): Promise<AnswerSet>;
+}
+
 export function buildAnswerSet(id: string, label: string, terms: readonly Term[], questions: readonly Question[]): AnswerSet {
   const byTag = new Map<string, CategoryEntry[]>();
   for (const t of terms) {

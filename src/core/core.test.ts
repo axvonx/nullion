@@ -130,8 +130,9 @@ describe('daily selection', () => {
 
 describe('pilot answer set', () => {
   it('builds, and keeps the deep answers the user named', async () => {
-    const { PILOT_TERMS } = await import('../data/pilot');
-    const set = buildAnswerSet('pilot', 'Pilot', PILOT_TERMS, SAMPLE_QUESTIONS);
+    const { loadPilotTerms } = await import('../data/pilot');
+    const terms = await loadPilotTerms(SAMPLE_QUESTIONS.map((q) => q.tag));
+    const set = buildAnswerSet('pilot', 'Pilot', terms, SAMPLE_QUESTIONS);
     for (const [q, g] of [['data-structure', 'maple tree'], ['data-structure', 'xarray'], ['lock', 'fissile lock'], ['lock', 'cna lock']] as const) {
       expect(set.check(q, g).kind).toBe('accepted');
     }

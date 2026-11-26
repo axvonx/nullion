@@ -31,7 +31,7 @@ The user's time is the scarce resource, so per category the only manual work sho
 
 ### Stages
 
-0. **Scorer fixes (small, do first).**
+0. **Scorer fixes. Done 2026-11-26:** absolute cut-offs, robust per-category normalisation, per-category lazy files. Spinlock is now Off-by-one, and flags dropped from 7 to 3. Still to do: re-check the cut-offs on the first new category before freezing them.
    - Tier by absolute cut-offs on the normalized score instead of fixed shares of the list. Shares depend on what's in the list: mining hundreds of obscure candidates would push spinlock deeper still.
    - Calibrate the cut-offs on the two pilot categories plus one new category, then freeze them.
    - Split the generated data per category (`src/data/generated/<id>.json`) and fetch only the day's 7 files. A static import of every category won't scale past a few dozen.
