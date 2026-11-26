@@ -566,35 +566,35 @@ export class TitleLogo {
       ctx.drawImage(this.scratch, 0, sy2, LOGO_W, 2, -dx1, sy2, LOGO_W, 2);
     }
 
-    // 6. Post-pass: Mirror-flip — flips "nullion" horizontally, vertically, and both ways across its center!
-    // Because n/u↔o/n and lli mirror cleanly across the middle l, it reads as an eerie symmetrical reflection.
+    // 6. Post-pass: Mirror-flip — reflects one half of "nullion" onto the other across the middle 'l':
+    // left→right ("nulllun" with the right half mirrored) and right→left ("noilion" with the left half mirrored).
     if (b && b.kind === 'mirror-flip') {
       this.scratchCtx.clearRect(0, 0, LOGO_W, LOGO_H);
       this.scratchCtx.drawImage(this.canvas, 0, 0);
-      // 3-beat flip sequence: horizontal → both ways (H+V) → vertical (order varies by seed).
-      const phase = p < 0.34 ? 0 : p < 0.68 ? 1 : 2;
-      const rev = hash(b.seed + 4) > 0.5;
-      const flipH = phase === 1 || (rev ? phase === 2 : phase === 0);
-      const flipV = phase === 1 || (rev ? phase === 0 : phase === 2);
+      const midX = Math.floor(LOGO_W / 2);
+      const firstLeft = hash(b.seed + 4) > 0.5;
+      const mirrorLeftToRight = p < 0.5 ? firstLeft : !firstLeft;
       ctx.clearRect(0, 0, LOGO_W, LOGO_H);
-      // Faint unflipped ghost behind so the mirror axis reads clearly
-      ctx.save();
-      ctx.globalAlpha = 0.25;
-      ctx.drawImage(this.scratch, 0, 0);
-      ctx.restore();
-      // Main mirrored wordmark around the glyph box center
-      const midX = PAD_X + (WORD.length * CELL_W + (WORD.length - 1) * GAP) / 2;
-      const midY = PAD_Y + CELL_H / 2;
-      ctx.save();
-      ctx.translate(midX, midY);
-      ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
-      ctx.translate(-midX, -midY);
-      ctx.drawImage(this.scratch, 0, 0);
-      ctx.restore();
-      // Crisp 1px amber axis tick at the center of the middle 'l'
-      ctx.fillStyle = 'rgba(255, 176, 0, 0.7)';
-      if (flipH) ctx.fillRect(Math.round(midX), PAD_Y - 2, 1, CELL_H + 4);
-      if (flipV) ctx.fillRect(PAD_X - 2, Math.round(midY), LOGO_W - PAD_X * 2 + 4, 1);
+      if (mirrorLeftToRight) {
+        // Keep left half (including center column), mirror it onto the right half ("nulllun")
+        ctx.drawImage(this.scratch, 0, 0, midX + 1, LOGO_H, 0, 0, midX + 1, LOGO_H);
+        ctx.save();
+        ctx.translate(LOGO_W, 0);
+        ctx.scale(-1, 1);
+        ctx.drawImage(this.scratch, 0, 0, midX, LOGO_H, 0, 0, midX, LOGO_H);
+        ctx.restore();
+      } else {
+        // Keep right half (including center column), mirror it onto the left half ("noilion")
+        ctx.drawImage(this.scratch, midX, 0, LOGO_W - midX, LOGO_H, midX, 0, LOGO_W - midX, LOGO_H);
+        ctx.save();
+        ctx.translate(LOGO_W, 0);
+        ctx.scale(-1, 1);
+        ctx.drawImage(this.scratch, midX + 1, 0, LOGO_W - (midX + 1), LOGO_H, midX + 1, 0, LOGO_W - (midX + 1), LOGO_H);
+        ctx.restore();
+      }
+      // Subtle 1px vertical amber mirror seam down the middle 'l'
+      ctx.fillStyle = 'rgba(255, 176, 0, 0.72)';
+      ctx.fillRect(midX, PAD_Y - 2, 1, CELL_H + 4);
     }
 
     // 7. Post-pass: Null pointer black void slice

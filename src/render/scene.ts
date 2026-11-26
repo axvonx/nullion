@@ -1086,16 +1086,20 @@ export class Scene {
       const p = (now - tb.start) / tb.dur;
       switch (tb.kind) {
         case 'mirror-flip': {
-          // Mirror shimmer across the live sky (horizontal + vertical reflection matching the wordmark flip).
+          // Half-mirror shimmer across the vertical centerline of the live sky (left→right, then right→left).
           this.scratchCtx.drawImage(this.canvas, 0, 0);
-          const phase = p < 0.34 ? 0 : p < 0.68 ? 1 : 2;
-          const flipH = phase !== 2;
-          const flipV = phase !== 0;
+          const mid = Math.floor(W / 2);
+          const firstLeft = hash(tb.seed + 4) > 0.5;
+          const mirrorLeftToRight = p < 0.5 ? firstLeft : !firstLeft;
           ctx.save();
-          ctx.globalAlpha = 0.28 * Math.sin(p * Math.PI);
-          ctx.translate(flipH ? W : 0, flipV ? H : 0);
-          ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
-          ctx.drawImage(this.scratch, 0, 0);
+          ctx.globalAlpha = 0.34 * Math.sin(p * Math.PI);
+          ctx.translate(W, 0);
+          ctx.scale(-1, 1);
+          if (mirrorLeftToRight) {
+            ctx.drawImage(this.scratch, 0, 0, mid, H, 0, 0, mid, H);
+          } else {
+            ctx.drawImage(this.scratch, mid, 0, W - mid, H, mid, 0, W - mid, H);
+          }
           ctx.restore();
           break;
         }
