@@ -830,7 +830,73 @@ export class CritterSystem {
       ctx.fillRect(x + dx, y + dy, w, h);
     };
 
-    switch (layerId) {
+    // Second species per layer: odd variants draw an alternate creature so each layer's fauna isn't uniform.
+    const altDone = ((): boolean => {
+      if (variant % 2 !== 1) return false;
+      const tick = Math.floor(t * 8 + c.phase) % 2;
+      switch (layerId) {
+        case 'application': // butterfly
+          px(0, tick ? 0 : 1, 3, 3, '#ff9fd0');
+          px(4, tick ? 0 : 1, 3, 3, '#ffd166');
+          px(3, 1, 1, 4, '#131118');
+          return true;
+        case 'internet': // tiny drone with blinking light
+          px(1, 1, 5, 2, '#ffffff');
+          px(0, 0, 2, 1, '#5b8ee6');
+          px(5, 0, 2, 1, '#5b8ee6');
+          px(3, 3, 1, 1, tick ? '#e6a23c' : '#59c08a');
+          return true;
+        case 'browser': // arrow cursor
+          px(0, 0, 1, 6, '#ffffff');
+          px(1, 1, 1, 4, '#ffffff');
+          px(2, 2, 1, 2, '#ffffff');
+          px(3, 3, 1, 1, '#ffffff');
+          px(-1, -1, 1, 8, '#2a3358');
+          return true;
+        case 'bytecode': // opcode byte
+          px(0, 0, 6, 4, '#333366');
+          px(1, 1, 1, 2, '#ffcc33');
+          px(3, 1, 2, 2, '#66cc99');
+          return true;
+        case 'jit': // flame wisp
+          px(2, 3, 3, 3, '#ff6633');
+          px(3, 1, 1, 3, '#ffff66');
+          px(tick ? 2 : 4, 0, 1, 2, '#ffcc33');
+          return true;
+        case 'linker': // brass plug
+          px(0, 1, 4, 3, '#aa5500');
+          px(4, 2, 3, 1, '#ffff55');
+          px(0, 0, 2, 1, '#ffffaa');
+          return true;
+        case 'kernel-entry': // padlock
+          px(1, 0, 4, 2, '#aaaaaa');
+          px(0, 2, 6, 4, '#55ffff');
+          px(2, 3, 2, 2, '#000000');
+          return true;
+        case 'kernel-arch': // lightning bolt
+          px(3, 0, 2, 2, '#ffff55');
+          px(2, 2, 2, 2, '#ffff55');
+          px(3, 4, 2, 2, '#ff5555');
+          return true;
+        case 'bus-fabric': // data packet
+          px(0, 1, 6, 3, '#ffffff');
+          px(1, 2, 4, 1, '#ff55ff');
+          return true;
+        case 'uarch': // speculative dot pair
+          px(0, 1, 3, 3, '#aaaaaa');
+          px(4, tick ? 0 : 2, 3, 3, '#555555');
+          return true;
+        case 'cmos': // electron-hole pair
+          px(0, 1, 3, 3, '#ffffff');
+          px(4, 1, 3, 3, '#24989c');
+          px(1, 2, 1, 1, '#000000');
+          return true;
+        default:
+          return false;
+      }
+    })();
+
+    if (!altDone) switch (layerId) {
       // Bespoke Endless sprites for Zones A–F (distinct silhouettes instead of reusing Daily sprites!)
       case 'internet': {
         // Crisp white paper-plane packet swallow with trailing cyan packet dot

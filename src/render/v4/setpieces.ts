@@ -114,7 +114,7 @@ function bandSpan(b: Band, id: LayerId): { top: number; bot: number; mid: number
   return { top: R(top), bot: R(bot), mid: R(top + h * 0.5), h: R(h) };
 }
 
-export function drawSetpiece(ctx: Ctx, b: Band, id: LayerId, t: number) {
+function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
   const W = b.w;
   const cx = R(W / 2);
   const { top, bot, mid: cy, h: H } = bandSpan(b, id);
@@ -984,4 +984,249 @@ export function drawSetpiece(ctx: Ctx, b: Band, id: LayerId, t: number) {
       break;
     }
   }
+}
+
+/** Second pass: small ambient animated details layered over each setpiece so no region of a band reads as static or empty. */
+function drawSetpieceDetail(ctx: Ctx, b: Band, id: LayerId, t: number) {
+  const W = b.w;
+  const cx = R(W / 2);
+  const { top, bot, mid: cy, h: H } = bandSpan(b, id);
+  /** Evenly spaced blinking lamps along a horizontal line. */
+  const lamps = (y: number, n: number, on: string, off: string, speed = 2) => {
+    for (let k = 0; k < n; k++) {
+      const x = R(((k + 0.5) / n) * W);
+      rect(ctx, x - 1, y, 2, 2, Math.floor(t * speed + k * 1.7) % 3 === 0 ? on : off);
+    }
+  };
+  /** Particles drifting up through the band, wrapped. */
+  const rise = (n: number, speed: number, seed: number, col: string, drift = 3) => {
+    for (let k = 0; k < n; k++) {
+      const x = hash(seed + k * 7) * W + Math.sin(t * 0.8 + k) * drift;
+      const y = bot - mod(t * speed + hash(seed + k * 13) * H, H);
+      rect(ctx, x, y, 1, 2, col);
+    }
+  };
+  const fall = (n: number, speed: number, seed: number, col: string) => {
+    for (let k = 0; k < n; k++) {
+      const x = hash(seed + k * 7) * W;
+      const y = top + mod(t * speed + hash(seed + k * 13) * H, H);
+      rect(ctx, x, y, 2, 3, col);
+    }
+  };
+
+  switch (id) {
+    case 'application': {
+      // A hot-air balloon drifting across the sunlit sky.
+      const bx = mod(t * 6 + W * 0.3, W + 40) - 20;
+      const by = top + 30 + R(Math.sin(t * 0.5) * 4);
+      disc(ctx, bx, by, 8, '#e0605e');
+      rect(ctx, bx - 8, by - 2, 16, 3, '#f2c14e');
+      rect(ctx, bx - 3, by + 10, 6, 4, '#8a5a2a');
+      line(ctx, bx - 5, by + 7, bx - 2, by + 10, '#55607a');
+      line(ctx, bx + 5, by + 7, bx + 2, by + 10, '#55607a');
+      break;
+    }
+    case 'bytecode':
+      fall(8, 14, 3, '#ffcc33');
+      break;
+    case 'jit':
+      rise(10, 20, 5, '#ffcc33');
+      break;
+    case 'runtime': {
+      // Dead grey blocks tumbling toward the incinerator while freed bytes drift up.
+      for (let k = 0; k < 4; k++) {
+        const x = R(W * (0.2 + k * 0.2));
+        const y = top + 30 + mod(t * 16 + k * 40, Math.max(40, H - 50));
+        rect(ctx, x, y, 7, 5, '#555588');
+        rect(ctx, x, y, 7, 1, '#9999cc');
+      }
+      rise(6, 9, 21, '#9999cc', 2);
+      break;
+    }
+    case 'libraries': {
+      // A rolling library ladder sliding along a top rail.
+      const lx = R(mod(t * 10, W - 40) + 10);
+      rect(ctx, 0, top + 4, W, 2, '#aa5500');
+      rect(ctx, lx, top + 6, 2, 34, '#ffaa55');
+      rect(ctx, lx + 10, top + 6, 2, 34, '#ffaa55');
+      for (let y = top + 12; y < top + 38; y += 7) rect(ctx, lx, y, 12, 1, '#aa5500');
+      break;
+    }
+    case 'linker':
+      lamps(top + 12, 14, '#ffff55', '#555555', 3);
+      lamps(bot - 16, 14, '#55aaaa', '#555555', 2);
+      break;
+    case 'userspace': {
+      // An advertising blimp crosses the night sky.
+      const bx = mod(t * 9 + W * 0.6, W + 80) - 40;
+      const by = top + 22;
+      rect(ctx, bx - 16, by, 32, 9, '#555555');
+      rect(ctx, bx - 14, by - 2, 28, 2, '#aaaaaa');
+      for (let k = 0; k < 6; k++) if (Math.floor(t * 3 + k) % 2 === 0) rect(ctx, bx - 12 + k * 4, by + 3, 2, 3, '#ffff55');
+      rect(ctx, bx + 14, by + 3, 4, 3, '#aaaaaa');
+      break;
+    }
+    case 'kernel-entry': {
+      for (const sx of [24, W - 32]) {
+        const on = Math.floor(t * 2) % 2 === 0;
+        rect(ctx, sx, top + 10, 8, 6, on ? '#ffff55' : '#aa5500');
+        const sa = Math.sin(t * 1.2 + sx) * 14;
+        line(ctx, sx + 4, top + 16, sx + 4 + sa, top + 70, on ? '#00aaaa' : '#005555');
+      }
+      break;
+    }
+    case 'kernel':
+      rise(14, 26, 33, '#ffaa00', 5);
+      break;
+    case 'kernel-arch':
+      lamps(top + 12, 10, '#ff5555', '#550000', 4);
+      lamps(bot - 14, 10, '#ffff55', '#550000', 3);
+      break;
+    case 'drivers': {
+      // Corner cooling fans spinning, plus blinking LEDs along the rails.
+      for (const [fx, fy] of [[26, top + 24], [W - 26, top + 24], [26, bot - 24], [W - 26, bot - 24]] as const) {
+        ring(ctx, fx, fy, 10, '#55ffff');
+        for (let k = 0; k < 3; k++) {
+          const a = t * 9 + (k * TAU) / 3;
+          line(ctx, fx, fy, fx + Math.cos(a) * 9, fy + Math.sin(a) * 9, '#ff55ff');
+        }
+      }
+      lamps(top + 3, 16, '#ffffff', '#55ffff', 4);
+      break;
+    }
+    case 'bus-fabric':
+      for (const sx of [0, W - 10]) {
+        for (let k = 0; k < 8; k++) {
+          const y = top + 14 + k * Math.floor((H - 28) / 8);
+          rect(ctx, sx, y, 10, 3, Math.floor(t * 5 + k) % 4 === 0 ? '#ffffff' : '#ff55ff');
+        }
+      }
+      break;
+    case 'firmware': {
+      // Dim hex-digit columns scrolling down the vault wall edges and a POST lamp strip.
+      for (const sx of [14, W - 22]) {
+        for (let y = top + 8; y < bot - 8; y += 8) {
+          const on = hash(Math.floor(t * 2) + y * 3 + sx) > 0.5;
+          rect(ctx, sx, y, 3, 5, on ? '#aaaaaa' : '#555555');
+          rect(ctx, sx + 4, y + 1, 2, 3, on ? '#555555' : '#aaaaaa');
+        }
+      }
+      lamps(top + 4, 12, '#ffffff', '#555555', 2);
+      break;
+    }
+    case 'vmm': {
+      // A flickering ghost copy of the central chassis, as if the VM were being duplicated.
+      if (Math.floor(t * 3) % 4 === 0) {
+        frame(ctx, cx - 53, cy - 34, 112, 74, '#555555');
+      }
+      rise(6, 8, 41, '#aaaaaa', 2);
+      break;
+    }
+    case 'ring-1': {
+      // A reflection glint racing around the nested mirror frames.
+      const q = mod(t * 0.5, 1) * 4;
+      const fw = W - 24;
+      const fh = H - 28;
+      const side = Math.floor(q);
+      const f = q - side;
+      const gx = side === 0 ? 12 + f * fw : side === 1 ? 12 + fw : side === 2 ? 12 + fw - f * fw : 12;
+      const gy = side === 0 ? cy - fh / 2 : side === 1 ? cy - fh / 2 + f * fh : side === 2 ? cy + fh / 2 : cy + fh / 2 - f * fh;
+      rect(ctx, gx - 2, gy - 1, 5, 3, '#ffffff');
+      break;
+    }
+    case 'ept':
+      for (let k = 0; k < 6; k++) {
+        const x = 24 + k * Math.floor((W - 48) / 6);
+        const v = Math.floor(t * 2 + k * 3) % 4;
+        rect(ctx, x, cy - 4, 10, 2, '#555555');
+        rect(ctx, x + v * 2, cy - 4, 2, 2, '#ffffff');
+      }
+      break;
+    case 'ring-2': {
+      // Static extra frozen dust (SMM never animates).
+      for (let k = 0; k < 24; k++) {
+        const x = hash(k * 29 + 5) * W;
+        const y = top + hash(k * 31 + 9) * H;
+        rect(ctx, x, y, 1, 1, k % 3 === 0 ? '#c0c0c0' : '#404040');
+      }
+      break;
+    }
+    case 'smram':
+      for (let x = 17; x < W - 17; x += 44) {
+        if (Math.abs(x - cx) < 42) continue;
+        const s = 0.5 + 0.5 * Math.sin(t * 0.9 + x);
+        rect(ctx, x + 5, cy, 3, 3, s > 0.7 ? '#ffffff' : '#808080');
+      }
+      break;
+    case 'me-minix-user': {
+      // Scrolling dot-matrix ticker across the bottom of the chip cavity.
+      const off = Math.floor(t * 8) % 6;
+      for (let x = 24 - off; x < W - 24; x += 6) if (hash(x + off * 0) > 0.4) rect(ctx, x, bot - 8, 3, 3, '#aaaaaa');
+      break;
+    }
+    case 'me-minix-kern': {
+      const a = t * 1.4;
+      rect(ctx, cx + Math.cos(a) * 36 - 2, cy + Math.sin(a) * 36 - 2, 4, 4, '#ffffff');
+      rect(ctx, cx + Math.cos(a + Math.PI) * 36 - 2, cy + Math.sin(a + Math.PI) * 36 - 2, 4, 4, '#aaaaaa');
+      break;
+    }
+    case 'uarch': {
+      for (let k = 0; k < 5; k++) {
+        const x = 12 + mod(t * 30 + k * 40, Math.max(40, cx - 40));
+        rect(ctx, x, cy - 1, 3, 3, '#ffffff');
+      }
+      for (let k = 0; k < 8; k++) rect(ctx, 14 + k * 6, bot - 18, 4, 8, k < Math.floor(mod(t * 3, 9)) ? '#aaaaaa' : '#555555');
+      break;
+    }
+    case 'rtl': {
+      // Scrolling timing-diagram waveforms in the top and bottom lanes.
+      for (const [wy, ph] of [[top + 8, 0], [bot - 16, 2]] as const) {
+        for (let x = 8; x < W - 8; x += 4) {
+          const hi = ((x >> 2) + Math.floor(t * 6) + ph) % 3 === 0;
+          rect(ctx, x, wy + (hi ? 0 : 5), 4, 1, '#aaaaaa');
+        }
+      }
+      break;
+    }
+    case 'cmos': {
+      for (let k = 0; k < 12; k++) {
+        const x = mod(t * (12 + (k % 3) * 6) + k * 37, W);
+        const y = top + 22 + (k % 3) * 44;
+        rect(ctx, x, y, 2, 2, k % 2 ? '#ffffff' : '#e88438');
+      }
+      break;
+    }
+    case 'litho':
+      for (let k = 0; k < 16; k++) {
+        if (Math.floor(t * 2 + k * 1.3) % 3 === 0) {
+          const x = hash(k * 17 + 3) * W;
+          const y = top + hash(k * 23 + 7) * H;
+          rect(ctx, x, y, 1, 3, '#ffffff');
+          rect(ctx, x - 1, y + 1, 3, 1, '#aaaaaa');
+        }
+      }
+      break;
+    case 'bandgap': {
+      for (let k = 0; k < 6; k++) {
+        const x = mod(t * (14 + k * 3) + k * 61, W);
+        rect(ctx, x, top + 18 + (k % 2) * 6, 2, 2, '#ffffff');
+        rect(ctx, W - x, bot - 22 - (k % 2) * 6, 2, 2, '#aaaaaa');
+      }
+      break;
+    }
+    case 'landauer':
+      for (let k = 0; k < 10; k++) {
+        if (Math.floor(t * 0.8 + k * 2.1) % 4 === 0) {
+          rect(ctx, hash(k * 41 + 1) * W, top + hash(k * 43 + 2) * H, 2, 2, '#aaaaaa');
+        }
+      }
+      break;
+    default:
+      break;
+  }
+}
+
+export function drawSetpiece(ctx: Ctx, b: Band, id: LayerId, t: number) {
+  drawSetpieceBase(ctx, b, id, t);
+  drawSetpieceDetail(ctx, b, id, t);
 }
