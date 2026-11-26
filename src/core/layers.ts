@@ -192,7 +192,7 @@ export function layerAt(depth: number, mode: StackMode = 'daily'): Layer {
 }
 
 export function layerById(id: LayerId, mode: StackMode = 'daily'): Layer {
-  const l = layersFor(mode).find((x) => x.id === id) ?? ENDLESS_LAYERS.find((x) => x.id === id);
+  const l = layersFor(mode).find((x) => x.id === id);
   enforce(l, `unknown layer ${id}`);
   return l;
 }

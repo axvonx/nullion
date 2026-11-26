@@ -254,7 +254,12 @@ export class Hud {
     });
 
     this.els.copy!.addEventListener('click', () => {
-      void navigator.clipboard?.writeText(this.shareText).then(
+      // No Clipboard API (insecure context, old browser) is an expected condition: say so rather than do nothing.
+      if (!navigator.clipboard) {
+        this.els.copy!.textContent = 'Copy failed';
+        return;
+      }
+      void navigator.clipboard.writeText(this.shareText).then(
         () => {
           this.els.copy!.textContent = 'Copied ✓';
           window.setTimeout(() => {
