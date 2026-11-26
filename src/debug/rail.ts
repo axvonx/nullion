@@ -188,7 +188,6 @@ export function mountRail(h: DebugHooks) {
       const f = TIERS[tier].frames;
       later(t, () => {
         depth += f;
-        h.hud.demoLanded(tier, name, f);
         h.scene.diveTo(depth, tier, f, true, () => h.hud.demoReveal(tier, name, f));
       });
       t += diveLeadMs(tier) + diveMs(f) + REVEAL_MS + 600;

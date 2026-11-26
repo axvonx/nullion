@@ -173,7 +173,6 @@ body {
 .feedback { display: block; min-height: 1.15em; margin-top: 4px; color: var(--dim); font-size: 17px; }
 .feedback.fault { color: var(--fault); }
 .feedback.ok { color: var(--ok); }
-.landed { min-height: 1.15em; font-size: 17px; }
 
 .tier { font-family: var(--display); font-size: 11px; }
 .tier-off-by-one, [data-tier='off-by-one'] { color: var(--t-offbyone); }
@@ -188,7 +187,7 @@ body {
 .wordmark { font-family: var(--display); font-size: 13px; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 4px; }
 .headline { color: var(--signal); font-size: 24px; }
 /* With the result card up, the card is the whole console: the call, prompt and answer line step aside. */
-.console:has(.result:not([hidden])) :is(.call, .plain, .prompt-line, .feedback, .landed, .bios-footer) { display: none; }
+.console:has(.result:not([hidden])) :is(.call, .plain, .prompt-line, .feedback, .bios-footer) { display: none; }
 .console:has(.result:not([hidden])) { max-height: calc(100dvh - 72px); overflow-y: auto; }
 
 /*
@@ -245,7 +244,6 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 
 .scroll-mode .prompt-line,
 .scroll-mode .feedback,
-.scroll-mode .landed,
 .scroll-mode .call,
 .scroll-mode .plain,
 .scroll-mode .wd-secs,
@@ -327,7 +325,6 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .console[data-form='gui'] .feedback { color: #4a4656; }
 .console[data-form='gui'] .feedback.fault { color: #b0102e; }
 .console[data-form='gui'] .feedback.ok { color: #0b6e35; }
-.console[data-form='gui'] .landed { color: #16141c; }
 .console[data-form='gui'] .tier { background: #16141c; padding: 1px 4px; }
 .console[data-form='gui'] .result pre, .console[data-form='gui'] .headline { color: #1d3f8f; }
 .console[data-form='gui'] .bt-row { color: #16141c; }
@@ -394,7 +391,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .console[data-form='raw'] .watchdog-fill { background: #e8eeff; }
 
 /* Debug demos show the prompt even in scroll mode. */
-.demo.scroll-mode .call, .demo.scroll-mode .plain, .demo.scroll-mode .landed, .demo.scroll-mode .feedback,
+.demo.scroll-mode .call, .demo.scroll-mode .plain, .demo.scroll-mode .feedback,
 .demo.scroll-mode .prompt-line, .demo.scroll-mode .watchdog { display: block; }
 .demo.scroll-mode .prompt-line { display: flex; }
 .demo.scroll-mode .scroll-hint { display: none; }

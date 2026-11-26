@@ -148,7 +148,6 @@ export class Hud {
         </form>
         <div class="bios-footer" aria-hidden="true"><b>F10</b> Save · <b>Enter</b> Select · <b>ESC</b> Exit</div>
         <output class="feedback" data-el="feedback" aria-live="polite"></output>
-        <div class="landed" data-el="landed" aria-live="polite"></div>
         <div class="result" data-el="result" hidden>
           <div class="wordmark">nullion <span data-el="puzzleNo"></span></div>
           <div class="headline" data-el="headline"></div>
@@ -294,7 +293,6 @@ export class Hud {
     this.els.result!.hidden = true;
     this.els.copy!.textContent = 'Copy result';
     this.els.feedback!.textContent = '';
-    this.els.landed!.textContent = '';
     this.els.metaText!.textContent = `#${g.puzzle}`;
     this.els.meta!.title = `Puzzle #${g.puzzle} · ${dateLabel}`;
     const timerText = g.opts.timer ? `${Math.round(ANSWER_MS / 1000)}s each` : 'untimed';
@@ -423,7 +421,6 @@ export class Hud {
         this.input.disabled = false;
         this.input.focus();
         this.els.feedback!.textContent = '';
-        this.els.landed!.textContent = '';
       }
     } else if (p.kind === 'between') {
       this.input.disabled = true;
@@ -498,7 +495,6 @@ export class Hud {
   bark() {
     replay(this.els.console!, 'bark');
     this.revealTimeout();
-    this.els.landed!.textContent = 'watchdog: round timed out, no frames pushed';
   }
 
   /**
@@ -712,7 +708,6 @@ export class Hud {
         const t = TIERS[res.entry.tier];
         fb.className = 'feedback ok';
         fb.textContent = res.corrected ? `read as '${res.entry.name}'` : '';
-        this.showLanded(t.id, res.entry.name, res.pushed, res.entry.note);
         // The reveal opens from update() once the dive has landed (the round then waits on its button).
         if (res.pushed > 0) scene.diveTo(g.depth, t.id, res.pushed);
         else scene.react(t.id);
@@ -723,19 +718,6 @@ export class Hud {
         throw new Error(`Hud: unhandled submit result ${JSON.stringify(unknown)}`);
       }
     }
-  }
-
-
-  private showLanded(tier: TierId, name: string, pushed: number, note?: string) {
-    const t = TIERS[tier];
-    this.els.landed!.innerHTML = '';
-    const tierEl = document.createElement('span');
-    tierEl.className = `tier tier-${t.id}`;
-    tierEl.append(tierIcon(t.id), t.name);
-    const rest = document.createElement('span');
-    rest.textContent = pushed ? ` · ${name} · +${pushed}. ${note ?? t.blurb}` : ` · ${name} (logged; only your first answer pushes frames)`;
-    this.els.landed!.append(tierEl, rest);
-    replay(this.els.landed!, 'settle-in');
   }
 
   /** End of day: the result card, straight away (no replay): the day's backtrace, most recent frame first. */
@@ -836,14 +818,9 @@ export class Hud {
     this.ended = false;
     this.els.result!.hidden = true;
     this.els.feedback!.textContent = '';
-    this.els.landed!.textContent = '';
     this.input.disabled = true;
     this.callKey = '';
     this.showCall(call, prompt, Infinity);
-  }
-
-  demoLanded(tier: TierId, name: string, frames: number) {
-    this.showLanded(tier, name, frames);
   }
 
   /**
