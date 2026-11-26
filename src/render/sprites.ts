@@ -100,11 +100,8 @@ export const SPRITES = {
   ),
   block: sprite(['XXXXXXXX', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'XXXXXXXX'], 4, 6),
   underscore: sprite(['XXXXXXXXX', 'X.......X', 'X.......X', 'XXXXXXXXX'], 4, -4),
-  biosbar: sprite(
-    ['.'.repeat(34), '.'.repeat(34), '.'.repeat(34), '.'.repeat(34), '.'.repeat(34), '.'.repeat(34), '.'.repeat(34)],
-    17,
-    3,
-  ),
+  /** Firmware's cursor: a BIOS-highlighted cell, in the same box as every other cursor form. */
+  bioscell: sprite(['XXXXXXXX', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'XXXXXXXX', 'X......X', 'XXXXXXXX'], 4, 6),
   bit0: outlined(BIT_ZERO, 4, 5),
   bit1: outlined(BIT_ONE, 4, 5),
   /** v1 art style's round bit, kept so the old look stays comparable. */

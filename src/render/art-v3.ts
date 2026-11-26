@@ -768,6 +768,12 @@ function pick(k: Kit, h: number): Prop {
   return k.props[k.props.length - 1]!;
 }
 
+/**
+ * Where near-plane props were drawn this frame, as flat [x, y, x, y, ...] in scene pixels. The scene clears it
+ * every frame and uses it to find on-screen "entities" for tier reactions (leaked copies, racing jiggle).
+ */
+export const PROP_SPOTS: number[] = [];
+
 const INDEX: Record<LayerId, number> = Object.fromEntries(LAYERS.map((l, i) => [l.id, i])) as Record<LayerId, number>;
 
 /** World pixels over which a layer's cells borrow props from its neighbour. */
@@ -814,6 +820,7 @@ function field(ctx: Ctx, b: Band, id: LayerId, o: FieldOpts) {
         const prop = pick(use, hash(s + 5));
         if (o.far && TEXT_PROPS.has(prop)) continue;
         prop(ctx, x, yy, s, b);
+        if (!o.far) PROP_SPOTS.push(x, yy);
       }
     },
     30,

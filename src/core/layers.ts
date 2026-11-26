@@ -28,14 +28,17 @@ export interface Layer {
 
 export const LAYERS: readonly Layer[] = [
   { id: 'application', name: 'Application', from: 0 },
-  { id: 'runtime', name: 'Runtime', from: 5 },
-  { id: 'libraries', name: 'Libraries', from: 10 },
-  { id: 'userspace', name: 'OS userspace', from: 16 },
-  { id: 'kernel', name: 'Kernel', from: 22, boundary: 'syscall' },
-  { id: 'drivers', name: 'Drivers', from: 32 },
-  { id: 'firmware', name: 'Firmware', from: 44 },
-  { id: 'ring-1', name: 'Ring −1', from: 56, boundary: 'VM exit' },
-  { id: 'ring-2', name: 'Ring −2', from: 70, boundary: 'SMI' },
+  { id: 'runtime', name: 'Runtime', from: 3 },
+  { id: 'libraries', name: 'Libraries', from: 6 },
+  { id: 'userspace', name: 'OS userspace', from: 10 },
+  // A typical day (median ~15 frames in a 2026-11-26 player-profile simulation) just crosses the syscall boundary.
+  { id: 'kernel', name: 'Kernel', from: 15, boundary: 'syscall' },
+  { id: 'drivers', name: 'Drivers', from: 22 },
+  { id: 'firmware', name: 'Firmware', from: 31 },
+  // A day of mostly deep cuts reaches the hypervisor.
+  { id: 'ring-1', name: 'Ring −1', from: 42, boundary: 'VM exit' },
+  // 58 > 7 × Heisenbug (56): Ring −2 needs at least one Bit Flip.
+  { id: 'ring-2', name: 'Ring −2', from: 58, boundary: 'SMI' },
   { id: 'ring-3', name: 'Ring −3', from: MAX_DEPTH, boundary: 'ME' },
 ];
 

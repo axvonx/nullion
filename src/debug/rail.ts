@@ -1,4 +1,7 @@
+import { LAYERS } from '../core/layers';
 import { TIERS, TIER_IDS, type TierId } from '../core/tiers';
+import { diveMs } from '../render/scene';
+import { FORM_BY_LAYER, FORM_IDS, FORM_NAMES } from '../ui/forms';
 import type { DebugHooks } from './menu';
 
 /**
@@ -29,6 +32,28 @@ const ICONS: Record<string, string[]> = {
     '         ',
     '+++++++++',
     '+ + + + +',
+  ],
+  day: [
+    '#########',
+    '#+#+#+#+#',
+    '#########',
+    '#       #',
+    '# ##### #',
+    '#       #',
+    '# ###   #',
+    '#       #',
+    '#########',
+  ],
+  form: [
+    '#########',
+    '#+++++++#',
+    '#########',
+    '#       #',
+    '# ##### #',
+    '#       #',
+    '#  ##+  #',
+    '#       #',
+    '#########',
   ],
   'off-by-one': ['         ', ' ###     ', ' #+#     ', ' ###     ', '         ', '    ###  ', '    # #  ', '    ###  ', '         '],
   womm: ['#########', ' #     # ', '  #+++#  ', '   #+#   ', '    #    ', '   # #   ', '  # + #  ', ' # +++ # ', '#########'],
@@ -73,8 +98,16 @@ const TIER_COLOR: Record<TierId, string> = {
   bitflip: 'var(--t-bitflip)',
 };
 
-/** A plausible mixed day: seven accepted answers, 44 frames, ending in Firmware. */
-export const SAMPLE_DAY: TierId[] = ['race', 'npe', 'heisenbug', 'leak', 'bitflip', 'off-by-one', 'heisenbug'];
+/** A plausible mixed day: seven accepted answers, 33 frames, ending in Kernel (it crosses the syscall boundary). */
+export const SAMPLE_DAY: { tier: TierId; name: string }[] = [
+  { tier: 'race', name: 'mutex' },
+  { tier: 'npe', name: 'spinlock' },
+  { tier: 'heisenbug', name: 'seqlock' },
+  { tier: 'womm', name: 'file lock' },
+  { tier: 'leak', name: 'RCU' },
+  { tier: 'bitflip', name: 'futex' },
+  { tier: 'off-by-one', name: 'semaphore' },
+];
 
 export function mountRail(h: DebugHooks) {
   const rail = document.createElement('nav');
@@ -103,6 +136,7 @@ export function mountRail(h: DebugHooks) {
     b.append(icon(rows, accent));
     b.addEventListener('click', run);
     rail.append(b);
+    return b;
   }
 
   add('timer', 'Timer demo: full watchdog countdown into the low-time state', 'var(--fault)', () => {
@@ -110,22 +144,67 @@ export function mountRail(h: DebugHooks) {
     const ms = 7000;
     const start = performance.now();
     h.hud.watchdogOverride = (now) => Math.max(0, 1 - (now - start) / ms);
+    later(ms, () => h.hud.bark());
     later(ms + 900, cancel);
   });
 
-  add('sink', 'Sink demo: a sample day’s descent, then back up', 'var(--signal)', () => {
+  add('sink', 'Sink demo: a perfect day’s dives (7 × 13) through every boundary to Ring −3, then back up', 'var(--signal)', () => {
     cancel();
-    const base = h.scene.displayDepth;
-    let depth = base;
-    SAMPLE_DAY.forEach((id, i) => {
-      later(i * 1400, () => {
-        depth += TIERS[id].frames;
-        h.scene.react(id);
-        h.scene.setTarget(depth);
+    h.scene.setTarget(0, true);
+    let depth = 0;
+    let t = 300;
+    for (let k = 0; k < 7; k++) {
+      later(t, () => {
+        depth += 13;
+        h.scene.diveTo(depth, 'bitflip', 13, false);
       });
-    });
-    later(SAMPLE_DAY.length * 1400 + 1800, () => h.scene.setTarget(base));
+      t += diveMs(13) + 500;
+    }
+    later(t + 1000, () => h.scene.setTarget(0));
   });
 
-  for (const id of TIER_IDS) add(id, `Reaction: ${TIERS[id].name}`, TIER_COLOR[id], () => h.scene.react(id));
+  add('day', 'Play a sample day: seven answers, dives, reactions, then the end-of-day replay', 'var(--ok)', () => {
+    cancel();
+    h.scene.setTarget(0, true);
+    h.hud.demoBegin('name_a(type_of_lock)', 'Name a type of lock');
+    let depth = 0;
+    let t = 900;
+    for (const { tier, name } of SAMPLE_DAY) {
+      const f = TIERS[tier].frames;
+      later(t, () => {
+        depth += f;
+        h.hud.demoLanded(tier, name, f);
+        h.scene.diveTo(depth, tier, f);
+      });
+      t += diveMs(f) + 1200;
+    }
+    later(t, () => h.hud.endOfDay(SAMPLE_DAY, depth, 0));
+  });
+
+  // Cycles the console through every layer form (and moves the scene there), then back to following the layer.
+  let formIdx = -1;
+  const formBtn = add('form', 'Preview the next console form (cycles every layer idiom, then back to auto)', 'var(--signal)', () => {
+    formIdx = formIdx + 1 < FORM_IDS.length ? formIdx + 1 : -1;
+    if (formIdx < 0) {
+      h.hud.formOverride = undefined;
+      formBtn.dataset.tip = 'Console form: following the layer';
+      return;
+    }
+    const form = FORM_IDS[formIdx]!;
+    h.hud.formOverride = form;
+    const layer = LAYERS.find((l) => FORM_BY_LAYER[l.id] === form);
+    if (!layer) throw new Error(`rail: no layer uses form '${form}'`);
+    h.scene.setTarget(layer.from + 0.5);
+    if (!h.hud.showsPrompt) h.hud.demoBegin('name_a(type_of_lock)', 'Name a type of lock');
+    formBtn.dataset.tip = `Console form: ${FORM_NAMES[form]} (${formIdx + 1}/${FORM_IDS.length})`;
+  });
+
+  // Each tier: the full thing, a dive by its frames, then the cursor's reaction and the screen's mirror of it.
+  for (const id of TIER_IDS) {
+    const f = TIERS[id].frames;
+    add(id, `${TIERS[id].name}: dive +${f}, then its reaction`, TIER_COLOR[id], () => {
+      cancel();
+      h.scene.diveTo(h.scene.displayDepth + f, id, f);
+    });
+  }
 }

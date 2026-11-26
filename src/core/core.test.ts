@@ -13,15 +13,15 @@ describe('depth and layers', () => {
     expect(layerAt(90).id).toBe('ring-2');
   });
 
-  it('seven heisenbugs land in Ring −1; three bit flips + four heisenbugs reach Ring −2', () => {
+  it('seven heisenbugs land in Ring −1, and Ring −2 needs at least one Bit Flip', () => {
     const h = TIERS.heisenbug.frames;
     const b = TIERS.bitflip.frames;
     expect(layerAt(7 * h).id).toBe('ring-1');
-    expect(layerAt(3 * b + 4 * h).id).toBe('ring-2');
+    expect(layerAt(b + 6 * h).id).toBe('ring-2');
   });
 
-  it('a day of only common answers stays in the runtime', () => {
-    expect(layerAt(7 * TIERS['off-by-one'].frames).id).toBe('runtime');
+  it('a day of only common answers reaches the libraries but not the kernel', () => {
+    expect(layerAt(7 * TIERS['off-by-one'].frames).id).toBe('libraries');
   });
 
   it('rejects negative depth loudly', () => {

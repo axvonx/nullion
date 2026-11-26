@@ -4,7 +4,7 @@ import { look, reducedMotion } from '../looks';
 import { enforce } from '../core/enforce';
 import { FONT, LAYER_ART, hash, type Art, type Band } from './art';
 import { LAYER_ART_DETAILED, SEAM_ART, SEAM_H } from './art-detailed';
-import { LAYER_ART_V3 } from './art-v3';
+import { LAYER_ART_V3, PROP_SPOTS } from './art-v3';
 import { LAYER_PALETTE, quantizeRow, snapColor } from './palettes';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
 
@@ -32,7 +32,7 @@ function layerIndexAtWorldY(y: number): number {
   return idx;
 }
 
-type CursorForm = 'arrow' | 'ibeam' | 'block' | 'underscore' | 'biosbar' | 'bit';
+type CursorForm = 'arrow' | 'ibeam' | 'block' | 'underscore' | 'bioscell' | 'bit';
 
 const FORM_BY_LAYER: Record<LayerId, CursorForm> = {
   application: 'arrow',
@@ -41,7 +41,7 @@ const FORM_BY_LAYER: Record<LayerId, CursorForm> = {
   userspace: 'block',
   kernel: 'underscore',
   drivers: 'underscore',
-  firmware: 'biosbar',
+  firmware: 'bioscell',
   'ring-1': 'bit',
   'ring-2': 'bit',
   'ring-3': 'bit',
@@ -52,7 +52,7 @@ const FORM_STYLE: Record<CursorForm, { fill: string; outline: string; alpha: num
   ibeam: { fill: '#ffffff', outline: '#ffffff', alpha: 1, blink: false },
   block: { fill: '#e8e4d8', outline: '#000000', alpha: 1, blink: true },
   underscore: { fill: '#ffffff', outline: '#000000', alpha: 1, blink: true },
-  biosbar: { fill: '#aaaaaa', outline: '#aaaaaa', alpha: 0.55, blink: false },
+  bioscell: { fill: '#ffffff', outline: '#0000aa', alpha: 1, blink: true },
   bit: { fill: '#ffffff', outline: '#000000', alpha: 1, blink: false },
 };
 
@@ -60,6 +60,73 @@ interface Reaction {
   tier: TierId;
   start: number;
 }
+
+/** Tier colours, for the "+N frames" pops (snapped to the layer palette like everything drawn in the scene). */
+const TIER_HEX: Record<TierId, string> = {
+  'off-by-one': '#c9c4b4',
+  womm: '#ff9f43',
+  npe: '#8fb7ff',
+  leak: '#5fd3e0',
+  race: '#c58bff',
+  heisenbug: '#ff6ad5',
+  bitflip: '#ffe25a',
+};
+
+/** How long a dive of `frames` takes: bigger tiers dive farther, faster and for longer. */
+export function diveMs(frames: number, fast = false): number {
+  return fast ? 260 + 120 * Math.sqrt(frames) : 650 + 330 * Math.sqrt(frames);
+}
+
+/** A stop on a dive sequence (the end-of-day replay). */
+export interface DiveStop {
+  depth: number;
+  tier: TierId;
+  label: string;
+}
+
+interface Dive {
+  from: number;
+  to: number;
+  start: number;
+  dur: number;
+  /** Tier reaction to fire on landing. */
+  react?: TierId;
+  pop?: { text: string; tier: TierId };
+}
+
+type CrossFx = 'tear' | 'mirror' | 'freeze' | 'onebit';
+const CROSS_FX: Record<string, CrossFx> = { syscall: 'tear', 'VM exit': 'mirror', SMI: 'freeze', ME: 'onebit' };
+const CROSS_MS: Record<CrossFx, number> = { tear: 380, mirror: 650, freeze: 420, onebit: 520 };
+
+function easeOutBack(p: number): number {
+  const c1 = 1.25;
+  const c3 = c1 + 1;
+  return 1 + c3 * (p - 1) ** 3 + c1 * (p - 1) ** 2;
+}
+const easeOutCubic = (p: number) => 1 - (1 - p) ** 3;
+
+/** Half-size of the cursor's bracket box, the same for every cursor form. */
+const MARK_RX = 9;
+const MARK_RY = 11;
+
+/**
+ * The screen mirrors the cursor's tier reaction. The scene does the canvas side (black-out, leaked copies,
+ * racing props, the frozen clock); the HUD reads this each frame and does the rest (grey, invert, racing panels).
+ */
+export interface ScreenFx {
+  /** 0..1: entities jiggle out of sync (Race condition, Heisenbug). Always 0 under reduced motion. */
+  jiggle: number;
+  /** Works on my machine: the world hangs, grey and still. */
+  hang: boolean;
+  /** Bit Flip (and Heisenbug's tease): inverted colours; under reduced motion a slow, non-flashing tint instead. */
+  flip: 'none' | 'invert' | 'tint';
+}
+
+/** Bit Flip holds its inversion this long; Heisenbug teases it for a moment. One transition in and one out. */
+const FLIP_MS = 650;
+const TEASE = [480, 600] as const;
+const LEAK_MS = 2600;
+const NPE_MS = 460;
 
 const REACTION_MS: Record<TierId, number> = {
   'off-by-one': 600,
@@ -88,7 +155,22 @@ export class Scene {
   private cursorY = 0;
 
   private target = 0;
+  /** The cursor's depth. */
   private depth = 0;
+  /** The camera's depth: follows the cursor with a slight lag, so a dive visibly leads. */
+  private cam = 0;
+  private dive: Dive | undefined;
+  private queue: Dive[] = [];
+  private queueAt = 0;
+  private onQueueDone: (() => void) | undefined;
+  private pops: { text: string; tier: TierId; start: number }[] = [];
+  private cross: { fx: CrossFx; start: number } | undefined;
+  private freezeShot: HTMLCanvasElement;
+  readonly fx: ScreenFx = { jiggle: 0, hang: false, flip: 'none' };
+  private npeRect: [number, number, number, number] | undefined;
+  private leakPending = false;
+  private leak: { start: number; seed: number; rects: [number, number, number, number][] } | undefined;
+  private leakShot: HTMLCanvasElement;
   private lastLayer = 0;
   private reaction: Reaction | undefined;
   private tearUntil = 0;
@@ -96,6 +178,7 @@ export class Scene {
   private artTime = 0;
   private lastNow = 0;
   private trail: { x: number; y: number }[] = [];
+  private cursorLead = 0;
   private swayAmp = 0;
   private swayPhase = 0;
   private bubbles: { x: number; y: number; age: number }[] = [];
@@ -112,6 +195,8 @@ export class Scene {
     this.seam = document.createElement('canvas');
     this.seamCtx = get2d(this.seam);
     this.seamMask = document.createElement('canvas');
+    this.freezeShot = document.createElement('canvas');
+    this.leakShot = document.createElement('canvas');
     this.resize();
     window.addEventListener('resize', () => this.resize());
   }
@@ -130,7 +215,7 @@ export class Scene {
     this.W = Math.ceil(vw / scale);
     this.H = Math.ceil(vh / scale);
     this.cursorY = Math.round(this.H * CURSOR_FRAC);
-    for (const c of [this.canvas, this.prev, this.scratch, this.seam]) {
+    for (const c of [this.canvas, this.prev, this.scratch, this.seam, this.freezeShot, this.leakShot]) {
       c.width = this.W;
       c.height = this.H;
     }
@@ -146,13 +231,91 @@ export class Scene {
     return this.depth;
   }
 
+  /** Glide to a depth (scroll mode, debug). Cancels any dive or sequence in progress. */
   setTarget(depth: number, immediate = false) {
+    this.dive = undefined;
+    this.queue = [];
+    this.onQueueDone = undefined;
     this.target = Math.max(0, depth);
-    if (immediate) this.depth = this.target;
+    if (immediate) {
+      this.depth = this.target;
+      this.cam = this.target;
+    }
   }
 
   react(tier: TierId) {
-    this.reaction = { tier, start: performance.now() };
+    const now = performance.now();
+    this.reaction = { tier, start: now };
+    const seed = Math.floor(now);
+    if (tier === 'leak') this.leakPending = true;
+    if (tier === 'npe') {
+      // A pixel-aligned chunk of the screen that "isn't there".
+      const w = Math.round(this.W * (0.28 + hash(seed) * 0.2));
+      const h = Math.round(this.H * (0.18 + hash(seed + 1) * 0.15));
+      this.npeRect = [Math.round(hash(seed + 2) * (this.W - w)), Math.round(hash(seed + 3) * (this.H - h)), w, h];
+    }
+  }
+
+  /**
+   * An accepted answer: the cursor dives to `to`, eased with a small overshoot, and the tier's reaction
+   * fires on landing. A "+N frames" pops off the cursor as it lands.
+   */
+  diveTo(to: number, tier: TierId, frames: number, react = true) {
+    this.queue = [];
+    this.onQueueDone = undefined;
+    const pop = { text: `+${frames} frame${frames === 1 ? '' : 's'}`, tier };
+    this.startDive({ from: this.depth, to, start: performance.now(), dur: diveMs(frames), react: react ? tier : undefined, pop });
+  }
+
+  /**
+   * The end-of-day replay: from the top, a fast dive through each stop, each popping its label as the cursor
+   * passes. `done` runs after the last stop lands (or at once on skip).
+   */
+  playSequence(stops: DiveStop[], done: () => void) {
+    this.setTarget(0, true);
+    let from = 0;
+    this.queue = stops.map((s) => {
+      const d: Dive = { from, to: s.depth, start: 0, dur: diveMs(Math.max(1, s.depth - from), true), pop: { text: s.label, tier: s.tier } };
+      from = s.depth;
+      return d;
+    });
+    this.queueAt = performance.now() + 350;
+    this.onQueueDone = done;
+    if (!this.queue.length) this.finishQueue();
+  }
+
+  get sequencePlaying() {
+    return this.onQueueDone !== undefined;
+  }
+
+  /** Jump to the end of a running sequence. */
+  skipSequence() {
+    const last = this.queue[this.queue.length - 1] ?? this.dive;
+    if (!last) return;
+    this.dive = undefined;
+    this.queue = [];
+    this.depth = this.cam = this.target = last.to;
+    this.finishQueue();
+  }
+
+  private finishQueue() {
+    const done = this.onQueueDone;
+    this.onQueueDone = undefined;
+    done?.();
+  }
+
+  private startDive(d: Dive) {
+    this.dive = d;
+    this.target = d.to;
+  }
+
+  private land(d: Dive, now: number) {
+    this.dive = undefined;
+    this.depth = d.to;
+    if (d.react) this.react(d.react);
+    if (d.pop) this.pops.push({ ...d.pop, start: now });
+    if (this.queue.length) this.queueAt = now + 140;
+    else if (this.onQueueDone) this.finishQueue();
   }
 
   start() {
@@ -173,26 +336,74 @@ export class Scene {
     const detailed = style !== 'v1';
     const art = style === 'v3' ? LAYER_ART_V3 : style === 'v2' ? LAYER_ART_DETAILED : LAYER_ART;
 
-    // Ease toward the target depth: the descent is the payoff, so it should read as travel.
-    this.depth += (this.target - this.depth) * (1 - Math.exp(-dt * 2.5));
-    if (Math.abs(this.target - this.depth) < 0.002) this.depth = this.target;
+    // Move the cursor: a dive (eased, with a small overshoot), or a glide toward the target.
+    if (!this.dive && this.queue.length && now >= this.queueAt) this.startDive({ ...this.queue.shift()!, start: now });
+    const dv = this.dive;
+    if (dv) {
+      const p = Math.min(1, (now - dv.start) / dv.dur);
+      this.depth = Math.max(0, dv.from + (dv.to - dv.from) * (reduced ? easeOutCubic(p) : easeOutBack(p)));
+      if (p >= 1) this.land(dv, now);
+    } else {
+      this.depth += (this.target - this.depth) * (1 - Math.exp(-dt * 2.5));
+      if (Math.abs(this.target - this.depth) < 0.002) this.depth = this.target;
+    }
+    // The camera follows with a slight lag (none under reduced motion).
+    if (reduced) this.cam = this.depth;
+    else {
+      this.cam += (this.depth - this.cam) * (1 - Math.exp(-dt * 5));
+      if (Math.abs(this.depth - this.cam) < 0.002) this.cam = this.depth;
+    }
 
     const layerIdx = layerIndexAt(this.depth);
     const layer = LAYERS[layerIdx]!;
     if (layerIdx !== this.lastLayer) {
+      // Crossing a boundary plays its effect: tearing at syscall, a mirror shimmer at VM exit, a freeze-frame at
+      // SMI, the drop into 1-bit at ME. Unlabelled crossings get a light tear.
+      const crossed = LAYERS[Math.max(layerIdx, this.lastLayer)]!;
+      const fx = crossed.boundary ? CROSS_FX[crossed.boundary] : undefined;
+      if (crossed.boundary) enforce(fx, `no crossing effect for boundary '${crossed.boundary}'`);
       if (!reduced && look('tearing') === 'on') {
-        this.tearStrength = LAYERS[Math.max(layerIdx, this.lastLayer)]!.boundary ? 1 : 0.5;
-        this.tearUntil = now + 380;
+        if (fx === 'tear' || fx === undefined) {
+          this.tearStrength = fx ? 1 : 0.5;
+          this.tearUntil = now + CROSS_MS.tear;
+        } else {
+          this.cross = { fx, start: now };
+          if (fx === 'freeze') get2d(this.freezeShot).drawImage(this.canvas, 0, 0);
+        }
       }
       this.lastLayer = layerIdx;
       this.onLayerChange?.(layer);
     }
 
     const frozen = layer.id === 'ring-2' && look('freeze') === 'on';
-    if (!frozen) this.artTime += dt;
+    // The screen's half of the tier reaction.
+    const rx = this.reaction;
+    const rel = rx ? now - rx.start : Infinity;
+    const act = rx && rel <= REACTION_MS[rx.tier] ? rx.tier : undefined;
+    this.fx.hang = act === 'womm';
+    this.fx.jiggle = reduced ? 0 : act === 'race' || act === 'heisenbug' ? Math.max(0, 1 - rel / REACTION_MS[act]) : 0;
+    this.fx.flip =
+      act === 'bitflip'
+        ? reduced
+          ? 'tint'
+          : rel < FLIP_MS
+            ? 'invert'
+            : 'none'
+        : act === 'heisenbug'
+          ? reduced
+            ? 'tint'
+            : rel >= TEASE[0] && rel < TEASE[1]
+              ? 'invert'
+              : 'none'
+          : 'none';
+    // Works on my machine hangs the world's clock, like Ring −2 does.
+    if (!frozen && !this.fx.hang) this.artTime += dt;
+    PROP_SPOTS.length = 0;
 
-    const cursorWorldY = TOP_PAD + this.depth * PX;
-    const camY = Math.round(cursorWorldY - this.cursorY);
+    const camWorldY = TOP_PAD + this.cam * PX;
+    const camY = Math.round(camWorldY - this.cursorY);
+    // Where the cursor sits relative to its resting row: below it while the camera catches up.
+    this.cursorLead = Math.max(-50, Math.min(70, Math.round((this.depth - this.cam) * PX)));
     const ctx = this.ctx;
     resetCtx(ctx);
     const band = (i: number): Band => ({
@@ -282,6 +493,7 @@ export class Scene {
     this.swayPhase += swayDt * 3.1;
     this.drawBubbles(swayDt, speed, reduced, layer.id);
     this.drawCursor(now, layer.id, reduced, detailed);
+    this.drawPops(now, layer.id, reduced);
 
     // 5. Color depth: quantize each row by the layer it shows, so the next layer's palette visibly approaches.
     if (look('palette') === 'per-layer') {
@@ -324,14 +536,125 @@ export class Scene {
       }
     }
 
-    // 9. Bit Flip: the whole screen inverts for a moment.
-    const r = this.reaction;
-    if (r?.tier === 'bitflip' && !reduced && now - r.start < 140) {
-      ctx.globalCompositeOperation = 'difference';
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(0, 0, W, H);
-      ctx.globalCompositeOperation = 'source-over';
+    // 9. Boundary crossing effects (never under reduced motion; set only when motion is full).
+    const cr = this.cross;
+    if (cr) {
+      const p = (now - cr.start) / CROSS_MS[cr.fx];
+      if (p >= 1 || reduced) this.cross = undefined;
+      else if (cr.fx === 'mirror') {
+        // VM exit: a mirrored guest shimmers over the host and fades.
+        this.scratchCtx.drawImage(this.canvas, 0, 0);
+        ctx.save();
+        ctx.globalAlpha = 0.4 * (1 - p);
+        ctx.translate(W + Math.round(Math.sin(p * 18) * 3), 0);
+        ctx.scale(-1, 1);
+        ctx.drawImage(this.scratch, 0, 0);
+        ctx.restore();
+      } else if (cr.fx === 'freeze') {
+        // SMI: the frame before the crossing holds, a scan line runs down it, then time resumes.
+        ctx.drawImage(this.freezeShot, 0, 0);
+        ctx.fillStyle = '#f0f0f0';
+        ctx.fillRect(0, Math.floor(p * H), W, 1);
+      } else if (cr.fx === 'onebit') {
+        // ME: 1-bit spreads out from the cursor's row and then recedes to the die below.
+        const reach = Math.round(H * Math.sin(p * Math.PI));
+        const y0 = Math.max(0, this.cursorY - reach);
+        const y1 = Math.min(H, this.cursorY + reach);
+        if (y1 > y0) {
+          const img = ctx.getImageData(0, y0, W, y1 - y0);
+          for (let y = 0; y < y1 - y0; y++) quantizeRow(img.data, y * W * 4, W, y0 + y, 'onebit', true);
+          ctx.putImageData(img, 0, y0);
+        }
+      }
     }
+
+    // 10. The screen mirrors the tier reaction (the HUD adds grey, invert and racing panels from this.fx).
+    this.drawReactionFx(now, act, rel, reduced);
+  }
+
+  /**
+   * On-screen "entities" for reactions: v3 reports where it drew its near props; other art styles fall back
+   * to a seeded scatter of cells.
+   */
+  private entities(seed: number, n: number): [number, number, number, number][] {
+    const out: [number, number, number, number][] = [];
+    const spots = PROP_SPOTS.length / 2;
+    for (let k = 0; out.length < n && k < n * 4; k++) {
+      let x: number;
+      let y: number;
+      if (spots > 0) {
+        const j = Math.floor(hash(seed + k * 7) * spots);
+        x = PROP_SPOTS[j * 2]! - 2;
+        y = PROP_SPOTS[j * 2 + 1]! - 3;
+      } else {
+        x = Math.floor(hash(seed + k * 7) * (this.W - 24));
+        y = Math.floor(hash(seed + k * 7 + 1) * (this.H - 20));
+      }
+      if (x < 0 || y < 0 || x + 24 > this.W || y + 20 > this.H) continue;
+      out.push([x, y, 24, 20]);
+    }
+    return out;
+  }
+
+  private drawReactionFx(now: number, act: TierId | undefined, rel: number, reduced: boolean) {
+    const ctx = this.ctx;
+    // Null pointer: a chunk of the screen blacks out, as if that memory isn't there (a static dim when reduced).
+    if (act === 'npe' && this.npeRect && rel < NPE_MS) {
+      const [x, y, w, h] = this.npeRect;
+      ctx.fillStyle = reduced ? 'rgba(0,0,0,0.6)' : '#000';
+      ctx.fillRect(x, y, w, h);
+    }
+    // Race condition, Heisenbug: props jiggle out of sync, each on its own phase.
+    if (this.fx.jiggle > 0) {
+      this.scratchCtx.drawImage(this.canvas, 0, 0);
+      const rects = this.entities(Math.floor(this.reaction!.start), 26);
+      rects.forEach(([x, y, w, h], i) => {
+        const dx = Math.round(Math.sin(now / 45 + i * 1.7) * 2.4 * this.fx.jiggle);
+        const dy = Math.round(Math.cos(now / 53 + i * 2.3) * 1.6 * this.fx.jiggle);
+        if (dx || dy) ctx.drawImage(this.scratch, x, y, w, h, x + dx, y + dy, w, h);
+      });
+    }
+    // Memory leak: a few props are copied and the copies linger, drifting off like the cursor's smear, then fade.
+    if (this.leakPending) {
+      this.leakPending = false;
+      get2d(this.leakShot).drawImage(this.canvas, 0, 0);
+      const seed = Math.floor(now);
+      this.leak = { start: now, seed, rects: this.entities(seed, 10) };
+    }
+    const lk = this.leak;
+    if (lk) {
+      const age = (now - lk.start) / LEAK_MS;
+      if (age >= 1) this.leak = undefined;
+      else {
+        ctx.globalAlpha = age < 0.6 ? 0.9 : 0.9 * (1 - (age - 0.6) / 0.4);
+        lk.rects.forEach(([x, y, w, h], k) => {
+          const drift = (k % 3) * 2 + 5 + (reduced ? 0 : age * 18);
+          ctx.drawImage(this.leakShot, x, y, w, h, Math.round(x - drift), Math.round(y + drift * 0.6), w, h);
+        });
+        ctx.globalAlpha = 1;
+      }
+    }
+  }
+
+  /** "+N frames" and replay labels: pop off the cursor, float up and fade (only fade under reduced motion). */
+  private drawPops(now: number, layerId: LayerId, reduced: boolean) {
+    if (!this.pops.length) return;
+    const ctx = this.ctx;
+    const perLayer = look('palette') === 'per-layer';
+    ctx.font = FONT;
+    this.pops = this.pops.filter((p) => now - p.start < 1300);
+    this.pops.forEach((p, i) => {
+      const a = (now - p.start) / 1300;
+      const tw = Math.ceil(ctx.measureText(p.text).width);
+      const x = Math.round(this.W / 2 - tw / 2);
+      const y = Math.round(this.cursorY + this.cursorLead - 14 - i * 9 - (reduced ? 0 : a * 26));
+      ctx.globalAlpha = a < 0.7 ? 1 : 1 - (a - 0.7) / 0.3;
+      ctx.fillStyle = '#000';
+      for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1], [1, 1]] as const) ctx.fillText(p.text, x + dx, y + dy);
+      ctx.fillStyle = perLayer ? snapColor(TIER_HEX[p.tier], LAYER_PALETTE[layerId]) : TIER_HEX[p.tier];
+      ctx.fillText(p.text, x, y);
+    });
+    ctx.globalAlpha = 1;
   }
 
   /** Redraw the upper band's art over the first SEAM_H rows of the lower band, through a ragged dither fade. */
@@ -365,7 +688,7 @@ export class Scene {
     let outline = style.outline;
     let alpha = style.alpha;
     let x = Math.round(this.W / 2 + this.swayAmp * 6 * Math.sin(this.swayPhase));
-    let y = Math.round(this.cursorY + this.swayAmp * 2 * Math.sin(this.swayPhase * 2));
+    let y = Math.round(this.cursorY + this.cursorLead + this.swayAmp * 2 * Math.sin(this.swayPhase * 2));
     let visible = !(style.blink && !reduced && Math.floor(now / 530) % 2 === 1);
     // A blinking cursor's mark stays put while the glyph blinks, so it never vanishes into the art.
     let marked = true;
@@ -418,11 +741,18 @@ export class Scene {
         marked = visible;
         break;
       case 'womm':
+        // The comic letdown: it spins, thinks about it ("..."), and droops.
         spr = SPRITES.hourglass;
         fill = '#ffcf5a';
         outline = '#1b1b1b';
         alpha = 1;
         visible = true;
+        if (el > 500) {
+          ctx.fillStyle = '#ffffff';
+          ctx.font = FONT;
+          ctx.fillText('.'.repeat(Math.min(3, 1 + Math.floor((el - 500) / 250))), x + 9, y + 4);
+        }
+        if (el > REACTION_MS.womm - 400) y += 2;
         if (!reduced && Math.floor(el / 220) % 2 === 1) {
           // Spin by flipping vertically.
           this.drawMark(now, spr, x, y, layerId, reduced);
@@ -457,8 +787,12 @@ export class Scene {
    */
   private drawMark(now: number, spr: Sprite, x: number, y: number, layerId: LayerId, reduced: boolean) {
     const ctx = this.ctx;
-    const cx = Math.round(x - spr.hx + spr.w / 2);
-    const cy = Math.round(y - spr.hy + spr.h / 2);
+    // Every cursor form shares one box: centred on the glyph, except a short glyph (the underscore) sits at the
+    // bottom of the box, the way it sits at the bottom of a text cell.
+    const ox = x - spr.hx;
+    const oy = y - spr.hy;
+    const cx = Math.round(ox + spr.w / 2);
+    const cy = Math.round(spr.h < 8 ? oy + spr.h - 7 : oy + spr.h / 2);
     const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 16);
     g.addColorStop(0, 'rgba(0,0,0,0.85)');
     g.addColorStop(0.55, 'rgba(0,0,0,0.55)');
@@ -470,8 +804,8 @@ export class Scene {
     const perLayer = look('palette') === 'per-layer';
     const amber = !perLayer ? '#ffb000' : pal === 'green' || pal === 'gray' || pal === 'onebit' ? snapColor('#ffffff', pal) : snapColor('#ffb000', pal);
     const breathe = reduced ? 0 : Math.round((Math.sin(now / 420) + 1) / 2);
-    const rx = Math.ceil(spr.w / 2) + 4 + breathe;
-    const ry = Math.ceil(spr.h / 2) + 4 + breathe;
+    const rx = MARK_RX + breathe;
+    const ry = MARK_RY + breathe;
     for (const [sx, sy] of [[-1, -1], [1, -1], [-1, 1], [1, 1]] as const) {
       const bx = cx + sx * rx;
       const by = cy + sy * ry;
@@ -497,7 +831,7 @@ export class Scene {
     }
     const cx = this.W / 2 + this.swayAmp * 6 * Math.sin(this.swayPhase);
     if (speed > 0.25 && this.bubbles.length < 24 && Math.random() < dt * (4 + speed * 2)) {
-      this.bubbles.push({ x: cx + (Math.random() - 0.5) * 10, y: this.cursorY + 4, age: 0 });
+      this.bubbles.push({ x: cx + (Math.random() - 0.5) * 10, y: this.cursorY + this.cursorLead + 4, age: 0 });
     }
     const ctx = this.ctx;
     const ink = look('palette') === 'per-layer' ? snapColor('#ffffff', LAYER_PALETTE[layerId]) : '#ffffff';

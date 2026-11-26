@@ -37,7 +37,7 @@ export const LOOK_SLOTS = {
     default: 'auto',
   },
   tearing: {
-    label: 'Tearing at layer crossings',
+    label: 'Layer-crossing effects (tear, mirror, freeze, 1-bit)',
     options: { on: 'On', off: 'Off' },
     default: 'on',
   },

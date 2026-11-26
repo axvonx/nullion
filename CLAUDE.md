@@ -6,7 +6,7 @@ Current stage: **offline playtest prototype.** The open question is which answer
 
 ## Commands
 
-- `npm run dev`: dev server with the 🐞 debug menu and the demo rail above it (timer, sink, tier reactions; `src/debug/rail.ts`).
+- `npm run dev`: dev server with the 🐞 debug menu and the demo rail above it (`src/debug/rail.ts`): timer, sink, play a sample day, console-form preview, and one button per tier (dive plus reaction).
 - `npm test`: vitest. Covers core rules, matching, data integrity and the game loop.
 - `npm run typecheck`
 - `npm run build`: production build into `dist/`. The debug menu is stripped out.
@@ -30,7 +30,8 @@ Current stage: **offline playtest prototype.** The open question is which answer
   - Works on my machine mirrors krillion's "Too Clever": the "obscure" pick everyone reaches for.
   - Bit Flip is exactly one hand-picked answer per question. Data loading enforces this.
 - **Layers** (in `src/core/layers.ts`):
-  - Thresholds: Application 0, Runtime 5, Libraries 10, OS userspace 16, Kernel 22 (syscall boundary), Drivers 32, Firmware 44, Ring −1 56, Ring −2 70, Ring −3 91.
+  - Thresholds: Application 0, Runtime 3, Libraries 6, OS userspace 10, Kernel 15 (syscall boundary), Drivers 22, Firmware 31, Ring −1 42, Ring −2 58, Ring −3 91. Rebalanced 2026-11-26 after a player-profile simulation showed the old ones kept typical players above the syscall and made the rings near-unreachable.
+  - Intended feel: a typical day crosses into the kernel; a day of mostly deep cuts reaches Ring −1; Ring −2 needs at least one Bit Flip; Ring −3 needs a perfect day.
   - Only a perfect day (7 × 13 frames) reaches Ring −3. Tests pin these properties; change a test only on purpose.
 - **Data model.** A term is stored once, with tags. Each tag carries that term's tier for that category, so "heisenbug" is Works-on-my-machine for "Name a type of bug". Each question queries one tag.
   - Duplicate keys within a category are a data bug and throw at load time.
@@ -54,7 +55,12 @@ Reduced motion must keep working: flashes, tearing, rain, flicker, cursor sway a
 
 Looks are saved under `nullion.looks.2`; bump the key when a default changes and old saved choices should not mask it.
 
-The day's record of answers lives in the end-of-day result card and the share text; there is no running backtrace panel.
+The day's record of answers lives in the end-of-day result card and the share text; there is no running backtrace panel. The day ends with a fast replay of the descent (skippable; skipped under reduced motion) before the card.
+
+In-play animation, for orientation:
+- Accepted answer: `Scene.diveTo` dives the cursor (eased, small overshoot, camera lagging), and the tier's reaction fires on landing. Boundary crossings play their effect (tear at syscall, mirror at VM exit, freeze-frame at SMI, 1-bit at ME).
+- Each tier reaction has a screen half (`Scene.fx`, mirrored onto the panels by the HUD): Works on my machine greys and hangs the world, Null pointer blacks out a chunk, Memory leak leaves copies of props, Race condition and Heisenbug jiggle props and panels out of sync, Bit Flip inverts the screen (Heisenbug teases it). Under reduced motion: no jiggle or flash, inversion becomes a slow tint, black-out a dim.
+- The console card takes the layer's idiom (`src/ui/forms.ts`: GUI dialog, REPL, shell, serial console, BIOS setup, hypervisor log, SMM dump, raw entry). The plain prompt, the real `<input>`, the timer and the feedback stay in every form.
 
 ## Conventions
 
