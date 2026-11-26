@@ -316,7 +316,7 @@ export class Hud {
         ev.preventDefault();
         const mode = this.game?.mode ?? 'daily';
         const mult = ev.shiftKey ? 3 : 1;
-        nudge((ev.deltaY / (mode === 'endless' ? 3.5 : 10)) * mult);
+        nudge((ev.deltaY / (mode === 'endless' ? 10 : 26)) * mult);
       },
       { passive: false },
     );
@@ -337,10 +337,10 @@ export class Hud {
         return;
       }
       const step = {
-        ArrowDown: endless ? 25 : 3,
-        ArrowUp: endless ? -25 : -3,
-        PageDown: endless ? 180 : 24,
-        PageUp: endless ? -180 : -24,
+        ArrowDown: endless ? 12 : 2,
+        ArrowUp: endless ? -12 : -2,
+        PageDown: endless ? 80 : 12,
+        PageUp: endless ? -80 : -12,
       }[ev.key];
       if (step === undefined) return;
       ev.preventDefault();
