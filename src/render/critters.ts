@@ -1,3 +1,4 @@
+import { enforce } from '../core/enforce';
 import { ALL_LAYER_IDS, DAILY_FALLBACK, type LayerId } from '../core/layers';
 import { look } from '../looks';
 import { FONT, hash, type Band } from './art';
@@ -295,7 +296,9 @@ export class CritterSystem {
 
   /** Read-only snapshot of critters in a layer (used by tests to inspect motion sets and state). */
   getLayerCritters(layerId: LayerId): readonly CritterState[] {
-    return this.byLayer.get(layerId) ?? [];
+    const list = this.byLayer.get(layerId);
+    enforce(list, `critters: layer ${layerId} not seeded (call ensureSeed first)`);
+    return list;
   }
 
   /**
@@ -312,7 +315,7 @@ export class CritterSystem {
     spotStart = 0,
   ) {
     const list = this.byLayer.get(layerId);
-    if (!list) return;
+    enforce(list, `critters: drawBand on unseeded layer ${layerId} (call ensureSeed first)`);
     const W = b.w;
     const H = b.h;
     if (W < 24 || H < 24) return;
