@@ -1,4 +1,5 @@
 import type { LayerId } from '../../core/layers';
+import { ENDLESS_EXTRA } from './lib-endless-extra';
 import {
   BANDGAP,
   BANDGAP_ANCHORS,
@@ -49,7 +50,7 @@ import type { Library } from './place';
  * Every layer's v4 library across all 29 Daily + Endless layers: entity types, anchors, and density.
  * Each of the 10 core Daily layers now carries 25+ unique props; deep abyssal layers stay sparser for contrast.
  */
-export const V4_LIBRARIES: Record<LayerId, Library> = {
+const BASE_LIBRARIES: Record<LayerId, Library> = {
   // Zone A — Above Application
   internet: { near: INTERNET, anchors: INTERNET_ANCHORS, density: 4.0, anchorCount: 2, far: 0.45 },
   browser: { near: BROWSER, anchors: BROWSER_ANCHORS, density: 4.4, anchorCount: 2, far: 0.45 },
@@ -100,3 +101,12 @@ export const V4_LIBRARIES: Record<LayerId, Library> = {
   bandgap: { near: BANDGAP, anchors: BANDGAP_ANCHORS, density: 2.4, anchorCount: 1, far: 0.15 },
   landauer: { near: LANDAUER, anchors: LANDAUER_ANCHORS, density: 1.8, anchorCount: 1, far: 0 },
 };
+
+/** The final libraries: base props plus the Endless-only extras, so adjacent bands stop repeating donor props. */
+export const V4_LIBRARIES: Record<LayerId, Library> = Object.fromEntries(
+  (Object.keys(BASE_LIBRARIES) as LayerId[]).map((id) => {
+    const lib = BASE_LIBRARIES[id];
+    const extra = ENDLESS_EXTRA[id];
+    return [id, extra ? { ...lib, near: [...lib.near, ...extra] } : lib];
+  }),
+) as Record<LayerId, Library>;
