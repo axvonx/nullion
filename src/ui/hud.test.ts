@@ -343,15 +343,23 @@ describe('end card', () => {
     expect(issueLinks[1]!.href).toContain('question-idea');
   });
 
-  it('tracks 7 round slots from "-" to tier-colored frame counts and 0 on timeout', () => {
+  it('tracks 7 round slots from "-" to tier-colored frame counts after the dive lands and 0 on timeout', () => {
     const h = setup();
     h.toAnswering();
     const slotTexts = () => [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')].map((s) => s.textContent);
     expect(slotTexts()).toEqual(['-', '-', '-', '-', '-', '-', '-']);
     expect(h.mount.querySelectorAll('.slots .slot')[0]!.classList.contains('active')).toBe(true);
 
-    // Round 0: accept a Race condition (+5)
+    // Round 0: accept a Race condition (+5) while diving — slot must stay "-" so it doesn't spoil the score!
+    h.scene.diving = true;
     h.submit(h.answerFor('race'));
+    const slotsMidDive = [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')];
+    expect(slotsMidDive[0]!.textContent).toBe('-');
+    expect(slotsMidDive[0]!.dataset.tier).toBeUndefined();
+
+    // Once the dive lands, the slot reveals the tier-colored frame count.
+    h.scene.diving = false;
+    h.step();
     const slotsAfter0 = [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')];
     expect(slotsAfter0[0]!.textContent).toBe('5');
     expect(slotsAfter0[0]!.dataset.tier).toBe('race');

@@ -316,13 +316,24 @@ export class Hud {
     this.syncTitle();
   }
 
-  /** Render the 7 round score slots (`-` until answered, then tier-colored frame count or `0` on miss). */
+  /** Render the 7 round score slots (`-` until the dive lands, then tier-colored frame count or `0` on miss). */
   private syncSlots(g: Game) {
     const active = g.phase.kind === 'reading' || g.phase.kind === 'answering' || g.phase.kind === 'between' ? g.phase.round : -1;
+    // Hold the current round's slot at '-' while its dive is still sinking so we never spoil the tier/score early.
+    const pendingSink =
+      g.phase.kind === 'between' && (Boolean(this.scene?.diving) || this.revealRound < g.phase.round) ? g.phase.round : -1;
     const sig =
-      `${active}|` +
+      `${active}|${pendingSink}|` +
       g.rounds
-        .map((r, i) => (r.locked ? `${r.locked.entry.tier}:${TIERS[r.locked.entry.tier].frames}` : r.timedOut || (g.phase.kind === 'done' && !r.locked) || (active > i && !r.locked) ? '0' : '-'))
+        .map((r, i) =>
+          i === pendingSink
+            ? '-'
+            : r.locked
+              ? `${r.locked.entry.tier}:${TIERS[r.locked.entry.tier].frames}`
+              : r.timedOut || (g.phase.kind === 'done' && !r.locked) || (active > i && !r.locked)
+                ? '0'
+                : '-',
+        )
         .join(',');
     if (sig === this.slotsSig) return;
     this.slotsSig = sig;
@@ -331,12 +342,12 @@ export class Hud {
     g.rounds.forEach((r, i) => {
       const s = document.createElement('span');
       s.className = 'slot';
-      if (r.locked) {
+      if (i !== pendingSink && r.locked) {
         const t = TIERS[r.locked.entry.tier];
         s.dataset.tier = t.id;
         s.textContent = String(t.frames);
         s.title = `Round ${i + 1}: ${t.name} (+${t.frames})`;
-      } else if (r.timedOut || g.phase.kind === 'done' || (active > i && !r.locked)) {
+      } else if (i !== pendingSink && (r.timedOut || g.phase.kind === 'done' || (active > i && !r.locked))) {
         s.classList.add('miss');
         s.textContent = '0';
         s.title = `Round ${i + 1}: no frames`;
@@ -454,7 +465,6 @@ export class Hud {
 
     const p = g.phase;
     const r = g.current();
-    this.syncSlots(g);
     let left: number;
     this.els.console!.classList.toggle('resting', p.kind === 'between');
     this.els.console!.classList.toggle('reading', p.kind === 'reading');
@@ -509,6 +519,7 @@ export class Hud {
       this.showPrompt('', Infinity);
       left = 1;
     }
+    this.syncSlots(g);
     if (override === undefined) this.setWatchdog(left, p.kind === 'answering' && p.until !== null);
   }
 
