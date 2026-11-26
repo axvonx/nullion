@@ -3,7 +3,7 @@ import { LAYERS } from '../../core/layers';
 import { checkLibrary } from './kit';
 import { V4_LIBRARIES } from './libraries';
 import { VIEW_WINDOW, type Placed } from './place';
-import { placeForSpec, specKey, type WorldSpecV4 } from './world';
+import { placeBandForSpec, placeForSpec, specKey, type WorldSpecV4 } from './world';
 
 /** Bands shaped like the scene's (about 180–420 world px per layer). */
 function spec(seed: number, W: number, scale: number): WorldSpecV4 {
@@ -100,5 +100,29 @@ describe('v4 world', () => {
       const kept = l.near.filter((e) => e.x + e.w <= 407);
       expect(hidden[i]!.near.map((e) => [e.def.id, e.x, e.y])).toEqual(kept.map((e) => [e.def.id, e.x, e.y]));
     });
+  });
+
+  it('keeps major anchors recognizable while varying minor scatter across different scatterSeeds', () => {
+    const a = placeForSpec({ ...spec(7, 427, 3), scatterSeed: 101 });
+    const b = placeForSpec({ ...spec(7, 427, 3), scatterSeed: 202 });
+    let minorChanged = 0;
+    a.forEach((la, i) => {
+      const lb = b[i]!;
+      const anchorsA = la.near.filter((e) => e.anchor).map((e) => [e.def.id, e.x, e.y, e.v, e.look, e.flip]);
+      const anchorsB = lb.near.filter((e) => e.anchor).map((e) => [e.def.id, e.x, e.y, e.v, e.look, e.flip]);
+      expect(anchorsB).toEqual(anchorsA);
+      const minorA = JSON.stringify(la.near.filter((e) => !e.anchor).map((e) => [e.def.id, e.x, e.y]));
+      const minorB = JSON.stringify(lb.near.filter((e) => !e.anchor).map((e) => [e.def.id, e.x, e.y]));
+      if (minorA !== minorB) minorChanged++;
+    });
+    expect(minorChanged).toBe(LAYERS.length);
+  });
+
+  it('lazy single-band placement matches full-world placement identically', () => {
+    const s = { ...spec(5, 427, 3), scatterSeed: 99 };
+    const full = placeForSpec(s);
+    for (let i = 0; i < LAYERS.length; i++) {
+      expect(placeBandForSpec(s, i)).toEqual(full[i]);
+    }
   });
 });

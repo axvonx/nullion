@@ -46,13 +46,17 @@ async function boot() {
   const seedOverride = seedParam === null ? undefined : Number(seedParam);
   if (seedOverride !== undefined) enforce(Number.isInteger(seedOverride), `?seed must be an integer, got ${seedParam}`);
 
+  // Per-session scatter seed so minor props refresh each visit while the day's major landmarks stay recognizable.
+  const sessionScatter = Math.floor(Math.random() * 1_000_000_000) | 0;
+
   const restart = () => {
     const s = activeSettings();
     const set = SETS[s.answerSet] ?? SETS.sample!;
     const date = s.date ? parseLocalDate(s.date) : new Date();
-    game = new Game(set, puzzleNumber(date), { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect });
-    // The world is seeded once per day: everyone sees the same arrangement, and it changes at rollover.
-    scene.setWorldSeed(seedOverride ?? puzzleNumber(date));
+    const daySeed = puzzleNumber(date);
+    game = new Game(set, daySeed, { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect });
+    // Major set pieces stay anchored to the day's puzzle seed; minor props vary freshly per session (unless ?seed=N).
+    scene.setWorldSeed(seedOverride ?? daySeed, seedOverride ?? ((daySeed * 997) ^ sessionScatter));
     hud.setGame(game, formatLocalDate(date));
     hud.setScrollMode(s.mode === 'scroll');
     scene.setTarget(0, true);

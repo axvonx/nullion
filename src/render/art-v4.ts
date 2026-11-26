@@ -6,8 +6,8 @@ import { SEAM_H, glow, offscreen, prows, tiled, vgrad, vis } from './art-detaile
 import { LAYER_PALETTE, type PaletteMode } from './palettes';
 import { c, checkLibrary, drawEntity, setPaint, type RGB } from './v4/kit';
 import { V4_LIBRARIES } from './v4/libraries';
-import { FAR_F, type LayerPlacement } from './v4/place';
-import { CORE_DY, RAIL_START, RAIL_STEP, placeForSpec, specKey, type WorldSpecV4 } from './v4/world';
+import { FAR_F, type LayerPlacement, type Placed } from './v4/place';
+import { CORE_DY, RAIL_START, RAIL_STEP, placeBandForSpec, specKey, type WorldSpecV4 } from './v4/world';
 
 /**
  * Layer art v4 (look `artStyle: v4`): a seeded world of hand-drawn entities, placed once.
@@ -61,17 +61,30 @@ function rect(ctx: Ctx, x: number, y: number, w: number, h: number, col: string)
 }
 
 // ---------------------------------------------------------------------------------------------
-// The world: placed once per (seed, geometry).
+// The world: lazily placed per visible band on demand (O(1) startup & resize, scales to Endless).
 
-let world: LayerPlacement[] | undefined;
+let worldSpec: WorldSpecV4 | undefined;
+let bandCache: (LayerPlacement | undefined)[] = [];
 let worldKey = '';
 
-/** Build (or keep) the placed world. Cheap to call every frame: it only places when the spec changes. */
+/** Register (or keep) the current world spec. Cheap to call every frame: only clears the band cache when spec changes. */
 export function ensureWorldV4(spec: WorldSpecV4) {
   const key = specKey(spec);
-  if (key === worldKey && world) return;
-  world = placeForSpec(spec);
+  if (key === worldKey && worldSpec) return;
+  worldSpec = spec;
+  bandCache = new Array(spec.bands.length);
   worldKey = key;
+}
+
+/** Lazily fetch or build placement for band index `idx`. */
+function bandPlacement(idx: number): LayerPlacement {
+  enforce(worldSpec, 'v4: drawing before ensureWorldV4()');
+  let pl = bandCache[idx];
+  if (!pl) {
+    pl = placeBandForSpec(worldSpec, idx);
+    bandCache[idx] = pl;
+  }
+  return pl;
 }
 
 /** Entities drawn this frame, near plane, as flat [x, y, w, h, ...] in scene pixels: what tier reactions act on. */
@@ -79,18 +92,33 @@ export const ENTITY_SPOTS: number[] = [];
 
 /** How many entities of each layer are placed (for the debug read-out and tests of the wiring). */
 export function worldStats(): { layer: LayerId; near: number; far: number; types: number }[] {
-  enforce(world, 'v4: world not built');
-  return world.map((l, i) => ({ layer: LAYERS[i]!.id, near: l.near.length, far: l.far.length, types: new Set(l.near.map((e) => e.def.id)).size }));
+  enforce(worldSpec, 'v4: world not built');
+  return LAYERS.map((l, i) => {
+    const pl = bandPlacement(i);
+    return { layer: l.id, near: pl.near.length, far: pl.far.length, types: new Set(pl.near.map((e) => e.def.id)).size };
+  });
 }
 
-/** Draw a band's far plane (fogged) and near plane. Reports near entities for reactions unless this is a seam redraw. */
+/** Binary search for the first entity in a y-sorted list whose `y >= minY`. */
+function firstAtOrAfter(list: readonly Placed[], minY: number): number {
+  let lo = 0;
+  let hi = list.length;
+  while (lo < hi) {
+    const mid = (lo + hi) >>> 1;
+    if (list[mid]!.y < minY) lo = mid + 1;
+    else hi = mid;
+  }
+  return lo;
+}
+
+/** Draw a band's far plane (fogged) and near plane in O(log N + visible). Reports near entities unless this is a seam redraw. */
 function entities(ctx: Ctx, b: Band, id: LayerId) {
-  enforce(world, 'v4: drawing before ensureWorldV4()');
-  const pl = world[INDEX[id]]!;
+  const pl = bandPlacement(INDEX[id]!);
   const [y0, y1] = vis(b);
   setPaint(mode, FOG[id]);
   const ft = R(b.top * FAR_F + (b.farShift ?? 0));
-  for (const e of pl.far) {
+  for (let i = firstAtOrAfter(pl.far, y0 - ft - pl.maxFarH); i < pl.far.length; i++) {
+    const e = pl.far[i]!;
     const sy = ft + e.y;
     if (sy > y1) break;
     if (sy + e.h < y0) continue;
@@ -98,7 +126,8 @@ function entities(ctx: Ctx, b: Band, id: LayerId) {
   }
   setPaint(mode, undefined);
   const report = b.from === undefined;
-  for (const e of pl.near) {
+  for (let i = firstAtOrAfter(pl.near, y0 + b.camY - pl.maxNearH); i < pl.near.length; i++) {
+    const e = pl.near[i]!;
     const sy = e.y - b.camY;
     if (sy > y1) break;
     if (sy + e.h < y0) continue;

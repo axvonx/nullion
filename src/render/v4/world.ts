@@ -1,13 +1,16 @@
 import { enforce } from '../../core/enforce';
 import { LAYERS, type LayerId } from '../../core/layers';
 import { V4_LIBRARIES } from './libraries';
-import { placeWorld, type LayerPlacement, type Rect } from './place';
+import { placeBand, type LayerPlacement, type PlaceGeom, type Rect } from './place';
 
 /** Rows the upper layer frays down over the lower one (same as art-detailed's SEAM_H; kept here so this stays DOM-free). */
 const SEAM_ROWS = 14;
 
 export interface WorldSpecV4 {
+  /** Canonical seed for major anchor set pieces (e.g. daily puzzle number). */
   seed: number;
+  /** Optional separate seed for minor scatter & far-plane props (lets minor components vary per run while landmarks stay put). */
+  scatterSeed?: number;
   /** Scene width in scene pixels. */
   W: number;
   /**
@@ -72,6 +75,7 @@ export function densityForWidth(W: number): number {
 export function specKey(spec: WorldSpecV4): string {
   return [
     spec.seed,
+    spec.scatterSeed ?? spec.seed,
     spec.W,
     spec.cursorLane.join(','),
     spec.panelLanes.map((l) => l.join(',')).join(';'),
@@ -80,26 +84,45 @@ export function specKey(spec: WorldSpecV4): string {
   ].join('|');
 }
 
+function buildGeom(spec: WorldSpecV4): PlaceGeom {
+  enforce(spec.bands.length === LAYERS.length, 'v4: one band spec per layer');
+  return {
+    W: spec.W,
+    densityScale: densityForWidth(spec.W),
+    cursorLane: spec.cursorLane,
+    panelLanes: spec.panelLanes,
+    bands: spec.bands.map((b, i) => {
+      const id = LAYERS[i]!.id;
+      // Below the top boundary the upper layer frays down over this one: entities start under the fray.
+      const top = i > 0 ? b.top + SEAM_ROWS + 2 : b.top;
+      return { id, top, bottom: b.bottom, keepOut: [...b.keepOut, ...artKeepOut(id, b.top, b.bottom, spec.W)] };
+    }),
+  };
+}
+
+/** Lazily place a single layer band `bi`. Pure and deterministic in the spec. */
+export function placeBandForSpec(spec: WorldSpecV4, bi: number): LayerPlacement {
+  const geom = buildGeom(spec);
+  const pl = placeBand(spec.seed, bi, geom, V4_LIBRARIES, spec.scatterSeed ?? spec.seed);
+  const hide = spec.hideLane;
+  if (hide) {
+    pl.near = pl.near.filter((e) => e.x >= hide[1] || e.x + e.w <= hide[0]);
+    pl.far = pl.far.filter((e) => e.x >= hide[1] || e.x + e.w <= hide[0]);
+  }
+  return pl;
+}
+
 /** Place the whole world for a spec. Pure and deterministic in the spec. */
 export function placeForSpec(spec: WorldSpecV4): LayerPlacement[] {
-  enforce(spec.bands.length === LAYERS.length, 'v4: one band spec per layer');
-  const placed = placeWorld(
-    spec.seed,
-    {
-      W: spec.W,
-      densityScale: densityForWidth(spec.W),
-      cursorLane: spec.cursorLane,
-      panelLanes: spec.panelLanes,
-      bands: spec.bands.map((b, i) => {
-        const id = LAYERS[i]!.id;
-        // Below the top boundary the upper layer frays down over this one: entities start under the fray.
-        const top = i > 0 ? b.top + SEAM_ROWS + 2 : b.top;
-        return { id, top, bottom: b.bottom, keepOut: [...b.keepOut, ...artKeepOut(id, b.top, b.bottom, spec.W)] };
-      }),
-    },
-    V4_LIBRARIES,
-  );
+  const geom = buildGeom(spec);
+  const scatterSeed = spec.scatterSeed ?? spec.seed;
   const hide = spec.hideLane;
-  if (hide) for (const l of placed) for (const k of ['near', 'far'] as const) l[k] = l[k].filter((e) => e.x >= hide[1] || e.x + e.w <= hide[0]);
-  return placed;
+  return geom.bands.map((_, i) => {
+    const pl = placeBand(spec.seed, i, geom, V4_LIBRARIES, scatterSeed);
+    if (hide) {
+      pl.near = pl.near.filter((e) => e.x >= hide[1] || e.x + e.w <= hide[0]);
+      pl.far = pl.far.filter((e) => e.x >= hide[1] || e.x + e.w <= hide[0]);
+    }
+    return pl;
+  });
 }

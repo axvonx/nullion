@@ -254,6 +254,7 @@ export class Scene {
    * Placement runs once per seed and viewport width, never per frame.
    */
   private worldSeed = 1;
+  private scatterSeed = 1;
   /** CSS pixels at the right edge covered by debug UI (the demo rail); v4 drops entities under it. 0 in production. */
   uiReserveRightCss = 0;
 
@@ -298,10 +299,15 @@ export class Scene {
     this.rain = Array.from({ length: cols }, (_, i) => ({ y: hash(i) * this.H, speed: 20 + hash(i + 40) * 40 }));
   }
 
-  /** Reseed v4's world (a new day, ?seed=N, or the debug rail's reroll). It is rebuilt on the next frame. */
-  setWorldSeed(seed: number) {
+  /**
+   * Reseed v4's world. `seed` anchors the major set pieces (iconic landmarks for the day);
+   * optional `scatterSeed` varies minor props & far-plane scatter freshly per run.
+   */
+  setWorldSeed(seed: number, scatterSeed: number = seed) {
     enforce(Number.isInteger(seed), `world seed must be an integer, got ${seed}`);
+    enforce(Number.isInteger(scatterSeed), `scatter seed must be an integer, got ${scatterSeed}`);
     this.worldSeed = seed;
+    this.scatterSeed = scatterSeed;
   }
 
   get seed() {
@@ -326,6 +332,7 @@ export class Scene {
     const last = LAYERS.length - 1;
     return {
       seed: this.worldSeed,
+      scatterSeed: this.scatterSeed,
       W,
       bands: LAYERS.map((_, i) => ({
         // The first band reaches far above anything the camera shows, and the last far below: clamp both to view.

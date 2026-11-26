@@ -204,16 +204,22 @@ export function ent(id: string, sizes: readonly Size[], draw: EntityDef['draw'],
 }
 
 // ---------------------------------------------------------------------------------------------
-// Bake cache.
+// Bake cache (bounded LRU so deep Endless descents never leak offscreen canvases).
 
+export const MAX_BAKE_CACHE = 600;
 const bakeCache = new Map<string, HTMLCanvasElement>();
 const pen = new Pen();
 
-/** The entity's static body for the current paint, baked on first use. */
+/** The entity's static body for the current paint, baked on first use (LRU-cached). */
 export function baked(def: EntityDef, v: number, look: number): HTMLCanvasElement {
   const key = `${def.id}|${v}|${look}|${paintKey()}`;
   const hit = bakeCache.get(key);
-  if (hit) return hit;
+  if (hit) {
+    // Refresh recency
+    bakeCache.delete(key);
+    bakeCache.set(key, hit);
+    return hit;
+  }
   const [w, h] = def.sizes[v]!;
   const cv = document.createElement('canvas');
   cv.width = w;
@@ -222,12 +228,20 @@ export function baked(def: EntityDef, v: number, look: number): HTMLCanvasElemen
   enforce(cx, `v4 bake: no 2D context for ${def.id}`);
   cx.imageSmoothingEnabled = false;
   def.draw(pen.at(cx, 0, 0, w, false, look), w, h, v);
+  if (bakeCache.size >= MAX_BAKE_CACHE) {
+    const oldest = bakeCache.keys().next().value;
+    if (oldest !== undefined) bakeCache.delete(oldest);
+  }
   bakeCache.set(key, cv);
   return cv;
 }
 
 export function bakeCount(): number {
   return bakeCache.size;
+}
+
+export function clearBakeCache() {
+  bakeCache.clear();
 }
 
 /** Draw a placed entity's body and overlay at screen (x, y). */

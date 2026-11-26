@@ -78,6 +78,10 @@ export interface PlaceGeom {
 export interface LayerPlacement {
   near: Placed[];
   far: Placed[];
+  /** Tallest entity height in `near` (for safe binary-search visibility culling). */
+  maxNearH: number;
+  /** Tallest entity height in `far` (for safe binary-search visibility culling). */
+  maxFarH: number;
 }
 
 /** A tall screen's height in world pixels (1080p is 360 scene px), for the per-type cap. */
@@ -148,12 +152,22 @@ function freeIntervals(W: number, lanes: readonly (readonly [number, number])[])
   return out.sort((p, q) => q[1] - q[0] - (p[1] - p[0]));
 }
 
-function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<LayerId, Library>): LayerPlacement {
+export function placeBand(
+  seed: number,
+  bi: number,
+  geom: PlaceGeom,
+  libs: Record<LayerId, Library>,
+  scatterSeed: number = seed,
+): LayerPlacement {
   const band = geom.bands[bi]!;
   const lib = libs[band.id];
   enforce(lib, `v4 placement: no library for ${band.id}`);
   const { W } = geom;
-  const rand = rng((Math.imul(seed | 0, 2654435761) ^ Math.imul(bi + 1, 0x9e3779b9)) >>> 0);
+  // Two independent PRNG streams:
+  // - anchorRand keeps major set pieces in recognizable landmarks for a given canonical/daily seed;
+  // - scatterRand lets minor props & far-plane scatter vary freshly per run without moving the landmarks.
+  const anchorRand = rng((Math.imul(seed | 0, 2654435761) ^ Math.imul(bi + 1, 0x9e3779b9)) >>> 0);
+  const rand = rng((Math.imul(scatterSeed | 0, 2246822519) ^ Math.imul(bi + 1, 0x85ebca6b) ^ 0x517cc1b7) >>> 0);
   const top = band.top;
   const bottom = band.bottom;
   const bandH = bottom - top;
@@ -188,17 +202,17 @@ function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<Layer
     return cellsOf(r, PAD, (k) => !grid.get(k)?.some((p) => overlaps(r, p, PAD)));
   };
 
-  // 1. Anchors, beside the centre: out from under the panels where the width allows, else anywhere off the lane.
+  // 1. Anchors (using `anchorRand`), beside the centre: out from under the panels where the width allows, else anywhere off the lane.
   const anchorDefs = [...lib.anchors];
   for (let i = anchorDefs.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
+    const j = Math.floor(anchorRand() * (i + 1));
     [anchorDefs[i], anchorDefs[j]] = [anchorDefs[j]!, anchorDefs[i]!];
   }
   const roomy = freeIntervals(W, [geom.cursorLane, ...geom.panelLanes]);
   const loose = freeIntervals(W, [geom.cursorLane]);
-  let lastSide = rand() < 0.5 ? -1 : 1;
+  let lastSide = anchorRand() < 0.5 ? -1 : 1;
   for (const def of anchorDefs.slice(0, lib.anchorCount)) {
-    const v = Math.floor(rand() * def.sizes.length);
+    const v = Math.floor(anchorRand() * def.sizes.length);
     const [w, h] = def.sizes[v]!;
     if (h + 8 > bandH) continue;
     const fits = (iv: [number, number]) => iv[1] - iv[0] >= w + 2;
@@ -209,19 +223,30 @@ function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<Layer
     const side = pool.filter((iv) => (lastSide < 0 ? iv[0] >= centre - 1 : iv[1] <= centre + 1));
     const ivs = side.length ? side : pool;
     for (let a = 0; a < 80; a++) {
-      const iv = ivs[Math.floor(rand() * ivs.length)]!;
-      const x = Math.round(iv[0] + 1 + rand() * (iv[1] - iv[0] - w - 2));
-      const y = Math.round(top + 6 + rand() * (bandH - h - 12));
+      const iv = ivs[Math.floor(anchorRand() * ivs.length)]!;
+      const x = Math.round(iv[0] + 1 + anchorRand() * (iv[1] - iv[0] - w - 2));
+      const y = Math.round(top + 6 + anchorRand() * (bandH - h - 12));
       const r = { x, y, w, h };
       if (!clear(r)) continue;
-      add({ def, v, look: Math.floor(rand() * LOOKS), x, y, w, h, flip: !def.noFlip && !def.text && rand() < 0.5, ph: rand() * 20, anchor: true });
+      add({
+        def,
+        v,
+        look: Math.floor(anchorRand() * LOOKS),
+        x,
+        y,
+        w,
+        h,
+        flip: !def.noFlip && !def.text && anchorRand() < 0.5,
+        ph: anchorRand() * 20,
+        anchor: true,
+      });
       lastSide = x + w / 2 < centre ? -1 : 1;
       break;
     }
   }
   if (lib.anchorCount > 0) enforce(near.length > 0, `v4 placement: no anchor fits in ${band.id} at width ${W}`);
 
-  // 2. Scatter.
+  // 2. Scatter (using `rand`).
   const up = bi > 0 ? libs[geom.bands[bi - 1]!.id] : undefined;
   const down = bi < geom.bands.length - 1 ? libs[geom.bands[bi + 1]!.id] : undefined;
   const target = Math.max(4, Math.round((W * bandH * lib.density * (geom.densityScale ?? 1)) / 10000));
@@ -262,12 +287,19 @@ function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<Layer
     `v4 placement: ${band.id} placed ${scattered} of ${target} entities at width ${W}; keep-outs or caps leave too little room`,
   );
 
-  // 3. Far plane, in the band's parallax space: local y covers every camera position that shows the band.
+  // 3. Far plane, in the band's parallax space: O(N) spatial grid + per-type map (scales cleanly to tall Endless bands).
   const far: Placed[] = [];
+  const farGrid = new Map<number, Placed[]>();
+  const farByType = new Map<string, Placed[]>();
   const farDefs = lib.near.filter((d) => !d.text && d.sizes.every(([w, h]) => w <= 24 && h <= 20));
   const farTarget = Math.round(target * lib.far);
   const y0 = -bandH * (1 - FAR_F);
   const y1 = bandH + FAR_SCREEN_H * (1 - FAR_F);
+  const farCellsOf = (r: Rect, pad: number, fn: (key: number) => boolean | void) => {
+    for (let gy = Math.floor((r.y - y0 - pad) / CELL); gy <= Math.floor((r.y + r.h - y0 + pad) / CELL); gy++)
+      for (let gx = Math.floor((r.x - pad) / CELL); gx <= Math.floor((r.x + r.w + pad) / CELL); gx++) if (fn(gy * 4096 + gx) === false) return false;
+    return true;
+  };
   const farUsed = new Map<string, number>();
   for (const [id, n] of used) farUsed.set(id, n);
   for (let attempt = 0; attempt < farTarget * 40 && far.length < farTarget && farDefs.length; attempt++) {
@@ -282,19 +314,33 @@ function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<Layer
     const y = Math.round(y0 + rand() * (y1 - y0 - h));
     const r = { x, y, w, h };
     if (inLane(x, w, geom.cursorLane)) continue;
-    if (far.some((p) => overlaps(r, p, 6))) continue;
-    if (!sameTypeOk(def, x + w / 2, y + h / 2, far.filter((p) => p.def === def))) continue;
-    far.push({ def, v, look: Math.floor(rand() * LOOKS), x, y, w, h, flip: !def.noFlip && rand() < 0.5, ph: rand() * 20, anchor: false });
+    if (!farCellsOf(r, 6, (k) => !farGrid.get(k)?.some((p) => overlaps(r, p, 6)))) continue;
+    if (!sameTypeOk(def, x + w / 2, y + h / 2, farByType.get(def.id))) continue;
+    const item: Placed = { def, v, look: Math.floor(rand() * LOOKS), x, y, w, h, flip: !def.noFlip && rand() < 0.5, ph: rand() * 20, anchor: false };
+    far.push(item);
+    farCellsOf(item, 0, (k) => {
+      const list = farGrid.get(k);
+      if (list) list.push(item);
+      else farGrid.set(k, [item]);
+    });
+    const ft = farByType.get(def.id);
+    if (ft) ft.push(item);
+    else farByType.set(def.id, [item]);
     farUsed.set(def.id, (farUsed.get(def.id) ?? 0) + 1);
   }
 
   near.sort((a, b) => a.y - b.y);
   far.sort((a, b) => a.y - b.y);
-  return { near, far };
+  let maxNearH = 0;
+  for (const e of near) if (e.h > maxNearH) maxNearH = e.h;
+  let maxFarH = 0;
+  for (const e of far) if (e.h > maxFarH) maxFarH = e.h;
+  return { near, far, maxNearH, maxFarH };
 }
 
-/** Place every layer's entities. Deterministic in (seed, geometry); call once, not per frame. */
-export function placeWorld(seed: number, geom: PlaceGeom, libs: Record<LayerId, Library>): LayerPlacement[] {
+/** Place every layer's entities. Deterministic in (seed, scatterSeed, geometry); call once, not per frame. */
+export function placeWorld(seed: number, geom: PlaceGeom, libs: Record<LayerId, Library>, scatterSeed: number = seed): LayerPlacement[] {
   enforce(Number.isInteger(seed), `v4 placement: seed must be an integer, got ${seed}`);
-  return geom.bands.map((_, i) => placeBand(seed, i, geom, libs));
+  enforce(Number.isInteger(scatterSeed), `v4 placement: scatterSeed must be an integer, got ${scatterSeed}`);
+  return geom.bands.map((_, i) => placeBand(seed, i, geom, libs, scatterSeed));
 }
