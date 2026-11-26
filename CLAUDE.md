@@ -4,6 +4,8 @@ A daily computing trivia game in the style of krillion.io. There are 7 prompts a
 
 Current stage: **offline playtest prototype.** The open question is which answer dataset and rarity strategy to use, and playtesting decides it. Don't build backend infrastructure before playtests justify it.
 
+What's next lives in `ROADMAP.md`; the next milestone is question and answer generation. The Endless stack's design lives in `ENDLESS-PLAN.md`.
+
 ## Commands
 
 - `npm run dev`: dev server with the 🐞 debug menu and the demo rail above it (`src/debug/rail.ts`): timer, sink, play a sample day, console-form preview, and one button per tier (dive plus reaction).
@@ -18,9 +20,9 @@ Current stage: **offline playtest prototype.** The open question is which answer
 
 - Each layer has a library of 20+ entity types plus 1–2 anchor structures (`src/render/v4/lib-upper.ts`, `lib-mid.ts`, `lib-lower.ts`, registered in `libraries.ts`). An entity is `ent(id, sizes, draw, { anim, text, noFlip, cap, weight })`: `draw` is the static body, baked once per palette into a cached sprite; `anim` is a small live overlay on art time. Draw only through the `Pen` (`v4/kit.ts`), which snaps every solid colour to the band's palette; only `p.glow` (light) dithers.
 - Placement (`v4/place.ts`, pure and unit-tested in `place.test.ts`) runs once per (seed, viewport width), never per frame: anchors first, beside the centre; then a rejection-sampled scatter with bounded attempts that never overlaps, stays out of the cursor lane and keep-outs (arrival-title band, Ring −3 core and rails, floors), allows only small text-free props in the lanes under the console card and header chips, caps each type per screen height, picks least-used types first, and borrows neighbour types near band edges (bleed). A sparse fogged far plane sits behind. It `enforce()`s that libraries are complete, anchors fit and enough of the scatter lands.
-- Seeding: `main.ts` seeds the world with the puzzle number, so everyone sees the same world on a given day and it changes at rollover. The debug rail's dice button rerolls it (its tooltip shows the seed for `?seed=N`). The rail's lane is kept clear in debug builds by dropping entities under it after placement, so the rest of the layout is identical to production.
+- Seeding: two streams. Anchors (setpieces and landmarks) are seeded by the puzzle number, so everyone recognises the same world on a given day and it changes at rollover. Minor scatter and critters mix in a per-visit random (`sessionScatter` in `main.ts`), so they rearrange on every visit. `?seed=N` pins both. The debug rail's dice button rerolls it (its tooltip shows the seed for `?seed=N`). The rail's lane is kept clear in debug builds by dropping entities under it after placement, so the rest of the layout is identical to production.
 - Known limit: panels are fixed to the screen and the world scrolls under them, so "keep-out under panels" is per x-lane, not absolute; the arrival title is kept clear for landings in a layer's first frame.
-- System Biosphere (`src/render/critters.ts`): every layer has its own living critters animated on `artTime` (songbirds in Application, bouncy helper blobs in Runtime, bookworm blobs in Libraries, horned daemons in Userspace, brisk thread-bots in Kernel, fast bus-beetles in Drivers, sentinel drones in Firmware, twin mirror-wisps in Ring −1, frozen mid-leap silhouettes in Ring −2, 1-bit bit-motes in Ring −3) with stereo-panned critter SFX (`sound.playCritter`) and visual chirp pips. Static scatter density in `libraries.ts` is tuned for breathing room, and literal static puns (`kr-watchdog` dog, `kr-oom` skull, static `us-daemon` / `kr-kthread`) were replaced with clean hardware props.
+- System Biosphere (`src/render/critters.ts`): every layer has its own living critters animated on `artTime` (songbirds in Application, bouncy helper blobs in Runtime, bookworm blobs in Libraries, horned daemons in Userspace, brisk thread-bots in Kernel, fast bus-beetles in Drivers, sentinel drones in Firmware, twin mirror-wisps in Ring −1, frozen mid-leap silhouettes in Ring −2, 1-bit bit-motes in Ring −3). Each layer's species has a set of `MotionType`s (`SPECIES_MOTIONS`); some layers add an alternate species on odd variants with its own set (`ALT_SPECIES_MOTIONS`, which also decides which layers draw one: a listed layer without a sprite throws). Critters come with stereo-panned critter SFX (`sound.playCritter`) and visual chirp pips. Static scatter density in `libraries.ts` is tuned for breathing room, and literal static puns (`kr-watchdog` dog, `kr-oom` skull, static `us-daemon` / `kr-kthread`) were replaced with clean hardware props.
 
 ## Locked design decisions
 
@@ -87,6 +89,16 @@ In-play animation, for orientation:
 - Invariants use `enforce()` from `src/core/enforce.ts` and throw loudly. Expected conditions are handled explicitly, never with silent defaults. Missing localStorage is an expected condition.
 - Keep game rules in `src/core` and `src/game`, free of DOM code, and test them.
 - `src/data/sample.ts` holds hand-written placeholder tiers, not the output of a rarity signal.
+
+## Endless mode
+
+Debug-only for now (`?endless=1` or the header chip). A 29-layer stack to about 2,500 frames (`ENDLESS_LAYERS` in `src/core/layers.ts`), a per-prompt watchdog that tightens with depth (`endlessAnswerMs`), 3 strikes and a `KERNEL PANIC` card, and an anti-repeat prompt bag. It draws from the same question bank as the daily game, so it only plays well once the bank is large.
+
+## Answer data pipeline
+
+- `scripts/index-corpora.py` builds an SQLite FTS5 index (porter tokenizer) over local corpora in `~/nullion-corpora`: the dblp dump (titles), arXiv cs (title and abstract, harvested by `scripts/harvest-arxiv.py`) and kernel Documentation (paragraphs).
+- `scripts/score-candidates.py scripts/pilot/candidates.json ~/nullion-corpora` tiers candidate answers and writes `src/data/generated/pilot.json` plus `scripts/pilot/report.md`. Counts decide only where some corpus has at least 10 hits; below that the entry's `judge` tier (a familiarity call) decides, and a weak entry without one is an error. Counts that disagree with the judge by more than one tier lose and are flagged in the report. Bit Flip and Works on my machine are pinned by hand.
+- The pilot covers two categories (lock, data structure); the other five are hand-written in `src/data/sample.ts`. Scaling this to a full bank is Milestone 1 in `ROADMAP.md`.
 
 ## Research
 

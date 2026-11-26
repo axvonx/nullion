@@ -1,6 +1,6 @@
 # nullion — Endless Mode Plan (`ENDLESS-PLAN.md`)
 
-> **Status:** Planning blueprint (post-v4 scalability & 2-stream semi-randomization refactor `203905f`).  
+> **Status:** Phases 1–3 are implemented behind the debug toggle (commits `c335e70` → `877620b`, then the setpiece, prop and critter passes up to `bf772d8`). Phase 4 (production entry) is open and tracked in `ROADMAP.md`. The art from the last passes has not been checked on screen yet.  
 > **Goal:** A finite-but-deep (~2,500-frame) Endless descent inspired by *krillion.io*—expanding the computing stack **upwards**, **through the middle** (de-opaquing Runtime, Kernel, Ring −1, Ring −2, and Ring −3 without faking peer hierarchies), and **downwards** through the Intel ME's hidden MINIX 3 OS into microarchitecture, silicon, and fundamental physics.
 
 ---
