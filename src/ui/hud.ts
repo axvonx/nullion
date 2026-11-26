@@ -235,9 +235,17 @@ export class Hud {
     });
 
     this.els.copy!.addEventListener('click', () => {
-      void navigator.clipboard.writeText(this.shareText).then(() => {
-        this.els.copy!.textContent = 'Copied';
-      });
+      void navigator.clipboard?.writeText(this.shareText).then(
+        () => {
+          this.els.copy!.textContent = 'Copied ✓';
+          window.setTimeout(() => {
+            if (this.els.copy) this.els.copy.textContent = 'Copy result';
+          }, 2000);
+        },
+        () => {
+          this.els.copy!.textContent = 'Copy failed';
+        },
+      );
     });
 
     // "Unwind further": close the reveal and move the game on (the next prompt, or the end-of-day card).
@@ -895,12 +903,13 @@ export class Hud {
       li.append(row);
       ol.append(li);
     });
-    // The share text keeps emoji glyphs (oldest first) so it pastes anywhere.
+    // The share text keeps emoji glyphs + the 7-slot frame strip (oldest first) so it pastes cleanly anywhere.
     const glyphs = rows.map((r) => (r.tier ? TIERS[r.tier].glyph : '⬛')).join('');
+    const scores = rows.map((r) => (r.tier ? String(TIERS[r.tier].frames) : '0')).join('·');
     const headline = `${framesLabel(depth)} · ${layerAt(depth).name}`;
     setText(this.els.puzzleNo!, `#${puzzle}`);
     setText(this.els.headline!, headline);
-    this.shareText = `nullion #${puzzle} · ${headline}\n${glyphs}`;
+    this.shareText = `nullion #${puzzle} · ${headline}\n${glyphs}  ${scores}`;
     // Prefilled GitHub Issue links for missed answers and question ideas.
     const rejected = this.game ? this.game.rounds.flatMap((r) => r.rejected) : [];
     const missLink = document.createElement('a');

@@ -111,9 +111,10 @@ export interface CritterState {
   alive: boolean;
   exitedGen: number;
   gen: number;
-  /** Audio sync */
+  /** Audio & landing FX sync */
   nextBeatT: number;
   calledAtT: number;
+  landedAtT: number;
   /** Initialized flag */
   init: boolean;
 }
@@ -219,6 +220,7 @@ export class CritterSystem {
           gen: 0,
           nextBeatT: 0.8 + hash(s + 8) * 2.2 + i * 0.9,
           calledAtT: -10,
+          landedAtT: -10,
           init: false,
         });
       }
@@ -270,6 +272,7 @@ export class CritterSystem {
         c.motionUntilT += shift;
         c.moveStartT += shift;
         c.nextBeatT += shift;
+        c.landedAtT += shift;
       }
     }
 
@@ -558,6 +561,7 @@ export class CritterSystem {
         if (p >= 1) {
           c.x = c.toX;
           c.worldY = c.toWorldY;
+          c.landedAtT = t;
           if (c.motions.has(MotionType.Perch)) {
             c.motion = MotionType.Perch;
             const pauseBase = layerId === 'libraries' ? 0.85 : layerId === 'runtime' ? 0.45 : 0.6;
@@ -581,6 +585,7 @@ export class CritterSystem {
             c.x = c.toX;
             c.worldY = c.toWorldY;
             c.landing = false;
+            c.landedAtT = t;
             c.motion = MotionType.Perch;
             c.motionUntilT = t + 1.4 + hash(c.stepCount * 17 + i * 29 + this.seed) * 1.8;
             beat = true; // Happy chirp on landing!
@@ -924,6 +929,14 @@ export class CritterSystem {
     if (chirping) {
       px(2, -5, 2, 1, '#ffe25a');
       px(3, -6, 1, 1, '#ffffff');
+    }
+
+    // Subtle 2-pixel landing dust puff right at the feet when a critter touches down on a prop top
+    const landAge = t - c.landedAtT;
+    if (landAge >= 0 && landAge < 0.22) {
+      const spread = Math.round((landAge / 0.22) * 3);
+      px(-2 - spread, 5, 1, 1, '#ebe6d6');
+      px(8 + spread, 5, 1, 1, '#ebe6d6');
     }
   }
 }

@@ -430,6 +430,14 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   body { font-size: 18px; }
   .console { max-height: 50dvh; }
 }
+@media (max-width: 480px) {
+  .bar { top: 8px; left: 10px; right: 10px; gap: 6px; }
+  .bar .chip { padding: 2px 6px 3px; }
+  .meta { font-size: 14px; gap: 4px; }
+  .slots { font-size: 15px; gap: 4px; }
+  .depth { font-size: 15px; }
+  .console { bottom: 10px; width: calc(100vw - 20px); padding: 0 10px 8px; }
+}
 
 /*
  * Tier reveal: after a dive lands, the rarity front and centre. The tier's name sits just above the cursor and the
