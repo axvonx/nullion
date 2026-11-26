@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS, LAYERS } from '../core/layers';
 import type { Band } from './art';
-import { CritterSystem, MotionType, SPECIES_MOTIONS, type CritterCall } from './critters';
+import { ALT_SPECIES_MOTIONS, CritterSystem, MotionType, SPECIES_MOTIONS, isAltSpecies, type CritterCall } from './critters';
 
 function fakeCtx() {
   let rects = 0;
@@ -32,8 +32,8 @@ describe('CritterSystem (System Biosphere)', () => {
     const sys = new CritterSystem();
     sys.ensureSeed(7);
 
-    // Application birds can both fly and perch
-    const birds = sys.getLayerCritters('application');
+    // Application birds can both fly and perch (the alternate butterflies are covered below)
+    const birds = sys.getLayerCritters('application').filter((c) => !isAltSpecies('application', c.variant));
     expect(birds.length).toBeGreaterThan(0);
     for (const b of birds) {
       expect(b.motions.has(MotionType.Fly)).toBe(true);
@@ -88,6 +88,44 @@ describe('CritterSystem (System Biosphere)', () => {
       }
     }
     expect(LAYERS.length).toBe(10);
+  });
+
+  it('alternate species move with their own motion set, and keep to it', () => {
+    const sys = new CritterSystem();
+    sys.ensureSeed(5);
+    const { ctx } = fakeCtx();
+    const mockSpots = [60, 100, 28, 16, 150, 120, 28, 16, 240, 105, 28, 16];
+    const layers = Object.keys(ALT_SPECIES_MOTIONS) as (keyof typeof ALT_SPECIES_MOTIONS)[];
+    expect(layers.length).toBeGreaterThan(0);
+    for (const id of layers) {
+      const crit = sys.getLayerCritters(id);
+      const alts = crit.filter((c) => isAltSpecies(id, c.variant));
+      expect(alts.length, `${id} has no alternate critters`).toBeGreaterThan(0);
+      for (const c of alts) expect(Array.from(c.motions)).toEqual(ALT_SPECIES_MOTIONS[id]);
+      for (const c of crit.filter((c) => !isAltSpecies(id, c.variant))) {
+        expect(Array.from(c.motions)).toEqual(SPECIES_MOTIONS[id]);
+      }
+      for (let t = 0.05; t <= 20; t += 0.05) {
+        sys.drawBand(ctx, id, makeBand(t), false, undefined, mockSpots);
+        for (const c of alts) {
+          expect(c.motions.has(c.motion), `${id} alt entered ${c.motion}`).toBe(true);
+          expect(Number.isFinite(c.x) && Number.isFinite(c.worldY)).toBe(true);
+        }
+      }
+    }
+  });
+
+  it('the butterfly never lands; the main application birds still do', () => {
+    const sys = new CritterSystem();
+    sys.ensureSeed(11);
+    const { ctx } = fakeCtx();
+    const mockSpots = [60, 100, 28, 16, 150, 120, 28, 16, 240, 105, 28, 16];
+    for (let t = 0.05; t <= 12; t += 0.05) {
+      sys.drawBand(ctx, 'application', makeBand(t), false, undefined, mockSpots);
+      for (const c of sys.getLayerCritters('application')) {
+        if (isAltSpecies('application', c.variant)) expect(c.motion).toBe(MotionType.Fly);
+      }
+    }
   });
 
   it('allows application birds to transition smoothly between Fly and Perch on prop tops', () => {

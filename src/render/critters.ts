@@ -90,6 +90,30 @@ export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = {
   landauer: [MotionType.Float],
 };
 
+/**
+ * Second species on some layers: odd variants draw an alternate creature (see `drawCritter`) and move with
+ * their own motion set rather than the main species'. This table is the single source of truth: a layer listed
+ * here must have an alternate sprite, and vice versa.
+ */
+export const ALT_SPECIES_MOTIONS: Partial<Record<LayerId, readonly MotionType[]>> = {
+  application: [MotionType.Fly], // butterfly: only flutters, never lands
+  internet: [MotionType.Float], // drone: hovers in place
+  browser: [MotionType.Zip, MotionType.Perch], // arrow cursor: darts, then rests
+  bytecode: [MotionType.Grid], // opcode byte: discrete steps
+  jit: [MotionType.Float], // flame wisp: drifts
+  linker: [MotionType.Hop, MotionType.Perch], // brass plug: socket to socket
+  'kernel-entry': [MotionType.Hop, MotionType.Perch], // padlock: mostly sits on props
+  'kernel-arch': [MotionType.Zip], // lightning bolt: bursts
+  'bus-fabric': [MotionType.Zip], // data packet: dashes along the bus
+  uarch: [MotionType.Mirror], // speculative dot pair: both paths at once
+  cmos: [MotionType.Float], // electron-hole pair: drifts
+};
+
+/** Alternate-species critters are the odd variants on a layer listed in ALT_SPECIES_MOTIONS. */
+export function isAltSpecies(layerId: LayerId, variant: number): boolean {
+  return variant % 2 === 1 && ALT_SPECIES_MOTIONS[layerId] !== undefined;
+}
+
 export interface CritterCall {
   layer: LayerId;
   /** Stereo pan -0.85..+0.85 matching the critter's horizontal screen position. */
@@ -259,12 +283,14 @@ export class CritterSystem {
       for (let i = 0; i < n; i++) {
         const s = seed * 131 + li * 37 + i * 17;
         const lifeDur = 14 + hash(s + 6) * 10;
-        const motions = new Set<MotionType>(allowed);
+        const variant = i % 5;
+        const set = isAltSpecies(id, variant) ? ALT_SPECIES_MOTIONS[id]! : allowed;
+        const motions = new Set<MotionType>(set);
         list.push({
           x: 0,
           worldY: 0,
           motions,
-          motion: allowed[0]!,
+          motion: set[0]!,
           motionUntilT: 0,
           fromX: 0,
           fromWorldY: 0,
@@ -277,7 +303,7 @@ export class CritterSystem {
           dir: hash(s + 3) > 0.5 ? 1 : -1,
           speed: 0.78 + hash(s + 4) * 0.45,
           phase: hash(s + 5) * 20,
-          variant: i % 5,
+          variant,
           bornT: 0,
           lifeDur,
           respawnAtT: 0,
@@ -506,7 +532,9 @@ export class CritterSystem {
     } else {
       c.x = 16 + hash(this.seed + idx * 17) * Math.max(20, W - 32);
       c.worldY = worldMinY + (worldMaxY - worldMinY) * (0.12 + hash(this.seed + idx * 23) * 0.76);
-      c.motion = SPECIES_MOTIONS[layerId][0]!;
+      const first = c.motions.values().next();
+      enforce(!first.done, `critters: ${layerId} critter has an empty motion set`);
+      c.motion = first.value;
       if (hopOnly) c.motion = MotionType.Perch;
     }
     c.fromX = c.x;
@@ -834,8 +862,9 @@ export class CritterSystem {
     };
 
     // Second species per layer: odd variants draw an alternate creature so each layer's fauna isn't uniform.
+    // ALT_SPECIES_MOTIONS lists the layers that have one.
     const altDone = ((): boolean => {
-      if (variant % 2 !== 1) return false;
+      if (!isAltSpecies(layerId, variant)) return false;
       const tick = Math.floor(t * 8 + c.phase) % 2;
       switch (layerId) {
         case 'application': // butterfly
@@ -895,7 +924,7 @@ export class CritterSystem {
           px(1, 2, 1, 1, '#000000');
           return true;
         default:
-          return false;
+          throw new Error(`critters: ${layerId} is in ALT_SPECIES_MOTIONS but has no alternate sprite`);
       }
     })();
 
