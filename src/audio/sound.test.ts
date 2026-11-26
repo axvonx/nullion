@@ -133,11 +133,13 @@ describe('sound engine', () => {
         engine.playDive(tier === 'bitflip' ? 13 : 1, tier, 'kernel', 1000);
         engine.playLand(tier === 'bitflip' ? 13 : 1, tier, 'kernel');
       }
+      engine.setPuzzleSeed(42);
       engine.playMorph('kernel');
       engine.setVolume('high');
       engine.playTitleGlitch('mirror-flip');
       engine.playTitleGlitch('bitflip');
       engine.playTitleGlitch('mini-ghosts');
+      engine.playAmbientEvent('kernel');
       engine.setAmbienceFrozen(true);
       engine.setAmbienceFrozen(false);
       for (const l of LAYERS) engine.playLayerCross(l.id);
@@ -148,8 +150,14 @@ describe('sound engine', () => {
       expect(afterPlay.pannerCount).toBeGreaterThan(0);
       expect(afterPlay.shaperCount).toBeGreaterThan(0);
 
+      // SFX-only mode keeps SFX working while disabling ambience.
+      engine.setMode('sfx');
+      const beforeSfx = counts().oscCount;
+      engine.unwind('application');
+      expect(counts().oscCount).toBeGreaterThan(beforeSfx);
+
       // Muting stops active reaction nodes and prevents further scheduling.
-      engine.setEnabled(false);
+      engine.setMode('off');
       const beforeMuted = counts().oscCount;
       engine.playTier('bitflip', 'kernel');
       engine.playLayerCross('firmware');

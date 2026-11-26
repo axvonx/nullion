@@ -17,7 +17,10 @@ import type { TitleGlitchKind } from '../ui/title-logo';
  */
 
 export type VolumeLevel = 'low' | 'medium' | 'high';
+export type SoundMode = 'full' | 'sfx' | 'off';
 const VOLUME_GAIN: Record<VolumeLevel, number> = { low: 0.3, medium: 0.62, high: 0.95 };
+/** Pentatonic frequencies (C4..A5) for the subtle daily puzzle-seeded chiptune pulse. */
+const PENTATONIC = [261.63, 293.66, 329.63, 392.0, 440.0, 523.25, 587.33, 659.25, 783.99, 880.0] as const;
 
 export type Timbre = {
   wave: OscillatorType | 'pulse25' | 'pulse12';
@@ -150,7 +153,14 @@ export class SoundEngine {
   private ambience: AmbienceBed | null = null;
   private currentLayer: LayerId = 'application';
   private ambienceFrozen = false;
+  private ambienceEnabled = true;
+  private duckUntil = 0;
+  private duckTimer = 0;
+  private puzzleSeed = 1;
+  private pulseStep = 0;
+  private lastEventAt = 0;
   private volume: VolumeLevel = 'medium';
+  mode: SoundMode = 'full';
   enabled = true;
 
   /** Lazily create and unlock the AudioContext on a user gesture. */
@@ -163,15 +173,59 @@ export class SoundEngine {
     this.syncAmbience();
   }
 
-  setEnabled(on: boolean) {
-    this.enabled = on;
-    if (!on) {
+  /** Set sound mode: 'full' (SFX + ambience), 'sfx' (SFX only, quiet between prompts), or 'off' (muted). */
+  setMode(mode: SoundMode) {
+    this.mode = mode;
+    this.enabled = mode !== 'off';
+    this.ambienceEnabled = mode === 'full';
+    if (!this.enabled) {
       this.stopReactions();
+      this.stopAmbience();
+    } else if (!this.ambienceEnabled) {
       this.stopAmbience();
     } else {
       this.syncAmbience();
     }
     this.applyMasterGain();
+  }
+
+  setEnabled(on: boolean) {
+    this.setMode(on ? (this.mode === 'off' ? 'full' : this.mode) : 'off');
+  }
+
+  /** Seed the subtle generative daily pentatonic pulse from today's puzzle number. */
+  setPuzzleSeed(seed: number) {
+    this.puzzleSeed = Math.max(1, Math.floor(Math.abs(seed)));
+    this.pulseStep = 0;
+  }
+
+  /** Automatically duck the ambience bed by ~10 dB while an active SFX/reaction/crossing plays. */
+  private duckAmbience(durSec: number) {
+    if (!this.ambience || !this.ctx || this.ambienceFrozen || this.currentLayer === 'ring-2') return;
+    const now = this.ctx.currentTime;
+    const end = now + durSec;
+    if (end > this.duckUntil) this.duckUntil = end;
+    const base = this.ambienceLevel(this.currentLayer);
+    this.ambience.gain.gain.cancelScheduledValues(now);
+    this.ambience.gain.gain.setTargetAtTime(base * 0.28, now, 0.025);
+    clearTimeout(this.duckTimer);
+    if (typeof window !== 'undefined' && typeof window.setTimeout === 'function') {
+      const ms = Math.max(80, Math.round((this.duckUntil - now) * 1000));
+      this.duckTimer = window.setTimeout(() => {
+        if (!this.ambience || !this.ctx || this.ambienceFrozen || this.currentLayer === 'ring-2') return;
+        this.ambience.gain.gain.setTargetAtTime(this.ambienceLevel(this.currentLayer), this.ctx.currentTime, 0.22);
+      }, ms);
+    }
+  }
+
+  /** Event-driven micro-foley triggered by visible on-screen activity (rate-limited so it stays sparse & musical). */
+  playAmbientEvent(layer: LayerId) {
+    if (!this.ambienceEnabled || !this.enabled || this.ambienceFrozen || layer === 'ring-2') return;
+    if (!this.ctx || !('state' in this.ctx) || (this.ctx as AudioContext).state !== 'running') return;
+    const nowMs = performance.now();
+    if (nowMs - this.lastEventAt < 1800) return;
+    this.lastEventAt = nowMs;
+    this.playAmbienceArtifact(this.ctx, layer);
   }
 
   setVolume(level: VolumeLevel) {
@@ -264,7 +318,7 @@ export class SoundEngine {
   }
 
   private syncAmbience() {
-    if (!this.enabled || !this.ctx || !this.master) return;
+    if (!this.enabled || !this.ambienceEnabled || !this.ctx || !this.master) return;
     // Don't start looping ambience on an OfflineAudioContext (used for WAV export).
     if (!('state' in this.ctx) || (this.ctx as AudioContext).state !== 'running') return;
     const layer = this.currentLayer;
@@ -341,7 +395,7 @@ export class SoundEngine {
       case 'kernel':
       case 'drivers':
         addDrone(120, 'sawtooth', 220, 0.4);
-        addNoise('lowpass', 360, 0.9, 0.65);
+        addNoise('lowpass', 360, 0.9, 0.55);
         break;
       case 'firmware':
         addDrone(60, 'square', 180, 0.55);
@@ -357,6 +411,28 @@ export class SoundEngine {
         break;
     }
 
+    // Layer-specific quiet in-game chiptune artifacts + generative daily pentatonic pulse (degrades with the stack).
+    let artifactTimer = 0;
+    let alive = true;
+    const scheduleArtifact = () => {
+      if (!alive) return;
+      const delay = 1700 + Math.floor(Math.random() * 2100);
+      artifactTimer = window.setTimeout(() => {
+        if (!alive) return;
+        if (this.enabled && this.ambienceEnabled && !this.ambienceFrozen && this.ctx === ctx && 'state' in ctx && (ctx as AudioContext).state === 'running') {
+          if (this.pulseStep % 2 === 0) this.playDailyPulse(ctx, layer);
+          else this.playAmbienceArtifact(ctx, layer);
+          this.pulseStep++;
+        }
+        scheduleArtifact();
+      }, delay);
+    };
+    if (typeof window !== 'undefined' && typeof window.setTimeout === 'function') scheduleArtifact();
+    stops.push(() => {
+      alive = false;
+      clearTimeout(artifactTimer);
+    });
+
     this.ambience = {
       layer,
       gain: bedGain,
@@ -364,6 +440,69 @@ export class SoundEngine {
         for (const s of stops) s();
       },
     };
+  }
+
+  /** Sparse 1–2 note generative daily motif seeded by puzzleNumber, degrading in waveform/bit-depth by layer. */
+  private playDailyPulse(ctx: BaseAudioContext, layer: LayerId) {
+    if (layer === 'ring-2') return;
+    const tm = timbreFor(layer);
+    const t = ctx.currentTime;
+    const h = (n: number) => Math.abs(Math.sin(this.puzzleSeed * 127.1 + n * 311.7) * 43758.5453) % 1;
+    const step = this.pulseStep % 8;
+    const noteA = PENTATONIC[Math.floor(h(step + 1) * PENTATONIC.length)]!;
+    const noteB = PENTATONIC[Math.floor(h(step + 5) * PENTATONIC.length)]!;
+    const pan = (h(step + 9) - 0.5) * 0.9;
+    const crush = layer === 'kernel' || layer === 'drivers' || layer === 'ring-3';
+    const dur = tm.short ? 0.045 : 0.22;
+    this.voice(ctx, { freq: noteA, at: t, dur, wave: tm.wave, filterHz: tm.filterHz * 0.65, gain: 0.055 * tm.gainScale, pan, crush, reverb: tm.reverbWet });
+    if (h(step + 13) > 0.45) {
+      this.voice(ctx, { freq: noteB, at: t + 0.14, dur: dur * 1.1, wave: tm.wave, filterHz: tm.filterHz * 0.65, gain: 0.045 * tm.gainScale, pan: -pan * 0.6, crush, reverb: tm.reverbWet });
+    }
+  }
+
+  /** Subtle, unmistakably in-game chiptune micro-artifacts layered periodically over each layer's ambience bed. */
+  private playAmbienceArtifact(ctx: BaseAudioContext, layer: LayerId) {
+    const t = ctx.currentTime;
+    const pan = (Math.random() - 0.5) * 1.1;
+    switch (layer) {
+      case 'application':
+        // Distant soft UI notification pop / gentle two-note triangle pip
+        this.voice(ctx, { freq: 784, at: t, dur: 0.05, wave: 'triangle', gain: 0.055, pan });
+        if (Math.random() > 0.45) {
+          this.voice(ctx, { freq: 1046.5, at: t + 0.055, dur: 0.07, wave: 'triangle', gain: 0.045, pan });
+        }
+        break;
+      case 'runtime':
+      case 'libraries':
+        // Tiny rising GC spark / glassy FM micro-chime
+        this.fmVoice(ctx, { carrierHz: 520 + Math.random() * 240, toCarrierHz: 880, modRatio: 2.5, modIndex: 110, at: t, dur: 0.09, gain: 0.055, pan });
+        break;
+      case 'userspace':
+      case 'kernel':
+      case 'drivers':
+        // Rapid 2-pip bit-crushed IRQ / bus-trace packet burst + tiny static tick
+        this.noiseBurst(ctx, { at: t, dur: 0.016, type: 'bandpass', filterHz: 2400, gain: 0.06, pan, crush: true });
+        this.voice(ctx, { freq: 440 + Math.floor(Math.random() * 4) * 110, at: t, dur: 0.032, wave: 'pulse12', gain: 0.065, pan, crush: true });
+        this.voice(ctx, { freq: 660 + Math.floor(Math.random() * 3) * 90, at: t + 0.042, dur: 0.028, wave: 'pulse12', gain: 0.05, pan: -pan * 0.5, crush: true });
+        break;
+      case 'firmware':
+        // Distant miniature BIOS POST micro-beep or relay tick
+        if (Math.random() > 0.4) {
+          this.voice(ctx, { freq: 1000, at: t, dur: 0.038, wave: 'square', gain: 0.06, pan, reverb: 0.1 });
+        } else {
+          this.noiseBurst(ctx, { at: t, dur: 0.014, type: 'highpass', filterHz: 3200, gain: 0.07, pan, reverb: 0 });
+        }
+        break;
+      case 'ring-1':
+        // Faint stereo-echoing dual-voice VM mirror ping
+        this.fmVoice(ctx, { carrierHz: 440, modRatio: 2, modIndex: 90, at: t, dur: 0.12, gain: 0.06, pan: -0.65, swell: true });
+        this.fmVoice(ctx, { carrierHz: 447, modRatio: 2, modIndex: 90, at: t + 0.09, dur: 0.12, gain: 0.05, pan: 0.65, swell: true });
+        break;
+      case 'ring-3':
+        // Stark 1-bit piezo micro-snap / bit-flip tick
+        this.voice(ctx, { freq: Math.random() > 0.5 ? 1760 : 880, at: t, dur: 0.018, wave: 'square', gain: 0.065, pan, crush: true, reverb: 0 });
+        break;
+    }
   }
 
   private updateReverbForLayer(layer: LayerId) {
@@ -966,6 +1105,7 @@ export class SoundEngine {
     if (this.tryPlayCustom(`tier-${tier}`)) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
+    this.duckAmbience(tier === 'womm' ? 3.8 : tier === 'bitflip' ? 2.4 : 1.0);
     const tm = timbreFor(layer);
     const t = ctx.currentTime;
 
@@ -1186,6 +1326,7 @@ export class SoundEngine {
     if (this.tryPlayCustom(`layer-${layer}`)) return;
     const ctx = this.ensureCtx();
     if (!ctx) return;
+    this.duckAmbience(0.45);
     const t = ctx.currentTime;
     switch (layer) {
       case 'kernel':

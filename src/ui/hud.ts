@@ -9,6 +9,7 @@ import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
 import { sound } from '../audio/sound';
+import { missedAnswerUrl, suggestQuestionUrl } from './issues';
 
 const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
   const el = root.querySelector<T>(sel);
@@ -20,7 +21,9 @@ const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
 export const LOW_TIME = 0.25;
 /** The reading phase types the call in at this many ms per character. */
 const TYPE_MS = 28;
-const ANSWER_PLACEHOLDER = 'type an answer, press Enter';
+function answerPlaceholder(): string {
+  return typeof window !== 'undefined' && window.innerWidth <= 520 ? 'type an answer…' : 'type an answer, press Enter';
+}
 /** Demos only: how long the rail lets a reveal sit before pressing "Unwind further" for you. Play waits for the player. */
 export const REVEAL_MS = 2400;
 const REVEAL_FADE_MS = 200;
@@ -97,6 +100,7 @@ export class Hud {
   private barked = -1;
   private lastReadSec = -1;
   private lastLowSec = -1;
+  private slotsSig = '';
   private ended = false;
   private shareText = '';
   private demo = false;
@@ -117,7 +121,7 @@ export class Hud {
       <canvas class="scene" aria-label="Your cursor descending through the software stack"></canvas>
       <header class="bar">
         <span class="bar-left" data-el="barLeft"><span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span></span>
-        <span class="chip depth float" data-el="depth"></span>
+        <span class="bar-right"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span><span class="chip depth float" data-el="depth"></span></span>
       </header>
       <section class="title-screen" data-el="titleScreen" aria-label="Nullion" hidden>
         <div class="title-head" data-el="titleHead"></div>
@@ -154,6 +158,7 @@ export class Hud {
           <div class="headline" data-el="headline"></div>
           <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
           <div class="result-foot"><span class="next-day">A new stack opens at local midnight.</span><button type="button" data-el="copy">Copy result</button></div>
+          <div class="result-links" data-el="resultLinks"></div>
         </div>
         <div class="scroll-hint" data-el="scrollHint" hidden>scroll · ↑ ↓ · PgUp PgDn</div>
       </section>
@@ -292,6 +297,7 @@ export class Hud {
     this.barked = -1;
     this.lastReadSec = -1;
     this.lastLowSec = -1;
+    this.slotsSig = '';
     this.revealRound = -1;
     this.onUnwind = undefined;
     sound.stopReactions();
@@ -306,7 +312,41 @@ export class Hud {
     this.els.titleHowBtn!.setAttribute('aria-expanded', 'false');
     this.els.titleHowBtn!.textContent = 'How tiers work';
     this.entranceBooted = false;
+    this.syncSlots(g);
     this.syncTitle();
+  }
+
+  /** Render the 7 round score slots (`-` until answered, then tier-colored frame count or `0` on miss). */
+  private syncSlots(g: Game) {
+    const active = g.phase.kind === 'reading' || g.phase.kind === 'answering' || g.phase.kind === 'between' ? g.phase.round : -1;
+    const sig =
+      `${active}|` +
+      g.rounds
+        .map((r, i) => (r.locked ? `${r.locked.entry.tier}:${TIERS[r.locked.entry.tier].frames}` : r.timedOut || (g.phase.kind === 'done' && !r.locked) || (active > i && !r.locked) ? '0' : '-'))
+        .join(',');
+    if (sig === this.slotsSig) return;
+    this.slotsSig = sig;
+    const wrap = this.els.slots!;
+    wrap.replaceChildren();
+    g.rounds.forEach((r, i) => {
+      const s = document.createElement('span');
+      s.className = 'slot';
+      if (r.locked) {
+        const t = TIERS[r.locked.entry.tier];
+        s.dataset.tier = t.id;
+        s.textContent = String(t.frames);
+        s.title = `Round ${i + 1}: ${t.name} (+${t.frames})`;
+      } else if (r.timedOut || g.phase.kind === 'done' || (active > i && !r.locked)) {
+        s.classList.add('miss');
+        s.textContent = '0';
+        s.title = `Round ${i + 1}: no frames`;
+      } else {
+        s.textContent = '-';
+        if (i === active) s.classList.add('active');
+        s.title = `Round ${i + 1}`;
+      }
+      wrap.append(s);
+    });
   }
 
   setScrollMode(on: boolean) {
@@ -414,6 +454,7 @@ export class Hud {
 
     const p = g.phase;
     const r = g.current();
+    this.syncSlots(g);
     let left: number;
     this.els.console!.classList.toggle('resting', p.kind === 'between');
     this.els.console!.classList.toggle('reading', p.kind === 'reading');
@@ -432,7 +473,8 @@ export class Hud {
     } else if (p.kind === 'answering') {
       this.showPrompt(r!.question.prompt, Infinity);
       left = p.until === null ? 1 : Math.max(0, (p.until - now) / ANSWER_MS);
-      if (this.input.placeholder !== ANSWER_PLACEHOLDER) this.input.placeholder = ANSWER_PLACEHOLDER;
+      const ph = answerPlaceholder();
+      if (this.input.placeholder !== ph) this.input.placeholder = ph;
       if (this.input.disabled) {
         this.lastReadSec = -1;
         this.lastLowSec = -1;
@@ -442,7 +484,8 @@ export class Hud {
         this.els.feedback!.textContent = '';
       }
     } else if (p.kind === 'between') {
-      if (this.input.placeholder !== ANSWER_PLACEHOLDER) this.input.placeholder = ANSWER_PLACEHOLDER;
+      const ph = answerPlaceholder();
+      if (this.input.placeholder !== ph) this.input.placeholder = ph;
       this.input.disabled = true;
       left = 0;
       if (r!.timedOut && this.barked !== p.round) {
@@ -717,16 +760,27 @@ export class Hud {
     switch (res.kind) {
       case 'ignored':
         return;
-      case 'rejected':
+      case 'rejected': {
         this.input.value = '';
         fb.className = 'feedback fault';
+        const cur = g.current();
+        const url = missedAnswerUrl({ prompt: cur?.question.prompt, guesses: cur?.rejected, puzzle: g.puzzle });
         // Clear first, so a repeat of the same line is announced again by screen readers.
-        fb.textContent = '';
-        requestAnimationFrame(() => (fb.textContent = 'Not accepted'));
+        fb.replaceChildren();
+        requestAnimationFrame(() => {
+          const link = document.createElement('a');
+          link.className = 'issue-link';
+          link.href = url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = 'Missing an answer?';
+          fb.replaceChildren('Not accepted · ', link);
+        });
         replay(this.els.console!, 'reject');
         scene.rejectNudge();
         sound.reject(layerAt(scene.displayDepth).id);
         return;
+      }
       case 'duplicate':
         this.input.value = '';
         fb.className = 'feedback';
@@ -836,6 +890,21 @@ export class Hud {
     setText(this.els.puzzleNo!, `#${puzzle}`);
     setText(this.els.headline!, headline);
     this.shareText = `nullion #${puzzle} · ${headline}\n${glyphs}`;
+    // Prefilled GitHub Issue links for missed answers and question ideas.
+    const rejected = this.game ? this.game.rounds.flatMap((r) => r.rejected) : [];
+    const missLink = document.createElement('a');
+    missLink.className = 'issue-link';
+    missLink.href = missedAnswerUrl({ guesses: rejected, puzzle });
+    missLink.target = '_blank';
+    missLink.rel = 'noopener noreferrer';
+    missLink.textContent = 'Report a missed answer';
+    const ideaLink = document.createElement('a');
+    ideaLink.className = 'issue-link';
+    ideaLink.href = suggestQuestionUrl();
+    ideaLink.target = '_blank';
+    ideaLink.rel = 'noopener noreferrer';
+    ideaLink.textContent = 'Suggest a question';
+    this.els.resultLinks!.replaceChildren(missLink, ' · ', ideaLink);
   }
 
   private showCard() {

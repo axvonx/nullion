@@ -18,8 +18,9 @@ const PREF_CONTROLS: ChoiceControl<keyof Prefs>[] = [
     key: 'sound',
     label: 'Sound',
     options: [
-      { value: 'on', label: 'On', hint: 'Procedural chiptune SFX: blips, layer crossings, and tier stings.' },
-      { value: 'off', label: 'Muted', hint: 'All sound effects are silenced.' },
+      { value: 'full', label: 'Full', hint: 'Chiptune SFX plus subtle layer ambience and daily pulse.' },
+      { value: 'sfx', label: 'SFX only', hint: 'Blips, dives, and tier stings; dead quiet between prompts.' },
+      { value: 'off', label: 'Muted', hint: 'All sound effects and ambience are silenced.' },
     ],
   },
   {
@@ -37,6 +38,15 @@ const PREF_CONTROLS: ChoiceControl<keyof Prefs>[] = [
     options: [
       { value: 'confirm', label: 'Ask first', hint: 'Shows the corrected spelling; press Enter to submit it.' },
       { value: 'auto', label: 'Auto-submit', hint: 'Submits the corrected spelling straight away.' },
+    ],
+  },
+  {
+    key: 'motion',
+    label: 'Motion',
+    options: [
+      { value: 'system', label: 'System', hint: 'Follows your OS reduced-motion setting.' },
+      { value: 'full', label: 'Full', hint: 'All glitches, shakes, speedlines, and floating panels.' },
+      { value: 'reduced', label: 'Reduced', hint: 'Static panels, calm fades, no shakes or flashes.' },
     ],
   },
 ];
@@ -104,19 +114,22 @@ export function mountPrefsMenu(root: HTMLElement, slot: HTMLElement) {
   const muteBtn = document.createElement('button');
   muteBtn.type = 'button';
   muteBtn.className = 'chip prefs-btn sound-btn float';
+  let lastActiveMode: 'full' | 'sfx' = 'full';
   const syncMute = () => {
-    const on = prefs.get().sound === 'on';
+    const mode = prefs.get().sound;
+    const on = mode !== 'off';
+    if (on) lastActiveMode = mode;
     muteBtn.replaceChildren(pixelIcon(on ? SPEAKER_ON : SPEAKER_OFF));
     muteBtn.setAttribute('aria-label', on ? 'Mute sound' : 'Unmute sound');
     muteBtn.setAttribute('aria-pressed', String(!on));
-    muteBtn.title = on ? 'Sound on (click to mute)' : 'Sound muted (click to unmute)';
+    muteBtn.title = on ? `Sound: ${mode} (click to mute)` : 'Sound muted (click to unmute)';
     muteBtn.classList.toggle('muted', !on);
   };
   muteBtn.addEventListener('click', () => {
-    const next = prefs.get().sound === 'on' ? 'off' : 'on';
+    const next = prefs.get().sound === 'off' ? lastActiveMode : 'off';
     prefs.set({ sound: next });
-    sound.setEnabled(next === 'on');
-    if (next === 'on') {
+    sound.setMode(next);
+    if (next !== 'off') {
       sound.unlock();
       sound.unwind('application');
     }

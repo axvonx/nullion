@@ -33,7 +33,7 @@ async function boot() {
   // Canvas text needs the pixel font loaded before the first frame, or it falls back silently.
   await Promise.all([document.fonts.load('8px Silkscreen'), document.fonts.load('20px VT323')]);
   startFavicon();
-  sound.setEnabled(prefs.get().sound === 'on');
+  sound.setMode(prefs.get().sound);
   sound.setVolume(prefs.get().volume);
   window.addEventListener('pointerdown', () => sound.unlock(), { once: true });
   window.addEventListener('keydown', () => sound.unlock(), { once: true });
@@ -56,13 +56,14 @@ async function boot() {
     hud.setGame(game, formatLocalDate(date));
     hud.setScrollMode(s.mode === 'scroll');
     scene.setTarget(0, true);
+    sound.setPuzzleSeed(puzzleNumber(date));
     sound.setLayer('application');
   };
 
   // A preference change applies to the game in progress; it never restarts the day.
   prefs.subscribe((p) => {
     game.opts.autocorrect = p.autocorrect;
-    sound.setEnabled(p.sound === 'on');
+    sound.setMode(p.sound);
     sound.setVolume(p.volume);
   });
 

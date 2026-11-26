@@ -1,4 +1,5 @@
 import { persisted } from './store';
+import { prefs } from './prefs';
 
 /**
  * Visual alternatives, switchable live from the debug menu.
@@ -92,5 +93,8 @@ export function reducedMotion(): boolean {
   const m = look('motion');
   if (m === 'reduced') return true;
   if (m === 'full') return false;
+  const p = prefs.get().motion;
+  if (p === 'reduced') return true;
+  if (p === 'full') return false;
   return mq?.matches ?? false;
 }

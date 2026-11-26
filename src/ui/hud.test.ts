@@ -109,7 +109,7 @@ function setup(opts: Partial<{ unlimited: boolean; autocorrect: 'confirm' | 'aut
 
 beforeEach(() => {
   looks.set({ motion: 'full' });
-  prefs.set({ autocorrect: 'confirm' });
+  prefs.set({ autocorrect: 'confirm', sound: 'full', volume: 'medium', motion: 'system' });
 });
 
 describe('HUD flow', () => {
@@ -302,12 +302,12 @@ describe('typo correction', () => {
     expect(prefs.get().autocorrect).toBe('auto');
 
     const muteBtn = h.$<HTMLButtonElement>('.sound-btn');
-    expect(prefs.get().sound).toBe('on');
+    expect(prefs.get().sound).toBe('full');
     muteBtn.click();
     expect(prefs.get().sound).toBe('off');
     expect(muteBtn.getAttribute('aria-pressed')).toBe('true');
     muteBtn.click();
-    expect(prefs.get().sound).toBe('on');
+    expect(prefs.get().sound).toBe('full');
     expect(muteBtn.getAttribute('aria-pressed')).toBe('false');
   });
 });
@@ -337,6 +337,32 @@ describe('end card', () => {
     rows[0]!.click();
     expect(rows[0]!.getAttribute('aria-expanded')).toBe('false');
     expect(h.mount.querySelector('.glyphs')).toBeNull();
+    const issueLinks = [...h.mount.querySelectorAll<HTMLAnchorElement>('.result-links .issue-link')];
+    expect(issueLinks).toHaveLength(2);
+    expect(issueLinks[0]!.href).toContain('github.com/axvonx/nullion/issues/new');
+    expect(issueLinks[1]!.href).toContain('question-idea');
+  });
+
+  it('tracks 7 round slots from "-" to tier-colored frame counts and 0 on timeout', () => {
+    const h = setup();
+    h.toAnswering();
+    const slotTexts = () => [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')].map((s) => s.textContent);
+    expect(slotTexts()).toEqual(['-', '-', '-', '-', '-', '-', '-']);
+    expect(h.mount.querySelectorAll('.slots .slot')[0]!.classList.contains('active')).toBe(true);
+
+    // Round 0: accept a Race condition (+5)
+    h.submit(h.answerFor('race'));
+    const slotsAfter0 = [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')];
+    expect(slotsAfter0[0]!.textContent).toBe('5');
+    expect(slotsAfter0[0]!.dataset.tier).toBe('race');
+
+    // Round 1: time out → 0
+    h.unwind();
+    h.toAnswering();
+    h.timeOut();
+    const slotsAfter1 = [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')];
+    expect(slotsAfter1[1]!.textContent).toBe('0');
+    expect(slotsAfter1[1]!.classList.contains('miss')).toBe(true);
   });
 });
 

@@ -1258,6 +1258,7 @@ export class Scene {
           const speed = 28 + s3 * 42;
           const x = Math.round((((s1 * W + dir * t * speed) % (W + 12)) + (W + 12)) % (W + 12) - 6);
           const y = Math.round(s2 * H);
+          if (i === 0 && Math.abs(x - W / 2) < 2) sound.playAmbientEvent(layerId);
           ctx.globalAlpha = 0.5;
           ctx.fillStyle = col(layerId === 'drivers' ? '#55ffff' : layerId === 'kernel' ? '#ffb000' : '#7ee0a1');
           ctx.fillRect(x, y, 3, 1);

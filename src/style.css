@@ -123,7 +123,13 @@ body {
 /* An activity LED: the debugger is attached and live. */
 .led { width: 4px; height: 4px; background: var(--ok); box-shadow: 0 0 0 1px #000; animation: led 2.4s steps(1) infinite; }
 @keyframes led { 0%, 70% { opacity: 1; } 75% { opacity: 0.25; } 85% { opacity: 1; } 90% { opacity: 0.3; } }
+.bar-right { display: inline-flex; gap: 6px; align-items: flex-start; flex-wrap: wrap; justify-content: flex-end; }
+.slots { display: inline-flex; align-items: center; gap: 6px; font-size: 17px; white-space: nowrap; }
+.slot { display: inline-block; min-width: 1.2ch; text-align: center; color: var(--dim); }
+.slot.active { color: var(--signal); border-bottom: 2px solid var(--signal); line-height: 1; padding-bottom: 1px; }
+.slot.miss { color: var(--fault); opacity: 0.7; }
 .depth { color: var(--signal); font-size: 17px; white-space: nowrap; }
+.scroll-mode .slots { display: none; }
 
 .console {
   left: 0;
@@ -240,6 +246,10 @@ body {
 .still .bt-icon .tier-icon { transition: none; }
 .result-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
 .next-day { color: var(--dim); font-size: 17px; }
+.result-links { margin-top: 6px; font-size: 16px; color: var(--dim); }
+.issue-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.issue-link:hover { color: var(--signal); }
+.console[data-form='gui'] .issue-link:hover { color: #1d3f8f; }
 
 button {
   font-family: var(--display);
@@ -604,7 +614,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .prefs-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .sound-btn.muted { color: var(--fault); }
 .prefs-group + .prefs-group { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--rule); }
-.prefs-pop { position: fixed; z-index: 4; top: 50px; left: 16px; width: min(300px, calc(100vw - 32px)); padding: 8px 12px 10px; }
+.prefs-pop { position: fixed; z-index: 4; top: 50px; left: 16px; width: min(300px, calc(100vw - 32px)); max-height: calc(100dvh - 68px); overflow-y: auto; padding: 8px 12px 10px; }
 .prefs-pop[hidden] { display: none; }
 .prefs-title { font-family: var(--display); font-size: 11px; letter-spacing: 0.06em; color: var(--signal); margin-bottom: 6px; }
 .prefs-group { border: 0; margin: 0; padding: 0; }
@@ -618,6 +628,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
  * and the premise + "Unwind the stack" dive button below. Console and depth chip stay tucked away until play.
  */
 #app.on-title .console,
+#app.on-title .slots,
 #app.on-title .depth { display: none; }
 
 .title-screen {
