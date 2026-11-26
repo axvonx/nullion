@@ -9,17 +9,17 @@ import { ENTITY_SPOTS, LAYER_ART_V4, ensureWorldV4 } from './art-v4';
 import type { WorldSpecV4 } from './v4/world';
 import { LAYER_PALETTE, quantizeRow, snapColor } from './palettes';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
+import { CASCADE, LEAD_MS, NO_REACTION, NPE_MS, REACTION_MS, WOMM, reactionFrame, type ReactionFrame } from './reaction-fx';
+import { CURSOR_FRAC, FORM_BY_LAYER, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
+
+export { pixelScale } from './cursor-geom';
 
 /** World pixels per stack frame of depth. */
 const PX = 24;
 const TOP_PAD = 40;
 /** The cursor sits in clear air this far down the screen, above the floating console. */
-const CURSOR_FRAC = 0.37;
 
-/** Integer screen pixels per scene pixel: small, so the full-bleed scene can carry fine detail. */
-export function pixelScale(viewportW: number): number {
-  return viewportW < 700 ? 2 : viewportW > 1900 ? 4 : 3;
-}
+
 const KERNEL_INDEX = LAYERS.findIndex((l) => l.id === 'kernel');
 
 /**
@@ -61,21 +61,6 @@ function layerIndexAtWorldY(y: number): number {
   for (let i = 0; i < LAYERS.length; i++) if (y >= bandTop(i)) idx = i;
   return idx;
 }
-
-type CursorForm = 'arrow' | 'ibeam' | 'block' | 'underscore' | 'bioscell' | 'bit';
-
-const FORM_BY_LAYER: Record<LayerId, CursorForm> = {
-  application: 'arrow',
-  runtime: 'ibeam',
-  libraries: 'ibeam',
-  userspace: 'block',
-  kernel: 'underscore',
-  drivers: 'underscore',
-  firmware: 'bioscell',
-  'ring-1': 'bit',
-  'ring-2': 'bit',
-  'ring-3': 'bit',
-};
 
 const FORM_STYLE: Record<CursorForm, { fill: string; outline: string; alpha: number; blink: boolean }> = {
   arrow: { fill: '#ffffff', outline: '#000000', alpha: 1, blink: false },
@@ -121,8 +106,10 @@ interface Dive {
   dur: number;
   /** Tier reaction to fire on landing. */
   react?: TierId;
-  /** Runs once when the dive lands (after the reaction starts): the HUD's tier reveal. */
+  /** Runs once when the dive lands: the demos' tier reveal. */
   onLand?: () => void;
+  /** Set on the first frame the cursor moves (a Works-on-my-machine dive waits out its hang first). */
+  moving?: boolean;
   pop?: { text: string; tier: TierId };
 }
 
@@ -137,25 +124,11 @@ function easeOutBack(p: number): number {
 }
 const easeOutCubic = (p: number) => 1 - (1 - p) ** 3;
 
-const TITLE_MS = 2400;
 const VIGNETTE_MS = 220;
-/** Each layer's name as that place would print it. */
-const LAYER_TITLES: Record<LayerId, string> = {
-  application: 'Application',
-  runtime: '>>> import runtime',
-  libraries: 'ld.so: loading libraries',
-  userspace: '$ cd /usr  # OS userspace',
-  kernel: '[ 0.000000] syscall: entering kernel',
-  drivers: '[ 0.420000] drivers: probing devices',
-  firmware: '== BIOS SETUP: Firmware ==',
-  'ring-1': 'VMEXIT: Ring -1 (hypervisor)',
-  'ring-2': 'SMI#: Ring -2 (SMM)',
-  'ring-3': 'ME: Ring -3',
-};
+/** The reveal's dim, outermost band to innermost: cumulative darkness. */
+const VIGNETTE_STEPS = [0.3, 0.5, 0.68, 0.8, 0.88, 0.93];
 
-/** Half-size of the cursor's bracket box, the same for every cursor form. */
-const MARK_RX = 9;
-const MARK_RY = 11;
+
 
 /**
  * The screen mirrors the cursor's tier reaction. The scene does the canvas side (black-out, leaked copies,
@@ -170,26 +143,14 @@ export interface ScreenFx {
   flip: 'none' | 'invert' | 'tint';
 }
 
-/**
- * Bit Flip is the finale: it compounds every other tier's screen effect as an escalating cascade, in ms after
- * landing: hang (grey, frozen), then a black-out, leaked copies, racing jiggle, and last a held inversion
- * (one transition in, one out). It ends clean at 2200 ms.
- */
-const CASCADE = { hang: [0, 450], blackout: [300, 700], leakAt: 550, jiggle: [700, 1300], invert: [1300, 2000] } as const;
-const within = (t: number, [a, b]: readonly [number, number]) => t >= a && t < b;
-const TEASE = [480, 600] as const;
 const LEAK_MS = 2600;
-const NPE_MS = 460;
+const LEAK_BATCHES = 5;
+const LEAK_EVERY_MS = 1200;
 
-const REACTION_MS: Record<TierId, number> = {
-  'off-by-one': 600,
-  womm: 1400,
-  npe: 500,
-  leak: 1600,
-  race: 1000,
-  heisenbug: 1400,
-  bitflip: 2200,
-};
+/** How long a tier's notable part plays before its dive starts. */
+export function diveLeadMs(tier: TierId): number {
+  return LEAD_MS[tier];
+}
 
 export class Scene {
   private ctx: CanvasRenderingContext2D;
@@ -223,7 +184,12 @@ export class Scene {
   private npeRect: [number, number, number, number] | undefined;
   private leakPending = false;
   private cascadeLeaked = false;
-  private leak: { start: number; seed: number; rects: [number, number, number, number][] } | undefined;
+  /** Leaked prop copies, in batches: one per leak, and more, slowly, while a Memory leak is held by the reveal. */
+  private leaks: { start: number; rects: [number, number, number, number][] }[] = [];
+  /** While the tier reveal is open the reaction holds or loops instead of ending (see setHold). */
+  private held = false;
+  /** This frame's reaction timeline (see reaction-fx.ts). */
+  private rf: ReactionFrame = NO_REACTION;
   private leakShot: HTMLCanvasElement;
   private lastLayer = 0;
   private reaction: Reaction | undefined;
@@ -233,8 +199,6 @@ export class Scene {
   private lastNow = 0;
   private trail: { x: number; y: number }[] = [];
   private cursorLead = 0;
-  /** The layer's name, shown briefly in its own idiom when you arrive (and once at boot). */
-  private title: { layer: LayerId; start: number } | undefined = { layer: 'application', start: 0 };
   private swayAmp = 0;
   private swayPhase = 0;
   private bubbles: { x: number; y: number; age: number }[] = [];
@@ -308,7 +272,8 @@ export class Scene {
    * - The cursor lane is the column the cursor descends through.
    * - Panel lanes are the x-spans of the console card and the two header chips (see style.css): the world scrolls
    *   under them, so only small props may sit there and anchors stay out.
-   * - Each layer's arrival title band is kept clear around where it types in when you land just inside the layer.
+   * - The layer entrance and the tier reveal are DOM text over the middle of the screen; rather than carve a hole
+   *   for them, v4 lowers its density uniformly on narrow screens, where that text spans most of the width.
    */
   private worldSpec(): WorldSpecV4 {
     const W = this.W;
@@ -316,15 +281,6 @@ export class Scene {
     const scale = pixelScale(vw);
     const cx = Math.round(W / 2);
     const consoleHalf = Math.ceil(Math.min(520, vw - 32) / 2 / scale) + 3;
-    const ctx = this.ctx;
-    ctx.font = FONT;
-    const titles: { x: number; y: number; w: number; h: number }[] = LAYERS.map((l) => {
-      const tw = Math.ceil(ctx.measureText(LAYER_TITLES[l.id]).width);
-      // The title's baseline sits 58 px above the cursor; the cursor rests at worldY(depth).
-      const y0 = worldY(l.from) - 58 - 10;
-      const y1 = worldY(l.from + 1) - 58 + 4;
-      return { x: Math.round(cx - tw / 2) - 4, y: Math.round(y0), w: tw + 8, h: Math.round(y1 - y0) };
-    });
     const last = LAYERS.length - 1;
     return {
       seed: this.worldSeed,
@@ -333,7 +289,7 @@ export class Scene {
         // The first band reaches far above anything the camera shows, and the last far below: clamp both to view.
         top: i === 0 ? TOP_PAD - 180 : bandTop(i),
         bottom: i === last ? worldY(MAX_DEPTH) + 320 : bandBottom(i),
-        keepOut: titles,
+        keepOut: [],
       })),
       cursorLane: [cx - 16, cx + 16],
       panelLanes: [
@@ -357,10 +313,39 @@ export class Scene {
     this.vignette = { on, at: now - (1 - k) * VIGNETTE_MS };
   }
 
-  /** The cursor's resting point in CSS pixels (the HUD places the reveal just below it). */
-  cursorCss(): { x: number; y: number } {
-    const scale = this.W ? this.canvas.clientWidth / this.W || pixelScale(window.innerWidth) : pixelScale(window.innerWidth);
-    return { x: (this.W / 2) * scale, y: this.cursorY * scale };
+  /**
+   * Hold the current tier reaction while the reveal is open: after its first play-through each reaction loops or
+   * holds calmly (off-by-one toggles a cell, the hang and black-out hold, leaks keep accumulating up to a cap,
+   * jiggle continues gently, Bit Flip holds its inversion). Releasing lets it end: leaked copies fade out.
+   * Nothing strobes: inversions are entered once and held.
+   */
+  setHold(on: boolean) {
+    if (on === this.held) return;
+    this.held = on;
+    if (on) return;
+    const now = performance.now();
+    for (const b of this.leaks) b.start = Math.min(b.start, now - 0.6 * LEAK_MS);
+    const r = this.reaction;
+    if (r && now - r.start > REACTION_MS[r.tier]) this.reaction = undefined;
+  }
+
+  /** A dive carrying a reaction keeps it going through its lead and descent (the reveal's hold takes over on landing). */
+  private sustainedByDive(): boolean {
+    const d = this.dive;
+    return !!d && d.react !== undefined;
+  }
+
+  /** The cursor form shown in a layer (the look can pin one form everywhere). */
+  formFor(layerId: LayerId): CursorForm {
+    const override = look('cursor');
+    return override === 'evolving' ? FORM_BY_LAYER[layerId] : override;
+  }
+
+  /** The cursor's bracket mark at rest, in CSS pixels: the HUD frames it with the reveal's text. */
+  markCss(): { top: number; bottom: number } {
+    const scale = pixelScale(window.innerWidth);
+    const m = markExtentY(this.formFor(LAYERS[layerIndexAt(this.depth)]!.id), this.cursorY);
+    return { top: m.top * scale, bottom: m.bottom * scale };
   }
 
   private drawVignette(now: number, reduced: boolean) {
@@ -368,19 +353,26 @@ export class Scene {
     const k = reduced ? 1 : Math.min(1, (now - v.at) / VIGNETTE_MS);
     const a = v.on ? k : 1 - k;
     if (a <= 0) return;
+    // Pixel-art dim: concentric hard-edged bands with stepped corners, on the scene's pixel grid, darkest in the
+    // middle (the palette pass dithers each band). Centred on the cursor: the name sits above it, details below.
     const ctx = this.ctx;
-    const rx = Math.min(this.W * 0.5, 180);
-    const cy = this.cursorY + 26;
-    ctx.save();
-    ctx.translate(Math.round(this.W / 2), cy);
-    ctx.scale(1, 0.6);
-    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx);
-    g.addColorStop(0, `rgba(0,0,0,${(0.8 * a).toFixed(3)})`);
-    g.addColorStop(0.55, `rgba(0,0,0,${(0.62 * a).toFixed(3)})`);
-    g.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = g;
-    ctx.fillRect(-rx, -rx, rx * 2, rx * 2);
-    ctx.restore();
+    const cx = Math.round(this.W / 2);
+    const cy = this.cursorY;
+    const rx = Math.min(Math.round(this.W * 0.62), 210);
+    const ry = Math.round(this.H * 0.3);
+    const steps = VIGNETTE_STEPS.length;
+    let below = 0;
+    VIGNETTE_STEPS.forEach((target, k) => {
+      const want = target * a;
+      // Each band adds just enough to reach its target darkness over the bands outside it.
+      const add = below >= 1 ? 0 : 1 - (1 - want) / (1 - below);
+      below = want;
+      const hw = Math.round(rx * (1 - k / steps));
+      const hh = Math.round(ry * (1 - k / steps));
+      const c = Math.max(2, Math.round(Math.min(hw, hh) * 0.35));
+      ctx.fillStyle = `rgba(0,0,0,${Math.max(0, add).toFixed(3)})`;
+      steppedRect(ctx, cx - hw, cy - hh, hw * 2, hh * 2, c);
+    });
   }
 
   get displayDepth() {
@@ -399,13 +391,14 @@ export class Scene {
     }
   }
 
-  react(tier: TierId) {
+  /** Start a tier reaction now. `leakNow: false` defers the leak's screen copies to the landing (mid-dive they'd smear). */
+  react(tier: TierId, leakNow = true) {
     const now = performance.now();
     this.reaction = { tier, start: now };
     const seed = Math.floor(now);
-    if (tier === 'leak') this.leakPending = true;
+    if (tier === 'leak' && leakNow) this.leakPending = true;
     this.cascadeLeaked = false;
-    if (tier === 'npe' || tier === 'bitflip') {
+    if (tier === 'npe' || tier === 'bitflip' || tier === 'womm') {
       // A pixel-aligned chunk of the screen that "isn't there".
       const w = Math.round(this.W * (0.28 + hash(seed) * 0.2));
       const h = Math.round(this.H * (0.18 + hash(seed + 1) * 0.15));
@@ -414,14 +407,18 @@ export class Scene {
   }
 
   /**
-   * An accepted answer: the cursor dives to `to`, eased with a small overshoot, and the tier's reaction
-   * fires on landing. A "+N frames" pops off the cursor as it lands.
+   * An accepted answer. Each tier plays its most notable part first, where the cursor is (diveLeadMs), then the
+   * cursor sinks to `to` (eased, small overshoot) with the reaction still going, and on landing it holds while
+   * the reveal is up (see setHold). Works on my machine hangs first, sinks un-hung, then hangs again on landing.
+   * A "+N frames" pops off the cursor as it lands.
    */
   diveTo(to: number, tier: TierId, frames: number, react = true, onLand?: () => void) {
     this.queue = [];
     this.onQueueDone = undefined;
     const pop = { text: `+${frames} frame${frames === 1 ? '' : 's'}`, tier };
-    this.startDive({ from: this.depth, to, start: performance.now(), dur: diveMs(frames), react: react ? tier : undefined, pop, onLand });
+    const now = performance.now();
+    if (react) this.react(tier);
+    this.startDive({ from: this.depth, to, start: now + (react ? diveLeadMs(tier) : 0), dur: diveMs(frames), react: react ? tier : undefined, pop, onLand });
   }
 
   /**
@@ -471,10 +468,14 @@ export class Scene {
     this.target = d.to;
   }
 
+  private beginMoving(d: Dive) {
+    d.moving = true;
+  }
+
   private land(d: Dive, now: number) {
     this.dive = undefined;
     this.depth = d.to;
-    if (d.react) this.react(d.react);
+    if (d.react === 'leak') this.leakPending = true;
     d.onLand?.();
     if (d.pop) this.pops.push({ ...d.pop, start: now });
     if (this.queue.length) this.queueAt = now + 140;
@@ -503,7 +504,10 @@ export class Scene {
     // Move the cursor: a dive (eased, with a small overshoot), or a glide toward the target.
     if (!this.dive && this.queue.length && now >= this.queueAt) this.startDive({ ...this.queue.shift()!, start: now });
     const dv = this.dive;
-    if (dv) {
+    if (dv && now < dv.start) {
+      // The lead: the tier's notable part plays where the cursor is, before it sinks.
+    } else if (dv) {
+      if (!dv.moving) this.beginMoving(dv);
       const p = Math.min(1, (now - dv.start) / dv.dur);
       this.depth = Math.max(0, dv.from + (dv.to - dv.from) * (reduced ? easeOutCubic(p) : easeOutBack(p)));
       if (p >= 1) this.land(dv, now);
@@ -536,7 +540,6 @@ export class Scene {
         }
       }
       this.lastLayer = layerIdx;
-      this.title = { layer: layer.id, start: now };
       this.onLayerChange?.(layer);
     }
 
@@ -544,33 +547,18 @@ export class Scene {
     // The screen's half of the tier reaction.
     const rx = this.reaction;
     const rel = rx ? now - rx.start : Infinity;
-    const act = rx && rel <= REACTION_MS[rx.tier] ? rx.tier : undefined;
-    const flip = act === 'bitflip';
-    this.fx.hang = act === 'womm' || (flip && within(rel, CASCADE.hang));
-    this.fx.jiggle = reduced
-      ? 0
-      : act === 'race' || act === 'heisenbug'
-        ? Math.max(0, 1 - rel / REACTION_MS[act])
-        : flip && within(rel, CASCADE.jiggle)
-          ? 1 - (rel - CASCADE.jiggle[0]) / (CASCADE.jiggle[1] - CASCADE.jiggle[0])
-          : 0;
-    if (flip && rel >= CASCADE.leakAt && !this.cascadeLeaked) {
+    const sustained = this.held || this.sustainedByDive();
+    const act = rx && (sustained || rel <= REACTION_MS[rx.tier]) ? rx.tier : undefined;
+    // The reaction's timeline (pure, tested in reaction-fx.test.ts): hang, jiggle, inversion or tint, black-out.
+    const rf = act ? reactionFrame(act, rel, sustained, reduced) : NO_REACTION;
+    this.rf = rf;
+    this.fx.hang = rf.hang;
+    this.fx.jiggle = rf.jiggle;
+    this.fx.flip = rf.flip;
+    if (act === 'bitflip' && rel >= CASCADE.leakAt && !this.cascadeLeaked) {
       this.cascadeLeaked = true;
       this.leakPending = true;
     }
-    this.fx.flip = flip
-      ? within(rel, CASCADE.invert)
-        ? reduced
-          ? 'tint'
-          : 'invert'
-        : 'none'
-      : act === 'heisenbug'
-          ? reduced
-            ? 'tint'
-            : rel >= TEASE[0] && rel < TEASE[1]
-              ? 'invert'
-              : 'none'
-          : 'none';
     // Works on my machine hangs the world's clock, like Ring −2 does.
     if (!frozen && !this.fx.hang) this.artTime += dt;
     PROP_SPOTS.length = 0;
@@ -666,7 +654,6 @@ export class Scene {
     this.drawBubbles(swayDt, speed, reduced, layer.id);
     this.drawCursor(now, layer.id, reduced, detailed);
     this.drawPops(now, layer.id, reduced);
-    if (detailed) this.drawTitle(now, layer.id, reduced);
 
     // 5. Color depth: quantize each row by the layer it shows, so the next layer's palette visibly approaches.
     if (look('palette') === 'per-layer') {
@@ -781,9 +768,11 @@ export class Scene {
   private drawReactionFx(now: number, act: TierId | undefined, rel: number, reduced: boolean) {
     const ctx = this.ctx;
     // Null pointer: a chunk of the screen blacks out, as if that memory isn't there (a static dim when reduced).
-    if (this.npeRect && ((act === 'npe' && rel < NPE_MS) || (act === 'bitflip' && within(rel, CASCADE.blackout)))) {
+    // Held by the reveal, it stays, breathing slowly between deep and full black (no blinking).
+    if (this.npeRect && this.rf.blackout) {
       const [x, y, w, h] = this.npeRect;
-      ctx.fillStyle = reduced ? 'rgba(0,0,0,0.6)' : '#000';
+      const breathing = act === 'npe' && rel >= NPE_MS && !reduced;
+      ctx.fillStyle = reduced ? 'rgba(0,0,0,0.6)' : breathing ? `rgba(0,0,0,${(0.86 + 0.14 * Math.sin((rel - NPE_MS) / 700)).toFixed(3)})` : '#000';
       ctx.fillRect(x, y, w, h);
     }
     // Race condition, Heisenbug: props jiggle out of sync, each on its own phase.
@@ -800,51 +789,24 @@ export class Scene {
     if (this.leakPending) {
       this.leakPending = false;
       get2d(this.leakShot).drawImage(this.canvas, 0, 0);
-      const seed = Math.floor(now);
-      this.leak = { start: now, seed, rects: this.entities(seed, 10) };
+      this.leaks = [{ start: now, rects: this.entities(Math.floor(now), 10) }];
     }
-    const lk = this.leak;
-    if (lk) {
-      const age = (now - lk.start) / LEAK_MS;
-      if (age >= 1) this.leak = undefined;
-      else {
-        ctx.globalAlpha = age < 0.6 ? 0.9 : 0.9 * (1 - (age - 0.6) / 0.4);
-        lk.rects.forEach(([x, y, w, h], k) => {
-          const drift = (k % 3) * 2 + 5 + (reduced ? 0 : age * 18);
-          ctx.drawImage(this.leakShot, x, y, w, h, Math.round(x - drift), Math.round(y + drift * 0.6), w, h);
-        });
-        ctx.globalAlpha = 1;
-      }
+    // Held, the leak keeps leaking: a few more copies every so often, up to a cap (none added under reduced motion).
+    const holdLeak = this.held && (act === 'leak' || act === 'bitflip');
+    const last = this.leaks[this.leaks.length - 1];
+    if (holdLeak && act === 'leak' && !reduced && last && this.leaks.length < LEAK_BATCHES && now - last.start > LEAK_EVERY_MS) {
+      this.leaks.push({ start: now, rects: this.entities(Math.floor(now), 5) });
     }
-  }
-
-  /**
-   * Arriving in a layer: its name appears in that place's own idiom (a dmesg line, a BIOS header, a shell
-   * prompt), types in, holds, and fades. No permanent signage.
-   */
-  private drawTitle(now: number, layerId: LayerId, reduced: boolean) {
-    const t = this.title;
-    if (!t) return;
-    if (t.start === 0) t.start = now;
-    if (t.layer !== layerId) return;
-    const age = now - t.start;
-    if (age > TITLE_MS) {
-      this.title = undefined;
-      return;
+    this.leaks = this.leaks.filter((b) => holdLeak || now - b.start < LEAK_MS);
+    for (const b of this.leaks) {
+      // Held copies stop drifting and stay; released ones drift on and fade.
+      const age = holdLeak ? Math.min(0.6, (now - b.start) / LEAK_MS) : (now - b.start) / LEAK_MS;
+      ctx.globalAlpha = age < 0.6 ? 0.9 : 0.9 * (1 - (age - 0.6) / 0.4);
+      b.rects.forEach(([x, y, w, h], k) => {
+        const drift = (k % 3) * 2 + 5 + (reduced ? 0 : age * 18);
+        ctx.drawImage(this.leakShot, x, y, w, h, Math.round(x - drift), Math.round(y + drift * 0.6), w, h);
+      });
     }
-    const text = LAYER_TITLES[layerId];
-    const shown = reduced ? text : text.slice(0, Math.ceil(age / 30));
-    const ctx = this.ctx;
-    ctx.font = FONT;
-    const tw = Math.ceil(ctx.measureText(text).width);
-    const x = Math.round(this.W / 2 - tw / 2);
-    const y = Math.round(Math.max(14, this.cursorY - 58));
-    ctx.globalAlpha = age < TITLE_MS - 500 ? 1 : (TITLE_MS - age) / 500;
-    ctx.fillStyle = '#000';
-    for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1], [1, 1]] as const) ctx.fillText(shown, x + dx, y + dy);
-    const perLayer = look('palette') === 'per-layer';
-    ctx.fillStyle = perLayer ? snapColor('#ffffff', LAYER_PALETTE[layerId]) : '#ffffff';
-    ctx.fillText(shown, x, y);
     ctx.globalAlpha = 1;
   }
 
@@ -889,8 +851,7 @@ export class Scene {
   }
 
   private drawCursor(now: number, layerId: LayerId, reduced: boolean, detailed: boolean) {
-    const override = look('cursor');
-    const form: CursorForm = override === 'evolving' ? FORM_BY_LAYER[layerId] : override;
+    const form = this.formFor(layerId);
     const style = FORM_STYLE[form];
     // The bit is a 0/1 glyph that can't hold its value. It flickers on art time, so Ring −2's frozen time holds it too.
     let bit = reduced ? 1 : bitAt(this.artTime);
@@ -910,14 +871,18 @@ export class Scene {
 
     const r = this.reaction;
     const el = r ? now - r.start : Infinity;
-    if (r && el > REACTION_MS[r.tier]) this.reaction = undefined;
-    const active = r && el <= REACTION_MS[r.tier] ? r.tier : undefined;
+    const sustained = this.held || this.sustainedByDive();
+    if (r && el > REACTION_MS[r.tier] && !sustained) this.reaction = undefined;
+    const active = r && (el <= REACTION_MS[r.tier] || sustained) ? r.tier : undefined;
+    // Past its first play-through and held by the reveal: loop calmly.
+    const looping = active !== undefined && el > REACTION_MS[active];
     const ctx = this.ctx;
 
     switch (active) {
       case 'off-by-one':
-        // Lands one cell off, then snaps back.
-        x += el < 350 ? -8 : el < 420 ? 1 : 0;
+        // Lands one cell off, then snaps back. Held, it keeps stepping between its true spot and one cell off.
+        // A steady two-step: one cell off, back to its true spot, one cell off… (one cell off and still, when reduced).
+        x += reduced || Math.floor(el / 300) % 2 === 0 ? -8 : 0;
         visible = true;
         break;
       case 'npe':
@@ -934,38 +899,53 @@ export class Scene {
         // Leaves copies of itself behind, the frozen-app cursor smear.
         for (let k = 0; k < 8; k++) {
           const p = this.trail[Math.max(0, this.trail.length - 1 - k * 4)]!;
-          drawSprite(ctx, spr, p.x - k * 7, p.y - k * 5, fill, outline, alpha * (0.6 - k * 0.07));
+          // The smear trails off to the side (not upward, where the reveal puts the tier's name).
+          drawSprite(ctx, spr, p.x - (k + 1) * 6, p.y + (k % 2), fill, outline, alpha * (0.6 - k * 0.07));
         }
         visible = true;
         break;
       case 'race': {
         // Two cursors fight over the same spot.
-        const spread = (1 - el / REACTION_MS.race) * 14 * (reduced ? 0.5 : Math.abs(Math.sin(el / 40)));
+        const spread = looping
+          ? reduced
+            ? 4
+            : 6 * Math.abs(Math.sin(el / 140))
+          : (1 - el / REACTION_MS.race) * 14 * (reduced ? 0.5 : Math.abs(Math.sin(el / 40)));
         drawSprite(ctx, spr, x - spread, y, fill, outline, alpha);
         x += spread;
         visible = true;
         break;
       }
       case 'heisenbug':
-        // Only there when you're not looking straight at it.
-        if (reduced) alpha *= 0.45;
-        else visible = Math.random() > 0.55;
-        marked = visible;
+        // Only half there: it fades slowly in and out (never a blink, for flash safety).
+        alpha *= reduced ? 0.45 : 0.3 + 0.4 * (Math.sin(el / 380) * 0.5 + 0.5);
+        visible = true;
         break;
       case 'womm':
-        // The comic letdown: it spins, thinks about it ("..."), and droops.
+        // The fake-out: for a moment it flips like a Bit Flip…
+        if (this.rf.cursor === 'flipped') {
+          [fill, outline] = [invert(fill), invert(outline)];
+          if (bitGlyph) {
+            bit = bit ? 0 : 1;
+            spr = bit ? SPRITES.bit1 : SPRITES.bit0;
+          }
+          visible = true;
+          break;
+        }
+        // …then the comic letdown: it turns into the hourglass, thinks about it ("..."), and droops.
+        const hel = el - WOMM.hourglass;
         spr = SPRITES.hourglass;
         fill = '#ffcf5a';
         outline = '#1b1b1b';
         alpha = 1;
         visible = true;
-        if (el > 500) {
+        if (hel > 500) {
           ctx.fillStyle = '#ffffff';
           ctx.font = FONT;
-          ctx.fillText('.'.repeat(Math.min(3, 1 + Math.floor((el - 500) / 250))), x + 9, y + 4);
+          ctx.fillText('.'.repeat(Math.min(3, 1 + Math.floor((hel - 500) / 250))), x + 9, y + 4);
         }
-        if (el > REACTION_MS.womm - 400) y += 2;
-        if (!reduced && Math.floor(el / 220) % 2 === 1) {
+        if (hel > 600) y += 2;
+        if (!reduced && Math.floor(hel / (hel > 1000 ? 600 : 220)) % 2 === 1) {
           // Spin by flipping vertically.
           this.drawMark(now, spr, x, y, layerId, reduced);
           ctx.save();
@@ -1001,10 +981,7 @@ export class Scene {
     const ctx = this.ctx;
     // Every cursor form shares one box: centred on the glyph, except a short glyph (the underscore) sits at the
     // bottom of the box, the way it sits at the bottom of a text cell.
-    const ox = x - spr.hx;
-    const oy = y - spr.hy;
-    const cx = Math.round(ox + spr.w / 2);
-    const cy = Math.round(spr.h < 8 ? oy + spr.h - 7 : oy + spr.h / 2);
+    const { cx, cy } = markCenter(spr, x, y);
     const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 16);
     g.addColorStop(0, 'rgba(0,0,0,0.85)');
     g.addColorStop(0.55, 'rgba(0,0,0,0.55)');
@@ -1088,6 +1065,34 @@ function ditherFadeMask(w: number): HTMLCanvasElement {
     }
   }
   return c;
+}
+
+/** A filled rectangle whose corners are cut in two pixel steps (a chunky rounded rectangle, no antialiasing). */
+function steppedRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: number) {
+  const h2 = Math.round(c / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + c, y);
+  ctx.lineTo(x + w - c, y);
+  ctx.lineTo(x + w - c, y + h2);
+  ctx.lineTo(x + w - h2, y + h2);
+  ctx.lineTo(x + w - h2, y + c);
+  ctx.lineTo(x + w, y + c);
+  ctx.lineTo(x + w, y + h - c);
+  ctx.lineTo(x + w - h2, y + h - c);
+  ctx.lineTo(x + w - h2, y + h - h2);
+  ctx.lineTo(x + w - c, y + h - h2);
+  ctx.lineTo(x + w - c, y + h);
+  ctx.lineTo(x + c, y + h);
+  ctx.lineTo(x + c, y + h - h2);
+  ctx.lineTo(x + h2, y + h - h2);
+  ctx.lineTo(x + h2, y + h - c);
+  ctx.lineTo(x, y + h - c);
+  ctx.lineTo(x, y + c);
+  ctx.lineTo(x + h2, y + c);
+  ctx.lineTo(x + h2, y + h2);
+  ctx.lineTo(x + c, y + h2);
+  ctx.closePath();
+  ctx.fill();
 }
 
 function resetCtx(ctx: CanvasRenderingContext2D) {

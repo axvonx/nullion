@@ -10,6 +10,7 @@ import { Game } from './game/game';
 import { LOOK_SLOTS, looks, type LookSlot } from './looks';
 import { Scene } from './render/scene';
 import { DEFAULT_SETTINGS, settings, type Settings } from './settings';
+import { prefs } from './prefs';
 import { Hud } from './ui/hud';
 
 /** Dev server and `npm run build:debug` include the 🐞 menu; `npm run build` strips it. */
@@ -42,7 +43,7 @@ async function boot() {
     const s = activeSettings();
     const set = SETS[s.answerSet] ?? SETS.sample!;
     const date = s.date ? parseLocalDate(s.date) : new Date();
-    game = new Game(set, puzzleNumber(date), { timer: s.timer, unlimited: s.unlimited });
+    game = new Game(set, puzzleNumber(date), { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect });
     // The world is seeded once per day: everyone sees the same arrangement, and it changes at rollover.
     scene.setWorldSeed(seedOverride ?? puzzleNumber(date));
     hud.setGame(game, formatLocalDate(date));
@@ -50,6 +51,11 @@ async function boot() {
     scene.setTarget(0, true);
     if (s.mode === 'play') game.start(performance.now());
   };
+
+  // A preference change applies to the game in progress; it never restarts the day.
+  prefs.subscribe((p) => {
+    game.opts.autocorrect = p.autocorrect;
+  });
 
   hud.bind(scene, () => performance.now());
   restart();

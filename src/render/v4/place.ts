@@ -71,6 +71,8 @@ export interface PlaceGeom {
   cursorLane: readonly [number, number];
   /** x-lanes under the floating panels: only small, text-free entities. */
   panelLanes: readonly (readonly [number, number])[];
+  /** Scales every layer's scatter density uniformly (narrow screens get a calmer world). Default 1. */
+  densityScale?: number;
 }
 
 export interface LayerPlacement {
@@ -222,7 +224,7 @@ function placeBand(seed: number, bi: number, geom: PlaceGeom, libs: Record<Layer
   // 2. Scatter.
   const up = bi > 0 ? libs[geom.bands[bi - 1]!.id] : undefined;
   const down = bi < geom.bands.length - 1 ? libs[geom.bands[bi + 1]!.id] : undefined;
-  const target = Math.max(4, Math.round((W * bandH * lib.density) / 10000));
+  const target = Math.max(4, Math.round((W * bandH * lib.density * (geom.densityScale ?? 1)) / 10000));
   const used = new Map<string, number>();
   const blocked = new Set<string>();
   let scattered = 0;

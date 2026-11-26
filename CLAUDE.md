@@ -7,7 +7,7 @@ Current stage: **offline playtest prototype.** The open question is which answer
 ## Commands
 
 - `npm run dev`: dev server with the 🐞 debug menu and the demo rail above it (`src/debug/rail.ts`): timer, sink, play a sample day, console-form preview, and one button per tier (dive plus reaction).
-- `npm test`: vitest. Covers core rules, matching, data integrity and the game loop.
+- `npm test`: vitest. Covers core rules, matching, data integrity, the game loop, v4 placement (`V4_SWEEP=1` for a 200-seed sweep), reaction timelines (`src/render/reaction-fx.test.ts`), reveal layout overlaps (`src/ui/reveal-layout.test.ts`) and the HUD flow in happy-dom (`src/ui/hud.test.ts`).
 - `npm run typecheck`
 - `npm run build`: production build into `dist/`. The debug menu is stripped out.
 - `npm run build:debug`: same, with the debug menu, into `dist-debug/`.
@@ -49,6 +49,7 @@ Current stage: **offline playtest prototype.** The open question is which answer
 
 ## Deferred decisions (don't lose these)
 
+- **Other players' answers:** each row of the end-of-day backtrace will get a dropdown arrow that reveals what other players answered for that question (requested 2026-11-26). It needs server-side answer counts, so it waits for a backend. The row layout already leaves room for it.
 - **Sound:** deferred until the visuals settle (decided 2026-11-26). When it's picked up, it's opt-in and off by default: small chiptune SFX such as a POST beep on firmware, blips for accept and reject, and a sting on a Bit Flip.
 
 ## Visual alternatives
@@ -63,13 +64,14 @@ Reduced motion must keep working: flashes, tearing, rain, flicker, cursor sway a
 
 Looks are saved under `nullion.looks.3`; bump the key when a default changes and old saved choices should not mask it.
 
-The day's record of answers lives in the end-of-day result card and the share text; there is no running backtrace panel. The day ends with a fast replay of the descent (skippable; skipped under reduced motion) before the card.
+The day's record of answers lives in the end-of-day card and the share text; there is no running panel. The card is a backtrace, most recent round first (#0 = the last answer): each row shows its frame numbers and the tier's cursor icon, and opens in place on hover, focus or tap to the tier and the answer. Each row keeps an empty last slot for a future dropdown of other players' answers. There is no replay.
 
 In-play animation, for orientation:
-- Accepted answer: `Scene.diveTo` dives the cursor (eased, small overshoot, camera lagging), and the tier's reaction fires on landing. Boundary crossings play their effect (tear at syscall, mirror at VM exit, freeze-frame at SMI, 1-bit at ME).
-- Each tier reaction has a screen half (`Scene.fx`, mirrored onto the panels by the HUD): Works on my machine greys and hangs the world, Null pointer blacks out a chunk, Memory leak leaves copies of props, Race condition and Heisenbug jiggle props and panels out of sync, Bit Flip is the finale: over about 2 s it cascades through hang, black-out, leaked copies and racing jiggle, then holds an inversion (Heisenbug teases it). Under reduced motion: no jiggle or flash, inversion becomes a slow tint, black-out a dim.
-- Depth maps to world y piecewise-linearly (`worldY` in `src/render/scene.ts`): each layer's visual height is a base plus a little per frame, so thin layers still read as places. Layer names aren't signposted; in v2–v4 each layer's name types in once, in its own idiom, as you arrive.
-- Tier reveal (`Hud.reveal`, fired by `Scene.diveTo`'s `onLand`): after the dive lands, the tier name, answer, +N frames and the entry's note (or a plain-language quip from `TIER_QUIPS`) show just below the cursor for `REVEAL_MS`, dismissible with any key or click. Timeouts get a lower-key reveal. The scene dims its middle with a vignette drawn under the cursor pass, and the tier's world effects (black-out, leaked copies, jiggle) also draw under the cursor, so the mascot's reaction always plays in front. Reduced motion: a static dim, and the reveal only fades.
+- Accepted answer: `Scene.diveTo` plays the tier's most notable part first, where the cursor is (`LEAD_MS` in `src/render/reaction-fx.ts`), then dives (eased, small overshoot, camera lagging) with the reaction still going, and on landing the reaction holds until the player presses "Unwind further". Boundary crossings play their effect (tear at syscall, mirror at VM exit, freeze-frame at SMI, 1-bit at ME).
+- Each tier reaction has a screen half (`Scene.fx`, mirrored onto the panels by the HUD): Works on my machine greys and hangs the world, Null pointer blacks out a chunk, Memory leak leaves copies of props, Race condition and Heisenbug jiggle props and panels out of sync, Bit Flip is the finale: over about 2 s it cascades through hang, black-out, leaked copies and racing jiggle, then holds an inversion. Works on my machine is a fake-out: it opens like a Bit Flip, stalls into gray, turns into the hourglass and makes a small drop. Heisenbug's glitch is a held tint. The timelines are pure (`reactionFrame`) and tested for flash safety: an inversion is entered at most once and held. Under reduced motion: no jiggle or flash, inversion becomes a tint, black-out a dim.
+- Depth maps to world y piecewise-linearly (`worldY` in `src/render/scene.ts`): each layer's visual height is a base plus a little per frame, so thin layers still read as places. Layer names aren't signposted; in v2–v4 entering a layer shows its name and a one-line plain description (`LAYER_BLURBS` in `src/ui/hud.ts`), small, at the top of the screen.
+- Tier reveal (`Hud.reveal`): once the dive lands, the HUD shows the tier name just above the cursor, and the answer, +N frames and the entry's note (or a plain-language quip from `TIER_QUIPS`) just below it. The round waits: the game's between phase has no timer, and the console's entry box becomes an "Unwind further" button (focused; Enter or Space presses it) that calls `game.advance()`. Timeouts get a lower-key reveal. Positions come from the pure `revealLayout` (`src/ui/reveal-layout.ts`) and the cursor geometry in `src/render/cursor-geom.ts`, tested for overlaps at 1280×800, 390×844 and 360×740. The scene dims its middle with a stepped, pixel-grid vignette drawn under the cursor pass, and the tier's world effects also draw under the cursor, so the mascot's reaction always plays in front. Reduced motion: a static dim, and the reveal only fades.
+- Typo correction: in "Ask first" mode (player prefs, `src/prefs.ts`) a typo is corrected in the input and marked, and Enter submits it; in "Auto-submit" it is accepted at once with a "read as" note. Player settings live behind the gear chip in the header (`src/ui/prefs-menu.ts`, in production); add a setting as a row in `PREF_CONTROLS`.
 - Tier icons (`src/ui/tier-icons.ts`) are the cursor in each tier's reaction pose. They are used in the reveal, the landed line, the result card and the debug rail. The share text keeps emoji.
 - The console card takes the layer's idiom (`src/ui/forms.ts`: GUI dialog, REPL, shell, serial console, BIOS setup, hypervisor log, SMM dump, raw entry). The plain prompt, the real `<input>`, the timer and the feedback stay in every form.
 

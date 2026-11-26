@@ -93,4 +93,6 @@ body:has(.dbg-panel:not([hidden])) .dbg-rail { visibility: hidden; }
 @media (max-width: 900px) {
   body .console { left: 16px; right: 64px; width: auto; margin: 0; }
   body .scroll-mode .console { width: max-content; max-width: calc(100vw - 80px); }
+  /* The tier reveal's text too. */
+  body .rv-name, body .rv-body { right: 64px; }
 }

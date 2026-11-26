@@ -1,6 +1,6 @@
 import { LAYERS } from '../core/layers';
 import { TIERS, TIER_IDS, type TierId } from '../core/tiers';
-import { diveMs } from '../render/scene';
+import { diveLeadMs, diveMs } from '../render/scene';
 import { FORM_BY_LAYER, FORM_IDS, FORM_NAMES } from '../ui/forms';
 import { REVEAL_MS } from '../ui/hud';
 import { tierIcon } from '../ui/tier-icons';
@@ -191,7 +191,7 @@ export function mountRail(h: DebugHooks) {
         h.hud.demoLanded(tier, name, f);
         h.scene.diveTo(depth, tier, f, true, () => h.hud.demoReveal(tier, name, f));
       });
-      t += diveMs(f) + REVEAL_MS + 600;
+      t += diveLeadMs(tier) + diveMs(f) + REVEAL_MS + 600;
     }
     later(t, () => h.hud.endOfDay(SAMPLE_DAY, depth, 0));
   });

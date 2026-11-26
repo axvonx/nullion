@@ -59,6 +59,15 @@ function artKeepOut(id: LayerId, top: number, bottom: number, W: number): Rect[]
   }
 }
 
+/**
+ * Uniform density by width. On a phone the reveal and the layer entrance span nearly the whole width, so the
+ * scene behind them must be calmer everywhere (not just carved out behind the text): half density at phone
+ * width, rising linearly to full density by about 1280 px wide.
+ */
+export function densityForWidth(W: number): number {
+  return Math.max(0.5, Math.min(1, 0.5 + (W - 195) / 460));
+}
+
 /** Everything placement depends on: equal keys mean an identical world. */
 export function specKey(spec: WorldSpecV4): string {
   return [
@@ -78,6 +87,7 @@ export function placeForSpec(spec: WorldSpecV4): LayerPlacement[] {
     spec.seed,
     {
       W: spec.W,
+      densityScale: densityForWidth(spec.W),
       cursorLane: spec.cursorLane,
       panelLanes: spec.panelLanes,
       bands: spec.bands.map((b, i) => {

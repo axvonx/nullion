@@ -1,10 +1,12 @@
-import { MAX_DEPTH, layerAt } from '../core/layers';
+import { MAX_DEPTH, layerAt, type Layer, type LayerId } from '../core/layers';
 import { TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
-import { reducedMotion } from '../looks';
-import type { DiveStop, Scene } from '../render/scene';
+import { look, reducedMotion } from '../looks';
+import type { Scene } from '../render/scene';
 import { FORMS, FORM_BY_LAYER, serialStamp, type FormId } from './forms';
 import { tierIcon } from './tier-icons';
+import { revealLayout } from './reveal-layout';
+import { mountPrefsMenu } from './prefs-menu';
 
 const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
   const el = root.querySelector<T>(sel);
@@ -19,6 +21,23 @@ const TYPE_MS = 28;
 /** Demos only: how long the rail lets a reveal sit before pressing "Unwind further" for you. Play waits for the player. */
 export const REVEAL_MS = 2400;
 const REVEAL_FADE_MS = 200;
+
+/** Layer entrances: how long the name card shows at the top of the screen. */
+const ENTRANCE_MS = 2600;
+
+/** What each layer is, in a line a non-systems player can read. Shown under the layer's name as you enter it. */
+export const LAYER_BLURBS: Record<LayerId, string> = {
+  application: 'The apps you click, tap and type into',
+  runtime: 'The engine that runs your code and tidies up its memory',
+  libraries: 'Shared code every program leans on',
+  userspace: 'The operating system’s own programs and services',
+  kernel: 'The core of the operating system, in charge of everything above',
+  drivers: 'The translators between the operating system and the hardware',
+  firmware: 'Code built into the hardware that starts the machine',
+  'ring-1': 'The hypervisor, running whole operating systems as guests',
+  'ring-2': 'System Management Mode, which can pause everything above it',
+  'ring-3': 'The Intel Management Engine, a hidden computer inside your computer',
+};
 
 /**
  * Plain-language lines for the reveal, used when the answer has no note of its own. They say how rare the answer
@@ -75,7 +94,6 @@ export class Hud {
   private stamp = '';
   private barked = -1;
   private ended = false;
-  private replaying = false;
   private shareText = '';
   private demo = false;
 
@@ -91,20 +109,21 @@ export class Hud {
     mount.innerHTML = `
       <canvas class="scene" aria-label="Your cursor descending through the software stack"></canvas>
       <header class="bar">
-        <span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span>
+        <span class="bar-left" data-el="barLeft"><span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span></span>
         <span class="chip depth float" data-el="depth"></span>
       </header>
       <section class="console panel float" data-el="console" aria-label="Prompt">
         <div class="titlebar" data-el="titlebar"><span class="title-text" data-el="titleText"></span><span class="close" aria-hidden="true">x</span></div>
         <div class="watchdog" data-el="watchdogWrap"><div class="watchdog-fill" data-el="watchdog"></div></div>
-        <span class="wd-secs" data-el="secs" aria-hidden="true"></span>
         <div class="call" data-el="call"><span class="pfx" data-el="pfx"></span><span data-el="ctext"></span></div>
         <div class="plain" data-el="plain"></div>
         <form class="prompt-line" data-el="form" autocomplete="off">
           <label for="guess" class="caret" data-el="caret">&gt;</label>
           <input id="guess" name="guess" aria-label="Your answer" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="type an answer, press Enter" />
+          <span class="wd-secs" data-el="secs" aria-hidden="true"></span>
           <span class="bracket" aria-hidden="true">]</span>
           <button type="submit" class="ok-btn">OK</button>
+          <button type="button" class="rv-next" data-el="rvNext">Unwind further ▾</button>
         </form>
         <div class="bios-footer" aria-hidden="true"><b>F10</b> Save · <b>Enter</b> Select · <b>ESC</b> Exit</div>
         <output class="feedback" data-el="feedback" aria-live="polite"></output>
@@ -112,22 +131,24 @@ export class Hud {
         <div class="result" data-el="result" hidden>
           <div class="wordmark">nullion <span data-el="puzzleNo"></span></div>
           <div class="headline" data-el="headline"></div>
-          <div class="glyphs" data-el="glyphs" aria-hidden="true"></div>
-          <ol class="record" data-el="record" aria-label="Your answers today"></ol>
-          <button type="button" data-el="copy">Copy result</button>
+          <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
+          <div class="result-foot"><span class="next-day">A new stack opens at local midnight.</span><button type="button" data-el="copy">Copy result</button></div>
         </div>
         <div class="scroll-hint" data-el="scrollHint" hidden>scroll · ↑ ↓ · PgUp PgDn</div>
       </section>
       <div class="reveal" data-el="reveal" hidden role="status" aria-live="polite">
-        <div class="rv-tier"><span class="rv-icon" data-el="rvIcon"></span><span class="rv-name" data-el="rvName"></span></div>
-        <div class="rv-answer" data-el="rvAnswer"></div>
-        <div class="rv-line" data-el="rvLine"></div>
-        <button type="button" class="rv-next" data-el="rvNext">Unwind further ▾</button>
+        <div class="rv-name" data-el="rvName"></div>
+        <div class="rv-body"><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div></div>
+      </div>
+      <div class="entrance" data-el="entrance" hidden role="status" aria-live="polite">
+        <div class="en-name" data-el="enName"></div>
+        <div class="en-desc" data-el="enDesc"></div>
       </div>`;
     this.root = mount;
     this.canvas = $(mount, 'canvas');
     this.input = $(mount, '#guess');
     this.els = Object.fromEntries([...mount.querySelectorAll<HTMLElement>('[data-el]')].map((e) => [e.dataset.el!, e]));
+    mountPrefsMenu(mount, this.els.barLeft!);
   }
 
   get canvasEl() {
@@ -141,8 +162,15 @@ export class Hud {
 
   bind(scene: Scene, now: () => number) {
     this.scene = scene;
+    // Entering a layer (on a dive, in the replay, at boot) shows its name card.
+    scene.onLayerChange = (layer) => this.enterLayer(layer);
     this.els.form!.addEventListener('submit', (ev) => {
       ev.preventDefault();
+      // Enter while the reveal is up means "Unwind further", once; never a submit behind the reveal.
+      if (this.revealOpen) {
+        this.unwind(now());
+        return;
+      }
       const g = this.game;
       if (!g || this.demo) return;
       const guess = this.input.value;
@@ -152,7 +180,12 @@ export class Hud {
       }
       const res = g.submit(guess, now());
       this.onSubmit(res, scene, g);
-      if (res.kind !== 'ignored') this.input.value = '';
+    });
+    // Editing a correction makes it just a new guess: drop the correction's mark and hint.
+    this.input.addEventListener('input', () => {
+      if (!this.input.classList.contains('corrected')) return;
+      this.input.classList.remove('corrected');
+      this.els.feedback!.textContent = '';
     });
 
     this.els.copy!.addEventListener('click', () => {
@@ -161,14 +194,8 @@ export class Hud {
       });
     });
 
-    // The end-of-day replay is skippable with any key or click. The tier reveal is not: it waits for its button.
-    const skip = () => {
-      if (this.replaying) scene.skipSequence();
-    };
-    // "Unwind further": close the reveal and move the game on (the next prompt, or the end-of-day replay).
+    // "Unwind further": close the reveal and move the game on (the next prompt, or the end-of-day card).
     this.els.rvNext!.addEventListener('click', () => this.unwind(now()));
-    window.addEventListener('keydown', skip, true);
-    window.addEventListener('pointerdown', skip, true);
 
     // Scroll-only mode: free movement through the stack.
     const nudge = (d: number) => scene.setTarget(Math.min(MAX_DEPTH + 4, Math.max(0, scene.displayDepth + d)));
@@ -201,8 +228,6 @@ export class Hud {
     this.onUnwind = undefined;
     this.hideReveal();
     this.callKey = '';
-    if (this.replaying) this.scene?.setTarget(0, true);
-    this.replaying = false;
     this.els.result!.hidden = true;
     this.els.copy!.textContent = 'Copy result';
     this.els.feedback!.textContent = '';
@@ -224,6 +249,10 @@ export class Hud {
 
   /** Per-frame refresh of the timed parts, the console's form and the panels' float. */
   update(now: number, depthShown: number) {
+    if (!this.entranceBooted) {
+      this.entranceBooted = true;
+      this.enterLayer(layerAt(depthShown));
+    }
     this.updateMotion(now, depthShown);
     this.mirrorReaction(now);
     const frames = Math.round(depthShown);
@@ -278,7 +307,8 @@ export class Hud {
       this.input.disabled = true;
       left = 0;
       if (!this.ended) this.endOfDay(rowsOf(g), g.depth, g.puzzle);
-      this.showCall('exit(0)', this.replaying ? 'Replaying today’s descent · any key skips' : 'That’s today’s stack. A new one boots at local midnight.', Infinity);
+      // The console's call line is hidden behind the result card (style.css); keep it plain anyway.
+      this.showCall('Today’s stack', '', Infinity);
     } else {
       this.showCall('boot…', '', Infinity);
       left = 1;
@@ -396,7 +426,6 @@ export class Hud {
     const t = TIERS[tier];
     const quips = TIER_QUIPS[tier];
     const line = note ?? quips[this.quipTurn++ % quips.length]!;
-    this.els.rvIcon!.replaceChildren(tierIcon(tier, 3));
     setText(this.els.rvName!, t.name);
     setText(this.els.rvAnswer!, `${name} · +${framesLabel(frames)}`);
     setText(this.els.rvLine!, line);
@@ -405,27 +434,47 @@ export class Hud {
 
   /** The watchdog's lower-key reveal: smaller, no icon pose or rarity, just that the round pushed nothing. */
   revealTimeout() {
-    this.els.rvIcon!.replaceChildren(tierIcon('timeout', 2));
     setText(this.els.rvName!, 'Time’s up');
-    setText(this.els.rvAnswer!, 'No answer this round');
-    setText(this.els.rvLine!, 'No frames pushed this round.');
+    setText(this.els.rvAnswer!, '');
+    setText(this.els.rvLine!, 'No answer, so no frames this round.');
     this.openReveal('timeout');
   }
 
   private openReveal(kind: TierId | 'timeout') {
     const el = this.els.reveal!;
-    const at = this.scene?.cursorCss();
-    // Just below the cursor, so the mascot's reaction stays in view above the text.
-    if (at) el.style.top = `${Math.round(at.y + 40)}px`;
+    // The tier's name sits just above the cursor's bracket mark and the details just below it, so the mascot,
+    // mid-reaction, is framed between them; sizes step down where they'd meet the entrance band or the console.
+    // The maths is pure and unit-tested (reveal-layout.ts).
+    const scene = this.scene;
+    if (scene) {
+      const layer = layerAt(scene.displayDepth);
+      const lay = revealLayout(
+        window.innerWidth,
+        window.innerHeight,
+        scene.markCss(),
+        { name: this.els.rvName!.textContent ?? '', answer: this.els.rvAnswer!.textContent ?? '', line: this.els.rvLine!.textContent ?? '', lowKey: kind === 'timeout' },
+        { name: layer.name, desc: LAYER_BLURBS[layer.id] },
+        scene.uiReserveRightCss > 0,
+      );
+      const st = el.style;
+      st.setProperty('--name-bottom', `${Math.round(window.innerHeight - lay.name.bottom)}px`);
+      st.setProperty('--body-top', `${Math.round(lay.body.top)}px`);
+      st.setProperty('--name-px', `${lay.namePx}px`);
+      st.setProperty('--answer-px', `${lay.answerPx}px`);
+      st.setProperty('--line-px', `${lay.linePx}px`);
+    }
     el.dataset.tier = kind;
     el.classList.toggle('low-key', kind === 'timeout');
     el.classList.remove('out');
     el.hidden = false;
     replay(el, 'in');
     this.scene?.setVignette(true);
+    this.scene?.setHold(true);
     this.revealOpen = true;
     clearTimeout(this.revealTimer);
-    // Enter or Space presses it; it never closes by itself in play.
+    // The console's entry box becomes the "Unwind further" button. Enter or Space presses it; it never closes by
+    // itself in play.
+    this.root.classList.add('unwinding');
     this.els.rvNext!.focus({ preventScroll: true });
   }
 
@@ -441,7 +490,9 @@ export class Hud {
     if (!this.revealOpen) return;
     this.revealOpen = false;
     clearTimeout(this.revealTimer);
+    this.root.classList.remove('unwinding');
     this.scene?.setVignette(false);
+    this.scene?.setHold(false);
     const el = this.els.reveal!;
     el.classList.add('out');
     this.revealTimer = window.setTimeout(() => {
@@ -450,32 +501,93 @@ export class Hud {
     }, REVEAL_FADE_MS);
   }
 
+  // ---------------------------------------------------------------------------------------------
+  // Layer entrances: the layer's name and what it is, in one plain line, at the top of the screen (clear of the
+  // reveal in the middle). Fades in, holds, fades.
+
+  private entranceUp = false;
+  private entranceTimer = 0;
+  private entranceBooted = false;
+
+  private enterLayer(layer: Layer) {
+    // v1 keeps its plain boundary labels for comparison.
+    if (look('artStyle') === 'v1') return;
+    this.showEntrance(layer);
+  }
+
+  private showEntrance(layer: Layer) {
+    const el = this.els.entrance!;
+    setText(this.els.enName!, layer.name);
+    setText(this.els.enDesc!, LAYER_BLURBS[layer.id]);
+    el.dataset.layer = layer.id;
+    el.classList.remove('out');
+    el.hidden = false;
+    replay(el, 'in');
+    this.entranceUp = true;
+    clearTimeout(this.entranceTimer);
+    this.entranceTimer = window.setTimeout(() => this.hideEntrance(), ENTRANCE_MS);
+  }
+
+  private hideEntrance() {
+    if (!this.entranceUp) return;
+    this.entranceUp = false;
+    clearTimeout(this.entranceTimer);
+    const el = this.els.entrance!;
+    el.classList.add('out');
+    this.entranceTimer = window.setTimeout(() => {
+      el.hidden = true;
+      el.classList.remove('out');
+    }, 400);
+  }
+
   private onSubmit(res: SubmitResult, scene: Scene, g: Game) {
     const fb = this.els.feedback!;
-    if (res.kind === 'rejected') {
-      fb.className = 'feedback fault';
-      // Clear first, so a repeat of the same line is announced again by screen readers.
-      fb.textContent = '';
-      requestAnimationFrame(() => (fb.textContent = 'Not accepted'));
-      replay(this.els.console!, 'reject');
-      return;
+    this.input.classList.remove('corrected');
+    switch (res.kind) {
+      case 'ignored':
+        return;
+      case 'rejected':
+        this.input.value = '';
+        fb.className = 'feedback fault';
+        // Clear first, so a repeat of the same line is announced again by screen readers.
+        fb.textContent = '';
+        requestAnimationFrame(() => (fb.textContent = 'Not accepted'));
+        replay(this.els.console!, 'reject');
+        return;
+      case 'duplicate':
+        this.input.value = '';
+        fb.className = 'feedback';
+        fb.textContent = `${res.entry.name} is already on the stack`;
+        replay(fb, 'settle-in');
+        return;
+      case 'suggestion':
+        // Ask first: the typo is corrected in place and marked; Enter submits the correction, editing makes a new guess.
+        this.input.value = res.entry.name;
+        this.input.classList.add('corrected');
+        this.input.focus();
+        this.input.setSelectionRange(res.entry.name.length, res.entry.name.length);
+        fb.className = 'feedback hint';
+        fb.textContent = `Corrected to '${res.entry.name}'. Press Enter to submit.`;
+        replay(fb, 'settle-in');
+        return;
+      case 'accepted': {
+        this.input.value = '';
+        const t = TIERS[res.entry.tier];
+        fb.className = 'feedback ok';
+        fb.textContent = res.corrected ? `read as '${res.entry.name}'` : '';
+        this.showLanded(t.id, res.entry.name, res.pushed, res.entry.note);
+        // The reveal opens from update() once the dive has landed (the round then waits on its button).
+        if (res.pushed > 0) scene.diveTo(g.depth, t.id, res.pushed);
+        else scene.react(t.id);
+        return;
+      }
+      default: {
+        const unknown: never = res;
+        throw new Error(`Hud: unhandled submit result ${JSON.stringify(unknown)}`);
+      }
     }
-    if (res.kind === 'duplicate') {
-      fb.className = 'feedback';
-      fb.textContent = `${res.entry.name} is already on the stack`;
-      replay(fb, 'settle-in');
-      return;
-    }
-    if (res.kind !== 'accepted') return;
-    const t = TIERS[res.entry.tier];
-    fb.className = 'feedback ok';
-    fb.textContent = res.corrected ? `read as '${res.entry.name}'` : '';
-    this.showLanded(t.id, res.entry.name, res.pushed, res.entry.note);
-    // The cursor dives; the tier's reaction fires when it lands.
-    // The reveal opens from update() once the dive has landed (the round then waits on its button).
-    if (res.pushed > 0) scene.diveTo(g.depth, t.id, res.pushed);
-    else scene.react(t.id);
   }
+
 
   private showLanded(tier: TierId, name: string, pushed: number, note?: string) {
     const t = TIERS[tier];
@@ -489,62 +601,79 @@ export class Hud {
     replay(this.els.landed!, 'settle-in');
   }
 
-  /**
-   * End of day: a fast replay of the whole descent from the top, each answer popping as the camera passes it,
-   * then the result card. Under reduced motion the card shows at once.
-   */
+  /** End of day: the result card, straight away (no replay): the day's backtrace, most recent frame first. */
   endOfDay(rows: RecordRow[], depth: number, puzzle: number) {
     const scene = this.scene;
     if (!scene) throw new Error('Hud.endOfDay before bind()');
     this.ended = true;
     this.buildCard(rows, depth, puzzle);
-    const settled = 'That’s today’s stack. A new one boots at local midnight.';
-    if (reducedMotion()) {
-      scene.setTarget(depth, true);
-      this.showCall('exit(0)', settled, Infinity);
-      this.showCard();
-      return;
-    }
-    this.showCall('exit(0)', 'Replaying today’s descent · any key skips', Infinity);
-    const stops: DiveStop[] = [];
-    let d = 0;
-    for (const r of rows) {
-      if (!r.tier) continue;
-      const t = TIERS[r.tier];
-      d += t.frames;
-      stops.push({ depth: d, tier: t.id, label: `${t.name} +${t.frames}` });
-    }
-    this.replaying = true;
-    scene.playSequence(stops, () => {
-      this.replaying = false;
-      this.showCall('exit(0)', settled, Infinity);
-      this.showCard();
-    });
+    this.showCard();
   }
 
+  /**
+   * The card: a summary line and a backtrace of the day, one row per round, #0 being the last answer. A row shows
+   * its frame numbers and the tier's cursor icon; hovering, focusing or tapping it opens it in place (no layout
+   * shift) to the tier, the answer and a larger icon. Every row's accessible name says all of it. Each row keeps
+   * an empty trailing slot for a future dropdown (other players' answers to that question).
+   */
   private buildCard(rows: RecordRow[], depth: number, puzzle: number) {
-    // The record of the day's answers lives here (and in the share text's glyphs), not in a running panel.
     const ol = this.els.record!;
-    ol.innerHTML = '';
-    for (const r of rows) {
+    ol.replaceChildren();
+    let d = 0;
+    const frames = rows.map((r) => {
+      const n = r.tier ? TIERS[r.tier].frames : 0;
+      const span = { r, from: d + 1, to: d + n, n };
+      d += n;
+      return span;
+    });
+    frames.reverse().forEach(({ r, from, to, n }, i) => {
       const li = document.createElement('li');
+      const row = document.createElement('button');
+      row.type = 'button';
+      row.className = 'bt-row';
+      row.setAttribute('aria-expanded', 'false');
+      const num = document.createElement('span');
+      num.className = 'bt-n';
+      num.textContent = `#${i}`;
+      const icon = document.createElement('span');
+      icon.className = 'bt-icon';
+      icon.append(tierIcon(r.tier ?? 'timeout'));
+      const sum = document.createElement('span');
+      sum.className = 'bt-sum';
+      sum.textContent = n === 0 ? 'no frames' : n === 1 ? `frame ${from}` : `frames ${from}–${to}`;
+      const det = document.createElement('span');
+      det.className = 'bt-detail';
+      const more = document.createElement('span');
+      more.className = 'bt-more';
+      more.setAttribute('aria-hidden', 'true');
       if (r.tier) {
         const t = TIERS[r.tier];
-        li.dataset.tier = t.id;
-        li.title = t.name;
-        li.append(tierIcon(t.id), `${r.name ?? t.name} +${t.frames}`);
+        const name = document.createElement('span');
+        name.className = 'bt-tier';
+        name.dataset.tier = t.id;
+        name.textContent = t.name;
+        det.append(name, ` · ${r.name ?? '—'} · +${n}`);
+        row.setAttribute('aria-label', `#${i}: ${t.name}, ${r.name ?? 'answer'}, ${sum.textContent}`);
       } else {
-        li.className = 'timeout';
-        li.append(tierIcon('timeout'), r.timedOut ? 'timed out' : 'skipped');
+        row.classList.add('timeout');
+        det.textContent = r.timedOut ? 'Timed out · no frames' : 'Skipped · no frames';
+        row.setAttribute('aria-label', `#${i}: ${r.timedOut ? 'timed out' : 'skipped'}, no frames`);
       }
+      // Tap (and click) pins a row open; hover and keyboard focus open it while they last (CSS).
+      row.addEventListener('click', () => {
+        const open = row.getAttribute('aria-expanded') !== 'true';
+        for (const b of ol.querySelectorAll('.bt-row')) b.setAttribute('aria-expanded', 'false');
+        row.setAttribute('aria-expanded', String(open));
+      });
+      row.append(num, icon, sum, det, more);
+      li.append(row);
       ol.append(li);
-    }
-    // On screen the glyph row is the cursor icons; the share text keeps emoji so it pastes anywhere.
+    });
+    // The share text keeps emoji glyphs (oldest first) so it pastes anywhere.
     const glyphs = rows.map((r) => (r.tier ? TIERS[r.tier].glyph : '⬛')).join('');
     const headline = `${framesLabel(depth)} · ${layerAt(depth).name}`;
     setText(this.els.puzzleNo!, `#${puzzle}`);
     setText(this.els.headline!, headline);
-    this.els.glyphs!.replaceChildren(...rows.map((r) => tierIcon(r.tier ?? 'timeout', 2)));
     this.shareText = `nullion #${puzzle} · ${headline}\n${glyphs}`;
   }
 

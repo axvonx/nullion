@@ -29,6 +29,8 @@ export type Phase =
 
 export type SubmitResult =
   | { kind: 'accepted'; entry: CategoryEntry; corrected: boolean; pushed: number }
+  /** Confirm mode: the guess is a typo of `entry`. Nothing is locked; the player re-submits the corrected name. */
+  | { kind: 'suggestion'; entry: CategoryEntry; guess: string }
   | { kind: 'duplicate'; entry: CategoryEntry }
   | { kind: 'rejected'; guess: string }
   | { kind: 'ignored' };
@@ -36,6 +38,11 @@ export type SubmitResult =
 export interface GameOptions {
   timer: boolean;
   unlimited: boolean;
+  /**
+   * Typo handling. 'confirm': show the correction first and wait for the player to submit it.
+   * 'auto': accept the corrected answer straight away. Mutable so a preference change applies mid-game.
+   */
+  autocorrect: 'confirm' | 'auto';
 }
 
 export class Game {
@@ -105,6 +112,7 @@ export class Game {
       return { kind: 'rejected', guess: trimmed };
     }
     if (r.locked?.entry === res.entry || r.extra.includes(res.entry)) return { kind: 'duplicate', entry: res.entry };
+    if (res.corrected && this.opts.autocorrect === 'confirm') return { kind: 'suggestion', entry: res.entry, guess: trimmed };
     if (!r.locked) {
       r.locked = { entry: res.entry, corrected: res.corrected, guess: trimmed };
       if (!this.opts.unlimited) this.toBetween(p.round, now);

@@ -11,7 +11,7 @@ function bitflipFor(g: Game, round: number) {
 
 describe('game loop', () => {
   it('a perfect day reaches depth 91', () => {
-    const g = new Game(set, 1, { timer: true, unlimited: false });
+    const g = new Game(set, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
     let now = 0;
     g.start(now);
     for (let i = 0; i < 7; i++) {
@@ -25,7 +25,7 @@ describe('game loop', () => {
   });
 
   it('the watchdog times a round out with no frames', () => {
-    const g = new Game(set, 1, { timer: true, unlimited: false });
+    const g = new Game(set, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
     g.start(0);
     g.tick(READ_MS);
     g.tick(READ_MS + ANSWER_MS);
@@ -34,7 +34,7 @@ describe('game loop', () => {
   });
 
   it('rejected guesses are recorded and retries are unlimited', () => {
-    const g = new Game(set, 1, { timer: true, unlimited: false });
+    const g = new Game(set, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
     g.start(0);
     g.tick(READ_MS);
     expect(g.submit('definitely not an answer', READ_MS).kind).toBe('rejected');
@@ -44,7 +44,7 @@ describe('game loop', () => {
   });
 
   it('unlimited mode keeps the round open but only the first answer pushes frames', () => {
-    const g = new Game(set, 1, { timer: false, unlimited: true });
+    const g = new Game(set, 1, { timer: false, unlimited: true, autocorrect: 'confirm' });
     g.start(0);
     g.tick(READ_MS);
     const entries = set.entries(g.rounds[0]!.question.id);
@@ -56,7 +56,7 @@ describe('game loop', () => {
   });
 
   it('the reveal waits for the player: no timer advances the between phase', () => {
-    const g = new Game(set, 1, { timer: true, unlimited: false });
+    const g = new Game(set, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
     g.start(0);
     g.tick(READ_MS);
     g.submit(bitflipFor(g, 0), READ_MS);
@@ -65,5 +65,52 @@ describe('game loop', () => {
     expect(g.phase.kind).toBe('between');
     g.advance(READ_MS + 10 * 60_000);
     expect(g.phase).toMatchObject({ kind: 'reading', round: 1 });
+  });
+
+  describe('autocorrect', () => {
+    // "Fissile lock" is the lock Bit Flip; a one-letter typo is within the typo budget.
+    const lockRound = (g: Game) => g.rounds.findIndex((r) => r.question.id === 'lock');
+
+    function atLockRound(mode: 'confirm' | 'auto') {
+      const g = new Game(set, 1, { timer: false, unlimited: false, autocorrect: mode });
+      const target = lockRound(g);
+      expect(target).toBeGreaterThanOrEqual(0);
+      let now = 0;
+      g.start(now);
+      for (let i = 0; i < target; i++) {
+        now += READ_MS;
+        g.tick(now);
+        g.advance(now); // skip the round
+        g.advance(now); // past its reveal
+      }
+      now += READ_MS;
+      g.tick(now);
+      expect(g.current()!.question.id).toBe('lock');
+      return { g, now };
+    }
+
+    it('confirm mode suggests the correction without locking or logging a rejection', () => {
+      const { g, now } = atLockRound('confirm');
+      const res = g.submit('fisile lock', now);
+      expect(res).toMatchObject({ kind: 'suggestion', guess: 'fisile lock' });
+      expect(res.kind === 'suggestion' && res.entry.name).toBe('fissile lock');
+      expect(g.phase.kind).toBe('answering');
+      expect(g.current()!.locked).toBeUndefined();
+      expect(g.current()!.rejected).toEqual([]);
+      // Submitting the suggested name is an exact match.
+      expect(g.submit('fissile lock', now)).toMatchObject({ kind: 'accepted', corrected: false });
+    });
+
+    it('auto mode accepts the corrected answer straight away', () => {
+      const { g, now } = atLockRound('auto');
+      expect(g.submit('fisile lock', now)).toMatchObject({ kind: 'accepted', corrected: true });
+      expect(g.phase.kind).toBe('between');
+    });
+
+    it('a preference change applies mid-game', () => {
+      const { g, now } = atLockRound('confirm');
+      g.opts.autocorrect = 'auto';
+      expect(g.submit('fisile lock', now)).toMatchObject({ kind: 'accepted', corrected: true });
+    });
   });
 });
