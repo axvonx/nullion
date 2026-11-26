@@ -89,6 +89,25 @@ export const INTERNET_BESPOKE: EntityDef[] = [
     p.r(1, 6, 14, 4, '#e9e6dc');
     for (let k = 0; k < 4; k++) p.p(3 + k * 3, 8, k % 2 ? '#59c08a' : '#e6a23c');
   }),
+  ent('net-dish', [[14, 14]], (p) => {
+    p.r(5, 9, 4, 5, '#55607a');
+    p.l(1, 5, 11, 1, '#ffffff');
+    p.l(2, 6, 11, 2, '#c8d6f0');
+    p.l(6, 4, 10, 8, '#5b8ee6');
+  }),
+  ent('net-packet', [[14, 9]], (p) => {
+    p.r(1, 1, 13, 8, '#3a4a8a');
+    p.r(0, 0, 13, 8, '#ffffff');
+    p.r(0, 0, 13, 2, '#4cb8c8');
+    p.r(2, 4, 5, 1, '#55607a');
+    p.r(8, 4, 3, 2, '#e6a23c');
+  }),
+  ent('net-tls', [[11, 12]], (p) => {
+    p.r(3, 0, 5, 4, '#59c08a');
+    p.r(4, 1, 3, 3, '#ffffff');
+    p.r(1, 4, 9, 8, '#2f9963');
+    p.r(5, 7, 1, 3, '#ffffff');
+  }),
 ];
 export const INTERNET = mix('net', INTERNET_BESPOKE, APPLICATION);
 export const INTERNET_ANCHORS: EntityDef[] = [
@@ -159,6 +178,26 @@ export const BROWSER_BESPOKE: EntityDef[] = [
       noFlip: true,
     },
   ),
+  ent('br-cookie', [[11, 11]], (p) => {
+    p.disc(5, 5, 5, '#e6a23c');
+    p.p(3, 3, '#55607a');
+    p.p(7, 4, '#55607a');
+    p.p(4, 7, '#55607a');
+    p.p(7, 7, '#55607a');
+  }),
+  ent('br-canvas', [[16, 12]], (p) => {
+    p.r(0, 0, 16, 12, '#2a3358');
+    p.r(1, 1, 14, 10, '#ffffff');
+    p.disc(5, 6, 3, '#d0605e');
+    p.r(9, 4, 4, 4, '#5b8ee6');
+  }),
+  ent('br-devtools', [[18, 12]], (p) => {
+    p.r(0, 0, 18, 12, '#2a3358');
+    p.r(1, 1, 16, 10, '#1e2236');
+    p.r(2, 3, 6, 1, '#59c08a');
+    p.r(4, 5, 8, 1, '#5b8ee6');
+    p.r(4, 7, 10, 1, '#e6a23c');
+  }),
 ];
 export const BROWSER = mix('br', BROWSER_BESPOKE, APPLICATION);
 export const BROWSER_ANCHORS: EntityDef[] = [
@@ -198,6 +237,19 @@ export const BYTECODE_BESPOKE: EntityDef[] = [
   ent('bc-constpool', [[16, 14]], (p) => {
     p.box(0, 0, 16, 14, '#000033', '#9999cc');
     for (let k = 0; k < 4; k++) p.r(2, 2 + k * 3, 6 + (k % 2) * 5, 2, k === 1 ? '#ffcc33' : '#6699cc');
+  }),
+  ent('bc-lexer', [[20, 9]], (p) => {
+    p.box(0, 0, 20, 9, '#000033', '#ffcc33');
+    p.r(2, 3, 3, 3, '#66cc99');
+    p.r(7, 3, 4, 3, '#ff9933');
+    p.r(13, 3, 5, 3, '#99ccff');
+  }),
+  ent('bc-cfg', [[16, 14]], (p) => {
+    p.box(5, 0, 6, 4, '#000033', '#ffcc33');
+    p.l(8, 4, 4, 9, '#9999cc');
+    p.l(8, 4, 12, 9, '#9999cc');
+    p.box(1, 9, 6, 5, '#000033', '#66cc99');
+    p.box(9, 9, 6, 5, '#000033', '#ff9999');
   }),
 ];
 export const BYTECODE = mix('bc', BYTECODE_BESPOKE, RUNTIME);
@@ -242,6 +294,18 @@ export const JIT_BESPOKE: EntityDef[] = [
     p.box(0, 0, 18, 12, '#000033', '#9999cc');
     const hs = [3, 6, 8, 5];
     hs.forEach((h, k) => p.r(2 + k * 4, 10 - h, 3, h, h >= 7 ? '#ff6633' : '#ffcc33'));
+  }),
+  ent('jit-osr', [[18, 10]], (p) => {
+    p.r(0, 4, 7, 2, '#6699cc');
+    p.r(7, 1, 4, 8, '#ff6633');
+    p.r(11, 4, 7, 2, '#ffff66');
+  }),
+  ent('jit-guard', [[14, 13]], (p) => {
+    p.r(2, 0, 10, 8, '#ff9933');
+    p.r(3, 1, 8, 6, '#330033');
+    p.r(4, 8, 6, 3, '#ff9933');
+    p.r(6, 11, 2, 2, '#ffff66');
+    p.r(5, 3, 4, 2, '#ffff66');
   }),
 ];
 export const JIT = mix('jit', JIT_BESPOKE, RUNTIME);

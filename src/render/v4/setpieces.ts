@@ -123,55 +123,66 @@ export function drawSetpiece(ctx: Ctx, b: Band, id: LayerId, t: number) {
     // -----------------------------------------------------------------------------------------
     // Zone A — Above Application & Desktop
     case 'internet': {
-      // Full-bleed orbital satellite ring + curved planetary horizon + 5 pulsing transatlantic fiber arcs + relay towers!
-      // Orbital relay satellites drifting slowly near top of band
-      for (let s = 0; s < 3; s++) {
-        const sx = mod(hash(s * 19 + 3) * W + t * (5 + s * 2), W + 24) - 12;
-        const sy = top + 20 + s * 18;
+      // Full-bleed stratosphere LEO constellation + twin flanking satellite dishes with radar sweeps + curved Earth horizon + ocean shimmer + 5 fiber arcs!
+      for (let s = 0; s < 5; s++) {
+        const sx = mod(hash(s * 19 + 3) * W + t * (4 + s * 1.5), W + 30) - 15;
+        const sy = top + 14 + s * 13;
         rect(ctx, sx - 6, sy, 4, 2, '#7ab0e4');
         rect(ctx, sx + 4, sy, 4, 2, '#7ab0e4');
         rect(ctx, sx - 2, sy - 1, 5, 4, '#dfe6f6');
         if (Math.floor(t * 2 + s) % 2 === 0) px(ctx, sx, sy - 2, '#ffffff');
       }
-      // Subtle longitude/latitude grid on the planetary limb
       const base = bot;
       for (let x = 0; x < W; x += 2) {
         const dx = (x - cx) / Math.max(130, W * 0.58);
-        const lh = Math.max(0, Math.round((1 - dx * dx) * 48));
+        const lh = Math.max(0, Math.round((1 - dx * dx) * 52));
         if (lh > 0) {
           rect(ctx, x, base - lh, 2, lh + 10, '#5a8cc8');
           rect(ctx, x, base - lh, 2, 2, '#c8e4fb');
-          if (x % 24 === 0) rect(ctx, x, base - lh + 4, 1, Math.max(2, lh - 4), '#7aaae0');
+          if (x % 22 === 0) rect(ctx, x, base - lh + 4, 1, Math.max(2, lh - 4), '#7aaae0');
         }
       }
-      // 4 terrestrial IXP relay towers anchored along the curved horizon
-      const towers = [0.12, 0.34, 0.66, 0.88].map((f) => {
+      for (let k = 0; k < 5; k++) {
+        const gx = mod(t * (10 + k * 3) + k * 73, W - 20) + 10;
+        rect(ctx, gx, base - 8 - (k % 3) * 6, 10, 1, '#c8e4fb');
+      }
+      // Twin flanking ground-station satellite dishes with animated radar sweeps
+      for (const [fx, dir] of [[0.09, 1], [0.91, -1]] as const) {
+        const dx0 = R(W * fx);
+        const dy0 = base - 20;
+        rect(ctx, dx0 - 4, dy0, 8, 18, '#3d6cc4');
+        line(ctx, dx0 - 10, dy0 - 6, dx0 + 10, dy0 - 12, '#dfe6f6');
+        line(ctx, dx0 - 9, dy0 - 5, dx0 + 9, dy0 - 11, '#8fb8e8');
+        line(ctx, dx0, dy0 - 9, dx0 + dir * 6, dy0 - 17, '#ffffff');
+        const pulse = Math.floor(t * 3 + fx * 10) % 3;
+        ring(ctx, dx0 + dir * 6, dy0 - 17, 4 + pulse * 4, '#b4dcf8');
+      }
+      const towers = [0.18, 0.38, 0.62, 0.82].map((f) => {
         const tx = R(W * f);
         const dx = (tx - cx) / Math.max(130, W * 0.58);
-        const ty = base - Math.max(0, Math.round((1 - dx * dx) * 48));
+        const ty = base - Math.max(0, Math.round((1 - dx * dx) * 52));
         rect(ctx, tx - 2, ty - 14, 4, 14, '#3d6cc4');
         rect(ctx, tx - 5, ty - 10, 10, 1, '#7ab0e4');
         rect(ctx, tx - 1, ty - 17, 2, 3, Math.floor(t * 3 + tx) % 2 ? '#ffffff' : '#59c08a');
         return [tx, ty - 14] as const;
       });
-      // 5 sweeping fiber-optic arcs between towers with traveling light packets
       const links: [number, number, number][] = [
-        [0, 1, 40],
-        [1, 2, 54],
-        [2, 3, 40],
-        [0, 2, 74],
-        [1, 3, 82],
+        [0, 1, 42],
+        [1, 2, 58],
+        [2, 3, 42],
+        [0, 2, 78],
+        [1, 3, 86],
       ];
       links.forEach(([a, bIdx, lift], k) => {
         const [x0, y0] = towers[a]!;
         const [x1, y1] = towers[bIdx]!;
-        for (let s = 0; s <= 36; s++) {
-          const q = s / 36;
+        for (let s = 0; s <= 40; s++) {
+          const q = s / 40;
           const x = x0 + (x1 - x0) * q;
           const y = y0 + (y1 - y0) * q - Math.sin(q * Math.PI) * lift;
-          px(ctx, x, y, k < 3 ? '#8fc4f0' : '#b4dcf8');
+          rect(ctx, x, y, 2, 1, k < 3 ? '#8fc4f0' : '#b4dcf8');
         }
-        const pq = mod(t * (0.26 + k * 0.06) + k * 0.23, 1);
+        const pq = mod(t * (0.28 + k * 0.06) + k * 0.23, 1);
         const pxX = x0 + (x1 - x0) * pq;
         const pxY = y0 + (y1 - y0) * pq - Math.sin(pq * Math.PI) * lift;
         rect(ctx, pxX - 2, pxY - 1, 5, 2, '#ffffff');
@@ -180,69 +191,84 @@ export function drawSetpiece(ctx: Ctx, b: Band, id: LayerId, t: number) {
     }
 
     case 'browser': {
-      // Full-bleed wireframe DOM Cathedral + side inspector columns + animated layout repaint & paint-flash scan!
-      // Outer full-width browser chrome skeleton
-      frame(ctx, 8, top + 6, W - 16, H - 12, '#7ea8dc');
-      rect(ctx, 8, top + 6, W - 16, 10, '#8fb8e8');
-      for (let k = 0; k < 4; k++) rect(ctx, 14 + k * 28, top + 8, 22, 6, k === 0 ? '#d8ecfc' : '#a6cbf2');
-      // Nested DOM cathedral frames receding toward center
-      for (let k = 0; k < 5; k++) {
-        const mw = Math.max(56, W - 40 - k * 42);
-        const mh = Math.max(36, H - 36 - k * 22);
-        const rx = cx - R(mw / 2);
-        const ry = cy + 4 - R(mh / 2);
-        frame(ctx, rx, ry, mw, mh, k % 2 ? '#7ea8dc' : '#a8cef4');
-        // Flex-box column markers inside each frame
-        rect(ctx, rx + 3, ry + 3, Math.min(28, mw - 6), 2, '#cfe6fc');
-        rect(ctx, rx + mw - 18, ry + 3, 14, 2, '#8fb8e8');
+      // Full-bleed Giant Browser & DevTools Inspector Diorama!
+      frame(ctx, 6, top + 6, W - 12, H - 12, '#6c9cd4');
+      rect(ctx, 6, top + 6, W - 12, 14, '#8fb8e8');
+      rect(ctx, 11, top + 10, 3, 3, '#d0605e');
+      rect(ctx, 16, top + 10, 3, 3, '#e6a23c');
+      rect(ctx, 21, top + 10, 3, 3, '#59c08a');
+      rect(ctx, 30, top + 8, 34, 6, '#d8ecfc');
+      rect(ctx, 66, top + 9, 28, 5, '#a6cbf2');
+      rect(ctx, 100, top + 9, Math.max(40, W - 116), 5, '#c8e4fb');
+      const splitX = R(W * 0.64);
+      rect(ctx, splitX, top + 20, 1, H - 26, '#6c9cd4');
+      const pageW = splitX - 20;
+      rect(ctx, 14, top + 26, pageW, 28, '#9cc2ee');
+      frame(ctx, 14, top + 26, pageW, 28, '#7ea8dc');
+      const shimX = 16 + Math.floor(mod(t * 42, Math.max(20, pageW - 18)));
+      rect(ctx, shimX, top + 28, 14, 24, '#cfe6fc');
+      const cardW = Math.max(16, Math.floor((pageW - 12) / 3));
+      for (let k = 0; k < 3; k++) {
+        const kx = 14 + k * (cardW + 6);
+        const ky = top + 62;
+        frame(ctx, kx, ky, cardW, Math.max(30, H - 82), '#8fb8e8');
+        rect(ctx, kx + 3, ky + 4, Math.max(8, cardW - 6), 12, '#a8cef4');
+        rect(ctx, kx + 3, ky + 20, Math.max(6, cardW - 10), 2, '#7ea8dc');
+        rect(ctx, kx + 3, ky + 25, Math.max(4, cardW - 14), 2, '#9cc2ee');
       }
-      // Left & right DevTools box-model margin strips
-      for (let y = top + 24; y < bot - 16; y += 12) {
-        rect(ctx, 12, y, 8, 4, '#9cc2ee');
-        rect(ctx, W - 20, y, 8, 4, '#9cc2ee');
+      const hiRow = Math.floor(t * 1.6) % 7;
+      for (let r = 0; r < 7; r++) {
+        const ry = top + 28 + r * 14;
+        if (ry > bot - 16) break;
+        const indent = (r % 3) * 6;
+        if (r === hiRow) rect(ctx, splitX + 4, ry - 2, W - splitX - 14, 9, '#7edba8');
+        rect(ctx, splitX + 8 + indent, ry, Math.max(12, W - splitX - 24 - indent), 3, r === hiRow ? '#ffffff' : '#8fb8e8');
       }
-      // Animated green paint-flash scanline + blinking reflow highlight box
-      const sy = top + 18 + Math.floor(mod(t * 28, Math.max(20, H - 30)));
-      rect(ctx, 10, sy, W - 20, 3, '#7edba8');
-      const boxK = Math.floor(t * 1.4) % 4;
-      frame(ctx, 28 + boxK * 22, cy - 26 + (boxK % 2) * 18, 46, 22, '#59c08a');
+      const sy = top + 22 + Math.floor(mod(t * 28, Math.max(20, H - 34)));
+      rect(ctx, 10, sy, splitX - 14, 2, '#59c08a');
       break;
     }
 
     case 'application': {
-      // Full-bleed layered OS-wallpaper mountain vista (3 depth ridges, sunlit snow peaks, distant pine silhouette & drifting cloud bands)!
-      const base = bot - 6;
-      // Distant pale sunlit mountain chain (edge-to-edge)
+      // Full-bleed Sunlit OS-Wallpaper Vista: layered cumulus cloud banks, translucent sky-bridges, 3-tier snow-capped mountains, & alpine lake reflection!
+      for (let k = 0; k < 4; k++) {
+        const cw = 48 + (k % 2) * 26;
+        const cxCloud = mod(k * 96 + t * (2.5 + k * 0.6), W + cw) - cw;
+        const cyCloud = top + 16 + (k % 3) * 22;
+        rect(ctx, cxCloud + 8, cyCloud - 6, cw - 16, 6, '#e8f4fc');
+        rect(ctx, cxCloud + 2, cyCloud, cw - 4, 8, '#dceefb');
+        rect(ctx, cxCloud, cyCloud + 6, cw, 5, '#c2dcf4');
+      }
+      for (const bx of [10, W - 56]) {
+        frame(ctx, bx, top + 46, 46, 28, '#8cb4e0');
+        rect(ctx, bx + 2, top + 48, 42, 4, '#a8caf0');
+      }
+      const base = bot - 14;
       for (let x = 0; x < W; x += 2) {
-        const h1 = Math.max(0, 62 - Math.abs(x - W * 0.22) * 0.45);
-        const h2 = Math.max(0, 74 - Math.abs(x - W * 0.64) * 0.42);
-        const h3 = Math.max(0, 52 - Math.abs(x - W * 0.92) * 0.5);
+        const h1 = Math.max(0, 68 - Math.abs(x - W * 0.22) * 0.44);
+        const h2 = Math.max(0, 80 - Math.abs(x - W * 0.64) * 0.4);
+        const h3 = Math.max(0, 56 - Math.abs(x - W * 0.92) * 0.48);
         const h = Math.round(Math.max(h1, h2, h3));
         if (h > 0) {
           rect(ctx, x, base - h, 2, h, '#6a8ac8');
-          if (h > 44) rect(ctx, x, base - h, 2, Math.min(10, h - 42), '#dceafc'); // bright snow cap
+          if (h > 46) rect(ctx, x, base - h, 2, Math.min(12, h - 44), '#e4f0fc');
         }
       }
-      // Mid atmospheric ridge
       for (let x = 0; x < W; x += 2) {
-        const h1 = Math.max(0, 42 - Math.abs(x - W * 0.1) * 0.55);
-        const h2 = Math.max(0, 48 - Math.abs(x - W * 0.46) * 0.48);
-        const h3 = Math.max(0, 44 - Math.abs(x - W * 0.8) * 0.5);
+        const h1 = Math.max(0, 44 - Math.abs(x - W * 0.1) * 0.55);
+        const h2 = Math.max(0, 50 - Math.abs(x - W * 0.46) * 0.48);
+        const h3 = Math.max(0, 46 - Math.abs(x - W * 0.8) * 0.5);
         const h = Math.round(Math.max(h1, h2, h3));
         if (h > 0) {
           rect(ctx, x, base - h, 2, h, '#4c66a8');
-          if (h > 34) rect(ctx, x, base - h, 2, 3, '#8fb4e4');
+          if (h > 36) rect(ctx, x, base - h, 2, 3, '#8fb4e4');
         }
       }
-      // Foreground rolling hill silhouette with subtle pine trees
-      for (let x = 0; x < W; x += 2) {
-        const hill = Math.round(14 + Math.sin(x * 0.025) * 6 + Math.cos(x * 0.06) * 3);
-        rect(ctx, x, base - hill, 2, hill + 6, '#344278');
+      rect(ctx, 0, base, W, 14, '#3a4f8f');
+      for (let k = 0; k < 6; k++) {
+        const gx = mod(t * (8 + k * 2) + k * 64, W - 20) + 10;
+        rect(ctx, gx, base + 3 + (k % 3) * 3, 16, 1, k % 2 ? '#8fb4e4' : '#c8daf4');
       }
-      // Subtle animated horizon glint waves
-      const gx = mod(t * 14, W);
-      rect(ctx, gx, base - 4, 18, 1, '#8fb4e4');
-      rect(ctx, mod(gx + W * 0.45, W), base - 2, 12, 1, '#7a9ed4');
       break;
     }
 

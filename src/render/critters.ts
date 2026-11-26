@@ -831,7 +831,94 @@ export class CritterSystem {
     };
 
     switch (layerId) {
-      // Bespoke Endless sprites for MINIX-inside-ME & Deep Silicon/Physics
+      // Bespoke Endless sprites for Zones A–F (distinct silhouettes instead of reusing Daily sprites!)
+      case 'internet': {
+        // Crisp white paper-plane packet swallow with trailing cyan packet dot
+        px(dir > 0 ? 0 : 2, 2, 6, 2, '#ffffff');
+        px(dir > 0 ? 2 : 1, 1, 4, 1, '#dfe6f6');
+        px(dir > 0 ? 5 : 0, 2, 2, 1, '#5b8ee6');
+        if (!perched) px(dir > 0 ? -3 : 9, 3, 2, 1, '#5fd3e0');
+        break;
+      }
+      case 'browser': {
+        // Glowing DOM firefly / mini pointer sprite
+        const glow = Math.floor(t * 6 + c.phase) % 2 === 0;
+        px(1, 1, 4, 4, glow ? '#59c08a' : '#5b8ee6');
+        px(2, 2, 2, 2, '#ffffff');
+        px(dir > 0 ? 5 : 0, 0, 1, 2, '#e6a23c');
+        break;
+      }
+      case 'bytecode': {
+        // Floating curly-brace / syntax token sprite
+        px(1, 0, 4, 5, '#333366');
+        px(2, 1, 2, 3, '#ffcc33');
+        px(0, 2, 1, 1, '#ffff99');
+        px(5, 2, 1, 1, '#ffff99');
+        break;
+      }
+      case 'jit': {
+        // Fiery orange-gold spark mite with trailing ember pixel
+        px(1, 1, 4, 4, '#ff6633');
+        px(2, 1, 2, 2, '#ffff66');
+        px(dir > 0 ? -2 : 6, 2, 1, 1, '#ffcc33');
+        break;
+      }
+      case 'linker': {
+        // Brass plug-beetle carrying a gold symbol pin
+        const leg = Math.floor(t * 10 + c.phase) % 2;
+        px(0, 1, 6, 3, '#aa5500');
+        px(1, 0, 4, 1, '#ffff55');
+        px(dir > 0 ? 6 : -2, 2, 2, 1, '#ffffaa');
+        px(1 + leg, 4, 1, 1, '#aaaaaa');
+        px(4 - leg, 4, 1, 1, '#aaaaaa');
+        break;
+      }
+      case 'kernel-entry': {
+        // Shielded cyan gate-bot
+        px(0, 0, 7, 5, '#000000');
+        px(1, 1, 5, 3, '#55ffff');
+        px(dir > 0 ? 4 : 1, 2, 2, 1, '#000000');
+        px(2, 5, 3, 1, '#aaaaaa');
+        break;
+      }
+      case 'kernel-arch': {
+        // Winged red/yellow IRQ-spark
+        const wing = Math.floor(t * 14 + c.phase) % 2 === 0;
+        px(2, 1, 3, 3, '#ff5555');
+        px(3, 2, 1, 1, '#ffff55');
+        px(0, wing ? 0 : 2, 2, 1, '#ffff55');
+        px(5, wing ? 0 : 2, 2, 1, '#ffff55');
+        break;
+      }
+      case 'bus-fabric': {
+        // High-speed magenta/white PCIe lane-runner
+        px(0, 1, 7, 2, '#ff55ff');
+        px(dir > 0 ? 5 : 0, 1, 2, 2, '#ffffff');
+        break;
+      }
+      case 'vmm':
+      case 'ept': {
+        // Hollow wireframe ghost-wisp (mirrored pair)
+        const drawGhost = (wx: number) => {
+          ctx.fillStyle = col('#aaaaaa');
+          ctx.fillRect(wx, y, 6, 1);
+          ctx.fillRect(wx, y + 4, 6, 1);
+          ctx.fillRect(wx, y, 1, 5);
+          ctx.fillRect(wx + 5, y, 1, 5);
+          ctx.fillStyle = col('#ffffff');
+          ctx.fillRect(wx + 2, y + 2, 2, 1);
+        };
+        drawGhost(x);
+        drawGhost(W - x - 6);
+        break;
+      }
+      case 'smram': {
+        // Silent silver vault sentinel
+        px(1, 0, 4, 5, '#808080');
+        px(2, 1, 2, 3, '#c0c0c0');
+        px(2, 2, 2, 1, '#ffffff');
+        break;
+      }
       case 'me-minix-user': {
         // Miniature 4×4 uncanny amber micro-daemon
         const step = perched ? 0 : Math.floor(t * 8 + c.phase) % 2;

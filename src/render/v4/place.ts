@@ -86,8 +86,8 @@ export interface LayerPlacement {
 
 /** A tall screen's height in world pixels (1080p is 360 scene px), for the per-type cap. */
 export const VIEW_WINDOW = 360;
-/** Same-type copies keep at least this far apart (centre to centre). */
-const SAME_TYPE_GAP = 70;
+/** Same-type copies keep at least this far apart (centre to centre) so repeats never cluster on screen. */
+const SAME_TYPE_GAP = 120;
 const PAD = 3;
 /** Spatial-grid cell size for overlap tests, world px. */
 const CELL = 32;
@@ -108,7 +108,7 @@ function pickType(rand: () => number, defs: readonly EntityDef[], used: Map<stri
   const ws = defs.map((d) => {
     if (blocked.has(d.id)) return 0;
     const n = used.get(d.id) ?? 0;
-    const w = (d.weight ?? 1) / (1 + n * n * 4);
+    const w = (d.weight ?? 1) / (1 + n * n * 16);
     total += w;
     return w;
   });
