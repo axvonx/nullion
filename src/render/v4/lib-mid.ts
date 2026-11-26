@@ -161,15 +161,24 @@ export const LIBRARIES: EntityDef[] = [
     },
   ),
   ent('lib-tangle', [[20, 14]], (p) => {
-    const pts: [number, number][] = [];
-    for (let k = 0; k < 6; k++) pts.push([2 + R(p.h(k) * 16), 2 + R(p.h(k + 10) * 10)]);
-    for (let k = 0; k < 6; k++) {
-      const a = pts[k]!;
-      const b = pts[(k + 2) % 6]!;
-      p.l(a[0], a[1], b[0], b[1], k % 2 ? '#aa5500' : '#aaaa55');
+    // Framed wooden dependency pinboard with neat brass pins and taut linking threads.
+    p.box(0, 0, 20, 14, WOOD_DK, WOOD);
+    const nodes: [number, number][] = [
+      [4, 4],
+      [10, 3],
+      [16, 5],
+      [6, 10],
+      [14, 10],
+    ];
+    p.l(4, 4, 10, 3, '#ff5555');
+    p.l(10, 3, 16, 5, '#ff5555');
+    p.l(4, 4, 6, 10, BRASS);
+    p.l(10, 3, 14, 10, BRASS);
+    p.l(6, 10, 14, 10, '#aa5500');
+    for (const [x, y] of nodes) {
+      p.r(x - 1, y - 1, 2, 2, PAPER);
+      p.p(x, y, BRASS);
     }
-    for (const [x, y] of pts) p.r(x - 1, y - 1, 3, 3, WOOD_HI);
-    p.p(pts[0]![0], pts[0]![1], '#ff5555');
   }),
   ent(
     'lib-thread',
@@ -284,15 +293,21 @@ export const LIBRARIES: EntityDef[] = [
       }
     p.r(0, 13, 18, 1, WOOD);
   }),
-  ent('lib-barrel', [[11, 13]], (p) => {
-    p.r(1, 0, 9, 13, WOOD);
-    p.r(0, 2, 11, 9, WOOD);
-    p.r(0, 2, 11, 1, GREY);
-    p.r(0, 10, 11, 1, GREY);
-    p.r(1, 0, 9, 1, WOOD_HI);
-    for (let x = 2; x < 10; x += 3) p.r(x, 1, 1, 11, WOOD_DK);
-    p.r(4, 5, 3, 3, PAPER);
-    p.p(5, 6, BLACK);
+  ent('lib-globe', [[13, 15]], (p) => {
+    // Brass reading-room globe on a turned wooden stand.
+    p.disc(6, 5, 4, '#0055aa');
+    p.r(4, 3, 2, 2, '#55aa55');
+    p.r(6, 5, 3, 2, '#005500');
+    p.p(4, 2, PAPER);
+    // Brass C-shaped meridian arc on the right side
+    p.r(6, 0, 3, 1, BRASS);
+    p.p(9, 1, BRASS);
+    p.r(10, 2, 1, 7, BRASS);
+    p.p(9, 9, BRASS);
+    p.r(6, 10, 3, 1, BRASS);
+    p.r(5, 10, 3, 3, WOOD);
+    p.r(3, 13, 7, 2, WOOD_DK);
+    p.r(3, 13, 7, 1, WOOD_HI);
   }),
   ent('lib-desk', [[21, 13]], (p) => {
     p.r(0, 5, 15, 2, WOOD);
@@ -580,40 +595,45 @@ export const USERSPACE: EntityDef[] = [
     p.r(9, 5, 3, 1, C.W);
   }),
   ent(
-    'us-zombie',
-    [[8, 11]],
-    () => {},
+    'us-callbox',
+    [[10, 15]],
+    (p) => {
+      // Night-city IPC callbox / status bollard.
+      p.r(2, 2, 6, 13, C.b);
+      p.r(2, 2, 1, 13, C.B);
+      p.r(1, 2, 8, 1, C.l);
+      p.r(3, 4, 4, 4, C.k);
+      p.r(4, 5, 2, 2, C.C);
+      p.r(3, 9, 4, 1, C.l);
+      p.r(1, 14, 8, 1, C.d);
+    },
     {
       anim: (p, _w, _h, _v, t) => {
-        const lean = Math.floor(t * 1.2) % 2;
-        p.r(2 + lean, 0, 3, 3, C.d);
-        p.p(3 + lean, 1, C.G);
-        p.r(2, 3, 3, 4, C.d);
-        p.r(5, 4 - lean, 3, 1, C.d);
-        p.p(2, 7, C.d);
-        p.p(2, 8 + lean, C.d);
-        p.p(4, 7, C.d);
-        p.p(4 + lean, 9, C.d);
-        p.r(1, 10, 6, 1, C.k);
+        const on = Math.floor(t * 1.6) % 2 === 0;
+        p.r(4, 0, 2, 2, on ? C.C : C.c);
+        if (on) p.glow(5, 1, 5, 'rgba(85,255,255,0.35)');
       },
+      noFlip: true,
     },
   ),
   ent(
-    'us-dbus',
-    [[22, 11]],
-    (p) => {
-      p.r(0, 1, 22, 7, C.Y);
-      p.r(1, 0, 20, 1, C.Y);
-      for (let k = 0; k < 4; k++) p.r(2 + k * 5, 2, 4, 3, C.C);
-      p.r(0, 6, 22, 1, C.n);
-      p.disc(4, 9, 1, C.d);
-      p.disc(17, 9, 1, C.d);
+    'us-busbar',
+    [[24, 9]],
+    (p, w) => {
+      // Rooftop IPC busbar / dispatch conduit with color-coded signal lanes.
+      p.r(0, 1, w, 7, C.d);
+      p.r(1, 2, w - 2, 5, C.k);
+      p.r(2, 3, w - 4, 1, C.b);
+      p.r(2, 5, w - 4, 1, C.c);
+      p.r(0, 0, 2, 9, C.l);
+      p.r(w - 2, 0, 2, 9, C.l);
     },
     {
-      anim: (p, _w, _h, _v, t) => {
-        p.p(4 + (Math.floor(t * 6) % 2 ? 1 : -1), 9, C.l);
-        p.p(17 + (Math.floor(t * 6) % 2 ? 1 : -1), 9, C.l);
-        if (Math.floor(t * 1.5) % 2) p.p(21, 4, C.R);
+      anim: (p, w, _h, _v, t) => {
+        const x1 = 2 + Math.floor(mod(t * 14, w - 6));
+        const x2 = w - 5 - Math.floor(mod(t * 10, w - 6));
+        p.r(x1, 3, 3, 1, C.Y);
+        p.r(x2, 5, 3, 1, C.C);
       },
     },
   ),
@@ -1044,7 +1064,7 @@ export const KERNEL: EntityDef[] = [
     (p) => {
       p.r(0, 0, 13, 13, C.d);
       p.r(1, 1, 11, 11, C.k);
-      for (let r = 0; r < 3; r++) p.r(2, 2 + r * 3, 9, 2, '#222222');
+      for (let r = 0; r < 3; r++) p.r(2, 2 + r * 3, 9, 2, C.b);
     },
     {
       anim: (p, _w, _h, _v, t) => {
@@ -1099,7 +1119,7 @@ export const KERNEL: EntityDef[] = [
     (p) => {
       p.r(0, 0, 16, 11, C.d);
       p.r(1, 1, 14, 9, C.k);
-      p.r(2, 6, 12, 2, '#333333');
+      p.r(2, 6, 12, 2, C.d);
     },
     {
       anim: (p, _w, _h, _v, t) => {
@@ -1111,13 +1131,19 @@ export const KERNEL: EntityDef[] = [
     },
   ),
   ent('kr-vfs', [[17, 13]], (p) => {
-    p.r(5, 3, 7, 7, C.l);
-    p.frame(5, 3, 7, 7, C.d);
-    p.r(7, 5, 3, 3, C.d);
-    p.r(0, 6, 5, 1, C.Y);
-    p.r(12, 6, 5, 1, C.C);
-    p.r(8, 0, 1, 3, C.G);
-    p.r(8, 10, 1, 3, C.M);
+    // 4-way flanged pipe manifold with colored mount branches and a central valve wheel.
+    p.r(0, 5, 5, 3, C.Y);
+    p.r(4, 4, 1, 5, C.l);
+    p.r(12, 5, 5, 3, C.C);
+    p.r(12, 4, 1, 5, C.l);
+    p.r(7, 0, 3, 3, C.G);
+    p.r(6, 2, 5, 1, C.l);
+    p.r(7, 10, 3, 3, C.M);
+    p.r(6, 10, 5, 1, C.l);
+    p.r(5, 3, 7, 7, C.d);
+    p.frame(5, 3, 7, 7, C.l);
+    p.ring(8, 6, 2, C.R);
+    p.p(8, 6, C.W);
   }),
 ];
 

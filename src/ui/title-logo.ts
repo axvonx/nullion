@@ -181,7 +181,13 @@ export type TitleGlitchKind =
   | 'hex-corrupt'
   | 'palette-drop'
   | 'stack-echo'
-  | 'pixel-rain';
+  | 'pixel-rain'
+  | 'cursor-blink'
+  | 'null-zero'
+  | 'bit-shift'
+  | 'scan-dropout'
+  | 'binary-flash'
+  | 'underline-link';
 
 export interface TitleGlitchEvent {
   kind: TitleGlitchKind;
@@ -197,30 +203,41 @@ interface GlitchBurst extends TitleGlitchEvent {
 }
 
 const BURST_DUR: Record<TitleGlitchKind, number> = {
-  'mirror-flip': 640,
-  bitflip: 500,
-  'mini-ghosts': 740,
-  heisenbug: 440,
-  race: 460,
-  npe: 380,
-  'hex-corrupt': 520,
-  'palette-drop': 580,
-  'stack-echo': 620,
-  'pixel-rain': 640,
+  'mirror-flip': 620,
+  bitflip: 520,
+  'mini-ghosts': 760,
+  heisenbug: 460,
+  race: 480,
+  npe: 420,
+  'hex-corrupt': 540,
+  'palette-drop': 620,
+  'stack-echo': 640,
+  'pixel-rain': 660,
+  'cursor-blink': 720,
+  'null-zero': 560,
+  'bit-shift': 480,
+  'scan-dropout': 560,
+  'binary-flash': 520,
+  'underline-link': 680,
 };
 
 const ALL_KINDS: readonly TitleGlitchKind[] = [
-  'mirror-flip',
   'bitflip',
   'mini-ghosts',
   'heisenbug',
-  'mirror-flip',
   'race',
   'hex-corrupt',
   'stack-echo',
   'palette-drop',
   'pixel-rain',
   'npe',
+  'cursor-blink',
+  'null-zero',
+  'bit-shift',
+  'scan-dropout',
+  'binary-flash',
+  'underline-link',
+  'mirror-flip',
 ];
 
 const DROP_PALETTES = ['cga4', 'green', 'gray', 'onebit'] as const;
@@ -336,6 +353,7 @@ export class TitleLogo {
   private nextBurstAt = 0;
   private seq = 0;
   private lastKind: TitleGlitchKind | undefined;
+  private bag: TitleGlitchKind[] = [];
   private running = false;
   private raf = 0;
 
@@ -357,12 +375,13 @@ export class TitleLogo {
     this.render(0);
   }
 
-  /** Start the ambient glitch loop (safe to call repeatedly). */
+  /** Start the ambient easter-egg glitch loop (safe to call repeatedly). */
   start() {
     if (this.running) return;
     this.running = true;
     const now = performance.now();
-    this.nextBurstAt = now + 220;
+    // Let the wordmark sit crisp and calm on load before the first subtle easter egg
+    this.nextBurstAt = now + 2200;
     const tick = (t: number) => {
       if (!this.running) return;
       this.render(t);
@@ -384,14 +403,22 @@ export class TitleLogo {
     const now = performance.now();
     const chosen = kind ?? this.pickKind(now);
     this.startBurst(chosen, now);
-    this.nextBurstAt = now + this.burst!.dur + 550;
+    this.nextBurstAt = now + this.burst!.dur + 2600;
   }
 
   private pickKind(now: number): TitleGlitchKind {
-    // Pseudo-random pick that never repeats the exact same glitch twice in a row.
-    const idx = Math.floor(hash(Math.floor(now * 0.37) + this.seq * 53) * ALL_KINDS.length);
-    let kind = ALL_KINDS[idx % ALL_KINDS.length]!;
-    if (kind === this.lastKind) kind = ALL_KINDS[(idx + 3) % ALL_KINDS.length]!;
+    // Shuffle-bag over all 16 easter eggs so every effect plays once before any repeats (mirror-flip is rare).
+    if (this.bag.length === 0) {
+      this.bag = [...ALL_KINDS];
+      for (let i = this.bag.length - 1; i > 0; i--) {
+        const j = Math.floor(hash(Math.floor(now * 0.31) + this.seq * 53 + i * 17) * (i + 1));
+        [this.bag[i], this.bag[j]] = [this.bag[j]!, this.bag[i]!];
+      }
+      if (this.bag[this.bag.length - 1] === this.lastKind) {
+        [this.bag[0], this.bag[this.bag.length - 1]] = [this.bag[this.bag.length - 1]!, this.bag[0]!];
+      }
+    }
+    const kind = this.bag.pop()!;
     this.lastKind = kind;
     return kind;
   }
@@ -419,10 +446,9 @@ export class TitleLogo {
 
     if (!reduced && now > 0) {
       if (this.burst && now - this.burst.start >= this.burst.dur) {
-        const combo = hash(this.burst.seed + 99) < 0.45;
         this.burst = undefined;
-        // Lively pacing: quick combo follow-up 45% of the time, otherwise 140–380ms calm beat.
-        this.nextBurstAt = now + (combo ? 40 + hash(Math.floor(now)) * 55 : 140 + hash(Math.floor(now)) * 240);
+        // Calm easter-egg cadence: 3.4–6.8s of clean wordmark between subtle artifacts.
+        this.nextBurstAt = now + 3400 + hash(Math.floor(now) + this.seq * 29) * 3400;
       }
       if (!this.burst && now >= this.nextBurstAt) {
         this.startBurst(this.pickKind(now), now);
@@ -494,6 +520,14 @@ export class TitleLogo {
       let shadow: string | undefined = 'rgba(0,0,0,0.68)';
       let highlight: string | undefined = palHi;
 
+      // Whole-word null-pointer address swap: "0x00000"
+      if (b && b.kind === 'null-zero') {
+        const addr = ['0', 'x', '0', '0', '0', '0', '0'] as const;
+        ch = addr[i]!;
+        fill = i < 2 ? '#8fb7ff' : '#5fd3e0';
+        highlight = '#ffffff';
+      }
+
       const hit = b && b.letters.includes(i);
       if (hit && b) {
         switch (b.kind) {
@@ -520,6 +554,47 @@ export class TitleLogo {
             ch = HEX_POOL[hexIdx % HEX_POOL.length]!;
             fill = '#7ee0a1';
             highlight = '#d6ffe6';
+            break;
+          }
+          case 'binary-flash': {
+            ch = (b.seed + i) % 2 === 0 ? '0' : '1';
+            fill = '#8cff9c';
+            highlight = '#e4ffe8';
+            break;
+          }
+          case 'bit-shift': {
+            if (i === b.letters[0]) {
+              const shift = Math.round(Math.sin(p * Math.PI) * 2);
+              if (shift > 0) {
+                ctx.save();
+                ctx.globalAlpha = 0.45;
+                drawGlyph(ctx, GLYPHS[ch]!, x, y, '#ffb000', 'none');
+                ctx.restore();
+                x += shift;
+              }
+            }
+            break;
+          }
+          case 'cursor-blink': {
+            if (i === b.letters[0] && Math.floor(p * 4) % 2 === 0) {
+              ctx.fillStyle = '#8cff9c';
+              ctx.fillRect(x - 1, y - 1, CELL_W + 2, CELL_H + 2);
+              fill = '#0d0b12';
+              outline = '#8cff9c';
+              highlight = undefined;
+              shadow = undefined;
+            }
+            break;
+          }
+          case 'underline-link': {
+            if (i === b.letters[0]) {
+              fill = '#8fb7ff';
+              highlight = '#ffffff';
+              ctx.fillStyle = '#0d0b12';
+              ctx.fillRect(x, y + CELL_H + 2, CELL_W + 1, 2);
+              ctx.fillStyle = '#8fb7ff';
+              ctx.fillRect(x, y + CELL_H + 1, CELL_W, 1);
+            }
             break;
           }
           case 'heisenbug': {
@@ -610,7 +685,15 @@ export class TitleLogo {
       ctx.fillRect(bx, by, 3, 1);
     }
 
-    // 8. Post-pass: Bit-flip corner bracket ticks
+    // 8. Post-pass: Scan-dropout (single 1px CRT scanline glides cleanly down across the wordmark)
+    if (b && b.kind === 'scan-dropout') {
+      const sy = PAD_Y + Math.floor(p * (CELL_H - 1));
+      ctx.clearRect(PAD_X - 2, sy, LOGO_W - PAD_X * 2 + 4, 1);
+      ctx.fillStyle = 'rgba(95, 211, 224, 0.45)';
+      ctx.fillRect(PAD_X - 1, sy, LOGO_W - PAD_X * 2 + 2, 1);
+    }
+
+    // 9. Post-pass: Bit-flip corner bracket ticks
     if (b && b.kind === 'bitflip' && p > 0.1 && p < 0.9) {
       const i = b.letters[0] ?? 0;
       const bx = PAD_X + i * (CELL_W + GAP) - 2;

@@ -243,26 +243,22 @@ export const APPLICATION: EntityDef[] = [
     },
   ),
   ent(
-    'app-hearts',
-    [[10, 16]],
-    (p) => {
-      p.r(1, 13, 3, 2, '#ff6b81');
-      p.r(5, 13, 3, 2, '#ff6b81');
-      p.r(1, 15, 7, 1, '#ff6b81');
+    'app-search',
+    [[20, 8]],
+    (p, w) => {
+      p.r(1, 1, w - 1, 7, SHADOW);
+      p.r(0, 0, w - 1, 7, EDGE);
+      p.r(1, 1, w - 3, 5, WHITE);
+      // Magnifying glass icon
+      p.frame(2, 2, 3, 3, INK);
+      p.p(5, 5, INK);
+      p.r(7, 3, 6, 1, FAINT);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        for (let k = 0; k < 2; k++) {
-          const q = mod(t * 0.45 + k * 0.5, 1);
-          const y = 10 - q * 10;
-          const x = 2 + k * 3 + R(Math.sin(q * 6 + k) * 1.5);
-          const col = q < 0.6 ? '#ff6b81' : '#ffc0cb';
-          p.r(x, y, 1, 1, col);
-          p.r(x + 2, y, 1, 1, col);
-          p.r(x, y + 1, 3, 1, col);
-          p.r(x + 1, y + 2, 1, 1, col);
-        }
+        if (Math.floor(t * 2.2) % 2 === 0) p.r(14, 2, 1, 3, '#5b8ee6');
       },
+      noFlip: true,
     },
   ),
   ent('app-dropdown', [[16, 16]], (p) => {
@@ -468,12 +464,19 @@ export const RUNTIME: EntityDef[] = [
   ),
   ent(
     'rt-marks',
-    [[15, 6]],
-    (p) => p.r(0, 0, 15, 6, STRUT),
+    [[20, 12]],
+    (p, w) => {
+      girder(p, 0, 7, w);
+      for (let k = 0; k < 4; k++) obj(p, 1 + k * 5, 4, 3, 3, k);
+    },
     {
       anim: (p, _w, _h, _v, t) => {
-        const slot = Math.floor(t * 0.9);
-        for (let k = 0; k < 4; k++) p.r(k * 3 + 2, 1, 2, 4, (k * 7 + slot * 13 + Math.floor(p.h(k) * 9)) % 3 ? '#ffff99' : NAVY);
+        const slot = Math.floor(t * 1.4);
+        for (let k = 0; k < 4; k++) {
+          const marked = (k + slot) % 3 !== 0;
+          p.r(2 + k * 5, 1, 1, 2, marked ? '#ffff99' : '#333366');
+          if (marked) p.p(3 + k * 5, 1, '#ffff99');
+        }
       },
       noFlip: true,
     },
@@ -555,13 +558,24 @@ export const RUNTIME: EntityDef[] = [
     p.frame(14, 2, 6, 6, '#666699');
     p.p(16, 4, '#333366');
   }),
-  ent('rt-tricolor', [[22, 8]], (p) => {
-    const cols = ['#ffffff', '#999999', '#333333'];
-    for (let k = 0; k < 3; k++) {
-      p.box(k * 8, 1, 6, 6, cols[k]!, '#9999cc');
-      if (k < 2) p.r(k * 8 + 6, 4, 2, 1, REF);
-    }
-  }),
+  ent(
+    'rt-tricolor',
+    [[22, 8]],
+    (p) => {
+      for (let k = 0; k < 2; k++) p.r(k * 8 + 6, 4, 2, 1, REF);
+    },
+    {
+      anim: (p, _w, _h, _v, t) => {
+        // Animated tri-color GC mark wave: white -> grey -> black
+        const step = Math.floor(t * 1.1) % 4;
+        for (let k = 0; k < 3; k++) {
+          const col = k < step ? '#333333' : k === step ? '#999999' : '#ffffff';
+          p.box(k * 8, 1, 6, 6, col, k === step ? '#ffff99' : '#9999cc');
+        }
+      },
+      noFlip: true,
+    },
+  ),
   ent(
     'rt-bump',
     [[24, 8]],
@@ -588,19 +602,21 @@ export const RUNTIME: EntityDef[] = [
   }),
   ent(
     'rt-interp',
-    [[13, 13]],
+    [[12, 15]],
     (p) => {
-      p.ring(6, 6, 5, '#666699');
-      p.r(5, 5, 3, 3, '#9999cc');
+      // Vertical opcode strip with a sliding read-head (distinct from rt-eventloop).
+      p.box(3, 0, 8, 15, NAVY, GIRDER);
+      for (let k = 0; k < 4; k++) p.r(5, 2 + k * 3, 4, 1, k % 2 ? '#6699cc' : '#9999cc');
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        for (let k = 0; k < 3; k++) {
-          const a = t * 2 + (k * TAU) / 3;
-          p.r(6 + R(Math.cos(a) * 5) - 0, 6 + R(Math.sin(a) * 5), 1, 1, '#ffff99');
-          p.p(6 + R(Math.cos(a - 0.3) * 5), 6 + R(Math.sin(a - 0.3) * 5), '#cccc66');
-        }
+        const row = Math.floor(t * 2.4) % 4;
+        const y = 2 + row * 3;
+        p.r(0, y - 1, 3, 3, '#ffcc33');
+        p.p(2, y, '#ffffff');
+        p.r(5, y, 4, 1, '#ffff99');
       },
+      noFlip: true,
     },
   ),
   ent('rt-hashmap', [[16, 14]], (p) => {
@@ -613,26 +629,33 @@ export const RUNTIME: EntityDef[] = [
       }
     }
   }),
-  ent('rt-strpool', [[22, 8]], (p) => {
-    p.r(0, 3, 22, 1, '#9999cc');
-    for (let k = 0; k < 6; k++) {
-      const [b, l] = OBJ[Math.floor(p.h(k) * 5)]!;
-      p.r(1 + k * 3.5, 2, 3, 3, b);
-      p.p(1 + k * 3.5, 2, l);
-    }
-    p.r(0, 2, 1, 3, '#cccccc');
+  ent('rt-strpool', [[22, 10]], (p) => {
+    // Interned-string lookup rack: three pointers converging onto one shared token slot.
+    p.r(0, 1, 2, 2, '#66cc99');
+    p.r(0, 4, 2, 2, '#6699cc');
+    p.r(0, 7, 2, 2, '#cc66cc');
+    p.l(2, 2, 10, 5, REF);
+    p.r(2, 5, 9, 1, REF);
+    p.l(2, 8, 10, 5, REF);
+    p.box(11, 2, 11, 6, NAVY, GIRDER_HI);
+    p.r(13, 4, 7, 2, '#ffff99');
   }),
   ent(
     'rt-closure',
-    [[12, 12]],
+    [[14, 13]],
     (p) => {
-      p.ring(6, 6, 5, '#9999cc');
-      obj(p, 4, 4, 4, 4, Math.floor(p.h(0) * 5));
+      // Sealed value pod with a captured environment block and dangling pointer tether.
+      p.r(2, 1, 10, 9, STRUT);
+      p.frame(2, 1, 10, 9, GIRDER_HI);
+      p.r(4, 0, 6, 1, '#9999cc');
+      obj(p, 4, 3, 6, 5, Math.floor(p.h(0) * 5));
+      p.r(6, 10, 1, 2, REF);
+      p.r(7, 11, 5, 1, REF);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const a = t * 1.3;
-        p.p(6 + R(Math.cos(a) * 5), 6 + R(Math.sin(a) * 5), '#ffffff');
+        const on = Math.floor(t * 2) % 2 === 0;
+        p.p(12, 11, on ? '#ffff99' : '#6666cc');
       },
     },
   ),

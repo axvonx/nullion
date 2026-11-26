@@ -211,14 +211,17 @@ export const DRIVERS: EntityDef[] = [
     p.p(1, 3, K);
     p.p(13, 3, K);
   }),
-  ent('dr-jumpers', [[11, 7]], (p) => {
+  ent('dr-jumpers', [[13, 8]], (p) => {
+    // White-framed 2x5 pin-header shroud with magenta bridging caps.
+    p.r(0, 0, 13, 8, W);
+    p.r(1, 1, 11, 6, K);
     for (let k = 0; k < 5; k++) {
-      p.p(1 + k * 2, 1, CY);
-      p.p(1 + k * 2, 5, CY);
+      p.p(2 + k * 2, 2, CY);
+      p.p(2 + k * 2, 5, CY);
     }
     const j = Math.floor(p.h(0) * 4);
-    p.r(j * 2, 0, 3, 3, MG);
-    p.r(((j + 2) % 5) * 2, 4, 3, 3, MG);
+    p.r(2 + j * 2, 2, 1, 4, MG);
+    p.r(2 + ((j + 2) % 5) * 2, 2, 1, 4, MG);
   }),
   ent('dr-heatsink', [[15, 11]], (p) => {
     p.r(0, 8, 15, 3, CY);
@@ -264,20 +267,26 @@ export const DRIVERS: EntityDef[] = [
   }),
   ent(
     'dr-fwload',
-    [[17, 14]],
+    [[19, 13]],
     (p) => {
-      legs(p, 6, 6, 11, 5);
-      p.r(6, 6, 11, 5, MG);
-      p.r(7, 7, 9, 3, K);
-      p.r(0, 0, 5, 6, W);
-      p.r(1, 1, 3, 1, K);
-      p.r(1, 3, 2, 1, K);
+      // Programmer pod connected by a ribbon cable to a ZIF-socketed flash chip.
+      p.r(0, 2, 5, 7, W);
+      p.r(1, 3, 3, 5, K);
+      p.r(2, 4, 1, 1, MG);
+      // Connected programming cable
+      p.r(5, 4, 3, 1, CY);
+      p.r(5, 6, 3, 1, CY);
+      // Target chip with legs
+      legs(p, 8, 3, 11, 6);
+      p.r(8, 3, 11, 6, MG);
+      p.r(9, 4, 9, 4, K);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const q = mod(t * 1.2, 1);
-        p.p(4 + R(q * 6), 3 + R(q * 5), CY);
-        p.r(8, 8, R(q * 7), 1, CY);
+        const q = mod(t * 0.9, 1);
+        const pulseX = 5 + (Math.floor(t * 9) % 3);
+        p.p(pulseX, 4, W);
+        p.r(10, 5, Math.max(1, R(q * 7)), 2, CY);
       },
     },
   ),
@@ -443,10 +452,14 @@ export const FIRMWARE: EntityDef[] = [
     p.p(1, 2, G3);
   }),
   ent('fw-plate', [[14, 9]], (p) => {
-    p.r(0, 0, 14, 9, G1);
+    // Stamped BIOS access plate with corner bolts, vent louvers, and probe pads.
+    p.r(0, 0, 14, 9, G2);
     p.r(1, 1, 12, 7, G0);
-    for (const [dx, dy] of [[1, 1], [12, 1], [1, 7], [12, 7]] as const) p.p(dx, dy, G2);
-    p.r(4, 4, 6, 1, G1);
+    for (const [dx, dy] of [[1, 1], [12, 1], [1, 7], [12, 7]] as const) p.p(dx, dy, G3);
+    p.r(3, 2, 8, 1, G1);
+    p.r(3, 4, 8, 1, G2);
+    p.r(3, 6, 5, 1, G1);
+    p.p(10, 6, G3);
   }),
   ent('fw-cmos', [[11, 11]], (p) => {
     p.disc(5, 5, 5, G2);
@@ -470,13 +483,13 @@ export const FIRMWARE: EntityDef[] = [
   ent('fw-bootorder', [[16, 14]], (p) => {
     p.r(0, 0, 16, 14, G1);
     p.r(1, 1, 14, 12, G0);
+    // Highlight active first boot entry BEFORE drawing its icon & label bar
+    p.r(1, 1, 14, 4, G1);
     for (let k = 0; k < 3; k++) {
       const y = 2 + k * 4;
       p.r(2, y, 2, 3, k === 0 ? G3 : G2);
       p.r(5, y + 1, 4 + R(p.h(k) * 5), 1, k === 0 ? G3 : G1);
     }
-    p.r(1, 1, 14, 4, G1);
-    p.r(2, 2, 2, 3, G3);
   }),
   ent('fw-dipsw', [[12, 7]], (p) => {
     p.r(0, 0, 12, 7, G2);
@@ -503,13 +516,17 @@ export const FIRMWARE: EntityDef[] = [
       },
     },
   ),
-  ent('fw-capsule', [[15, 8]], (p) => {
-    p.r(2, 0, 11, 8, G2);
-    p.r(0, 2, 15, 4, G2);
-    p.r(1, 1, 13, 6, G2);
-    p.r(7, 0, 8, 8, G1);
-    p.r(7, 0, 1, 8, G0);
-    p.r(2, 1, 4, 1, G3);
+  ent('fw-capsule', [[15, 11]], (p) => {
+    // Sealed firmware ROM cartridge with signature lock emblem and edge-connector teeth.
+    p.r(0, 0, 15, 9, G2);
+    p.r(1, 1, 13, 7, G1);
+    p.r(2, 2, 11, 5, G0);
+    // Lock/signature badge inside cartridge
+    p.r(6, 2, 3, 2, G2);
+    p.r(5, 4, 5, 3, G3);
+    p.p(7, 5, G0);
+    // Bottom edge-connector teeth
+    for (let x = 2; x < 13; x += 2) p.r(x, 9, 1, 2, G2);
   }),
   ent('fw-spiclip', [[15, 13]], (p) => {
     for (let k = 1; k < 9; k += 2) {
@@ -582,17 +599,19 @@ export const FIRMWARE: EntityDef[] = [
     'fw-ucode',
     [[15, 13]],
     (p) => {
-      p.r(0, 11, 15, 2, G1);
-      p.r(1, 1, 1, 10, G1);
-      p.r(13, 1, 1, 10, G1);
+      // Framed microcode ROM-patch matrix.
+      p.r(0, 0, 15, 13, G2);
+      p.r(1, 1, 13, 11, G0);
+      for (let r = 0; r < 4; r++)
+        for (let c = 0; c < 4; c++) p.r(2 + c * 3, 2 + r * 2.5, 2, 1, (r + c) % 2 ? G1 : G2);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        p.r(3, 2, 9, 9, G2);
-        const off = Math.floor(t * 4) % 3;
-        for (let y = 2 + off; y < 11; y += 3) p.r(3, y, 9, 1, G1);
-        for (let k = 0; k < 3; k++) p.p(4 + ((k * 3 + off) % 8), 3 + k * 3, G3);
+        const row = Math.floor(t * 2.5) % 4;
+        const y = R(2 + row * 2.5);
+        p.r(2, y, 11, 1, G3);
       },
+      noFlip: true,
     },
   ),
   ent('fw-nvram', [[19, 12]], (p) => {
@@ -753,13 +772,18 @@ export const RING1: EntityDef[] = [
     'r1-glass',
     [[10, 14]],
     (p) => {
-      p.r(0, 0, 10, 14, G1);
+      p.r(0, 0, 10, 14, G2);
       p.r(1, 1, 8, 12, G0);
+      // Baked diagonal mirror-glass reflection streaks & faint reflected silhouette
+      p.l(2, 3, 4, 1, G1);
+      p.l(5, 11, 8, 8, G1);
+      p.r(3, 6, 4, 4, G1);
+      p.r(4, 5, 2, 1, G1);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const g = mod(t * 3, 20);
-        for (let k = 0; k < 4; k++) if (g - k >= 0 && g - k < 8) p.r(1 + g - k, 2 + k * 3, 1, 2, G2);
+        const g = Math.floor(mod(t * 3, 14));
+        for (let k = 0; k < 4; k++) if (g - k >= 0 && g - k < 8) p.r(1 + g - k, 2 + k * 3, 1, 2, G3);
       },
     },
   ),
@@ -831,29 +855,35 @@ export const RING1: EntityDef[] = [
     for (let y = 2; y < 8; y += 2) p.r(2, y, 4 + R(p.h(y) * 2), 1, G2);
   }),
   ent('r1-dolls', [[19, 13]], (p) => {
-    const sizes = [6, 5, 4];
-    let x = 0;
-    sizes.forEach((s, k) => {
-      const h = s * 2;
-      const y = 13 - h;
-      p.r(x + 1, y, s - 2, 2, G2);
-      p.r(x, y + 2, s, h - 2, k === 0 ? G2 : k === 1 ? G1 : G2);
-      p.r(x + 1, y + 3, s - 2, 1, G3);
-      x += s + 1;
-    });
+    // Three nested cutaway VM bezels (L0 -> L1 -> L2).
+    p.r(0, 0, 19, 13, G2);
+    p.r(1, 1, 17, 11, G0);
+    p.r(3, 2, 13, 9, G1);
+    p.r(4, 3, 11, 7, G0);
+    p.r(6, 4, 7, 5, G3);
+    p.r(7, 5, 5, 3, G0);
+    p.r(8, 6, 3, 1, G2);
   }),
   ent(
-    'r1-balloon',
-    [[9, 18]],
-    () => {},
+    'r1-mempress',
+    [[13, 14]],
+    (p) => {
+      // Expanding Host/Guest memory bellows (replaces literal party balloon).
+      p.r(1, 0, 11, 2, G2);
+      p.r(1, 12, 11, 2, G2);
+      p.r(5, 11, 3, 1, G1);
+    },
     {
       anim: (p, _w, _h, _v, t) => {
-        const dy = R(Math.sin(t * 1.2) * 1.5);
-        const s = 3 + (Math.floor(t * 0.3) % 2);
-        p.disc(4, 5 + dy, s, G2);
-        p.p(3, 3 + dy, G3);
-        p.l(4, 5 + dy + s, 4 + R(Math.sin(t) * 1), 17, G1);
+        const squeeze = R((Math.sin(t * 1.4) * 0.5 + 0.5) * 3);
+        const top = 2 + squeeze;
+        const bot = 11 - squeeze;
+        p.r(2, top, 9, Math.max(2, bot - top), G1);
+        p.r(3, top + 1, 7, Math.max(1, bot - top - 2), G0);
+        p.r(4, Math.floor((top + bot - 1) / 2), 5, 1, G3);
+        p.r(1, top, 11, 1, G3);
       },
+      noFlip: true,
     },
   ),
   ent(
@@ -892,22 +922,22 @@ export const RING1: EntityDef[] = [
   ),
   ent(
     'r1-hypercall',
-    [[13, 11]],
+    [[15, 13]],
     (p) => {
-      p.r(0, 7, 13, 4, G1);
-      p.r(0, 7, 13, 1, G2);
-      p.r(5, 8, 3, 2, G0);
+      // Ring-crossing interrupt gate: pulse punches from Guest (top) across the barrier into Host (bottom).
+      p.r(0, 6, 15, 2, G2);
+      p.r(5, 6, 5, 2, G0);
+      p.frame(2, 0, 11, 5, G1);
+      p.frame(2, 9, 11, 4, G1);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const ring = mod(t * 0.6, 1) < 0.3;
-        const lift = ring ? Math.floor(t * 16) % 2 : 0;
-        p.r(1, 4 - lift, 11, 2, G2);
-        p.r(0, 5 - lift, 3, 2, G2);
-        p.r(10, 5 - lift, 3, 2, G2);
-        if (ring) {
-          p.p(0, 1, G3);
-          p.p(12, 1, G3);
+        const q = mod(t * 1.1, 1);
+        const y = 2 + R(q * 8);
+        p.r(6, y, 3, 2, G3);
+        if (y >= 5 && y <= 7) {
+          p.p(4, 6, G3);
+          p.p(10, 6, G3);
         }
       },
       noFlip: true,
@@ -928,13 +958,13 @@ export const RING1: EntityDef[] = [
       },
     },
   ),
-  ent('r1-sandbox', [[17, 9]], (p) => {
-    p.r(0, 3, 17, 6, G1);
-    p.r(1, 4, 15, 4, G2);
-    for (let k = 0; k < 6; k++) p.p(2 + R(p.h(k) * 13), 4 + R(p.h(k + 6) * 3), G3);
-    p.r(11, 0, 3, 4, G1);
-    p.r(10, 0, 5, 1, G2);
-    p.r(3, 2, 4, 2, G2);
+  ent('r1-cage', [[17, 12]], (p) => {
+    // Barred hypervisor quarantine cage holding a mini guest world.
+    p.r(0, 0, 17, 12, G2);
+    p.r(1, 1, 15, 10, G0);
+    miniWorld(p, 2, 2, 13, 8, false);
+    for (let x = 3; x < 15; x += 3) p.r(x, 1, 1, 10, G2);
+    p.r(0, 0, 17, 1, G3);
   }),
   ent('r1-split', [[15, 13]], (p) => {
     p.r(0, 0, 15, 11, G2);
@@ -1158,19 +1188,16 @@ export const RING2: EntityDef[] = [
     p.p(8, 5, K3);
     p.p(10, 2, K3);
   }),
-  ent('r2-statue', [[9, 13]], (p) => {
-    p.r(0, 11, 9, 2, K2);
-    p.r(3, 0, 3, 3, K3);
-    p.r(3, 3, 3, 4, K3);
-    p.r(6, 4, 2, 1, K3);
-    p.r(1, 2, 2, 1, K3);
-    p.p(3, 7, K3);
-    p.p(2, 8, K3);
-    p.p(1, 9, K3);
-    p.p(5, 7, K3);
-    p.p(6, 9, K3);
-    p.p(6, 10, K3);
-    p.p(4, 1, K0);
+  ent('r2-metronome', [[11, 14]], (p) => {
+    // Frozen metronome stopped mid-tick.
+    p.r(4, 2, 3, 3, K1);
+    p.r(3, 5, 5, 7, K1);
+    p.r(1, 12, 9, 2, K2);
+    p.l(2, 12, 4, 1, K2);
+    p.l(8, 12, 6, 1, K2);
+    p.r(4, 1, 3, 1, K3);
+    p.l(5, 11, 9, 3, K4);
+    p.r(7, 4, 2, 2, K3);
   }),
   ent('r2-cracks', [[15, 13]], (p) => {
     p.r(0, 0, 15, 13, K1);
@@ -1183,8 +1210,12 @@ export const RING2: EntityDef[] = [
     }
     p.p(cx, cy, K4);
   }),
-  ent('r2-dust', [[17, 11]], (p) => {
-    for (let k = 0; k < 9; k++) p.p(R(p.h(k) * 16), R(p.h(k + 20) * 10), k % 3 ? K2 : K4);
+  ent('r2-ripple', [[15, 11]], (p) => {
+    // Frozen concentric ripple rings suspended in stillness.
+    p.ring(7, 5, 5, K1);
+    p.ring(7, 5, 3, K2);
+    p.ring(7, 5, 1, K3);
+    p.p(7, 5, K4);
   }),
   ent('r2-book', [[11, 11]], (p) => {
     streak(p, 5, 0, 4);
@@ -1240,14 +1271,13 @@ export const RING2: EntityDef[] = [
     p.r(3, 6, 3, 8, K3);
     p.r(4, 7, 1, 6, K4);
   }),
-  ent('r2-pause', [[17, 11]], (p) => {
-    p.r(0, 0, 17, 11, K2);
-    p.r(1, 1, 15, 9, K1);
-    p.disc(5, 5, 2, K3);
-    p.disc(11, 5, 2, K3);
-    p.r(7, 7, 3, 2, K0);
-    p.r(6, 2, 1, 3, K4);
-    p.r(9, 2, 1, 3, K4);
+  ent('r2-pause', [[15, 11]], (p) => {
+    // Clean recessed || transport bezel (no colliding reels).
+    p.r(0, 0, 15, 11, K2);
+    p.r(1, 1, 13, 9, K0);
+    p.frame(2, 2, 11, 7, K1);
+    p.r(4, 3, 2, 5, K4);
+    p.r(9, 3, 2, 5, K4);
   }),
 ];
 
@@ -1360,10 +1390,14 @@ export const RING3: EntityDef[] = [
     }
   }),
   ent('r3-resistor', [[15, 5]], (p) => {
+    // True connected diagonal zigzag resistor symbol.
     p.r(0, 2, 3, 1, ON);
+    p.l(2, 2, 4, 0, ON);
+    p.l(4, 0, 6, 4, ON);
+    p.l(6, 4, 8, 0, ON);
+    p.l(8, 0, 10, 4, ON);
+    p.l(10, 4, 12, 2, ON);
     p.r(12, 2, 3, 1, ON);
-    for (let k = 0; k < 9; k++) p.p(3 + k, k % 2 ? 0 : 4, ON);
-    for (let k = 0; k < 8; k++) p.p(3 + k + 0.5, 2, ON);
   }),
   ent('r3-diode', [[11, 7]], (p) => {
     p.r(0, 3, 3, 1, ON);
@@ -1374,16 +1408,18 @@ export const RING3: EntityDef[] = [
     p.r(7, 0, 1, 7, ON);
   }),
   ent('r3-inductor', [[15, 6]], (p) => {
+    // Four open coil humps (no bottom bar closing them into boxes).
     p.r(0, 4, 2, 1, ON);
     p.r(13, 4, 2, 1, ON);
     for (let k = 0; k < 4; k++) {
-      p.r(2 + k * 3, 1, 2, 1, ON);
-      p.p(2 + k * 3, 2, ON);
-      p.p(4 + k * 3, 2, ON);
-      p.p(2 + k * 3 - 0, 3, ON);
-      p.p(4 + k * 3, 3, ON);
+      const x = 2 + k * 3;
+      p.r(x + 1, 1, 1, 1, ON);
+      p.p(x, 2, ON);
+      p.p(x + 2, 2, ON);
+      p.p(x, 3, ON);
+      p.p(x + 2, 3, ON);
+      if (k === 0) p.p(x, 4, ON);
     }
-    p.r(2, 4, 12, 1, ON);
   }),
   ent('r3-sram', [[15, 11]], (p) => {
     p.frame(0, 0, 15, 11, ON);

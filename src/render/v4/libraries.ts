@@ -17,7 +17,7 @@ export const V4_LIBRARIES: Record<LayerId, Library> = {
     density: 4.4,
     anchorCount: 2,
     far: 0.4,
-    floor: { offset: 4, ids: new Set(['lib-shelf', 'lib-cart', 'lib-ladder', 'lib-desk', 'lib-catalogue', 'lib-lectern', 'lib-barrel', 'lib-crates', 'lib-lamp']) },
+    floor: { offset: 4, ids: new Set(['lib-shelf', 'lib-cart', 'lib-ladder', 'lib-desk', 'lib-catalogue', 'lib-lectern', 'lib-globe', 'lib-crates', 'lib-lamp']) },
   },
   userspace: {
     near: USERSPACE,
@@ -25,7 +25,7 @@ export const V4_LIBRARIES: Record<LayerId, Library> = {
     density: 4.4,
     anchorCount: 2,
     far: 0.45,
-    floor: { offset: 6, ids: new Set(['us-tower', 'us-dbus', 'us-mailbox', 'us-crontower', 'us-shm', 'us-signal', 'us-fork', 'us-zombie', 'us-container']) },
+    floor: { offset: 6, ids: new Set(['us-tower', 'us-mailbox', 'us-crontower', 'us-shm', 'us-signal', 'us-fork', 'us-callbox', 'us-container']) },
   },
   kernel: { near: KERNEL, anchors: KERNEL_ANCHORS, density: 4.4, anchorCount: 2, far: 0.4 },
   drivers: { near: DRIVERS, anchors: DRIVERS_ANCHORS, density: 4.6, anchorCount: 2, far: 0.4 },

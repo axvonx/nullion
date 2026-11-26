@@ -960,10 +960,17 @@ export class SoundEngine {
         break;
       case 'hex-corrupt':
       case 'palette-drop':
-        this.voice(ctx, { freq: 520, toFreq: 390, at: t, dur: 0.045, wave: 'pulse12', gain: 0.08, pan, crush: true });
+      case 'null-zero':
+      case 'binary-flash':
+        this.voice(ctx, { freq: 520, toFreq: 390, at: t, dur: 0.045, wave: 'pulse12', gain: 0.07, pan, crush: true });
+        break;
+      case 'cursor-blink':
+      case 'bit-shift':
+      case 'underline-link':
+        this.voice(ctx, { freq: 760, toFreq: 880, at: t, dur: 0.025, wave: 'triangle', gain: 0.06, pan });
         break;
       default:
-        this.noiseBurst(ctx, { at: t, dur: 0.02, type: 'highpass', filterHz: 3200, gain: 0.07, pan });
+        this.noiseBurst(ctx, { at: t, dur: 0.02, type: 'highpass', filterHz: 3200, gain: 0.06, pan });
         break;
     }
   }
