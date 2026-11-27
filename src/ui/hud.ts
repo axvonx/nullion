@@ -1,3 +1,4 @@
+import { VERSION_LABEL } from '../version';
 import { ALL_LAYER_IDS, PROMPTS_PER_DAY, TRUE_ENDLESS_LAYERS, type LayerId } from '../core/layers';
 import { layerAt, rulesFor } from '../core/modes';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
@@ -93,6 +94,7 @@ export class Hud {
             <button type="button" class="title-how-btn" data-el="titleHowBtn" aria-expanded="false" aria-controls="title-how">How to play</button>
             <button type="button" class="title-how-btn title-manual-btn" data-el="titleManualBtn"><span data-el="titleManualLabel">Field Manual</span></button>
           </div>
+          <div class="build-tag title-build" aria-label="Version">${VERSION_LABEL}</div>
         </div>
         <div id="title-how" class="title-how" data-el="titleHow" role="dialog" aria-label="How to play" hidden>
           <div class="title-how-bar">

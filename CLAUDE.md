@@ -8,7 +8,7 @@ What's next lives in `ROADMAP.md`; the next milestone is question and answer gen
 
 ## Version
 
-`package.json`'s version (semver, `0.x` while pre-1.0) and the stage (`alpha` now, in `vite.config.ts`) show at the foot of the end card. Bump the minor version for a release-worthy change set, the patch for fixes. There is no "launch": the goal is a stable 1.0.
+`package.json`'s `version` is the one source (semver; the pre-release tag is the stage: `0.1.0-alpha`). Code reads it from `src/version.ts` (`VERSION`, `STAGE`, `VERSION_LABEL`); it shows on the title screen, in Settings, at the foot of the end card, and as `nullion.version` in the browser console. Bump the minor version for a release-worthy batch and the patch for fixes, add a `CHANGELOG.md` entry, and tag the commit `v<version>`. There is no "launch": the goal is a stable 1.0 (stage bars in `CHANGELOG.md` and `ROADMAP.md`).
 
 ## Commands
 

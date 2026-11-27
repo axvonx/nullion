@@ -1,3 +1,4 @@
+import { VERSION } from './version';
 import '@fontsource/silkscreen/400.css';
 import '@fontsource/vt323/400.css';
 import './style.css';
@@ -68,6 +69,8 @@ async function boot() {
   startFavicon();
   sound.setMode(prefs.get().sound);
   sound.setVolume(prefs.get().volume);
+  // `nullion.version` in the browser console says which build is running (quote it in bug reports).
+  (window as unknown as { nullion: { version: string } }).nullion = { version: VERSION };
   window.addEventListener('pointerdown', () => sound.unlock(), { once: true });
   window.addEventListener('keydown', () => sound.unlock(), { once: true });
 

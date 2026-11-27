@@ -1,3 +1,4 @@
+import { VERSION_LABEL } from '../version';
 import { enforce } from '../core/enforce';
 import { prefs, type Prefs } from '../prefs';
 import { sound } from '../audio/sound';
@@ -181,6 +182,10 @@ export function mountPrefsMenu(root: HTMLElement, slot: HTMLElement) {
     sync();
     prefs.subscribe(sync);
   }
+  const build = document.createElement('div');
+  build.className = 'build-tag prefs-build';
+  build.textContent = VERSION_LABEL;
+  pop.append(build);
 
   const setOpen = (open: boolean) => {
     pop.hidden = !open;

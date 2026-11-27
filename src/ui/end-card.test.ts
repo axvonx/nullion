@@ -125,6 +125,6 @@ describe('build tag', () => {
   it('the end card names the build: package.json version and stage', async () => {
     const { readFileSync } = await import('node:fs');
     const pkg = JSON.parse(readFileSync('package.json', 'utf8')) as { version: string }; // vitest runs from the repo root
-    expect(END_CARD_HTML).toContain(`nullion ${pkg.version} · alpha`);
+    expect(END_CARD_HTML).toContain(`nullion v${pkg.version}`);
   });
 });
