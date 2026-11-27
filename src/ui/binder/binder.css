@@ -26,8 +26,13 @@
 .bd-l { padding: 14px 36px 8px 20px; }
 /* Header and footer stay put; only the page body scrolls (the long permuted index). */
 .bd-body { flex: 1; min-height: 0; overflow: auto; scrollbar-width: thin; padding-right: 4px; }
-.bd-rings { display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: linear-gradient(90deg, #1d222b, #3a4350 50%, #1d222b); }
-.bd-rings i { width: 34px; height: 14px; border-radius: 7px; background: linear-gradient(#e3e6ea, #8d939b); box-shadow: 0 2px 0 var(--slate-lo); }
+.bd-rings { position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: linear-gradient(90deg, #1d222b, #3a4350 50%, #1d222b); pointer-events: none; }
+/* Metallic 3-ring arches spanning from the left leaf's inner hole punches across the spine into the right leaf's punches. */
+.bd-rings i {
+  width: 60px; height: 10px; border-radius: 5px;
+  background: linear-gradient(180deg, #f6f8fb 0%, #cfd5de 45%, #7c838f 100%);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.38), inset 0 1px 0 #fff, inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+}
 .bd-holes { position: absolute; left: 11px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: space-around; pointer-events: none; }
 .bd-l .bd-holes { left: auto; right: 11px; }
 .bd-holes i { width: 12px; height: 12px; border-radius: 50%; background: var(--slate); box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.5); }
