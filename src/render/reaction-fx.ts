@@ -142,13 +142,15 @@ function bannerState(tier: 'bitflip' | 'womm', rel: number, reduced: boolean): N
     const dissolve = locked ? clamp01((rel - dissolveStart) / (B.holdEnd - dissolveStart)) : 0;
     return { top, bottom, dim, locked, dissolve, frozen: false };
   }
-  // Works on my machine: identical dark-stage buildup up to WOMM.freeze, freezes mid-glitch until WOMM.gray, then vanishes.
-  if (rel >= WOMM.gray) return null;
+  // Works on my machine: identical dark-stage buildup up to WOMM.freeze, freezes mid-glitch in color until WOMM.gray,
+  // then stays on screen while #app.hang washes it (and the world) into flat grayscale until WOMM.hourglass.
+  if (rel >= WOMM.hourglass) return null;
   const frozen = rel >= WOMM.freeze;
   const tEff = frozen ? WOMM.freeze : rel;
   const top = reduced ? 1 : clamp01((tEff - B.topAt) / B.sparkDur);
   const bottom = reduced ? 1 : clamp01((tEff - B.bottomAt) / B.sparkDur);
-  const dim = reduced ? 0.92 : clamp01((tEff - B.topAt) / 220) * 0.94;
+  const baseDim = reduced ? 0.92 : clamp01((tEff - B.topAt) / 220) * 0.94;
+  const dim = rel >= WOMM.gray ? 0.62 : baseDim;
   return { top, bottom, dim, locked: false, dissolve: 0, frozen };
 }
 

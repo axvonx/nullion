@@ -27,7 +27,7 @@ describe('reaction timelines', () => {
         expect(f.jiggle).toBe(0);
         expect(f.blackout).toBe(false);
         expect(f.flip).toBe('none');
-        if (f.t < WOMM.gray) expect(f.banner?.frozen).toBe(true);
+        if (f.t < WOMM.hourglass) expect(f.banner?.frozen).toBe(true);
         else expect(f.banner).toBeNull();
       }
       if (f.t >= WOMM.hourglass) expect(f.cursor).toBe('hourglass');
@@ -50,7 +50,8 @@ describe('reaction timelines', () => {
     const tl = timeline('womm', true, true);
     expect(tl.filter((f) => f.t >= NULLION_BANNER.topAt && f.t < WOMM.freeze).every((f) => f.banner !== null && f.jiggle === 0 && f.flip === 'none')).toBe(true);
     expect(tl.filter((f) => f.t >= WOMM.freeze && f.t < WOMM.gray).every((f) => f.freeze && !f.hang && f.flip === 'none' && f.banner?.frozen)).toBe(true);
-    expect(tl.filter((f) => f.t >= WOMM.gray).every((f) => f.freeze && f.hang && f.flip === 'none' && f.banner === null)).toBe(true);
+    expect(tl.filter((f) => f.t >= WOMM.gray && f.t < WOMM.hourglass).every((f) => f.freeze && f.hang && f.flip === 'none' && f.banner?.frozen)).toBe(true);
+    expect(tl.filter((f) => f.t >= WOMM.hourglass).every((f) => f.freeze && f.hang && f.flip === 'none' && f.banner === null)).toBe(true);
     expect(tl.at(-1)!.cursor).toBe('hourglass');
   });
 
