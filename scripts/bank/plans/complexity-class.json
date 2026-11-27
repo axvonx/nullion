@@ -1,0 +1,5 @@
+{
+ "sparse": [{"repo": "RJSanders/Complexity-Zoology", "dir": "complexity-zoology", "paths": ["data"]}],
+ "extract": [{"tree": "src/complexity-zoology", "file": "data/classes.txt", "regex": "^([^\\s:<=]+) : ([^:\\n]+?)(?: : .*)?$"}],
+ "context": ["complexity", "complexity class"]
+}

@@ -1,0 +1,167 @@
+{
+ "complexity-class": [
+  {
+   "name": "BQP",
+   "aliases": [
+    "bounded-error quantum polynomial time"
+   ],
+   "judge": "npe",
+   "why": "standard quantum polynomial-time class"
+  },
+  {
+   "name": "NP/poly",
+   "aliases": [
+    "NP with advice"
+   ],
+   "judge": "race",
+   "why": "non-uniform NP with polynomial advice"
+  },
+  {
+   "name": "NEXP",
+   "aliases": [
+    "NEXPTIME",
+    "non-deterministic EXP"
+   ],
+   "judge": "leak",
+   "why": "nondeterministic exponential time"
+  },
+  {
+   "name": "SZK",
+   "aliases": [
+    "statistical zero knowledge"
+   ],
+   "judge": "race",
+   "why": "statistical zero-knowledge proofs"
+  },
+  {
+   "name": "MIP*",
+   "aliases": [
+    "MIP with quantum provers"
+   ],
+   "judge": "race",
+   "why": "multi-prover interactive proofs with entangled provers"
+  },
+  {
+   "name": "PR",
+   "aliases": [
+    "primitive recursive",
+    "primitive recursive languages"
+   ],
+   "judge": "leak",
+   "why": "primitive recursive languages"
+  },
+  {
+   "name": "ALL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "class of all decision problems"
+  },
+  {
+   "name": "UP",
+   "aliases": [
+    "unambiguous polynomial time"
+   ],
+   "judge": "race",
+   "why": "unambiguous nondeterministic polynomial time"
+  },
+  {
+   "name": "AH",
+   "aliases": [
+    "arithmetic hierarchy"
+   ],
+   "judge": "race",
+   "why": "arithmetical hierarchy"
+  },
+  {
+   "name": "CH",
+   "aliases": [
+    "counting hierarchy"
+   ],
+   "judge": "heisenbug",
+   "why": "counting hierarchy"
+  },
+  {
+   "name": "P^PP",
+   "aliases": [
+    "P with PP oracle"
+   ],
+   "judge": "heisenbug",
+   "why": "P with a PP oracle"
+  },
+  {
+   "name": "P^Sharp-P",
+   "aliases": [
+    "P^#P",
+    "P with Sharp-P oracle"
+   ],
+   "judge": "heisenbug",
+   "why": "P with a #P oracle"
+  },
+  {
+   "name": "Sigma_2P",
+   "aliases": [
+    "NP with NP oracle"
+   ],
+   "judge": "race",
+   "why": "second level of the polynomial hierarchy"
+  },
+  {
+   "name": "Delta_2P",
+   "aliases": [
+    "P with NP oracle"
+   ],
+   "judge": "heisenbug",
+   "why": "P with an NP oracle"
+  },
+  {
+   "name": "Delta_3P",
+   "aliases": [
+    "P with Sigma_2P oracle"
+   ],
+   "judge": "heisenbug",
+   "why": "P with a Sigma_2P oracle"
+  },
+  {
+   "name": "EXP^NP",
+   "aliases": [
+    "Sigma_2EXP",
+    "EXP with NP oracle"
+   ],
+   "judge": "heisenbug",
+   "why": "EXP with an NP oracle"
+  },
+  {
+   "name": "PostBPP",
+   "aliases": [
+    "BPP_path",
+    "BPP with postselection"
+   ],
+   "judge": "heisenbug",
+   "why": "BPP with postselection"
+  },
+  {
+   "name": "PostBQP",
+   "aliases": [
+    "BQP with postselection"
+   ],
+   "judge": "race",
+   "why": "BQP with postselection"
+  },
+  {
+   "name": "QIP",
+   "aliases": [
+    "quantum IP"
+   ],
+   "judge": "race",
+   "why": "quantum interactive proofs"
+  },
+  {
+   "name": "QSZK",
+   "aliases": [
+    "quantum SZK"
+   ],
+   "judge": "heisenbug",
+   "why": "quantum statistical zero knowledge"
+  }
+ ]
+}

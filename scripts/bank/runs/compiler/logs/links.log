@@ -1,0 +1,18 @@
+$ bash /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/design/links/run.sh compiler  [23s, exit 0]
+compiler: 63 / 68 linked
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/verify-links.py compiler  [7s, exit 0]
+wikipedia 38/38
+60/68 answers linked across 1 categories
+dropped as broken: {'wikipedia missing': 1}
+2 links on other hosts left out → design/links/review.txt
+
+$ bash /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/design/links/run.sh compiler  [24s, exit 0]
+compiler: 61 / 66 linked
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/verify-links.py compiler  [4s, exit 0]
+wikipedia 1/1
+59/66 answers linked across 1 categories
+dropped as broken: {'wikipedia missing': 1}
+1 links on other hosts left out → design/links/review.txt
+

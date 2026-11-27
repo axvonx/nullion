@@ -1,0 +1,24 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/sample-precision.py complexity-class sample  [0s, exit 0]
+complexity-class: sampled 20 of 97 unconfirmed answers -> scripts/bank/mined/complexity-class/sample.json
+
+--- haiku call, 28s, exit 0, prompt 3898 chars, stdout 3699 chars
+hy": "Recursively enumerable languages, a real class defined by a Turing-machine model. Off-by-one is too shallow for a class most players meet after P and NP; Null pointer exception fits better. Batch line not checked."},
+"BQP/mpoly": {"member": true, "tier_ok": true, "why": "BQP with multiple-prover-style advice, a real Zoo-style class. Heisenbug fits deep quantum detail. Batch line not checked."},
+"ALL": {"member": false, "tier_ok": true, "why": "The class of all languages is not defined by a resource bound or model, so the Accepts line excludes it. Tier is moot. Batch line not checked."},
+"NBPP": {"member": true, "tier_ok": true, "why": "Non-deterministic BPP, a real Zoo class. Race condition fits. Batch line not checked."},
+"R": {"member": true, "tier_ok": true, "why": "Recursive languages (decidable), a real class defined by a model. Null pointer exception is plausible. The aliases 'recursive' and 'decidable' are common English words and should be dropped under the alias rule. Batch line not checked."},
+"MIP": {"member": true, "tier_ok": true, "why": "Multi-prover interactive proofs, a standard class. Memory leak is plausible for domain people. Batch line not checked."},
+"SZK": {"member": true, "tier_ok": true, "why": "Statistical zero knowledge, a standard class. Race condition fits. Batch line not checked."},
+"QP": {"member": true, "tier_ok": true, "why": "Quasipolynomial time, a standard class. Null pointer exception fits many-know-it. Batch line not checked."}}
+```
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/sample-precision.py complexity-class score  [0s, exit 0]
+complexity-class: precision 90% (18/20), tier ok 16/20
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/sample-precision.py complexity-class sample  [0s, exit 0]
+complexity-class: sampled 20 of 97 unconfirmed answers -> scripts/bank/mined/complexity-class/sample.json
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/sample-precision.py complexity-class score  [0s, exit 0]
+complexity-class: precision 90% (18/20), tier ok 16/20
+

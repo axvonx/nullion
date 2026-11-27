@@ -1,0 +1,474 @@
+{
+ "complexity-class": [
+  {
+   "name": "P",
+   "aliases": [
+    "polynomial time",
+    "polynomial-time"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "NP",
+   "aliases": [
+    "non-deterministic polynomial time",
+    "non-deterministic polynomial-time"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "PSPACE",
+   "aliases": [
+    "polynomial space",
+    "polynomial-space"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "EXP",
+   "aliases": [
+    "EXPTIME",
+    "exponential time",
+    "exponential-time"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "BPP",
+   "aliases": [
+    "bounded-error probabilistic polynomial time",
+    "bounded error probabilistic polynomial-time"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "P/poly",
+   "aliases": [
+    "P with advice"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "RP",
+   "aliases": [
+    "randomized polynomial time",
+    "randomized polynomial-time"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "ZPP",
+   "aliases": [
+    "zero-error probabilistic polynomial time",
+    "cocap-RP"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "PH",
+   "aliases": [
+    "polynomial hierarchy",
+    "polynomial-time hierarchy"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "RE",
+   "aliases": [
+    "recursively enumerable",
+    "Recursively Enumerable Languages"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "R",
+   "aliases": [
+    "recursive languages",
+    "cocap-RE",
+    "Recursive languages",
+    "Computable languages"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "IP",
+   "aliases": [
+    "interactive proof"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "PP",
+   "aliases": [
+    "probabilistic polynomial time",
+    "probabilistic polynomial-time"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "AM",
+   "aliases": [
+    "Arthur-Merlin"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "MA",
+   "aliases": [
+    "Merlin-Arthur"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "QMA",
+   "aliases": [
+    "quantum Merlin-Arthur",
+    "quantum MA"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "MIP",
+   "aliases": [
+    "multi-prover interactive proof"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "NPSPACE",
+   "aliases": [
+    "non-deterministic PSPACE"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "AP",
+   "aliases": [
+    "alternating polynomial time"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "MAEXP",
+   "aliases": [
+    "Exponential MA"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "IPP",
+   "aliases": [
+    "unbounded interactive proof"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "NBPP",
+   "aliases": [
+    "non-deterministic BPP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "NEXP/poly",
+   "aliases": [
+    "NEXP with advice"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PP/poly",
+   "aliases": [
+    "PP with advice"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PSPACE/poly",
+   "aliases": [
+    "PSPACE with advice"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PEXP",
+   "aliases": [
+    "probabilistic EXP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PPSPACE",
+   "aliases": [
+    "probabilistic PSPACE"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "BQPSPACE",
+   "aliases": [
+    "bounded error quantum PSPACE"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "BQP/poly",
+   "aliases": [
+    "BQP with polynomial advice"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "BQP/qpoly",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "QCMA",
+   "aliases": [
+    "quantum classical MA"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "QAM",
+   "aliases": [
+    "quantum AM"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "QMIP",
+   "aliases": [
+    "quantum MIP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "QMA(2)",
+   "aliases": [
+    "QMA with multiple certificates"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "QIP(2)",
+   "aliases": [
+    "two-message QIP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "QIP(3)",
+   "aliases": [
+    "three-message QIP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "NISZK",
+   "aliases": [
+    "non-interactive SZK"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "NIQSZK",
+   "aliases": [
+    "non-interactive QSZK"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "QRG",
+   "aliases": [
+    "Quantum Refereed Games"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "RG",
+   "aliases": [
+    "Refereed Games"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "SBP",
+   "aliases": [
+    "Small Bounded-Error Probability"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "SBQP",
+   "aliases": [
+    "small bounded-error quantum polynomial-time"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "SPP",
+   "aliases": [
+    "stoic PP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "AWPP",
+   "aliases": [
+    "almost wide PP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "S_2P",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ER",
+   "aliases": [
+    "iterated exponential time"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "(NP-cap-coNP)/poly",
+   "aliases": [
+    "NP cap coNP with advice"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "+P",
+   "aliases": [
+    "parity-P"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "+EXP",
+   "aliases": [
+    "parity-EXP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "MP",
+   "aliases": [
+    "middle-bit P"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "AH_plo",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "A_0PP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BQP/mpoly",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "EXP_plo",
+   "aliases": [
+    "limited oracle EXP"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MIP*_cme",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MIP*_fe",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NEXP_plo",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QCMA/qpoly",
+   "aliases": [
+    "QCMA with polynomial-size quantum advice"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QMA/mpoly",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QMA/qpoly",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QMIP_cme",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QMIP_fe",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QMIP_le",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QMIP_ne",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QRG(1)",
+   "aliases": [
+    "one-turn quantum refereed games"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QRG(2)",
+   "aliases": [
+    "two-turn quantum refereed games"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RG(1)",
+   "aliases": [
+    "one-turn refereed games"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RG(2)",
+   "aliases": [
+    "two-turn refereed games"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RG(3)",
+   "aliases": [
+    "three-turn refereed games"
+   ],
+   "judge": "heisenbug"
+  }
+ ]
+}

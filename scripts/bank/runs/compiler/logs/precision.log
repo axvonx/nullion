@@ -1,0 +1,35 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/sample-precision.py compiler sample  [0s, exit 0]
+compiler: sampled 20 of 64 unconfirmed answers -> scripts/bank/mined/compiler/sample.json
+
+--- haiku call, 35s, exit 0, prompt 3764 chars, stdout 3588 chars
+ator. Systems people know it."}, "Zig": {"member": true, "tier_ok": true, "why": "The zig program is the Zig compiler and toolchain, a real named program. Systems people know it, so NPE is fair."}, "CMUCL": {"member": true, "tier_ok": true, "why": "CMU Common Lisp is a real native-code Common Lisp compiler. Not checked against the batch file; from memory."}, "mypyc": {"member": true, "tier_ok": false, "why": "mypyc is a real compiler from typed Python to C extensions. Most Python developers do not know it, so NPE ('many know it') overrates it; Race condition fits better."}, "gfortran": {"member": true, "tier_ok": true, "why": "gfortran is GCC's Fortran compiler and widely used in scientific computing. NPE is plausible."}, "OpenJDK": {"member": false, "tier_ok": false, "why": "OpenJDK names a JDK project and distribution, not a compiler. The compiler is javac; OpenJDK is a platform, and Off-by-one is wrong for it."}, "Mono": {"member": false, "tier_ok": false, "why": "Mono is a .NET platform and runtime project. Its C# compiler is mcs, which should be the entry instead."}, "Binaryen": {"member": true, "tier_ok": true, "why": "Binaryen is a real WebAssembly compiler toolchain (asm.js-to-wasm and optimisation). Specialist-level, so Race condition is fair. Not checked against the batch file; from memory."}, "ICC": {"member": true, "tier_ok": true, "why": "Intel C++ Compiler (icc/icpc) is a real, historical compiler, and history counts. HPC people know it, so NPE is plausible."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/sample-precision.py compiler score  [0s, exit 1]
+compiler: precision 85% (17/20), tier ok 15/20
+compiler: below 90%; fix the source plan or the filter before approving
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/sample-precision.py compiler sample  [0s, exit 0]
+compiler: sampled 20 of 62 unconfirmed answers -> scripts/bank/mined/compiler/sample.json
+
+--- haiku call, 20s, exit 0, prompt 3929 chars, stdout 3557 chars
+s plausible for web and mobile developers."},
+"GCL": {"member": true, "tier_ok": true, "why": "GNU Common Lisp is a real named Lisp implementation with its own compiler; a specialist name, so Race condition fits."},
+"FPC": {"member": true, "tier_ok": true, "why": "Free Pascal (FPC) is a real, widely used named compiler. Memory leak is plausible for Pascal and systems people."},
+"Turbo Pascal": {"member": true, "tier_ok": true, "why": "Borland Turbo Pascal is a real, historically famous named compiler; Null pointer exception is plausible."},
+"javac": {"member": true, "tier_ok": true, "why": "javac is the real, named Java compiler that most Java developers know. Off-by-one is the right tier, and Null pointer exception is at least plausible."},
+"MSVC": {"member": true, "tier_ok": true, "why": "The Microsoft Visual C++ compiler (MSVC, cl.exe) is a real, well-known named compiler; Null pointer exception fits."},
+"MKCL": {"member": true, "tier_ok": true, "why": "MKCL (ManKai Common Lisp) is a real Common Lisp implementation with its own compiler; a deep specialist name, so Heisenbug fits."},
+"CoffeeScript": {"member": true, "tier_ok": true, "why": "The CoffeeScript compiler is real and named; well known to web developers of its era, so Null pointer exception is plausible."},
+"PureScript": {"member": true, "tier_ok": true, "why": "The PureScript compiler (purs) is real and named. The bare name is also the language name. Memory leak is plausible for functional-programming people."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/sample-precision.py compiler score  [0s, exit 0]
+compiler: precision 100% (20/20), tier ok 19/20
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/sample-precision.py compiler sample  [0s, exit 0]
+compiler: sampled 20 of 62 unconfirmed answers -> scripts/bank/mined/compiler/sample.json
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/sample-precision.py compiler score  [0s, exit 0]
+compiler: precision 100% (20/20), tier ok 19/20
+

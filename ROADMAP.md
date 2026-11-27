@@ -19,6 +19,8 @@ The goal is a bank of about 150 launch-quality categories. Each needs:
 - tiers that feel right at the top (obvious answers shallow) and at the bottom (deep cuts deep);
 - one Bit Flip and one Works-on-my-machine pick.
 
+**Pipeline built (2026-11-27):** `python3 -I scripts/bank/pipeline.py <id>` runs a category end to end (plan, harvest, two-model filter, compare, escalate, merge and score, obvious, dupes, links, precision, report), resumable per stage, and `--batch N` walks `design/triage/ranked.md`. Proven on the top two ranked categories (`compiler`, `complexity-class`); both stay drafts. Per category the owner now only vets what the report flags: the LLM-drafted plan, the LLM-chosen Bit Flip and Works on my machine pins, the drafted obvious list, and the link and precision results. Next: run `--batch` down the ranking, then approve.
+
 The user's time is the scarce resource, so per category the only manual work should be two picks and a glance at the flagged list.
 
 ### What matters most

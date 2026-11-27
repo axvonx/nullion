@@ -18,19 +18,25 @@ SHEET = REPO / "bank" / "picks.md"
 BOX = re.compile(r"^- \[( |x|X)\] (.+)$")
 
 
+def block(cid: str) -> list[str]:
+    """The tick-list section for one category, from its scripts/bank/mined/<id>/picks.json proposals."""
+    picks = json.loads((REPO / "scripts" / "bank" / "mined" / cid / "picks.json").read_text())
+    bank = [h for h in (REPO / "bank").glob(f"*/{cid}.md") if h.parent.name != "reports"]
+    if len(bank) != 1:
+        raise RuntimeError(f"{cid}: expected one bank file, found {len(bank)}")
+    prompt = bank[0].read_text().split("\n", 1)[0].removeprefix("# ")
+    out = [f"## {cid}", f"_{prompt}_", "", "Works on my machine:"]
+    out += [f"- [ ] {n}" for n in picks.get("womm_candidates", [])] + ["- [ ] other: ", "", "Bit Flip:"]
+    out += [f"- [ ] {n}" for n in picks.get("bitflip_candidates", [])] + ["- [ ] other: ", ""]
+    return out
+
+
 def write(ids: list[str]) -> None:
     out = ["# Bit Flip and Works on my machine picks", "",
            "Tick exactly one box per list (`[x]`). To use an answer that isn't listed, tick `other:` and type it.",
            "Works on my machine is the cliché \"I'm being clever\" pick; Bit Flip is the single most delightful deep cut.", ""]
     for cid in ids:
-        picks = json.loads((REPO / "scripts" / "bank" / "mined" / cid / "picks.json").read_text())
-        bank = [h for h in (REPO / "bank").glob(f"*/{cid}.md") if h.parent.name != "reports"]
-        if len(bank) != 1:
-            raise RuntimeError(f"{cid}: expected one bank file, found {len(bank)}")
-        prompt = bank[0].read_text().split("\n", 1)[0].removeprefix("# ")
-        out += [f"## {cid}", f"_{prompt}_", "", "Works on my machine:"]
-        out += [f"- [ ] {n}" for n in picks.get("womm_candidates", [])] + ["- [ ] other: ", "", "Bit Flip:"]
-        out += [f"- [ ] {n}" for n in picks.get("bitflip_candidates", [])] + ["- [ ] other: ", ""]
+        out += block(cid)
     SHEET.write_text("\n".join(out) + "\n")
     print(f"wrote {SHEET.relative_to(REPO)} with {len(ids)} categories")
 

@@ -1,0 +1,149 @@
+[
+ {
+  "name": "ICC",
+  "aliases": [
+   "Intel C++ Compiler",
+   "icpc"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "ECL",
+  "aliases": [
+   "Embeddable Common Lisp"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "Clang",
+  "aliases": [
+   "LLVM Clang",
+   "clang compiler"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "CCL",
+  "aliases": [
+   "Clozure CL"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "DJGPP",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "Go",
+  "aliases": [
+   "Go compiler",
+   "golang"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "ocamlc",
+  "aliases": [
+   "OCaml compiler",
+   "ocamlopt"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "MicroHs",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "p4c",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Scala",
+  "aliases": [
+   "scalac",
+   "Scala compiler",
+   "Scala 3 compiler"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "Crystal",
+  "aliases": [
+   "crystal compiler"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "Dart",
+  "aliases": [
+   "Dart compiler",
+   "dart2js"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "GCL",
+  "aliases": [
+   "GNU Common Lisp"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "FPC",
+  "aliases": [
+   "Free Pascal",
+   "Free Pascal Compiler"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "Turbo Pascal",
+  "aliases": [
+   "Borland Turbo Pascal",
+   "TP compiler"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "javac",
+  "aliases": [
+   "Java compiler",
+   "OpenJDK javac",
+   "OpenJDK",
+   "OpenJDK compiler"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "MSVC",
+  "aliases": [
+   "Microsoft Visual C++",
+   "Visual C++",
+   "cl.exe"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "MKCL",
+  "aliases": [
+   "ManKai Common Lisp"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "CoffeeScript",
+  "aliases": [
+   "coffee compiler",
+   "CoffeeScript compiler"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "PureScript",
+  "aliases": [],
+  "tier": "Memory leak"
+ }
+]

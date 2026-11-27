@@ -1,0 +1,14 @@
+$ bash /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/design/links/run.sh complexity-class  [20s, exit 0]
+complexity-class: 44 / 101 linked
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/verify-links.py complexity-class  [0s, exit 0]
+wikipedia 44/44
+42/101 answers linked across 1 categories
+dropped as broken: {'wikipedia missing': 2}
+0 links on other hosts left out → design/links/review.txt
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/verify-links.py complexity-class  [0s, exit 0]
+42/101 answers linked across 1 categories
+dropped as broken: {'wikipedia missing': 2}
+0 links on other hosts left out → design/links/review.txt
+

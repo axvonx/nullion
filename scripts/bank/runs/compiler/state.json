@@ -1,0 +1,133 @@
+{
+ "id": "compiler",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T18:44:05+00:00",
+   "seconds": 9,
+   "finished": "2026-11-27T18:44:13+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T18:44:13+00:00",
+   "seconds": 4,
+   "finished": "2026-11-27T18:44:17+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T18:45:54+00:00",
+   "seconds": 45,
+   "finished": "2026-11-27T18:46:39+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T18:46:39+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:46:39+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T18:46:39+00:00",
+   "seconds": 28,
+   "finished": "2026-11-27T18:47:06+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T18:47:52+00:00",
+   "seconds": 7,
+   "finished": "2026-11-27T18:48:00+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T18:52:00+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:52:00+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T18:52:00+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:52:00+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T18:52:00+00:00",
+   "seconds": 28,
+   "finished": "2026-11-27T18:52:27+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T18:52:27+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:52:28+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T18:52:28+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:52:28+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "32/32 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "59/66 answers have a verified link (89%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "20/20 sampled answers are members (100%), 19/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/compiler.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (mrustc; SBCL, GHC, CHICKEN): the owner vets them"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 178,
+  "summary": "compiler: 174 mined lines from 4 sources -> 1 batches in scripts/bank/mined/compiler"
+ },
+ "filter": [
+  "batch-00.a: reused",
+  "batch-00.b: 30 kept"
+ ],
+ "compare": "compiler: 26 agreed, 29 disputed (53%) across 1 batches",
+ "escalate": "29 disputes -> 29 kept (0 low-confidence -> Inbox), 0 dropped",
+ "pins": {
+  "bitflip": "mrustc",
+  "womm": [
+   "SBCL",
+   "GHC",
+   "CHICKEN"
+  ]
+ },
+ "merge": "55 tiered answers, 4 in the Inbox",
+ "obvious_origin": "existing",
+ "obvious": "compiler: 3 aliases, 0 new answers, 0 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "59/66 answers linked across 1 categories",
+  "dropped as broken: {'wikipedia missing': 1}",
+  "1 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/compiler.md"
+}

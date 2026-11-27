@@ -1,0 +1,102 @@
+{
+ "ICC": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Intel's C++ compiler is a named, real product; a specialist name, so a deep tier fits."
+ },
+ "ECL": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Embeddable Common Lisp is a real named Lisp implementation with its own compiler; obscure, so Race condition fits."
+ },
+ "Clang": {
+  "member": true,
+  "tier_ok": true,
+  "why": "A named compiler (LLVM Clang) that many developers know; Null pointer exception is plausible."
+ },
+ "CCL": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Clozure Common Lisp, a real named Lisp implementation; a specialist name."
+ },
+ "DJGPP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "A real named DOS port of GCC; known mainly to retro and DOS developers, so a deep tier fits."
+ },
+ "Go": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The Go toolchain's compiler is a real named compiler. The bare name is also the language name, so the answer is ambiguous, but it names a compiler in the normal sense."
+ },
+ "ocamlc": {
+  "member": true,
+  "tier_ok": false,
+  "why": "ocamlc is the real named OCaml bytecode compiler. It is a program name that only OCaml users know, so Null pointer exception is too shallow; Race condition or deeper fits better."
+ },
+ "MicroHs": {
+  "member": true,
+  "tier_ok": true,
+  "why": "MicroHs is a real, small Haskell implementation with its own compiler; deep, so Heisenbug fits."
+ },
+ "p4c": {
+  "member": true,
+  "tier_ok": true,
+  "why": "p4c is the real reference compiler for the P4 language; a specialist name, so Heisenbug fits."
+ },
+ "Scala": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The Scala compiler (scalac) is real. The bare name is also the language name, but it names a compiler in the normal sense. Memory leak is plausible for JVM and language people."
+ },
+ "Crystal": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The Crystal compiler is real and named. The bare name is also the language name. Memory leak is plausible."
+ },
+ "Dart": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The Dart compiler (including dart2js) is real and named. The bare name is also the language name. Null pointer exception is plausible for web and mobile developers."
+ },
+ "GCL": {
+  "member": true,
+  "tier_ok": true,
+  "why": "GNU Common Lisp is a real named Lisp implementation with its own compiler; a specialist name, so Race condition fits."
+ },
+ "FPC": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Free Pascal (FPC) is a real, widely used named compiler. Memory leak is plausible for Pascal and systems people."
+ },
+ "Turbo Pascal": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Borland Turbo Pascal is a real, historically famous named compiler; Null pointer exception is plausible."
+ },
+ "javac": {
+  "member": true,
+  "tier_ok": true,
+  "why": "javac is the real, named Java compiler that most Java developers know. Off-by-one is the right tier, and Null pointer exception is at least plausible."
+ },
+ "MSVC": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The Microsoft Visual C++ compiler (MSVC, cl.exe) is a real, well-known named compiler; Null pointer exception fits."
+ },
+ "MKCL": {
+  "member": true,
+  "tier_ok": true,
+  "why": "MKCL (ManKai Common Lisp) is a real Common Lisp implementation with its own compiler; a deep specialist name, so Heisenbug fits."
+ },
+ "CoffeeScript": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The CoffeeScript compiler is real and named; well known to web developers of its era, so Null pointer exception is plausible."
+ },
+ "PureScript": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The PureScript compiler (purs) is real and named. The bare name is also the language name. Memory leak is plausible for functional-programming people."
+ }
+}

@@ -1,0 +1,192 @@
+{
+ "compiler": [
+  {
+   "name": "Rust",
+   "aliases": [
+    "rustc"
+   ],
+   "judge": "off-by-one",
+   "why": "the Rust programming language compiler"
+  },
+  {
+   "name": "Go",
+   "aliases": [],
+   "judge": "off-by-one",
+   "why": "the Go programming language compiler"
+  },
+  {
+   "name": "Swift",
+   "aliases": [
+    "swiftc"
+   ],
+   "judge": "off-by-one",
+   "why": "Apple's Swift language compiler"
+  },
+  {
+   "name": "OpenJDK",
+   "aliases": [],
+   "judge": "off-by-one",
+   "why": "reference Java development kit and javac compiler"
+  },
+  {
+   "name": "Zig",
+   "aliases": [],
+   "judge": "npe",
+   "why": "the Zig language compiler"
+  },
+  {
+   "name": "OCaml",
+   "aliases": [],
+   "judge": "npe",
+   "why": "the OCaml bytecode and native-code compiler"
+  },
+  {
+   "name": "Scala",
+   "aliases": [
+    "scalac"
+   ],
+   "judge": "npe",
+   "why": "the Scala language compiler"
+  },
+  {
+   "name": "Dart",
+   "aliases": [],
+   "judge": "npe",
+   "why": "the Dart language compiler"
+  },
+  {
+   "name": "Julia",
+   "aliases": [],
+   "judge": "npe",
+   "why": "the Julia JIT compiler"
+  },
+  {
+   "name": "Emscripten",
+   "aliases": [],
+   "judge": "npe",
+   "why": "LLVM-to-WebAssembly compiler toolchain"
+  },
+  {
+   "name": "GraalVM",
+   "aliases": [],
+   "judge": "npe",
+   "why": "polyglot JIT and ahead-of-time compiler"
+  },
+  {
+   "name": "Mono",
+   "aliases": [],
+   "judge": "npe",
+   "why": "open-source .NET runtime and C# compiler"
+  },
+  {
+   "name": "FASM",
+   "aliases": [
+    "Flat Assembler"
+   ],
+   "judge": "leak",
+   "why": "self-assembling x86/x86-64 assembler"
+  },
+  {
+   "name": "Crystal",
+   "aliases": [],
+   "judge": "leak",
+   "why": "compiled Ruby-like language using LLVM"
+  },
+  {
+   "name": "Elm",
+   "aliases": [],
+   "judge": "leak",
+   "why": "Elm-to-JavaScript compiler"
+  },
+  {
+   "name": "PureScript",
+   "aliases": [],
+   "judge": "leak",
+   "why": "strongly-typed functional language compiler targeting JS"
+  },
+  {
+   "name": "Haxe",
+   "aliases": [],
+   "judge": "leak",
+   "why": "multi-target cross-compiler"
+  },
+  {
+   "name": "Vala",
+   "aliases": [
+    "valac"
+   ],
+   "judge": "leak",
+   "why": "compiles Vala source to C using GObject"
+  },
+  {
+   "name": "Reason",
+   "aliases": [],
+   "judge": "leak",
+   "why": "OCaml-based syntax and compiler toolchain"
+  },
+  {
+   "name": "Binaryen",
+   "aliases": [],
+   "judge": "race",
+   "why": "WebAssembly compiler and optimizer library"
+  },
+  {
+   "name": "CHICKEN",
+   "aliases": [
+    "CHICKEN Scheme"
+   ],
+   "judge": "race",
+   "why": "Scheme-to-C compiler"
+  },
+  {
+   "name": "DJGPP",
+   "aliases": [],
+   "judge": "race",
+   "why": "DOS port of GCC"
+  },
+  {
+   "name": "Factor",
+   "aliases": [],
+   "judge": "race",
+   "why": "stack-based language with optimizing native compiler"
+  },
+  {
+   "name": "Idris 2",
+   "aliases": [
+    "idris2"
+   ],
+   "judge": "race",
+   "why": "dependently typed language compiler"
+  },
+  {
+   "name": "Vyper",
+   "aliases": [],
+   "judge": "race",
+   "why": "Pythonic smart contract compiler for EVM"
+  },
+  {
+   "name": "Yosys",
+   "aliases": [],
+   "judge": "race",
+   "why": "Verilog RTL synthesis compiler"
+  },
+  {
+   "name": "Mezzo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "ML-family language compiler with permissions"
+  },
+  {
+   "name": "RML",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "Relational Meta-Language compiler"
+  },
+  {
+   "name": "MSVC",
+   "aliases": [],
+   "judge": "npe",
+   "why": "Microsoft's closed-source C/C++ compiler"
+  }
+ ]
+}

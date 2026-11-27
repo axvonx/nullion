@@ -1,0 +1,382 @@
+[
+ {
+  "name": "Rust",
+  "a": {
+   "name": "Rust",
+   "aliases": [
+    "rustc"
+   ],
+   "judge": "off-by-one",
+   "evidence": "rust",
+   "why": "the Rust programming language compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Go",
+  "a": {
+   "name": "Go",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "go",
+   "why": "the Go programming language compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Swift",
+  "a": {
+   "name": "Swift",
+   "aliases": [
+    "swiftc"
+   ],
+   "judge": "off-by-one",
+   "evidence": "swift",
+   "why": "Apple's Swift language compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "OpenJDK",
+  "a": {
+   "name": "OpenJDK",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "openjdk",
+   "why": "reference Java development kit and javac compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Zig",
+  "a": {
+   "name": "Zig",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "zig",
+   "why": "the Zig language compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "OCaml",
+  "a": {
+   "name": "OCaml",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ocaml",
+   "why": "the OCaml bytecode and native-code compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Scala",
+  "a": {
+   "name": "Scala",
+   "aliases": [
+    "scalac"
+   ],
+   "judge": "npe",
+   "evidence": "scala",
+   "why": "the Scala language compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Dart",
+  "a": {
+   "name": "Dart",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "dart",
+   "why": "the Dart language compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Julia",
+  "a": {
+   "name": "Julia",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "julia",
+   "why": "the Julia JIT compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Emscripten",
+  "a": {
+   "name": "Emscripten",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "emscripten",
+   "why": "LLVM-to-WebAssembly compiler toolchain"
+  },
+  "b": {
+   "name": "Emscripten",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "emscripten (nixpkgs compilers dir)",
+   "why": "C/C++ to WebAssembly compiler"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "GraalVM",
+  "a": {
+   "name": "GraalVM",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "graalvm",
+   "why": "polyglot JIT and ahead-of-time compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Mono",
+  "a": {
+   "name": "Mono",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "mono",
+   "why": "open-source .NET runtime and C# compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FASM",
+  "a": {
+   "name": "FASM",
+   "aliases": [
+    "Flat Assembler"
+   ],
+   "judge": "leak",
+   "evidence": "fasm",
+   "why": "self-assembling x86/x86-64 assembler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Crystal",
+  "a": {
+   "name": "Crystal",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "crystal",
+   "why": "compiled Ruby-like language using LLVM"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Elm",
+  "a": {
+   "name": "Elm",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "elm",
+   "why": "Elm-to-JavaScript compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PureScript",
+  "a": {
+   "name": "PureScript",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "purescript",
+   "why": "strongly-typed functional language compiler targeting JS"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Haxe",
+  "a": {
+   "name": "Haxe",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "haxe",
+   "why": "multi-target cross-compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Vala",
+  "a": {
+   "name": "Vala",
+   "aliases": [
+    "valac"
+   ],
+   "judge": "leak",
+   "evidence": "vala",
+   "why": "compiles Vala source to C using GObject"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Reason",
+  "a": {
+   "name": "Reason",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "reason",
+   "why": "OCaml-based syntax and compiler toolchain"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Binaryen",
+  "a": {
+   "name": "Binaryen",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "binaryen",
+   "why": "WebAssembly compiler and optimizer library"
+  },
+  "b": {
+   "name": "Binaryen",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "binaryen (nixpkgs compilers dir)",
+   "why": "WebAssembly compiler toolchain"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CHICKEN",
+  "a": {
+   "name": "CHICKEN",
+   "aliases": [
+    "CHICKEN Scheme"
+   ],
+   "judge": "leak",
+   "evidence": "chicken",
+   "why": "Scheme-to-C compiler"
+  },
+  "b": {
+   "name": "CHICKEN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "chicken (nixpkgs compilers dir)",
+   "why": "Scheme compiler via C"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DJGPP",
+  "a": {
+   "name": "DJGPP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "djgpp",
+   "why": "DOS port of GCC"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Factor",
+  "a": {
+   "name": "Factor",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "factor-lang",
+   "why": "stack-based language with optimizing native compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Idris 2",
+  "a": {
+   "name": "Idris 2",
+   "aliases": [
+    "idris2"
+   ],
+   "judge": "race",
+   "evidence": "idris2",
+   "why": "dependently typed language compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Vyper",
+  "a": {
+   "name": "Vyper",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "vyper",
+   "why": "Pythonic smart contract compiler for EVM"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Yosys",
+  "a": {
+   "name": "Yosys",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "yosys",
+   "why": "Verilog RTL synthesis compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Mezzo",
+  "a": {
+   "name": "Mezzo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "mezzo",
+   "why": "ML-family language compiler with permissions"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RML",
+  "a": {
+   "name": "RML",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "rml",
+   "why": "Relational Meta-Language compiler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MSVC",
+  "a": null,
+  "b": {
+   "name": "MSVC",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "Microsoft's closed-source C/C++ compiler"
+  },
+  "batch": "batch-00.txt"
+ }
+]

@@ -13,7 +13,7 @@
 | color-space | Name a color space | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | column-encoding-scheme | Name a column encoding scheme | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | combinatorial-optimization-heuristic | Name a combinatorial optimization heuristic | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| complexity-class | Name a complexity class | data-graphics-algorithms | draft | 0 | 0 | 7 |
+| complexity-class | Name a complexity class | data-graphics-algorithms | draft | 101 | 97 | 1 |
 | computational-geometry-algorithm | Name a computational geometry algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | computational-model | Name a computational model | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | concurrency-control-protocol | Name a concurrency control protocol | data-graphics-algorithms | draft | 0 | 0 | 7 |
@@ -115,7 +115,7 @@
 | ci-service | Name a continuous integration service | languages-tools | draft | 0 | 0 | 7 |
 | code-formatter | Name a code formatter | languages-tools | draft | 0 | 0 | 7 |
 | code-smell | Name a code smell | languages-tools | draft | 0 | 0 | 7 |
-| compiler | Name a compiler | languages-tools | draft | 0 | 0 | 7 |
+| compiler | Name a compiler | languages-tools | draft | 66 | 62 | 4 |
 | compiler-optimization | Name a compiler optimization | languages-tools | approved | 88 | 86 | 2 |
 | css-framework | Name a CSS framework | languages-tools | draft | 0 | 0 | 7 |
 | debugger | Name a debugger | languages-tools | draft | 0 | 0 | 7 |

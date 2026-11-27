@@ -1,0 +1,35 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/merge-mined.py complexity-class /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/complexity-class/final.json /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/complexity-class/agreed /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/complexity-class/resolved  [0s, exit 0]
+complexity-class: 89 new candidates -> /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/complexity-class/final.json; 0 aliases added to bank/data-graphics-algorithms/complexity-class.md
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/score-candidates.py /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/complexity-class/final.json /Users/axvon/nullion-corpora  [1s, exit 1]
+Traceback (most recent call last):
+  File "/Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/score-candidates.py", line 273, in <module>
+    main()
+    ~~~~^^
+  File "/Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/score-candidates.py", line 182, in main
+    raise RuntimeError(f"{tag}: filling a fresh draft needs exactly one bitflip pin, have {len(pins)}")
+RuntimeError: complexity-class: filling a fresh draft needs exactly one bitflip pin, have 0
+
+--- haiku call, 7s, exit 0, prompt 1629 chars, stdout 67 chars
+[12:49:46] {"bitflip": "A_0PP", "womm": ["BQP", "MIP*", "P/poly"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/score-candidates.py /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/complexity-class/final.json /Users/axvon/nullion-corpora  [1s, exit 0]
+complexity-class: filled 89 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.1.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  12:49:48
+   Duration  207ms (transform 68%, import 16%, tests 14%, worker 1%)
+
+

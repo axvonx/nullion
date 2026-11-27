@@ -1,0 +1,448 @@
+[
+ {
+  "name": "BQP",
+  "a": {
+   "name": "BQP",
+   "aliases": [
+    "bounded-error quantum polynomial time"
+   ],
+   "judge": "npe",
+   "evidence": "BQP - bounded error quantum polyomial-time",
+   "why": "standard quantum polynomial-time class"
+  },
+  "b": {
+   "name": "BQP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "BQP - bounded error quantum polyomial-time",
+   "why": "quantum class specialists know"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "NP/poly",
+  "a": {
+   "name": "NP/poly",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "NP/poly - NP with advice",
+   "why": "non-uniform NP with polynomial advice"
+  },
+  "b": {
+   "name": "NP/poly",
+   "aliases": [
+    "NP with advice"
+   ],
+   "judge": "race",
+   "evidence": "NP/poly - NP with advice",
+   "why": "advice class specialists know"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "NEXP",
+  "a": {
+   "name": "NEXP",
+   "aliases": [
+    "NEXPTIME"
+   ],
+   "judge": "npe",
+   "evidence": "NEXP - non-deterministic EXP",
+   "why": "nondeterministic exponential time"
+  },
+  "b": {
+   "name": "NEXP",
+   "aliases": [
+    "non-deterministic EXP"
+   ],
+   "judge": "race",
+   "evidence": "NEXP - non-deterministic EXP",
+   "why": "complexity specialists know"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SZK",
+  "a": {
+   "name": "SZK",
+   "aliases": [
+    "statistical zero knowledge"
+   ],
+   "judge": "leak",
+   "evidence": "SZK - statistical zero knowledge",
+   "why": "statistical zero-knowledge proofs"
+  },
+  "b": {
+   "name": "SZK",
+   "aliases": [
+    "statistical zero knowledge"
+   ],
+   "judge": "heisenbug",
+   "evidence": "SZK - statistical zero knowledge",
+   "why": "proof class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MIP*",
+  "a": {
+   "name": "MIP*",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "MIP* - MIP with quantum provers",
+   "why": "multi-prover interactive proofs with entangled provers"
+  },
+  "b": {
+   "name": "MIP*",
+   "aliases": [
+    "MIP with quantum provers"
+   ],
+   "judge": "heisenbug",
+   "evidence": "MIP* - MIP with quantum provers",
+   "why": "quantum proof-system class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PR",
+  "a": {
+   "name": "PR",
+   "aliases": [
+    "primitive recursive"
+   ],
+   "judge": "leak",
+   "evidence": "PR - primitive recursive languages",
+   "why": "primitive recursive languages"
+  },
+  "b": {
+   "name": "PR",
+   "aliases": [
+    "primitive recursive languages"
+   ],
+   "judge": "heisenbug",
+   "evidence": "PR - primitive recursive languages",
+   "why": "zoo class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ALL",
+  "a": {
+   "name": "ALL",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ALL - every language",
+   "why": "class of all decision problems"
+  },
+  "b": {
+   "name": "ALL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ALL - every language",
+   "why": "zoo class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "UP",
+  "a": {
+   "name": "UP",
+   "aliases": [
+    "unambiguous polynomial time"
+   ],
+   "judge": "leak",
+   "evidence": "UP - unambiguous polynomial time",
+   "why": "unambiguous nondeterministic polynomial time"
+  },
+  "b": {
+   "name": "UP",
+   "aliases": [
+    "unambiguous polynomial time"
+   ],
+   "judge": "heisenbug",
+   "evidence": "UP - unambiguous polynomial time",
+   "why": "zoo class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AH",
+  "a": {
+   "name": "AH",
+   "aliases": [
+    "arithmetic hierarchy"
+   ],
+   "judge": "leak",
+   "evidence": "AH - arithmetic hierarchy",
+   "why": "arithmetical hierarchy"
+  },
+  "b": {
+   "name": "AH",
+   "aliases": [
+    "arithmetic hierarchy"
+   ],
+   "judge": "heisenbug",
+   "evidence": "AH - arithmetic hierarchy",
+   "why": "logic hierarchy, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CH",
+  "a": {
+   "name": "CH",
+   "aliases": [
+    "counting hierarchy"
+   ],
+   "judge": "leak",
+   "evidence": "CH - counting hierarchy",
+   "why": "counting hierarchy"
+  },
+  "b": {
+   "name": "CH",
+   "aliases": [
+    "counting hierarchy"
+   ],
+   "judge": "heisenbug",
+   "evidence": "CH - counting hierarchy",
+   "why": "hierarchy for deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "P^PP",
+  "a": {
+   "name": "P^PP",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "P^PP - P with PP oracle",
+   "why": "P with a PP oracle"
+  },
+  "b": {
+   "name": "P^PP",
+   "aliases": [
+    "P with PP oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "P^PP - P with PP oracle",
+   "why": "oracle class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "P^Sharp-P",
+  "a": {
+   "name": "P^Sharp-P",
+   "aliases": [
+    "P^#P"
+   ],
+   "judge": "leak",
+   "evidence": "P^Sharp-P - P with Sharp-P oracle",
+   "why": "P with a #P oracle"
+  },
+  "b": {
+   "name": "P^Sharp-P",
+   "aliases": [
+    "P with Sharp-P oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "P^Sharp-P - P with Sharp-P oracle",
+   "why": "oracle class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Sigma_2P",
+  "a": {
+   "name": "Sigma_2P",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "Sigma_2P - NP With NP Oracle",
+   "why": "second level of the polynomial hierarchy"
+  },
+  "b": {
+   "name": "Sigma_2P",
+   "aliases": [
+    "NP with NP oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Sigma_2P - NP With NP Oracle",
+   "why": "oracle class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Delta_2P",
+  "a": {
+   "name": "Delta_2P",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "Delta_2P - P With NP Oracle",
+   "why": "P with an NP oracle"
+  },
+  "b": {
+   "name": "Delta_2P",
+   "aliases": [
+    "P with NP oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Delta_2P - P With NP Oracle",
+   "why": "oracle class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Delta_3P",
+  "a": {
+   "name": "Delta_3P",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "Delta_3P - P with Sigma_2P oracle",
+   "why": "P with a Sigma_2P oracle"
+  },
+  "b": {
+   "name": "Delta_3P",
+   "aliases": [
+    "P with Sigma_2P oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Delta_3P - P with Sigma_2P oracle",
+   "why": "oracle class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "EXP^NP",
+  "a": {
+   "name": "EXP^NP",
+   "aliases": [
+    "Sigma_2EXP"
+   ],
+   "judge": "leak",
+   "evidence": "EXP^NP - EXP with NP oracle",
+   "why": "EXP with an NP oracle"
+  },
+  "b": {
+   "name": "EXP^NP",
+   "aliases": [
+    "Sigma_2EXP",
+    "EXP with NP oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Sigma_2EXP - alternate name for EXP^NP",
+   "why": "oracle class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PostBPP",
+  "a": {
+   "name": "PostBPP",
+   "aliases": [
+    "BPP_path"
+   ],
+   "judge": "leak",
+   "evidence": "PostBPP - BPP with postselection",
+   "why": "BPP with postselection"
+  },
+  "b": {
+   "name": "PostBPP",
+   "aliases": [
+    "BPP with postselection",
+    "BPP_path"
+   ],
+   "judge": "heisenbug",
+   "evidence": "PostBPP - BPP with postselection",
+   "why": "zoo class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PostBQP",
+  "a": {
+   "name": "PostBQP",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "PostBQP - BQP with postselection",
+   "why": "BQP with postselection"
+  },
+  "b": {
+   "name": "PostBQP",
+   "aliases": [
+    "BQP with postselection"
+   ],
+   "judge": "heisenbug",
+   "evidence": "PostBQP - BQP with postselection",
+   "why": "zoo class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "QIP",
+  "a": {
+   "name": "QIP",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "QIP - quantum IP",
+   "why": "quantum interactive proofs"
+  },
+  "b": {
+   "name": "QIP",
+   "aliases": [
+    "quantum IP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QIP - quantum IP",
+   "why": "quantum class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "QSZK",
+  "a": {
+   "name": "QSZK",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "QSZK - quantum SZK",
+   "why": "quantum statistical zero knowledge"
+  },
+  "b": {
+   "name": "QSZK",
+   "aliases": [
+    "quantum SZK"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QSZK - quantum SZK",
+   "why": "zoo class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RE cap co-RE",
+  "a": null,
+  "b": {
+   "name": "RE cap co-RE",
+   "aliases": [
+    "cocap-RE"
+   ],
+   "judge": "heisenbug",
+   "evidence": "cocap-RE - RE cap co-RE",
+   "why": "intersection class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RP cap co-RP",
+  "a": null,
+  "b": {
+   "name": "RP cap co-RP",
+   "aliases": [
+    "cocap-RP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "cocap-RP - RP cap co-RP",
+   "why": "intersection class, deep internals"
+  },
+  "batch": "batch-00.txt"
+ }
+]
