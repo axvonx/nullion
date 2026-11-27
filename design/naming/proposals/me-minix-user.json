@@ -1,0 +1,605 @@
+{
+  "layer": "me-minix-user",
+  "items": [
+    {
+      "key": "e:mx-bottle",
+      "depicts": "Three miniature amber-and-brown skyline towers sealed inside a square stoppered glass bottle.",
+      "concept": "embedded MINIX 3 userspace inside Intel ME",
+      "proposals": [
+        {
+          "name": "Bottled Userspace",
+          "why": "Describes the miniature operating-system skyline sealed inside a glass container."
+        },
+        {
+          "name": "Ship in Silicon",
+          "why": "Plays on a ship in a bottle and Intel shipping an entire MINIX installation inside the chipset."
+        },
+        {
+          "name": "Amber Terrarium",
+          "why": "Frames the self-contained Ring -3 userspace as a warm-lit specimen habitat under glass."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Amber Terrarium suits a Field Manual landmark entry while capturing both the warm palette and the sealed ecosystem of ME MINIX 3.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "This is the unique anchor set piece defining the ME MINIX 3 Userspace layer."
+    },
+    {
+      "key": "e:mx-amt",
+      "depicts": "A small amber-framed dark console window with an ochre title bar and two horizontal status bars.",
+      "concept": "Intel Active Management Technology remote console",
+      "proposals": [
+        {
+          "name": "AMT Console",
+          "why": "Names the Intel Active Management Technology out-of-band administration panel directly."
+        },
+        {
+          "name": "Port 16992",
+          "why": "References the TCP port on which AMT listens for management traffic even while the host OS is asleep."
+        },
+        {
+          "name": "Absentee Desk",
+          "why": "Evokes an always-staffed remote clerk's station operating independently of the host machine."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Port 16992 is dry, immediately recognizable to systems readers, and captures the uncanny persistence of AMT.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct ME-specific prop representing Intel AMT with no counterpart in other layers."
+    },
+    {
+      "key": "e:mx-tinycity",
+      "depicts": "Three miniature ochre and amber rectangular towers standing side by side, the centre one taller with two dark windows.",
+      "concept": "micro-scale embedded operating system",
+      "proposals": [
+        {
+          "name": "Miniature Skyline",
+          "why": "Describes the tiny three-building cluster representing a scaled-down userspace."
+        },
+        {
+          "name": "Tanenbaum Town",
+          "why": "Nods to Andrew S. Tanenbaum, whose teaching OS unexpectedly became the most widely deployed x86 system."
+        },
+        {
+          "name": "Pocket Precinct",
+          "why": "Casts the embedded ME userspace as a compact self-governing district tucked inside the die."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Pocket Precinct keeps the urban userspace metaphor intact at miniature scale without leaning too hard on a proper-noun joke.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct miniature-skyline prop unique to the ME MINIX 3 Userspace layer."
+    },
+    {
+      "key": "e:mx-rs",
+      "depicts": "An ochre-bordered black panel displaying one bright amber square beside one dim brown square.",
+      "concept": "MINIX 3 Reincarnation Server (rs)",
+      "proposals": [
+        {
+          "name": "Reincarnation Server",
+          "why": "Uses the actual MINIX 3 name for the rs supervisor that automatically restarts crashed services."
+        },
+        {
+          "name": "Samsara Daemon",
+          "why": "Puns on the Reincarnation Server by framing its crash-restart cycle in dry cosmological terms."
+        },
+        {
+          "name": "Lazarus Panel",
+          "why": "Names the two-state indicator box after its habit of bringing dead processes back to life."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "MINIX 3's real name for rs is already dry, iconic, and needs no embellishment.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique prop depicting MINIX 3's signature process-recovery server."
+    },
+    {
+      "key": "e:mx-us-tower",
+      "depicts": "A tall narrow dark tower with a brown rim and scattered amber-lit square windows.",
+      "concept": "resident userspace process",
+      "proposals": [
+        {
+          "name": "Amber Process Tower",
+          "why": "Identifies the structure plainly as the amber-palette version of the userspace process tower."
+        },
+        {
+          "name": "Microkernel Highrise",
+          "why": "Plays on housing a tiny MINIX userspace server inside a skyscraper silhouette."
+        },
+        {
+          "name": "Ochre Tenement",
+          "why": "Treats the lit tower as a compact dwelling for resident background processes."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Process Tower clearly marks this as the ME MINIX colour variant of the userspace tower.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-tower",
+      "decisionWhy": "This sprite is an amber-and-brown palette recolour of e:us-tower from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-manifold",
+      "depicts": "Four slotted dark-brown valve blocks mounted along a horizontal ochre pipe rail, one glowing amber.",
+      "concept": "I/O multiplexing manifold",
+      "proposals": [
+        {
+          "name": "Amber I/O Manifold",
+          "why": "Names the multi-port pipe junction directly in the ME MINIX amber palette."
+        },
+        {
+          "name": "Select Valvebank",
+          "why": "References the classic select() syscall that polls multiple descriptors for readiness."
+        },
+        {
+          "name": "Brass Header",
+          "why": "Describes the four-way pipe assembly in industrial field-guide terms."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber I/O Manifold aligns cleanly with the base userspace manifold while noting its palette shift.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-manifold",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-manifold from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-sign",
+      "depicts": "A wide amber-bordered dark marquee sign scrolling pixel-font text reading JOURNA.",
+      "concept": "scrolling system log marquee",
+      "proposals": [
+        {
+          "name": "Amber Log Marquee",
+          "why": "Describes the scrolling text display plainly in the ME MINIX amber palette."
+        },
+        {
+          "name": "Tail Minus F",
+          "why": "Nods to the Unix command used to watch a live log stream scroll past."
+        },
+        {
+          "name": "Ochre Ticker",
+          "why": "Treats the animated sign as a municipal news ticker for the hidden userspace."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Log Marquee accurately identifies the prop as a recoloured variant of the userspace log sign.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-sign",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-sign from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-pipe",
+      "depicts": "A horizontal flanged ochre pipe resting on two dark-brown vertical stanchions.",
+      "concept": "Unix inter-process pipe",
+      "proposals": [
+        {
+          "name": "Amber Pipe",
+          "why": "States plainly that the prop is the amber-tinted Unix pipe conduit."
+        },
+        {
+          "name": "Stdout Conduit",
+          "why": "References standard output flowing from one process into the next."
+        },
+        {
+          "name": "Ochre Aqueduct",
+          "why": "Casts the elevated IPC line as miniature civic plumbing."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Pipe is concise and pairs directly with the base userspace pipe.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-pipe",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-pipe from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-tty",
+      "depicts": "A small brown-bezelled CRT terminal on a pedestal showing two dark lines and an amber block cursor.",
+      "concept": "teletype terminal (TTY)",
+      "proposals": [
+        {
+          "name": "Amber TTY",
+          "why": "Names the classic amber-phosphor teletype terminal directly."
+        },
+        {
+          "name": "Dev Console",
+          "why": "References the Unix /dev/console device node in terse system-administrator style."
+        },
+        {
+          "name": "Phosphor Kiosk",
+          "why": "Describes the glowing monochrome monitor as a street-level terminal booth."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber TTY is historically resonant with real amber-phosphor terminals while marking the ME variant.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-tty",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-tty from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-crontower",
+      "depicts": "A tall narrow brown clock tower with a spire, a glowing amber clock face with dark hands, and three small windows.",
+      "concept": "cron job scheduling",
+      "proposals": [
+        {
+          "name": "Amber Cron Tower",
+          "why": "Identifies the scheduled-task clock tower plainly in its amber variant."
+        },
+        {
+          "name": "Five-Star Belfry",
+          "why": "Puns on the five-asterisk crontab expression for every-minute execution."
+        },
+        {
+          "name": "Ochre Campanile",
+          "why": "Gives the slender civic clock tower an architectural field-guide name."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Cron Tower clearly connects to the base userspace cron tower while noting the ME palette.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-crontower",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-crontower from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-socket",
+      "depicts": "A two-pronged amber plug facing a two-hole dark-brown receptacle.",
+      "concept": "IPC and network sockets",
+      "proposals": [
+        {
+          "name": "Amber Socket",
+          "why": "Describes the two-pin plug and receptacle plainly in the ME MINIX palette."
+        },
+        {
+          "name": "AF_LOCAL Coupler",
+          "why": "References the POSIX address family constant for local Unix domain sockets."
+        },
+        {
+          "name": "Brass Coupler",
+          "why": "Treats the mating plug as a warm metallic hardware fitting."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Socket keeps the naming consistent with the base userspace socket variant.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-socket",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-socket from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-shm",
+      "depicts": "A brown storage tank with an ochre cap perched on X-braced stilts like a water tower.",
+      "concept": "POSIX shared memory segment",
+      "proposals": [
+        {
+          "name": "Amber Memory Tank",
+          "why": "Describes the shared-memory water tower plainly in the ME MINIX palette."
+        },
+        {
+          "name": "Shmget Cistern",
+          "why": "References the System V shared-memory allocation syscall in industrial form."
+        },
+        {
+          "name": "Ochre Reservoir",
+          "why": "Frames the elevated storage tank as a communal municipal reserve."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Memory Tank clearly signals the ME MINIX colour variation of the shared-memory tower.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-shm",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-shm from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-signal",
+      "depicts": "A vertical ochre flagpole on a dark base flying a two-tone amber-and-brown pennant.",
+      "concept": "POSIX process signals",
+      "proposals": [
+        {
+          "name": "Amber Signal Flag",
+          "why": "Describes the waving signal pennant directly in the ME MINIX palette."
+        },
+        {
+          "name": "SIGHUP Pennant",
+          "why": "References the classic hangup signal used to tell daemons to reload."
+        },
+        {
+          "name": "Ochre Semaphore",
+          "why": "Casts the animated flag as a visual railway or maritime signalling post."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Signal Flag cleanly links this recolour to the base userspace signal prop.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-signal",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-signal from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-pidplate",
+      "depicts": "A gold-framed dark rectangular plate displaying three yellow digits reading 564.",
+      "concept": "process identifier (PID)",
+      "proposals": [
+        {
+          "name": "Amber PID Plate",
+          "why": "Identifies the numbered process-ID plaque directly in the ME MINIX palette."
+        },
+        {
+          "name": "Process Tag 564",
+          "why": "Reads the literal three-digit identifier stamped on the sprite as a registration tag."
+        },
+        {
+          "name": "Gilded Numberplate",
+          "why": "Treats the yellow-on-black placard as a municipal vehicle plate."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber PID Plate is direct and pairs naturally with the base userspace PID plate.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-pidplate",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-pidplate from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-cabinet",
+      "depicts": "A tall three-drawer brown-and-ochre filing cabinet with pale yellow label plates.",
+      "concept": "filesystem and configuration store",
+      "proposals": [
+        {
+          "name": "Amber File Cabinet",
+          "why": "Describes the three-drawer storage cabinet plainly in the ME MINIX palette."
+        },
+        {
+          "name": "Etc Drawer",
+          "why": "References the Unix /etc directory where system configuration files live."
+        },
+        {
+          "name": "Ochre Dossier",
+          "why": "Evokes an archival steel cabinet holding classified subsystem records."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber File Cabinet clearly marks this as the ME MINIX colour variant of the userspace cabinet.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-cabinet",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-cabinet from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-mailbox",
+      "depicts": "A dark post-mounted mailbox with an ochre side flag raised.",
+      "concept": "IPC message queue",
+      "proposals": [
+        {
+          "name": "Amber Mailbox",
+          "why": "Names the post-mounted message box directly in the ME MINIX palette."
+        },
+        {
+          "name": "Mq_send Post",
+          "why": "References the POSIX message-queue send function in roadside form."
+        },
+        {
+          "name": "Ochre Drop",
+          "why": "Frames the flagged mailbox as a dead-drop for inter-process messages."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Mailbox cleanly pairs with the base userspace mailbox while noting its palette shift.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-mailbox",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-mailbox from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-crate",
+      "depicts": "A brown shipping crate banded across the top and stamped with a hollow pale-yellow rectangle.",
+      "concept": "packaged software bundle",
+      "proposals": [
+        {
+          "name": "Amber Crate",
+          "why": "Describes the banded shipping crate plainly in the ME MINIX palette."
+        },
+        {
+          "name": "Tarball Cargo",
+          "why": "References the ubiquitous Unix archive format for bundled files."
+        },
+        {
+          "name": "Ochre Parcel",
+          "why": "Treats the stamped box as freight moving through the subsystem."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Crate is concise and matches the base userspace crate cleanly.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-crate",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-crate from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-fork",
+      "depicts": "A vertical ochre post topped by two staggered brown-and-yellow sign arms pointing left and right.",
+      "concept": "process forking (fork)",
+      "proposals": [
+        {
+          "name": "Amber Fork Sign",
+          "why": "Describes the two-way directional signpost plainly in the ME MINIX palette."
+        },
+        {
+          "name": "Zero or PID",
+          "why": "References the famously split return value of fork() in child and parent processes."
+        },
+        {
+          "name": "Ochre Fingerpost",
+          "why": "Uses the traditional field-guide term for a wooden crossroads signpost."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Fork Sign clearly identifies this as the ME MINIX variant of the userspace fork signpost.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-fork",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-fork from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-callbox",
+      "depicts": "A narrow brown-and-black street callbox with an ochre roof cap, a lit square window, and a horizontal handset bar.",
+      "concept": "system call or RPC booth",
+      "proposals": [
+        {
+          "name": "Amber Callbox",
+          "why": "Names the street-level service booth directly in the ME MINIX palette."
+        },
+        {
+          "name": "Syscall Booth",
+          "why": "Casts the callbox as a roadside telephone for ringing the microkernel."
+        },
+        {
+          "name": "Ochre Kiosk",
+          "why": "Describes the narrow standing booth in dry urban field-guide terms."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Callbox keeps variant naming consistent with the base userspace callbox.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-callbox",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-callbox from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-busbar",
+      "depicts": "A horizontal dark channel between two ochre end posts carrying sliding amber and ochre signal blocks.",
+      "concept": "system message bus",
+      "proposals": [
+        {
+          "name": "Amber Busbar",
+          "why": "Describes the horizontal message rail plainly in the ME MINIX palette."
+        },
+        {
+          "name": "IPC Tramway",
+          "why": "Treats the sliding signal blocks as tiny shuttle cars on a shared bus."
+        },
+        {
+          "name": "Ochre Rail",
+          "why": "Names the dark-and-amber conduit in spare industrial field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Busbar clearly marks this as the ME MINIX colour variation of the userspace busbar.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-busbar",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-busbar from the userspace layer."
+    },
+    {
+      "key": "e:mx-us-journal",
+      "depicts": "A pale-yellow sheet lined with four dark-brown text bars and an ochre square stamp at its upper-left corner.",
+      "concept": "system log journal",
+      "proposals": [
+        {
+          "name": "Amber Journal",
+          "why": "Names the stamped log sheet directly in the ME MINIX palette."
+        },
+        {
+          "name": "Var Log Folio",
+          "why": "References the standard /var/log directory where Unix journals accumulate."
+        },
+        {
+          "name": "Ochre Ledger",
+          "why": "Frames the lined sheet as a clerk's record book for subsystem events."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Journal pairs cleanly with the base userspace journal as a palette variant.",
+      "decisionHint": "variant",
+      "mergeWith": "e:us-journal",
+      "decisionWhy": "This sprite is an amber-and-brown recolour of e:us-journal from the userspace layer."
+    },
+    {
+      "key": "e:mx-httpd",
+      "depicts": "An ochre-bordered black rectangular panel showing a long bright-amber bar above a shorter brown bar.",
+      "concept": "embedded HTTP server inside Intel ME",
+      "proposals": [
+        {
+          "name": "Embedded Web Server",
+          "why": "States plainly that the Management Engine runs its own miniature HTTP daemon."
+        },
+        {
+          "name": "Uninvited 200 OK",
+          "why": "Nods to the quiet absurdity of a hidden chipset web server answering requests behind the host OS."
+        },
+        {
+          "name": "Subsurface Broadside",
+          "why": "Treats the tiny amber response card as a clandestine notice posted beneath the main stack."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Embedded Web Server is crisp, unmistakable, and immediately grounds the joke of finding HTTP at Ring -3.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct ME-specific prop representing the Management Engine's built-in HTTP daemon."
+    },
+    {
+      "key": "e:mx-tcp",
+      "depicts": "Two dark vertical boxes, one framed in ochre and one in pale gold, joined at the centre by a short horizontal bridge.",
+      "concept": "independent TCP/IP stack inside Intel ME",
+      "proposals": [
+        {
+          "name": "ME TCP Stack",
+          "why": "Names the independent TCP/IP implementation running inside the Management Engine."
+        },
+        {
+          "name": "Shadow Three-Way",
+          "why": "Alludes to a TCP handshake completed beneath the host kernel without its firewall ever seeing it."
+        },
+        {
+          "name": "Submerged Span",
+          "why": "Describes the two-sided bridge as a hidden crossing beneath the main network stack."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Shadow Three-Way is dry, computing-literate, and captures the stealthy nature of ME's separate network stack.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct ME-specific prop depicting the chipset's independent TCP/IP bridge."
+    },
+    {
+      "key": "e:mx-tinytower",
+      "depicts": "A narrow dark-brown miniature tower with two vertically stacked amber windows and a short ochre roof cap.",
+      "concept": "lightweight MINIX 3 userspace service",
+      "proposals": [
+        {
+          "name": "Mini Service Tower",
+          "why": "Describes the scaled-down process tower standing in ME MINIX userspace."
+        },
+        {
+          "name": "Microserver Spire",
+          "why": "Plays on housing a minimal microkernel service inside a slender tower."
+        },
+        {
+          "name": "Amber Spire",
+          "why": "Captures the slender warm-lit silhouette in concise field-guide register."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Amber Spire is crisp and distinguishes this two-window turret from the larger skyline props.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "This minimal two-window tower works best as an appendix specimen rather than needing its own full manual page alongside e:mx-tinycity and e:mx-bottle."
+    },
+    {
+      "key": "c:me-minix-user:core",
+      "depicts": "A tiny grey monitor-headed automaton with a blank black screen walking on stubby dark-grey legs.",
+      "concept": "MINIX 3 userspace server process inside Intel ME",
+      "proposals": [
+        {
+          "name": "MINIX Server",
+          "why": "Identifies the roaming critter plainly as an isolated userspace server process in MINIX 3."
+        },
+        {
+          "name": "Ring-Three Daemon",
+          "why": "Puns on a standard Ring 3 userspace daemon running inside the hidden Ring -3 Management Engine."
+        },
+        {
+          "name": "Tin Automaton",
+          "why": "Names the little grey screen-faced walker like a diminutive mechanical species in a field guide."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Ring-Three Daemon nails the dry computing irony of a normal userspace process living at the bottom of Ring -3.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique critter species for the ME MINIX 3 Userspace layer with its own sprites and patrol/perch behaviour."
+    }
+  ]
+}

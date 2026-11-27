@@ -1,0 +1,701 @@
+{
+ "layer": "userspace",
+ "items": [
+  {
+   "key": "e:us-skyline",
+   "depicts": "Four dark-blue skyscrapers dotted with yellow and cyan lit windows, one topped by a spire and another by a cyan rooftop tank.",
+   "concept": "multi-process userspace cityscape",
+   "proposals": [
+    {
+     "name": "Process Skyline",
+     "why": "Plainly names the city-block silhouette representing concurrent user processes."
+    },
+    {
+     "name": "Userlandia",
+     "why": "A wry municipal name for the unprivileged district above the kernel line."
+    },
+    {
+     "name": "Nightshift Towers",
+     "why": "Treats the lit office windows like a field-guide habitat of nocturnal background jobs."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Process Skyline is immediately legible for a landmark anchor while keeping the urban-process metaphor crisp.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct anchor set piece unique to the OS userspace layer."
+  },
+  {
+   "key": "e:us-pid1",
+   "depicts": "A tall grey observation tower with two catwalks, yellow and cyan windows, and a glowing green beacon at its summit.",
+   "concept": "init process (PID 1)",
+   "proposals": [
+    {
+     "name": "Init Spire",
+     "why": "Directly identifies the first userspace process as the tallest civic tower."
+    },
+    {
+     "name": "Orphan Reaper",
+     "why": "References PID 1's unglamorous duty of adopting and reaping orphaned child processes."
+    },
+    {
+     "name": "Root Beacon",
+     "why": "Frames the green-lit summit as a naturalist landmark that outlives every other process."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Init Spire is concise, unmistakable to Unix readers, and fits the architectural scale of the sprite.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Primary anchor landmark for PID 1 in OS userspace."
+  },
+  {
+   "key": "e:us-tower",
+   "depicts": "A narrow blue high-rise block with lit yellow and cyan office windows, appearing in three height variants.",
+   "concept": "long-running user process",
+   "proposals": [
+    {
+     "name": "Process Block",
+     "why": "Descriptive architectural term for a generic userspace process building."
+    },
+    {
+     "name": "Tenured Tenant",
+     "why": "Puns on a process that has occupied its address space long enough to become part of the skyline."
+    },
+    {
+     "name": "Windowed Monolith",
+     "why": "Field-guide phrasing for the dark-blue slabs that populate the userspace horizon."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Process Block pairs cleanly with Process Skyline and accurately describes a modular background prop.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Canonical userspace prop with three internal size/appearance variants."
+  },
+  {
+   "key": "e:us-manifold",
+   "depicts": "A grey horizontal pipe manifold fitted with four square sight-glass ports glowing cyan and green.",
+   "concept": "I/O multiplexing",
+   "proposals": [
+    {
+     "name": "Stream Manifold",
+     "why": "Plainly describes a multi-port junction for standard I/O streams."
+    },
+    {
+     "name": "Select Junction",
+     "why": "Nods to the classic select/poll syscalls that watch multiple descriptors at once."
+    },
+    {
+     "name": "Four-Eyed Conduit",
+     "why": "Evokes the four glowing ports as a watchful specimen along the plumbing."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Select Junction is dryly technical and rewards anyone who has wrangled file-descriptor sets.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace I/O prop."
+  },
+  {
+   "key": "e:us-sign",
+   "depicts": "A black horizontal marquee bordered in magenta displaying glowing pink pixel text reading JOURNAL.",
+   "concept": "systemd journal / syslog",
+   "proposals": [
+    {
+     "name": "Journal Marquee",
+     "why": "Describes the illuminated signboard and its literal text."
+    },
+    {
+     "name": "Stdout Neon",
+     "why": "Wryly equates a bright public sign with standard output streaming into the night."
+    },
+    {
+     "name": "Magenta Ticker",
+     "why": "Field-guide description of the scrolling pink-lit banner."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Journal Marquee matches the visible JOURNAL lettering without overcomplicating a text-bearing prop.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct text-bearing marquee prop in userspace."
+  },
+  {
+   "key": "e:us-pipe",
+   "depicts": "An overhead grey horizontal conduit with two vertical drop-legs and two cyan flow indicators.",
+   "concept": "Unix anonymous pipe",
+   "proposals": [
+    {
+     "name": "Unix Pipe",
+     "why": "Direct name for the foundational byte-stream connector between processes."
+    },
+    {
+     "name": "Vertical Bar",
+     "why": "Dryly references the shell | operator that instantiates the pipe."
+    },
+    {
+     "name": "Cyan Siphon",
+     "why": "Naturalist-style label for a conduit pulsing with unidirectional data."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Unix Pipe is iconic, exact, and needs no embellishment.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Canonical userspace IPC prop."
+  },
+  {
+   "key": "e:us-tty",
+   "depicts": "A grey-bezeled CRT monitor showing green text bars and a bright green block cursor on a black screen.",
+   "concept": "teletype terminal (TTY)",
+   "proposals": [
+    {
+     "name": "Teletype Terminal",
+     "why": "Plain, accurate name for the classic green-phosphor TTY."
+    },
+    {
+     "name": "Raw Mode",
+     "why": "Nods to the termios state where every keystroke passes straight through unbuffered."
+    },
+    {
+     "name": "Phosphor Watch",
+     "why": "Treats the glowing green screen like a nocturnal sentinel in the userland."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Teletype Terminal is crisp, historical, and immediately recognizable.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace terminal prop."
+  },
+  {
+   "key": "e:us-crontower",
+   "depicts": "A slender grey clock tower with a white clock face, black hands, three yellow windows, and a red beacon on top.",
+   "concept": "cron job scheduling",
+   "proposals": [
+    {
+     "name": "Cron Tower",
+     "why": "Plainly links the clock-tower silhouette to the cron daemon."
+    },
+    {
+     "name": "Crontab Chime",
+     "why": "Wryly pairs civic bell-ringing with five-field schedule expressions."
+    },
+    {
+     "name": "Minute-Hand Spire",
+     "why": "Field-guide description of the punctual timepiece overlooking the skyline."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Cron Tower is clean, memorable, and avoids the cutesy placeholder pun.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Canonical userspace scheduling prop."
+  },
+  {
+   "key": "e:us-socket",
+   "depicts": "A grey two-prong plug hovering beside a dark-grey two-hole receptacle.",
+   "concept": "IPC socket",
+   "proposals": [
+    {
+     "name": "Domain Socket",
+     "why": "Accurate technical name for a local AF_UNIX socket endpoint."
+    },
+    {
+     "name": "Bind & Listen",
+     "why": "Names the pair after the two syscalls required to mate plug and receptacle."
+    },
+    {
+     "name": "Two-Pin Coupler",
+     "why": "Descriptive field-guide name based on the sprite's physical anatomy."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Domain Socket is precise to OS userspace and pairs naturally with Unix Pipe.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace IPC prop."
+  },
+  {
+   "key": "e:us-shm",
+   "depicts": "A cyan water-tower tank with a pale-cyan level window resting on a cross-braced grey steel trestle.",
+   "concept": "POSIX shared memory",
+   "proposals": [
+    {
+     "name": "Shared Reservoir",
+     "why": "Plainly captures the water-tower metaphor for a shared memory segment."
+    },
+    {
+     "name": "Mmap Cistern",
+     "why": "Combines the mmap syscall with the elevated tank structure."
+    },
+    {
+     "name": "Cyan Standpipe",
+     "why": "Evocative civic-infrastructure term for a communal storage tank."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Mmap Cistern is wry, computing-literate, and fits the industrial-skyline aesthetic.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace shared-memory prop."
+  },
+  {
+   "key": "e:us-signal",
+   "depicts": "A tall grey flagpole flying a waving two-tone red pennant.",
+   "concept": "POSIX signals",
+   "proposals": [
+    {
+     "name": "Signal Pennant",
+     "why": "Plainly describes the red flag raised to notify a process."
+    },
+    {
+     "name": "Sigterm Banner",
+     "why": "Wryly names the red flag after the polite termination signal."
+    },
+    {
+     "name": "Crimson Semaphore",
+     "why": "Field-guide phrasing for a visual signalling mast."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Signal Pennant is concise, accurate, and leaves room for all POSIX signals in the manual entry.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace signalling prop."
+  },
+  {
+   "key": "e:us-pidplate",
+   "depicts": "A dark-blue rectangular license plate displaying white pixel numerals reading 564.",
+   "concept": "process identifier (PID)",
+   "proposals": [
+    {
+     "name": "Process Plate",
+     "why": "Plainly names the license-plate prop assigned to a process."
+    },
+    {
+     "name": "Pid 564",
+     "why": "Dryly treats the literal number on the plate as the specimen's own identifier."
+    },
+    {
+     "name": "Cobalt Tag",
+     "why": "Field-guide description of the stamped blue registration marker."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Process Plate is immediately clear and works well as a general Field Manual entry.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct text-bearing PID prop."
+  },
+  {
+   "key": "e:us-cabinet",
+   "depicts": "A grey three-drawer filing cabinet with dark-grey drawer fronts and yellow label strips.",
+   "concept": "etc configuration / file storage",
+   "proposals": [
+    {
+     "name": "Config Cabinet",
+     "why": "Plainly connects the three-drawer cabinet to /etc configuration files."
+    },
+    {
+     "name": "Dotfile Drawer",
+     "why": "Wryly suggests the hidden user settings tucked inside."
+    },
+    {
+     "name": "Yellow-Tabbed File",
+     "why": "Descriptive naturalist label for the labelled steel drawers."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Config Cabinet is crisp, dry, and fits the userspace office-park tone.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace storage prop."
+  },
+  {
+   "key": "e:us-mailbox",
+   "depicts": "A blue curbside mailbox on a grey post with a raised red flag and a black mail slot.",
+   "concept": "IPC message queue / local mail spool",
+   "proposals": [
+    {
+     "name": "Spool Mailbox",
+     "why": "Plainly pairs the curbside postbox with /var/spool/mail."
+    },
+    {
+     "name": "Unread Flag",
+     "why": "Dryly focuses on the raised red indicator that never seems to go down."
+    },
+    {
+     "name": "Cobalt Postbox",
+     "why": "Field-guide description of the blue-and-red street fixture."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Spool Mailbox is computing-literate without leaning on the cutesy placeholder.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace mailbox prop."
+  },
+  {
+   "key": "e:us-crate",
+   "depicts": "A brown shipping crate strapped with a yellow band and stamped with a white-bordered grey label.",
+   "concept": "tarball / software package",
+   "proposals": [
+    {
+     "name": "Package Crate",
+     "why": "Plainly links the strapped shipping box to a userspace software package."
+    },
+    {
+     "name": "Tarball Parcel",
+     "why": "Wryly equates a banded freight crate with a compressed archive."
+    },
+    {
+     "name": "Yellow-Belted Box",
+     "why": "Descriptive field-guide label for the strapped cargo."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Package Crate is clear, dry, and pairs naturally with Container.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace packaging prop."
+  },
+  {
+   "key": "e:us-fork",
+   "depicts": "A grey signpost splitting into two staggered green-and-white street-name blades.",
+   "concept": "fork() process branching",
+   "proposals": [
+    {
+     "name": "Fork Signpost",
+     "why": "Plainly names the split signpost after the fork() syscall."
+    },
+    {
+     "name": "Copy-On-Write",
+     "why": "Wryly references the memory-sharing trick that makes the split cheap."
+    },
+    {
+     "name": "Twin-Blade Post",
+     "why": "Field-guide description of the diverging green street signs."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Fork Signpost is clever without trying too hard and matches the visual pun.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace process-forking prop."
+  },
+  {
+   "key": "e:us-callbox",
+   "depicts": "A blue emergency callbox on a dark base with a cyan indicator screen and a teal beacon light on top.",
+   "concept": "syscall / emergency trap",
+   "proposals": [
+    {
+     "name": "Syscall Booth",
+     "why": "Plainly frames the callbox as a userspace kiosk for ringing the kernel."
+    },
+    {
+     "name": "Direct Line",
+     "why": "Dryly treats a privileged kernel request like an emergency phone."
+    },
+    {
+     "name": "Teal-Crowned Kiosk",
+     "why": "Field-guide description of the blue street box with its lit top beacon."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Syscall Booth is immediately legible and fits the urban-infrastructure metaphor.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace callbox prop."
+  },
+  {
+   "key": "e:us-busbar",
+   "depicts": "A horizontal grey-framed conduit carrying two dark-blue and teal rails with yellow and cyan pulse segments.",
+   "concept": "D-Bus / message bus",
+   "proposals": [
+    {
+     "name": "Message Busbar",
+     "why": "Plainly connects the dual-rail busbar to userspace message buses like D-Bus."
+    },
+    {
+     "name": "D-Bus Rail",
+     "why": "Directly names the desktop/system message bus in hardware-style phrasing."
+    },
+    {
+     "name": "Twin-Pulse Track",
+     "why": "Field-guide description of the parallel yellow and cyan signals."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Message Busbar is accurate to the sprite and works across any OS userspace.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace bus prop."
+  },
+  {
+   "key": "e:us-journal",
+   "depicts": "A grey corner bracket beside four staggered horizontal log bars alternating red and dark grey.",
+   "concept": "system log / journald",
+   "proposals": [
+    {
+     "name": "Event Ledger",
+     "why": "Plainly describes a structured record of system events and errors."
+    },
+    {
+     "name": "Stderr Lines",
+     "why": "Wryly points out the red-highlighted entries among the grey routine logs."
+    },
+    {
+     "name": "Red-Barred Log",
+     "why": "Field-guide description of the striped log-entry specimen."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Event Ledger is crisp and avoids colliding with Journal Marquee.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace logging prop."
+  },
+  {
+   "key": "e:us-padlock",
+   "depicts": "A bright yellow rectangular padlock with a grey shackle and a vertical black keyhole.",
+   "concept": "advisory file locks",
+   "proposals": [
+    {
+     "name": "Advisory Padlock",
+     "why": "Plainly names the classic Unix lock that only works if everyone checks it."
+    },
+    {
+     "name": "Flock Clasp",
+     "why": "Nods to the flock() syscall used to coordinate file access."
+    },
+    {
+     "name": "Brass Keyhole",
+     "why": "Field-guide description of the yellow-bodied lock."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Advisory Padlock is dryly funny to anyone who has debugged a stale lockfile.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Canonical padlock prop in userspace."
+  },
+  {
+   "key": "e:us-firewall",
+   "depicts": "A low red-brick wall topped by four flickering yellow and red flames.",
+   "concept": "userspace firewall / packet filter",
+   "proposals": [
+    {
+     "name": "Packet Firewall",
+     "why": "Plainly names the literal brick-and-flame barrier."
+    },
+    {
+     "name": "Drop Policy",
+     "why": "Dryly references the default-deny rule that burns unwanted traffic."
+    },
+    {
+     "name": "Ember Parapet",
+     "why": "Field-guide phrasing for the low brick wall crowned with small fires."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Packet Firewall is direct, clear, and fits the literal visual gag.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace firewall prop."
+  },
+  {
+   "key": "e:us-container",
+   "depicts": "A corrugated green shipping container with a grey-framed door panel on the right.",
+   "concept": "Linux container / namespace",
+   "proposals": [
+    {
+     "name": "Shipping Container",
+     "why": "Plainly names the corrugated freight box that popularized containerization."
+    },
+    {
+     "name": "Chroot Box",
+     "why": "Wryly nods to the humble syscall ancestor of modern containers."
+    },
+    {
+     "name": "Ribbed Freight",
+     "why": "Field-guide description of the green corrugated enclosure."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Shipping Container is clean, dry, and lets the manual page do the namespace comedy.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace container prop."
+  },
+  {
+   "key": "e:us-antenna",
+   "depicts": "A grey tripod mast topped by a blinking red beacon.",
+   "concept": "network daemon / beacon",
+   "proposals": [
+    {
+     "name": "Tripod Antenna",
+     "why": "Plainly describes the three-legged mast and its red tip."
+    },
+    {
+     "name": "Multicast Mast",
+     "why": "Nods to local service-discovery beacons broadcasting into the subnet."
+    },
+    {
+     "name": "Red-Tipped Tripod",
+     "why": "Field-guide description of the slender rooftop transmitter."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Tripod Antenna is exact and pairs well with the other rooftop props.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace antenna prop."
+  },
+  {
+   "key": "e:us-hydrant",
+   "depicts": "A red fire hydrant with bright-red side nozzles and cap on a dark-grey base.",
+   "concept": "high-throughput stream / emergency flush",
+   "proposals": [
+    {
+     "name": "Fire Hydrant",
+     "why": "Plainly names the red street fixture."
+    },
+    {
+     "name": "Stdout Hydrant",
+     "why": "Wryly evokes drinking from a firehose of unthrottled output."
+    },
+    {
+     "name": "Scarlet Standpipe",
+     "why": "Field-guide phrasing for the pressurized red street valve."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Stdout Hydrant gives a plain street prop a crisp computing-literate twist.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace hydrant prop."
+  },
+  {
+   "key": "e:us-billboard",
+   "depicts": "A cyan-framed rooftop billboard on two grey legs displaying a magenta bar above a yellow bar.",
+   "concept": "environment banner / MOTD",
+   "proposals": [
+    {
+     "name": "Rooftop Billboard",
+     "why": "Plainly describes the two-legged sign perched above the skyline."
+    },
+    {
+     "name": "Motd Hoarding",
+     "why": "Dryly equates a roadside billboard with the login Message of the Day."
+    },
+    {
+     "name": "Cyan-Framed Sign",
+     "why": "Field-guide description of the two-bar display board."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Motd Hoarding is quietly funny and grounded in real Unix administration.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace billboard prop."
+  },
+  {
+   "key": "e:us-manhole",
+   "depicts": "A circular grey iron manhole cover with a dark-grey rim and a black slot across the center.",
+   "concept": "kernel entry / /dev/null hatch",
+   "proposals": [
+    {
+     "name": "Manhole Cover",
+     "why": "Plainly names the street-level access hatch."
+    },
+    {
+     "name": "Syscall Hatch",
+     "why": "Wryly frames the street cover as the drop-down into kernel space."
+    },
+    {
+     "name": "Slotted Iron",
+     "why": "Field-guide description of the heavy grey street plate."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Syscall Hatch ties the street-level prop directly to the game's downward descent.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace manhole prop."
+  },
+  {
+   "key": "e:us-meter",
+   "depicts": "A square grey parking-style meter on a post with a black face and a glowing green rectangular readout.",
+   "concept": "resource quota / CPU accounting",
+   "proposals": [
+    {
+     "name": "Usage Meter",
+     "why": "Plainly describes a street meter tracking resource consumption."
+    },
+    {
+     "name": "Nice-Value Meter",
+     "why": "Wryly nods to Unix process priority and CPU-time accounting."
+    },
+    {
+     "name": "Green-Eyed Post",
+     "why": "Field-guide description of the standing readout box."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Usage Meter is clean, exact, and leaves room for quotas and cgroups in the manual.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace meter prop."
+  },
+  {
+   "key": "e:us-vent",
+   "depicts": "A dark-grey rectangular wall vent with three horizontal light-grey louver slats.",
+   "concept": "background exhaust / stdout/stderr",
+   "proposals": [
+    {
+     "name": "Louver Vent",
+     "why": "Plainly describes the three-slatted exhaust grille."
+    },
+    {
+     "name": "Devnull Grille",
+     "why": "Wryly treats the wall vent as where discarded output disappears."
+    },
+    {
+     "name": "Three-Slat Exhaust",
+     "why": "Field-guide description of the dark-framed vent."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Louver Vent is crisp and understated for a small architectural prop.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct userspace vent prop."
+  },
+  {
+   "key": "c:userspace:core",
+   "depicts": "A small red horned creature with yellow eyes and a trailing red tail, accompanied by a floating yellow square.",
+   "concept": "Unix background daemon",
+   "proposals": [
+    {
+     "name": "Userspace Daemon",
+     "why": "Plainly names the iconic horned background-process mascot."
+    },
+    {
+     "name": "Detached Imp",
+     "why": "Wryly nods to processes that have detached from their controlling terminal."
+    },
+    {
+     "name": "Horned Spark",
+     "why": "Field-guide name for the red creature and its trailing yellow mote."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Userspace Daemon is unmistakable, dry, and honors the classic BSD daemon lineage.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Primary critter species for the OS userspace layer."
+  }
+ ]
+}

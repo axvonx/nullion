@@ -1,0 +1,749 @@
+{
+  "layer": "application",
+  "items": [
+    {
+      "key": "e:app-cascade",
+      "depicts": "Three overlapping desktop windows stacked diagonally, with a bar chart rendered inside the foreground yellow-titled frame.",
+      "concept": "window manager stacking order",
+      "proposals": [
+        {
+          "name": "Window Cascade",
+          "why": "Directly names the overlapping desktop geometry shown in the sprite."
+        },
+        {
+          "name": "Z-Order Pileup",
+          "why": "Plays on compositor depth sorting while hinting at cluttered desktop ergonomics."
+        },
+        {
+          "name": "Tiled Terraces",
+          "why": "Treats the stepped window frames as a geological formation in the upper stack."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Z-Order Pileup anchors the landmark in real window-system vocabulary with dry humor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Large signature anchor piece for the Application layer with strong visual identity."
+    },
+    {
+      "key": "e:app-launcher",
+      "depicts": "A white launcher panel topped by a search bar above a four-by-three grid of multicolored rounded application icons.",
+      "concept": "application launcher and desktop entry index",
+      "proposals": [
+        {
+          "name": "App Launcher",
+          "why": "Plainly identifies the grid-and-search interface depicted in the sprite."
+        },
+        {
+          "name": "Exec Grid",
+          "why": "Grounds the glossy icon drawer in the underlying process-spawning syscall."
+        },
+        {
+          "name": "Icon Apiary",
+          "why": "Frames the neatly boxed colorful icons like cells in a field-guide specimen hive."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Exec Grid bridges user-facing chrome and systems literacy in two crisp words.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Second major landmark anchor for the Application layer with clear visual presence."
+    },
+    {
+      "key": "e:app-browser",
+      "depicts": "A compact web browser window displaying a top address bar, an orange hero banner, and grey placeholder text lines.",
+      "concept": "web browser client viewport",
+      "proposals": [
+        {
+          "name": "Browser Frame",
+          "why": "Describes the self-contained web client window without overstating its contents."
+        },
+        {
+          "name": "Tab Habitat",
+          "why": "Dryly nods to how modern browsers consume memory as an entire ecosystem."
+        },
+        {
+          "name": "Glass Viewport",
+          "why": "Evokes an observation pane looking out onto the application surface."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Browser Frame is clean, unmistakable, and keeps the manual entry grounded in its role as a desktop client.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Canonical Application-layer browser prop from which endless-layer recolours are derived."
+    },
+    {
+      "key": "e:app-dialog",
+      "depicts": "A modal dialog box with an orange title bar, a yellow alert icon, grey text lines, and two bottom action buttons.",
+      "concept": "blocking modal dialog",
+      "proposals": [
+        {
+          "name": "Modal Dialog",
+          "why": "Uses the standard interface term for a focus-capturing confirmation box."
+        },
+        {
+          "name": "Confirm Trap",
+          "why": "Captures the way modal prompts halt user workflow until dismissed."
+        },
+        {
+          "name": "Amber Ultimatum",
+          "why": "Renders the warning-colored prompt as a small territorial stand-off."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Modal Dialog reads naturally as a manual-page title while leaving room for dry commentary in the description.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct, recognizable Application-layer prop with rich UI and concurrency trivia."
+    },
+    {
+      "key": "e:app-toast",
+      "depicts": "A compact floating notification card with an orange square icon on the left and two grey text bars beside it.",
+      "concept": "transient toast notification",
+      "proposals": [
+        {
+          "name": "Toast Banner",
+          "why": "Directly identifies the transient pop-up notification card."
+        },
+        {
+          "name": "Ephemeral Alert",
+          "why": "Pokes at notifications that vanish half a second before you finish reading them."
+        },
+        {
+          "name": "Drifting Notice",
+          "why": "Treats the brief floating rectangle like a passing specimen in the upper air."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Toast Banner is immediately legible to computing readers and pairs well with a dry manual entry.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Canonical Application-layer prop with a distinct silhouette and clear concept."
+    },
+    {
+      "key": "e:app-spinner",
+      "depicts": "A pale square card containing an eight-dot circular loading spinner with fading amber and beige pips.",
+      "concept": "indeterminate busy indicator and UI thread blocking",
+      "proposals": [
+        {
+          "name": "Busy Spinner",
+          "why": "Accurately names the indeterminate wait indicator shown on the tile."
+        },
+        {
+          "name": "Main-Thread Orbit",
+          "why": "References the classic failure mode where the UI thread spins while doing nothing useful."
+        },
+        {
+          "name": "Amber Throbber",
+          "why": "Revives the historical browser term 'throbber' with a field-guide color qualifier."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Amber Throbber combines genuine computing history with a dry naturalist cadence.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated, iconic Application-layer prop with strong trivia potential."
+    },
+    {
+      "key": "e:app-progress",
+      "depicts": "A horizontal progress bar framed in dark blue with a cream track and a small amber fill block near the left edge.",
+      "concept": "determinate progress estimation",
+      "proposals": [
+        {
+          "name": "Progress Bar",
+          "why": "Plainly names the horizontal completion meter depicted."
+        },
+        {
+          "name": "Ninety-Nine Bar",
+          "why": "Alludes to the universal phenomenon of progress bars stalling at the final percent."
+        },
+        {
+          "name": "Stalled Gauge",
+          "why": "Describes the barely filled meter like an instrument specimen caught mid-reading."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Ninety-Nine Bar delivers a quiet, universally understood computing joke in two words.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated Application-layer staple that anchors classic estimation-accuracy trivia."
+    },
+    {
+      "key": "e:app-icon",
+      "depicts": "A green rounded-square application icon with a white central glyph and a red notification badge at its top-right corner.",
+      "concept": "application icon and unread badge counter",
+      "proposals": [
+        {
+          "name": "Badged Icon",
+          "why": "Directly describes the square app tile and its red corner dot."
+        },
+        {
+          "name": "Unread Dot",
+          "why": "Focuses on the tiny red pixel engineered to provoke compulsive clicking."
+        },
+        {
+          "name": "Scarlet Pip",
+          "why": "Names the notification marker as though cataloguing a bright marking on a beetle."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Badged Icon clearly distinguishes this sprite from the notification bell while staying crisp and technical.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Canonical Application-layer prop reused across upper endless layers."
+    },
+    {
+      "key": "e:app-bubble",
+      "depicts": "A blue speech bubble with a bottom-right tail and three typing-indicator squares inside, the leftmost lit white.",
+      "concept": "asynchronous presence and typing indicator",
+      "proposals": [
+        {
+          "name": "Chat Bubble",
+          "why": "Plainly identifies the messaging speech bubble and ellipsis."
+        },
+        {
+          "name": "Typing Ellipsis",
+          "why": "Highlights the presence-protocol signal that someone is composing and deleting a reply."
+        },
+        {
+          "name": "Cobalt Murmur",
+          "why": "Gives the pulsing blue speech box a quiet field-guide character."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Typing Ellipsis zeroes in on the animated three-dot presence mechanism rather than generic chat art.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated prop with a crisp, recognizable silhouette and real-time messaging concept."
+    },
+    {
+      "key": "e:app-cloudsync",
+      "depicts": "A pixelated white cloud silhouette with a blue upward synchronization arrow set into its lower center.",
+      "concept": "cloud synchronization and eventual consistency",
+      "proposals": [
+        {
+          "name": "Sync Cloud",
+          "why": "Directly names the cloud-upload icon shown in the sprite."
+        },
+        {
+          "name": "Eventual Cloud",
+          "why": "Puns on eventual consistency while acknowledging that sync finishes whenever it feels like it."
+        },
+        {
+          "name": "Updraft Nimbus",
+          "why": "Treats the white cloud and upward arrow as a meteorological specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Eventual Cloud is dry, computing-literate, and immediately funny to anyone who has debugged sync state.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated canonical Application-layer prop representing distributed client state."
+    },
+    {
+      "key": "e:app-folder",
+      "depicts": "A yellow tabbed manila folder icon with white document edges visible behind the front flap.",
+      "concept": "hierarchical directory metaphor",
+      "proposals": [
+        {
+          "name": "Desktop Folder",
+          "why": "Plainly identifies the classic tabbed directory icon."
+        },
+        {
+          "name": "Manila Inode",
+          "why": "Contrasts the office-stationery metaphor with the filesystem structure underneath."
+        },
+        {
+          "name": "Ochre Folio",
+          "why": "Uses archival binder language that fits the Field Manual's own aesthetic."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Manila Inode nails the game's core joke of glossy desktop metaphors sitting atop Unix reality.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Iconic Application-layer prop with two size variants and strong desktop-metaphor history."
+    },
+    {
+      "key": "e:app-trash",
+      "depicts": "A grey lidded wastebasket icon with three vertical ribs along its body.",
+      "concept": "soft-delete staging and deferred unlink",
+      "proposals": [
+        {
+          "name": "Trash Bin",
+          "why": "Directly names the desktop wastebasket shown in the sprite."
+        },
+        {
+          "name": "Deferred Unlink",
+          "why": "Translates the friendly trash icon into the POSIX filesystem call it postpones."
+        },
+        {
+          "name": "Tin Purgatory",
+          "why": "Evokes the liminal holding area where deleted files wait before reclamation."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Deferred Unlink is dry, exact, and avoids repeating the cutesy placeholder name.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Classic desktop landmark prop with clear filesystem and UX history."
+    },
+    {
+      "key": "e:app-slider",
+      "depicts": "A dark horizontal range slider track filled with amber on the left and a white-and-amber thumb near the right end.",
+      "concept": "bounded range input control",
+      "proposals": [
+        {
+          "name": "Range Slider",
+          "why": "Plainly names the continuous value-selection widget."
+        },
+        {
+          "name": "Clamped Scrub",
+          "why": "References value clamping and scrubbing mechanics in audio and UI controls."
+        },
+        {
+          "name": "Amber Slideway",
+          "why": "Frames the track and sliding thumb as a miniature mechanical rail."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Range Slider is concise and unambiguous for an appendix UI control specimen.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small generic form control that works well in the specimen appendix without needing a full manual page."
+    },
+    {
+      "key": "e:app-toggle",
+      "depicts": "A bright green rectangular toggle switch with a white square knob positioned on the right side.",
+      "concept": "boolean feature flag and state toggle",
+      "proposals": [
+        {
+          "name": "Toggle Switch",
+          "why": "Directly identifies the binary on-off control."
+        },
+        {
+          "name": "Boolean Latch",
+          "why": "Connects the high-level UI switch to the single bit of state it flips."
+        },
+        {
+          "name": "Verdant Flip",
+          "why": "Describes the green engaged state like a small field specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Boolean Latch adds subtle computing flavor without cluttering a brief appendix entry.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Compact UI widget best grouped with other atomic controls in the catalogue appendix."
+    },
+    {
+      "key": "e:app-checklist",
+      "depicts": "A white card listing three horizontal rows, with the top two checkboxes filled green and the bottom one grey.",
+      "concept": "task checklist and completion state",
+      "proposals": [
+        {
+          "name": "Task Checklist",
+          "why": "Directly describes the three-row checkbox card."
+        },
+        {
+          "name": "Sprint Backlog",
+          "why": "Wryly notes the perpetually unchecked final item at the bottom of the list."
+        },
+        {
+          "name": "Tally Slate",
+          "why": "Presents the checklist as a tidy archival record card."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Sprint Backlog gets a quiet laugh out of the two-green, one-grey state.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Secondary scatter prop whose visual story fits neatly into a short catalogue listing."
+    },
+    {
+      "key": "e:app-calendar",
+      "depicts": "A wall-calendar widget with a red header bar, a grid of grey date squares, and one date highlighted in red.",
+      "concept": "calendrical arithmetic and time zones",
+      "proposals": [
+        {
+          "name": "Date Grid",
+          "why": "Plainly describes the month-view calendar tile."
+        },
+        {
+          "name": "Epoch Calendar",
+          "why": "Nods to the painful gap between human calendars and Unix timestamps."
+        },
+        {
+          "name": "Red-Letter Almanac",
+          "why": "Treats the marked square as an entry in an archival almanac."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Epoch Calendar immediately signals the rich trivia around leap years, time zones, and date bugs.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear, recognizable prop representing one of software engineering's most notorious problem domains."
+    },
+    {
+      "key": "e:app-status",
+      "depicts": "A dark status bar holding a low battery icon with a single red charge bar beside three ascending signal-strength bars.",
+      "concept": "system telemetry and power-state reporting",
+      "proposals": [
+        {
+          "name": "Status Tray",
+          "why": "Directly names the battery-and-signal indicator cluster."
+        },
+        {
+          "name": "Critical Telemetry",
+          "why": "Elevates a nearly dead battery icon into deadpan systems-monitoring language."
+        },
+        {
+          "name": "Redline Bar",
+          "why": "Highlights the lone crimson charge cell like a gauge nearing exhaustion."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Status Tray is crisp, recognizable, and leaves room for dry remarks about the red battery bar.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated, immediately readable Application-layer prop representing client device health."
+    },
+    {
+      "key": "e:app-search",
+      "depicts": "A white search input box with a magnifying-glass icon on the left, a grey query bar, and a blue text caret.",
+      "concept": "interactive query input and full-text search",
+      "proposals": [
+        {
+          "name": "Search Field",
+          "why": "Plainly names the text input bar and cursor."
+        },
+        {
+          "name": "Query Caret",
+          "why": "Focuses on the blinking insertion point waiting for an indexed lookup."
+        },
+        {
+          "name": "Glass Prompt",
+          "why": "Pairs the magnifying glass with a quiet field-guide noun."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Query Caret captures the animated cursor and the search concept with dry precision.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated, recognizable core interaction primitive worth its own manual page."
+    },
+    {
+      "key": "e:app-dropdown",
+      "depicts": "An expanded dropdown menu box with a top select bar and a white list of three entries, the bottom highlighted in red.",
+      "concept": "select menu and focus-trapping popover",
+      "proposals": [
+        {
+          "name": "Dropdown Menu",
+          "why": "Uses the standard UI name for the expanded selection list."
+        },
+        {
+          "name": "Select Popover",
+          "why": "Uses precise front-end terminology for the floating overlay widget."
+        },
+        {
+          "name": "Hanging List",
+          "why": "Describes the suspended menu column like a specimen sheet pinned below a header."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Dropdown Menu is immediately clear and sets up classic trivia about z-index wars and OS native selects.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct vertical silhouette and a rich source of UI-stack engineering lore."
+    },
+    {
+      "key": "e:app-swatches",
+      "depicts": "A white color-picker card showing eight colored tiles in two rows, with the bottom-left blue swatch outlined as selected.",
+      "concept": "sRGB color palette and swatch selection",
+      "proposals": [
+        {
+          "name": "Color Swatches",
+          "why": "Directly identifies the eight-tile palette picker."
+        },
+        {
+          "name": "Hex Palette",
+          "why": "References hexadecimal color notation underlying graphical pickers."
+        },
+        {
+          "name": "Chroma Tray",
+          "why": "Frames the grid of pigments as a compact naturalist color plate."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Hex Palette brings clean computing specificity to a compact decorative prop.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Charming scatter prop that is best filed as an appendix specimen rather than a full manual page."
+    },
+    {
+      "key": "e:app-photo",
+      "depicts": "A white-bordered photo thumbnail depicting green blocky hills under a pale blue sky and a yellow square sun.",
+      "concept": "raster image thumbnail and placeholder asset",
+      "proposals": [
+        {
+          "name": "Photo Thumbnail",
+          "why": "Plainly describes the framed landscape preview image."
+        },
+        {
+          "name": "Default Wallpaper",
+          "why": "Wryly recalls stock OS hill-and-sky imagery and broken-image placeholders."
+        },
+        {
+          "name": "Framed Meadow",
+          "why": "Treats the tiny pixelated hills like a pressed field-guide plate."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Default Wallpaper hits a recognizable computing nerve while describing the exact visual motif.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Static media thumbnail that fits better as an appendix specimen than a full page."
+    },
+    {
+      "key": "e:app-video",
+      "depicts": "A dark video player frame with a centered white play triangle and a bottom scrub bar marked by a red progress tick.",
+      "concept": "streaming media playback and codec decoding",
+      "proposals": [
+        {
+          "name": "Video Player",
+          "why": "Directly names the playback window and transport bar."
+        },
+        {
+          "name": "Codec Viewport",
+          "why": "Points to the complex decoding pipeline hidden behind a single play triangle."
+        },
+        {
+          "name": "Obsidian Reel",
+          "why": "Gives the dark screen and moving scrub bar an archival cinema register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Video Player is unmistakable and anchors rich trivia on containers, codecs, and adaptive bitrate streaming.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated, distinct dark-framed prop representing client media pipelines."
+    },
+    {
+      "key": "e:app-download",
+      "depicts": "A bright green downward arrow hovering over a grey horizontal tray bar on a dark background.",
+      "concept": "client file transfer and download staging",
+      "proposals": [
+        {
+          "name": "Download Arrow",
+          "why": "Plainly describes the downward arrow and receiving tray."
+        },
+        {
+          "name": "Payload Drop",
+          "why": "Bridges the green arrow with network-transfer terminology."
+        },
+        {
+          "name": "Emerald Plumb",
+          "why": "Frames the descending green arrow like a surveyor's plumb bob."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Download Arrow is immediately legible and fits the crisp nomenclature of a technical manual.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated prop with a clear silhouette and a foundational client-side concept."
+    },
+    {
+      "key": "e:app-clock",
+      "depicts": "A round white analog wall clock with dark tick marks and hands pointing near three o'clock.",
+      "concept": "wall-clock time and NTP synchronization",
+      "proposals": [
+        {
+          "name": "Wall Clock",
+          "why": "Uses both the visual object and the exact systems term for real-world civil time."
+        },
+        {
+          "name": "Monotonic Dial",
+          "why": "Dryly nods to the distinction between wall-clock time and monotonic timers."
+        },
+        {
+          "name": "Stack Chronometer",
+          "why": "Signals its recurring presence across layers as a travelling field instrument."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Wall Clock is a rare double-meaning win—plainly descriptive and an exact systems-programming term.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated recurring timepiece motif that also pays off later when Ring -2 freezes time."
+    },
+    {
+      "key": "e:app-avatar",
+      "depicts": "A blue circular user-profile badge containing a simplified white head-and-shoulders silhouette.",
+      "concept": "default user identity and profile avatar",
+      "proposals": [
+        {
+          "name": "User Avatar",
+          "why": "Plainly identifies the default profile silhouette."
+        },
+        {
+          "name": "Default Principal",
+          "why": "Translates the friendly profile circle into dry authentication terminology."
+        },
+        {
+          "name": "Azure Bust",
+          "why": "Describes the blue-and-white silhouette like a miniature catalogued portrait."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "User Avatar is clean and direct for a compact appendix specimen.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small static identity icon that works well in the catalogue appendix."
+    },
+    {
+      "key": "e:app-music",
+      "depicts": "A white media card featuring a purple album-art square on the left, a dark title bar, and a green playback bar on the right.",
+      "concept": "audio player widget and media session",
+      "proposals": [
+        {
+          "name": "Audio Card",
+          "why": "Directly describes the compact album-art and playback tile."
+        },
+        {
+          "name": "PCM Tile",
+          "why": "Grounds the glossy now-playing card in pulse-code modulation underneath."
+        },
+        {
+          "name": "Violet Sleeve",
+          "why": "Highlights the purple cover square in an archival record-collector register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Audio Card is crisp and differentiates this static widget from the animated video player.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Minor static media prop best suited for the appendix catalogue."
+    },
+    {
+      "key": "e:app-pin",
+      "depicts": "A red circular map pin with a white center crosshair resting on a thin vertical stem.",
+      "concept": "geolocation coordinate marker",
+      "proposals": [
+        {
+          "name": "Map Pin",
+          "why": "Plainly names the red location marker."
+        },
+        {
+          "name": "Null Island Pin",
+          "why": "References the classic 0,0 coordinate bug where missing locations end up."
+        },
+        {
+          "name": "Crimson Marker",
+          "why": "Treats the pin as a cartographic specimen placed on a field chart."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Null Island Pin injects genuine computing folklore into an otherwise tiny scatter prop.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small decorative scatter prop appropriate for the appendix rather than a full page."
+    },
+    {
+      "key": "e:app-pill",
+      "depicts": "A green capsule-shaped button or tag containing a single centered white horizontal bar.",
+      "concept": "pill tag and call-to-action button",
+      "proposals": [
+        {
+          "name": "Action Pill",
+          "why": "Directly names the rounded capsule button."
+        },
+        {
+          "name": "Submit Lozenge",
+          "why": "Pokes dryly at design-system jargon for rounded buttons and badges."
+        },
+        {
+          "name": "Mint Capsule",
+          "why": "Describes the small green form like a catalogued botanical pod."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Submit Lozenge captures the mild absurdity of UI component taxonomy in two words.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Minimal UI chrome best kept in the specimen appendix."
+    },
+    {
+      "key": "e:app-bell",
+      "depicts": "A gold notification bell with a clapper underneath and a red unread indicator square at its top-right corner.",
+      "concept": "push notification and alert subscription",
+      "proposals": [
+        {
+          "name": "Alert Bell",
+          "why": "Plainly identifies the gold notification bell and unread dot."
+        },
+        {
+          "name": "Push Chime",
+          "why": "Connects the bell icon to asynchronous push-notification delivery."
+        },
+        {
+          "name": "Gilded Clapper",
+          "why": "Frames the pixel bell like an archival brass specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Push Chime links the visual icon to the real notification-delivery concept without repeating the app-icon badge angle.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct silhouette and classic Application-layer annoyance worth its own manual entry."
+    },
+    {
+      "key": "c:application:core",
+      "depicts": "A tiny pixel-art songbird in pink or sky-blue plumage with a white belly and yellow beak, seen flying and perching.",
+      "concept": "user-facing application event and UI cursor companion",
+      "proposals": [
+        {
+          "name": "Titlebar Finch",
+          "why": "Combines a real songbird with its habit of perching on flat window titlebars."
+        },
+        {
+          "name": "Chrome Swift",
+          "why": "Puns on UI 'chrome' while naming a fast-gliding aerial bird."
+        },
+        {
+          "name": "Window Warbler",
+          "why": "Reads directly like an entry from a classic naturalist bird guide."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Titlebar Finch grounds a genuine field-guide bird name in the exact architecture of the Application layer.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Primary living species of the Application layer with two crisp plumage colourways."
+    },
+    {
+      "key": "c:application:alt",
+      "depicts": "Two tiny isolated squares, one pink and one yellow, floating in the lower-left of a mostly empty frame.",
+      "concept": "transient UI particle or micro-event",
+      "proposals": [
+        {
+          "name": "Pixel Mote",
+          "why": "Honestly describes the two-pixel floating specks shown in the sprite."
+        },
+        {
+          "name": "Subpixel Gnat",
+          "why": "Applies dry rendering terminology to an almost invisible flying critter."
+        },
+        {
+          "name": "Twin Spark",
+          "why": "Frames the paired pink and yellow flecks as a tiny luminous insect pair."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Subpixel Gnat turns the sprite's microscopic scale into a fitting computing joke.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "The sprite is just two tiny coloured squares in an empty frame and does not yet read as a distinct critter."
+    }
+  ]
+}

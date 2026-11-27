@@ -1,0 +1,725 @@
+{
+  "layer": "runtime",
+  "items": [
+    {
+      "key": "e:rt-scaffold",
+      "depicts": "A three-tier metal scaffolding rack packed with multi-colored rectangular blocks and a ladder on the right.",
+      "concept": "managed heap memory",
+      "proposals": [
+        {
+          "name": "Heap Scaffold",
+          "why": "Plainly describes the multi-tiered storage structure holding allocated blocks."
+        },
+        {
+          "name": "Malloc Manor",
+          "why": "A wry nod to the crowded tenement of dynamically allocated objects."
+        },
+        {
+          "name": "Allocation Rookery",
+          "why": "Treats the dense, tiered object racks like a cliffside nesting colony."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Heap Scaffold is immediately legible as the layer's central landmark and pairs naturally with the Field Manual's architectural tone.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 64x52 anchor set piece unique to the runtime layer."
+    },
+    {
+      "key": "e:rt-incinerator",
+      "depicts": "A dark industrial furnace with glowing orange-yellow bars inside a grate and two small grey smoke puffs rising from a chimney.",
+      "concept": "garbage collection reclamation",
+      "proposals": [
+        {
+          "name": "Reclamation Furnace",
+          "why": "Directly states what the apparatus does to dead objects."
+        },
+        {
+          "name": "The Finalizer",
+          "why": "Plays on object finalization as a euphemism for being fed into the fire."
+        },
+        {
+          "name": "Cinder Kiln",
+          "why": "Evokes a naturalist field-guide name for a heat-belching industrial landmark."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Reclamation Furnace avoids colliding with the separate finalizer prop while keeping the dry industrial register.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated anchor set piece with no equivalent in other layers."
+    },
+    {
+      "key": "e:rt-objects",
+      "depicts": "A shelf holding three or four colored rectangular blocks of varying heights.",
+      "concept": "heap-allocated objects",
+      "proposals": [
+        {
+          "name": "Heap Objects",
+          "why": "Literal, unambiguous label for the standard allocated blocks."
+        },
+        {
+          "name": "Boxed Values",
+          "why": "Puns on heap-allocated wrapper objects and literal cardboard-like boxes."
+        },
+        {
+          "name": "Shelf Specimens",
+          "why": "Frames the assorted colored blocks as catalogued items on an archive rack."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Boxed Values is a dry, computing-literate pun that fits both the visual blocks and runtime semantics.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core runtime prop with two appearance variants; duplicated in bytecode and jit layers, which should defer to this canonical entry."
+    },
+    {
+      "key": "e:rt-sweeper",
+      "depicts": "A small wheeled blue-violet robot with a cyan eye and yellow scoop patrolling a shelf past grey and blue blocks.",
+      "concept": "mark-and-sweep garbage collector",
+      "proposals": [
+        {
+          "name": "Sweep Bot",
+          "why": "Plainly names the automated sweeping unit on the shelf."
+        },
+        {
+          "name": "Stop-the-World Sweeper",
+          "why": "References the classic GC pause while describing its custodial rounds."
+        },
+        {
+          "name": "Shelf Scavenger",
+          "why": "Cast in a field-guide register as a small creature clearing dead matter from the ledges."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Stop-the-World Sweeper captures the exact GC mechanism with dry humor and avoids the prototype's generic title.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop central to the runtime layer's GC theme."
+    },
+    {
+      "key": "e:rt-marks",
+      "depicts": "Four colored blocks on a shelf with yellow L-shaped checkmarks above three of them and a dark bar above the blue one.",
+      "concept": "GC reachability marking",
+      "proposals": [
+        {
+          "name": "Reachability Marks",
+          "why": "Directly names the live/dead tags hovering over the blocks."
+        },
+        {
+          "name": "Mark Bits",
+          "why": "Uses the exact systems term for the flags set during the mark phase."
+        },
+        {
+          "name": "Surveyor Tags",
+          "why": "Likens the floating markers to field tags tied to specimens before clearing."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Mark Bits is concise, technically exact, and fits a Unix-manual entry.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop illustrating the mark phase."
+    },
+    {
+      "key": "e:rt-ref",
+      "depicts": "A blue block in the upper left connected by an L-shaped purple pipe with a cross-shaped end to another blue block in the lower right.",
+      "concept": "object reference pointer",
+      "proposals": [
+        {
+          "name": "Object Reference",
+          "why": "Plainly identifies the link between two heap blocks."
+        },
+        {
+          "name": "Dangling Conduit",
+          "why": "A sly reference to pointer hazards and the pipe-like connector."
+        },
+        {
+          "name": "Root Tendril",
+          "why": "Treats the connecting line as a biological runner linking two nodes."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Object Reference is clean, foundational, and pairs well with Weak Reference and Reference Counter.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop representing basic pointer edges in the heap."
+    },
+    {
+      "key": "e:rt-heapcol",
+      "depicts": "A vertical dark purple pillar with four horizontal green and blue bars extending to the right.",
+      "concept": "heap memory column",
+      "proposals": [
+        {
+          "name": "Heap Column",
+          "why": "Describes the vertical stack of memory bars directly."
+        },
+        {
+          "name": "Fragmented Spine",
+          "why": "Nods to uneven heap allocation lengths along a single axis."
+        },
+        {
+          "name": "Strata Pillar",
+          "why": "Field-guide register comparing the stacked bars to geological layers."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Heap Column is crisp and accurate for a minor structural prop.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small structural prop that works better as a catalogue specimen than a full manual page."
+    },
+    {
+      "key": "e:rt-jit",
+      "depicts": "A grey anvil with glowing orange and yellow flames rising from its top surface.",
+      "concept": "just-in-time compilation",
+      "proposals": [
+        {
+          "name": "JIT Anvil",
+          "why": "Plainly names the glowing forge anvil."
+        },
+        {
+          "name": "Hotspot Forge",
+          "why": "Puns on HotSpot/hot-path compilation and literal blacksmithing heat."
+        },
+        {
+          "name": "Ember Smithy",
+          "why": "Evocative, naturalist-adjacent name for a glowing roadside work-station."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Hotspot Forge is a sharp computing pun that immediately explains why an anvil is on fire.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop; note that the jit layer has a larger jit-forge anchor, but this runtime prop is its own smaller anvil."
+    },
+    {
+      "key": "e:rt-tape",
+      "depicts": "Two grey circular tape reels mounted side-by-side on a tan and grey horizontal base.",
+      "concept": "bytecode instruction stream",
+      "proposals": [
+        {
+          "name": "Tape Reels",
+          "why": "Describes the twin-reel tape mechanism literally."
+        },
+        {
+          "name": "Turing Spool",
+          "why": "A dry nod to tape-based computation models."
+        },
+        {
+          "name": "Twin Bobbins",
+          "why": "Field-guide register treating the reels like textile or archive hardware."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Turing Spool is quietly funny and unmistakably computing-literate.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop with no duplicate in the runtime layer."
+    },
+    {
+      "key": "e:rt-callstack",
+      "depicts": "A vertical stack of horizontal colored bars (pink, yellow, blue, green, red) topped by a small purple marker.",
+      "concept": "execution call stack",
+      "proposals": [
+        {
+          "name": "Call Stack",
+          "why": "The standard, unambiguous computing term for the stacked bars."
+        },
+        {
+          "name": "LIFO Tower",
+          "why": "A dry reference to last-in, first-out stack discipline."
+        },
+        {
+          "name": "Layered Cairn",
+          "why": "Naturalist register likening the balanced colored slabs to a trail marker."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Call Stack is iconic enough that the plain term is best for the main Field Manual entry.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core runtime prop with two height variants."
+    },
+    {
+      "key": "e:rt-refcount",
+      "depicts": "A blue block with a red tag-like counter attached to its upper-right corner.",
+      "concept": "reference counting",
+      "proposals": [
+        {
+          "name": "Reference Counter",
+          "why": "Plainly states the mechanism tracking incoming pointers."
+        },
+        {
+          "name": "Cycle Blindspot",
+          "why": "A wry jab at the classic failure mode of reference counting."
+        },
+        {
+          "name": "Tally Tag",
+          "why": "Field-guide register for the small red marker clipped to the block."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Reference Counter is clear and pairs cleanly with Object Reference and Weak Reference.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop representing a major memory-management strategy."
+    },
+    {
+      "key": "e:rt-weakref",
+      "depicts": "A blue block on the left connected by three dotted purple squares to a hollow grey square on the right.",
+      "concept": "weak reference",
+      "proposals": [
+        {
+          "name": "Weak Reference",
+          "why": "Direct technical name for a non-owning pointer."
+        },
+        {
+          "name": "Tentative Pointer",
+          "why": "Dryly personifies a reference that refuses to keep its target alive."
+        },
+        {
+          "name": "Gossamer Link",
+          "why": "Naturalist register for the faint, dotted connection."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Weak Reference is the exact term and contrasts neatly with Object Reference.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop illustrating non-owning references."
+    },
+    {
+      "key": "e:rt-tricolor",
+      "depicts": "Three squares in a row—black, grey, and white—linked by short purple bars.",
+      "concept": "tri-color marking algorithm",
+      "proposals": [
+        {
+          "name": "Tri-Color Markers",
+          "why": "Plainly names the three-state GC marking nodes."
+        },
+        {
+          "name": "Dijkstra's Traffic",
+          "why": "Nods to Edsger Dijkstra's tri-color abstraction in a dry, understated way."
+        },
+        {
+          "name": "Grey-Set Chain",
+          "why": "Evocative technical phrasing focused on the frontier between black and white."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Tri-Color Markers is immediately recognizable to systems readers and clear to everyone else.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop depicting the tri-color invariant."
+    },
+    {
+      "key": "e:rt-bump",
+      "depicts": "A horizontal dark trough with a green block at the left end and a yellow T-shaped cursor above it.",
+      "concept": "bump-pointer allocation",
+      "proposals": [
+        {
+          "name": "Bump Allocator",
+          "why": "The standard name for this fast linear allocation scheme."
+        },
+        {
+          "name": "Cursor Shove",
+          "why": "A wry, literal description of advancing a pointer by one offset."
+        },
+        {
+          "name": "Arena Slide",
+          "why": "Field-guide register evoking a mechanical gauge sliding along a track."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Bump Allocator is the canonical computing term and matches the sprite's sliding cursor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop."
+    },
+    {
+      "key": "e:rt-finalizer",
+      "depicts": "Two blue blocks and a red block on a shelf moving toward a dark doorway with a yellow handle.",
+      "concept": "object finalizer queue",
+      "proposals": [
+        {
+          "name": "Finalizer Queue",
+          "why": "Plainly names the queue of objects awaiting cleanup before reclamation."
+        },
+        {
+          "name": "Death Row",
+          "why": "A dry, dark-humored pun on objects queued for destruction."
+        },
+        {
+          "name": "Threshold Chute",
+          "why": "Evocative architectural name for the doorway at the end of the shelf."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Finalizer Queue is precise, dry, and avoids confusion with the Reclamation Furnace anchor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop showing objects queuing at a dark exit."
+    },
+    {
+      "key": "e:rt-interp",
+      "depicts": "A tall grey housing with four horizontal colored slots and a yellow tab sticking out the left side.",
+      "concept": "bytecode interpreter",
+      "proposals": [
+        {
+          "name": "Bytecode Interpreter",
+          "why": "Directly names the execution engine reading instructions one by one."
+        },
+        {
+          "name": "Fetch-Decode-Repeat",
+          "why": "A dry nod to the interpreter's relentless inner loop."
+        },
+        {
+          "name": "Slot Reader",
+          "why": "Field-guide register describing the physical slotted housing."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Bytecode Interpreter is clear and anchors the execution-engine side of the runtime layer.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop."
+    },
+    {
+      "key": "e:rt-hashmap",
+      "depicts": "A grey vertical rack with four dark bucket slots, three of which have colored blocks attached by purple tabs.",
+      "concept": "hash table buckets",
+      "proposals": [
+        {
+          "name": "Hash Map",
+          "why": "The standard name for the key-value bucket structure."
+        },
+        {
+          "name": "Collision Rack",
+          "why": "Wryly highlights what happens when keys land in the same bucket."
+        },
+        {
+          "name": "Bucket Loom",
+          "why": "Evocative field-guide name for the slotted vertical frame."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Hash Map is the exact concept and works cleanly as a Field Manual entry.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop representing associative storage."
+    },
+    {
+      "key": "e:rt-strpool",
+      "depicts": "Three colored squares on the left wired through a purple junction into a dark box containing a yellow bar.",
+      "concept": "string interning pool",
+      "proposals": [
+        {
+          "name": "String Pool",
+          "why": "Plainly names the deduplicated string storage."
+        },
+        {
+          "name": "Interned Basin",
+          "why": "Puns on string interning and a literal collecting pool."
+        },
+        {
+          "name": "Confluence Box",
+          "why": "Naturalist register for multiple streams merging into one."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "String Pool is crisp, accurate, and immediately understood.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop unique to the runtime layer."
+    },
+    {
+      "key": "e:rt-closure",
+      "depicts": "A purple-framed tank holding a blue liquid block with a small purple pipe and yellow cap at the bottom.",
+      "concept": "lexical closure",
+      "proposals": [
+        {
+          "name": "Lexical Closure",
+          "why": "Plainly names a function bundled with its captured environment."
+        },
+        {
+          "name": "Captured Scope",
+          "why": "A dry nod to variables trapped inside a glass tank."
+        },
+        {
+          "name": "Amber Vat",
+          "why": "Field-guide register likening the sealed tank to a preserved specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Lexical Closure is the exact computing term and fits the sealed-tank visual.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop."
+    },
+    {
+      "key": "e:rt-eventloop",
+      "depicts": "A dark circular dial with four tick marks and a yellow hand pointing downward.",
+      "concept": "event loop",
+      "proposals": [
+        {
+          "name": "Event Loop",
+          "why": "The standard name for the single-threaded dispatch cycle."
+        },
+        {
+          "name": "Ticking Queue",
+          "why": "A wry nod to the clock-like dial and queued callbacks."
+        },
+        {
+          "name": "Compass Dial",
+          "why": "Naturalist register for the circular, ticking instrument."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Event Loop is the canonical term and matches the rotating dial.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop."
+    },
+    {
+      "key": "e:rt-promise",
+      "depicts": "A small square frame containing a yellow hourglass.",
+      "concept": "async promise or future",
+      "proposals": [
+        {
+          "name": "Async Promise",
+          "why": "Plainly names the deferred-value placeholder."
+        },
+        {
+          "name": "Pending IOU",
+          "why": "A dry joke about a value that hasn't arrived yet."
+        },
+        {
+          "name": "Sands of Later",
+          "why": "Evocative field-guide phrasing for the hourglass icon."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Async Promise is clear and pairs naturally with Event Loop.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop."
+    },
+    {
+      "key": "e:rt-compact",
+      "depicts": "A grey shelf with six colored blocks pushed together into tight clusters.",
+      "concept": "heap compaction",
+      "proposals": [
+        {
+          "name": "Heap Compactor",
+          "why": "Plainly names the defragmenting pass."
+        },
+        {
+          "name": "Defrag Press",
+          "why": "A wry industrial pun on squeezing out free-space gaps."
+        },
+        {
+          "name": "Tightened Row",
+          "why": "Field-guide register for the huddled, gapless blocks."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Heap Compactor is direct and pairs cleanly with Heap Scaffold and Sweep Bot.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop."
+    },
+    {
+      "key": "e:rt-vtable",
+      "depicts": "A dark grey column with two dark slots on the left and three purple-and-yellow pointer tabs on the right.",
+      "concept": "virtual method table",
+      "proposals": [
+        {
+          "name": "Virtual Table",
+          "why": "The standard, unambiguous name for a vtable."
+        },
+        {
+          "name": "Dispatch Stub",
+          "why": "A dry nod to dynamic method indirection."
+        },
+        {
+          "name": "Signpost Spine",
+          "why": "Field-guide register for the tabs pointing outward from a post."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Virtual Table is crisp, accurate, and familiar to systems programmers.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop."
+    },
+    {
+      "key": "e:rt-bytecode",
+      "depicts": "Pixel-art purple text reading \"RETUR\" (truncated \"RETURN\").",
+      "concept": "bytecode opcode",
+      "proposals": [
+        {
+          "name": "Return Opcode",
+          "why": "Plainly identifies the bytecode instruction shown."
+        },
+        {
+          "name": "Truncated Return",
+          "why": "Dryly acknowledges the clipped final letter in the sprite."
+        },
+        {
+          "name": "Glyph Banner",
+          "why": "Field-guide register treating the pixel text as an inscribed marker."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Return Opcode is clear and explains the text prop's role.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small text-banner prop that works best as a catalogue specimen."
+    },
+    {
+      "key": "e:rt-arena",
+      "depicts": "A purple-bordered dark box containing five alternating green and blue vertical bars.",
+      "concept": "memory arena",
+      "proposals": [
+        {
+          "name": "Memory Arena",
+          "why": "Directly names the region-based allocator."
+        },
+        {
+          "name": "Bulk Free Pen",
+          "why": "A wry nod to freeing an entire region at once."
+        },
+        {
+          "name": "Enclosed Paddock",
+          "why": "Naturalist register likening the fenced bars to a penned herd."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Memory Arena is the standard term and fits the bordered-enclosure sprite.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop."
+    },
+    {
+      "key": "e:rt-stackframe",
+      "depicts": "A dark box with three horizontal colored bars (yellow, blue, pink) of different lengths.",
+      "concept": "call stack frame",
+      "proposals": [
+        {
+          "name": "Stack Frame",
+          "why": "The exact computing term for a single activation record."
+        },
+        {
+          "name": "Activation Record",
+          "why": "A dry, textbook-precise alternative to stack frame."
+        },
+        {
+          "name": "Nested Slate",
+          "why": "Field-guide register for the banded rectangular tablet."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Stack Frame is concise, exact, and avoids the prototype's cutesy 'Frame Runner'.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop."
+    },
+    {
+      "key": "e:rt-upvalue",
+      "depicts": "A yellow-framed box linked by a vertical purple bar to a green-framed box below it.",
+      "concept": "captured upvalue",
+      "proposals": [
+        {
+          "name": "Captured Upvalue",
+          "why": "Directly names the non-local variable bridged across scopes."
+        },
+        {
+          "name": "Escaped Local",
+          "why": "A wry nod to a stack variable that outlived its frame."
+        },
+        {
+          "name": "Tethered Cell",
+          "why": "Naturalist register for the two linked chambers."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Captured Upvalue is technically exact and pairs well with Lexical Closure.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop."
+    },
+    {
+      "key": "e:rt-safepoint",
+      "depicts": "A red rectangular sign with a yellow center mounted on a purple post.",
+      "concept": "GC safepoint",
+      "proposals": [
+        {
+          "name": "GC Safepoint",
+          "why": "Plainly names the execution point where threads can pause safely for GC."
+        },
+        {
+          "name": "Pause Beacon",
+          "why": "A dry description of a roadside sign that halts passing threads."
+        },
+        {
+          "name": "Signal Post",
+          "why": "Field-guide register for the lit post-mounted marker."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "GC Safepoint is the exact systems term and matches the signpost sprite.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop."
+    },
+    {
+      "key": "e:rt-nursery",
+      "depicts": "A green-bordered dark box holding four alternating yellow and mint-green squares.",
+      "concept": "generational GC nursery",
+      "proposals": [
+        {
+          "name": "Eden Nursery",
+          "why": "Combines the classic generational-GC term 'Eden' with nursery."
+        },
+        {
+          "name": "Short-Lived Pen",
+          "why": "A dry nod to the generational hypothesis that most objects die young."
+        },
+        {
+          "name": "Seedling Tray",
+          "why": "Naturalist register for a green box holding newly sprouted squares."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Eden Nursery is immediately recognizable to anyone familiar with generational garbage collectors.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct prop."
+    },
+    {
+      "key": "c:runtime:core",
+      "depicts": "A small boxy, crenellated pixel critter with two dark eyes sitting in a dark cradle, appearing in cyan, green, and yellow variants.",
+      "concept": "heap-hopping runtime critter",
+      "proposals": [
+        {
+          "name": "Heap Hopper",
+          "why": "Plainly describes its hopping motion across allocated blocks."
+        },
+        {
+          "name": "Malloc Mite",
+          "why": "A dry, computing-literate pun on a tiny creature infesting the heap."
+        },
+        {
+          "name": "Cradle Pip",
+          "why": "Naturalist field-guide name for the small, boxy perch-dweller."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Malloc Mite is dry, memorable, and avoids repeating the prototype 'Heap Hopper'.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core critter species for the runtime layer with three color variants."
+    }
+  ]
+}

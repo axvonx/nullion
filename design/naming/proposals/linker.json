@@ -1,0 +1,653 @@
+{
+  "layer": "linker",
+  "items": [
+    {
+      "key": "e:ld-switchboard",
+      "depicts": "A black switchboard frame with five grey jack blocks on the left wired by criss-crossing yellow and orange patch cords to five amber blocks on the right.",
+      "concept": "dynamic symbol resolution",
+      "proposals": [
+        {
+          "name": "Symbol Switchboard",
+          "why": "Plainly names the landmark prop and its role in wiring callers to exported symbols."
+        },
+        {
+          "name": "Unresolved Exchange",
+          "why": "Plays on telephone switchboard exchanges and the unresolved symbols waiting to be patched at load time."
+        },
+        {
+          "name": "Amber Patch-Loom",
+          "why": "Describes the glowing amber cordwork in the register of a field-guide specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Symbol Switchboard is immediately legible as the Dynamic Linker layer's central anchor without sacrificing precision.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 50x44 landmark anchor unique to the linker layer and worthy of its own Field Manual page."
+    },
+    {
+      "key": "e:ld-elf",
+      "depicts": "A grey-framed dark plate with a deep blue header band above a short yellow bar and a longer grey bar.",
+      "concept": "ELF executable header",
+      "proposals": [
+        {
+          "name": "ELF Header",
+          "why": "Directly identifies the binary format header depicted by the banded layout."
+        },
+        {
+          "name": "Magic-Byte Plate",
+          "why": "Nods to the 0x7f ELF magic bytes stamped at the start of every Linux executable."
+        },
+        {
+          "name": "Blue-Capped Folio",
+          "why": "Uses a quiet naturalist description drawn from the sprite's cobalt crown and ruled bars."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "ELF Header fits the Unix manual binder aesthetic with zero ambiguity.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core linker-layer artifact with its own sprite and a rich real-world computing concept."
+    },
+    {
+      "key": "e:ld-plt",
+      "depicts": "Two dark vertical panels framed in grey and yellow, bridged across a central gap by crossing orange and teal diagonal tracks.",
+      "concept": "Procedure Linkage Table",
+      "proposals": [
+        {
+          "name": "PLT Stub",
+          "why": "Plainly labels the Procedure Linkage Table entry represented by the bridged panels."
+        },
+        {
+          "name": "Trampoline Bridge",
+          "why": "References the classic linker term for PLT jump stubs that bounce calls into resolved code."
+        },
+        {
+          "name": "Cross-Track Span",
+          "why": "Evokes the sprite's intersecting teal and orange pixel paths in field-guide style."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Trampoline Bridge conveys both the bridged visual and the indirection mechanism of a PLT stub.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Original linker-layer prop depicting a signature dynamic-linking structure."
+    },
+    {
+      "key": "e:ld-reloc",
+      "depicts": "Two vertical blocks, one bright yellow and one brown, threaded side by side onto a single horizontal grey rail.",
+      "concept": "relocation entries",
+      "proposals": [
+        {
+          "name": "Relocation Entry",
+          "why": "States the exact ELF structure responsible for patching load-time addresses."
+        },
+        {
+          "name": "Offset Fixup",
+          "why": "Uses the dry linker vernacular for rewriting placeholder addresses once a module lands in memory."
+        },
+        {
+          "name": "Rail-Strung Markers",
+          "why": "Captures the sprite's two coloured blocks riding a grey bar in observational field-guide prose."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Offset Fixup is crisp, idiomatic linker jargon that reads naturally as a manual entry.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "The minimal two-block schematic is clear enough for an appendix listing but slight for a full page."
+    },
+    {
+      "key": "e:ld-lib-shelf",
+      "depicts": "A dark wooden bookcase bay packed with colourful vertical spines, several banded in yellow, with one olive volume leaning on the right.",
+      "concept": "shared library collection",
+      "proposals": [
+        {
+          "name": "Library Stack",
+          "why": "Plainly describes a shelf of stored shared libraries ready for loading."
+        },
+        {
+          "name": "Standard Bay",
+          "why": "Dryly nods to standard library bays and the shelving aisles of an archive."
+        },
+        {
+          "name": "Gilt-Banded Shelf",
+          "why": "Highlights the yellow-banded book spines in a restrained field-guide tone."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Library Stack is concise and bridges the physical shelf and the software stack metaphor.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-shelf",
+      "decisionWhy": "Both sprite variants are byte-for-byte identical to e:lib-shelf in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-catalogue",
+      "depicts": "A wooden nine-drawer card-catalogue cabinet on tall dark legs, with brass pulls and two pale cream drawer fronts at the bottom right.",
+      "concept": "symbol index lookup",
+      "proposals": [
+        {
+          "name": "Card Catalogue",
+          "why": "Directly names the nine-drawer index cabinet shown in the sprite."
+        },
+        {
+          "name": "Export Index",
+          "why": "Reframes the library drawer cabinet as a linker's exported symbol directory."
+        },
+        {
+          "name": "Brass-Pull Cabinet",
+          "why": "Uses concrete material detail in the manner of an archival specimen note."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Export Index links the familiar card-catalogue visual to dynamic symbol lookup.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-catalogue",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-catalogue in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-ladder",
+      "depicts": "A tall angled wooden rolling ladder fitted with grey metal rail hooks at the top and casters at the base.",
+      "concept": "dependency path traversal",
+      "proposals": [
+        {
+          "name": "Rolling Ladder",
+          "why": "Plainly identifies the rail-mounted library ladder."
+        },
+        {
+          "name": "Call-Stack Ladder",
+          "why": "Puns on climbing high shelves and traversing a runtime call stack."
+        },
+        {
+          "name": "Rail-Hooked Rungs",
+          "why": "Describes the sprite's wooden rungs and metal hooks in spare naturalist phrasing."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Rolling Ladder is uncluttered and true to the sprite's unmistakable silhouette.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-ladder",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-ladder in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-spool",
+      "depicts": "A wooden-flanged spool wound with red-and-maroon cord, paying out a single yellow-tipped strand to the right.",
+      "concept": "symbol binding thread",
+      "proposals": [
+        {
+          "name": "Thread Spool",
+          "why": "Directly states what the animated wooden bobbin depicts."
+        },
+        {
+          "name": "Linkage Bobbin",
+          "why": "Connects the paying-out cord to dynamic linkage between modules."
+        },
+        {
+          "name": "Crimson Cord-Reel",
+          "why": "Foregrounds the red-wound reel in a quiet field-guide register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Linkage Bobbin ties the textile prop neatly to the linker's vocabulary.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-spool",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-spool in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-cart",
+      "depicts": "A two-tiered grey metal book trolley on caster wheels loaded with coloured volumes.",
+      "concept": "runtime library loader",
+      "proposals": [
+        {
+          "name": "Book Trolley",
+          "why": "Plainly describes the two-shelf wheeled cart carrying books."
+        },
+        {
+          "name": "Loader Cart",
+          "why": "Wryly casts the library trolley as the runtime loader hauling shared objects into place."
+        },
+        {
+          "name": "Castered Book-Rack",
+          "why": "Uses precise physical description suited to an archival field catalogue."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Loader Cart keeps the physical object recognizable while landing the computing pun.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-cart",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-cart in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-crates",
+      "depicts": "Three stacked wooden shipping crates each stencilled in cream with the letters .c.",
+      "concept": "C source and object packages",
+      "proposals": [
+        {
+          "name": "Source Crates",
+          "why": "Plainly names the stacked wooden boxes marked for C source files."
+        },
+        {
+          "name": "Dot-C Crates",
+          "why": "Reads the sprite's literal .c stencil as a dry computing designation."
+        },
+        {
+          "name": "Stencilled Timber-Boxes",
+          "why": "Describes the crate stack in an understated archival field-guide register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dot-C Crates directly rewards the player for spotting the pixel stencil on each box.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-crates",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-crates in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-loom",
+      "depicts": "A wooden weaving frame strung with vertical red and blue warp threads, a grey heddle bar, and a yellow shuttle.",
+      "concept": "static and dynamic linking",
+      "proposals": [
+        {
+          "name": "Weaving Loom",
+          "why": "Simply identifies the animated warp-and-shuttle frame."
+        },
+        {
+          "name": "Object Loom",
+          "why": "Nods to weaving compiled object files into a single executable fabric."
+        },
+        {
+          "name": "Red-Warp Frame",
+          "why": "Draws on the sprite's coloured vertical threads for a field-guide label."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Object Loom connects the weaving metaphor directly to linking object modules.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-loom",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-loom in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-archive",
+      "depicts": "An open wooden archive chest with pale cream index dividers protruding from its lower tray.",
+      "concept": "static archive files",
+      "proposals": [
+        {
+          "name": "Archive Box",
+          "why": "Plainly names the tabbed wooden storage chest."
+        },
+        {
+          "name": "Dot-A Chest",
+          "why": "References Unix .a static library archives stored as indexed collections of objects."
+        },
+        {
+          "name": "Tabbed Record-Case",
+          "why": "Uses quiet archival vocabulary matching the sprite's protruding dividers."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dot-A Chest is a dry, computing-literate pun on Unix static archive files.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-archive",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-archive in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-lamp",
+      "depicts": "A brass-stemmed banker's lamp with a dark green shade and a pale yellow glow underneath.",
+      "concept": "symbol visibility inspection",
+      "proposals": [
+        {
+          "name": "Banker's Lamp",
+          "why": "Plainly names the classic green-shaded reading lamp."
+        },
+        {
+          "name": "Inspection Lamp",
+          "why": "Dryly evokes reading symbols and disassembly under a desk light."
+        },
+        {
+          "name": "Green-Shaded Sconce",
+          "why": "Adopts a descriptive field-guide tone focused on the green glass hood."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Banker's Lamp is exact, concise, and immediately matches the iconic pixel silhouette.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-lamp",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-lamp in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-tangle",
+      "depicts": "A brown-framed dark board showing five pale nodes linked into a knotted graph by red and yellow lines.",
+      "concept": "dependency hell",
+      "proposals": [
+        {
+          "name": "Dependency Graph",
+          "why": "Plainly states the node-and-edge diagram mounted on the board."
+        },
+        {
+          "name": "Circular Knot",
+          "why": "Wryly points to circular dependencies that snarl library resolution."
+        },
+        {
+          "name": "Red-Wired Tableau",
+          "why": "Describes the framed knot of coloured lines in an observational field-guide voice."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Circular Knot is dryly funny and captures the dread of tangled library dependencies.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-tangle",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-tangle in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-thread",
+      "depicts": "A broken diagonal-to-horizontal trail of brown and yellow pixels stretching between two orange endpoint blocks.",
+      "concept": "cross-library call chain",
+      "proposals": [
+        {
+          "name": "Linkage Thread",
+          "why": "Plainly labels the animated strand connecting two endpoints."
+        },
+        {
+          "name": "Dangling Reference",
+          "why": "Nods to broken or trailing references across shared modules."
+        },
+        {
+          "name": "Ochre Trace-Line",
+          "why": "Uses restrained observational wording for the dashed brown-and-amber line."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dangling Reference turns a sparse pixel trail into a sharp systems-programming joke.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-thread",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-thread in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-plaque",
+      "depicts": "A horizontal brown wooden plaque with bright yellow pixel lettering reading LIBDL or LIBZ.",
+      "concept": "named shared libraries",
+      "proposals": [
+        {
+          "name": "Library Plaque",
+          "why": "Directly identifies the engraved wooden sign bearing a library name."
+        },
+        {
+          "name": "Shared-Object Sign",
+          "why": "Ties the literal LIBDL and LIBZ lettering to POSIX shared-object naming."
+        },
+        {
+          "name": "Gilt-Lettered Board",
+          "why": "Describes the yellow-on-wood plaque in the quiet style of a museum tag."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Library Plaque is clean and lets the in-sprite LIBDL and LIBZ text speak for itself.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-plaque",
+      "decisionWhy": "Both LIBDL and LIBZ sprite variants are byte-for-byte identical to e:lib-plaque in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-card",
+      "depicts": "A small cream index card ruled with a red top margin and two olive lines of text over a dark drop shadow.",
+      "concept": "library manifest entry",
+      "proposals": [
+        {
+          "name": "Index Card",
+          "why": "Plainly names the ruled cream filing card."
+        },
+        {
+          "name": "Symbol Slip",
+          "why": "Reframes the card-catalogue slip as an individual symbol-table record."
+        },
+        {
+          "name": "Red-Ruled Chit",
+          "why": "Notes the crimson header rule in crisp archival field-guide language."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Symbol Slip bridges the physical filing card and the linker's per-symbol metadata.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-card",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-card in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-lectern",
+      "depicts": "A pedestal wooden reading stand supporting an open cream book with two grey text blocks.",
+      "concept": "ABI specification reference",
+      "proposals": [
+        {
+          "name": "Reading Lectern",
+          "why": "Simply describes the wooden pedestal stand and open volume."
+        },
+        {
+          "name": "ABI Lectern",
+          "why": "Casts the open reference tome as the canonical Application Binary Interface spec."
+        },
+        {
+          "name": "Open-Folio Stand",
+          "why": "Uses quiet archival phrasing suited to a field manual catalogue."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "ABI Lectern grounds the library furniture in the Dynamic Linker / ABI layer's subject matter.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-lectern",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-lectern in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-stamp",
+      "depicts": "A wooden rubber stamp hovering above a cream sheet beside a dark purple ink pad, leaving a magenta impression.",
+      "concept": "symbol version stamping",
+      "proposals": [
+        {
+          "name": "Date Stamp",
+          "why": "Plainly identifies the animated library stamp and ink pad."
+        },
+        {
+          "name": "Version Stamper",
+          "why": "Nods to symbol versioning tags stamped onto exported shared-library functions."
+        },
+        {
+          "name": "Magenta Ink-Press",
+          "why": "Highlights the bright purple ink pad in an observational field-guide register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Version Stamper pairs the physical stamping motion with ELF symbol versioning.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-stamp",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-stamp in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-pile",
+      "depicts": "An uneven stack of four horizontal hardcover volumes in green, purple, and brown with pale cream page edges.",
+      "concept": "stacked library dependencies",
+      "proposals": [
+        {
+          "name": "Book Pile",
+          "why": "Directly names the small stack of bound volumes."
+        },
+        {
+          "name": "Dependency Stack",
+          "why": "Puns on a literal stack of books and a chain of transitive library dependencies."
+        },
+        {
+          "name": "Four-Volume Cairn",
+          "why": "Treats the crooked book pile like a small landmark in field-guide prose."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dependency Stack gives a humble scatter prop a sharp systems-level reading.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-pile",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-pile in the libraries layer."
+    },
+    {
+      "key": "e:ld-lib-scroll",
+      "depicts": "A cream parchment scroll unrolled between two wooden spindles, showing three olive lines with a single red rubric square.",
+      "concept": "linker script directives",
+      "proposals": [
+        {
+          "name": "Reference Scroll",
+          "why": "Plainly describes the unrolled parchment between wooden rollers."
+        },
+        {
+          "name": "Linker Script",
+          "why": "Dryly equates an archaic rolled manuscript with the arcane syntax of GNU ld scripts."
+        },
+        {
+          "name": "Rubricated Roll",
+          "why": "Draws on manuscript terminology for the red-marked olive lines."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Linker Script is an apt, quietly funny match for an ancient-looking scroll in a linker layer.",
+      "decisionHint": "merge",
+      "mergeWith": "e:lib-scroll",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:lib-scroll in the libraries layer."
+    },
+    {
+      "key": "e:ld-got",
+      "depicts": "A grey-framed black panel holding four horizontal bars, three dark grey and the second illuminated in bright yellow.",
+      "concept": "Global Offset Table",
+      "proposals": [
+        {
+          "name": "Global Offset Table",
+          "why": "States the full canonical name of the ELF pointer table shown as stacked slots."
+        },
+        {
+          "name": "Indirection Ledger",
+          "why": "Wryly describes the GOT's role as a lookup table storing one extra hop to every external address."
+        },
+        {
+          "name": "Lit-Slot Slate",
+          "why": "Captures the dark four-row slate with one highlighted entry in field-guide register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Indirection Ledger avoids dry textbook recitation while staying immediately recognizable to systems readers.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Original linker-layer prop representing one of the two pillars of ELF dynamic linking."
+    },
+    {
+      "key": "e:ld-soname",
+      "depicts": "A brown-framed cream plaque showing a long dark-grey bar above a shorter brown bar, like a two-line name and version plate.",
+      "concept": "ELF SONAME versioning",
+      "proposals": [
+        {
+          "name": "SONAME Tag",
+          "why": "Directly names the ELF dynamic tag that declares a shared library's ABI identity."
+        },
+        {
+          "name": "ABI Nameplate",
+          "why": "Translates SONAME into a dry hardware-style brass-and-enamel nameplate."
+        },
+        {
+          "name": "Ochre-Rimmed Plaque",
+          "why": "Describes the warm-bordered two-line plate in plain field-guide terms."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "SONAME Tag is terse, authentic, and fits a Unix manual binder without extra explanation.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Clean 20x8 schematic plaque that works best as an appendix specimen rather than a full manual page."
+    },
+    {
+      "key": "e:ld-rpath",
+      "depicts": "Three vertical bars in yellow, teal, and orange spaced evenly across a single horizontal grey rail.",
+      "concept": "RPATH library search order",
+      "proposals": [
+        {
+          "name": "Search-Path Rail",
+          "why": "Plainly describes the ordered sequence of stops along a horizontal bar."
+        },
+        {
+          "name": "RPATH Signpost",
+          "why": "References the embedded ELF search-path list that overrides default library directories."
+        },
+        {
+          "name": "Tri-Band Waymarker",
+          "why": "Treats the three coloured posts along the grey line as trail markers in field-guide prose."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "RPATH Signpost connects the three-stop visual cleanly to the linker's directory search order.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Abstract three-bar schematic suitable for an appendix catalogue entry rather than a standalone page."
+    },
+    {
+      "key": "e:ld-lazy",
+      "depicts": "A grey-bordered white card containing a dark grey horizontal bar over a shorter bright-yellow bar.",
+      "concept": "lazy symbol binding",
+      "proposals": [
+        {
+          "name": "Lazy Binding",
+          "why": "Plainly names the default ELF policy of resolving symbols only on first call."
+        },
+        {
+          "name": "Deferred Resolver",
+          "why": "Dryly captures RTLD_LAZY postponing work until the moment a function is actually invoked."
+        },
+        {
+          "name": "Half-Filled Chit",
+          "why": "Describes the sparse, unfinished look of the two-bar card in field-guide style."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Deferred Resolver conveys the computing joke of lazy binding without sounding cutesy.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "The sprite is two plain rectangles inside a white box and does not visually convey lazy binding on its own."
+    },
+    {
+      "key": "c:linker:core",
+      "depicts": "A small brown boxy creature with a yellow top ridge, two stubby grey legs underneath, and a pale-yellow plug prong extending to the right.",
+      "concept": "dynamic linker daemon (ld.so)",
+      "proposals": [
+        {
+          "name": "Symbol Patcher",
+          "why": "Plainly states the linker critter's job of patrolling and patching symbols."
+        },
+        {
+          "name": "Bind-Time Beetle",
+          "why": "Combines its compact legged silhouette with a dry nod to load-time symbol binding."
+        },
+        {
+          "name": "Brass-Pronged Walker",
+          "why": "Describes the critter's projecting yellow prong and two legs like a field-guide species."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Bind-Time Beetle fits the tiny legged plug-like sprite and anchors the species firmly in linker terminology.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique critter species for the linker layer with no duplicate sprite elsewhere in the stack."
+    },
+    {
+      "key": "c:linker:alt",
+      "depicts": "A smaller legless brown block with a pale-yellow top-left tab and a bright-yellow prong projecting to the right.",
+      "concept": "unresolved symbol stub",
+      "proposals": [
+        {
+          "name": "Stub Hopper",
+          "why": "Plainly pairs the critter's hopping motion with linker stub entries."
+        },
+        {
+          "name": "Unbound Plug",
+          "why": "Plays on both its legless plug silhouette and an unresolved symbol waiting to be bound."
+        },
+        {
+          "name": "Crested Key-Bug",
+          "why": "Names the pale top tab and projecting prong in a field-guide naturalist register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Unbound Plug concisely captures both the sprite's stripped-down plug form and its linker-layer concept.",
+      "decisionHint": "variant",
+      "mergeWith": "c:linker:core",
+      "decisionWhy": "Shares the same brown-and-yellow pronged body palette and scale as c:linker:core, differing only in its legless perched form."
+    }
+  ]
+}

@@ -1,0 +1,605 @@
+{
+ "layer": "vmm",
+ "items": [
+  {
+   "key": "e:vmm-qemu",
+   "depicts": "A wide green-framed machine chassis housing two smaller rectangular guest frames above a single long console bar.",
+   "concept": "userspace virtual machine monitor",
+   "proposals": [
+    {
+     "name": "Machine Emulator",
+     "why": "States plainly what QEMU and similar VMMs do when standing in for physical hardware."
+    },
+    {
+     "name": "The Quick Emporium",
+     "why": "Plays on the 'Q' in QEMU while treating the hypervisor's device catalog as a crowded storefront."
+    },
+    {
+     "name": "Double-Walled Enclosure",
+     "why": "Reads like a field-guide description of a nesting structure built to contain smaller worlds."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Machine Emulator is clear, accurate, and fits an anchor set piece without over-explaining.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "This is the primary anchor landmark for the VMM layer and has no equivalent elsewhere."
+  },
+  {
+   "key": "e:vmm-virtio",
+   "depicts": "Two pale green ring buffers linked across the center by a dark rectangular bridge.",
+   "concept": "paravirtualized virtio ring",
+   "proposals": [
+    {
+     "name": "Virtio Ring",
+     "why": "Directly names the shared-memory ring buffer used by paravirtualized devices."
+    },
+    {
+     "name": "Handshake Loop",
+     "why": "Wryly summarizes how frontend and backend drivers pass descriptors back and forth."
+    },
+    {
+     "name": "Twin-Loop Coupler",
+     "why": "Describes the twin circular rings and central bridge as a mechanical field specimen."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Virtio Ring is the exact technical term and immediately recognizable to systems readers.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct VMM paravirtualization prop with no duplicate in other layers."
+  },
+  {
+   "key": "e:vmm-ghostcard",
+   "depicts": "A green-outlined expansion card with six bottom edge-connector pins and a dark rectangular chip.",
+   "concept": "emulated PCI expansion card",
+   "proposals": [
+    {
+     "name": "Emulated Adapter",
+     "why": "Plainly describes a virtual PCI card synthesized in software."
+    },
+    {
+     "name": "Phantom PCI",
+     "why": "Nods to the card existing only as trap-and-emulate registers rather than silicon."
+    },
+    {
+     "name": "Hollow Edgeboard",
+     "why": "Evokes a physical circuit board whose substance is entirely virtual."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Phantom PCI captures the uncanny nature of a software-faked hardware card.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique VMM emulated-device prop."
+  },
+  {
+   "key": "e:vmm-r1-mirror",
+   "depicts": "A green-tinted mirror frame inherited from the Ring -1 hypervisor layer.",
+   "concept": "hypervisor state mirroring",
+   "proposals": [
+    {
+     "name": "State Mirror",
+     "why": "Describes a reflective surface that duplicates guest or host machine state."
+    },
+    {
+     "name": "Looking-Glass Register",
+     "why": "Puns on Lewis Carroll and CPU registers reflected across privilege boundaries."
+    },
+    {
+     "name": "Silvered Pane",
+     "why": "Treats the mirror prop as a quiet physical artifact in the field manual."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "State Mirror is concise and pairs cleanly with the Ring -1 original.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-mirror",
+   "decisionWhy": "This is a VMM-layer recolor/reuse of e:r1-mirror from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-tunnel",
+   "depicts": "A green-tinted passage or conduit inherited from the Ring -1 hypervisor layer.",
+   "concept": "hypervisor passthrough tunnel",
+   "proposals": [
+    {
+     "name": "Passthrough Conduit",
+     "why": "Directly names a channel that routes I/O or memory straight through the hypervisor."
+    },
+    {
+     "name": "Bypass Bore",
+     "why": "A dry engineering joke about drilling straight through abstraction layers."
+    },
+    {
+     "name": "Hollow Culvert",
+     "why": "Gives the tunnel a grounded, subterranean field-guide feel."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Passthrough Conduit accurately describes its role and links to the Ring -1 original.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-tunnel",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-tunnel from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-tag",
+   "depicts": "A green-tinted identification tag inherited from the Ring -1 hypervisor layer.",
+   "concept": "VMID / ASID tagging",
+   "proposals": [
+    {
+     "name": "Guest Tag",
+     "why": "Plainly identifies a label distinguishing one virtual machine from another."
+    },
+    {
+     "name": "ASID Stamp",
+     "why": "References the Address Space Identifier used to avoid TLB flushes."
+    },
+    {
+     "name": "Brass Tally",
+     "why": "Frames the tag as an archival specimen marker."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "ASID Stamp is specific, computing-literate, and fits the manual's tone.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-tag",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-tag from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-glass",
+   "depicts": "A green-tinted transparent pane inherited from the Ring -1 hypervisor layer.",
+   "concept": "guest introspection window",
+   "proposals": [
+    {
+     "name": "Inspection Pane",
+     "why": "Describes a window through which the hypervisor observes guest memory."
+    },
+    {
+     "name": "One-Way Glass",
+     "why": "Wryly notes that the host can see the guest, while the guest sees nothing."
+    },
+    {
+     "name": "Clear Specimen",
+     "why": "Evokes a glass slide in a naturalist's collection."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "One-Way Glass captures the asymmetric visibility of hypervisor introspection.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-glass",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-glass from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-bubble",
+   "depicts": "A green-tinted spherical enclosure inherited from the Ring -1 hypervisor layer.",
+   "concept": "isolated VM sandbox",
+   "proposals": [
+    {
+     "name": "Isolation Bubble",
+     "why": "Plainly names a contained execution environment."
+    },
+    {
+     "name": "Airgapped Sphere",
+     "why": "Puns on network isolation and the spherical sprite."
+    },
+    {
+     "name": "Glass Meniscus",
+     "why": "Describes the bubble with the precision of a lab manual."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Isolation Bubble is immediately clear and fits the Ring -1 family.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-bubble",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-bubble from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-ept",
+   "depicts": "A green-tinted nested grid inherited from the Ring -1 hypervisor layer.",
+   "concept": "extended page tables",
+   "proposals": [
+    {
+     "name": "Extended Table",
+     "why": "Directly references Intel's Extended Page Tables (EPT)."
+    },
+    {
+     "name": "Two-Dimensional Walk",
+     "why": "Jokes about the infamous 2D page-table walk cost under nested paging."
+    },
+    {
+     "name": "Nested Lattice",
+     "why": "Describes the two-level address translation grid as a physical structure."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Extended Table is direct and unmistakable.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-ept",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-ept from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-vcpu",
+   "depicts": "A small green-tinted processor icon inherited from the Ring -1 hypervisor layer.",
+   "concept": "virtual CPU",
+   "proposals": [
+    {
+     "name": "Virtual Core",
+     "why": "Plainly names a software-scheduled virtual processor."
+    },
+    {
+     "name": "Borrowed Silicon",
+     "why": "Wryly notes that a vCPU only borrows time on a physical core."
+    },
+    {
+     "name": "Phantom Die",
+     "why": "Treats the virtual processor as a ghostly counterpart to hardware."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Virtual Core is the standard term and pairs cleanly with Ring -1.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-vcpu",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-vcpu from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-vmcs",
+   "depicts": "A green-tinted structured block inherited from the Ring -1 hypervisor layer.",
+   "concept": "virtual machine control structure",
+   "proposals": [
+    {
+     "name": "Control Structure",
+     "why": "Directly names the VMCS region that holds guest and host state."
+    },
+    {
+     "name": "Exit Ledger",
+     "why": "Nods to the VMCS fields that record why a VM exit occurred."
+    },
+    {
+     "name": "State Dossier",
+     "why": "Frames the control structure as a filed archival record."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Control Structure is accurate and matches the Ring -1 original.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-vmcs",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-vmcs from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-trapdoor",
+   "depicts": "A green-tinted hinged floor panel inherited from the Ring -1 hypervisor layer.",
+   "concept": "trap-and-emulate VM exit",
+   "proposals": [
+    {
+     "name": "Trapdoor",
+     "why": "Plainly names the mechanism that drops execution into the hypervisor."
+    },
+    {
+     "name": "Privileged Hatch",
+     "why": "Puns on privileged instructions triggering a sudden drop to Ring -1."
+    },
+    {
+     "name": "Hinged Floor",
+     "why": "Describes the sprite as a quiet architectural hazard."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Trapdoor is classic systems terminology and needs no embellishment.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-trapdoor",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-trapdoor from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-shadowpage",
+   "depicts": "A green-tinted layered page icon inherited from the Ring -1 hypervisor layer.",
+   "concept": "shadow page tables",
+   "proposals": [
+    {
+     "name": "Shadow Page",
+     "why": "Directly names the hypervisor-maintained shadow page table."
+    },
+    {
+     "name": "Ghost Mapping",
+     "why": "Wryly describes a page table the guest never sees directly."
+    },
+    {
+     "name": "Carbon Copy",
+     "why": "Evokes old-fashioned archival duplication."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Shadow Page is the exact term and immediately clear.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-shadowpage",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-shadowpage from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-dolls",
+   "depicts": "Green-tinted nested figures inherited from the Ring -1 hypervisor layer.",
+   "concept": "nested virtualization",
+   "proposals": [
+    {
+     "name": "Nested Dolls",
+     "why": "Plainly describes the classic matryoshka metaphor for nested VMs."
+    },
+    {
+     "name": "L2 Guest",
+     "why": "References the standard L0/L1/L2 terminology of nested virtualization."
+    },
+    {
+     "name": "Matryoshka Shell",
+     "why": "Gives the nested figures a tactile, museum-specimen name."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Nested Dolls is the universal visual metaphor for nested virtualization.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-dolls",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-dolls from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-mempress",
+   "depicts": "A green-tinted compression press inherited from the Ring -1 hypervisor layer.",
+   "concept": "memory ballooning",
+   "proposals": [
+    {
+     "name": "Memory Balloon",
+     "why": "Directly names the balloon driver mechanism that reclaims guest RAM."
+    },
+    {
+     "name": "RAM Compactor",
+     "why": "Wryly treats memory pressure as a mechanical trash compactor."
+    },
+    {
+     "name": "Bellows Press",
+     "why": "Describes the animated press in naturalistic, mechanical terms."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Memory Balloon is the standard computing term.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-mempress",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-mempress from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-migrate",
+   "depicts": "A green-tinted transfer arrow or conveyor inherited from the Ring -1 hypervisor layer.",
+   "concept": "live VM migration",
+   "proposals": [
+    {
+     "name": "Live Migration",
+     "why": "Plainly names moving a running VM between physical hosts."
+    },
+    {
+     "name": "Hot Handoff",
+     "why": "A wry nod to transferring dirty pages while the guest keeps running."
+    },
+    {
+     "name": "Transit Rail",
+     "why": "Frames the migration prop as a piece of physical infrastructure."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Live Migration is clear and idiomatic.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-migrate",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-migrate from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-snapshot",
+   "depicts": "A green-tinted camera or frame icon inherited from the Ring -1 hypervisor layer.",
+   "concept": "VM state snapshot",
+   "proposals": [
+    {
+     "name": "State Snapshot",
+     "why": "Directly names a frozen point-in-time capture of a VM."
+    },
+    {
+     "name": "Frozen Epoch",
+     "why": "Wryly alludes to halting time for the guest without it noticing."
+    },
+    {
+     "name": "Glass Plate",
+     "why": "Evokes archival photography in the field manual."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "State Snapshot is precise and unambiguous.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-snapshot",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-snapshot from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-hypercall",
+   "depicts": "A green-tinted signal or callbox icon inherited from the Ring -1 hypervisor layer.",
+   "concept": "paravirtualized hypercall",
+   "proposals": [
+    {
+     "name": "Hypercall",
+     "why": "Directly names the guest-to-hypervisor equivalent of a syscall."
+    },
+    {
+     "name": "VMCALL Bell",
+     "why": "References the x86 VMCALL instruction as a service bell."
+    },
+    {
+     "name": "Downward Signal",
+     "why": "Describes a call descending across privilege rings."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Hypercall is the exact technical term.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-hypercall",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-hypercall from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-vswitch",
+   "depicts": "A green-tinted network switch bar inherited from the Ring -1 hypervisor layer.",
+   "concept": "virtual network switch",
+   "proposals": [
+    {
+     "name": "Virtual Switch",
+     "why": "Plainly names the software switch connecting guest NICs."
+    },
+    {
+     "name": "Tap Bridge",
+     "why": "References Linux tap devices and bridge interfaces."
+    },
+    {
+     "name": "Patch Panel",
+     "why": "Treats the virtual switch as a physical telecom fixture."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Virtual Switch is clear and standard.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-vswitch",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-vswitch from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-cage",
+   "depicts": "A green-tinted barred enclosure inherited from the Ring -1 hypervisor layer.",
+   "concept": "VM containment",
+   "proposals": [
+    {
+     "name": "Sandbox Cage",
+     "why": "Plainly describes a barred containment structure for untrusted guests."
+    },
+    {
+     "name": "Escape Prevention",
+     "why": "Dryly references VM escape vulnerabilities."
+    },
+    {
+     "name": "Iron Grate",
+     "why": "Gives the containment prop a stark, physical field-manual name."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Sandbox Cage is vivid and immediately understood.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-cage",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-cage from ring-1."
+  },
+  {
+   "key": "e:vmm-r1-split",
+   "depicts": "A green-tinted divided block inherited from the Ring -1 hypervisor layer.",
+   "concept": "hardware partitioning",
+   "proposals": [
+    {
+     "name": "Resource Partition",
+     "why": "Plainly names the division of host resources among guests."
+    },
+    {
+     "name": "Split Horizon",
+     "why": "Puns on the divided sprite and network/viewpoint isolation."
+    },
+    {
+     "name": "Cloven Block",
+     "why": "Describes the split shape as a geological or archival specimen."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Resource Partition is clear and accurate.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r1-split",
+   "decisionWhy": "This is a VMM-layer reuse of e:r1-split from ring-1."
+  },
+  {
+   "key": "e:vmm-ghostnic",
+   "depicts": "A green-outlined rectangular bar with four evenly spaced dark green square ports.",
+   "concept": "emulated network interface",
+   "proposals": [
+    {
+     "name": "Virtual NIC",
+     "why": "Directly names a software-emulated network interface card."
+    },
+    {
+     "name": "Phantom Ethernet",
+     "why": "Wryly nods to an e1000 or rtl8139 that exists only in C code."
+    },
+    {
+     "name": "Four-Port Ghost",
+     "why": "Describes the four dark ports on the translucent frame."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Phantom Ethernet pairs nicely with Phantom PCI and captures the emulated-hardware theme.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique VMM emulated-NIC prop."
+  },
+  {
+   "key": "e:vmm-hpet",
+   "depicts": "A round green clock face with a single pale green vertical hand.",
+   "concept": "High Precision Event Timer",
+   "proposals": [
+    {
+     "name": "Event Timer",
+     "why": "Plainly names the emulated HPET hardware timer."
+    },
+    {
+     "name": "Virtual HPET",
+     "why": "Directly cites the High Precision Event Timer notorious for VM-exit overhead."
+    },
+    {
+     "name": "Single-Hand Dial",
+     "why": "Describes the minimalist clock face as a field instrument."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Virtual HPET is specific, computing-literate, and immediately recognizable.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique VMM timer prop."
+  },
+  {
+   "key": "e:vmm-bios",
+   "depicts": "A dark green rectangular screen showing two unequal horizontal green text lines.",
+   "concept": "virtual firmware / SeaBIOS",
+   "proposals": [
+    {
+     "name": "Virtual BIOS",
+     "why": "Plainly names the emulated firmware that boots the guest."
+    },
+    {
+     "name": "SeaBIOS Prompt",
+     "why": "References the classic open-source virtual BIOS used by QEMU."
+    },
+    {
+     "name": "Two-Line Slate",
+     "why": "Describes the minimal boot screen as a physical artifact."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Virtual BIOS is clear and universally understood.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique VMM firmware prop."
+  },
+  {
+   "key": "c:vmm:core",
+   "depicts": "A small grey rectangular mask with two square white eyeholes.",
+   "concept": "hypervisor guest-facing mask",
+   "proposals": [
+    {
+     "name": "VMM Mimic",
+     "why": "Plainly names a creature that impersonates physical hardware for the guest."
+    },
+    {
+     "name": "Trap-and-Emulate",
+     "why": "Uses the classic virtualization technique as a species name."
+    },
+    {
+     "name": "Two-Eyed Masque",
+     "why": "Evokes the grey mask-like sprite as a quiet field-guide organism."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "VMM Mimic is concise, evocative, and fits a critter that fakes hardware.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Core critter species for the VMM layer."
+  }
+ ]
+}

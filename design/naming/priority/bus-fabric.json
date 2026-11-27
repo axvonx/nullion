@@ -1,0 +1,140 @@
+{
+  "layer": "bus-fabric",
+  "items": [
+    {
+      "key": "e:bf-pcieswitch",
+      "priority": 5,
+      "why": "Primary landmark anchor for the layer; owner should confirm 'Root Complex' over 'PCIe Switch'."
+    },
+    {
+      "key": "e:bf-crossbar",
+      "priority": 2,
+      "why": "Clear 'keep' prop where 'Crossbar Matrix' is straightforward and fits the sprite."
+    },
+    {
+      "key": "e:bf-dmaring",
+      "priority": 3,
+      "why": "Sound 'keep' prop, though 'Descriptor Ring' vs 'Ring Buffer' is a minor tone choice."
+    },
+    {
+      "key": "e:bf-mmio",
+      "priority": 3,
+      "why": "Good 'keep' prop where 'BAR Window' vs 'MMIO Aperture' is a worthwhile pun/clarity call."
+    },
+    {
+      "key": "e:bf-dr-chip",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-chip; obvious merge."
+    },
+    {
+      "key": "e:bf-dr-ribbon",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-ribbon; obvious merge."
+    },
+    {
+      "key": "e:bf-dr-irq",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-irq; obvious merge."
+    },
+    {
+      "key": "e:bf-dr-connector",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-connector; obvious merge."
+    },
+    {
+      "key": "e:bf-dr-caps",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-caps; obvious merge."
+    },
+    {
+      "key": "e:bf-dr-usb",
+      "priority": 2,
+      "why": "Exact duplicate of e:dr-usb to merge, with a light check on the 'Third-Try Plug' pun."
+    },
+    {
+      "key": "e:bf-dr-pcie",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-pcie; obvious merge."
+    },
+    {
+      "key": "e:bf-dr-dma",
+      "priority": 2,
+      "why": "Exact duplicate of e:dr-dma to merge, with a light check on 'Zero-Copy Belt'."
+    },
+    {
+      "key": "e:bf-dr-nic",
+      "priority": 2,
+      "why": "Exact duplicate of e:dr-nic to merge, with a light check on 'Eth-Zero Board'."
+    },
+    {
+      "key": "e:bf-dr-gpu",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-gpu; obvious merge."
+    },
+    {
+      "key": "e:bf-dr-disk",
+      "priority": 2,
+      "why": "Exact duplicate of e:dr-disk to merge, with a light check on 'Spinning Rust'."
+    },
+    {
+      "key": "e:bf-dr-keys",
+      "priority": 2,
+      "why": "Exact duplicate of e:dr-keys to merge, with a light check on 'Scancode Deck'."
+    },
+    {
+      "key": "e:bf-dr-db9",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-db9; obvious merge."
+    },
+    {
+      "key": "e:bf-dr-jumpers",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-jumpers; obvious merge."
+    },
+    {
+      "key": "e:bf-dr-heatsink",
+      "priority": 2,
+      "why": "Exact duplicate of e:dr-heatsink to merge, with a light check on 'Thermal Comb'."
+    },
+    {
+      "key": "e:bf-dr-rj45",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-rj45; obvious merge."
+    },
+    {
+      "key": "e:bf-dr-scope",
+      "priority": 1,
+      "why": "Exact duplicate of drivers-layer e:dr-scope; obvious merge."
+    },
+    {
+      "key": "e:bf-retimer",
+      "priority": 1,
+      "why": "Minimal 14x10 box marked catalogue; accept 'Eye Opener' without review."
+    },
+    {
+      "key": "e:bf-msix",
+      "priority": 2,
+      "why": "Clear 'keep' prop where 'MSI-X Table' is exact and unambiguous."
+    },
+    {
+      "key": "e:bf-lane",
+      "priority": 1,
+      "why": "Minimal two-stripe prop marked catalogue; accept 'Differential Pair' without review."
+    },
+    {
+      "key": "e:bf-iommu",
+      "priority": 4,
+      "why": "Proposed cross-layer merge into daily-layer e:r1-iommu warrants owner confirmation."
+    },
+    {
+      "key": "c:bus-fabric:core",
+      "priority": 5,
+      "why": "Core critter species with a 7x2 speck sprite flagged for rework; owner must decide."
+    },
+    {
+      "key": "c:bus-fabric:alt",
+      "priority": 5,
+      "why": "Alt critter species with a 6x3 speck sprite flagged for rework; owner must decide."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+ "layer": "uarch",
+ "items": [
+  {
+   "key": "e:ua-pipeline",
+   "priority": 5,
+   "why": "Layer anchor landmark; owner should confirm the canonical name."
+  },
+  {
+   "key": "e:ua-rob",
+   "priority": 3,
+   "why": "Clear microarchitecture prop, though Out-of-Order Queue or Retirement Rack are viable tone alternatives."
+  },
+  {
+   "key": "e:ua-bpred",
+   "priority": 3,
+   "why": "Standard term is solid, but Speculative Fork is a strong pun worth a quick look."
+  },
+  {
+   "key": "e:ua-l1",
+   "priority": 2,
+   "why": "Canonical L1 Cache label fits the checkerboard sprite with minimal ambiguity."
+  },
+  {
+   "key": "e:ua-alu",
+   "priority": 2,
+   "why": "Classic notched schematic silhouette makes Arithmetic Logic Unit an obvious match."
+  },
+  {
+   "key": "e:ua-r3-vias",
+   "priority": 1,
+   "why": "Generic 10x10 scatter prop marked catalogue with an obvious technical name."
+  },
+  {
+   "key": "e:ua-r3-pad",
+   "priority": 2,
+   "why": "Standard Bond Pad term matches the die-edge pad sprite with a light check."
+  },
+  {
+   "key": "e:ua-r3-trace",
+   "priority": 1,
+   "why": "Basic routing scatter prop marked catalogue; Signal Trace is an easy accept."
+  },
+  {
+   "key": "e:ua-r3-decap",
+   "priority": 2,
+   "why": "Decoupling Capacitor is accurate and clear, needing only a quick sanity check."
+  },
+  {
+   "key": "e:ua-r3-xtal",
+   "priority": 3,
+   "why": "Animated crystal prop where Crystal Oscillator vs. Quartz Metronome is a tone choice."
+  },
+  {
+   "key": "e:ua-r3-testpads",
+   "priority": 1,
+   "why": "Small scatter prop marked catalogue; Test Pads is self-explanatory."
+  },
+  {
+   "key": "e:ua-r3-fuses",
+   "priority": 4,
+   "why": "Distinctive blown-fuse prop where eFuse Bank vs. Irreversible Bits is a real naming call."
+  },
+  {
+   "key": "e:ua-r3-resistor",
+   "priority": 1,
+   "why": "Tiny passive scatter prop marked catalogue; Serpentine Resistor is obvious."
+  },
+  {
+   "key": "e:ua-r3-diode",
+   "priority": 1,
+   "why": "Small passive scatter prop marked catalogue; Junction Diode is straightforward."
+  },
+  {
+   "key": "e:ua-r3-inductor",
+   "priority": 1,
+   "why": "Small passive scatter prop marked catalogue; Planar Inductor is straightforward."
+  },
+  {
+   "key": "e:ua-r3-sram",
+   "priority": 2,
+   "why": "SRAM Bitcell cleanly distinguishes this 6T schematic prop from L1 Cache."
+  },
+  {
+   "key": "e:ua-r3-ringosc",
+   "priority": 3,
+   "why": "Animated ring prop where Ring Oscillator vs. Self-Chasing Loop could go either way."
+  },
+  {
+   "key": "e:ua-r3-thermal",
+   "priority": 2,
+   "why": "Thermometer silhouette makes Thermal Sensor obvious with a light check."
+  },
+  {
+   "key": "e:ua-r3-pll",
+   "priority": 2,
+   "why": "Phase-Locked Loop is standard terminology and pairs cleanly with Crystal Oscillator."
+  },
+  {
+   "key": "e:ua-r3-jtag",
+   "priority": 4,
+   "why": "Distinct debug-port prop where JTAG Tap vs. Backdoor Header is a notable tone judgment call."
+  },
+  {
+   "key": "e:ua-r3-rom",
+   "priority": 2,
+   "why": "Sprite literally reads ROM, making Mask ROM an easy light-check accept."
+  },
+  {
+   "key": "e:ua-btb",
+   "priority": 2,
+   "why": "Branch Target Buffer is the exact microarchitectural structure depicted."
+  },
+  {
+   "key": "e:ua-rs",
+   "priority": 3,
+   "why": "Reservation Station is canonical, though Operand Waiting Room is a fun alternative."
+  },
+  {
+   "key": "e:ua-prefetch",
+   "priority": 3,
+   "why": "Hardware Prefetcher is clear, with Stride Guesser as a wry alternative worth a glance."
+  },
+  {
+   "key": "c:uarch:core",
+   "priority": 5,
+   "why": "Primary critter species for the layer; owner must approve the character name."
+  },
+  {
+   "key": "c:uarch:alt",
+   "priority": 5,
+   "why": "Critter-alt with a suggested variant/merge into Micro-Op that changes world entries."
+  }
+ ]
+}

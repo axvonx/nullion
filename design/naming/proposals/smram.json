@@ -1,0 +1,605 @@
+{
+ "layer": "smram",
+ "items": [
+  {
+   "key": "e:sm-vaultdoor",
+   "depicts": "A heavy grey circular vault door with a white four-spoked locking wheel in the center.",
+   "concept": "SMRAM hardware-enforced memory isolation",
+   "proposals": [
+    {
+     "name": "TSEG Vault Door",
+     "why": "Directly names the Top Segment memory region and its physicalized barrier."
+    },
+    {
+     "name": "Ring Minus Two",
+     "why": "Plays on the privileged execution ring that sits behind the locked door."
+    },
+    {
+     "name": "Ironclad Bulkhead",
+     "why": "Evokes a submarine or archive hatch sealing off the deepest memory chamber."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "TSEG Vault Door grounds the landmark in real x86 terminology while remaining immediately readable.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct anchor set piece unique to the SMRAM layer."
+  },
+  {
+   "key": "e:sm-dlck",
+   "depicts": "A grey square padlock with a white shackle and a black keyhole.",
+   "concept": "D_LCK bit in SMRAMC register",
+   "proposals": [
+    {
+     "name": "SMRAMC Padlock",
+     "why": "Identifies the exact control register that latches SMRAM shut until reset."
+    },
+    {
+     "name": "One-Way Latch",
+     "why": "Dryly references the fact that D_LCK can be set but never cleared without a reboot."
+    },
+    {
+     "name": "Reset-Only Seal",
+     "why": "Reads like a museum label for a lock that requires a power cycle to open."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "One-Way Latch captures the infamous irreversibility of the D_LCK bit in a concise, memorable phrase.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct SMRAM-specific prop representing the D_LCK hardware lock."
+  },
+  {
+   "key": "e:sm-savestate",
+   "depicts": "A dark rectangular register block with four horizontal bars, the top one highlighted in white.",
+   "concept": "SMM CPU state save area",
+   "proposals": [
+    {
+     "name": "State Save Block",
+     "why": "Plainly describes the SMRAM region where CPU registers are dumped on SMI entry."
+    },
+    {
+     "name": "Frozen Context",
+     "why": "A wry nod to the suspended OS register state waiting to be restored by RSM."
+    },
+    {
+     "name": "Register Ledger",
+     "why": "Treats the hardware save-state map like an archival tally sheet."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "State Save Block is accurate, technical, and fits the Field Manual's dry register.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct SMRAM prop with no equivalent in other layers."
+  },
+  {
+   "key": "e:sm-r2-debris",
+   "depicts": "A small cluster of angular grey fragments.",
+   "concept": "suspended execution fragments",
+   "proposals": [
+    {
+     "name": "Vault Debris",
+     "why": "Describes the scattered fragments within the SMRAM chamber."
+    },
+    {
+     "name": "Stale Cache Line",
+     "why": "A computing pun on leftover, un-flushed data fragments."
+    },
+    {
+     "name": "Shattered Clinker",
+     "why": "Field-guide phrasing for inert industrial remnants."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Vault Debris is simple and fits a minor scatter prop.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-debris",
+   "decisionWhy": "Duplicates e:r2-debris from the ring-2 layer under a sm-r2 prefix."
+  },
+  {
+   "key": "e:sm-r2-clock",
+   "depicts": "A small square clock face.",
+   "concept": "halted system clock during SMI",
+   "proposals": [
+    {
+     "name": "Halted Clock",
+     "why": "Describes the frozen timepiece during System Management Mode."
+    },
+    {
+     "name": "Driftless Tick",
+     "why": "Wryly nods to timekeeping that stops while the OS is preempted."
+    },
+    {
+     "name": "Silent Dial",
+     "why": "Evocative naturalist phrasing for a stopped instrument."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Halted Clock is clear and accurate for a scatter prop.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-clock",
+   "decisionWhy": "Duplicates e:r2-clock from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-shards",
+   "depicts": "A small pile of sharp, broken shards.",
+   "concept": "fragmented memory or broken state",
+   "proposals": [
+    {
+     "name": "Broken Shards",
+     "why": "Plainly describes the sprite's jagged pieces."
+    },
+    {
+     "name": "Segfault Splinters",
+     "why": "A computing pun on memory-access failures."
+    },
+    {
+     "name": "Vitreous Flakes",
+     "why": "Field-guide style description of sharp, glassy debris."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Broken Shards is straightforward for a minor scatter prop.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-shards",
+   "decisionWhy": "Duplicates e:r2-shards from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-tag",
+   "depicts": "A wide rectangular label or tag.",
+   "concept": "memory region tag or descriptor",
+   "proposals": [
+    {
+     "name": "Region Tag",
+     "why": "Describes a flat label marking a memory boundary."
+    },
+    {
+     "name": "Pointer Placard",
+     "why": "A computing pun on tagged addresses and signage."
+    },
+    {
+     "name": "Archive Slip",
+     "why": "Evokes a paper slip tucked into a binder or drawer."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Region Tag is concise and matches the prop's text-carrying role.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-tag",
+   "decisionWhy": "Duplicates e:r2-tag from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-rain",
+   "depicts": "A small vertical cluster of falling rain streaks.",
+   "concept": "suspended interrupt rain",
+   "proposals": [
+    {
+     "name": "Frozen Rain",
+     "why": "Describes precipitation caught mid-fall."
+    },
+    {
+     "name": "Pending Interrupts",
+     "why": "A computing reference to events queued while the CPU is in SMM."
+    },
+    {
+     "name": "Suspended Drizzle",
+     "why": "Field-guide phrasing for stalled weather."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Pending Interrupts ties the visual motif to SMM's interruption of normal execution.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-rain",
+   "decisionWhy": "Duplicates e:r2-rain from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-pendulum",
+   "depicts": "A small hanging pendulum.",
+   "concept": "paused timer cycle",
+   "proposals": [
+    {
+     "name": "Stalled Pendulum",
+     "why": "Plainly describes a pendulum held motionless."
+    },
+    {
+     "name": "Halted Tick",
+     "why": "A wry reference to a paused system timer."
+    },
+    {
+     "name": "Plumb Bob",
+     "why": "Naturalist/archival term for a weighted cord."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Stalled Pendulum is clear and fits the Ring -2/SMRAM time-stop theme.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-pendulum",
+   "decisionWhy": "Duplicates e:r2-pendulum from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-hourglass",
+   "depicts": "A small hourglass.",
+   "concept": "timeout or watchdog counter",
+   "proposals": [
+    {
+     "name": "Stopped Hourglass",
+     "why": "Describes an hourglass with sand frozen in place."
+    },
+    {
+     "name": "Watchdog Sand",
+     "why": "A computing pun on hardware watchdog timers."
+    },
+    {
+     "name": "Silt Glass",
+     "why": "Field-guide phrasing for a sand-filled vessel."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Stopped Hourglass is immediately recognizable.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-hourglass",
+   "decisionWhy": "Duplicates e:r2-hourglass from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-ghostgear",
+   "depicts": "A faint, translucent-looking gear.",
+   "concept": "background firmware mechanism",
+   "proposals": [
+    {
+     "name": "Ghost Gear",
+     "why": "Directly describes the pale, spectral cog."
+    },
+    {
+     "name": "Shadow Register",
+     "why": "A computing reference to hidden hardware state."
+    },
+    {
+     "name": "Pale Cog",
+     "why": "Quiet, descriptive field-guide phrasing."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Ghost Gear is crisp and matches the sprite.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-ghostgear",
+   "decisionWhy": "Duplicates e:r2-ghostgear from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-safe",
+   "depicts": "A small square strongbox or safe.",
+   "concept": "protected memory enclosure",
+   "proposals": [
+    {
+     "name": "Small Safe",
+     "why": "Plainly describes the miniature strongbox."
+    },
+    {
+     "name": "Locked Enclave",
+     "why": "A computing pun on isolated memory regions."
+    },
+    {
+     "name": "Iron Coffer",
+     "why": "Evokes an archival strongbox."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Locked Enclave fits the SMRAM vault theme well.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-safe",
+   "decisionWhy": "Duplicates e:r2-safe from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-smoke",
+   "depicts": "A small puff of smoke.",
+   "concept": "thermal or electrical residue",
+   "proposals": [
+    {
+     "name": "Static Smoke",
+     "why": "Describes a frozen wisp of smoke."
+    },
+    {
+     "name": "Magic Smoke",
+     "why": "Classic hardware-engineering joke about the smoke inside chips."
+    },
+    {
+     "name": "Suspended Plume",
+     "why": "Field-guide phrasing for a motionless cloud."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Magic Smoke is an iconic computing-literate reference.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-smoke",
+   "decisionWhy": "Duplicates e:r2-smoke from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-metronome",
+   "depicts": "A small triangular metronome.",
+   "concept": "periodic SMI cadence",
+   "proposals": [
+    {
+     "name": "Silent Metronome",
+     "why": "Describes a motionless beat-keeper."
+    },
+    {
+     "name": "Periodic SMI",
+     "why": "A direct computing reference to recurring System Management Interrupts."
+    },
+    {
+     "name": "Brass Beat",
+     "why": "Evocative field-guide phrasing for a mechanical timer."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Periodic SMI gives a dry, accurate nod to firmware polling.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-metronome",
+   "decisionWhy": "Duplicates e:r2-metronome from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-cracks",
+   "depicts": "A small branching pattern of surface cracks.",
+   "concept": "faulty memory boundary orwear",
+   "proposals": [
+    {
+     "name": "Vault Cracks",
+     "why": "Plainly describes fissures in the chamber surface."
+    },
+    {
+     "name": "Bit Rot",
+     "why": "A wry computing term for gradual data degradation."
+    },
+    {
+     "name": "Hairline Fissure",
+     "why": "Naturalist/geological phrasing for small fractures."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Bit Rot is a classic, quietly funny computing term.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-cracks",
+   "decisionWhy": "Duplicates e:r2-cracks from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-ripple",
+   "depicts": "A small concentric ripple.",
+   "concept": "interrupt propagation wave",
+   "proposals": [
+    {
+     "name": "Still Ripple",
+     "why": "Describes a frozen concentric ring."
+    },
+    {
+     "name": "Bus Echo",
+     "why": "A computing reference to signal reflection."
+    },
+    {
+     "name": "Surface Ring",
+     "why": "Quiet, descriptive field-guide phrasing."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Still Ripple is concise and fits the frozen-time aesthetic.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-ripple",
+   "decisionWhy": "Duplicates e:r2-ripple from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-book",
+   "depicts": "A small closed book.",
+   "concept": "firmware specification or manual",
+   "proposals": [
+    {
+     "name": "Closed Manual",
+     "why": "Describes a shut reference volume."
+    },
+    {
+     "name": "Undocumented Errata",
+     "why": "A dry computing joke about hardware quirks."
+    },
+    {
+     "name": "Pocket Folio",
+     "why": "Archival phrasing for a small bound book."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Undocumented Errata fits the Field Manual's dry humor.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-book",
+   "decisionWhy": "Duplicates e:r2-book from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-bubbles",
+   "depicts": "A small vertical trail of bubbles.",
+   "concept": "stalled asynchronous events",
+   "proposals": [
+    {
+     "name": "Frozen Bubbles",
+     "why": "Plainly describes bubbles suspended in mid-rise."
+    },
+    {
+     "name": "Queued Events",
+     "why": "A computing reference to tasks waiting for SMM exit."
+    },
+    {
+     "name": "Rising Beads",
+     "why": "Naturalist phrasing for small spheres."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Frozen Bubbles is clear and matches the sprite.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-bubbles",
+   "decisionWhy": "Duplicates e:r2-bubbles from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-hook",
+   "depicts": "A small hanging hook.",
+   "concept": "SMI handler hook",
+   "proposals": [
+    {
+     "name": "Iron Hook",
+     "why": "Describes the simple metal hook."
+    },
+    {
+     "name": "SMI Hook",
+     "why": "A direct computing pun on intercepting execution."
+    },
+    {
+     "name": "Hanging Snag",
+     "why": "Field-guide phrasing for a small catch."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "SMI Hook neatly connects the physical prop to firmware interception.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-hook",
+   "decisionWhy": "Duplicates e:r2-hook from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-stopwatch",
+   "depicts": "A small round stopwatch.",
+   "concept": "SMI latency measurement",
+   "proposals": [
+    {
+     "name": "Paused Stopwatch",
+     "why": "Describes a stopwatch stopped mid-count."
+    },
+    {
+     "name": "Latency Timer",
+     "why": "A computing reference to measuring time spent inside SMM."
+    },
+    {
+     "name": "Pocket Chronometer",
+     "why": "Archival phrasing for a precision timepiece."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Latency Timer is a sharp nod to real-time OS jitter caused by SMM.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-stopwatch",
+   "decisionWhy": "Duplicates e:r2-stopwatch from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-r2-flame",
+   "depicts": "A small, still flame.",
+   "concept": "halted thermal event",
+   "proposals": [
+    {
+     "name": "Still Flame",
+     "why": "Describes a flame frozen in place."
+    },
+    {
+     "name": "Thermal Throttling",
+     "why": "A computing reference to hardware heat management."
+    },
+    {
+     "name": "Candlewick",
+     "why": "Quiet naturalist phrasing for a small light."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Still Flame is simple and evocative.",
+   "decisionHint": "merge",
+   "mergeWith": "e:r2-flame",
+   "decisionWhy": "Duplicates e:r2-flame from the ring-2 layer."
+  },
+  {
+   "key": "e:sm-rsm",
+   "depicts": "A dark grey square with a centered light-grey vertical rectangle.",
+   "concept": "RSM (Resume from System Management Mode) instruction",
+   "proposals": [
+    {
+     "name": "RSM Gate",
+     "why": "Names the x86 instruction that exits SMM and restores OS state."
+    },
+    {
+     "name": "Return Ticket",
+     "why": "Dryly treats the RSM opcode as the only way out of the vault."
+    },
+    {
+     "name": "Exit Monolith",
+     "why": "Field-guide phrasing for the stark rectangular marker."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RSM Gate is precise and immediately meaningful to systems-literate players.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct SMRAM prop representing the RSM exit instruction."
+  },
+  {
+   "key": "e:sm-tseg",
+   "depicts": "A dark horizontal bar with a centered grey inner strip.",
+   "concept": "TSEG (Top of Memory Segment) base and limit",
+   "proposals": [
+    {
+     "name": "TSEG Boundary",
+     "why": "Describes the Top Segment memory range reserved for SMRAM."
+    },
+    {
+     "name": "Ceiling Strut",
+     "why": "A wry architectural nod to TSEG sitting at the top of physical RAM."
+    },
+    {
+     "name": "Slate Lintel",
+     "why": "Field-guide phrasing for a horizontal stone-like beam."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "TSEG Boundary is accurate and pairs naturally with the SMRAM vault.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct SMRAM prop representing the TSEG region."
+  },
+  {
+   "key": "e:sm-lockbit",
+   "depicts": "A grey pedestal topped by a lighter grey square housing a black screen or aperture.",
+   "concept": "D_LCK hardware lock bit",
+   "proposals": [
+    {
+     "name": "Lock Bit",
+     "why": "Directly names the single-bit hardware fuse/latch."
+    },
+    {
+     "name": "Write-Once Pedestal",
+     "why": "Dryly references a bit that cannot be unset until power-off."
+    },
+    {
+     "name": "Sentinel Plinth",
+     "why": "Evokes a small stone-grey watching post."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Lock Bit is crisp, literal, and fits the Field Manual.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct SMRAM prop."
+  },
+  {
+   "key": "c:smram:core",
+   "depicts": "A small floating grey rectangular core with a white-centered inner aperture.",
+   "concept": "SMRAM resident handler core",
+   "proposals": [
+    {
+     "name": "Vault Core",
+     "why": "Plainly names the floating entity inhabiting the SMRAM vault."
+    },
+    {
+     "name": "SMI Daemon",
+     "why": "A wry computing pun on background processes running invisibly."
+    },
+    {
+     "name": "TSEG Wisp",
+     "why": "Naturalist field-guide name for a small floating creature."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Vault Core is clean and matches the critter's geometric sprite.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique critter species for the SMRAM layer."
+  }
+ ]
+}

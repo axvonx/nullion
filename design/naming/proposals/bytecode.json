@@ -1,0 +1,557 @@
+{
+  "layer": "bytecode",
+  "items": [
+    {
+      "key": "e:bc-parsetree",
+      "depicts": "A large symmetrical three-tier tree with a framed yellow root node, orange and green intermediate nodes, and four yellow-rimmed dark-navy leaf boxes linked by stepped diagonal edges.",
+      "concept": "concrete parse tree",
+      "proposals": [
+        {
+          "name": "Parse Tree",
+          "why": "Direct, standard compiler terminology matching the symmetrical landmark silhouette."
+        },
+        {
+          "name": "Chomsky Canopy",
+          "why": "Wry nod to the Chomsky hierarchy of formal grammars cast as an overhanging tree structure."
+        },
+        {
+          "name": "Derivation Bough",
+          "why": "Treats a formal grammar derivation like a catalogued botanical specimen in a field guide."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Clean, canonical terminology that immediately anchors the AST and Bytecode layer.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct landmark anchor sprite unique to the AST and Bytecode layer."
+    },
+    {
+      "key": "e:bc-ast",
+      "depicts": "A compact, asymmetric tree of borderless blocks with a yellow root branching to orange and green children, and only the left branch splitting further into pale-yellow and light-blue leaves.",
+      "concept": "abstract syntax tree",
+      "proposals": [
+        {
+          "name": "Syntax Tree",
+          "why": "Plain name that distinguishes this compact scatter prop from the larger concrete parse tree."
+        },
+        {
+          "name": "Pruned Expression",
+          "why": "Dryly alludes to how an abstract syntax tree strips away punctuation and redundant grammar nodes."
+        },
+        {
+          "name": "Lopsided Sapling",
+          "why": "Field-guide phrasing that captures the sprite's small, asymmetric branching profile."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dry and computing-literate while avoiding a near-duplicate title with Parse Tree.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct borderless, asymmetric prop art representing the pruned AST separate from the parse-tree anchor."
+    },
+    {
+      "key": "e:bc-token",
+      "depicts": "A dark-navy rectangular tray holding four evenly spaced vertical coloured tiles in yellow, green, light blue, and coral.",
+      "concept": "lexical token stream",
+      "proposals": [
+        {
+          "name": "Token Stream",
+          "why": "Straightforward description of an ordered sequence of classified lexemes."
+        },
+        {
+          "name": "Lexeme Tray",
+          "why": "Dryly treats the scanner's output as sorted parts laid out in a compartmented organizer."
+        },
+        {
+          "name": "Banded Lexemes",
+          "why": "Field-guide register emphasizing the four alternating colour bands of distinct token types."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Concise, computing-literate, and visually faithful to the four-slot dark frame.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique prop art specific to the AST and Bytecode layer."
+    },
+    {
+      "key": "e:bc-constpool",
+      "depicts": "A lavender-bordered dark-navy box containing four left-aligned horizontal bars of varying lengths, three steel blue and one highlighted in yellow.",
+      "concept": "bytecode constant pool",
+      "proposals": [
+        {
+          "name": "Constant Pool",
+          "why": "Exact virtual-machine term for the indexed table of literal values and symbolic references."
+        },
+        {
+          "name": "Literal Cistern",
+          "why": "Dryly puns on pool by recasting immutable bytecode literals as a walled reservoir."
+        },
+        {
+          "name": "Immutable Ledger",
+          "why": "Archival field-guide tone suited to a fixed table of read-only entries."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Standard virtual-machine nomenclature that reads naturally as a Field Manual heading.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique prop art specific to the AST and Bytecode layer."
+    },
+    {
+      "key": "e:bc-lexer",
+      "depicts": "A yellow-bordered dark-navy window framing three distinct coloured rectangles in green, orange, and light blue of increasing widths from left to right.",
+      "concept": "lexical analyzer",
+      "proposals": [
+        {
+          "name": "Lexical Scanner",
+          "why": "Plain compiler term describing the stage that segments source text into sized tokens."
+        },
+        {
+          "name": "Maximal Muncher",
+          "why": "References the classic greedy longest-match rule used by lexers to carve up input characters."
+        },
+        {
+          "name": "Token Slicer",
+          "why": "Field-guide tool name evoking the mechanical chopping of a character stream into chunks."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Quietly funny insider compiler reference that rewards computing-literate readers.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique prop art specific to the AST and Bytecode layer."
+    },
+    {
+      "key": "e:bc-cfg",
+      "depicts": "A yellow-framed dark box at the top with stepped lavender paths diverging downward to a green-framed box on the left and a coral-framed box on the right.",
+      "concept": "control-flow graph",
+      "proposals": [
+        {
+          "name": "Control-Flow Fork",
+          "why": "Plain description of a basic block splitting into two conditional successor blocks."
+        },
+        {
+          "name": "Basic Blockhead",
+          "why": "Dry pun on basic block for the straight-line code boxes joined by branch edges."
+        },
+        {
+          "name": "Divergent Path",
+          "why": "Field-guide phrasing capturing the green-and-coral conditional fork in execution flow."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Precise and immediately legible against the two-way green and coral branch sprite.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique prop art specific to the AST and Bytecode layer."
+    },
+    {
+      "key": "e:bc-rt-objects",
+      "depicts": "Coloured rectangular heap-object blocks in magenta, tall olive-gold, and in the second variant a short blue block lined up on a raised lavender beam over dark posts.",
+      "concept": "heap-allocated objects",
+      "proposals": [
+        {
+          "name": "Heap Objects",
+          "why": "Direct term for dynamically allocated data blocks resting on a memory bench."
+        },
+        {
+          "name": "Boxed Allocations",
+          "why": "Dryly puns on both boxed values in managed runtimes and the literal box shapes on the shelf."
+        },
+        {
+          "name": "Bench Specimens",
+          "why": "Field-guide phrasing treating the varied-height objects like catalogued jars on a workbench."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Double meaning fits both managed-runtime semantics and the blocky sprite silhouette.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-objects",
+      "decisionWhy": "Both sprite variants are byte-for-byte duplicates of e:rt-objects in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-sweeper",
+      "depicts": "A boxy lavender-and-yellow carriage with a cyan eye riding along a raised track over a row of dark-grey dead blocks and one blue live block.",
+      "concept": "mark-and-sweep garbage collection",
+      "proposals": [
+        {
+          "name": "Heap Sweeper",
+          "why": "Clear description of the reclamation carriage traversing allocated slots along the rail."
+        },
+        {
+          "name": "Stop-the-World Cart",
+          "why": "Dry nod to the infamous garbage-collection pause triggered while the sweeper clears dead blocks."
+        },
+        {
+          "name": "Track Scavenger",
+          "why": "Naturalist register framing the collector as a rail-bound detritus feeder."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Captures the visual rail cart while landing a classic managed-runtime joke.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-sweeper",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-sweeper in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-marks",
+      "depicts": "Four coloured blocks in coral, green, blue, and olive-gold on a raised rail with pale-yellow L-shaped mark flags above three of them and a dark unmarked bar above the third.",
+      "concept": "garbage-collection mark bits",
+      "proposals": [
+        {
+          "name": "Mark Bits",
+          "why": "Exact runtime term for the reachability flags hovering over live heap blocks."
+        },
+        {
+          "name": "Reachability Flags",
+          "why": "Dryly literal description of the three lit markers and one unvisited dark slot."
+        },
+        {
+          "name": "Tagged Colony",
+          "why": "Field-guide phrasing evoking banded or tagged specimens awaiting a census."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Crisp, canonical terminology that matches the binary lit-versus-dark indicators.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-marks",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-marks in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-ref",
+      "depicts": "Two light-blue blocks connected by an L-shaped purple pointer shaft ending in a lavender arrowhead pointing into the lower-right block.",
+      "concept": "heap object reference",
+      "proposals": [
+        {
+          "name": "Object Reference",
+          "why": "Standard runtime name for a directed pointer linking one heap block to another."
+        },
+        {
+          "name": "Indirection Elbow",
+          "why": "Dryly combines pointer indirection with the right-angled bend of the connecting pipe."
+        },
+        {
+          "name": "Tethered Pointer",
+          "why": "Field-guide phrasing emphasizing the rigid link binding two otherwise separate blocks."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Wry, concrete, and directly reflects the L-shaped connector geometry.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-ref",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-ref in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-heapcol",
+      "depicts": "A vertical dark-navy spine on the left with four horizontal mint-green and steel-blue allocation bars of differing lengths jutting out to the right.",
+      "concept": "heap memory column",
+      "proposals": [
+        {
+          "name": "Heap Column",
+          "why": "Plain description of the vertical stack of variable-width memory allocations."
+        },
+        {
+          "name": "Fragmentation Rack",
+          "why": "Dryly nods to the jagged, uneven bar lengths typical of a fragmented heap."
+        },
+        {
+          "name": "Banded Spine",
+          "why": "Naturalist description of the ribbed, comb-like silhouette mounted on a dark vertical axis."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Captures the uneven bar lengths with a dry memory-management observation.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-heapcol",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-heapcol in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-jit",
+      "depicts": "A dark-grey blacksmith's anvil glowing with orange-and-yellow molten metal and rising sparks on its top face.",
+      "concept": "just-in-time compilation",
+      "proposals": [
+        {
+          "name": "JIT Anvil",
+          "why": "Direct name pairing just-in-time compilation with the forging anvil silhouette."
+        },
+        {
+          "name": "Hot-Loop Forge",
+          "why": "References how JIT compilers wait for hot loops before forging bytecode into native code."
+        },
+        {
+          "name": "Ember Anvil",
+          "why": "Evocative field-guide label focused on the glowing sparks above the iron block."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Smartly ties the literal glowing anvil to tier-up JIT compilation heuristics.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-jit",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-jit in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-tape",
+      "depicts": "A pair of grey magnetic-tape reels with dark-navy hubs mounted above a cream-and-slate strip marked with two dark ticks.",
+      "concept": "sequential bytecode tape",
+      "proposals": [
+        {
+          "name": "Bytecode Tape",
+          "why": "Straightforward description of a sequential instruction strip fed between two reels."
+        },
+        {
+          "name": "Turing Spool",
+          "why": "Dry reference to the canonical tape-based model of sequential computation."
+        },
+        {
+          "name": "Twin-Reel Strip",
+          "why": "Field-guide visual phrasing highlighting the symmetrical grey spools and marked ribbon."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Compact, computing-literate nod that suits the twin-reel pixel silhouette.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-tape",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-tape in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-callstack",
+      "depicts": "A vertical stack of two-tone coloured horizontal frame bars topped by a small purple stack-pointer tab, with five bars in the first variant and six in the second.",
+      "concept": "execution call stack",
+      "proposals": [
+        {
+          "name": "Call Stack",
+          "why": "Exact computing term for the last-in-first-out pile of active activation records."
+        },
+        {
+          "name": "Overflow Spire",
+          "why": "Quietly funny nod to the fate awaiting any stack that keeps gaining frames."
+        },
+        {
+          "name": "Layered Frames",
+          "why": "Field-guide phrasing treating the coloured activation slabs like geological strata."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Clean, canonical, and immediately recognizable from the stacked frame bars and top pointer.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-callstack",
+      "decisionWhy": "Both sprite variants are exact pixel-for-pixel duplicates of e:rt-callstack in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-refcount",
+      "depicts": "A blue object block with a bright coral-red counter badge displaying a small rectangular digit clipped to its upper-right corner.",
+      "concept": "reference counting",
+      "proposals": [
+        {
+          "name": "Refcount Badge",
+          "why": "Plain name for the small integer tally attached to a heap object."
+        },
+        {
+          "name": "Zero-Free Tag",
+          "why": "Dry reference to reference counting's rule of freeing an object the moment its count hits zero."
+        },
+        {
+          "name": "Tallied Block",
+          "why": "Field-guide label emphasizing the red-numbered marker perched on the blue host block."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Crisp, idiomatic, and directly describes the corner-mounted counter.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-refcount",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-refcount in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-weakref",
+      "depicts": "A blue block on the left linked by a dotted purple line and vertical bar to a hollow slate-bordered frame on the right containing a single dark speck.",
+      "concept": "weak reference",
+      "proposals": [
+        {
+          "name": "Weak Reference",
+          "why": "Exact runtime term for a non-owning pointer that does not prevent garbage collection."
+        },
+        {
+          "name": "Polite Pointer",
+          "why": "Dryly characterizes a reference that declines to keep its target alive."
+        },
+        {
+          "name": "Gossamer Tether",
+          "why": "Field-guide phrasing capturing the dotted line leading to a hollowed-out target frame."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Quietly funny, dryly accurate, and memorable in a Field Manual index.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-weakref",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-weakref in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-tricolor",
+      "depicts": "Three linked square cells in a row—a black-filled cell, a grey-filled cell with a yellow border, and a white-filled cell—joined by short purple bridges.",
+      "concept": "tri-color marking garbage collection",
+      "proposals": [
+        {
+          "name": "Tri-Color Trio",
+          "why": "Direct description of the black, grey, and white marking states linked in sequence."
+        },
+        {
+          "name": "Dijkstra's Triad",
+          "why": "Computing-literate reference to Edsger Dijkstra's tri-color abstraction for incremental GC."
+        },
+        {
+          "name": "Chromatic Chain",
+          "why": "Naturalist register highlighting the three-stage shading progression across linked cells."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Precise historical nod that elevates an abstract three-box sprite.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-tricolor",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-tricolor in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-bump",
+      "depicts": "A long dark-navy horizontal trough framed in slate with a single green allocated slice on the far left and a pale-yellow T-shaped pointer resting above its boundary.",
+      "concept": "bump-pointer allocator",
+      "proposals": [
+        {
+          "name": "Bump Allocator",
+          "why": "Standard systems term for linear arena allocation via a single advancing pointer."
+        },
+        {
+          "name": "Cursor-Shove Trough",
+          "why": "Dryly literal take on allocating memory by simply nudging a pointer rightward."
+        },
+        {
+          "name": "Sliding Frontier",
+          "why": "Field-guide phrasing evoking the yellow marker edging across an empty dark slab."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Canonical, terse, and immediately legible from the advancing boundary marker.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-bump",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-bump in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-finalizer",
+      "depicts": "Two blue blocks and one coral block queued on a raised rail heading toward a tall dark-navy doorway with a small yellow handle.",
+      "concept": "object finalizer queue",
+      "proposals": [
+        {
+          "name": "Finalizer Queue",
+          "why": "Plain runtime term for dying objects lined up to run cleanup hooks before reclamation."
+        },
+        {
+          "name": "Last-Rites Conveyor",
+          "why": "Dryly captures the grim queue of condemned objects awaiting their finalizer callback."
+        },
+        {
+          "name": "Threshold Queue",
+          "why": "Field-guide register emphasizing the line of blocks approaching a dark exit portal."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Quietly funny and visually dead-on for the blocks marching toward the dark door.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-finalizer",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-finalizer in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-interp",
+      "depicts": "A vertical slate-bordered dark-navy panel listing four horizontal instruction bars—lavender, blue, highlighted yellow, and blue—with a yellow pointer bracket on the left aligned to the third bar.",
+      "concept": "bytecode interpreter dispatch loop",
+      "proposals": [
+        {
+          "name": "Bytecode Interpreter",
+          "why": "Direct name for the fetch-decode-execute loop stepping down an instruction list."
+        },
+        {
+          "name": "Switch-Dispatch Reader",
+          "why": "Computing-literate nod to the classic C switch loop stepping through opcodes one by one."
+        },
+        {
+          "name": "Stepping Cursor",
+          "why": "Field-guide description of the yellow bracket inching down a vertical strip of bars."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Clear, authoritative, and matches the active instruction pointer on the left.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-interp",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-interp in the Runtime layer."
+    },
+    {
+      "key": "e:bc-rt-hashmap",
+      "depicts": "A vertical slate bucket column with four dark slots, three sprouting short purple links to coral, mint-green, and pale-yellow entry blocks while the third slot sits empty.",
+      "concept": "hash table with separate chaining",
+      "proposals": [
+        {
+          "name": "Hash Table",
+          "why": "Direct data-structure name matching the indexed bucket array and chained entries."
+        },
+        {
+          "name": "Bucket Spine",
+          "why": "Dry, compact phrasing for the array of hash buckets with linked-list stubs hanging off it."
+        },
+        {
+          "name": "Spotted Rack",
+          "why": "Field-guide phrasing emphasizing the sparse, irregularly occupied slots along the vertical post."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Concise, visually grounded, and neatly evokes separate-chaining buckets.",
+      "decisionHint": "merge",
+      "mergeWith": "e:rt-hashmap",
+      "decisionWhy": "The sprite is an exact pixel-for-pixel duplicate of e:rt-hashmap in the Runtime layer."
+    },
+    {
+      "key": "c:bytecode:core",
+      "depicts": "A tiny dark-navy rectangular frame enclosing a bright yellow core, flanked by two pale-yellow single-pixel side tabs like stubby wings.",
+      "concept": "syntax-tree node token",
+      "proposals": [
+        {
+          "name": "Token Hopper",
+          "why": "Straightforward name combining the layer's lexical-token motif with its hopping motion."
+        },
+        {
+          "name": "Terminal Leaf",
+          "why": "Dry compiler pun on terminal symbols in a grammar, cast as a tiny perched creature."
+        },
+        {
+          "name": "Gilded Nodelet",
+          "why": "Field-guide species name capturing the yellow-cored dark frame with pale wing tabs."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Evocative field-guide species name that fits a perching AST-layer critter without feeling cutesy.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique core critter species for the AST and Bytecode layer with distinct hopping and perching behaviour."
+    },
+    {
+      "key": "c:bytecode:alt",
+      "depicts": "A compact dark-navy horizontal tile containing a narrow yellow bar on the left and a wider green square on the right, resembling an opcode-and-operand pair.",
+      "concept": "bytecode opcode and operand pair",
+      "proposals": [
+        {
+          "name": "Opcode Tile",
+          "why": "Plain description of the two-field instruction block patrolling on a grid."
+        },
+        {
+          "name": "Bytecode Two-Step",
+          "why": "Quietly funny reference to two-byte opcode-plus-operand instructions marching in lockstep."
+        },
+        {
+          "name": "Grid Operand",
+          "why": "Field-guide phrasing tying the two-tone cell's geometry to its strict grid locomotion."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Crisp, precise, and immediately conveys the yellow-opcode and green-operand visual split.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique alternate critter species for the AST and Bytecode layer with distinct two-field art and grid movement."
+    }
+  ]
+}

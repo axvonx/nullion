@@ -1,0 +1,701 @@
+{
+  "layer": "drivers",
+  "items": [
+    {
+      "key": "e:dr-backplane",
+      "depicts": "A cyan bus rail holding four magenta card sockets, three populated with vertical expansion boards of varying heights and one left empty.",
+      "concept": "expansion bus backplane",
+      "proposals": [
+        {
+          "name": "Expansion Backplane",
+          "why": "Names the physical board-level interconnect directly in standard hardware terminology."
+        },
+        {
+          "name": "Slot Rack",
+          "why": "Plays on both card-edge slots and the perennial disappointment of one unpopulated bay."
+        },
+        {
+          "name": "Bus Spine",
+          "why": "Treats the passive backplane as the anatomical backbone from which peripheral cards branch."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Expansion Backplane is unambiguous for a landmark anchor and anchors the rest of the bus vocabulary cleanly.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Large animated landmark anchor unique to the drivers layer."
+    },
+    {
+      "key": "e:dr-hdd",
+      "depicts": "An open hard-drive chassis with corner mounting screws, a spinning cyan magnetic platter, a white spindle hub, and a magenta-pivoted read/write actuator arm.",
+      "concept": "magnetic disk storage",
+      "proposals": [
+        {
+          "name": "Platter Drive",
+          "why": "Describes the spinning magnetic medium in plain hardware terms."
+        },
+        {
+          "name": "Spinning Rust",
+          "why": "Borrows the classic systems-engineering slang for mechanical hard disks."
+        },
+        {
+          "name": "Seek Arm",
+          "why": "Focuses the naturalist eye on the twitching mechanical limb sweeping across the disc."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Spinning Rust is dry, immediately recognizable to anyone who has tuned I/O schedulers, and fits the Field Manual voice.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Primary animated landmark anchor with distinct mechanical detail."
+    },
+    {
+      "key": "e:dr-chip",
+      "depicts": "A magenta-framed black dual-inline integrated circuit with a white pin-one dot and cyan legs, appearing in ten-pin and fourteen-pin widths.",
+      "concept": "device controller IC",
+      "proposals": [
+        {
+          "name": "Controller Chip",
+          "why": "Identifies the generic peripheral controller package without over-specifying its function."
+        },
+        {
+          "name": "Pin-One Package",
+          "why": "Nods to the white orientation dot that saves technicians from releasing magic smoke."
+        },
+        {
+          "name": "DIP Centipede",
+          "why": "Frames the legged black package as a segmented specimen pinned to the board."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Controller Chip is clean, reusable across both pin-count variants, and avoids conflicting with more specialized chips in lower layers.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Canonical multi-variant prop for the drivers layer that downstream bus-fabric recolours inherit from."
+    },
+    {
+      "key": "e:dr-ribbon",
+      "depicts": "A flat cyan parallel ribbon cable with a mid-span twist and an animated pulse gap running along its conductors.",
+      "concept": "parallel PATA/floppy bus cabling",
+      "proposals": [
+        {
+          "name": "Ribbon Cable",
+          "why": "Uses the exact everyday name for flat parallel-bus wiring."
+        },
+        {
+          "name": "Twisted Ribbon",
+          "why": "References the infamous floppy-cable twist used to tell Drive A from Drive B."
+        },
+        {
+          "name": "Flatline Braid",
+          "why": "Evokes the woven, flattened geometry of parallel traces crossing the chassis."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Twisted Ribbon directly rewards the visual twist in the sprite and recalls a beloved piece of PC hardware trivia.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop representing parallel peripheral cabling."
+    },
+    {
+      "key": "e:dr-irq",
+      "depicts": "A ten-pin magenta-framed controller chip with a cyan status bar and vertical headroom above it for an animated interrupt discharge.",
+      "concept": "hardware interrupt request",
+      "proposals": [
+        {
+          "name": "IRQ Line",
+          "why": "Names the hardware interrupt request signal in crisp kernel-driver language."
+        },
+        {
+          "name": "Top Half",
+          "why": "Refers to the urgent hard-IRQ handler that preempts the CPU before deferring work."
+        },
+        {
+          "name": "Interrupt Spark",
+          "why": "Captures the sudden electrical flare demanding immediate processor attention."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "IRQ Line is immediately legible in a Unix manual index while staying faithful to the hardware concept.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core animated device-driver concept distinct from the kernel's bell-shaped IRQ prop."
+    },
+    {
+      "key": "e:dr-connector",
+      "depicts": "A compact black rectangular socket housing nine staggered cyan pins arranged five over four.",
+      "concept": "D-subminiature serial connector",
+      "proposals": [
+        {
+          "name": "Pin Socket",
+          "why": "Describes the bare multi-pin receptacle without assuming a specific shell."
+        },
+        {
+          "name": "Bent Pin",
+          "why": "Alludes to the universal dread of aligning nine delicate pins in the dark."
+        },
+        {
+          "name": "Nine-Pin Loom",
+          "why": "Treats the staggered two-row contact array as a miniature wiring loom."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Pin Socket accurately matches the stripped-down bare receptacle shown in the sprite.",
+      "decisionHint": "variant",
+      "mergeWith": "e:dr-db9",
+      "decisionWhy": "Shows the exact same five-over-four nine-pin pattern as e:dr-db9 without the outer shell and mounting ears."
+    },
+    {
+      "key": "e:dr-caps",
+      "depicts": "Three vertical cyan electrolytic capacitors with white metallic tops and dual lead pins, the middle cylinder slightly shorter.",
+      "concept": "power-rail decoupling capacitors",
+      "proposals": [
+        {
+          "name": "Filter Capacitors",
+          "why": "States their board-level electrical role plainly and accurately."
+        },
+        {
+          "name": "Bulging Caps",
+          "why": "Dryly invokes the early-2000s capacitor plague that doomed countless motherboards."
+        },
+        {
+          "name": "Charge Canisters",
+          "why": "Describes the clustered cylinders like small pressurized vessels lined up on a deck."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Bulging Caps is quietly funny, historically grounded, and gives an otherwise modest component real character.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small passive board-dressing prop well suited to an appendix specimen entry."
+    },
+    {
+      "key": "e:dr-usb",
+      "depicts": "A horizontal USB Type-A plug with a magenta cable tail, a white molded grip marked in cyan, and a slotted metal shield.",
+      "concept": "Universal Serial Bus peripheral interface",
+      "proposals": [
+        {
+          "name": "USB Plug",
+          "why": "Names the ubiquitous Type-A peripheral connector directly."
+        },
+        {
+          "name": "Third-Try Plug",
+          "why": "References USB superposition, where a two-sided plug somehow requires three insertions."
+        },
+        {
+          "name": "Serial Tongue",
+          "why": "Highlights the flat shielded blade and internal contact wafer in field-guide style."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Third-Try Plug lands a deadpan hardware joke that every reader recognizes instantly without turning cutesy.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Recognizable, cleanly drawn peripheral connector central to modern device drivers."
+    },
+    {
+      "key": "e:dr-pcie",
+      "depicts": "A horizontal cyan-outlined PCI Express expansion slot with a notched partition, magenta rail, and white contact pins along the bottom.",
+      "concept": "PCI Express expansion slot",
+      "proposals": [
+        {
+          "name": "PCIe Slot",
+          "why": "Uses the standard industry designation for the keyed serial expansion connector."
+        },
+        {
+          "name": "Sixteen Lanes",
+          "why": "Nods to the x16 lane-width notation printed beside high-bandwidth graphics slots."
+        },
+        {
+          "name": "Keyed Trench",
+          "why": "Evokes the notched physical channel that refuses misaligned cards."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "PCIe Slot is crisp, unmistakable, and anchors the peripheral bus terminology cleanly.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct horizontal slot prop that pairs naturally with the backplane and add-in cards."
+    },
+    {
+      "key": "e:dr-dma",
+      "depicts": "A white perforated transfer track carrying three sliding magenta and cyan data blocks between two cyan endpoints.",
+      "concept": "direct memory access transfer",
+      "proposals": [
+        {
+          "name": "DMA Channel",
+          "why": "Names the hardware pathway that moves buffers without CPU intervention."
+        },
+        {
+          "name": "Zero-Copy Belt",
+          "why": "Playfully compares ring-buffer DMA transfers to an automated conveyor bypassing the processor."
+        },
+        {
+          "name": "Burst Conveyor",
+          "why": "Describes the rhythmic train of memory blocks gliding across the bus."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "DMA Channel is concise, technically exact, and reads naturally as a Unix manual entry title.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated prop illustrating a foundational device-driver mechanism."
+    },
+    {
+      "key": "e:dr-nic",
+      "depicts": "A cyan-framed network expansion card with a magenta controller die, a white link LED, bottom edge contacts, and a detached black rear bracket.",
+      "concept": "network interface controller",
+      "proposals": [
+        {
+          "name": "Network Card",
+          "why": "Plainly identifies the add-in Ethernet controller board."
+        },
+        {
+          "name": "eth0 Card",
+          "why": "References the classic Linux interface name before predictable naming spoiled the brevity."
+        },
+        {
+          "name": "Packet Blade",
+          "why": "Frames the add-in board as a slender hardware fin slicing frames off the wire."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "eth0 Card is wry, deeply Unix-literate, and immediately distinguishable from the bare RJ-45 jack.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated expansion-card prop with clear silhouette and distinct driver role."
+    },
+    {
+      "key": "e:dr-gpu",
+      "depicts": "A magenta-shrouded graphics card with twin spinning white-and-cyan cooling fans and a cyan PCIe edge connector underneath.",
+      "concept": "graphics processing unit card",
+      "proposals": [
+        {
+          "name": "Graphics Card",
+          "why": "Directly identifies the dual-fan display accelerator."
+        },
+        {
+          "name": "Shader Blower",
+          "why": "Wryly reduces a massive parallel processor to the noisy fans required to keep it alive."
+        },
+        {
+          "name": "Twin-Fan Shroud",
+          "why": "Describes the hardware by its unmistakable dual-rotor silhouette."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Graphics Card is clear and canonical, and pairs cleanly with the driver layer's other named expansion hardware.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated dual-fan card, separate in art and scale from firmware's single-fan prop."
+    },
+    {
+      "key": "e:dr-disk",
+      "depicts": "A compact cyan-framed square drive containing a spinning white magnetic platter, black spindle cross, and diagonal magenta actuator arm.",
+      "concept": "block storage drive",
+      "proposals": [
+        {
+          "name": "Disk Platter",
+          "why": "Describes the compact spinning storage unit straightforwardly."
+        },
+        {
+          "name": "Block Device",
+          "why": "Uses the Unix /dev classification for sector-addressed storage hardware."
+        },
+        {
+          "name": "Spindle Disc",
+          "why": "Highlights the rotating wheel-and-needle mechanism in concise field-guide prose."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Block Device ties the sprite cleanly to Unix driver abstractions if kept independent.",
+      "decisionHint": "variant",
+      "mergeWith": "e:dr-hdd",
+      "decisionWhy": "Represents the same open hard-disk platter and actuator arm as e:dr-hdd at prop scale."
+    },
+    {
+      "key": "e:dr-keys",
+      "depicts": "Three staggered rows of white keycaps with cyan undersides, including a wide spacebar on the bottom row.",
+      "concept": "HID keyboard matrix",
+      "proposals": [
+        {
+          "name": "Key Matrix",
+          "why": "Names the scanned grid of switches that keyboard drivers decode into scancodes."
+        },
+        {
+          "name": "Scancode Bed",
+          "why": "Nods to the raw make-and-break codes emitted before any keymap interprets them."
+        },
+        {
+          "name": "Chattering Keys",
+          "why": "Evokes the mechanical clatter and contact bounce of physical switches."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Key Matrix is precise, hardware-grounded, and invites great manual notes on debouncing and rollover.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean, recognizable human-interface device prop with distinct driver mechanics."
+    },
+    {
+      "key": "e:dr-db9",
+      "depicts": "A magenta-shelled nine-pin D-subminiature port with black side mounting ears and nine staggered cyan contacts.",
+      "concept": "RS-232 serial port",
+      "proposals": [
+        {
+          "name": "Serial Port",
+          "why": "Names the classic nine-pin RS-232 interface plainly."
+        },
+        {
+          "name": "COM1 Port",
+          "why": "Invokes the venerable DOS and PC serial port designation."
+        },
+        {
+          "name": "Thumbscrew Port",
+          "why": "Points to the distinctive side ears that anchor serial cables against accidental pulls."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "COM1 Port is dryly nostalgic and immediately distinguishes this serial connector from generic pin headers.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Sharper, fuller depiction of the 9-pin serial port that should absorb e:dr-connector as a variant."
+    },
+    {
+      "key": "e:dr-jumpers",
+      "depicts": "A black two-by-five header block of cyan pins with two vertical pairs bridged by magenta plastic shunts.",
+      "concept": "hardware configuration jumpers",
+      "proposals": [
+        {
+          "name": "Jumper Block",
+          "why": "Uses the standard motherboard term for a pin header fitted with shorting shunts."
+        },
+        {
+          "name": "Master-Slave Shunts",
+          "why": "Recalls the bygone ritual of moving tiny plastic bridges to configure IDE drives."
+        },
+        {
+          "name": "Pin Bridges",
+          "why": "Describes the sleeved shunts visually as small spans linking paired posts."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Jumper Block is concise, accurate, and lets the manual page cover CMOS resets and drive selection alike.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinctive, readable hardware configuration prop iconic to older PC drivers."
+    },
+    {
+      "key": "e:dr-heatsink",
+      "depicts": "Eight tall vertical white cooling fins rising evenly from a solid cyan baseplate.",
+      "concept": "passive thermal dissipation",
+      "proposals": [
+        {
+          "name": "Finned Heatsink",
+          "why": "Describes the extruded thermal-dissipation block accurately."
+        },
+        {
+          "name": "Thermal Comb",
+          "why": "Pokes quiet fun at the comb-like fin array used to shed waste watts."
+        },
+        {
+          "name": "Heat Vanes",
+          "why": "Casts the vertical fins as quiet radiator plumage rising from the board."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Finned Heatsink is plain, clear, and matches the stripped-down silhouette.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Passive mechanical board fixture with minimal driver-level behavior, ideal for the appendix."
+    },
+    {
+      "key": "e:dr-rj45",
+      "depicts": "A square black modular Ethernet jack with a cyan contact bar inside, a bottom latch cutout, and magenta and cyan status LEDs above.",
+      "concept": "8P8C Ethernet jack",
+      "proposals": [
+        {
+          "name": "Ethernet Jack",
+          "why": "Identifies the modular network receptacle in plain terms."
+        },
+        {
+          "name": "Link Blinker",
+          "why": "Highlights the twin link-and-activity LEDs that technicians stare at first when debugging."
+        },
+        {
+          "name": "Clipped Socket",
+          "why": "Notes the square latch housing notorious for snapping plastic tabs."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Ethernet Jack is immediately readable and complements the full NIC card cleanly.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Compact connector prop closely adjacent to e:dr-nic, well suited for the appendix."
+    },
+    {
+      "key": "e:dr-scope",
+      "depicts": "A black oscilloscope display tracing an animated cyan sine wave across magenta center ticks, flanked by three magenta rotary dials.",
+      "concept": "hardware signal diagnostics",
+      "proposals": [
+        {
+          "name": "Bench Oscilloscope",
+          "why": "Names the signal-measurement instrument used to debug physical bus timing."
+        },
+        {
+          "name": "Trace Trigger",
+          "why": "References the trigger-level dial every engineer fiddles with to freeze a runaway waveform."
+        },
+        {
+          "name": "Sine Window",
+          "why": "Frames the glowing phosphor trace as a quiet porthole into electrical time."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Bench Oscilloscope is crisp, authoritative, and grounds the hardware-debugging side of driver work.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated, detailed diagnostic instrument with a strong visual identity."
+    },
+    {
+      "key": "e:dr-dip",
+      "depicts": "A magenta six-position DIP switch block with five white toggles flipped up and the third flipped down.",
+      "concept": "DIP switch hardware addressing",
+      "proposals": [
+        {
+          "name": "DIP Switch",
+          "why": "Uses the exact engineering name for the miniature dual-inline toggle bank."
+        },
+        {
+          "name": "Base-Address Bank",
+          "why": "Recalls setting hex I/O ports and IRQ numbers by fingernail before Plug and Play."
+        },
+        {
+          "name": "Toggle Row",
+          "why": "Describes the tiny row of binary sliders in spare, physical terms."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "DIP Switch is exact and iconic, though worth coordinating with firmware's e:fw-dipsw during final editing.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct six-switch sprite representing pre-PnP hardware configuration on expansion cards."
+    },
+    {
+      "key": "e:dr-fwload",
+      "depicts": "A small black storage module streaming cyan data pulses leftward-to-rightward into an eight-pin magenta-framed controller chip.",
+      "concept": "driver firmware blob loading",
+      "proposals": [
+        {
+          "name": "Firmware Loader",
+          "why": "States the driver's startup task of pushing microcode onto a peripheral."
+        },
+        {
+          "name": "Binary Blob",
+          "why": "Dryly invokes the perennial Linux kernel debate over proprietary device firmware."
+        },
+        {
+          "name": "Microcode Drip",
+          "why": "Pictures the animated bit stream trickling from host storage into a waiting chip."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Binary Blob is genuinely funny, deeply computing-literate, and captures the exact spirit of driver-side firmware loading.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated, conceptually rich prop unique to the drivers layer."
+    },
+    {
+      "key": "e:dr-speaker",
+      "depicts": "A white loudspeaker cone backed by a cyan driver box, emitting cyan and white sound-wave arcs to the right.",
+      "concept": "audio output device",
+      "proposals": [
+        {
+          "name": "Audio Transducer",
+          "why": "Names the sound-emitting hardware component with dry technical precision."
+        },
+        {
+          "name": "PCM Cone",
+          "why": "Pairs the physical speaker cone with the pulse-code-modulated buffer feeding it."
+        },
+        {
+          "name": "Pulse Horn",
+          "why": "Describes the flaring cone and radiating waves in terse field-guide terms."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "PCM Cone distinguishes the driver-layer audio device cleanly from firmware's POST beeper.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small animated audio prop with conceptual overlap against firmware's e:fw-beeper, fitting nicely in the appendix."
+    },
+    {
+      "key": "e:dr-mouse",
+      "depicts": "A top-down white two-button computer mouse with a cyan cord at the top and a magenta scroll wheel between the buttons.",
+      "concept": "pointing device HID input",
+      "proposals": [
+        {
+          "name": "Scroll Mouse",
+          "why": "Plainly identifies the corded two-button pointing device."
+        },
+        {
+          "name": "PS/2 Rodent",
+          "why": "Nods to the legacy interrupt-driven mouse port and classic Unix jargon."
+        },
+        {
+          "name": "Tethered Pointer",
+          "why": "Describes the corded peripheral as a small leashed specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "PS/2 Rodent brings dry computing personality to an everyday peripheral while staying firmly in the drivers layer.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Compact static HID companion to e:dr-keys, well suited to an appendix specimen entry."
+    },
+    {
+      "key": "e:dr-crystal",
+      "depicts": "A rounded white metallic quartz-crystal oscillator can with a dark face and two cyan leads extending downward.",
+      "concept": "quartz clock oscillator",
+      "proposals": [
+        {
+          "name": "Quartz Oscillator",
+          "why": "Names the piezoelectric timing component directly."
+        },
+        {
+          "name": "Clock Can",
+          "why": "Uses the informal electronics-bench name for a metal-cased HC-49 crystal."
+        },
+        {
+          "name": "Resonant Tin",
+          "why": "Evokes the sealed silver housing humming at megahertz frequency."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Clock Can is terse, tactile, and differentiates nicely from lower-layer silicon timing elements like e:r3-xtal.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Tiny passive board component that parallels e:r3-xtal in Ring -3, best kept as an appendix specimen."
+    },
+    {
+      "key": "e:dr-sata",
+      "depicts": "A magenta-framed black SATA receptacle containing a cyan horizontal contact blade with a white L-shaped keying tab on the right.",
+      "concept": "Serial ATA storage interface",
+      "proposals": [
+        {
+          "name": "SATA Port",
+          "why": "Identifies the L-keyed serial storage connector directly."
+        },
+        {
+          "name": "L-Keyed Slot",
+          "why": "Points to the distinctive L-shaped notch that prevents inverted drive cables."
+        },
+        {
+          "name": "AHCI Socket",
+          "why": "Connects the physical receptacle to the host-controller interface drivers actually speak."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "SATA Port is clean, immediately legible, and pairs naturally with NVMe and PATA ribbon props.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small static storage-connector prop well suited to the appendix."
+    },
+    {
+      "key": "e:dr-fanheader",
+      "depicts": "A white-bordered black rectangular shroud enclosing four vertical cyan pins.",
+      "concept": "4-pin PWM fan control header",
+      "proposals": [
+        {
+          "name": "Fan Header",
+          "why": "Uses the standard motherboard designation for the four-pin cooling connector."
+        },
+        {
+          "name": "PWM Four-Pin",
+          "why": "Specifies the four-wire pulse-width-modulation layout that adds tachometer and speed control."
+        },
+        {
+          "name": "Tachometer Posts",
+          "why": "Frames the four shrouded pins around their role reporting fan RPM back to the driver."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "PWM Four-Pin distinguishes this header from generic pin blocks and highlights the driver-controlled speed signal.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small static board header best placed in the appendix."
+    },
+    {
+      "key": "e:dr-ledstrip",
+      "depicts": "A narrow magenta circuit strip studded with four alternating cyan and white glowing LEDs.",
+      "concept": "status and diagnostic LED array",
+      "proposals": [
+        {
+          "name": "LED Strip",
+          "why": "Describes the narrow row of board-mounted indicator diodes plainly."
+        },
+        {
+          "name": "Blinkenlights",
+          "why": "Borrows the classic computing-folklore term for rows of diagnostic status lamps."
+        },
+        {
+          "name": "Diode Bar",
+          "why": "Gives the tiny illuminated strip a spare, technical field-guide label."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Blinkenlights is an irresistible, authentic piece of computing history that elevates a tiny decorative strip.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Tiny static decorative strip with no standalone mechanical role, ideal for the appendix."
+    },
+    {
+      "key": "e:dr-nvme",
+      "depicts": "A horizontal cyan-edged M.2 solid-state drive stick with two magenta NAND flash packages and a white edge-connector end.",
+      "concept": "NVMe M.2 solid-state storage",
+      "proposals": [
+        {
+          "name": "NVMe Stick",
+          "why": "Names the gumstick-sized PCIe solid-state drive in everyday hardware terms."
+        },
+        {
+          "name": "M.2 Gumstick",
+          "why": "Uses the dry hardware-reviewer nickname for the 2280 form-factor card."
+        },
+        {
+          "name": "Flash Blade",
+          "why": "Casts the flat, dual-package SSD as a sleek modern counterpart to spinning platters."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "NVMe Stick is crisp, unmistakable, and contrasts cleanly with the mechanical hard-disk anchor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean, recognizable modern storage hardware representing the NVMe driver queue model."
+    },
+    {
+      "key": "c:drivers:core",
+      "depicts": "A tiny six-by-five-pixel scuttling bug with a white carapace ridge, a cyan or magenta rectangular body, and two white legs centered in a large empty canvas.",
+      "concept": "bus-polling hardware interrupt traffic",
+      "proposals": [
+        {
+          "name": "Bus Skitter",
+          "why": "Describes the critter's fast scuttling motion along motherboard traces."
+        },
+        {
+          "name": "IRQ Mite",
+          "why": "Playfully casts the tiny, relentless trace-runner as a hardware interrupt pest."
+        },
+        {
+          "name": "Trace Runner",
+          "why": "Uses spare naturalist phrasing for a creature that lives exclusively on copper bus lines."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "IRQ Mite fits both the tiny scale of the species and the dry, computing-literate Field Manual tone.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "The sprite is a six-by-five-pixel speck inside a twenty-six-by-twenty-two canvas with two identical magenta frames and needs clearer creature art."
+    }
+  ]
+}

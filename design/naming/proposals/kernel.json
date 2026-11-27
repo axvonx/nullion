@@ -1,0 +1,701 @@
+{
+  "layer": "kernel",
+  "items": [
+    {
+      "key": "e:kr-furnace",
+      "depicts": "A red-walled kernel furnace with glowing yellow and coral bars inside, topped by a large silver gear, a smaller copper gear, and a grey smokestack.",
+      "concept": "kernel core execution engine",
+      "proposals": [
+        {
+          "name": "Kernel Furnace",
+          "why": "Plainly names the landmark boiler that anchors the Kernel Core layer."
+        },
+        {
+          "name": "Ring Zero Hearth",
+          "why": "Pairs privileged x86 ring terminology with the domestic warmth of a coal firebox."
+        },
+        {
+          "name": "Iron Tick-Boiler",
+          "why": "Reads like a field-guide specimen of heavy industrial fauna fuelled by clock interrupts."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Ring Zero Hearth grounds the furnace directly in hardware privilege levels while keeping a dry, memorable manual-page title.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Primary animated anchor landmark for the daily Kernel Core layer."
+    },
+    {
+      "key": "e:kr-systable",
+      "depicts": "A dark grey-framed dispatch board holding a four-by-eight grid of cyan-indexed blue and grey slots with one active yellow entry.",
+      "concept": "system call dispatch table",
+      "proposals": [
+        {
+          "name": "Syscall Table",
+          "why": "Uses the direct Unix term for the indexed array of kernel entry pointers."
+        },
+        {
+          "name": "Numbered Trap Board",
+          "why": "Nods to syscalls being invoked by integer index via software trap instructions."
+        },
+        {
+          "name": "Dispatch Switchboard",
+          "why": "Evokes an old telephone exchange routing userspace pleas to kernel handlers."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Syscall Table is immediately legible to computing-literate readers and fits a terse Unix manual heading.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct large animated anchor representing one of the kernel's defining interfaces."
+    },
+    {
+      "key": "e:kr-gears",
+      "depicts": "A meshing pair of silver and copper toothed gears turning against each other.",
+      "concept": "kernel clockwork and scheduling machinery",
+      "proposals": [
+        {
+          "name": "Meshing Gears",
+          "why": "Describes the two interlocking cogs without over-claiming a specific subsystem."
+        },
+        {
+          "name": "Cycle Cogs",
+          "why": "Puns on CPU clock cycles driving mechanical rotation."
+        },
+        {
+          "name": "Brass Escapement",
+          "why": "Borrows horological field-guide language for the kernel's steady tick mechanism."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Cycle Cogs cleanly links the generic gear art to CPU clock ticks in two brisk words.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Reuses the exact gear pair already mounted atop e:kr-furnace, making it better suited to an appendix specimen than its own full page."
+    },
+    {
+      "key": "e:kr-dmesg",
+      "depicts": "A wide dark console bezel scrolling bright green kernel log fragments such as FUTEX and EXT4-FS above a green status lamp.",
+      "concept": "kernel ring buffer log output",
+      "proposals": [
+        {
+          "name": "Kernel Log Display",
+          "why": "States plainly what the scrolling green terminal panel shows."
+        },
+        {
+          "name": "Dmesg Marquee",
+          "why": "Turns the terse Unix log-inspection command into a theatre sign broadcasting boot chatter."
+        },
+        {
+          "name": "Phosphor Boot-Scroll",
+          "why": "Frames the green diagnostic feed as a field-guide artifact of early CRT consoles."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dmesg Marquee carries the exact Unix command name with a dry wink at the scrolling ticker display.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unmistakable text-bearing kernel prop with high computing recognition."
+    },
+    {
+      "key": "e:kr-gauge",
+      "depicts": "A horizontal red bar clamped by two dark grey brackets with a detached vertical red needle hovering above a central notch.",
+      "concept": "kernel load and pressure telemetry",
+      "proposals": [
+        {
+          "name": "Load Gauge",
+          "why": "Names the intended pressure-and-load metering function in two direct words."
+        },
+        {
+          "name": "PSI Barometer",
+          "why": "References Linux Pressure Stall Information through a classic weather instrument."
+        },
+        {
+          "name": "Redline Manometer",
+          "why": "Uses dry Victorian instrument terminology suited to a field manual of boiler-room hardware."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "PSI Barometer delivers a sharp Linux kernel pun on both pressure units and Pressure Stall Information.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "The sprite reads more like a clamped red beam with a floating dash than a readable dial or gauge and would benefit from clearer instrument art."
+    },
+    {
+      "key": "e:kr-piston",
+      "depicts": "A narrow vertical dark grey cylinder hovering above a flat light grey rail.",
+      "concept": "periodic kernel work stroke",
+      "proposals": [
+        {
+          "name": "Drive Piston",
+          "why": "Plainly identifies the reciprocating mechanical plunger."
+        },
+        {
+          "name": "Preempt Plunger",
+          "why": "Ties the abrupt downward stroke to involuntary thread preemption."
+        },
+        {
+          "name": "Iron Rammer",
+          "why": "Casts the small piston as an industrial engine-room specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Preempt Plunger gives a tiny abstract mechanical prop a real kernel mechanism to stand for.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "At eight by fifteen pixels of minimal grey rectangles, it works best as an appendix prop rather than a standalone page."
+    },
+    {
+      "key": "e:kr-leds",
+      "depicts": "A small grey-bezelled black panel housing a two-by-three bank of square green lamps and one red lamp.",
+      "concept": "kernel subsystem status flags",
+      "proposals": [
+        {
+          "name": "Status Lamp Bank",
+          "why": "Directly describes the six-indicator diagnostic panel."
+        },
+        {
+          "name": "Taint Indicators",
+          "why": "Nods to the Linux kernel taint bitmask, where one red light spoils an otherwise clean boot."
+        },
+        {
+          "name": "Six-Eye Annunciator",
+          "why": "Uses control-room naturalist diction for a quiet cluster of warning lights."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Taint Indicators turns a generic LED cluster into a dry, genuinely Linux-specific joke.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "A tiny eleven-by-seven generic lamp cluster that fits an appendix listing rather than a dedicated manual page."
+    },
+    {
+      "key": "e:kr-schedwheel",
+      "depicts": "A spoked grey wheel mounted on a dark base with six colour-coded task squares riding around its rim.",
+      "concept": "round-robin and timer-wheel scheduling",
+      "proposals": [
+        {
+          "name": "Scheduler Wheel",
+          "why": "States the prop's exact role in rotating runnable tasks through CPU slices."
+        },
+        {
+          "name": "Quantum Ferris",
+          "why": "Puns on the scheduler time quantum as a carnival ride where every task gets one turn."
+        },
+        {
+          "name": "Round-Robin Wheel",
+          "why": "Uses the classic scheduling term with a crisp, timeless field-manual ring."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Round-Robin Wheel is both technically accurate and immediately evocative of the six coloured slots circling the rim.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear, readable animated sprite depicting a foundational kernel scheduling structure."
+    },
+    {
+      "key": "e:kr-pagetable",
+      "depicts": "A grey four-drawer vertical cabinet whose dark slots each hold a silver bar, three of them marked with a lit green square.",
+      "concept": "virtual-to-physical page tables",
+      "proposals": [
+        {
+          "name": "Page Table Cabinet",
+          "why": "Combines the virtual memory structure with the filing-cabinet silhouette."
+        },
+        {
+          "name": "Four-Level Folio",
+          "why": "References x86-64 four-level paging through the four stacked drawers."
+        },
+        {
+          "name": "Present-Bit Press",
+          "why": "Highlights the green presence flags in dry archival vocabulary."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Four-Level Folio matches the four visible drawers to x86-64 paging with understated precision.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct sprite with clear visual encoding of mapped versus unmapped page entries."
+    },
+    {
+      "key": "e:kr-irqbell",
+      "depicts": "A bright yellow bell suspended from a dark grey bracket with a brown clapper hanging below.",
+      "concept": "hardware interrupt requests",
+      "proposals": [
+        {
+          "name": "Interrupt Bell",
+          "why": "Plainly pairs the alarm bell with the IRQ mechanism it represents."
+        },
+        {
+          "name": "IRQ Chime",
+          "why": "Gives the abrupt hardware interruption an understated, polite name."
+        },
+        {
+          "name": "Brass Trap-Bell",
+          "why": "Reads like a museum catalogue label for a wall-mounted foundry alarm."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Interrupt Bell is crisp, unmistakable, and lets the manual page's dry prose carry the humour.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean, distinct animated sprite separate from the application notification bell e:app-bell."
+    },
+    {
+      "key": "e:kr-turnstile",
+      "depicts": "A dark grey pedestal mounted with rotating silver barrier arms.",
+      "concept": "priority-inheritance wait queues",
+      "proposals": [
+        {
+          "name": "Kernel Turnstile",
+          "why": "Uses the actual Solaris and BSD kernel term for lock-contention wait queues."
+        },
+        {
+          "name": "Single-File Stile",
+          "why": "Puns on serialized entry through a critical section."
+        },
+        {
+          "name": "Iron Gatekeeper",
+          "why": "Frames the mechanical barrier in restrained field-guide prose."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Kernel Turnstile is a real Unix kernel data structure whose literal name matches the sprite one-to-one.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unusual, authentic Unix kernel concept with a distinct animated silhouette."
+    },
+    {
+      "key": "e:kr-slab",
+      "depicts": "Four grey vertical compartments beneath a copper header bar, three stacked with paired green or cyan fixed-width bars and one empty.",
+      "concept": "slab memory allocator",
+      "proposals": [
+        {
+          "name": "Slab Rack",
+          "why": "Directly describes the binned fixed-size object caches shown in the sprite."
+        },
+        {
+          "name": "Kmem Cache",
+          "why": "Cites the literal Linux kernel slab-cache naming convention."
+        },
+        {
+          "name": "Bonwick Tray",
+          "why": "Quietly honours Jeff Bonwick, inventor of the SunOS slab allocator, in archival style."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Bonwick Tray is a deeply computing-literate reference that sounds completely natural in a binder of Unix field notes.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear visual depiction of typed fixed-size object caches with one empty free slot."
+    },
+    {
+      "key": "e:kr-ticker",
+      "depicts": "A small grey box on the left emitting a horizontal trail of red and grey rectangular dashes to the right.",
+      "concept": "periodic timer tick and jiffies",
+      "proposals": [
+        {
+          "name": "Tick Generator",
+          "why": "Plainly states the box's job of emitting periodic clock ticks."
+        },
+        {
+          "name": "Jiffy Spitter",
+          "why": "Puns on the Linux kernel jiffies counter with dry mechanical bluntness."
+        },
+        {
+          "name": "Hertz Metronome",
+          "why": "Treats the kernel's HZ timer pulse as a steady acoustic instrument."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Jiffy Spitter captures the exact Linux kernel term for timer ticks with quiet, dry wit.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Readable animated emitter representing the kernel's periodic timer heartbeat."
+    },
+    {
+      "key": "e:kr-gate",
+      "depicts": "A heavy dark grey archway fitted with a lowered silver portcullis grate.",
+      "concept": "privilege transition and call gates",
+      "proposals": [
+        {
+          "name": "Privilege Gate",
+          "why": "Directly identifies the boundary controlling entry into kernel mode."
+        },
+        {
+          "name": "Call-Gate Portcullis",
+          "why": "Combines the x86 descriptor-table call gate with the medieval iron grate."
+        },
+        {
+          "name": "Ring-Zero Grate",
+          "why": "Describes the barred threshold in spare architectural field-guide terms."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Call-Gate Portcullis pairs an exact x86 hardware concept with the unmistakable castle-grate sprite.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct portcullis sprite that does not duplicate e:ke-sysgate or e:r3-gate."
+    },
+    {
+      "key": "e:kr-runqueue",
+      "depicts": "A horizontal two-tone grey track carrying cyan, yellow, green, and narrow red task blocks lined up in order.",
+      "concept": "scheduler runnable task queue",
+      "proposals": [
+        {
+          "name": "Run Queue",
+          "why": "Uses the standard operating-system name for the line of runnable threads."
+        },
+        {
+          "name": "Ready Conveyor",
+          "why": "Links the TASK_RUNNING state to a factory belt feeding the CPU."
+        },
+        {
+          "name": "Thread Trough",
+          "why": "Frames the crowded line of awaiting tasks in dry naturalist language."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Run Queue is canonical Unix scheduler terminology and matches the animated conveyor directly.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core animated kernel scheduling prop with clear visual rhythm."
+    },
+    {
+      "key": "e:kr-mutex",
+      "depicts": "A brown brass padlock with yellow top trim, a silver shackle, a dark keyhole, and a small yellow key extending from its right side.",
+      "concept": "mutual exclusion lock",
+      "proposals": [
+        {
+          "name": "Kernel Mutex",
+          "why": "Names the synchronization primitive directly for immediate clarity."
+        },
+        {
+          "name": "Sleeping Padlock",
+          "why": "Distinguishes a blocking mutex from a busy-waiting spinlock in two quiet words."
+        },
+        {
+          "name": "Brass Exclusion Lock",
+          "why": "Applies archival hardware nomenclature to the keyed brass body."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Sleeping Padlock subtly encodes the defining behaviour of a mutex versus a spinlock without belabouring the joke.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct brass keyed padlock art, visually separate from the plain yellow userspace padlock e:us-padlock."
+    },
+    {
+      "key": "e:kr-irqmeter",
+      "depicts": "A square dark grey-framed screen showing four vertical bars, three cyan and one tall yellow column, above a silver baseline.",
+      "concept": "interrupt rate monitoring",
+      "proposals": [
+        {
+          "name": "Interrupt Meter",
+          "why": "Plainly names the bar-graph monitor tracking hardware interrupt volume."
+        },
+        {
+          "name": "Storm Gauge",
+          "why": "Alludes to interrupt storms whenever one yellow bar spikes toward the ceiling."
+        },
+        {
+          "name": "Vector Bargraph",
+          "why": "Uses spare oscilloscope and instrumentation language for the four IRQ columns."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Storm Gauge nods neatly to the classic kernel failure mode of an interrupt storm while remaining brief.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean animated bar-graph prop illustrating per-vector interrupt load."
+    },
+    {
+      "key": "e:kr-tlb",
+      "depicts": "A grey-framed black panel holding a four-by-three grid of teal and navy cache slots with one bright white hit.",
+      "concept": "translation lookaside buffer",
+      "proposals": [
+        {
+          "name": "Lookaside Cache",
+          "why": "Shortens the full hardware name into a clean, readable two-word title."
+        },
+        {
+          "name": "Shootdown Board",
+          "why": "References the dreaded cross-CPU TLB shootdown IPI in dry kernel jargon."
+        },
+        {
+          "name": "Address Slate",
+          "why": "Evokes a quick-reference pocket tally of recent virtual-to-physical translations."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Shootdown Board will draw an immediate grimace of recognition from anyone who has profiled multicore paging.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Canonical daily-layer TLB prop whose twelve-cell grid is visually distinct from e:ka-tlb."
+    },
+    {
+      "key": "e:kr-schedrack",
+      "depicts": "A small grey-framed black panel displaying three horizontal progress bars, one green and two cyan, across dark blue tracks.",
+      "concept": "per-task scheduler time-slice accounting",
+      "proposals": [
+        {
+          "name": "Scheduler Rack",
+          "why": "Plainly describes the compact panel of three task progress bars."
+        },
+        {
+          "name": "Vruntime Meter",
+          "why": "Cites Linux CFS virtual runtime accounting directly."
+        },
+        {
+          "name": "Slice Ledger",
+          "why": "Treats the three glowing bars as an accountant's tally of spent CPU time."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Vruntime Meter anchors an otherwise small bar-graph sprite in real Linux CFS scheduling mechanics.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small thirteen-by-thirteen bar monitor that overlaps conceptually with e:kr-schedwheel and e:kr-runqueue."
+    },
+    {
+      "key": "e:kr-semaphore",
+      "depicts": "A narrow vertical dark grey signal housing on a post with three square lenses, the top red lens lit and the lower two dark.",
+      "concept": "counting semaphore synchronization",
+      "proposals": [
+        {
+          "name": "Kernel Semaphore",
+          "why": "Uses Dijkstra's classic concurrency term directly."
+        },
+        {
+          "name": "Dijkstra Signal",
+          "why": "Credits the inventor of P and V operations with a wry nod to railway signalling."
+        },
+        {
+          "name": "Red-Aspect Post",
+          "why": "Borrows dry railway field-guide terminology for the halted signal lamp."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dijkstra Signal ties the railway-style signal sprite straight back to the historical origin of the word semaphore in computing.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unmistakable animated signal-post sprite for a canonical concurrency primitive."
+    },
+    {
+      "key": "e:kr-ringbuf",
+      "depicts": "An open circle of ten small square slots, seven dark grey and three sequentially lit bright cyan.",
+      "concept": "circular ring buffer",
+      "proposals": [
+        {
+          "name": "Ring Buffer",
+          "why": "Names the circular queue data structure with zero ornament."
+        },
+        {
+          "name": "Head-Chasing-Tail",
+          "why": "Summarizes producer-consumer wraparound arithmetic in a single hyphenated phrase."
+        },
+        {
+          "name": "Cyclic Bead-Ring",
+          "why": "Describes the floating loop of lit and dark squares like a field-guide specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Ring Buffer is exact, iconic, and needs no embellishment for a Unix manual entry.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean animated circular buffer sprite, distinct from e:app-spinner in colour, slot count, and layer context."
+    },
+    {
+      "key": "e:kr-wdtimer",
+      "depicts": "A grey-framed black console with a green indicator on the top left, a dark indicator on the top right, and a yellow-and-grey countdown bar below.",
+      "concept": "hardware and kernel watchdog timer",
+      "proposals": [
+        {
+          "name": "Watchdog Timer",
+          "why": "Plainly names the countdown mechanism that resets a wedged system."
+        },
+        {
+          "name": "Deadman Countdown",
+          "why": "Calls back to the railway dead-man's switch that inspired watchdog timers."
+        },
+        {
+          "name": "Hound Chronometer",
+          "why": "Keeps the kennel metaphor dry and archival rather than cute."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Deadman Countdown avoids repeating the placeholder name while capturing the unforgiving reset-on-silence logic.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated countdown panel, visually separate from e:fw-watchdog in the firmware layer."
+    },
+    {
+      "key": "e:kr-vfs",
+      "depicts": "A round silver junction hub with a red-and-charcoal core connected to four coloured conduits in green, cyan, magenta, and yellow.",
+      "concept": "virtual file system switch",
+      "proposals": [
+        {
+          "name": "VFS Junction",
+          "why": "Directly identifies the central switch unifying disparate filesystems."
+        },
+        {
+          "name": "Four-Way Mountpoint",
+          "why": "Puns on the four coloured pipes all speaking one common inode interface."
+        },
+        {
+          "name": "Universal Manifold",
+          "why": "Treats the filesystem abstraction layer as a piece of precision plumbing."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "VFS Junction is immediately recognizable to systems readers and fits the four-way pipe hub cleanly.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinctive, colourful hub sprite representing one of Unix's most famous abstractions."
+    },
+    {
+      "key": "e:kr-futex",
+      "depicts": "A yellow-bordered black box enclosing two large square state cells, bright green on the left and coral red on the right.",
+      "concept": "fast userspace mutex",
+      "proposals": [
+        {
+          "name": "Futex Box",
+          "why": "Pairs the Linux syscall name with the compact two-state housing."
+        },
+        {
+          "name": "Fast-Path Gate",
+          "why": "Highlights the green uncontended fast path beside the red kernel-wait fallback."
+        },
+        {
+          "name": "Bistate Latch",
+          "why": "Uses dry electrical-engineering nomenclature for the green-and-red cell pair."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Futex Box preserves the exact Linux primitive name that systems readers will look for in the index.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean, high-contrast visual metaphor for uncontended versus contended locking."
+    },
+    {
+      "key": "e:kr-epoll",
+      "depicts": "A cyan-framed black panel containing four vertical descriptor bars, three dark grey and one lit bright green.",
+      "concept": "scalable I/O event notification",
+      "proposals": [
+        {
+          "name": "Epoll Monitor",
+          "why": "Names the Linux I/O multiplexing facility directly."
+        },
+        {
+          "name": "Ready-List Watcher",
+          "why": "References epoll's O(1) readiness list instead of scanning every sleeping descriptor."
+        },
+        {
+          "name": "Edge-Trigger Slate",
+          "why": "Borrows dry signal-engineering phrasing for EPOLLET readiness alerts."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Edge-Trigger Slate is crisp, technically specific, and evokes the lone lit descriptor in the black frame.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct cyan-framed sprite encoding a signature Linux kernel I/O mechanism."
+    },
+    {
+      "key": "e:kr-cgroups",
+      "depicts": "A grey-framed white enclosure subdivided into three nested coloured boxes: cyan-blue at top left, green at top right, and a wide red partition below.",
+      "concept": "control groups resource partitioning",
+      "proposals": [
+        {
+          "name": "Cgroup Partition",
+          "why": "States plainly what the nested resource boxes represent."
+        },
+        {
+          "name": "Quota Terrarium",
+          "why": "Dryly frames container resource isolation as glass-walled enclosures for processes."
+        },
+        {
+          "name": "Hierarchy Pen",
+          "why": "Alludes to cgroup v2's unified tree hierarchy in spare naturalist diction."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Quota Terrarium captures the nested-box visual and the quiet comedy of confining processes within strict limits.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear, distinctive sprite illustrating resource-budgeted process compartments."
+    },
+    {
+      "key": "e:kr-workq",
+      "depicts": "A dark grey horizontal rail carrying four alternating cyan and yellow square work items.",
+      "concept": "deferred kernel workqueues",
+      "proposals": [
+        {
+          "name": "Kernel Workqueue",
+          "why": "Names the Linux deferred-execution mechanism directly."
+        },
+        {
+          "name": "Bottom-Half Belt",
+          "why": "References deferred bottom-half interrupt processing riding down a quiet conveyor."
+        },
+        {
+          "name": "Deferred Chute",
+          "why": "Uses dry postal-sorting language for tasks set aside for kworker threads."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Bottom-Half Belt links the conveyor art directly to classic kernel interrupt-deferral terminology.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Static horizontal block-conveyor art closely echoes e:kr-runqueue, making it better suited to the appendix."
+    },
+    {
+      "key": "e:kr-buddy",
+      "depicts": "Three grey-bordered vertical strips showing power-of-two memory subdivision: a wide blue block, a half-width green block, and two stacked brown and red quarter-blocks.",
+      "concept": "buddy memory allocator",
+      "proposals": [
+        {
+          "name": "Buddy Allocator",
+          "why": "Uses the canonical operating-system name for power-of-two page splitting and coalescing."
+        },
+        {
+          "name": "Power-Of-Two Split",
+          "why": "Describes the binary halving shown directly across the three strips."
+        },
+        {
+          "name": "Binary Cleaver",
+          "why": "Gives the page-splitting mechanism a spare, tactile field-guide name."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Buddy Allocator is universally recognized by systems readers and matches the halving diagram cleanly.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clever, immediately readable diagram of binary page-frame splitting."
+    },
+    {
+      "key": "c:kernel:core",
+      "depicts": "A compact silver-grey boxy automaton in a black U-frame with two stubby feet, a glowing cyan, green, or yellow visor, and a tipped top antenna.",
+      "concept": "kernel thread (kthread)",
+      "proposals": [
+        {
+          "name": "Kernel Thread",
+          "why": "Plainly names the autonomous worker unit that zips and perches through ring zero."
+        },
+        {
+          "name": "Kworker Drone",
+          "why": "Nods to the ubiquitous bracketed kworker processes visible in every ps listing."
+        },
+        {
+          "name": "Ring-Zero Mite",
+          "why": "Adopts dry naturalist taxonomy for a small, darting mechanical inhabitant of the kernel."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Kworker Drone avoids the throwaway placeholder while tying the zipping, perching automaton directly to real Linux kernel threads.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Signature living critter species of the Kernel Core layer, complete with three visor-colour variants."
+    }
+  ]
+}

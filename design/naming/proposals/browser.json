@@ -1,0 +1,557 @@
+{
+  "layer": "browser",
+  "items": [
+    {
+      "key": "e:br-viewport",
+      "depicts": "A large framed browser window with a dark navy border, drop shadow, white active tab, blue hero rectangle above five grey text lines, and a tall beige sidebar.",
+      "concept": "browser viewport and page layout",
+      "proposals": [
+        {
+          "name": "Viewport Frame",
+          "why": "Directly names the visible browser window and layout region shown in the sprite."
+        },
+        {
+          "name": "Above the Fold",
+          "why": "Nods wryly to the classic web-layout obsession with what fits inside the initial viewport."
+        },
+        {
+          "name": "Glass Aperture",
+          "why": "Treats the browser window in field-guide register as a framed opening onto rendered documents."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Above the Fold is dry, web-literate, and gives this large anchor landmark a memorable manual-page title.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "This is the layer's signature anchor set piece with unique art and clear visual identity."
+    },
+    {
+      "key": "e:br-dom",
+      "depicts": "Four coloured rectangular nodes (blue root, green and orange children, purple grandchild) connected by stepped dark-grey branches.",
+      "concept": "Document Object Model tree",
+      "proposals": [
+        {
+          "name": "DOM Tree",
+          "why": "Uses the standard browser term for the hierarchical node graph depicted."
+        },
+        {
+          "name": "Div Dynasty",
+          "why": "Pokes dry fun at deeply nested HTML element hierarchies."
+        },
+        {
+          "name": "Node Sapling",
+          "why": "Frames the four-node branching diagram as a small botanical specimen."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Node Sapling bridges computing terminology and field-guide taxonomy cleanly without being cutesy.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct browser-specific prop with readable silhouette and a core web concept."
+    },
+    {
+      "key": "e:br-css",
+      "depicts": "Four concentric nested rectangles in orange, green, blue, and white matching the DevTools CSS box-model diagram.",
+      "concept": "CSS box model",
+      "proposals": [
+        {
+          "name": "CSS Box Model",
+          "why": "Names the exact margin-border-padding-content diagram shown in the sprite."
+        },
+        {
+          "name": "Border-Box Nest",
+          "why": "References the box-sizing declaration every web developer reaches for first."
+        },
+        {
+          "name": "Margin Strata",
+          "why": "Describes the coloured concentric bands as geological layers in field-guide style."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "CSS Box Model is instantly recognizable because the sprite uses the canonical four-colour DevTools palette.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique art depicting a foundational browser layout concept."
+    },
+    {
+      "key": "e:br-layer",
+      "depicts": "Three overlapping dark-bordered rectangular panes stepped diagonally forward from pale blue-grey to white.",
+      "concept": "compositor stacking layers",
+      "proposals": [
+        {
+          "name": "Compositor Layers",
+          "why": "Plainly identifies the stacked surfaces handed to the GPU compositor."
+        },
+        {
+          "name": "Z-Index Stack",
+          "why": "Wryly recalls the perennial CSS layering arms race behind overlapping panes."
+        },
+        {
+          "name": "Promoted Panes",
+          "why": "Combines the technical term for layer promotion with an observational glass metaphor."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Z-Index Stack is crisp, immediately legible to any developer, and quietly funny.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean, original browser prop with no duplicate in other layers."
+    },
+    {
+      "key": "e:br-tab",
+      "depicts": "A pale grey browser tab strip with a raised white active tab containing a blue bar beside a muted grey inactive tab.",
+      "concept": "browser tab bar",
+      "proposals": [
+        {
+          "name": "Browser Tab",
+          "why": "Plainly labels the tabbed document strip depicted in the sprite."
+        },
+        {
+          "name": "Unclosed Tab",
+          "why": "Dryly nods to the universal habit of leaving browser tabs open indefinitely."
+        },
+        {
+          "name": "Chrome Ridge",
+          "why": "Treats the top-of-window browser chrome as a small architectural ridge."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Unclosed Tab lands a quiet, computing-literate joke while staying concise and plain.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Original browser-layer prop representing a distinct UI primitive."
+    },
+    {
+      "key": "e:br-paint",
+      "depicts": "A dark-framed white rectangle with a bright green patch flashing in its lower-right quadrant, like a DevTools paint-flash overlay.",
+      "concept": "repaint region and paint flashing",
+      "proposals": [
+        {
+          "name": "Paint Region",
+          "why": "Directly describes the invalidated subregion being repainted inside the frame."
+        },
+        {
+          "name": "Dirty Rect",
+          "why": "Uses genuine graphics and browser-engine jargon that doubles as a dry pun."
+        },
+        {
+          "name": "Raster Bloom",
+          "why": "Evokes the green flash appearing on the white surface like a brief lichen bloom."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dirty Rect is authentic compositor vocabulary with a dry, unforced double meaning.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated browser prop depicting an authentic rendering-pipeline diagnostic."
+    },
+    {
+      "key": "e:br-cookie",
+      "depicts": "A round golden-ochre pixel biscuit dotted with four dark-grey square chips.",
+      "concept": "HTTP browser cookies",
+      "proposals": [
+        {
+          "name": "HTTP Cookie",
+          "why": "Names the exact stateful header mechanism symbolized by the biscuit."
+        },
+        {
+          "name": "Third-Party Crumb",
+          "why": "Wryly references cross-site tracking cookies in a clipped, dry phrase."
+        },
+        {
+          "name": "Session Biscuit",
+          "why": "Pairs the literal baked-good sprite with session state in a dry naturalist register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Third-Party Crumb is sharp, topical, and fits the Field Manual's understated humour.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique sprite with an iconic web concept that merits its own manual page."
+    },
+    {
+      "key": "e:br-canvas",
+      "depicts": "A dark-framed white rectangle containing a red circle overlapping a blue square.",
+      "concept": "HTML5 2D canvas surface",
+      "proposals": [
+        {
+          "name": "Canvas Surface",
+          "why": "Directly names the bitmap drawing surface represented by the framed primitives."
+        },
+        {
+          "name": "Immediate Mode",
+          "why": "References the retain-nothing drawing API that distinguishes canvas from the DOM."
+        },
+        {
+          "name": "Pixel Easel",
+          "why": "Casts the framed red-and-blue study as a small studio object in field-guide style."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Canvas Surface is clear, accurate, and avoids overcomplicating a straightforward graphics primitive.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Original browser-layer art representing a distinct rendering API."
+    },
+    {
+      "key": "e:br-devtools",
+      "depicts": "A dark-slate console panel displaying three staggered horizontal timing bars in green, blue, and orange.",
+      "concept": "browser DevTools waterfall profiler",
+      "proposals": [
+        {
+          "name": "DevTools Waterfall",
+          "why": "Plainly identifies the staggered request-and-frame timing bars inside the dark panel."
+        },
+        {
+          "name": "F12 Inspector",
+          "why": "References the classic keyboard shortcut for opening browser developer tools."
+        },
+        {
+          "name": "Timing Cascade",
+          "why": "Describes the stepped coloured bars in observational field-guide phrasing."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "F12 Inspector is a crisp, instantly understood computing reference with dry manual-page charm.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique browser-layer prop with a clear silhouette and distinct role."
+    },
+    {
+      "key": "e:br-app-browser",
+      "depicts": "A compact dark-framed browser window with a beige tab, grey address bar, orange banner, and one or three grey text lines below.",
+      "concept": "web browser window",
+      "proposals": [
+        {
+          "name": "Browser Window",
+          "why": "Directly names the miniature web window shown in both sprite variants."
+        },
+        {
+          "name": "Nested Chrome",
+          "why": "Wryly notes a browser window appearing as a scatter prop inside the browser layer."
+        },
+        {
+          "name": "Tab Shell",
+          "why": "Describes the compact framed window as a small protective casing."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Browser Window is plain and accurate, matching its canonical role in the application layer.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-browser",
+      "decisionWhy": "Both sprite variants are byte-for-byte identical to e:app-browser in the application layer."
+    },
+    {
+      "key": "e:br-app-dialog",
+      "depicts": "A cream modal dialog box with an amber title bar, red close button, yellow icon, two text lines, and two action buttons.",
+      "concept": "modal alert dialog",
+      "proposals": [
+        {
+          "name": "Modal Dialog",
+          "why": "Uses the standard UI term for the focus-capturing window depicted."
+        },
+        {
+          "name": "Blocking Alert",
+          "why": "Dryly references window.alert halting script execution until dismissed."
+        },
+        {
+          "name": "Prompt Box",
+          "why": "Keeps the label spare and archival, like a labelled specimen container."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Blocking Alert captures both the visual urgency of the amber header and the synchronous JS behaviour.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-dialog",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:app-dialog in the application layer."
+    },
+    {
+      "key": "e:br-app-toast",
+      "depicts": "A small white notification card with a dark blue drop shadow, an orange square icon, and two grey text bars.",
+      "concept": "transient toast notification",
+      "proposals": [
+        {
+          "name": "Toast Banner",
+          "why": "Plainly names the pop-up notification card shown in the sprite."
+        },
+        {
+          "name": "Ephemeral Nag",
+          "why": "Dryly comments on brief status popups that vanish before you finish reading them."
+        },
+        {
+          "name": "Corner Slip",
+          "why": "Treats the tiny card as a printed paper slip pinned at the edge of the screen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Toast Banner is clear, standard UI terminology, and fits a shared entry with the application layer.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-toast",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:app-toast in the application layer."
+    },
+    {
+      "key": "e:br-app-spinner",
+      "depicts": "A circle of eight pixel dots on a pale cream square, with three adjacent dots lit in amber and gold.",
+      "concept": "indeterminate loading spinner",
+      "proposals": [
+        {
+          "name": "Loading Spinner",
+          "why": "Directly identifies the rotating dot-ring busy indicator."
+        },
+        {
+          "name": "Main-Thread Stall",
+          "why": "Wryly names the browser condition most likely to freeze a loading spinner in place."
+        },
+        {
+          "name": "Waiting Ring",
+          "why": "Describes the circular dot motif in restrained field-guide phrasing."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Loading Spinner is concise and accurate for a prop shared verbatim with the application layer.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-spinner",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:app-spinner in the application layer."
+    },
+    {
+      "key": "e:br-app-progress",
+      "depicts": "A narrow dark-bordered horizontal cream track holding a small orange progress block near the left end.",
+      "concept": "progress bar indicator",
+      "proposals": [
+        {
+          "name": "Progress Bar",
+          "why": "Plainly names the horizontal completion meter shown in both frames."
+        },
+        {
+          "name": "Ninety-Nine Percent",
+          "why": "Wryly references the notoriously misleading final stretch of software progress bars."
+        },
+        {
+          "name": "Fill Gauge",
+          "why": "Frames the track-and-block meter as a physical measuring instrument."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Progress Bar is clean and unambiguous for a prop duplicated from the application layer.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-progress",
+      "decisionWhy": "Both sprite variants are byte-for-byte identical to e:app-progress in the application layer."
+    },
+    {
+      "key": "e:br-app-icon",
+      "depicts": "A small rounded green app tile with a white glyph inside and a bright red notification badge at its top-right corner.",
+      "concept": "badged application icon",
+      "proposals": [
+        {
+          "name": "Badged Icon",
+          "why": "Plainly describes the launcher tile and its corner notification dot."
+        },
+        {
+          "name": "Unread Badge",
+          "why": "Zeroes in wryly on the red corner square that demands user attention."
+        },
+        {
+          "name": "Red-Crowned Tile",
+          "why": "Names the green-and-red icon as if it were a small crested bird in a field guide."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Unread Badge captures the defining visual feature of the sprite with dry precision.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-icon",
+      "decisionWhy": "Both sprite variants are byte-for-byte identical to e:app-icon in the application layer."
+    },
+    {
+      "key": "e:br-app-bubble",
+      "depicts": "A rounded blue speech bubble with a small bottom-right tail and three light typing-indicator squares inside.",
+      "concept": "typing-indicator chat bubble",
+      "proposals": [
+        {
+          "name": "Chat Bubble",
+          "why": "Plainly identifies the messaging speech balloon shown."
+        },
+        {
+          "name": "Typing Ellipsis",
+          "why": "Highlights the three animated dots that keep a reader waiting for a reply."
+        },
+        {
+          "name": "Speech Blip",
+          "why": "Treats the tiny blue message bubble as a fleeting acoustic or radar trace."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Typing Ellipsis is specific to the three-dot animation and quietly wry.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-bubble",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:app-bubble in the application layer."
+    },
+    {
+      "key": "e:br-app-cloudsync",
+      "depicts": "A blue T-shaped upload arrow resting on a pale blue-grey horizontal bar, with the surrounding cloud silhouette barely visible.",
+      "concept": "cloud synchronization indicator",
+      "proposals": [
+        {
+          "name": "Cloud Sync",
+          "why": "Directly names the background synchronization state the icon represents."
+        },
+        {
+          "name": "Eventual Upload",
+          "why": "Pokes dry fun at eventual consistency and stalled cloud sync indicators."
+        },
+        {
+          "name": "Skyward Arrow",
+          "why": "Describes the visible blue upward motif in simple observational language."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Cloud Sync states the intended concept clearly despite the minimal sprite.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-cloudsync",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:app-cloudsync in the application layer."
+    },
+    {
+      "key": "e:br-app-folder",
+      "depicts": "A golden-yellow file folder with a raised left tab and a pale cream paper edge peeking along the top.",
+      "concept": "filesystem directory folder",
+      "proposals": [
+        {
+          "name": "File Folder",
+          "why": "Plainly names the classic desktop directory icon."
+        },
+        {
+          "name": "Local Directory",
+          "why": "Uses dry Unix-adjacent phrasing for a skeuomorphic desktop folder."
+        },
+        {
+          "name": "Manila Pocket",
+          "why": "Names the yellow tabbed icon after its physical office-archive ancestor."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "File Folder is direct and matches the canonical application-layer prop.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-folder",
+      "decisionWhy": "Both sprite variants are byte-for-byte identical to e:app-folder in the application layer."
+    },
+    {
+      "key": "e:br-app-trash",
+      "depicts": "A grey lidded wastebasket with three vertical ribs and a small yellow scrap sticking out the top.",
+      "concept": "trash bin and deferred deletion",
+      "proposals": [
+        {
+          "name": "Trash Can",
+          "why": "Plainly names the desktop wastebasket icon depicted."
+        },
+        {
+          "name": "Soft Delete",
+          "why": "Wryly describes the trash metaphor in database and filesystem terms."
+        },
+        {
+          "name": "Discard Tin",
+          "why": "Renders the ribbed metal bin in spare, archival field-guide language."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Soft Delete is dry, computing-literate, and funnier than a literal label.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-trash",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:app-trash in the application layer."
+    },
+    {
+      "key": "e:br-app-slider",
+      "depicts": "A horizontal range track filled orange on the left and grey on the right, with an amber-framed white thumb near the right end.",
+      "concept": "range slider input control",
+      "proposals": [
+        {
+          "name": "Range Slider",
+          "why": "Directly names the continuous-value HTML and GUI input control."
+        },
+        {
+          "name": "Scrub Track",
+          "why": "Nods to media players and timelines controlled by dragging a thumb."
+        },
+        {
+          "name": "Sliding Detent",
+          "why": "Describes the track and thumb as a small mechanical gauge."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Range Slider is accurate and clean for a prop shared directly with the application layer.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-slider",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:app-slider in the application layer."
+    },
+    {
+      "key": "e:br-app-toggle",
+      "depicts": "A green pill-shaped switch with a white square knob resting in the right-hand active position.",
+      "concept": "boolean toggle switch",
+      "proposals": [
+        {
+          "name": "Toggle Switch",
+          "why": "Plainly names the two-state UI switch shown in the sprite."
+        },
+        {
+          "name": "Boolean Pill",
+          "why": "Dryly combines the underlying true/false data type with the rounded UI shape."
+        },
+        {
+          "name": "Snap Latch",
+          "why": "Casts the digital switch as a crisp physical fastener."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Toggle Switch is clear, standard, and appropriate for a duplicate of the application-layer prop.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-toggle",
+      "decisionWhy": "The sprite is byte-for-byte identical to e:app-toggle in the application layer."
+    },
+    {
+      "key": "c:browser:core",
+      "depicts": "A tiny hollow square (blue in v0, green in v2) with a two-pixel orange tab on its upper-right corner, sitting inside a mostly empty 26x22 frame.",
+      "concept": "floating DOM box or focus ring",
+      "proposals": [
+        {
+          "name": "Box Sprite",
+          "why": "Plainly describes the minimal hollow-square organism and its corner tag."
+        },
+        {
+          "name": "Floating Div",
+          "why": "Wryly connects CSS float-and-box behaviour to a creature that flies and perches."
+        },
+        {
+          "name": "Tab Mote",
+          "why": "Treats the tiny tagged square as a drifting speck of browser fauna."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Floating Div fits both the flying-and-perching motions and the square box silhouette with dry web humour.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "The sprite is a tiny 5x5 geometric speck inside a 26x22 canvas and does not read clearly as a distinct creature."
+    },
+    {
+      "key": "c:browser:alt",
+      "depicts": "A single dark-navy 1x8 vertical bar on the left side of a 26x22 transparent frame, resembling a text insertion caret.",
+      "concept": "blinking text insertion caret",
+      "proposals": [
+        {
+          "name": "Text Caret",
+          "why": "Plainly identifies the vertical insertion line depicted in the sprite."
+        },
+        {
+          "name": "Blink Cursor",
+          "why": "Nods wryly to the rhythmic flashing caret that waits in every input field."
+        },
+        {
+          "name": "I-Beam Dart",
+          "why": "Combines the cursor silhouette with its zipping and perching movement in field-guide style."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Text Caret is precise, dry, and immediately names the browser element this vertical bar depicts.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "A 1-pixel-wide vertical bar inside a 26x22 canvas is too sparse to read as a living creature without I-beam serifs or a blink cue."
+    }
+  ]
+}

@@ -1,0 +1,701 @@
+{
+  "layer": "ring-1",
+  "items": [
+    {
+      "key": "e:r1-mirrorgate",
+      "depicts": "Two tall dark-green monitors on stands facing each other across a dotted vertical line, each displaying mirrored bar charts.",
+      "concept": "VMX root/non-root state mirroring",
+      "proposals": [
+        {
+          "name": "Mirrored Twin Consoles",
+          "why": "Plainly describes the paired display stands flanking the partition line."
+        },
+        {
+          "name": "The Symmetry Gate",
+          "why": "Plays on the hypervisor boundary where host and guest states reflect each other."
+        },
+        {
+          "name": "Janus Rack",
+          "why": "Treats the two-faced monitor pair like a threshold-guarding specimen in a field guide."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "The Symmetry Gate fits a major anchor landmark while nodding directly to VMX root/non-root reflection.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 62x42 anchor landmark with its own dual-display art."
+    },
+    {
+      "key": "e:r1-portal",
+      "depicts": "Four concentric glowing green rectangular frames receding inward into a dark void.",
+      "concept": "VM entry and exit",
+      "proposals": [
+        {
+          "name": "Nested Frame Portal",
+          "why": "Directly names the receding concentric rectangles of the sprite."
+        },
+        {
+          "name": "VMENTRY Threshold",
+          "why": "References the x86 instruction that drops execution from Ring -1 into a guest."
+        },
+        {
+          "name": "Depth Aperture",
+          "why": "Evokes a natural optical or geological shaft leading into a deeper stratum."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "VMENTRY Threshold is crisp, computing-literate, and immediately signals the hypervisor transition.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Large 46x38 animated anchor with unique receding-frame artwork."
+    },
+    {
+      "key": "e:r1-mirror",
+      "depicts": "Two small green-rimmed screens side by side separated by a white gap, showing mirrored bar patterns.",
+      "concept": "guest-host state reflection",
+      "proposals": [
+        {
+          "name": "Split Mirror Pair",
+          "why": "Describes the two small side-by-side screens plainly."
+        },
+        {
+          "name": "Shadow-State Glass",
+          "why": "Nods to the hypervisor's habit of keeping a reflected copy of guest registers."
+        },
+        {
+          "name": "Twin Speculum",
+          "why": "Uses classic naturalist/optical terminology for a small reflecting pair."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Shadow-State Glass distinguishes this scatter prop from the larger mirrorgate anchor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Compact 24x10 animated prop distinct from the 62x42 mirrorgate anchor."
+    },
+    {
+      "key": "e:r1-tunnel",
+      "depicts": "A dark rectangular archway framed by two nested green borders receding slightly to the right.",
+      "concept": "virtio / paravirtualized channel",
+      "proposals": [
+        {
+          "name": "Recessed Box Tunnel",
+          "why": "Plainly describes the boxy, nested green corridor."
+        },
+        {
+          "name": "Ring-Crossing Conduit",
+          "why": "References the bypass channel punched between guest and hypervisor."
+        },
+        {
+          "name": "Borehole Passage",
+          "why": "Frames the rectangular shaft as a carved geological or burrows-style passage."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Ring-Crossing Conduit captures both the visual tunnel and its hypervisor role.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated 20x14 prop with its own corridor sprite."
+    },
+    {
+      "key": "e:r1-tag",
+      "depicts": "Pixelated green text reading 'VMCS' above a thin dark-green horizontal underline.",
+      "concept": "Virtual Machine Control Structure",
+      "proposals": [
+        {
+          "name": "VMCS Placard",
+          "why": "Literally names the labeled tag."
+        },
+        {
+          "name": "Root-Mode Stencil",
+          "why": "Wryly treats the control-structure label as an industrial stencil."
+        },
+        {
+          "name": "Specimen Label",
+          "why": "Matches the archive-binder field guide aesthetic for an inscribed marker."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "VMCS Placard is concise and pairs naturally with the literal text in the sprite.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Text-bearing label prop that works best as an appendix specimen."
+    },
+    {
+      "key": "e:r1-glass",
+      "depicts": "A jagged, diamond-like shard of dark green glass with bright-green specular highlights.",
+      "concept": "hypervisor isolation pane",
+      "proposals": [
+        {
+          "name": "Faceted Green Shard",
+          "why": "Describes the angular, highlighted glass fragment."
+        },
+        {
+          "name": "Read-Only Pane",
+          "why": "Puns on transparent isolation that lets the host see in without the guest reaching out."
+        },
+        {
+          "name": "Vitreous Splinter",
+          "why": "Uses a dry mineralogical term fitting a field-guide specimen."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Vitreous Splinter has a crisp field-guide register that suits a small crystal-like prop.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean, recognizable 14x16 animated shard."
+    },
+    {
+      "key": "e:r1-bubble",
+      "depicts": "A circular green-outlined orb with a bright highlight and a dark interior containing vertical bar columns.",
+      "concept": "isolated VM sandbox",
+      "proposals": [
+        {
+          "name": "Containment Orb",
+          "why": "Plainly describes the enclosed spherical barrier."
+        },
+        {
+          "name": "Sandbox Sphere",
+          "why": "Directly nods to the isolated guest execution environment."
+        },
+        {
+          "name": "Encysted Cell",
+          "why": "Frames the isolated VM as a biological cyst in a field manual."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Sandbox Sphere is immediately clear and fits the Ring -1 isolation theme.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 15x15 orb prop; differs from the app-bubble sprites in upper layers."
+    },
+    {
+      "key": "e:r1-ept",
+      "depicts": "Two columns of three dark-green rectangles bridged by a jagged bright-green lightning-like path.",
+      "concept": "Extended Page Tables",
+      "proposals": [
+        {
+          "name": "Two-Column Mapper",
+          "why": "Describes the two-sided table layout linked by a bright trace."
+        },
+        {
+          "name": "Guest-to-Host Bridge",
+          "why": "Directly references two-dimensional address translation from guest physical to host physical."
+        },
+        {
+          "name": "Synaptic Lattice",
+          "why": "Treats the branching bright trace between columns like a biological junction."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Guest-to-Host Bridge explains what EPT actually does without needing the acronym in the title.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear 17x13 prop with a distinct two-column translation diagram."
+    },
+    {
+      "key": "e:r1-vcpu",
+      "depicts": "A small square chip with pins on all four sides and a bright-green 'V' on its dark center.",
+      "concept": "virtual CPU",
+      "proposals": [
+        {
+          "name": "Virtual Processor Die",
+          "why": "Plainly names the pinned chip marked with a V."
+        },
+        {
+          "name": "vCPU Socket",
+          "why": "Uses the standard virtualization term for an emulated processor."
+        },
+        {
+          "name": "Simulated Silicate",
+          "why": "Dryly frames a virtualized chip as a mineralogical mimic."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "vCPU Socket is exact, idiomatic, and immediately recognizable.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Crisp 11x11 chip prop with a clear 'V' emblem."
+    },
+    {
+      "key": "e:r1-vmcs",
+      "depicts": "Two pixelated round faces side by side, the left in medium green with dark features and the right in dark green with bright-green features.",
+      "concept": "VMCS guest/host state area",
+      "proposals": [
+        {
+          "name": "Dual-State Masks",
+          "why": "Describes the two contrasting faces representing paired states."
+        },
+        {
+          "name": "Context-Switch Twins",
+          "why": "References the rapid swap between host and guest state areas on VM exit."
+        },
+        {
+          "name": "Janiform Pair",
+          "why": "Uses a dry classical/naturalist term for two-faced specimens."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Context-Switch Twins captures the hypervisor mechanics without repeating the prototype's 'Twin Masks'.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Memorable 18x13 prop representing the VMCS guest/host split."
+    },
+    {
+      "key": "e:r1-trapdoor",
+      "depicts": "A horizontal green floor line with a dark pit underneath and an angled bright-green hatch swung open upward.",
+      "concept": "privileged instruction trap / VM exit",
+      "proposals": [
+        {
+          "name": "Hinged Floor Hatch",
+          "why": "Plainly describes the open trapdoor over a dark shaft."
+        },
+        {
+          "name": "Trap-and-Emulate",
+          "why": "Directly names the classic virtualization technique triggered by privileged instructions."
+        },
+        {
+          "name": "Pitfall Operculum",
+          "why": "Applies a naturalist term for a hinged lid to the trapdoor."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Trap-and-Emulate is a foundational virtualization term that fits the sprite's literal trapdoor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear 15x10 animated prop."
+    },
+    {
+      "key": "e:r1-shadowpage",
+      "depicts": "A wide pixel-art eye outlined in green with a dark pupil and a bright-green square glint.",
+      "concept": "shadow page tables",
+      "proposals": [
+        {
+          "name": "Watchful Eye",
+          "why": "Plainly describes the scanning eye sprite."
+        },
+        {
+          "name": "Page-Fault Sentinel",
+          "why": "References how shadow paging intercepts every guest page-table write."
+        },
+        {
+          "name": "Ocellus",
+          "why": "Uses the biological term for a simple eye-spot in a field-guide register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Page-Fault Sentinel conveys the hypervisor's surveillance of guest memory without echoing the prototype name.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinctive 17x11 animated eye prop."
+    },
+    {
+      "key": "e:r1-dolls",
+      "depicts": "Three nested, concentric dome-like outlines in green shades, rising from a bright-green base.",
+      "concept": "nested virtualization",
+      "proposals": [
+        {
+          "name": "Nested Shells",
+          "why": "Plainly describes the layered concentric domes."
+        },
+        {
+          "name": "Matryoshka Hypervisor",
+          "why": "Nods to the classic nesting-doll metaphor for hypervisors inside hypervisors."
+        },
+        {
+          "name": "Concentric Carapace",
+          "why": "Frames the layered shells as a biological exoskeleton."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Matryoshka Hypervisor is wry, accurate, and matches the layered dome silhouette.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 19x14 prop."
+    },
+    {
+      "key": "e:r1-mempress",
+      "depicts": "A vertical press with a flat green upper plate, a bright-green middle platen, and a lower green base.",
+      "concept": "memory ballooning / page compression",
+      "proposals": [
+        {
+          "name": "Hydraulic Platen",
+          "why": "Describes the mechanical pressing plates."
+        },
+        {
+          "name": "Balloon Compactor",
+          "why": "References hypervisor memory ballooning squeezing unused pages out of a guest."
+        },
+        {
+          "name": "Stratum Press",
+          "why": "Treats memory compression like a geological compacting device."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Balloon Compactor ties the visual press directly to VM memory reclamation.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear 13x14 animated prop."
+    },
+    {
+      "key": "e:r1-migrate",
+      "depicts": "Three horizontal bars on the left trailing toward a green-framed square screen on the right.",
+      "concept": "live VM migration",
+      "proposals": [
+        {
+          "name": "Streaming Terminal",
+          "why": "Plainly describes the data bars flowing into a framed screen."
+        },
+        {
+          "name": "Live-State Transfer",
+          "why": "Directly names the act of moving a running VM between hosts."
+        },
+        {
+          "name": "Migratory Spoor",
+          "why": "Uses a naturalist tracking term for the trailing bars left behind."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Live-State Transfer is precise and fits the motion-trail visual.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 19x10 animated prop."
+    },
+    {
+      "key": "e:r1-snapshot",
+      "depicts": "A dark-green camera-like box with a circular lens in the center and a small viewfinder block on top.",
+      "concept": "VM state snapshot",
+      "proposals": [
+        {
+          "name": "Box Camera",
+          "why": "Plainly describes the blocky camera silhouette."
+        },
+        {
+          "name": "Checkpoint Shutter",
+          "why": "Combines the camera form with the computing concept of saving VM state."
+        },
+        {
+          "name": "Stasis Lens",
+          "why": "Evokes freezing a moment in time as a field-guide instrument."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Checkpoint Shutter is crisp, dry, and immediately connects photography to VM snapshots.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear 13x11 animated camera prop."
+    },
+    {
+      "key": "e:r1-hypercall",
+      "depicts": "Two rectangular frames stacked above and below a horizontal green bar, connected by a bright-green vertical stem.",
+      "concept": "hypercall (VMCALL)",
+      "proposals": [
+        {
+          "name": "Bridged Frames",
+          "why": "Plainly describes the upper and lower boxes joined by a central stem."
+        },
+        {
+          "name": "VMCALL Uplink",
+          "why": "References the explicit instruction a guest uses to request hypervisor service."
+        },
+        {
+          "name": "Chiasm",
+          "why": "Uses a dry anatomical/botanical term for a crossing bridge between layers."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "VMCALL Uplink is exact and pairs cleanly with VMENTRY/VMEXIT terminology.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 15x13 animated prop."
+    },
+    {
+      "key": "e:r1-vswitch",
+      "depicts": "A wide green bar with five dark square ports along its front and five vertical stalks rising from the top.",
+      "concept": "virtual network switch",
+      "proposals": [
+        {
+          "name": "Five-Port Manifold",
+          "why": "Describes the multi-port bar with vertical lines."
+        },
+        {
+          "name": "Soft-Bridge Hub",
+          "why": "References a software-defined virtual switch routing guest packets."
+        },
+        {
+          "name": "Reed-Bed Array",
+          "why": "Likens the five vertical stalks to a neat row of marsh reeds."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Soft-Bridge Hub clearly communicates virtual switching in a dry technical register.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear 19x9 animated prop."
+    },
+    {
+      "key": "e:r1-cage",
+      "depicts": "A green-framed rectangular enclosure divided by vertical bars into dark cells.",
+      "concept": "hypervisor isolation / sandbox",
+      "proposals": [
+        {
+          "name": "Barred Enclosure",
+          "why": "Plainly describes the vertical-barred frame."
+        },
+        {
+          "name": "Non-Root Pen",
+          "why": "Puns on VMX non-root mode as a fenced-in paddock."
+        },
+        {
+          "name": "Lattice Coop",
+          "why": "Frames the barred box as a small specimen enclosure."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Non-Root Pen is quietly funny and grounded in x86 virtualization terminology.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 17x12 static prop."
+    },
+    {
+      "key": "e:r1-split",
+      "depicts": "A green frame divided down the middle into two side-by-side screens on a single central stand.",
+      "concept": "CPU/memory partitioning",
+      "proposals": [
+        {
+          "name": "Twin-Screen Stand",
+          "why": "Describes the dual-panel monitor on one pedestal."
+        },
+        {
+          "name": "Partitioned Console",
+          "why": "References splitting one physical host into isolated guest views."
+        },
+        {
+          "name": "Bifurcated Display",
+          "why": "Uses a dry naturalist term for a single stem splitting into two."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Partitioned Console is clear and directly reflects resource splitting.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 15x13 prop."
+    },
+    {
+      "key": "e:r1-iommu",
+      "depicts": "A tall dark-green pillar with four horizontal slots and a bright-green square indicator at the top.",
+      "concept": "IOMMU / VT-d DMA remapping",
+      "proposals": [
+        {
+          "name": "Slotted Pylon",
+          "why": "Plainly describes the tall four-slot column."
+        },
+        {
+          "name": "DMA Gatekeeper",
+          "why": "References the IOMMU's role in blocking unauthorized device memory access."
+        },
+        {
+          "name": "Baffle Tower",
+          "why": "Frames the slotted pillar as a physical flow-control baffle."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "DMA Gatekeeper concisely explains what an IOMMU does in Ring -1.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 13x15 prop."
+    },
+    {
+      "key": "e:r1-clone",
+      "depicts": "Two identical green-bordered rectangles side by side, separated by a white gap with two small green dots.",
+      "concept": "VM cloning / copy-on-write fork",
+      "proposals": [
+        {
+          "name": "Duplicated Frames",
+          "why": "Plainly describes the two identical side-by-side panels."
+        },
+        {
+          "name": "Copy-on-Write Pair",
+          "why": "References the lazy duplication technique used to clone VMs."
+        },
+        {
+          "name": "Mitosis Plates",
+          "why": "Treats the two identical halves as a cell dividing."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Copy-on-Write Pair is accurate, dry, and computing-literate.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 19x9 prop."
+    },
+    {
+      "key": "e:r1-timeslice",
+      "depicts": "A narrow green hourglass with sand pooling in the upper and lower bulbs.",
+      "concept": "vCPU time-slice scheduling",
+      "proposals": [
+        {
+          "name": "Sandglass",
+          "why": "Plainly names the hourglass shape."
+        },
+        {
+          "name": "Quantum Meter",
+          "why": "References the scheduler's CPU time quantum allotted to a vCPU."
+        },
+        {
+          "name": "Preemption Glass",
+          "why": "Nods to the timer expiring and forcing a VM exit."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Preemption Glass captures both the hourglass form and the hypervisor's time-slice cutoff.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated 9x13 prop; shares the hourglass motif with Libraries and Ring -2 but represents vCPU quotas here."
+    },
+    {
+      "key": "e:r1-nested",
+      "depicts": "A green outer border framing a white space containing a dark-green inner border and a bright-green center block.",
+      "concept": "nested virtualization (L1/L2)",
+      "proposals": [
+        {
+          "name": "Box-in-Box",
+          "why": "Plainly describes the concentric rectangular frames."
+        },
+        {
+          "name": "L2 Enclosure",
+          "why": "References a level-2 guest running inside a level-1 hypervisor."
+        },
+        {
+          "name": "Kernelled Core",
+          "why": "Uses a dry botanical term for a seed nested inside a husk."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "L2 Enclosure is terse, specific, and unmistakable to systems readers.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 16x12 prop."
+    },
+    {
+      "key": "e:r1-paravirt",
+      "depicts": "Two vertical green-bordered panels—one medium green, one bright green—threaded along a dark horizontal bar.",
+      "concept": "paravirtualization",
+      "proposals": [
+        {
+          "name": "Linked Panels",
+          "why": "Describes the two upright frames joined by a horizontal bar."
+        },
+        {
+          "name": "Cooperating Guest",
+          "why": "References paravirtualization, where the guest OS is modified to cooperate with the hypervisor."
+        },
+        {
+          "name": "Symbiont Gates",
+          "why": "Frames the paired panels as mutually dependent organisms."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Cooperating Guest neatly summarizes the defining trait of paravirtualization.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 18x10 prop."
+    },
+    {
+      "key": "e:r1-vram",
+      "depicts": "A green-framed rectangle containing three horizontal bars, with the top bar lit bright green.",
+      "concept": "virtualized framebuffer / VRAM",
+      "proposals": [
+        {
+          "name": "Three-Bar Register",
+          "why": "Describes the stacked horizontal bars inside the frame."
+        },
+        {
+          "name": "Shadow Framebuffer",
+          "why": "References the emulated video memory exposed to a guest."
+        },
+        {
+          "name": "Phosphor Tray",
+          "why": "Evokes an archival tray holding glowing display strips."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Shadow Framebuffer is accurate and fits the Ring -1 graphics virtualization role.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 14x12 prop."
+    },
+    {
+      "key": "e:r1-vmexit",
+      "depicts": "A bright-green upward arrow rising out of a dark-green horizontal floor line.",
+      "concept": "VM exit",
+      "proposals": [
+        {
+          "name": "Upward Arrow",
+          "why": "Plainly describes the upward-pointing pixel arrow."
+        },
+        {
+          "name": "VMEXIT Beacon",
+          "why": "Directly names the x86 hardware event that returns control to the hypervisor."
+        },
+        {
+          "name": "Egress Spike",
+          "why": "Frames the upward arrow as a sharp botanical or geological protrusion."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "VMEXIT Beacon is crisp and pairs cleanly with VMENTRY.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 14x12 prop."
+    },
+    {
+      "key": "e:r1-console",
+      "depicts": "A dark-green rectangular screen with two horizontal bars of different lengths in medium and bright green.",
+      "concept": "hypervisor serial/management console",
+      "proposals": [
+        {
+          "name": "Dual-Bar Monitor",
+          "why": "Plainly describes the two-line display."
+        },
+        {
+          "name": "Dom0 Terminal",
+          "why": "References the privileged control-domain console used to manage guests."
+        },
+        {
+          "name": "Field Slate",
+          "why": "Treats the small dark screen like a naturalist's pocket slate."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dom0 Terminal is a classic hypervisor reference that fits the minimal display.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 16x12 prop."
+    },
+    {
+      "key": "c:ring-1:core",
+      "depicts": "A small bright-green creature with dark-green square eyes and a horizontal mouth, flanked by two small green side tabs.",
+      "concept": "mirrored execution / VMX symmetry",
+      "proposals": [
+        {
+          "name": "Symmetry Sprite",
+          "why": "Plainly describes the creature's mirrored movement."
+        },
+        {
+          "name": "Parity Gremlin",
+          "why": "Wryly pairs its horizontal-mirroring habit with a classic computing term."
+        },
+        {
+          "name": "Bilateral Mote",
+          "why": "Uses a dry biological register for a small, symmetrically moving organism."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Bilateral Mote sounds like an authentic entry in a naturalist's field manual while nodding to its mirror motion.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core critter species for Ring -1 with unique mirror motion."
+    }
+  ]
+}

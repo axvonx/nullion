@@ -1,0 +1,557 @@
+{
+ "layer": "jit",
+ "items": [
+  {
+   "key": "e:jit-forge",
+   "depicts": "A dark indigo rectangular furnace with an orange-and-gold hopper on top and five flickering yellow and orange flame bars inside its black firebox.",
+   "concept": "Tiered just-in-time compilation of hot code paths",
+   "proposals": [
+    {
+     "name": "Tiering Forge",
+     "why": "Plainly pairs the furnace silhouette with tiered JIT compilation."
+    },
+    {
+     "name": "Hotspot Hearth",
+     "why": "Nods to the HotSpot JVM while framing the optimizing compiler as a literal firebox."
+    },
+    {
+     "name": "Cinder Kiln",
+     "why": "Treats the compiling furnace as an industrial fixture encountered on the JIT floor."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Quietly double-meaning without needing explanation, and suitably monumental for the layer anchor.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique landmark anchor defining the JIT layer's forge motif."
+  },
+  {
+   "key": "e:jit-ic",
+   "depicts": "An orange-framed dark navy box holding a horizontal slate slot bar above a single centered yellow square.",
+   "concept": "Inline cache for fast dynamic property lookup",
+   "proposals": [
+    {
+     "name": "Inline Cache",
+     "why": "Names the exact optimization represented by the slotted fast-path box."
+    },
+    {
+     "name": "Monomorphic Slot",
+     "why": "Dryly refers to the single-entry happy path before polymorphism degrades the cache."
+    },
+    {
+     "name": "Amber Sightglass",
+     "why": "Describes the glowing framed aperture in field-manual hardware terms."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Precise JIT jargon that reads naturally as a dry physical fixture name.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct JIT-specific prop with its own animated inline-cache art."
+  },
+  {
+   "key": "e:jit-deopt",
+   "depicts": "A dark indigo panel topped by an orange header bar with a pixelated yellow X-shaped cross in the center.",
+   "concept": "Speculative deoptimization bailout",
+   "proposals": [
+    {
+     "name": "Bailout Trap",
+     "why": "Plainly names the deoptimization exit triggered when a speculation fails."
+    },
+    {
+     "name": "Uncommon Trap",
+     "why": "Uses the classic HotSpot compiler term for a cold deoptimization stub."
+    },
+    {
+     "name": "Crossed Slate",
+     "why": "Captures the struck-through indigo tablet in a dry documentary register."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Real compiler terminology that already sounds like a field-manual hazard.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique JIT prop representing deoptimization bailouts."
+  },
+  {
+   "key": "e:jit-profile",
+   "depicts": "A lavender-bordered dark navy meter displaying four vertical bars, three yellow and the tallest glowing orange-red.",
+   "concept": "Execution profiling and hotness counters",
+   "proposals": [
+    {
+     "name": "Hotness Counter",
+     "why": "Directly names the profiling histogram that tracks frequently executed paths."
+    },
+    {
+     "name": "Tiering Tally",
+     "why": "Alliteratively frames the bar chart as the ledger that decides which paths earn compilation."
+    },
+    {
+     "name": "Pyrometer Bar",
+     "why": "Casts the heat-coloured frequency meter as a thermal gauge on the forge floor."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Clean, accurate, and immediately legible alongside the glowing orange peak bar.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique JIT prop visualizing method profiling counters."
+  },
+  {
+   "key": "e:jit-osr",
+   "depicts": "A horizontal track entering in cool blue from the left, passing through a tall vertical orange-red block, and exiting in bright yellow to the right.",
+   "concept": "On-stack replacement of running loop frames",
+   "proposals": [
+    {
+     "name": "Replacement Gate",
+     "why": "Plainly describes the mid-execution transition barrier between interpreter and compiled code."
+    },
+    {
+     "name": "Mid-Flight Swap",
+     "why": "Dryly captures the precariousness of replacing a stack frame while a loop is still running."
+    },
+    {
+     "name": "Tempering Chute",
+     "why": "Reads the blue-to-yellow transition through the orange block as heat-treating metal in transit."
+    }
+   ],
+   "recommend": 2,
+   "recommendWhy": "Visually exact for the cool-to-hot colour shift and reinforces the forge aesthetic of the JIT layer.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique JIT prop depicting on-stack replacement."
+  },
+  {
+   "key": "e:jit-guard",
+   "depicts": "An orange hooded housing framing a dark purple recess with a bright yellow horizontal slit, mounted on a short yellow post.",
+   "concept": "Speculative type and shape guard checks",
+   "proposals": [
+    {
+     "name": "Type Guard",
+     "why": "Directly names the runtime check that validates speculative compiler assumptions."
+    },
+    {
+     "name": "Shape Bouncer",
+     "why": "Wryly casts the guard check as the doorman rejecting unexpected object layouts."
+    },
+    {
+     "name": "Amber Watchbox",
+     "why": "Describes the hooded yellow-eyed sentry post in field-guide prose."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Crisp, canonical, and pairs cleanly with the checkpoint silhouette.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique JIT prop representing speculative guard checks."
+  },
+  {
+   "key": "e:jit-rt-objects",
+   "depicts": "A slate-purple bench holding four or five upright rectangular object blocks in magenta, olive-yellow, and blue with lighter top caps.",
+   "concept": "Managed heap object allocation",
+   "proposals": [
+    {
+     "name": "Heap Objects",
+     "why": "Plainly identifies the allocated blocks resting on the runtime table."
+    },
+    {
+     "name": "Boxed Allocations",
+     "why": "Plays on value boxing and the literal blocky shapes lined up on the bench."
+    },
+    {
+     "name": "Specimen Bench",
+     "why": "Frames the colour-coded blocks as catalogued samples on a worktable."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Neat double meaning that fits both the art and managed runtimes.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-objects",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-objects from the runtime layer reused under a jit-rt- id."
+  },
+  {
+   "key": "e:jit-rt-sweeper",
+   "depicts": "A boxy lavender-blue carriage with a cyan eye and yellow front bumper rolling along a rail past dark grey dead blocks and one live blue block.",
+   "concept": "Mark-and-sweep garbage collection sweep phase",
+   "proposals": [
+    {
+     "name": "Heap Sweeper",
+     "why": "Straightforwardly names the collector vehicle clearing unmarked blocks from the rail."
+    },
+    {
+     "name": "Unmarked Collector",
+     "why": "Dryly puns on both unmarked heap objects and an understated municipal sweeper."
+    },
+    {
+     "name": "Rail Scavenger",
+     "why": "Treats the wheeled machine as a bottom-feeding track automaton."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Clear, grounded, and directly conveys the sweep phase in action.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-sweeper",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-sweeper from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-marks",
+   "depicts": "Four coloured blocks on a slate bench with bright yellow corner-shaped mark flags hovering above three and a dark navy bar above the blue block.",
+   "concept": "Reachability mark bits in tracing garbage collection",
+   "proposals": [
+    {
+     "name": "Mark Flags",
+     "why": "Directly names the reachability indicators hovering over the heap objects."
+    },
+    {
+     "name": "Liveness Tags",
+     "why": "Uses tracing-GC terminology as if the blocks were tagged warehouse inventory."
+    },
+    {
+     "name": "Survey Pennants",
+     "why": "Casts the hovering yellow hooks as surveyor markers planted over live specimens."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Compact and technically exact for the marked-versus-unmarked distinction.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-marks",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-marks from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-ref",
+   "depicts": "Two blue object blocks linked by a right-angled purple pipe ending in a lavender arrowhead aimed at the lower-right block.",
+   "concept": "Object pointer reference",
+   "proposals": [
+    {
+     "name": "Object Reference",
+     "why": "Plainly describes the directed pointer link between two heap blocks."
+    },
+    {
+     "name": "Managed Pointer",
+     "why": "Dryly contrasts a safe runtime reference with a raw unmanaged address."
+    },
+    {
+     "name": "Tethered Conduit",
+     "why": "Describes the bent purple pipe and arrowhead as a physical coupling."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Computing-literate and concise, fitting the dry Unix-manual tone.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-ref",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-ref from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-heapcol",
+   "depicts": "A dark indigo vertical spine on the left with four horizontal mint-green and blue bars of varying lengths jutting to the right.",
+   "concept": "Heap memory allocation column",
+   "proposals": [
+    {
+     "name": "Heap Column",
+     "why": "Directly names the vertical bar stack of allocated memory extents."
+    },
+    {
+     "name": "Fragmented Spine",
+     "why": "Nods to the uneven bar lengths as a visual symptom of heap fragmentation."
+    },
+    {
+     "name": "Memory Ribcage",
+     "why": "Captures the spine-and-ribs silhouette in field-guide anatomy terms."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Accurate and uncluttered for a small structural prop.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-heapcol",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-heapcol from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-jit",
+   "depicts": "A grey blacksmith anvil holding a glowing orange-and-yellow hot bar with faint yellow sparks rising above it.",
+   "concept": "Just-in-time compilation anvil",
+   "proposals": [
+    {
+     "name": "Compiler Anvil",
+     "why": "Plainly identifies the heated anvil where hot code is forged."
+    },
+    {
+     "name": "Hot-Path Anvil",
+     "why": "Ties the glowing metal bar directly to JIT hot-path compilation."
+    },
+    {
+     "name": "Sparking Horn",
+     "why": "Focuses on the miniature anvil silhouette and ember sparks like a field specimen."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Crisp computing wordplay that explains why an anvil sits in a managed runtime.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-jit",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-jit from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-tape",
+   "depicts": "Two grey toothed reels mounted side by side above a tan perforated strip resting on a dark grey base.",
+   "concept": "Bytecode instruction stream",
+   "proposals": [
+    {
+     "name": "Bytecode Tape",
+     "why": "Straightforwardly names the reel-to-reel instruction strip."
+    },
+    {
+     "name": "Turing Reels",
+     "why": "Quietly nods to the theoretical tape machine behind the retro reel drive."
+    },
+    {
+     "name": "Twin-Spool Reader",
+     "why": "Describes the mechanical reel assembly in archival hardware prose."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Direct and fitting for a sequential instruction medium.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-tape",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-tape from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-callstack",
+   "depicts": "Five or six horizontal coloured bars stacked vertically with gaps and a small purple stack-pointer tab at the top.",
+   "concept": "Call stack of activation frames",
+   "proposals": [
+    {
+     "name": "Call Stack",
+     "why": "Directly names the vertical column of activation frames."
+    },
+    {
+     "name": "Frame Tower",
+     "why": "Dryly frames the precarious pile of stacked frames as an architectural hazard."
+    },
+    {
+     "name": "Strata Stack",
+     "why": "Reads the banded colour layers like geological strata beneath a pointer cap."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Unmistakable and canonical, needing no embellishment.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-callstack",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-callstack from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-refcount",
+   "depicts": "A blue object block with a bright red counter badge clipped onto its upper-right corner.",
+   "concept": "Reference counting memory management",
+   "proposals": [
+    {
+     "name": "Reference Counter",
+     "why": "Plainly names the attached tally keeping track of incoming pointers."
+    },
+    {
+     "name": "Zero-Bound Tag",
+     "why": "Dryly nods to the moment the count hits zero and the block is freed."
+    },
+    {
+     "name": "Crimson Tally",
+     "why": "Describes the red corner stamp as an archival counter mark."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Clear and exact for the corner-mounted count badge.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-refcount",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-refcount from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-weakref",
+   "depicts": "A solid blue block on the left linked by three dotted purple squares and a vertical bar to a hollow slate-framed block on the right.",
+   "concept": "Weak reference that does not prevent garbage collection",
+   "proposals": [
+    {
+     "name": "Weak Reference",
+     "why": "Directly names the dashed non-owning link to a collectible target."
+    },
+    {
+     "name": "Dotted Alibi",
+     "why": "Wryly captures a pointer that refuses to vouch for its target's survival."
+    },
+    {
+     "name": "Gossamer Tether",
+     "why": "Renders the broken dotted line and hollow frame in naturalist field-guide style."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Crisp and unmistakable, matching the dotted-line visual convention.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-weakref",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-weakref from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-tricolor",
+   "depicts": "Three square nodes joined by short purple bridges: a dark grey-black square, a yellow-bordered mid-grey square, and a white square.",
+   "concept": "Tri-color marking invariant in incremental garbage collection",
+   "proposals": [
+    {
+     "name": "Tri-Color Chain",
+     "why": "Plainly describes the black, grey, and white linked marking states."
+    },
+    {
+     "name": "Grey Frontier",
+     "why": "Uses the classic GC term for the active middle node separating scanned from unvisited objects."
+    },
+    {
+     "name": "Ash-to-Chalk Row",
+     "why": "Describes the three-tone progression as a field-manual colour key."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Sharp GC terminology that calls attention to the highlighted middle node.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-tricolor",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-tricolor from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-bump",
+   "depicts": "A long horizontal dark-navy trough framed in slate with a single mint-green block at the left end and a yellow T-shaped pointer above its edge.",
+   "concept": "Bump-pointer linear arena allocation",
+   "proposals": [
+    {
+     "name": "Bump Allocator",
+     "why": "Directly names the linear trough and sliding frontier pointer."
+    },
+    {
+     "name": "Pointer Plough",
+     "why": "Dryly casts the sliding yellow T-marker as a plough advancing down free memory."
+    },
+    {
+     "name": "Frontier Trough",
+     "why": "Describes the mostly empty channel and yellow cursor in hardware-manual terms."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Immediate and precise for the simplest allocator in the runtime.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-bump",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-bump from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-finalizer",
+   "depicts": "Two blue blocks and one red block lined up on a bench leading into a dark vertical doorway with a yellow knob on the right.",
+   "concept": "Finalizer queue for pre-reclamation cleanup",
+   "proposals": [
+    {
+     "name": "Finalizer Queue",
+     "why": "Plainly names the waiting line of doomed objects outside the exit door."
+    },
+    {
+     "name": "Last-Rites Line",
+     "why": "Quietly nods to cleanup hooks that run right before reclamation, if they run at all."
+    },
+    {
+     "name": "Departure Gate",
+     "why": "Frames the red-marked queue and dark doorway as an austere waiting room."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Dry, accurate humour about the dubious reliability of finalizers.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-finalizer",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-finalizer from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-interp",
+   "depicts": "A vertical slate-framed dark-navy column containing four horizontal bars with a yellow read-head claw pointing at the highlighted third bar.",
+   "concept": "Bytecode interpreter dispatch loop",
+   "proposals": [
+    {
+     "name": "Bytecode Interpreter",
+     "why": "Directly names the step-by-step instruction reader."
+    },
+    {
+     "name": "Dispatch Switch",
+     "why": "Refers to the classic interpreter fetch-decode-dispatch loop."
+    },
+    {
+     "name": "Amber Cursorhead",
+     "why": "Describes the yellow claw scanning down the dark instruction column."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Concise and technical, fitting the mechanical read-head sprite.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-interp",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-interp from the runtime layer."
+  },
+  {
+   "key": "e:jit-rt-hashmap",
+   "depicts": "A vertical slate bucket rack with four dark slots on the left, three linked by purple bars to red, green, and yellow entry blocks on the right.",
+   "concept": "Chained hash table buckets",
+   "proposals": [
+    {
+     "name": "Hash Table",
+     "why": "Plainly identifies the four-bucket key-value rack with one empty slot."
+    },
+    {
+     "name": "Collision Rack",
+     "why": "Dryly nods to separate chaining as a physical rack for hash collisions."
+    },
+    {
+     "name": "Bucket Ledger",
+     "why": "Treats the slotted rack and tagged entries as an archival filing spine."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Quietly computing-literate and specific to bucketed hash layouts.",
+   "decisionHint": "merge",
+   "mergeWith": "e:rt-hashmap",
+   "decisionWhy": "Byte-for-byte duplicate of e:rt-hashmap from the runtime layer."
+  },
+  {
+   "key": "c:jit:core",
+   "depicts": "A tiny orange-red square ember with a bright yellow notch and a detached gold spark pixel trailing to its left.",
+   "concept": "Hot execution trace",
+   "proposals": [
+    {
+     "name": "Trace Spark",
+     "why": "Plainly pairs the zipping ember sprite with a JIT execution trace."
+    },
+    {
+     "name": "Warm-Up Mote",
+     "why": "Dryly nods to JIT warmup cycles while describing the tiny glowing speck."
+    },
+    {
+     "name": "Cinder Dart",
+     "why": "Field-guide species name capturing both the ember palette and its zip-and-perch flight."
+    }
+   ],
+   "recommend": 2,
+   "recommendWhy": "Reads like an authentic naturalist common name for a fast, perching ember critter.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct primary critter species for the JIT layer with its own zip-and-perch behaviour."
+  },
+  {
+   "key": "c:jit:alt",
+   "depicts": "A tiny orange-red square ember with a tall yellow-and-gold flame plume rising vertically from its center.",
+   "concept": "Tier-up hot flare",
+   "proposals": [
+    {
+     "name": "Flare Ember",
+     "why": "Plainly describes the upward-burning variant of the JIT ember."
+    },
+    {
+     "name": "Tier-Two Wick",
+     "why": "Dryly frames the taller vertical flame as the same ember promoted to a hotter optimization tier."
+    },
+    {
+     "name": "Updraft Cinder",
+     "why": "Field-guide register matching the floating motion and rising plume."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Ties the taller flame directly to JIT tier-up while staying dry and concise.",
+   "decisionHint": "variant",
+   "mergeWith": "c:jit:core",
+   "decisionWhy": "Same orange-and-yellow ember species as c:jit:core, differing only in its upward-flaring pose and floating motion."
+  }
+ ]
+}

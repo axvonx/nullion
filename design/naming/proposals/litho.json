@@ -1,0 +1,605 @@
+{
+ "layer": "litho",
+ "items": [
+  {
+   "key": "e:li-reticle",
+   "depicts": "A large circular target of three concentric violet rings bisected by thick dark-indigo vertical and horizontal crosshairs.",
+   "concept": "photolithography reticle and wafer alignment target",
+   "proposals": [
+    {
+     "name": "Alignment Reticle",
+     "why": "Directly names the optical crosshair target used to register successive photomask layers onto a silicon wafer."
+    },
+    {
+     "name": "Zero Overlay",
+     "why": "Nods wryly to the unattainable fab ideal of zero alignment error between consecutive lithography passes."
+    },
+    {
+     "name": "Crosshair Lens",
+     "why": "Treats the concentric violet rings and axes like an optical specimen plate mounted in a field-guide glass."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Crisp, authentic semiconductor terminology that immediately anchors the layer's central landmark.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Primary 48x48 anchor landmark unique to the Photolithography and Lattice layer."
+  },
+  {
+   "key": "e:li-fringe",
+   "depicts": "Concentric dark-indigo and violet circular rings enclosing a pale-lavender central cross, resembling an optical interference pattern.",
+   "concept": "optical diffraction and Airy-disk interference fringes",
+   "proposals": [
+    {
+     "name": "Diffraction Fringe",
+     "why": "Names the concentric interference bands produced when exposure light bends around sub-wavelength mask features."
+    },
+    {
+     "name": "Rayleigh Limit",
+     "why": "References the optical resolution bound that forces chipmakers into ever shorter wavelengths and phase-shift tricks."
+    },
+    {
+     "name": "Airy Ring",
+     "why": "Uses the classic optical term for the bright-and-dark ripple halo surrounding a focused point of light."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Pairs directly with the concentric ring silhouette while grounding the layer's optical physics.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct lithography-specific prop depicting optical diffraction rings with no counterpart in other layers."
+  },
+  {
+   "key": "e:li-lattice",
+   "depicts": "Three staggered rows of violet square lattice sites with a single pale-lavender square standing out as a point defect in the middle row.",
+   "concept": "monocrystalline silicon wafer lattice with a point defect",
+   "proposals": [
+    {
+     "name": "Silicon Lattice",
+     "why": "Plainly identifies the periodic grid of crystal sites that forms the underlying wafer substrate."
+    },
+    {
+     "name": "Off-By-One Crystal",
+     "why": "Plays on the classic software indexing bug via the single pale misplaced site in the middle row."
+    },
+    {
+     "name": "Diamond Grid",
+     "why": "Evokes silicon's diamond-cubic crystal structure as a neat geometric specimen."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Grounded and immediately legible for the Photolithography and Lattice layer, leaving the defect detail for the manual body.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique to this layer and clearly communicates the silicon crystal substrate and its vacancy."
+  },
+  {
+   "key": "e:li-dopant",
+   "depicts": "A dark-indigo circular ring enclosing a pale-lavender cross-shaped core, representing an implanted impurity atom.",
+   "concept": "ion-implanted semiconductor dopant atom",
+   "proposals": [
+    {
+     "name": "Dopant Ion",
+     "why": "Accurately names the boron or phosphorus impurity injected into silicon to tune its carrier concentration."
+    },
+    {
+     "name": "Foreign Valence",
+     "why": "Wryly frames the extra or missing outer electron as an outsider introduced into the silicon crystal."
+    },
+    {
+     "name": "Boron Seed",
+     "why": "Casts the implanted impurity atom as a planted spore that alters the surrounding lattice's electrical behavior."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Clean, technical, and immediately distinct from the surrounding crystal and optical props.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique wafer-fabrication prop representing ion implantation with a clean, readable icon."
+  },
+  {
+   "key": "e:li-r3-vias",
+   "depicts": "A 3x3 grid of pale-lavender square pads on a black ground, rendered in the lithography palette.",
+   "concept": "inter-layer metal via array",
+   "proposals": [
+    {
+     "name": "Via Array",
+     "why": "Names the regular grid of vertical metal plugs connecting stacked metallization layers."
+    },
+    {
+     "name": "Redundant Vias",
+     "why": "Dryly echoes the design-rule habit of doubling up vias so a single open circuit will not kill the die."
+    },
+    {
+     "name": "Tungsten Grid",
+     "why": "Evokes the tiny square metal shafts etched through dielectric like a manicured plot of boreholes."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Concise, standard semiconductor terminology that matches the 3x3 grid silhouette.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-vias",
+   "decisionWhy": "Identical pixel mask to e:r3-vias in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-pad",
+   "depicts": "A pale-lavender key-shaped bond pad with a dark octagonal center opening and toothed right-hand edge.",
+   "concept": "die-edge wire-bond I/O pad",
+   "proposals": [
+    {
+     "name": "Bond Pad",
+     "why": "Identifies the exposed metal landing zone where package wires attach to the silicon die."
+    },
+    {
+     "name": "Landing Strip",
+     "why": "Frames the microscopic metal target as a runway for ultrasonic gold-wire bonders."
+    },
+    {
+     "name": "Solder Pier",
+     "why": "Casts the protruding contact geometry as a miniature dock jutting out from the die perimeter."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Direct, authentic die-layout terminology that fits the Field Manual register.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-pad",
+   "decisionWhy": "Identical pixel mask to e:r3-pad in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-trace",
+   "depicts": "A pale-lavender L-shaped conductive trace running from a square terminal on the upper left to a via pad on the lower right.",
+   "concept": "routed on-die metal interconnect trace",
+   "proposals": [
+    {
+     "name": "Metal Interconnect",
+     "why": "Plainly names the lithographically patterned conductor linking two nodes on the die."
+    },
+    {
+     "name": "Manhattan Route",
+     "why": "References the strict ninety-degree orthogonal routing geometry enforced by VLSI place-and-route tools."
+    },
+    {
+     "name": "Copper Dogleg",
+     "why": "Describes the crisp right-angle bend of the wire path in plain field-guide terms."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Combines real EDA routing jargon with a dry visual nod to the sharp ninety-degree elbow.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-trace",
+   "decisionWhy": "Identical pixel mask to e:r3-trace in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-decap",
+   "depicts": "A symmetrical pale-lavender surface-mount decoupling capacitor with two dark rectangular plates flanking a central gap.",
+   "concept": "on-die decoupling capacitor for power-rail stability",
+   "proposals": [
+    {
+     "name": "Decoupling Capacitor",
+     "why": "Directly names the charge-storing element placed near logic to damp supply-voltage droop."
+    },
+    {
+     "name": "Droop Sponge",
+     "why": "Dryly describes its unglamorous job of absorbing sudden current spikes before the clock glitches."
+    },
+    {
+     "name": "Charge Reservoir",
+     "why": "Treats the paired plates as a quiet local cistern buffering power across the die."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Standard electrical engineering name that reads cleanly as a manual-page title.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-decap",
+   "decisionWhy": "Identical pixel mask to e:r3-decap in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-xtal",
+   "depicts": "A dark rectangular oscillator housing flanked by pale-lavender electrodes, enclosing a stepped square-wave pulse glyph.",
+   "concept": "quartz crystal clock reference oscillator",
+   "proposals": [
+    {
+     "name": "Crystal Oscillator",
+     "why": "Names the piezoelectric resonator that supplies the chip's master frequency reference."
+    },
+    {
+     "name": "Quartz Metronome",
+     "why": "Casts the oscillating slab as a stubbornly punctual timekeeper for the entire software stack."
+    },
+    {
+     "name": "Singing Slice",
+     "why": "Evokes the microscopic mechanical vibration of a cut quartz wafer humming at megahertz."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Unmistakable, accurate hardware terminology that matches the schematic crystal-and-wave icon.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-xtal",
+   "decisionWhy": "Identical pixel mask to e:r3-xtal in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-testpads",
+   "depicts": "A horizontal pale-lavender bus strip notched with four evenly spaced probing tabs along its top and bottom edges.",
+   "concept": "wafer-probe test pads for post-fab electrical testing",
+   "proposals": [
+    {
+     "name": "Wafer Testpads",
+     "why": "Plainly identifies the row of sacrificial metal pads touched by needle probes before packaging."
+    },
+    {
+     "name": "Needle Fodder",
+     "why": "Wryly acknowledges the scratched pads whose sole purpose is to be poked during wafer sort."
+    },
+    {
+     "name": "Probe Comb",
+     "why": "Describes the repeating toothed rail by its clean geometric profile."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Precisely connects the repeating pad strip to wafer-level electrical testing.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-testpads",
+   "decisionWhy": "Identical pixel mask to e:r3-testpads in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-fuses",
+   "depicts": "A bank of vertical dark fuse links framed in pale lavender, with the rightmost link severed by a bright blown-gap pixel.",
+   "concept": "one-time programmable eFuse or laser-trimmed fuse bank",
+   "proposals": [
+    {
+     "name": "Laser Fusebank",
+     "why": "Names the row of permanent metal links selectively vaporized to disable defective blocks or lock features."
+    },
+    {
+     "name": "Write-Once Regret",
+     "why": "Dryly nods to the irreversibility of blowing a silicon fuse during factory binning."
+    },
+    {
+     "name": "Snapped Link",
+     "why": "Focuses on the single broken filament standing out along the otherwise intact row."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Directly describes the physical fuse array and ties naturally into semiconductor fabrication.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-fuses",
+   "decisionWhy": "Identical pixel mask to e:r3-fuses in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-resistor",
+   "depicts": "A pale-lavender zigzag line on a black background depicting a classic schematic resistor.",
+   "concept": "thin-film or polysilicon on-die resistor",
+   "proposals": [
+    {
+     "name": "Poly Resistor",
+     "why": "Identifies the resistive polysilicon meander etched on silicon to limit current or divide voltage."
+    },
+    {
+     "name": "Ohm Tax",
+     "why": "Wryly frames electrical resistance as an unavoidable toll paid in waste heat."
+    },
+    {
+     "name": "Sawtooth Meander",
+     "why": "Describes the jagged conductive path as a miniature topographical switchback."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Keeps the name grounded in real on-die IC layout terminology rather than generic electronics.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-resistor",
+   "decisionWhy": "Identical pixel mask to e:r3-resistor in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-diode",
+   "depicts": "A pale-lavender schematic diode symbol with a triangle pointing into a vertical cathode bar between two horizontal leads.",
+   "concept": "semiconductor p-n junction diode",
+   "proposals": [
+    {
+     "name": "Junction Diode",
+     "why": "Accurately names the two-terminal p-n boundary that conducts current in only one direction."
+    },
+    {
+     "name": "One-Way Valve",
+     "why": "Captures the rectifier's strict directional policy in blunt mechanical terms."
+    },
+    {
+     "name": "Arrow Gate",
+     "why": "Reads the schematic triangle-and-bar silhouette as a directional sluice in the silicon."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Clean, accurate semiconductor terminology matching the unambiguous schematic symbol.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-diode",
+   "decisionWhy": "Identical pixel mask to e:r3-diode in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-inductor",
+   "depicts": "A pale-lavender row of four stepped arches between horizontal leads on a black background, depicting a coiled inductor.",
+   "concept": "planar on-die spiral inductor",
+   "proposals": [
+    {
+     "name": "Planar Inductor",
+     "why": "Names the coiled metal trace etched onto silicon to store energy in a local magnetic field."
+    },
+    {
+     "name": "Current Inertia",
+     "why": "Dryly summarizes Lenz's law as a component's stubborn refusal to change flow quickly."
+    },
+    {
+     "name": "Four-Arch Coil",
+     "why": "Describes the four scalloped loops as a miniature aqueduct of wire."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Precisely distinguishes an integrated on-die inductor from a discrete wound coil.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-inductor",
+   "decisionWhy": "Identical pixel mask to e:r3-inductor in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-sram",
+   "depicts": "A symmetrical pale-lavender schematic loop resembling a cross-coupled bitcell with bitline and wordline stubs on a black background.",
+   "concept": "six-transistor SRAM bitcell",
+   "proposals": [
+    {
+     "name": "SRAM Bitcell",
+     "why": "Plainly names the dense six-transistor latch that holds a single bit of on-die cache."
+    },
+    {
+     "name": "Cross-Coupled Truce",
+     "why": "Wryly portrays the two mutually reinforcing inverters as a stable standoff holding zero or one."
+    },
+    {
+     "name": "Six-Gate Knot",
+     "why": "Treats the tight symmetrical schematic loop as an intricate geometric specimen."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Crisp, standard hardware terminology that fits the Unix manual aesthetic.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-sram",
+   "decisionWhy": "Identical pixel mask to e:r3-sram in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-ringosc",
+   "depicts": "A pale-lavender stepped casing surrounding a dark stepped emblem with a bright central pixel, representing a self-oscillating ring circuit.",
+   "concept": "on-die ring oscillator for process and speed binning",
+   "proposals": [
+    {
+     "name": "Ring Oscillator",
+     "why": "Names the odd-numbered inverter loop used on test dies to measure actual silicon switching speed."
+    },
+    {
+     "name": "Chasing Its Tail",
+     "why": "Dryly captures an odd chain of NOT gates perpetually inverting its own output."
+    },
+    {
+     "name": "Pulse Lantern",
+     "why": "Evokes the animated beacon pulsing steadily inside its stepped frame."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Authentic silicon-characterization terminology that immediately explains the animated circuit.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-ringosc",
+   "decisionWhy": "Identical pixel mask to e:r3-ringosc in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-thermal",
+   "depicts": "A slender pale-lavender vertical thermometer silhouette with a dark upper column and two side tick marks.",
+   "concept": "on-die thermal diode temperature sensor",
+   "proposals": [
+    {
+     "name": "Thermal Sensor",
+     "why": "Directly names the on-die temperature diode that triggers throttling before silicon overheats."
+    },
+    {
+     "name": "TjMax Watch",
+     "why": "References the maximum junction temperature ceiling every heavily loaded chip flirts with."
+    },
+    {
+     "name": "Die Thermometer",
+     "why": "Plainly pairs the literal glass-bulb silhouette with its microscopic silicon habitat."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Clear, restrained technical name that matches the literal thermometer icon.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-thermal",
+   "decisionWhy": "Identical pixel mask to e:r3-thermal in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-pll",
+   "depicts": "A pale-lavender stacked-plate schematic symbol with top and bottom stems on a black background, standing in for a phase-locked loop block.",
+   "concept": "phase-locked loop clock multiplier",
+   "proposals": [
+    {
+     "name": "Phase-Locked Loop",
+     "why": "Names the feedback circuit that multiplies and locks the internal clock to an external reference."
+    },
+    {
+     "name": "Jitter Tamer",
+     "why": "Dryly credits the loop filter with smoothing a noisy reference into a clean clock."
+    },
+    {
+     "name": "Harmonic Lock",
+     "why": "Casts the frequency-multiplying feedback stage as a tuning fork clamped in phase."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Exact, unmistakable engineering terminology appropriate for a Field Manual page.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-pll",
+   "decisionWhy": "Identical pixel mask to e:r3-pll in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-jtag",
+   "depicts": "A pale-lavender rectangular connector shroud with five pins along top and bottom and a dark keyed central slot.",
+   "concept": "JTAG boundary-scan debug header",
+   "proposals": [
+    {
+     "name": "JTAG Header",
+     "why": "Plainly names the multi-pin test access port used for boundary scan and low-level silicon bring-up."
+    },
+    {
+     "name": "Backdoor Pins",
+     "why": "Wryly nods to JTAG's dual life as a bring-up lifeline and a hardware hacker's favorite entry point."
+    },
+    {
+     "name": "Keyed Shroud",
+     "why": "Describes the notched ten-pin socket by its recognizable physical housing."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Concise, standard hardware-debug name that directly fits the ten-pin connector sprite.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-jtag",
+   "decisionWhy": "Identical pixel mask to e:r3-jtag in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-rom",
+   "depicts": "A dark rectangular chip block outlined in pale lavender with the pixelated letters ROM etched across its face.",
+   "concept": "mask-programmed read-only memory",
+   "proposals": [
+    {
+     "name": "Mask ROM",
+     "why": "Identifies read-only memory whose bits are permanently hardwired into the lithography photomask itself."
+    },
+    {
+     "name": "Baked-In Errata",
+     "why": "Dryly recalls that any bug written into a mask ROM requires a costly new tape-out to fix."
+    },
+    {
+     "name": "Etched Tablet",
+     "why": "Treats the immutable silicon memory block as a stone inscription cast in photomask chrome."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Directly bridges the ROM label on the sprite with the photolithography layer's theme.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-rom",
+   "decisionWhy": "Identical pixel mask to e:r3-rom in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-r3-htree",
+   "depicts": "A symmetrical pale-lavender fractal H-shaped branching network centered on a square driver block on a black ground.",
+   "concept": "zero-skew H-tree clock distribution network",
+   "proposals": [
+    {
+     "name": "H-Tree Clock",
+     "why": "Plainly names the recursive H-shaped wire geometry that delivers clock edges with equal path length."
+    },
+    {
+     "name": "Zero-Skew Fractal",
+     "why": "Wryly pairs the mathematical self-similarity of the branches with the timing engineer's ideal."
+    },
+    {
+     "name": "Symmetric Canopy",
+     "why": "Views the branching recursive traces as an aerial map of a geometric tree crown."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Standard VLSI clock-distribution name that matches the literal H-tree sprite.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-htree",
+   "decisionWhy": "Identical pixel mask to e:r3-htree in ring-3, differing only in its monochrome lithography recolour."
+  },
+  {
+   "key": "e:li-mask",
+   "depicts": "A violet square frame containing two offset dark-indigo rectangular apertures on a clear field, depicting a chrome-on-quartz photomask.",
+   "concept": "photolithography photomask aperture plate",
+   "proposals": [
+    {
+     "name": "Quartz Photomask",
+     "why": "Names the fused-silica plate patterned with opaque absorber shapes that shadow the wafer during exposure."
+    },
+    {
+     "name": "Bitwise Mask",
+     "why": "Puns on software bitmasks while accurately describing how the plate selectively passes or blocks light."
+    },
+    {
+     "name": "Shadow Stencil",
+     "why": "Captures the physical craft of casting nanometer-scale shadows onto resist in plain field-guide language."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "A dry, computing-literate double entendre that bridges low-level software and physical lithography effortlessly.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique, clearly drawn lithography prop distinct from the circular alignment reticle anchor."
+  },
+  {
+   "key": "e:li-photon",
+   "depicts": "A bright violet horizontal bar crossing a faint lavender vertical beam, forming a compact 10x10 optical flare.",
+   "concept": "extreme ultraviolet lithography photon",
+   "proposals": [
+    {
+     "name": "EUV Photon",
+     "why": "Identifies the 13.5-nanometer extreme-ultraviolet light quantum used to expose modern silicon features."
+    },
+    {
+     "name": "Shot Noise",
+     "why": "References the statistical graininess caused when too few photons arrive to expose a feature cleanly."
+    },
+    {
+     "name": "Violet Spark",
+     "why": "Treats the tiny cross-shaped flare as a fleeting optical mote captured in the exposure chamber."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Specific to modern photolithography and pairs naturally with the violet palette.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "At 10x10 pixels this minimal two-bar flare works better as an appendix specimen than a full Field Manual page."
+  },
+  {
+   "key": "e:li-resist",
+   "depicts": "Four evenly spaced violet vertical pillars rising from a dark-indigo horizontal substrate band, showing developed photoresist trenches.",
+   "concept": "developed photoresist trenches on a silicon wafer",
+   "proposals": [
+    {
+     "name": "Photoresist Trench",
+     "why": "Directly describes the patterned polymer ridges and etched channels left after UV exposure and development."
+    },
+    {
+     "name": "Negative Tone",
+     "why": "Plays on the chemical polarity of negative photoresist with the dry deadpan of a moody review."
+    },
+    {
+     "name": "Etched Comb",
+     "why": "Describes the repeating violet pillars on a dark base by their unmistakable physical silhouette."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Precise fab terminology that explains the exact cross-section shown in the sprite.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct, readable cross-sectional prop unique to the photolithography layer."
+  },
+  {
+   "key": "c:litho:core",
+   "depicts": "A tiny 5x5-pixel plus-shaped speck—pure white in v0 and grey-armed with a white center in v2—isolated in a 26x22 transparent frame.",
+   "concept": "stray EUV exposure photon or airborne cleanroom particle",
+   "proposals": [
+    {
+     "name": "Exposure Mote",
+     "why": "Names a drifting speck of light or dust wandering through the lithography scanner chamber."
+    },
+    {
+     "name": "Killer Defect",
+     "why": "Uses the semiconductor fab term for a single stray particle large enough to ruin an entire die."
+    },
+    {
+     "name": "Cleanroom Wisp",
+     "why": "Treats the tiny floating cross-glint as a ghostly micro-organism haunting an ISO Class 1 bay."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Dry, authentic semiconductor jargon that turns a tiny floating speck into a quietly ominous Field Manual entry.",
+   "decisionHint": "rework",
+   "mergeWith": null,
+   "decisionWhy": "The sprite is only a 5x5 plus-sign speck inside a 26x22 canvas and needs clearer critter art to read as a living species."
+  }
+ ]
+}

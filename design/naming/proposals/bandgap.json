@@ -1,0 +1,605 @@
+{
+  "layer": "bandgap",
+  "items": [
+    {
+      "key": "e:bg-diagram",
+      "depicts": "A wide semiconductor energy-band diagram with a dark navy conduction band above a cyan valence band, linked by five vertical transition rails each holding a pale blue carrier.",
+      "concept": "semiconductor energy band structure",
+      "proposals": [
+        {
+          "name": "Bandgap Diagram",
+          "why": "Names the textbook diagram directly as it appears in solid-state physics manuals."
+        },
+        {
+          "name": "Forbidden Zone",
+          "why": "Plays on the literal name of the forbidden energy gap while nodding to restricted system areas."
+        },
+        {
+          "name": "Valence Viaduct",
+          "why": "Treats the five vertical transition rails as an architectural span crossing the energy gulf."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Valence Viaduct fits an anchor landmark in a field-guide binder while remaining immediately legible to anyone who knows band theory.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "This is the sole landmark anchor of the Bandgap & Tunneling layer and merits a full Field Manual entry."
+    },
+    {
+      "key": "e:bg-band",
+      "depicts": "Two parallel horizontal energy bands in cyan and dark navy separated by a narrow white gap containing two pale blue carrier specks.",
+      "concept": "valence and conduction bands",
+      "proposals": [
+        {
+          "name": "Energy Band",
+          "why": "States the physical structure plainly without embellishment."
+        },
+        {
+          "name": "Gap Year",
+          "why": "A dry pun on the forbidden energy gap where no stationary electron states are permitted to linger."
+        },
+        {
+          "name": "Fermi Strait",
+          "why": "Evokes a narrow geographic channel dividing two strata at the Fermi level."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Fermi Strait gives a small geometric prop real natural-history texture while anchoring it to the exact physics term.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "It is a clean layer-native prop distinct in scale and silhouette from the large band-diagram anchor."
+    },
+    {
+      "key": "e:bg-tunnel",
+      "depicts": "A tall vertical cyan potential barrier with a single square notch emerging along its left face to indicate a particle passing through.",
+      "concept": "quantum tunneling through gate oxide",
+      "proposals": [
+        {
+          "name": "Tunnel Barrier",
+          "why": "Directly identifies the thin potential wall that sub-nanometre carriers leak across."
+        },
+        {
+          "name": "Zero-Cost Bypass",
+          "why": "Frames quantum tunneling as an unauthorized privilege escalation that ignores classical energy checks."
+        },
+        {
+          "name": "Evanescent Wall",
+          "why": "Draws on the evanescent wavefunction decay inside a barrier for a quiet field-guide tone."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Evanescent Wall captures the exact physics of tunneling in two crisp words suited to a Unix-style manual.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "This animated prop is a signature visual for the layer's tunneling theme and has no equivalent elsewhere."
+    },
+    {
+      "key": "e:bg-wave",
+      "depicts": "A pale ice-blue stepped pixel sine wave oscillating horizontally across a dark field.",
+      "concept": "electron wavefunction and Bloch waves",
+      "proposals": [
+        {
+          "name": "Bloch Wave",
+          "why": "Names the periodic electron wavefunction in a crystal lattice accurately and concisely."
+        },
+        {
+          "name": "Probable Cause",
+          "why": "Puns on probability amplitude and the legal phrase for a wavefunction that only commits when observed."
+        },
+        {
+          "name": "Psi Ripple",
+          "why": "Pairs the standard wavefunction symbol with a naturalist observation of a wave in a medium."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Bloch Wave is both technically exact for crystalline silicon and naturally evocative without straining for a joke.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unlike the digital timing waveforms in RTL, this smooth sinusoidal prop represents a quantum probability wave."
+    },
+    {
+      "key": "e:bg-r3-vias",
+      "depicts": "A three-by-three grid of pale ice-blue square via pads on black, recoloured from Ring -3.",
+      "concept": "interlayer silicon vias",
+      "proposals": [
+        {
+          "name": "Via Array",
+          "why": "Describes the three-by-three grid of vertical metal interconnects plainly."
+        },
+        {
+          "name": "Nine-Pin Plunge",
+          "why": "Alludes to routing vertical drops through stacked metal layers."
+        },
+        {
+          "name": "Frost Via Grid",
+          "why": "Notes the cold pale-blue bandgap palette on the reused via cluster."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Via Array is clean and consistent with the canonical Ring -3 specimen.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-vias",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-vias from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-pad",
+      "depicts": "A pale ice-blue key-shaped bond pad with a dark hollow eye and notched shaft, recoloured from Ring -3.",
+      "concept": "wire-bond I/O pad",
+      "proposals": [
+        {
+          "name": "Bond Pad",
+          "why": "Identifies the metallic contact landing used for die packaging."
+        },
+        {
+          "name": "Keyed Contact",
+          "why": "Nods to both the sprite's key silhouette and electrical contact keying."
+        },
+        {
+          "name": "Cryo Pad",
+          "why": "Gives the ice-blue variant a quiet low-temperature field-guide qualifier."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Bond Pad keeps the terminology grounded and matches the parent Ring -3 item.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-pad",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-pad from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-trace",
+      "depicts": "A right-angled pale ice-blue metal trace connecting a solid pad at top left to a hollow via at bottom right, recoloured from Ring -3.",
+      "concept": "on-die signal routing trace",
+      "proposals": [
+        {
+          "name": "Signal Trace",
+          "why": "Names the routed metal line directly."
+        },
+        {
+          "name": "Ninety-Degree Turn",
+          "why": "Wryly references the right-angle bend that RF and high-speed layout engineers frown upon."
+        },
+        {
+          "name": "Etched Vein",
+          "why": "Treats the conductive path as a mineral seam running across the die."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Signal Trace is precise and fits cleanly as a colour variant under the Ring -3 entry.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-trace",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-trace from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-decap",
+      "depicts": "A pale ice-blue decoupling capacitor outline with two dark rectangular plates flanking a vertical gap, recoloured from Ring -3.",
+      "concept": "power-rail decoupling capacitance",
+      "proposals": [
+        {
+          "name": "Decoupling Cap",
+          "why": "Uses the standard hardware shorthand for a local power-smoothing capacitor."
+        },
+        {
+          "name": "Rail Calmer",
+          "why": "Dryly describes its job of absorbing transient voltage droop on power rails."
+        },
+        {
+          "name": "Twin-Plate Reservoir",
+          "why": "Frames the parallel capacitor plates in a quiet naturalist register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Decoupling Cap is the exact term engineers use and pairs cleanly with the Ring -3 original.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-decap",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-decap from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-xtal",
+      "depicts": "A pale ice-blue packaged quartz crystal with a dark center window displaying a stepped oscillation pattern, recoloured from Ring -3.",
+      "concept": "quartz crystal clock oscillator",
+      "proposals": [
+        {
+          "name": "Quartz Oscillator",
+          "why": "Names the piezoelectric timing reference accurately."
+        },
+        {
+          "name": "Clock Rock",
+          "why": "A deadpan nickname for the sliced quartz mineral that paces the entire machine."
+        },
+        {
+          "name": "Piezoelectric Heart",
+          "why": "Cast in a field-guide register for the vibrating crystal at the base of system time."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Quartz Oscillator stays crisp and technical for a colour variant of the Ring -3 prop.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-xtal",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-xtal from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-testpads",
+      "depicts": "A horizontal pale ice-blue bus bar with four opposing pairs of square contact tabs on black, recoloured from Ring -3.",
+      "concept": "wafer probe test pads",
+      "proposals": [
+        {
+          "name": "Test Pads",
+          "why": "Names the exposed probe landings directly."
+        },
+        {
+          "name": "Needle Bait",
+          "why": "Dryly references the wafer probe needles that scratch these pads during binning."
+        },
+        {
+          "name": "Contact Comb",
+          "why": "Describes the toothed silhouette in compact field-guide language."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Test Pads is clear and aligns directly with the Ring -3 parent entry.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-testpads",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-testpads from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-fuses",
+      "depicts": "Six vertical pale ice-blue fuse links arranged in a row with the rightmost link severed by a gap, recoloured from Ring -3.",
+      "concept": "one-time programmable eFuses",
+      "proposals": [
+        {
+          "name": "Blown eFuses",
+          "why": "Captures both the hardware mechanism and the visibly severed final link."
+        },
+        {
+          "name": "Permanent Regret",
+          "why": "A wry nod to the irreversibility of blowing a silicon fuse during provisioning."
+        },
+        {
+          "name": "Severed Link Bank",
+          "why": "Describes the array as an archaeological artifact of a one-way state change."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Blown eFuses accurately reflects the sprite's broken link and matches the Ring -3 specimen.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-fuses",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-fuses from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-resistor",
+      "depicts": "A pale ice-blue zigzag resistor schematic symbol drawn on a black background, recoloured from Ring -3.",
+      "concept": "on-die resistive impedance",
+      "proposals": [
+        {
+          "name": "Silicon Resistor",
+          "why": "Names the passive circuit element plainly."
+        },
+        {
+          "name": "Ohm's Tollbooth",
+          "why": "Frames electrical resistance as a mandatory tax collected in heat."
+        },
+        {
+          "name": "Sawtooth Load",
+          "why": "Describes the jagged schematic silhouette in terse technical prose."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Silicon Resistor is straightforward and belongs folded into the Ring -3 resistor entry.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-resistor",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-resistor from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-diode",
+      "depicts": "A pale ice-blue schematic junction with two vertical bars and horizontal leads on black, recoloured from Ring -3.",
+      "concept": "p-n junction diode",
+      "proposals": [
+        {
+          "name": "Junction Diode",
+          "why": "Identifies the one-way semiconductor component directly."
+        },
+        {
+          "name": "One-Way Valve",
+          "why": "Uses the classic plumbing metaphor for current rectification."
+        },
+        {
+          "name": "Depletion Gate",
+          "why": "Calls out the depletion region that governs diode conduction in a field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Junction Diode is exact and keeps variant naming consistent with Ring -3.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-diode",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-diode from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-inductor",
+      "depicts": "A pale ice-blue four-loop stepped coil schematic on a black background, recoloured from Ring -3.",
+      "concept": "on-chip planar inductor",
+      "proposals": [
+        {
+          "name": "Planar Inductor",
+          "why": "Names the coiled on-die magnetic component accurately."
+        },
+        {
+          "name": "Current Stubbornness",
+          "why": "A dry definition of inductance as a circuit's refusal to change its mind quickly."
+        },
+        {
+          "name": "Flux Coil",
+          "why": "Concise, evocative shorthand for a magnetic energy-storing winding."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Planar Inductor is precise and slots cleanly under the Ring -3 inductor page.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-inductor",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-inductor from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-sram",
+      "depicts": "A pale ice-blue circular cross-coupled bitcell loop schematic on black, recoloured from Ring -3.",
+      "concept": "six-transistor static RAM cell",
+      "proposals": [
+        {
+          "name": "SRAM Bitcell",
+          "why": "Identifies the bistable static memory loop directly."
+        },
+        {
+          "name": "Cross-Coupled Grudge",
+          "why": "Jokes about two inverters locked in permanent mutual disagreement to hold a single bit."
+        },
+        {
+          "name": "Bistable Ring",
+          "why": "Describes the closed-loop topology in clean naturalist terms."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "SRAM Bitcell is clear and directly corresponds to the Ring -3 original.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-sram",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-sram from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-ringosc",
+      "depicts": "A pale ice-blue padlock-shaped ring enclosing a dark core with a central bright pixel, recoloured from Ring -3.",
+      "concept": "ring oscillator entropy and clock source",
+      "proposals": [
+        {
+          "name": "Ring Oscillator",
+          "why": "Names the odd-numbered inverter loop directly."
+        },
+        {
+          "name": "Odd Inverter",
+          "why": "Wryly alludes to the odd gate count required so the circuit can never settle."
+        },
+        {
+          "name": "Jitter Loop",
+          "why": "Highlights the phase noise that makes ring oscillators useful for hardware entropy."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Ring Oscillator is unambiguous and belongs as a colour variant of the Ring -3 entry.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-ringosc",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-ringosc from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-thermal",
+      "depicts": "A narrow pale ice-blue thermometer silhouette with a dark vertical sensing column and two side ticks, recoloured from Ring -3.",
+      "concept": "on-die thermal sensor diode",
+      "proposals": [
+        {
+          "name": "Thermal Diode",
+          "why": "Names the temperature-sensing bandgap junction plainly."
+        },
+        {
+          "name": "Throttle Herald",
+          "why": "Dryly casts the sensor as the messenger that cuts clock speed before silicon melts."
+        },
+        {
+          "name": "Kelvin Reed",
+          "why": "Evokes the slender vertical silhouette as an instrument measuring lattice temperature."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Thermal Diode is exact—and ironically relies on bandgap voltage—while folding cleanly into the Ring -3 specimen.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-thermal",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-thermal from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-pll",
+      "depicts": "A pale ice-blue stacked parallel-plate schematic with top and bottom leads on black, recoloured from Ring -3.",
+      "concept": "phase-locked loop clock synthesizer",
+      "proposals": [
+        {
+          "name": "Phase-Locked Loop",
+          "why": "States the full canonical hardware name."
+        },
+        {
+          "name": "Clock Multiplier",
+          "why": "A plainspoken nod to its everyday role turning a slow crystal into gigahertz ticks."
+        },
+        {
+          "name": "Phase Anchor",
+          "why": "Uses a concise field-guide metaphor for locking an oscillator to a reference."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Phase-Locked Loop is standard and consistent with the Ring -3 parent entry.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-pll",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-pll from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-jtag",
+      "depicts": "A pale ice-blue dual-inline chip outline with five top and five bottom pins framing a dark die window, recoloured from Ring -3.",
+      "concept": "JTAG boundary-scan debug interface",
+      "proposals": [
+        {
+          "name": "JTAG Header",
+          "why": "Names the standard hardware test and debug port directly."
+        },
+        {
+          "name": "Unfused Backdoor",
+          "why": "A dry security joke about debug interfaces accidentally left enabled in production silicon."
+        },
+        {
+          "name": "Scan-Chain Port",
+          "why": "Highlights the serial boundary-scan architecture in clean technical phrasing."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "JTAG Header is immediately recognizable and maps cleanly to the Ring -3 original.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-jtag",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-jtag from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-rom",
+      "depicts": "A dark rectangular die block bordered in pale ice-blue with the pixel lettering ROM across the face, recoloured from Ring -3.",
+      "concept": "mask read-only memory",
+      "proposals": [
+        {
+          "name": "Mask ROM",
+          "why": "Specifies immutable silicon-etched memory rather than reprogrammable flash."
+        },
+        {
+          "name": "Final Draft",
+          "why": "A wry jab at firmware bugs permanently cast into lithography masks."
+        },
+        {
+          "name": "Litho Tablet",
+          "why": "Treats the immutable ROM block as a stone inscription buried in silicon."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Mask ROM is crisp, accurate, and aligns directly with the Ring -3 parent item.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-rom",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-rom from Ring -3."
+    },
+    {
+      "key": "e:bg-r3-htree",
+      "depicts": "A symmetrical pale ice-blue fractal H-tree clock network on black, recoloured from Ring -3.",
+      "concept": "zero-skew H-tree clock distribution",
+      "proposals": [
+        {
+          "name": "Clock H-Tree",
+          "why": "Names the balanced fractal clock-distribution geometry directly."
+        },
+        {
+          "name": "Equal-Length Pact",
+          "why": "Dryly summarizes the geometry's sole purpose of delivering clock edges simultaneously."
+        },
+        {
+          "name": "Isochronous Branch",
+          "why": "Borrows a botanical field-guide register for equal-time clock routing."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Clock H-Tree is exact and fits neatly as a colour variant under Ring -3.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-htree",
+      "decisionWhy": "This sprite is a direct pale-blue palette swap of e:r3-htree from Ring -3."
+    },
+    {
+      "key": "e:bg-hole",
+      "depicts": "A hollow cyan octagonal pixel ring with an empty white interior representing an absent electron.",
+      "concept": "electron hole quasiparticle",
+      "proposals": [
+        {
+          "name": "Electron Hole",
+          "why": "Uses the standard solid-state physics term for a valence-band vacancy."
+        },
+        {
+          "name": "Positive Absence",
+          "why": "Captures the dryly paradoxical accounting trick of treating a missing electron as a positive charge."
+        },
+        {
+          "name": "Valence Vacancy",
+          "why": "A spare, precise field-guide name for the empty orbital drifting through the lattice."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Positive Absence nails the dry humor of the Field Manual while explaining the exact physics of a hole in two words.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "This is a distinct, iconic layer-native prop with a clean silhouette and a core semiconductor concept."
+    },
+    {
+      "key": "e:bg-photonabs",
+      "depicts": "A diagonal pale blue photon ray striking a dark navy valence bar while a cyan carrier block sits elevated above it.",
+      "concept": "photoelectric carrier excitation",
+      "proposals": [
+        {
+          "name": "Photon Absorption",
+          "why": "States the physical event shown in the sprite directly."
+        },
+        {
+          "name": "Optical Promotion",
+          "why": "Puns on career advancement for an electron bumped up to the conduction band by a photon."
+        },
+        {
+          "name": "Bandgap Strike",
+          "why": "Reads like a concise natural-history observation of incident light exciting the lattice."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Optical Promotion is quietly funny in the Unix-manual register and accurately describes carrier excitation.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "It is a unique layer-native prop illustrating photon-driven carrier generation across the bandgap."
+    },
+    {
+      "key": "e:bg-recomb",
+      "depicts": "A horizontal dark navy barrier separating a pale blue square above from a cyan square below, animated to show carrier recombination.",
+      "concept": "electron-hole recombination",
+      "proposals": [
+        {
+          "name": "Carrier Recombination",
+          "why": "Names the exact semiconductor annihilation process plainly."
+        },
+        {
+          "name": "Mutual Cancellation",
+          "why": "A dryly bureaucratic phrasing for an electron and a hole settling their charge debt."
+        },
+        {
+          "name": "Radiative Fall",
+          "why": "Evokes the electron dropping back across the gap to emit a photon or phonon."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Radiative Fall pairs accurate physics with a stark, poetic field-guide cadence.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "This animated prop is native to the bandgap layer and pairs naturally with photon absorption."
+    },
+    {
+      "key": "c:bandgap:core",
+      "depicts": "A dark charcoal hollow square body with two asymmetrical grey side stubs that floats and snaps along a grid.",
+      "concept": "quantum charge carrier quasiparticle",
+      "proposals": [
+        {
+          "name": "Charge Carrier",
+          "why": "Directly names the mobile quantum entity navigating the crystal lattice."
+        },
+        {
+          "name": "Leakage Current",
+          "why": "Dryly frames the wandering critter as the subthreshold drain that haunts modern process nodes."
+        },
+        {
+          "name": "Tunnel Drifter",
+          "why": "Combines the critter's floating grid motion with the tunneling physics of its habitat."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Tunnel Drifter reads like a genuine Field Manual species name while matching the critter's float-and-grid movement.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "This is the sole native critter species of the Bandgap & Tunneling layer."
+    }
+  ]
+}

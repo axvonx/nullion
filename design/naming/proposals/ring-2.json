@@ -1,0 +1,701 @@
+{
+ "layer": "ring-2",
+ "items": [
+  {
+   "key": "e:r2-clocktower",
+   "depicts": "A tall monochrome clock tower with a pointed roof, three dark louver vents, and clock hands frozen at 11:10.",
+   "concept": "system clock freeze",
+   "proposals": [
+    {
+     "name": "Frozen Clocktower",
+     "why": "Plainly describes the landmark tower whose hands have stopped."
+    },
+    {
+     "name": "Halt Horology",
+     "why": "Pairs the CPU halt state with the formal study of timekeeping."
+    },
+    {
+     "name": "Stillwatch Spire",
+     "why": "Treats the silent monument like a field-guide landmark in a petrified landscape."
+    }
+   ],
+   "recommend": 2,
+   "recommendWhy": "Stillwatch Spire gives the layer's central anchor a dry, memorable presence without repeating the prototype's Big Ben joke.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Primary anchor set piece for Ring -2."
+  },
+  {
+   "key": "e:r2-cascade",
+   "depicts": "A cluster of small monochrome debris, gears, and windows suspended mid-air above a dark ground line with vertical motion trails.",
+   "concept": "frozen execution pipeline",
+   "proposals": [
+    {
+     "name": "Suspended Cascade",
+     "why": "Directly names the mid-air tumble of halted objects."
+    },
+    {
+     "name": "Preempted Avalanche",
+     "why": "Riffs on CPU preemption interrupting an in-flight chain of events."
+    },
+    {
+     "name": "Hanging Debris",
+     "why": "Uses understated naturalist phrasing for objects caught in mid-fall."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Preempted Avalanche captures both the visual cascade and the abruptness of an SMI trap.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Major anchor set piece unique to Ring -2."
+  },
+  {
+   "key": "e:r2-debris",
+   "depicts": "A single small rectangular block suspended in mid-air beneath a vertical motion streak.",
+   "concept": "halted instruction fragment",
+   "proposals": [
+    {
+     "name": "Falling Block",
+     "why": "Plainly identifies the single suspended rectangle."
+    },
+    {
+     "name": "Stalled Word",
+     "why": "Puns on a machine word frozen mid-fetch."
+    },
+    {
+     "name": "Paused Morsel",
+     "why": "Evokes a tiny fragment of matter hanging motionless in the air."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Stalled Word fits a tiny, nondescript fragment in a frozen CPU layer.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small scatter prop that works best as an appendix specimen."
+  },
+  {
+   "key": "e:r2-clock",
+   "depicts": "A round monochrome wall clock with its hands frozen at roughly ten past nine.",
+   "concept": "frozen RTC / wall clock",
+   "proposals": [
+    {
+     "name": "Stopped Wall Clock",
+     "why": "Describes the round clock face with motionless hands."
+    },
+    {
+     "name": "Deadlock Dial",
+     "why": "Combines a clock dial with the computing term for a permanent stall."
+    },
+    {
+     "name": "Mute Timepiece",
+     "why": "A quiet, field-guide-style label for a silent instrument."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Deadlock Dial is crisp and computing-literate without overplaying the pun.",
+   "decisionHint": "variant",
+   "mergeWith": "e:app-clock",
+   "decisionWhy": "Monochrome Ring -2 variant of the clock prop seen in Application."
+  },
+  {
+   "key": "e:r2-shards",
+   "depicts": "A small cluster of jagged grey pixel fragments floating in mid-air.",
+   "concept": "shattered state / page fragments",
+   "proposals": [
+    {
+     "name": "Floating Shards",
+     "why": "Plainly describes the suspended grey fragments."
+    },
+    {
+     "name": "Broken Syllables",
+     "why": "Suggests fragmented data words caught mid-parse."
+    },
+    {
+     "name": "Shattered Grit",
+     "why": "Reads like a dry geological specimen in a field manual."
+    }
+   ],
+   "recommend": 2,
+   "recommendWhy": "Shattered Grit suits a tiny, irregular scatter prop.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Minor scatter prop suited to the appendix."
+  },
+  {
+   "key": "e:r2-tag",
+   "depicts": "Pixel text reading 'SMI#4' in grey.",
+   "concept": "System Management Interrupt vector",
+   "proposals": [
+    {
+     "name": "SMI Label",
+     "why": "Plainly identifies the hardware interrupt tag."
+    },
+    {
+     "name": "Trap Vector Four",
+     "why": "References the specific interrupt number printed on the sprite."
+    },
+    {
+     "name": "Silent Pin",
+     "why": "Alludes to the physical SMI# pin on the processor package."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Trap Vector Four is precise and directly acknowledges the text in the sprite.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Text label prop best listed in the catalogue."
+  },
+  {
+   "key": "e:r2-rain",
+   "depicts": "Four vertical grey streaks representing raindrops frozen mid-fall.",
+   "concept": "halted interrupt stream",
+   "proposals": [
+    {
+     "name": "Frozen Rain",
+     "why": "Directly describes the motionless vertical streaks."
+    },
+    {
+     "name": "Masked Shower",
+     "why": "Puns on masked interrupts that cannot be delivered."
+    },
+    {
+     "name": "Standing Drizzle",
+     "why": "A wry, naturalist phrase for rain that refuses to reach the ground."
+    }
+   ],
+   "recommend": 2,
+   "recommendWhy": "Standing Drizzle captures the dry humor of weather caught in an SMI freeze.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Ambient scatter prop suited to the appendix."
+  },
+  {
+   "key": "e:r2-pendulum",
+   "depicts": "A pendulum bob suspended on a diagonal grey rod, caught at the far end of its swing.",
+   "concept": "halted oscillator / clock tick",
+   "proposals": [
+    {
+     "name": "Stopped Pendulum",
+     "why": "Plainly describes the pendulum frozen mid-swing."
+    },
+    {
+     "name": "Paused Escapement",
+     "why": "Uses horological terminology that mirrors a halted CPU cycle."
+    },
+    {
+     "name": "Hanging Bob",
+     "why": "A terse, matter-of-fact field-guide label."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Paused Escapement is precise and evocative of stopped mechanical time.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct Ring -2 prop with a clear visual silhouette."
+  },
+  {
+   "key": "e:r2-hourglass",
+   "depicts": "A small monochrome hourglass with sand frozen in the neck and upper bulb.",
+   "concept": "halted timeout counter",
+   "proposals": [
+    {
+     "name": "Frozen Hourglass",
+     "why": "Plainly describes the hourglass with motionless sand."
+    },
+    {
+     "name": "Zeroed Watchdog",
+     "why": "References a watchdog timer that cannot count down during SMM."
+    },
+    {
+     "name": "Stillglass",
+     "why": "A compact, naturalist-style compound noun."
+    }
+   ],
+   "recommend": 2,
+   "recommendWhy": "Stillglass is concise and fits the quiet, archived tone of the Field Manual.",
+   "decisionHint": "variant",
+   "mergeWith": "e:lib-hourglass",
+   "decisionWhy": "Monochrome Ring -2 variant of the hourglass prop in Libraries."
+  },
+  {
+   "key": "e:r2-ghostgear",
+   "depicts": "A grey gear paired with a hollow outline of its own previous position, suggesting a frozen afterimage.",
+   "concept": "preempted clock cycle / afterimage",
+   "proposals": [
+    {
+     "name": "Ghost Gear",
+     "why": "Directly names the gear and its hollow afterimage."
+    },
+    {
+     "name": "Stale Cog",
+     "why": "Nods to stale cache or register state left behind on a trap."
+    },
+    {
+     "name": "Echo Pinion",
+     "why": "Pairs a mechanical gear term with its visual double."
+    }
+   ],
+   "recommend": 2,
+   "recommendWhy": "Echo Pinion is both mechanically accurate and evocative of the sprite's double outline.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinctive Ring -2 prop with a unique afterimage silhouette."
+  },
+  {
+   "key": "e:r2-safe",
+   "depicts": "A dark grey square safe with a light grey dial and handle in the center.",
+   "concept": "SMRAM lock / D_LCK bit",
+   "proposals": [
+    {
+     "name": "Steel Safe",
+     "why": "Plainly describes the monochrome strongbox."
+    },
+    {
+     "name": "D-Lock Vault",
+     "why": "References the SMRAM D_LCK bit that seals Ring -2 memory."
+    },
+    {
+     "name": "Iron Strongbox",
+     "why": "A traditional, grounded label for a heavy-duty lockbox."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "D-Lock Vault ties the visual safe directly to the hardware lock bit of Ring -2.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Recurring lockbox motif rendered in 1-bit monochrome for Ring -2."
+  },
+  {
+   "key": "e:r2-smoke",
+   "depicts": "A small diagonal puff of grey pixels rising from a dark base.",
+   "concept": "frozen thermal dissipation",
+   "proposals": [
+    {
+     "name": "Frozen Smoke",
+     "why": "Plainly describes the motionless grey plume."
+    },
+    {
+     "name": "Halted Plume",
+     "why": "Suggests a burst of activity stopped mid-dissipation."
+    },
+    {
+     "name": "Still Wisp",
+     "why": "A quiet, naturalist name for a tiny curl of smoke."
+    }
+   ],
+   "recommend": 2,
+   "recommendWhy": "Still Wisp fits the scale and understated tone of a minor scatter prop.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small ambient prop best placed in the catalogue."
+  },
+  {
+   "key": "e:r2-metronome",
+   "depicts": "A triangular metronome body with its arm angled to the right, frozen mid-beat.",
+   "concept": "halted bus clock",
+   "proposals": [
+    {
+     "name": "Halted Metronome",
+     "why": "Directly describes the timekeeping device caught mid-swing."
+    },
+    {
+     "name": "Gated Oscillator",
+     "why": "References clock gating that freezes a synchronous circuit."
+    },
+    {
+     "name": "Silent Beat",
+     "why": "A dry, poetic phrase for a rhythm that has stopped."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Gated Oscillator connects the metronome cleanly to hardware clock gating.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Clear, recognizable Ring -2 prop."
+  },
+  {
+   "key": "e:r2-cracks",
+   "depicts": "A round dark dial with a ring at the top and a jagged crack running down its face.",
+   "concept": "clock skew / broken timer",
+   "proposals": [
+    {
+     "name": "Cracked Pocketwatch",
+     "why": "Plainly describes the fractured round timepiece."
+    },
+    {
+     "name": "Skewed Chrono",
+     "why": "Puns on clock skew and a damaged chronometer."
+    },
+    {
+     "name": "Split Dial",
+     "why": "A terse, field-guide-style description of the fractured face."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Skewed Chrono neatly bridges timekeeping and digital clock skew.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct Ring -2 prop."
+  },
+  {
+   "key": "e:r2-ripple",
+   "depicts": "Concentric monochrome rings forming a flat circular ripple.",
+   "concept": "frozen signal propagation",
+   "proposals": [
+    {
+     "name": "Frozen Ripple",
+     "why": "Plainly describes the motionless concentric rings."
+    },
+    {
+     "name": "Standing Wave",
+     "why": "References a wave that appears stationary in space."
+    },
+    {
+     "name": "Still Ring",
+     "why": "A minimal, quiet name for a paused surface disturbance."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Standing Wave is accurate both physically and as a computing-adjacent metaphor.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Simple surface-effect prop suited to the catalogue."
+  },
+  {
+   "key": "e:r2-book",
+   "depicts": "A small monochrome open book or pages-spread silhouette.",
+   "concept": "paused page / documentation",
+   "proposals": [
+    {
+     "name": "Frozen Book",
+     "why": "Plainly describes the small open volume."
+    },
+    {
+     "name": "Pinned Page",
+     "why": "Puns on memory pages pinned in RAM."
+    },
+    {
+     "name": "Mute Folio",
+     "why": "A dry, archival name for an unread volume."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Pinned Page is a neat double entendre for a frozen book in a low-level memory layer.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Tiny scatter prop best suited for the catalogue."
+  },
+  {
+   "key": "e:r2-bubbles",
+   "depicts": "Two small monochrome bubbles, one plain and one with a tiny highlight, stacked vertically.",
+   "concept": "pipeline bubble",
+   "proposals": [
+    {
+     "name": "Frozen Bubbles",
+     "why": "Plainly describes the two suspended spheres."
+    },
+    {
+     "name": "Pipeline Stall",
+     "why": "References the CPU pipeline bubble caused by a stall."
+    },
+    {
+     "name": "Still Beads",
+     "why": "A quiet, naturalist description of motionless air pockets."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Pipeline Stall turns a generic bubble sprite into a sharp microarchitecture joke.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Minor scatter prop suited to the appendix."
+  },
+  {
+   "key": "e:r2-hook",
+   "depicts": "A vertical segmented rod ending in a small hook at the bottom.",
+   "concept": "SMI interrupt hook",
+   "proposals": [
+    {
+     "name": "Iron Hook",
+     "why": "Plainly describes the segmented metal hook."
+    },
+    {
+     "name": "Trap Hook",
+     "why": "References a low-level software or firmware hook."
+    },
+    {
+     "name": "Snagging Rod",
+     "why": "A dry, physical description of an instrument that catches things."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Trap Hook directly connects the physical hook to firmware interception.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small scatter prop suited to the catalogue."
+  },
+  {
+   "key": "e:r2-stopwatch",
+   "depicts": "A round monochrome stopwatch with a top crown button and a single vertical hand.",
+   "concept": "halted TSC / performance counter",
+   "proposals": [
+    {
+     "name": "Stopped Stopwatch",
+     "why": "Plainly describes the frozen timing device."
+    },
+    {
+     "name": "Frozen TSC",
+     "why": "Names the Time Stamp Counter that can be offset or paused by SMM."
+    },
+    {
+     "name": "Clickless Chrono",
+     "why": "A dry, understated name for a silent timer."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Frozen TSC is specific to x86 low-level timing and Ring -2.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct prop with a clear stopwatch silhouette."
+  },
+  {
+   "key": "e:r2-flame",
+   "depicts": "A small monochrome flame with a bright core and a single detached pixel spark above it.",
+   "concept": "halted thermal spike",
+   "proposals": [
+    {
+     "name": "Frozen Flame",
+     "why": "Plainly describes the motionless fire sprite."
+    },
+    {
+     "name": "Static Ember",
+     "why": "Combines electrical/computational stasis with a dying fire."
+    },
+    {
+     "name": "Still Tongue",
+     "why": "A naturalist phrase for a flame caught mid-flicker."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Static Ember is concise and carries a double meaning.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small scatter prop suited to the catalogue."
+  },
+  {
+   "key": "e:r2-domino",
+   "depicts": "A standing domino, a domino tilting mid-fall, and a flat fallen block on a dark floor line.",
+   "concept": "halted chain reaction",
+   "proposals": [
+    {
+     "name": "Frozen Dominoes",
+     "why": "Plainly describes the mid-topple domino sequence."
+    },
+    {
+     "name": "Mid-Cascade",
+     "why": "References a chain of events interrupted before completion."
+    },
+    {
+     "name": "Tipping Slate",
+     "why": "A dry, physical description of a stone caught leaning."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Mid-Cascade captures the exact moment of interruption.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Clear, readable prop unique to Ring -2."
+  },
+  {
+   "key": "e:r2-coin",
+   "depicts": "A monochrome coin standing on edge beneath a vertical motion streak.",
+   "concept": "suspended state / flip-flop",
+   "proposals": [
+    {
+     "name": "Suspended Coin",
+     "why": "Plainly describes the coin hanging mid-air."
+    },
+    {
+     "name": "Unresolved Bit",
+     "why": "Puns on a binary coin toss that has not yet landed."
+    },
+    {
+     "name": "Edgewise Token",
+     "why": "A dry, field-guide label for a coin frozen on its edge."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Unresolved Bit is a sharp computing pun on a coin caught mid-toss.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small scatter prop suited to the catalogue."
+  },
+  {
+   "key": "e:r2-pause",
+   "depicts": "A single light-grey droplet hovering above a crown-like splash of grey pixels.",
+   "concept": "SMI execution pause",
+   "proposals": [
+    {
+     "name": "Frozen Splash",
+     "why": "Plainly describes the droplet and crown frozen in mid-air."
+    },
+    {
+     "name": "RSM Pending",
+     "why": "References the Resume from System Management Mode instruction that would let it fall."
+    },
+    {
+     "name": "Crown Drop",
+     "why": "A terse, naturalist name for the classic milk-drop crown shape."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "RSM Pending anchors the poetic image in Ring -2's actual resume instruction.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Iconic Ring -2 prop with a distinct silhouette."
+  },
+  {
+   "key": "e:r2-drop",
+   "depicts": "A single rounded droplet with a vertical trail above it.",
+   "concept": "paused data packet",
+   "proposals": [
+    {
+     "name": "Frozen Drop",
+     "why": "Plainly describes the motionless falling droplet."
+    },
+    {
+     "name": "Stalled Byte",
+     "why": "Puns on a tiny unit of data frozen in transit."
+    },
+    {
+     "name": "Hanging Bead",
+     "why": "A quiet, naturalist description of a suspended drop."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Stalled Byte fits a tiny, single-drop scatter prop.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small scatter prop suited to the appendix."
+  },
+  {
+   "key": "e:r2-leaf",
+   "depicts": "A tiny grey rectangle with diagonal pixel stems on opposite corners, resembling a drifting leaf.",
+   "concept": "leaf node in stasis",
+   "proposals": [
+    {
+     "name": "Frozen Leaf",
+     "why": "Plainly describes the motionless drifting leaf."
+    },
+    {
+     "name": "Static Leaf",
+     "why": "Puns on a tree data-structure leaf node that cannot be modified."
+    },
+    {
+     "name": "Still Frond",
+     "why": "A dry, botanical field-guide name."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Static Leaf is a clean double meaning between botany and data structures.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Tiny scatter prop best placed in the catalogue."
+  },
+  {
+   "key": "e:r2-feather",
+   "depicts": "Two overlapping grey rectangles with tiny diagonal pixel tips, resembling a drifting feather.",
+   "concept": "lightweight thread paused",
+   "proposals": [
+    {
+     "name": "Frozen Feather",
+     "why": "Plainly describes the motionless feather."
+    },
+    {
+     "name": "Paused Fiber",
+     "why": "References lightweight user-space threads (fibers) halted by SMM."
+    },
+    {
+     "name": "Still Plume",
+     "why": "A quiet, naturalist label for a suspended feather."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Paused Fiber ties the feather's lightness to lightweight execution threads.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Tiny scatter prop suited to the catalogue."
+  },
+  {
+   "key": "e:r2-spark",
+   "depicts": "A symmetrical four-pointed grey cross with a bright white square center.",
+   "concept": "frozen IRQ / electrical spark",
+   "proposals": [
+    {
+     "name": "Frozen Spark",
+     "why": "Plainly describes the motionless four-pointed glint."
+    },
+    {
+     "name": "Latched Pulse",
+     "why": "References a signal pulse held in a latch."
+    },
+    {
+     "name": "Still Glint",
+     "why": "A minimal, naturalist name for a tiny point of light."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Latched Pulse is precise and computing-literate.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small scatter prop suited to the appendix."
+  },
+  {
+   "key": "e:r2-prism",
+   "depicts": "A hollow grey triangle resting on a flat base with a faint white core.",
+   "concept": "frozen instruction decode",
+   "proposals": [
+    {
+     "name": "Monochrome Prism",
+     "why": "Plainly describes the grey triangular prism."
+    },
+    {
+     "name": "Null Spectrum",
+     "why": "Puns on a prism stripped of color in 1-bit Ring -2."
+    },
+    {
+     "name": "Still Wedge",
+     "why": "A dry, geometric field-guide name."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Null Spectrum neatly explains why a prism is monochrome here.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small scatter prop suited to the catalogue."
+  },
+  {
+   "key": "c:ring-2:core",
+   "depicts": "A monochrome hovering sprite with two dark eyes and a small trailing tail, shown in three slightly different float poses.",
+   "concept": "frozen OS thread / SMI ghost",
+   "proposals": [
+    {
+     "name": "Frozen Wisp",
+     "why": "Plainly describes the motionless hovering critter."
+    },
+    {
+     "name": "Preempted Shade",
+     "why": "Combines CPU preemption with a ghostly, halted presence."
+    },
+    {
+     "name": "Still Specter",
+     "why": "A dry, naturalist-style name for a species that never moves a pixel."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Preempted Shade captures both the spooky silhouette and the Ring -2 freeze.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Primary critter species for Ring -2."
+  }
+ ]
+}

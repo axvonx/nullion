@@ -1,0 +1,605 @@
+{
+  "layer": "ept",
+  "items": [
+    {
+      "key": "e:ept-matrix",
+      "depicts": "Two tall dark vertical monoliths framed in green and mint green, bridged across a narrow gap by a glowing mint-green lattice of crossed paths.",
+      "concept": "two-dimensional EPT address translation",
+      "proposals": [
+        {
+          "name": "Translation Matrix",
+          "why": "States plainly what the two-column structure performs between guest-physical and host-physical space."
+        },
+        {
+          "name": "Double Indirection",
+          "why": "Nods to the classic systems aphorism while describing the extra stage of page lookup imposed by EPT."
+        },
+        {
+          "name": "Bipartite Lattice",
+          "why": "Frames the linked monoliths as a field-guide specimen defined by its two-sided crystalline cross-bracing."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Translation Matrix anchors the EPT & IOMMU layer with clear, authoritative terminology that reads naturally as a manual heading.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "As the layer's 50x40 landmark anchor with unique art, it merits a dedicated Field Manual page."
+    },
+    {
+      "key": "e:ept-grid",
+      "depicts": "A green-bordered four-by-three grid of dark bars enclosing twelve square cells with one middle-row cell illuminated in bright mint green.",
+      "concept": "nested page table grid",
+      "proposals": [
+        {
+          "name": "Page Table Grid",
+          "why": "Directly names the two-dimensional table layout depicted by the twelve-cell frame."
+        },
+        {
+          "name": "Sparse Lookup",
+          "why": "Pokes dryly at the fact that only a single cell in the entire array is actually populated."
+        },
+        {
+          "name": "Phosphor Grille",
+          "why": "Describes the glowing green mesh in the understated physical terms of an instrument field guide."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Page Table Grid is immediately legible to systems readers and pairs cleanly with the layer's translation anchor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "It is unique to the EPT layer and visually distinct from the cross-wired e:r1-ept prop."
+    },
+    {
+      "key": "e:ept-vtd",
+      "depicts": "A mint-green bordered rectangle partitioned by four vertical green dividers into five dark parallel slots.",
+      "concept": "Intel VT-d DMA remapping",
+      "proposals": [
+        {
+          "name": "IOMMU Gate",
+          "why": "Names the hardware barrier that mediates device DMA access into host memory."
+        },
+        {
+          "name": "DMA Bouncer",
+          "why": "Treats Intel VT-d's strict domain isolation as a dryly literal doorkeeper checking bus credentials."
+        },
+        {
+          "name": "Five-Bay Sluice",
+          "why": "Reads the parallel vertical channels as a mechanical waterworks structure sorting traffic by lane."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "IOMMU Gate directly represents the second half of the EPT & IOMMU layer title in crisp manual prose.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "It is a layer-specific sprite representing VT-d and IOMMU isolation, which warrants its own page."
+    },
+    {
+      "key": "e:ept-r1-mirror",
+      "depicts": "Two side-by-side dark display panels under a mint-green bezel showing horizontally mirrored green bar-chart and window silhouettes.",
+      "concept": "live guest state mirroring",
+      "proposals": [
+        {
+          "name": "State Mirror",
+          "why": "Plainly describes the paired displays reflecting synchronized machine activity."
+        },
+        {
+          "name": "Split-Brain Glass",
+          "why": "References the classic distributed-replication failure mode as a wry gloss on mirrored screens."
+        },
+        {
+          "name": "Twin Pane",
+          "why": "Uses spare naturalist phrasing to catalogue the symmetrical double-screen formation."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "State Mirror is concise and accurate to the mirrored display silhouette.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-mirror",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-mirror in Ring -1 and represents the same virtualization prop under a layer-prefixed id."
+    },
+    {
+      "key": "e:ept-r1-tunnel",
+      "depicts": "Three concentric rectangular frames in mint, medium, and dark green receding into a black void like a nested corridor.",
+      "concept": "nested virtualization depth",
+      "proposals": [
+        {
+          "name": "Nested Tunnel",
+          "why": "Directly labels the receding stack of enclosed virtual frames."
+        },
+        {
+          "name": "Turtle Shaft",
+          "why": "Alludes wryly to the turtles-all-the-way-down joke about hypervisors running inside hypervisors."
+        },
+        {
+          "name": "Receding Aperture",
+          "why": "Treats the nested frames as an optical specimen observed in deep architectural space."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Nested Tunnel conveys the visual depth and virtualization concept in two plain words.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-tunnel",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-tunnel in Ring -1 and duplicates the same entity."
+    },
+    {
+      "key": "e:ept-r1-tag",
+      "depicts": "Green pixel lettering spelling VM2 suspended above a thin dark-green underline bar.",
+      "concept": "virtual processor identifier (VPID)",
+      "proposals": [
+        {
+          "name": "Guest Identifier",
+          "why": "Describes the numbered VM label in straightforward systems terminology."
+        },
+        {
+          "name": "VPID Plaque",
+          "why": "Maps the floating VM2 stencil onto the x86 virtual processor tag used to avoid TLB flushes."
+        },
+        {
+          "name": "Second-Host Mark",
+          "why": "Catalogues the glyph as a surveyor's boundary sign designating the second guest domain."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "VPID Plaque ties the literal VM2 sign to the concrete virtualization tagging mechanism in two words.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-tag",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-tag in Ring -1 and carries the same VM2 text."
+    },
+    {
+      "key": "e:ept-r1-glass",
+      "depicts": "A jagged diamond-shaped shard of dark green glass with mint-green highlights along its upper-left facet and internal fracture lines.",
+      "concept": "thin hypervisor isolation boundary",
+      "proposals": [
+        {
+          "name": "Isolation Shard",
+          "why": "Names the fractured glass fragment as a piece of a broken containment barrier."
+        },
+        {
+          "name": "Leaky Abstraction",
+          "why": "Turns Joel Spolsky's systems maxim into a dry pun on cracked transparent isolation."
+        },
+        {
+          "name": "Cleft Speculum",
+          "why": "Uses an archival mineralogical and optical register for the split green mirror-glass."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Leaky Abstraction fits the dry computing humor of the Field Manual while matching the cracked-glass sprite.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-glass",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-glass in Ring -1 and represents the same prop."
+    },
+    {
+      "key": "e:ept-r1-bubble",
+      "depicts": "A circular green-rimmed dome enclosing a miniature dark-green skyline silhouette and a single mint-green highlight.",
+      "concept": "isolated virtual machine sandbox",
+      "proposals": [
+        {
+          "name": "Guest Sandbox",
+          "why": "Plainly identifies the enclosed miniature environment as an isolated guest container."
+        },
+        {
+          "name": "Walled Guest",
+          "why": "Plays on walled-garden terminology to describe a guest OS sealed inside its own dome."
+        },
+        {
+          "name": "Bell Jar",
+          "why": "Evokes a laboratory specimen enclosure in keeping with the manual's archival field-guide tone."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Bell Jar is vivid, dry, and captures the tiny sealed skyline under glass without over-explaining.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-bubble",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-bubble in Ring -1 and duplicates the same entity."
+    },
+    {
+      "key": "e:ept-r1-ept",
+      "depicts": "Two columns of three dark-green page blocks connected across a central gap by a jagged mint-green mapping trace.",
+      "concept": "extended page table mapping",
+      "proposals": [
+        {
+          "name": "EPT Bridge",
+          "why": "Directly names the cross-column link between guest and host page frames."
+        },
+        {
+          "name": "Cross-Wired Pages",
+          "why": "Highlights the non-linear remapping of guest addresses to host frames with a wry hardware metaphor."
+        },
+        {
+          "name": "Paired Ledger",
+          "why": "Frames the two facing columns of entries as an archival accounting sheet."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "EPT Bridge is terse, accurate, and distinguishes the small six-block prop from the larger Translation Matrix.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-ept",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-ept in Ring -1 and shares the same virtualization concept."
+    },
+    {
+      "key": "e:ept-r1-vcpu",
+      "depicts": "A square dark-green microchip package with four pins on each side and a bright mint-green V emblem at its center.",
+      "concept": "virtualized CPU core",
+      "proposals": [
+        {
+          "name": "Virtual Core",
+          "why": "States plainly what the V-marked processor package represents."
+        },
+        {
+          "name": "Phantom Silicon",
+          "why": "Wryly underscores that a vCPU looks like a physical die to the guest while existing only in scheduling state."
+        },
+        {
+          "name": "V-Marked Die",
+          "why": "Describes the chip as a catalogued physical specimen distinguished by its central stamp."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Virtual Core is clean, immediately recognizable, and matches the literal chip-with-V iconography.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-vcpu",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-vcpu in Ring -1 and represents the same vCPU prop."
+    },
+    {
+      "key": "e:ept-r1-vmcs",
+      "depicts": "Two overlapping blocky mask-like faces, one medium green with black features on the left and one dark green with mint-green outlines on the right.",
+      "concept": "VMCS host and guest state swap",
+      "proposals": [
+        {
+          "name": "Control Structure",
+          "why": "Draws directly from the Intel Virtual Machine Control Structure acronym."
+        },
+        {
+          "name": "Two-Faced VMCS",
+          "why": "Jokes dryly about the VMCS storing both host and guest register personas in one region."
+        },
+        {
+          "name": "Janus Mask",
+          "why": "Uses a classical field-guide metaphor for the overlapping dual-state visages."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Janus Mask elegantly connects the unmistakable twin-face sprite to the dual host/guest state stored in a VMCS.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-vmcs",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-vmcs in Ring -1 and duplicates the same entity."
+    },
+    {
+      "key": "e:ept-r1-trapdoor",
+      "depicts": "A hinged green floor hatch propped open at an upward angle over a dark pit.",
+      "concept": "privileged instruction trap and VM exit",
+      "proposals": [
+        {
+          "name": "Exit Hatch",
+          "why": "Plainly links the open trapdoor to a guest VM exit."
+        },
+        {
+          "name": "Trap-and-Emulate",
+          "why": "Cites the classic virtualization mechanism by name as a dry label for a literal trapdoor."
+        },
+        {
+          "name": "Hinged Drop",
+          "why": "Describes the floor aperture in matter-of-fact architectural field-guide terms."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Trap-and-Emulate is a textbook computing phrase that lands with quiet wit beside a literal trapdoor.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-trapdoor",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-trapdoor in Ring -1 and represents the same prop."
+    },
+    {
+      "key": "e:ept-r1-shadowpage",
+      "depicts": "A stylized green eye outlined in mint and dark green with a dark iris and a bright square catchlight.",
+      "concept": "shadow page table write-protect surveillance",
+      "proposals": [
+        {
+          "name": "Shadow Monitor",
+          "why": "Describes the hypervisor's watch over guest page-table modifications."
+        },
+        {
+          "name": "Write-Protect Eye",
+          "why": "Wryly ties the watchful eye sprite to the read-only page-fault trick used by shadow paging."
+        },
+        {
+          "name": "Vigilant Ocellus",
+          "why": "Adopts biological field-guide nomenclature for a simple, unblinking eye-spot."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Write-Protect Eye directly explains why a shadow-page prop is drawn as an eye.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-shadowpage",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-shadowpage in Ring -1 and duplicates the same entity."
+    },
+    {
+      "key": "e:ept-r1-dolls",
+      "depicts": "Three concentric arched dome silhouettes in green, dark green, and solid mint green nested over a flat base.",
+      "concept": "recursive nested virtualization",
+      "proposals": [
+        {
+          "name": "Nested Shells",
+          "why": "Plainly describes the three concentric domes stacked one inside another."
+        },
+        {
+          "name": "Matryoshka Ring",
+          "why": "Combines the nesting-doll reference with x86 privilege-ring terminology."
+        },
+        {
+          "name": "Triple Carapace",
+          "why": "Catalogues the concentric arched shells in dry naturalist vocabulary."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Matryoshka Ring preserves the visual nesting-doll gag while grounding it in privilege-ring jargon.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-dolls",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-dolls in Ring -1 and represents the same prop."
+    },
+    {
+      "key": "e:ept-r1-mempress",
+      "depicts": "A vertical mechanical press with green upper and lower platens compressing a mint-and-dark-green piston head between them.",
+      "concept": "memory ballooning and reclamation",
+      "proposals": [
+        {
+          "name": "Memory Press",
+          "why": "Directly names the compacting press squeezing guest RAM."
+        },
+        {
+          "name": "Balloon Compactor",
+          "why": "Contrasts the gentle name of the virtio balloon driver with the blunt force of a hydraulic press."
+        },
+        {
+          "name": "Platen Vise",
+          "why": "Treats the mechanism as an industrial workshop fixture observed in the wild."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Balloon Compactor is quietly funny and immediately signals hypervisor memory reclamation to systems readers.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-mempress",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-mempress in Ring -1 and duplicates the same entity."
+    },
+    {
+      "key": "e:ept-r1-migrate",
+      "depicts": "A green-framed guest window showing bar metrics on the right with three horizontal speed streaks trailing to the left.",
+      "concept": "live VM migration",
+      "proposals": [
+        {
+          "name": "Live Migration",
+          "why": "Uses the standard virtualization term for moving a running guest between hosts."
+        },
+        {
+          "name": "Hot-Swapped Guest",
+          "why": "Dryly equates migrating an entire running operating system with yanking a drive bay."
+        },
+        {
+          "name": "Drifting Frame",
+          "why": "Describes the streaked, fast-moving window in quiet observational language."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Live Migration is the exact canonical term and matches the motion-blurred guest window.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-migrate",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-migrate in Ring -1 and represents the same prop."
+    },
+    {
+      "key": "e:ept-r1-snapshot",
+      "depicts": "A boxy dark-green camera with a top shutter button and a circular central lens glinting with a single mint pixel.",
+      "concept": "point-in-time VM state snapshot",
+      "proposals": [
+        {
+          "name": "State Camera",
+          "why": "Plainly links the camera sprite to capturing frozen machine state."
+        },
+        {
+          "name": "Copy-on-Write Lens",
+          "why": "References the storage mechanism that makes instant VM snapshots possible."
+        },
+        {
+          "name": "Fixed Exposure",
+          "why": "Uses archival photographic phrasing for an immutable point-in-time capture."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "State Camera is crisp, unmistakable, and reads cleanly in a manual index.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-snapshot",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-snapshot in Ring -1 and duplicates the same entity."
+    },
+    {
+      "key": "e:ept-r1-hypercall",
+      "depicts": "Two stacked dark-green rectangular frames separated by a green horizontal barrier and linked through a glowing mint-green vertical slot.",
+      "concept": "paravirtual hypercall interface",
+      "proposals": [
+        {
+          "name": "Hypercall Slot",
+          "why": "Directly names the narrow channel passing paravirtual requests across the boundary."
+        },
+        {
+          "name": "VMCALL Chute",
+          "why": "Cites the x86 instruction while picturing the guest-to-host request path as a mail drop."
+        },
+        {
+          "name": "Bridged Conduit",
+          "why": "Describes the two-tier vertical passage in neutral architectural terms."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "VMCALL Chute pairs genuine x86 terminology with a dry, physical image of the glowing slot.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-hypercall",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-hypercall in Ring -1 and represents the same prop."
+    },
+    {
+      "key": "e:ept-r1-vswitch",
+      "depicts": "A dark-green horizontal switch chassis with five vertical uplink lines above and five black port sockets below, one lit mint green.",
+      "concept": "virtual network switch",
+      "proposals": [
+        {
+          "name": "Virtual Switch",
+          "why": "States plainly what the five-port software switching bar represents."
+        },
+        {
+          "name": "Software Patchbay",
+          "why": "Wryly casts a hypervisor vSwitch as a physical rack of patch cables."
+        },
+        {
+          "name": "Five-Port Bar",
+          "why": "Catalogues the chassis strictly by its visible silhouette and port count."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Virtual Switch is the standard, unambiguous name for the five-port sprite.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-vswitch",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-vswitch in Ring -1 and duplicates the same entity."
+    },
+    {
+      "key": "e:ept-r1-cage",
+      "depicts": "A green-barred enclosure with a mint top rail confining faint dark-green vertical shapes behind four dark gaps.",
+      "concept": "hypervisor guest confinement",
+      "proposals": [
+        {
+          "name": "Guest Enclosure",
+          "why": "Plainly identifies the barred structure as a containment boundary for a guest."
+        },
+        {
+          "name": "Ring-Zero Pen",
+          "why": "Pokes dryly at the demotion of a guest kernel that believes it owns the machine."
+        },
+        {
+          "name": "Barred Hutch",
+          "why": "Uses quiet field-guide terminology for a small, partitioned holding cage."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Ring-Zero Pen captures the irony of a privileged guest OS kept behind hypervisor bars.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-cage",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-cage in Ring -1 and represents the same prop."
+    },
+    {
+      "key": "e:ept-r1-split",
+      "depicts": "A green monitor housing divided into two identical side-by-side black display panes resting on a single dark-green stand.",
+      "concept": "multi-tenant partitioned display",
+      "proposals": [
+        {
+          "name": "Split Console",
+          "why": "Directly describes the dual-pane monitor on a shared pedestal."
+        },
+        {
+          "name": "Multitenant Screen",
+          "why": "Treats two guests sharing one physical chassis in dry cloud-infrastructure phrasing."
+        },
+        {
+          "name": "Bifid Terminal",
+          "why": "Borrows a botanical and anatomical descriptor for the cleft two-window display."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Split Console is concise and immediately legible against the dual-pane monitor art.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-split",
+      "decisionWhy": "The sprite is pixel-identical to e:r1-split in Ring -1 and duplicates the same entity."
+    },
+    {
+      "key": "e:ept-pte",
+      "depicts": "A green rectangular frame containing a single horizontal row of six alternating dark-green and mint-green square cells.",
+      "concept": "EPT page table entry permission bits",
+      "proposals": [
+        {
+          "name": "Page Entry",
+          "why": "Plainly names the single EPT PTE record represented by the bit row."
+        },
+        {
+          "name": "Six-Bit Register",
+          "why": "Counts the literal alternating squares as a dry nod to packed R/W/X and memory-type flags."
+        },
+        {
+          "name": "Dotted Strip",
+          "why": "Describes the minimal framed band of alternating squares in field-catalogue shorthand."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Page Entry is clean and accurate to the low-level EPT PTE structure.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "As a compact 14x10 row of six bit-squares representing a single table entry, it fits better as an appendix specimen than a full page."
+    },
+    {
+      "key": "e:ept-dirty",
+      "depicts": "A small green-bordered black square with a single bright mint-green square centered inside it.",
+      "concept": "EPT dirty-page tracking bit",
+      "proposals": [
+        {
+          "name": "Dirty Flag",
+          "why": "Directly names the hardware bit set when a guest writes to a translated page."
+        },
+        {
+          "name": "Tainted Bit",
+          "why": "Uses dry systems-diagnostics phrasing for a page marked as modified since last sweep."
+        },
+        {
+          "name": "Lit Core",
+          "why": "Catalogues the tiny concentric square strictly by its glowing center."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Dirty Flag is the exact computing term and suits a single-bit indicator sprite.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "The 10x10 concentric-square status flag is too minimal for a standalone page and belongs in the appendix catalogue."
+    },
+    {
+      "key": "e:ept-walker",
+      "depicts": "Four rectangular blocks stepping diagonally downward from top-left to bottom-right, three dark green leading to one bright mint-green leaf block.",
+      "concept": "four-level hardware page table walker",
+      "proposals": [
+        {
+          "name": "Page Walker",
+          "why": "Directly names the hardware unit that traverses the four-level EPT hierarchy."
+        },
+        {
+          "name": "Four-Level Descent",
+          "why": "Plays wryly on both the four-step EPT walk and the player's downward descent through the stack."
+        },
+        {
+          "name": "Stepping Cascade",
+          "why": "Describes the diagonal stair of blocks in restrained naturalist field-guide language."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Page Walker is crisp, canonical, and makes the four-step staircase sprite instantly meaningful.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "The unique four-step cascade clearly depicts a four-level hardware EPT walk and deserves its own Field Manual page."
+    },
+    {
+      "key": "c:ept:core",
+      "depicts": "A small plain grey horizontal rectangle containing two empty square windows centered on a mostly blank canvas.",
+      "concept": "EPT and IOMMU address-remapping critter",
+      "proposals": [
+        {
+          "name": "Remap Hopper",
+          "why": "Plainly links the critter's grid-and-mirror motion to address remapping across tables."
+        },
+        {
+          "name": "TLB Miss-Mite",
+          "why": "Wryly casts the tiny grey scuttler as the living embodiment of an expensive nested TLB miss."
+        },
+        {
+          "name": "Twin-Pane Strider",
+          "why": "Names the species in classic field-guide style after its two-window grey carapace and grid gait."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Twin-Pane Strider fits the Field Manual's naturalist register while accurately reflecting the current two-window sprite and grid motion.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "The sprite is an unadorned grey two-window placeholder that duplicates c:vmm:core pixel-for-pixel and needs bespoke EPT/IOMMU critter art."
+    }
+  ]
+}

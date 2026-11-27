@@ -1,0 +1,140 @@
+{
+  "layer": "kernel-arch",
+  "items": [
+    {
+      "key": "e:ka-apicbank",
+      "priority": 5,
+      "why": "Landmark anchor for the layer; owner should confirm the Vector Annunciator name."
+    },
+    {
+      "key": "e:ka-apic",
+      "priority": 5,
+      "why": "Replaces the existing Interrupt Flag placeholder with Priority Arbiter, shifting its meaning."
+    },
+    {
+      "key": "e:ka-idt",
+      "priority": 3,
+      "why": "Solid keep, but Trap Ledger vs Descriptor Table is a tone choice worth a quick look."
+    },
+    {
+      "key": "e:ka-cr3",
+      "priority": 2,
+      "why": "Clean register-slot prop; Root Register is crisp and obvious with a light check."
+    },
+    {
+      "key": "e:ka-kr-gears",
+      "priority": 1,
+      "why": "Byte-for-byte duplicate of e:kr-gears; mechanical merge with an obvious name."
+    },
+    {
+      "key": "e:ka-kr-dmesg",
+      "priority": 2,
+      "why": "Byte-for-byte duplicate of e:kr-dmesg; Ring Buffer is a clear merge."
+    },
+    {
+      "key": "e:ka-kr-gauge",
+      "priority": 1,
+      "why": "Byte-for-byte duplicate of e:kr-gauge; mechanical merge with a straightforward name."
+    },
+    {
+      "key": "e:ka-kr-piston",
+      "priority": 1,
+      "why": "Byte-for-byte duplicate of e:kr-piston; mechanical merge with an obvious name."
+    },
+    {
+      "key": "e:ka-kr-leds",
+      "priority": 2,
+      "why": "Byte-for-byte duplicate of e:kr-leds; Telltale Array is a neat fit."
+    },
+    {
+      "key": "e:ka-kr-schedwheel",
+      "priority": 3,
+      "why": "Byte-for-byte duplicate of e:kr-schedwheel, though Round Robin is a nice pun to glance at."
+    },
+    {
+      "key": "e:ka-kr-pagetable",
+      "priority": 2,
+      "why": "Byte-for-byte duplicate of e:kr-pagetable; Page Cabinet is clear."
+    },
+    {
+      "key": "e:ka-kr-irqbell",
+      "priority": 1,
+      "why": "Byte-for-byte duplicate of e:kr-irqbell; mechanical merge with a literal name."
+    },
+    {
+      "key": "e:ka-kr-turnstile",
+      "priority": 1,
+      "why": "Byte-for-byte duplicate of e:kr-turnstile; mechanical merge with an obvious name."
+    },
+    {
+      "key": "e:ka-kr-slab",
+      "priority": 2,
+      "why": "Byte-for-byte duplicate of e:kr-slab; Cache Magazine is a solid merge."
+    },
+    {
+      "key": "e:ka-kr-ticker",
+      "priority": 3,
+      "why": "Byte-for-byte duplicate of e:kr-ticker, though Jiffy Gun is a playful pun worth a quick look."
+    },
+    {
+      "key": "e:ka-kr-gate",
+      "priority": 2,
+      "why": "Byte-for-byte duplicate of e:kr-gate; Call Gate is an exact, obvious merge."
+    },
+    {
+      "key": "e:ka-kr-runqueue",
+      "priority": 1,
+      "why": "Byte-for-byte duplicate of e:kr-runqueue; mechanical merge with a standard name."
+    },
+    {
+      "key": "e:ka-kr-mutex",
+      "priority": 1,
+      "why": "Byte-for-byte duplicate of e:kr-mutex; mechanical merge with a clear name."
+    },
+    {
+      "key": "e:ka-kr-irqmeter",
+      "priority": 2,
+      "why": "Byte-for-byte duplicate of e:kr-irqmeter; Storm Gauge is a clean merge."
+    },
+    {
+      "key": "e:ka-kr-tlb",
+      "priority": 1,
+      "why": "Byte-for-byte duplicate of e:kr-tlb; mechanical merge with a standard name."
+    },
+    {
+      "key": "e:ka-kr-schedrack",
+      "priority": 2,
+      "why": "Byte-for-byte duplicate of e:kr-schedrack; Fairness Bars is a clear merge."
+    },
+    {
+      "key": "e:ka-nmi",
+      "priority": 4,
+      "why": "High-contrast hardware-interrupt prop where Unmaskable Flare vs Deafening Beacon is a real call."
+    },
+    {
+      "key": "e:ka-spinlock",
+      "priority": 3,
+      "why": "Unique layer prop; Busy Wheel vs Spin Ring is a fun tone choice worth a quick look."
+    },
+    {
+      "key": "e:ka-rcu",
+      "priority": 4,
+      "why": "Subtle concurrency concept; Grace Period is clever but worth owner judgment."
+    },
+    {
+      "key": "e:ka-tlb",
+      "priority": 5,
+      "why": "Unique sprite proposed to merge into e:kr-tlb; owner must decide whether to merge or keep."
+    },
+    {
+      "key": "c:kernel-arch:core",
+      "priority": 5,
+      "why": "Critter species with a tiny speck sprite marked for rework."
+    },
+    {
+      "key": "c:kernel-arch:alt",
+      "priority": 5,
+      "why": "Critter-alt species with a three-block speck sprite marked for rework."
+    }
+  ]
+}

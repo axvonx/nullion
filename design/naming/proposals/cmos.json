@@ -1,0 +1,629 @@
+{
+  "layer": "cmos",
+  "items": [
+    {
+      "key": "e:cm-viatower",
+      "depicts": "A four-by-five grid of intersecting purple vertical and orange horizontal metal tracks with a bright square via at every crossing.",
+      "concept": "multilayer metal interconnect stack",
+      "proposals": [
+        {
+          "name": "Via Stack",
+          "why": "Plainly names the vertical column of interlayer vias linking the metal routing grid."
+        },
+        {
+          "name": "Metal Manhattan",
+          "why": "Nods to Manhattan routing geometry and the skyscraper skyline of modern BEOL metal stacks."
+        },
+        {
+          "name": "Copper Lattice Spire",
+          "why": "Treats the repeating metal-and-via scaffold as a mineral formation in a field guide."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Metal Manhattan captures both the orthogonal routing rule and the landmark scale of the anchor in two crisp words.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinctive landmark anchor with original GDSII-palette pixel art unique to the CMOS layer."
+    },
+    {
+      "key": "e:cm-finfet",
+      "depicts": "A top-down transistor layout showing a teal active region bisected by a vertical purple gate bar and flanked by two orange source-drain pads with white contacts.",
+      "concept": "FinFET MOSFET transistor",
+      "proposals": [
+        {
+          "name": "FinFET Cell",
+          "why": "Directly identifies the three-dimensional fin transistor layout shown in the sprite."
+        },
+        {
+          "name": "Gatekeeper Fin",
+          "why": "Plays on the polysilicon gate controlling channel current across the silicon fin."
+        },
+        {
+          "name": "Dorsal Channel Switch",
+          "why": "Frames the fin-and-gate geometry in the anatomical register of a naturalist specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "FinFET Cell is immediately recognizable to hardware-literate players and fits the dry Unix manual tone.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Original CMOS-palette sprite depicting the defining active device of the layer."
+    },
+    {
+      "key": "e:cm-via",
+      "depicts": "A single perpendicular crossing of an orange horizontal metal line and a purple vertical metal line joined by a white square via.",
+      "concept": "interlayer metal via",
+      "proposals": [
+        {
+          "name": "Interlayer Via",
+          "why": "Describes the exact vertical plug connecting two adjacent metal routing layers."
+        },
+        {
+          "name": "Overpass Plug",
+          "why": "Dryly equates a tungsten via drop to a highway interchange between orthogonal metal lanes."
+        },
+        {
+          "name": "Crossbeam Eyelet",
+          "why": "Evokes the small bright square aperture seated where two coloured metal ribbons cross."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Interlayer Via is exact, uncluttered, and pairs cleanly with the larger via-stack anchor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean, original CMOS-layer prop that clearly illustrates an orthogonal metal crossing."
+    },
+    {
+      "key": "e:cm-well",
+      "depicts": "A teal substrate border framing two side-by-side square regions, one purple and one orange, separated by a narrow gap.",
+      "concept": "CMOS twin-well substrate",
+      "proposals": [
+        {
+          "name": "Twin Well",
+          "why": "Names the paired N-well and P-well pockets that house complementary CMOS transistors."
+        },
+        {
+          "name": "Complementary Tub",
+          "why": "Uses classic fab slang for a doped well while nodding to the C in CMOS."
+        },
+        {
+          "name": "Doped Basin Pair",
+          "why": "Reads like a geological field-guide entry for two contrasting mineral pockets in silicon."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Complementary Tub blends authentic semiconductor-fab jargon with a quiet nod to CMOS symmetry.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Original CMOS-layer sprite clearly representing the paired P- and N-type well structure."
+    },
+    {
+      "key": "e:cm-r3-vias",
+      "depicts": "A three-by-three grid of cream-white square vias on a black background.",
+      "concept": "via array",
+      "proposals": [
+        {
+          "name": "Via Array",
+          "why": "Directly labels the three-by-three matrix of parallel interlayer vias."
+        },
+        {
+          "name": "Redundant Nine",
+          "why": "References design-for-manufacturability rules that gang vias together to survive electromigration."
+        },
+        {
+          "name": "Pinhole Colony",
+          "why": "Describes the regular cluster of square apertures as a tiny sessile colony."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Via Array is crisp and accurate for a uniform nine-via grid.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-vias",
+      "decisionWhy": "Exact warm-cream palette recolour of e:r3-vias from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-pad",
+      "depicts": "A cream-white bond pad with a dark crossed center extending right into a notched two-stub trace.",
+      "concept": "die bond pad",
+      "proposals": [
+        {
+          "name": "Bond Pad",
+          "why": "Plainly identifies the landing pad where a package bond wire meets the die."
+        },
+        {
+          "name": "Padlock Keyway",
+          "why": "Puns on the sprite's key-like silhouette and the pad's role as an external die interface."
+        },
+        {
+          "name": "Solder Landing",
+          "why": "Casts the exposed metal terminal as a small clearing at the edge of the silicon."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Bond Pad is the standard silicon term and matches the sprite's perimeter-pad role.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-pad",
+      "decisionWhy": "Exact palette recolour of e:r3-pad from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-trace",
+      "depicts": "A cream-white L-shaped metal trace running from a square pad at top-left to a square via pad at bottom-right.",
+      "concept": "point-to-point signal trace",
+      "proposals": [
+        {
+          "name": "Dogleg Trace",
+          "why": "Uses standard layout terminology for an L-bent conductive route between two pads."
+        },
+        {
+          "name": "Right-Angle Run",
+          "why": "Quietly jokes about the strict ninety-degree Manhattan routing constraint of silicon metal."
+        },
+        {
+          "name": "Bent Filament",
+          "why": "Presents the solitary metal track as a delicate geometric specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Dogleg Trace is authentic EDA vocabulary and fits the exact shape of the sprite.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-trace",
+      "decisionWhy": "Exact palette recolour of e:r3-trace from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-decap",
+      "depicts": "A symmetrical cream-white rectangular capacitor with two dark body cutouts flanking a vertical white dielectric gap.",
+      "concept": "decoupling capacitor",
+      "proposals": [
+        {
+          "name": "Decoupling Cap",
+          "why": "Uses the universal hardware shorthand for a local power-rail decoupling capacitor."
+        },
+        {
+          "name": "Rail Smoother",
+          "why": "Wryly names the component after its thankless job of swallowing switching noise."
+        },
+        {
+          "name": "Charge Reservoir",
+          "why": "Describes the miniature capacitor in quiet, physical field-guide language."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Decoupling Cap is concise, accurate, and instantly familiar to anyone who has read a schematic.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-decap",
+      "decisionWhy": "Exact palette recolour of e:r3-decap from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-xtal",
+      "depicts": "A cream-white crystal package with vertical end electrodes flanking a dark cavity containing a stepped oscillation wave.",
+      "concept": "quartz crystal oscillator",
+      "proposals": [
+        {
+          "name": "Crystal Oscillator",
+          "why": "Plainly names the quartz frequency reference depicted with its internal waveform."
+        },
+        {
+          "name": "Quartz Metronome",
+          "why": "Dryly equates the piezoelectric resonator to a mechanical timekeeper for silicon logic."
+        },
+        {
+          "name": "Piezoelectric Hummer",
+          "why": "Treats the vibrating crystal cavity as a singing insectoid specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Quartz Metronome conveys both the physical crystal and its role pacing the entire chip.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-xtal",
+      "decisionWhy": "Exact palette recolour of e:r3-xtal from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-testpads",
+      "depicts": "A horizontal cream-white bar crossed by four evenly spaced vertical stubs forming a row of probe points.",
+      "concept": "wafer probe test pads",
+      "proposals": [
+        {
+          "name": "Test Pad Strip",
+          "why": "Describes the aligned row of exposed contacts used during wafer-level probing."
+        },
+        {
+          "name": "Needle Gallery",
+          "why": "Nods to the probe-card needles that stab these pads during automated die testing."
+        },
+        {
+          "name": "Comb Contact Row",
+          "why": "Captures the spine-and-teeth silhouette in a spare naturalist register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Test Pad Strip is direct and unambiguous for a row of probe targets.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-testpads",
+      "decisionWhy": "Exact palette recolour of e:r3-testpads from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-fuses",
+      "depicts": "Six vertical cream-white parallel links spanning top and bottom rails, with the rightmost link severed in the middle.",
+      "concept": "one-time programmable eFuses",
+      "proposals": [
+        {
+          "name": "eFuse Bank",
+          "why": "Directly names the row of electrically programmable silicon fuses, one already blown."
+        },
+        {
+          "name": "Write-Once Row",
+          "why": "Dryly highlights the irreversible nature of blowing a silicon fuse to commit a bit."
+        },
+        {
+          "name": "Severed Harp",
+          "why": "Evokes the vertical strings of intact links beside a single snapped strand."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "eFuse Bank is standard silicon terminology and matches the blown-link detail.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-fuses",
+      "decisionWhy": "Exact palette recolour of e:r3-fuses from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-resistor",
+      "depicts": "A cream-white zig-zag schematic resistor symbol on a black background.",
+      "concept": "ohmic resistor",
+      "proposals": [
+        {
+          "name": "Polysilicon Resistor",
+          "why": "Grounds the classic schematic zig-zag in how on-die resistors are fabricated in CMOS."
+        },
+        {
+          "name": "Ohm Obstacle",
+          "why": "Puns on electrical resistance as a deliberate speed bump for current."
+        },
+        {
+          "name": "Sawtooth Impeder",
+          "why": "Describes the jagged waveform geometry in a dry field-guide voice."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Polysilicon Resistor ties the generic schematic symbol specifically to silicon fabrication.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-resistor",
+      "decisionWhy": "Exact palette recolour of e:r3-resistor from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-diode",
+      "depicts": "A cream-white schematic diode symbol showing a right-pointing triangle against a vertical bar on black.",
+      "concept": "p-n junction diode",
+      "proposals": [
+        {
+          "name": "Junction Diode",
+          "why": "Plainly names the one-way p-n semiconductor valve shown in schematic form."
+        },
+        {
+          "name": "One-Way Valve",
+          "why": "Nods to the rectifying check-valve behavior of a forward-biased diode."
+        },
+        {
+          "name": "Arrowhead Rectifier",
+          "why": "Describes the triangular schematic glyph as a sharp geometric artifact."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Junction Diode is crisp, technical, and matches the classic schematic symbol.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-diode",
+      "decisionWhy": "Exact palette recolour of e:r3-diode from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-inductor",
+      "depicts": "A cream-white schematic inductor symbol with four looped humps between two horizontal leads on black.",
+      "concept": "inductive coil",
+      "proposals": [
+        {
+          "name": "Spiral Inductor",
+          "why": "Identifies the on-chip inductive element represented by the four-loop schematic coil."
+        },
+        {
+          "name": "Flux Hoarder",
+          "why": "Quietly jokes about an inductor's stubborn resistance to any sudden change in current."
+        },
+        {
+          "name": "Four-Loop Winding",
+          "why": "Catalogues the sprite's four crisp arches like an archival hardware specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Spiral Inductor fits both the schematic coil and real planar CMOS inductors.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-inductor",
+      "decisionWhy": "Exact palette recolour of e:r3-inductor from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-sram",
+      "depicts": "A cream-white circular cross-coupled latch schematic with side leads on a black background.",
+      "concept": "6T SRAM bitcell",
+      "proposals": [
+        {
+          "name": "SRAM Bitcell",
+          "why": "Directly names the static six-transistor latch that holds a single bit while powered."
+        },
+        {
+          "name": "Six-Transistor Knot",
+          "why": "Wryly summarizes the cross-coupled inverter loop that fights itself to stay stable."
+        },
+        {
+          "name": "Bistable Ring",
+          "why": "Evokes the closed circular feedback geometry in a cool naturalist register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "SRAM Bitcell is exact, compact, and immediately meaningful in a CMOS manual.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-sram",
+      "decisionWhy": "Exact palette recolour of e:r3-sram from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-ringosc",
+      "depicts": "A stepped cream-white housing with a bright upper square and a dark lower cavity holding a single central pixel.",
+      "concept": "ring oscillator",
+      "proposals": [
+        {
+          "name": "Ring Oscillator",
+          "why": "Plainly names the odd-numbered inverter chain that chases its own inversion around a loop."
+        },
+        {
+          "name": "Odd Inverter Loop",
+          "why": "Dryly points out the sole topological requirement that keeps a ring oscillator oscillating."
+        },
+        {
+          "name": "Chasing Pulse Core",
+          "why": "Frames the self-sustaining oscillation as a restless natural phenomenon."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Ring Oscillator is an iconic silicon primitive whose plain name needs no embellishment.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-ringosc",
+      "decisionWhy": "Exact palette recolour of e:r3-ringosc from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-thermal",
+      "depicts": "A narrow vertical cream-white thermometer shape with a wide base, a dark upper slit, and two scale ticks on the right.",
+      "concept": "on-die thermal diode sensor",
+      "proposals": [
+        {
+          "name": "Thermal Diode",
+          "why": "Names the actual on-die silicon sensor used to measure junction temperature."
+        },
+        {
+          "name": "Throttle Gauge",
+          "why": "Wryly alludes to the thermal-throttling panic triggered when this probe reads too high."
+        },
+        {
+          "name": "Junction Glass",
+          "why": "Casts the tiny thermometer icon as a delicate glass field instrument."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Thermal Diode is technically faithful to CMOS dies while matching the thermometer silhouette.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-thermal",
+      "decisionWhy": "Exact palette recolour of e:r3-thermal from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-pll",
+      "depicts": "A cream-white stacked T-and-bar schematic symbol resembling a capacitor-and-ground frequency lock block on black.",
+      "concept": "phase-locked loop",
+      "proposals": [
+        {
+          "name": "Phase-Locked Loop",
+          "why": "Directly identifies the feedback circuit that multiplies and locks the chip's clock."
+        },
+        {
+          "name": "Jitter Tamer",
+          "why": "Dryly credits the PLL with disciplining a noisy reference into a steady clock."
+        },
+        {
+          "name": "Harmonic Anchor",
+          "why": "Treats the frequency-locking circuit as a stabilizing weight in the clock domain."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Phase-Locked Loop is canonical, clear, and suits the formal Field Manual heading style.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-pll",
+      "decisionWhy": "Exact palette recolour of e:r3-pll from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-jtag",
+      "depicts": "A cream-white dual-row ten-pin header framing a dark shrouded interior with a central keyway rectangle.",
+      "concept": "JTAG boundary-scan debug header",
+      "proposals": [
+        {
+          "name": "JTAG Header",
+          "why": "Plainly names the ten-pin boundary-scan and silicon-debug connector."
+        },
+        {
+          "name": "Boundary Confessional",
+          "why": "Wryly nods to boundary scan forcing every pin on the die to report its state."
+        },
+        {
+          "name": "Ten-Pin Shroud",
+          "why": "Describes the keyed connector housing as an enigmatic hardware relic."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "JTAG Header is unmistakable and aligns with the dry manual-page convention.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-jtag",
+      "decisionWhy": "Exact palette recolour of e:r3-jtag from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-rom",
+      "depicts": "A dark rectangular chip block outlined in cream-white with the pixel letters ROM inside.",
+      "concept": "mask read-only memory",
+      "proposals": [
+        {
+          "name": "Mask ROM",
+          "why": "Specifies the lithographically hardwired read-only memory baked into silicon metal."
+        },
+        {
+          "name": "Litho-Locked Block",
+          "why": "Puns on the impossibility of patching a bug once it is etched into the mask set."
+        },
+        {
+          "name": "Immutable Tablet",
+          "why": "Treats the permanently patterned memory array as a stone inscription in silicon."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Mask ROM is exact for silicon-level read-only memory and pairs naturally with the ROM label.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-rom",
+      "decisionWhy": "Exact palette recolour of e:r3-rom from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-r3-htree",
+      "depicts": "A symmetrical cream-white fractal H-tree branching from a central trunk into four equal H-shaped endpoints on black.",
+      "concept": "H-tree zero-skew clock distribution",
+      "proposals": [
+        {
+          "name": "Clock H-Tree",
+          "why": "Directly names the equal-path-length fractal geometry used to minimize clock skew."
+        },
+        {
+          "name": "Zero-Skew Canopy",
+          "why": "Wryly blends timing-closure jargon with the tree metaphor of clock distribution."
+        },
+        {
+          "name": "Bifurcated Dendrite",
+          "why": "Describes the recursively branching metal skeleton in a botanical field-guide tone."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Clock H-Tree is immediately clear and technically exact.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-htree",
+      "decisionWhy": "Exact palette recolour of e:r3-htree from the Ring -3 layer."
+    },
+    {
+      "key": "e:cm-nwell",
+      "depicts": "A solid purple rectangle centered inside a thicker teal rectangular border.",
+      "concept": "N-type doped diffusion well",
+      "proposals": [
+        {
+          "name": "N-Well Pocket",
+          "why": "Plainly identifies the single N-type doped well implanted in a P-type substrate."
+        },
+        {
+          "name": "Donor Basin",
+          "why": "References the phosphorus or arsenic donor atoms that create an N-type region."
+        },
+        {
+          "name": "Violet Implant",
+          "why": "Describes the GDSII-coloured rectangular region as a mineral inclusion."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "N-Well Pocket is crisp, accurate, and clearly distinguishes this single well from the twin-well prop.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Very simple two-rectangle primitive that fits best as an appendix specimen alongside e:cm-well."
+    },
+    {
+      "key": "e:cm-contact",
+      "depicts": "A small orange square pad with a single white square contact window centered inside it.",
+      "concept": "diffusion-to-metal contact cut",
+      "proposals": [
+        {
+          "name": "Contact Cut",
+          "why": "Uses the exact GDSII layout-layer term for a single metal-to-silicon contact aperture."
+        },
+        {
+          "name": "Tungsten Plug",
+          "why": "Names the actual refractory metal fill deposited inside a CMOS contact hole."
+        },
+        {
+          "name": "Amber Aperture",
+          "why": "Treats the tiny framed white square as a microscopic specimen window."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Contact Cut is authentic IC-layout terminology and cleanly separates silicon contacts from metal vias.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Minimal ten-by-ten layout primitive better suited to an appendix catalogue than a standalone page."
+    },
+    {
+      "key": "e:cm-metal",
+      "depicts": "Three parallel horizontal routing stripes—purple, orange, and purple—separated by white dielectric gaps.",
+      "concept": "parallel metal interconnect bus",
+      "proposals": [
+        {
+          "name": "Metal Bus",
+          "why": "Plainly names the parallel metal tracks carrying signals across the die."
+        },
+        {
+          "name": "Crosstalk Lanes",
+          "why": "Quietly jokes about the capacitive coupling inevitable between tightly pitched parallel wires."
+        },
+        {
+          "name": "Banded Conductors",
+          "why": "Describes the alternating purple and orange ribbons in a neutral specimen register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Crosstalk Lanes adds a dry signal-integrity joke that makes a simple striped prop memorable.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Simple three-stripe background routing prop best kept as an appendix specimen."
+    },
+    {
+      "key": "c:cmos:core",
+      "depicts": "A tiny orange hollow square with one-pixel side lugs centered inside a mostly empty canvas, scuttling or floating.",
+      "concept": "electron-hole charge carrier / migrating via",
+      "proposals": [
+        {
+          "name": "Charge Carrier",
+          "why": "Plainly identifies the mobile packet of charge drifting through CMOS channels."
+        },
+        {
+          "name": "Stray Electron",
+          "why": "Wryly treats the scuttling orange ring as an escaped leakage current."
+        },
+        {
+          "name": "Copper Mote",
+          "why": "Casts the tiny hollow orange organism in a quiet naturalist field-guide voice."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Stray Electron fits both the scuttle-and-float motion and the dry humor of subthreshold leakage.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "At roughly six by five pixels inside a 26x22 frame, the sprite reads as an abstract orange speck rather than a distinct critter."
+    },
+    {
+      "key": "c:cmos:alt",
+      "depicts": "A tiny three-by-three teal square trailed on the left by a single detached black pixel inside a mostly empty canvas.",
+      "concept": "electron-hole pair / lattice defect",
+      "proposals": [
+        {
+          "name": "Vacancy Hole",
+          "why": "Directly names the positive charge carrier paired with electrons in doped silicon."
+        },
+        {
+          "name": "Subthreshold Leak",
+          "why": "Dryly labels the tiny drifting teal speck after the current that refuses to turn off."
+        },
+        {
+          "name": "Teal Drifter",
+          "why": "Describes the floating two-part mote in spare field-guide shorthand."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Vacancy Hole pairs naturally with the core critter as its complementary charge carrier.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "A 3x3 teal square with one stray black pixel in a 26x22 frame is too tiny and unreadable to serve as a critter sprite."
+    }
+  ]
+}

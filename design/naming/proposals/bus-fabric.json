@@ -1,0 +1,653 @@
+{
+  "layer": "bus-fabric",
+  "items": [
+    {
+      "key": "e:bf-pcieswitch",
+      "depicts": "A wide magenta-framed enclosure with five horizontal white and cyan bus lanes converging on a central white-bordered magenta core.",
+      "concept": "PCIe switch fabric routing",
+      "proposals": [
+        {
+          "name": "PCIe Switch",
+          "why": "Names the multi-port packet-routing hardware directly in standard systems terminology."
+        },
+        {
+          "name": "Root Complex",
+          "why": "Borrows the official PCIe topology term with a quiet nod to architectural over-engineering."
+        },
+        {
+          "name": "Lane Junction",
+          "why": "Frames the switch as a transit landmark in a field-guide register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Root Complex is authentic PCIe nomenclature that doubles as a dryly apt name for the layer's central anchor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "This is the layer's primary landmark anchor with unique 56x40 artwork."
+    },
+    {
+      "key": "e:bf-crossbar",
+      "depicts": "A magenta-framed grid where four vertical white lines intersect three horizontal cyan bus bars.",
+      "concept": "non-blocking crossbar interconnect",
+      "proposals": [
+        {
+          "name": "Crossbar Matrix",
+          "why": "Describes the intersecting row-and-column switching fabric plainly."
+        },
+        {
+          "name": "Non-Blocking Grid",
+          "why": "Plays on the textbook crossbar guarantee that concurrent paths never stall each other."
+        },
+        {
+          "name": "Copper Lattice",
+          "why": "Treats the interconnect grid like a structural specimen in a hardware field guide."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Crossbar Matrix is crisp, immediately legible to systems readers, and matches the literal grid sprite.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct bus-fabric prop with clear visual geometry and a core interconnect concept."
+    },
+    {
+      "key": "e:bf-dmaring",
+      "depicts": "Concentric magenta and cyan pixel rings surrounding a solid white central hub.",
+      "concept": "DMA circular descriptor ring",
+      "proposals": [
+        {
+          "name": "Descriptor Ring",
+          "why": "Uses the exact driver and hardware term for circular DMA buffer queues."
+        },
+        {
+          "name": "Ring Buffer",
+          "why": "A familiar systems staple that quietly evokes endless producer-consumer chasing."
+        },
+        {
+          "name": "Scatter-Gather Halo",
+          "why": "Pairs DMA scatter-gather terminology with an observational field-guide silhouette."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Descriptor Ring distinguishes this DMA-specific structure from generic software ring buffers.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique sprite and a foundational PCIe/DMA concept well suited to its own manual page."
+    },
+    {
+      "key": "e:bf-mmio",
+      "depicts": "A white-framed dark horizontal housing containing five alternating cyan and magenta vertical register blocks.",
+      "concept": "memory-mapped I/O register aperture",
+      "proposals": [
+        {
+          "name": "MMIO Aperture",
+          "why": "Identifies the device register window mapped into physical address space."
+        },
+        {
+          "name": "BAR Window",
+          "why": "Nods to PCI Base Address Registers while sounding like a storefront opening onto silicon."
+        },
+        {
+          "name": "Register Alcove",
+          "why": "Describes the recessed row of device registers in a quiet architectural register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "BAR Window is compact, unmistakably PCIe-literate, and carries a dry double meaning.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique prop depicting a core bus-level abstraction with strong manual-page material."
+    },
+    {
+      "key": "e:bf-dr-chip",
+      "depicts": "A magenta-bordered black DIP integrated circuit with a white pin-one dot and cyan legs on top and bottom, appearing in 10-pin and 14-pin widths.",
+      "concept": "dual in-line package controller IC",
+      "proposals": [
+        {
+          "name": "DIP Controller",
+          "why": "Describes the classic dual in-line package chip and its role plainly."
+        },
+        {
+          "name": "Pin-One Package",
+          "why": "References the orientation notch and dot that every hardware engineer checks twice."
+        },
+        {
+          "name": "Silicon Centipede",
+          "why": "Uses a naturalist field-guide metaphor for the row of legs flanking a dark body."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "DIP Controller is direct, accurate, and fits the dry Unix manual tone.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-chip",
+      "decisionWhy": "Byte-for-byte duplicate of e:dr-chip from the drivers layer under a bus-fabric prefix."
+    },
+    {
+      "key": "e:bf-dr-ribbon",
+      "depicts": "Three parallel cyan traces stepping diagonally downward to form an offset ribbon-cable run.",
+      "concept": "parallel IDE or ribbon bus cable",
+      "proposals": [
+        {
+          "name": "Ribbon Cable",
+          "why": "Names the flat multi-conductor parallel bus cable directly."
+        },
+        {
+          "name": "Parallel Skew",
+          "why": "Wryly references the timing skew problem that doomed wide parallel buses in favor of serial lanes."
+        },
+        {
+          "name": "Trace Cascade",
+          "why": "Describes the stepped cyan lines in an observational field-guide style."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Ribbon Cable is immediately recognizable and avoids overcomplicating a classic hardware prop.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-ribbon",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-ribbon from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-irq",
+      "depicts": "A magenta-outlined black DIP chip with cyan pins and an illuminated cyan status bar inside, set below empty vertical headroom for animation.",
+      "concept": "hardware interrupt request line",
+      "proposals": [
+        {
+          "name": "IRQ Controller",
+          "why": "Names the interrupt-signaling IC in plain hardware terms."
+        },
+        {
+          "name": "Interrupt Storm",
+          "why": "References the classic failure mode of a stuck level-triggered IRQ line."
+        },
+        {
+          "name": "Signal Beacon",
+          "why": "Treats the pulsing interrupt chip as a field-guide marker."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "IRQ Controller accurately matches the chip-with-indicator sprite and standard systems vocabulary.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-irq",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-irq from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-connector",
+      "depicts": "A compact white-framed dark rectangular socket with two staggered rows of cyan contact pins.",
+      "concept": "board-to-board pin header connector",
+      "proposals": [
+        {
+          "name": "Pin Header",
+          "why": "Names the staggered-pin socket plainly as an electronics component."
+        },
+        {
+          "name": "Keyed Socket",
+          "why": "Nods to the physical polarization meant to prevent reversed cables, which fails anyway."
+        },
+        {
+          "name": "Contact Cradle",
+          "why": "Gives the tiny pin receptacle a quiet, naturalist-style label."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Pin Header is concise, precise, and matches the sprite's staggered contact rows.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-connector",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-connector from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-caps",
+      "depicts": "Three vertical cyan electrolytic capacitor cans with white tops and bottom leads, the center cylinder slightly shorter.",
+      "concept": "board power decoupling capacitors",
+      "proposals": [
+        {
+          "name": "Capacitor Bank",
+          "why": "Describes the trio of upright electrolytic cans accurately."
+        },
+        {
+          "name": "Decoupling Trio",
+          "why": "References their role smoothing voltage rails, with a dry nod to capacitor plague."
+        },
+        {
+          "name": "Charge Pillars",
+          "why": "Describes the three vertical cylinders in a field-guide tone."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Capacitor Bank is standard hardware nomenclature and reads cleanly in a manual index.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-caps",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-caps from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-usb",
+      "depicts": "A horizontal USB plug with a magenta strain-relief boot, white collar with cyan emblem, and dark metal shield showing two cyan contact cutouts.",
+      "concept": "Universal Serial Bus host interface",
+      "proposals": [
+        {
+          "name": "USB Plug",
+          "why": "Identifies the ubiquitous serial peripheral connector directly."
+        },
+        {
+          "name": "Third-Try Plug",
+          "why": "Dryly references the universal experience of flipping a USB-A connector twice before it seats."
+        },
+        {
+          "name": "Serial Tongue",
+          "why": "Describes the protruding shielded connector in a naturalist field-guide voice."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Third-Try Plug captures the dry, computing-literate humor of the Field Manual without being cutesy.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-usb",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-usb from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-pcie",
+      "depicts": "A long cyan-framed expansion slot divided by a keying notch into short and long magenta tracks dotted with white edge contacts.",
+      "concept": "PCI Express card edge slot",
+      "proposals": [
+        {
+          "name": "PCIe Slot",
+          "why": "Names the notched expansion connector directly."
+        },
+        {
+          "name": "Sixteen-Lane Trench",
+          "why": "Pairs x16 lane width with a wryly literal description of the motherboard socket."
+        },
+        {
+          "name": "Keyed Furrow",
+          "why": "Treats the notched card slot as a geological feature in a field guide."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "PCIe Slot is unmistakable and grounds the Field Manual entry in real motherboard anatomy.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-pcie",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-pcie from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-dma",
+      "depicts": "Three square magenta and cyan data blocks riding atop a white-and-black slotted conveyor belt anchored by cyan end rollers.",
+      "concept": "Direct Memory Access burst transfer",
+      "proposals": [
+        {
+          "name": "DMA Conveyor",
+          "why": "Describes the automated block-transfer belt bypassing the CPU."
+        },
+        {
+          "name": "Zero-Copy Belt",
+          "why": "Nods to the systems obsession with moving buffers without CPU intervention."
+        },
+        {
+          "name": "Burst Tread",
+          "why": "Evokes the rhythmic transit of DMA bursts in a compact field-guide phrase."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Zero-Copy Belt is wry, technically pointed, and matches the literal conveyor sprite.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-dma",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-dma from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-nic",
+      "depicts": "A cyan-bordered black expansion card bearing a magenta controller die, white status LED, magenta edge bus with cyan contacts, and a white right-side bracket.",
+      "concept": "Network Interface Controller expansion card",
+      "proposals": [
+        {
+          "name": "Network Card",
+          "why": "Identifies the PCIe NIC add-in board in plain terms."
+        },
+        {
+          "name": "Eth-Zero Board",
+          "why": "References the classic Unix interface name that predated predictable network naming."
+        },
+        {
+          "name": "Packet Blade",
+          "why": "Frames the slim add-in card as a field-guide specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Eth-Zero Board lands a quiet Unix-literate reference while remaining concise and dry.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-nic",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-nic from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-gpu",
+      "depicts": "A magenta-framed black dual-fan graphics shroud with two white-and-cyan cooling impellers above a cyan edge connector.",
+      "concept": "Graphics Processing Unit add-in card",
+      "proposals": [
+        {
+          "name": "Graphics Card",
+          "why": "Names the dual-fan GPU expansion board directly."
+        },
+        {
+          "name": "Dual-Fan Heater",
+          "why": "Dryly acknowledges the thermal envelope of modern discrete GPUs."
+        },
+        {
+          "name": "Twin-Impeller Shroud",
+          "why": "Describes the dual circular fans in an observational field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Graphics Card is clear and immediately sets up a dry manual entry on PCIe power and shaders.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-gpu",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-gpu from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-disk",
+      "depicts": "A cyan-bordered black square drive enclosure housing a round white spinning platter, black spindle hub, and diagonal magenta actuator arm.",
+      "concept": "rotational magnetic hard disk drive",
+      "proposals": [
+        {
+          "name": "Disk Platter",
+          "why": "Describes the spinning magnetic platter and read-write arm plainly."
+        },
+        {
+          "name": "Spinning Rust",
+          "why": "Uses the classic sysadmin slang for mechanical hard drives."
+        },
+        {
+          "name": "Seek Arm",
+          "why": "Focuses on the diagonal magenta actuator sweeping across the platter like a field-guide detail."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Spinning Rust is peak dry systems vernacular and immediately funny to anyone who has waited on seek latency.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-disk",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-disk from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-keys",
+      "depicts": "Three staggered rows of white keycaps with cyan bottom shadows, ending in a wide spacebar.",
+      "concept": "keyboard scan-code input matrix",
+      "proposals": [
+        {
+          "name": "Key Matrix",
+          "why": "Names the electrical switch grid behind a physical keyboard."
+        },
+        {
+          "name": "Scancode Deck",
+          "why": "References the raw make/break byte codes emitted before any keymap interprets them."
+        },
+        {
+          "name": "Tactile Steps",
+          "why": "Describes the staggered rows of raised keys in a quiet field-guide tone."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Scancode Deck connects the familiar keycap silhouette to the low-level driver boundary.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-keys",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-keys from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-db9",
+      "depicts": "A white-housed serial port with side mounting ears and a magenta trapezoid shroud enclosing two staggered rows of cyan pins.",
+      "concept": "RS-232 DB-9 serial port",
+      "proposals": [
+        {
+          "name": "DB-9 Port",
+          "why": "Names the nine-pin D-subminiature serial connector directly."
+        },
+        {
+          "name": "Baud Relic",
+          "why": "Wryly nods to 9600-8-N-1 serial consoles that refuse to die in server rooms."
+        },
+        {
+          "name": "Nine-Pin Snout",
+          "why": "Treats the trapezoidal D-sub shroud as a small fauna feature in a field guide."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "DB-9 Port is exact, unmistakable, and lets the manual text deliver the deadpan RS-232 humor.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-db9",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-db9 from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-jumpers",
+      "depicts": "A white-framed dark pin block with two rows of cyan pins, two pairs bridged vertically by magenta jumper shunts.",
+      "concept": "hardware configuration jumper shunts",
+      "proposals": [
+        {
+          "name": "Jumper Block",
+          "why": "Names the pin-header configuration block in standard hardware language."
+        },
+        {
+          "name": "Shunt Pins",
+          "why": "References the tiny plastic bridges that always fall into the chassis during a CMOS reset."
+        },
+        {
+          "name": "Bridged Posts",
+          "why": "Describes the paired pins and vertical shunts in a spare field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Jumper Block is immediately clear and fits the archival manual index.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-jumpers",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-jumpers from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-heatsink",
+      "depicts": "Eight tall white vertical cooling fins rising evenly from a solid cyan thermal baseplate.",
+      "concept": "passive extruded aluminum heatsink",
+      "proposals": [
+        {
+          "name": "Fin Heatsink",
+          "why": "Describes the extruded passive cooling block plainly."
+        },
+        {
+          "name": "Thermal Comb",
+          "why": "A dry visual pun on the toothed silhouette of closely spaced cooling fins."
+        },
+        {
+          "name": "Aluminum Crest",
+          "why": "Treats the row of vertical fins like a naturalist's ridge silhouette."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Thermal Comb is crisp, subtly funny, and matches the comb-like pixel silhouette.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-heatsink",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-heatsink from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-rj45",
+      "depicts": "A white square Ethernet jack with magenta and cyan corner link LEDs, a dark recessed cavity, cyan contact pins, and a lower latch notch.",
+      "concept": "RJ45 8P8C Ethernet jack",
+      "proposals": [
+        {
+          "name": "RJ45 Jack",
+          "why": "Names the modular eight-position Ethernet receptacle directly."
+        },
+        {
+          "name": "Link-Light Port",
+          "why": "Highlights the twin amber/green status LEDs that every engineer squints at first."
+        },
+        {
+          "name": "Latch Mouth",
+          "why": "Describes the notched dark socket cavity in a quiet field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "RJ45 Jack is exact, recognizable, and pairs naturally with a Unix manual entry.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-rj45",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-rj45 from the drivers layer."
+    },
+    {
+      "key": "e:bf-dr-scope",
+      "depicts": "A white-cased benchtop oscilloscope on two feet, with a black screen showing a cyan sine wave over magenta graticule dots and three magenta control knobs on the right.",
+      "concept": "benchtop signal oscilloscope",
+      "proposals": [
+        {
+          "name": "Signal Scope",
+          "why": "Names the waveform-measuring diagnostic instrument concisely."
+        },
+        {
+          "name": "Trigger Bench",
+          "why": "Nods to the endless knob-twiddling required to stabilize an oscilloscope trigger."
+        },
+        {
+          "name": "Phosphor Trace",
+          "why": "Evokes the glowing waveform on a dark screen in a field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Signal Scope is crisp, unmistakable, and reads cleanly in the Field Manual.",
+      "decisionHint": "merge",
+      "mergeWith": "e:dr-scope",
+      "decisionWhy": "Exact sprite and concept duplicate of e:dr-scope from the drivers layer."
+    },
+    {
+      "key": "e:bf-retimer",
+      "depicts": "A small magenta-bordered black rectangle with a single horizontal cyan signal bar centered inside.",
+      "concept": "PCIe signal retimer repeater",
+      "proposals": [
+        {
+          "name": "PCIe Retimer",
+          "why": "Names the clock-and-data recovery chip that cleans up degraded high-speed lanes."
+        },
+        {
+          "name": "Eye Opener",
+          "why": "Plays on opening the closed high-speed signal eye diagram on long PCIe traces."
+        },
+        {
+          "name": "Pulse Repeater",
+          "why": "Describes the inline signal-regeneration box in a spare field-guide voice."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Eye Opener is a sharp signal-integrity pun that rewards hardware-literate readers.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "The sprite is a minimal 14x10 geometric box, making it better suited to an appendix specimen than a full page."
+    },
+    {
+      "key": "e:bf-msix",
+      "depicts": "A cyan-bordered black rectangle containing four tall vertical vector columns alternating white and magenta.",
+      "concept": "MSI-X message-signaled interrupt table",
+      "proposals": [
+        {
+          "name": "MSI-X Table",
+          "why": "Names the PCIe interrupt vector table in standard specification terms."
+        },
+        {
+          "name": "Vector Rack",
+          "why": "References the array of per-queue interrupt vectors lined up like hardware slots."
+        },
+        {
+          "name": "Interrupt Ledger",
+          "why": "Treats the four vertical vector columns as an archival record in a field-guide tone."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "MSI-X Table is exact PCIe terminology and directly reflects the four-column table sprite.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique bus-fabric sprite representing a distinctive modern PCIe interrupt mechanism."
+    },
+    {
+      "key": "e:bf-lane",
+      "depicts": "Two parallel full-width horizontal stripes, one cyan above and one magenta below, separated by a narrow gap.",
+      "concept": "PCIe differential TX/RX lane pair",
+      "proposals": [
+        {
+          "name": "Differential Pair",
+          "why": "Names the matched two-wire high-speed transmission pair accurately."
+        },
+        {
+          "name": "Duplex Track",
+          "why": "Nods to simultaneous transmit and receive lanes running in parallel."
+        },
+        {
+          "name": "Twin Trace",
+          "why": "Describes the two parallel colored lines in a minimal field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Differential Pair is technically precise and makes sense of the two-stripe sprite.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "At 24x6 with just two flat horizontal lines, this prop works best as an appendix specimen."
+    },
+    {
+      "key": "e:bf-iommu",
+      "depicts": "A white-bordered square enclosing a smaller magenta square frame around a solid black center.",
+      "concept": "IOMMU DMA address remapping unit",
+      "proposals": [
+        {
+          "name": "IOMMU Gate",
+          "why": "Names the hardware unit that translates and restricts device DMA addresses."
+        },
+        {
+          "name": "DMA Bouncer",
+          "why": "Dryly captures the IOMMU's job of blocking rogue peripherals from scribbling over host RAM."
+        },
+        {
+          "name": "Remap Aperture",
+          "why": "Describes the nested square frame as a guarded passage in a field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "IOMMU Gate is concise, accurate, and matches the nested-frame silhouette.",
+      "decisionHint": "merge",
+      "mergeWith": "e:r1-iommu",
+      "decisionWhy": "Represents the same IOMMU hardware unit already covered by e:r1-iommu in the daily ring-1 layer."
+    },
+    {
+      "key": "c:bus-fabric:core",
+      "depicts": "A tiny 7-by-2-pixel horizontal magenta streak with a two-pixel white leading tip, centered in a mostly empty 26x22 frame.",
+      "concept": "PCIe Transaction Layer Packet (TLP)",
+      "proposals": [
+        {
+          "name": "Bus Flit",
+          "why": "Uses the real interconnect term for a flow-control digit traversing a bus."
+        },
+        {
+          "name": "TLP Dart",
+          "why": "Pairs PCIe's Transaction Layer Packet acronym with its scuttle-and-zip motion."
+        },
+        {
+          "name": "Lane Skimmer",
+          "why": "Treats the fast-moving bus packet like a small insect in a naturalist field guide."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Bus Flit is authentic hardware terminology that fits both the tiny sprite and the dry Field Manual tone.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "The sprite is only a 7x2 pixel speck inside a 26x22 frame and needs more readable creature art."
+    },
+    {
+      "key": "c:bus-fabric:alt",
+      "depicts": "A tiny 6-by-3-pixel magenta core enclosed in a one-pixel white border, centered in a mostly empty 26x22 frame.",
+      "concept": "posted PCIe write completion packet",
+      "proposals": [
+        {
+          "name": "Posted Burst",
+          "why": "Names the fire-and-forget PCIe write transaction that zips down the fabric."
+        },
+        {
+          "name": "Ack Pill",
+          "why": "Plays on the tiny white-bordered capsule shape and PCIe data-link acknowledgments."
+        },
+        {
+          "name": "Framed Flit",
+          "why": "Describes the bordered packet as a close naturalist relative of the core bus critter."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Framed Flit neatly links it to the PCIe framing layer while acknowledging its bordered silhouette.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "Like c:bus-fabric:core, this is a 6x3 speck on a 26x22 canvas and needs clearer critter artwork."
+    }
+  ]
+}

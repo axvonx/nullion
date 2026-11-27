@@ -1,0 +1,557 @@
+{
+  "layer": "internet",
+  "items": [
+    {
+      "key": "e:net-ixp",
+      "depicts": "A large framed switchboard panel with a blue header bar and four vertical light-blue bays, each topped by a dark bezel with an animated green status light on the leftmost unit.",
+      "concept": "Internet Exchange Point (IXP) peering fabric",
+      "proposals": [
+        {
+          "name": "Peering Exchange",
+          "why": "Directly names the multi-bay colocation switchboard where autonomous networks interconnect."
+        },
+        {
+          "name": "Meet-Me Room",
+          "why": "Uses the dry colocation industry term for the physical hall where competing carriers cross-connect."
+        },
+        {
+          "name": "Peering Rookery",
+          "why": "Treats the towering bank of bays like a crowded cliffside nesting ground for backbone links."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Meet-Me Room is authentic telecom jargon that reads as quietly funny in a field manual without trying too hard.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "This is the signature landmark anchor for the Internet / BGP layer and deserves its own full manual page."
+    },
+    {
+      "key": "e:net-bgp",
+      "depicts": "A dark-framed card displaying a blue header block, a dark label bar, a gray rule, and an animated green-and-amber segmented bar along the bottom.",
+      "concept": "BGP routing tables and prefix announcements",
+      "proposals": [
+        {
+          "name": "Route Table",
+          "why": "Clearly identifies the card as a live table of network prefixes and path states."
+        },
+        {
+          "name": "Route Flap Board",
+          "why": "Nods to BGP route flapping, where unstable prefixes oscillate between green and amber states."
+        },
+        {
+          "name": "Border Almanac",
+          "why": "Frames the routing ledger as a naturalist's reference book tracking shifting frontier paths."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Route Flap Board ties the animated status bar directly to one of BGP's most notorious failure modes.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct animated prop representing the defining protocol of this layer."
+    },
+    {
+      "key": "e:net-cable",
+      "depicts": "A horizontal two-tone blue-and-navy conduit banded at regular intervals by four amber collars, resembling an armored undersea cable.",
+      "concept": "submarine fiber-optic trunk cables",
+      "proposals": [
+        {
+          "name": "Submarine Cable",
+          "why": "States plainly what the armored banded trunk represents in global internet infrastructure."
+        },
+        {
+          "name": "Backhoe Bait",
+          "why": "References the classic operations maxim that buried and coastal fiber trunks inevitably attract excavation equipment."
+        },
+        {
+          "name": "Abyssal Trunkline",
+          "why": "Evokes the deep-ocean benthic habitat of transoceanic cables in a field-guide register."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Abyssal Trunkline fits the binder's dry naturalist tone while remaining immediately recognizable as a submarine cable.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique art with strong visual identity and rich real-world infrastructure lore."
+    },
+    {
+      "key": "e:net-dns",
+      "depicts": "A white index card with a green header strip, a navy drop shadow, and three horizontal bars representing resolved record fields.",
+      "concept": "Domain Name System (DNS) zone records",
+      "proposals": [
+        {
+          "name": "DNS Record",
+          "why": "Plainly labels the index card as a single resource record from a zone file."
+        },
+        {
+          "name": "It Was DNS",
+          "why": "Cites the perennial sysadmin postmortem conclusion blamed for nearly every unexplained outage."
+        },
+        {
+          "name": "Resolver Ledger",
+          "why": "Casts the small ruled card as an archival slip consulted whenever a name must be translated."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Resolver Ledger suits an archival manual page title cleanly while leaving room for the DNS-outage joke in the BUGS section.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core internet primitive with dedicated sprite art and ample material for a manual entry."
+    },
+    {
+      "key": "e:net-asn",
+      "depicts": "A white pixelated cloud with a blue rectangular badge across its center and a pale blue shadow beneath it.",
+      "concept": "Autonomous System Numbers (ASNs)",
+      "proposals": [
+        {
+          "name": "Autonomous Cloud",
+          "why": "Directly pairs the cloud silhouette with the concept of an autonomous routing domain."
+        },
+        {
+          "name": "Bogon Cloud",
+          "why": "References bogons, the unallocated or reserved address blocks that should never appear in global routing tables."
+        },
+        {
+          "name": "Sovereign Cumulus",
+          "why": "Describes a self-governing network domain as a distinct cloud species in a field guide."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Autonomous Cloud is immediately intelligible and already carries a dry deadpan humor on its own.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct sprite representing the organizational unit of internet routing."
+    },
+    {
+      "key": "e:net-fiber",
+      "depicts": "A thin horizontal cyan optical line with a bright white light pulse traveling at its right tip.",
+      "concept": "fiber-optic light transmission",
+      "proposals": [
+        {
+          "name": "Optical Fiber",
+          "why": "Directly describes the glowing cyan glass strand carrying light pulses."
+        },
+        {
+          "name": "Dark Fiber",
+          "why": "Plays ironically on the telecom term for unlit leased fiber, even as a pulse runs down this strand."
+        },
+        {
+          "name": "Glass Filament",
+          "why": "Treats the slender optical link like a delicate physical specimen under a magnifying glass."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Glass Filament captures the minimal visual form cleanly in the field-manual register.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "The sprite is a minimal animated horizontal line that works best as an appendix specimen rather than a full page."
+    },
+    {
+      "key": "e:net-router",
+      "depicts": "A dark navy box with a cream front panel, four alternating amber and green LEDs, and two upright dark gray antennas.",
+      "concept": "edge router and packet forwarding",
+      "proposals": [
+        {
+          "name": "Edge Router",
+          "why": "Plainly identifies the dual-antenna forwarding appliance at the network boundary."
+        },
+        {
+          "name": "Default Gateway",
+          "why": "References the catch-all 0.0.0.0/0 hop where every unresolved packet gets dumped."
+        },
+        {
+          "name": "Twin-Horn Relay",
+          "why": "Describes the twin-antenna silhouette as if cataloging a horned mechanical beetle."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Default Gateway is instantly recognizable computing vocabulary with a dry, bureaucratic ring.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear, readable custom sprite representing a foundational networking device."
+    },
+    {
+      "key": "e:net-dish",
+      "depicts": "A dark gray pedestal supporting a tilted pale-blue parabolic dish with a darker blue feed horn angled toward the lower right.",
+      "concept": "satellite uplink and microwave backhaul",
+      "proposals": [
+        {
+          "name": "Uplink Dish",
+          "why": "Directly names the parabolic transceiver mounted on its pedestal."
+        },
+        {
+          "name": "High-Latency Ear",
+          "why": "Pokes dryly at the unavoidable round-trip delay of geostationary satellite links."
+        },
+        {
+          "name": "Skyward Paraboloid",
+          "why": "Uses crisp geometric field-guide language suited to a technical archive binder."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Uplink Dish is concise, unmistakable, and lets the manual entry unpack satellite latency in prose.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct silhouette and unique internet-layer infrastructure prop."
+    },
+    {
+      "key": "e:net-packet",
+      "depicts": "A white envelope-like card with a cyan top header bar, a navy drop shadow, a gray address line, and an amber square payload block.",
+      "concept": "IP datagram and packet encapsulation",
+      "proposals": [
+        {
+          "name": "Network Packet",
+          "why": "Plainly names the header-and-payload envelope moving across the wire."
+        },
+        {
+          "name": "Best-Effort Datagram",
+          "why": "References IP's famously noncommittal delivery guarantee, which promises neither arrival nor order."
+        },
+        {
+          "name": "Stamped Dispatch",
+          "why": "Evokes the postal metaphor of the envelope-and-stamp sprite in a dry archival voice."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Best-Effort Datagram captures the exact protocol semantics with understated computing humor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core networking abstraction with clean, unique sprite art."
+    },
+    {
+      "key": "e:net-tls",
+      "depicts": "A closed green padlock with a lighter green shackle and a vertical white keyhole slot in the center.",
+      "concept": "Transport Layer Security (TLS) encryption",
+      "proposals": [
+        {
+          "name": "TLS Padlock",
+          "why": "Directly identifies the green lock icon signaling an encrypted transport session."
+        },
+        {
+          "name": "Trust Anchor",
+          "why": "Uses the dry PKI term for a root certificate while nodding to the fragile chain of trust behind the green lock."
+        },
+        {
+          "name": "Cipher Clasp",
+          "why": "Frames the cryptographic seal as a physical fastener in the field-manual lexicon."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Trust Anchor is authentic PKI terminology that sounds weightier and drier than a generic padlock.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct sprite not shared with userspace's padlock, covering transport encryption and certificates."
+    },
+    {
+      "key": "e:net-app-browser",
+      "depicts": "A small navy-bordered browser window with a tab strip, gray address bar, amber hero banner, and a muted line of body copy.",
+      "concept": "web browser client window",
+      "proposals": [
+        {
+          "name": "Browser Window",
+          "why": "Plainly describes the miniature tabbed viewport."
+        },
+        {
+          "name": "Tab Hoarder",
+          "why": "Wryly alludes to the universal habit of accumulating dozens of forgotten browser tabs."
+        },
+        {
+          "name": "Glass Viewport",
+          "why": "Treats the framed window like an observation pane looking into the application layer."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Browser Window is direct and avoids over-explaining a familiar UI landmark.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-browser",
+      "decisionWhy": "Both sprite variants are byte-identical copies of e:app-browser from the application layer."
+    },
+    {
+      "key": "e:net-app-dialog",
+      "depicts": "A cream modal window with an amber title bar, a red close button, an amber warning icon, two text bars, and two confirmation buttons.",
+      "concept": "blocking modal confirmation dialog",
+      "proposals": [
+        {
+          "name": "Modal Dialog",
+          "why": "Accurately names the blocking window demanding user acknowledgment."
+        },
+        {
+          "name": "Are You Sure",
+          "why": "Quotes the reflexive confirmation prompt that users dismiss without reading."
+        },
+        {
+          "name": "Amber Interrupter",
+          "why": "Describes the warning box like a bright-crowned specimen that halts all surrounding activity."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Modal Dialog is precise UI terminology that fits the manual's formal register.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-dialog",
+      "decisionWhy": "Byte-identical duplicate of e:app-dialog reused in the internet layer."
+    },
+    {
+      "key": "e:net-app-toast",
+      "depicts": "A white notification card with a navy drop shadow, an amber icon square on the left, and two horizontal text bars.",
+      "concept": "transient toast notification",
+      "proposals": [
+        {
+          "name": "Toast Banner",
+          "why": "Plainly names the transient popup notification card."
+        },
+        {
+          "name": "Transient Nag",
+          "why": "Dryly characterizes short-lived UI alerts that vanish just before you finish reading them."
+        },
+        {
+          "name": "Fleeting Notice",
+          "why": "Casts the disappearing card as an ephemeral slip pinned briefly to the screen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Toast Banner uses the established UI term cleanly and unambiguously.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-toast",
+      "decisionWhy": "Byte-identical duplicate of e:app-toast reused from the application layer."
+    },
+    {
+      "key": "e:net-app-spinner",
+      "depicts": "A square cream tile containing an eight-dot ring of gray and amber squares that cycles as an indeterminate loading indicator.",
+      "concept": "indeterminate loading spinner",
+      "proposals": [
+        {
+          "name": "Loading Spinner",
+          "why": "Directly identifies the cycling eight-dot wait indicator."
+        },
+        {
+          "name": "Throbber of Doom",
+          "why": "Revives the classic 1990s UI term throbber for an activity indicator that may never resolve."
+        },
+        {
+          "name": "Amber Orbit",
+          "why": "Describes the circling dots as a miniature celestial loop in field-guide prose."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Loading Spinner is clear and understated, matching the manual's plainspoken technical voice.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-spinner",
+      "decisionWhy": "Byte-identical duplicate of e:app-spinner reused from the application layer."
+    },
+    {
+      "key": "e:net-app-progress",
+      "depicts": "A horizontal navy-bordered cream trough with a small amber fill block near the left edge.",
+      "concept": "progress bar and time estimation",
+      "proposals": [
+        {
+          "name": "Progress Bar",
+          "why": "Plainly labels the linear completion meter."
+        },
+        {
+          "name": "Ninety-Nine Percent",
+          "why": "References the universal computing experience of progress bars stalling indefinitely at the final step."
+        },
+        {
+          "name": "Measured Trough",
+          "why": "Describes the horizontal meter as a physical gauge channel."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Ninety-Nine Percent is quietly funny and universally understood by anyone who has watched a transfer stall.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-progress",
+      "decisionWhy": "Both sprite variants are byte-identical duplicates of e:app-progress from the application layer."
+    },
+    {
+      "key": "e:net-app-icon",
+      "depicts": "A small rounded green square tile with a white inner glyph and a bright red notification badge on its upper-right corner.",
+      "concept": "app launcher icon with unread badge",
+      "proposals": [
+        {
+          "name": "App Tile",
+          "why": "Plainly identifies the compact launcher icon."
+        },
+        {
+          "name": "Unread Badge",
+          "why": "Focuses on the red corner dot engineered to trigger compulsive checking."
+        },
+        {
+          "name": "Red-Crowned Tile",
+          "why": "Borrows ornithological naming conventions to describe the bright red mark on its corner."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Unread Badge highlights the single most recognizable and psychologically fraught pixel on the sprite.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-icon",
+      "decisionWhy": "Both sprite variants are byte-identical duplicates of e:app-icon from the application layer."
+    },
+    {
+      "key": "e:net-app-bubble",
+      "depicts": "A blue speech bubble with a bottom-right tail and three animated typing-indicator dots inside.",
+      "concept": "instant messaging typing indicator",
+      "proposals": [
+        {
+          "name": "Chat Bubble",
+          "why": "Plainly names the speech-balloon messaging widget."
+        },
+        {
+          "name": "Is Typing",
+          "why": "Captures the low-grade suspense of three animated dots that may never yield a message."
+        },
+        {
+          "name": "Blue Utterance",
+          "why": "Treats the suspended speech balloon as an observed specimen of human chatter."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Is Typing is a crisp, dry reference that turns a tiny three-dot animation into an immediate joke.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-bubble",
+      "decisionWhy": "Byte-identical duplicate of e:app-bubble reused from the application layer."
+    },
+    {
+      "key": "e:net-app-cloudsync",
+      "depicts": "A white cloud silhouette with a blue T-shaped upload arrow centered above a pale blue shadow bar.",
+      "concept": "cloud storage synchronization",
+      "proposals": [
+        {
+          "name": "Cloud Sync",
+          "why": "Plainly describes the cloud icon and animated upload arrow."
+        },
+        {
+          "name": "Someone Else's Disk",
+          "why": "Echoes the classic dry reminder that cloud storage is merely another host's filesystem."
+        },
+        {
+          "name": "Uplink Nimbus",
+          "why": "Combines telecom terminology with cloud taxonomy for a field-guide title."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Cloud Sync is immediately clear and concise as a manual entry heading.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-cloudsync",
+      "decisionWhy": "Byte-identical duplicate of e:app-cloudsync reused from the application layer."
+    },
+    {
+      "key": "e:net-app-folder",
+      "depicts": "A golden-yellow file folder with a top-left index tab and a pale cream sheet peeking out of the opening.",
+      "concept": "hierarchical directory metaphor",
+      "proposals": [
+        {
+          "name": "File Folder",
+          "why": "Plainly names the classic desktop directory icon."
+        },
+        {
+          "name": "Untitled Folder",
+          "why": "Nods to the proliferating default-named directories cluttering every real desktop."
+        },
+        {
+          "name": "Manila Folio",
+          "why": "Anchors the digital metaphor back to physical office stationery in the binder's archival voice."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Untitled Folder is deadpan, authentic, and instantly recognizable to any computer user.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-folder",
+      "decisionWhy": "Both sprite variants are byte-identical duplicates of e:app-folder from the application layer."
+    },
+    {
+      "key": "e:net-app-trash",
+      "depicts": "A slate-gray lidded wastebasket with three vertical ribs and a yellow scrap of paper sticking out under the lid.",
+      "concept": "deferred file deletion and trash bin",
+      "proposals": [
+        {
+          "name": "Trash Bin",
+          "why": "Plainly labels the ribbed desktop wastebasket."
+        },
+        {
+          "name": "Dev Null",
+          "why": "References the Unix bit-bucket device where discarded output vanishes permanently."
+        },
+        {
+          "name": "Tin Receptacle",
+          "why": "Describes the small gray bin as a dry catalog entry for an everyday artifact."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dev Null bridges desktop UI iconography with Unix manual-page literacy in two words.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-trash",
+      "decisionWhy": "Byte-identical duplicate of e:app-trash reused from the application layer."
+    },
+    {
+      "key": "e:net-app-slider",
+      "depicts": "A horizontal bar filled amber on the left and gray on the right, bisected by a tall amber thumb with a white center.",
+      "concept": "continuous range slider control",
+      "proposals": [
+        {
+          "name": "Range Slider",
+          "why": "Accurately names the horizontal value-selection widget."
+        },
+        {
+          "name": "Off-By-One Slider",
+          "why": "References the frustrating precision of pixel-wide slider tracks that never land on the exact value you want."
+        },
+        {
+          "name": "Amber Detent",
+          "why": "Treats the sliding thumb as a tactile mechanical stop in a field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Range Slider is clean, precise, and unambiguous.",
+      "decisionHint": "merge",
+      "mergeWith": "e:app-slider",
+      "decisionWhy": "Byte-identical duplicate of e:app-slider reused from the application layer."
+    },
+    {
+      "key": "c:internet:core",
+      "depicts": "A tiny white flying bird with a blue head and beak and a two-pixel cyan contrail trailing behind it.",
+      "concept": "IP over Avian Carriers (RFC 1149)",
+      "proposals": [
+        {
+          "name": "Packet Bird",
+          "why": "Directly describes the small flying and perching courier native to the internet layer."
+        },
+        {
+          "name": "RFC 1149 Carrier",
+          "why": "Cites the famous April Fools RFC specifying IP datagram transmission by homing pigeon."
+        },
+        {
+          "name": "Cyan-Tailed Swift",
+          "why": "Names the critter like a genuine bird-guide species based on its blue-white plumage and cyan wake."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "RFC 1149 Carrier is a peak computing-literate reference that fits a flying internet critter effortlessly.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Primary flying and perching critter species unique to the Internet / BGP layer."
+    },
+    {
+      "key": "c:internet:alt",
+      "depicts": "A tiny floating white probe with two blue top-mounted panels and a single green beacon pixel underneath.",
+      "concept": "network probe and orbital relay satellite",
+      "proposals": [
+        {
+          "name": "Relay Satellite",
+          "why": "Plainly identifies the miniature floating transceiver with twin blue panels."
+        },
+        {
+          "name": "Ping Probe",
+          "why": "Nods to ICMP echo probes drifting across the network and blinking green when a host responds."
+        },
+        {
+          "name": "Green-Bellied Drifter",
+          "why": "Catalogs the floating critter in classic naturalist field-guide style by its underside marking."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Ping Probe is crisp, computing-literate, and pairs neatly with the green status pixel underneath.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct floating alternate critter species unique to the Internet / BGP layer."
+    }
+  ]
+}

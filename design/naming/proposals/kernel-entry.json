@@ -1,0 +1,653 @@
+{
+  "layer": "kernel-entry",
+  "items": [
+    {
+      "key": "e:ke-gatehouse",
+      "depicts": "A grey stone-like gatehouse archway framing a black opening barred by five vertical cyan portcullis rods resting on a yellow crossbar.",
+      "concept": "syscall boundary and privilege-ring transition",
+      "proposals": [
+        {
+          "name": "Syscall Gatehouse",
+          "why": "Names the landmark plainly as the guarded checkpoint between userspace and the kernel."
+        },
+        {
+          "name": "Ring Zero Portcullis",
+          "why": "Pairs medieval fortification vocabulary with x86 privilege rings to underscore how tightly entry is controlled."
+        },
+        {
+          "name": "Threshold Tollhouse",
+          "why": "Treats the boundary crossing like a natural-history field station where every caller pays context-switch overhead."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Syscall Gatehouse is immediately legible as the layer's central landmark and matches the dry manual-page register.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct layer anchor with unique art representing the kernel entry threshold."
+    },
+    {
+      "key": "e:ke-seccomp",
+      "depicts": "A cyan-framed black panel displaying three horizontal status bars of decreasing length in green, yellow, and red.",
+      "concept": "seccomp-bpf syscall filtering",
+      "proposals": [
+        {
+          "name": "Syscall Filter Panel",
+          "why": "Directly describes the traffic-light allow, log, and deny tiers shown on the prop."
+        },
+        {
+          "name": "Seccomp Sieve",
+          "why": "Combines the Linux sandboxing mechanism with a dry mechanical metaphor for rejecting disallowed calls."
+        },
+        {
+          "name": "Allowlist Strainer",
+          "why": "Frames policy enforcement in the understated field-guide idiom of a sorting apparatus."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Seccomp Sieve names the real subsystem concisely while keeping a quiet physical image.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique kernel-entry prop depicting a core syscall-boundary security mechanism."
+    },
+    {
+      "key": "e:ke-uaccess",
+      "depicts": "A blue block on the left and a dark-grey block on the right separated by a white chasm bridged by a single yellow span.",
+      "concept": "safe user-to-kernel memory copy (uaccess / SMAP)",
+      "proposals": [
+        {
+          "name": "User-Kernel Bridge",
+          "why": "States the prop's exact role in moving bytes across the address-space divide."
+        },
+        {
+          "name": "Uaccess Gangplank",
+          "why": "Pairs the kernel helper family with a precarious crossing to nod at how hazardous dereferencing user pointers is."
+        },
+        {
+          "name": "Boundary Causeway",
+          "why": "Uses a dry geographic term that fits a field-manual survey of the memory divide."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Uaccess Gangplank is specific to kernel internals and carries a quiet joke about pointer safety.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique sprite representing the kernel-entry memory-copy boundary."
+    },
+    {
+      "key": "e:ke-sysgate",
+      "depicts": "Two grey vertical pillars beneath a wide cyan lintel with a floating yellow barrier bar across the archway.",
+      "concept": "SYSCALL / SYSENTER trap gate",
+      "proposals": [
+        {
+          "name": "Syscall Barrier",
+          "why": "Plainly labels the gated archway through which userspace requests enter the kernel."
+        },
+        {
+          "name": "Sysenter Arch",
+          "why": "References the x86 fast system-call instruction in the form of an architectural checkpoint."
+        },
+        {
+          "name": "Border Lintel",
+          "why": "Keeps an understated naturalist tone suited to a structural fixture on the ring frontier."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Sysenter Arch distinguishes this smaller checkpoint from the main gatehouse while referencing real hardware entry mechanics.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique prop sprite specific to the kernel-entry layer."
+    },
+    {
+      "key": "e:ke-kr-gears",
+      "depicts": "Two interlocking toothed gears, a larger grey wheel on the left meshing with a smaller brown-amber cog on the right.",
+      "concept": "kernel subsystem clockwork",
+      "proposals": [
+        {
+          "name": "Kernel Gearworks",
+          "why": "Describes the mechanical assembly plainly as the machinery driving kernel execution."
+        },
+        {
+          "name": "Tick-Rate Cogs",
+          "why": "Ties the meshed wheels to the kernel's periodic timer frequency."
+        },
+        {
+          "name": "Iron Clockwork",
+          "why": "Uses a spare observational label fit for a field-guide specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Kernel Gearworks is clear and matches the prop's general mechanical role.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-gears",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-gears in the kernel layer and represents the same prop."
+    },
+    {
+      "key": "e:ke-kr-dmesg",
+      "depicts": "A wide grey-bezelled black display scrolling bright green kernel log text reading FUTEX HA and EXT4-FS:.",
+      "concept": "kernel ring-buffer log (dmesg)",
+      "proposals": [
+        {
+          "name": "Kernel Log Board",
+          "why": "States directly what the scrolling display shows without jargon."
+        },
+        {
+          "name": "Dmesg Marquee",
+          "why": "Pairs the Unix log-inspection command with a public signboard to capture its scrolling output."
+        },
+        {
+          "name": "Console Ticker",
+          "why": "Evokes an archival telegraph instrument steadily printing kernel diagnostics."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dmesg Marquee immediately cues the Unix utility and fits the scrolling green signboard.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-dmesg",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-dmesg in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-gauge",
+      "depicts": "A horizontal red bar clamped by two grey brackets with a vertical dark-red indicator needle hovering above a centre notch.",
+      "concept": "kernel load and pressure gauge",
+      "proposals": [
+        {
+          "name": "Load Pressure Gauge",
+          "why": "Plainly identifies the prop as a meter measuring kernel load."
+        },
+        {
+          "name": "PSI Manometer",
+          "why": "References Linux Pressure Stall Information through a classic pressure-measuring instrument."
+        },
+        {
+          "name": "Redline Dial",
+          "why": "Uses a concise field-guide descriptor anchored in the sprite's crimson palette."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "PSI Manometer adds computing specificity while sounding authentically dry and technical.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-gauge",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-gauge in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-piston",
+      "depicts": "A vertical dark-grey cylinder with a light-grey left highlight poised above a flat horizontal grey anvil bar.",
+      "concept": "periodic kernel worker stroke",
+      "proposals": [
+        {
+          "name": "Kernel Piston",
+          "why": "Directly names the reciprocating cylinder visible in the sprite."
+        },
+        {
+          "name": "Jiffy Ram",
+          "why": "Links the mechanical downstroke to the kernel's discrete timer-tick unit."
+        },
+        {
+          "name": "Iron Plunger",
+          "why": "Keeps a plain industrial-catalogue tone without over-explaining."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Jiffy Ram gives an otherwise generic piston a sharp kernel-specific identity.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-piston",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-piston in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-leds",
+      "depicts": "A dark-grey framed black panel holding a two-by-three grid of square indicator lamps, five green and one red.",
+      "concept": "kernel status and fault indicator bank",
+      "proposals": [
+        {
+          "name": "Status Lamp Bank",
+          "why": "Describes the six-lamp diagnostic panel in straightforward terms."
+        },
+        {
+          "name": "Taint Bit Panel",
+          "why": "Nods to the Linux kernel taint flags, where a single red indicator marks an untrusted state."
+        },
+        {
+          "name": "Signal Grid",
+          "why": "Uses a sparse naturalist-catalogue name reflecting the tidy array of lights."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Taint Bit Panel turns a generic LED cluster into a dry Linux-kernel reference.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-leds",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-leds in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-schedwheel",
+      "depicts": "A circular grey spoked wheel on a dark pedestal carrying six differently coloured task blocks around its rim.",
+      "concept": "round-robin CPU scheduling",
+      "proposals": [
+        {
+          "name": "Scheduler Wheel",
+          "why": "States the prop's identity and scheduling metaphor directly."
+        },
+        {
+          "name": "Round-Robin Mill",
+          "why": "Weds the classic scheduling algorithm to a mechanical wheel turning tasks in sequence."
+        },
+        {
+          "name": "Task Carousel",
+          "why": "Offers an understated observational image for the rotating ring of coloured jobs."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Round-Robin Mill is concise, accurate to the rotating visual, and dryly humorous.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-schedwheel",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-schedwheel in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-pagetable",
+      "depicts": "A tall grey filing cabinet with four black drawers, each fitted with a grey handle and three marked by bright green present lamps.",
+      "concept": "virtual-to-physical page table",
+      "proposals": [
+        {
+          "name": "Page Table Cabinet",
+          "why": "Describes both the physical filing cabinet and the kernel structure it depicts."
+        },
+        {
+          "name": "PTE Filing Chest",
+          "why": "Uses the page-table-entry acronym to highlight the present-bit indicators on each drawer."
+        },
+        {
+          "name": "Address Ledger",
+          "why": "Evokes an archival bureau record of memory mappings."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Page Table Cabinet is immediately recognizable and pairs the literal sprite with the real OS concept.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-pagetable",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-pagetable in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-irqbell",
+      "depicts": "A bright yellow bell suspended from a dark-grey bracket with a brown clapper hanging below its rim.",
+      "concept": "hardware interrupt request (IRQ)",
+      "proposals": [
+        {
+          "name": "Interrupt Bell",
+          "why": "Plainly pairs the bell sprite with the interrupt mechanism it represents."
+        },
+        {
+          "name": "IRQ Clapper",
+          "why": "Uses the standard interrupt abbreviation with a wry emphasis on the noisy clapper."
+        },
+        {
+          "name": "Brass Alarum",
+          "why": "Adopts an archaic field-manual term for an urgent warning bell."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Interrupt Bell is crisp, unmistakable, and reads naturally as a manual-page title.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-irqbell",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-irqbell in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-turnstile",
+      "depicts": "A dark-grey pedestal post topped by rotating light-grey barrier arms.",
+      "concept": "kernel lock turnstile / wait queue",
+      "proposals": [
+        {
+          "name": "Kernel Turnstile",
+          "why": "Names both the literal barrier and the real BSD/Solaris synchronization primitive."
+        },
+        {
+          "name": "Wait-Queue Stile",
+          "why": "Points quietly to blocked threads queueing one by one for a contested lock."
+        },
+        {
+          "name": "Iron Stile",
+          "why": "Treats the fixture as a stark piece of field-survey hardware."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Kernel Turnstile works on both the literal visual and the actual OS synchronization structure.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-turnstile",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-turnstile in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-slab",
+      "depicts": "Four grey slotted bins hanging beneath a brown top rail, three holding stacked green or cyan object bars and one sitting empty.",
+      "concept": "kernel slab allocator (SLUB caches)",
+      "proposals": [
+        {
+          "name": "Slab Cache Rack",
+          "why": "Directly identifies the fixed-size object bins of a kernel slab allocator."
+        },
+        {
+          "name": "SLUB Magazine",
+          "why": "References Linux's SLUB allocator and Bonwick's magazine layer for pre-allocated objects."
+        },
+        {
+          "name": "Object Troughs",
+          "why": "Frames the slotted bins in a dry workshop-naturalist register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "SLUB Magazine is deeply computing-literate and neatly matches the slotted-bin sprite.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-slab",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-slab in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-ticker",
+      "depicts": "A dark-grey dispenser box with a light-grey window emitting a horizontal stream of red and grey rectangular pulses.",
+      "concept": "kernel timer ticks and trace stream",
+      "proposals": [
+        {
+          "name": "Tick Dispenser",
+          "why": "Plainly describes the box emitting periodic pulses."
+        },
+        {
+          "name": "Jiffy Tape",
+          "why": "Combines kernel jiffies with ticker-tape telemetry in two dry words."
+        },
+        {
+          "name": "Pulse Ribbon",
+          "why": "Uses a spare physical description suited to an archival field note."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Jiffy Tape is concise, wry, and ties the visual stream to kernel timekeeping.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-ticker",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-ticker in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-gate",
+      "depicts": "A heavy dark-grey archway fitted with a partially lowered light-grey lattice portcullis grate.",
+      "concept": "kernel ring gate / privilege boundary",
+      "proposals": [
+        {
+          "name": "Kernel Portcullis",
+          "why": "Plainly describes the heavy grated barrier."
+        },
+        {
+          "name": "Call-Gate Grate",
+          "why": "Puns dryly on x86 descriptor call gates and the metal lattice."
+        },
+        {
+          "name": "Iron Lattice",
+          "why": "Keeps an austere field-catalogue description focused on form."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Call-Gate Grate gives the prop a crisp hardware-privilege reference without being cutesy.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-gate",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-gate in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-runqueue",
+      "depicts": "A flat grey conveyor belt carrying cyan, yellow, green, and red rectangular task blocks in single file.",
+      "concept": "CPU scheduler runqueue",
+      "proposals": [
+        {
+          "name": "Runqueue Belt",
+          "why": "Names the scheduler queue and the conveyor visual directly."
+        },
+        {
+          "name": "Runnable Conveyor",
+          "why": "Nods to the TASK_RUNNING state of processes lined up for CPU time."
+        },
+        {
+          "name": "Task Promenade",
+          "why": "Uses an understated naturalist turn of phrase for processes marching in line."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Runqueue Belt is direct, accurate, and instantly clear to systems-literate readers.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-runqueue",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-runqueue in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-mutex",
+      "depicts": "A chunky brown-and-yellow padlock with a grey shackle, a dark keyhole, and a yellow key protruding to the right.",
+      "concept": "mutual exclusion lock (mutex)",
+      "proposals": [
+        {
+          "name": "Mutex Padlock",
+          "why": "Straightforwardly pairs the synchronization primitive with the literal lock."
+        },
+        {
+          "name": "Critical-Section Clasp",
+          "why": "Highlights the protected code region that only the key holder may enter."
+        },
+        {
+          "name": "Brass Lockbox",
+          "why": "Describes the heavy metal fastener in an archival field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Mutex Padlock is concise and immediately distinguishes it from userspace advisory locks.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-mutex",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-mutex in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-irqmeter",
+      "depicts": "A grey-framed black bar-chart display showing three cyan columns and one tall yellow spike rising from a grey baseline.",
+      "concept": "interrupt rate histogram (/proc/interrupts)",
+      "proposals": [
+        {
+          "name": "Interrupt Rate Meter",
+          "why": "Plainly explains the bar-graph monitor of incoming interrupts."
+        },
+        {
+          "name": "IRQ Storm Gauge",
+          "why": "Nods to the tall yellow spike as a classic runaway interrupt storm."
+        },
+        {
+          "name": "Spike Barometer",
+          "why": "Uses a dry meteorological instrument metaphor for monitoring load surges."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "IRQ Storm Gauge captures both the computing phenomenon and the alarming yellow bar in the sprite.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-irqmeter",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-irqmeter in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-tlb",
+      "depicts": "A grey-framed black board containing a three-by-four matrix of teal, dark-blue, and one bright white cache-entry cells.",
+      "concept": "Translation Lookaside Buffer (TLB)",
+      "proposals": [
+        {
+          "name": "TLB Cache Matrix",
+          "why": "Names the hardware address-translation cache and its grid layout plainly."
+        },
+        {
+          "name": "Lookaside Pigeonholes",
+          "why": "Turns the notoriously awkward 'lookaside' term into a dry sorting-rack image."
+        },
+        {
+          "name": "Address Mosaic",
+          "why": "Uses a quiet visual metaphor for the tiled grid of cached page translations."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Lookaside Pigeonholes is memorable, dryly funny, and faithful to the TLB's function.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-tlb",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-tlb in the kernel layer."
+    },
+    {
+      "key": "e:ke-kr-schedrack",
+      "depicts": "A grey-framed black rack displaying three horizontal bars filled to different lengths in green and cyan against dark blue.",
+      "concept": "scheduler time-slice and CPU quota bars",
+      "proposals": [
+        {
+          "name": "Quota Bar Rack",
+          "why": "Plainly describes the stacked horizontal usage meters."
+        },
+        {
+          "name": "Vruntime Meter",
+          "why": "References the Linux CFS virtual runtime accounting used to balance task fairness."
+        },
+        {
+          "name": "Slice Tally",
+          "why": "Keeps a brief field-manual label for the measured allocations."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Vruntime Meter grounds the generic progress bars in a specific Linux scheduler concept.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-schedrack",
+      "decisionWhy": "Sprite is byte-for-byte identical to e:kr-schedrack in the kernel layer."
+    },
+    {
+      "key": "e:ke-ptrace",
+      "depicts": "A magenta-framed black screen displaying two vertical rectangular panes side by side, one cyan and one yellow.",
+      "concept": "process tracing and syscall interception (ptrace)",
+      "proposals": [
+        {
+          "name": "Process Trace Screen",
+          "why": "Plainly describes the dual-pane inspection monitor for a tracer and tracee."
+        },
+        {
+          "name": "Ptrace Mirror",
+          "why": "Nods to the two-way observation relationship between debugger and target process."
+        },
+        {
+          "name": "Twin-Pane Spyglass",
+          "why": "Uses a dry field-observer image for watching a process across the syscall boundary."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Ptrace Mirror is concise, cites the exact syscall, and explains the paired-pane visual.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique kernel-entry prop representing the ptrace interception boundary."
+    },
+    {
+      "key": "e:ke-cred",
+      "depicts": "A cyan-bordered dark-blue square badge displaying a white head-and-shoulders silhouette.",
+      "concept": "task credentials (struct cred, UID/GID, capabilities)",
+      "proposals": [
+        {
+          "name": "Credential Badge",
+          "why": "Directly identifies the ID-card sprite and the permission record it stands for."
+        },
+        {
+          "name": "Struct Cred Pass",
+          "why": "References the Linux kernel credential structure as a gatehouse security pass."
+        },
+        {
+          "name": "Bearer Seal",
+          "why": "Treats process identity as an archival warrant presented at the gate."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Credential Badge is crisp, immediately readable from the silhouette icon, and fits the gatehouse theme.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique kernel-entry prop depicting per-task identity verification."
+    },
+    {
+      "key": "e:ke-fdtable",
+      "depicts": "A grey-bordered black slate displaying four horizontal bright-green bars of increasing length stacked vertically.",
+      "concept": "per-process file descriptor table (fdtable)",
+      "proposals": [
+        {
+          "name": "Descriptor Table",
+          "why": "Plainly names the kernel table mapping integer file descriptors to open file objects."
+        },
+        {
+          "name": "FD Slot Ledger",
+          "why": "Combines the standard Unix shorthand with an archival tally of open handles."
+        },
+        {
+          "name": "Handle Index",
+          "why": "Offers an understated catalogue term for the ordered list of open resources."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Descriptor Table is precise, uncluttered, and clearly ties the prop to the VFS gate.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique kernel-entry prop representing per-process VFS file descriptor tracking."
+    },
+    {
+      "key": "e:ke-vdso",
+      "depicts": "A horizontal cyan strip pierced by two vertical yellow pillars, forming a compact bypass conduit.",
+      "concept": "vDSO fast-path syscall bypass",
+      "proposals": [
+        {
+          "name": "vDSO Bypass",
+          "why": "States the exact Linux mechanism that lets read-only calls avoid a full ring transition."
+        },
+        {
+          "name": "Zero-Trap Shortcut",
+          "why": "Highlights the dry joke of a kernel-entry fixture whose entire purpose is skipping kernel entry."
+        },
+        {
+          "name": "Fast-Path Conduit",
+          "why": "Describes the horizontal cyan channel in neutral field-manual prose."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "vDSO Bypass names a memorable real-world optimization that systems readers immediately appreciate.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique kernel-entry prop depicting the userspace-mapped syscall fast path."
+    },
+    {
+      "key": "c:kernel-entry:core",
+      "depicts": "A small black-bezelled cyan monitor screen with a rightward-facing black notch, perched on a compact grey pedestal foot.",
+      "concept": "syscall entry-stub gatekeeper patrolling the ring boundary",
+      "proposals": [
+        {
+          "name": "Gate Sentinel",
+          "why": "Plainly describes a patrolling guardian of the kernel-entry checkpoint."
+        },
+        {
+          "name": "Syscall Clerk",
+          "why": "Casts the boundary watcher as a deadpan bureaucrat inspecting arguments and return codes."
+        },
+        {
+          "name": "Cyan Turnkey",
+          "why": "Pairs the critter's screen colour with an archival term for a gatekeeper."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Syscall Clerk captures the dry, bureaucratic personality of kernel entry validation without becoming cutesy.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique core critter species specific to the kernel-entry layer."
+    },
+    {
+      "key": "c:kernel-entry:alt",
+      "depicts": "A compact cyan rectangular block with a single black square eye in the centre and a flat grey cap resting on top.",
+      "concept": "VFS path-lookup / dentry courier hopping across the gate",
+      "proposals": [
+        {
+          "name": "Boundary Hopper",
+          "why": "Plainly combines the critter's hopping motion with its position on the kernel threshold."
+        },
+        {
+          "name": "Dentry Runner",
+          "why": "References the VFS directory-entry cache to match the layer's VFS Gate subtitle."
+        },
+        {
+          "name": "Capped Courier",
+          "why": "Uses a field-guide description grounded in the sprite's grey top cap and brisk movement."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dentry Runner ties the alternate critter to the VFS half of the layer's identity and suits its hopping motion.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique alternate critter species with distinct art and motion from the core critter."
+    }
+  ]
+}

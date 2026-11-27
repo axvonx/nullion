@@ -1,0 +1,120 @@
+{
+ "layer": "jit",
+ "items": [
+  {
+   "key": "e:jit-forge",
+   "priority": 5,
+   "why": "Layer landmark anchor defining the JIT forge motif; owner should confirm Hotspot Hearth."
+  },
+  {
+   "key": "e:jit-ic",
+   "priority": 2,
+   "why": "Canonical Inline Cache name fits the animated prop with only a light check."
+  },
+  {
+   "key": "e:jit-deopt",
+   "priority": 3,
+   "why": "Tone choice between compiler-specific Uncommon Trap and plainer Bailout Trap."
+  },
+  {
+   "key": "e:jit-profile",
+   "priority": 2,
+   "why": "Hotness Counter is accurate and clear for the profiling bar chart."
+  },
+  {
+   "key": "e:jit-osr",
+   "priority": 3,
+   "why": "Metaphorical Tempering Chute vs literal Replacement Gate is worth a quick look."
+  },
+  {
+   "key": "e:jit-guard",
+   "priority": 2,
+   "why": "Type Guard is crisp and canonical for a speculative guard prop."
+  },
+  {
+   "key": "e:jit-rt-objects",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-objects; obvious merge."
+  },
+  {
+   "key": "e:jit-rt-sweeper",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-sweeper; obvious merge."
+  },
+  {
+   "key": "e:jit-rt-marks",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-marks; obvious merge."
+  },
+  {
+   "key": "e:jit-rt-ref",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-ref; obvious merge."
+  },
+  {
+   "key": "e:jit-rt-heapcol",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-heapcol; obvious merge."
+  },
+  {
+   "key": "e:jit-rt-jit",
+   "priority": 4,
+   "why": "Duplicate of e:rt-jit, but as the JIT-themed anvil prop it may warrant keeping or merging carefully."
+  },
+  {
+   "key": "e:jit-rt-tape",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-tape; obvious merge."
+  },
+  {
+   "key": "e:jit-rt-callstack",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-callstack; obvious merge."
+  },
+  {
+   "key": "e:jit-rt-refcount",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-refcount; obvious merge."
+  },
+  {
+   "key": "e:jit-rt-weakref",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-weakref; obvious merge."
+  },
+  {
+   "key": "e:jit-rt-tricolor",
+   "priority": 2,
+   "why": "Byte-for-byte duplicate of e:rt-tricolor; straightforward merge."
+  },
+  {
+   "key": "e:jit-rt-bump",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-bump; obvious merge."
+  },
+  {
+   "key": "e:jit-rt-finalizer",
+   "priority": 2,
+   "why": "Byte-for-byte duplicate of e:rt-finalizer; straightforward merge."
+  },
+  {
+   "key": "e:jit-rt-interp",
+   "priority": 2,
+   "why": "Byte-for-byte duplicate of e:rt-interp; straightforward merge."
+  },
+  {
+   "key": "e:jit-rt-hashmap",
+   "priority": 1,
+   "why": "Byte-for-byte duplicate of e:rt-hashmap; obvious merge."
+  },
+  {
+   "key": "c:jit:core",
+   "priority": 5,
+   "why": "Primary critter species for the JIT layer; owner must approve species name."
+  },
+  {
+   "key": "c:jit:alt",
+   "priority": 5,
+   "why": "Suggested variant/merge with c:jit:core changes whether this critter form has its own entry."
+  }
+ ]
+}

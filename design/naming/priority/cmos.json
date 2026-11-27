@@ -1,0 +1,135 @@
+{
+  "layer": "cmos",
+  "items": [
+    {
+      "key": "e:cm-viatower",
+      "priority": 5,
+      "why": "Landmark anchor for the CMOS layer; owner should confirm Metal Manhattan vs Via Stack."
+    },
+    {
+      "key": "e:cm-finfet",
+      "priority": 2,
+      "why": "Original CMOS prop with a sound keep; FinFET Cell is clear with a light check."
+    },
+    {
+      "key": "e:cm-via",
+      "priority": 2,
+      "why": "Original CMOS prop with a sound keep; Interlayer Via is clear with a light check."
+    },
+    {
+      "key": "e:cm-well",
+      "priority": 3,
+      "why": "Original CMOS prop where the recommended Complementary Tub pun vs plain Twin Well is a tone call."
+    },
+    {
+      "key": "e:cm-r3-vias",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-vias with an obvious Via Array recommendation."
+    },
+    {
+      "key": "e:cm-r3-pad",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-pad with an obvious Bond Pad recommendation."
+    },
+    {
+      "key": "e:cm-r3-trace",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-trace with a straightforward Dogleg Trace recommendation."
+    },
+    {
+      "key": "e:cm-r3-decap",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-decap with an obvious Decoupling Cap recommendation."
+    },
+    {
+      "key": "e:cm-r3-xtal",
+      "priority": 3,
+      "why": "Palette variant of Ring -3 e:r3-xtal where Quartz Metronome vs Crystal Oscillator is a tone choice."
+    },
+    {
+      "key": "e:cm-r3-testpads",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-testpads with an obvious Test Pad Strip recommendation."
+    },
+    {
+      "key": "e:cm-r3-fuses",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-fuses with an obvious eFuse Bank recommendation."
+    },
+    {
+      "key": "e:cm-r3-resistor",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-resistor with an obvious Polysilicon Resistor recommendation."
+    },
+    {
+      "key": "e:cm-r3-diode",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-diode with an obvious Junction Diode recommendation."
+    },
+    {
+      "key": "e:cm-r3-inductor",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-inductor with an obvious Spiral Inductor recommendation."
+    },
+    {
+      "key": "e:cm-r3-sram",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-sram with an obvious SRAM Bitcell recommendation."
+    },
+    {
+      "key": "e:cm-r3-ringosc",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-ringosc with an obvious Ring Oscillator recommendation."
+    },
+    {
+      "key": "e:cm-r3-thermal",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-thermal with an obvious Thermal Diode recommendation."
+    },
+    {
+      "key": "e:cm-r3-pll",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-pll with an obvious Phase-Locked Loop recommendation."
+    },
+    {
+      "key": "e:cm-r3-jtag",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-jtag with an obvious JTAG Header recommendation."
+    },
+    {
+      "key": "e:cm-r3-rom",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-rom with an obvious Mask ROM recommendation."
+    },
+    {
+      "key": "e:cm-r3-htree",
+      "priority": 2,
+      "why": "Palette variant of Ring -3 e:r3-htree with an obvious Clock H-Tree recommendation."
+    },
+    {
+      "key": "e:cm-nwell",
+      "priority": 1,
+      "why": "Simple two-rectangle primitive marked catalogue; N-Well Pocket can be accepted as-is."
+    },
+    {
+      "key": "e:cm-contact",
+      "priority": 1,
+      "why": "Minimal 10x10 layout primitive marked catalogue; Contact Cut can be accepted as-is."
+    },
+    {
+      "key": "e:cm-metal",
+      "priority": 1,
+      "why": "Simple three-stripe background prop marked catalogue; recommendation can be accepted as-is."
+    },
+    {
+      "key": "c:cmos:core",
+      "priority": 5,
+      "why": "Critter species marked rework due to tiny speck sprite; owner must decide on rework and name."
+    },
+    {
+      "key": "c:cmos:alt",
+      "priority": 5,
+      "why": "Critter-alt marked rework due to unreadable 3x3 speck sprite; owner must decide on rework and name."
+    }
+  ]
+}

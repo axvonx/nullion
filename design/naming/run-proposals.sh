@@ -6,7 +6,7 @@ run() {
   l=$1; out=design/naming/proposals/$l.json
   [ -s "$out" ] && python3 -I -c "import json;json.load(open('$out'))" 2>/dev/null && { echo "$l: done already"; return; }
   p=$(sed -e "s#BATCH#design/naming/batches/$l.json#" -e "s#OUT#$out#g" -e "s#ALL (a JSON#design/naming/batches/ALL.json (a JSON#" design/naming/prompt.md)
-  agy -p "$p" --model gemini-4-neon-medium --dangerously-skip-permissions > design/naming/proposals/$l.log 2>&1
+  agy -p "$p" --model gemini-4-hydrogen-low --dangerously-skip-permissions > design/naming/proposals/$l.log 2>&1
   python3 -I -c "import json;d=json.load(open('$out'));print('$l:', len(d['items']))" 2>&1 | tail -1
 }
 export -f run

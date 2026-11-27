@@ -1,0 +1,605 @@
+{
+ "layer": "rtl",
+ "items": [
+  {
+   "key": "e:rtl-htree",
+   "depicts": "A symmetrical blue and pale-cyan H-tree clock distribution network branching into four terminal bars.",
+   "concept": "H-tree clock distribution",
+   "proposals": [
+    {
+     "name": "Clock H-Tree",
+     "why": "Plainly names the symmetrical branching geometry used to route clock signals with equal wire length."
+    },
+    {
+     "name": "Zero-Skew Canopy",
+     "why": "Nods to the primary purpose of an H-tree—minimizing clock skew—while framing it like a tree canopy."
+    },
+    {
+     "name": "Isochronal Bough",
+     "why": "Uses a naturalist field-guide register to describe branches that deliver every pulse at the exact same instant."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Clock H-Tree is immediately recognizable to hardware engineers and fits the anchor landmark role cleanly.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "This is the signature anchor set piece for the RTL layer and warrants its own manual page."
+  },
+  {
+   "key": "e:rtl-nand",
+   "depicts": "A blue-bordered logic gate with two input leads on the left, a dark body, and an inversion bubble on the right.",
+   "concept": "NAND logic gate",
+   "proposals": [
+    {
+     "name": "NAND Gate",
+     "why": "Directly names the fundamental universal logic gate shown in the schematic symbol."
+    },
+    {
+     "name": "Universal Stone",
+     "why": "References functional completeness, the property that any Boolean function can be built from NANDs alone."
+    },
+    {
+     "name": "Inverter Bud",
+     "why": "Treats the output bubble like a botanical bud in a dry field-guide register."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "NAND Gate is crisp, canonical, and unmistakable as a foundational RTL building block.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct RTL logic-gate sprite with no equivalent in other layers."
+  },
+  {
+   "key": "e:rtl-dff",
+   "depicts": "A tall dark rectangular flip-flop cell with a pale-cyan border, a clock triangle at the bottom left, and data leads.",
+   "concept": "D flip-flop",
+   "proposals": [
+    {
+     "name": "D Flip-Flop",
+     "why": "States the exact sequential-logic element depicted by the rectangle and clock-edge chevron."
+    },
+    {
+     "name": "Edge-Triggered Latch",
+     "why": "Wryly pairs the flip-flop's sampling behavior with a slightly looser hardware term."
+    },
+    {
+     "name": "Clocked Chrysalis",
+     "why": "Frames the state-holding cell as a specimen that only changes form on a rising clock edge."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "D Flip-Flop is the standard name and pairs naturally with the clock and logic gate props.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique to the RTL layer and central to synchronous digital design."
+  },
+  {
+   "key": "e:rtl-wave",
+   "depicts": "A dark-blue framed white timing-diagram window displaying pale-cyan square-wave pulse segments.",
+   "concept": "digital timing waveform",
+   "proposals": [
+    {
+     "name": "Timing Waveform",
+     "why": "Describes the oscilloscope or logic-analyzer trace of digital high/low transitions."
+    },
+    {
+     "name": "Setup Violation",
+     "why": "A dry hardware-verification joke about the dreaded timing failure every RTL engineer hunts in waveforms."
+    },
+    {
+     "name": "Square-Wave Ribbon",
+     "why": "Evokes the crisp, stepped trace as a physical specimen in the field."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Timing Waveform is clear and accurate for a general animated RTL signal display.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct animated RTL prop not duplicated elsewhere."
+  },
+  {
+   "key": "e:rtl-r3-vias",
+   "depicts": "A small square array of inter-layer metal vias in the RTL layer palette.",
+   "concept": "inter-layer metal vias",
+   "proposals": [
+    {
+     "name": "RTL Via Array",
+     "why": "Plainly identifies the vertical interconnect grid recolored for the RTL layer."
+    },
+    {
+     "name": "Vertical Shortcut",
+     "why": "Puns on vias as the vertical tunnels connecting stacked routing layers."
+    },
+    {
+     "name": "Pinhole Colony",
+     "why": "Describes the tiny clustered openings in a naturalist field-guide style."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Via Array clearly marks this as the RTL-tinted version of the Ring-3 via array.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-vias",
+   "decisionWhy": "Recoloured variant of e:r3-vias from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-pad",
+   "depicts": "A rectangular metallic bond pad with a surrounding border in RTL blue.",
+   "concept": "die bond pad",
+   "proposals": [
+    {
+     "name": "RTL Bond Pad",
+     "why": "Directly names the die-edge contact pad in its RTL palette."
+    },
+    {
+     "name": "Solder Landing",
+     "why": "References the pad's role as a landing zone for bond wires and probes."
+    },
+    {
+     "name": "Copper Clearing",
+     "why": "Treats the flat exposed metal pad like a small clearing in a field guide."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Bond Pad is straightforward and aligns with the Ring-3 original.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-pad",
+   "decisionWhy": "Recoloured variant of e:r3-pad from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-trace",
+   "depicts": "A horizontal routed copper trace segment with angled bends in RTL tones.",
+   "concept": "routed signal trace",
+   "proposals": [
+    {
+     "name": "RTL Signal Trace",
+     "why": "Plainly describes the routed interconnect line."
+    },
+    {
+     "name": "Manhattan Run",
+     "why": "Nods to Manhattan routing, the orthogonal wire-routing style used on chips."
+    },
+    {
+     "name": "Etched Runway",
+     "why": "Uses a naturalist/landscape metaphor for the narrow conductive path."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Signal Trace is concise and matches the Ring-3 counterpart.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-trace",
+   "decisionWhy": "Recoloured variant of e:r3-trace from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-decap",
+   "depicts": "A compact decoupling capacitor block sitting across power rails in RTL colours.",
+   "concept": "decoupling capacitor",
+   "proposals": [
+    {
+     "name": "RTL Decap Cell",
+     "why": "Uses the standard VLSI shorthand for a decoupling capacitor."
+    },
+    {
+     "name": "Droop Buffer",
+     "why": "References voltage droop, the power-rail sag that decaps exist to suppress."
+    },
+    {
+     "name": "Charge Reservoir",
+     "why": "Frames the capacitor as a quiet local basin of stored charge."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Decap Cell is authentic to chip-design terminology.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-decap",
+   "decisionWhy": "Recoloured variant of e:r3-decap from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-xtal",
+   "depicts": "An animated quartz crystal oscillator package in RTL blue tones.",
+   "concept": "quartz crystal oscillator",
+   "proposals": [
+    {
+     "name": "RTL Crystal Oscillator",
+     "why": "Directly names the frequency-reference component."
+    },
+    {
+     "name": "Piezo Metronome",
+     "why": "Puns on the piezoelectric quartz crystal keeping time for the entire chip."
+    },
+    {
+     "name": "Resonant Quartz",
+     "why": "Uses a mineralogical field-guide tone for the vibrating crystal."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Crystal Oscillator is exact and pairs with the Ring-3 crystal.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-xtal",
+   "decisionWhy": "Recoloured variant of e:r3-xtal from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-testpads",
+   "depicts": "A row of small exposed probe test pads in RTL colours.",
+   "concept": "wafer test pads",
+   "proposals": [
+    {
+     "name": "RTL Test Pads",
+     "why": "Plainly identifies the row of probing contacts."
+    },
+    {
+     "name": "Needle Targets",
+     "why": "Dryly refers to the micro-prober needles that land on these pads during wafer sort."
+    },
+    {
+     "name": "Tin Stepping Stones",
+     "why": "Describes the evenly spaced pads in a quiet field-guide register."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Test Pads is clear and consistent with Ring-3.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-testpads",
+   "decisionWhy": "Recoloured variant of e:r3-testpads from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-fuses",
+   "depicts": "A strip of programmable eFuses in RTL blue tones.",
+   "concept": "programmable eFuses",
+   "proposals": [
+    {
+     "name": "RTL Fuse Strip",
+     "why": "Plainly names the one-time-programmable fuse array."
+    },
+    {
+     "name": "Write-Once Regret",
+     "why": "Jokes about the permanence of blowing an eFuse on silicon."
+    },
+    {
+     "name": "Severed Filaments",
+     "why": "Frames blown and intact fuses like delicate biological filaments."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Fuse Strip is concise and unambiguous.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-fuses",
+   "decisionWhy": "Recoloured variant of e:r3-fuses from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-resistor",
+   "depicts": "A thin serpentine or bar resistor element in RTL colours.",
+   "concept": "integrated resistor",
+   "proposals": [
+    {
+     "name": "RTL Resistor",
+     "why": "Directly names the passive resistive element."
+    },
+    {
+     "name": "Ohm's Tollbooth",
+     "why": "A wry nod to electrical resistance impeding current flow."
+    },
+    {
+     "name": "Narrowing Ridge",
+     "why": "Uses a natural-history metaphor for a constricted conductive path."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Resistor is clean and matches the Ring-3 variant.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-resistor",
+   "decisionWhy": "Recoloured variant of e:r3-resistor from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-diode",
+   "depicts": "A compact two-terminal diode junction in RTL blue.",
+   "concept": "semiconductor diode",
+   "proposals": [
+    {
+     "name": "RTL Diode",
+     "why": "Plainly names the one-way semiconductor junction."
+    },
+    {
+     "name": "One-Way Valve",
+     "why": "Describes the diode's rectifying behavior as a simple check valve."
+    },
+    {
+     "name": "Polarized Gate",
+     "why": "Uses a terse field-guide phrase for directional conduction."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Diode is direct and consistent with Ring-3.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-diode",
+   "decisionWhy": "Recoloured variant of e:r3-diode from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-inductor",
+   "depicts": "A flat spiral or coiled on-die inductor in RTL colours.",
+   "concept": "on-die spiral inductor",
+   "proposals": [
+    {
+     "name": "RTL Inductor",
+     "why": "Plainly names the coiled magnetic component."
+    },
+    {
+     "name": "Flux Snail",
+     "why": "Puns on the spiral geometry and magnetic flux storage."
+    },
+    {
+     "name": "Coiled Tendril",
+     "why": "Frames the spiral trace in a botanical field-guide register."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Inductor is clear and matches the Ring-3 prop.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-inductor",
+   "decisionWhy": "Recoloured variant of e:r3-inductor from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-sram",
+   "depicts": "A dense rectangular SRAM macro block in RTL blue tones.",
+   "concept": "SRAM memory macro",
+   "proposals": [
+    {
+     "name": "RTL SRAM Macro",
+     "why": "Directly names the static RAM array block."
+    },
+    {
+     "name": "Six-Transistor Hive",
+     "why": "References the classic 6T SRAM bitcell packed into a dense grid."
+    },
+    {
+     "name": "Volatile Honeycomb",
+     "why": "Evokes the regular cellular array and its power-dependent memory."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL SRAM Macro is accurate and aligns with Ring-3.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-sram",
+   "decisionWhy": "Recoloured variant of e:r3-sram from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-ringosc",
+   "depicts": "An animated loop of inverting stages forming a ring oscillator in RTL colours.",
+   "concept": "ring oscillator",
+   "proposals": [
+    {
+     "name": "RTL Ring Oscillator",
+     "why": "Plainly names the self-oscillating odd-inverter loop."
+    },
+    {
+     "name": "Chasing Tail",
+     "why": "Nods to the odd number of inverters endlessly flipping each other in a circle."
+    },
+    {
+     "name": "Perpetual Eddy",
+     "why": "Frames the circulating logic pulse like a small whirlpool."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Ring Oscillator is precise and matches Ring-3.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-ringosc",
+   "decisionWhy": "Recoloured variant of e:r3-ringosc from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-thermal",
+   "depicts": "A tall narrow on-die thermal sensor diode column in RTL colours.",
+   "concept": "on-die thermal sensor",
+   "proposals": [
+    {
+     "name": "RTL Thermal Sensor",
+     "why": "Plainly names the temperature-monitoring element."
+    },
+    {
+     "name": "Throttle Watch",
+     "why": "References thermal throttling, the inevitable consequence of a hot die."
+    },
+    {
+     "name": "Mercury Spine",
+     "why": "Evokes a slender thermometer column in a field-guide register."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Thermal Sensor is clear and consistent with Ring-3.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-thermal",
+   "decisionWhy": "Recoloured variant of e:r3-thermal from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-pll",
+   "depicts": "A compact phase-locked loop frequency-synthesizer block in RTL colours.",
+   "concept": "phase-locked loop",
+   "proposals": [
+    {
+     "name": "RTL PLL Block",
+     "why": "Uses the standard acronym for a phase-locked loop."
+    },
+    {
+     "name": "Phase Wrangler",
+     "why": "Dryly personifies the feedback loop that locks output phase to a reference clock."
+    },
+    {
+     "name": "Harmonic Loom",
+     "why": "Frames frequency multiplication as weaving a faster clock from a slow reference."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL PLL Block is concise and matches Ring-3.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-pll",
+   "decisionWhy": "Recoloured variant of e:r3-pll from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-jtag",
+   "depicts": "A small JTAG boundary-scan debug header in RTL blue.",
+   "concept": "JTAG debug interface",
+   "proposals": [
+    {
+     "name": "RTL JTAG Port",
+     "why": "Directly names the IEEE 1149.1 test access port."
+    },
+    {
+     "name": "Boundary Snoop",
+     "why": "References JTAG's boundary-scan chain for inspecting internal pins."
+    },
+    {
+     "name": "Four-Pin Oracle",
+     "why": "Nods to TDI, TDO, TCK, and TMS in a slightly mythic field-guide tone."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL JTAG Port is exact and aligns with Ring-3.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-jtag",
+   "decisionWhy": "Recoloured variant of e:r3-jtag from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-rom",
+   "depicts": "A wide mask-ROM block carrying etched bit-pattern text in RTL colours.",
+   "concept": "mask-programmed ROM",
+   "proposals": [
+    {
+     "name": "RTL Mask ROM",
+     "why": "Plainly names the read-only memory etched at fabrication."
+    },
+    {
+     "name": "Lithographic Stone",
+     "why": "References the immutability of data baked directly into metal masks."
+    },
+    {
+     "name": "Fossilized Code",
+     "why": "Treats permanent mask-ROM bits like impressions preserved in rock."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Mask ROM is clear and matches Ring-3.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-rom",
+   "decisionWhy": "Recoloured variant of e:r3-rom from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-r3-htree",
+   "depicts": "A miniature 15x15 H-tree clock-distribution prop in RTL colours.",
+   "concept": "miniature H-tree",
+   "proposals": [
+    {
+     "name": "RTL Mini H-Tree",
+     "why": "Distinguishes this small scatter prop from the full 50x44 anchor H-tree."
+    },
+    {
+     "name": "Pocket Clock Tree",
+     "why": "Playfully notes the scaled-down size of the distribution network."
+    },
+    {
+     "name": "Bonsai H-Tree",
+     "why": "Uses a dry naturalist metaphor for a miniature branching tree."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "RTL Mini H-Tree clearly separates it from the main anchor while keeping it tied to Ring-3.",
+   "decisionHint": "variant",
+   "mergeWith": "e:r3-htree",
+   "decisionWhy": "Recoloured variant of e:r3-htree from the Ring-3 layer."
+  },
+  {
+   "key": "e:rtl-mux",
+   "depicts": "A bright-blue trapezoidal multiplexer symbol tapering from left to right.",
+   "concept": "multiplexer",
+   "proposals": [
+    {
+     "name": "Multiplexer",
+     "why": "Plainly names the standard combinational selector gate."
+    },
+    {
+     "name": "Select-Line Funnel",
+     "why": "Describes the trapezoid's shape and its job of funneling many inputs to one output."
+    },
+    {
+     "name": "Confluence Gate",
+     "why": "Frames the many-to-one selector like a river confluence in a field guide."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Multiplexer is canonical and immediately recognizable from the trapezoidal icon.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique RTL combinational-logic prop not present in other layers."
+  },
+  {
+   "key": "e:rtl-adder",
+   "depicts": "A blue-framed dark block containing a pale-cyan plus sign.",
+   "concept": "binary adder",
+   "proposals": [
+    {
+     "name": "Binary Adder",
+     "why": "Plainly names the arithmetic logic block."
+    },
+    {
+     "name": "Carry-Lookahead Box",
+     "why": "References the classic fast-adder architecture used in real RTL."
+    },
+    {
+     "name": "Sum Crucible",
+     "why": "Evokes the block as a small vessel where two operands are fused into a sum."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Binary Adder is crisp, accurate, and matches the plus-sign icon.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique RTL arithmetic prop with no duplicate in other layers."
+  },
+  {
+   "key": "e:rtl-clk",
+   "depicts": "Two parallel horizontal clock rails, one pale cyan and one dark navy, in an animated 18x7 strip.",
+   "concept": "clock rail",
+   "proposals": [
+    {
+     "name": "Clock Rail",
+     "why": "Plainly names the differential or dual-phase clock bus."
+    },
+    {
+     "name": "Duty-Cycle Track",
+     "why": "References the 50/50 high-low rhythm carried along the rail."
+    },
+    {
+     "name": "Twin Pulseway",
+     "why": "Uses a field-guide register for the parallel timing tracks."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Clock Rail is concise and fits the animated horizontal strip.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct animated RTL prop not duplicated elsewhere."
+  },
+  {
+   "key": "c:rtl:core",
+   "depicts": "A tiny grey-and-black pixelated critter that scuttles along the RTL logic grid.",
+   "concept": "synchronous logic pulse",
+   "proposals": [
+    {
+     "name": "Gate Scuttler",
+     "why": "Describes the critter's grid-scuttling motion across RTL gates."
+    },
+    {
+     "name": "Glitch Hopper",
+     "why": "Puns on combinational hazards and glitches that race through logic networks."
+    },
+    {
+     "name": "Silicon Mite",
+     "why": "Uses a classic naturalist field-guide name for a tiny grid-dwelling creature."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Gate Scuttler pairs its literal motion with the RTL gate environment.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "The core critter species for the RTL layer."
+  }
+ ]
+}

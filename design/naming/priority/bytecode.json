@@ -1,0 +1,120 @@
+{
+  "layer": "bytecode",
+  "items": [
+    {
+      "key": "e:bc-parsetree",
+      "priority": 5,
+      "why": "Landmark anchor for the AST & Bytecode layer; owner should confirm the canonical name."
+    },
+    {
+      "key": "e:bc-ast",
+      "priority": 3,
+      "why": "Sound keep, but the punny recommendation 'Pruned Expression' vs plain 'Syntax Tree' is worth a quick look."
+    },
+    {
+      "key": "e:bc-token",
+      "priority": 2,
+      "why": "Clear Endless-layer prop; 'Lexeme Tray' fits the sprite well with just a light check."
+    },
+    {
+      "key": "e:bc-constpool",
+      "priority": 1,
+      "why": "Canonical VM term 'Constant Pool' is obvious and needs no review."
+    },
+    {
+      "key": "e:bc-lexer",
+      "priority": 3,
+      "why": "Sound keep, but the insider pun 'Maximal Muncher' vs 'Lexical Scanner' is a tone call."
+    },
+    {
+      "key": "e:bc-cfg",
+      "priority": 2,
+      "why": "Clear Endless-layer prop; 'Control-Flow Fork' is straightforward with a light check."
+    },
+    {
+      "key": "e:bc-rt-objects",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-objects (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-sweeper",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-sweeper (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-marks",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-marks (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-ref",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-ref (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-heapcol",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-heapcol (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-jit",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-jit (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-tape",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-tape (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-callstack",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-callstack (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-refcount",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-refcount (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-weakref",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-weakref (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-tricolor",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-tricolor (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-bump",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-bump (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-finalizer",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-finalizer (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-interp",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-interp (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "e:bc-rt-hashmap",
+      "priority": 5,
+      "why": "Suggested merge with e:rt-hashmap (duplicate sprite) requires owner decision."
+    },
+    {
+      "key": "c:bytecode:core",
+      "priority": 5,
+      "why": "Core critter species for the AST & Bytecode layer; owner must approve the species name."
+    },
+    {
+      "key": "c:bytecode:alt",
+      "priority": 5,
+      "why": "Alternate critter species for the AST & Bytecode layer; owner must approve the species name."
+    }
+  ]
+}

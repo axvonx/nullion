@@ -1,0 +1,653 @@
+{
+  "layer": "kernel-arch",
+  "items": [
+    {
+      "key": "e:ka-apicbank",
+      "depicts": "A large black console framed in coral-red holding a six-by-four grid of dark red and lit yellow interrupt indicator tiles.",
+      "concept": "I/O APIC interrupt routing bank",
+      "proposals": [
+        {
+          "name": "Interrupt Switchboard",
+          "why": "Plainly describes the multi-line routing panel that fans external IRQs across processor cores."
+        },
+        {
+          "name": "Vector Annunciator",
+          "why": "Pairs the x86 interrupt vector table with an industrial fault-panel annunciator."
+        },
+        {
+          "name": "Redirection Wall",
+          "why": "Nods to the I/O APIC redirection table in the understated register of a field landmark."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Vector Annunciator is precise, evocative of hardware alarm panels, and immediately readable as an arch-layer landmark.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinctive anchor set piece with clear pixel art representing the layer's central interrupt-routing architecture."
+    },
+    {
+      "key": "e:ka-apic",
+      "depicts": "A small black module bordered in coral-red containing four vertical bars alternating between dark red and bright yellow.",
+      "concept": "Local APIC per-core interrupt controller",
+      "proposals": [
+        {
+          "name": "Local Controller",
+          "why": "Directly names the per-CPU Advanced Programmable Interrupt Controller unit."
+        },
+        {
+          "name": "Priority Arbiter",
+          "why": "References the TPR and PPR priority-class arbitration performed on every incoming interrupt."
+        },
+        {
+          "name": "Signal Latch",
+          "why": "Treats the four-bar register like a small electromechanical field relay."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Priority Arbiter captures the APIC's actual role without falling back on acronyms or the prototype name.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core hardware-architecture concept with its own compact sprite distinct from the larger APIC bank anchor."
+    },
+    {
+      "key": "e:ka-idt",
+      "depicts": "A grey-framed dark cabinet displaying four stacked horizontal bars, with the top entry lit coral-red above three amber rows.",
+      "concept": "Interrupt Descriptor Table",
+      "proposals": [
+        {
+          "name": "Descriptor Table",
+          "why": "States the literal x86 structure that maps interrupt vectors to handler addresses."
+        },
+        {
+          "name": "Fault Directory",
+          "why": "Wryly frames the IDT as a switchboard directory for every exception the CPU can suffer."
+        },
+        {
+          "name": "Trap Ledger",
+          "why": "Uses archival field-guide phrasing to evoke a bound list of hardware traps and gates."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Trap Ledger fits the archive-binder Field Manual tone while cleanly distinguishing the IDT from generic tables.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Legible table sprite depicting one of the foundational x86 kernel-architecture data structures."
+    },
+    {
+      "key": "e:ka-cr3",
+      "depicts": "A yellow-bordered black register housing a deep red bar with a bright white rectangular core.",
+      "concept": "CR3 page-directory base register",
+      "proposals": [
+        {
+          "name": "Root Register",
+          "why": "Directly describes the control register holding the physical base address of the page table."
+        },
+        {
+          "name": "Context Crown",
+          "why": "Plays on CR3 sitting at the top of every address space and swapping on every context switch."
+        },
+        {
+          "name": "Base Pointer",
+          "why": "Keeps the unadorned hardware-manual register of a single-purpose address latch."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Root Register is crisp, accurate to CR3's role as the root of paging, and works without requiring x86 trivia.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean register-slot sprite representing a pivotal architecture-specific control register."
+    },
+    {
+      "key": "e:ka-kr-gears",
+      "depicts": "Two interlocking pixelated gears, a larger grey wheel meshing with a smaller rust-brown gear with a yellow axle.",
+      "concept": "kernel mechanical scheduling and clockwork",
+      "proposals": [
+        {
+          "name": "Drive Gears",
+          "why": "Plainly describes the paired grey and copper cogwheels turning together."
+        },
+        {
+          "name": "Clockwork Meshing",
+          "why": "Nods to the tight coupling of kernel subsystems that grind whenever one stalls."
+        },
+        {
+          "name": "Iron Pinions",
+          "why": "Gives the mechanical motif a dry, naturalist-specimen feel suited to an engine room."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Drive Gears is straightforward and avoids over-explaining a background mechanical prop.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-gears",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-gears prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-dmesg",
+      "depicts": "A grey-framed dark console displaying two lines of bright green bitmap text reading FUTEX HA and EXT4-FS with a green status bar.",
+      "concept": "kernel ring-buffer diagnostic log",
+      "proposals": [
+        {
+          "name": "Console Readout",
+          "why": "Directly names the scrolling diagnostic display of kernel boot and fault messages."
+        },
+        {
+          "name": "Ring Buffer",
+          "why": "References the fixed-size circular log that silently overwrites your earliest clue."
+        },
+        {
+          "name": "Green Ticker",
+          "why": "Describes the phosphor-green message strip in spare field-observation terms."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Ring Buffer nails the real kernel structure behind dmesg with dry technical precision.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-dmesg",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-dmesg prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-gauge",
+      "depicts": "A horizontal red-and-coral bar flanked by two grey vertical clamps with a red needle suspended above the center notch.",
+      "concept": "kernel load and pressure metering",
+      "proposals": [
+        {
+          "name": "Pressure Gauge",
+          "why": "Plainly labels the analog-style meter measuring kernel contention or load."
+        },
+        {
+          "name": "Load Indicator",
+          "why": "References Unix load average as a needle perpetually hovering near the red."
+        },
+        {
+          "name": "Redline Scale",
+          "why": "Evokes an industrial boiler instrument observed in the field."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Pressure Gauge is concise and immediately matches both the sprite and kernel PSI metrics.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-gauge",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-gauge prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-piston",
+      "depicts": "A narrow vertical dark grey cylinder with a lighter metallic left highlight suspended above a thin grey base plate.",
+      "concept": "kernel work-cycle actuation",
+      "proposals": [
+        {
+          "name": "Drive Piston",
+          "why": "Directly names the reciprocating mechanical plunger shown in the sprite."
+        },
+        {
+          "name": "Cycle Ram",
+          "why": "Puns on CPU clock cycles and mechanical ramming in a single terse phrase."
+        },
+        {
+          "name": "Iron Plunger",
+          "why": "Describes the specimen like a heavy piece of industrial hardware."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Drive Piston is clear and unpretentious for a simple animated engine-room prop.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-piston",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-piston prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-leds",
+      "depicts": "A small grey-bezel black panel containing a three-by-two grid of glowing green indicator squares with one red lamp at bottom right.",
+      "concept": "kernel status and fault indicator bank",
+      "proposals": [
+        {
+          "name": "Status Panel",
+          "why": "Plainly describes the six-lamp diagnostic indicator block."
+        },
+        {
+          "name": "Panic Lamp",
+          "why": "Calls attention to the lone red LED quietly contradicting five green ones."
+        },
+        {
+          "name": "Telltale Array",
+          "why": "Uses classic instrumentation terminology for a cluster of warning lights."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Telltale Array has the dry, authoritative ring of an old hardware maintenance manual.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-leds",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-leds prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-schedwheel",
+      "depicts": "A round grey spoked wheel on a dark stand carrying six differently colored task blocks around its rim.",
+      "concept": "round-robin process scheduler",
+      "proposals": [
+        {
+          "name": "Scheduler Wheel",
+          "why": "Directly identifies the rotating wheel that cycles tasks through CPU time."
+        },
+        {
+          "name": "Round Robin",
+          "why": "Uses the classic scheduling algorithm's own name as a neat naturalist double entendre."
+        },
+        {
+          "name": "Quantum Carousel",
+          "why": "Pairs time-slice quanta with the Ferris-wheel silhouette of the sprite."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Round Robin is effortlessly witty, exact to the algorithm, and reads naturally in a field guide.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-schedwheel",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-schedwheel prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-pagetable",
+      "depicts": "A grey filing cabinet with four black drawer slots, each with a grey handle and three lit with green present-bit lamps.",
+      "concept": "virtual memory page table",
+      "proposals": [
+        {
+          "name": "Page Cabinet",
+          "why": "Plainly describes the four-drawer index of mapped and unmapped memory pages."
+        },
+        {
+          "name": "Present Index",
+          "why": "Nods to the page-table present bit shown by the three green lights and one dark slot."
+        },
+        {
+          "name": "Mapping Chest",
+          "why": "Frames the hardware translation structure as an archival drawer unit."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Page Cabinet cleanly fuses the physical filing-cabinet art with virtual-memory paging.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-pagetable",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-pagetable prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-irqbell",
+      "depicts": "A bright yellow brass bell hanging from a dark grey bracket with a brown clapper underneath.",
+      "concept": "hardware interrupt request signal",
+      "proposals": [
+        {
+          "name": "Interrupt Bell",
+          "why": "Directly names the alarm bell that demands immediate processor attention."
+        },
+        {
+          "name": "Preempt Chime",
+          "why": "Wryly pairs a polite chime with the rude reality of involuntary preemption."
+        },
+        {
+          "name": "Brass Clapper",
+          "why": "Treats the IRQ bell as a tangible specimen of mechanical signaling gear."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Interrupt Bell is immediate, legible, and matches the literal brass-bell pixel art.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-irqbell",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-irqbell prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-turnstile",
+      "depicts": "A dark grey pedestal post topped with three light grey rotating barrier arms.",
+      "concept": "priority-inheritance turnstile synchronization",
+      "proposals": [
+        {
+          "name": "Lock Turnstile",
+          "why": "Plainly names the single-file blocking gate used for contended kernel locks."
+        },
+        {
+          "name": "Contention Gate",
+          "why": "Highlights the serialization bottleneck where threads queue one by one."
+        },
+        {
+          "name": "Blocking Stile",
+          "why": "Uses archaic English field-guide phrasing for a narrow pass-through barrier."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Lock Turnstile directly honors the real Solaris and BSD kernel turnstile primitive.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-turnstile",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-turnstile prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-slab",
+      "depicts": "Four grey rectangular bays under a brown beam, three holding paired green or cyan object bars and one sitting empty.",
+      "concept": "slab memory allocator",
+      "proposals": [
+        {
+          "name": "Slab Rack",
+          "why": "Directly describes the pre-sized object bays of the kernel slab allocator."
+        },
+        {
+          "name": "Cache Magazine",
+          "why": "References the per-CPU slab magazines that hand out uniform objects without fragmentation."
+        },
+        {
+          "name": "Object Stalls",
+          "why": "Evokes neat stable-like compartments holding identical allocated structures."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Cache Magazine is an authentic slab-allocator term that sounds wonderfully tactile in a manual.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-slab",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-slab prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-ticker",
+      "depicts": "A grey emitter box on the left shooting a horizontal stream of four red and dark grey rectangular pulses to the right.",
+      "concept": "periodic kernel timer tick (jiffies)",
+      "proposals": [
+        {
+          "name": "Timer Emitter",
+          "why": "Plainly describes the clock source firing regular scheduling pulses."
+        },
+        {
+          "name": "Jiffy Gun",
+          "why": "Wryly names the periodic Linux jiffies counter after its horizontal pulse stream."
+        },
+        {
+          "name": "Metronome Tap",
+          "why": "Captures the steady heartbeat of the kernel tick in quiet field-guide language."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Jiffy Gun is compact, computing-literate, and quietly funny alongside the shooting-dash sprite.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-ticker",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-ticker prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-gate",
+      "depicts": "A grey steel archway with a lowered iron portcullis grille barring the passage.",
+      "concept": "kernel privilege boundary / call gate",
+      "proposals": [
+        {
+          "name": "Call Gate",
+          "why": "Uses the exact x86 descriptor term for a controlled privilege transition."
+        },
+        {
+          "name": "Ring Portcullis",
+          "why": "Blends CPU protection rings with the heavy iron grille shown in the sprite."
+        },
+        {
+          "name": "Iron Grating",
+          "why": "Describes the checkpoint in plain architectural field-guide terms."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Call Gate is an authentic low-level architecture term that needs no embellishment.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-gate",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-gate prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-runqueue",
+      "depicts": "A grey horizontal conveyor track carrying cyan, yellow, green, and red rectangular task blocks lined up in sequence.",
+      "concept": "scheduler run queue",
+      "proposals": [
+        {
+          "name": "Run Queue",
+          "why": "Directly names the scheduler's queue of runnable processes awaiting CPU time."
+        },
+        {
+          "name": "Ready Belt",
+          "why": "Pairs the runnable state with the conveyor-belt visual of the sprite."
+        },
+        {
+          "name": "Waiting Track",
+          "why": "Describes the lined-up blocks in calm, observational prose."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Run Queue is crisp, standard Unix terminology, and immediately legible.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-runqueue",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-runqueue prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-mutex",
+      "depicts": "A heavy brown padlock with a yellow top band, grey shackle, black keyhole, and a yellow key protruding to the right.",
+      "concept": "mutual exclusion lock",
+      "proposals": [
+        {
+          "name": "Kernel Padlock",
+          "why": "Plainly names the heavy lock guarding a critical section."
+        },
+        {
+          "name": "Mutual Lock",
+          "why": "Expands the mutex contraction into a dry, literal label."
+        },
+        {
+          "name": "Brass Hasplock",
+          "why": "Treats the synchronization primitive as a solid piece of vault hardware."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Mutual Lock stays close to mutex without sounding like a generic UI icon.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-mutex",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-mutex prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-irqmeter",
+      "depicts": "A grey-framed black screen showing four vertical bar-graph columns, three cyan and the tallest right column bright yellow.",
+      "concept": "interrupt rate telemetry",
+      "proposals": [
+        {
+          "name": "Interrupt Meter",
+          "why": "Directly identifies the bar-chart monitor tracking IRQ frequency."
+        },
+        {
+          "name": "Storm Gauge",
+          "why": "Wryly alludes to an interrupt storm peaking on the yellow rightmost bar."
+        },
+        {
+          "name": "Pulse Histogram",
+          "why": "Uses dry instrument-manual phrasing for the four-column display."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Storm Gauge captures the dread of a runaway IRQ line in two understated words.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-irqmeter",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-irqmeter prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-tlb",
+      "depicts": "A grey-framed black box holding a four-by-three grid of small horizontal cyan and dark blue cache cells with one white hit cell.",
+      "concept": "Translation Lookaside Buffer",
+      "proposals": [
+        {
+          "name": "Lookaside Cache",
+          "why": "Directly names the fast address-translation cache shown as a grid of cells."
+        },
+        {
+          "name": "Shootdown Grid",
+          "why": "References the expensive cross-core TLB shootdown required when mappings change."
+        },
+        {
+          "name": "Translation Matrix",
+          "why": "Gives the twelve-cell lookup array a clean field-guide designation."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Lookaside Cache preserves the classic, slightly eccentric hardware phrasing of the TLB.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-tlb",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-tlb prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-kr-schedrack",
+      "depicts": "A grey-framed black panel displaying three horizontal progress bars filled to different lengths in green and cyan against dark blue.",
+      "concept": "CFS virtual runtime / scheduler budget bars",
+      "proposals": [
+        {
+          "name": "Quota Rack",
+          "why": "Plainly describes the stacked CPU-time budget meters."
+        },
+        {
+          "name": "Fairness Bars",
+          "why": "Nods to the Completely Fair Scheduler tracking how much runtime each task has consumed."
+        },
+        {
+          "name": "Slice Gauges",
+          "why": "Frames the three horizontal meters like a bank of workshop sight glasses."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Fairness Bars quietly jokes about scheduler fairness while accurately reading the uneven bars.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-schedrack",
+      "decisionWhy": "Byte-for-byte duplicate of the kernel layer's e:kr-schedrack prop under a kernel-arch prefix."
+    },
+    {
+      "key": "e:ka-nmi",
+      "depicts": "A glowing yellow starburst core encircled by a notched deep crimson ring on a short stem, resembling an urgent alarm beacon.",
+      "concept": "Non-Maskable Interrupt",
+      "proposals": [
+        {
+          "name": "Unmaskable Flare",
+          "why": "Plainly evokes an interrupt signal that cannot be ignored or masked off."
+        },
+        {
+          "name": "Deafening Beacon",
+          "why": "Dryly notes that even with interrupts disabled, the CPU still has to answer this one."
+        },
+        {
+          "name": "Crimson Klaxon",
+          "why": "Uses field-manual imagery to capture the red-and-yellow emergency siren look."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Unmaskable Flare is precise to NMI semantics and matches the bright flare-like sprite.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinctive, high-contrast prop representing one of the most dramatic hardware-interrupt concepts."
+    },
+    {
+      "key": "e:ka-spinlock",
+      "depicts": "A hollow bright yellow pixel circle looping continuously around a solid coral-red square at its center.",
+      "concept": "busy-wait spinlock synchronization",
+      "proposals": [
+        {
+          "name": "Spin Ring",
+          "why": "Plainly describes the circular waiting loop surrounding a contested lock."
+        },
+        {
+          "name": "Busy Wheel",
+          "why": "Wryly invokes busy-waiting—burning cycles in place while accomplishing nothing."
+        },
+        {
+          "name": "Contention Orbit",
+          "why": "Reads the yellow ring around the red core like a naturalist's diagram of trapped motion."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Busy Wheel is concise, quietly funny, and immediately evokes the wastefulness of spinning.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean, unmistakable visual metaphor for a spinlock with unique art native to this layer."
+    },
+    {
+      "key": "e:ka-rcu",
+      "depicts": "Two identical dark rectangular panes side by side, the left bordered in bright cyan and the right bordered in bright yellow.",
+      "concept": "Read-Copy-Update lockless reclamation",
+      "proposals": [
+        {
+          "name": "Dual Pane",
+          "why": "Plainly describes the side-by-side old and new data snapshots."
+        },
+        {
+          "name": "Grace Period",
+          "why": "Uses RCU's own dryly polite term for waiting until every reader has finished before freeing."
+        },
+        {
+          "name": "Twin Epoch",
+          "why": "Frames the cyan-and-yellow pair as two overlapping generations in a field specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Grace Period is genuine RCU terminology and lands with dry Unix-manual wit.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Minimalist but clear dual-generation visual for a signature low-level kernel concurrency mechanism."
+    },
+    {
+      "key": "e:ka-tlb",
+      "depicts": "A coral-red framed black box containing three vertical rectangular blocks, two dark red flanking a bright yellow middle slot.",
+      "concept": "hardware Translation Lookaside Buffer",
+      "proposals": [
+        {
+          "name": "Hardware Lookaside",
+          "why": "Plainly distinguishes this arch-level translation cache from the generic kernel table."
+        },
+        {
+          "name": "Stale Entry",
+          "why": "Dryly nods to the classic kernel bug of forgetting to flush a cached translation."
+        },
+        {
+          "name": "Crimson Cache",
+          "why": "Describes the red-and-yellow three-slot unit in terse field-guide style."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Stale Entry is funny and painfully accurate to what makes the TLB memorable in arch code.",
+      "decisionHint": "merge",
+      "mergeWith": "e:kr-tlb",
+      "decisionWhy": "Represents the same TLB concept as e:kr-tlb (which is already copied here as e:ka-kr-tlb) under a separate id and sprite."
+    },
+    {
+      "key": "c:kernel-arch:core",
+      "depicts": "A tiny red square with a single yellow core pixel and two short yellow side bars, occupying only a few pixels of a larger canvas.",
+      "concept": "hardware interrupt / IPI courier",
+      "proposals": [
+        {
+          "name": "Vector Mite",
+          "why": "Plainly pairs its tiny scuttling size with an interrupt vector."
+        },
+        {
+          "name": "Spurious Bug",
+          "why": "Puns on spurious interrupts that arrive for no clear reason and vanish on inspection."
+        },
+        {
+          "name": "Spark Strider",
+          "why": "Gives the zipping, scuttling critter an understated field-guide species name."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Spurious Bug is a classic hardware-interrupt joke that fits a tiny, fleeting critter.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "The drawn sprite is only a tiny seven-by-three-pixel speck inside a twenty-six-by-twenty-two canvas and needs clearer silhouette work."
+    },
+    {
+      "key": "c:kernel-arch:alt",
+      "depicts": "Three staggered square blocks—two yellow and one coral-red—forming a tiny zigzag spark floating in an empty canvas.",
+      "concept": "inter-processor interrupt (IPI) bolt",
+      "proposals": [
+        {
+          "name": "Interrupt Spark",
+          "why": "Directly describes the tiny three-pixel lightning-like bolt zipping across the layer."
+        },
+        {
+          "name": "Crosscall Zip",
+          "why": "References cross-CPU IPI calls using the critter's own zip motion."
+        },
+        {
+          "name": "Jagged Wisp",
+          "why": "Treats the tiny three-block streak as a fleeting electrical organism."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Interrupt Spark is honest to what little is visible in the sprite without overpromising detail.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "Only three tiny pixel blocks are drawn in the entire twenty-six-by-twenty-two frame, making it read as a stray speck rather than a species."
+    }
+  ]
+}

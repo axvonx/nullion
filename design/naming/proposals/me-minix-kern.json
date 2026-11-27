@@ -1,0 +1,605 @@
+{
+  "layer": "me-minix-kern",
+  "items": [
+    {
+      "key": "e:mk-microkern",
+      "depicts": "Four dark amber-bordered corner boxes wired by diagonal dotted buses to a central gold-rimmed square containing a smaller amber block.",
+      "concept": "MINIX 3 microkernel architecture",
+      "proposals": [
+        {
+          "name": "Microkernel Hub",
+          "why": "Directly names the central routing landmark and its architectural role."
+        },
+        {
+          "name": "Tanenbaum Switch",
+          "why": "Nods to Andrew S. Tanenbaum, creator of MINIX and longtime proponent of message-passing microkernels."
+        },
+        {
+          "name": "Star-Bound Core",
+          "why": "Describes the four-cornered radial topology in field-guide phrasing."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Tanenbaum Switch anchors the layer's computing history with dry precision while matching the switchboard silhouette.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "This is the layer's unique landmark anchor with bespoke art and a clear architectural identity."
+    },
+    {
+      "key": "e:mk-ipc",
+      "depicts": "Two black squares in bright-gold frames joined horizontally by a solid amber bar.",
+      "concept": "synchronous inter-process communication",
+      "proposals": [
+        {
+          "name": "IPC Channel",
+          "why": "States the exact operating-system mechanism represented by the twin endpoints."
+        },
+        {
+          "name": "Sendrec Bridge",
+          "why": "References MINIX's signature synchronous sendrec() rendezvous primitive."
+        },
+        {
+          "name": "Twin-Cell Conduit",
+          "why": "Captures the symmetrical dumbbell form in understated naturalist register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Sendrec Bridge ties the generic two-node bridge directly to MINIX 3's defining IPC call.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct layer-specific prop illustrating core microkernel message passing."
+    },
+    {
+      "key": "e:mk-arc",
+      "depicts": "A square gold-framed microchip with four amber pins on each side and a solid amber die at its centre.",
+      "concept": "ARC embedded microprocessor core",
+      "proposals": [
+        {
+          "name": "ARC Processor",
+          "why": "Plainly identifies the embedded RISC core used in early Intel Management Engine silicon."
+        },
+        {
+          "name": "Argonaut Die",
+          "why": "References Argonaut RISC Core, the studio-born architecture that ended up running inside x86 chipsets."
+        },
+        {
+          "name": "Sixteen-Pin Heart",
+          "why": "Frames the four-sided IC package as a tiny mechanical organ in field-guide style."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Argonaut Die rewards computing-literate readers with the unlikely origin story of the ME's embedded CPU.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique to this layer and depicts a real hardware cornerstone of Intel ME."
+    },
+    {
+      "key": "e:mk-fw-drawers",
+      "depicts": "A three-by-two grid of dark compartments with amber drawer pulls set in a dark-brown cabinet.",
+      "concept": "firmware NVRAM variable storage",
+      "proposals": [
+        {
+          "name": "Amber ROM Drawers",
+          "why": "Describes the recoloured cabinet and its role as partitioned firmware storage."
+        },
+        {
+          "name": "ME NVRAM Chest",
+          "why": "Points wryly to the persistent variable store tucked away in the Management Engine."
+        },
+        {
+          "name": "Six-Cell Apothecary",
+          "why": "Treats the tiny multi-drawer chest like an archival specimen cabinet."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber ROM Drawers cleanly distinguishes the colour morph if kept as a variant caption.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-drawers",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-drawers from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-vault",
+      "depicts": "A circular amber vault hatch with a right-side hinge lug and a bright-gold three-spoke wheel at the centre.",
+      "concept": "write-protected firmware flash region",
+      "proposals": [
+        {
+          "name": "Amber Vault Hatch",
+          "why": "Plainly describes the circular amber-toned vault door."
+        },
+        {
+          "name": "Locked Flash Bulkhead",
+          "why": "Alludes to the read-locked ME region inside the host SPI flash."
+        },
+        {
+          "name": "Ochre Dial-Door",
+          "why": "Uses spare naturalist colour and form terms for the rotating hatch."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Vault Hatch keeps the variant label simple and parallel to the base firmware vault.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-vault",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-vault from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-post",
+      "depicts": "A brown-bezeled black display showing two bright-gold seven-segment digits reading 77.",
+      "concept": "POST diagnostic hex readout",
+      "proposals": [
+        {
+          "name": "Amber POST Display",
+          "why": "Directly identifies the seven-segment boot status display in its amber palette."
+        },
+        {
+          "name": "Port 80h Lantern",
+          "why": "References the traditional x86 I/O port used to emit two-digit POST codes."
+        },
+        {
+          "name": "Twin-Digit Oracle",
+          "why": "Captures the cryptic two-hex-character diagnostics in dry field-guide language."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Port 80h Lantern is specific, wry, and immediately legible to low-level hardware readers.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-post",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-post from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-flash",
+      "depicts": "A dark-brown rectangular IC with five amber pins along both top and bottom edges and a gold pin-1 dot.",
+      "concept": "SPI NOR flash memory chip",
+      "proposals": [
+        {
+          "name": "Amber Flash Chip",
+          "why": "Plainly names the recoloured non-volatile flash package."
+        },
+        {
+          "name": "ME Region SOIC",
+          "why": "Nods to the small-outline SPI flash chip that holds the Management Engine firmware."
+        },
+        {
+          "name": "Ten-Legged Slate",
+          "why": "Describes the pinned dark chip in the tone of a naturalist sketching a beetle."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Flash Chip is concise and pairs cleanly as a colour variant under the firmware flash entry.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-flash",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-flash from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-plate",
+      "depicts": "An amber padlock with a squared shackle, a bright-gold upper collar, and a black keyhole on a dark-brown body.",
+      "concept": "flash descriptor write-protect lock",
+      "proposals": [
+        {
+          "name": "Amber Lock Plate",
+          "why": "Directly labels the amber padlock sprite."
+        },
+        {
+          "name": "Descriptor Padlock",
+          "why": "References the Intel Flash Descriptor permissions that seal the ME partition."
+        },
+        {
+          "name": "Brazed Shackle",
+          "why": "Evokes a warm-toned metallic lock in understated archival style."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Descriptor Padlock grounds the padlock motif in the actual Intel flash-locking mechanism.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-plate",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-plate from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-cmos",
+      "depicts": "A round dark-brown coin cell held by an amber four-tab retainer with a bright-gold plus sign at the centre.",
+      "concept": "CMOS RTC backup battery",
+      "proposals": [
+        {
+          "name": "Amber Coin Cell",
+          "why": "Plainly describes the recoloured motherboard backup battery."
+        },
+        {
+          "name": "CR2032 Keepsake",
+          "why": "Calls out the ubiquitous lithium cell part number that keeps NVRAM alive."
+        },
+        {
+          "name": "Crossed Disc-Cell",
+          "why": "Describes the plus-marked circular battery like a catalogued artefact."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "CR2032 Keepsake is dryly accurate and instantly recognizable to anyone who has reset a BIOS.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-cmos",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-cmos from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-setup",
+      "depicts": "A wide dark-bordered screen with a solid amber header bar above the pixel text BOOT.",
+      "concept": "BIOS/UEFI setup utility",
+      "proposals": [
+        {
+          "name": "Amber Setup Screen",
+          "why": "Directly names the monochrome amber firmware configuration screen."
+        },
+        {
+          "name": "F2 Purgatory",
+          "why": "Wryly recalls the key-mashing ritual required to enter firmware setup."
+        },
+        {
+          "name": "Boot-Slate Terminal",
+          "why": "Treats the stark two-band screen as a quiet field specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Setup Screen stays clean and legible as a palette variant of the firmware setup screen.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-setup",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-setup from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-bootorder",
+      "depicts": "A small amber-framed box on two feet with a gold top bar and dark and amber slot blocks inside.",
+      "concept": "firmware boot device priority list",
+      "proposals": [
+        {
+          "name": "Amber Boot Rack",
+          "why": "Plainly describes the small footed boot-priority frame in amber."
+        },
+        {
+          "name": "Priority Roster",
+          "why": "Nods to the ordered list of boot targets checked at startup."
+        },
+        {
+          "name": "Two-Footed Ledger",
+          "why": "Describes the squat silhouette in dry field-manual prose."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Priority Roster conveys the boot-order concept concisely without repeating the raw code identifier.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-bootorder",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-bootorder from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-dipsw",
+      "depicts": "A rectangular amber block holding four vertical black slots with gold toggle tabs set up, up, down, up.",
+      "concept": "hardware DIP switch bank",
+      "proposals": [
+        {
+          "name": "Amber DIP Bank",
+          "why": "Directly identifies the four-position DIP switch in its amber tint."
+        },
+        {
+          "name": "Four-Bit Strapper",
+          "why": "References hardware strapping pins used to configure boot and debug modes."
+        },
+        {
+          "name": "Toggle-Comb",
+          "why": "Captures the row of tiny switches in crisp naturalist phrasing."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Four-Bit Strapper connects the DIP switches to chipset strapping configuration with quiet technical accuracy.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-dipsw",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-dipsw from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-fan",
+      "depicts": "A square brown housing with four corner screws framing a circular black recess and a four-bladed amber impeller.",
+      "concept": "firmware PWM cooling fan control",
+      "proposals": [
+        {
+          "name": "Amber Chassis Fan",
+          "why": "Plainly describes the square four-blade cooling fan."
+        },
+        {
+          "name": "PWM Impeller",
+          "why": "References pulse-width-modulated fan speed control managed by embedded firmware."
+        },
+        {
+          "name": "Four-Vane Rotor",
+          "why": "Frames the spinning blades in spare mechanical-catalogue language."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "PWM Impeller is crisp and technically grounded in how firmware actually drives system fans.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-fan",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-fan from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-capsule",
+      "depicts": "An amber-bordered dark cartridge with five bottom pins and a bright-gold padlock icon in the centre.",
+      "concept": "signed firmware update capsule",
+      "proposals": [
+        {
+          "name": "Amber Update Capsule",
+          "why": "Directly names the signed firmware capsule in its amber colourway."
+        },
+        {
+          "name": "Signed Payload",
+          "why": "Alludes to cryptographic verification required before flashing an update."
+        },
+        {
+          "name": "Sealed Cartridge",
+          "why": "Describes the pinned, padlocked module in understated archival terms."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Update Capsule clearly identifies this as the amber variant of the firmware capsule.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-capsule",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-capsule from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-spiclip",
+      "depicts": "A two-tone amber and dark-brown SOIC test clip with four bottom contact pins and two top lead wires.",
+      "concept": "external SPI flash SOIC test clip",
+      "proposals": [
+        {
+          "name": "Amber SPI Clip",
+          "why": "Plainly names the chip-clip tool used to read and write SPI flash."
+        },
+        {
+          "name": "Pomona Clamp",
+          "why": "References the classic Pomona SOIC-8 test clip beloved by coreboot and me_cleaner hackers."
+        },
+        {
+          "name": "Jawed Pin-Tap",
+          "why": "Describes the gripping clip like a field instrument or pincered insect."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Pomona Clamp is an authentic hardware-hacking nod that fits Intel ME lore remarkably well.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-spiclip",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-spiclip from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-optrom",
+      "depicts": "A dark-brown circuit board with an amber edge connector along the bottom and three rectangular ICs on its black face.",
+      "concept": "PCI Option ROM expansion firmware",
+      "proposals": [
+        {
+          "name": "Amber Option ROM",
+          "why": "Directly states the hardware concept and colour variant."
+        },
+        {
+          "name": "Expansion Bootcard",
+          "why": "Describes the add-in card carrying its own pre-OS boot code."
+        },
+        {
+          "name": "Comb-Footed Board",
+          "why": "Highlights the toothed edge connector in dry field-guide phrasing."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber Option ROM is unambiguous and keeps variant naming consistent across firmware copies.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-optrom",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-optrom from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-beeper",
+      "depicts": "A round dark-brown buzzer casing with a bright-amber cross-shaped aperture at its centre.",
+      "concept": "motherboard POST piezo beeper",
+      "proposals": [
+        {
+          "name": "Amber Piezo Beeper",
+          "why": "Plainly describes the round buzzer in its amber palette."
+        },
+        {
+          "name": "Beep-Code Horn",
+          "why": "Wryly refers to the acoustic error-reporting channel used before video initializes."
+        },
+        {
+          "name": "Cross-Mouthed Drum",
+          "why": "Describes the slotted circular housing in naturalist register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Beep-Code Horn captures the austere humour of diagnosing a dead board by ear.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-beeper",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-beeper from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-reset",
+      "depicts": "A circular bright-gold push button recessed in a square dark-brown bezel with an amber highlight.",
+      "concept": "hardware reset vector trigger",
+      "proposals": [
+        {
+          "name": "Amber Reset Button",
+          "why": "Directly identifies the recessed hardware reset switch."
+        },
+        {
+          "name": "Cold-Vector Stud",
+          "why": "References the CPU reset vector executed upon hard reboot."
+        },
+        {
+          "name": "Sunken Plunger",
+          "why": "Describes the recessed button in spare physical terms."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Cold-Vector Stud pairs physical tactile imagery with the low-level reset vector.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-reset",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-reset from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-postcard",
+      "depicts": "A dark-brown edge-connector card with an amber LED square on the right and a black screen reading 8F in gold.",
+      "concept": "PCI/LPC POST diagnostic card",
+      "proposals": [
+        {
+          "name": "Amber POST Card",
+          "why": "Plainly names the diagnostic expansion card in amber."
+        },
+        {
+          "name": "Hex-8F Reader",
+          "why": "Calls out the exact hexadecimal code lit on the card's display."
+        },
+        {
+          "name": "Diagnostic Blade",
+          "why": "Treats the small plug-in board as a crisp field instrument."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Amber POST Card is clear and aligns directly with the base firmware card entry.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-postcard",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-postcard from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-acpi",
+      "depicts": "A circular amber-rimmed medallion framing a black disc with a bright-gold IEC power symbol.",
+      "concept": "ACPI power and sleep state control",
+      "proposals": [
+        {
+          "name": "Amber Power Medallion",
+          "why": "Plainly describes the circular power-symbol emblem."
+        },
+        {
+          "name": "S-State Sigil",
+          "why": "References ACPI's S0-through-S5 system sleep states."
+        },
+        {
+          "name": "Split-Ring Seal",
+          "why": "Describes the broken-circle IEC power glyph in quiet field-guide style."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "S-State Sigil connects the familiar power icon to ACPI's actual state machine.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-acpi",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-acpi from the firmware layer."
+    },
+    {
+      "key": "e:mk-fw-ucode",
+      "depicts": "A dark-brown DIP chip with five amber pins on top and bottom, a left notch, and a circular amber EPROM-style window.",
+      "concept": "CPU microcode patch ROM",
+      "proposals": [
+        {
+          "name": "Amber Microcode ROM",
+          "why": "Directly identifies the microcode storage chip in amber."
+        },
+        {
+          "name": "Errata Patch-Die",
+          "why": "Wryly recalls that microcode updates mostly exist to paper over silicon bugs."
+        },
+        {
+          "name": "Windowed Wafer",
+          "why": "Evokes the quartz-windowed EPROM silhouette in naturalist terms."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Errata Patch-Die captures the dry reality of CPU microcode updates in three tight words.",
+      "decisionHint": "variant",
+      "mergeWith": "e:fw-ucode",
+      "decisionWhy": "Exact amber-palette recolour of e:fw-ucode from the firmware layer."
+    },
+    {
+      "key": "e:mk-notify",
+      "depicts": "An amber-bordered black tile containing a hollow bright-gold ring-shaped alert glyph.",
+      "concept": "asynchronous microkernel notification",
+      "proposals": [
+        {
+          "name": "Notify Beacon",
+          "why": "Plainly names the visual alert tile for MINIX notifications."
+        },
+        {
+          "name": "Async Ring-Bit",
+          "why": "References MINIX 3's non-blocking notify() setting a pending bit without waiting for a reply."
+        },
+        {
+          "name": "Hollow Chime-Tile",
+          "why": "Describes the open gold ring in restrained field-manual diction."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Async Ring-Bit captures both the ring-shaped glyph and the bitmask mechanics of MINIX notifications.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique prop native to the MINIX 3 microkernel layer."
+    },
+    {
+      "key": "e:mk-grant",
+      "depicts": "Two black squares, the left bordered in amber and the right in bright gold, joined by a short dark-brown bar.",
+      "concept": "MINIX 3 safecopy memory grants",
+      "proposals": [
+        {
+          "name": "Memory Grant",
+          "why": "Directly names the MINIX 3 capability object for cross-process buffer access."
+        },
+        {
+          "name": "Safecopy Tether",
+          "why": "References the sys_safecopy() mechanism that enforces revocable memory grants between servers."
+        },
+        {
+          "name": "Asymmetric Yoke",
+          "why": "Highlights the two differently shaded endpoints bound by a narrow bridge."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Safecopy Tether distinguishes this prop from the symmetric IPC bridge by naming the exact MINIX 3 primitive.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct layer-specific prop representing MINIX 3's revocable memory-grant model."
+    },
+    {
+      "key": "e:mk-fused",
+      "depicts": "A bright-gold-framed black rectangle holding four vertical strips alternating between amber and dark brown.",
+      "concept": "one-time programmable hardware e-fuses",
+      "proposals": [
+        {
+          "name": "Fuse Bank",
+          "why": "Plainly describes the array of intact and blown programmable links."
+        },
+        {
+          "name": "Blown-Bit Bar",
+          "why": "Wryly captures the irreversible nature of factory-burned silicon fuses."
+        },
+        {
+          "name": "Four-Reed Strip",
+          "why": "Describes the alternating vertical bars in understated field-guide language."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Blown-Bit Bar concisely expresses the one-way permanence of ME and Boot Guard e-fuses.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Unique to this layer and visually legible as a bank of intact and blown fuses."
+    },
+    {
+      "key": "c:me-minix-kern:core",
+      "depicts": "A tiny flat-grey horizontal rectangle with a single-pixel notch on its right edge floating in an otherwise empty frame.",
+      "concept": "fixed-size microkernel IPC message",
+      "proposals": [
+        {
+          "name": "Message Dart",
+          "why": "Plainly pairs the critter's zipping motion with microkernel message passing."
+        },
+        {
+          "name": "Fixed-Size Mite",
+          "why": "Nods to MINIX's famously compact, fixed-length message struct zipping between servers."
+        },
+        {
+          "name": "Notched Silverfish",
+          "why": "Treats the tiny grey notched sliver as a fast-moving archival pest."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Fixed-Size Mite is wry, computing-specific, and plays nicely off both the critter's tiny scale and MINIX's IPC struct.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "The sprite is a tiny flat-grey 6x3 notched block that ignores the layer's amber palette and reads as an unfinished placeholder."
+    }
+  ]
+}

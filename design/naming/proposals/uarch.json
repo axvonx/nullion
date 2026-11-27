@@ -1,0 +1,629 @@
+{
+ "layer": "uarch",
+ "items": [
+  {
+   "key": "e:ua-pipeline",
+   "depicts": "Four dark vertical stage boxes connected by short pale-blue links, with the third stage highlighted in white.",
+   "concept": "instruction pipeline stages",
+   "proposals": [
+    {
+     "name": "Instruction Pipeline",
+     "why": "Plainly names the four-stage fetch-decode-execute-writeback assembly shown."
+    },
+    {
+     "name": "Assembly Line",
+     "why": "A wry factory metaphor for instructions moving one stage per clock."
+    },
+    {
+     "name": "Four-Chamber Conduit",
+     "why": "Treats the linked stages like a segmented specimen in a field guide."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "As the layer's anchor landmark, the exact architectural term is clearest and grounds the surrounding props.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct 56x36 anchor set piece with no duplicates in this layer or others."
+  },
+  {
+   "key": "e:ua-rob",
+   "depicts": "A dark horizontal bar containing five vertical slots, three lit in cyan and two dim navy.",
+   "concept": "reorder buffer",
+   "proposals": [
+    {
+     "name": "Reorder Buffer",
+     "why": "Directly identifies the out-of-order retirement queue depicted by the five slots."
+    },
+    {
+     "name": "Out-of-Order Queue",
+     "why": "Dryly describes what happens when instructions finish early and wait their turn."
+    },
+    {
+     "name": "Retirement Rack",
+     "why": "Evokes a physical pigeonhole rack where completed work awaits orderly sign-off."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Reorder Buffer is standard microarchitecture terminology and pairs cleanly with the slot visual.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Clear, distinct prop representing a core out-of-order execution structure."
+  },
+  {
+   "key": "e:ua-bpred",
+   "depicts": "A pale-blue horizontal trace splitting into an upward pale-blue branch and a downward dark-navy branch.",
+   "concept": "branch prediction",
+   "proposals": [
+    {
+     "name": "Branch Predictor",
+     "why": "Plainly names the speculative fork-guessing hardware shown."
+    },
+    {
+     "name": "Speculative Fork",
+     "why": "A dry double meaning on a forked path and speculative execution."
+    },
+    {
+     "name": "Divining Junction",
+     "why": "Field-guide phrasing for a junction that guesses which way control flow will go."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Branch Predictor is immediately recognizable and fits the dry technical tone.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct prop with a clear visual metaphor for taken vs. not-taken paths."
+  },
+  {
+   "key": "e:ua-l1",
+   "depicts": "A cyan-bordered dark rectangle holding a 4x3 checkerboard grid of navy and pale-blue squares.",
+   "concept": "L1 cache",
+   "proposals": [
+    {
+     "name": "L1 Cache",
+     "why": "Plainly identifies the fast on-core SRAM array."
+    },
+    {
+     "name": "Hot-Set Checkerboard",
+     "why": "Nods to cache sets and associativity while describing the alternating grid."
+    },
+    {
+     "name": "Near-Core Vault",
+     "why": "Field-guide register for the smallest, fastest memory closest to execution."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "L1 Cache is concise, canonical, and unmistakable in the microarchitecture layer.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct prop representing the primary on-core cache."
+  },
+  {
+   "key": "e:ua-alu",
+   "depicts": "A pale-blue octagonal outline with a cyan chevron notch pointing inward from the left.",
+   "concept": "arithmetic logic unit",
+   "proposals": [
+    {
+     "name": "Arithmetic Logic Unit",
+     "why": "Names the classic execution unit whose V-notched schematic symbol this echoes."
+    },
+    {
+     "name": "Bitwise Mill",
+     "why": "A dryly industrial nod to where integers are ground through adders and shifters."
+    },
+    {
+     "name": "Notched Gatehouse",
+     "why": "Naturalist-style label for the notched silhouette."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Arithmetic Logic Unit is the exact textbook name for the iconic notched shape.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct prop with a recognizable schematic silhouette."
+  },
+  {
+   "key": "e:ua-r3-vias",
+   "depicts": "A 3x3 grid of pale-blue squares separated by dark channels.",
+   "concept": "inter-layer metal vias",
+   "proposals": [
+    {
+     "name": "Via Array",
+     "why": "Plainly describes the grid of vertical interconnects between metal layers."
+    },
+    {
+     "name": "Vertical Commute",
+     "why": "Wryly treats vias as tiny elevator shafts for signals."
+    },
+    {
+     "name": "Nine-Well Grid",
+     "why": "Field-guide description of the 3x3 square pattern."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Via Array is crisp, accurate, and fits the die-level scatter props.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Simple repeating 10x10 via grid that works well as an appendix specimen."
+  },
+  {
+   "key": "e:ua-r3-pad",
+   "depicts": "A pale-blue octagonal bond pad with a dark cross-shaped center and a trace extending right.",
+   "concept": "wire-bond pad",
+   "proposals": [
+    {
+     "name": "Bond Pad",
+     "why": "Plainly names the die-edge landing pad for package wires."
+    },
+    {
+     "name": "Solder Target",
+     "why": "A dryly literal description of the cross-hair pad."
+    },
+    {
+     "name": "Shoreline Landing",
+     "why": "Field-guide metaphor for where off-die signals come ashore."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Bond Pad is the standard silicon term and matches the sprite directly.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct die-edge prop with clear detail."
+  },
+  {
+   "key": "e:ua-r3-trace",
+   "depicts": "A pale-blue L-shaped signal trace connecting a square pad at top-left to a via pad at bottom-right.",
+   "concept": "signal routing trace",
+   "proposals": [
+    {
+     "name": "Signal Trace",
+     "why": "Plainly names the routed copper or metal interconnect."
+    },
+    {
+     "name": "Ninety-Degree Detour",
+     "why": "Wryly notes the sharp Manhattan routing bend."
+    },
+    {
+     "name": "Pale Causeway",
+     "why": "Evocative field-guide phrasing for the narrow elevated path."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Signal Trace is exact and pairs naturally with Bond Pad and Via Array.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Basic routing scatter prop best suited for the appendix."
+  },
+  {
+   "key": "e:ua-r3-decap",
+   "depicts": "A pale-blue H-like capacitor silhouette with two dark rectangular plates flanking a white vertical gap.",
+   "concept": "decoupling capacitor",
+   "proposals": [
+    {
+     "name": "Decoupling Capacitor",
+     "why": "Plainly identifies the local charge reservoir used to smooth voltage droop."
+    },
+    {
+     "name": "Droop Buffer",
+     "why": "Dry engineering shorthand for what a decap actually prevents."
+    },
+    {
+     "name": "Twin-Plate Cistern",
+     "why": "Field-guide metaphor for a pair of plates storing local charge."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Decoupling Capacitor is accurate and immediately legible to hardware readers.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct small passive component prop."
+  },
+  {
+   "key": "e:ua-r3-xtal",
+   "depicts": "A dark rectangular crystal package with a stepped pale-blue waveform inside, flanked by two dark vertical bars.",
+   "concept": "quartz crystal oscillator",
+   "proposals": [
+    {
+     "name": "Crystal Oscillator",
+     "why": "Plainly names the quartz timing reference."
+    },
+    {
+     "name": "Quartz Metronome",
+     "why": "Wryly compares the clock source to a mechanical beat-keeper."
+    },
+    {
+     "name": "Singing Slab",
+     "why": "Naturalist phrasing for a piezoelectric crystal vibrating at resonance."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Crystal Oscillator is the standard term and matches the animated waveform.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Animated prop with a clear, recognizable clock-crystal silhouette."
+  },
+  {
+   "key": "e:ua-r3-testpads",
+   "depicts": "A horizontal pale-blue bus with four evenly spaced vertical tick marks protruding top and bottom.",
+   "concept": "probe test pads",
+   "proposals": [
+    {
+     "name": "Test Pads",
+     "why": "Plainly names the exposed probe points for post-silicon bring-up."
+    },
+    {
+     "name": "NeedleTargets",
+     "why": "Dry nod to flying-probe needles landing on bare silicon."
+    },
+    {
+     "name": "Four-Tick Spine",
+     "why": "Field-guide description of the notched horizontal bar."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Test Pads is concise and directly reflects the probe-point geometry.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small 17x7 scatter prop that fits well as an appendix specimen."
+  },
+  {
+   "key": "e:ua-r3-fuses",
+   "depicts": "A row of six dark vertical fuse links on a pale-blue strip, with the rightmost link blown open.",
+   "concept": "one-time programmable eFuses",
+   "proposals": [
+    {
+     "name": "eFuse Bank",
+     "why": "Plainly names the array of one-time programmable silicon fuses."
+    },
+    {
+     "name": "Irreversible Bits",
+     "why": "Dryly summarizes what happens once a fuse is blown."
+    },
+    {
+     "name": "Severed Bridge",
+     "why": "Field-guide imagery for the visibly broken rightmost link."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "eFuse Bank is exact, punchy, and explains why one link is open.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct prop with a clear visual tell (one blown fuse)."
+  },
+  {
+   "key": "e:ua-r3-resistor",
+   "depicts": "A pale-blue zigzagging resistor trace running horizontally across a dark background.",
+   "concept": "serpentine resistor",
+   "proposals": [
+    {
+     "name": "Serpentine Resistor",
+     "why": "Plainly names the folded resistive trace."
+    },
+    {
+     "name": "Ohmic Detour",
+     "why": "A wry nod to adding resistance by making current take the long way."
+    },
+    {
+     "name": "Zigzag Switchback",
+     "why": "Field-guide description of the sharp back-and-forth path."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Serpentine Resistor is precise and matches the classic schematic zigzag.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Tiny 15x5 passive prop suitable for the appendix."
+  },
+  {
+   "key": "e:ua-r3-diode",
+   "depicts": "A pale-blue cross-shaped junction with a stepped central barrier.",
+   "concept": "PN junction diode",
+   "proposals": [
+    {
+     "name": "Junction Diode",
+     "why": "Plainly names the one-way semiconductor valve."
+    },
+    {
+     "name": "One-Way Tollbooth",
+     "why": "Wry metaphor for current permitted in only one direction."
+    },
+    {
+     "name": "Stepped Valve",
+     "why": "Field-guide phrasing for the asymmetric junction."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Junction Diode is clean, accurate, and consistent with the other passive props.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small 11x7 passive component prop."
+  },
+  {
+   "key": "e:ua-r3-inductor",
+   "depicts": "A pale-blue planar coil of three square loops stepping along a horizontal line.",
+   "concept": "on-die planar inductor",
+   "proposals": [
+    {
+     "name": "Planar Inductor",
+     "why": "Plainly names the flat spiral coil etched on silicon."
+    },
+    {
+     "name": "Flux Spiral",
+     "why": "Dryly references magnetic flux in a compact two-word label."
+    },
+    {
+     "name": "Three-Loop Coil",
+     "why": "Field-guide description of the three-turn geometry."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Planar Inductor is the exact silicon-design term for this geometry.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small 15x6 passive component prop."
+  },
+  {
+   "key": "e:ua-r3-sram",
+   "depicts": "A symmetric pale-blue 6T SRAM cell schematic with cross-coupled inverters inside an oval loop.",
+   "concept": "6T SRAM bitcell",
+   "proposals": [
+    {
+     "name": "SRAM Bitcell",
+     "why": "Plainly names the six-transistor static memory cell."
+    },
+    {
+     "name": "Cross-Coupled Latch",
+     "why": "Technical shorthand for the two inverters holding a bit hostage."
+    },
+    {
+     "name": "Mirror-Loop Cell",
+     "why": "Field-guide description of the symmetric twin-loop form."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "SRAM Bitcell is unmistakable and distinguishes it from the larger L1 Cache.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct 17x15 schematic-style prop."
+  },
+  {
+   "key": "e:ua-r3-ringosc",
+   "depicts": "A pale-blue padlock-shaped ring with a dark keyhole-like core.",
+   "concept": "ring oscillator",
+   "proposals": [
+    {
+     "name": "Ring Oscillator",
+     "why": "Plainly names the odd-numbered inverter loop used to measure process speed."
+    },
+    {
+     "name": "Self-Chasing Loop",
+     "why": "Wryly describes an odd chain of inverters forever inverting its own tail."
+    },
+    {
+     "name": "Keyhole Ring",
+     "why": "Field-guide description of the padlock-like silhouette."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Ring Oscillator is the real hardware concept and fits the animated loop.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Animated prop with a distinct silhouette."
+  },
+  {
+   "key": "e:ua-r3-thermal",
+   "depicts": "A vertical pale-blue thermometer-like column with a dark mercury bar at the top and two side ticks.",
+   "concept": "on-die thermal sensor",
+   "proposals": [
+    {
+     "name": "Thermal Sensor",
+     "why": "Plainly names the on-die temperature diode."
+    },
+    {
+     "name": "Throttle Trigger",
+     "why": "Dryly nods to what happens when the reading climbs too high."
+    },
+    {
+     "name": "Silicon Thermometer",
+     "why": "Field-guide phrasing for the unmistakable thermometer silhouette."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Thermal Sensor is accurate and immediately understood.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct 7x13 prop with a clear thermometer shape."
+  },
+  {
+   "key": "e:ua-r3-pll",
+   "depicts": "Two horizontal pale-blue bars separated by a dark gap, with vertical stems above and below.",
+   "concept": "phase-locked loop",
+   "proposals": [
+    {
+     "name": "Phase-Locked Loop",
+     "why": "Plainly names the clock-multiplying feedback circuit."
+    },
+    {
+     "name": "Clock Multiplier",
+     "why": "Dryly functional name for turning a slow crystal into gigahertz."
+    },
+    {
+     "name": "Twin-Bar Resonator",
+     "why": "Field-guide description of the parallel bar geometry."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Phase-Locked Loop is standard terminology and pairs well with Crystal Oscillator.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct 15x13 clock-generation prop."
+  },
+  {
+   "key": "e:ua-r3-jtag",
+   "depicts": "A pale-blue border around a dark rectangle with a pale-blue center window and a small dark notch on the left.",
+   "concept": "JTAG debug port",
+   "proposals": [
+    {
+     "name": "JTAG Tap",
+     "why": "Plainly names the boundary-scan debug access port."
+    },
+    {
+     "name": "Backdoor Header",
+     "why": "Wryly acknowledges JTAG's role as the hardware's lowest-level debug entry."
+    },
+    {
+     "name": "Windowed Shroud",
+     "why": "Field-guide description of the framed rectangular housing."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "JTAG Tap is concise, authentic, and distinct from the other die props.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct 18x12 debug-port prop."
+  },
+  {
+   "key": "e:ua-r3-rom",
+   "depicts": "A black rectangle with a pale-blue border displaying the pixel text \"ROM\".",
+   "concept": "mask ROM",
+   "proposals": [
+    {
+     "name": "Mask ROM",
+     "why": "Plainly names the hardwired read-only memory."
+    },
+    {
+     "name": "Immutable Slab",
+     "why": "Dryly notes that its contents were etched at the factory."
+    },
+    {
+     "name": "Stamped Tablet",
+     "why": "Field-guide phrasing for a block bearing permanent lettering."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Mask ROM is exact and matches the \"ROM\" label on the sprite.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct text-bearing prop."
+  },
+  {
+   "key": "e:ua-btb",
+   "depicts": "A cyan-bordered dark rectangle containing three horizontal navy bars of increasing length.",
+   "concept": "branch target buffer",
+   "proposals": [
+    {
+     "name": "Branch Target Buffer",
+     "why": "Plainly names the lookup table caching branch destination addresses."
+    },
+    {
+     "name": "Jump Directory",
+     "why": "Dryly compares the stepped bars to an address book for jumps."
+    },
+    {
+     "name": "Stepped Ledger",
+     "why": "Field-guide description of the three-line stepped table."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Branch Target Buffer is the exact microarchitectural structure depicted.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct 16x12 prop that pairs with Branch Predictor."
+  },
+  {
+   "key": "e:ua-rs",
+   "depicts": "A white rectangle framed in cyan holding four vertical slots, three navy and one pale blue.",
+   "concept": "reservation station",
+   "proposals": [
+    {
+     "name": "Reservation Station",
+     "why": "Plainly names the issue queue where decoded ops wait for operands."
+    },
+    {
+     "name": "Operand Waiting Room",
+     "why": "Wryly describes instructions sitting in slots until their inputs arrive."
+    },
+    {
+     "name": "Four-Berth Dock",
+     "why": "Field-guide metaphor for the four-slot holding bay."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Reservation Station is canonical Tomasulo terminology and fits the four-slot sprite.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct 18x10 prop."
+  },
+  {
+   "key": "e:ua-prefetch",
+   "depicts": "Three cyan vertical blocks straddling a horizontal dark-navy line.",
+   "concept": "hardware prefetcher",
+   "proposals": [
+    {
+     "name": "Hardware Prefetcher",
+     "why": "Plainly names the unit that fetches upcoming cache lines ahead of demand."
+    },
+    {
+     "name": "Stride Guesser",
+     "why": "Dryly nods to stride prediction."
+    },
+    {
+     "name": "Three-Pillar Scout",
+     "why": "Field-guide phrasing for the three blocks advancing along a line."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Hardware Prefetcher is clear and completes the memory-hierarchy set.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct 18x8 prop."
+  },
+  {
+   "key": "c:uarch:core",
+   "depicts": "A small grey-bordered black rectangle on a 26x22 canvas.",
+   "concept": "micro-op",
+   "proposals": [
+    {
+     "name": "Micro-Op",
+     "why": "Plainly names the decoded internal operation that zips through the core."
+    },
+    {
+     "name": "Speculative Mote",
+     "why": "Dryly captures a tiny, fast-moving execution unit that may or may not retire."
+    },
+    {
+     "name": "SiliconDart",
+     "why": "Field-guide name for a compact critter with zip and mirror motion."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Micro-Op is the quintessential living unit of the Microarchitecture layer.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Primary critter species for the Microarchitecture layer."
+  },
+  {
+   "key": "c:uarch:alt",
+   "depicts": "Two tiny adjacent squares, one light grey and one dark charcoal, on a 26x22 canvas.",
+   "concept": "paired micro-ops",
+   "proposals": [
+    {
+     "name": "Fused Micro-Op",
+     "why": "Plainly names a macro-fused or micro-fused pair of operations."
+    },
+    {
+     "name": "Dual-Issue Speck",
+     "why": "Dryly notes the two-part pixel pair."
+    },
+    {
+     "name": "Twin Mote",
+     "why": "Field-guide name for the paired-square variant."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Fused Micro-Op ties the two-square sprite directly to micro-op fusion.",
+   "decisionHint": "variant",
+   "mergeWith": "c:uarch:core",
+   "decisionWhy": "Critter-alt for the uarch layer; works best as a variant on the Micro-Op page."
+  }
+ ]
+}

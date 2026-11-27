@@ -1,0 +1,701 @@
+{
+  "layer": "libraries",
+  "items": [
+    {
+      "key": "e:lib-aisle",
+      "depicts": "Two towering five-shelf wooden bookcases packed with gold-banded volumes, flanking a rolling ladder suspended from an overhead rail.",
+      "concept": "standard library search path",
+      "proposals": [
+        {
+          "name": "Standard Library Stacks",
+          "why": "Names the tall shelving aisle directly in terms of the shared library directories it represents."
+        },
+        {
+          "name": "The Include Aisle",
+          "why": "Plays on #include search paths while nodding to the narrow walkway between the stacks."
+        },
+        {
+          "name": "Deep Stack Gallery",
+          "why": "Treats the towering bookcases like a quiet architectural habitat in a naturalist's field guide."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dry, unmistakably computing-literate, and memorable for a landmark anchor.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Major 64x62 landmark anchor that establishes the visual identity of the Libraries layer."
+    },
+    {
+      "key": "e:lib-press",
+      "depicts": "A grey iron screw press with a side gear wheel lowering a platen onto a cream signature marked with brown text bars.",
+      "concept": "library compilation and binding",
+      "proposals": [
+        {
+          "name": "Binding Press",
+          "why": "Describes the mechanical press literally while pointing to the act of binding library symbols."
+        },
+        {
+          "name": "Static Binder",
+          "why": "Puns on bookbinding and static library linking in a dry, deadpan register."
+        },
+        {
+          "name": "Iron Colophon Press",
+          "why": "Evokes an archival printing-house specimen worthy of a field manual entry."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Concise double meaning that ties the physical bookbinding press directly to static linking.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated 40x40 anchor set piece with a clear silhouette and a distinct computing role."
+    },
+    {
+      "key": "e:lib-shelf",
+      "depicts": "A single wooden shelf section holding colourful gold-banded volumes and one leaning olive book, shown in narrow and wide widths.",
+      "concept": "shared library repository",
+      "proposals": [
+        {
+          "name": "Reference Shelf",
+          "why": "Plainly labels the compact wooden bookcase unit as a shelf of reference libraries."
+        },
+        {
+          "name": "Libpath Bay",
+          "why": "Nods to LD_LIBRARY_PATH and the numbered bays of an institutional stack room."
+        },
+        {
+          "name": "Gilt-Spine Row",
+          "why": "Observes the row of gold-banded volumes with the eye of a field-guide cataloguer."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Grounds a common library prop in a specific Unix environment concept without sounding forced.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Core Libraries prop with two width variants that also serves as the parent art for linker's ld-lib-shelf."
+    },
+    {
+      "key": "e:lib-catalogue",
+      "depicts": "A wooden three-by-three drawer chest on legs with brass pulls, two lower drawers slid open to reveal cream index stock.",
+      "concept": "symbol table lookup",
+      "proposals": [
+        {
+          "name": "Index Cabinet",
+          "why": "Straightforwardly describes the multi-drawer chest used to locate entries across the stacks."
+        },
+        {
+          "name": "Symbol Catalogue",
+          "why": "Pairs the classic library drawer chest with the symbol tables linkers consult during resolution."
+        },
+        {
+          "name": "Nine-Drawer Concordance",
+          "why": "Uses archival bookman terminology that fits the binder-of-manpages aesthetic."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Keeps the familiar library object recognizable while anchoring it cleanly to symbol lookup.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Iconic Libraries prop that maps cleanly to symbol tables and serves as parent for linker's ld-lib-catalogue."
+    },
+    {
+      "key": "e:lib-ladder",
+      "depicts": "A tall angled wooden rolling ladder with pale rungs and grey iron rail hooks at the top and feet.",
+      "concept": "call stack traversal",
+      "proposals": [
+        {
+          "name": "Rolling Stack Ladder",
+          "why": "Plainly identifies the rail-mounted ladder used to reach upper shelves in the stacks."
+        },
+        {
+          "name": "Stack Climber",
+          "why": "Quietly puns on climbing physical book stacks and walking up a call stack."
+        },
+        {
+          "name": "Rail-Hooked Ascender",
+          "why": "Frames the mechanical library ladder as a catalogued field-manual apparatus."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Short, dry, and neatly bridges library furniture with stack traversal.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "A narrow 9x24 architectural prop whose ladder motif already appears inside e:lib-aisle, making it better suited to the appendix."
+    },
+    {
+      "key": "e:lib-spool",
+      "depicts": "A wooden bobbin wound with red thread, paying out a bright-tipped horizontal strand to the right.",
+      "concept": "output spooling and streaming",
+      "proposals": [
+        {
+          "name": "Thread Bobbin",
+          "why": "Directly names the wooden spool of red thread depicted in the sprite."
+        },
+        {
+          "name": "Spool Daemon",
+          "why": "References Unix print and stream spooling with a dry nod to the bobbin's literal shape."
+        },
+        {
+          "name": "Crimson Pay-Out Spool",
+          "why": "Describes the active, unwinding bobbin in the measured cadence of an archive plate."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Clean, understated, and lets the double meaning of thread do its work without over-explaining.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated, readable prop that anchors the thread-and-spooling visual motif across Libraries and Linker."
+    },
+    {
+      "key": "e:lib-cart",
+      "depicts": "A two-tier grey metal book trolley on spoked wheels, loaded with colourful gold-banded volumes.",
+      "concept": "package dependency transport",
+      "proposals": [
+        {
+          "name": "Book Trolley",
+          "why": "Plainly names the wheeled two-shelf library cart shown in the sprite."
+        },
+        {
+          "name": "Autoloader Cart",
+          "why": "Nods to on-demand library autoloaders that wheel modules in from the stacks as needed."
+        },
+        {
+          "name": "Iron Stack Barrow",
+          "why": "Gives the utilitarian library trolley a dry, institutional field-guide title."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Connects the wheeled book trolley directly to runtime and library autoloading.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct, well-drawn prop with a clear functional role and a downstream variant in linker (ld-lib-cart)."
+    },
+    {
+      "key": "e:lib-crates",
+      "depicts": "Three stacked brown wooden shipping crates with diagonal slats, each stencilled with .C in cream lettering.",
+      "concept": "compiled source packages",
+      "proposals": [
+        {
+          "name": "Stencilled Source Crates",
+          "why": "Plainly describes the stacked wooden crates marked with .C source-file labels."
+        },
+        {
+          "name": "Dot-C Crates",
+          "why": "Combines the C source file extension with the systems-programming term for a library package."
+        },
+        {
+          "name": "Manifested Timber Crates",
+          "why": "Treats the shipping boxes like catalogued freight in an archival supply room."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Directly reflects the .C stencil on the sprite while landing a crisp double reference to C and library crates.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Legible, specific prop whose .C stencil gives it an unmistakable computing identity."
+    },
+    {
+      "key": "e:lib-loom",
+      "depicts": "A wooden frame loom strung with vertical red and blue warp threads, a grey heddle bar, and a yellow shuttle passing across.",
+      "concept": "linking and thread interleaving",
+      "proposals": [
+        {
+          "name": "Frame Loom",
+          "why": "Plainly names the wooden weaving frame shown in the sprite."
+        },
+        {
+          "name": "Linker Loom",
+          "why": "Ties the weaving of separate threads into one fabric to the linking of object modules."
+        },
+        {
+          "name": "Shuttle-Fed Reed",
+          "why": "Uses traditional weaving nomenclature in a dry, encyclopaedic field-guide register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Immediately communicates why a loom belongs in the Libraries layer and pairs cleanly with its animation.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated 22x16 prop with strong visual clarity and a compelling metaphor for linking modules and threads."
+    },
+    {
+      "key": "e:lib-archive",
+      "depicts": "A wooden filing unit with a closed upper drawer above an open lower tray holding upright white and cream tabbed folders.",
+      "concept": "static library archive",
+      "proposals": [
+        {
+          "name": "Archive Tray",
+          "why": "Straightforwardly describes the wooden cabinet and its open tray of indexed folders."
+        },
+        {
+          "name": "Dot-A Archive",
+          "why": "Directly references Unix .a static library archives assembled by ar."
+        },
+        {
+          "name": "Tabbed Folio Box",
+          "why": "Evokes a museum-grade storage box of paper folios in an archival field manual."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Crisp Unix literacy that distinguishes this prop from e:lib-catalogue.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct static-archive prop that complements the card catalogue without duplicating its silhouette."
+    },
+    {
+      "key": "e:lib-lamp",
+      "depicts": "A classic green-shaded banker's desk lamp with a brass stem, a tiny yellow pull-chain pixel, and a dark wooden base.",
+      "concept": "syntax highlighting and inspection",
+      "proposals": [
+        {
+          "name": "Banker's Desk Lamp",
+          "why": "Plainly identifies the green-shaded reading lamp shown in the sprite."
+        },
+        {
+          "name": "Green-Glass Linter",
+          "why": "Wryly recasts the reading-room lamp as the light by which subtle defects are spotted."
+        },
+        {
+          "name": "Emeraude Reading Lamp",
+          "why": "Uses quiet, antiquarian phrasing suited to a catalogued study-room fixture."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Honest and unforced for a piece of atmospheric reading-room lighting.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Charming ambient lighting prop, but mostly reading-room set dressing without a strong standalone computing concept."
+    },
+    {
+      "key": "e:lib-tangle",
+      "depicts": "A framed dark pinboard with five pale nodes linked by crossing red, yellow, and brown threads.",
+      "concept": "circular dependency graph",
+      "proposals": [
+        {
+          "name": "Dependency Board",
+          "why": "Plainly describes the framed graph of pinned nodes and connecting threads."
+        },
+        {
+          "name": "Diamond Dependency",
+          "why": "Names the notorious package-management conflict directly reflected in the cyclic red-and-yellow web."
+        },
+        {
+          "name": "Pinned Knot Diagram",
+          "why": "Reads the tangled pinboard like a field-guide plate of an unruly specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Instantly recognizable to anyone who has ever wrestled with shared library versions.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "One of the most specifically computing-literate props in the layer, with a clear dependency-graph silhouette."
+    },
+    {
+      "key": "e:lib-thread",
+      "depicts": "Two orange square endpoints joined by a sagging dotted brown line carrying a bright yellow pulse along its span.",
+      "concept": "POSIX execution thread",
+      "proposals": [
+        {
+          "name": "Signal Thread",
+          "why": "Plainly describes the taut line carrying a moving yellow pulse between two anchors."
+        },
+        {
+          "name": "Pthread Line",
+          "why": "Directly references libpthread and POSIX threads while matching the literal line-and-pulse sprite."
+        },
+        {
+          "name": "Taut Conduit Strand",
+          "why": "Uses dry, physical field-guide language for the suspended animated filament."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Anchors an abstract animated sprite to the most famous threading library in Unix.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated prop representing an essential library primitive with a distinct horizontal silhouette."
+    },
+    {
+      "key": "e:lib-plaque",
+      "depicts": "A wooden aisle plaque inlaid with bright yellow brass lettering, shown in two text variants reading LIBDL and LIBZ.",
+      "concept": "shared object naming",
+      "proposals": [
+        {
+          "name": "Library Aisle Plaque",
+          "why": "Plainly describes the wooden brass-lettered sign labelling a section of the stacks."
+        },
+        {
+          "name": "Soname Plaque",
+          "why": "References ELF SONAME identifiers while fitting the engraved signage format."
+        },
+        {
+          "name": "Brass Stack Plate",
+          "why": "Evokes the bolted metal section plates found in old municipal archives."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Sharp, accurate computing terminology that turns a simple text sign into a Field Manual lesson.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Carries explicit real-world library names (LIBDL, LIBZ) and anchors the layer's Unix shared-object theme."
+    },
+    {
+      "key": "e:lib-card",
+      "depicts": "A single cream index card with a red top rule, two olive-grey text lines, and a dark drop shadow.",
+      "concept": "header file declaration",
+      "proposals": [
+        {
+          "name": "Ruled Index Card",
+          "why": "Plainly describes the small red-headed index card shown in the sprite."
+        },
+        {
+          "name": "Header Slip",
+          "why": "Puns on C header files and the library filing slips that declare where definitions live."
+        },
+        {
+          "name": "Stray Catalogue Slip",
+          "why": "Treats the loose 10x8 card like a fallen specimen from the drawers above."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Clever, understated, and gives a tiny index card a precise systems-programming meaning.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "At 10x8 it is a tiny scatter prop closely tied to e:lib-catalogue, better kept as an appendix specimen."
+    },
+    {
+      "key": "e:lib-lectern",
+      "depicts": "A wooden pedestal lectern supporting an open cream reference volume with grey text blocks on both pages.",
+      "concept": "API reference manual",
+      "proposals": [
+        {
+          "name": "Reference Lectern",
+          "why": "Plainly identifies the standing wooden reading desk holding an open volume."
+        },
+        {
+          "name": "Manpage Lectern",
+          "why": "Ties the open reference book on its stand directly to section-3 library manual pages."
+        },
+        {
+          "name": "Folio Reading Stand",
+          "why": "Uses measured archival terminology that suits a quiet research library."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Fits the game's Unix-manual-page framing cleanly and unambiguously.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean, readable 15x15 prop that naturally embodies section-3 library documentation and recurs in linker (ld-lib-lectern)."
+    },
+    {
+      "key": "e:lib-stamp",
+      "depicts": "A purple ink pad beside a tiered wooden rubber stamp hovering above a cream slip bearing a fresh purple impression.",
+      "concept": "ABI version stamping",
+      "proposals": [
+        {
+          "name": "Library Date Stamp",
+          "why": "Plainly describes the wooden hand stamp and ink pad shown in the sprite."
+        },
+        {
+          "name": "Deprecation Stamp",
+          "why": "Dryly nods to the ritual of stamping legacy library functions as deprecated while keeping them forever."
+        },
+        {
+          "name": "Violet Imprint Block",
+          "why": "Describes the purple-inked stamping block with field-guide precision."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Quietly funny and immediately relatable to every programmer who has seen a compiler deprecation warning.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated, crisp prop with a great computing-culture gag that easily justifies its own manual page."
+    },
+    {
+      "key": "e:lib-pile",
+      "depicts": "A small uneven stack of four horizontal hardcover books in green, purple, and brown with cream page edges.",
+      "concept": "vendored dependency stack",
+      "proposals": [
+        {
+          "name": "Book Stack",
+          "why": "Plainly names the small pile of four horizontal volumes."
+        },
+        {
+          "name": "Vendored Pile",
+          "why": "Wryly refers to third-party libraries copied straight into a repository rather than properly shelved."
+        },
+        {
+          "name": "Unshelved Quarto Heap",
+          "why": "Uses dry bibliographical language to describe the untidy stack of books."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Gives a generic stack of books a dry, accurate systems joke.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small 13x11 scatter prop whose book motif overlaps with e:lib-shelf and e:lib-codex, making it ideal for the appendix."
+    },
+    {
+      "key": "e:lib-scroll",
+      "depicts": "An unrolled cream parchment scroll between two wooden rollers, showing three olive-grey lines of text with a red mark on the top line.",
+      "concept": "legacy specification and changelog",
+      "proposals": [
+        {
+          "name": "Unrolled Scroll",
+          "why": "Plainly describes the open parchment scroll with wooden end rollers."
+        },
+        {
+          "name": "Legacy Changelog",
+          "why": "Dryly equates an ancient parchment scroll with a decades-old library's release history."
+        },
+        {
+          "name": "Rubricated Roll",
+          "why": "Draws on manuscript terminology for the red-marked top line on the parchment."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Wry, fitting for a library layer, and explains the red highlight on the top entry.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Compact 15x10 document prop that works well as an appendix specimen alongside the larger e:lib-codex."
+    },
+    {
+      "key": "e:lib-magnifier",
+      "depicts": "A grey-rimmed magnifying glass with a wooden handle hovering over four olive-grey lines of text on a cream page.",
+      "concept": "symbol inspection and debugging",
+      "proposals": [
+        {
+          "name": "Reading Glass",
+          "why": "Plainly names the handheld magnifier scanning a printed sheet."
+        },
+        {
+          "name": "Symbol Inspector",
+          "why": "Connects the animated magnifying glass to tools like nm and objdump that inspect library exports."
+        },
+        {
+          "name": "Archivist's Loupe",
+          "why": "Uses quiet naturalist-binder diction for the magnifying lens."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Precise, computing-literate, and well matched to the animated scanning motion.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated prop with a clear silhouette and a direct link to binary and symbol inspection tools."
+    },
+    {
+      "key": "e:lib-pigeon",
+      "depicts": "A wooden four-by-three pigeonhole cabinet with nine cubbies holding cream or white stacks of slips and three empty black slots.",
+      "concept": "hash table buckets",
+      "proposals": [
+        {
+          "name": "Pigeonhole Rack",
+          "why": "Plainly identifies the twelve-slot wooden sorting cabinet shown in the sprite."
+        },
+        {
+          "name": "Hash Pigeonholes",
+          "why": "Pairs the physical sorting cubbies with hash-table buckets and the pigeonhole principle."
+        },
+        {
+          "name": "Twelve-Slot Sorter",
+          "why": "Describes the wooden sorting frame in crisp, cataloguing prose."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Satisfying double nod to hash buckets and the pigeonhole principle, and clarifies that the sprite is furniture rather than a bird.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct 18x14 prop with a sharp visual metaphor for hash buckets and fixed-slot allocation."
+    },
+    {
+      "key": "e:lib-globe",
+      "depicts": "A small blue-and-green terrestrial globe mounted in a yellow brass meridian ring on a stepped wooden stand.",
+      "concept": "internationalization and locale tables",
+      "proposals": [
+        {
+          "name": "Library Globe",
+          "why": "Plainly identifies the brass-ringed desktop globe on its wooden stand."
+        },
+        {
+          "name": "Locale Globe",
+          "why": "Nods to LC_ALL, tzdata, and internationalization libraries that map human geography into code."
+        },
+        {
+          "name": "Meridian Desk Sphere",
+          "why": "Renders the small reference globe in the dry register of an old instrument catalogue."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Quietly witty and gives a classic library ornament an unmistakably Unix-literate purpose.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clean, recognizable prop with a great computing hook (locales and tzdata) that stands apart from the paper-and-wood props."
+    },
+    {
+      "key": "e:lib-desk",
+      "depicts": "A wooden reading table holding a pale book and a teal box, paired with a tall-backed wooden chair on the right.",
+      "concept": "library workspace and linkage context",
+      "proposals": [
+        {
+          "name": "Reading Carrel",
+          "why": "Plainly names the small wooden study desk and chair."
+        },
+        {
+          "name": "Caller's Desk",
+          "why": "Dryly treats the study table as the quiet seat from which client code consults the library."
+        },
+        {
+          "name": "Oak Study Table",
+          "why": "Uses understated archival-furniture phrasing suited to an appendix specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Accurate library terminology that avoids over-reaching on a simple piece of furniture.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Static background furniture with little computing specificity, best placed in the appendix."
+    },
+    {
+      "key": "e:lib-inkwell",
+      "depicts": "A dark grey square ink bottle with a silver collar and a three-pixel pale yellow quill leading toward a detached yellow pixel at top right.",
+      "concept": "mutable global state",
+      "proposals": [
+        {
+          "name": "Quill Inkwell",
+          "why": "Plainly describes the small grey ink bottle and pale yellow feather nib."
+        },
+        {
+          "name": "Errno Inkwell",
+          "why": "Wryly evokes the shared global errno pot that every C library routine dips into."
+        },
+        {
+          "name": "Pewter-Lip Inkpot",
+          "why": "Describes the silver-collared vessel in the restrained voice of an archival catalogue."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Turns a tiny desk object into a sly, deeply computing-literate C standard library joke.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "At 12x13 the bottle reads as a plain grey rectangle and the quill breaks apart into a detached yellow pixel at the top-right corner."
+    },
+    {
+      "key": "e:lib-bookmark",
+      "depicts": "A crimson-bound book face with a cream panel and a bright yellow ribbon bookmark hanging past the bottom edge.",
+      "concept": "file stream offset",
+      "proposals": [
+        {
+          "name": "Ribbon Bookmark",
+          "why": "Plainly identifies the yellow cloth ribbon marking a place in a red-bound volume."
+        },
+        {
+          "name": "Fseek Ribbon",
+          "why": "References fseek and saved stream cursors that let a reader return to an exact offset."
+        },
+        {
+          "name": "Saffron Place-Marker",
+          "why": "Names the hanging ribbon with the dry precision of a bookbinding glossary."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Concise, computing-literate, and turns a humble bookmark into a neat stdio.h reference.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small 10x15 scatter prop that fits neatly as an appendix entry rather than requiring a full manual page."
+    },
+    {
+      "key": "e:lib-codex",
+      "depicts": "A heavy dark-brown leather codex with golden side clasps and a cream cover plate bearing two dark grey title bars.",
+      "concept": "standard C library",
+      "proposals": [
+        {
+          "name": "Clasped Codex",
+          "why": "Plainly describes the heavy leather-bound volume with brass clasps."
+        },
+        {
+          "name": "The Libc Codex",
+          "why": "Casts the clasped tome as libc, the foundational standard library every program leans on."
+        },
+        {
+          "name": "Brass-Hasped Volume",
+          "why": "Uses formal bookbinding language well suited to an archival field manual."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Gives the heaviest, most authoritative book in the layer its rightful Unix title.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinct, authoritative prop that anchors the standard-library concept without duplicating e:lib-shelf or e:lib-pile."
+    },
+    {
+      "key": "e:lib-scales",
+      "depicts": "A yellow brass balance scale on a wooden base with two level brown weighing pans suspended by grey chains.",
+      "concept": "balanced tree structures",
+      "proposals": [
+        {
+          "name": "Balance Scales",
+          "why": "Plainly names the two-pan brass balance shown in the sprite."
+        },
+        {
+          "name": "AVL Balance",
+          "why": "References self-balancing binary search trees commonly supplied by standard container libraries."
+        },
+        {
+          "name": "Brass Assay Beam",
+          "why": "Treats the instrument like a precision specimen in an archive of technical apparatus."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Dry, exact, and instantly rewarding to anyone who recognizes the classic balanced-tree initials.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Clear, distinctive instrument prop that represents data-structure balancing and algorithmic tradeoffs."
+    },
+    {
+      "key": "e:lib-hourglass",
+      "depicts": "A wooden-framed glass hourglass with pale sand in the upper bulb and a fuller pile of bright yellow sand below.",
+      "concept": "library timeout and clock",
+      "proposals": [
+        {
+          "name": "Study Hourglass",
+          "why": "Plainly describes the small wooden sandglass used to time quiet reading."
+        },
+        {
+          "name": "Timeout Glass",
+          "why": "Connects the running sand directly to library wait timeouts and time.h intervals."
+        },
+        {
+          "name": "Amber Sandglass",
+          "why": "Uses dry, traditional horological phrasing suited to a field-manual entry."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Crisp computing concept that distinguishes it from Ring -2's frozen-time hourglass.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Clean 11x14 prop, but e:r2-hourglass in Ring -2 already carries the stronger thematic hourglass motif, making this better as an appendix specimen."
+    },
+    {
+      "key": "c:libraries:core",
+      "depicts": "A tiny square-bodied critter with dark eyes, corner ear-tabs, and an open miniature book balanced on its head, in tan, pale blue, and dusty rose variants.",
+      "concept": "lazy symbol resolution",
+      "proposals": [
+        {
+          "name": "Stack Hopper",
+          "why": "Plainly describes a small library-dwelling species that hops and perches along the shelves."
+        },
+        {
+          "name": "Footnoter",
+          "why": "Dryly names the tiny book-crowned resident after the scholarly annotations it resembles and inhabits."
+        },
+        {
+          "name": "Folio-Crowned Pager",
+          "why": "Uses classic naturalist-guide naming while quietly punning on manual pagers and memory pages."
+        }
+      ],
+      "recommend": 2,
+      "recommendWhy": "Hits the exact sweet spot of dry field-guide naturalism and quiet Unix wit without a trace of cuteness.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Primary living species of the Libraries layer with three colour morphs and distinct hop-and-perch behaviour."
+    }
+  ]
+}

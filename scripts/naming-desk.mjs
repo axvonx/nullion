@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // The naming desk: a local page for deciding every Field Manual entity's name, fate and design notes.
 //   node scripts/naming-desk.mjs  → http://127.0.0.1:4870
-// Serves design/naming/ (the page, inventory.json, sprites/) plus every proposals/<layer>.json merged, and
+// Serves design/naming/ (the page, inventory.json, sprites/) plus every proposals/ and priority/<layer>.json merged, and
 // reads/writes design/naming/decisions.json (atomic rename on each save). No dependencies; binds to localhost only.
 import http from 'node:http';
 import fs from 'node:fs';
@@ -13,8 +13,9 @@ const DECISIONS = path.join(ROOT, 'decisions.json');
 const PORT = Number(process.env.PORT ?? 4870);
 const TYPES = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.png': 'image/png', '.js': 'text/javascript', '.css': 'text/css' };
 
-function proposals() {
-  const dir = path.join(ROOT, 'proposals');
+/** Every <dir>/<layer>.json's items, merged by key (proposals/ and priority/ are written per layer by Gemini). */
+function merged(name) {
+  const dir = path.join(ROOT, name);
   const out = {};
   const failed = [];
   for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
@@ -36,7 +37,8 @@ const send = (res, code, body, type = 'application/json') => {
 http
   .createServer((req, res) => {
     const url = new URL(req.url, 'http://x');
-    if (url.pathname === '/api/proposals') return send(res, 200, JSON.stringify(proposals()));
+    if (url.pathname === '/api/proposals') return send(res, 200, JSON.stringify(merged('proposals')));
+    if (url.pathname === '/api/priorities') return send(res, 200, JSON.stringify(merged('priority')));
     if (url.pathname === '/api/decisions' && req.method === 'GET')
       return send(res, 200, fs.existsSync(DECISIONS) ? fs.readFileSync(DECISIONS) : 'null');
     if (url.pathname === '/api/decisions' && req.method === 'PUT') {

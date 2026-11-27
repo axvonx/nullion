@@ -1,0 +1,701 @@
+{
+ "layer": "firmware",
+ "items": [
+  {
+   "key": "e:fw-bigvault",
+   "depicts": "A massive circular green-phosphor bank vault door with twelve perimeter bolts, heavy right-hand hinges, and a three-spoke locking wheel.",
+   "concept": "hardware root of trust and locked boot ROM",
+   "proposals": [
+    {
+     "name": "Boot Vault",
+     "why": "States plainly what the circular door guards at the base of the boot chain."
+    },
+    {
+     "name": "Ring Zero Safe",
+     "why": "Nods to privilege rings while framing the firmware boundary as a literal bank vault."
+    },
+    {
+     "name": "Phosphor Bulkhead",
+     "why": "Uses maritime and naturalist field-guide diction for a heavy, sealed phosphor-green barrier."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Boot Vault is crisp, immediately legible as a man-page title, and anchors the layer's visual metaphor.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Primary 52x52 landmark anchor for the Firmware layer with distinctive animated art."
+  },
+  {
+   "key": "e:fw-romcab",
+   "depicts": "A tall green-phosphor equipment rack housing four stacked DIP-pinned ROM cartridges beneath a black panel of eight blinking indicator bars.",
+   "concept": "system ROM bank and firmware volume storage",
+   "proposals": [
+    {
+     "name": "ROM Rack",
+     "why": "Describes the stacked read-only memory chassis in two blunt hardware words."
+    },
+    {
+     "name": "Read-Only Monolith",
+     "why": "Pokes dry fun at immutable firmware volumes that resist field updates."
+    },
+    {
+     "name": "Amber-Free Archive",
+     "why": "Evokes a naturalist specimen cabinet adapted to green-phosphor archival storage."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "ROM Rack reads like an authentic equipment designation in a Unix hardware manual.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Primary 40x56 landmark anchor for the Firmware layer."
+  },
+  {
+   "key": "e:fw-drawers",
+   "depicts": "A three-by-two bank of six dark green metal drawers, each fitted with a bright horizontal pull.",
+   "concept": "UEFI firmware variable store and NVRAM partitions",
+   "proposals": [
+    {
+     "name": "Variable Chest",
+     "why": "Names the six-compartment cabinet after the EFI variable storage it resembles."
+    },
+    {
+     "name": "NVRAM Filing",
+     "why": "Treats persistent motherboard state as dull bureaucratic office furniture."
+    },
+    {
+     "name": "Six-Cell Locker",
+     "why": "Gives the grid of dark compartments a terse, archival field-guide label."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Variable Chest connects the literal drawer geometry to EFI variables without overexplaining.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small background storage prop that works best as an appendix specimen rather than a full manual page."
+  },
+  {
+   "key": "e:fw-vault",
+   "depicts": "A miniature circular green vault door with a three-spoke wheel and a single right-hand hinge.",
+   "concept": "sealed firmware storage compartment",
+   "proposals": [
+    {
+     "name": "Pocket Vault",
+     "why": "Directly identifies the sprite as a scaled-down version of the main vault door."
+    },
+    {
+     "name": "Micro-Safe",
+     "why": "Pairs the small physical scale with a dry allusion to micro-level firmware enclaves."
+    },
+    {
+     "name": "Hatchling Door",
+     "why": "Uses field-guide taxonomy to treat the smaller vault as a juvenile form of the anchor."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Pocket Vault succinctly distinguishes the small prop when shown alongside the main vault.",
+   "decisionHint": "variant",
+   "mergeWith": "e:fw-bigvault",
+   "decisionWhy": "Miniature 17x17 version of the same circular three-spoke vault door as e:fw-bigvault."
+  },
+  {
+   "key": "e:fw-post",
+   "depicts": "A dark green rectangular bezel holding a two-digit seven-segment LED readout glowing bright green.",
+   "concept": "power-on self-test diagnostic codes",
+   "proposals": [
+    {
+     "name": "POST Display",
+     "why": "Names the onboard two-digit diagnostic readout in standard motherboard terminology."
+    },
+    {
+     "name": "Port 80 Oracle",
+     "why": "References the x86 I/O port 0x80 where BIOS writes cryptic two-byte boot checkpoints."
+    },
+    {
+     "name": "Hex-Digit Beacon",
+     "why": "Frames the glowing seven-segment digits as a field-guide signal organism in the dark."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Port 80 Oracle is dryly accurate to x86 firmware history and quietly funny.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct animated onboard readout that deserves its own entry separate from the plug-in POST card."
+  },
+  {
+   "key": "e:fw-flash",
+   "depicts": "A small green ten-pin dual-inline chip package with a bright square pin-one orientation dot.",
+   "concept": "SPI NOR flash memory chip",
+   "proposals": [
+    {
+     "name": "SPI Flash",
+     "why": "Identifies the standard serial flash chip that holds modern UEFI firmware."
+    },
+    {
+     "name": "Bricked DIP",
+     "why": "Makes a dry nod to the classic hazard of interrupting a firmware flash mid-write."
+    },
+    {
+     "name": "Ten-Pin Scarab",
+     "why": "Borrows entomological field-guide language for a small dark-shelled legged IC."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "SPI Flash is exact and fits cleanly as a variant label on the generic DIP chip page.",
+   "decisionHint": "variant",
+   "mergeWith": "e:dr-chip",
+   "decisionWhy": "Shares the same ten-pin DIP silhouette and pin-one dot as Drivers' e:dr-chip in a firmware-green palette."
+  },
+  {
+   "key": "e:fw-plate",
+   "depicts": "A sturdy green phosphor padlock with a bright crossbar and a dark warded keyhole.",
+   "concept": "BIOS flash write-protection lock",
+   "proposals": [
+    {
+     "name": "Write-Protect Lock",
+     "why": "Directly names the hardware lock that prevents unauthorized modification of firmware."
+    },
+    {
+     "name": "BIOS_CNTL Padlock",
+     "why": "Cites the notorious Intel chipset register that is supposed to lock down SPI flash writes."
+    },
+    {
+     "name": "Verdigris Hasp",
+     "why": "Gives the green-tinted iron lock an archival, museum-catalogue register."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Write-Protect Lock is clear, idiomatic, and immediately distinguishes it from userspace file locks.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct pixel art and distinct hardware write-protect concept from Userspace's e:us-padlock."
+  },
+  {
+   "key": "e:fw-cmos",
+   "depicts": "A round green coin-cell battery held by four retainer tabs with a bright plus sign stamped in the center.",
+   "concept": "CR2032 CMOS battery backing RTC and BIOS settings",
+   "proposals": [
+    {
+     "name": "CMOS Cell",
+     "why": "Uses the exact hardware shorthand for the motherboard coin battery."
+    },
+    {
+     "name": "CR2032 Relic",
+     "why": "Calls out the ubiquitous lithium cell part number that silently dies every five years."
+    },
+    {
+     "name": "Silver-Green Disc",
+     "why": "Describes the round battery in the detached, observational tone of a field guide."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "CMOS Cell is terse, unmistakable, and reads naturally as a manual-page heading.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Iconic, immediately recognizable firmware hardware component with unique art."
+  },
+  {
+   "key": "e:fw-setup",
+   "depicts": "A wide dark-green terminal panel with an inverted header bar above the pixel-art word BOOT.",
+   "concept": "pre-boot BIOS/UEFI setup utility menu",
+   "proposals": [
+    {
+     "name": "BIOS Setup",
+     "why": "Uses the universal name of the pre-boot configuration utility shown on the screen."
+    },
+    {
+     "name": "Press F2",
+     "why": "Captures the universal frantic keystroke required to reach this screen before it vanishes."
+    },
+    {
+     "name": "Phosphor Slate",
+     "why": "Treats the text-mode menu as a weathered green tablet in the field guide."
+    }
+   ],
+   "recommend": 1,
+   "recommendWhy": "Press F2 is dryly recognizable to every computer user and still reads cleanly in an index.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Large 36x15 text-bearing prop that anchors the BIOS setup visual theme."
+  },
+  {
+   "key": "e:fw-bootorder",
+   "depicts": "A small green-framed rectangle standing on two stubs with three dark and light blocks arranged inside.",
+   "concept": "UEFI boot device priority order",
+   "proposals": [
+    {
+     "name": "Boot Order",
+     "why": "Names the firmware priority list that decides which disk starts the operating system."
+    },
+    {
+     "name": "First-Try Queue",
+     "why": "Wryly alludes to the sequence of failed boot devices before finding a valid loader."
+    },
+    {
+     "name": "Priority Plinth",
+     "why": "Uses field-guide monument phrasing for the stub-legged little display."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Boot Order is the clearest label for a sprite whose visual metaphor is subtle.",
+   "decisionHint": "rework",
+   "mergeWith": null,
+   "decisionWhy": "At 16x14 pixels, the stub-legged box with generic rectangles does not clearly read as a boot-order list."
+  },
+  {
+   "key": "e:fw-dipsw",
+   "depicts": "A green four-position DIP switch block with three toggles pushed up and the third pushed down.",
+   "concept": "hardware configuration DIP switches",
+   "proposals": [
+    {
+     "name": "DIP Bank",
+     "why": "Accurately names the tiny row of dual-inline binary slide switches."
+    },
+    {
+     "name": "Four-Bit Jumper",
+     "why": "Dryly frames the manual plastic toggles as a four-bit hardware configuration register."
+    },
+    {
+     "name": "Toggle Reef",
+     "why": "Uses naturalist field-guide imagery for the ridged row of four recessed switches."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "DIP Bank is concise and works cleanly as a variant label alongside the six-switch Drivers block.",
+   "decisionHint": "variant",
+   "mergeWith": "e:dr-dip",
+   "decisionWhy": "Four-switch firmware-green version of the same DIP switch bank shown in Drivers as e:dr-dip."
+  },
+  {
+   "key": "e:fw-fan",
+   "depicts": "A square dark-green chassis fan housing with four corner screw holes and a four-blade spinning rotor.",
+   "concept": "firmware-controlled PWM chassis cooling fan",
+   "proposals": [
+    {
+     "name": "PWM Fan",
+     "why": "Names the pulse-width-modulated cooling fan governed by motherboard firmware curves."
+    },
+    {
+     "name": "Full-Speed Boot",
+     "why": "Nods to the familiar jet-engine roar of chassis fans before firmware loads its thermal table."
+    },
+    {
+     "name": "Four-Vane Rotor",
+     "why": "Uses crisp mechanical field-guide language for the square-framed pinwheel."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "PWM Fan is technically exact and fits the terse hardware register of the Field Manual.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Only standalone animated chassis fan in the game, distinct from Drivers' dual-fan GPU card and bare fan header."
+  },
+  {
+   "key": "e:fw-capsule",
+   "depicts": "A green-bordered rectangular module with bottom pins and a bright padlock emblem centered in a dark recess.",
+   "concept": "cryptographically signed UEFI capsule firmware update",
+   "proposals": [
+    {
+     "name": "Firmware Capsule",
+     "why": "Uses the official UEFI specification term for a packaged firmware update payload."
+    },
+    {
+     "name": "Signed Pill",
+     "why": "Plays wryly on the word capsule and the cryptographic signature required to swallow it."
+    },
+    {
+     "name": "Sealed Reliquary",
+     "why": "Treats the locked, pinned update vessel as a field-guide specimen container."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Firmware Capsule is both the genuine UEFI term and an evocative physical name.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct sprite combining IC pins with a padlock emblem for a core modern firmware mechanism."
+  },
+  {
+   "key": "e:fw-spiclip",
+   "depicts": "A green test clip clamped over a dark chip body, with two probe leads extending from the top and four pins below.",
+   "concept": "SOIC-8 SPI test clip for external firmware flashing",
+   "proposals": [
+    {
+     "name": "SOIC Clip",
+     "why": "Names the exact spring-loaded test clip used to read and flash motherboard SPI chips in-circuit."
+    },
+    {
+     "name": "Pomona Jaw",
+     "why": "References the classic Pomona 5250 clip beloved by coreboot hackers and hardware reversers."
+    },
+    {
+     "name": "Clamping Leech",
+     "why": "Uses dry naturalist imagery for a two-wired parasite latched onto a flash chip."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "SOIC Clip is immediately recognizable to firmware engineers and accurately describes the sprite.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinctive, niche hardware-hacking prop with clear silhouette and no cross-layer duplicate."
+  },
+  {
+   "key": "e:fw-optrom",
+   "depicts": "A dark-green expansion circuit board with bottom edge-connector fingers and one large bright chip beside two smaller ICs.",
+   "concept": "PCI/ISA expansion card Option ROM",
+   "proposals": [
+    {
+     "name": "Option ROM",
+     "why": "Uses the exact PC architecture term for firmware carried on a plug-in expansion card."
+    },
+    {
+     "name": "Shadowed Card",
+     "why": "References the legacy BIOS practice of copying slow Option ROM code into shadowed RAM."
+    },
+    {
+     "name": "Edge-Toothed Slab",
+     "why": "Describes the gold-fingered PCB in dry, observational field-guide terms."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Option ROM is concise, historically accurate, and pairs well with the BIOS/UEFI layer.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Clear expansion-card PCB sprite representing an important pre-boot firmware concept."
+  },
+  {
+   "key": "e:fw-beeper",
+   "depicts": "A small dark-green circular piezo speaker with a bright green cross aperture positioned to emit animated sound pulses.",
+   "concept": "motherboard PC speaker POST beep codes",
+   "proposals": [
+    {
+     "name": "POST Beeper",
+     "why": "Directly names the tiny motherboard buzzer that signals hardware faults during boot."
+    },
+    {
+     "name": "One-Long Two-Short",
+     "why": "Quotes the classic BIOS beep cadence for a missing or unseated video card."
+    },
+    {
+     "name": "Piezo Cricket",
+     "why": "Uses field-guide fauna language for a tiny disc that chirps in the dark chassis."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "POST Beeper is plain, accurate, and clearly distinct from Drivers' generic audio speaker.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct animated piezo buzzer sprite; Drivers' e:dr-speaker has completely different art."
+  },
+  {
+   "key": "e:fw-reset",
+   "depicts": "A bright green rounded tactile switch set into a dark green square housing.",
+   "concept": "hardware reset vector and cold-reset line",
+   "proposals": [
+    {
+     "name": "Reset Switch",
+     "why": "States plainly what the tactile push-button triggers on the motherboard."
+    },
+    {
+     "name": "0xFFFFFFF0 Button",
+     "why": "References the x86 reset vector address where the CPU begins fetching firmware after reset."
+    },
+    {
+     "name": "Phosphor Stud",
+     "why": "Describes the small glowing button in terse field-guide specimen language."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Reset Switch is clean and direct for a small appendix specimen.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Tiny 11x11 tactile button that fits better as an appendix specimen than a full page."
+  },
+  {
+   "key": "e:fw-postcard",
+   "depicts": "A dark-green plug-in circuit card with bottom edge-connector pins, a bright LED, and a two-character readout showing BF.",
+   "concept": "plug-in ISA/PCI POST diagnostic analyzer card",
+   "proposals": [
+    {
+     "name": "POST Card",
+     "why": "Uses the standard repair-bench name for a plug-in hexadecimal boot diagnostic board."
+    },
+    {
+     "name": "Code BF Board",
+     "why": "Calls out the frozen hex code displayed on the sprite as a wry nod to hung boots."
+    },
+    {
+     "name": "Bench Diviner",
+     "why": "Treats the hex-reading diagnostic card as a field-guide instrument for reading dead boards."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "POST Card is immediately understood by hardware technicians and cleanly pairs with the onboard readout.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Detailed, animated plug-in diagnostic card distinct from the onboard e:fw-post readout."
+  },
+  {
+   "key": "e:fw-acpi",
+   "depicts": "A green circular standby-power icon formed by a broken ring and a vertical line at the top.",
+   "concept": "ACPI power states and firmware tables",
+   "proposals": [
+    {
+     "name": "ACPI Seal",
+     "why": "Names the circular power-management emblem after the firmware specification it represents."
+    },
+    {
+     "name": "S3 Standby",
+     "why": "References the classic ACPI suspend-to-RAM state that firmware routinely breaks."
+    },
+    {
+     "name": "Broken-Ring Glyph",
+     "why": "Describes the IEC standby symbol in dry, archaeological field-guide diction."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "ACPI Seal connects the iconic power glyph directly to the firmware subsystem.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Crisp, unmistakable power-state emblem representing a major firmware standard."
+  },
+  {
+   "key": "e:fw-ucode",
+   "depicts": "A green ten-pin DIP chip with a central circular quartz window revealing the dark silicon die inside.",
+   "concept": "CPU microcode patch and UV-erasable EPROM",
+   "proposals": [
+    {
+     "name": "Microcode EPROM",
+     "why": "Combines the firmware microcode concept with the unmistakable UV-windowed EPROM package."
+    },
+    {
+     "name": "Errata Window",
+     "why": "Nods wryly to both the physical quartz window and the silicon bugs microcode updates patch."
+    },
+    {
+     "name": "Quartz-Eyed Die",
+     "why": "Uses naturalist field-guide phrasing for a legged chip with a single glassy ocellus."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Microcode EPROM is technically precise and honors the iconic quartz-windowed sprite.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Unique animated UV-EPROM sprite distinct from generic DIP chips in other layers."
+  },
+  {
+   "key": "e:fw-nvram",
+   "depicts": "Four vertical dark-green memory columns with bright caps standing on a shared bus, three filled high and one low.",
+   "concept": "non-volatile RAM variable storage",
+   "proposals": [
+    {
+     "name": "NVRAM Cells",
+     "why": "Plainly describes the four persistent storage slots depicted by the sprite."
+    },
+    {
+     "name": "Persistent Columns",
+     "why": "Dryly notes that these four bars survive a power cycle intact."
+    },
+    {
+     "name": "Four-Pillar Store",
+     "why": "Frames the uneven vertical bars in architectural field-guide language."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "NVRAM Cells is direct and accurate for a compact storage-cell prop.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Small, somewhat abstract 19x12 prop that works best as an appendix specimen."
+  },
+  {
+   "key": "e:fw-floppy",
+   "depicts": "A miniature green 3.5-inch floppy disk with a top sliding shutter, bottom label, and corner notch.",
+   "concept": "removable BIOS recovery and boot floppy disk",
+   "proposals": [
+    {
+     "name": "Boot Floppy",
+     "why": "Names the classic 1.44 MB diskette used to boot or recover a firmware-bricked PC."
+    },
+    {
+     "name": "Drive A: Artifact",
+     "why": "Nods to the reserved DOS drive letter that still haunts Windows drive numbering."
+    },
+    {
+     "name": "Magnetic Square",
+     "why": "Uses detached archival language to describe a shuttered plastic data specimen."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Boot Floppy is crisp, authentic to firmware recovery lore, and avoids tired save-icon jokes.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Iconic, cleanly drawn 11x11 hardware relic with no duplicate in other layers."
+  },
+  {
+   "key": "e:fw-key",
+   "depicts": "A horizontal green skeleton key with a cross-slotted circular bow on the left and two warded teeth on the right.",
+   "concept": "UEFI Platform Key and cryptographic root signing key",
+   "proposals": [
+    {
+     "name": "Platform Key",
+     "why": "Uses the exact UEFI Secure Boot term for the top-level root cryptographic key."
+    },
+    {
+     "name": "Factory Skeleton",
+     "why": "Puns on skeleton key and the OEM-enrolled signing keys shipped from the factory."
+    },
+    {
+     "name": "Two-Tooth Ward",
+     "why": "Uses precise locksmith and field-guide vocabulary for the flat green key."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Platform Key is genuine UEFI terminology that doubles nicely as a physical object name.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Crisp, distinctive key prop representing cryptographic trust in Firmware."
+  },
+  {
+   "key": "e:fw-tpm",
+   "depicts": "A square green-bordered chip housing a small padlock with a bright shackle and a dark keyhole.",
+   "concept": "Trusted Platform Module security coprocessor",
+   "proposals": [
+    {
+     "name": "TPM Chip",
+     "why": "Plainly identifies the discrete Trusted Platform Module depicted by the locked square package."
+    },
+    {
+     "name": "PCR Vault",
+     "why": "References the Platform Configuration Registers inside a TPM that seal boot measurements."
+    },
+    {
+     "name": "Measured Die",
+     "why": "Evokes measured boot in terse, field-guide terminology."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "TPM Chip is unambiguous, grounded in real hardware, and matches the sprite at a glance.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Clear, self-contained security chip sprite for a major firmware component."
+  },
+  {
+   "key": "e:fw-jtag",
+   "depicts": "A black-centered green rectangular shroud containing two rows of five square pin contacts.",
+   "concept": "10-pin JTAG hardware boundary-scan and debug header",
+   "proposals": [
+    {
+     "name": "JTAG Header",
+     "why": "Accurately names the standard ten-pin debug connector on a motherboard."
+    },
+    {
+     "name": "Unpopulated Port",
+     "why": "Wryly references the habit of hardware vendors omitting JTAG header pins on retail boards."
+    },
+    {
+     "name": "Ten-Pin Shroud",
+     "why": "Describes the recessed two-by-five contact block in dry field-guide terms."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "JTAG Header is exact and immediately readable to anyone who has probed a PCB.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Crisp 2x5 pin header sprite; completely different artwork from Ring -3's e:r3-jtag."
+  },
+  {
+   "key": "e:fw-secureboot",
+   "depicts": "A green stepped heraldic shield enclosing a dark field with a bright horizontal bar in the center.",
+   "concept": "UEFI Secure Boot signature verification",
+   "proposals": [
+    {
+     "name": "Secure Boot",
+     "why": "Directly names the UEFI boot-chain signature verification policy represented by the shield."
+    },
+    {
+     "name": "Signed Escutcheon",
+     "why": "Pairs heraldic shield terminology with cryptographic bootloader signing."
+    },
+    {
+     "name": "Phosphor Buckler",
+     "why": "Uses dry, archival field-guide diction for the small green defensive emblem."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Secure Boot is the canonical name and matches the shield silhouette without ambiguity.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Distinct shield emblem representing a signature Firmware layer concept."
+  },
+  {
+   "key": "e:fw-uart",
+   "depicts": "A rectangular green-framed black header with three square pins in a row, the leftmost glowing bright green.",
+   "concept": "3-pin serial UART debug console header",
+   "proposals": [
+    {
+     "name": "UART Header",
+     "why": "Names the classic three-pin serial debug interface directly."
+    },
+    {
+     "name": "115200 8N1",
+     "why": "Quotes the universal serial baud rate and framing mantra typed to read early boot logs."
+    },
+    {
+     "name": "Three-Pin Whisper",
+     "why": "Evokes the quiet low-level serial console hidden on bare circuit boards."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "UART Header is terse, accurate, and pairs cleanly with JTAG Header in the Field Manual.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "Clean, recognizable three-pin TX/RX/GND header with no duplicate in other layers."
+  },
+  {
+   "key": "e:fw-watchdog",
+   "depicts": "A dark-green framed monitor holding a bright horizontal bar approaching a vertical threshold line on the right.",
+   "concept": "hardware watchdog timer (WDT)",
+   "proposals": [
+    {
+     "name": "Watchdog Timer",
+     "why": "Names the hardware countdown circuit that resets a hung machine."
+    },
+    {
+     "name": "Dead-Man Bar",
+     "why": "Dryly compares the watchdog countdown gauge to a locomotive dead-man's switch."
+    },
+    {
+     "name": "Ticking Gauge",
+     "why": "Describes the minimal green bar-and-limit indicator in field-guide register."
+    }
+   ],
+   "recommend": 0,
+   "recommendWhy": "Watchdog Timer is precise and clearly documents the countdown gauge.",
+   "decisionHint": "catalogue",
+   "mergeWith": null,
+   "decisionWhy": "Minimal 14x10 bar indicator that overlaps conceptually with Kernel's e:kr-wdtimer; fine as an appendix specimen."
+  },
+  {
+   "key": "c:firmware:core",
+   "depicts": "A hovering green-phosphor rectangular module with bright upper and lower plates and a central visor that blinks dark and light.",
+   "concept": "UEFI Boot Services polling daemon and firmware supervisor",
+   "proposals": [
+    {
+     "name": "Firmware Patrol",
+     "why": "Plainly describes the floating green-phosphor monitor sweeping the layer."
+    },
+    {
+     "name": "SMBIOS Floater",
+     "why": "References the low-level firmware table standard while nodding to its rigid floating motion."
+    },
+    {
+     "name": "Phosphor Pacer",
+     "why": "Uses crisp naturalist field-guide diction for a creature that drifts in steady, unhurried beats."
+    }
+   ],
+   "recommend": 2,
+   "recommendWhy": "Phosphor Pacer fits the Field Manual's species-guide register and captures its metronomic drift.",
+   "decisionHint": "keep",
+   "mergeWith": null,
+   "decisionWhy": "The sole native critter species of the Firmware layer."
+  }
+ ]
+}

@@ -1,0 +1,605 @@
+{
+  "layer": "landauer",
+  "items": [
+    {
+      "key": "e:la-horizon",
+      "depicts": "Two concentric rings in dark navy and cyan bisected by a full-width horizontal line, with a pale-white glint on the lower-right inner arc.",
+      "concept": "Landauer thermodynamic limit (kT ln 2)",
+      "proposals": [
+        {
+          "name": "Landauer Horizon",
+          "why": "Names the landmark directly after the thermodynamic boundary where erasing a bit incurs an irreducible heat cost."
+        },
+        {
+          "name": "Zero Floor",
+          "why": "Plays on both absolute-zero thermodynamics and the bottommost basement floor of the software stack."
+        },
+        {
+          "name": "Cold Meridian",
+          "why": "Treats the bisected ring like a cartographic datum line drawn across the coldest margin of computation."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Landauer Horizon anchors the layer's central theorem with clean, unmistakable authority.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "It is the sole landmark anchor of the Landauer Limit layer and has a distinct, animated geometric silhouette."
+    },
+    {
+      "key": "e:la-ray",
+      "depicts": "A single dark-navy pixel centred in an otherwise blank 18x18 frame.",
+      "concept": "thermal radiation from bit erasure",
+      "proposals": [
+        {
+          "name": "Thermal Ray",
+          "why": "States plainly that the prop represents a radiant emission at the thermodynamic floor."
+        },
+        {
+          "name": "Irreversible Beam",
+          "why": "Nods to logical irreversibility, the exact condition under which Landauer's bound forces energy to radiate away."
+        },
+        {
+          "name": "Solitary Sparkline",
+          "why": "Uses a naturalist-meets-telemetry register for a lone trace moving across an empty field."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Thermal Ray is crisp and fits the sprite's intended animated emission once the art is legible.",
+      "decisionHint": "rework",
+      "mergeWith": null,
+      "decisionWhy": "The static sprite is a single dark pixel in an 18x18 box and reads as a speck without a visible ray."
+    },
+    {
+      "key": "e:la-entropy",
+      "depicts": "A hollow dark-navy circle enclosing a single pale-blue pixel at its centre.",
+      "concept": "Shannon and thermodynamic entropy",
+      "proposals": [
+        {
+          "name": "Entropy Well",
+          "why": "Describes the hollow ring and central point as a bounded sink of disorder."
+        },
+        {
+          "name": "Boltzmann Tax",
+          "why": "Frames kT ln 2 as an unavoidable fiscal levy collected by statistical mechanics on every state collapse."
+        },
+        {
+          "name": "Quiet Halo",
+          "why": "Reads the pale centre and dark perimeter like a faint atmospheric ring observed in a field ledger."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Boltzmann Tax delivers the dry, computing-literate wit of a Unix manual page while staying grounded in the physics.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "It is a clean, layer-native visual emblem for entropy, the core physical quantity of the Landauer Limit."
+    },
+    {
+      "key": "e:la-spark",
+      "depicts": "A pale-blue central pixel flanked on all four cardinal sides by single dark-navy pixels.",
+      "concept": "kT ln 2 energy dissipation quantum",
+      "proposals": [
+        {
+          "name": "Erasure Spark",
+          "why": "Identifies the five-pixel flash as the tiny discharge emitted when a bit is cleared."
+        },
+        {
+          "name": "Minimum Joule",
+          "why": "Understates the 3e-21 joule Landauer floor as the smallest possible billable unit of heat."
+        },
+        {
+          "name": "Frost Glint",
+          "why": "Describes the pale-blue star in quiet naturalist terms suited to an arctic-palette specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Erasure Spark is immediately legible alongside the sprite's four-point burst.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "At five pixels of ink it functions well as an ambient appendix specimen rather than a standalone manual page."
+    },
+    {
+      "key": "e:la-r3-vias",
+      "depicts": "A 3x3 grid of pale ice-blue square pads separated by black channels, recoloured from the Ring -3 via array.",
+      "concept": "inter-layer silicon vias",
+      "proposals": [
+        {
+          "name": "Via Grid",
+          "why": "Describes the 3x3 array of vertical interconnect pads without embellishment."
+        },
+        {
+          "name": "Vertical Stack",
+          "why": "Puns on the software stack metaphor by applying it to literal vertical metal interconnects."
+        },
+        {
+          "name": "Borehole Lattice",
+          "why": "Casts the tiny square shafts as geological drill holes sunk through strata of silicon."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Via Grid is exact and avoids over-naming a recycled silicon-die prop.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-vias",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-vias from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-pad",
+      "depicts": "A pale ice-blue circular bond pad with a dark square centre and two stub leads extending right, recoloured from Ring -3.",
+      "concept": "die bond pad",
+      "proposals": [
+        {
+          "name": "Bond Pad",
+          "why": "Uses the standard semiconductor packaging term for the landing point of a wire bond."
+        },
+        {
+          "name": "Landing Strip",
+          "why": "Dryly compares a microscopic aluminium contact pad to an airfield for incoming bond wires."
+        },
+        {
+          "name": "Frost Eyelet",
+          "why": "Treats the ringed aperture as a pale mineral grommet in a field-guide illustration."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Bond Pad is clear, accurate, and matches the component's canonical role in Ring -3.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-pad",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-pad from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-trace",
+      "depicts": "A pale ice-blue L-shaped conductor connecting a solid square pad at top-left to a pierced via pad at bottom-right.",
+      "concept": "on-die metal routing trace",
+      "proposals": [
+        {
+          "name": "Metal Trace",
+          "why": "Names the routed interconnect line plainly after its physical structure."
+        },
+        {
+          "name": "Manhattan Run",
+          "why": "References the rectilinear Manhattan routing geometry enforced by EDA layout tools."
+        },
+        {
+          "name": "Rime Conduit",
+          "why": "Describes the pale right-angled track as a frosted channel carrying charge across dark substrate."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Manhattan Run is a sharp EDA insider nod that fits the strict 90-degree bend in the sprite.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-trace",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-trace from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-decap",
+      "depicts": "A pale ice-blue surface-mount component with two dark rectangular terminals flanking a narrow white dielectric gap.",
+      "concept": "decoupling capacitor",
+      "proposals": [
+        {
+          "name": "Decoupling Cap",
+          "why": "Uses the everyday board-engineer shorthand for a local power-rail bypass capacitor."
+        },
+        {
+          "name": "Noise Damper",
+          "why": "Summarises its thankless job of absorbing switching transients so logic gates stop complaining."
+        },
+        {
+          "name": "Twin Capacitor",
+          "why": "Presents the symmetrical two-terminal package in a spare, observational register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Decoupling Cap is concise and immediately recognisable to hardware-literate readers.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-decap",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-decap from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-xtal",
+      "depicts": "A dark rectangular crystal package framed in pale ice-blue with a stepped waveform zigzag inside and vertical leads on either side.",
+      "concept": "quartz crystal oscillator",
+      "proposals": [
+        {
+          "name": "Quartz Oscillator",
+          "why": "Identifies the timing reference element cleanly by its physical mechanism."
+        },
+        {
+          "name": "Piezo Heartbeat",
+          "why": "Wryly likens the vibrating quartz slab to the relentless pulse that drives every synchronous circuit."
+        },
+        {
+          "name": "Singing Quartz",
+          "why": "Frames the resonant crystal as a geological specimen that hums at a fixed megahertz pitch."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Quartz Oscillator is precise and matches the waveform graphic inside the package.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-xtal",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-xtal from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-testpads",
+      "depicts": "A horizontal pale ice-blue rail punctuated by four evenly spaced vertical contact tabs against a black ground.",
+      "concept": "wafer probe test pads",
+      "proposals": [
+        {
+          "name": "Test Pads",
+          "why": "Directly names the row of exposed contacts built for factory probe needles."
+        },
+        {
+          "name": "Probe Comb",
+          "why": "Describes the four-toothed silhouette while nodding to automated wafer probers."
+        },
+        {
+          "name": "Contact Spine",
+          "why": "Reads the ribbed bus bar as an anatomical ridge laid flat in the silicon."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Probe Comb captures both the comb-like sprite geometry and its wafer-testing purpose.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-testpads",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-testpads from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-fuses",
+      "depicts": "A row of six pale ice-blue fuse links spanning black gaps, with the rightmost link blown open around a lone pixel.",
+      "concept": "one-time programmable eFuses",
+      "proposals": [
+        {
+          "name": "Fuse Array",
+          "why": "Names the bank of permanent silicon links in straightforward hardware terms."
+        },
+        {
+          "name": "Blown Bit",
+          "why": "Highlights the single severed fuse on the right as a literal irreversible write-once operation."
+        },
+        {
+          "name": "Severed Bridges",
+          "why": "Describes the row of tiny spans, one already burned away, in a spare field-notes voice."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Blown Bit spotlights the visual detail of the broken rightmost link with dry hardware precision.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-fuses",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-fuses from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-resistor",
+      "depicts": "A pale ice-blue zigzag schematic resistor spanning horizontally across a black background.",
+      "concept": "ohmic electrical resistance",
+      "proposals": [
+        {
+          "name": "Ohmic Resistor",
+          "why": "States the component and its defining linear current-voltage law plainly."
+        },
+        {
+          "name": "Joule Heater",
+          "why": "Calls a resistor what it thermodynamically is: a tiny device whose main output is waste heat."
+        },
+        {
+          "name": "Sawtooth Load",
+          "why": "Evokes the jagged schematic silhouette as a small obstruction in the current's path."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Joule Heater is quietly funny and ties a recycled Ring -3 resistor to the thermal theme.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-resistor",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-resistor from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-diode",
+      "depicts": "A pale ice-blue schematic diode symbol with a horizontal lead, triangular junction, and vertical cathode bar on black.",
+      "concept": "unidirectional p-n junction diode",
+      "proposals": [
+        {
+          "name": "Junction Diode",
+          "why": "Names the classic one-way semiconductor element directly."
+        },
+        {
+          "name": "One-Way Valve",
+          "why": "Borrows the older vacuum-tube and plumbing metaphor for a strict unidirectional gate."
+        },
+        {
+          "name": "Arrow Barrier",
+          "why": "Reads the schematic triangle and bar like a trail marker forbidding return passage."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Junction Diode is clean and unambiguous for a textbook schematic symbol.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-diode",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-diode from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-inductor",
+      "depicts": "A pale ice-blue series of four stepped coils forming a schematic inductor across a black ground.",
+      "concept": "electromagnetic inductance coil",
+      "proposals": [
+        {
+          "name": "Inductor Coil",
+          "why": "Describes the four-loop schematic winding in plain electrical terms."
+        },
+        {
+          "name": "Flux Choke",
+          "why": "Uses the dry RF-engineering name for a coil whose job is to resist sudden changes in current."
+        },
+        {
+          "name": "Four-Loop Spiral",
+          "why": "Catalogues the sprite by its stepped, rhythmic geometry as a field specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Flux Choke is brisk, authentic, and has more character than a generic textbook label.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-inductor",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-inductor from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-sram",
+      "depicts": "A pale ice-blue cross-coupled latch schematic with a left input stem and symmetrical upper and lower feedback loops.",
+      "concept": "static RAM bistable bitcell",
+      "proposals": [
+        {
+          "name": "SRAM Cell",
+          "why": "Names the six-transistor static memory bitcell plainly."
+        },
+        {
+          "name": "Volatile Latch",
+          "why": "Reminds the reader that this stubbornly held bit vanishes the instant power drops."
+        },
+        {
+          "name": "Mirror Knot",
+          "why": "Describes the symmetrical cross-coupled loops like a botanical or nautical knot."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "SRAM Cell is the clearest label for a canonical bitcell diagram.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-sram",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-sram from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-ringosc",
+      "depicts": "A pale ice-blue padlock-like loop housing a dark notched core with a single pale pixel at its centre.",
+      "concept": "ring oscillator clock and entropy source",
+      "proposals": [
+        {
+          "name": "Ring Oscillator",
+          "why": "Identifies the odd-stage inverter loop by its standard circuit name."
+        },
+        {
+          "name": "Jitter Loop",
+          "why": "Nods to the phase noise that turns ring oscillators into hardware random-number generators."
+        },
+        {
+          "name": "Chasing Ring",
+          "why": "Evokes an endless signal pursuing its own inverted tail around a closed track."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Jitter Loop is crisp and captures the real-world reason ring oscillators sit deep in Ring -3 security silicon.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-ringosc",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-ringosc from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-thermal",
+      "depicts": "A vertical pale ice-blue thermometer stem with a bulbous base, a dark vertical mercury slot, and two tick marks on the right.",
+      "concept": "on-die thermal sensor diode",
+      "proposals": [
+        {
+          "name": "Thermal Sensor",
+          "why": "States the on-die temperature probe's function directly."
+        },
+        {
+          "name": "Throttle Gauge",
+          "why": "Dryly names the sensor after its inevitable consequence whenever silicon gets too warm."
+        },
+        {
+          "name": "Die Thermometer",
+          "why": "Treats the tiny graduated column like a classical laboratory instrument embedded in the wafer."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Throttle Gauge brings dry systems humour to an instantly readable thermometer silhouette.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-thermal",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-thermal from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-pll",
+      "depicts": "A pale ice-blue stacked T-shaped schematic symbol with two wide parallel bars separated by a narrow gap over a base pedestal.",
+      "concept": "phase-locked loop clock multiplier",
+      "proposals": [
+        {
+          "name": "Phase-Locked Loop",
+          "why": "Gives the full engineering name of the clock synthesis and synchronisation block."
+        },
+        {
+          "name": "Clock Multiplier",
+          "why": "Summarises its practical role of turning a slow crystal tick into gigahertz ambition."
+        },
+        {
+          "name": "Tuning Anvil",
+          "why": "Describes the heavy parallel-plate silhouette as a resonant forge for frequencies."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Phase-Locked Loop is iconic, accurate, and needs no disguise in a technical field manual.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-pll",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-pll from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-jtag",
+      "depicts": "A pale ice-blue ten-pin dual-inline header with a dark keyed central shroud and a pin-one dot on the left.",
+      "concept": "JTAG boundary-scan debug port",
+      "proposals": [
+        {
+          "name": "JTAG Header",
+          "why": "Names the ten-pin hardware debugging connector accurately."
+        },
+        {
+          "name": "Boundary Scan",
+          "why": "References the IEEE 1149.1 test-access protocol that lets engineers peek inside every pin."
+        },
+        {
+          "name": "Keyed Shroud",
+          "why": "Describes the notched connector shell as a guarded portal in a field catalogue."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "JTAG Header is immediately recognisable to anyone who has ever probed a board.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-jtag",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-jtag from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-rom",
+      "depicts": "A dark rectangular chip body framed in pale ice-blue with the letters ROM rendered in bright pixel text.",
+      "concept": "mask read-only memory",
+      "proposals": [
+        {
+          "name": "Mask ROM",
+          "why": "Names the factory-etched read-only memory block explicitly labelled on the sprite."
+        },
+        {
+          "name": "Etched Gospel",
+          "why": "Wryly notes that mask-programmed code cannot be patched once the lithography masks are cut."
+        },
+        {
+          "name": "Fossil Tablet",
+          "why": "Casts the immutable silicon slab as an archaeological inscription preserved at the bottom of the stack."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Mask ROM aligns directly with the literal ROM lettering printed across the chip.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-rom",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-rom from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-r3-htree",
+      "depicts": "A symmetrical pale ice-blue H-shaped fractal branching network radiating from a central square hub.",
+      "concept": "H-tree zero-skew clock distribution",
+      "proposals": [
+        {
+          "name": "H-Tree Clock",
+          "why": "Names the balanced fractal clock-distribution network directly."
+        },
+        {
+          "name": "Zero Skew",
+          "why": "Refers to the equal-path-length guarantee that keeps every leaf of the tree ticking in lockstep."
+        },
+        {
+          "name": "Clock Frond",
+          "why": "Treats the recursive branching geometry like a pressed botanical specimen."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "H-Tree Clock is crisp, canonical, and matches the unmistakable H-fractal silhouette.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-htree",
+      "decisionWhy": "This sprite is an exact icy-blue recolour of e:r3-htree from the Ring -3 layer with an identical pixel mask."
+    },
+    {
+      "key": "e:la-erase",
+      "depicts": "A 12x12 hollow dark-navy square frame enclosing a single pale-blue pixel just off centre.",
+      "concept": "irreversible single-bit erasure",
+      "proposals": [
+        {
+          "name": "Bit Erasure",
+          "why": "Names the exact logical operation governed by Landauer's principle."
+        },
+        {
+          "name": "Reset Cell",
+          "why": "Frames the nearly empty box as a register forced back to a canonical zero state."
+        },
+        {
+          "name": "Cleared Frame",
+          "why": "Describes the vacated dark border and lone departing speck in a quiet archival register."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Reset Cell captures both the square container silhouette and the physics of collapsing two states into one.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "It is a layer-native prop directly depicting the bit-erasure operation at the heart of Landauer's principle."
+    },
+    {
+      "key": "e:la-heat",
+      "depicts": "Four staggered vertical dark-navy bars arranged in alternating heights like rising thermal plumes.",
+      "concept": "waste heat dissipation (kT ln 2)",
+      "proposals": [
+        {
+          "name": "Waste Heat",
+          "why": "States plainly the irreversible thermal exhaust paid whenever information is discarded."
+        },
+        {
+          "name": "Thermal Exhaust",
+          "why": "Treats the four dark risers as a miniature vent stack shedding entropy into the environment."
+        },
+        {
+          "name": "Rising Shimmer",
+          "why": "Describes the staggered vertical columns in observational terms like heat haze over dark stone."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Waste Heat is stark, exact, and carries the dry finality of the layer's bottom-of-the-stack physics.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "It is a distinct, layer-native visual for the dissipated heat required by Landauer's bound."
+    },
+    {
+      "key": "e:la-lonebit",
+      "depicts": "A 6x6 cyan square centred with a 2x2 pale ice-white core on an 8x8 frame.",
+      "concept": "single isolated bit of information",
+      "proposals": [
+        {
+          "name": "Lone Bit",
+          "why": "Names the solitary unit of information directly after its minimal square geometry."
+        },
+        {
+          "name": "Last Shannon",
+          "why": "Honours Claude Shannon's unit of binary information surviving alone at the bottom of the stack."
+        },
+        {
+          "name": "Solitary Quantum",
+          "why": "Casts the glowing pale core in naturalist terms as a single indivisible specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Last Shannon avoids repeating the code id while saluting the founder of information theory with dry economy.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "As a minimal 6x6 pixel block it fits cleanly as an appendix specimen rather than a full manual page."
+    },
+    {
+      "key": "c:landauer:core",
+      "depicts": "A minimal floating white glyph that appears either as a 2x3 solid bar (1) or a 3x3 hollow ring (0) drifting in empty space.",
+      "concept": "free binary states at the thermodynamic floor",
+      "proposals": [
+        {
+          "name": "Free Bit",
+          "why": "Describes the drifting 1 and 0 glyphs plainly as unallocated binary states."
+        },
+        {
+          "name": "Maxwell Demon",
+          "why": "References the classic thought experiment that led Landauer and Bennett to prove erasure costs heat."
+        },
+        {
+          "name": "Drift Bit",
+          "why": "Pairs the critter's floating motion with a terse naturalist name suited to a pelagic specimen."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Maxwell Demon is the defining folklore creature of the Landauer Limit and elevates two tiny binary glyphs into an unforgettable manual entry.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "It is the sole native critter species of the Landauer Limit layer, pairing 1 and 0 visual forms."
+    }
+  ]
+}

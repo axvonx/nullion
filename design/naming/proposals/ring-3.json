@@ -1,0 +1,677 @@
+{
+  "layer": "ring-3",
+  "items": [
+    {
+      "key": "e:r3-me",
+      "depicts": "A large, animated silicon die package representing the Intel Management Engine at the bottom of the stack.",
+      "concept": "out-of-band management processor",
+      "proposals": [
+        {
+          "name": "Management Engine",
+          "why": "States the exact subsystem the anchor represents without embellishment."
+        },
+        {
+          "name": "Ring Zero's Boss",
+          "why": "Puns on the privilege hierarchy where Ring -3 outranks the OS kernel itself."
+        },
+        {
+          "name": "The Unseen Core",
+          "why": "Evokes a subterranean, autonomous organism operating beneath the host's awareness."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "In a Unix-style field manual, naming the landmark directly gives the player immediate clarity before the manual page's dry commentary.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Primary anchor set piece for the Ring -3 layer, clearly deserving its own manual page."
+    },
+    {
+      "key": "e:r3-vias",
+      "depicts": "A small 10x10 cluster of vertical copper-plated holes connecting different layers of a circuit board or die.",
+      "concept": "inter-layer PCB vias",
+      "proposals": [
+        {
+          "name": "Through-Hole Vias",
+          "why": "Uses the standard electrical engineering term for vertical interconnects."
+        },
+        {
+          "name": "Layer Wormholes",
+          "why": "Jokes that vias are shortcuts tunneling straight through stacked silicon planes."
+        },
+        {
+          "name": "Copper Burrows",
+          "why": "Frames the tiny vertical shafts as naturalist tunnels bored into the substrate."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Through-Hole Vias is crisp, accurate, and fits the dry hardware-manual register.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small passive interconnect prop best suited for the appendix specimen catalogue."
+    },
+    {
+      "key": "e:r3-pad",
+      "depicts": "A 16x10 metallic contact pad on the silicon die used for external bonding or probing.",
+      "concept": "die bond pad",
+      "proposals": [
+        {
+          "name": "Bonding Pad",
+          "why": "Describes the physical metal landing zone on the edge of a silicon die."
+        },
+        {
+          "name": "Solder Landing",
+          "why": "Plays on the pad as a tiny airfield where external signals touch down."
+        },
+        {
+          "name": "Tin Shelf",
+          "why": "Gives the flat metallic outcrop a quiet, geological field-guide feel."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Bonding Pad is precise and avoids confusion with the prototype's unrelated key metaphor.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small structural die feature that belongs in the appendix catalogue."
+    },
+    {
+      "key": "e:r3-trace",
+      "depicts": "A 24x12 etched copper trace routing signals across the substrate.",
+      "concept": "PCB signal routing",
+      "proposals": [
+        {
+          "name": "Copper Trace",
+          "why": "Directly names the etched conductive path on the board."
+        },
+        {
+          "name": "Bus Footpath",
+          "why": "Wryly scales down a high-speed data bus to a humble pedestrian trail."
+        },
+        {
+          "name": "Etched Vein",
+          "why": "Treats the branching metal line like a mineral or biological vessel."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Copper Trace is standard, unmistakable, and pairs cleanly with other board-level props.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Basic routing prop with no standalone gameplay mechanic, ideal for the catalogue."
+    },
+    {
+      "key": "e:r3-decap",
+      "depicts": "A tiny 13x7 surface-mount decoupling capacitor.",
+      "concept": "power rail decoupling",
+      "proposals": [
+        {
+          "name": "Decoupling Cap",
+          "why": "Uses the everyday hardware-engineer shorthand for a bypass capacitor."
+        },
+        {
+          "name": "Ripple Sponge",
+          "why": "Humorously describes its job of soaking up high-frequency voltage noise."
+        },
+        {
+          "name": "Charge Reservoir",
+          "why": "Evokes a quiet, steady cistern holding local potential against sudden drops."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Decoupling Cap is authentic jargon that reads naturally in a technical manual.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Tiny passive component best listed in the specimen appendix."
+    },
+    {
+      "key": "e:r3-xtal",
+      "depicts": "A 15x9 animated quartz crystal oscillator.",
+      "concept": "piezoelectric clock reference",
+      "proposals": [
+        {
+          "name": "Quartz Oscillator",
+          "why": "Names the exact piezoelectric component that generates the base clock."
+        },
+        {
+          "name": "The Metronome",
+          "why": "Puns on the crystal's relentless, mechanical timekeeping for the entire chip."
+        },
+        {
+          "name": "Singing Stone",
+          "why": "A naturalist nod to a mineral that vibrates at a fixed frequency when energized."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Quartz Oscillator is clear and grounds the animation in real hardware.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated clock source with strong visual identity, worth its own manual page."
+    },
+    {
+      "key": "e:r3-testpads",
+      "depicts": "A 17x7 row of exposed gold test pads for factory diagnostics.",
+      "concept": "in-circuit test points",
+      "proposals": [
+        {
+          "name": "Test Pads",
+          "why": "Plainly identifies the exposed contacts left for manufacturing probes."
+        },
+        {
+          "name": "Factory Peepholes",
+          "why": "Jokes that test pads let engineers spy on internal signals after assembly."
+        },
+        {
+          "name": "Gilded Stepping-Stones",
+          "why": "Describes the row of bright metallic dots as a miniature trail."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Test Pads is concise and immediately recognizable to anyone who has inspected a PCB.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small diagnostic scatter prop suited for the appendix."
+    },
+    {
+      "key": "e:r3-fuses",
+      "depicts": "A 19x9 array of microscopic programmable fuses on the silicon die.",
+      "concept": "one-time programmable eFuses",
+      "proposals": [
+        {
+          "name": "Silicon eFuses",
+          "why": "Uses the industry term for on-die one-time programmable fuses."
+        },
+        {
+          "name": "Burnt Bridges",
+          "why": "Wryly captures the irreversibility of blowing an eFuse to lock a setting."
+        },
+        {
+          "name": "Charred Links",
+          "why": "Evokes the physical aftermath of a microscopic link severed by current."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Burnt Bridges is a sharp, memorable pun on irreversible hardware configuration.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "eFuses are central to hardware root-of-trust and Ring -3 provisioning, warranting a page."
+    },
+    {
+      "key": "e:r3-resistor",
+      "depicts": "A 15x5 surface-mount resistor.",
+      "concept": "current-limiting resistance",
+      "proposals": [
+        {
+          "name": "Pull-Up Resistor",
+          "why": "Names a specific, ubiquitous role resistors play on digital control lines."
+        },
+        {
+          "name": "Ohmic Speedbump",
+          "why": "Humorously frames resistance as a small obstacle slowing current down."
+        },
+        {
+          "name": "Ceramic Pinch",
+          "why": "Describes the tiny rectangular component as a narrow constriction in the path."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Pull-Up Resistor gives a plain component a concrete digital-logic purpose.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Tiny passive scatter prop best placed in the appendix."
+    },
+    {
+      "key": "e:r3-diode",
+      "depicts": "An 11x7 semiconductor diode.",
+      "concept": "one-way current rectification",
+      "proposals": [
+        {
+          "name": "Schottky Diode",
+          "why": "Identifies a fast-switching diode common in low-voltage digital circuits."
+        },
+        {
+          "name": "One-Way Turnstile",
+          "why": "Puns on the diode's strict enforcement of unidirectional current flow."
+        },
+        {
+          "name": "Silicon Valve",
+          "why": "Uses an older, naturalist-mechanical metaphor for a check valve in solid state."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Schottky Diode is accurate and fits the technical field-manual tone.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small passive component suited for the specimen catalogue."
+    },
+    {
+      "key": "e:r3-inductor",
+      "depicts": "A 15x6 coiled or shielded surface-mount inductor.",
+      "concept": "magnetic energy storage",
+      "proposals": [
+        {
+          "name": "Power Inductor",
+          "why": "Directly names the component used in voltage regulator stages."
+        },
+        {
+          "name": "Flux Coil",
+          "why": "A concise nod to the magnetic field it builds and collapses."
+        },
+        {
+          "name": "Wound Spool",
+          "why": "Evokes the physical geometry of wire coiled around a core."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Power Inductor is clean, accurate, and consistent with the other passive props.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small passive component best listed in the appendix."
+    },
+    {
+      "key": "e:r3-sram",
+      "depicts": "A 17x15 dense grid block representing static RAM cells.",
+      "concept": "on-die static RAM",
+      "proposals": [
+        {
+          "name": "Static RAM",
+          "why": "Plainly names the fast, volatile on-die memory."
+        },
+        {
+          "name": "Six-Transistor Cell",
+          "why": "References the classic 6T SRAM bit-cell architecture in dry detail."
+        },
+        {
+          "name": "Latching Hive",
+          "why": "Evokes a tightly packed honeycomb of bistable cells holding state."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Static RAM is clear and immediately distinguishes it from external DRAM.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Key architectural block inside the Management Engine, deserving its own page."
+    },
+    {
+      "key": "e:r3-ringosc",
+      "depicts": "A 15x16 animated loop of inverters forming a ring oscillator.",
+      "concept": "on-die ring oscillator",
+      "proposals": [
+        {
+          "name": "Ring Oscillator",
+          "why": "Uses the exact circuit-design term for an odd-numbered inverter loop."
+        },
+        {
+          "name": "Odd-Gate Chase",
+          "why": "Wryly describes the signal endlessly chasing its own inverted tail."
+        },
+        {
+          "name": "Feedback Ouroboros",
+          "why": "A field-guide metaphor for a self-biting loop of pure logic."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Ring Oscillator is the standard name and invites a great manual-page explanation of how it works.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Animated logic structure with a distinct computing concept, worth its own page."
+    },
+    {
+      "key": "e:r3-thermal",
+      "depicts": "A 7x13 vertical thermal diode or temperature sensor on the die.",
+      "concept": "on-die thermal sensor",
+      "proposals": [
+        {
+          "name": "Thermal Diode",
+          "why": "Names the actual junction used to measure silicon temperature."
+        },
+        {
+          "name": "Fever Gauge",
+          "why": "Dryly personifies the chip's panic before thermal throttling kicks in."
+        },
+        {
+          "name": "Heat Needle",
+          "why": "Matches the tall, narrow 7x13 silhouette with a naturalist instrument feel."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Thermal Diode is precise and fits the silicon-level setting.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small 7x13 sensor prop best suited for the appendix catalogue."
+    },
+    {
+      "key": "e:r3-pll",
+      "depicts": "A 15x13 phase-locked loop frequency multiplier block.",
+      "concept": "phase-locked loop clock synthesis",
+      "proposals": [
+        {
+          "name": "Phase-Locked Loop",
+          "why": "States the full, canonical name of the clock-multiplying circuit."
+        },
+        {
+          "name": "Clock Multiplier",
+          "why": "Describes what it does in plain terms: turning a slow crystal into gigahertz."
+        },
+        {
+          "name": "Harmonic Lock",
+          "why": "Evokes the delicate synchronization between reference and feedback."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Phase-Locked Loop is iconic hardware terminology that belongs in a computing field manual.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Fundamental clock-synthesis block worth its own manual entry."
+    },
+    {
+      "key": "e:r3-jtag",
+      "depicts": "An 18x12 multi-pin JTAG debug header or TAP controller.",
+      "concept": "JTAG hardware debug interface",
+      "proposals": [
+        {
+          "name": "JTAG Header",
+          "why": "Directly names the industry-standard boundary-scan debug port."
+        },
+        {
+          "name": "Silicon Backdoor",
+          "why": "Wryly nods to JTAG's power to halt and inspect a chip from the outside."
+        },
+        {
+          "name": "Boundary Tap",
+          "why": "Plays on Test Access Port (TAP) as if tapping into a hidden spring."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "JTAG Header is immediately recognizable and pairs well with dry security-oriented manual text.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Major hardware debug interface, clearly worth its own page."
+    },
+    {
+      "key": "e:r3-rom",
+      "depicts": "A 22x11 mask ROM block carrying immutable boot code.",
+      "concept": "immutable mask ROM",
+      "proposals": [
+        {
+          "name": "Mask ROM",
+          "why": "Uses the exact term for memory literally etched into the silicon masks."
+        },
+        {
+          "name": "Read-Only Gospel",
+          "why": "Jokes that mask ROM is unpatchable truth baked in at the fab."
+        },
+        {
+          "name": "Stone Tablet",
+          "why": "Evokes permanence in a field-guide register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Mask ROM is crisp, accurate, and essential to how Ring -3 boots.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Carries text and represents immutable boot code, deserving its own page."
+    },
+    {
+      "key": "e:r3-htree",
+      "depicts": "A 15x15 symmetric H-shaped clock distribution network.",
+      "concept": "H-tree clock distribution",
+      "proposals": [
+        {
+          "name": "H-Tree Clock",
+          "why": "Names the classic fractal geometry used to minimize clock skew."
+        },
+        {
+          "name": "Zero-Skew Fractal",
+          "why": "Highlights the engineering obsession with equidistant signal arrival."
+        },
+        {
+          "name": "Copper Canopy",
+          "why": "Treats the branching symmetry like an overhead forest canopy."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "H-Tree Clock is the exact textbook term and visually matches the sprite.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Distinctive geometric structure with a rich computing concept behind it."
+    },
+    {
+      "key": "e:r3-guard",
+      "depicts": "A 15x17 guard ring or shield structure isolating sensitive silicon.",
+      "concept": "silicon guard ring",
+      "proposals": [
+        {
+          "name": "Guard Ring",
+          "why": "Uses the standard layout term for a doped ring that blocks substrate noise."
+        },
+        {
+          "name": "Noise Moat",
+          "why": "Frames the guard ring as a defensive trench around sensitive logic."
+        },
+        {
+          "name": "Doped Palisade",
+          "why": "Gives the protective silicon barrier a quiet, naturalist-fortification feel."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Guard Ring is authentic semiconductor terminology and clear without being cutesy.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Passive isolation prop best suited for the appendix catalogue."
+    },
+    {
+      "key": "e:r3-gate",
+      "depicts": "A 14x9 individual logic gate etched in silicon.",
+      "concept": "CMOS logic gate",
+      "proposals": [
+        {
+          "name": "NAND Gate",
+          "why": "Names the universal building block of digital logic."
+        },
+        {
+          "name": "Boolean Turnstile",
+          "why": "Wryly frames a logic gate as a checkpoint deciding true or false."
+        },
+        {
+          "name": "Silicon Fork",
+          "why": "Evokes a tiny branching junction where voltage becomes decision."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "NAND Gate is concrete, foundational, and fits the manual's precision.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small foundational prop best placed in the specimen appendix."
+    },
+    {
+      "key": "e:r3-probe",
+      "depicts": "A 7x15 sharp microprobe needle touching down on a die.",
+      "concept": "silicon microprobing",
+      "proposals": [
+        {
+          "name": "Microprobe Needle",
+          "why": "Plainly describes the tungsten needle used in physical die analysis."
+        },
+        {
+          "name": "Silicon Mosquito",
+          "why": "Jokes about a tiny needle piercing the chip to siphon off signals."
+        },
+        {
+          "name": "Tungsten Fang",
+          "why": "Gives the sharp 7x15 probe a stark, field-guide presence."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Microprobe Needle is accurate and immediately conveys physical hardware debugging.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small 7x15 prop best suited for the appendix catalogue."
+    },
+    {
+      "key": "e:r3-align",
+      "depicts": "A 9x9 optical alignment target used during photolithography.",
+      "concept": "wafer alignment mark",
+      "proposals": [
+        {
+          "name": "Alignment Mark",
+          "why": "Uses the standard fab term for wafer-stepper registration targets."
+        },
+        {
+          "name": "Stepper Crosshair",
+          "why": "Nods to the lithography stepper lining up masks to nanometer precision."
+        },
+        {
+          "name": "Reticle Sight",
+          "why": "Evokes an optical survey marker etched onto the silicon terrain."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Alignment Mark is concise and authentic to semiconductor fabrication.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Tiny 9x9 calibration prop best placed in the appendix."
+    },
+    {
+      "key": "e:r3-bondwire",
+      "depicts": "A 16x10 arched gold wire connecting a die pad to the package leadframe.",
+      "concept": "gold wire bonding",
+      "proposals": [
+        {
+          "name": "Gold Bondwire",
+          "why": "Directly names the microscopic gold arch linking die to package."
+        },
+        {
+          "name": "Micron Suspension",
+          "why": "Wryly treats the tiny wire arch like a miniature suspension bridge."
+        },
+        {
+          "name": "Gilded Arch",
+          "why": "Describes the curved metallic filament in a quiet, observational register."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Gold Bondwire is exact and pairs naturally with Bonding Pad.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small structural interconnect prop suited for the appendix."
+    },
+    {
+      "key": "e:r3-capbank",
+      "depicts": "A 14x9 row of matched capacitors forming a capacitor bank.",
+      "concept": "on-die capacitor bank",
+      "proposals": [
+        {
+          "name": "Capacitor Bank",
+          "why": "Plainly names the parallel array of charge-storing cells."
+        },
+        {
+          "name": "Charge Battery",
+          "why": "Plays on the older sense of 'battery' as an aligned row of units."
+        },
+        {
+          "name": "Moat Cisterns",
+          "why": "Evokes a row of small basins buffering local power."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Capacitor Bank is clear and avoids confusion with the single Decoupling Cap.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small passive array prop best listed in the specimen appendix."
+    },
+    {
+      "key": "e:r3-pulse",
+      "depicts": "A 16x7 animated square-wave or clock pulse traveling along a line.",
+      "concept": "digital clock pulse",
+      "proposals": [
+        {
+          "name": "Clock Pulse",
+          "why": "Directly names the periodic square-wave edge."
+        },
+        {
+          "name": "Rising Edge",
+          "why": "A wryly specific nod to the exact moment digital logic samples state."
+        },
+        {
+          "name": "Square Ripple",
+          "why": "Describes the crisp, unnatural geometry of a digital wave in motion."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "Rising Edge is a great computing-literate nod that still reads cleanly.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small animated signal prop best suited for the appendix."
+    },
+    {
+      "key": "e:r3-fiducial",
+      "depicts": "An 11x11 circular or crosshair fiducial marker on a circuit board.",
+      "concept": "pick-and-place fiducial",
+      "proposals": [
+        {
+          "name": "Fiducial Marker",
+          "why": "Uses the exact manufacturing term for machine-vision reference dots."
+        },
+        {
+          "name": "Robot Bullseye",
+          "why": "Jokes that the mark exists solely for pick-and-place cameras."
+        },
+        {
+          "name": "Copper Cairn",
+          "why": "Frames the orientation dot as a trail marker on the board."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Fiducial Marker is crisp, technical, and quietly funny in its own right.",
+      "decisionHint": "catalogue",
+      "mergeWith": null,
+      "decisionWhy": "Small 11x11 reference prop best placed in the appendix."
+    },
+    {
+      "key": "e:r3-fusebank",
+      "depicts": "A 14x8 dense bank of programmable fuses.",
+      "concept": "eFuse configuration bank",
+      "proposals": [
+        {
+          "name": "Fuse Bank",
+          "why": "Plainly names the grouped array of programmable fuses."
+        },
+        {
+          "name": "Lockout Array",
+          "why": "Highlights its role in permanently disabling debug or downgrade paths."
+        },
+        {
+          "name": "Severed Row",
+          "why": "Evokes a line of tiny links waiting to be blown."
+        }
+      ],
+      "recommend": 0,
+      "recommendWhy": "Fuse Bank is clear, though it closely overlaps with Silicon eFuses.",
+      "decisionHint": "variant",
+      "mergeWith": "e:r3-fuses",
+      "decisionWhy": "Represents the same eFuse concept as e:r3-fuses in a slightly more compact array form."
+    },
+    {
+      "key": "c:ring-3:core",
+      "depicts": "A 26x22 grid-bound critter with two sprite variants that steps along orthogonal silicon rails.",
+      "concept": "bus-clocked state machine",
+      "proposals": [
+        {
+          "name": "Grid Automaton",
+          "why": "Describes a creature strictly constrained to orthogonal, clocked steps."
+        },
+        {
+          "name": "HECI Courier",
+          "why": "References the Host Embedded Controller Interface carrying messages to Ring -3."
+        },
+        {
+          "name": "Rail Walker",
+          "why": "A field-guide name for a specimen that never leaves its etched tracks."
+        }
+      ],
+      "recommend": 1,
+      "recommendWhy": "HECI Courier ties the critter directly to the layer's MEI / HECI Mailbox identity.",
+      "decisionHint": "keep",
+      "mergeWith": null,
+      "decisionWhy": "Primary living species of the Ring -3 layer, clearly deserving its own manual page."
+    }
+  ]
+}
