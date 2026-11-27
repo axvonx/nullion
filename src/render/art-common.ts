@@ -1,5 +1,6 @@
 import { enforce } from '../core/enforce';
 import type { LayerId } from '../core/layers';
+import type { Collectibles } from './collectibles';
 
 /** Deterministic hash → [0,1). Layer art is seeded by world row so it never shimmers between frames. */
 export function hash(n: number): number {
@@ -30,6 +31,8 @@ export interface Band {
   from?: number;
   /** Optional far-plane vertical offset (used during WOMM's rigid forced scroll to bind z-layers together). */
   farShift?: number;
+  /** Where props and critters report what they drew (the live scene only; portraits and seam redraws omit it). */
+  collectibles?: Collectibles;
 }
 
 export type Art = (ctx: CanvasRenderingContext2D, b: Band) => void;

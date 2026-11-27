@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS, LAYERS } from '../core/layers';
 import type { Band } from './art-common';
+import { Collectibles } from './collectibles';
 import { ALT_SPECIES_MOTIONS, CritterSystem, MotionType, SPECIES_MOTIONS, isAltSpecies, type CritterCall } from './critters';
 
 function fakeCtx() {
@@ -23,8 +24,8 @@ function fakeCtx() {
   return { ctx, rects: () => rects, texts: () => texts };
 }
 
-function makeBand(t: number, reduced = false, camY = 0): Band {
-  return { top: -camY, bottom: 260 - camY, worldTop: 0, camY, w: 320, h: 240, t, reduced };
+function makeBand(t: number, reduced = false, camY = 0, collectibles?: Collectibles): Band {
+  return { top: -camY, bottom: 260 - camY, worldTop: 0, camY, w: 320, h: 240, t, reduced, ...(collectibles ? { collectibles } : {}) };
 }
 
 describe('CritterSystem (System Biosphere)', () => {
@@ -65,12 +66,16 @@ describe('CritterSystem (System Biosphere)', () => {
     const sys = new CritterSystem();
     sys.ensureSeed(7);
 
-    const mockSpots = [30, 80, 24, 14, 120, 110, 26, 16, 210, 95, 22, 14, 270, 130, 20, 12];
+    const mockSpots = new Collectibles();
+    mockSpots.addProp({ reaction: { x: 30, y: 80, w: 24, h: 14 } });
+    mockSpots.addProp({ reaction: { x: 120, y: 110, w: 26, h: 16 } });
+    mockSpots.addProp({ reaction: { x: 210, y: 95, w: 22, h: 14 } });
+    mockSpots.addProp({ reaction: { x: 270, y: 130, w: 20, h: 12 } });
     for (const id of ALL_LAYER_IDS) {
       const { ctx, rects, texts } = fakeCtx();
       const calls: CritterCall[] = [];
       for (let t = 0.5; t <= 26; t += 0.4) {
-        sys.drawBand(ctx, id, makeBand(t), true, (ev) => calls.push(ev), mockSpots);
+        sys.drawBand(ctx, id, makeBand(t, false, 0, mockSpots), true, (ev) => calls.push(ev));
       }
       expect(rects()).toBeGreaterThan(0);
       if (id === 'ring-2') {
@@ -94,7 +99,10 @@ describe('CritterSystem (System Biosphere)', () => {
     const sys = new CritterSystem();
     sys.ensureSeed(5);
     const { ctx } = fakeCtx();
-    const mockSpots = [60, 100, 28, 16, 150, 120, 28, 16, 240, 105, 28, 16];
+    const mockSpots = new Collectibles();
+    mockSpots.addProp({ reaction: { x: 60, y: 100, w: 28, h: 16 } });
+    mockSpots.addProp({ reaction: { x: 150, y: 120, w: 28, h: 16 } });
+    mockSpots.addProp({ reaction: { x: 240, y: 105, w: 28, h: 16 } });
     const layers = Object.keys(ALT_SPECIES_MOTIONS) as (keyof typeof ALT_SPECIES_MOTIONS)[];
     expect(layers.length).toBeGreaterThan(0);
     for (const id of layers) {
@@ -106,7 +114,7 @@ describe('CritterSystem (System Biosphere)', () => {
         expect(Array.from(c.motions)).toEqual(SPECIES_MOTIONS[id]);
       }
       for (let t = 0.05; t <= 20; t += 0.05) {
-        sys.drawBand(ctx, id, makeBand(t), false, undefined, mockSpots);
+        sys.drawBand(ctx, id, makeBand(t, false, 0, mockSpots), false, undefined);
         for (const c of alts) {
           expect(c.motions.has(c.motion), `${id} alt entered ${c.motion}`).toBe(true);
           expect(Number.isFinite(c.x) && Number.isFinite(c.worldY)).toBe(true);
@@ -119,9 +127,12 @@ describe('CritterSystem (System Biosphere)', () => {
     const sys = new CritterSystem();
     sys.ensureSeed(11);
     const { ctx } = fakeCtx();
-    const mockSpots = [60, 100, 28, 16, 150, 120, 28, 16, 240, 105, 28, 16];
+    const mockSpots = new Collectibles();
+    mockSpots.addProp({ reaction: { x: 60, y: 100, w: 28, h: 16 } });
+    mockSpots.addProp({ reaction: { x: 150, y: 120, w: 28, h: 16 } });
+    mockSpots.addProp({ reaction: { x: 240, y: 105, w: 28, h: 16 } });
     for (let t = 0.05; t <= 12; t += 0.05) {
-      sys.drawBand(ctx, 'application', makeBand(t), false, undefined, mockSpots);
+      sys.drawBand(ctx, 'application', makeBand(t, false, 0, mockSpots), false, undefined);
       for (const c of sys.getLayerCritters('application')) {
         if (isAltSpecies('application', c.variant)) expect(c.motion).toBe(MotionType.Fly);
       }
@@ -132,10 +143,13 @@ describe('CritterSystem (System Biosphere)', () => {
     const sys = new CritterSystem();
     sys.ensureSeed(11);
     const { ctx } = fakeCtx();
-    const mockSpots = [60, 100, 28, 16, 150, 120, 28, 16, 240, 105, 28, 16];
+    const mockSpots = new Collectibles();
+    mockSpots.addProp({ reaction: { x: 60, y: 100, w: 28, h: 16 } });
+    mockSpots.addProp({ reaction: { x: 150, y: 120, w: 28, h: 16 } });
+    mockSpots.addProp({ reaction: { x: 240, y: 105, w: 28, h: 16 } });
     const seen = new Set<MotionType>();
     for (let t = 0.05; t <= 12; t += 0.05) {
-      sys.drawBand(ctx, 'application', makeBand(t), false, undefined, mockSpots);
+      sys.drawBand(ctx, 'application', makeBand(t, false, 0, mockSpots), false, undefined);
       for (const b of sys.getLayerCritters('application')) seen.add(b.motion);
     }
     expect(seen.has(MotionType.Fly)).toBe(true);

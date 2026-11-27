@@ -118,20 +118,6 @@ function bandPlacement(idx: number): LayerPlacement {
   return pl;
 }
 
-/** Entities drawn this frame, near plane, as flat [x, y, w, h, ...] in scene pixels: what tier reactions act on. */
-export const ENTITY_SPOTS: number[] = [];
-
-/** Clickable Field Manual targets drawn this frame in scene pixels (cleared each frame by Scene). */
-export interface ManualTarget {
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-  entryId: string;
-  layer: LayerId;
-}
-export const MANUAL_TARGETS: ManualTarget[] = [];
-
 /** How many entities of each layer are placed (for the debug read-out and tests of the wiring). */
 export function worldStats(): { layer: LayerId; near: number; far: number; types: number }[] {
   enforce(worldSpec, 'v4: world not built');
@@ -220,7 +206,8 @@ function entities(ctx: Ctx, b: Band, id: LayerId) {
     drawEntity(ctx, e.def, e.v, e.look, e.x, sy, e.flip, T + e.ph);
   }
   setPaint(mode, undefined);
-  const report = b.from === undefined;
+  // Only the live scene's full draw reports what it drew; a seam redraw (`from`) repaints the same props.
+  const report = b.from === undefined ? b.collectibles : undefined;
   for (let i = firstAtOrAfter(pl.near, y0 + b.camY - pl.maxNearH); i < pl.near.length; i++) {
     const e = pl.near[i]!;
     const sy = e.y - b.camY;
@@ -230,10 +217,13 @@ function entities(ctx: Ctx, b: Band, id: LayerId) {
     if (flipped) drawTopicProp(ctx, flipped, e.w, e.h, e.x, sy, T + e.ph, e.v);
     else drawEntity(ctx, e.def, e.v, e.look, e.x, sy, e.flip, T + e.ph);
     // Reactions copy and jiggle props, not whole buildings.
-    if (report && !e.anchor && e.w <= 40 && e.h <= 32) ENTITY_SPOTS.push(e.x - 1, R(sy) - 1, e.w + 2, e.h + 2);
     if (report) {
       const hit = flipped ? entryForTopic(flipped.id) : entryForEntity(e.def.id, id);
-      if (hit) MANUAL_TARGETS.push({ x: e.x, y: R(sy), w: e.w, h: e.h, entryId: hit.entry.id, layer: hit.layer });
+      report.addProp({
+        // Reactions copy and jiggle props, not whole buildings.
+        ...(!e.anchor && e.w <= 40 && e.h <= 32 ? { reaction: { x: e.x - 1, y: R(sy) - 1, w: e.w + 2, h: e.h + 2 } } : {}),
+        ...(hit ? { manual: { x: e.x, y: R(sy), w: e.w, h: e.h, entryId: hit.entry.id, layer: hit.layer } } : {}),
+      });
     }
   }
 }

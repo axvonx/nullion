@@ -4,18 +4,22 @@ import type { TierId } from '../core/tiers';
 import { look, reducedMotion } from '../looks';
 import { enforce } from '../core/enforce';
 import { FONT, SEAM_ART, SEAM_H, hash, type Art, type Band } from './art-common';
-import { ENTITY_SPOTS, LAYER_ART_V4, MANUAL_TARGETS, ensureWorldV4, setActiveTopicV4, type ManualTarget } from './art-v4';
-import { CRITTER_SPOTS, CritterSystem } from './critters';
-import { MANUAL_RARITIES, entryForCritter, manualEntryById, manualStore } from '../game/manual';
+import { LAYER_ART_V4, ensureWorldV4, setActiveTopicV4 } from './art-v4';
+import { Collectibles } from './collectibles';
+import { CritterSystem } from './critters';
+import { MANUAL_RARITIES, manualEntryById, manualStore } from '../game/manual';
 import { tagsForQuestion } from './v4/topics';
 import { FAR_F } from './v4/place';
 import type { WorldSpecV4 } from './v4/world';
-import { LAYER_PALETTE, quantizeRow, snapColor, type PaletteMode } from './palettes';
+import { LAYER_PALETTE, quantizeRow, snapColor } from './palettes';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
-import { CASCADE, LEAD_MS, bufferBlock, NO_REACTION, PAGE_FAULT, REACTION_MS, WOMM, reactionFrame, type NullionBannerState, type ReactionFrame } from './reaction-fx';
-import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from './v4/watermark';
+import { LEAD_MS, bufferBlock, NO_REACTION, REACTION_MS, WOMM, reactionFrame, type ReactionFrame } from './reaction-fx';
+import { drawNullionBanner } from './nullion-banner';
+import { ReactionPaint } from './reaction-paint';
+import { BAYER16, get2d, type Surface } from './surface';
+import { TitleGlitches } from './title-glitches';
 import { CURSOR_FRAC, FORM_BY_LAYER, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
-import { drawMiniNullion, type TitleGlitchEvent } from '../ui/title-logo';
+import type { TitleGlitchEvent } from '../ui/title-logo';
 import { sound } from '../audio/sound';
 
 export { pixelScale } from './cursor-geom';
@@ -168,10 +172,6 @@ function easeOutBack(p: number): number {
 const easeOutCubic = (p: number) => 1 - (1 - p) ** 3;
 
 const VIGNETTE_MS = 260;
-/** The page-fault reaction's page size in scene pixels (a fixed grid). */
-const PAGE_W = 64;
-const PAGE_H = 36;
-const BAYER16 = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
 
 
 
@@ -190,13 +190,35 @@ export interface ScreenFx {
   flip: 'none' | 'invert' | 'tint';
 }
 
-const LEAK_MS = 2600;
-const LEAK_BATCHES = 5;
-const LEAK_EVERY_MS = 1200;
-
 /** How long a tier's notable part plays before its dive starts. */
 export function diveLeadMs(tier: TierId): number {
   return LEAD_MS[tier];
+}
+
+/** One frame's shared facts, handed to the draw phases. */
+interface Frame {
+  now: number;
+  dt: number;
+  reduced: boolean;
+  W: number;
+  H: number;
+  ctx: CanvasRenderingContext2D;
+  surf: Surface;
+  stack: readonly Layer[];
+  /** Index of the layer where kernel rain and auto scanlines start (Infinity: none). */
+  kernelIdx: number;
+  layerIdx: number;
+  layer: Layer;
+  /** The dive in progress, if any. */
+  dv: Dive | undefined;
+  /** The world clock is stopped (Ring -2, Works on my machine). */
+  worldFrozen: boolean;
+  /** The tier whose reaction is acting. */
+  act: TierId | undefined;
+  /** World y at the screen top. */
+  camY: number;
+  band: (i: number) => Band;
+  art: typeof LAYER_ART_V4;
 }
 
 export class Scene {
@@ -228,17 +250,14 @@ export class Scene {
   private cross: { fx: CrossFx; start: number } | undefined;
   private freezeShot: HTMLCanvasElement;
   readonly fx: ScreenFx = { jiggle: 0, freeze: false, hang: false, flip: 'none' };
-  /** Page-aligned cells (grid col, row) the page-fault reaction opens near the cursor, in order. */
-  private faultPages: [number, number][] = [];
-  private leakPending = false;
-  private cascadeLeaked = false;
-  /** Leaked prop copies, in batches: one per leak, and more, slowly, while a Memory leak is held by the reveal. */
-  private leaks: { start: number; rects: [number, number, number, number][] }[] = [];
+  /** The reactions that act on props and the screen: page faults, jiggle, leaked copies. */
+  private readonly paint = new ReactionPaint();
+  /** The title wordmark's glitches reflected into the live sky. */
+  private readonly titleGlitches = new TitleGlitches();
   /** While the tier reveal is open the reaction holds or loops instead of ending (see setHold). */
   private held = false;
   /** This frame's reaction timeline (see reaction-fx.ts). */
   private rf: ReactionFrame = NO_REACTION;
-  private leakShot: HTMLCanvasElement;
   private lastLayer = 0;
   private reaction: Reaction | undefined;
   private tearUntil = 0;
@@ -255,6 +274,8 @@ export class Scene {
   private rain: { y: number; speed: number }[] = [];
   /** Living System Biosphere critters (unique per layer, animated on artTime, spatial SFX). */
   private critters = new CritterSystem();
+  /** What the last frame drew that can be clicked or reacted to; props and critters report into it. */
+  private readonly collectibles = new Collectibles();
   /** Cursor morph flash when crossing into a layer with a different cursor form. */
   private lastForm: CursorForm | undefined;
   private morphStart = -Infinity;
@@ -273,22 +294,6 @@ export class Scene {
   private wommAnchorCamY = 0;
   private farShift = 0;
   private farReleasing = false;
-  /** Active title-screen glitch echoes reflected in the live world behind the wordmark. */
-  private titleBurst: (TitleGlitchEvent & { start: number }) | undefined;
-  private titleGhosts: {
-    x: number;
-    y: number;
-    vx: number;
-    vy: number;
-    fill: string;
-    outline: string;
-    pxSize: 1 | 2;
-    flipped: boolean;
-    start: number;
-    dur: number;
-  }[] = [];
-  private titleDrips: { x: number; y: number; vy: number; color: string; start: number; dur: number }[] = [];
-  private titleHex: { x: number; y: number; text: string; start: number; dur: number }[] = [];
 
   /**
    * v4's world seed: the puzzle number by default (main.ts), so everyone sees the same world on a given day.
@@ -314,7 +319,6 @@ export class Scene {
     this.seamCtx = get2d(this.seam);
     this.seamMask = document.createElement('canvas');
     this.freezeShot = document.createElement('canvas');
-    this.leakShot = document.createElement('canvas');
     this.resize();
     window.addEventListener('resize', () => this.resize());
     this.bindManualPointer();
@@ -333,7 +337,7 @@ export class Scene {
     this.canvas.addEventListener('pointermove', (ev) => {
       const pt = toScene(ev);
       this.hoverScene = pt;
-      const hit = pt ? this.hitManualTarget(pt.x, pt.y) : undefined;
+      const hit = pt ? this.collectibles.hit(pt.x, pt.y, this.vignette.on) : undefined;
       this.canvas.style.cursor = hit ? 'pointer' : '';
     });
     this.canvas.addEventListener('pointerleave', () => {
@@ -344,7 +348,7 @@ export class Scene {
       if (ev.button !== 0) return;
       const pt = toScene(ev);
       if (!pt) return;
-      const hit = this.hitManualTarget(pt.x, pt.y);
+      const hit = this.collectibles.hit(pt.x, pt.y, this.vignette.on);
       if (!hit) return;
       // Don't steal focus from the answer input while logging a background specimen!
       ev.preventDefault();
@@ -366,28 +370,6 @@ export class Scene {
       });
       if (res.isNewEntry || res.isNewLayer) sound.suggest(hit.layer);
     });
-  }
-
-  private hitManualTarget(sx: number, sy: number): ManualTarget | undefined {
-    // Under the reveal's vignette the world is covered: nothing in it can be hovered or collected. The reveal's
-    // "hide" button lifts the vignette to collect props there.
-    if (this.vignette.on) return undefined;
-    const pad = 2;
-    // Critters take priority since they move over props.
-    for (let i = CRITTER_SPOTS.length - 1; i >= 0; i--) {
-      const c = CRITTER_SPOTS[i]!;
-      if (sx >= c.x - pad && sx <= c.x + c.w + pad && sy >= c.y - pad && sy <= c.y + c.h + pad) {
-        const hit = entryForCritter(c.layer);
-        if (hit) return { x: c.x, y: c.y, w: c.w, h: c.h, entryId: hit.entry.id, layer: hit.layer };
-      }
-    }
-    for (let i = MANUAL_TARGETS.length - 1; i >= 0; i--) {
-      const t = MANUAL_TARGETS[i]!;
-      if (sx >= t.x - pad && sx <= t.x + t.w + pad && sy >= t.y - pad && sy <= t.y + t.h + pad) {
-        return t;
-      }
-    }
-    return undefined;
   }
 
   private started = false;
@@ -412,13 +394,14 @@ export class Scene {
     this.W = nextW;
     this.H = nextH;
     this.cursorY = Math.round(this.H * CURSOR_FRAC);
-    for (const c of [this.canvas, this.prev, this.scratch, this.seam, this.freezeShot, this.leakShot]) {
+    for (const c of [this.canvas, this.prev, this.scratch, this.seam, this.freezeShot]) {
       c.width = this.W;
       c.height = this.H;
     }
     // Exact integer scale; the overshoot (under one scene pixel) hangs off the right and bottom edges.
     this.canvas.style.width = `${this.W * scale}px`;
     this.canvas.style.height = `${this.H * scale}px`;
+    this.paint.resize(this.W, this.H);
     this.seamMask = ditherFadeMask(this.W);
     const cols = Math.ceil(this.W / 14.5);
     this.rain = Array.from({ length: cols }, (_, i) => ({ y: hash(i) * this.H, speed: 20 + hash(i + 40) * 40 }));
@@ -519,7 +502,7 @@ export class Scene {
     this.held = on;
     if (on) return;
     const now = performance.now();
-    for (const b of this.leaks) b.start = Math.min(b.start, now - 0.6 * LEAK_MS);
+    this.paint.release(now);
     if (this.wommBound) {
       this.wommBound = false;
       // On "Unwind further" (when not the last round), ease the bound z-layers to where they should have scrolled.
@@ -630,9 +613,7 @@ export class Scene {
     this.reaction = { tier, start: now };
     sound.playTier(tier, layersFor(this.stackMode)[layerIndexAt(this.depth, this.stackMode)]!.id);
     const seed = Math.floor(now);
-    if (tier === 'leak' && leakNow) this.leakPending = true;
-    this.cascadeLeaked = false;
-    if (tier === 'npe' || tier === 'bitflip' || tier === 'womm') this.faultPages = this.pickFaultPages(seed);
+    this.paint.start(tier, leakNow, seed, this.W, this.cursorY);
   }
 
   /**
@@ -640,85 +621,12 @@ export class Scene {
    * drifting pixels, hex tags, localized palette drops, tears, voids, and prop shudders.
    */
   triggerTitleGlitch(ev: TitleGlitchEvent) {
-    if (reducedMotion() || this.W === 0) return;
-    const now = performance.now();
-    this.titleBurst = { ...ev, start: now };
-    const { W, H } = this;
-    const cx = Math.round(W / 2);
-
-    // Spawn small drifting "nullion" ghost clones in the sky for mini-ghosts, stack-echo, and occasionally bitflip.
-    if (ev.kind === 'mini-ghosts' || ev.kind === 'stack-echo' || (ev.kind === 'bitflip' && hash(ev.seed) > 0.45)) {
-      const count = ev.kind === 'mini-ghosts' ? 4 : 1;
-      const fills = ['#ebe6d6', '#5fd3e0', '#ffb000', '#c58bff', '#8cff9c', '#ff6ad5'];
-      for (let k = 0; k < count; k++) {
-        const s = ev.seed + k * 29;
-        const pxSize: 1 | 2 = hash(s + 1) > 0.72 ? 2 : 1;
-        const w = 28 * pxSize;
-        // Scatter around the sky, favouring the left/right flanks and upper-mid sky around the title.
-        let gx = Math.round(8 + hash(s + 2) * Math.max(8, W - w - 16));
-        let gy = Math.round(14 + hash(s + 3) * Math.max(12, H * 0.72));
-        if (ev.kind === 'stack-echo') {
-          gx = Math.max(6, Math.min(W - w - 6, cx - Math.round(w / 2) + Math.round((hash(s + 4) - 0.5) * 30)));
-          gy = Math.max(12, this.cursorY - 26 + k * 14);
-        }
-        this.titleGhosts.push({
-          x: gx,
-          y: gy,
-          vx: (hash(s + 5) - 0.5) * 14,
-          vy: 5 + hash(s + 6) * 12,
-          fill: fills[Math.floor(hash(s + 7) * fills.length)]!,
-          outline: '#0d0b12',
-          pxSize,
-          flipped: ev.kind === 'bitflip' || hash(s + 8) > 0.55,
-          start: now,
-          dur: 1100 + hash(s + 9) * 900,
-        });
-      }
-      if (this.titleGhosts.length > 12) this.titleGhosts.splice(0, this.titleGhosts.length - 12);
-    }
-
-    if (ev.kind === 'pixel-rain') {
-      const colors = ['#ebe6d6', '#5fd3e0', '#ffb000', '#ffffff'];
-      for (let k = 0; k < 14; k++) {
-        const s = ev.seed + k * 13;
-        this.titleDrips.push({
-          x: Math.round(cx + (hash(s + 1) - 0.5) * Math.min(W * 0.7, 160)),
-          y: Math.max(6, this.cursorY - 45 + Math.round(hash(s + 2) * 28)),
-          vy: 28 + hash(s + 3) * 36,
-          color: colors[k % colors.length]!,
-          start: now,
-          dur: 700 + hash(s + 4) * 500,
-        });
-      }
-      if (this.titleDrips.length > 28) this.titleDrips.splice(0, this.titleDrips.length - 28);
-    }
-
-    if (ev.kind === 'hex-corrupt') {
-      const addrs = ['0x0000', '0x7F00', '0xDEAD', '0xNULL', '0xFF01', '0x0007', '0xCAFE'];
-      for (let k = 0; k < 2; k++) {
-        const s = ev.seed + k * 31;
-        this.titleHex.push({
-          x: Math.round(12 + hash(s + 1) * Math.max(10, W - 56)),
-          y: Math.round(18 + hash(s + 2) * Math.max(12, H * 0.7)),
-          text: addrs[Math.floor(hash(s + 3) * addrs.length)]!,
-          start: now,
-          dur: 720,
-        });
-      }
-      if (this.titleHex.length > 6) this.titleHex.splice(0, this.titleHex.length - 6);
-    }
-
-    if (ev.kind === 'stack-echo') {
-      this.swayAmp = Math.max(this.swayAmp, 0.35);
-    }
+    if (this.titleGlitches.trigger(ev, this.W, this.H, this.cursorY)) this.swayAmp = Math.max(this.swayAmp, 0.35);
   }
 
   /** Clear any active title-screen background artifacts (called when diving into round 1 or entering scroll mode). */
   clearTitleGlitches() {
-    this.titleBurst = undefined;
-    this.titleGhosts.length = 0;
-    this.titleDrips.length = 0;
-    this.titleHex.length = 0;
+    this.titleGlitches.clear();
   }
 
   /** Tactile cursor feedback on a rejected guess: fault-red flash and quick horizontal nudge. */
@@ -839,7 +747,7 @@ export class Scene {
       this.landThudMag = d.to - d.from >= 10 ? 3 : 2;
     }
     if (d.react) sound.playLand(Math.round(d.to - d.from), d.react, layersFor(this.stackMode)[layerIndexAt(this.depth, this.stackMode)]!.id);
-    if (d.react === 'leak') this.leakPending = true;
+    if (d.react === 'leak') this.paint.leakAtLanding();
     d.onLand?.();
     if (d.pop) this.pops.push({ ...d.pop, start: now });
     if (this.queue.length) this.queueAt = now + 140;
@@ -861,11 +769,43 @@ export class Scene {
     const dt = Math.min(0.1, this.lastNow ? (now - this.lastNow) / 1000 : 0);
     this.lastNow = now;
     const reduced = reducedMotion();
-    const art = LAYER_ART_V4;
     ensureWorldV4(this.worldSpec());
     this.critters.ensureSeed(this.scatterSeed);
 
-    // Move the cursor: a dive (eased, with a small overshoot), or a glide toward the target.
+    const dv = this.moveCursor(now, dt, reduced);
+    const stack = layersFor(this.stackMode);
+    const kernelIdx = KERNEL_INDEX_BY_MODE[this.stackMode];
+    const layerIdx = layerIndexAt(this.depth, this.stackMode);
+    const layer = stack[layerIdx]!;
+    const art = LAYER_ART_V4;
+    const f0 = { now, dt, reduced, W, H, stack, kernelIdx, layerIdx, layer, dv, art };
+    this.enterLayer(f0);
+    const { act, worldFrozen } = this.stepReaction(now, dt, reduced, layer);
+    const camY = this.placeCamera(dt, reduced);
+    const ctx = this.ctx;
+    resetCtx(ctx);
+    const surf: Surface = { canvas: this.canvas, ctx, scratch: this.scratch, scratchCtx: this.scratchCtx, W, H };
+    const band = (i: number): Band => ({
+      collectibles: this.collectibles,
+      top: bandTop(i, this.stackMode) - camY,
+      bottom: bandBottom(i, this.stackMode) - camY,
+      worldTop: bandTop(i, this.stackMode),
+      camY,
+      w: W,
+      h: H,
+      t: this.artTime,
+      reduced,
+      farShift: this.farShift,
+    });
+    const f: Frame = { ...f0, ctx, surf, worldFrozen, act, camY, band };
+    this.drawWorld(f);
+    this.drawEffects(f);
+    this.drawCursorPass(f);
+    this.postProcess(f);
+  }
+
+  /** Move the cursor: a dive (eased, with a small overshoot), or a glide toward the target; the camera follows. */
+  private moveCursor(now: number, dt: number, reduced: boolean): Dive | undefined {
     if (!this.dive && this.queue.length && now >= this.queueAt) this.startDive({ ...this.queue.shift()!, start: now });
     const dv = this.dive;
     if (dv && now < dv.start) {
@@ -887,11 +827,12 @@ export class Scene {
       this.cam += (this.depth - this.cam) * (1 - Math.exp(-dt * 5));
       if (Math.abs(this.depth - this.cam) < 0.002) this.cam = this.depth;
     }
+    return dv;
+  }
 
-    const stack = layersFor(this.stackMode);
-    const kernelIdx = KERNEL_INDEX_BY_MODE[this.stackMode];
-    const layerIdx = layerIndexAt(this.depth, this.stackMode);
-    const layer = stack[layerIdx]!;
+  /** Crossing a boundary plays its effect and its sound. */
+  private enterLayer(f: Pick<Frame, 'now' | 'reduced' | 'stack' | 'layerIdx' | 'layer'>) {
+    const { now, reduced, stack, layerIdx, layer } = f;
     if (layerIdx !== this.lastLayer) {
       // Crossing a boundary plays its effect: tearing at syscall, a mirror shimmer at VM exit, a freeze-frame at
       // SMI, the drop into 1-bit at ME. Every boundary label must have an entry in CROSS_FX.
@@ -912,7 +853,10 @@ export class Scene {
       this.lastLayer = layerIdx;
       sound.playLayerCross(layer.id);
     }
+  }
 
+  /** The screen's half of the tier reaction: its timeline, the world clock's freeze and the collectibles reset. */
+  private stepReaction(now: number, dt: number, reduced: boolean, layer: Layer): { act: TierId | undefined; worldFrozen: boolean } {
     const frozen = layer.id === 'ring-2' && look('freeze') === 'on';
     // The screen's half of the tier reaction.
     const rx = this.reaction;
@@ -926,21 +870,17 @@ export class Scene {
     this.fx.hang = rf.hang;
     this.fx.jiggle = rf.jiggle;
     this.fx.flip = rf.flip;
-    if ((act === 'bitflip' || act === 'womm') && rel >= CASCADE.leakAt && !this.cascadeLeaked) {
-      this.cascadeLeaked = true;
-      this.leakPending = true;
-    }
-    if (act === 'womm' && rel >= WOMM.freeze && this.leaks.length) {
-      this.leaks.length = 0;
-    }
+    this.paint.advance(act, rel);
     // Works on my machine and Ring −2 freeze the entire world clock (props, rain, cursor blink/brackets/sway, bubbles, ambience).
     const worldFrozen = frozen || this.fx.freeze || this.fx.hang;
     sound.setAmbienceFrozen(worldFrozen);
     if (!worldFrozen) this.artTime += dt;
-    ENTITY_SPOTS.length = 0;
-    MANUAL_TARGETS.length = 0;
-    CRITTER_SPOTS.length = 0;
+    this.collectibles.beginFrame();
+    return { act, worldFrozen };
+  }
 
+  /** Place the camera: the world y at the screen top, with WOMM's rigid z-layer binding and its release. */
+  private placeCamera(dt: number, reduced: boolean): number {
     const camWorldY = worldY(this.cam, this.stackMode);
     const camY = Math.round(camWorldY - this.cursorY);
     // Rigid z-layer binding during WOMM's forced scroll; eases smoothly back to natural parallax once released.
@@ -960,20 +900,12 @@ export class Scene {
     }
     // Where the cursor sits relative to its resting row: below it while the camera catches up.
     this.cursorLead = Math.max(-50, Math.min(70, Math.round(worldY(this.depth, this.stackMode) - camWorldY)));
-    const ctx = this.ctx;
-    resetCtx(ctx);
-    const band = (i: number): Band => ({
-      top: bandTop(i, this.stackMode) - camY,
-      bottom: bandBottom(i, this.stackMode) - camY,
-      worldTop: bandTop(i, this.stackMode),
-      camY,
-      w: W,
-      h: H,
-      t: this.artTime,
-      reduced,
-      farShift: this.farShift,
-    });
+    return camY;
+  }
 
+  /** Layer bands with their critters, the boundaries between them, and the rain. */
+  private drawWorld(f: Frame) {
+    const { dt, reduced, W, H, ctx, stack, kernelIdx, layerIdx, worldFrozen, camY, band, art } = f;
     // 1. Layer bands (+ living biosphere critters).
     for (let i = 0; i < stack.length; i++) {
       const b = band(i);
@@ -982,7 +914,7 @@ export class Scene {
       ctx.beginPath();
       ctx.rect(0, Math.max(0, b.top), W, Math.min(H, b.bottom) - Math.max(0, b.top));
       ctx.clip();
-      const spotStart = ENTITY_SPOTS.length;
+      const propsSince = this.collectibles.mark();
       art[stack[i]!.id](ctx, b);
       this.critters.drawBand(
         ctx,
@@ -990,8 +922,7 @@ export class Scene {
         b,
         i === layerIdx && !worldFrozen,
         (ev) => (ev.kind === 'exit' ? sound.playCritterExit(ev.layer, ev.pan) : sound.playCritter(ev.layer, ev.pan)),
-        ENTITY_SPOTS,
-        spotStart,
+        propsSince,
       );
       ctx.restore();
     }
@@ -1019,7 +950,11 @@ export class Scene {
         }
       });
     }
+  }
 
+  /** Ambient particles, speedlines, the tier reaction in the world, and the title glitches. */
+  private drawEffects(f: Frame) {
+    const { now, dt, reduced, surf, layer, dv, worldFrozen, act } = f;
     // 3a. Subtle per-layer ambient particles (on artTime, so frozen states hold them still; off under reduced motion).
     this.drawAmbience(layer.id, reduced);
 
@@ -1030,11 +965,23 @@ export class Scene {
 
     // 3c. The screen mirrors the tier reaction in the world (the HUD adds grey, invert and racing panels from this.fx).
     // It sits under the vignette and the cursor: the mascot's own reaction always plays in front.
-    this.drawReactionFx(now, act, reduced);
+    this.paint.draw(surf, this.collectibles, {
+      now,
+      act,
+      reduced,
+      held: this.held,
+      jiggle: this.fx.jiggle,
+      reactionStart: this.reaction?.start,
+      pages: this.rf.pages,
+    });
 
     // 3c. Title-screen background reflections: mini "nullion" ghosts, localized palette drops, tears, voids, drips.
-    this.drawTitleGlitches(now, dt, reduced);
+    this.titleGlitches.draw(surf, this.collectibles, now, dt, reduced);
+  }
 
+  /** The cursor: sway, the reveal buffer, bubbles, the cursor itself and its frame pops. */
+  private drawCursorPass(f: Frame) {
+    const { now, dt, reduced, stack, layer, dv, worldFrozen, camY } = f;
     // 4. Cursor: it sways only once a dive is actually moving (never during the lead or while frozen).
     const leading = dv !== undefined && now < dv.start;
     const speed = leading ? 0 : Math.abs(this.target - this.depth);
@@ -1051,7 +998,11 @@ export class Scene {
     this.drawBubbles(swayDt, speed, reduced, layer.id);
     this.drawCursor(now, layer.id, reduced);
     this.drawPops(now, layer.id, reduced);
+  }
 
+  /** Everything over the finished picture: colour depth, banner, manual overlay, ghosting, scanlines, tearing, crossing effects. */
+  private postProcess(f: Frame) {
+    const { now, reduced, W, H, ctx, surf, stack, kernelIdx, layerIdx, layer, camY } = f;
     // 5. Color depth: quantize each row by the layer it shows, so the next layer's palette visibly approaches.
     if (look('palette') === 'per-layer') {
       const img = ctx.getImageData(0, 0, W, H);
@@ -1064,7 +1015,7 @@ export class Scene {
     }
 
     // 5b. "ONE IN A / NULLION" dramatic buildup (Bit Flip climax & Works on my machine fake-out).
-    if (this.rf.banner) this.drawNullionBanner(now, this.rf.banner, reduced);
+    if (this.rf.banner) drawNullionBanner(surf, now, this.rf.banner, reduced);
 
     // 5c. Field Manual hover reticle, rarity pill, subtle "click me!" breadcrumb, and catch toasts.
     this.drawManualOverlay(now, reduced);
@@ -1131,389 +1082,8 @@ export class Scene {
         }
       }
     }
-
   }
 
-  /**
-   * On-screen "entities" for reactions: v4 reports the exact boxes of the props it drew; with none on screen, a
-   * seeded scatter of cells stands in.
-   */
-  private entities(seed: number, n: number): [number, number, number, number][] {
-    const out: [number, number, number, number][] = [];
-    const boxes = ENTITY_SPOTS.length / 4;
-    if (boxes > 0) {
-      // Distinct props, in a seeded order: each copied or jiggled once.
-      const order = Array.from({ length: boxes }, (_, j) => j).sort((a, b) => hash(seed + a * 7) - hash(seed + b * 7));
-      for (const j of order.slice(0, n)) {
-        const [x, y, w, h] = [ENTITY_SPOTS[j * 4]!, ENTITY_SPOTS[j * 4 + 1]!, ENTITY_SPOTS[j * 4 + 2]!, ENTITY_SPOTS[j * 4 + 3]!];
-        if (x + w <= 0 || y + h <= 0 || x >= this.W || y >= this.H) continue;
-        out.push([x, y, w, h]);
-      }
-      return out;
-    }
-    for (let k = 0; out.length < n && k < n * 4; k++) {
-      const x = Math.floor(hash(seed + k * 7) * (this.W - 24));
-      const y = Math.floor(hash(seed + k * 7 + 1) * (this.H - 20));
-      if (x < 0 || y < 0 || x + 24 > this.W || y + 20 > this.H) continue;
-      out.push([x, y, 24, 20]);
-    }
-    return out;
-  }
-
-  /**
-   * The page grid: cells of PAGE_W × PAGE_H scene pixels anchored at the screen's corner (a fixed grid, like 4 KiB
-   * pages). The run's pages are the cursor's neighbours, in a seeded order; the cursor itself is drawn over them.
-   */
-  private pickFaultPages(seed: number): [number, number][] {
-    const col = Math.floor(this.W / 2 / PAGE_W);
-    const row = Math.floor(this.cursorY / PAGE_H);
-    const ring: [number, number][] = [];
-    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) if (dx || dy) ring.push([col + dx, row + dy]);
-    ring.sort((a, b) => hash(seed + a[0] * 31 + a[1] * 17) - hash(seed + b[0] * 31 + b[1] * 17));
-    return ring.slice(0, PAGE_FAULT.pages);
-  }
-
-  /**
-   * Each page is a void with a crisp 1px outline of what was there (the pixels under the border are left alone),
-   * a faint hex dump inside, and, on the first page, a SIGSEGV tag. Partial cover is an ordered-dither dissolve.
-   */
-  private drawPageFaults(covers: number[]) {
-    const ctx = this.ctx;
-    ctx.font = FONT;
-    this.faultPages.forEach(([col, row], i) => {
-      const c = covers[i] ?? 0;
-      if (c <= 0) return;
-      const x0 = col * PAGE_W;
-      const y0 = row * PAGE_H;
-      if (x0 + PAGE_W <= 0 || y0 + PAGE_H <= 0 || x0 >= this.W || y0 >= this.H) return;
-      ctx.fillStyle = '#000';
-      if (c >= 1) ctx.fillRect(x0 + 1, y0 + 1, PAGE_W - 2, PAGE_H - 2);
-      else
-        for (let y = y0 + 1; y < y0 + PAGE_H - 1; y++)
-          for (let x = x0 + 1; x < x0 + PAGE_W - 1; x++) if (BAYER16[(y & 3) * 4 + (x & 3)]! < c * 16) ctx.fillRect(x, y, 1, 1);
-      if (c < 1) return;
-      ctx.fillStyle = '#3c3c3c';
-      for (let r = 0; r < 3; r++) ctx.fillText('00 00 00 00', x0 + 4, y0 + 17 + r * 9, PAGE_W - 8);
-      if (i === 0) {
-        ctx.fillStyle = '#b01818';
-        ctx.fillRect(x0 + 1, y0 + 1, 46, 9);
-        ctx.fillStyle = '#ffd0d0';
-        ctx.fillText('SIGSEGV', x0 + 3, y0 + 8);
-      }
-    });
-  }
-
-  private drawReactionFx(now: number, act: TierId | undefined, reduced: boolean) {
-    const ctx = this.ctx;
-    // Null pointer: dereferencing an unmapped page. Page-aligned voids open near the cursor, then fault back in.
-    if (this.rf.pages.length) this.drawPageFaults(this.rf.pages);
-    // Race condition, Heisenbug: props jiggle out of sync, each on its own phase.
-    if (this.fx.jiggle > 0) {
-      this.scratchCtx.drawImage(this.canvas, 0, 0);
-      const rects = this.entities(Math.floor(this.reaction!.start), 26);
-      rects.forEach(([x, y, w, h], i) => {
-        const dx = Math.round(Math.sin(now / 45 + i * 1.7) * 2.4 * this.fx.jiggle);
-        const dy = Math.round(Math.cos(now / 53 + i * 2.3) * 1.6 * this.fx.jiggle);
-        if (dx || dy) ctx.drawImage(this.scratch, x, y, w, h, x + dx, y + dy, w, h);
-      });
-    }
-    // Memory leak: a few props are copied and the copies linger, drifting off like the cursor's smear, then fade.
-    if (this.leakPending) {
-      this.leakPending = false;
-      get2d(this.leakShot).drawImage(this.canvas, 0, 0);
-      this.leaks = [{ start: now, rects: this.entities(Math.floor(now), 10) }];
-    }
-    // Held, the leak keeps leaking: a few more copies every so often, up to a cap (none added under reduced motion).
-    const holdLeak = this.held && (act === 'leak' || act === 'bitflip');
-    const last = this.leaks[this.leaks.length - 1];
-    if (holdLeak && act === 'leak' && !reduced && last && this.leaks.length < LEAK_BATCHES && now - last.start > LEAK_EVERY_MS) {
-      this.leaks.push({ start: now, rects: this.entities(Math.floor(now), 5) });
-    }
-    this.leaks = this.leaks.filter((b) => holdLeak || now - b.start < LEAK_MS);
-    for (const b of this.leaks) {
-      // Held copies stop drifting and stay; released ones drift on and fade.
-      const age = holdLeak ? Math.min(0.6, (now - b.start) / LEAK_MS) : (now - b.start) / LEAK_MS;
-      ctx.globalAlpha = age < 0.6 ? 0.9 : 0.9 * (1 - (age - 0.6) / 0.4);
-      b.rects.forEach(([x, y, w, h], k) => {
-        const drift = (k % 3) * 2 + 5 + (reduced ? 0 : age * 18);
-        ctx.drawImage(this.leakShot, x, y, w, h, Math.round(x - drift), Math.round(y + drift * 0.6), w, h);
-      });
-    }
-    ctx.globalAlpha = 1;
-  }
-
-  /**
-   * "ONE IN A / NULLION" dramatic pixel sequence shared by Bit Flip and Works on my machine:
-   * dims the background so only the centered words command the stage, sparkles each row into existence
-   * with rapid TitleLogo-style slice/chroma glitches, then either snaps crisp & inverted into Bit Flip's
-   * +13 dive or freezes dead still for Works on my machine's fake-out.
-   */
-  private drawNullionBanner(now: number, b: NullionBannerState, reduced: boolean) {
-    const ctx = this.ctx;
-    const { W, H } = this;
-    if (b.dim > 0) {
-      ctx.fillStyle = `rgba(6, 5, 10, ${b.dim.toFixed(3)})`;
-      ctx.fillRect(0, 0, W, H);
-    }
-
-    const row1 = 'ONE IN A';
-    const row2 = 'NULLION';
-    const s1 = Math.max(1, Math.min(4, Math.floor((W * 0.76) / lineWidth(row1))));
-    const s2 = Math.max(2, Math.min(6, Math.floor((W * 0.84) / lineWidth(row2))));
-    const h1 = GLYPH_H * s1;
-    const h2 = GLYPH_H * s2;
-    const gap = Math.max(6, Math.round(s2 * 2.2));
-    const totalH = h1 + gap + h2;
-    const y1 = Math.round(H * 0.44 - totalH / 2);
-    const y2 = y1 + h1 + gap;
-
-    // Crisp ~12Hz stepped glitch clock during buildup (restrained enough to stay immediately readable); locked still on WOMM freeze or Bit Flip climax.
-    const glitching = !reduced && !b.locked;
-    const tick = b.frozen ? 13 : Math.floor(now / 85);
-
-    const drawRow = (text: string, scale: number, y0: number, progress: number, seedBase: number, mainCol: string) => {
-      if (progress <= 0) return;
-      const wPx = lineWidth(text) * scale;
-      const x0 = Math.round((W - wPx) / 2);
-
-      // Compute gentle per-row horizontal slice tear offsets so the words stay legible on first-time fake-outs.
-      const rowShift: number[] = [];
-      for (let r = 0; r < GLYPH_H; r++) {
-        if (!glitching) {
-          rowShift.push(0);
-        } else {
-          const h = hash(tick * 31 + seedBase + r * 17);
-          rowShift.push(h > 0.87 ? (hash(tick * 19 + r * 23) > 0.5 ? 1 : -1) * scale : 0);
-        }
-      }
-
-      const chromaOff = glitching && hash(tick * 13 + seedBase) > 0.58 ? 1 : 0;
-
-      let cx = x0;
-      for (let ci = 0; ci < text.length; ci++) {
-        const ch = text[ci]!;
-        if (ch === ' ') {
-          cx += SPACE_W * scale;
-          continue;
-        }
-        const rows = WATERMARK_GLYPHS[ch];
-        if (rows) {
-          for (let r = 0; r < GLYPH_H; r++) {
-            const row = rows[r]!;
-            const sx = rowShift[r]!;
-            for (let k = 0; k < GLYPH_W; k++) {
-              if (row[k] !== '1') continue;
-              const pixH = hash(seedBase + ci * 41 + r * 11 + k * 7);
-              if (pixH > progress) continue;
-              if (b.dissolve > 0 && pixH < b.dissolve) continue;
-
-              let px = cx + k * scale + sx;
-              let py = y0 + r * scale;
-              if (b.dissolve > 0 && !reduced) {
-                const drift = b.dissolve * 14;
-                px += Math.round((hash(seedBase + ci * 13 + k) - 0.5) * drift);
-                py -= Math.round(hash(seedBase + r * 19 + k) * drift);
-              }
-
-              const fresh = progress < 1 && progress - pixH < 0.16;
-              // Crisp dark drop shadow
-              ctx.fillStyle = '#000';
-              ctx.fillRect(px + 1, py + 1, scale, scale);
-              // Chromatic aberration ghosts during rapid glitch
-              if (chromaOff > 0) {
-                ctx.globalAlpha = 0.5;
-                ctx.fillStyle = '#5fd3e0';
-                ctx.fillRect(px - chromaOff, py, scale, scale);
-                ctx.fillStyle = '#ff6ad5';
-                ctx.fillRect(px + chromaOff, py, scale, scale);
-                ctx.globalAlpha = 1;
-              }
-              // Main pixel (flashes bright white/cyan at birth sparkle)
-              ctx.fillStyle = fresh ? (pixH > 0.5 ? '#ffffff' : '#5fd3e0') : mainCol;
-              ctx.fillRect(px, py, scale, scale);
-              if (fresh && !reduced) {
-                // Tiny + sparkle glint on newly materialized pixels
-                ctx.fillStyle = '#ffffff';
-                ctx.fillRect(px - 1, py + Math.floor(scale / 2), 1, 1);
-                ctx.fillRect(px + scale, py + Math.floor(scale / 2), 1, 1);
-                ctx.fillRect(px + Math.floor(scale / 2), py - 1, 1, 1);
-                ctx.fillRect(px + Math.floor(scale / 2), py + scale, 1, 1);
-              }
-            }
-          }
-        }
-        cx += (GLYPH_W + 1) * scale;
-      }
-    };
-
-    drawRow(row1, s1, y1, b.top, 101, b.locked ? '#ffffff' : '#ebe6d6');
-    drawRow(row2, s2, y2, b.bottom, 307, b.locked ? '#ffe25a' : '#ffe25a');
-
-    // Ambient sparkle pips around the words during buildup & climax.
-    if (!reduced && (b.top > 0 || b.bottom > 0)) {
-      const sparkCount = b.locked ? 18 : 12;
-      for (let i = 0; i < sparkCount; i++) {
-        const h1s = hash(tick * 29 + i * 53 + 7);
-        const h2s = hash(tick * 43 + i * 71 + 11);
-        const sx = Math.round(W * 0.1 + h1s * W * 0.8);
-        const sy = Math.round(y1 - 14 + h2s * (totalH + 28));
-        ctx.fillStyle = i % 3 === 0 ? '#ffffff' : i % 3 === 1 ? '#ffe25a' : '#5fd3e0';
-        ctx.fillRect(sx, sy, 1, 1);
-        if (i % 4 === 0) {
-          ctx.fillRect(sx - 1, sy, 3, 1);
-          ctx.fillRect(sx, sy - 1, 1, 3);
-        }
-      }
-    }
-    ctx.globalAlpha = 1;
-  }
-
-  /**
-   * Title-screen background reflections: draws mini "nullion" ghost clones, pixel drips, hex tags,
-   * localized palette drops, horizontal tears, NPE voids, localized bit-flip patches, and prop shudders.
-   */
-  private drawTitleGlitches(now: number, dt: number, reduced: boolean) {
-    if (reduced) {
-      this.clearTitleGlitches();
-      return;
-    }
-    const ctx = this.ctx;
-    const { W, H } = this;
-
-    // 1. Active burst effects on the live sky canvas
-    const b = this.titleBurst;
-    if (b && now - b.start >= b.dur) this.titleBurst = undefined;
-    if (this.titleBurst) {
-      const tb = this.titleBurst;
-      const p = (now - tb.start) / tb.dur;
-      switch (tb.kind) {
-        case 'mirror-flip': {
-          // Half-mirror shimmer across the vertical centerline of the live sky (left→right, then right→left).
-          this.scratchCtx.drawImage(this.canvas, 0, 0);
-          const mid = Math.floor(W / 2);
-          const firstLeft = hash(tb.seed + 4) > 0.5;
-          const mirrorLeftToRight = p < 0.5 ? firstLeft : !firstLeft;
-          ctx.save();
-          ctx.globalAlpha = 0.34 * Math.sin(p * Math.PI);
-          ctx.translate(W, 0);
-          ctx.scale(-1, 1);
-          if (mirrorLeftToRight) {
-            ctx.drawImage(this.scratch, 0, 0, mid, H, 0, 0, mid, H);
-          } else {
-            ctx.drawImage(this.scratch, mid, 0, W - mid, H, mid, 0, W - mid, H);
-          }
-          ctx.restore();
-          break;
-        }
-        case 'race': {
-          // Jiggle a handful of background props in sympathy with the title.
-          this.scratchCtx.drawImage(this.canvas, 0, 0);
-          const rects = this.entities(tb.seed, 14);
-          rects.forEach(([x, y, w, h], i) => {
-            const dx = Math.round(Math.sin(now / 38 + i * 1.9) * 2.2);
-            const dy = Math.round(Math.cos(now / 44 + i * 2.3) * 1.4);
-            if (dx || dy) ctx.drawImage(this.scratch, x, y, w, h, x + dx, y + dy, w, h);
-          });
-          break;
-        }
-        case 'heisenbug': {
-          // Horizontal scanline tear slices across the sky.
-          this.scratchCtx.drawImage(this.canvas, 0, 0);
-          for (let k = 0; k < 3; k++) {
-            const sy = Math.floor(hash(tb.seed + k * 7) * (H - 12));
-            const sh = 2 + Math.floor(hash(tb.seed + k * 7 + 1) * 7);
-            const dx = Math.round(Math.sin(p * Math.PI * 2 + k) * 9);
-            ctx.drawImage(this.scratch, 0, sy, W, sh, dx, sy, W, sh);
-          }
-          break;
-        }
-        case 'npe': {
-          // A small pixel-aligned void rectangle opens in the sky.
-          const rw = Math.round(W * (0.12 + hash(tb.seed + 1) * 0.14));
-          const rh = Math.round(H * (0.08 + hash(tb.seed + 2) * 0.1));
-          const rx = Math.round(hash(tb.seed + 3) * Math.max(1, W - rw));
-          const ry = Math.round(hash(tb.seed + 4) * Math.max(1, H - rh));
-          ctx.fillStyle = '#000000';
-          ctx.fillRect(rx, ry, rw, rh);
-          ctx.fillStyle = '#8fb7ff';
-          ctx.fillRect(rx, ry, Math.min(10, rw), 1);
-          break;
-        }
-        case 'bitflip': {
-          // Localized pixel-aligned inverted patch (clean single hold, never full-screen strobing).
-          const rw = Math.round(W * (0.14 + hash(tb.seed + 1) * 0.16));
-          const rh = Math.round(H * (0.08 + hash(tb.seed + 2) * 0.1));
-          const rx = Math.round(hash(tb.seed + 3) * Math.max(1, W - rw));
-          const ry = Math.round(hash(tb.seed + 4) * Math.max(1, H - rh));
-          if (rw > 0 && rh > 0) {
-            const img = ctx.getImageData(rx, ry, rw, rh);
-            const d = img.data;
-            for (let i = 0; i < d.length; i += 4) {
-              d[i] = 255 - d[i]!;
-              d[i + 1] = 255 - d[i + 1]!;
-              d[i + 2] = 255 - d[i + 2]!;
-            }
-            ctx.putImageData(img, rx, ry);
-            ctx.strokeStyle = '#ffe25a';
-            ctx.strokeRect(rx + 0.5, ry + 0.5, rw - 1, rh - 1);
-          }
-          break;
-        }
-        case 'palette-drop': {
-          // Foreshadow deeper layers: a horizontal band of the sky drops color depth cleanly.
-          const mode: PaletteMode = tb.palette ?? 'cga4';
-          const bh = Math.round(H * 0.24);
-          const y0 = Math.max(0, Math.min(H - bh, Math.round(hash(tb.seed + 1) * (H - bh))));
-          if (bh > 0) {
-            const img = ctx.getImageData(0, y0, W, bh);
-            for (let y = 0; y < bh; y++) quantizeRow(img.data, y * W * 4, W, y0 + y, mode, true);
-            ctx.putImageData(img, 0, y0);
-          }
-          break;
-        }
-        default:
-          break;
-      }
-    }
-
-    // 2. Drifting mini "nullion" ghost variants in the sky
-    this.titleGhosts = this.titleGhosts.filter((g) => now - g.start < g.dur);
-    for (const g of this.titleGhosts) {
-      g.x += g.vx * dt;
-      g.y += g.vy * dt;
-      const p = (now - g.start) / g.dur;
-      const a = p < 0.15 ? (p / 0.15) * 0.72 : 0.72 * (1 - (p - 0.15) / 0.85);
-      drawMiniNullion(ctx, g.x, g.y, g.fill, g.outline, Math.max(0, a), g.pxSize, g.flipped);
-    }
-
-    // 3. Detached falling pixels (pixel-rain)
-    this.titleDrips = this.titleDrips.filter((d) => now - d.start < d.dur);
-    for (const d of this.titleDrips) {
-      d.y += d.vy * dt;
-      const a = 1 - (now - d.start) / d.dur;
-      ctx.globalAlpha = Math.max(0, a);
-      ctx.fillStyle = '#000';
-      ctx.fillRect(Math.round(d.x) + 1, Math.round(d.y) + 1, 2, 2);
-      ctx.fillStyle = d.color;
-      ctx.fillRect(Math.round(d.x), Math.round(d.y), 2, 2);
-    }
-    ctx.globalAlpha = 1;
-
-    // 4. Floating hex addresses (hex-corrupt)
-    this.titleHex = this.titleHex.filter((h) => now - h.start < h.dur);
-    if (this.titleHex.length) {
-      ctx.font = FONT;
-      for (const h of this.titleHex) {
-        const a = Math.sin(((now - h.start) / h.dur) * Math.PI) * 0.85;
-        ctx.globalAlpha = Math.max(0, a);
-        ctx.fillStyle = '#000';
-        ctx.fillText(h.text, h.x + 1, h.y + 1);
-        ctx.fillStyle = '#7ee0a1';
-        ctx.fillText(h.text, h.x, h.y);
-      }
-      ctx.globalAlpha = 1;
-    }
-  }
 
   /**
    * Subtle layer-specific ambient particles on `artTime`: sky motes in Application, rising GC sparks in
@@ -1926,7 +1496,7 @@ export class Scene {
       ctx.fillText(text, px + 4, py + 8);
     };
 
-    const hit = this.hoverScene ? this.hitManualTarget(this.hoverScene.x, this.hoverScene.y) : undefined;
+    const hit = this.hoverScene ? this.collectibles.hit(this.hoverScene.x, this.hoverScene.y, this.vignette.on) : undefined;
     if (hit) {
       const entry = manualEntryById(hit.entryId);
       if (entry) {
@@ -1953,14 +1523,14 @@ export class Scene {
         const pillY = by > 18 ? by - 13 : by + bh + 3;
         drawPill(bx + bw / 2, pillY, label, hasLayer ? '#68768a' : meta.color, hasLayer ? '#cfcbd8' : '#ffffff');
       }
-    } else if (MANUAL_TARGETS.length > 0 && !this.rf.banner) {
+    } else if (this.collectibles.targets().length > 0 && !this.rf.banner) {
       // Gentle occasional "click me!" breadcrumb above one visible uncollected prop (less frequent once player knows).
       const slot = Math.floor(now / 7000);
       const frac = (now % 7000) / 7000;
       const foundTotal = manualStore.foundCount();
       const showChance = foundTotal < 3 ? 0.55 : 0.22;
       if (frac > 0.15 && frac < 0.72 && hash(slot * 53 + 11) < showChance) {
-        const uncollected = MANUAL_TARGETS.filter(
+        const uncollected = this.collectibles.targets().filter(
           (t) =>
             !manualStore.hasLayer(t.entryId, t.layer) &&
             t.y > 28 &&
@@ -2032,10 +1602,4 @@ function resetCtx(ctx: CanvasRenderingContext2D) {
 function invert(hex: string): string {
   const n = parseInt(hex.slice(1), 16) ^ 0xffffff;
   return `#${n.toString(16).padStart(6, '0')}`;
-}
-
-function get2d(c: HTMLCanvasElement): CanvasRenderingContext2D {
-  const ctx = c.getContext('2d', { willReadFrequently: true });
-  enforce(ctx, '2D canvas unavailable');
-  return ctx;
 }

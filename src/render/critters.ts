@@ -2,6 +2,7 @@ import { enforce } from '../core/enforce';
 import { ALL_LAYER_IDS, DAILY_FALLBACK, type LayerId } from '../core/layers';
 import { look } from '../looks';
 import { FONT, SEAM_H, hash, type Band } from './art-common';
+import type { Box, Collectibles } from './collectibles';
 import { LAYER_PALETTE, darkestInk, snapColor } from './palettes';
 
 /**
@@ -51,7 +52,6 @@ export const MotionType = {
 export type MotionType = (typeof MotionType)[keyof typeof MotionType];
 
 /** Visible critter hitboxes collected each frame in scene pixels (cleared each frame by Scene). */
-export const CRITTER_SPOTS: { x: number; y: number; w: number; h: number; layer: LayerId }[] = [];
 
 /** Allowed motion set for each layer's species across all 29 Daily & Endless layers. */
 export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = {
@@ -251,13 +251,10 @@ function bandWorldRange(layerId: LayerId, b: Band): { minY: number; maxY: number
   return { minY, maxY: Math.max(minY + 40, maxY) };
 }
 
-/** Extract usable prop tops inside this band's world range (starting from `spotStart` so earlier bands never leak in). */
-function bandProps(spots: readonly number[], spotStart: number, b: Band, worldMinY: number, worldMaxY: number): PropTop[] {
+/** Extract usable prop tops inside this band's world range (only the boxes after `since`, so earlier bands never leak in). */
+function bandProps(boxes: readonly Box[], b: Band, worldMinY: number, worldMaxY: number): PropTop[] {
   const out: PropTop[] = [];
-  for (let i = spotStart; i + 3 < spots.length; i += 4) {
-    const x = spots[i]!;
-    const sy = spots[i + 1]!;
-    const w = spots[i + 2]!;
+  for (const { x, y: sy, w } of boxes) {
     const cx = x + w / 2;
     const wy = sy + b.camY;
     if (w < 8 || cx < 12 || cx > b.w - 12 || wy < worldMinY || wy > worldMaxY) continue;
@@ -275,16 +272,14 @@ export class CritterSystem {
 
   /**
    * Draw one critter, standing still, with its feet near (x, y): the Field Manual's plates. `alt` picks the layer's
-   * alternate species (a layer without one throws); `variant` (0–4) picks a colour variant. Leaves CRITTER_SPOTS (the scene's click targets) untouched.
+   * alternate species (a layer without one throws); `variant` (0–4) picks a colour variant. Reports nothing to the scene's collectibles.
    */
   portrait(ctx: CanvasRenderingContext2D, layerId: LayerId, alt: boolean, x: number, y: number, t = 0, variant?: number) {
     enforce(!alt || ALT_SPECIES_MOTIONS[layerId], `critter portrait: ${layerId} has no alternate species`);
     this.ensureSeed(this.seed < 0 ? 1 : this.seed);
     const c = this.byLayer.get(layerId)?.find((s) => isAltSpecies(layerId, s.variant) === alt && (variant === undefined || s.variant === variant));
     enforce(c, `critter portrait: no ${alt ? 'alternate' : 'core'} critter state for ${layerId}`);
-    const spots = CRITTER_SPOTS.length;
-    this.drawCritter(ctx, layerId, c, x, y, 1, t, (h) => h, false, ctx.canvas.width, 0, false);
-    CRITTER_SPOTS.length = spots;
+    this.drawCritter(ctx, layerId, c, x, y, 1, t, (h) => h, false, ctx.canvas.width, 0, false, undefined);
   }
 
   ensureSeed(seed: number) {
@@ -347,6 +342,8 @@ export class CritterSystem {
   /**
    * Update & draw all critters in band `b` for `layerId`.
    * Stateful world-space motion guarantees critters never teleport or vanish mid-hop when scrolling.
+   * Critters perch on the props `b.collectibles` holds from `propsSince` (a `Collectibles.mark()` taken before this
+   * band's props were drawn) and report themselves into it as click targets.
    */
   drawBand(
     ctx: CanvasRenderingContext2D,
@@ -354,8 +351,7 @@ export class CritterSystem {
     b: Band,
     emitCalls: boolean,
     onCall?: (ev: CritterCall) => void,
-    spots: readonly number[] = [],
-    spotStart = 0,
+    propsSince = 0,
   ) {
     const list = this.byLayer.get(layerId);
     enforce(list, `critters: drawBand on unseeded layer ${layerId} (call ensureSeed first)`);
@@ -388,7 +384,7 @@ export class CritterSystem {
     }
 
     const { minY: worldMinY, maxY: worldMaxY } = bandWorldRange(layerId, b);
-    const props = bandProps(spots, spotStart, b, worldMinY, worldMaxY);
+    const props = bandProps(b.collectibles?.reactionBoxes(propsSince) ?? [], b, worldMinY, worldMaxY);
 
     for (let i = 0; i < list.length; i++) {
       const c = list[i]!;
@@ -501,7 +497,7 @@ export class CritterSystem {
       ctx.save();
       ctx.globalAlpha = alpha;
       const drawY = exiting ? sy - Math.round(exitP * 4) : sy;
-      this.drawCritter(ctx, layerId, c, c.x, drawY, c.dir, t, col, chirping, W, hopFrac, perched);
+      this.drawCritter(ctx, layerId, c, c.x, drawY, c.dir, t, col, chirping, W, hopFrac, perched, b.collectibles);
       ctx.restore();
 
       // Tiny in-world lifespan status tag ("paged out!", "GC'd!", "SIGTERM", etc.) rising as the critter dissolves
@@ -869,10 +865,11 @@ export class CritterSystem {
     W: number,
     hopFrac: number,
     perched: boolean,
+    collectibles: Collectibles | undefined,
   ) {
     const x = R(rawX);
     const y = R(rawY);
-    CRITTER_SPOTS.push({ x: x - 2, y: y - 3, w: 12, h: 11, layer: layerId });
+    collectibles?.addCritter({ x: x - 2, y: y - 3, w: 12, h: 11 }, layerId);
     const variant = c.variant;
     const ink = col(darkestInk(LAYER_PALETTE[layerId]));
     const grid = new Map<number, string>();

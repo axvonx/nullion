@@ -2,7 +2,7 @@ import { LAYERS } from '../core/layers';
 import { TIERS, TIER_IDS, type TierId } from '../core/tiers';
 import { diveLeadMs, diveMs } from '../render/scene';
 import { FORM_BY_LAYER, FORM_IDS, FORM_NAMES } from '../ui/forms';
-import { REVEAL_MS } from '../ui/hud';
+import { REVEAL_MS } from '../ui/reveal';
 import { tierIcon } from '../ui/tier-icons';
 import { manualBookIcon } from '../ui/manual-icon';
 import { manualStore } from '../game/manual';

@@ -1,34 +1,25 @@
-import { enforce } from '../core/enforce';
-import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
-import { PROMPTS_PER_DAY, TRUE_ENDLESS_LAYERS, type Layer, type LayerId } from '../core/layers';
-import { layerAt, layerIndexAt, layersFor, rulesFor } from '../core/modes';
-import type { CategoryEntry } from '../core/match';
+import { PROMPTS_PER_DAY, TRUE_ENDLESS_LAYERS, type LayerId } from '../core/layers';
+import { layerAt, rulesFor } from '../core/modes';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS } from '../core/modes';
 import { READ_MS, type Game, type SubmitResult } from '../game/game';
-import { buildShareText, deliverShare, siteUrl } from '../game/share';
 import type { StatsOutcome } from '../game/stats';
 import { look, reducedMotion } from '../looks';
 import type { Scene } from '../render/scene';
 import { FORMS, FORM_BY_LAYER, type FormId } from './forms';
 import { tierIcon } from './tier-icons';
-import { answerSheet, answerUrl, questionUrl, type SheetGroup } from './answer-sheet';
-import { revealLayout } from './reveal-layout';
+import { $, elementsOf, framesLabel, replay, setText } from './dom';
+import { END_CARD_HTML, EndCard, rowsOf, type RecordRow } from './end-card';
+import { REVEAL_HTML, REVEAL_MS, Reveal } from './reveal';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
-import { LAYER_THEMES, LayerStack, createLayerBadge, makeLayerIcon } from './layer-stack';
+import { LAYER_THEMES, LayerStack, makeLayerIcon } from './layer-stack';
 import { manualBookIcon } from './manual-icon';
 import { FieldManualBinder } from './binder/binder';
 import { manualStore } from '../game/manual';
 import { sound } from '../audio/sound';
 import { bankAcceptsFor } from '../data/bank';
-import { missedAnswerUrl, suggestQuestionUrl } from './issues';
-
-const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
-  const el = root.querySelector<T>(sel);
-  if (!el) throw new Error(`missing element ${sel}`);
-  return el;
-};
+import { missedAnswerUrl } from './issues';
 
 /** Below this share of the answer time left, the watchdog goes into its low-time state. */
 export const LOW_TIME = 0.25;
@@ -37,12 +28,6 @@ const TYPE_MS = 28;
 function answerPlaceholder(): string {
   return typeof window !== 'undefined' && window.innerWidth <= 520 ? 'type an answer…' : 'type an answer, press Enter';
 }
-/** Demos only: how long the rail lets a reveal sit before pressing "Unwind further" for you. Play waits for the player. */
-export const REVEAL_MS = 2400;
-const REVEAL_FADE_MS = 200;
-/** The reveal's hide button appears this long after the reveal is drawn: after its 260 ms pop-in has finished. */
-const REVEAL_SETTLE_MS = 700;
-
 
 /** What each layer is, in a line a non-systems player can read. Shown under the layer's name as you enter it. */
 export const LAYER_BLURBS: Record<LayerId, string> = {
@@ -79,49 +64,6 @@ export const LAYER_BLURBS: Record<LayerId, string> = {
   'kthread-kabin': '1978 · Cozy timber cabin where off-duty kworkers chop workqueue logs by a softirq hearth',
 };
 
-/**
- * Plain-language lines for the reveal, used when the answer has no note of its own. They say how rare the answer
- * was, for players who aren't systems people; no terminal in-jokes.
- */
-export const TIER_QUIPS: Record<TierId, readonly string[]> = {
-  'off-by-one': ['Right answer. Most people said this one too.', 'A classic. Nearly everyone gets here.', 'Safe and solid. You’re in good company.'],
-  womm: ['Feels obscure, but it’s everyone’s go-to.', 'The “clever” pick lots of people make.', 'Everyone thinks they’re the only one who knows this.'],
-  npe: ['Good answer. Plenty of people found it.', 'Fairly well known, but not everyone thought of it.', 'A common pick, and a good one.'],
-  leak: ['Most players missed this one.', 'Getting into less-travelled ground.', 'Not many people reached for that.'],
-  race: ['Only a few people find this one.', 'Now you’re digging.', 'A rare find. Nicely done.'],
-  heisenbug: ['Hardly anyone thinks of this.', 'A deep cut. Very few found it.', 'That one hides from almost everyone.'],
-  bitflip: ['Today’s rarest answer. You found it.', 'The one answer almost nobody finds.', 'One in a billion. Well, almost.'],
-};
-
-export function framesLabel(n: number): string {
-  return `${n} stack frame${n === 1 ? '' : 's'}`;
-}
-
-/** One line of the day's record: an accepted answer, or a round that pushed nothing. */
-export interface RecordRow {
-  /** The prompt's question id: lets the row open its answer sheet. */
-  question?: string;
-  tier?: TierId;
-  name?: string;
-  timedOut?: boolean;
-}
-
-/** Restart a one-shot CSS animation class on an element. */
-function replay(el: HTMLElement, cls: string) {
-  el.classList.remove(cls);
-  void el.offsetWidth;
-  el.classList.add(cls);
-}
-
-/** The share button says what it will do: native share where the device has it, else copy. */
-function shareLabel(): string {
-  return typeof navigator.share === 'function' ? 'Share result' : 'Copy result';
-}
-
-function setText(el: HTMLElement, s: string) {
-  if (el.textContent !== s) el.textContent = s;
-}
-
 export class Hud {
   readonly root: HTMLElement;
   private canvas: HTMLCanvasElement;
@@ -144,15 +86,8 @@ export class Hud {
   private lastReadSec = -1;
   private lastLowSec = -1;
   private slotsSig = '';
-  private ended = false;
-  private shareText = '';
-  /** Records the finished day and returns the lifetime stats; undefined when this game does not count (Endless, debug). */
-  private statsSource: (() => StatsOutcome) | undefined;
   /** The game clock (wall-clock ms in production), set by bind(). Used wherever a deadline is read or set. */
   private clock: () => number = () => Date.now();
-  private nextDaySig = '';
-  /** A daily game for the real current day (not a debug date), so the end card counts down to the next one. */
-  private liveDaily = false;
   private demo = false;
   private titleLogo: TitleLogo;
   private layerStack: LayerStack;
@@ -160,10 +95,8 @@ export class Hud {
   private titleOpen = false;
   private titleTimer = 0;
   private topicKey = '';
-  /** Highest layer index already committed to the RHS stack in play mode (advances on reveal via "Reached" → fly-to-stack). */
-  private committedLayerIdx = 0;
-  /** Newly reached layer badges waiting in the reveal to fly into the RHS stack when "Unwind further" is pressed. */
-  private pendingReached: { badge: HTMLElement; layer: Layer }[] = [];
+  private readonly reveal: Reveal;
+  private readonly card: EndCard;
 
   /**
    * Debug hooks. `watchdogOverride` shows this share of time left instead of the game's (the rail's timer demo);
@@ -218,43 +151,39 @@ export class Hud {
         </form>
         <div class="bios-footer" aria-hidden="true"><b>F10</b> Save · <b>Enter</b> Select · <b>ESC</b> Exit</div>
         <output class="feedback" data-el="feedback" aria-live="polite"></output>
-        <div class="result" data-el="result" hidden>
-          <div class="wordmark">nullion <span data-el="puzzleNo"></span></div>
-          <div class="headline" data-el="headline"></div>
-          <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
-          <div class="stats" data-el="stats" hidden></div>
-          <div class="result-foot"><span class="next-day" data-el="nextDay">A new stack opens at local midnight.</span><button type="button" data-el="copy">Copy result</button></div>
-          <div class="result-manual"><button type="button" class="fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
-          <div class="result-links" data-el="resultLinks"></div>
-        </div>
+${END_CARD_HTML}
         <div class="scroll-hint" data-el="scrollHint" hidden>scroll · ↑ ↓ · PgUp PgDn</div>
       </section>
-      <div class="reveal" data-el="reveal" hidden role="status" aria-live="polite">
-        <div class="rv-name" data-el="rvName"></div>
-        <div class="rv-body"><div class="rv-pips" data-el="rvPips" aria-hidden="true"></div><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div><div class="rv-reached" data-el="rvReached" hidden><span class="rv-reached-label">Reached</span><div class="rv-reached-list" data-el="rvReachedList"></div></div><button type="button" class="rv-hide" data-el="rvHide" hidden aria-label="Hide the reveal to look around and collect props">hide ▾</button></div>
-      </div>`;
+${REVEAL_HTML}`;
     this.root = mount;
     this.canvas = $(mount, 'canvas');
     this.input = $(mount, '#guess');
-    this.els = Object.fromEntries([...mount.querySelectorAll<HTMLElement>('[data-el]')].map((e) => [e.dataset.el!, e]));
+    this.els = elementsOf(mount);
     this.titleLogo = new TitleLogo();
     this.els.titleHead!.append(this.titleLogo.canvas);
     this.layerStack = new LayerStack((id) => sound.stackCrunch(id), LAYER_BLURBS);
     mount.append(this.layerStack.el);
+    this.reveal = new Reveal(mount, {
+      scene: () => this.scene,
+      game: () => this.game,
+      layerStack: this.layerStack,
+      isDemo: () => this.demo,
+      isScrollMode: () => this.scrollMode,
+      clock: () => this.clock(),
+    });
+    this.card = new EndCard($(mount, '[data-el="result"]'), {
+      game: () => this.game,
+      clock: () => this.clock(),
+      notify: (message, kind) => this.notify(message, kind),
+      openManual: () => this.openManual(),
+    });
     this.binder = new FieldManualBinder(document.body, LAYER_BLURBS); // above the HUD's stacking context (and the debug rail)
     this.els.titleManualBtn!.prepend(manualBookIcon(13));
-    this.els.manualEndBtn!.prepend(manualBookIcon(22));
     this.els.titleManualBtn!.addEventListener('click', () => this.openManual());
-    this.els.manualEndBtn!.addEventListener('click', () => this.openManual());
     const syncManualBadges = () => {
       const unread = manualStore.unreadCount();
-      const found = manualStore.foundCount();
       this.els.titleManualLabel!.textContent = unread > 0 ? `Field Manual · ${unread} new` : 'Field Manual';
       this.els.titleManualBtn!.classList.toggle('has-unread', unread > 0);
-      this.els.manualEndSub!.textContent = found > 0 ? `${found} logged · click background folks to collect more` : 'Click characters & props in the stack to log them';
-      this.els.manualEndBadge!.textContent = `${unread} NEW`;
-      this.els.manualEndBadge!.hidden = unread === 0;
-      this.els.manualEndBtn!.classList.toggle('has-unread', unread > 0);
     };
     syncManualBadges();
     manualStore.subscribe(syncManualBadges);
@@ -317,8 +246,8 @@ export class Hud {
     this.els.form!.addEventListener('submit', (ev) => {
       ev.preventDefault();
       // Enter while the reveal is up means "Unwind further", once; never a submit behind the reveal.
-      if (this.revealOpen) {
-        this.unwind(now());
+      if (this.reveal.isOpen) {
+        this.reveal.unwind(now());
         return;
       }
       const g = this.game;
@@ -338,22 +267,6 @@ export class Hud {
       this.els.feedback!.textContent = '';
     });
 
-    this.els.copy!.addEventListener('click', () => {
-      // Native share where it exists, the clipboard otherwise. No way to do either is an expected condition: say so.
-      void deliverShare(this.shareText, navigator).then((res) => {
-        if (res === 'cancelled') return;
-        this.els.copy!.textContent = res === 'copied' ? 'Copied ✓' : res === 'shared' ? 'Shared ✓' : 'Copy failed';
-        if (res === 'failed') return;
-        window.setTimeout(() => {
-          if (this.els.copy) this.els.copy.textContent = shareLabel();
-        }, 2000);
-      });
-    });
-
-    // "Unwind further": close the reveal and move the game on (the next prompt, or the end-of-day card).
-    this.els.rvNext!.addEventListener('click', () => this.unwind(now()));
-    this.els.rvHide!.addEventListener('click', () => this.stowReveal(true));
-    this.els.rvShow!.addEventListener('click', () => this.stowReveal(false));
     this.els.noticeClose!.addEventListener('click', () => (this.els.notice!.hidden = true));
 
     // Title screen: "Unwind the stack" dives into round 1. Hovering or clicking the logo triggers a glitch pulse.
@@ -436,35 +349,25 @@ export class Hud {
     this.game = g;
     // The watchdog submits whatever is typed when it fires (Game.tick).
     g.draft = () => (this.input.disabled ? '' : this.input.value);
-    this.statsSource = statsSource;
-    this.liveDaily = g.rules.persistsDaily && g.puzzle === puzzleNumber(new Date(this.clock()));
-    this.nextDaySig = '';
-    this.els.nextDay!.textContent = 'A new stack opens at local midnight.';
     this.els.notice!.hidden = true;
     this.endDemo();
-    this.ended = false;
     this.barked = -1;
     this.buzzed = -1;
     this.lastReadSec = -1;
     this.lastLowSec = -1;
     this.slotsSig = '';
-    this.revealRound = -1;
-    this.onUnwind = undefined;
     sound.stopReactions();
-    this.hideReveal();
+    this.reveal.reset(g);
     this.scene?.setVignette(false);
     this.scene?.setHold(false, true);
     this.promptKey = '';
-    this.els.result!.hidden = true;
-    this.els.copy!.textContent = shareLabel();
+    this.card.reset(g, statsSource);
     this.els.feedback!.textContent = '';
     this.els.metaText!.textContent = `#${g.puzzle}`;
     this.els.meta!.title = `Puzzle #${g.puzzle} · ${dateLabel}`;
     this.els.titleHow!.hidden = true;
     this.els.titleHowBtn!.setAttribute('aria-expanded', 'false');
     this.els.titleHowBtn!.textContent = 'How to play';
-    this.clearReached();
-    this.committedLayerIdx = layerIndexAt(g.depth, g.mode);
     this.layerStack.flushTo(g.depth, g.mode);
     this.syncSlots(g);
     this.syncTrueEndlessNav(g.rules.realmNav);
@@ -538,7 +441,7 @@ export class Hud {
     const active = g.phase.kind === 'reading' || g.phase.kind === 'answering' || g.phase.kind === 'between' ? g.phase.round : -1;
     // Hold the current round's slot at '-' while its dive is still sinking so we never spoil the tier/score early.
     const pendingSink =
-      g.phase.kind === 'between' && (Boolean(this.scene?.diving) || this.revealRound < g.phase.round) ? g.phase.round : -1;
+      g.phase.kind === 'between' && (Boolean(this.scene?.diving) || this.reveal.shownRound < g.phase.round) ? g.phase.round : -1;
     const sig =
       `${active}|${pendingSink}|` +
       g.rounds
@@ -662,7 +565,7 @@ export class Hud {
     const activeMode = this.game?.mode ?? 'daily';
     this.updateMotion(now, depthShown);
     this.mirrorReaction(now);
-    this.settleReveal(now);
+    this.reveal.update(now);
     this.layerStack.setRightReserve(this.scene?.uiReserveRightCss ?? 0);
     const barBottom = Math.ceil(this.els.bar!.getBoundingClientRect().bottom);
     this.layerStack.setTopOffset(barBottom > 0 ? Math.max(50, barBottom + 6) : 52);
@@ -757,17 +660,12 @@ export class Hud {
       }
       // The round waits on the reveal's button. Open the reveal once the dive has landed (or at once for a timeout);
       // opening it here rather than from the dive's callback means an interrupted dive can't strand the round.
-      if (this.revealRound !== p.round && !this.scene?.diving) {
-        this.revealRound = p.round;
-        const lk = r!.locked;
-        if (lk) this.reveal(lk.entry.tier, lk.entry.name, TIERS[lk.entry.tier].frames, lk.entry.note);
-        else this.revealTimeout();
-      }
+      if (this.reveal.shownRound !== p.round && !this.scene?.diving) this.reveal.showRound(p.round, r!);
     } else if (p.kind === 'done') {
       this.input.disabled = true;
       left = 0;
-      if (!this.ended) this.endOfDay(rowsOf(g), g.depth, g.puzzle);
-      this.updateNextDay(wall);
+      if (!this.card.isShown) this.endOfDay(rowsOf(g), g.depth, g.puzzle);
+      this.card.updateNextDay(wall);
       this.showPrompt('', Infinity);
     } else {
       this.showPrompt('', Infinity);
@@ -775,28 +673,6 @@ export class Hud {
     }
     this.syncSlots(g);
     if (override === undefined) this.setWatchdog(left, p.kind === 'answering' && p.until !== null);
-  }
-
-  /** The end card's footer: a live countdown to the next puzzle, then a reload prompt once local midnight passes. */
-  private updateNextDay(wall: number) {
-    if (!this.liveDaily) return;
-    const el = this.els.nextDay!;
-    const now = new Date(wall);
-    if (puzzleNumber(now) !== this.game!.puzzle) {
-      if (this.nextDaySig === 'new') return;
-      this.nextDaySig = 'new';
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'next-day-reload';
-      b.textContent = 'A new stack is open · reload';
-      b.addEventListener('click', () => location.reload());
-      el.replaceChildren(b);
-      return;
-    }
-    const txt = `Next stack in ${formatCountdown(msUntilNextDay(now))}`;
-    if (txt === this.nextDaySig) return;
-    this.nextDaySig = txt;
-    el.textContent = txt;
   }
 
   /** A visible message for things the player should know (a save that could not be restored, a resume). */
@@ -852,7 +728,7 @@ export class Hud {
   bark() {
     replay(this.els.console!, 'bark');
     sound.bark();
-    this.revealTimeout();
+    this.reveal.showTimeout();
   }
 
   /**
@@ -910,226 +786,6 @@ export class Hud {
       const dy = Math.round(Math.cos(now / 49 + i * 1.3) * 2 * fx.jiggle);
       el.style.translate = `${dx}px calc(var(--lag) + ${dy}px)`;
     });
-  }
-
-  // ---------------------------------------------------------------------------------------------
-  // The tier reveal: after the dive lands, the rarity front and centre, near the cursor, over a soft dim.
-
-  private revealOpen = false;
-  private revealTimer = 0;
-  private quipTurn = 0;
-  /** The round whose reveal has been shown (play mode). */
-  private revealRound = -1;
-  /** The reveal is folded away (play only) so the world under it can be seen and its props collected. */
-  private revealStowed = false;
-  /** When the open reveal was first drawn (update's clock), so its hide button waits for it to settle. */
-  private revealShownAt: number | undefined;
-  /** What "Unwind further" does: advance the game in play; the rail's demos set their own. */
-  private onUnwind: ((now: number) => void) | undefined;
-
-  /** Full-screen reveal of an accepted answer's tier. Call when the dive lands. */
-  reveal(tier: TierId, name: string, frames: number, note?: string) {
-    const t = TIERS[tier];
-    const quips = TIER_QUIPS[tier];
-    const line = note ?? quips[this.quipTurn++ % quips.length]!;
-    setText(this.els.rvName!, t.name);
-    this.els.rvName!.dataset.text = t.name;
-    setText(this.els.rvAnswer!, `${name} · +${framesLabel(frames)}`);
-    setText(this.els.rvLine!, line);
-    this.openReveal(tier);
-  }
-
-  /** The watchdog's lower-key reveal: smaller, no icon pose or rarity, just that the round pushed nothing. */
-  revealTimeout() {
-    setText(this.els.rvName!, 'Time’s up');
-    delete this.els.rvName!.dataset.text;
-    setText(this.els.rvAnswer!, '');
-    const bz = this.game?.current()?.buzzer;
-    setText(this.els.rvLine!, bz && !bz.accepted ? `${bz.guess}: Not accepted` : 'No answer, so no frames this round.');
-    this.openReveal('timeout');
-  }
-
-  private openReveal(kind: TierId | 'timeout') {
-    const el = this.els.reveal!;
-    this.renderRevealPips(kind);
-    // The tier's name sits just above the cursor's bracket mark and the details just below it, so the mascot,
-    // mid-reaction, is framed between them; sizes step down where they'd meet the header chips or the console.
-    // The maths is pure and unit-tested (reveal-layout.ts).
-    const scene = this.scene;
-    if (scene) {
-      const lay = revealLayout(
-        window.innerWidth,
-        window.innerHeight,
-        scene.markCss(),
-        { name: this.els.rvName!.textContent ?? '', answer: this.els.rvAnswer!.textContent ?? '', line: this.els.rvLine!.textContent ?? '', lowKey: kind === 'timeout' },
-        scene.uiReserveRightCss > 0,
-      );
-      const st = el.style;
-      st.setProperty('--name-bottom', `${Math.round(window.innerHeight - lay.name.bottom)}px`);
-      st.setProperty('--body-top', `${Math.round(lay.body.top)}px`);
-      st.setProperty('--name-px', `${lay.namePx}px`);
-      st.setProperty('--answer-px', `${lay.answerPx}px`);
-      st.setProperty('--line-px', `${lay.linePx}px`);
-    }
-    el.dataset.tier = kind;
-    el.classList.toggle('low-key', kind === 'timeout');
-    el.classList.remove('out', 'stowed', 'back');
-    el.hidden = false;
-    replay(el, 'in');
-    this.revealStowed = false;
-    this.revealShownAt = undefined;
-    this.els.rvHide!.hidden = true;
-    this.els.rvShow!.hidden = true;
-    this.root.classList.remove('reveal-stowed');
-    this.scene?.setVignette(true);
-    this.scene?.setHold(true);
-    this.revealOpen = true;
-    clearTimeout(this.revealTimer);
-    // The console's entry box becomes the "Unwind further" button. Enter or Space presses it; it never closes by
-    // itself in play.
-    this.root.classList.add('unwinding');
-    this.els.rvNext!.focus({ preventScroll: true });
-    this.showReachedLayers(kind);
-  }
-
-  /** Show any newly crossed layer badge(s) stacked vertically under the reveal; they fly into the RHS stack when "Unwind further" is pressed. */
-  private showReachedLayers(kind: TierId | 'timeout') {
-    this.clearReached();
-    if (kind === 'timeout' || !this.game || this.demo || this.scrollMode) return;
-    const mode = this.game.mode;
-    const targetIdx = layerIndexAt(this.game.depth, mode);
-    if (targetIdx <= this.committedLayerIdx) return;
-
-    const stack = layersFor(mode);
-    const crossed = stack.slice(this.committedLayerIdx + 1, targetIdx + 1);
-    this.committedLayerIdx = targetIdx;
-    for (const l of crossed) manualStore.noteReached(l.id); // unseals their Field Manual chapters
-
-    const list = this.els.rvReachedList!;
-    list.replaceChildren();
-    this.pendingReached = crossed.map((layer) => {
-      const badge = createLayerBadge(layer);
-      list.append(badge);
-      return { badge, layer };
-    });
-    this.els.rvReached!.hidden = false;
-  }
-
-  /** Fly any pending "Reached" badges from their reveal positions into the RHS stack in order. */
-  /** `direct`: join the stack without a flight (the last round, or the reveal folded away). */
-  private launchReachedFlight(direct: boolean) {
-    const items = this.pendingReached;
-    this.pendingReached = [];
-    if (!items.length || !this.game || this.demo || this.scrollMode) return;
-    const mode = this.game.mode;
-    if (direct) {
-      this.layerStack.flushTo(this.game.depth, mode);
-      return;
-    }
-    const reduced = reducedMotion();
-    const gapMs = reduced ? 0 : 260;
-    items.forEach(({ badge, layer }, i) => {
-      this.layerStack.flyIntoStack(badge, layer, mode, {
-        reduced,
-        showTip: i === items.length - 1,
-        delayMs: i * gapMs,
-      });
-    });
-  }
-
-  private clearReached() {
-    this.pendingReached = [];
-    this.els.rvReached!.hidden = true;
-    this.els.rvReachedList!.replaceChildren();
-  }
-
-  /** Tiny 7-pip pixel rarity ladder on the reveal (hidden on timeout; distinct orange glitch pip for WOMM). */
-  private renderRevealPips(kind: TierId | 'timeout') {
-    const wrap = this.els.rvPips!;
-    wrap.replaceChildren();
-    if (kind === 'timeout') {
-      wrap.hidden = true;
-      return;
-    }
-    const litByTier: Record<TierId, number> = {
-      'off-by-one': 1,
-      womm: 1,
-      npe: 2,
-      leak: 3,
-      race: 5,
-      heisenbug: 6,
-      bitflip: 7,
-    };
-    const lit = litByTier[kind];
-    wrap.hidden = false;
-    wrap.classList.toggle('is-womm', kind === 'womm');
-    for (let i = 0; i < 7; i++) {
-      const pip = document.createElement('i');
-      pip.className = i < lit ? 'rv-pip on' : 'rv-pip';
-      wrap.append(pip);
-    }
-  }
-
-  /**
-   * Hide or show the reveal in play. Hidden, it folds into a short "show" bar above "Unwind further" and the
-   * vignette lifts, so the world under it can be seen and its props collected (the scene blocks prop clicks while
-   * the vignette is up). The reaction keeps holding either way; showing pops the reveal back into place.
-   */
-  private stowReveal(stow: boolean) {
-    enforce(this.revealOpen, 'stowReveal: no reveal is open');
-    if (stow === this.revealStowed) return;
-    this.revealStowed = stow;
-    const el = this.els.reveal!;
-    el.classList.remove('in');
-    el.classList.toggle('stowed', stow);
-    if (!stow) replay(el, 'back');
-    this.root.classList.toggle('reveal-stowed', stow);
-    this.els.rvShow!.hidden = !stow;
-    this.scene?.setVignette(!stow);
-    (stow ? this.els.rvNext! : this.els.rvHide!).focus({ preventScroll: true });
-  }
-
-  /** Once the open reveal has settled (its pop-in is done), offer the hide button. Play only, never demos. */
-  private settleReveal(now: number) {
-    if (!this.revealOpen || this.demo || !this.els.rvHide!.hidden || this.revealStowed) return;
-    if (this.revealShownAt === undefined) {
-      this.revealShownAt = now;
-      return;
-    }
-    if (now - this.revealShownAt >= REVEAL_SETTLE_MS) this.els.rvHide!.hidden = false;
-  }
-
-  /** "Unwind further": launch any reached layer badges to the RHS stack, close the reveal, then move on. */
-  private unwind(now: number) {
-    if (!this.revealOpen) return;
-    const g = this.game;
-    const isLastRound = g?.phase.kind === 'between' && g.phase.round + 1 >= g.rounds.length;
-    // Folded away, the reached badges have no on-screen start to fly from: they join the stack directly.
-    this.launchReachedFlight(Boolean(isLastRound) || this.revealStowed);
-    sound.stopReactions();
-    sound.unwind(layerAt(this.scene?.displayDepth ?? 0).id);
-    this.hideReveal(!isLastRound);
-    if (this.onUnwind) this.onUnwind(now);
-    else g?.advance(now);
-  }
-
-  private hideReveal(unstickZLayers = true) {
-    if (!this.revealOpen) return;
-    this.revealOpen = false;
-    clearTimeout(this.revealTimer);
-    this.clearReached();
-    this.root.classList.remove('unwinding', 'reveal-stowed');
-    this.revealStowed = false;
-    this.els.rvHide!.hidden = true;
-    this.els.rvShow!.hidden = true;
-    this.scene?.setVignette(false);
-    this.scene?.setHold(false, unstickZLayers);
-    const el = this.els.reveal!;
-    el.classList.add('out');
-    this.revealTimer = window.setTimeout(() => {
-      el.hidden = true;
-      el.classList.remove('out');
-    }, REVEAL_FADE_MS);
   }
 
   private onSubmit(res: SubmitResult, scene: Scene, g: Game) {
@@ -1206,281 +862,9 @@ export class Hud {
 
   /** End of day: the result card, straight away (no replay): the day's backtrace, most recent frame first. */
   endOfDay(rows: RecordRow[], depth: number, puzzle: number) {
-    const scene = this.scene;
-    if (!scene) throw new Error('Hud.endOfDay before bind()');
-    this.ended = true;
+    if (!this.scene) throw new Error('Hud.endOfDay before bind()');
     sound.endOfDay();
-    this.buildCard(rows, depth, puzzle);
-    this.showCard();
-  }
-
-  /**
-   * The card: a summary line and a backtrace of the day, one row per round, #0 being the last answer. A row shows
-   * its frame numbers and the tier's cursor icon; hovering, focusing or tapping it opens it in place (no layout
-   * shift) to the tier, the answer and a larger icon. Every row's accessible name says all of it. Each row keeps
-   * a trailing slot with a dropdown arrow: the prompt's answer sheet from the loaded set (see answer-sheet.ts).
-   */
-  private buildCard(rows: RecordRow[], depth: number, puzzle: number) {
-    const ol = this.els.record!;
-    ol.replaceChildren();
-    let d = 0;
-    const frames = rows.map((r) => {
-      const n = r.tier ? TIERS[r.tier].frames : 0;
-      const span = { r, from: d + 1, to: d + n, n };
-      d += n;
-      return span;
-    });
-    frames.reverse().forEach(({ r, from, to, n }, i) => {
-      const li = document.createElement('li');
-      const row = document.createElement('button');
-      row.type = 'button';
-      row.className = 'bt-row';
-      row.setAttribute('aria-expanded', 'false');
-      const num = document.createElement('span');
-      num.className = 'bt-n';
-      num.textContent = `#${i}`;
-      const icon = document.createElement('span');
-      icon.className = 'bt-icon';
-      icon.append(tierIcon(r.tier ?? 'timeout'));
-      const sum = document.createElement('span');
-      sum.className = 'bt-sum';
-      sum.textContent = n === 0 ? 'no frames' : n === 1 ? `frame ${from}` : `frames ${from}–${to}`;
-      const det = document.createElement('span');
-      det.className = 'bt-detail';
-      const more = document.createElement('span');
-      more.className = 'bt-more';
-      more.setAttribute('aria-hidden', 'true');
-      if (r.tier) {
-        const t = TIERS[r.tier];
-        const name = document.createElement('span');
-        name.className = 'bt-tier';
-        name.dataset.tier = t.id;
-        name.textContent = t.name;
-        name.title = `${t.name}: +${framesLabel(t.frames)}${t.id === 'womm' ? ' (the cliché “clever” pick)' : ''}`;
-        det.append(name, ` · ${r.name ?? '—'} · +${n}`);
-        row.setAttribute('aria-label', `#${i}: ${t.name}, ${r.name ?? 'answer'}, ${sum.textContent}`);
-      } else {
-        row.classList.add('timeout');
-        det.textContent = r.timedOut ? 'Timed out · no frames' : 'Skipped · no frames';
-        row.setAttribute('aria-label', `#${i}: ${r.timedOut ? 'timed out' : 'skipped'}, no frames`);
-      }
-      // Tap (and click) pins a row open; hover and keyboard focus open it while they last (CSS).
-      row.addEventListener('click', () => {
-        const open = row.getAttribute('aria-expanded') !== 'true';
-        for (const b of ol.querySelectorAll('.bt-row')) b.setAttribute('aria-expanded', 'false');
-        row.setAttribute('aria-expanded', String(open));
-      });
-      row.append(num, icon, sum, det, more);
-      li.append(row);
-      const sheetBtn = this.answerSheetFor(li, i, r, puzzle);
-      if (sheetBtn) li.append(sheetBtn.toggle, sheetBtn.panel);
-      ol.append(li);
-    });
-    // The share text is emoji glyphs only (oldest first), so it pastes cleanly anywhere. Frame scores stay out of it.
-    const mode = this.game?.mode ?? 'daily';
-    const layerName = layerAt(depth, mode).name;
-    const glyphs = rows.map((r) => (r.tier ? TIERS[r.tier].glyph : '⬛')).join('');
-    const rules = rulesFor(mode);
-    const headline = rules.headline(framesLabel(depth), layerName);
-    setText(this.els.puzzleNo!, rules.puzzleChip(puzzle));
-    setText(this.els.headline!, headline);
-    this.shareText = buildShareText({
-      mode,
-      puzzle,
-      headline,
-      glyphs: glyphs.slice(0, rules.shareGlyphLimit),
-      url: siteUrl(location),
-    });
-    this.buildStats();
-    // Prefilled GitHub Issue links for missed answers and question ideas.
-    const rejected = this.game ? this.game.rounds.flatMap((r) => r.rejected) : [];
-    const missLink = document.createElement('a');
-    missLink.className = 'issue-link';
-    missLink.href = missedAnswerUrl({ guesses: rejected, puzzle });
-    missLink.target = '_blank';
-    missLink.rel = 'noopener noreferrer';
-    missLink.textContent = 'Report a missed answer';
-    const ideaLink = document.createElement('a');
-    ideaLink.className = 'issue-link';
-    ideaLink.href = suggestQuestionUrl();
-    ideaLink.target = '_blank';
-    ideaLink.rel = 'noopener noreferrer';
-    ideaLink.textContent = 'Suggest a question';
-    this.els.resultLinks!.replaceChildren(missLink, ' · ', ideaLink);
-  }
-
-  /**
-   * The row's dropdown: an arrow button over the row's last slot that opens the prompt's answer sheet in place.
-   * The sheet is built on first open. Needs the loaded answer set (the day is over, so showing it spoils nothing).
-   */
-  private answerSheetFor(li: HTMLElement, i: number, r: RecordRow, puzzle: number): { toggle: HTMLButtonElement; panel: HTMLElement } | undefined {
-    const set = this.game?.set;
-    if (!set || !r.question) return undefined;
-    const qid = r.question;
-    const toggle = document.createElement('button');
-    toggle.type = 'button';
-    toggle.className = 'bt-sheet-btn';
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', `#${i}: all answers to this prompt`);
-    toggle.textContent = '▾';
-    const panel = document.createElement('div');
-    panel.className = 'bt-sheet';
-    panel.id = `bt-sheet-${i}`;
-    panel.hidden = true;
-    toggle.setAttribute('aria-controls', panel.id);
-    let built = false;
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') !== 'true';
-      if (open && !built) {
-        built = true;
-        const prompt = set.questions.find((q) => q.id === qid)?.prompt;
-        enforce(prompt, `answer sheet: no question ${qid} in the loaded set`);
-        // The prompt itself, so the list reads in context, with a link to what it means in computing.
-        const head = document.createElement('div');
-        head.className = 'sheet-q';
-        const ref = document.createElement('a');
-        ref.className = 'sheet-ref';
-        ref.href = questionUrl(prompt);
-        ref.target = '_blank';
-        ref.rel = 'noopener noreferrer';
-        ref.textContent = 'what’s this? ↗';
-        head.append(`“${prompt}”`, ' ', ref);
-        panel.replaceChildren(head, ...this.sheetNodes(answerSheet(set.entries(qid), puzzle, qid, r.name), r.name, prompt));
-      }
-      toggle.setAttribute('aria-expanded', String(open));
-      panel.hidden = !open;
-      li.classList.toggle('sheet-open', open);
-    });
-    return { toggle, panel };
-  }
-
-  private sheetNodes(groups: SheetGroup[], own: string | undefined, prompt: string): HTMLElement[] {
-    return groups.map((g) => {
-      const box = document.createElement('section');
-      box.className = 'sheet-group';
-      const head = document.createElement('div');
-      head.className = 'sheet-head';
-      const name = document.createElement('span');
-      name.className = 'bt-tier';
-      name.dataset.tier = g.tier;
-      name.textContent = TIERS[g.tier].name;
-      head.append(name, ` · ${g.total}`);
-      const list = document.createElement('ul');
-      list.className = 'sheet-list';
-      const fill = (entries: readonly CategoryEntry[]) => list.replaceChildren(...entries.map((e) => this.sheetItem(e, e.name === own, prompt)));
-      box.append(head, list);
-      fill(g.shown);
-      if (g.total > g.shown.length) {
-        const more = document.createElement('button');
-        more.type = 'button';
-        more.className = 'sheet-more';
-        more.setAttribute('aria-expanded', 'false');
-        const rest = g.total - g.shown.length;
-        more.textContent = `+${rest} more`;
-        more.addEventListener('click', () => {
-          const open = more.getAttribute('aria-expanded') !== 'true';
-          more.setAttribute('aria-expanded', String(open));
-          more.textContent = open ? 'show fewer' : `+${rest} more`;
-          fill(open ? g.all : g.shown);
-        });
-        box.append(more);
-      }
-      return box;
-    });
-  }
-
-  private sheetItem(e: CategoryEntry, own: boolean, prompt: string): HTMLElement {
-    const li = document.createElement('li');
-    // Each answer looks itself up in the sense the prompt means ("spinlock" + "lock"), in a new tab.
-    const a = document.createElement('a');
-    a.className = 'sheet-a';
-    a.href = answerUrl(e.name, prompt);
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.textContent = e.name;
-    a.title = `${e.note ? `${e.note}\n` : ''}Look up “${e.name}” on Wikipedia`;
-    li.append(a);
-    if (own) {
-      li.className = 'own';
-      const you = document.createElement('span');
-      you.className = 'sheet-you';
-      you.textContent = ' ◂ you';
-      li.append(you);
-    }
-    if (e.note && (e.tier === 'bitflip' || e.tier === 'womm')) {
-      const note = document.createElement('span');
-      note.className = 'sheet-note';
-      note.textContent = ` — ${e.note}`;
-      li.append(note);
-    }
-    return li;
-  }
-
-  /** "Your stats" on the end card. Hidden when this game doesn't count or storage is unavailable. */
-  private buildStats() {
-    const box = this.els.stats!;
-    const out = this.statsSource?.();
-    if (!out || out.kind === 'none') {
-      box.hidden = true;
-      box.replaceChildren();
-      return;
-    }
-    const { stats } = out;
-    const head = document.createElement('div');
-    head.className = 'stats-head';
-    head.textContent = 'Your stats';
-    const grid = document.createElement('dl');
-    grid.className = 'stats-grid';
-    const cell = (label: string, value: string) => {
-      const d = document.createElement('div');
-      const dt = document.createElement('dt');
-      dt.textContent = label;
-      const dd = document.createElement('dd');
-      dd.textContent = value;
-      d.append(dd, dt);
-      grid.append(d);
-    };
-    cell('played', String(stats.played));
-    cell('streak', String(stats.streak));
-    cell('best streak', String(stats.bestStreak));
-    cell('avg frames', String(stats.avgDepth));
-    cell('best frames', String(stats.bestDepth));
-    const dist = document.createElement('ul');
-    dist.className = 'stats-dist';
-    dist.setAttribute('aria-label', 'Every answer you have given, by tier');
-    const max = Math.max(1, ...TIER_IDS.map((id) => stats.tiers[id]));
-    for (const id of TIER_IDS) {
-      const li = document.createElement('li');
-      li.className = `tier-${id}`;
-      const name = document.createElement('span');
-      name.className = 'sd-name';
-      name.textContent = TIERS[id].name;
-      const bar = document.createElement('span');
-      bar.className = 'sd-bar';
-      const fill = document.createElement('i');
-      fill.style.width = `${(stats.tiers[id] / max) * 100}%`;
-      bar.append(fill);
-      const n = document.createElement('span');
-      n.className = 'sd-n';
-      n.textContent = String(stats.tiers[id]);
-      li.append(name, bar, n);
-      dist.append(li);
-    }
-    box.replaceChildren(head, grid, dist);
-    if (out.reset !== undefined) {
-      const warn = document.createElement('p');
-      warn.className = 'stats-warn';
-      warn.textContent = `Your saved stats could not be read (${out.reset}) and were reset.`;
-      box.append(warn);
-      this.notify(warn.textContent, 'error');
-    }
-    box.hidden = false;
-  }
-
-  private showCard() {
-    this.els.result!.hidden = false;
-    replay(this.els.result!, 'settle-in');
-    this.els.copy!.focus({ preventScroll: true });
+    this.card.show(rows, depth, puzzle);
   }
 
   // ---------------------------------------------------------------------------------------------
@@ -1499,8 +883,7 @@ export class Hud {
     this.syncTitle();
     this.demoPrompt = prompt;
     this.root.classList.add('demo');
-    this.ended = false;
-    this.els.result!.hidden = true;
+    this.card.hide();
     this.els.feedback!.textContent = '';
     this.input.disabled = true;
     this.promptKey = '';
@@ -1512,20 +895,11 @@ export class Hud {
    * "Unwind further" itself after `autoMs`, so demos keep flowing; `then` runs on that press.
    */
   demoReveal(tier: TierId, name: string, frames: number, autoMs = REVEAL_MS, then?: () => void) {
-    this.onUnwind = () => {
-      this.onUnwind = undefined;
-      then?.();
-    };
-    this.reveal(tier, name, frames);
-    this.revealTimer = window.setTimeout(() => this.unwind(this.clock()), autoMs);
+    this.reveal.demo(tier, name, frames, autoMs, then);
   }
 
   private endDemo() {
     this.demo = false;
     this.root.classList.remove('demo');
   }
-}
-
-function rowsOf(g: Game): RecordRow[] {
-  return g.rounds.map((r) => (r.locked ? { question: r.question.id, tier: r.locked.entry.tier, name: r.locked.entry.name } : { question: r.question.id, timedOut: r.timedOut }));
 }

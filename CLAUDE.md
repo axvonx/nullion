@@ -120,6 +120,12 @@ In-play animation, for orientation:
 - **Tier icons (`src/ui/tier-icons.ts`):** the cursor in each tier's reaction pose, used in the title tier guide, the result backtrace card, and the debug rail. Share text keeps emoji.
 - **Console forms (`src/ui/forms.ts`):** the card takes the layer's idiom (GUI dialog, REPL, shell, serial console, BIOS setup, hypervisor log, SMM dump, raw entry).
 
+## Render and HUD parts (refactor E)
+
+- `src/render/collectibles.ts`: `Collectibles`, owned by the Scene (`beginFrame`, `addProp`, `addCritter`, `mark`, `reactionBoxes`, `reactionTargets`, `targets`, `hit(x, y, blocked)`). Props (art-v4) and critters report into it through `Band.collectibles`; no module-level hit arrays. Critters beat props; a vignette blocks every hit.
+- `src/render/reaction-paint.ts` (`ReactionPaint`: page faults, jiggle, leaked copies), `title-glitches.ts` (`TitleGlitches`), `nullion-banner.ts` (`drawNullionBanner`), `surface.ts` (`Surface`, `get2d`, `BAYER16`). `Scene.frame()` is split into named phases (`moveCursor`, `enterLayer`, `stepReaction`, `placeCamera`, `drawWorld`, `drawEffects`, `drawCursorPass`, `postProcess`).
+- `src/ui/reveal.ts` (`Reveal`: open/stow/settle/unwind, reached-badge flight, pips; HUD calls `showRound`/`showTier`/`showTimeout`/`update`/`unwind`/`reset`), `src/ui/end-card.ts` (`EndCard`: backtrace, answer sheets, share, stats, next-day countdown), `src/ui/dom.ts` (shared helpers). Each has its own test beside `hud.test.ts`, which stays as the integration net.
+
 ## Conventions
 
 - Invariants use `enforce()` from `src/core/enforce.ts` and throw loudly. Expected conditions are handled explicitly, never with silent defaults. Missing localStorage is an expected condition.
