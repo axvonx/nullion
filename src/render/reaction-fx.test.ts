@@ -176,3 +176,13 @@ describe('a reaction survives its landing until the reveal holds it', () => {
     }
   });
 });
+
+describe('the held jiggle is calm (the reveal background drifts, never flickers)', () => {
+  it('slows, shrinks and thins once it settles to the held level; the live reaction keeps its full energy', async () => {
+    const { HELD_JIGGLE, jiggleSlow, jiggleProps, jiggleReach } = await import('./reaction-fx');
+    expect(jiggleSlow(HELD_JIGGLE)).toBeGreaterThan(jiggleSlow(1));
+    expect(jiggleProps(HELD_JIGGLE)).toBeLessThan(jiggleProps(1));
+    expect(jiggleReach(HELD_JIGGLE)).toBeLessThan(HELD_JIGGLE);
+    expect(jiggleReach(1)).toBe(1);
+  });
+});

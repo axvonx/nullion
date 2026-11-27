@@ -2,7 +2,7 @@ import { enforce } from '../core/enforce';
 import type { TierId } from '../core/tiers';
 import { FONT, hash } from './art-common';
 import type { Collectibles } from './collectibles';
-import { CASCADE, PAGE_FAULT, WOMM } from './reaction-fx';
+import { CASCADE, PAGE_FAULT, WOMM, jiggleProps, jiggleReach, jiggleSlow } from './reaction-fx';
 import { BAYER16, get2d, type Surface } from './surface';
 
 /** The page-fault reaction's page size in scene pixels (a fixed grid). */
@@ -89,10 +89,13 @@ export class ReactionPaint {
     if (f.jiggle > 0) {
       enforce(f.reactionStart !== undefined, 'jiggle without a reaction');
       s.scratchCtx.drawImage(s.canvas, 0, 0);
-      const rects = props.reactionTargets(Math.floor(f.reactionStart), 26, W, H);
+      // Held (the reveal is up), it calms: fewer props, slower and smaller, so the background drifts, not flickers.
+      const slow = jiggleSlow(f.jiggle);
+      const reach = jiggleReach(f.jiggle);
+      const rects = props.reactionTargets(Math.floor(f.reactionStart), jiggleProps(f.jiggle), W, H);
       rects.forEach(([x, y, w, h], i) => {
-        const dx = Math.round(Math.sin(now / 45 + i * 1.7) * 2.4 * f.jiggle);
-        const dy = Math.round(Math.cos(now / 53 + i * 2.3) * 1.6 * f.jiggle);
+        const dx = Math.round(Math.sin(now / (45 * slow) + i * 1.7) * 2.4 * reach);
+        const dy = Math.round(Math.cos(now / (53 * slow) + i * 2.3) * 1.6 * reach);
         if (dx || dy) ctx.drawImage(s.scratch, x, y, w, h, x + dx, y + dy, w, h);
       });
     }

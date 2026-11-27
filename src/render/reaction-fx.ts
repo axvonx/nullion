@@ -67,6 +67,24 @@ const cascadePages = (rel: number, reduced: boolean) => (within(rel, CASCADE.bla
 /** Race condition and Heisenbug sustained: a calmer, continuing jiggle. */
 export const HELD_JIGGLE = 0.4;
 
+/**
+ * How fast a jiggle wobbles: 1 is the reaction's own pace; once it settles to the held level it slows to a third, so
+ * the reveal's degraded background drifts instead of flickering (owner: "a little intrusive", 2026-11-27).
+ */
+export function jiggleSlow(jiggle: number): number {
+  return jiggle <= HELD_JIGGLE ? 3 : 1;
+}
+
+/** How many props a jiggle moves: all 26 while it plays, a few once it settles to the held level. */
+export function jiggleProps(jiggle: number): number {
+  return jiggle <= HELD_JIGGLE ? 8 : 26;
+}
+
+/** How far a jiggle moves: full while it plays, half once held. */
+export function jiggleReach(jiggle: number): number {
+  return jiggle <= HELD_JIGGLE ? jiggle * 0.5 : jiggle;
+}
+
 /** How long each reaction plays on its own, unsustained. */
 export const REACTION_MS: Record<TierId, number> = {
   'off-by-one': 600,
