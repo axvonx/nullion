@@ -24,6 +24,7 @@ import { manualStore } from '../game/manual';
 import { sound } from '../audio/sound';
 import { bankAcceptsFor } from '../data/bank';
 import { missedAnswerUrl } from './issues';
+import { mountVisualViewport } from './viewport';
 
 /** Below this share of the answer time left, the watchdog goes into its low-time state. */
 export const LOW_TIME = 0.25;
@@ -126,7 +127,7 @@ export class Hud {
         <div class="bios-footer" aria-hidden="true"><b>F10</b> Save · <b>Enter</b> Select · <b>ESC</b> Exit</div>
         <output class="feedback" data-el="feedback" aria-live="polite"></output>
 ${END_CARD_HTML}
-        <div class="scroll-hint" data-el="scrollHint" hidden>scroll · ↑ ↓ · PgUp PgDn</div>
+        <div class="scroll-hint" data-el="scrollHint" hidden>scroll · drag · ↑ ↓ · PgUp PgDn</div>
       </section>
 ${REVEAL_HTML}`;
     this.root = mount;
@@ -168,6 +169,7 @@ ${REVEAL_HTML}`;
     this.buildTitleRules();
     this.buildTitleTiers();
     mountPrefsMenu(mount, this.els.barLeft!);
+    mountVisualViewport();
   }
 
   /** The rules, with every number read from the game's own constants. */
@@ -288,13 +290,54 @@ ${REVEAL_HTML}`;
       (ev) => {
         if (!this.scrollMode || ev.target instanceof HTMLInputElement || ev.target instanceof HTMLSelectElement) return;
         // Panels (and the debug menu) scroll themselves.
-        if (ev.target instanceof Element && ev.target.closest('.panel, .dbg-panel')) return;
+        if (ev.target instanceof Element && ev.target.closest('.panel, .dbg-panel, .dbg-rail, .bd-backdrop, .prefs-pop')) return;
         ev.preventDefault();
         const mult = ev.shiftKey ? 3 : 1;
         nudge((ev.deltaY / rulesFor(this.game?.mode ?? 'daily').scroll.wheelDivisor) * mult);
       },
       { passive: false },
     );
+    // Touch-drag scrolling for scroll-only mode (and True Endless) on phones and tablets.
+    let touchY = 0;
+    let touchActive = false;
+    window.addEventListener(
+      'touchstart',
+      (ev) => {
+        if (!this.scrollMode || ev.touches.length !== 1) {
+          touchActive = false;
+          return;
+        }
+        const target = ev.target;
+        if (
+          target instanceof Element &&
+          target.closest('.panel, .dbg-panel, .dbg-rail, .dbg-toggle, .bd-backdrop, .prefs-pop, .layer-stack, .bar, .te-nav, input, select, button, a')
+        ) {
+          touchActive = false;
+          return;
+        }
+        touchY = ev.touches[0]!.clientY;
+        touchActive = true;
+      },
+      { passive: true },
+    );
+    window.addEventListener(
+      'touchmove',
+      (ev) => {
+        if (!touchActive || !this.scrollMode || ev.touches.length !== 1) return;
+        const y = ev.touches[0]!.clientY;
+        const dy = touchY - y;
+        touchY = y;
+        if (Math.abs(dy) < 0.5) return;
+        ev.preventDefault();
+        nudge(dy / (rulesFor(this.game?.mode ?? 'daily').scroll.wheelDivisor * 0.6));
+      },
+      { passive: false },
+    );
+    const endTouchScroll = () => {
+      touchActive = false;
+    };
+    window.addEventListener('touchend', endTouchScroll, { passive: true });
+    window.addEventListener('touchcancel', endTouchScroll, { passive: true });
     window.addEventListener('keydown', (ev) => {
       if (!this.scrollMode || ev.target instanceof HTMLInputElement || ev.target instanceof HTMLSelectElement) return;
       const rules = rulesFor(this.game?.mode ?? 'daily');

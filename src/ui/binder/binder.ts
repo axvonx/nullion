@@ -155,6 +155,64 @@ export class FieldManualBinder {
     wrap.addEventListener('click', (ev) => {
       if (ev.target === wrap) this.close();
     });
+    // Horizontal swipe on the sheet turns spreads on touch devices without interfering with vertical scrolling.
+    let swipeX = 0;
+    let swipeY = 0;
+    let swipeT = 0;
+    let swipeActive = false;
+    this.sheet.addEventListener(
+      'touchstart',
+      (ev) => {
+        if (ev.touches.length !== 1) {
+          swipeActive = false;
+          return;
+        }
+        const target = ev.target;
+        if (target instanceof Element && target.closest('input, select, textarea, button, a')) {
+          swipeActive = false;
+          return;
+        }
+        const t = ev.touches[0]!;
+        swipeX = t.clientX;
+        swipeY = t.clientY;
+        swipeT = Date.now();
+        swipeActive = true;
+      },
+      { passive: true },
+    );
+    this.sheet.addEventListener(
+      'touchmove',
+      (ev) => {
+        if (!swipeActive || ev.touches.length !== 1) return;
+        const t = ev.touches[0]!;
+        const dx = t.clientX - swipeX;
+        const dy = t.clientY - swipeY;
+        // Once the gesture is clearly vertical, let the sheet scroll without triggering a page turn.
+        if (Math.abs(dy) > 14 && Math.abs(dy) > Math.abs(dx)) swipeActive = false;
+      },
+      { passive: true },
+    );
+    this.sheet.addEventListener(
+      'touchend',
+      (ev) => {
+        if (!swipeActive || ev.changedTouches.length !== 1) return;
+        swipeActive = false;
+        const t = ev.changedTouches[0]!;
+        const dx = t.clientX - swipeX;
+        const dy = t.clientY - swipeY;
+        if (Date.now() - swipeT > 650) return;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
+        this.step(dx < 0 ? 1 : -1);
+      },
+      { passive: true },
+    );
+    this.sheet.addEventListener(
+      'touchcancel',
+      () => {
+        swipeActive = false;
+      },
+      { passive: true },
+    );
     window.addEventListener('keydown', (ev) => {
       if (this.el.hidden || ev.target instanceof HTMLInputElement) return;
       if (ev.key === 'Escape') this.close();

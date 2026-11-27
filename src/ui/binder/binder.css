@@ -13,13 +13,13 @@
   --mono: 'Courier Prime', 'Courier New', monospace;
   --hand: 'Caveat', cursive;
   position: fixed; inset: 0; z-index: 60; display: grid; place-items: center;
-  background: rgba(6, 6, 10, 0.72); padding: 16px;
+  background: rgba(6, 6, 10, 0.72); padding: 16px 16px calc(16px + var(--kb, 0px));
 }
 .bd-backdrop[hidden] { display: none; }
 
-.bd { position: relative; width: min(1040px, 100%); max-height: calc(100vh - 80px); display: flex; flex-direction: column;
+.bd { position: relative; width: min(1040px, 100%); max-height: calc(var(--vvh, 100dvh) - 80px); display: flex; flex-direction: column;
   background: var(--slate); padding: 16px; margin-top: 46px; box-shadow: inset 0 0 0 2px var(--slate-hi), 0 0 0 2px var(--slate-lo), 0 18px 40px rgba(0, 0, 0, 0.5); }
-.bd-sheet { display: grid; grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr); min-height: min(560px, calc(100vh - 112px)); height: calc(100vh - 112px); max-height: 760px; }
+.bd-sheet { display: grid; grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr); min-height: min(560px, calc(var(--vvh, 100dvh) - 112px)); height: calc(var(--vvh, 100dvh) - 112px); max-height: 760px; }
 .bd-leaf { position: relative; min-width: 0; min-height: 0; overflow: hidden; display: flex; flex-direction: column; background: var(--bond); color: var(--toner);
   font-family: var(--serif); font-size: 17px; line-height: 1.3; padding: 14px 20px 8px 36px; }
 /* Header and footer stay put; only the page body scrolls (the long permuted index). */
@@ -144,8 +144,8 @@
 /* Phones: a spread is one long page that scrolls (the portrait leaf above its text), with one running head at the
    top and one foot at the bottom; the arrows turn whole spreads and sit on the slate under the paper. */
 @media (max-width: 720px) {
-  .bd { padding: 10px 10px 44px; margin-top: 40px; height: calc(100dvh - 64px); max-height: none; }
-  .bd-sheet { display: block; height: auto; min-height: 0; max-height: none; flex: 1; overflow-y: auto; overscroll-behavior: contain; background: var(--bond); }
+  .bd { padding: 10px 10px 44px; margin-top: 40px; height: calc(var(--vvh, 100dvh) - 64px); max-height: none; }
+  .bd-sheet { display: block; height: auto; min-height: 0; max-height: none; flex: 1; overflow-y: auto; overscroll-behavior: contain; background: var(--bond); touch-action: pan-y; }
   .bd-rings { display: none; }
   .bd-leaf { overflow: visible; padding-left: 32px; }
   .bd-leaf .bd-body { overflow: visible; }
