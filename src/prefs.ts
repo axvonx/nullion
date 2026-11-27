@@ -1,3 +1,4 @@
+import { storageKey } from './keys';
 import { persisted } from './store';
 import type { SoundMode, VolumeLevel } from './audio/sound';
 
@@ -17,7 +18,7 @@ export interface Prefs {
 
 export const DEFAULT_PREFS: Prefs = { autocorrect: 'confirm', sound: 'full', volume: 'medium', motion: 'system' };
 
-export const prefs = persisted<Prefs>('nullion.prefs', DEFAULT_PREFS);
+export const prefs = persisted<Prefs>(storageKey('prefs'), DEFAULT_PREFS);
 
 // Migrate legacy saved `sound: 'on'` → `'full'` cleanly so old localStorage never breaks.
 if ((prefs.get().sound as string) === 'on') {

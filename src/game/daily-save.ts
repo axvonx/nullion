@@ -1,11 +1,12 @@
 import { enforce } from '../core/enforce';
 import type { StackMode } from '../core/layers';
+import { storageKey } from '../keys';
 import { Game, InvalidSaveError } from './game';
 
 /** The slice of Storage the daily save needs. `null` means storage is unavailable (an expected condition). */
 export type SaveStorage = Pick<Storage, 'getItem' | 'setItem' | 'removeItem' | 'key' | 'length'>;
 
-const PREFIX = 'nullion.daily.';
+const PREFIX = storageKey('daily.');
 export const dailyKey = (puzzle: number) => `${PREFIX}${puzzle}`;
 
 /**
