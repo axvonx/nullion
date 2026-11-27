@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { CategoryEntry } from '../core/match';
 import type { TierId } from '../core/tiers';
-import { SHEET_SHOWN, SHEET_TIER_ORDER, answerSheet } from './answer-sheet';
+import { SHEET_SHOWN, SHEET_TIER_ORDER, answerSheet, answerUrl, promptSubject, questionUrl } from './answer-sheet';
 
 const mk = (tier: TierId, n: number): CategoryEntry[] => Array.from({ length: n }, (_, i) => ({ name: `${tier}-${i}`, tier, keys: [`${tier}-${i}`] }));
 const ENTRIES = [...mk('off-by-one', 30), ...mk('womm', 3), ...mk('npe', 12), ...mk('bitflip', 1), ...mk('race', 9)];
@@ -35,5 +35,30 @@ describe('answer sheet', () => {
       expect(g.shown.map((e) => e.name)).toContain(own);
       expect(g.shown.length).toBe(SHEET_SHOWN);
     }
+  });
+});
+
+describe('reference links', () => {
+  it('reduces a prompt to its subject', () => {
+    expect(promptSubject('Name a type of lock')).toBe('lock');
+    expect(promptSubject('Name an ODE solver')).toBe('ODE solver');
+    expect(promptSubject('Name a programming language')).toBe('programming language');
+    expect(promptSubject('Name a kind of bug.')).toBe('bug');
+    expect(promptSubject('Pick any sorting algorithm')).toBe('Pick any sorting algorithm');
+  });
+
+  it('searches Wikipedia for an answer in the sense the prompt means, so "lock" is the concurrency lock', () => {
+    const u = new URL(answerUrl('spinlock', 'Name a type of lock'));
+    expect(u.origin).toBe('https://en.wikipedia.org');
+    expect(u.searchParams.get('search')).toBe('spinlock lock');
+    expect(new URL(answerUrl('Python', 'Name a programming language')).searchParams.get('search')).toBe('Python programming language');
+    expect(new URL(answerUrl('fissile lock', 'Name a type of lock')).searchParams.get('search')).toBe('fissile lock');
+    expect(new URL(answerUrl('Lisp', 'Name a programming language')).searchParams.get('search')).toBe('Lisp programming language');
+    expect(new URL(answerUrl('ML (programming language)', 'Name a programming language')).searchParams.get('search')).toBe('ML (programming language)');
+  });
+
+  it('a one-word subject asks for its computing sense; a longer one is specific enough already', () => {
+    expect(new URL(questionUrl('Name a type of lock')).searchParams.get('search')).toBe('lock (computer science)');
+    expect(new URL(questionUrl('Name a map projection')).searchParams.get('search')).toBe('map projection');
   });
 });

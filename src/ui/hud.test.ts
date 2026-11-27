@@ -656,6 +656,18 @@ describe('end card answer sheet', () => {
   }
   const shownNames = (panel: HTMLElement) => [...panel.querySelectorAll('.sheet-list li')].map((li) => li.firstChild!.textContent);
 
+  it('shows the prompt and links every answer to Wikipedia in the prompt\'s sense', () => {
+    const h = sheetSetup();
+    h.toggle.click();
+    expect(h.panel.querySelector('.sheet-q')!.textContent).toContain(h.q.prompt);
+    const own = [...h.panel.querySelectorAll<HTMLAnchorElement>('a.sheet-a')].find((a) => a.textContent === h.own.name)!;
+    const url = new URL(own.href);
+    expect(url.hostname).toBe('en.wikipedia.org');
+    expect(url.searchParams.get('search')).toContain(h.own.name);
+    expect(own.target).toBe('_blank');
+    expect(own.rel).toContain('noopener');
+  });
+
   it('opens and closes from the row arrow, and says so to assistive tech', () => {
     const h = sheetSetup();
     expect(h.panel.hidden).toBe(true);

@@ -1,3 +1,4 @@
+import { enforce } from '../core/enforce';
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
 import { PROMPTS_PER_DAY, layerAt, layerIndexAt, layersFor, maxDepthFor, type Layer, type LayerId } from '../core/layers';
 import type { CategoryEntry } from '../core/match';
@@ -9,7 +10,7 @@ import { look, reducedMotion } from '../looks';
 import type { Scene } from '../render/scene';
 import { FORMS, FORM_BY_LAYER, type FormId } from './forms';
 import { tierIcon } from './tier-icons';
-import { answerSheet, type SheetGroup } from './answer-sheet';
+import { answerSheet, answerUrl, questionUrl, type SheetGroup } from './answer-sheet';
 import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
@@ -1281,7 +1282,19 @@ export class Hud {
       const open = toggle.getAttribute('aria-expanded') !== 'true';
       if (open && !built) {
         built = true;
-        panel.replaceChildren(...this.sheetNodes(answerSheet(set.entries(qid), puzzle, qid, r.name), r.name));
+        const prompt = set.questions.find((q) => q.id === qid)?.prompt;
+        enforce(prompt, `answer sheet: no question ${qid} in the loaded set`);
+        // The prompt itself, so the list reads in context, with a link to what it means in computing.
+        const head = document.createElement('div');
+        head.className = 'sheet-q';
+        const ref = document.createElement('a');
+        ref.className = 'sheet-ref';
+        ref.href = questionUrl(prompt);
+        ref.target = '_blank';
+        ref.rel = 'noopener noreferrer';
+        ref.textContent = 'what’s this? ↗';
+        head.append(`“${prompt}”`, ' ', ref);
+        panel.replaceChildren(head, ...this.sheetNodes(answerSheet(set.entries(qid), puzzle, qid, r.name), r.name, prompt));
       }
       toggle.setAttribute('aria-expanded', String(open));
       panel.hidden = !open;
@@ -1290,7 +1303,7 @@ export class Hud {
     return { toggle, panel };
   }
 
-  private sheetNodes(groups: SheetGroup[], own: string | undefined): HTMLElement[] {
+  private sheetNodes(groups: SheetGroup[], own: string | undefined, prompt: string): HTMLElement[] {
     return groups.map((g) => {
       const box = document.createElement('section');
       box.className = 'sheet-group';
@@ -1303,7 +1316,7 @@ export class Hud {
       head.append(name, ` · ${g.total}`);
       const list = document.createElement('ul');
       list.className = 'sheet-list';
-      const fill = (entries: readonly CategoryEntry[]) => list.replaceChildren(...entries.map((e) => this.sheetItem(e, e.name === own)));
+      const fill = (entries: readonly CategoryEntry[]) => list.replaceChildren(...entries.map((e) => this.sheetItem(e, e.name === own, prompt)));
       box.append(head, list);
       fill(g.shown);
       if (g.total > g.shown.length) {
@@ -1325,10 +1338,17 @@ export class Hud {
     });
   }
 
-  private sheetItem(e: CategoryEntry, own: boolean): HTMLElement {
+  private sheetItem(e: CategoryEntry, own: boolean, prompt: string): HTMLElement {
     const li = document.createElement('li');
-    li.textContent = e.name;
-    if (e.note) li.title = e.note;
+    // Each answer looks itself up in the sense the prompt means ("spinlock" + "lock"), in a new tab.
+    const a = document.createElement('a');
+    a.className = 'sheet-a';
+    a.href = answerUrl(e.name, prompt);
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.textContent = e.name;
+    a.title = `${e.note ? `${e.note}\n` : ''}Look up “${e.name}” on Wikipedia`;
+    li.append(a);
     if (own) {
       li.className = 'own';
       const you = document.createElement('span');

@@ -44,3 +44,31 @@ export function answerSheet(entries: readonly CategoryEntry[], puzzle: number, q
   }
   return groups;
 }
+
+/**
+ * Reference links on the answer sheet: each answer searches Wikipedia in the sense the prompt means, so "mutex"
+ * under "Name a type of lock" lands on concurrency, not on door hardware. Search (not a guessed article title) is
+ * the honest choice: it never 404s, and Wikipedia jumps straight to an article when the query is an exact title.
+ */
+const WIKI = 'https://en.wikipedia.org/w/index.php';
+
+/** "Name a type of lock" → "lock": what kind of thing the prompt asks for. Other phrasings are kept whole. */
+export function promptSubject(prompt: string): string {
+  const m = /^name (?:an?|the)\s+(?:(?:type|kind|sort|form) of\s+)?(.+?)[.?!]?$/i.exec(prompt.trim());
+  return m ? m[1]! : prompt.trim();
+}
+
+const search = (q: string) => `${WIKI}?${new URLSearchParams({ search: q, title: 'Special:Search' })}`;
+
+/** The answer plus whichever subject words it doesn't already say ("fissile lock" stays as is; "mutex" gets "lock"). */
+export function answerUrl(answer: string, prompt: string): string {
+  const has = new Set(answer.toLowerCase().split(/[^\p{L}\p{N}]+/u));
+  const extra = promptSubject(prompt).split(/\s+/).filter((w) => !has.has(w.toLowerCase()));
+  return search([answer, ...extra].join(' '));
+}
+
+/** The prompt's own subject. A one-word subject ("lock", "bug") is ambiguous, so it asks for the computing sense. */
+export function questionUrl(prompt: string): string {
+  const s = promptSubject(prompt);
+  return search(/\s/.test(s) ? s : `${s} (computer science)`);
+}
