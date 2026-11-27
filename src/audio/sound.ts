@@ -1292,8 +1292,8 @@ export class SoundEngine {
         break;
       }
       case 'bitflip': {
-        // Finale sting: bit-crushed cascade into massive 5-voice FM + pulse inversion chord!
-        this.playBitflipBuildup(ctx, t, false);
+        // Finale sting: identical crescendo buildup up to 2200ms, then massive 5-voice FM + pulse inversion chord!
+        this.playBitflipBuildup(ctx, t);
         const inv = t + CASCADE.invert[0] / 1000;
         this.thud(ctx, inv, 165, 40, 0.44, 0.6, true);
         this.noiseBurst(ctx, { at: inv, dur: 0.24, type: 'highpass', filterHz: 2400, gain: 0.3, crush: true, track: true });
@@ -1319,9 +1319,9 @@ export class SoundEngine {
         break;
       }
       case 'womm': {
-        // Full-length Bit Flip audio fake-out → hard-cut to dead silence on WOMM.freeze (2200ms) →
+        // Identical Bit Flip crescendo buildup → hard-cut to dead silence right before the high note at WOMM.freeze (2200ms) →
         // heavy dry "Not Responding" thump on WOMM.gray (2850ms) → dry hourglass double-click on WOMM.hourglass (3450ms).
-        this.playBitflipBuildup(ctx, t, true);
+        this.playBitflipBuildup(ctx, t);
         const grayAt = t + WOMM.gray / 1000;
         const hgAt = t + WOMM.hourglass / 1000;
         this.thud(ctx, grayAt, 115, 48, 0.26, 0.5, true);
@@ -1334,7 +1334,7 @@ export class SoundEngine {
     }
   }
 
-  private playBitflipBuildup(ctx: BaseAudioContext, t: number, extendToFreeze: boolean) {
+  private playBitflipBuildup(ctx: BaseAudioContext, t: number) {
     this.noiseBurst(ctx, { at: t, dur: 0.025, type: 'highpass', filterHz: 2800, gain: 0.24, track: true });
     this.voice(ctx, { freq: 110, toFreq: 102, at: t, dur: 0.4, wave: 'pulse25', filterHz: 750, q: 2, gain: 0.32, crush: true, track: true });
     this.voice(ctx, { freq: 55, at: t, dur: 0.42, wave: 'triangle', gain: 0.34, track: true });
@@ -1344,25 +1344,26 @@ export class SoundEngine {
 
     this.fmVoice(ctx, { carrierHz: 523.25, toCarrierHz: 698.46, modRatio: 2.5, modIndex: 200, at: t + 0.55, dur: 0.18, gain: 0.26, track: true });
 
-    const endMs = extendToFreeze ? WOMM.freeze - 30 : CASCADE.invert[0];
+    // Shared 18-step crescendo climbing right up to 2170ms (30ms shy of the high note / freeze fork).
+    const endMs = WOMM.freeze - 30;
     const span = (endMs - 700) / 1000;
     this.noiseBurst(ctx, {
       at: t + 0.7,
       dur: span,
       type: 'bandpass',
       filterHz: 500,
-      toFilterHz: extendToFreeze ? 4600 : 3200,
+      toFilterHz: 4600,
       q: 2.4,
-      gain: extendToFreeze ? 0.38 : 0.28,
+      gain: 0.38,
       attack: span * 0.75,
       crush: true,
       track: true,
     });
-    const steps = extendToFreeze ? 18 : 8;
+    const steps = 18;
     for (let i = 0; i < steps; i++) {
       const p = i / Math.max(1, steps - 1);
       const at = t + 0.7 + p * span;
-      const freq = 261.63 * Math.pow(extendToFreeze ? 2.8 : 2.1, p);
+      const freq = 261.63 * Math.pow(2.8, p);
       const dur = Math.min(0.11, endMs / 1000 - (at - t));
       if (dur <= 0.015) break;
       const pan = (i % 2 === 0 ? -1 : 1) * (0.2 + p * 0.5);
@@ -1378,7 +1379,7 @@ export class SoundEngine {
         crush: p > 0.5,
         track: true,
       });
-      if (extendToFreeze && at >= t + CASCADE.invert[0] / 1000) {
+      if (p > 0.45) {
         this.voice(ctx, {
           freq: freq * 0.5,
           at,
@@ -1386,7 +1387,7 @@ export class SoundEngine {
           wave: 'sawtooth',
           filterHz: 900 + p * 1200,
           detune: (i % 2 === 0 ? 1 : -1) * 18,
-          gain: 0.22 + p * 0.15,
+          gain: 0.2 + p * 0.14,
           pan: -pan,
           crush: true,
           track: true,

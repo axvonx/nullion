@@ -159,7 +159,7 @@ export class Hud {
     // The scene is a full-bleed backdrop; every piece of UI floats over it as a panel.
     mount.innerHTML = `
       <canvas class="scene" aria-label="Your cursor descending through the software stack"></canvas>
-      <header class="bar">
+      <header class="bar" data-el="bar">
         <span class="bar-left" data-el="barLeft"><span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span></span>
         <span class="bar-right"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span><span class="chip depth float" data-el="depth"></span><button type="button" class="chip endless-btn float" data-el="endlessBtn" hidden aria-pressed="false" title="Toggle Endless Mode (3-strike watchdog descent)">Endless</button></span>
       </header>
@@ -208,7 +208,7 @@ export class Hud {
       </section>
       <div class="reveal" data-el="reveal" hidden role="status" aria-live="polite">
         <div class="rv-name" data-el="rvName"></div>
-        <div class="rv-body"><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div></div>
+        <div class="rv-body"><div class="rv-pips" data-el="rvPips" aria-hidden="true"></div><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div></div>
       </div>
       <div class="entrance" data-el="entrance" hidden role="status" aria-live="polite">
         <div class="en-name" data-el="enName"></div>
@@ -220,7 +220,7 @@ export class Hud {
     this.els = Object.fromEntries([...mount.querySelectorAll<HTMLElement>('[data-el]')].map((e) => [e.dataset.el!, e]));
     this.titleLogo = new TitleLogo();
     this.els.titleHead!.append(this.titleLogo.canvas);
-    this.layerStack = new LayerStack((id) => sound.stackCrunch(id));
+    this.layerStack = new LayerStack((id) => sound.stackCrunch(id), LAYER_BLURBS);
     mount.append(this.layerStack.el);
     this.buildTitleRules();
     this.buildTitleTiers();
@@ -234,6 +234,7 @@ export class Hud {
       `${PROMPTS_PER_DAY} prompts a day, ${ANSWER_MS / 1000} seconds each.`,
       'One answer per prompt: the first one accepted is locked in.',
       `Rarer answers push more stack frames (${Math.min(...frames)} to ${Math.max(...frames)}), so you descend deeper.`,
+      'More stack frames = deeper inside the computer, from Apps down to bare silicon.',
       'Everyone gets the same puzzle.',
       'A new one opens at your local midnight.',
     ];
@@ -569,8 +570,8 @@ export class Hud {
     if (!scene) return;
     const mark = scene.markCss();
     const vh = window.innerHeight || 800;
-    const gap = Math.max(14, Math.min(28, Math.round(vh * 0.03)));
-    const logoBottom = Math.max(vh * 0.56, vh - (mark.top - gap));
+    const gap = Math.max(8, Math.min(28, Math.round(vh * 0.03)));
+    const logoBottom = Math.min(vh - 64, Math.max(vh * 0.56, vh - (mark.top - gap)));
     const footTop = Math.min(vh * 0.52, mark.bottom + gap);
     const st = this.els.titleScreen!.style;
     st.setProperty('--logo-bottom', `${Math.round(logoBottom)}px`);
@@ -594,6 +595,8 @@ export class Hud {
     this.updateMotion(now, depthShown);
     this.mirrorReaction(now);
     this.layerStack.setRightReserve(this.scene?.uiReserveRightCss ?? 0);
+    const barBottom = Math.ceil(this.els.bar!.getBoundingClientRect().bottom);
+    this.layerStack.setTopOffset(barBottom > 0 ? Math.max(50, barBottom + 6) : 52);
     this.layerStack.setVisible(!this.titleOpen && look('layerStack') === 'on');
     this.layerStack.sync(depthShown, activeMode, { animate: !this.scrollMode, reduced: reducedMotion() });
     const frames = Math.round(depthShown);
@@ -841,6 +844,7 @@ export class Hud {
 
   private openReveal(kind: TierId | 'timeout') {
     const el = this.els.reveal!;
+    this.renderRevealPips(kind);
     // The tier's name sits just above the cursor's bracket mark and the details just below it, so the mascot,
     // mid-reaction, is framed between them; sizes step down where they'd meet the entrance band or the console.
     // The maths is pure and unit-tested (reveal-layout.ts).
@@ -875,6 +879,33 @@ export class Hud {
     // itself in play.
     this.root.classList.add('unwinding');
     this.els.rvNext!.focus({ preventScroll: true });
+  }
+
+  /** Tiny 7-pip pixel rarity ladder on the reveal (hidden on timeout; distinct orange glitch pip for WOMM). */
+  private renderRevealPips(kind: TierId | 'timeout') {
+    const wrap = this.els.rvPips!;
+    wrap.replaceChildren();
+    if (kind === 'timeout') {
+      wrap.hidden = true;
+      return;
+    }
+    const litByTier: Record<TierId, number> = {
+      'off-by-one': 1,
+      womm: 1,
+      npe: 2,
+      leak: 3,
+      race: 5,
+      heisenbug: 6,
+      bitflip: 7,
+    };
+    const lit = litByTier[kind];
+    wrap.hidden = false;
+    wrap.classList.toggle('is-womm', kind === 'womm');
+    for (let i = 0; i < 7; i++) {
+      const pip = document.createElement('i');
+      pip.className = i < lit ? 'rv-pip on' : 'rv-pip';
+      wrap.append(pip);
+    }
   }
 
   /** "Unwind further": close the reveal, then move on. */

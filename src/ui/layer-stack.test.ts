@@ -83,4 +83,36 @@ describe('LayerStack', () => {
     expect(endlessBlocks[endlessBlocks.length - 1]!.classList.contains('is-current')).toBe(true);
     expect(DAILY_LAYERS[0]!.id).toBe('application');
   });
+
+  it('auto-shows the plain-English tooltip after entrance and pins/unpins on click', () => {
+    vi.useFakeTimers();
+    try {
+      const stack = new LayerStack(undefined, {
+        application: 'The apps you click, tap and type into',
+        runtime: 'The engine that runs your code and tidies up its memory',
+      });
+      document.body.append(stack.el);
+      stack.sync(0, 'daily', { animate: true, reduced: false });
+      stack.sync(3, 'daily', { animate: true, reduced: false });
+
+      const runtime = stack.el.querySelector<HTMLElement>('[data-layer="runtime"]')!;
+      expect(runtime.querySelector('.ls-tip-desc')?.textContent).toContain('tidies up its memory');
+      expect(runtime.classList.contains('is-tip-auto')).toBe(false);
+
+      // Appears after impact + post-impact delay, then auto-hides after hold duration.
+      vi.advanceTimersByTime(600);
+      expect(runtime.classList.contains('is-tip-auto')).toBe(true);
+      vi.advanceTimersByTime(3500);
+      expect(runtime.classList.contains('is-tip-auto')).toBe(false);
+
+      // Clicking pins the tooltip open; clicking again closes it.
+      runtime.click();
+      expect(runtime.classList.contains('is-tip-pinned')).toBe(true);
+      runtime.click();
+      expect(runtime.classList.contains('is-tip-pinned')).toBe(false);
+      stack.el.remove();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 });

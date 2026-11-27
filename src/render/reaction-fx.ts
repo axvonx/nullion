@@ -11,20 +11,30 @@ import type { TierId } from '../core/tiers';
 
 /**
  * Bit Flip is the finale: it compounds every other tier's screen effect as an escalating cascade, in ms: hang (grey,
- * frozen), a page-fault run (the Null pointer reaction, played 1.5× faster), leaked copies, racing jiggle, and last the inversion, entered once and held.
+ * frozen), a page-fault run (the Null pointer reaction, played 1.5× faster), leaked copies, racing jiggle, the dimmed
+ * "ONE IN A / NULLION" sparkling glitch buildup, and at 2200 ms the climax inversion (entered once and held).
  */
-export const CASCADE = { hang: [0, 450], blackout: [300, 854], leakAt: 550, jiggle: [700, 1300], invert: [1300, 2000] } as const;
+export const CASCADE = { hang: [0, 450], blackout: [300, 854], leakAt: 550, jiggle: [700, 2750], invert: [2750, 3850] } as const;
+
+/**
+ * "ONE IN A / NULLION" dramatic buildup shared by Bit Flip and Works on my machine:
+ *   750 ms  (topAt):    background dims dark; row 1 ("ONE IN A") sparkles into existence with subtle glitches
+ *   1050 ms (bottomAt): row 2 ("NULLION") sparkles into existence right below it (persists ~2s total)
+ *   2750 ms (climaxAt): Bit Flip lights up inverted & locks crisp until 3350 ms (dissolving into the +13 dive);
+ *                       Works on my machine hard-cuts to silence, freezes mid-glitch until 3450 ms, then washes gray.
+ */
+export const NULLION_BANNER = { topAt: 750, bottomAt: 1050, sparkDur: 360, climaxAt: 2750, holdEnd: 3350 } as const;
 
 /**
  * Works on my machine is a full-length Bit Flip fake-out:
- *   0 → 2200 ms: mirrors Bit Flip's cascade with super-intense escalating shake of everything
- *   2200 ms (freeze):    snaps dead still in place — app hung, no gray yet (650 ms)
- *   2850 ms (gray):      washes out into "Not Responding" grayscale (600 ms)
- *   3450 ms (hourglass): reveals the hourglass cursor (800 ms)
- *   4250 ms (LEAD_MS):   forces a rigid, z-layer-bound +1 stack frame scroll
- * Enters inversion at most once (never strobes); under reduced motion the inversion is a static tint and jiggle is 0.
+ *   0 → 2750 ms: mirrors Bit Flip's entire cascade & "ONE IN A / NULLION" buildup (with escalating shake)
+ *   2750 ms (freeze):    right before the high note & inversion, snaps dead still in place — hung, no gray yet (700 ms)
+ *   3450 ms (gray):      washes out into "Not Responding" grayscale and drops the banner (600 ms)
+ *   4050 ms (hourglass): reveals the hourglass cursor (800 ms)
+ *   4850 ms (LEAD_MS):   forces a rigid, z-layer-bound +1 stack frame scroll
+ * Never strobes; under reduced motion jiggle is 0.
  */
-export const WOMM = { jiggle: [700, 2200], freeze: 2200, gray: 2850, hourglass: 3450 } as const;
+export const WOMM = { jiggle: [700, 2750], freeze: 2750, gray: 3450, hourglass: 4050 } as const;
 
 /** Heisenbug's glitch tints the screen from here on (a held tint, never a blink of inversion). */
 export const TEASE_AT = 480;
@@ -60,28 +70,43 @@ export const HELD_JIGGLE = 0.4;
 /** How long each reaction plays on its own, unsustained. */
 export const REACTION_MS: Record<TierId, number> = {
   'off-by-one': 600,
-  womm: 4400,
+  womm: 5000,
   npe: PAGE_FAULT_MS + 20,
   leak: 1600,
   race: 1000,
   heisenbug: 1400,
-  bitflip: 2200,
+  bitflip: 3850,
 };
 
 /** How long each tier's notable part plays before its dive starts, in ms. */
 export const LEAD_MS: Record<TierId, number> = {
   'off-by-one': 1250,
-  womm: 4250,
+  womm: 4850,
   npe: PAGE_FAULT_MS + 20,
   leak: 1000,
   race: 1000,
   heisenbug: 1100,
-  bitflip: 2200,
+  bitflip: 3200,
 };
 
 export const within = (t: number, [a, b]: readonly [number, number]) => t >= a && t < b;
 
 export type CursorPose = 'own' | 'flipped' | 'hourglass';
+
+export interface NullionBannerState {
+  /** 0..1 pixel-sparkle materialization progress for row 1 ("ONE IN A"). */
+  top: number;
+  /** 0..1 pixel-sparkle materialization progress for row 2 ("NULLION"). */
+  bottom: number;
+  /** 0..1 background dim strength behind the words (0 once Bit Flip lights up inverted). */
+  dim: number;
+  /** True once Bit Flip hits the high note & lights up inverted (crisp triumph beat before dissolving). */
+  locked: boolean;
+  /** 0..1 outward dissolve progress during Bit Flip's post-climax release. */
+  dissolve: number;
+  /** True while Works on my machine holds the words frozen mid-glitch right before graying out. */
+  frozen: boolean;
+}
 
 export interface ReactionFrame {
   /** World clock & floating panels stop dead in place (no grayscale yet). */
@@ -95,28 +120,57 @@ export interface ReactionFrame {
   blackout: boolean;
   /** Page-fault cover per page (see pageCovers); empty when none. */
   pages: number[];
+  /** Active "ONE IN A / NULLION" sequence state, if any. */
+  banner: NullionBannerState | null;
   cursor: CursorPose;
 }
 
-export const NO_REACTION: ReactionFrame = { freeze: false, hang: false, jiggle: 0, flip: 'none', blackout: false, pages: [], cursor: 'own' };
+export const NO_REACTION: ReactionFrame = { freeze: false, hang: false, jiggle: 0, flip: 'none', blackout: false, pages: [], banner: null, cursor: 'own' };
+
+const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
+
+function bannerState(tier: 'bitflip' | 'womm', rel: number, reduced: boolean): NullionBannerState | null {
+  const B = NULLION_BANNER;
+  if (rel < B.topAt) return null;
+  if (tier === 'bitflip') {
+    if (rel >= B.holdEnd) return null;
+    const locked = rel >= B.climaxAt;
+    const top = reduced || locked ? 1 : clamp01((rel - B.topAt) / B.sparkDur);
+    const bottom = reduced || locked ? 1 : clamp01((rel - B.bottomAt) / B.sparkDur);
+    const dim = locked ? 0 : reduced ? 0.92 : clamp01((rel - B.topAt) / 220) * 0.94;
+    const dissolve = locked ? clamp01((rel - (B.climaxAt + 120)) / (B.holdEnd - (B.climaxAt + 120))) : 0;
+    return { top, bottom, dim, locked, dissolve, frozen: false };
+  }
+  // Works on my machine: identical dark-stage buildup up to WOMM.freeze, freezes mid-glitch until WOMM.gray, then vanishes.
+  if (rel >= WOMM.gray) return null;
+  const frozen = rel >= WOMM.freeze;
+  const tEff = frozen ? WOMM.freeze : rel;
+  const top = reduced ? 1 : clamp01((tEff - B.topAt) / B.sparkDur);
+  const bottom = reduced ? 1 : clamp01((tEff - B.bottomAt) / B.sparkDur);
+  const dim = reduced ? 0.92 : clamp01((tEff - B.topAt) / 220) * 0.94;
+  return { top, bottom, dim, locked: false, dissolve: 0, frozen };
+}
 
 /** A reaction `rel` ms in; `sustained` while its dive or reveal holds it; `reduced` for reduced motion. */
 export function reactionFrame(tier: TierId, rel: number, sustained: boolean, reduced: boolean): ReactionFrame {
   const f: ReactionFrame = { ...NO_REACTION };
-  const fade = (a: number, b: number) => 1 - (rel - a) / (b - a);
   switch (tier) {
     case 'bitflip':
       f.hang = within(rel, CASCADE.hang);
       f.freeze = f.hang;
       f.pages = cascadePages(rel, reduced);
       f.blackout = f.pages.length > 0;
-      f.jiggle = within(rel, CASCADE.jiggle) ? fade(...CASCADE.jiggle) : 0;
+      if (within(rel, CASCADE.jiggle)) {
+        const p = (rel - CASCADE.jiggle[0]) / (CASCADE.jiggle[1] - CASCADE.jiggle[0]);
+        f.jiggle = 0.45 + 2.25 * p * p;
+      }
       if (sustained ? rel >= CASCADE.invert[0] : within(rel, CASCADE.invert)) f.flip = reduced ? 'tint' : 'invert';
+      f.banner = bannerState('bitflip', rel, reduced);
       f.cursor = 'flipped';
       break;
     case 'womm':
       if (rel < WOMM.freeze) {
-        // Mirrors Bit Flip's cascade up until the moment Bit Flip would sink, with super-intense escalating shake.
+        // Mirrors Bit Flip's entire cascade & "ONE IN A / NULLION" buildup right up to the high note.
         f.hang = within(rel, CASCADE.hang);
         f.freeze = f.hang;
         f.pages = cascadePages(rel, reduced);
@@ -125,12 +179,12 @@ export function reactionFrame(tier: TierId, rel: number, sustained: boolean, red
           const p = (rel - WOMM.jiggle[0]) / (WOMM.jiggle[1] - WOMM.jiggle[0]);
           f.jiggle = 0.45 + 2.25 * p * p;
         }
-        if (rel >= CASCADE.invert[0]) f.flip = reduced ? 'tint' : 'invert';
       } else {
         // Snap dead still first (freeze), then wash into grayscale at WOMM.gray.
         f.freeze = true;
         f.hang = rel >= WOMM.gray;
       }
+      f.banner = bannerState('womm', rel, reduced);
       f.cursor = rel < WOMM.hourglass ? 'flipped' : 'hourglass';
       break;
     case 'race':

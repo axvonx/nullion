@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { TIER_IDS } from '../core/tiers';
-import { bufferBlock, CASCADE, PAGE_FAULT, PAGE_FAULT_MS, pageCovers, LEAD_MS, WOMM, reactionFrame } from './reaction-fx';
+import { bufferBlock, CASCADE, NULLION_BANNER, PAGE_FAULT, PAGE_FAULT_MS, pageCovers, LEAD_MS, WOMM, reactionFrame } from './reaction-fx';
 
 const timeline = (tier: (typeof TIER_IDS)[number], sustained: boolean, reduced: boolean, until = 6000) => {
   const out = [];
@@ -9,8 +9,9 @@ const timeline = (tier: (typeof TIER_IDS)[number], sustained: boolean, reduced: 
 };
 
 describe('reaction timelines', () => {
-  it('Works on my machine mirrors Bit Flip with super-intense shake, freezes first, then grays out, reveals hourglass, then drops', () => {
-    expect(WOMM.freeze).toBe(LEAD_MS.bitflip);
+  it('Works on my machine mirrors Bit Flip right up to the high-note climax, then freezes mid-glitch, grays out, reveals hourglass, and drops', () => {
+    expect(WOMM.freeze).toBe(CASCADE.invert[0]);
+    expect(WOMM.freeze).toBe(NULLION_BANNER.climaxAt);
     for (const f of timeline('womm', true, false)) {
       if (f.t < WOMM.freeze) {
         const bf = reactionFrame('bitflip', f.t, true, false);
@@ -18,12 +19,16 @@ describe('reaction timelines', () => {
         expect(f.hang).toBe(bf.hang);
         expect(f.blackout).toBe(bf.blackout);
         expect(f.flip).toBe(bf.flip);
+        expect(f.jiggle).toBeCloseTo(bf.jiggle, 5);
+        expect(f.banner).toEqual(bf.banner);
       } else {
         expect(f.freeze).toBe(true);
         expect(f.hang).toBe(f.t >= WOMM.gray);
         expect(f.jiggle).toBe(0);
         expect(f.blackout).toBe(false);
         expect(f.flip).toBe('none');
+        if (f.t < WOMM.gray) expect(f.banner?.frozen).toBe(true);
+        else expect(f.banner).toBeNull();
       }
       if (f.t >= WOMM.hourglass) expect(f.cursor).toBe('hourglass');
     }
@@ -41,12 +46,31 @@ describe('reaction timelines', () => {
     expect(LEAD_MS.womm).toBeGreaterThan(WOMM.hourglass);
   });
 
-  it('Works on my machine under reduced motion: mirrors Bit Flip tint, freezes, then grays out, then hourglass', () => {
+  it('Works on my machine under reduced motion: mirrors Bit Flip banner buildup, freezes, then grays out, then hourglass', () => {
     const tl = timeline('womm', true, true);
-    expect(tl.filter((f) => f.t >= CASCADE.invert[0] && f.t < WOMM.freeze).every((f) => f.flip === 'tint' && f.jiggle === 0)).toBe(true);
-    expect(tl.filter((f) => f.t >= WOMM.freeze && f.t < WOMM.gray).every((f) => f.freeze && !f.hang && f.flip === 'none')).toBe(true);
-    expect(tl.filter((f) => f.t >= WOMM.gray).every((f) => f.freeze && f.hang && f.flip === 'none')).toBe(true);
+    expect(tl.filter((f) => f.t >= NULLION_BANNER.topAt && f.t < WOMM.freeze).every((f) => f.banner !== null && f.jiggle === 0 && f.flip === 'none')).toBe(true);
+    expect(tl.filter((f) => f.t >= WOMM.freeze && f.t < WOMM.gray).every((f) => f.freeze && !f.hang && f.flip === 'none' && f.banner?.frozen)).toBe(true);
+    expect(tl.filter((f) => f.t >= WOMM.gray).every((f) => f.freeze && f.hang && f.flip === 'none' && f.banner === null)).toBe(true);
     expect(tl.at(-1)!.cursor).toBe('hourglass');
+  });
+
+  it('Bit Flip sparkles ONE IN A then NULLION over a dimmed screen, then lights up inverted and clears into the dive', () => {
+    const pre = reactionFrame('bitflip', NULLION_BANNER.topAt - 10, true, false);
+    expect(pre.banner).toBeNull();
+    const row1 = reactionFrame('bitflip', NULLION_BANNER.topAt + 120, true, false);
+    expect(row1.banner!.top).toBeGreaterThan(0);
+    expect(row1.banner!.bottom).toBe(0);
+    expect(row1.banner!.dim).toBeGreaterThan(0);
+    expect(row1.flip).toBe('none');
+    const both = reactionFrame('bitflip', NULLION_BANNER.bottomAt + 200, true, false);
+    expect(both.banner!.bottom).toBeGreaterThan(0);
+    const climax = reactionFrame('bitflip', NULLION_BANNER.climaxAt + 10, true, false);
+    expect(climax.flip).toBe('invert');
+    expect(climax.banner!.locked).toBe(true);
+    expect(climax.banner!.dim).toBe(0);
+    const after = reactionFrame('bitflip', NULLION_BANNER.holdEnd + 10, true, false);
+    expect(after.banner).toBeNull();
+    expect(after.flip).toBe('invert');
   });
 
   for (const tier of TIER_IDS)

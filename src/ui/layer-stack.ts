@@ -396,6 +396,9 @@ const MAX_EXPANDED = 10;
 const STAGGER_MS = 110;
 /** Time from block launch until it slams into the underside of the existing stack (matches CSS keyframe impact). */
 const IMPACT_MS = 230;
+/** Delay after impact before auto-showing the newly entered layer's plain-English tooltip, and how long it stays up. */
+const TIP_SHOW_DELAY_MS = 320;
+const TIP_HOLD_MS = 3400;
 
 function makeIcon(theme: LayerTheme): SVGSVGElement {
   const ns = 'http://www.w3.org/2000/svg';
@@ -468,14 +471,14 @@ function makeBitmapLabel(name: string): SVGSVGElement {
   return svg;
 }
 
-function makeBlock(layer: Layer): HTMLLIElement {
+function makeBlock(layer: Layer, blurb?: string): HTMLLIElement {
   const theme = LAYER_THEMES[layer.id];
   const li = document.createElement('li');
   li.className = 'ls-block';
   li.dataset.layer = layer.id;
   if (layer.boundary) li.dataset.boundary = layer.boundary;
-  li.title = layer.name;
-  li.setAttribute('aria-label', layer.name);
+  li.setAttribute('aria-label', blurb ? `${layer.name}: ${blurb}` : layer.name);
+  li.tabIndex = 0;
   li.style.setProperty('--ls-accent', theme.accent);
   li.style.setProperty('--ls-tint', theme.tint);
   li.style.setProperty('--ls-border', theme.border);
@@ -484,8 +487,21 @@ function makeBlock(layer: Layer): HTMLLIElement {
   inner.className = 'ls-inner';
   inner.append(makeIcon(theme));
   inner.append(makeBitmapLabel(layer.name));
-
   li.append(inner);
+
+  if (blurb) {
+    const tip = document.createElement('div');
+    tip.className = 'ls-tip';
+    tip.setAttribute('role', 'tooltip');
+    const title = document.createElement('span');
+    title.className = 'ls-tip-name';
+    title.textContent = layer.name;
+    const desc = document.createElement('span');
+    desc.className = 'ls-tip-desc';
+    desc.textContent = blurb;
+    tip.append(title, desc);
+    li.append(tip);
+  }
   return li;
 }
 
@@ -515,10 +531,13 @@ export class LayerStack {
   private mode: StackMode | undefined;
   private currentIdx = -1;
   private timers: number[] = [];
+  private tipTimer = 0;
   private onCrunch: ((id: LayerId) => void) | undefined;
+  private blurbs: Partial<Record<LayerId, string>>;
 
-  constructor(onCrunch?: (id: LayerId) => void) {
+  constructor(onCrunch?: (id: LayerId) => void, blurbs: Partial<Record<LayerId, string>> = {}) {
     this.onCrunch = onCrunch;
+    this.blurbs = blurbs;
     const nav = document.createElement('aside');
     nav.className = 'layer-stack float';
     nav.setAttribute('aria-label', 'Application stack');
@@ -527,6 +546,24 @@ export class LayerStack {
     nav.append(ol);
     this.el = nav;
     this.list = ol;
+
+    // Click / tap any layer block to pin its plain-English tooltip open; click again or outside to dismiss.
+    ol.addEventListener('click', (ev) => {
+      const target = (ev.target as Element | null)?.closest<HTMLElement>('.ls-block');
+      if (!target) return;
+      ev.stopPropagation();
+      const wasPinned = target.classList.contains('is-tip-pinned');
+      this.clearPinnedTips();
+      if (!wasPinned) {
+        this.clearAutoTips();
+        target.classList.add('is-tip-pinned');
+      }
+    });
+    if (typeof document !== 'undefined') {
+      document.addEventListener('click', (ev) => {
+        if (!this.el.contains(ev.target as Node | null)) this.clearPinnedTips();
+      });
+    }
   }
 
   /** Sync the visible RHS stack to the current depth and mode. */
@@ -558,15 +595,19 @@ export class LayerStack {
     const start = prev + 1;
     const addedCount = idx - prev;
 
+    let lastBlock: HTMLLIElement | undefined;
+    let lastImpactAt = 0;
     for (let i = start; i <= idx; i++) {
       const layer = stack[i]!;
-      const block = makeBlock(layer);
+      const block = makeBlock(layer, this.blurbs[layer.id]);
+      lastBlock = block;
       const step = i - start;
       if (doAnim) {
         const delay = step * STAGGER_MS;
         block.classList.add('ls-enter');
         block.style.setProperty('--ls-delay', `${delay}ms`);
         const impactAt = delay + IMPACT_MS;
+        lastImpactAt = impactAt;
         const t1 = window.setTimeout(() => {
           spawnSparks(block);
           this.bumpAbove(block);
@@ -588,6 +629,18 @@ export class LayerStack {
         child.classList.remove('ls-enter');
         (child as HTMLElement).style.removeProperty('--ls-delay');
       }
+    } else if (opts.animate && prev >= 0 && lastBlock && this.blurbs[stack[idx]!.id]) {
+      // Auto-reveal the newly entered layer's plain-English tooltip after a short post-impact beat so it stays readable.
+      const showAt = doAnim ? lastImpactAt + TIP_SHOW_DELAY_MS : TIP_SHOW_DELAY_MS;
+      const targetBlock = lastBlock;
+      this.clearAutoTips();
+      const tShow = window.setTimeout(() => {
+        targetBlock.classList.add('is-tip-auto');
+        this.tipTimer = window.setTimeout(() => {
+          targetBlock.classList.remove('is-tip-auto');
+        }, TIP_HOLD_MS);
+      }, showAt);
+      this.timers.push(tShow);
     }
 
     this.currentIdx = idx;
@@ -602,6 +655,11 @@ export class LayerStack {
   /** Keep clear of the right-hand debug rail when present. */
   setRightReserve(px: number) {
     this.el.style.setProperty('--ls-right', `${16 + px}px`);
+  }
+
+  /** Keep clear of the top header bar even when it wraps onto two rows on narrow phones. */
+  setTopOffset(px: number) {
+    this.el.style.setProperty('--ls-top', `${px}px`);
   }
 
   private bumpAbove(incoming: HTMLLIElement) {
@@ -631,7 +689,17 @@ export class LayerStack {
     });
   }
 
+  private clearAutoTips() {
+    clearTimeout(this.tipTimer);
+    for (const child of this.list.children) child.classList.remove('is-tip-auto');
+  }
+
+  private clearPinnedTips() {
+    for (const child of this.list.children) child.classList.remove('is-tip-pinned');
+  }
+
   private clearTimers() {
+    clearTimeout(this.tipTimer);
     for (const id of this.timers) clearTimeout(id);
     this.timers.length = 0;
   }
