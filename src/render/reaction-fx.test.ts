@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { TIER_IDS } from '../core/tiers';
-import { bufferBlock, CASCADE, LEAD_MS, WOMM, reactionFrame } from './reaction-fx';
+import { bufferBlock, CASCADE, PAGE_FAULT, PAGE_FAULT_MS, pageCovers, LEAD_MS, WOMM, reactionFrame } from './reaction-fx';
 
 const timeline = (tier: (typeof TIER_IDS)[number], sustained: boolean, reduced: boolean, until = 6000) => {
   const out = [];
@@ -71,11 +71,12 @@ describe('reaction timelines', () => {
     expect(reactionFrame('bitflip', 60_000, false, false).flip).toBe('none');
   });
 
-  it('Race condition and Heisenbug keep a calmer jiggle while sustained; Null pointer holds its black-out', () => {
+  it('Race condition and Heisenbug keep a calmer jiggle while sustained; Null pointer page-faults and then leaves the screen whole', () => {
     expect(reactionFrame('race', 60_000, true, false).jiggle).toBeGreaterThan(0);
     expect(reactionFrame('race', 60_000, true, false).jiggle).toBeLessThan(1);
     expect(reactionFrame('heisenbug', 60_000, true, false).jiggle).toBeGreaterThan(0);
-    expect(reactionFrame('npe', 60_000, true, false).blackout).toBe(true);
+    // The page-fault run plays out and ends: nothing is left voided while the dive and reveal hold the reaction.
+    expect(reactionFrame('npe', 60_000, true, false).blackout).toBe(false);
     expect(reactionFrame('npe', 60_000, false, false).blackout).toBe(false);
   });
 
@@ -87,5 +88,49 @@ describe('reaction timelines', () => {
     }
     expect(seen).toEqual([1, 2, 4, 8]);
     expect(bufferBlock(1)).toBe(8);
+  });
+
+  describe('Null pointer page faults', () => {
+    const run = (reduced: boolean) => {
+      const out: number[][] = [];
+      for (let t = 0; t < PAGE_FAULT_MS + 100; t += 5) out.push(pageCovers(t, reduced));
+      return out;
+    };
+
+    it('opens pages one after another, then faults them back in, in the same order', () => {
+      const at = (t: number) => pageCovers(t, false);
+      expect(at(10)[0]).toBeGreaterThan(0);
+      expect(at(10)[PAGE_FAULT.pages - 1]).toBe(0);
+      expect(at(PAGE_FAULT.appearGap * (PAGE_FAULT.pages - 1) + PAGE_FAULT.appearDur + 5).every((c) => c === 1)).toBe(true);
+      expect(at(PAGE_FAULT.restoreAt + PAGE_FAULT.restoreGap + 10)[0]).toBeLessThan(1);
+      expect(at(PAGE_FAULT.restoreAt + 10)[PAGE_FAULT.pages - 1]).toBe(1);
+      expect(at(PAGE_FAULT_MS)).toEqual([]);
+    });
+
+    it('never strobes: each page only rises, then only falls, in coarse dither steps', () => {
+      const frames = run(false).filter((f) => f.length);
+      for (let i = 0; i < PAGE_FAULT.pages; i++) {
+        const seq = frames.map((f) => f[i]!);
+        let falling = false;
+        for (let k = 1; k < seq.length; k++) {
+          if (seq[k]! < seq[k - 1]!) falling = true;
+          if (falling) expect(seq[k]!).toBeLessThanOrEqual(seq[k - 1]!);
+        }
+        expect(new Set(seq).size).toBeLessThanOrEqual(5);
+      }
+    });
+
+    it('under reduced motion the voids simply appear together and go', () => {
+      const frames = run(true).filter((f) => f.length);
+      expect(frames.every((f) => f.every((c) => c === 1))).toBe(true);
+    });
+
+    it('Bit Flip and Works on my machine play the same run inside their cascade', () => {
+      for (const tier of ['bitflip', 'womm'] as const) {
+        const seen = timeline(tier, true, false, 2000).filter((f) => f.pages.length);
+        expect(seen.length).toBeGreaterThan(0);
+        expect(seen.every((f) => f.t >= CASCADE.blackout[0] && f.t < CASCADE.blackout[1] && f.blackout)).toBe(true);
+      }
+    });
   });
 });

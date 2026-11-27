@@ -10,7 +10,7 @@ import { FAR_F } from './v4/place';
 import type { WorldSpecV4 } from './v4/world';
 import { LAYER_PALETTE, quantizeRow, snapColor, type PaletteMode } from './palettes';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
-import { CASCADE, LEAD_MS, bufferBlock, NO_REACTION, NPE_MS, REACTION_MS, WOMM, reactionFrame, type ReactionFrame } from './reaction-fx';
+import { CASCADE, LEAD_MS, bufferBlock, NO_REACTION, PAGE_FAULT, REACTION_MS, WOMM, reactionFrame, type ReactionFrame } from './reaction-fx';
 import { CURSOR_FRAC, FORM_BY_LAYER, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
 import { drawMiniNullion, type TitleGlitchEvent } from '../ui/title-logo';
 import { sound } from '../audio/sound';
@@ -165,6 +165,9 @@ function easeOutBack(p: number): number {
 const easeOutCubic = (p: number) => 1 - (1 - p) ** 3;
 
 const VIGNETTE_MS = 260;
+/** The page-fault reaction's page size in scene pixels (a fixed grid). */
+const PAGE_W = 64;
+const PAGE_H = 36;
 const BAYER16 = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
 /** The reveal's blocky dim bands, outermost to innermost: cumulative darkness. */
 const VIGNETTE_STEPS = [0.54, 0.74, 0.88];
@@ -224,7 +227,8 @@ export class Scene {
   private cross: { fx: CrossFx; start: number } | undefined;
   private freezeShot: HTMLCanvasElement;
   readonly fx: ScreenFx = { jiggle: 0, freeze: false, hang: false, flip: 'none' };
-  private npeRect: [number, number, number, number] | undefined;
+  /** Page-aligned cells (grid col, row) the page-fault reaction opens near the cursor, in order. */
+  private faultPages: [number, number][] = [];
   private leakPending = false;
   private cascadeLeaked = false;
   /** Leaked prop copies, in batches: one per leak, and more, slowly, while a Memory leak is held by the reveal. */
@@ -604,12 +608,7 @@ export class Scene {
     const seed = Math.floor(now);
     if (tier === 'leak' && leakNow) this.leakPending = true;
     this.cascadeLeaked = false;
-    if (tier === 'npe' || tier === 'bitflip' || tier === 'womm') {
-      // A pixel-aligned chunk of the screen that "isn't there".
-      const w = Math.round(this.W * (0.28 + hash(seed) * 0.2));
-      const h = Math.round(this.H * (0.18 + hash(seed + 1) * 0.15));
-      this.npeRect = [Math.round(hash(seed + 2) * (this.W - w)), Math.round(hash(seed + 3) * (this.H - h)), w, h];
-    }
+    if (tier === 'npe' || tier === 'bitflip' || tier === 'womm') this.faultPages = this.pickFaultPages(seed);
   }
 
   /**
@@ -1027,7 +1026,7 @@ export class Scene {
 
     // 3c. The screen mirrors the tier reaction in the world (the HUD adds grey, invert and racing panels from this.fx).
     // It sits under the vignette and the cursor: the mascot's own reaction always plays in front.
-    this.drawReactionFx(now, act, rel, reduced);
+    this.drawReactionFx(now, act, reduced);
 
     // 3c. Title-screen background reflections: mini "nullion" ghosts, localized palette drops, tears, voids, drips.
     this.drawTitleGlitches(now, dt, reduced);
@@ -1160,16 +1159,53 @@ export class Scene {
     return out;
   }
 
-  private drawReactionFx(now: number, act: TierId | undefined, rel: number, reduced: boolean) {
+  /**
+   * The page grid: cells of PAGE_W × PAGE_H scene pixels anchored at the screen's corner (a fixed grid, like 4 KiB
+   * pages). The run's pages are the cursor's neighbours, in a seeded order; the cursor itself is drawn over them.
+   */
+  private pickFaultPages(seed: number): [number, number][] {
+    const col = Math.floor(this.W / 2 / PAGE_W);
+    const row = Math.floor(this.cursorY / PAGE_H);
+    const ring: [number, number][] = [];
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) if (dx || dy) ring.push([col + dx, row + dy]);
+    ring.sort((a, b) => hash(seed + a[0] * 31 + a[1] * 17) - hash(seed + b[0] * 31 + b[1] * 17));
+    return ring.slice(0, PAGE_FAULT.pages);
+  }
+
+  /**
+   * Each page is a void with a crisp 1px outline of what was there (the pixels under the border are left alone),
+   * a faint hex dump inside, and, on the first page, a SIGSEGV tag. Partial cover is an ordered-dither dissolve.
+   */
+  private drawPageFaults(covers: number[]) {
     const ctx = this.ctx;
-    // Null pointer: a chunk of the screen blacks out, as if that memory isn't there (a static dim when reduced).
-    // Held by the reveal, it stays, breathing slowly between deep and full black (no blinking).
-    if (this.npeRect && this.rf.blackout) {
-      const [x, y, w, h] = this.npeRect;
-      const breathing = act === 'npe' && rel >= NPE_MS && !reduced;
-      ctx.fillStyle = reduced ? 'rgba(0,0,0,0.6)' : breathing ? `rgba(0,0,0,${(0.86 + 0.14 * Math.sin((rel - NPE_MS) / 700)).toFixed(3)})` : '#000';
-      ctx.fillRect(x, y, w, h);
-    }
+    ctx.font = FONT;
+    this.faultPages.forEach(([col, row], i) => {
+      const c = covers[i] ?? 0;
+      if (c <= 0) return;
+      const x0 = col * PAGE_W;
+      const y0 = row * PAGE_H;
+      if (x0 + PAGE_W <= 0 || y0 + PAGE_H <= 0 || x0 >= this.W || y0 >= this.H) return;
+      ctx.fillStyle = '#000';
+      if (c >= 1) ctx.fillRect(x0 + 1, y0 + 1, PAGE_W - 2, PAGE_H - 2);
+      else
+        for (let y = y0 + 1; y < y0 + PAGE_H - 1; y++)
+          for (let x = x0 + 1; x < x0 + PAGE_W - 1; x++) if (BAYER16[(y & 3) * 4 + (x & 3)]! < c * 16) ctx.fillRect(x, y, 1, 1);
+      if (c < 1) return;
+      ctx.fillStyle = '#3c3c3c';
+      for (let r = 0; r < 3; r++) ctx.fillText('00 00 00 00', x0 + 4, y0 + 17 + r * 9, PAGE_W - 8);
+      if (i === 0) {
+        ctx.fillStyle = '#b01818';
+        ctx.fillRect(x0 + 1, y0 + 1, 46, 9);
+        ctx.fillStyle = '#ffd0d0';
+        ctx.fillText('SIGSEGV', x0 + 3, y0 + 8);
+      }
+    });
+  }
+
+  private drawReactionFx(now: number, act: TierId | undefined, reduced: boolean) {
+    const ctx = this.ctx;
+    // Null pointer: dereferencing an unmapped page. Page-aligned voids open near the cursor, then fault back in.
+    if (this.rf.pages.length) this.drawPageFaults(this.rf.pages);
     // Race condition, Heisenbug: props jiggle out of sync, each on its own phase.
     if (this.fx.jiggle > 0) {
       this.scratchCtx.drawImage(this.canvas, 0, 0);
