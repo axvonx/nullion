@@ -1,5 +1,5 @@
 # Name a memory allocator
-id: memory-allocator · domain: os-systems · status: draft
+id: memory-allocator · domain: os-systems · status: approved
 > Any named general-purpose or specialised dynamic memory allocator implementation or allocation algorithm for C-style heaps.
 
 ## Works on my machine
@@ -34,7 +34,6 @@ id: memory-allocator · domain: os-systems · status: draft
 - Segment Heap (auto)
 - SLUB allocator | SLUB (auto)
 - SLOB allocator | SLOB (auto)
-- vmalloc (auto)
 - segregated free list allocator | segregated fit (auto)
 - bitmap allocator (auto)
 - pymalloc (auto)

@@ -1,5 +1,5 @@
 # Name a stream cipher
-id: stream-cipher · domain: hardware-security-history · status: draft
+id: stream-cipher · domain: hardware-security-history · status: approved
 > a named symmetric cipher that generates a keystream to encrypt data bit by bit or byte by byte.
 
 ## Works on my machine

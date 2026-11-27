@@ -1,5 +1,5 @@
 # Name a CPU side-channel attack
-id: cpu-side-channel-attack · domain: hardware-security-history · status: draft
+id: cpu-side-channel-attack · domain: hardware-security-history · status: approved
 > a named attack that infers secret data from CPU microarchitectural behaviour such as timing, caches or power, as described in papers or disclosures.
 
 ## Off-by-one

@@ -1,5 +1,5 @@
 # Name an instruction set architecture
-id: instruction-set-architecture · domain: hardware-security-history · status: draft
+id: instruction-set-architecture · domain: hardware-security-history · status: approved
 > a named processor instruction set architecture, past or present.
 
 ## Off-by-one

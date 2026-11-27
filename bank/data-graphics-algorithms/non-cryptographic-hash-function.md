@@ -1,5 +1,5 @@
 # Name a non-cryptographic hash function
-id: non-cryptographic-hash-function · domain: data-graphics-algorithms · status: draft
+id: non-cryptographic-hash-function · domain: data-graphics-algorithms · status: approved
 > Any named function mapping arbitrary byte input to a fixed-size digest, cryptographic or non-cryptographic.
 
 ## Off-by-one

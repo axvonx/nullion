@@ -1,5 +1,5 @@
 # Name a gradient-based optimizer
-id: gradient-based-optimizer · domain: data-graphics-algorithms · status: draft
+id: gradient-based-optimizer · domain: data-graphics-algorithms · status: approved
 > Any named first-order or preconditioned optimizer that updates parameters from gradients, from papers or library implementations.
 
 ## Off-by-one

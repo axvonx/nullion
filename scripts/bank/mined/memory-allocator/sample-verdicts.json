@@ -1,0 +1,102 @@
+{
+ "first-fit allocator": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "buddy allocator": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "LFMalloc": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "Contiguous Memory Allocator": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "ptmalloc": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "segregated free list allocator": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "mallocng": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "Zend MM": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "tcmalloc": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "phkmalloc": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "genalloc": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "Arena allocator": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "nedmalloc": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "Mesh": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "stack allocator": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "half-fit": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "next-fit allocator": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "Low Fragmentation Heap": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "SLOB allocator": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "vmalloc": {
+  "member": false,
+  "tier_ok": true,
+  "why": "kernel function/API, not a named allocator kind"
+ }
+}

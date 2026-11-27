@@ -1,5 +1,5 @@
 # Name a 3D model file format
-id: 3d-model-file-format · domain: data-graphics-algorithms · status: draft
+id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
 > Any named file format for storing 3D geometry, scenes, or animation data.
 
 ## Off-by-one
@@ -59,7 +59,6 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: draft
 - HMP (auto)
 - IQM | Inter-Quake Model (auto)
 - M3D | Model 3D (auto)
-- MD4 (auto)
 - MDC (auto)
 - NFF | Neutral File Format (auto)
 - Q3D | Quick3D (auto)

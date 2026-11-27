@@ -1,5 +1,5 @@
 # Name a Linux tracing tool
-id: linux-tracing-tool · domain: os-systems · status: draft
+id: linux-tracing-tool · domain: os-systems · status: approved
 > Any named program or kernel facility whose documented purpose is recording or analysing kernel or user-space execution traces on Linux.
 
 ## Off-by-one

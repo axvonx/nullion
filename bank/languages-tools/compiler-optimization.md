@@ -1,5 +1,5 @@
 # Name a compiler optimization
-id: compiler-optimization · domain: languages-tools · status: draft
+id: compiler-optimization · domain: languages-tools · status: approved
 > Any named code transformation a compiler applies to improve generated code, as described in a compiler textbook, paper, or compiler's documentation.
 
 ## Off-by-one

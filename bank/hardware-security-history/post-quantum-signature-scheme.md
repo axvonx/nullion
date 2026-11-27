@@ -1,5 +1,5 @@
 # Name a post-quantum signature scheme
-id: post-quantum-signature-scheme · domain: hardware-security-history · status: draft
+id: post-quantum-signature-scheme · domain: hardware-security-history · status: approved
 > a named digital signature scheme designed to resist quantum attacks.
 
 ## Off-by-one

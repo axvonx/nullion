@@ -90,3 +90,7 @@ Your file tier and the scored tier differ by more than one (your file wins; wort
 
 In the bank file but not scored: none
 
+
+## Precision sample
+
+20/20 sampled answers are members (100%); 20/20 also have an acceptable tier. Not members: none.

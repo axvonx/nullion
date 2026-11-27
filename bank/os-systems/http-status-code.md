@@ -1,5 +1,5 @@
 # Name an HTTP status code
-id: http-status-code · domain: os-systems · status: draft
+id: http-status-code · domain: os-systems · status: approved
 > Any three-digit status code registered in the IANA HTTP Status Code Registry, named by number or by its reason phrase.
 
 ## Off-by-one

@@ -1,5 +1,5 @@
 # Name a clustering algorithm
-id: clustering-algorithm · domain: data-graphics-algorithms · status: draft
+id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
 > Any named algorithm that partitions or groups unlabeled data points by similarity.
 
 ## Works on my machine

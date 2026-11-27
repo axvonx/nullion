@@ -1,5 +1,5 @@
 # Name a git subcommand
-id: git-subcommand · domain: languages-tools · status: draft
+id: git-subcommand · domain: languages-tools · status: approved
 > Any command in git's documented list of porcelain or plumbing commands, such as those shown by git help -a.
 
 ## Off-by-one

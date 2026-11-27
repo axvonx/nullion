@@ -1,5 +1,5 @@
 # Name a RISC-V extension
-id: riscv-extension · domain: hardware-security-history · status: draft
+id: riscv-extension · domain: hardware-security-history · status: approved
 > a named RISC-V ISA extension (single-letter or Z/S-prefixed) from the RISC-V specifications.
 
 ## Works on my machine

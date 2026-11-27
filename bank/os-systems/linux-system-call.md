@@ -1,5 +1,5 @@
 # Name a Linux system call
-id: linux-system-call · domain: os-systems · status: draft
+id: linux-system-call · domain: os-systems · status: approved
 > Any system call listed in the Linux man-pages section 2 or the kernel syscall table for any architecture.
 
 ## Off-by-one
@@ -24,7 +24,6 @@ id: linux-system-call · domain: os-systems · status: draft
 - socket (auto)
 - stat (auto)
 - time (auto)
-- times (auto)
 
 ## Works on my machine
 - futex
@@ -224,6 +223,7 @@ id: linux-system-call · domain: os-systems · status: draft
 - writev (auto)
 - pselect6 | pselect (auto)
 - getpagesize (auto)
+- times (auto)
 
 ## Race condition
 - _llseek (auto)

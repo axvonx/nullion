@@ -1,5 +1,5 @@
 # Name a filesystem
-id: filesystem · domain: os-systems · status: draft
+id: filesystem · domain: os-systems · status: approved
 > Any named on-disk or in-memory file system implementation, local or flash-based, used or historic, as listed in Linux or BSD kernel sources or Wikipedia's comparison list.
 
 ## Off-by-one

@@ -1,5 +1,5 @@
 # Name a Kubernetes resource kind
-id: kubernetes-resource-kind · domain: os-systems · status: draft
+id: kubernetes-resource-kind · domain: os-systems · status: approved
 > Any kind name served by the Kubernetes API, built-in or from a standard API group, as listed by kubectl api-resources.
 
 ## Off-by-one

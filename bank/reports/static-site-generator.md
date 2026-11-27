@@ -388,3 +388,7 @@ Your file tier and the scored tier differ by more than one (your file wins; wort
 
 In the bank file but not scored: none
 
+
+## Precision sample
+
+12/20 sampled answers are members (60%); 12/20 also have an acceptable tier. Not members: iron-beard (could not verify), Trio (could not verify), Kotsu (could not verify), Slick (could not verify), mini-site-generator (could not verify), Jungle (could not verify), Sitefi (could not verify), Curvenote (could not verify).

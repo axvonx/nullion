@@ -1,5 +1,5 @@
 # Name a Python standard library module
-id: python-stdlib-module · domain: languages-tools · status: draft
+id: python-stdlib-module · domain: languages-tools · status: approved
 > Any module shipped with CPython and listed in the Python standard library documentation.
 
 ## Off-by-one

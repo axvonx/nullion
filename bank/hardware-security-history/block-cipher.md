@@ -1,5 +1,5 @@
 # Name a block cipher
-id: block-cipher · domain: hardware-security-history · status: draft
+id: block-cipher · domain: hardware-security-history · status: approved
 > a named symmetric block cipher algorithm that has been published or standardized.
 
 ## Off-by-one

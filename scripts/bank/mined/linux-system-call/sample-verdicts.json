@@ -1,0 +1,102 @@
+{
+ "setrlimit": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "setresuid32": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "gettid": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "inotify_rm_watch": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "fork": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "rt_sigaction": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "setsockopt": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "mq_timedreceive": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "kill": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "setuid32": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "mkdirat": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "accept": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "times": {
+  "member": true,
+  "tier_ok": false,
+  "why": "obscure syscall, too high a familiarity tier"
+ },
+ "close": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "process_madvise": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "pkey_alloc": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "vfork": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "arch_prctl": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ },
+ "getmsg": {
+  "member": false,
+  "tier_ok": true,
+  "why": "unimplemented STREAMS stub, returns ENOSYS"
+ },
+ "setsid": {
+  "member": true,
+  "tier_ok": true,
+  "why": "real, fits category, tier plausible"
+ }
+}

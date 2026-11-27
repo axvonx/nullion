@@ -1,5 +1,5 @@
 # Name a lossless compression algorithm
-id: lossless-compression-algorithm · domain: data-graphics-algorithms · status: draft
+id: lossless-compression-algorithm · domain: data-graphics-algorithms · status: approved
 > Any named algorithm that compresses data so the original can be exactly recovered.
 
 ## Off-by-one

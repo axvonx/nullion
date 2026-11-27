@@ -1,5 +1,5 @@
 # Name a graph algorithm
-id: graph-algorithm · domain: data-graphics-algorithms · status: draft
+id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 > Any named algorithm whose input is a graph and whose purpose is to compute a graph property, path, tree, flow or matching.
 
 ## Works on my machine

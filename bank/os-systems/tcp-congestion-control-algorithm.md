@@ -1,5 +1,5 @@
 # Name a TCP congestion control algorithm
-id: tcp-congestion-control-algorithm · domain: os-systems · status: draft
+id: tcp-congestion-control-algorithm · domain: os-systems · status: approved
 > Any named algorithm that adjusts TCP's congestion window, from RFCs, Linux tcp_* modules or research papers.
 
 ## Off-by-one

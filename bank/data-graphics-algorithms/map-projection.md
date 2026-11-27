@@ -1,5 +1,5 @@
 # Name a map projection
-id: map-projection · domain: data-graphics-algorithms · status: draft
+id: map-projection · domain: data-graphics-algorithms · status: approved
 > Any named method of projecting the Earth's surface onto a plane, from cartography.
 
 ## Off-by-one

@@ -1,9 +1,8 @@
 # Name a garbage collection algorithm
-id: garbage-collection-algorithm · domain: languages-tools · status: draft
+id: garbage-collection-algorithm · domain: languages-tools · status: approved
 > Any named garbage collection algorithm or collector scheme described in the GC literature or a runtime's documentation, such as mark-sweep, copying, or incremental collection.
 
 ## Off-by-one
-- copying collector | copying collection | copying GC (auto)
 
 ## Works on my machine
 - ZGC | Z Garbage Collector
@@ -15,6 +14,7 @@ id: garbage-collection-algorithm · domain: languages-tools · status: draft
 - mark-compact (auto)
 - reference counting (auto)
 - generational garbage collection (auto)
+- copying collector | copying collection | copying GC (auto)
 
 ## Memory leak
 - accurate garbage collection | precise garbage collection | exact garbage collection (auto)

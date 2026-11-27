@@ -1,5 +1,5 @@
 # Name a Unix command
-id: unix-command · domain: os-systems · status: draft
+id: unix-command · domain: os-systems · status: approved
 > Any executable program in POSIX, GNU coreutils, util-linux, BSD userland or a comparable standard Unix toolset, named in its man page.
 
 ## Off-by-one
