@@ -10,6 +10,7 @@ const CLEAN: ManualEntry = {
   manTag: 'SONGBIRD',
   kind: 'critter',
   rarity: 'common',
+  status: 'approved',
   blurb: 'Glides lazily over sunlit app windows and perches on flat titlebars.',
   note: 'Window managers composite each window into its own buffer before drawing the screen.',
   sightings: [{ layer: 'application', critterLayer: 'application', detailNote: 'Blue and gold feathers over the desktop.' }],

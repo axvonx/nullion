@@ -1,6 +1,7 @@
 import { enforce } from '../../core/enforce';
 import { FONT, hash } from '../art-common';
 import { darkestInk, snapColor, type PaletteMode } from '../palettes';
+import type { TopicTag } from './topics';
 
 /**
  * The v4 entity kit: a palette-snapped pen, the entity definition type, and the sprite bake cache.
@@ -195,6 +196,13 @@ export interface EntityDef {
   cap?: number;
   /** Relative pick weight (default 1). */
   weight?: number;
+  /** Stands on the layer's floor line (the layer's `floorOffset` above the band bottom) instead of anywhere in the band. */
+  floor?: boolean;
+  /**
+   * Topic tags for question-reactive flips. Replaces the layer's default tags (`LAYER_TOPIC_TAGS`) when set, so list
+   * the defaults too to add to them. The library builder fills this in, so every built entity has tags.
+   */
+  tags?: readonly TopicTag[];
 }
 
 export const LOOKS = 3;

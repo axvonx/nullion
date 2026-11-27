@@ -9,6 +9,11 @@ import type { ManualEntry, ManualSighting } from './manual';
  * Judgement rules (voice, whether a fact is true, whether a NAME is a pun) stay in the guide for a reviewer.
  *
  * Pure and DOM-free. The numeric limits are exported so the guide and the code name the same numbers.
+ *
+ * Drafts (`status: draft`, written by scripts/manual-from-desk.py) are exempt from the rules that need hand-written
+ * prose, and only from those: the rumour, the name wording limits, blurb and note shape and length, the blurb
+ * restating the name, and detail note length. Everything else (identity, tag, kind, sightings, references, hygiene
+ * such as "you", "!", emoji, rarity words) applies to them as to approved entries.
  */
 
 export const ID_MAX = 40;
@@ -106,7 +111,7 @@ function dailyHome(e: ManualEntry): { sighting: ManualSighting; chapter: number 
   return { sighting: s, chapter: LAYERS.findIndex((l) => l.id === s.layer) + 1 };
 }
 
-function sightingProblems(e: ManualEntry): string[] {
+function sightingProblems(e: ManualEntry, draft: boolean): string[] {
   const out: string[] = [];
   if (e.sightings.length === 0) out.push('needs at least one sighting');
   let lastRank = -1;
@@ -130,7 +135,7 @@ function sightingProblems(e: ManualEntry): string[] {
 
     if (s.detailNote !== undefined) {
       const label = `detailNote on "${s.layer}"`;
-      if (s.detailNote.length > DETAIL_NOTE_MAX)
+      if (!draft && s.detailNote.length > DETAIL_NOTE_MAX)
         out.push(`${label} is ${s.detailNote.length} characters; the limit is ${DETAIL_NOTE_MAX}`);
       if (/[\r\n]/.test(s.detailNote)) out.push(`${label} must be one line`);
       out.push(...proseProblems(label, s.detailNote));
@@ -174,13 +179,15 @@ export function styleProblems(e: ManualEntry, all: readonly ManualEntry[]): stri
   if (!KINDS.has(e.kind)) out.push(`kind "${e.kind}" is not critter, prop or anomaly`);
 
   const name = e.name;
+  const draft = e.status === 'draft';
   out.push(...textProblems('name', name));
   if (name.trim() === '') out.push('name is empty');
-  if (name.length > NAME_MAX) out.push(`name is ${name.length} characters; the limit is ${NAME_MAX}`);
+  if (!draft && name.length > NAME_MAX) out.push(`name is ${name.length} characters; the limit is ${NAME_MAX}`);
   const nameWords = name.split(/\s+/).filter(Boolean);
-  if (nameWords.length > NAME_MAX_WORDS) out.push(`name has ${nameWords.length} words; the limit is ${NAME_MAX_WORDS}`);
+  if (!draft && nameWords.length > NAME_MAX_WORDS) out.push(`name has ${nameWords.length} words; the limit is ${NAME_MAX_WORDS}`);
   nameWords.forEach((w, i) => {
     const bare = w.toLowerCase().replace(/[^\p{L}\p{N}-]/gu, '');
+    if (draft) return;
     if (NAME_FILLER.has(bare)) out.push(`name uses filler word "${bare}"`);
     if (i > 0 && ARTICLES.has(bare)) out.push(`name uses an article after the first word ("${w}")`);
   });
@@ -192,16 +199,18 @@ export function styleProblems(e: ManualEntry, all: readonly ManualEntry[]): stri
 
   // DESCRIPTION: blurb then note, each one sentence, each prose-clean. The blurb may not just re-say the name;
   // the note may name the concept it stands for ("a watchdog timer").
-  out.push(...singleSentenceProblems('blurb', e.blurb, BLURB_MAX));
-  out.push(...singleSentenceProblems('note', e.note, NOTE_MAX));
+  if (!draft) {
+    out.push(...singleSentenceProblems('blurb', e.blurb, BLURB_MAX));
+    out.push(...singleSentenceProblems('note', e.note, NOTE_MAX));
+  }
   out.push(...proseProblems('blurb', e.blurb));
   out.push(...proseProblems('note', e.note));
   const bare = name.replace(/^(the|a|an)\s+/i, '').trim().toLowerCase();
-  if (bare.length >= 4 && e.blurb.toLowerCase().includes(bare)) out.push(`blurb restates the name "${name}"`);
+  if (!draft && bare.length >= 4 && e.blurb.toLowerCase().includes(bare)) out.push(`blurb restates the name "${name}"`);
 
   // Rumour: the hand-written pencil line on the locked page. Lowercase is fine (it's a note); still no "!" or emoji.
   if (e.rumour === undefined) {
-    if (RUMOUR_REQUIRED) out.push('rumour is missing; every entry needs a hand-written locked-page rumour');
+    if (RUMOUR_REQUIRED && !draft) out.push('rumour is missing; every entry needs a hand-written locked-page rumour');
   } else {
     const r = e.rumour.trim();
     if (!r) out.push('rumour is empty');
@@ -230,6 +239,6 @@ export function styleProblems(e: ManualEntry, all: readonly ManualEntry[]): stri
     seenRef.add(id);
   }
 
-  out.push(...sightingProblems(e));
+  out.push(...sightingProblems(e, draft));
   return out;
 }

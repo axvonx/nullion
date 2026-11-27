@@ -1,12 +1,13 @@
 import { hash, offscreen } from '../art-common';
-import { Pen, paintKey, type Ctx } from './kit';
+import { enforce } from '../../core/enforce';
+import { Pen, paintKey, type Ctx, type EntityDef } from './kit';
 import type { Placed } from './place';
 
 /**
  * Many-to-many topic tagging for question-reactive background props.
  *
  * - Each question maps to 1–3 `TopicTag`s (e.g. `data-structure` → `['dsa', 'graph']`).
- * - Each v4 background entity maps to 1–3 `TopicTag`s.
+ * - Each v4 background entity carries 1–3 `TopicTag`s (its own, else its layer's defaults).
  * - When a question is active, a deterministic random subset of eligible near-plane props
  *   (non-anchor, w >= 14, h >= 12) flip their contents to a topic-matched pixel-art display
  *   drawn strictly inside the original `(x, y, w, h)` bounding box with a solid flat top edge
@@ -96,33 +97,13 @@ export function tagsForQuestion(questionId: string): readonly TopicTag[] {
   return [...out].slice(0, 3);
 }
 
-const ENTITY_TAG_RULES: readonly [RegExp, readonly TopicTag[]][] = [
-  [/^(app|brw)-/, ['languages', 'graphics', 'dsa']],
-  [/^(rt|bc|jit)-/, ['languages', 'dsa', 'concurrency']],
-  [/^(lib|lnk)-/, ['dsa', 'sorting', 'languages']],
-  [/^(us|int)-/, ['os', 'networking', 'concurrency']],
-  [/^(kr|ke|ka)-/, ['os', 'concurrency', 'hardware']],
-  [/^(dr|bf)-/, ['hardware', 'os', 'networking']],
-  [/^(fw|vmm|r1|ept|r2|smr|r3|mmu|mmk)-/, ['hardware', 'security', 'os']],
-  [/^(ua|rtl|cmos|lit|bg|lan)-/, ['hardware', 'math', 'graphics']],
-  [/chart|graph|bar|hist|plot|tree|node|list|book|shelf|index|table/, ['dsa', 'sorting', 'graph']],
-  [/lock|key|shield|vault|seal|guard|auth|sig|crypt/, ['security', 'crypto', 'concurrency']],
-  [/net|pkt|pipe|bus|port|dish|sat|mail|msg|sock|dns|http/, ['networking', 'graph']],
-  [/win|screen|term|mon|disp|card|board|tile|panel|canvas|cam|lens/, ['graphics', 'languages', 'dsa']],
-  [/cog|gear|clock|timer|cpu|chip|rom|ram|reg|alu|gate|die|wafer|core/, ['hardware', 'math']],
-];
-
-/** Many-to-many background entity → TopicTag[] mapping (every v4 entity gets 1–4 tags). */
-export function tagsForEntity(entityId: string): readonly TopicTag[] {
-  const out = new Set<TopicTag>();
-  for (const [re, tags] of ENTITY_TAG_RULES) {
-    if (re.test(entityId)) for (const t of tags) out.add(t);
-  }
-  if (out.size === 0) {
-    out.add('dsa');
-    out.add('os');
-  }
-  return [...out];
+/**
+ * An entity's topic tags: set on its definition (`ent(..., { tags })`) or, when it sets none, its layer's defaults
+ * (`LAYER_TOPIC_TAGS`), which the library builder fills in. An untagged entity never reached a library, so it is a bug.
+ */
+export function tagsForEntity(def: Pick<EntityDef, 'id' | 'tags'>): readonly TopicTag[] {
+  enforce(def.tags && def.tags.length > 0, `topics: entity ${def.id} has no topic tags (build it through buildLibraries)`);
+  return def.tags;
 }
 
 export interface TopicProp {
@@ -443,7 +424,7 @@ export function pickTopicFlip(
   roundSeed: number,
 ): TopicProp | undefined {
   if (e.anchor || activeTags.length === 0 || e.w < MIN_FLIP_W || e.h < MIN_FLIP_H) return undefined;
-  const eTags = tagsForEntity(e.def.id);
+  const eTags = tagsForEntity(e.def);
   const overlap = eTags.some((t) => activeTags.includes(t));
   const chance = overlap ? 0.45 : 0.18;
   const roll = hash(roundSeed * 1009 + e.x * 37 + e.y * 17 + e.def.id.length * 13);

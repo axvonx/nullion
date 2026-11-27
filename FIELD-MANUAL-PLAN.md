@@ -1,7 +1,7 @@
 # Field Manual plan
 
 Decisions from the design session on 2026-11-26 (the working page was `.lavish/field-manual.html`). The current
-`src/game/manual.ts` entries (names, blurbs, notes) are scaffolding. Every word of them gets rewritten.
+The approved `manual/**/*.md` entries (names, blurbs, notes) are scaffolding. Every word of them gets rewritten.
 
 ## Rarity is real
 
@@ -108,7 +108,7 @@ Decisions from the design session on 2026-11-26 (the working page was `.lavish/f
   recommendations are pre-selected as `by: "llm"`; anything the owner touches becomes `by: "owner"`.
 - **Deduplication.**
   - `scripts/naming-dedup.py` writes `design/naming/dedup.json`. It proves duplicates from the code (Endless donor
-    reuse via `mix()` in `lib-endless.ts`) and checks them against the pixels.
+    reuse through a layer's `borrow` in `libraries.ts`, `library.ts`) and checks them against the pixels.
   - `scripts/naming-apply-dedup.py` folds the proven ones into their donor as `by: "verified"` merges (308 on
     2026-11-27). It never touches owner decisions, and `--undo` reverses them.
   - Unproven pairs show as red, with the evidence.
@@ -122,11 +122,44 @@ Decisions from the design session on 2026-11-26 (the working page was `.lavish/f
 
 ## Writing entries
 
-- Entries stay TypeScript in `src/game/manual.ts`.
+- **Entries are Markdown files, one per entry:** `manual/<layer of first sighting>/<entry id>.md`. The grammar is strict
+  and every error names file and line (`src/data/manual-format.ts`, modelled on `bank-format.ts`):
+
+  ```
+  # Sky Sprite
+
+  id: crit-songbird · tag: SONGBIRD(1) · kind: critter · rarity: common · status: approved · page: 1
+
+  <!-- optional comment lines -->
+  Glides lazily over sunlit app windows and perches on anything with a flat titlebar.
+
+  > Represents lightweight UI animations and foreground events fluttering above the stack.
+
+  ## Sightings
+  - application · critter · Sunlit blue & gold feathers gliding across the desktop sky.
+  - application · app-spinner
+  - application · topic:tp-dsa-tree · Appears on screens during Data Structures & Algorithms prompts.
+
+  ## Bugs         (optional, one line)
+  ## Rumour       (optional, one line)
+  ## See also     (optional, "- <entry id>" lines)
+  ```
+
+  - `page` is optional; entries with one come first in their chapter, lowest first, then the rest by id.
+  - A sighting's second field is an entity id in that layer's library, `critter` (the layer's core species), or
+    `topic:<topic prop id>`. The detail note is optional. Sightings run shallowest layer first, one per layer.
+  - `status: draft` pages are shown in debug builds only. The `virtual:manual-files` plugin in `vite.config.ts` leaves
+    them out of production bundles, so unfinished copy never ships.
+  - At load, `manual-registry.ts` `enforce()`s that every sighting resolves (entity in that layer's library, critter
+    species, topic prop), that nothing is claimed twice, and that SEE ALSO names real entries.
+- **Drafts come from the naming desk:** `python3 -I scripts/manual-from-desk.py` writes a draft for every desk record
+  whose entity still exists, is not deleted or folded into another record, has a resolved name, and has no manual file
+  yet. Verified merges and variants become extra sightings. It never edits an existing file, so rerunning it only adds
+  pages for new records. Promote a draft by editing it and setting `status: approved`.
 - **The style guide is `research/field-manual-style-guide.md`.** `styleProblems()` in `src/game/manual-style.ts`
-  checks its rules, with tests on synthetic entries. Once the entries are rewritten, add a test that runs it over
-  `MANUAL_ENTRIES`.
-- A test enforces those limits and the required sections.
+  checks its rules. `manual-registry.test.ts` runs it over every loaded entry: approved entries must match their
+  recorded `LEGACY_STYLE_DEBT` exactly (the debt can only shrink), and drafts are exempt only from the rules that need
+  hand-written prose (rumour, name wording, blurb and note shape and length, detail note length).
 - The owner may hand-write the entries.
 
 ## Save v2

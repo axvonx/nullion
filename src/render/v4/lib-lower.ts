@@ -676,6 +676,26 @@ export const FIRMWARE: EntityDef[] = [
     p.p(9, 4, G3);
     p.r(0, 10, 12, 2, G2);
   }),
+    ent('fw-tpm', [[12, 12]], (p) => {
+      p.box(1, 1, 10, 10, '#000000', '#aaaaaa');
+      p.r(4, 3, 4, 2, '#ffffff');
+      p.r(3, 5, 6, 4, '#555555');
+      p.p(6, 7, '#000000');
+    }),
+    ent('fw-jtag', [[16, 8]], (p) => {
+      p.box(0, 0, 16, 8, '#000000', '#555555');
+      for (let k = 0; k < 5; k++) {
+        p.p(3 + k * 2, 2, '#ffffff');
+        p.p(3 + k * 2, 5, '#aaaaaa');
+      }
+    }),
+    ent('fw-secureboot', [[14, 14]], (p) => {
+      p.r(2, 0, 10, 9, '#aaaaaa');
+      p.r(3, 1, 8, 7, '#000000');
+      p.r(4, 9, 6, 3, '#aaaaaa');
+      p.r(6, 12, 2, 2, '#ffffff');
+      p.r(5, 4, 4, 2, '#ffffff');
+    }),
 ];
 
 export const FIRMWARE_ANCHORS: EntityDef[] = [
@@ -1364,6 +1384,36 @@ export const RING2: EntityDef[] = [
     p.r(5, 11, 2, 2, K1);
     p.r(3, 13, 6, 1, K2);
   }),
+    ent('r2-feather', [[14, 13]], (p) => {
+      // A feather resting on a small stone plinth, its last drift stilled.
+      p.r(2, 9, 10, 3, '#404040');
+      p.r(2, 9, 10, 1, '#808080');
+      p.r(1, 11, 12, 1, '#404040');
+      p.l(2, 8, 11, 2, '#ffffff');
+      p.r(5, 6, 6, 2, '#c0c0c0');
+      p.r(6, 4, 5, 2, '#c0c0c0');
+      p.r(8, 3, 3, 1, '#808080');
+    }),
+    ent('r2-spark', [[12, 13]], (p) => {
+      // A spark-gap on a ceramic baseplate, the arc caught between two ball-tipped posts.
+      p.r(0, 10, 12, 3, '#808080');
+      p.r(0, 10, 12, 1, '#c0c0c0');
+      for (const x of [2, 8]) {
+        p.r(x, 3, 2, 7, '#c0c0c0');
+        p.r(x - 1, 2, 4, 2, '#ffffff');
+        p.r(x - 1, 8, 4, 1, '#404040');
+      }
+      p.p(4, 4, '#ffffff');
+      p.p(5, 5, '#ffffff');
+      p.p(6, 4, '#ffffff');
+      p.p(7, 5, '#ffffff');
+    }),
+    ent('r2-prism', [[13, 11]], (p) => {
+      p.l(6, 0, 1, 10, '#c0c0c0');
+      p.l(6, 0, 11, 10, '#c0c0c0');
+      p.r(1, 10, 11, 1, '#808080');
+      p.r(5, 4, 3, 4, '#ffffff');
+    }),
 ];
 
 export const RING2_ANCHORS: EntityDef[] = [
@@ -1615,6 +1665,25 @@ export const RING3: EntityDef[] = [
     p.r(0, 10, 16, 2, ON);
     p.r(1, 11, 14, 1, OFF);
   }),
+    ent('r3-bondwire', [[16, 10]], (p) => {
+      p.r(0, 7, 3, 3, '#ffffff');
+      p.r(13, 7, 3, 3, '#ffffff');
+      for (let k = 0; k <= 12; k++) {
+        const q = k / 12;
+        p.p(1 + q * 13, 7 - R(Math.sin(q * Math.PI) * 6), '#ffffff');
+      }
+    }),
+    ent('r3-capbank', [[14, 9]], (p) => {
+      for (let k = 0; k < 3; k++) {
+        p.r(1 + k * 4, 1, 1, 7, '#ffffff');
+        p.r(3 + k * 4, 1, 1, 7, '#ffffff');
+      }
+      p.r(0, 4, 14, 1, '#ffffff');
+    }),
+    ent('r3-fusebank', [[14, 8]], (p) => {
+      p.frame(0, 0, 14, 8, '#ffffff');
+      for (let x = 3; x < 12; x += 3) p.r(x, 2, 1, 4, '#ffffff');
+    }),
 ];
 
 export const RING3_ANCHORS: EntityDef[] = [

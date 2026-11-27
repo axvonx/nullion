@@ -3,10 +3,12 @@ import {
   MANUAL_ENTRIES,
   MANUAL_RARITIES,
   ManualStore,
+  buildLookups,
   entryForCritter,
   entryForEntity,
   entryForTopic,
 } from './manual';
+import { DEBUG } from '../keys';
 import { V4_LIBRARIES } from '../render/v4/libraries';
 import { TOPIC_PROPS } from '../render/v4/topics';
 
@@ -77,7 +79,10 @@ describe('Field Manual registry & store', () => {
     expect(entryForEntity('r2-clocktower', 'ring-2')?.entry.id).toBe('small-ben');
     expect(entryForEntity('r3-ringosc', 'ring-3')?.entry.id).toBe('lock-ness');
     expect(entryForCritter('application')?.entry.id).toBe('crit-songbird');
-    expect(entryForCritter('smram')?.entry.id).toBe('crit-ghost');
+    // An Endless layer without its own critter entry shows its Daily layer's species; a draft entry (debug builds) takes over.
+    const approved = buildLookups(MANUAL_ENTRIES.filter((e) => e.status === 'approved'));
+    expect(entryForCritter('smram', approved)?.entry.id).toBe('crit-ghost');
+    expect(entryForCritter('smram')?.entry.id).toBe(DEBUG ? 'crit-smram' : 'crit-ghost');
     expect(entryForTopic('tp-dsa-tree')?.entry.id).toBe('anom-bst');
   });
 });

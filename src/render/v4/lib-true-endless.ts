@@ -1,22 +1,9 @@
-import { enforce } from '../../core/enforce';
 import { ent, type EntityDef } from './kit';
-import { USERSPACE } from './lib-mid';
 
 /**
  * Bespoke v4 pixel-art entities & anchors for the True Endless realms (worldbuilt pocket-universes).
  * Follows ART-STYLE.md: front-on, 1 px dark ink outline, top-left lighting, grounded props, >= 8 px.
  */
-
-function mix(prefix: string, bespoke: readonly EntityDef[], donor: readonly EntityDef[]): EntityDef[] {
-  const out: EntityDef[] = [...bespoke];
-  const need = Math.max(0, 20 - out.length);
-  enforce(donor.length >= need, `${prefix}: donor library has ${donor.length} entities, need ${need} to reach 20`);
-  for (let i = 0; i < need; i++) {
-    const d = donor[i]!;
-    out.push({ ...d, id: `${prefix}-${d.id}` });
-  }
-  return out;
-}
 
 // =============================================================================================
 // 1994 · The Slab Spa (misty cedar bathhouse of kmalloc caches, freelist pools & OOM steam vents)
@@ -245,7 +232,6 @@ export const SLAB_SPA_BESPOKE: EntityDef[] = [
   }),
 ];
 
-export const SLAB_SPA: EntityDef[] = SLAB_SPA_BESPOKE;
 
 export const SLAB_SPA_ANCHORS: EntityDef[] = [
   ent(
@@ -379,7 +365,6 @@ export const KTHREAD_KABIN_BESPOKE: EntityDef[] = [
   }),
 ];
 
-export const KTHREAD_KABIN: EntityDef[] = mix('kabin', KTHREAD_KABIN_BESPOKE, USERSPACE);
 
 export const KTHREAD_KABIN_ANCHORS: EntityDef[] = [
   ent(

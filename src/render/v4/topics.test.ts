@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { BANK_QUESTIONS } from '../../data/bank';
+import { ent } from './kit';
+import { LAYER_TOPIC_TAGS } from './layer-topics';
 import { V4_LIBRARIES } from './libraries';
 import { MIN_FLIP_H, MIN_FLIP_W, TOPIC_PROPS, TOPIC_TAGS, pickTopicFlip, tagsForEntity, tagsForQuestion } from './topics';
 
@@ -23,7 +25,7 @@ describe('many-to-many question & element topic tags', () => {
     for (const lib of Object.values(V4_LIBRARIES)) {
       for (const def of [...lib.near, ...lib.anchors]) {
         total++;
-        const tags = tagsForEntity(def.id);
+        const tags = tagsForEntity(def);
         expect(tags.length).toBeGreaterThanOrEqual(1);
         for (const t of tags) expect(TOPIC_TAGS).toContain(t);
         if (tags.length >= 2) multiTag++;
@@ -31,6 +33,23 @@ describe('many-to-many question & element topic tags', () => {
     }
     expect(total).toBeGreaterThan(200);
     expect(multiTag).toBeGreaterThan(150);
+  });
+
+  it('tags every entity from its own tags or its layer defaults, never from its id', () => {
+    for (const [layer, lib] of Object.entries(V4_LIBRARIES)) {
+      for (const def of [...lib.near, ...lib.anchors]) {
+        expect(tagsForEntity(def), `${layer}/${def.id}`).toEqual(def.tags);
+      }
+    }
+    // The old id regexes missed these layers' prefixes (net-, br-, ld-, sm-, mx-, mk-, li-, la-, cm-, spa-, kabin-) and fell back to ['dsa', 'os'].
+    for (const layer of ['internet', 'browser', 'linker', 'smram', 'me-minix-user', 'me-minix-kern', 'litho', 'landauer', 'cmos', 'slab-spa', 'kthread-kabin'] as const) {
+      for (const def of V4_LIBRARIES[layer].near) expect(tagsForEntity(def), `${layer}/${def.id}`).toEqual(LAYER_TOPIC_TAGS[layer]);
+    }
+    expect(tagsForEntity(ent('x-own', [[10, 10]], () => {}, { tags: ['math'] }))).toEqual(['math']);
+  });
+
+  it('refuses an entity that never went through a library build', () => {
+    expect(() => tagsForEntity(ent('x-bare', [[10, 10]], () => {}))).toThrow(/no topic tags/);
   });
 
   it('provides at least one TopicProp for every TopicTag', () => {

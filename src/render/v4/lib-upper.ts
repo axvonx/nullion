@@ -330,6 +330,13 @@ export const APPLICATION: EntityDef[] = [
     p.r(2, 12, 3, 2, EDGE);
     p.r(17, 12, 3, 2, EDGE);
   }),
+    ent('app-bell', [[11, 12]], (p) => {
+      p.r(4, 0, 3, 2, '#e6a23c');
+      p.r(2, 2, 7, 6, '#e6a23c');
+      p.r(1, 8, 9, 2, '#c27c1c');
+      p.r(4, 10, 3, 2, '#c27c1c');
+      p.r(8, 1, 2, 2, '#ff3b30');
+    }),
 ];
 
 export const APPLICATION_ANCHORS: EntityDef[] = [
@@ -682,6 +689,23 @@ export const RUNTIME: EntityDef[] = [
     p.r(3, 12, 6, 1, STRUT);
     p.r(5, 11, 2, 1, STRUT);
   }),
+    ent('rt-nursery', [[18, 13]], (p) => {
+      // Low wooden seedling flat on short feet: a brass tag on the rim, four sprouts in dark soil.
+      p.r(0, 5, 18, 6, '#996633');
+      p.r(0, 5, 18, 1, '#cc9966');
+      p.r(17, 6, 1, 5, '#663300');
+      p.r(1, 5, 16, 2, '#333300');
+      for (let k = 0; k < 4; k++) {
+        const x = 3 + k * 4;
+        p.r(x, 2, 1, 4, '#66cc66');
+        p.r(x - 1, 1, 1, 2, k % 2 ? '#ffff66' : '#99ff99');
+        p.r(x + 1, 1, 1, 2, '#99ff99');
+      }
+      p.r(7, 8, 4, 2, '#cccc66');
+      p.r(7, 8, 4, 1, '#ffff99');
+      p.r(2, 11, 3, 1, '#663300');
+      p.r(13, 11, 3, 1, '#663300');
+    }),
 ];
 
 export const RUNTIME_ANCHORS: EntityDef[] = [
