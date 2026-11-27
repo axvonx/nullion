@@ -22,7 +22,7 @@ Instead of new layers silently appearing on the RHS stack mid-dive:
 1. During a dive, the RHS stack holds at the pre-dive layer so nothing spoils or piles on silently.
 2. When the dive lands and the reveal opens (tier name + 7-pip ladder + answer + note), if the dive crossed into one or more new layers, a **`REACHED`** section appears cleanly below the reveal note.
 3. The newly reached layer badge(s) — rendered with the exact same `9×9` pixel icon + crude `5×7` bitmap label + palette border as the RHS stack — stack **vertically** in descent order (e.g. `Runtime` above `Libraries` on a 2-layer jump) and stay parked in the reveal so the player can read them at their own pace.
-4. When the player presses **"Unwind further"**, each badge **flies smoothly (`760 ms`, `260 ms` stagger) from its exact reveal position over to its exact target slot at the bottom of the RHS stack**, landing with the crunch squash, seam sparks, stack recoil, `sound.stackCrunch`, and delayed plain-English `LAYER_BLURBS` tooltip.
+4. When the player presses **"Unwind further"**, each badge **flies smoothly (`760 ms`, `260 ms` stagger) from its exact reveal position over to its exact target slot at the bottom of the RHS stack**, landing with the crunch squash, seam sparks, stack recoil, `sound.stackCrunch`, and delayed plain-English tooltip (each layer's `blurb`).
 5. On the final round (entering the end-of-day card) or under `reducedMotion()`, flight is skipped and the RHS stack snaps cleanly.
 
 ---

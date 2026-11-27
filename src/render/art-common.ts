@@ -1,5 +1,4 @@
 import { enforce } from '../core/enforce';
-import type { LayerId } from '../core/layers';
 
 /** Deterministic hash → [0,1). Layer art is seeded by world row so it never shimmers between frames. */
 export function hash(n: number): number {
@@ -132,55 +131,6 @@ export function tiled(ctx: CanvasRenderingContext2D, img: HTMLCanvasElement, x: 
   ctx.fillRect(R(x), R(y), R(w), R(h));
 }
 
-// Structures at the hard boundaries, keyed by the layer below. Drawn over the frayed seam.
+// Structures at the hard boundaries: each layer draws its own (`LAYER_ART[id].seam`) over the frayed seam above it.
 
-type Seam = (ctx: CanvasRenderingContext2D, y: number, below: Band) => void;
-
-export const HAZARD = () =>
-  offscreen('hazard', 8, 4, (c) => {
-    for (let y = 0; y < 4; y++)
-      for (let x = 0; x < 8; x++) {
-        c.fillStyle = ((x + y) >> 2) % 2 ? '#000000' : '#ffff55';
-        c.fillRect(x, y, 1, 1);
-      }
-  });
-
-export const SEAM_ART: Partial<Record<LayerId, Seam>> = {
-  // syscall: a bulkhead with a single gate in the middle, the only way down.
-  kernel(ctx, y, b) {
-    px(ctx, 0, y - 3, b.w, 9, '#555555');
-    px(ctx, 0, y - 3, b.w, 1, '#aaaaaa');
-    px(ctx, 0, y + 5, b.w, 1, '#000000');
-    tiled(ctx, HAZARD(), 0, y - 1, b.w, 4, 0, y - 1);
-    for (let x = 4; x < b.w; x += 12) px(ctx, x, y + 3, 1, 1, '#aaaaaa');
-    const gx = R(b.w / 2) - 9;
-    px(ctx, gx, y - 4, 18, 11, '#000000');
-    px(ctx, gx + 1, y - 3, 16, 1, '#aaaaaa');
-    px(ctx, gx + 2, y + 4, 14, 1, '#ffff55');
-  },
-  // VM exit: a silvered plane.
-  'ring-1'(ctx, y, b) {
-    px(ctx, 0, y - 1, b.w, 1, '#aaaaaa');
-    px(ctx, 0, y, b.w, 1, '#ffffff');
-    px(ctx, 0, y + 1, b.w, 1, '#555555');
-    for (let x = 0; x < b.w; x += 23) px(ctx, x, y + 3, 6, 1, '#555555');
-  },
-  // SMI: a crack of lightning, frozen as it struck.
-  'ring-2'(ctx, y, b) {
-    let x = 0;
-    let yy = y;
-    while (x < b.w) {
-      const nx = x + 4 + R(hash(x + 31) * 6);
-      const ny = y + R((hash(x + 77) - 0.5) * 6);
-      line(ctx, x, yy, nx, ny, '#ffffff');
-      if (hash(x + 99) > 0.8) line(ctx, nx, ny, nx + 3, ny + 5 + R(hash(x) * 5), '#c0c0c0');
-      x = nx;
-      yy = ny;
-    }
-  },
-  // ME: the die's edge, crossing into silicon.
-  'ring-3'(ctx, y, b) {
-    px(ctx, 0, y - 2, b.w, 1, '#ffffff');
-    px(ctx, 0, y, b.w, 2, '#ffffff');
-  },
-};
+export type Seam = (ctx: CanvasRenderingContext2D, y: number, below: Band) => void;

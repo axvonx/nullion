@@ -1,4 +1,5 @@
-import { DAILY_FALLBACK, type LayerId } from '../core/layers';
+import type { LayerId } from '../core/layers';
+import { LAYER_ART } from '../layers';
 import type { TierId } from '../core/tiers';
 import { CASCADE, TEASE_AT, WOMM } from '../render/reaction-fx';
 import type { TitleGlitchKind } from '../ui/title-logo';
@@ -29,54 +30,102 @@ export type Timbre = {
   short?: boolean;
 };
 
-/** Layer → synth timbre + space depth across all 29 Daily & Endless layers. */
-export function timbreFor(layer: LayerId): Timbre {
-  switch (layer) {
-    case 'internet':
-    case 'browser':
-    case 'application':
-      return { wave: 'triangle', filterHz: 5200, q: 0.8, gainScale: 1.0, reverbWet: 0.24 };
-    case 'bytecode':
-    case 'jit':
-    case 'runtime':
-    case 'libraries':
-    case 'linker':
-      return { wave: 'pulse25', filterHz: 3600, q: 1.4, gainScale: 0.92, reverbWet: 0.2 };
-    case 'userspace':
-    case 'kernel-entry':
-    case 'kernel':
-    case 'kernel-arch':
-    case 'drivers':
-    case 'bus-fabric':
-      return { wave: 'pulse12', filterHz: 2800, q: 2.0, gainScale: 0.86, reverbWet: 0.16 };
-    case 'firmware':
-      return { wave: 'square', filterHz: 4200, q: 1.0, gainScale: 0.84, reverbWet: 0.1 };
-    case 'vmm':
-    case 'ring-1':
-    case 'ept':
-      return { wave: 'pulse25', filterHz: 1500, q: 2.4, gainScale: 0.82, reverbWet: 0.32 };
-    case 'ring-2':
-    case 'smram':
-      return { wave: 'pulse25', filterHz: 1300, q: 2.2, gainScale: 0.8, reverbWet: 0 };
-    case 'me-minix-user':
-    case 'me-minix-kern':
-      return { wave: 'pulse12', filterHz: 3400, q: 2.6, gainScale: 0.78, reverbWet: 0.08, short: true };
-    case 'uarch':
-    case 'rtl':
-      return { wave: 'square', filterHz: 5400, q: 1.2, gainScale: 0.82, reverbWet: 0.06, short: true };
-    case 'cmos':
-      return { wave: 'triangle', filterHz: 3200, q: 1.8, gainScale: 0.82, reverbWet: 0.18 };
-    case 'litho':
-    case 'bandgap':
-    case 'landauer':
-      return { wave: 'sine', filterHz: 2600, q: 1.2, gainScale: 0.76, reverbWet: 0.38 };
-    case 'slab-spa':
-      return { wave: 'sine', filterHz: 1800, q: 1.0, gainScale: 0.78, reverbWet: 0.45 };
-    case 'kthread-kabin':
-      return { wave: 'triangle', filterHz: 2000, q: 1.4, gainScale: 0.8, reverbWet: 0.28 };
-    case 'ring-3':
-      return { wave: 'square', filterHz: 6000, q: 0.7, gainScale: 0.88, reverbWet: 0, short: true };
-  }
+/** The layer's synth timbre and space depth (`LAYER_ART[layer].sound`). */
+const timbreFor = (layer: LayerId): Timbre => LAYER_ART[layer].sound.timbre;
+
+/** Time stops in some layers (SMM): no ambience, no critter or event sounds. */
+const isSilent = (layer: LayerId): boolean => LAYER_ART[layer].frozenTime === true;
+
+export interface VoiceOpts {
+  freq: number;
+  toFreq?: number;
+  at: number;
+  dur: number;
+  wave?: Timbre['wave'];
+  gain?: number;
+  attack?: number;
+  swell?: boolean;
+  filterHz?: number;
+  toFilterHz?: number;
+  q?: number;
+  detune?: number;
+  pan?: number;
+  toPan?: number;
+  crush?: boolean;
+  reverb?: number;
+  track?: boolean;
+}
+
+export interface FmVoiceOpts {
+  carrierHz: number;
+  toCarrierHz?: number;
+  modRatio: number;
+  modIndex: number;
+  at: number;
+  dur: number;
+  gain?: number;
+  swell?: boolean;
+  pan?: number;
+  toPan?: number;
+  crush?: boolean;
+  reverb?: number;
+  track?: boolean;
+}
+
+export interface NoiseBurstOpts {
+  at: number;
+  dur: number;
+  filterHz: number;
+  toFilterHz?: number;
+  type?: BiquadFilterType;
+  q?: number;
+  gain?: number;
+  attack?: number;
+  pan?: number;
+  toPan?: number;
+  crush?: boolean;
+  reverb?: number;
+  track?: boolean;
+}
+
+/**
+ * What a layer's sound recipes (src/layers/<layer>.ts) may play: the engine's voices, bound to the live audio
+ * context. A recipe schedules at `t` (the context's current time) and never touches the context itself.
+ */
+export interface SoundKit {
+  voice(opts: VoiceOpts): void;
+  fmVoice(opts: FmVoiceOpts): void;
+  noiseBurst(opts: NoiseBurstOpts): void;
+  /** Punchy retro sub-thud at `at`. */
+  thud(at: number, fromHz?: number, toHz?: number, dur?: number, gain?: number): void;
+}
+
+/** One layer sound recipe: `t` is the audio clock now, `pan` the call's stereo position. */
+export type SoundRecipe = (k: SoundKit, t: number, pan: number) => void;
+
+/** One steady oscillator of a layer's room-tone bed. */
+export interface Drone {
+  freq: number;
+  wave: OscillatorType;
+  filterHz: number;
+  gain: number;
+}
+
+/** Everything the sound engine knows about a layer; the engine holds no per-layer tables of its own. */
+export interface SoundProfile {
+  timbre: Timbre;
+  /** Level of the looping room-tone bed. */
+  ambienceLevel: number;
+  /** Oscillators of the bed (none: no bed). */
+  drones: readonly Drone[];
+  /** The short blip when a critter despawns. */
+  critterExit: { freq: number; crush: boolean };
+  /** A critter's call; none: this layer's critters are silent. */
+  critterCall?: SoundRecipe;
+  /** Event-driven micro-foley; none: this layer has none. */
+  artifact?: SoundRecipe;
+  /** The boundary-crossing sound; none: the engine's default layered blip. */
+  cross?: (k: SoundKit, t: number) => void;
 }
 
 interface ActiveNode {
@@ -221,7 +270,7 @@ export class SoundEngine {
 
   /** Automatically duck the ambience bed by ~10 dB while an active SFX/reaction/crossing plays. */
   private duckAmbience(durSec: number) {
-    if (!this.ambience || !this.ctx || this.ambienceFrozen || this.currentLayer === 'ring-2') return;
+    if (!this.ambience || !this.ctx || this.ambienceFrozen || isSilent(this.currentLayer)) return;
     const now = this.ctx.currentTime;
     const end = now + durSec;
     if (end > this.duckUntil) this.duckUntil = end;
@@ -232,7 +281,7 @@ export class SoundEngine {
     if (typeof window !== 'undefined' && typeof window.setTimeout === 'function') {
       const ms = Math.max(80, Math.round((this.duckUntil - now) * 1000));
       this.duckTimer = window.setTimeout(() => {
-        if (!this.ambience || !this.ctx || this.ambienceFrozen || this.currentLayer === 'ring-2') return;
+        if (!this.ambience || !this.ctx || this.ambienceFrozen || isSilent(this.currentLayer)) return;
         this.ambience.gain.gain.setTargetAtTime(this.ambienceLevel(this.currentLayer), this.ctx.currentTime, 0.22);
       }, ms);
     }
@@ -240,7 +289,7 @@ export class SoundEngine {
 
   /** Event-driven micro-foley triggered by visible on-screen activity (rate-limited so it stays sparse & musical). */
   playAmbientEvent(layer: LayerId) {
-    if (!this.ambienceEnabled || !this.enabled || this.ambienceFrozen || layer === 'ring-2') return;
+    if (!this.ambienceEnabled || !this.enabled || this.ambienceFrozen || isSilent(layer)) return;
     if (!this.ctx || !('state' in this.ctx) || (this.ctx as AudioContext).state !== 'running') return;
     const nowMs = performance.now();
     if (nowMs - this.lastEventAt < 1800) return;
@@ -250,15 +299,16 @@ export class SoundEngine {
 
   /** Subtle exit micro-sound when a critter reaches the end of its lifespan (e.g. "GC'd!", "paged out!"). */
   playCritterExit(layer: LayerId, pan: number) {
-    if (!this.ambienceEnabled || !this.enabled || this.ambienceFrozen || layer === 'ring-2') return;
+    if (!this.ambienceEnabled || !this.enabled || this.ambienceFrozen || isSilent(layer)) return;
     if (!this.ctx || !('state' in this.ctx) || (this.ctx as AudioContext).state !== 'running') return;
     const ctx = this.ctx;
     const t = ctx.currentTime;
     const p = Math.max(-0.85, Math.min(0.85, pan));
     const tm = timbreFor(layer);
+    const exit = LAYER_ART[layer].sound.critterExit;
     // Short descending dissolve blip
     this.voice(ctx, {
-      freq: layer === 'application' ? 680 : layer === 'kernel' ? 420 : 520,
+      freq: exit.freq,
       toFreq: 160,
       at: t,
       dur: 0.12,
@@ -266,7 +316,7 @@ export class SoundEngine {
       filterHz: tm.filterHz * 0.6,
       gain: 0.16 * tm.gainScale,
       pan: p,
-      crush: layer === 'kernel' || layer === 'drivers' || layer === 'ring-3',
+      crush: exit.crush,
     });
   }
 
@@ -283,99 +333,22 @@ export class SoundEngine {
    *   Ring −3      → stark 1-bit piezo bit-mote snap
    */
   playCritter(layer: LayerId, pan: number) {
-    if (!this.ambienceEnabled || !this.enabled || this.ambienceFrozen || layer === 'ring-2') return;
+    if (!this.ambienceEnabled || !this.enabled || this.ambienceFrozen || isSilent(layer)) return;
     if (!this.ctx || !('state' in this.ctx) || (this.ctx as AudioContext).state !== 'running') return;
     const ctx = this.ctx;
     const t = ctx.currentTime;
     const p = Math.max(-0.85, Math.min(0.85, pan));
-    switch (layer) {
-      case 'me-minix-user':
-      case 'me-minix-kern': {
-        this.voice(ctx, { freq: 920 + Math.random() * 240, toFreq: 680, at: t, dur: 0.04, wave: 'pulse12', gain: 0.17, pan: p, crush: true });
-        break;
-      }
-      case 'uarch':
-      case 'rtl': {
-        this.voice(ctx, { freq: 1320, at: t, dur: 0.022, wave: 'square', gain: 0.17, pan: p, reverb: 0.05 });
-        break;
-      }
-      case 'cmos': {
-        this.fmVoice(ctx, { carrierHz: 660, modRatio: 3.1, modIndex: 120, at: t, dur: 0.09, gain: 0.18, pan: p });
-        break;
-      }
-      case 'litho':
-      case 'bandgap':
-      case 'landauer': {
-        const f = layer === 'landauer' ? 110 : 880 + Math.random() * 320;
-        this.voice(ctx, { freq: f, toFreq: f * 1.12, at: t, dur: 0.14, wave: 'sine', gain: 0.16, pan: p, reverb: 0.35 });
-        break;
-      }
-      default:
-        switch (DAILY_FALLBACK[layer]) {
-          case 'application': {
-        // Cheerful little 2–3 note pixel songbird chirp
-        const base = 1180 + Math.random() * 260;
-        this.voice(ctx, { freq: base, toFreq: base * 1.32, at: t, dur: 0.055, wave: 'triangle', gain: 0.21, pan: p });
-        this.voice(ctx, { freq: base * 1.18, toFreq: base * 1.48, at: t + 0.065, dur: 0.065, wave: 'triangle', gain: 0.19, pan: p });
-        if (Math.random() > 0.45) {
-          this.voice(ctx, { freq: base * 1.45, toFreq: base * 1.25, at: t + 0.14, dur: 0.05, wave: 'triangle', gain: 0.15, pan: p });
-        }
-        break;
-      }
-      case 'runtime': {
-        // Bouncy helper-blob upward boing / bloop
-        const base = 360 + Math.random() * 90;
-        this.voice(ctx, { freq: base, toFreq: base * 1.75, at: t, dur: 0.095, wave: 'pulse25', filterHz: 2200, q: 2.2, gain: 0.21, pan: p });
-        this.voice(ctx, { freq: base * 1.5, at: t + 0.08, dur: 0.045, wave: 'triangle', gain: 0.15, pan: p });
-        break;
-      }
-      case 'libraries': {
-        // Same blob vocabulary, toned down a few notes and softer
-        const base = 260 + Math.random() * 60;
-        this.voice(ctx, { freq: base, toFreq: base * 1.45, at: t, dur: 0.105, wave: 'triangle', filterHz: 1400, q: 1.5, gain: 0.19, pan: p });
-        break;
-      }
-      case 'userspace': {
-        // Mischievous low crunchy daemon mutter / double chuckle
-        const base = 175 + Math.random() * 45;
-        this.voice(ctx, { freq: base, toFreq: base * 0.82, at: t, dur: 0.055, wave: 'pulse12', filterHz: 1100, gain: 0.2, pan: p, crush: true });
-        this.voice(ctx, { freq: base * 1.15, toFreq: base * 0.9, at: t + 0.068, dur: 0.065, wave: 'pulse12', filterHz: 1200, gain: 0.18, pan: p, crush: true });
-        break;
-      }
-      case 'kernel': {
-        // Robotic thread-bot servo blip + crisp 2-pip IRQ chirp
-        this.fmVoice(ctx, { carrierHz: 480, toCarrierHz: 720, modRatio: 2.5, modIndex: 140, at: t, dur: 0.065, gain: 0.19, pan: p, crush: true });
-        this.voice(ctx, { freq: 880, at: t + 0.07, dur: 0.028, wave: 'pulse12', gain: 0.17, pan: p, crush: true });
-        break;
-      }
-      case 'drivers': {
-        // Fast bus-beetle click-clack skitter
-        for (let k = 0; k < 3; k++) {
-          this.noiseBurst(ctx, { at: t + k * 0.032, dur: 0.014, type: 'highpass', filterHz: 2800 + k * 400, gain: 0.17, pan: p, crush: true });
-          this.voice(ctx, { freq: 640 + k * 140, at: t + k * 0.032, dur: 0.02, wave: 'square', gain: 0.14, pan: p, crush: true });
-        }
-        break;
-      }
-      case 'firmware': {
-        // Sentinel drone: distant miniature 1000 Hz POST ping + relay click
-        this.noiseBurst(ctx, { at: t, dur: 0.012, type: 'highpass', filterHz: 3200, gain: 0.16, pan: p, reverb: 0 });
-        this.voice(ctx, { freq: 1000, at: t + 0.012, dur: 0.045, wave: 'square', gain: 0.18, pan: p, reverb: 0.1 });
-        break;
-      }
-      case 'ring-1': {
-        // Twin mirror-wisps: stereo-crossing detuned FM shimmer (left ↔ right)
-        this.fmVoice(ctx, { carrierHz: 440, modRatio: 2, modIndex: 110, at: t, dur: 0.16, gain: 0.18, pan: p, toPan: -p, swell: true });
-        this.fmVoice(ctx, { carrierHz: 447, modRatio: 2, modIndex: 110, at: t + 0.04, dur: 0.16, gain: 0.16, pan: -p, toPan: p, swell: true });
-        break;
-      }
-      case 'ring-3': {
-        // Stark 1-bit piezo bit-mote snap
-        this.voice(ctx, { freq: Math.random() > 0.5 ? 1760 : 880, at: t, dur: 0.02, wave: 'square', gain: 0.19, pan: p, crush: true, reverb: 0 });
-        break;
-      }
-        }
-        break;
-    }
+    LAYER_ART[layer].sound.critterCall?.(this.kit(ctx), t, p);
+  }
+
+  /** The engine's voices bound to `ctx`, for a layer's sound recipes. */
+  private kit(ctx: BaseAudioContext): SoundKit {
+    return {
+      voice: (opts) => this.voice(ctx, opts),
+      fmVoice: (opts) => this.fmVoice(ctx, opts),
+      noiseBurst: (opts) => this.noiseBurst(ctx, opts),
+      thud: (at, fromHz, toHz, dur, gain) => this.thud(ctx, at, fromHz, toHz, dur, gain),
+    };
   }
 
   setVolume(level: VolumeLevel) {
@@ -444,17 +417,14 @@ export class SoundEngine {
     this.ambienceFrozen = frozen;
     if (this.ambience && this.ctx) {
       const now = this.ctx.currentTime;
-      const target = frozen || this.currentLayer === 'ring-2' ? 0.0001 : this.ambienceLevel(this.currentLayer);
+      const target = frozen || isSilent(this.currentLayer) ? 0.0001 : this.ambienceLevel(this.currentLayer);
       this.ambience.gain.gain.cancelScheduledValues(now);
       this.ambience.gain.gain.setTargetAtTime(target, now, 0.04);
     }
   }
 
   private ambienceLevel(layer: LayerId): number {
-    if (layer === 'ring-2') return 0.0001;
-    if (layer === 'application') return 0.045;
-    if (layer === 'ring-3') return 0.05;
-    return 0.06;
+    return LAYER_ART[layer].sound.ambienceLevel;
   }
 
   private stopAmbience() {
@@ -491,7 +461,7 @@ export class SoundEngine {
       this.ambience = null;
     }
 
-    if (layer === 'ring-2') return; // Ring −2 is dead silent.
+    if (isSilent(layer)) return; // Ring −2 is dead silent.
 
     const bedGain = ctx.createGain();
     const target = this.ambienceFrozen ? 0.0001 : this.ambienceLevel(layer);
@@ -518,30 +488,7 @@ export class SoundEngine {
 
     // Pure seamless ultra-quiet oscillator room-tone (no looping noise buffer seam ticks, no untied timer blips;
     // all audible ambient activity is driven directly by visible critters on screen).
-    switch (layer) {
-      case 'application':
-        addDrone(261.63, 'sine', 420, 0.22);
-        break;
-      case 'runtime':
-      case 'libraries':
-        addDrone(110, 'triangle', 220, 0.35);
-        break;
-      case 'userspace':
-      case 'kernel':
-      case 'drivers':
-        addDrone(82.41, 'triangle', 190, 0.35);
-        break;
-      case 'firmware':
-        addDrone(60, 'triangle', 160, 0.4);
-        break;
-      case 'ring-1':
-        addDrone(82.4, 'triangle', 200, 0.42);
-        addDrone(83.9, 'triangle', 200, 0.42);
-        break;
-      case 'ring-3':
-        addDrone(55, 'square', 140, 0.25);
-        break;
-    }
+    for (const d of LAYER_ART[layer].sound.drones) addDrone(d.freq, d.wave, d.filterHz, d.gain);
 
     this.ambience = {
       layer,
@@ -556,45 +503,7 @@ export class SoundEngine {
   private playAmbienceArtifact(ctx: BaseAudioContext, layer: LayerId) {
     const t = ctx.currentTime;
     const pan = (Math.random() - 0.5) * 1.1;
-    switch (layer) {
-      case 'application':
-        // Distant soft UI notification pop / gentle two-note triangle pip
-        this.voice(ctx, { freq: 784, at: t, dur: 0.05, wave: 'triangle', gain: 0.055, pan });
-        if (Math.random() > 0.45) {
-          this.voice(ctx, { freq: 1046.5, at: t + 0.055, dur: 0.07, wave: 'triangle', gain: 0.045, pan });
-        }
-        break;
-      case 'runtime':
-      case 'libraries':
-        // Tiny rising GC spark / glassy FM micro-chime
-        this.fmVoice(ctx, { carrierHz: 520 + Math.random() * 240, toCarrierHz: 880, modRatio: 2.5, modIndex: 110, at: t, dur: 0.09, gain: 0.055, pan });
-        break;
-      case 'userspace':
-      case 'kernel':
-      case 'drivers':
-        // Rapid 2-pip bit-crushed IRQ / bus-trace packet burst + tiny static tick
-        this.noiseBurst(ctx, { at: t, dur: 0.016, type: 'bandpass', filterHz: 2400, gain: 0.06, pan, crush: true });
-        this.voice(ctx, { freq: 440 + Math.floor(Math.random() * 4) * 110, at: t, dur: 0.032, wave: 'pulse12', gain: 0.065, pan, crush: true });
-        this.voice(ctx, { freq: 660 + Math.floor(Math.random() * 3) * 90, at: t + 0.042, dur: 0.028, wave: 'pulse12', gain: 0.05, pan: -pan * 0.5, crush: true });
-        break;
-      case 'firmware':
-        // Distant miniature BIOS POST micro-beep or relay tick
-        if (Math.random() > 0.4) {
-          this.voice(ctx, { freq: 1000, at: t, dur: 0.038, wave: 'square', gain: 0.06, pan, reverb: 0.1 });
-        } else {
-          this.noiseBurst(ctx, { at: t, dur: 0.014, type: 'highpass', filterHz: 3200, gain: 0.07, pan, reverb: 0 });
-        }
-        break;
-      case 'ring-1':
-        // Faint stereo-echoing dual-voice VM mirror ping
-        this.fmVoice(ctx, { carrierHz: 440, modRatio: 2, modIndex: 90, at: t, dur: 0.12, gain: 0.06, pan: -0.65, swell: true });
-        this.fmVoice(ctx, { carrierHz: 447, modRatio: 2, modIndex: 90, at: t + 0.09, dur: 0.12, gain: 0.05, pan: 0.65, swell: true });
-        break;
-      case 'ring-3':
-        // Stark 1-bit piezo micro-snap / bit-flip tick
-        this.voice(ctx, { freq: Math.random() > 0.5 ? 1760 : 880, at: t, dur: 0.018, wave: 'square', gain: 0.065, pan, crush: true, reverb: 0 });
-        break;
-    }
+    LAYER_ART[layer].sound.artifact?.(this.kit(ctx), t, pan);
   }
 
   private updateReverbForLayer(layer: LayerId) {
@@ -719,25 +628,7 @@ export class SoundEngine {
 
   private voice(
     ctx: BaseAudioContext,
-    opts: {
-      freq: number;
-      toFreq?: number;
-      at: number;
-      dur: number;
-      wave?: Timbre['wave'];
-      gain?: number;
-      attack?: number;
-      swell?: boolean;
-      filterHz?: number;
-      toFilterHz?: number;
-      q?: number;
-      detune?: number;
-      pan?: number;
-      toPan?: number;
-      crush?: boolean;
-      reverb?: number;
-      track?: boolean;
-    },
+    opts: VoiceOpts,
   ) {
     const osc = ctx.createOscillator();
     const g = ctx.createGain();
@@ -793,21 +684,7 @@ export class SoundEngine {
   /** 2-operator FM synth voice for metallic, glassy, bell-like, and sci-fi non-beepy textures. */
   private fmVoice(
     ctx: BaseAudioContext,
-    opts: {
-      carrierHz: number;
-      toCarrierHz?: number;
-      modRatio: number;
-      modIndex: number;
-      at: number;
-      dur: number;
-      gain?: number;
-      swell?: boolean;
-      pan?: number;
-      toPan?: number;
-      crush?: boolean;
-      reverb?: number;
-      track?: boolean;
-    },
+    opts: FmVoiceOpts,
   ) {
     const car = ctx.createOscillator();
     const mod = ctx.createOscillator();
@@ -931,21 +808,7 @@ export class SoundEngine {
 
   private noiseBurst(
     ctx: BaseAudioContext,
-    opts: {
-      at: number;
-      dur: number;
-      filterHz: number;
-      toFilterHz?: number;
-      type?: BiquadFilterType;
-      q?: number;
-      gain?: number;
-      attack?: number;
-      pan?: number;
-      toPan?: number;
-      crush?: boolean;
-      reverb?: number;
-      track?: boolean;
-    },
+    opts: NoiseBurstOpts,
   ) {
     const src = ctx.createBufferSource();
     src.buffer = this.noise(ctx);
@@ -1438,33 +1301,9 @@ export class SoundEngine {
     if (!ctx) return;
     this.duckAmbience(0.45);
     const t = ctx.currentTime;
-    switch (layer) {
-      case 'kernel':
-        this.thud(ctx, t, 140, 50, 0.18, 0.42);
-        this.noiseBurst(ctx, { at: t, dur: 0.22, type: 'bandpass', filterHz: 2400, toFilterHz: 260, q: 2.2, gain: 0.36, crush: true });
-        break;
-      case 'firmware':
-        this.noiseBurst(ctx, { at: t, dur: 0.018, type: 'highpass', filterHz: 3000, gain: 0.22, reverb: 0 });
-        this.voice(ctx, { freq: 1000, at: t + 0.015, dur: 0.15, wave: 'square', gain: 0.34, attack: 0.002, reverb: 0.15 });
-        break;
-      case 'ring-1':
-        this.fmVoice(ctx, { carrierHz: 440, modRatio: 2, modIndex: 140, at: t, dur: 0.32, gain: 0.24, pan: -0.6, toPan: 0.6, swell: true });
-        this.fmVoice(ctx, { carrierHz: 448, modRatio: 2, modIndex: 140, at: t + 0.03, dur: 0.32, gain: 0.24, pan: 0.6, toPan: -0.6, swell: true });
-        break;
-      case 'ring-2':
-        this.voice(ctx, { freq: 380, toFreq: 48, at: t, dur: 0.14, wave: 'square', filterHz: 1400, toFilterHz: 240, gain: 0.34, reverb: 0 });
-        this.noiseBurst(ctx, { at: t + 0.12, dur: 0.025, type: 'highpass', filterHz: 2600, gain: 0.28, reverb: 0 });
-        break;
-      case 'ring-3':
-        this.noiseBurst(ctx, { at: t, dur: 0.02, type: 'highpass', filterHz: 4000, gain: 0.3, crush: true, reverb: 0 });
-        this.voice(ctx, { freq: 1760, at: t, dur: 0.045, wave: 'square', gain: 0.32, attack: 0.001, reverb: 0 });
-        this.voice(ctx, { freq: 880, at: t + 0.06, dur: 0.035, wave: 'square', gain: 0.26, attack: 0.001, reverb: 0 });
-        break;
-      default: {
-        const tm = timbreFor(layer);
-        this.layered(ctx, { freq: 392, toFreq: 493.88, at: t, dur: 0.12, tm, gain: 0.24, click: true });
-      }
-    }
+    const cross = LAYER_ART[layer].sound.cross;
+    if (cross) cross(this.kit(ctx), t);
+    else this.layered(ctx, { freq: 392, toFreq: 493.88, at: t, dur: 0.12, tm: timbreFor(layer), gain: 0.24, click: true });
   }
 
   /**

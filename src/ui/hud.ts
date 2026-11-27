@@ -1,6 +1,6 @@
 import { enforce } from '../core/enforce';
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
-import { PROMPTS_PER_DAY, TRUE_ENDLESS_LAYERS, layerAt, layerIndexAt, layersFor, maxDepthFor, type Layer, type LayerId } from '../core/layers';
+import { ALL_LAYER_IDS, PROMPTS_PER_DAY, TRUE_ENDLESS_LAYERS, layerAt, layerIndexAt, layersFor, maxDepthFor, type Layer, type LayerId } from '../core/layers';
 import type { CategoryEntry } from '../core/match';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
@@ -8,13 +8,14 @@ import { buildShareText, deliverShare, siteUrl } from '../game/share';
 import type { StatsOutcome } from '../game/stats';
 import { look, reducedMotion } from '../looks';
 import type { Scene } from '../render/scene';
-import { FORMS, FORM_BY_LAYER, type FormId } from './forms';
+import { FORMS, type FormId } from './forms';
+import { LAYER_ART } from '../layers';
 import { tierIcon } from './tier-icons';
 import { answerSheet, answerUrl, questionUrl, type SheetGroup } from './answer-sheet';
 import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
-import { LAYER_THEMES, LayerStack, createLayerBadge, makeLayerIcon } from './layer-stack';
+import { LayerStack, createLayerBadge, makeLayerIcon } from './layer-stack';
 import { manualBookIcon } from './manual-icon';
 import { FieldManualBinder } from './binder/binder';
 import { manualStore } from '../game/manual';
@@ -42,40 +43,8 @@ const REVEAL_FADE_MS = 200;
 const REVEAL_SETTLE_MS = 700;
 
 
-/** What each layer is, in a line a non-systems player can read. Shown under the layer's name as you enter it. */
-export const LAYER_BLURBS: Record<LayerId, string> = {
-  internet: 'Autonomous systems, BGP routes and undersea fiber above your machine',
-  browser: 'The DOM tree, CSS layout engine and GPU compositor framing your apps',
-  application: 'The apps you click, tap and type into',
-  bytecode: 'Parsed syntax trees and virtual instructions before execution',
-  jit: 'Just-in-time compilers forging hot loops into native machine code',
-  runtime: 'The engine that runs your code and tidies up its memory',
-  libraries: 'Shared code every program leans on',
-  linker: 'The dynamic linker resolving symbols and wiring shared objects together',
-  userspace: 'The operating system’s own programs and services',
-  'kernel-entry': 'The syscall gate, seccomp checks and VFS facade into Ring 0',
-  kernel: 'The core of the operating system, in charge of everything above',
-  'kernel-arch': 'Interrupt controllers, spinlocks, RCU and raw hardware bridges',
-  drivers: 'The translators between the operating system and the hardware',
-  'bus-fabric': 'PCIe lanes, DMA rings and memory-mapped I/O crisscrossing the board',
-  firmware: 'Code built into the hardware that starts the machine',
-  vmm: 'Virtual device models pretending to be disks, NICs and consoles',
-  'ring-1': 'The hypervisor, running whole operating systems as guests',
-  ept: 'Two-dimensional nested page tables and IOMMU quarantine gates',
-  'ring-2': 'System Management Mode, which can pause everything above it',
-  smram: 'Locked hardware-shielded memory invisible to the OS and hypervisor',
-  'ring-3': 'The Intel Management Engine, a hidden computer inside your computer',
-  'me-minix-user': 'A tiny hidden MINIX 3 userspace running even when your PC is off',
-  'me-minix-kern': 'The message-passing microkernel deep inside the management core',
-  uarch: 'Out-of-order μops, branch predictors and L1/L2/L3 cache banks',
-  rtl: 'NAND gates, flip-flops and the clock tree pulsing in lockstep',
-  cmos: 'FinFET transistors, doped wells and stacked copper metal interconnects',
-  litho: '13.5nm EUV interference fringes etched into crystalline silicon',
-  bandgap: 'Valence and conduction bands where electrons tunnel through barriers',
-  landauer: 'The thermodynamic floor of computation: kT ln 2 per erased bit',
-  'slab-spa': '1994 · Misty cedar bathhouse of kmalloc caches, freelist pools & OOM steam vents',
-  'kthread-kabin': '1978 · Cozy timber cabin where off-duty kworkers chop workqueue logs by a softirq hearth',
-};
+/** What each layer is (`LAYER_ART[id].blurb`), for the stack's tooltips. */
+const LAYER_BLURBS = Object.fromEntries(ALL_LAYER_IDS.map((id) => [id, LAYER_ART[id].blurb])) as Record<LayerId, string>;
 
 /**
  * Plain-language lines for the reveal, used when the answer has no note of its own. They say how rare the answer
@@ -239,7 +208,7 @@ export class Hud {
     this.els.titleHead!.append(this.titleLogo.canvas);
     this.layerStack = new LayerStack((id) => sound.stackCrunch(id), LAYER_BLURBS);
     mount.append(this.layerStack.el);
-    this.binder = new FieldManualBinder(document.body, LAYER_BLURBS); // above the HUD's stacking context (and the debug rail)
+    this.binder = new FieldManualBinder(document.body); // above the HUD's stacking context (and the debug rail)
     this.els.titleManualBtn!.prepend(manualBookIcon(13));
     this.els.manualEndBtn!.prepend(manualBookIcon(22));
     this.els.titleManualBtn!.addEventListener('click', () => this.openManual());
@@ -479,7 +448,7 @@ export class Hud {
     if (!show) return;
     if (nav.childElementCount === 0) {
       for (const l of TRUE_ENDLESS_LAYERS) {
-        const theme = LAYER_THEMES[l.id];
+        const theme = LAYER_ART[l.id].stackTheme;
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'te-nav-btn';
@@ -679,7 +648,7 @@ export class Hud {
       this.shownFrames = frames;
       this.els.depth!.textContent = framesLabel(frames);
     }
-    const form = this.formOverride ?? FORM_BY_LAYER[layerAt(depthShown, activeMode).id];
+    const form = this.formOverride ?? LAYER_ART[layerAt(depthShown, activeMode).id].form;
     if (form !== this.form) this.applyForm(form);
 
     const override = this.watchdogOverride?.(now);

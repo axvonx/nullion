@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS } from '../core/layers';
 import { TIER_IDS } from '../core/tiers';
-import { SoundEngine, encodeWav, timbreFor } from './sound';
+import { LAYER_ART } from '../layers';
+import { SoundEngine, encodeWav } from './sound';
 
 function makeMockAudioContext() {
   let oscCount = 0;
@@ -91,13 +92,13 @@ function makeMockAudioContext() {
 describe('sound engine', () => {
   it('maps all 29 Daily & Endless layers to valid timbres', () => {
     for (const id of ALL_LAYER_IDS) {
-      const tm = timbreFor(id);
+      const tm = LAYER_ART[id].sound.timbre;
       expect(tm.gainScale).toBeGreaterThan(0);
     }
-    expect(timbreFor('application').wave).toBe('triangle');
-    expect(timbreFor('kernel').wave).toBe('pulse12');
-    expect(timbreFor('ring-3').short).toBe(true);
-    expect(timbreFor('landauer').wave).toBe('sine');
+    expect(LAYER_ART.application.sound.timbre.wave).toBe('triangle');
+    expect(LAYER_ART.kernel.sound.timbre.wave).toBe('pulse12');
+    expect(LAYER_ART['ring-3'].sound.timbre.short).toBe(true);
+    expect(LAYER_ART.landauer.sound.timbre.wave).toBe('sine');
   });
 
   it('safely no-ops when AudioContext is unavailable', () => {
