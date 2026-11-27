@@ -1,8 +1,7 @@
 import manualFiles from 'virtual:manual-files';
 import { enforce } from '../core/enforce';
-import type { LayerId } from '../core/layers';
+import { ALL_LAYER_IDS, type LayerId } from '../core/layers';
 import { manualPathParts, parseManualFile, type ManualEntry } from '../data/manual-format';
-import { SPECIES_MOTIONS } from '../render/critters';
 import { V4_LIBRARIES } from '../render/v4/libraries';
 import { TOPIC_PROPS } from '../render/v4/topics';
 import { DEBUG } from '../keys';
@@ -28,7 +27,7 @@ export function currentWorld(): ManualWorld {
     entities: new Map(
       (Object.entries(V4_LIBRARIES) as [LayerId, (typeof V4_LIBRARIES)[LayerId]][]).map(([layer, lib]) => [layer, new Set([...lib.near, ...lib.anchors].map((d) => d.id))]),
     ),
-    critterLayers: new Set(Object.keys(SPECIES_MOTIONS) as LayerId[]),
+    critterLayers: new Set(ALL_LAYER_IDS),
     topicIds: new Set(TOPIC_PROPS.map((p) => p.id)),
   };
 }

@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS, LAYERS } from '../core/layers';
 import type { Band } from './art-common';
-import { ALT_SPECIES_MOTIONS, CritterSystem, MotionType, SPECIES_MOTIONS, isAltSpecies, type CritterCall } from './critters';
+import { LAYER_ART } from '../layers';
+import { CritterSystem, isAltSpecies, type CritterCall } from './critters';
+import { MotionType } from './motion';
 
 function fakeCtx() {
   let rects = 0;
@@ -57,7 +59,7 @@ describe('CritterSystem (System Biosphere)', () => {
 
     // Every Daily & Endless layer (all 29) has a non-empty species motion set
     for (const id of ALL_LAYER_IDS) {
-      expect(SPECIES_MOTIONS[id].length).toBeGreaterThan(0);
+      expect(LAYER_ART[id].critters.motions.length).toBeGreaterThan(0);
     }
   });
 
@@ -95,15 +97,15 @@ describe('CritterSystem (System Biosphere)', () => {
     sys.ensureSeed(5);
     const { ctx } = fakeCtx();
     const mockSpots = [60, 100, 28, 16, 150, 120, 28, 16, 240, 105, 28, 16];
-    const layers = Object.keys(ALT_SPECIES_MOTIONS) as (keyof typeof ALT_SPECIES_MOTIONS)[];
+    const layers = ALL_LAYER_IDS.filter((id) => LAYER_ART[id].critters.alt);
     expect(layers.length).toBeGreaterThan(0);
     for (const id of layers) {
       const crit = sys.getLayerCritters(id);
       const alts = crit.filter((c) => isAltSpecies(id, c.variant));
       expect(alts.length, `${id} has no alternate critters`).toBeGreaterThan(0);
-      for (const c of alts) expect(Array.from(c.motions)).toEqual(ALT_SPECIES_MOTIONS[id]);
+      for (const c of alts) expect(Array.from(c.motions)).toEqual(LAYER_ART[id].critters.alt!.motions);
       for (const c of crit.filter((c) => !isAltSpecies(id, c.variant))) {
-        expect(Array.from(c.motions)).toEqual(SPECIES_MOTIONS[id]);
+        expect(Array.from(c.motions)).toEqual(LAYER_ART[id].critters.motions);
       }
       for (let t = 0.05; t <= 20; t += 0.05) {
         sys.drawBand(ctx, id, makeBand(t), false, undefined, mockSpots);

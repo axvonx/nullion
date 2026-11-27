@@ -18,7 +18,7 @@ The approved `manual/**/*.md` entries (names, blurbs, notes) are scaffolding. Ev
   `rarityPct` goes away. Measured on 2026-11-26, "mythic 4%" props appeared on 98–100% of days.
 - **Gated props are non-anchors**, or the placement rules get an explicit "may be absent" case.
 - **Critters.** A layer's core species is always present (common). The alternate species
-  (`ALT_SPECIES_MOTIONS`) become the uncommon and rare critters, gated the same way, each with its own entry.
+  (`critters.alt` in a layer's module) become the uncommon and rare critters, gated the same way, each with its own entry.
 - **Reach is separate from rarity.** The page shows the habitat; it doesn't fold the odds of reaching a layer into
   the %.
 
@@ -66,7 +66,7 @@ The approved `manual/**/*.md` entries (names, blurbs, notes) are scaffolding. Ev
 - **Right leaf**, as a man page:
   - **NAME:** one line.
   - **HABITAT:** a 10-cell stack strip.
-  - **BEHAVIOR:** critters only, from `SPECIES_MOTIONS`.
+  - **BEHAVIOR:** critters only, from the layer's `critters.motions`.
   - **DESCRIPTION.**
   - **BUGS:** one dry line.
   - **SEE ALSO.**
@@ -225,8 +225,7 @@ The approved `manual/**/*.md` entries (names, blurbs, notes) are scaffolding. Ev
 3. **The binder UI. First cut done 2026-11-27.**
    - `src/ui/binder/` (binder.ts and binder.css), laid out by the pure book model in `src/game/manual-book.ts`
      (tested in `manual-book.test.ts`).
-   - It sits behind `LOOK_SLOTS.manual`, which defaults to the binder in debug builds and to the card grid in
-     production.
+   - It is the only Field Manual UI (the old card grid is gone).
    - Done:
      - front matter, contents and chapter dividers (sealed by reached layers: `ManualStore.noteReached` is called
        from the HUD's REACHED badges and from logging);
@@ -241,6 +240,5 @@ The approved `manual/**/*.md` entries (names, blurbs, notes) are scaffolding. Ev
    - Still to do:
      - BUGS and SEE ALSO content (the fields exist and are rendered when set);
      - the flight of a logged sprite into the book icon;
-     - the Endless toggle;
-     - retiring `manual-modal.ts` once the binder becomes the production default.
+     - the Endless toggle.
 4. Entry content: hand-written against the style guide.

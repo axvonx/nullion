@@ -1,5 +1,3 @@
-import type { LayerId } from '../core/layers';
-
 /** Color depth drops (or shifts into physical/hardware false-color masks) as you descend. */
 export type PaletteMode =
   | 'full'
@@ -15,40 +13,6 @@ export type PaletteMode =
   | 'wafer'
   | 'euv'
   | 'abyss';
-
-export const LAYER_PALETTE: Record<LayerId, PaletteMode> = {
-  internet: 'full',
-  browser: 'full',
-  application: 'full',
-  bytecode: 'rgb6',
-  jit: 'rgb6',
-  runtime: 'rgb6',
-  libraries: 'rgb4',
-  linker: 'rgb4',
-  userspace: 'cga16',
-  'kernel-entry': 'cga16',
-  kernel: 'cga16',
-  'kernel-arch': 'cga16',
-  drivers: 'cga4',
-  'bus-fabric': 'cga4',
-  firmware: 'green',
-  vmm: 'green',
-  'ring-1': 'green',
-  ept: 'green',
-  'ring-2': 'gray',
-  smram: 'gray',
-  'ring-3': 'onebit',
-  'me-minix-user': 'amber',
-  'me-minix-kern': 'amber',
-  uarch: 'blueprint',
-  rtl: 'blueprint',
-  cmos: 'wafer',
-  litho: 'euv',
-  bandgap: 'abyss',
-  landauer: 'abyss',
-  'slab-spa': 'full',
-  'kthread-kabin': 'rgb4',
-};
 
 type RGB = readonly [number, number, number];
 

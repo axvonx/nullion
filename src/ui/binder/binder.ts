@@ -9,8 +9,8 @@ import { MANUAL_RARITIES, manualEntryById, manualStore, type ManualEntry, type M
 import { formatRate, shownRate } from '../../game/rarity';
 import { storageKey } from '../../keys';
 import { reducedMotion } from '../../looks';
-import { CritterSystem, SPECIES_MOTIONS } from '../../render/critters';
-import { LAYER_PALETTE } from '../../render/palettes';
+import { CritterSystem } from '../../render/critters';
+import { LAYER_ART } from '../../layers';
 import { drawEntity, setPaint } from '../../render/v4/kit';
 import { V4_LIBRARIES } from '../../render/v4/libraries';
 import { drawTopicProp, TOPIC_PROPS } from '../../render/v4/topics';
@@ -57,7 +57,7 @@ function spriteFor(s: ManualSighting): Sprite | undefined {
       w,
       h,
       draw: (ctx, t) => {
-        setPaint(LAYER_PALETTE[s.layer], undefined);
+        setPaint(LAYER_ART[s.layer].palette, undefined);
         drawEntity(ctx, def, 0, 1, 0, 0, false, t);
       },
     };
@@ -73,7 +73,7 @@ function spriteFor(s: ManualSighting): Sprite | undefined {
       w: 36,
       h: 26,
       draw: (ctx, t) => {
-        setPaint(LAYER_PALETTE[s.layer], undefined);
+        setPaint(LAYER_ART[s.layer].palette, undefined);
         drawTopicProp(ctx, tp, 36, 26, 0, 0, t, 0);
       },
     };
@@ -130,10 +130,7 @@ export class FieldManualBinder {
   private raf = 0;
   private unsub: () => void;
 
-  constructor(
-    mount: HTMLElement,
-    private blurbs: Readonly<Record<LayerId, string>>,
-  ) {
+  constructor(mount: HTMLElement) {
     const wrap = el('div', 'bd-backdrop');
     wrap.hidden = true;
     wrap.innerHTML = `
@@ -419,7 +416,7 @@ export class FieldManualBinder {
   private dividerLeaf(c: Chapter, folio: string): Node[] {
     const open = manualStore.hasReached(c.layer);
     const d = el('div', `bd-divider${open ? '' : ' sealed'} tint-${Number(c.no) % 3}`);
-    d.append(el('div', 'bd-div-num', c.no), el('div', 'bd-div-name', c.name), el('div', 'bd-div-sub', open ? this.blurbs[c.layer] : 'Sealed until you reach this layer.'));
+    d.append(el('div', 'bd-div-num', c.no), el('div', 'bd-div-name', c.name), el('div', 'bd-div-sub', open ? LAYER_ART[c.layer].blurb : 'Sealed until you reach this layer.'));
     if (!open) d.append(el('div', 'bd-seal', 'SEALED'));
     d.append(el('div', 'bd-div-folio', folio));
     return [d];
@@ -523,7 +520,7 @@ export class FieldManualBinder {
     const body: Node[] = [...this.sec('NAME', name), ...this.sec('HABITAT', hab, habL)];
     if (s.critterLayer) {
       const bh = el('span', 'bd-behav');
-      for (const m of SPECIES_MOTIONS[s.critterLayer]) bh.append(el('span', '', m));
+      for (const m of LAYER_ART[s.critterLayer].critters.motions) bh.append(el('span', '', m));
       body.push(...this.sec('BEHAVIOR', bh));
     }
     body.push(...this.sec('DESCRIPTION', e.blurb, ' ', e.note));

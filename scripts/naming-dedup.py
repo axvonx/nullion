@@ -4,7 +4,8 @@
 Run:  python3 -I scripts/naming-dedup.py
 
 NOTE (2026-11-27): historical. It was written against lib-endless.ts's mix() calls, which are gone: every layer
-is now built by buildLibraries (src/render/v4/library.ts) from the borrow entries in libraries.ts. It fails
+is now built by buildLibraries (src/render/v4/library.ts) from the borrow entries in each layer's module
+(src/layers/<layer-id>.ts; lib-endless.ts and its siblings are gone). It fails
 loudly ("no mix() calls found") until its source step is rewritten for that; dedup.json is its last output.
 
 Reads  design/naming/inventory.json, design/naming/proposals/*.json and

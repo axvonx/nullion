@@ -1,5 +1,6 @@
 import { enforce } from '../core/enforce';
-import { DAILY_FALLBACK, ENDLESS_LAYERS, type LayerId } from '../core/layers';
+import { ENDLESS_LAYERS, type LayerId } from '../core/layers';
+import { LAYER_ART } from '../layers';
 import { DEBUG } from '../keys';
 import type { ManualEntry, ManualRarity, ManualSighting } from '../data/manual-format';
 import { MANUAL_ENTRIES } from './manual-registry';
@@ -84,7 +85,7 @@ export function entryForEntity(entityId: string, layer: LayerId): { entry: Manua
 export function entryForCritter(layer: LayerId, lookups: ManualLookups = LOOKUPS): { entry: ManualEntry; layer: LayerId } | undefined {
   const direct = lookups.byCritter.get(layer);
   if (direct) return { entry: direct.entry, layer: direct.sighting.layer };
-  const fb = DAILY_FALLBACK[layer];
+  const fb = LAYER_ART[layer].family;
   const fallbackHit = lookups.byCritter.get(fb);
   return fallbackHit ? { entry: fallbackHit.entry, layer: fallbackHit.sighting.layer } : undefined;
 }

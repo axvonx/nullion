@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS, ENDLESS_LAYERS, LAYERS } from '../../core/layers';
-import { LAYER_PALETTE, darkestInk } from '../palettes';
+import { LAYER_ART } from '../../layers';
+import { darkestInk } from '../palettes';
 import { Pen, c, checkLibrary, outlineSilhouette, setPaint } from './kit';
 import { V4_LIBRARIES } from './libraries';
 import { VIEW_WINDOW, type Placed } from './place';
@@ -193,7 +194,7 @@ describe('v4 world', () => {
           rects++;
         },
       } as unknown as CanvasRenderingContext2D;
-      setPaint(LAYER_PALETTE[id], undefined);
+      setPaint(LAYER_ART[id].palette, undefined);
       drawSetpiece(ctx, band, id, 3.5);
       expect(rects).toBeGreaterThan(0);
     }
@@ -245,7 +246,7 @@ describe('v4 world', () => {
     const badOutline: string[] = [];
 
     for (const id of ALL_LAYER_IDS) {
-      const mode = LAYER_PALETTE[id];
+      const mode = LAYER_ART[id].palette;
       setPaint(mode, undefined);
       const inkHex = c(darkestInk(mode));
       const inkN = parseInt(inkHex.slice(1), 16);
