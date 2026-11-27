@@ -1543,3 +1543,31 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .eod-stack .ls-badge.is-current { box-shadow: inset 0 0 0 1px var(--ls-accent), inset 0 0 14px var(--ls-tint), 0 0 8px var(--ls-tint), 2px 2px 0 rgba(0, 0, 0, 0.55); }
 .ls-badge.ls-crunch { animation: ls-crunch 240ms steps(4) 1; }
 .still .ls-badge.ls-crunch { animation: none; }
+
+/*
+ * Hide / show the end card, like the reveal's: hidden, the card folds down into a slim "show" bar (as wide as the card)
+ * and the world behind it can be looked at and clicked; showing pops the card back up.
+ */
+.eod-hide {
+  display: block; width: min(180px, 100%); height: 24px; margin: 18px auto 0; padding: 0;
+  font-family: var(--display); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--dim); background: rgba(0, 0, 0, 0.45); border: 1px solid currentColor; text-shadow: none;
+}
+.eod-hide:is(:hover, :focus-visible) { color: var(--ink); }
+.eod-show {
+  display: block; width: 100%; height: 34px; margin-top: 8px; padding: 0;
+  font-family: var(--display); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #16141c; background: var(--signal); border: 2px solid #000; box-shadow: 3px 3px 0 #000;
+  animation: fade-in 160ms linear;
+}
+.eod-show[hidden] { display: none; }
+.eod-show:hover { filter: brightness(1.12); }
+.result.folding .eod-body { animation: eod-fold 180ms steps(4, end) forwards; pointer-events: none; }
+@keyframes eod-fold {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(30vh) scale(0.2); }
+}
+.result.stowed .eod-body { display: none; }
+.eod-body.back { animation: reveal-back 280ms steps(6, end); }
+.still .result.folding .eod-body { animation: none; opacity: 0; }
+.still .eod-body.back { animation: fade-in 200ms linear; }

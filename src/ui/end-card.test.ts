@@ -5,6 +5,7 @@ import { TIER_IDS } from '../core/tiers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
 import { Game } from '../game/game';
 import type { StatsOutcome } from '../game/stats';
+import { looks } from '../looks';
 import { END_CARD_HTML, EndCard, type RecordRow } from './end-card';
 
 /** The end card on its own: its rows, headline, stats and countdown, with a stand-in host. */
@@ -119,6 +120,53 @@ describe('EndCard', () => {
     t.card.reset(game, () => ({ kind: 'none' }));
     t.card.show(ROWS, 18, 1);
     expect(t.q('.stats').hidden).toBe(true);
+  });
+
+  it('hide folds the card into a "show" bar and show pops it back; a new card always opens', () => {
+    vi.useFakeTimers();
+    looks.set({ motion: 'full' });
+    try {
+      const t = setup();
+      t.card.show(ROWS, 18, 7);
+      const body = t.q('.eod-body');
+      const showBar = t.q<HTMLButtonElement>('.eod-show');
+      expect(showBar.hidden).toBe(true);
+      t.q<HTMLButtonElement>('.eod-hide').click();
+      expect(t.card.isStowed).toBe(true);
+      expect(t.q('.result').classList.contains('folding')).toBe(true);
+      vi.advanceTimersByTime(200);
+      expect(t.q('.result').classList.contains('stowed')).toBe(true);
+      expect(showBar.hidden).toBe(false);
+      showBar.click();
+      expect(t.card.isStowed).toBe(false);
+      expect(t.q('.result').classList.contains('stowed')).toBe(false);
+      expect(showBar.hidden).toBe(true);
+      expect(body.classList.contains('back')).toBe(true);
+
+      t.q<HTMLButtonElement>('.eod-hide').click();
+      vi.advanceTimersByTime(200);
+      t.card.show(ROWS, 18, 7);
+      expect(t.card.isStowed).toBe(false);
+      expect(t.q('.result').classList.contains('stowed')).toBe(false);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('reduced motion: hide and show are instant, with no fold', () => {
+    looks.set({ motion: 'reduced' });
+    try {
+      const t = setup();
+      t.card.show(ROWS, 18, 7);
+      t.q<HTMLButtonElement>('.eod-hide').click();
+      expect(t.q('.result').classList.contains('stowed')).toBe(true);
+      expect(t.q('.result').classList.contains('folding')).toBe(false);
+      t.q<HTMLButtonElement>('.eod-show').click();
+      expect(t.q('.result').classList.contains('stowed')).toBe(false);
+      expect(t.q('.eod-body').classList.contains('back')).toBe(false);
+    } finally {
+      looks.set({ motion: 'full' });
+    }
   });
 
   it('reset and hide put the card away', () => {

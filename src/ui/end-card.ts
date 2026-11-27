@@ -1,4 +1,5 @@
 import { VERSION } from '../version';
+import { reducedMotion } from '../looks';
 import { text } from '../text';
 import { enforce } from '../core/enforce';
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
@@ -19,6 +20,9 @@ import { tierIcon } from './tier-icons';
 import { createLayerBadge, flyBadges, type BadgeFlight } from './layer-stack';
 import { sound } from '../audio/sound';
 import { wordmarkCanvas } from './wordmark';
+
+/** How long the card takes to fold into its "show" bar (matches the CSS). */
+const FOLD_MS = 180;
 
 /** One line of the day's record: an accepted answer, or a round that pushed nothing. */
 export interface RecordRow {
@@ -48,6 +52,7 @@ function shareLabel(): string {
 /** The end card's markup: it sits inside the console panel and replaces the prompt when the game is done. */
 export const END_CARD_HTML = `
         <div class="result" data-el="result" hidden>
+          <div class="eod-body" data-el="eodBody">
           <section class="eod-summary" aria-label="Your stack">
             <div class="wordmark" data-el="wordmark"><span class="wm-word" data-wm="nullion">nullion</span> <span class="wm-no" data-el="puzzleNo"></span></div>
             <div class="headline" data-el="headline"></div>
@@ -59,7 +64,10 @@ export const END_CARD_HTML = `
           <div class="stats" data-el="stats" hidden></div>
           <div class="result-manual"><button type="button" class="fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
           <div class="result-links" data-el="resultLinks"></div>
+          <button type="button" class="eod-hide" data-el="eodHide" aria-label="Hide this card to look at the world behind it">hide ▾</button>
           <div class="build-tag" data-el="buildTag"><span class="build-wm" data-wm="nullion">nullion</span> v${VERSION}</div>
+          </div>
+          <button type="button" class="eod-show" data-el="eodShow" hidden aria-label="Show the end-of-day card again">show ▴</button>
         </div>`;
 
 /** What the end card reads from the HUD around it. */
@@ -88,6 +96,8 @@ export class EndCard {
   /** A daily game for the real current day (not a debug date), so the card counts down to the next one. */
   private liveDaily = false;
   private cancelFlight: (() => void) | undefined;
+  private stowed = false;
+  private foldTimer = 0;
   private reachedBadges: { layer: ReturnType<typeof layersFor>[number]; el: HTMLElement }[] = [];
 
   constructor(
@@ -110,6 +120,8 @@ export class EndCard {
     };
     syncManualBadges();
     manualStore.subscribe(syncManualBadges);
+    this.els.eodHide!.addEventListener('click', () => this.stow(true));
+    this.els.eodShow!.addEventListener('click', () => this.stow(false));
     this.els.copy!.addEventListener('click', () => {
       // Native share where it exists, the clipboard otherwise. No way to do either is an expected condition: say so.
       void deliverShare(this.shareText, navigator).then((res) => {
@@ -121,6 +133,49 @@ export class EndCard {
         }, 2000);
       });
     });
+  }
+
+  /** The card is folded away to its "show" bar so the world behind it can be looked at. */
+  get isStowed(): boolean {
+    return this.stowed;
+  }
+
+  /**
+   * Hide or show the card (the reveal's hide / show, for the end card): hidden, the card folds down into a small
+   * "show" bar; showing pops it back up. Reduced motion skips the fold and the pop.
+   */
+  private stow(on: boolean) {
+    enforce(this.shownNow, 'end card: stow while the card is not shown');
+    if (on === this.stowed) return;
+    clearTimeout(this.foldTimer);
+    const card = this.els.result!;
+    const settle = () => {
+      card.classList.remove('folding');
+      card.classList.add('stowed');
+      this.els.eodShow!.hidden = false;
+      this.els.eodShow!.focus({ preventScroll: true });
+    };
+    this.stowed = on;
+    if (on) {
+      if (reducedMotion()) settle();
+      else {
+        card.classList.add('folding');
+        this.foldTimer = window.setTimeout(settle, FOLD_MS);
+      }
+      return;
+    }
+    card.classList.remove('folding', 'stowed');
+    this.els.eodShow!.hidden = true;
+    if (!reducedMotion()) replay(this.els.eodBody!, 'back');
+    this.els.eodHide!.focus({ preventScroll: true });
+  }
+
+  /** Back to the open card, at once (a new card or game). */
+  private unstow() {
+    clearTimeout(this.foldTimer);
+    this.stowed = false;
+    this.els.result!.classList.remove('folding', 'stowed');
+    this.els.eodShow!.hidden = true;
   }
 
   /** The card has been built and shown for the current game. */
@@ -142,6 +197,7 @@ export class EndCard {
   hide() {
     this.cancelFlight?.();
     this.cancelFlight = undefined;
+    this.unstow();
     this.shownNow = false;
     this.els.result!.hidden = true;
   }
@@ -149,6 +205,7 @@ export class EndCard {
   /** End of day: the result card, straight away (no replay): the day's backtrace, most recent frame first. */
   show(rows: RecordRow[], depth: number, puzzle: number) {
     this.shownNow = true;
+    this.unstow();
     this.build(rows, depth, puzzle);
     this.els.result!.hidden = false;
     replay(this.els.result!, 'settle-in');
