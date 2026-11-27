@@ -1,0 +1,1742 @@
+## source: llvm
+    37  SmallVector
+    31  symbol table
+    24  instruction set
+    23  DenseMap
+    22  are set
+    19  mailing list
+    15  initializer_list
+    15  string table
+    15  control flow graph
+    15  flow graph
+    14  full list
+    14  following table
+    13  SmallPtrSet
+    13  into vector
+    13  call graph
+    12  DenseSet
+    12  bits set
+    12  should set
+    12  you set
+    11  bit set
+    11  jump table
+    11  full set
+    10  argument list
+    10  contains list
+    10  call stack
+     9  into set
+     9  size_t index
+     9  comma-separated list
+     8  also set
+     8  both set
+     8  returns index
+     8  return index
+     8  unsigned index
+     8  return vector
+     8  SetVector
+     8  acyclic graph
+     8  directed acyclic graph
+     8  different set
+     8  type index
+     8  we set
+     8  source tree
+     7  small set
+     7  BitVector
+     7  intrusive list
+     7  been set
+     7  at index
+     7  empty list
+     7  lookup table
+     7  line table
+     7  abstract syntax tree
+     7  syntax tree
+     7  instruction list
+     6  semicolon-separated list
+     6  StringMap
+     6  bits are set
+     6  next set
+     6  used set
+     6  dominator tree
+     6  unwind stack
+     6  flag set
+     6  dynamic stack
+     6  variable set
+     6  memory buffer
+     6  llvm source tree
+     6  complete list
+     6  scalable vector
+     6  how set
+     6  scalar vector
+     6  stream index
+     5  over set
+     5  large set
+     5  FoldingSet
+     5  bit hash
+     5  HashTable
+     5  getIndex
+     5  into buffer
+     5  input vector
+     5  directed graph
+     5  returns vector
+     5  into list
+     5  up stack
+     5  underlying vector
+     5  stack map
+     5  into array
+     5  top stack
+     5  summary index
+     5  llvm tree
+     5  bit index
+     5  onto stack
+     5  virtual table
+     5  exhaustive list
+     5  element vector
+     5  current stack
+     5  register set
+     5  separated list
+     5  mask vector
+     5  dynamic symbol table
+     4  flags set
+     4  build tree
+     4  empty vector
+     4  manually set
+     4  invalid index
+     4  starting index
+     4  store vector
+     4  ImmutableSet
+     4  ImmutableMap
+     4  void set
+     4  SparseBitVector
+     4  last set
+     4  return hash
+     4  create vector
+     4  representing set
+     4  based index
+     4  start index
+     4  current index
+     4  SmallDenseMap
+     4  already set
+     4  class map
+     4  provides set
+     4  change set
+     4  input set
+     4  empty set
+     4  following set
+     4  just set
+     4  value stack
+     4  MapVector
+     4  control-flow graph
+     4  block map
+     4  registers stack
+     4  value set
+     4  function map
+     4  into table
+     4  frame index
+     4  SafeStack
+     4  unwinds stack
+     4  address map
+     4  used map
+     4  dwarf expression stack
+     4  location list
+     4  off stack
+     4  dwarf location list
+     4  are vector
+     4  function table
+     4  virtual function table
+     4  expression stack
+     4  MemoryBuffer
+     4  being set
+     4  variables set
+     4  name table
+     4  accelerator table
+     4  operand list
+     4  scalars vector
+     4  code set
+     4  used vector
+     4  display list
+     4  default set
+     4  contain list
+     4  specified index
+     4  serialized hash
+     3  non-empty list
+     3  was set
+     3  automatically set
+     3  unwind table
+     3  loop index
+     3  simple array
+     3  SmallSet
+     3  allocated array
+     3  intrusive linked list
+     3  IntervalMap
+     3  ImmutableList
+     3  findIndex
+     3  p set
+     3  StringSet
+     3  VisitStack
+     3  block list
+     3  into tree
+     3  return set
+     3  uint32_t hash
+     3  end index
+     3  another list
+     3  initializer list
+     3  TinyPtrVector
+     3  parameter list
+     3  into map
+     3  up index
+     3  probed hash
+     3  bucket list
+     3  they map
+     3  spanning tree
+     3  second vector
+     3  sorted vector
+     3  c array
+     3  key set
+     3  SparseSet
+     3  dense vector
+     3  non-empty set
+     3  result set
+     3  otherwise set
+     3  character array
+     3  return buffer
+     3  vectortype vector
+     3  always set
+     3  SmallSetVector
+     3  byte buffer
+     3  entry list
+     3  IndexedMap
+     3  within stack
+     3  register stack
+     3  limited set
+     3  field set
+     3  see table
+     3  ordered list
+     3  second list
+     3  dependence graph
+     3  describes set
+     3  instrumentation map
+     3  function call stack
+     3  print list
+     3  module summary index
+     3  attribute list
+     3  pointer stack
+     3  above table
+     3  block address map
+     3  length array
+     3  address-significance table
+     3  test vector
+     3  contains array
+     3  used stack
+     3  name index
+     3  sequence table
+     3  second stack
+     3  initial stack
+     3  support stack
+     3  allow stack
+     3  empty stack
+     3  CallGraph
+     3  DominatorTree
+     3  build map
+     3  information set
+     3  character set
+     3  like set
+     3  alias set
+     3  sifive vector
+     3  shadow stack
+     3  feature set
+     3  output vector
+     3  intrinsics set
+     3  source vector
+     3  contiguous set
+     3  large array
+     3  through list
+     3  option set
+     3  cmake set
+     3  global list
+     3  empty array
+     3  function call graph
+     3  should map
+     3  class list
+     3  InOperandList
+     3  OutOperandList
+     3  allocating stack
+     3  function stack
+     3  emit stack
+     3  amdgpu buffer
+     3  minimal set
+     3  might set
+     3  point vector
+     3  generate vector
+     3  dependency graph
+     3  integer vector
+     3  metadata set
+     3  argument stack
+     3  ViewGraph
+     3  comma separated list
+     3  tip tree
+     3  exact set
+     3  elements vector
+     3  define set
+     3  second index
+     3  where vector
+     3  predicated vector
+     3  within vector
+     3  target instruction set
+     3  masked vector
+     3  structs array
+     3  optional list
+     3  md5 hash
+     3  generate table
+     3  traditional instruction set
+     3  generate set
+     3  section index
+     3  access stack
+     3  integer index
+     3  flattened index
+     3  n set
+     3  d array
+     3  make array
+     3  variable symbol table
+     3  namedvalues map
+     3  read list
+     3  dynamic table
+     3  G_BUILD_VECTOR
+     2  directory tree
+     2  electronic mailing list
+     2  separate directory tree
+     2  module map
+     2  type set
+     2  LLVM_BINDINGS_LIST
+     2  correctly set
+     2  implements set
+     2  current set
+     2  linear-probed hash
+     2  shrink array
+     2  pointer set
+     2  idx set
+     2  efficiently set
+     2  attempted set
+     2  SmallBitVector
+     2  return list
+     2  return map
+     2  interval map
+     2  keys map
+     2  getCanonicalTree
+     2  ImutAVLTree
+     2  filterTree
+     2  getEmptyTree
+     2  include index
+     2  test_and_set
+     2  out set
+     2  balanced tree
+     2  visited set
+     2  simple set
+     2  search tree
+     2  array index
+     2  search table
+     2  returns hash
+     2  bucket index
+     2  over graph
+     2  generic graph
+     2  PackedVector
+     2  string hash table
+     2  data set
+     2  RadixTree
+     2  RewriteRope
+     2  computeHash
+     2  avoid heap
+     2  UniquingSet
+     2  ref set
+     2  CoalescingBitVector
+     2  sort list
+     2  clone another list
+     2  end list
+     2  where set
+     2  they are set
+     2  TypeAtIndex
+     2  OutputIndex
+     2  ptrdiff_t index
+     2  overload set
+     2  variadic list
+     2  already map
+     2  access map
+     2  precomputed hash
+     2  allocate table
+     2  behavior stack
+     2  even hash
+     2  compute index
+     2  c index
+     2  to_vector
+     2  PointerValueHash
+     2  walk tree
+     2  invalid hash
+     2  significant set
+     2  typename set
+     2  selects set
+     2  deallocate_buffer
+     2  allocate_buffer
+     2  dense probed hash
+     2  small buffer
+     2  char buffer
+     2  used array
+     2  light tree
+     2  represents set
+     2  IntervalTree
+     2  value index
+     2  external buffer
+     2  valid list
+     2  doubly-linked list
+     2  tradeoff set
+     2  valid index
+     2  sparse array
+     2  than hash
+     2  free list
+     2  SparseMultiSet
+     2  since list
+     2  clears set
+     2  empty map
+     2  convert buffer
+     2  output list
+     2  clear vector
+     2  data vector
+     2  PagedVector
+     2  input change set
+     2  smallest set
+     2  priority_queue
+     2  are both set
+     2  global table
+     2  auto table
+     2  sparse set
+     2  UniqueVector
+     2  insert vector
+     2  BumpPtrList
+     2  getTemporalDivergenceList
+     2  InvalidIndex
+     2  returns set
+     2  find set
+     2  than set
+     2  fast set
+     2  allows set
+     2  SourceBuffer
+     2  input buffer
+     2  DeltaTree
+     2  original set
+     2  explicit stack
+     2  DirectedGraph
+     2  takeVector
+     2  implements map
+     2  full vector
+     2  addToBlockMap
+     2  preorder array
+     2  one-element entry list
+     2  BlockMap
+     2  preorder index
+     2  cycle tree
+     2  df_iterator_default_set
+     2  auxiliary hash
+     2  small map
+     2  SortedVectorMap
+     2  zero auxiliary hash
+     2  per-node heap
+     2  operations set
+     2  StringTable
+     2  resulting stack
+     2  StackMap
+     2  emits stack
+     2  register list
+     2  collected heap
+     2  vector index
+     2  identifier list
+     2  than vector
+     2  entire array
+     2  create nested list
+     2  build set
+     2  nested list
+     2  unordered list
+     2  pool index
+     2  explicitly set
+     2  DBG_VALUE_LIST
+     2  constant pool index
+     2  segmented stack
+     2  data dependence graph
+     2  xray_instr_map
+     2  FlameGraph
+     2  attribute set
+     2  post-dominator tree
+     2  non-comprehensive list
+     2  switch table
+     2  produce table
+     2  describe stack
+     2  variable stack
+     2  SHT_LLVM_CALL_GRAPH
+     2  variable length array
+     2  know index
+     2  pgo analysis map
+     2  symbol index
+     2  analysis map
+     2  generates index
+     2  SHT_LLVM_CFI_JUMP_TABLE
+     2  cfi jump table
+     2  executed test vector
+     2  operation expression stack
+     2  location storage map
+     2  called stack
+     2  simple stack
+     2  extensive location list
+     2  compiler map
+     2  represent vector
+     2  operations index
+     2  separate stack
+     2  empty initial stack
+     2  now support stack
+     2  callee stack
+     2  entry index
+     2  object list
+     2  types vector
+     2  fortran array
+     2  especially array
+     2  expression evaluation stack
+     2  callers stack
+     2  dwarf stack
+     2  pairs stack
+     2  non-singleton stack
+     2  entire vector
+     2  support vector
+     2  represents index
+     2  third stack
+     2  specified location list
+     2  reading array
+     2  storage bit index
+     2  hardware vector
+     2  type vector
+     2  allows stack
+     2  storage map
+     2  rule table
+     2  evaluation stack
+     2  zero-based index
+     2  provides index
+     2  duplicates stack
+     2  matching location list
+     2  dynamic array
+     2  pops stack
+     2  node set
+     2  are already set
+     2  cannot set
+     2  maintain list
+     2  maintains list
+     2  breakpoints set
+     2  AttributeList
+     2  update unicode table
+     2  unicode table
+     2  unordered_map
+     2  minimal list
+     2  dimensional array
+     2  data hash
+     2  metadata map
+     2  comprehensive list
+     2  section list
+     2  provide list
+     2  AliasSet
+     2  sure set
+     2  constant stack
+     2  through table
+     2  small array
+     2  instructions map
+     2  VTable
+     2  want set
+     2  you want set
+     2  overflow buffer
+     2  we map
+     2  instruction lookup table
+     2  similar set
+     2  byte array
+     2  doxygen tree
+     2  llvm doxygen tree
+     2  intrinsics map
+     2  defined set
+     2  registers map
+     2  functions set
+     2  used filter
+     2  caller stack
+     2  cmake list
+     2  var list
+     2  settings set
+     2  accurate stack
+     2  rank array
+     2  name hash
+     2  assumed rank array
+     2  allocatable array
+     2  type graph
+     2  into hash
+     2  form stack
+     2  are array
+     2  create list
+     2  DIArgList
+     2  risc-v vector
+     2  incomplete list
+     2  private mailing list
+     2  you filter
+     2  dev list
+     2  chip set
+     2  emitted table
+     2  string set
+     2  returns list
+     2  into queue
+     2  UseNamedOperandTable
+     2  FrameIndex
+     2  risc instruction set
+     2  sve vector
+     2  allocate stack
+     2  pass set
+     2  performs heap
+     2  constant array
+     2  i32 index
+     2  getStandaloneMemoryBuffer
+     2  query set
+     2  object tree
+     2  would set
+     2  llvm object tree
+     2  you might set
+     2  mode set
+     2  floating point vector
+     2  input list
+     2  implicitly set
+     2  used index
+     2  fault map
+     2  creating vector
+     2  getBuffer
+     2  trap set
+     2  combined summary index
+     2  dynamic call stack
+     2  buffer index
+     2  cases list
+     2  offset table
+     2  global offset table
+     2  file set
+     2  just list
+     2  adjust stack
+     2  address stack
+     2  values map
+     2  minimum set
+     2  contains map
+     2  function list
+     2  scratch buffer
+     2  expression tree
+     2  non-exhaustive list
+     2  getArgumentList
+     2  storing vector
+     2  element index
+     2  sequential list
+     2  type table
+     2  commit hash
+     2  stable tree
+     2  attributes are set
+     2  restrict set
+     2  jit stack
+     2  export table
+     2  could set
+     2  complete vector
+     2  wide vector
+     2  determine set
+     2  global buffer
+     2  possible set
+     2  via hash
+     2  instruction index
+     2  standard vector
+     2  false set
+     2  represent list
+     2  avoid dynamic stack
+     2  altivec vector
+     2  passthru vector
+     2  destination vector
+     2  starting at index
+     2  result vector
+     2  variable sized array
+     2  flags are set
+     2  references heap
+     2  gives index
+     2  runtime stack
+     2  type list
+     2  fixed-length vector
+     2  are list
+     2  fixed vector
+     2  export list
+     2  dc test vector
+     2  describe set
+     2  ssa graph
+     2  section table
+     2  sized array
+     2  subsequent vector
+     2  regular vector
+     2  minimum vector
+     2  llvm instruction set
+     2  extract vector
+     2  target-specific set
+     2  supports vector
+     2  elements array
+     2  packed array
+     2  concatenating vector
+     2  metadata table
+     2  argument index
+     2  host section table
+     2  explicit vector
+     2  complete set
+     2  see list
+     2  llvm-dev list
+     2  maximum stack
+     2  splitting vector
+     2  about stack
+     2  generates table
+     2  amount stack
+     2  longer vector
+     2  operation map
+     2  are hash
+     2  tool set
+     2  defines set
+     2  remain set
+     2  high bit set
+     2  next stack
+     2  type map
+     2  contains stack
+     2  allocates array
+     2  SV_GroupIndex
+     2  image buffer
+     2  class vector
+     2  define table
+     2  including stack
+     2  between vector
+     2  structured buffer
+     2  within map
+     2  shader hash
+     2  used buffer
+     2  byte index
+     2  data buffer
+     2  but makes array
+     2  old array
+     2  makes array
+     2  common array
+     2  just array
+     2  explicit array
+     2  let index
+     2  initial list
+     2  o explicit array
+     2  element list
+     2  size list
+     2  even make array
+     2  syntax array
+     2  standard set
+     2  functionprotos map
+     2  global module table
+     2  module table
+     2  mandelbrot set
+     2  llvm symbol table
+     2  match table
+     2  diagnostic name index
+     2  attribute spelling list
+     2  searchable table
+     2  spelling list
+     2  generate list
+     2  xfail list
+     2  symbol list
+     2  offloading display list
+     2  display hash
+     2  program call graph
+     2  symbol hash
+     2  dynamic symbol hash
+     2  expanded hash
+     2  gnu hash
+     2  indirect symbol table
+     2  free page map
+     2  offsets array
+     2  section map
+     2  type server map
+     2  server map
+     2  page map
+     2  attributes set
+     2  section name table
+     2  prints table
+     2  archive index
+     2  specify list
+     2  ir vector
+     2  G_FRAME_INDEX
+     2  ATable
+     2  GenericTable
+     2  record list
+     2  descriptor table
+     2  constant buffer
+     2  file hash
+     2  represented list
+     2  RWStructuredBuffer
+     2  signature table
+     2  tpi hash
+     2  TypeIndex
+     2  LF_ARRAY
+     2  LF_SUBSTR_LIST
+     2  named stream map
+     2  global string table
+     2  stream map
+## source: redis
+    27  addReplyBulkCBuffer
+    25  we set
+    23  output buffer
+    21  are set
+    20  sorted set
+    20  va_list
+    20  flag set
+    19  int index
+    17  OBJ_HASH
+    17  OBJ_SET
+    14  was set
+    14  OBJ_LIST
+    13  atomicSet
+    13  bit set
+    13  long index
+    12  at index
+    12  empty array
+    12  OBJ_BITMAP
+    12  dictSdsHash
+    12  rewriteClientCommandVector
+    11  config set
+    11  already set
+    11  query buffer
+    11  OBJ_ENCODING_TMPL_ARRAY
+    10  slotRangeArray
+    10  just set
+    10  argument vector
+    10  OBJ_ARRAY
+     9  client list
+     9  uint64_t hash
+     9  addReplyNullArray
+     9  redisArray
+     9  errno set
+     8  value set
+     8  input buffer
+     8  rax tree
+     8  aof buffer
+     8  field set
+     7  reply buffer
+     7  static buffer
+     7  RedisModule_ReplyWithArray
+     7  bits set
+     7  return list
+     7  rioInitWithBuffer
+     7  dictSdsCaseHash
+     7  option set
+     7  flags set
+     7  failed set
+     7  command table
+     6  space-separated list
+     6  return hash
+     6  also set
+     6  key_spec_index
+     6  empty list
+     6  client buffer
+     6  hashTemplateArray
+     6  bit index
+     6  refcount set
+     6  replication buffer
+     6  client output buffer
+     6  PAUSE_ACTIONS_CLIENT_WRITE_SET
+     6  data set
+     6  into list
+     6  roaring bitmap
+     6  order set
+     6  TMPL_ARRAY
+     5  dictGetHash
+     5  dictIdHash
+     5  ht_table
+     5  geohashbits hash
+     5  reply list
+     5  should set
+     5  zero-based index
+     5  function set
+     5  method set
+     5  returns list
+     5  client query buffer
+     5  command vector
+     5  lua stack
+     5  replaceClientCommandVector
+     5  empty set
+     5  free list
+     5  unknown set
+     5  integer set
+     5  unknown sorted set
+     5  compact integer set
+     5  into buffer
+     5  pending list
+     5  processInputBuffer
+     5  been set
+     5  output array
+     5  argv array
+     5  create list
+     5  pointer set
+     5  signalKeyAsReadyNonEmptyList
+     5  allocated array
+     5  temporary buffer
+     5  character set
+     5  sds array
+     4  command set
+     4  you set
+     4  still set
+     4  ll set
+     4  SipHash
+     4  table_index
+     4  const geohashbits hash
+     4  encoded buffer
+     4  but set
+     4  resulting array
+     4  argument set
+     4  lookup table
+     4  zbtreeSet
+     4  always set
+     4  RedisModule_GetClusterNodesList
+     4  bit hash
+     4  listIndex
+     4  char hash
+     4  command list
+     4  unsigned char hash
+     4  header map
+     4  repl_full_sync_buffer
+     4  unknown hash
+     4  kvobjSet
+     4  expire set
+     4  unknown list
+     4  send buffer
+     4  clusterAsmCancelBySlotRangeArray
+     4  reusable query buffer
+     4  later set
+     4  repl buffer
+     4  via config set
+     4  putClientInPendingWriteQueue
+     4  timeout set
+     4  char buffer
+     4  static list
+     4  sparse array
+     4  null array
+     4  arSet
+     4  listpack hash
+     4  kvstoreGetFairRandomDictIndex
+     4  commands table
+     4  dictPtrHash
+     4  length set
+     4  element at index
+     4  into stack
+     4  NOTIFY_LIST
+     4  KSPEC_BS_INDEX
+     4  expiration set
+     4  used set
+     4  flat array
+     4  limit set
+     4  unsigned int index
+     4  template hash
+     4  cluster_drop_packet_filter
+     4  indexed tree
+     4  fenwickTree
+     4  BLOCKED_LIST
+     4  nested array
+     3  sentinel config set
+     3  SSL_CTX_set1_groups_list
+     3  SSL_CTX_set1_curves_list
+     3  clusterDelKeysInSlotRangeArray
+     3  getClusterNodesList
+     3  getKeyCountInSlotRangeArray
+     3  slotRangeArraySet
+     3  dictFindLinkWithHash
+     3  old table
+     3  empty table
+     3  second hash
+     3  whose hash
+     3  inside hash
+     3  int table
+     3  initialize hash
+     3  static reply buffer
+     3  free buffer
+     3  slave buffer
+     3  pre-allocated buffer
+     3  current buffer
+     3  zbtreeMemberHash
+     3  zbtreeAppendBatchAddWithHash
+     3  zbtreeScoresRawWithHash
+     3  zbtreeInsertNewAppendWithHash
+     3  uint32_t hash
+     3  zbtreeScoreRawWithHash
+     3  REDISMODULE_REPLY_MAP
+     3  REDISMODULE_KEYTYPE_LIST
+     3  FreeClusterNodesList
+     3  RedisModuleSlotRangeArray
+     3  REDISMODULE_REPLY_ARRAY
+     3  RedisModule_HashSet
+     3  RedisModule_DictSet
+     3  REDISMODULE_KEYTYPE_HASH
+     3  RedisModule_FreeClusterNodesList
+     3  REDISMODULE_REPLY_SET
+     3  currently set
+     3  specified list
+     3  struct list
+     3  global table
+     3  lru list
+     3  lua_scripts_lru_list
+     3  into array
+     3  specified hash
+     3  returns array
+     3  chkTopKList
+     3  tracking table
+     3  freeTrackingRadixTree
+     3  OBJ_ENCODING_SLICED_ARRAY
+     3  aof_buffer
+     3  global replication buffer
+     3  slot index
+     3  shared replication buffer
+     3  nothing set
+     3  blocks_index
+     3  asm_migrate_output_buffer
+     3  asm_import_input_buffer
+     3  packed b+ tree
+     3  function list
+     3  enough buffer
+     3  ebuckets tree
+     3  data buffer
+     3  blessed-keys index
+     3  asmLookupTaskBySlotRangeArray
+     3  streaming buffer
+     3  streams bitmap
+     3  sync buffer
+     3  slot range array
+     3  set stack
+     3  null set
+     3  range array
+     3  redisOpArray
+     3  copyReplicaOutputBuffer
+     3  freeReplicaReferencedReplBuffer
+     3  resetReplicationBuffer
+     3  local buffer
+     3  rebaseReplicationBuffer
+     3  inside buffer
+     3  backlog buffer
+     3  element array
+     3  sentinel set
+     3  specified buffer
+     3  comma separated list
+     3  REDIS_REPLY_ARRAY
+     3  are list
+     3  empty hash
+     3  redisCommandTable
+     3  separated list
+     3  NOTIFY_ARRAY
+     3  values array
+     3  arMayPromoteToDenseForRangeSet
+     3  actual array
+     3  into tree
+     3  doubly-linked list
+     3  top array
+     3  entries list
+     3  time-ordered list
+     3  time list
+     3  flexible array
+     3  result set
+     3  pel time-ordered list
+     3  pending entries list
+     3  returns index
+     3  elements index
+     3  slots array
+     3  contiguous array
+     3  element set
+     3  kvstoreGetFirstNonEmptyDictIndex
+     3  kvstoreGetNextNonEmptyDictIndex
+     3  incr_aof_list
+     3  redis hash
+     3  bucket array
+     3  sds buffer
+     3  loadSentinelConfigFromQueue
+     3  password set
+     3  addClientToTimeoutTable
+     3  removeClientFromTimeoutTable
+     3  clients_timeout_table
+     3  freeClientsInAsyncFreeQueue
+     3  clients list
+     3  slave output buffer
+     3  case array
+     3  client input buffer
+     3  clients_index
+     3  global list
+     3  stack buffer
+     3  pending decompression list
+     3  decompression list
+     3  hashTypeSet
+     3  callReplyDeferredErrorList
+     3  arguments vector
+     3  since set
+     3  pre_flush_buffer
+     3  flags are set
+     3  crc16_slot_table
+     3  node list
+     3  were set
+     3  moduleLoadFromQueue
+     3  native bitmap
+     3  loadmodule_queue
+     3  return array
+     3  module_configs_queue
+     3  object set
+     3  return set
+     3  t_hash
+     3  NOTIFY_SET
+     3  duplicate set
+     3  entire set
+     3  quicklistReplaceAtIndex
+     3  expected host list
+     3  host list
+     3  internal buffer
+     3  flush buffer
+     3  reply array
+     3  plain hash
+     3  repl_id_is_set
+     3  fields array
+     3  fields hash
+     3  encoded hash
+     3  current table
+     3  dict hash
+     3  type hash
+     3  fwTreeFindIndex
+     3  duplicate list
+     3  pre-existing list
+     3  already-existing list
+     3  key set
+     3  sorted array
+     3  error set
+     3  NOTIFY_BITMAP
+     3  ACLCheckChannelAgainstList
+     3  getUpcomingChannelList
+     3  flushSlaveKeysWithExpireList
+     3  NOTIFY_HASH
+     3  log list
+     3  current index
+     2  fit list
+     2  working tree
+     2  full list
+     2  binary array
+     2  job queue
+     2  common set
+     2  range_index
+     2  range index
+     2  int filter
+     2  module set
+     2  create hash
+     2  smaller table
+     2  random index
+     2  we hash
+     2  const uint64_t hash
+     2  returns hash
+     2  c hash table
+     2  larger table
+     2  i set
+     2  bucket_index
+     2  bucket index
+     2  next table
+     2  function map
+     2  both table
+     2  target table
+     2  valid hash
+     2  string buffer
+     2  return buffer
+     2  allocated buffer
+     2  uint64_t table
+     2  constants table
+     2  uint16_t table
+     2  efficient sorted set
+     2  advance index
+     2  LoadStringBuffer
+     2  ReplyWithMap
+     2  ReplyWithEmptyArray
+     2  REDISMODULE_NOTIFY_LIST
+     2  RedisModule_LoadStringBuffer
+     2  ReplyWithNullArray
+     2  HashSet
+     2  DefragCursorSet
+     2  RedisModule_StringAppendBuffer
+     2  ReplyWithSet
+     2  RegisterCommandFilter
+     2  GetClusterNodesList
+     2  ReplyWithArray
+     2  UnregisterCommandFilter
+     2  REDISMODULE_NOTIFY_HASH
+     2  ConfigSet
+     2  REDISMODULE_NOTIFY_SET
+     2  ReplyWithStringBuffer
+     2  RedisModule_ConfigSet
+     2  maxmemory set
+     2  ll list
+     2  REDISMODULE_KSPEC_BS_INDEX
+     2  DigestAddStringBuffer
+     2  StringAppendBuffer
+     2  DictSet
+     2  REDISMODULE_KEYTYPE_ARRAY
+     2  StringSet
+     2  REDISMODULE_NOTIFY_BITMAP
+     2  REDISMODULE_KEYTYPE_SET
+     2  SaveStringBuffer
+     2  RedisModuleCommandFilter
+     2  ResetReplyBuffer
+     2  ListSet
+     2  REDISMODULE_KEYTYPE_BITMAP
+     2  string set
+     2  register set
+     2  resulting set
+     2  byte index
+     2  registers set
+     2  specified zero-based index
+     2  tail list
+     2  head list
+     2  read buffer
+     2  freeing set
+     2  was already set
+     2  RIO_TYPE_BUFFER
+     2  existing set
+     2  geoArray
+     2  cuckoo table
+     2  cliSslCtxSetGroupsList
+     2  blessed index
+     2  sparse bitmap
+     2  flag was set
+     2  send_msg_queue
+     2  nodes_black_list
+     2  slots bitmap
+     2  replica_fullsync_buffer
+     2  among set
+     2  clients output buffer
+     2  empty sorted set
+     2  functions list
+     2  ziplistIndex
+     2  memory buffer
+     2  hashtable-encoded set
+     2  argument index
+     2  simply set
+     2  streaming accumulated buffer
+     2  drain buffer
+     2  target buffer
+     2  accumulated buffer
+     2  static heap
+     2  peek buffer
+     2  check output buffer
+     2  copy buffer
+     2  write queue
+     2  SEEK_SET
+     2  bytes array
+     2  update buffer
+     2  socket buffer
+     2  pending write queue
+     2  write buffer
+     2  last bytes array
+     2  canFeedReplicaReplBuffer
+     2  loading set
+     2  private query buffer
+     2  feedReplicationBuffer
+     2  failed loading hash
+     2  loading hash
+     2  importing array
+     2  callback set
+     2  cluster set
+     2  int trie
+     2  values are list
+     2  scan list
+     2  fd_set
+     2  sets list
+     2  FD_SET
+     2  against set
+     2  migrating array
+     2  original array
+     2  atomicFlagGetSet
+     2  offsets array
+     2  uint64_t index
+     2  array index
+     2  duplicate array
+     2  invalid array index
+     2  lookup array
+     2  next index
+     2  insert index
+     2  max index
+     2  parse array
+     2  elements array
+     2  end list
+     2  producers rax tree
+     2  being set
+     2  re-walking tree
+     2  updates set
+     2  emit array
+     2  pel time list
+     2  part set
+     2  ebIsList
+     2  free array
+     2  memory-efficient sparse array
+     2  where array
+     2  byte set
+     2  last set
+     2  kvstoreRandomShouldSkipDictIndex
+     2  kvstoreFindDictIndexByKeyIndex
+     2  kvstoreExpandShouldSkipDictIndex
+     2  dict index
+     2  kvstoreResizeShouldSkipDictIndex
+     2  rehashing list
+     2  policy set
+     2  correctly set
+     2  nSET
+     2  rebuild hash
+     2  history_aof_list
+     2  dismiss bucket array
+     2  empty buffer
+     2  aof list
+     2  config was set
+     2  into table
+     2  send array
+     2  scratch buffer
+     2  CLIENT_IN_TO_TABLE
+     2  max query buffer
+     2  temp buffer
+     2  free_array
+     2  deferred objects array
+     2  referenced buffer
+     2  PAUSE_ACTIONS_CLIENT_ALL_SET
+     2  pendingCommandList
+     2  objects array
+     2  caller set
+     2  processMultibulkBuffer
+     2  scattered buffer
+     2  c buffer
+     2  simple append-only vector
+     2  append-only vector
+     2  size_t index
+     2  accessKeysShouldSkipDictIndex
+     2  save stack
+     2  compression clients list
+     2  zipmapSet
+     2  string map
+     2  already been set
+     2  debug bitmap
+     2  command filter
+     2  reply block list
+     2  based index
+     2  we map
+     2  moduleunblocked list
+     2  owned reply buffer
+     2  client set
+     2  did set
+     2  invalid index
+     2  remove list
+     2  constant index
+     2  string bitmap
+     2  leave hash
+     2  iterator set
+     2  module command filter
+     2  since list
+     2  scheme trie
+     2  MAX_KEYS_BUFFER
+     2  returned array
+     2  delete hash
+     2  block list
+     2  negative index
+     2  ebArray
+     2  expiration hash
+     2  unsigned char buffer
+     2  test vector
+     2  eitem set
+     2  create set
+     2  embedded stack
+     2  old set
+     2  next set
+     2  private ebuckets tree
+     2  const eitem set
+     2  target set
+     2  notifications heap
+     2  source set
+     2  regular hash
+     2  sort set
+     2  least set
+     2  listpack encoded set
+     2  encoded set
+     2  temporary set
+     2  like hash
+     2  auxiliary set
+     2  t_set
+     2  byte hash
+     2  long long index
+     2  deferred_error_list
+     2  data was set
+     2  RDB_TYPE_SET
+     2  convert hash
+     2  contain set
+     2  duplicate hash
+     2  RDB_TYPE_BITMAP
+     2  time hash
+     2  read list
+     2  entry hash
+     2  into hash
+     2  RDB_TYPE_LIST
+     2  RDB_TYPE_HASH_TMPL_ARRAY
+     2  register hash
+     2  RDB_TYPE_HASH
+     2  RDB_TYPE_ARRAY
+     2  raxStack
+     2  static array
+     2  matched edge index
+     2  edge index
+     2  raxstack stack
+     2  write_barrier set
+     2  possible set
+     2  populateCommandTable
+     2  replica-serve-stale-data set
+     2  redis command table
+     2  JSON_TYPE_ARRAY
+     2  attempt set
+     2  keys table
+     2  int list
+     2  start index
+     2  long list
+     2  d set
+     2  merge list
+     2  vll set
+     2  createList
+     2  iterate list
+     2  create long list
+     2  reference list
+     2  createIntList
+     2  vencoding set
+     2  check set
+     2  keys list
+     2  _fenwickTree
+     2  constant table
+     2  into bitmap
+     2  err set
+     2  previously set
+     2  raw buffer
+     2  SSL_CTX_set_cipher_list
+     2  convert list
+     2  argv index
+     2  specified index
+     2  points array
+     2  unused buffer
+     2  once set
+     2  entire hash
+     2  safe set
+     2  allow list
+     2  return empty array
+     2  member hash
+     2  packed array
+     2  real hash
+     2  through table
+     2  here set
+     2  matching hash
+     2  member index
+     2  old hash
+     2  id table
+     2  __index
+     2  lua table
+     2  find index
+     2  node_cb set
+     2  ttl set
+     2  payload buffer
+     2  try_expand set
+     2  create array
+     2  readyList
+     2  ready_keys list
+     2  fresh list
+     2  old list
+     2  case list
+     2  blocked list
+     2  xxh3 hash
+     2  going set
+     2  we index
+     2  value was set
+     2  finally set
+     2  resulting command vector
+     2  optionally set
+     2  redis trie
+     2  large bitmap
+     2  return bitmap
+     2  entire list
+     2  traverse list
+     2  hashes set
+     2  tmpl_array hash
+     2  upcoming channel list
+     2  ACL_CATEGORY_BITMAP
+     2  ACL_CATEGORY_HASH
+     2  ACL_CATEGORY_ARRAY
+     2  command bit set
+     2  channel list
+     2  could set
+     2  ACL_CATEGORY_LIST
+     2  ACL_CATEGORY_SET
+     2  argv vector
+     2  client array
+     2  msg queue
+     2  here we set
+     2  slots list
+     2  size set
+     2  temporary array
+     2  node array
+     2  KEYSIZES_ROW_HASH
+     2  KEYSIZES_ROW_SET
+     2  inside array
+     2  KEYSIZES_ROW_LIST
+     2  KEYSIZES_ROW_BITMAP
+     2  over set
+     2  use_nested_array
+     2  ascii graph
+     2  chunked array
+     2  eitem hash
+     2  commutative hash
+     2  over list
+     2  field_index
+     2  const eitem hash
+     2  hashTypeCurrentFromHashTable
+     2  fields set
+     2  computeFieldsHash
+     2  field index
+     2  empty tree
+     2  list hash
+## source: abseil
+    18  initializer_list
+    12  raw_hash_set
+     9  overload set
+     8  typename hash
+     8  DefaultHashContainerHash
+     8  flat_hash_map
+     8  flat_hash_set
+     8  initializer list
+     8  DefaultHash
+     7  class hash
+     6  swiss table
+     6  absl_container_hash
+     5  returns hash
+     5  unordered_map
+     5  raw_hash_map
+     5  btree_set
+     5  TypeList
+     5  UnordMap
+     4  underlying buffer
+     4  within hash
+     4  node_hash_map
+     4  ignore set
+     4  used hash
+     4  node_hash_set
+     4  btree_map
+     4  raw_linked_hash_set
+     4  IsMap
+     4  unordered_set
+     4  UnorderedElementsAreArray
+     4  class map
+     4  typename map
+     4  directly set
+     3  InstantiateRawHashMap
+     3  within table
+     3  linked_hash_map
+     3  linked_hash_set
+     3  kIsMap
+     3  InstantiateRawHashSet
+     3  UnordSet
+     3  const hash
+     3  StringHash
+     3  returns index
+     2  source tree
+     2  should set
+     2  abseil hash
+     2  default hash
+     2  FixedArray
+     2  moved-from map
+     2  node hash
+     2  deletion map
+     2  flat hash
+     2  fixed_array
+     2  chunked_queue
+     2  inlined_vector
+     2  canonical_hash
+     2  hash_default_hash
+     2  LazyEmplaceMap
+     2  into list
+     2  KeyHash
+     2  InlinedVector
+     2  deletion set
+     2  hash set
+     2  moved-from set
+     2  BucketCountHash
+     2  AssignmentFromInitializerList
+     2  typename tree
+     2  return hash
+     2  slot_array
+     2  backing array
+     2  are set
+     2  size_t hash
+     2  typename set
+     2  const set
+     2  ShouldSampleNextTable
+     2  SwissTable
+     2  small table
+     2  HasAbslContainerHash
+## source: folly
+    22  initializer_list
+    18  unordered_map
+    14  small_vector
+    12  struct hash
+    10  size_t index
+     9  IntrusiveList
+     8  void set
+     8  unordered_set
+     8  F14Table
+     7  auto index
+     7  FBVector
+     7  size_t hash
+     6  initializer list
+     6  AtomicHashMap
+     6  AtomicHashArray
+     6  F14NodeMap
+     6  F14Set
+     5  sorted vector
+     5  char buffer
+     5  bit set
+     5  return index
+     5  returns index
+     5  getIndex
+     5  internal buffer
+     5  EvictingCacheMap
+     5  into vector
+     5  F14FastMap
+     5  F14VectorSet
+     5  HeterogeneousAccessHash
+     4  sorted_vector_map
+     4  ConcurrentSkipList
+     4  through list
+     4  folly_hash_hash
+     4  ProducerConsumerQueue
+     4  MPMCQueue
+     4  argument list
+     4  F14FastSet
+     4  F14ValueMap
+     4  F14VectorMap
+     4  F14NodeSet
+     4  F14Map
+     3  sorted_vector_set
+     3  maps set
+     3  ConstructorCallbackList
+     3  ConcurrentBSkipList
+     3  AtomicLinkedList
+     3  intrusive_list
+     3  AtomicIntrusiveLinkedList
+     3  TimeoutQueue
+     3  significant numbits set
+     3  bitIndex
+     3  numbits set
+     3  bits set
+     3  returns hash
+     3  byteIndex
+     3  return map
+     3  index index
+     3  typename map
+     3  are set
+     3  slot index
+     3  into list
+     3  CountedIntrusiveList
+     3  F14Vector
+     3  sso buffer
+     3  iterToIndex
+     3  base table
+     3  F14BasicMap
+     3  like set
+     3  findFirstSet
+     3  F14ValueSet
+     3  typename index
+     2  ConcurrentHashMap
+     2  concurrent hash
+     2  msb set
+     2  dynamic array
+     2  into array
+     2  was set
+     2  concurrent skip list
+     2  finite set
+     2  typename list
+     2  return hash
+     2  ConcurrentBitSet
+     2  AtomicUnorderedMap
+     2  folly_small_vector
+     2  folly_container_intrusive_list
+     2  folly_container_f14_hash
+     2  onto stack
+     2  atomic single-linked list
+     2  single-linked list
+     2  splitIndex
+     2  FOLLY_BSKIP_FRIEND_LIST
+     2  flag set
+     2  pointer set
+     2  toByteArray
+     2  mpmc queue
+     2  constexpr_find_first_set
+     2  based index
+     2  value set
+     2  free list
+     2  member set
+     2  character array
+     2  unique index
+     2  comma-separated list
+     2  VTable
+     2  into buffer
+     2  sub map
+     2  thisMap
+     2  interning set
+     2  subMap
+     2  SubMap
+     2  encodeIndex
+     2  concurrent_hash_map
+     2  into map
+     2  primary map
+     2  retrieve index
+     2  tryLockMap
+     2  bounded concurrent queue
+     2  concurrent queue
+     2  scratch buffer
+     2  old buffer
+     2  working set
+     2  allocator-aware heap
+     2  small buffer
+     2  SafeIntrusiveList
+     2  empty map
+     2  probing hash
+     2  instruction set
+     2  FixedCapacityRingQueue
+     2  f14 table
+     2  f14 map
+     2  large table
+     2  secondary hash
+     2  class map
+     2  finish map
+     2  inbound index
+     2  needed map
+     2  frees heap
+     2  methodset hash
+     2  character buffer
+     2  include heap
+     2  f14 set
+     2  tailIndex
+     2  external character buffer
+     2  cold map
+     2  non-avalanching hash
+     2  IntrusiveHeap
+     2  intrusive list
+     2  DynamicRingQueue
+     2  GenerationalCacheMap
+     2  SparseByteSet
+     2  WeightedEvictingCacheMap
+     2  non-const set
+     2  THash
+     2  keyHash
+     2  callback set
+     2  cache map
+     2  lru list
+     2  at index
+     2  firstSet
+     2  size_type index
+     2  F14BasicSet
+     2  get_index
+     2  ShouldAssume32BitHash
+     2  computeKeyHash
+     2  hasIndex
+     2  computeItemHash
+     2  findLastSet
+     2  shouldAssume32BitHash
+     2  item index

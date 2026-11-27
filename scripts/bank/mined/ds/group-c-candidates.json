@@ -1,0 +1,341 @@
+{
+ "data-structure": [
+  {
+   "name": "SmallVector",
+   "aliases": [
+    "small_vector",
+    "InlinedVector",
+    "inlined_vector"
+   ],
+   "judge": "race",
+   "evidence": "llvm: SmallVector",
+   "why": "LLVM vector with inline storage; folly small_vector and abseil InlinedVector are the same design"
+  },
+  {
+   "name": "DenseMap",
+   "aliases": [
+    "SmallDenseMap"
+   ],
+   "judge": "race",
+   "evidence": "llvm: DenseMap",
+   "why": "LLVM open-addressing hash map"
+  },
+  {
+   "name": "DenseSet",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "llvm: DenseSet",
+   "why": "LLVM open-addressing hash set"
+  },
+  {
+   "name": "SmallPtrSet",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "llvm: SmallPtrSet",
+   "why": "LLVM pointer set with small inline buffer"
+  },
+  {
+   "name": "SetVector",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "llvm: SetVector",
+   "why": "LLVM insertion-ordered set (vector plus set)"
+  },
+  {
+   "name": "MapVector",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "llvm: MapVector",
+   "why": "LLVM insertion-ordered map"
+  },
+  {
+   "name": "SparseSet",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "llvm: SparseSet",
+   "why": "Briggs-Torczon sparse set, LLVM implementation"
+  },
+  {
+   "name": "SparseMultiSet",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "llvm: SparseMultiSet",
+   "why": "LLVM multiset variant of the sparse set"
+  },
+  {
+   "name": "SparseBitVector",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "llvm: SparseBitVector",
+   "why": "LLVM bit vector stored as sparse blocks"
+  },
+  {
+   "name": "CoalescingBitVector",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "llvm: CoalescingBitVector",
+   "why": "LLVM interval-coalescing bit set"
+  },
+  {
+   "name": "SmallBitVector",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "llvm: SmallBitVector",
+   "why": "LLVM bit vector with inline storage"
+  },
+  {
+   "name": "FoldingSet",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "llvm: FoldingSet",
+   "why": "LLVM hash set that uniques nodes by folding their fields"
+  },
+  {
+   "name": "ImmutableMap",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "llvm: ImmutableMap",
+   "why": "LLVM persistent map used by the Clang static analyzer"
+  },
+  {
+   "name": "ImmutableSet",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "llvm: ImmutableSet",
+   "why": "LLVM persistent set used by the Clang static analyzer"
+  },
+  {
+   "name": "IntervalMap",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "llvm: IntervalMap",
+   "why": "LLVM B-tree-style map from non-overlapping intervals to values"
+  },
+  {
+   "name": "dominator tree",
+   "aliases": [
+    "DominatorTree",
+    "post-dominator tree"
+   ],
+   "judge": "race",
+   "evidence": "llvm: dominator tree",
+   "why": "compiler tree of dominance relations over a CFG"
+  },
+  {
+   "name": "call graph",
+   "aliases": [
+    "CallGraph"
+   ],
+   "judge": "leak",
+   "evidence": "llvm: call graph",
+   "why": "graph of caller-to-callee edges; named in LLVM and compiler papers"
+  },
+  {
+   "name": "control flow graph",
+   "aliases": [
+    "control-flow graph",
+    "flow graph"
+   ],
+   "judge": "leak",
+   "evidence": "llvm: control flow graph",
+   "why": "basic-block graph of a function; standard compiler structure"
+  },
+  {
+   "name": "abstract syntax tree",
+   "aliases": [
+    "syntax tree"
+   ],
+   "judge": "npe",
+   "evidence": "llvm: abstract syntax tree",
+   "why": "parser output tree; widely known"
+  },
+  {
+   "name": "virtual table",
+   "aliases": [
+    "VTable",
+    "virtual function table"
+   ],
+   "judge": "leak",
+   "evidence": "llvm: virtual table",
+   "why": "per-class table of virtual method pointers for C++ dispatch"
+  },
+  {
+   "name": "jump table",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "llvm: jump table",
+   "why": "array of code addresses for indexed switch dispatch"
+  },
+  {
+   "name": "symbol table",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "llvm: symbol table",
+   "why": "name-to-binding table in compilers and linkers"
+  },
+  {
+   "name": "string table",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "llvm: string table",
+   "why": "ELF/linker table of NUL-terminated names"
+  },
+  {
+   "name": "global offset table",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "llvm: global offset table",
+   "why": "ELF GOT: table of resolved global addresses"
+  },
+  {
+   "name": "free list",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "llvm: free list",
+   "why": "allocator list of released blocks; named kind per project rule"
+  },
+  {
+   "name": "directed acyclic graph",
+   "aliases": [
+    "DAG"
+   ],
+   "judge": "npe",
+   "evidence": "llvm: directed acyclic graph",
+   "why": "directed graph with no cycles; widely known"
+  },
+  {
+   "name": "Swiss table",
+   "aliases": [
+    "raw_hash_set",
+    "flat_hash_map",
+    "flat_hash_set"
+   ],
+   "judge": "leak",
+   "evidence": "abseil: swiss table",
+   "why": "open-addressing hash design with SIMD group probing; abseil flat_hash_map is built on it"
+  },
+  {
+   "name": "F14 hash table",
+   "aliases": [
+    "F14",
+    "F14Table",
+    "F14Map",
+    "F14Set",
+    "F14FastMap",
+    "F14FastSet",
+    "F14VectorMap",
+    "F14VectorSet",
+    "F14NodeMap",
+    "F14NodeSet",
+    "F14ValueMap",
+    "F14ValueSet",
+    "F14BasicMap",
+    "F14BasicSet"
+   ],
+   "judge": "race",
+   "evidence": "folly: F14Table",
+   "why": "Folly's SIMD-probed hash table design"
+  },
+  {
+   "name": "AtomicHashMap",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "folly: AtomicHashMap",
+   "why": "Folly lock-free fixed-capacity hash map"
+  },
+  {
+   "name": "concurrent skip list",
+   "aliases": [
+    "ConcurrentSkipList"
+   ],
+   "judge": "race",
+   "evidence": "folly: ConcurrentSkipList",
+   "why": "Folly lock-free skip list"
+  },
+  {
+   "name": "concurrent B-skip list",
+   "aliases": [
+    "ConcurrentBSkipList"
+   ],
+   "judge": "heisenbug",
+   "evidence": "folly: ConcurrentBSkipList",
+   "why": "Folly blocked skip list variant"
+  },
+  {
+   "name": "bounded MPMC queue",
+   "aliases": [
+    "MPMCQueue"
+   ],
+   "judge": "heisenbug",
+   "evidence": "folly: MPMCQueue",
+   "why": "Folly bounded lock-free multi-producer multi-consumer queue"
+  },
+  {
+   "name": "ProducerConsumerQueue",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "folly: ProducerConsumerQueue",
+   "why": "Folly single-producer single-consumer ring queue"
+  },
+  {
+   "name": "EvictingCacheMap",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "folly: EvictingCacheMap",
+   "why": "Folly LRU cache map"
+  },
+  {
+   "name": "intrusive heap",
+   "aliases": [
+    "IntrusiveHeap"
+   ],
+   "judge": "heisenbug",
+   "evidence": "folly: IntrusiveHeap",
+   "why": "Folly binary heap whose nodes track their own index"
+  },
+  {
+   "name": "rax",
+   "aliases": [
+    "rax tree"
+   ],
+   "judge": "race",
+   "evidence": "redis: rax tree",
+   "why": "Redis radix tree implementation; named in the project rules"
+  },
+  {
+   "name": "listpack",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "redis: listpack encoded set",
+   "why": "Redis compact sequential encoding that replaced ziplist"
+  },
+  {
+   "name": "quicklist",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "redis: quicklistReplaceAtIndex",
+   "why": "Redis list of listpack nodes; structure named by its functions"
+  },
+  {
+   "name": "kvstore",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "redis: kvstoreGetFairRandomDictIndex",
+   "why": "Redis per-slot array of dicts in cluster mode"
+  },
+  {
+   "name": "ebuckets",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "redis: ebuckets tree",
+   "why": "Redis bucketed expiry tree for hash field TTLs"
+  },
+  {
+   "name": "roaring bitmap",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "redis: roaring bitmap",
+   "why": "compressed bitmap design (Lemire et al.); widely named in papers"
+  }
+ ]
+}

@@ -1,0 +1,138 @@
+{
+ "data-structure": [
+  {
+   "name": "free list",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "freebsd: 6 free list",
+   "why": "generic allocator free list, named kind"
+  },
+  {
+   "name": "page table",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "freebsd: 6 page table",
+   "why": "hardware/OS page table, allowed hardware table"
+  },
+  {
+   "name": "access control list",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "freebsd: 6 access control list",
+   "why": "named ACL data structure"
+  },
+  {
+   "name": "scatter-gather list",
+   "aliases": [
+    "gather list"
+   ],
+   "judge": "leak",
+   "evidence": "freebsd: 6 gather list",
+   "why": "named DMA scatter/gather list"
+  },
+  {
+   "name": "inverted index",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "postgres: 4 inverted index",
+   "why": "named search structure"
+  },
+  {
+   "name": "posting list",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "postgres: 4 posting list",
+   "why": "named GIN posting list structure"
+  },
+  {
+   "name": "visibility map",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "postgres: 16 visibility map",
+   "why": "named Postgres per-page bitmap structure"
+  },
+  {
+   "name": "free space map",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "postgres: 9 free space map",
+   "why": "named Postgres FSM structure"
+  },
+  {
+   "name": "generalized search tree",
+   "aliases": [
+    "GiST"
+   ],
+   "judge": "race",
+   "evidence": "postgres: 3 generalized search tree",
+   "why": "named GiST framework tree"
+  },
+  {
+   "name": "GIN",
+   "aliases": [
+    "generalized inverted index"
+   ],
+   "judge": "heisenbug",
+   "evidence": "postgres: 3 generalized inverted index",
+   "why": "named Postgres inverted index design"
+  },
+  {
+   "name": "BRIN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "postgres: 5 brin index",
+   "why": "named Postgres block range index design"
+  },
+  {
+   "name": "SLRU",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "postgres: 2 slru buffer",
+   "why": "named Postgres simple LRU cache"
+  },
+  {
+   "name": "buf_ring",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "freebsd: 3 buf_ring",
+   "why": "named FreeBSD lock-free ring"
+  },
+  {
+   "name": "lookaside list",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "windows-driver-docs: 6 lookaside list",
+   "why": "named Windows fixed-size allocator list"
+  },
+  {
+   "name": "memory descriptor list",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "windows-driver-docs: 4 memory descriptor list",
+   "why": "named Windows MDL structure"
+  },
+  {
+   "name": "SLIST",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "windows-driver-docs: 3 ExInterlockedPushEntrySList",
+   "why": "named Windows interlocked singly linked list"
+  },
+  {
+   "name": "device queue",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "windows-driver-docs: 22 device queue",
+   "why": "named Windows KDEVICE_QUEUE structure"
+  },
+  {
+   "name": "cancel-safe IRP queue",
+   "aliases": [
+    "cancel-safe queue"
+   ],
+   "judge": "heisenbug",
+   "evidence": "windows-driver-docs: 12 cancel-safe irp queue",
+   "why": "named Windows cancel-safe queue"
+  }
+ ]
+}

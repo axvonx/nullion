@@ -11,7 +11,7 @@ import pathlib
 import re
 import sys
 
-EXTS = {".rst", ".txt", ".md", ".9", ".3", ".2", ".h", ".c", ".yml", ".sgml", ".xml", ".html"}
+EXTS = {".rst", ".txt", ".md", ".9", ".3", ".2", ".h", ".c", ".hpp", ".cpp", ".cc", ".java", ".rs", ".py", ".yml", ".sgml", ".xml", ".html"}
 STOP = {"the", "a", "an", "this", "that", "of", "to", "and", "or", "is", "be", "in", "on", "for", "with", "no", "any",
         "each", "same", "its", "their", "one", "new", "per", "which", "from", "as", "by", "it", "not", "such", "all",
         "same", "other", "own", "your", "our", "his", "her", "if", "when", "then", "so", "can", "may", "must", "will",

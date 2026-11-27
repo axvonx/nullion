@@ -1,0 +1,44 @@
+{
+ "data-structure": [
+  {
+   "name": "dynamic array",
+   "aliases": [
+    "ArrayList",
+    "std::vector",
+    "Vec",
+    "growable array",
+    "resizable array"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "LinkedHashMap",
+   "aliases": [
+    "linked hash map"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "IdentityHashMap",
+   "aliases": [
+    "identity hash map"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CopyOnWriteArrayList",
+   "aliases": [
+    "copy-on-write array"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ziplist",
+   "judge": "race"
+  },
+  {
+   "name": "intset",
+   "judge": "race"
+  }
+ ]
+}

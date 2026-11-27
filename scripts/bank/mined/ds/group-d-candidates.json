@@ -1,0 +1,32 @@
+{
+ "data-structure": [
+  {
+   "name": "Treiber stack",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "openjdk: 4  treiber stack",
+   "why": "named lock-free stack design (Treiber 1986) that concurrency specialists use by name"
+  },
+  {
+   "name": "CLH queue",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "openjdk: 2  clh queue",
+   "why": "named linked-node queue design (Craig, Landin, Hagersten) used in AbstractQueuedSynchronizer"
+  },
+  {
+   "name": "SpinedBuffer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "openjdk: 10  SpinedBuffer",
+   "why": "OpenJDK's named chunked growable buffer with a spine array of chunks"
+  },
+  {
+   "name": "ChainMap",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "cpython: 2  ChainMap",
+   "why": "named collections structure: a view chaining several mappings for lookup"
+  }
+ ]
+}

@@ -1,0 +1,511 @@
+{
+ "data-structure": [
+  {
+   "name": "page table",
+   "aliases": [
+    "translation table"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "translation lookaside buffer",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "scatter-gather list",
+   "aliases": [
+    "scatter list",
+    "scatter-gather table",
+    "sg list",
+    "gather list"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "partition table",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "free list",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "process table",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "symbol table",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "file descriptor table",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "socket buffer",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ACPI table",
+   "aliases": [
+    "system description table"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "auxiliary vector",
+   "aliases": [
+    "aux vector"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "combining tree",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "sbitmap",
+   "aliases": [
+    "scalability bitmap"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "assoc_array",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "shadow page table",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "extended page table",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "min_heap",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "folio_queue",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "generic radix tree",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "fib_trie",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LPM trie",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "e820 table",
+   "aliases": [
+    "e820 map",
+    "e820 memory map"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "interrupt descriptor table",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PRD table",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "write-intent bitmap",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "block translation table",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "access control list",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "inverted index",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "posting list",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "visibility map",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "free space map",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "generalized search tree",
+   "aliases": [
+    "GiST"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "GIN",
+   "aliases": [
+    "generalized inverted index"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BRIN",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SLRU",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "buf_ring",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "lookaside list",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "memory descriptor list",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SLIST",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "device queue",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "cancel-safe IRP queue",
+   "aliases": [
+    "cancel-safe queue"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SmallVector",
+   "aliases": [
+    "InlinedVector"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "DenseMap",
+   "aliases": [
+    "SmallDenseMap"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "DenseSet",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SmallPtrSet",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SetVector",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MapVector",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SparseSet",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SparseMultiSet",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SparseBitVector",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CoalescingBitVector",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SmallBitVector",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FoldingSet",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ImmutableMap",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ImmutableSet",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "IntervalMap",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "dominator tree",
+   "aliases": [
+    "post-dominator tree"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "call graph",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "control flow graph",
+   "aliases": [
+    "flow graph"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "abstract syntax tree",
+   "aliases": [
+    "syntax tree"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "virtual table",
+   "aliases": [
+    "VTable",
+    "virtual function table"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "jump table",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "string table",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "global offset table",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "directed acyclic graph",
+   "aliases": [
+    "DAG"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Swiss table",
+   "aliases": [
+    "raw_hash_set",
+    "flat_hash_map",
+    "flat_hash_set"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "F14 hash table",
+   "aliases": [
+    "F14",
+    "F14Table",
+    "F14Map",
+    "F14Set",
+    "F14FastMap",
+    "F14FastSet",
+    "F14VectorMap",
+    "F14VectorSet",
+    "F14NodeMap",
+    "F14NodeSet",
+    "F14ValueMap",
+    "F14ValueSet",
+    "F14BasicMap",
+    "F14BasicSet"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "AtomicHashMap",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "concurrent skip list",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "concurrent B-skip list",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "bounded MPMC queue",
+   "aliases": [
+    "MPMCQueue"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ProducerConsumerQueue",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "EvictingCacheMap",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "intrusive heap",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rax",
+   "aliases": [
+    "rax tree"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "listpack",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "quicklist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "kvstore",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ebuckets",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "roaring bitmap",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Treiber stack",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CLH queue",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SpinedBuffer",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ChainMap",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LinkedHashMap",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "IdentityHashMap",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CopyOnWriteArrayList",
+   "aliases": [
+    "copy-on-write array"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ziplist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "intset",
+   "aliases": [],
+   "judge": "race"
+  }
+ ]
+}

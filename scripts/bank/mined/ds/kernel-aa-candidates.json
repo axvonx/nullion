@@ -1,0 +1,125 @@
+{
+ "data-structure": [
+  {
+   "name": "page table",
+   "aliases": [
+    "translation table"
+   ],
+   "judge": "npe",
+   "evidence": "kernel: 98 page table; kernel: 17 translation table",
+   "why": "named hardware/OS translation table, allowed as a hardware table"
+  },
+  {
+   "name": "translation lookaside buffer",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "kernel: 3 translation lookaside buffer",
+   "why": "named MMU cache structure, allowed as a hardware table"
+  },
+  {
+   "name": "scatter-gather list",
+   "aliases": [
+    "scatter gather list",
+    "scatter list"
+   ],
+   "judge": "leak",
+   "evidence": "kernel: 8 scatter-gather list; kernel: 4 scatter gather list; kernel: 4 scatter list",
+   "why": "named DMA structure (scatterlist) with its own design"
+  },
+  {
+   "name": "partition table",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "kernel: 17 partition table",
+   "why": "named on-disk table structure (MBR/GPT style)"
+  },
+  {
+   "name": "free list",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "kernel: 7 free list",
+   "why": "free list is allowed as a kind"
+  },
+  {
+   "name": "process table",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "kernel: 3 process table",
+   "why": "named OS table kind"
+  },
+  {
+   "name": "symbol table",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "kernel: 12 symbol table",
+   "why": "named compiler/linker table kind"
+  },
+  {
+   "name": "file descriptor table",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "kernel: 7 file descriptor table",
+   "why": "named kernel fd table (fdtable) with its own design"
+  },
+  {
+   "name": "socket buffer",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "kernel: 16 socket buffer",
+   "why": "named kernel packet structure (sk_buff) with its own design"
+  },
+  {
+   "name": "ACPI table",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: 43 acpi table",
+   "why": "named firmware table structure, allowed as a hardware table"
+  },
+  {
+   "name": "auxiliary vector",
+   "aliases": [
+    "aux vector"
+   ],
+   "judge": "heisenbug",
+   "evidence": "kernel: 6 auxiliary vector; kernel: 6 aux vector",
+   "why": "named ELF/ABI key-value structure on the process stack"
+  },
+  {
+   "name": "combining tree",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: 4 combining tree",
+   "why": "named RCU tree structure in kernel docs"
+  },
+  {
+   "name": "sbitmap",
+   "aliases": [
+    "scalability bitmap"
+   ],
+   "judge": "heisenbug",
+   "evidence": "kernel: 5 scalability bitmap",
+   "why": "named Linux scalable bitmap structure (sbitmap)"
+  },
+  {
+   "name": "assoc_array",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: 4 assoc_array",
+   "why": "named Linux associative array structure with its own design"
+  },
+  {
+   "name": "shadow page table",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "kernel: 4 shadow page table",
+   "why": "named virtualization page table design"
+  },
+  {
+   "name": "extended page table",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "kernel: 3 extended page table",
+   "why": "named hardware virtualization page table (EPT)"
+  }
+ ]
+}

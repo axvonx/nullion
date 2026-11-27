@@ -77,11 +77,26 @@ The user's time is the scarce resource, so per category the only manual work sho
 
 ## Milestone 2: launch
 
-- **Fallback judge:**
-  - A Cloudflare Worker running Haiku 5.5 on API credits, at about $0.00025 per verdict.
-  - It caches only "yes" verdicts; Claude web search is a last resort.
-  - Rate limiting is per IP and per day.
-  - Accepted misses flow back into the bank through stage 6.
+- **Long-tail answers, judged offline rather than live (proposed 2026-11-26, replaces the live-judge plan):**
+  - **The evidence dictionary.** Mining already produces every phrase and identifier in the source trees that ends in a category's head noun. That's thousands of noisy strings per category. We keep all of them, not just the survivors.
+  - **Judge the dictionary offline.**
+    - Batch Haiku judges each mined string against the membership rule, with its source snippet as evidence. Strings go about 50 to a request, so the whole bank costs a few dollars, once.
+    - Accepted strings go into the bank. Low-confidence ones go to the Inbox.
+    - This makes the precomputed bank as large as the evidence allows.
+  - **Live play uses no paid API.** A guess is checked in this order:
+    1. against the bank (free);
+    2. otherwise against the evidence dictionary (free). A hit means it was already judged offline.
+    3. Anything else has no public evidence anywhere we looked. That covers both bogus guesses and true dark matter, like an RE-only name. It's rejected with "Not accepted", and the report link is offered.
+
+    So bogus volume costs nothing, and there's no worst case to rate-limit.
+  - **Learning loop without an LLM:**
+    - A tiny Worker plus KV counts normalised rejected guesses per prompt. That's a counter, not a judge.
+    - Strings that many players type rise to the top of a review queue, alongside GitHub reports.
+    - A human accepts them, with a citation, into the bank.
+  - **Live LLM judging stays optional.** It's only for guesses that are frequent *and* unresolved, and it never fires per keystroke or per player.
+  - **Measuring recall.**
+    - Hold out reference lists (Wikipedia lists, textbook indexes) and check what share the pipeline found without them.
+    - Playtest misses are the other measure, as the lock gaps showed.
 - **Production Endless entry:**
   - A Daily/Endless switch on the title screen, replacing the debug chip.
   - A personal best stored in localStorage.

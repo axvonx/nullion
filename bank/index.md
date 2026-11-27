@@ -20,7 +20,7 @@
 | conflict-free-replicated-data-type | Name a conflict-free replicated data type | data-graphics-algorithms | draft | 0 | 7 |
 | consensus-protocol | Name a consensus protocol | data-graphics-algorithms | draft | 0 | 7 |
 | cryptographic-hardness-assumption | Name a cryptographic hardness assumption | data-graphics-algorithms | draft | 0 | 7 |
-| data-structure | Name a data structure | data-graphics-algorithms | approved | 88 | 0 |
+| data-structure | Name a data structure | data-graphics-algorithms | approved | 88 | 89 |
 | database | Name a database | data-graphics-algorithms | draft | 0 | 7 |
 | distributed-hash-table | Name a distributed hash table | data-graphics-algorithms | draft | 0 | 7 |
 | dynamic-programming-problem | Name a dynamic programming problem | data-graphics-algorithms | draft | 0 | 7 |

@@ -4,102 +4,103 @@ Corpora: kernel, dblp, arxiv. score = Σ weight × min(1, log1p(count)/log1p(ref
 
 ## data-structure
 
-88 candidates; 6 with no evidence.
+89 candidates; 44 with no evidence.
 
 | answer | kernel | dblp | arxiv | score | tier | source | judge | bank file |
 |---|---|---|---|---|---|---|---|---|
-| array | 1656 | 34589 | 11019 | 1.00 | off-by-one | counts | off-by-one | off-by-one |
-| stack | 1112 | 12660 | 10257 | 1.00 | off-by-one | counts | off-by-one | off-by-one |
-| queue | 1842 | 13105 | 3806 | 0.96 | off-by-one | counts | off-by-one | off-by-one |
-| graph | 214 | 206666 | 90723 | 0.95 | off-by-one | counts | off-by-one | off-by-one |
-| hash table | 139 | 9920 | 4982 | 0.90 | off-by-one | counts | off-by-one | off-by-one |
-| heap | 159 | 1228 | 663 | 0.73 | npe | counts | npe | npe |
-| bit array | 455 | 839 | 413 | 0.72 | npe | counts | npe | npe |
-| bloom filter | 26 | 1149 | 321 | 0.64 | womm | pin | — | womm |
-| trie | 36 | 499 | 339 | 0.62 | npe | counts | npe | npe |
-| binary tree | 2 | 1116 | 596 | 0.60 | npe | counts | off-by-one | npe |
-| priority queue | 8 | 743 | 234 | 0.58 | npe | counts | npe | npe |
-| B-tree | 14 | 639 | 188 | 0.58 | npe | counts | npe | npe |
-| B+ tree | 14 | 639 | 188 | 0.58 | npe | counts | leak | npe |
-| linked list | 112 | 186 | 143 | 0.57 | npe | counts | off-by-one | npe |
-| Merkle tree | 53 | 268 | 157 | 0.57 | npe | counts | leak | npe |
-| disjoint-set | 20 | 183 | 341 | 0.56 | leak | counts | leak | leak |
-| octree | 0 | 717 | 387 | 0.54 | leak | counts | race | leak |
-| binary search tree | 5 | 393 | 202 | 0.53 | leak | counts | npe | leak |
-| adjacency matrix | 0 | 201 | 1179 | 0.53 | leak | counts | npe | leak |
-| quadtree | 0 | 910 | 205 | 0.52 | leak | counts | leak | leak |
-| ring buffer | 331 | 46 | 40 | 0.49 | leak | counts | npe | leak |
-| suffix tree | 0 | 461 | 185 | 0.49 | leak | counts | leak | leak |
-| k-d tree | 0 | 333 | 212 | 0.48 | leak | counts | leak | leak |
-| red-black tree | 83 | 67 | 41 | 0.47 | leak | counts | npe | leak |
-| suffix array | 0 | 339 | 144 | 0.46 | leak | counts | race | leak |
-| LSM tree | 1 | 292 | 83 | 0.45 | leak | counts | race | leak |
-| R-tree | 0 | 367 | 89 | 0.44 | leak | counts | race | leak |
-| skip list | 4 | 129 | 71 | 0.44 | leak | counts | leak | leak |
-| radix tree | 28 | 63 | 34 | 0.43 | leak | counts | leak | leak |
-| cuckoo hash table | 0 | 113 | 70 | 0.38 | leak | counts | race | leak |
-| interval tree | 27 | 30 | 20 | 0.37 | leak | counts | race | leak |
-| wavelet tree ⚠ counts said leak | 0 | 135 | 43 | 0.37 | heisenbug | judge (override) | heisenbug | heisenbug |
-| AVL tree | 3 | 67 | 28 | 0.36 | leak | counts | leak | leak |
-| cuckoo filter | 0 | 139 | 34 | 0.36 | leak | counts | race | leak |
-| segment tree | 0 | 72 | 57 | 0.36 | leak | counts | leak | leak |
-| adjacency list | 0 | 32 | 115 | 0.35 | leak | counts | npe | leak |
-| deque | 0 | 85 | 32 | 0.34 | leak | counts | npe | leak |
-| count-min sketch | 0 | 49 | 53 | 0.34 | leak | counts | race | leak |
-| splay tree | 0 | 44 | 49 | 0.33 | leak | counts | leak | leak |
-| doubly linked list | 8 | 18 | 26 | 0.33 | leak | counts | npe | leak |
-| DAWG | 0 | 63 | 34 | 0.33 | leak | counts | race | leak |
-| HyperLogLog | 0 | 40 | 47 | 0.32 | leak | counts | race | leak |
-| Cartesian tree | 0 | 43 | 25 | 0.30 | race | counts | race | race |
-| XArray | 62 | 7 | 6 | 0.29 | race | counts | heisenbug | race |
-| Fibonacci heap | 0 | 21 | 27 | 0.27 | race | counts | leak | race |
-| treap | 0 | 20 | 21 | 0.26 | race | counts | race | race |
-| pairing heap | 0 | 29 | 14 | 0.26 | race | counts | race | race |
-| top tree | 0 | 19 | 17 | 0.25 | race | counts | heisenbug | race |
-| B-epsilon tree | 0 | 25 | 10 | 0.24 | race | counts | heisenbug | race |
-| quotient filter | 0 | 18 | 13 | 0.24 | race | counts | heisenbug | race |
-| zipper | 0 | 127 | 1 | 0.23 | race | counts | race | race |
-| Fenwick tree | 0 | 9 | 17 | 0.22 | race | counts | race | race |
-| fusion tree | 0 | 21 | 7 | 0.22 | bitflip | pin | — | bitflip |
-| 2-3 tree | 0 | 24 | 6 | 0.22 | race | counts | leak | race |
-| link-cut tree | 0 | 7 | 13 | 0.20 | heisenbug | counts | heisenbug | heisenbug |
-| sparse table | 0 | 13 | 6 | 0.20 | heisenbug | counts | race | heisenbug |
-| van Emde Boas tree | 0 | 12 | 6 | 0.19 | heisenbug | counts | heisenbug | heisenbug |
-| soft heap | 0 | 8 | 8 | 0.19 | heisenbug | judge | heisenbug | heisenbug |
-| binomial heap | 0 | 9 | 6 | 0.18 | race | judge | race | race |
-| xor filter | 0 | 9 | 6 | 0.18 | heisenbug | judge | heisenbug | heisenbug |
-| Euler tour tree | 0 | 5 | 9 | 0.18 | heisenbug | judge | heisenbug | heisenbug |
-| hlist | 53 | 0 | 3 | 0.17 | heisenbug | counts | heisenbug | heisenbug |
-| min-max heap | 0 | 11 | 3 | 0.16 | heisenbug | counts | race | heisenbug |
-| finger tree | 0 | 7 | 4 | 0.16 | race | judge | race | race |
-| maple tree | 29 | 1 | 1 | 0.16 | heisenbug | counts | heisenbug | heisenbug |
-| adaptive radix tree | 0 | 18 | 1 | 0.15 | heisenbug | counts | race | heisenbug |
-| skew heap | 0 | 8 | 2 | 0.14 | heisenbug | judge | heisenbug | heisenbug |
-| leftist heap | 0 | 4 | 3 | 0.13 | race | judge | race | race |
-| plist | 0 | 3 | 2 | 0.11 | heisenbug | judge | heisenbug | heisenbug |
-| Bw-tree | 0 | 4 | 1 | 0.10 | heisenbug | judge | heisenbug | heisenbug |
-| d-ary heap | 0 | 1 | 2 | 0.08 | race | judge | race | race |
-| BK-tree | 0 | 1 | 2 | 0.08 | heisenbug | judge | heisenbug | heisenbug |
-| order-statistic tree | 0 | 0 | 3 | 0.06 | race | judge | race | race |
-| RRB vector | 0 | 3 | 0 | 0.06 | heisenbug | judge | heisenbug | heisenbug |
-| kfifo | 5 | 0 | 0 | 0.05 | heisenbug | judge | heisenbug | heisenbug |
-| Brodal queue | 0 | 0 | 2 | 0.05 | heisenbug | judge | heisenbug | heisenbug |
-| radix heap | 0 | 0 | 2 | 0.05 | heisenbug | judge | heisenbug | heisenbug |
-| scapegoat tree | 0 | 2 | 0 | 0.05 | heisenbug | judge | heisenbug | heisenbug |
-| unrolled linked list | 0 | 2 | 0 | 0.05 | race | judge | race | race |
-| IDR | 3 | 0 | 0 | 0.04 | heisenbug | judge | heisenbug | heisenbug |
-| hash array mapped trie | 0 | 0 | 1 | 0.03 | race | judge | race | race |
-| rope | 0 | 1 | 0 | 0.03 | race | judge | race | race |
-| 2-3-4 tree | 0 | 1 | 0 | 0.03 | race | judge | race | race |
-| CHAMP ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | heisenbug |
-| gap buffer ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | race |
-| piece table ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | race |
-| Judy array ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | heisenbug |
-| XOR linked list ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | race |
+| call graph ⚠ counts said off-by-one | 9 | 376 | 437 | 0.91 | leak | judge (override) | leak | — |
+| directed acyclic graph | 1 | 686 | 1816 | 0.84 | npe | counts | npe | — |
+| page table | 469 | 112 | 104 | 0.82 | npe | counts | npe | — |
+| control flow graph | 0 | 845 | 533 | 0.80 | npe | counts | leak | — |
+| GIN ⚠ counts said npe | 17 | 110 | 134 | 0.78 | heisenbug | judge (override) | heisenbug | — |
+| abstract syntax tree | 0 | 233 | 604 | 0.77 | npe | counts | npe | — |
+| inverted index | 0 | 220 | 196 | 0.70 | npe | counts | leak | — |
+| access control list | 16 | 48 | 31 | 0.63 | npe | counts | npe | — |
+| combining tree ⚠ counts said npe | 21 | 33 | 32 | 0.62 | heisenbug | judge (override) | heisenbug | — |
+| symbol table | 24 | 24 | 18 | 0.57 | npe | counts | npe | — |
+| auxiliary vector ⚠ counts said leak | 25 | 19 | 18 | 0.56 | heisenbug | judge (override) | heisenbug | — |
+| virtual table | 10 | 27 | 10 | 0.50 | leak | counts | leak | — |
+| dominator tree | 0 | 66 | 23 | 0.49 | leak | counts | race | — |
+| free list | 18 | 18 | 7 | 0.48 | leak | counts | leak | — |
+| visibility map | 0 | 47 | 28 | 0.48 | leak | counts | race | — |
+| translation lookaside buffer | 3 | 24 | 15 | 0.47 | leak | counts | leak | — |
+| rax | 22 | 10 | 6 | 0.45 | leak | counts | race | — |
+| partition table | 26 | 13 | 3 | 0.44 | leak | counts | npe | — |
+| min_heap | 47 | 3 | 5 | 0.41 | leak | counts | race | — |
+| socket buffer | 26 | 7 | 3 | 0.40 | leak | counts | race | — |
+| BRIN ⚠ counts said leak | 0 | 15 | 14 | 0.36 | heisenbug | judge (override) | heisenbug | — |
+| posting list ⚠ counts said leak | 0 | 11 | 18 | 0.36 | heisenbug | judge (override) | heisenbug | — |
+| jump table | 4 | 6 | 6 | 0.34 | leak | judge | leak | — |
+| process table | 5 | 2 | 9 | 0.31 | leak | judge | leak | — |
+| device queue | 25 | 1 | 3 | 0.30 | race | counts | heisenbug | — |
+| shadow page table | 8 | 4 | 2 | 0.29 | race | judge | race | — |
+| extended page table | 4 | 3 | 5 | 0.29 | race | judge | race | — |
+| generalized search tree | 0 | 13 | 4 | 0.28 | race | counts | race | — |
+| roaring bitmap | 0 | 9 | 4 | 0.26 | leak | judge | leak | — |
+| scatter-gather list | 38 | 0 | 1 | 0.23 | race | counts | leak | — |
+| free space map | 0 | 4 | 4 | 0.21 | race | judge | race | — |
+| string table | 4 | 2 | 1 | 0.20 | leak | judge | leak | — |
+| ACPI table | 118 | 0 | 0 | 0.20 | heisenbug | counts | heisenbug | — |
+| concurrent skip list | 0 | 4 | 3 | 0.20 | race | judge | race | — |
+| assoc_array | 36 | 0 | 0 | 0.19 | heisenbug | counts | heisenbug | — |
+| PRD table | 25 | 0 | 0 | 0.17 | heisenbug | counts | heisenbug | — |
+| folio_queue | 23 | 0 | 0 | 0.16 | heisenbug | counts | race | — |
+| file descriptor table | 9 | 0 | 1 | 0.16 | race | judge | race | — |
+| interrupt descriptor table | 2 | 1 | 1 | 0.15 | leak | judge | leak | — |
+| block translation table | 6 | 0 | 1 | 0.14 | heisenbug | judge | heisenbug | — |
+| LPM trie | 15 | 0 | 0 | 0.14 | heisenbug | counts | race | — |
+| generic radix tree | 9 | 0 | 0 | 0.12 | heisenbug | judge | heisenbug | — |
+| e820 table | 8 | 0 | 0 | 0.11 | heisenbug | judge | heisenbug | — |
+| fib_trie | 2 | 0 | 1 | 0.10 | heisenbug | judge | heisenbug | — |
+| write-intent bitmap | 6 | 0 | 0 | 0.10 | heisenbug | judge | heisenbug | — |
+| kvstore | 0 | 1 | 1 | 0.09 | heisenbug | judge | heisenbug | — |
+| Treiber stack | 0 | 0 | 2 | 0.07 | race | judge | race | — |
+| memory descriptor list | 2 | 0 | 0 | 0.06 | race | judge | race | — |
+| IntervalMap | 0 | 1 | 0 | 0.05 | heisenbug | judge | heisenbug | — |
+| CLH queue | 0 | 1 | 0 | 0.05 | heisenbug | judge | heisenbug | — |
+| Swiss table | 0 | 0 | 1 | 0.04 | leak | judge | leak | — |
+| sbitmap ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| SLRU ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| buf_ring ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| lookaside list ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| SLIST ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| cancel-safe IRP queue ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| SmallVector ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| DenseMap ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| DenseSet ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| SmallPtrSet ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| SetVector ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| MapVector ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| SparseSet ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| SparseMultiSet ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| SparseBitVector ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| CoalescingBitVector ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| SmallBitVector ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| FoldingSet ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| ImmutableMap ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| ImmutableSet ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| global offset table ⚠ no evidence | 0 | 0 | 0 | 0.00 | leak | judge | leak | — |
+| F14 hash table ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| AtomicHashMap ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| concurrent B-skip list ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| bounded MPMC queue ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| ProducerConsumerQueue ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| EvictingCacheMap ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| intrusive heap ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| listpack ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| quicklist ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| ebuckets ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| SpinedBuffer ⚠ no evidence | 0 | 0 | 0 | 0.00 | heisenbug | judge | heisenbug | — |
+| ChainMap ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| LinkedHashMap ⚠ no evidence | 0 | 0 | 0 | 0.00 | leak | judge | leak | — |
+| IdentityHashMap ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| CopyOnWriteArrayList ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| ziplist ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
+| intset ⚠ no evidence | 0 | 0 | 0 | 0.00 | race | judge | race | — |
 
-Counts vs judgement disagreed by more than 1 tier (judgement used, please review): wavelet tree (counts said leak, now heisenbug)
+Counts vs judgement disagreed by more than 1 tier (judgement used, please review): auxiliary vector (counts said leak, now heisenbug), combining tree (counts said npe, now heisenbug), posting list (counts said leak, now heisenbug), GIN (counts said npe, now heisenbug), BRIN (counts said leak, now heisenbug), call graph (counts said off-by-one, now leak)
 
 Your file tier and the scored tier differ by more than one (your file wins; worth a look): none
 
-In the bank file but not scored: none
+In the bank file but not scored: 2-3 tree, 2-3-4 tree, adaptive radix tree, adjacency list, adjacency matrix, array, avl tree, b+ tree, b-epsilon tree, b-tree, binary search tree, binary tree, binomial heap, bit array, bk-tree, bloom filter, brodal queue, bw-tree, cartesian tree, champ, count-min sketch, cuckoo filter, cuckoo hash table, d-ary heap, dawg, deque, disjoint-set, doubly linked list, euler tour tree, fenwick tree, fibonacci heap, finger tree, fusion tree, gap buffer, graph, hash array mapped trie, hash table, heap, hlist, hyperloglog, idr, interval tree, judy array, k-d tree, kfifo, leftist heap, link-cut tree, linked list, lsm tree, maple tree, merkle tree, min-max heap, octree, order-statistic tree, pairing heap, piece table, plist, priority queue, quadtree, queue, quotient filter, r-tree, radix heap, radix tree, red-black tree, ring buffer, rope, rrb vector, scapegoat tree, segment tree, skew heap, skip list, soft heap, sparse table, splay tree, stack, suffix array, suffix tree, top tree, treap, trie, unrolled linked list, van emde boas tree, wavelet tree, xarray, xor filter, xor linked list, zipper
 

@@ -1,0 +1,101 @@
+{
+ "data-structure": [
+  {
+   "name": "min_heap",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "kernel: min_heap",
+   "why": "Linux lib/min_heap.h binary min-heap with its own API"
+  },
+  {
+   "name": "folio_queue",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "kernel: folio_queue",
+   "why": "Linux struct folio_queue, chained arrays of folios with its own design"
+  },
+  {
+   "name": "generic radix tree",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: generic radix tree",
+   "why": "Linux lib/generic-radix-tree, named kernel radix tree"
+  },
+  {
+   "name": "assoc_array",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: ASSOCIATIVE_ARRAY",
+   "why": "Linux lib/assoc_array.c, named kernel tree structure"
+  },
+  {
+   "name": "fib_trie",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: fib_trie",
+   "why": "Linux net/ipv4 FIB trie, named routing structure"
+  },
+  {
+   "name": "LPM trie",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "kernel: BPF_MAP_TYPE_LPM_TRIE",
+   "why": "BPF longest-prefix-match trie map, named structure"
+  },
+  {
+   "name": "scatter-gather list",
+   "aliases": [
+    "scatter-gather table",
+    "sg list"
+   ],
+   "judge": "leak",
+   "evidence": "kernel: scatter-gather table",
+   "why": "DMA scatter-gather list (scatterlist), named kernel structure"
+  },
+  {
+   "name": "e820 table",
+   "aliases": [
+    "e820 map",
+    "e820 memory map"
+   ],
+   "judge": "heisenbug",
+   "evidence": "kernel: e820 table",
+   "why": "firmware-provided physical memory map, named kernel table"
+  },
+  {
+   "name": "page table",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "kernel: pmd page table",
+   "why": "hardware page table, named data structure"
+  },
+  {
+   "name": "interrupt descriptor table",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "kernel: interrupt descriptor table",
+   "why": "x86 IDT, named hardware table"
+  },
+  {
+   "name": "PRD table",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: prd table",
+   "why": "ATA physical region descriptor table, named DMA hardware table"
+  },
+  {
+   "name": "write-intent bitmap",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: write-intent bitmap",
+   "why": "md RAID write-intent bitmap, named bitmap design"
+  },
+  {
+   "name": "block translation table",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: block translation table",
+   "why": "NVDIMM BTT, named on-media structure"
+  }
+ ]
+}
