@@ -38,6 +38,8 @@ function answerPlaceholder(): string {
 /** Demos only: how long the rail lets a reveal sit before pressing "Unwind further" for you. Play waits for the player. */
 export const REVEAL_MS = 2400;
 const REVEAL_FADE_MS = 200;
+/** The reveal's hide button appears this long after the reveal is drawn: after its 260 ms pop-in has finished. */
+const REVEAL_SETTLE_MS = 700;
 
 /** Layer entrances: how long the name card shows at the top of the screen. */
 const ENTRANCE_MS = 2600;
@@ -210,6 +212,7 @@ export class Hud {
           <span class="wd-secs" data-el="secs" aria-hidden="true"></span>
           <span class="bracket" aria-hidden="true">]</span>
           <button type="submit" class="ok-btn">OK</button>
+          <button type="button" class="rv-show" data-el="rvShow" hidden aria-label="Show the reveal again">show ▴</button>
           <button type="button" class="rv-next" data-el="rvNext">Unwind further ▾</button>
         </form>
         <div class="bios-footer" aria-hidden="true"><b>F10</b> Save · <b>Enter</b> Select · <b>ESC</b> Exit</div>
@@ -227,7 +230,7 @@ export class Hud {
       </section>
       <div class="reveal" data-el="reveal" hidden role="status" aria-live="polite">
         <div class="rv-name" data-el="rvName"></div>
-        <div class="rv-body"><div class="rv-pips" data-el="rvPips" aria-hidden="true"></div><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div><div class="rv-reached" data-el="rvReached" hidden><span class="rv-reached-label">Reached</span><div class="rv-reached-list" data-el="rvReachedList"></div></div></div>
+        <div class="rv-body"><div class="rv-pips" data-el="rvPips" aria-hidden="true"></div><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div><div class="rv-reached" data-el="rvReached" hidden><span class="rv-reached-label">Reached</span><div class="rv-reached-list" data-el="rvReachedList"></div></div><button type="button" class="rv-hide" data-el="rvHide" hidden aria-label="Hide the reveal to look around and collect props">hide ▾</button></div>
       </div>
       <div class="entrance" data-el="entrance" hidden role="status" aria-live="polite">
         <div class="en-name" data-el="enName"></div>
@@ -354,6 +357,8 @@ export class Hud {
 
     // "Unwind further": close the reveal and move the game on (the next prompt, or the end-of-day card).
     this.els.rvNext!.addEventListener('click', () => this.unwind(now()));
+    this.els.rvHide!.addEventListener('click', () => this.stowReveal(true));
+    this.els.rvShow!.addEventListener('click', () => this.stowReveal(false));
     this.els.noticeClose!.addEventListener('click', () => (this.els.notice!.hidden = true));
 
     // Title screen: "Unwind the stack" dives into round 1. Hovering or clicking the logo triggers a glitch pulse.
@@ -665,6 +670,7 @@ export class Hud {
     }
     this.updateMotion(now, depthShown);
     this.mirrorReaction(now);
+    this.settleReveal(now);
     this.layerStack.setRightReserve(this.scene?.uiReserveRightCss ?? 0);
     const barBottom = Math.ceil(this.els.bar!.getBoundingClientRect().bottom);
     this.layerStack.setTopOffset(barBottom > 0 ? Math.max(50, barBottom + 6) : 52);
@@ -909,6 +915,10 @@ export class Hud {
   private quipTurn = 0;
   /** The round whose reveal has been shown (play mode). */
   private revealRound = -1;
+  /** The reveal is folded away (play only) so the world under it can be seen and its props collected. */
+  private revealStowed = false;
+  /** When the open reveal was first drawn (update's clock), so its hide button waits for it to settle. */
+  private revealShownAt: number | undefined;
   /** What "Unwind further" does: advance the game in play; the rail's demos set their own. */
   private onUnwind: ((now: number) => void) | undefined;
 
@@ -959,9 +969,14 @@ export class Hud {
     }
     el.dataset.tier = kind;
     el.classList.toggle('low-key', kind === 'timeout');
-    el.classList.remove('out');
+    el.classList.remove('out', 'stowed', 'back');
     el.hidden = false;
     replay(el, 'in');
+    this.revealStowed = false;
+    this.revealShownAt = undefined;
+    this.els.rvHide!.hidden = true;
+    this.els.rvShow!.hidden = true;
+    this.root.classList.remove('reveal-stowed');
     this.scene?.setVignette(true);
     this.scene?.setHold(true);
     this.revealOpen = true;
@@ -997,12 +1012,13 @@ export class Hud {
   }
 
   /** Fly any pending "Reached" badges from their reveal positions into the RHS stack in order. */
-  private launchReachedFlight(isLastRound: boolean) {
+  /** `direct`: join the stack without a flight (the last round, or the reveal folded away). */
+  private launchReachedFlight(direct: boolean) {
     const items = this.pendingReached;
     this.pendingReached = [];
     if (!items.length || !this.game || this.demo || this.scrollMode) return;
     const mode = this.game.mode;
-    if (isLastRound) {
+    if (direct) {
       this.layerStack.flushTo(this.game.depth, mode);
       return;
     }
@@ -1050,12 +1066,42 @@ export class Hud {
     }
   }
 
+  /**
+   * Hide or show the reveal in play. Hidden, it folds into a short "show" bar above "Unwind further" and the
+   * vignette lifts, so the world under it can be seen and its props collected (the scene blocks prop clicks while
+   * the vignette is up). The reaction keeps holding either way; showing pops the reveal back into place.
+   */
+  private stowReveal(stow: boolean) {
+    enforce(this.revealOpen, 'stowReveal: no reveal is open');
+    if (stow === this.revealStowed) return;
+    this.revealStowed = stow;
+    const el = this.els.reveal!;
+    el.classList.remove('in');
+    el.classList.toggle('stowed', stow);
+    if (!stow) replay(el, 'back');
+    this.root.classList.toggle('reveal-stowed', stow);
+    this.els.rvShow!.hidden = !stow;
+    this.scene?.setVignette(!stow);
+    (stow ? this.els.rvNext! : this.els.rvHide!).focus({ preventScroll: true });
+  }
+
+  /** Once the open reveal has settled (its pop-in is done), offer the hide button. Play only, never demos. */
+  private settleReveal(now: number) {
+    if (!this.revealOpen || this.demo || !this.els.rvHide!.hidden || this.revealStowed) return;
+    if (this.revealShownAt === undefined) {
+      this.revealShownAt = now;
+      return;
+    }
+    if (now - this.revealShownAt >= REVEAL_SETTLE_MS) this.els.rvHide!.hidden = false;
+  }
+
   /** "Unwind further": launch any reached layer badges to the RHS stack, close the reveal, then move on. */
   private unwind(now: number) {
     if (!this.revealOpen) return;
     const g = this.game;
     const isLastRound = g?.phase.kind === 'between' && g.phase.round + 1 >= g.rounds.length;
-    this.launchReachedFlight(Boolean(isLastRound));
+    // Folded away, the reached badges have no on-screen start to fly from: they join the stack directly.
+    this.launchReachedFlight(Boolean(isLastRound) || this.revealStowed);
     sound.stopReactions();
     sound.unwind(layerAt(this.scene?.displayDepth ?? 0).id);
     this.hideReveal(!isLastRound);
@@ -1068,7 +1114,10 @@ export class Hud {
     this.revealOpen = false;
     clearTimeout(this.revealTimer);
     this.clearReached();
-    this.root.classList.remove('unwinding');
+    this.root.classList.remove('unwinding', 'reveal-stowed');
+    this.revealStowed = false;
+    this.els.rvHide!.hidden = true;
+    this.els.rvShow!.hidden = true;
     this.scene?.setVignette(false);
     this.scene?.setHold(false, unstickZLayers);
     const el = this.els.reveal!;

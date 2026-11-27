@@ -132,6 +132,42 @@ describe('HUD flow', () => {
     expect(h.round()).toBe(1);
   });
 
+  it('offers "hide" once the reveal settles; hidden, a "show" bar brings it back, and Unwind still moves on', () => {
+    const h = setup();
+    h.toAnswering();
+    h.submit(h.answerFor());
+    const hide = h.$<HTMLButtonElement>('.rv-hide');
+    const show = h.$<HTMLButtonElement>('.rv-show');
+    expect(h.revealUp()).toBe(true);
+    expect(hide.hidden).toBe(true); // not while the reveal is still popping in
+    h.step(100);
+    expect(hide.hidden).toBe(true);
+    h.step(700);
+    expect(hide.hidden).toBe(false);
+    expect(show.hidden).toBe(true);
+
+    hide.click();
+    expect(h.$('.reveal').classList.contains('stowed')).toBe(true);
+    expect(show.hidden).toBe(false);
+    expect(h.scene.vignette.at(-1)).toBe(false); // the world is uncovered (and its props clickable)
+    expect(h.scene.holds.at(-1)).toBe(true); // the reaction keeps holding
+    expect(h.revealUp()).toBe(true); // the round still waits on Unwind
+
+    show.click();
+    expect(h.$('.reveal').classList.contains('stowed')).toBe(false);
+    expect(h.$('.reveal').classList.contains('back')).toBe(true);
+    expect(show.hidden).toBe(true);
+    expect(h.scene.vignette.at(-1)).toBe(true);
+
+    hide.click();
+    h.unwind();
+    expect(h.revealUp()).toBe(false);
+    expect(show.hidden).toBe(true);
+    expect(hide.hidden).toBe(true);
+    expect(h.mount.classList.contains('reveal-stowed')).toBe(false);
+    expect(h.round()).toBe(1);
+  });
+
   it('waits for the dive to land before revealing', () => {
     const h = setup();
     h.toAnswering();

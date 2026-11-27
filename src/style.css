@@ -702,6 +702,68 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   cursor: pointer;
 }
 .rv-next:hover { filter: brightness(1.12); }
+
+/*
+ * Hide / show the reveal (play only). "hide" sits under the reveal's text once it has settled; hidden, the reveal
+ * folds down toward the console and a short "show" bar, as wide as "Unwind further", waits just above it. Showing
+ * pops the reveal back up from there.
+ */
+.rv-hide {
+  display: block;
+  margin: 14px auto 0;
+  padding: 3px 12px;
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid currentColor;
+  text-shadow: none;
+  cursor: pointer;
+  pointer-events: auto;
+  animation: fade-in 200ms linear;
+}
+.rv-hide[hidden], .rv-show[hidden] { display: none; }
+.rv-hide:hover, .rv-hide:focus-visible { color: #fff; outline: none; }
+.reveal.stowed { pointer-events: none; }
+.reveal.stowed .rv-name, .reveal.stowed .rv-body {
+  opacity: 0;
+  transform: translateY(30vh) scale(0.2);
+  transition: opacity 180ms steps(4, end), transform 180ms steps(4, end);
+}
+.reveal.stowed .rv-hide { pointer-events: none; }
+.reveal.back .rv-name, .reveal.back .rv-body { animation: reveal-back 280ms steps(6, end); }
+@keyframes reveal-back {
+  0% { opacity: 0; transform: translateY(30vh) scale(0.2); }
+  70% { opacity: 1; transform: translateY(-6px) scale(1.04); }
+  100% { opacity: 1; transform: none; }
+}
+.still .reveal.stowed .rv-name, .still .reveal.stowed .rv-body { transform: none; transition: opacity 150ms linear; }
+.still .reveal.back .rv-name, .still .reveal.back .rv-body { animation: fade-in 200ms linear; }
+#app.unwinding .prompt-line { position: relative; }
+#app.unwinding .prompt-line .rv-show {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + 6px);
+  height: 18px;
+  padding: 0;
+  font-family: var(--display);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #16141c;
+  background: var(--signal);
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  cursor: pointer;
+  animation: fade-in 160ms linear;
+}
+#app.unwinding .prompt-line .rv-show[hidden] { display: none; }
+.rv-show:hover { filter: brightness(1.12); }
+.rv-show:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .rv-next:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .rv-next:active { translate: 2px 2px; box-shadow: 2px 2px 0 #000; }
 

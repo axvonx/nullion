@@ -378,6 +378,9 @@ export class Scene {
   }
 
   private hitManualTarget(sx: number, sy: number): ManualTarget | undefined {
+    // Under the reveal's vignette the world is covered: nothing in it can be hovered or collected. The reveal's
+    // "hide" button lifts the vignette to collect props there.
+    if (this.vignette.on) return undefined;
     const pad = 2;
     // Critters take priority since they move over props.
     for (let i = CRITTER_SPOTS.length - 1; i >= 0; i--) {
