@@ -52,6 +52,12 @@ What's next lives in `ROADMAP.md`; the next milestone is question and answer gen
 
 ## Deferred decisions (don't lose these)
 
+- **World cull (decided 2026-11-27).** The naming desk's cull marked 163 entities for deletion (`design/naming/decisions.json`, `by: "cull"`).
+  - **The goal is option (3):** every prop in the world is a Field Manual entity. A culled prop leaves the world once replacement art brings its layer back to at least 20 scatter-prop types, the minimum v4 placement enforces (`checkLibrary`).
+  - **Until then, option (1) is a stopgap:** culled props stay in the world as unnamed scenery, with no page and no click target. The cull applies to the manual only.
+  - **Don't treat (1) as the end state.** Unnamed dummies bury the collectibles and keep the duplicate clutter the cull was meant to remove.
+  - **Don't lower the 20-type minimum to get there.**
+  - `scripts/naming-apply-cull.py` reports each layer's count. Gemini's replacement ideas are in each deleted record's `replacement`.
 - **Hosting (decided 2026-11-26): the site stays static on GitHub Pages.** Anything that needs shared state goes to a small separate API that the static site calls, for example a Cloudflare Worker with KV or D1. The site itself never moves to a server platform. That shared state means cross-player averages and percentiles, the rejected-guess counter, leaderboards, and account or Gist sync. Not built yet; `ROADMAP.md` has the player-data plan.
 
 - **Other players' answers:** each row of the end-of-day backtrace will get a dropdown arrow that reveals what other players answered for that question (requested 2026-11-26). It needs server-side answer counts, so it waits for a backend. The row layout already leaves room for it.

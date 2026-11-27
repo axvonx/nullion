@@ -112,6 +112,11 @@ Decisions from the design session on 2026-11-26 (the working page was `.lavish/f
   - `scripts/naming-apply-dedup.py` folds the proven ones into their donor as `by: "verified"` merges (308 on
     2026-11-27). It never touches owner decisions, and `--undo` reverses them.
   - Unproven pairs show as red, with the evidence.
+- **Cull.**
+  - `design/naming/run-cull.sh` (hydrogen-low) and `scripts/naming-apply-cull.py` marked 163 entities for deletion
+    (`by: "cull"`; `--undo` reverses them).
+  - The world keeps them as unnamed scenery until replacement art restores each layer to 20 prop types. Then they
+    leave the world. Details are in `CLAUDE.md` under Deferred decisions.
 - **Concurrent edits.** The server merges saves entity by entity, and the newer `updatedAt` wins, so a script and an
   open page never overwrite each other.
 
