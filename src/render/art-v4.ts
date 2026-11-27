@@ -140,7 +140,7 @@ const NAME_INK: Record<PaletteMode, [string, NamePattern]> = {
   rgb4: ['#552200', 'checker'],
   cga16: ['#555555', 'checker'],
   cga4: ['#55ffff', 'dots'],
-  green: ['#0a461e', 'checker'],
+  green: ['#1ea046', 'dots'],
   gray: ['#464646', 'checker'],
   onebit: ['#e8eeff', 'dots'],
   amber: ['#582c04', 'checker'],
@@ -151,13 +151,23 @@ const NAME_INK: Record<PaletteMode, [string, NamePattern]> = {
 };
 /** World y of the Application lettering (that band is open-ended upward; the cursor starts at world y 40). */
 const FIRST_NAME_Y = 100;
+/**
+ * Vertical offset from `b.top` for the layer-name watermark. Defaults to 24; layers whose setpiece runs a full-width
+ * horizontal structure (truss bridge, steam pipe, parallel bus rails) right across `b.top + 24` drop the watermark
+ * just below it so the lettering reads through the open upper wall instead of being sliced in half.
+ */
+const NAME_TOP_OFFSET: Partial<Record<LayerId, number>> = {
+  runtime: 64,
+  kernel: 10,
+  drivers: 44,
+};
 
 /**
  * The layer's name, painted into the band behind everything: big, faint pixel lettering near the top of the band,
  * so a landing in the layer's first frame shows it. Baked once per (name, width, palette) and blitted at a world
  * position, so it scrolls with the world; the final palette dither leaves it alone and props may cover it.
  */
-function layerName(ctx: Ctx, b: Band, idx: number) {
+function layerName(ctx: Ctx, b: Band, idx: number, id: LayerId) {
   if (look('layerName') !== 'watermark') return;
   enforce(worldSpec, 'v4: drawing before ensureWorldV4()');
   const name = layersFor(worldSpec.mode ?? 'daily')[idx]!.name;
@@ -166,7 +176,7 @@ function layerName(ctx: Ctx, b: Band, idx: number) {
   const [ink, pattern] = NAME_INK[mode];
   const color = pattern === 'solid' ? `rgba(${parseInt(ink.slice(1, 3), 16)},${parseInt(ink.slice(3, 5), 16)},${parseInt(ink.slice(5, 7), 16)},${WATERMARK_ALPHA})` : c(ink);
   const sprite = offscreen(`v4-name|${name}|${blockW}|${mode}`, blockW, nameHeight(lay), (cx) => drawName(cx, lay, 0, 0, blockW, color, pattern));
-  const y = idx === 0 ? FIRST_NAME_Y - b.camY : b.top + 24;
+  const y = idx === 0 ? FIRST_NAME_Y - b.camY : b.top + (NAME_TOP_OFFSET[id] ?? 24);
   ctx.drawImage(sprite, Math.round(b.w * 0.05), R(y));
 }
 
@@ -174,7 +184,7 @@ function layerName(ctx: Ctx, b: Band, idx: number) {
 function entities(ctx: Ctx, b: Band, id: LayerId) {
   const idx = bandIndexById.get(id);
   enforce(idx !== undefined, `v4: layer ${id} not in active stack`);
-  layerName(ctx, b, idx);
+  layerName(ctx, b, idx, id);
   // Monumental deep-background architectural landmark sits behind all far & near trinkets
   setPaint(mode, undefined);
   drawSetpiece(ctx, b, id, T);
