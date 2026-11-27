@@ -119,13 +119,19 @@
   cursor: pointer; transition: transform 110ms ease, background-color 110ms ease, border-color 110ms ease;
 }
 .bd-hab-code { display: block; flex: none; }
-.bd-hab-cell.on, .bd-hab-cell.you {
+.bd-hab-cell.you {
   background: var(--hb-accent);
   border-color: color-mix(in srgb, var(--hb-accent) 55%, #14131a);
   color: #14131a;
-}
-.bd-hab-cell.you {
   box-shadow: 0 0 0 2px var(--bond), 0 0 0 3px var(--pencil);
+}
+.bd-hab-cell.on {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--hb-accent) 65%, #14131a);
+  color: var(--toner);
+}
+.bd-hab-cell.on:hover, .bd-hab-cell.on:focus-visible {
+  background: color-mix(in srgb, var(--hb-accent) 22%, transparent);
 }
 .bd-hab-cell.off {
   background: transparent;
