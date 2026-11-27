@@ -269,6 +269,7 @@ export class Reveal {
     this.reachedList.replaceChildren();
     this.pendingReached = crossed.map((layer) => {
       const badge = createLayerBadge(layer);
+      badge.title = layer.name; // phones show only its icon
       this.reachedList.append(badge);
       return { badge, layer };
     });

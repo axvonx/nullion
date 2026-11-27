@@ -141,14 +141,19 @@
 @keyframes bd-flip { from { transform: scaleX(0.05); filter: brightness(0.8); } to { transform: none; filter: none; } }
 .bd-sheet.bd-riffle .bd-leaf { animation: bd-flip 140ms steps(3) 3 both; }
 
-/* phones: one leaf at a time */
+/* Phones: a spread is one long page that scrolls (the portrait leaf above its text), with one running head at the
+   top and one foot at the bottom; the arrows turn whole spreads and sit on the slate under the paper. */
 @media (max-width: 720px) {
-  .bd { padding: 10px; }
-  .bd-sheet { grid-template-columns: minmax(0, 1fr); }
+  .bd { padding: 10px 10px 44px; margin-top: 40px; height: calc(100dvh - 64px); max-height: none; }
+  .bd-sheet { display: block; height: auto; min-height: 0; max-height: none; flex: 1; overflow-y: auto; overscroll-behavior: contain; background: var(--bond); }
   .bd-rings { display: none; }
-  .bd-sheet .bd-r { display: none; }
-  .bd-sheet.bd-show-r .bd-r { display: block; }
-  .bd-sheet.bd-show-r .bd-l { display: none; }
-  .bd-leaf { padding-left: 32px; }
-  .bd-stickies { right: 40px; gap: 8px; } .bd-sticky { width: 86px; } .bd-sticky-l { font-size: 20px; }
+  .bd-leaf { overflow: visible; padding-left: 32px; }
+  .bd-leaf .bd-body { overflow: visible; }
+  .bd-l .bd-mfoot, .bd-r .bd-mhead { display: none; }
+  .bd-l { padding-bottom: 0; } .bd-r { padding-top: 0; }
+  .bd-edge { bottom: 8px; } .bd-prev { left: 10px; } .bd-next { right: 10px; }
+  .bd-stickies { top: -40px; right: 40px; gap: 8px; } .bd-sticky { width: 86px; padding-bottom: 6px; } .bd-sticky-l { font-size: 20px; }
+  .bd-sticky-s { display: none; }
+  .bd-mhead span:not(:first-child) { display: none; }
+  .bd-mb { padding-left: 1.2em; }
 }

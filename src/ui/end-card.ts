@@ -361,6 +361,11 @@ export class EndCard {
       link.setAttribute('aria-label', `${stack[i]!.name}: read about it on Wikipedia`);
       link.append(badge);
       li.append(link);
+      if (i === last) {
+        li.classList.add('is-current');
+        li.style.setProperty('--ls-accent', LAYER_ART[stack[i]!.id].stackTheme.accent);
+        li.style.setProperty('--ls-tint', LAYER_ART[stack[i]!.id].stackTheme.tint);
+      }
       ol.append(li);
       this.reachedBadges.push({ layer: stack[i]!, el: badge });
     }

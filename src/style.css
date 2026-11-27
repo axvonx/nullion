@@ -1411,6 +1411,11 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   .ls-tip {
     max-width: min(210px, calc(100vw - 72px));
   }
+  /* The right-hand stack is a spine of icons here, so the reveal's reached layers are icons from the start (a row,
+     named for hover and screen readers), and what flies into the spine is an icon too. */
+  .rv-reached-list { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .rv-reached .ls-bitmap, .ls-flyer.into-spine .ls-bitmap { display: none; }
+  .rv-reached .ls-inner, .ls-flyer.into-spine .ls-inner { padding: 4px 5px 4px 6px; gap: 0; }
 }
 
 /* Short landscape viewports (e.g. phone landscape 844×390): scale title logo & tighten CTA so nothing clips. */
@@ -1532,11 +1537,11 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 /* The end card's summary card: the wordmark, the frame count and the stack as it stood on the right, in its own box. */
 .eod-summary { margin: 0 0 16px; padding: 16px 14px 14px; border: 1px solid var(--rule); background: rgba(255, 255, 255, 0.045); box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4); text-align: center; }
 .eod-stack { list-style: none; margin: 0 auto; padding: 0; width: min(250px, 100%); display: flex; flex-direction: column; gap: 3px; text-align: left; }
-.eod-stack.wide { width: 100%; display: grid; grid-auto-flow: column; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(var(--eod-rows), auto); gap: 3px 6px; }
+.eod-stack.wide { width: calc(100% - 40px); display: grid; grid-auto-flow: column; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(var(--eod-rows), auto); gap: 3px 36px; }
 .eod-stack .ls-badge { display: flex; width: 100%; }
 .eod-stack .ls-badge .ls-inner { padding: 5px 8px; min-height: 26px; }
 .eod-stack .ls-badge.is-passed .ls-inner { opacity: 0.5; }
-/* The layer reached: lifted, outlined and breathing a soft glow, with a pointer at its right edge. Slow and smooth
+/* The layer reached: lifted, outlined and breathing a soft glow, with a pointer at each side. Slow and smooth
    (never a blink); still under reduced motion. */
 .eod-stack .ls-badge.is-current {
   position: relative;
@@ -1545,26 +1550,31 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   box-shadow: inset 0 0 0 2px var(--ls-accent), inset 0 0 14px var(--ls-tint), 0 0 12px var(--ls-tint), 2px 2px 0 rgba(0, 0, 0, 0.55);
   animation: eod-reached 2.6s ease-in-out infinite;
 }
-.eod-stack .ls-badge.is-current::after {
-  content: '◀';
+.eod-stack li.is-current { position: relative; }
+.eod-stack li.is-current::before, .eod-stack li.is-current::after {
   position: absolute;
-  right: -16px;
   top: 50%;
   transform: translateY(-50%);
   font-size: 11px;
-  color: var(--ls-accent);
-  text-shadow: 0 0 6px var(--ls-tint);
-  animation: eod-pointer 2.6s ease-in-out infinite;
+  color: var(--ls-accent, var(--signal));
+  text-shadow: 0 0 6px var(--ls-tint, transparent);
+  pointer-events: none;
 }
+.eod-stack li.is-current::before { content: '▶'; left: -16px; animation: eod-pointer-l 2.6s ease-in-out infinite; }
+.eod-stack li.is-current::after { content: '◀'; right: -16px; animation: eod-pointer-r 2.6s ease-in-out infinite; }
 @keyframes eod-reached {
   0%, 100% { box-shadow: inset 0 0 0 2px var(--ls-accent), inset 0 0 12px var(--ls-tint), 0 0 8px var(--ls-tint), 2px 2px 0 rgba(0, 0, 0, 0.55); }
   50% { box-shadow: inset 0 0 0 2px var(--ls-accent), inset 0 0 20px var(--ls-tint), 0 0 22px var(--ls-tint), 2px 2px 0 rgba(0, 0, 0, 0.55); }
 }
-@keyframes eod-pointer {
+@keyframes eod-pointer-l {
+  0%, 100% { transform: translate(0, -50%); }
+  50% { transform: translate(3px, -50%); }
+}
+@keyframes eod-pointer-r {
   0%, 100% { transform: translate(0, -50%); }
   50% { transform: translate(-3px, -50%); }
 }
-.still .eod-stack .ls-badge.is-current, .still .eod-stack .ls-badge.is-current::after { animation: none; }
+.still .eod-stack .ls-badge.is-current, .still .eod-stack li.is-current::before, .still .eod-stack li.is-current::after { animation: none; }
 .ls-badge.ls-crunch { animation: ls-crunch 240ms steps(4) 1; }
 .still .ls-badge.ls-crunch { animation: none; }
 
@@ -1595,10 +1605,16 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .eod-body.back { animation: reveal-back 280ms steps(6, end); }
 .still .result.folding .eod-body { animation: none; opacity: 0; }
 .still .eod-body.back { animation: fade-in 200ms linear; }
-.eod-stack.wide .ls-badge.is-current::after { right: 4px; }
 
 /* Names that explain themselves: a link to their reference page, looking like the text it replaces until hovered. */
 .wiki-ref { color: inherit; text-decoration: none; cursor: help; }
 .wiki-ref:hover, .wiki-ref:focus-visible { text-decoration: underline dotted; text-underline-offset: 3px; outline: none; }
 .eod-layer-link { display: block; text-decoration: none; cursor: help; }
 .eod-layer-link:hover .ls-badge, .eod-layer-link:focus-visible .ls-badge { filter: brightness(1.2); }
+
+/* Phones: the end card's stack has tighter badges, so a deep day is not a screenful of bars. */
+@media (max-width: 640px) {
+  .eod-stack { width: min(220px, calc(100% - 40px)); gap: 2px; }
+  .eod-stack .ls-badge .ls-inner { padding: 2px 6px; min-height: 20px; }
+  .eod-stack.wide { width: calc(100% - 40px); gap: 2px 36px; }
+}

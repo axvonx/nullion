@@ -118,8 +118,6 @@ export class FieldManualBinder {
   private tabs: HTMLElement;
   private book: Spread[] = [];
   private at = 0;
-  /** Phones show one leaf: 0 = left, 1 = right. */
-  private side: 0 | 1 = 0;
   private selected = new Map<string, LayerId>();
   /** Stamps that were wet when their spread was first shown this visit: they stay glossy until the page turns. */
   private freshWet = new Map<string, Set<LayerId>>();
@@ -176,10 +174,6 @@ export class FieldManualBinder {
     cancelAnimationFrame(this.raf);
   }
 
-  private single(): boolean {
-    return window.matchMedia('(max-width: 720px)').matches;
-  }
-
   open(entryId?: string) {
     this.el.hidden = false;
     this.book = buildBook((l) => !manualStore.hasReached(l));
@@ -195,7 +189,6 @@ export class FieldManualBinder {
       }
     }
     this.at = at;
-    this.side = 0;
     this.render();
     if (!reducedMotion()) this.play('bd-opening', 360);
     this.loop();
@@ -235,20 +228,8 @@ export class FieldManualBinder {
     window.setTimeout(() => target.classList.remove(cls), ms);
   }
 
-  /** One page forward or back: a leaf on phones, a spread elsewhere. */
+  /** One spread forward or back. Phones show a spread as one scrolling page (the left leaf above the right one). */
   private step(dir: -1 | 1) {
-    if (this.single()) {
-      const s = this.side + dir;
-      if (s === 0 || s === 1) {
-        this.side = s;
-        this.render();
-        return;
-      }
-      if (this.at + dir < 0 || this.at + dir >= this.book.length) return;
-      this.side = dir > 0 ? 0 : 1;
-      this.turn(this.at + dir, dir);
-      return;
-    }
     if (this.at + dir < 0 || this.at + dir >= this.book.length) return;
     this.turn(this.at + dir, dir);
   }
@@ -267,7 +248,6 @@ export class FieldManualBinder {
     const fwd = to > this.at;
     this.leaveSpread();
     this.at = to;
-    this.side = 0;
     this.render();
     if (!reducedMotion()) this.play(far ? 'bd-riffle' : fwd ? 'bd-turn-next' : 'bd-turn-prev', far ? 420 : 260);
   }
@@ -296,10 +276,10 @@ export class FieldManualBinder {
     this.live.clear();
     this.leaves[0].replaceChildren(...this.leaf(s.left, s.folios[0]));
     this.leaves[1].replaceChildren(...this.leaf(s.right, s.folios[1]));
-    this.sheet.classList.toggle('bd-show-r', this.side === 1);
+    this.sheet.scrollTop = 0;
     this.renderTabs(s);
-    this.el.querySelector<HTMLButtonElement>('[data-bd="prev"]')!.disabled = this.at === 0 && this.side === 0;
-    this.el.querySelector<HTMLButtonElement>('[data-bd="next"]')!.disabled = this.at === this.book.length - 1 && (this.side === 1 || !this.single());
+    this.el.querySelector<HTMLButtonElement>('[data-bd="prev"]')!.disabled = this.at === 0;
+    this.el.querySelector<HTMLButtonElement>('[data-bd="next"]')!.disabled = this.at === this.book.length - 1;
   }
 
   /** Two sticky-note bookmarks on the binder's top edge: back to the title page, and into the permuted index. */

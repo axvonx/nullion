@@ -117,6 +117,9 @@ export function createLayerBadge(layer: Layer): HTMLElement {
   const el = document.createElement('div');
   el.className = 'ls-badge';
   el.dataset.layer = layer.id;
+  // The label is a bitmap (and only an icon on phones): the name in words, for screen readers.
+  el.setAttribute('role', 'img');
+  el.setAttribute('aria-label', layer.name);
   el.style.setProperty('--ls-accent', theme.accent);
   el.style.setProperty('--ls-tint', theme.tint);
   el.style.setProperty('--ls-border', theme.border);
@@ -466,7 +469,7 @@ export class LayerStack {
     block.style.opacity = '0';
 
     const flyer = createLayerBadge(layer);
-    flyer.classList.add('ls-flyer');
+    flyer.classList.add('ls-flyer', 'into-spine');
     flyer.style.left = `${Math.round(srcRect.left)}px`;
     flyer.style.top = `${Math.round(srcRect.top)}px`;
     flyer.style.width = `${Math.round(srcRect.width)}px`;
