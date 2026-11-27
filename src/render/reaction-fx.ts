@@ -14,16 +14,16 @@ import type { TierId } from '../core/tiers';
  * frozen), a page-fault run (the Null pointer reaction, played 1.5× faster), leaked copies, racing jiggle, the dimmed
  * "ONE IN A / NULLION" sparkling glitch buildup, and at 2200 ms the climax inversion (entered once and held).
  */
-export const CASCADE = { hang: [0, 450], blackout: [300, 854], leakAt: 550, jiggle: [700, 2750], invert: [2750, 4350] } as const;
+export const CASCADE = { hang: [0, 450], blackout: [300, 854], leakAt: 550, jiggle: [700, 2750], invert: [2750, 4550] } as const;
 
 /**
  * "ONE IN A / NULLION" dramatic buildup shared by Bit Flip and Works on my machine:
  *   750 ms  (topAt):    background dims dark; row 1 ("ONE IN A") sparkles into existence with subtle glitches
  *   1050 ms (bottomAt): row 2 ("NULLION") sparkles into existence right below it (persists ~2s total)
- *   2750 ms (climaxAt): Bit Flip lights up inverted & locks crisp until 3850 ms (dissolving into the +13 dive);
+ *   2750 ms (climaxAt): Bit Flip lights up inverted & locks crisp until 4050 ms (dissolving into the +13 dive);
  *                       Works on my machine hard-cuts to silence, freezes mid-glitch until 3450 ms, then washes gray.
  */
-export const NULLION_BANNER = { topAt: 750, bottomAt: 1050, sparkDur: 360, climaxAt: 2750, holdEnd: 3850 } as const;
+export const NULLION_BANNER = { topAt: 750, bottomAt: 1050, sparkDur: 360, climaxAt: 2750, holdEnd: 4050 } as const;
 
 /**
  * Works on my machine is a full-length Bit Flip fake-out:
@@ -75,7 +75,7 @@ export const REACTION_MS: Record<TierId, number> = {
   leak: 1600,
   race: 1000,
   heisenbug: 1400,
-  bitflip: 4350,
+  bitflip: 4550,
 };
 
 /** How long each tier's notable part plays before its dive starts, in ms. */
@@ -86,7 +86,7 @@ export const LEAD_MS: Record<TierId, number> = {
   leak: 1000,
   race: 1000,
   heisenbug: 1100,
-  bitflip: 3700,
+  bitflip: 3900,
 };
 
 export const within = (t: number, [a, b]: readonly [number, number]) => t >= a && t < b;
