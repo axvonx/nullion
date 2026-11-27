@@ -17,7 +17,7 @@ id: lock · domain: os-systems · status: approved
 - optimistic lock | optimistic locking
 - pessimistic lock | pessimistic locking
 - two-phase locking | 2pl
-- shared lock | s lock
+- shared lock | s lock | SHARE lock | ShareLock
 - row-level lock | row lock
 - table lock | table-level lock | relation-level lock
 - file lock | flock | file locking | file_lock
@@ -45,6 +45,7 @@ id: lock · domain: os-systems · status: approved
 - page lock | page-level lock
 - latch
 - intrinsic lock | monitor lock
+- named mutex
 
 ## Race condition
 - MCS lock | mellor-crummey scott lock
@@ -63,6 +64,10 @@ id: lock · domain: os-systems · status: approved
 - gap lock
 - next-key lock
 - predicate lock | SIREAD lock
+- executive spin lock | KSPIN_LOCK
+- Giant | Giant lock | giant mutex
+- mandatory lock
+- ACCESS EXCLUSIVE lock | AccessExclusiveLock
 
 ## Heisenbug
 - qrwlock | queued rwlock | queued read-write lock
@@ -104,26 +109,18 @@ id: lock · domain: os-systems · status: approved
 - parking lot lock | WTF::Lock
 - raw spinlock | raw_spinlock | raw_spin_lock
 - bit spinlock | bit_spin_lock
+- remove lock
+- interrupt spin lock
+- BPF spin lock | bpf_spin_lock
+- spin mutex
+- heavyweight lock
+- relation extension lock
+- ACCESS SHARE lock | AccessShareLock
+- ROW EXCLUSIVE lock | RowExclusiveLock
+- ROW SHARE lock | RowShareLock
+- SHARE ROW EXCLUSIVE lock | ShareRowExclusiveLock
+- SHARE UPDATE EXCLUSIVE lock | ShareUpdateExclusiveLock
 
 ## Bit Flip
 - fissile lock
   note: Dice & Kogan, 2020: a TAS fast path that fissions into an MCS-like slow path.
-
-## Inbox
-- executive spin lock | KSPIN_LOCK (suggested: race)
-- remove lock (suggested: heisenbug)
-- interrupt spin lock (suggested: heisenbug)
-- BPF spin lock | bpf_spin_lock (suggested: heisenbug)
-- named mutex (suggested: leak)
-- spin mutex (suggested: heisenbug)
-- Giant | Giant lock | giant mutex (suggested: race)
-- mandatory lock (suggested: heisenbug)
-- heavyweight lock (suggested: race)
-- relation extension lock (suggested: heisenbug)
-- ACCESS SHARE lock | AccessShareLock (suggested: race)
-- ROW EXCLUSIVE lock | RowExclusiveLock (suggested: race)
-- ROW SHARE lock | RowShareLock (suggested: heisenbug)
-- SHARE lock | ShareLock (suggested: race)
-- SHARE ROW EXCLUSIVE lock | ShareRowExclusiveLock (suggested: heisenbug)
-- SHARE UPDATE EXCLUSIVE lock | ShareUpdateExclusiveLock (suggested: heisenbug)
-- ACCESS EXCLUSIVE lock | AccessExclusiveLock (suggested: leak)

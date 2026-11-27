@@ -20,7 +20,7 @@
 | conflict-free-replicated-data-type | Name a conflict-free replicated data type | data-graphics-algorithms | draft | 0 | 7 |
 | consensus-protocol | Name a consensus protocol | data-graphics-algorithms | draft | 0 | 7 |
 | cryptographic-hardness-assumption | Name a cryptographic hardness assumption | data-graphics-algorithms | draft | 0 | 7 |
-| data-structure | Name a data structure | data-graphics-algorithms | approved | 88 | 89 |
+| data-structure | Name a data structure | data-graphics-algorithms | approved | 175 | 0 |
 | database | Name a database | data-graphics-algorithms | draft | 0 | 7 |
 | distributed-hash-table | Name a distributed hash table | data-graphics-algorithms | draft | 0 | 7 |
 | dynamic-programming-problem | Name a dynamic programming problem | data-graphics-algorithms | draft | 0 | 7 |
@@ -180,7 +180,7 @@
 | linux-sysctl-key | Name a Linux sysctl key | os-systems | draft | 0 | 7 |
 | linux-system-call | Name a Linux system call | os-systems | draft | 0 | 7 |
 | linux-tracing-tool | Name a Linux tracing tool | os-systems | draft | 0 | 7 |
-| lock | Name a type of lock | os-systems | approved | 91 | 17 |
+| lock | Name a type of lock | os-systems | approved | 107 | 0 |
 | macho-load-command | Name a Mach-O load command | os-systems | draft | 0 | 7 |
 | memory-allocator | Name a memory allocator | os-systems | draft | 0 | 7 |
 | memory-consistency-model | Name a memory consistency model | os-systems | draft | 0 | 7 |

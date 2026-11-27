@@ -22,6 +22,14 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 - B+ tree | b+tree | bplus tree
 - bit array | bitmap | bitset | bit vector
 - Merkle tree | hash tree
+- page table | translation table
+- symbol table
+- min-heap | min heap | min_heap
+- inverted index
+- call graph
+- control flow graph | flow graph
+- abstract syntax tree | syntax tree
+- directed acyclic graph | DAG
 
 ## Memory leak
 - doubly linked list | double linked list | list_head | IntrusiveList
@@ -31,7 +39,7 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 - adjacency matrix
 - red-black tree | rb tree | rbtree | TreeMap | TreeSet
 - AVL tree | ImutAVLTree
-- skip list | skiplist | ConcurrentSkipListMap | ConcurrentSkipListSet
+- skip list | skiplist
 - segment tree
 - radix tree | patricia tree | patricia trie | compact prefix tree
 - suffix tree
@@ -50,6 +58,18 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 - count-min sketch
 - HyperLogLog
 - DAWG | directed acyclic word graph
+- scatter-gather list | scatter list | scatter-gather table | sg list | gather list
+- partition table
+- free list
+- process table
+- socket buffer
+- interrupt descriptor table
+- dominator tree | post-dominator tree
+- virtual table | VTable | virtual function table
+- jump table
+- global offset table
+- roaring bitmap
+- LinkedHashMap
 
 ## Race condition
 - Fenwick tree | binary indexed tree
@@ -76,6 +96,32 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 - unrolled linked list
 - top tree
 - order-statistic tree
+- file descriptor table
+- shadow page table
+- extended page table
+- LPM trie
+- posting list
+- generalized search tree | GiST
+- GIN | generalized inverted index
+- lookaside list
+- memory descriptor list
+- SmallVector | InlinedVector
+- DenseMap | SmallDenseMap
+- SparseSet
+- string table
+- Swiss table | raw_hash_set | flat_hash_map | flat_hash_set
+- concurrent skip list | ConcurrentSkipListMap | ConcurrentSkipListSet
+- bounded MPMC queue | MPMCQueue
+- intrusive heap
+- rax | rax tree
+- listpack
+- quicklist
+- Treiber stack
+- ChainMap
+- IdentityHashMap
+- CopyOnWriteArrayList | copy-on-write array
+- ziplist
+- intset
 
 ## Heisenbug
 - skew heap
@@ -102,98 +148,48 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 - Euler tour tree
 - sparse table
 - radix heap
+- ACPI table | system description table
+- auxiliary vector | aux vector
+- combining tree
+- sbitmap | scalability bitmap
+- assoc_array
+- folio_queue
+- generic radix tree
+- fib_trie
+- e820 table | e820 map | e820 memory map
+- PRD table
+- write-intent bitmap
+- block translation table
+- visibility map
+- free space map
+- BRIN
+- SLRU
+- buf_ring
+- SLIST | interlocked singly linked list
+- device queue
+- cancel-safe IRP queue | cancel-safe queue
+- DenseSet
+- SmallPtrSet
+- SetVector
+- MapVector
+- SparseMultiSet
+- SparseBitVector
+- CoalescingBitVector
+- SmallBitVector
+- FoldingSet
+- ImmutableMap
+- ImmutableSet
+- IntervalMap
+- F14 hash table | F14 | F14Table | F14Map | F14Set | F14FastMap | F14FastSet | F14VectorMap | F14VectorSet | F14NodeMap | F14NodeSet | F14ValueMap | F14ValueSet | F14BasicMap | F14BasicSet
+- AtomicHashMap
+- concurrent B-skip list
+- ProducerConsumerQueue
+- EvictingCacheMap
+- kvstore
+- ebuckets
+- CLH queue
+- SpinedBuffer
 
 ## Bit Flip
 - fusion tree
   note: Fredman & Willard, 1990: beats comparison-sort bounds with word-level parallelism.
-
-## Inbox
-- page table | translation table (suggested: npe)
-- translation lookaside buffer (suggested: leak)
-- scatter-gather list | scatter list | scatter-gather table | sg list | gather list (suggested: race)
-- partition table (suggested: leak)
-- free list (suggested: leak)
-- process table (suggested: leak)
-- symbol table (suggested: npe)
-- file descriptor table (suggested: race)
-- socket buffer (suggested: leak)
-- ACPI table | system description table (suggested: heisenbug)
-- auxiliary vector | aux vector (suggested: heisenbug)
-- combining tree (suggested: heisenbug)
-- sbitmap | scalability bitmap (suggested: heisenbug)
-- assoc_array (suggested: heisenbug)
-- shadow page table (suggested: race)
-- extended page table (suggested: race)
-- min_heap (suggested: leak)
-- folio_queue (suggested: heisenbug)
-- generic radix tree (suggested: heisenbug)
-- fib_trie (suggested: heisenbug)
-- LPM trie (suggested: heisenbug)
-- e820 table | e820 map | e820 memory map (suggested: heisenbug)
-- interrupt descriptor table (suggested: leak)
-- PRD table (suggested: heisenbug)
-- write-intent bitmap (suggested: heisenbug)
-- block translation table (suggested: heisenbug)
-- access control list (suggested: npe)
-- inverted index (suggested: npe)
-- posting list (suggested: heisenbug)
-- visibility map (suggested: leak)
-- free space map (suggested: race)
-- generalized search tree | GiST (suggested: race)
-- GIN | generalized inverted index (suggested: heisenbug)
-- BRIN (suggested: heisenbug)
-- SLRU (suggested: heisenbug)
-- buf_ring (suggested: heisenbug)
-- lookaside list (suggested: race)
-- memory descriptor list (suggested: race)
-- SLIST (suggested: heisenbug)
-- device queue (suggested: race)
-- cancel-safe IRP queue | cancel-safe queue (suggested: heisenbug)
-- SmallVector | InlinedVector (suggested: race)
-- DenseMap | SmallDenseMap (suggested: race)
-- DenseSet (suggested: race)
-- SmallPtrSet (suggested: race)
-- SetVector (suggested: race)
-- MapVector (suggested: race)
-- SparseSet (suggested: race)
-- SparseMultiSet (suggested: heisenbug)
-- SparseBitVector (suggested: heisenbug)
-- CoalescingBitVector (suggested: heisenbug)
-- SmallBitVector (suggested: heisenbug)
-- FoldingSet (suggested: heisenbug)
-- ImmutableMap (suggested: heisenbug)
-- ImmutableSet (suggested: heisenbug)
-- IntervalMap (suggested: heisenbug)
-- dominator tree | post-dominator tree (suggested: leak)
-- call graph (suggested: leak)
-- control flow graph | flow graph (suggested: npe)
-- abstract syntax tree | syntax tree (suggested: npe)
-- virtual table | VTable | virtual function table (suggested: leak)
-- jump table (suggested: leak)
-- string table (suggested: leak)
-- global offset table (suggested: leak)
-- directed acyclic graph | DAG (suggested: npe)
-- Swiss table | raw_hash_set | flat_hash_map | flat_hash_set (suggested: leak)
-- F14 hash table | F14 | F14Table | F14Map | F14Set | F14FastMap | F14FastSet | F14VectorMap | F14VectorSet | F14NodeMap | F14NodeSet | F14ValueMap | F14ValueSet | F14BasicMap | F14BasicSet (suggested: race)
-- AtomicHashMap (suggested: heisenbug)
-- concurrent skip list (suggested: race)
-- concurrent B-skip list (suggested: heisenbug)
-- bounded MPMC queue | MPMCQueue (suggested: heisenbug)
-- ProducerConsumerQueue (suggested: heisenbug)
-- EvictingCacheMap (suggested: heisenbug)
-- intrusive heap (suggested: heisenbug)
-- rax | rax tree (suggested: leak)
-- listpack (suggested: race)
-- quicklist (suggested: race)
-- kvstore (suggested: heisenbug)
-- ebuckets (suggested: heisenbug)
-- roaring bitmap (suggested: leak)
-- Treiber stack (suggested: race)
-- CLH queue (suggested: heisenbug)
-- SpinedBuffer (suggested: heisenbug)
-- ChainMap (suggested: race)
-- LinkedHashMap (suggested: leak)
-- IdentityHashMap (suggested: race)
-- CopyOnWriteArrayList | copy-on-write array (suggested: race)
-- ziplist (suggested: race)
-- intset (suggested: race)
