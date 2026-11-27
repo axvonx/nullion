@@ -632,3 +632,95 @@ describe('resume and end-card extras', () => {
     expect(n.hidden).toBe(true);
   });
 });
+
+describe('end card answer sheet', () => {
+  /** The sample set plus a long off-by-one tail on the first prompt, so "+N more" has something to expand. */
+  function sheetSetup(puzzle = 1) {
+    const tag = SAMPLE_QUESTIONS[0]!.tag;
+    const extra = Array.from({ length: 30 }, (_, i) => ({ name: `filler ${String(i).padStart(2, '0')}`, tags: { [tag]: 'off-by-one' as const } }));
+    const set = buildAnswerSet('sheet', 'sheet', [...SAMPLE_TERMS, ...extra], SAMPLE_QUESTIONS);
+    document.body.innerHTML = '<div id="app"></div>';
+    const mount = document.getElementById('app')!;
+    const hud = new Hud(mount);
+    hud.bind(new FakeScene() as unknown as Scene, () => 0);
+    const game = new Game(set, puzzle, { timer: true, unlimited: false, autocorrect: 'confirm' });
+    hud.setGame(game, '2026-11-26');
+    game.start(0);
+    const q = game.rounds[0]!.question;
+    const entries = set.entries(q.id);
+    const own = entries.find((e) => e.tier === 'off-by-one')!;
+    hud.endOfDay([{ question: q.id, tier: own.tier, name: own.name }], 1, puzzle);
+    const toggle = mount.querySelector<HTMLButtonElement>('.bt-sheet-btn')!;
+    const panel = mount.querySelector<HTMLElement>('.bt-sheet')!;
+    return { mount, toggle, panel, entries, own, q };
+  }
+  const shownNames = (panel: HTMLElement) => [...panel.querySelectorAll('.sheet-list li')].map((li) => li.firstChild!.textContent);
+
+  it('opens and closes from the row arrow, and says so to assistive tech', () => {
+    const h = sheetSetup();
+    expect(h.panel.hidden).toBe(true);
+    expect(h.toggle.getAttribute('aria-expanded')).toBe('false');
+    h.toggle.click();
+    expect(h.panel.hidden).toBe(false);
+    expect(h.toggle.getAttribute('aria-expanded')).toBe('true');
+    expect(h.toggle.getAttribute('aria-controls')).toBe(h.panel.id);
+    h.toggle.click();
+    expect(h.panel.hidden).toBe(true);
+    // A real button: reachable and operable by keyboard without extra handlers.
+    expect(h.toggle.tagName).toBe('BUTTON');
+  });
+
+  it('lists the answers by their own tier, deepest first', () => {
+    const h = sheetSetup();
+    h.toggle.click();
+    const tiers = [...h.panel.querySelectorAll<HTMLElement>('.sheet-head .bt-tier')].map((t) => t.dataset.tier);
+    const order = ['bitflip', 'heisenbug', 'race', 'leak', 'npe', 'off-by-one', 'womm'];
+    expect(tiers).toEqual(order.filter((t) => h.entries.some((e) => e.tier === t)));
+    expect(tiers[0]).toBe('bitflip');
+  });
+
+  it('marks the players own answer and shows at most 8 per tier, with a +N more count', () => {
+    const h = sheetSetup();
+    h.toggle.click();
+    const own = h.panel.querySelectorAll('.sheet-list li.own');
+    expect(own).toHaveLength(1);
+    expect(own[0]!.textContent).toContain(h.own.name);
+    const group = [...h.panel.querySelectorAll<HTMLElement>('.sheet-group')].find((g) => g.querySelector<HTMLElement>('.bt-tier')!.dataset.tier === 'off-by-one')!;
+    const total = h.entries.filter((e) => e.tier === 'off-by-one').length;
+    expect(group.querySelectorAll('.sheet-list li')).toHaveLength(8);
+    expect(group.querySelector('.sheet-more')!.textContent).toBe(`+${total - 8} more`);
+  });
+
+  it('"+N more" expands the whole tier and collapses again', () => {
+    const h = sheetSetup();
+    h.toggle.click();
+    const group = [...h.panel.querySelectorAll<HTMLElement>('.sheet-group')].find((g) => g.querySelector<HTMLElement>('.bt-tier')!.dataset.tier === 'off-by-one')!;
+    const total = h.entries.filter((e) => e.tier === 'off-by-one').length;
+    const more = group.querySelector<HTMLButtonElement>('.sheet-more')!;
+    more.click();
+    expect(group.querySelectorAll('.sheet-list li')).toHaveLength(total);
+    expect(group.querySelectorAll('li.own')).toHaveLength(1);
+    expect(more.getAttribute('aria-expanded')).toBe('true');
+    more.click();
+    expect(group.querySelectorAll('.sheet-list li')).toHaveLength(8);
+  });
+
+  it('picks the same answers for a given puzzle and different ones for another', () => {
+    const a = sheetSetup(7);
+    a.toggle.click();
+    const b = sheetSetup(7);
+    b.toggle.click();
+    const c = sheetSetup(8);
+    c.toggle.click();
+    expect(shownNames(a.panel)).toEqual(shownNames(b.panel));
+    expect(shownNames(a.panel).length).toBeGreaterThan(0);
+    // Puzzle 8 draws other prompts and other picks.
+    expect(shownNames(a.panel)).not.toEqual(shownNames(c.panel));
+  });
+
+  it('never mentions unconfirmed answers', () => {
+    const h = sheetSetup();
+    h.toggle.click();
+    expect(h.panel.textContent).not.toMatch(/\(auto\)|unconfirmed/i);
+  });
+});

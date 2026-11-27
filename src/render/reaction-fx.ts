@@ -11,9 +11,9 @@ import type { TierId } from '../core/tiers';
 
 /**
  * Bit Flip is the finale: it compounds every other tier's screen effect as an escalating cascade, in ms: hang (grey,
- * frozen), a black-out, leaked copies, racing jiggle, and last the inversion, entered once and held.
+ * frozen), a page-fault run (the Null pointer reaction, played 1.5× faster), leaked copies, racing jiggle, and last the inversion, entered once and held.
  */
-export const CASCADE = { hang: [0, 450], blackout: [300, 700], leakAt: 550, jiggle: [700, 1300], invert: [1300, 2000] } as const;
+export const CASCADE = { hang: [0, 450], blackout: [300, 854], leakAt: 550, jiggle: [700, 1300], invert: [1300, 2000] } as const;
 
 /**
  * Works on my machine is a full-length Bit Flip fake-out:
@@ -28,7 +28,32 @@ export const WOMM = { jiggle: [700, 2200], freeze: 2200, gray: 2850, hourglass: 
 
 /** Heisenbug's glitch tints the screen from here on (a held tint, never a blink of inversion). */
 export const TEASE_AT = 480;
-export const NPE_MS = 460;
+
+/**
+ * Null pointer exception dereferences an unmapped page. Page-aligned holes (a fixed grid, like 4 KiB pages) open
+ * near the cursor one after another, hold as voids, then fault back in in the same order. Each page's cover only
+ * rises, then only falls, in four coarse steps (a dithered dissolve, never a blink), so it cannot strobe.
+ */
+export const PAGE_FAULT = { pages: 5, appearGap: 70, appearDur: 60, restoreAt: 480, restoreGap: 55, restoreDur: 130, reducedHold: 600 } as const;
+export const PAGE_FAULT_MS = PAGE_FAULT.restoreAt + (PAGE_FAULT.pages - 1) * PAGE_FAULT.restoreGap + PAGE_FAULT.restoreDur;
+/** Bit Flip and Works on my machine play the page-fault run this much faster inside their cascade. */
+export const CASCADE_PAGE_SPEED = 1.5;
+
+/** Cover (0 = mapped, 1 = a void) of each page `t` ms into the run; empty outside it. Reduced motion: static voids that appear and go. */
+export function pageCovers(t: number, reduced: boolean): number[] {
+  const P = PAGE_FAULT;
+  if (t < 0 || t >= (reduced ? P.reducedHold : PAGE_FAULT_MS)) return [];
+  const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
+  return Array.from({ length: P.pages }, (_, i) => {
+    if (reduced) return 1;
+    const up = clamp01((t - i * P.appearGap) / P.appearDur);
+    const down = clamp01((t - (P.restoreAt + i * P.restoreGap)) / P.restoreDur);
+    return Math.ceil(Math.min(up, 1 - down) * 4) / 4;
+  });
+}
+
+/** The page-fault run inside Bit Flip's cascade (and Works on my machine's mirror of it). */
+const cascadePages = (rel: number, reduced: boolean) => (within(rel, CASCADE.blackout) ? pageCovers((rel - CASCADE.blackout[0]) * CASCADE_PAGE_SPEED, reduced) : []);
 /** Race condition and Heisenbug sustained: a calmer, continuing jiggle. */
 export const HELD_JIGGLE = 0.4;
 
@@ -36,7 +61,7 @@ export const HELD_JIGGLE = 0.4;
 export const REACTION_MS: Record<TierId, number> = {
   'off-by-one': 600,
   womm: 4400,
-  npe: 500,
+  npe: PAGE_FAULT_MS + 20,
   leak: 1600,
   race: 1000,
   heisenbug: 1400,
@@ -47,7 +72,7 @@ export const REACTION_MS: Record<TierId, number> = {
 export const LEAD_MS: Record<TierId, number> = {
   'off-by-one': 1250,
   womm: 4250,
-  npe: 800,
+  npe: PAGE_FAULT_MS + 20,
   leak: 1000,
   race: 1000,
   heisenbug: 1100,
@@ -66,11 +91,14 @@ export interface ReactionFrame {
   /** 0..~2.6 */
   jiggle: number;
   flip: 'none' | 'invert' | 'tint';
+  /** Any page is a void this frame. */
   blackout: boolean;
+  /** Page-fault cover per page (see pageCovers); empty when none. */
+  pages: number[];
   cursor: CursorPose;
 }
 
-export const NO_REACTION: ReactionFrame = { freeze: false, hang: false, jiggle: 0, flip: 'none', blackout: false, cursor: 'own' };
+export const NO_REACTION: ReactionFrame = { freeze: false, hang: false, jiggle: 0, flip: 'none', blackout: false, pages: [], cursor: 'own' };
 
 /** A reaction `rel` ms in; `sustained` while its dive or reveal holds it; `reduced` for reduced motion. */
 export function reactionFrame(tier: TierId, rel: number, sustained: boolean, reduced: boolean): ReactionFrame {
@@ -80,7 +108,8 @@ export function reactionFrame(tier: TierId, rel: number, sustained: boolean, red
     case 'bitflip':
       f.hang = within(rel, CASCADE.hang);
       f.freeze = f.hang;
-      f.blackout = within(rel, CASCADE.blackout);
+      f.pages = cascadePages(rel, reduced);
+      f.blackout = f.pages.length > 0;
       f.jiggle = within(rel, CASCADE.jiggle) ? fade(...CASCADE.jiggle) : 0;
       if (sustained ? rel >= CASCADE.invert[0] : within(rel, CASCADE.invert)) f.flip = reduced ? 'tint' : 'invert';
       f.cursor = 'flipped';
@@ -90,7 +119,8 @@ export function reactionFrame(tier: TierId, rel: number, sustained: boolean, red
         // Mirrors Bit Flip's cascade up until the moment Bit Flip would sink, with super-intense escalating shake.
         f.hang = within(rel, CASCADE.hang);
         f.freeze = f.hang;
-        f.blackout = within(rel, CASCADE.blackout);
+        f.pages = cascadePages(rel, reduced);
+        f.blackout = f.pages.length > 0;
         if (within(rel, WOMM.jiggle)) {
           const p = (rel - WOMM.jiggle[0]) / (WOMM.jiggle[1] - WOMM.jiggle[0]);
           f.jiggle = 0.45 + 2.25 * p * p;
@@ -109,7 +139,8 @@ export function reactionFrame(tier: TierId, rel: number, sustained: boolean, red
       if (tier === 'heisenbug' && (reduced || rel >= TEASE_AT)) f.flip = 'tint';
       break;
     case 'npe':
-      f.blackout = rel < NPE_MS || sustained;
+      f.pages = pageCovers(rel, reduced);
+      f.blackout = f.pages.length > 0;
       break;
     case 'off-by-one':
     case 'leak':

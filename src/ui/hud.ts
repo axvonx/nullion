@@ -1,5 +1,6 @@
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
 import { PROMPTS_PER_DAY, layerAt, maxDepthFor, type Layer, type LayerId } from '../core/layers';
+import type { CategoryEntry } from '../core/match';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
 import { buildShareText, deliverShare, siteUrl } from '../game/share';
@@ -8,6 +9,7 @@ import { look, reducedMotion } from '../looks';
 import type { Scene } from '../render/scene';
 import { FORMS, FORM_BY_LAYER, type FormId } from './forms';
 import { tierIcon } from './tier-icons';
+import { answerSheet, type SheetGroup } from './answer-sheet';
 import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
@@ -88,6 +90,8 @@ export function framesLabel(n: number): string {
 
 /** One line of the day's record: an accepted answer, or a round that pushed nothing. */
 export interface RecordRow {
+  /** The prompt's question id: lets the row open its answer sheet. */
+  question?: string;
   tier?: TierId;
   name?: string;
   timedOut?: boolean;
@@ -1015,7 +1019,7 @@ export class Hud {
    * The card: a summary line and a backtrace of the day, one row per round, #0 being the last answer. A row shows
    * its frame numbers and the tier's cursor icon; hovering, focusing or tapping it opens it in place (no layout
    * shift) to the tier, the answer and a larger icon. Every row's accessible name says all of it. Each row keeps
-   * an empty trailing slot for a future dropdown (other players' answers to that question).
+   * a trailing slot with a dropdown arrow: the prompt's answer sheet from the loaded set (see answer-sheet.ts).
    */
   private buildCard(rows: RecordRow[], depth: number, puzzle: number) {
     const ol = this.els.record!;
@@ -1068,6 +1072,8 @@ export class Hud {
       });
       row.append(num, icon, sum, det, more);
       li.append(row);
+      const sheetBtn = this.answerSheetFor(li, i, r, puzzle);
+      if (sheetBtn) li.append(sheetBtn.toggle, sheetBtn.panel);
       ol.append(li);
     });
     // The share text is emoji glyphs only (oldest first), so it pastes cleanly anywhere. Frame scores stay out of it.
@@ -1100,6 +1106,87 @@ export class Hud {
     ideaLink.rel = 'noopener noreferrer';
     ideaLink.textContent = 'Suggest a question';
     this.els.resultLinks!.replaceChildren(missLink, ' · ', ideaLink);
+  }
+
+  /**
+   * The row's dropdown: an arrow button over the row's last slot that opens the prompt's answer sheet in place.
+   * The sheet is built on first open. Needs the loaded answer set (the day is over, so showing it spoils nothing).
+   */
+  private answerSheetFor(li: HTMLElement, i: number, r: RecordRow, puzzle: number): { toggle: HTMLButtonElement; panel: HTMLElement } | undefined {
+    const set = this.game?.set;
+    if (!set || !r.question) return undefined;
+    const qid = r.question;
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'bt-sheet-btn';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', `#${i}: all answers to this prompt`);
+    toggle.textContent = '▾';
+    const panel = document.createElement('div');
+    panel.className = 'bt-sheet';
+    panel.id = `bt-sheet-${i}`;
+    panel.hidden = true;
+    toggle.setAttribute('aria-controls', panel.id);
+    let built = false;
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      if (open && !built) {
+        built = true;
+        panel.replaceChildren(...this.sheetNodes(answerSheet(set.entries(qid), puzzle, qid, r.name), r.name));
+      }
+      toggle.setAttribute('aria-expanded', String(open));
+      panel.hidden = !open;
+      li.classList.toggle('sheet-open', open);
+    });
+    return { toggle, panel };
+  }
+
+  private sheetNodes(groups: SheetGroup[], own: string | undefined): HTMLElement[] {
+    return groups.map((g) => {
+      const box = document.createElement('section');
+      box.className = 'sheet-group';
+      const head = document.createElement('div');
+      head.className = 'sheet-head';
+      const name = document.createElement('span');
+      name.className = 'bt-tier';
+      name.dataset.tier = g.tier;
+      name.textContent = TIERS[g.tier].name;
+      head.append(name, ` · ${g.total}`);
+      const list = document.createElement('ul');
+      list.className = 'sheet-list';
+      const fill = (entries: readonly CategoryEntry[]) => list.replaceChildren(...entries.map((e) => this.sheetItem(e, e.name === own)));
+      box.append(head, list);
+      fill(g.shown);
+      if (g.total > g.shown.length) {
+        const more = document.createElement('button');
+        more.type = 'button';
+        more.className = 'sheet-more';
+        more.setAttribute('aria-expanded', 'false');
+        const rest = g.total - g.shown.length;
+        more.textContent = `+${rest} more`;
+        more.addEventListener('click', () => {
+          const open = more.getAttribute('aria-expanded') !== 'true';
+          more.setAttribute('aria-expanded', String(open));
+          more.textContent = open ? 'show fewer' : `+${rest} more`;
+          fill(open ? g.all : g.shown);
+        });
+        box.append(more);
+      }
+      return box;
+    });
+  }
+
+  private sheetItem(e: CategoryEntry, own: boolean): HTMLElement {
+    const li = document.createElement('li');
+    li.textContent = e.name;
+    if (own) {
+      li.className = 'own';
+      const you = document.createElement('span');
+      you.className = 'sheet-you';
+      you.textContent = ' ◂ you';
+      li.append(you);
+    }
+    return li;
   }
 
   /** "Your stats" on the end card. Hidden when this game doesn't count or storage is unavailable. */
@@ -1208,5 +1295,5 @@ export class Hud {
 }
 
 function rowsOf(g: Game): RecordRow[] {
-  return g.rounds.map((r) => (r.locked ? { tier: r.locked.entry.tier, name: r.locked.entry.name } : { timedOut: r.timedOut }));
+  return g.rounds.map((r) => (r.locked ? { question: r.question.id, tier: r.locked.entry.tier, name: r.locked.entry.name } : { question: r.question.id, timedOut: r.timedOut }));
 }
