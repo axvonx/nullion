@@ -1,0 +1,74 @@
+{
+ "layer": "rtl",
+ "layerName": "RTL & Logic Gates",
+ "daily": false,
+ "propsAlive": 0,
+ "newPropsNeeded": 8,
+ "kept": [
+  {
+   "key": "c:rtl:core",
+   "kind": "critter",
+   "name": "c:rtl:core",
+   "depicts": "A tiny grey-and-black pixelated critter that scuttles along the RTL logic grid."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:rtl-htree",
+   "kind": "anchor",
+   "name": "e:rtl-htree",
+   "depicts": "A symmetrical blue and pale-cyan H-tree clock distribution network branching into four terminal bars.",
+   "problem": "ART-STYLE rule 1: anchor is an H-tree diagram; redraw as a place"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:rtl-nand",
+   "name": "e:rtl-nand",
+   "depicts": "A blue-bordered logic gate with two input leads on the left, a dark body, and an inversion bubble on the right.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: gate schematic symbol",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rtl-dff",
+   "name": "e:rtl-dff",
+   "depicts": "A tall dark rectangular flip-flop cell with a pale-cyan border, a clock triangle at the bottom left, and data leads.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: flip-flop schematic symbol",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rtl-wave",
+   "name": "e:rtl-wave",
+   "depicts": "A dark-blue framed white timing-diagram window displaying pale-cyan square-wave pulse segments.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: waveform glyph",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rtl-mux",
+   "name": "e:rtl-mux",
+   "depicts": "A bright-blue trapezoidal multiplexer symbol tapering from left to right.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: mux schematic symbol",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rtl-adder",
+   "name": "e:rtl-adder",
+   "depicts": "A blue-framed dark block containing a pale-cyan plus sign.",
+   "pass": "cull",
+   "reason": "Visually generic block with a plus sign that is weaker than the core gate, flip-flop, and mux props.",
+   "earlierIdea": "a Karnaugh map grid"
+  },
+  {
+   "key": "e:rtl-clk",
+   "name": "e:rtl-clk",
+   "depicts": "Two parallel horizontal clock rails, one pale cyan and one dark navy, in an animated 18x7 strip.",
+   "pass": "cull",
+   "reason": "Redundant clock-distribution prop alongside the Clock H-Tree anchor.",
+   "earlierIdea": null
+  }
+ ]
+}

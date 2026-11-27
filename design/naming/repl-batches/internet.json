@@ -1,0 +1,100 @@
+{
+ "layer": "internet",
+ "layerName": "Internet / BGP",
+ "daily": false,
+ "propsAlive": 2,
+ "newPropsNeeded": 5,
+ "kept": [
+  {
+   "key": "e:net-ixp",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A large framed switchboard panel with a blue header bar and four vertical light-blue bays, each topped by a dark bezel with an animated green status light on the leftmost unit."
+  },
+  {
+   "key": "e:net-router",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A dark navy box with a cream front panel, four alternating amber and green LEDs, and two upright dark gray antennas."
+  },
+  {
+   "key": "c:internet:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny white flying bird with a blue head and beak and a two-pixel cyan contrail trailing behind it."
+  },
+  {
+   "key": "c:internet:alt",
+   "kind": "critter-alt",
+   "name": 1,
+   "depicts": "A tiny floating white probe with two blue top-mounted panels and a single green beacon pixel underneath."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:net-cable",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A horizontal two-tone blue-and-navy conduit banded at regular intervals by four amber collars, resembling an armored undersea cable.",
+   "problem": "ART-STYLE rule 7: under 8 px tall; thicken into a cable run with connectors"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:net-bgp",
+   "name": 1,
+   "depicts": "A dark-framed card displaying a blue header block, a dark label bar, a gray rule, and an animated green-and-amber segmented bar along the bottom.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: a UI card with coloured bars; no object reads as BGP",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:net-dns",
+   "name": 2,
+   "depicts": "A white index card with a green header strip, a navy drop shadow, and three horizontal bars representing resolved record fields.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: a UI card; same \"panel with lines\" as net-packet and net-bgp",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:net-asn",
+   "name": "e:net-asn",
+   "depicts": "A white pixelated cloud with a blue rectangular badge across its center and a pale blue shadow beneath it.",
+   "pass": "cull",
+   "reason": "Generic cloud silhouette that overlaps visually with Eventual Cloud and conceptually with BGP routing.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:net-fiber",
+   "name": 2,
+   "depicts": "A thin horizontal cyan optical line with a bright white light pulse traveling at its right tip.",
+   "pass": "cull",
+   "reason": "Low-priority thin line that is redundant with Abyssal Trunkline for fiber-optic transmission.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:net-dish",
+   "name": "e:net-dish",
+   "depicts": "A dark gray pedestal supporting a tilted pale-blue parabolic dish with a darker blue feed horn angled toward the lower right.",
+   "pass": "cull",
+   "reason": "Secondary backhaul prop whose orbital relay concept is already covered by Ping Probe.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:net-packet",
+   "name": 1,
+   "depicts": "A white envelope-like card with a cyan top header bar, a navy drop shadow, a gray address line, and an amber square payload block.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: a UI card; indistinct from net-dns",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:net-tls",
+   "name": 1,
+   "depicts": "A closed green padlock with a lighter green shackle and a vertical white keyhole slot in the center.",
+   "pass": "cull",
+   "reason": "Generic padlock icon that duplicates padlock props in other layers.",
+   "earlierIdea": null
+  }
+ ]
+}

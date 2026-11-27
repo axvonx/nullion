@@ -1,0 +1,70 @@
+{
+ "layer": "landauer",
+ "layerName": "Landauer Limit",
+ "daily": false,
+ "propsAlive": 1,
+ "newPropsNeeded": 7,
+ "kept": [
+  {
+   "key": "e:la-horizon",
+   "kind": "anchor",
+   "name": "e:la-horizon",
+   "depicts": "Two concentric rings in dark navy and cyan bisected by a full-width horizontal line, with a pale-white glint on the lower-right inner arc."
+  },
+  {
+   "key": "e:la-lonebit",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A 6x6 cyan square centred with a 2x2 pale ice-white core on an 8x8 frame."
+  },
+  {
+   "key": "c:landauer:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A minimal floating white glyph that appears either as a 2x3 solid bar (1) or a 3x3 hollow ring (0) drifting in empty space."
+  }
+ ],
+ "rework": [],
+ "deleted": [
+  {
+   "key": "e:la-ray",
+   "name": "e:la-ray",
+   "depicts": "A single dark-navy pixel centred in an otherwise blank 18x18 frame.",
+   "pass": "cull",
+   "reason": "A single dark-navy pixel in an 18x18 frame is visually invisible and its thermal radiation concept is better represented by Waste Heat.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:la-entropy",
+   "name": 1,
+   "depicts": "A hollow dark-navy circle enclosing a single pale-blue pixel at its centre.",
+   "pass": "cull",
+   "reason": "Visually redundant with Reset Cell (a hollow dark-navy shape enclosing a single pale-blue pixel) and less specific to bit erasure.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:la-spark",
+   "name": "e:la-spark",
+   "depicts": "A pale-blue central pixel flanked on all four cardinal sides by single dark-navy pixels.",
+   "pass": "cull",
+   "reason": "Lowest-priority tiny 3x3 pixel cross whose kT ln 2 energy dissipation concept duplicates Waste Heat.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:la-erase",
+   "name": 1,
+   "depicts": "A 12x12 hollow dark-navy square frame enclosing a single pale-blue pixel just off centre.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: dot in a square",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:la-heat",
+   "name": "e:la-heat",
+   "depicts": "Four staggered vertical dark-navy bars arranged in alternating heights like rising thermal plumes.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: abstract bars",
+   "earlierIdea": null
+  }
+ ]
+}

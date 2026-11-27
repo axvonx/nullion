@@ -1,0 +1,89 @@
+{
+ "layer": "kernel-entry",
+ "layerName": "Kernel Entry & VFS Gate",
+ "daily": false,
+ "propsAlive": 0,
+ "newPropsNeeded": 8,
+ "kept": [],
+ "rework": [
+  {
+   "key": "e:ke-gatehouse",
+   "kind": "anchor",
+   "name": "e:ke-gatehouse",
+   "depicts": "A grey stone-like gatehouse archway framing a black opening barred by five vertical cyan portcullis rods resting on a yellow crossbar.",
+   "problem": "randomly asymmetrical? no lock or other indication of being a gate, strange color choices"
+  },
+  {
+   "key": "c:kernel-entry:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A small black-bezelled cyan monitor screen with a rightward-facing black notch, perched on a compact grey pedestal foot.",
+   "problem": "Too small and hard to tell what it is"
+  },
+  {
+   "key": "c:kernel-entry:alt",
+   "kind": "critter-alt",
+   "name": 1,
+   "depicts": "A compact cyan rectangular block with a single black square eye in the centre and a flat grey cap resting on top.",
+   "problem": "Too small and hard to tell what it is"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:ke-seccomp",
+   "name": 1,
+   "depicts": "A cyan-framed black panel displaying three horizontal status bars of decreasing length in green, yellow, and red.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: UI bars panel",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ke-uaccess",
+   "name": 1,
+   "depicts": "A blue block on the left and a dark-grey block on the right separated by a white chasm bridged by a single yellow span.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: two boxes and a connector; diagram",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ke-sysgate",
+   "name": 1,
+   "depicts": "Two grey vertical pillars beneath a wide cyan lintel with a floating yellow barrier bar across the archway.",
+   "pass": "cull",
+   "reason": "Redundant archway prop that duplicates both the visual motif and syscall-boundary concept of the Syscall Gatehouse.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ke-ptrace",
+   "name": 1,
+   "depicts": "A magenta-framed black screen displaying two vertical rectangular panes side by side, one cyan and one yellow.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: two coloured squares; abstract",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ke-cred",
+   "name": "e:ke-cred",
+   "depicts": "A cyan-bordered dark-blue square badge displaying a white head-and-shoulders silhouette.",
+   "pass": "cull",
+   "reason": "Visually generic head-and-shoulders badge that closely resembles User Avatar.",
+   "earlierIdea": "a capability bitmask keycard"
+  },
+  {
+   "key": "e:ke-fdtable",
+   "name": "e:ke-fdtable",
+   "depicts": "A grey-bordered black slate displaying four horizontal bright-green bars of increasing length stacked vertically.",
+   "pass": "cull",
+   "reason": "Visually generic slate of four horizontal bars that lacks a distinct silhouette.",
+   "earlierIdea": "a numbered file-descriptor ticket dispenser"
+  },
+  {
+   "key": "e:ke-vdso",
+   "name": "e:ke-vdso",
+   "depicts": "A horizontal cyan strip pierced by two vertical yellow pillars, forming a compact bypass conduit.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: dumbbell symbol; twin of r1-paravirt",
+   "earlierIdea": null
+  }
+ ]
+}

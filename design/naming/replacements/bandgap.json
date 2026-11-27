@@ -1,0 +1,96 @@
+{
+ "layer": "bandgap",
+ "replaces": [
+  {
+   "key": "e:bg-band",
+   "idea": null
+  },
+  {
+   "key": "e:bg-tunnel",
+   "idea": "A thick quartz barrier wall on a base with a glowing cyan bead embedded halfway through its face."
+  },
+  {
+   "key": "e:bg-wave",
+   "idea": "A glass-walled laboratory wave tank on four stubby legs with a brass crank and a standing cyan ripple inside."
+  },
+  {
+   "key": "e:bg-photonabs",
+   "idea": "A brass-mounted crystal prism on a pedestal with a tiny upper shelf holding a lifted cyan bead."
+  },
+  {
+   "key": "e:bg-recomb",
+   "idea": "A domed glass LED diode standing on two wire leads, glowing with a single bright cyan spark at its tip."
+  }
+ ],
+ "new": [
+  {
+   "id": "bg-tunnel-wall",
+   "name": "Phantom Wall",
+   "concept": "Quantum tunneling",
+   "depicts": "A squat, thick rectangular stone-and-quartz barrier block standing on a flat base, with a glowing cyan bead embedded halfway through its side.",
+   "focal": "the cyan bead emerging from the solid wall face",
+   "size": "medium",
+   "replacesKey": "e:bg-tunnel"
+  },
+  {
+   "id": "bg-wave-tank",
+   "name": "Ripple Tank",
+   "concept": "Electron wave function",
+   "depicts": "A wide glass-walled laboratory water tank on four stubby legs, with a brass hand-crank on the left and a frozen stepped cyan standing wave inside.",
+   "focal": "the stepped cyan standing wave inside the glass tank",
+   "size": "large",
+   "replacesKey": "e:bg-wave"
+  },
+  {
+   "id": "bg-photon-lamp",
+   "name": "Promotion Prism",
+   "concept": "Optical carrier promotion",
+   "depicts": "A small brass-mounted crystal prism on a pedestal with a tiny upper shelf holding a lifted cyan bead.",
+   "focal": "the glowing cyan bead perched on the upper shelf",
+   "size": "medium",
+   "replacesKey": "e:bg-photonabs"
+  },
+  {
+   "id": "bg-led-bulb",
+   "name": "Recombination Diode",
+   "concept": "Radiative recombination",
+   "depicts": "A tiny domed glass LED bulb standing on two wire leads, glowing with a single bright cyan spark at its tip.",
+   "focal": "the bright cyan spark inside the glass dome",
+   "size": "small",
+   "replacesKey": "e:bg-recomb"
+  },
+  {
+   "id": "bg-fermi-gauge",
+   "name": "Fermi Sight-Glass",
+   "concept": "Fermi level",
+   "depicts": "A vertical glass level-gauge tube mounted in brass end-caps, half-filled with dark cyan fluid and marked with a bright horizontal meniscus.",
+   "focal": "the bright horizontal fluid meniscus",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "bg-dopant-cruet",
+   "name": "Dopant Shaker",
+   "concept": "Semiconductor doping",
+   "depicts": "A tiny faceted glass salt-shaker with a perforated silver cap, holding a pinch of pale-blue impurity crystals.",
+   "focal": "the perforated silver cap",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "bg-zener-gate",
+   "name": "Avalanche Fuse",
+   "concept": "Zener breakdown",
+   "depicts": "A short ceramic-and-glass cartridge fuse standing upright in two brass clips, with a jagged cyan arc bridged inside.",
+   "focal": "the jagged cyan arc inside the glass tube",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:bg-diagram",
+   "redesign": "Redraw as a two-tier semiconductor viaduct bench with a lower valence deck and an upper conduction deck separated by a physical gap and linked by five vertical glass elevator tubes holding glowing carrier beads."
+  }
+ ]
+}

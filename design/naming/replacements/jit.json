@@ -1,0 +1,83 @@
+{
+  "layer": "jit",
+  "replaces": [
+    {
+      "key": "e:jit-ic",
+      "idea": "A wall-mounted dark indigo plaque with a brass hook holding a single glowing gold key ready for immediate reuse."
+    },
+    {
+      "key": "e:jit-profile",
+      "idea": "A floor-standing dark indigo pedestal topped with a circular rotary switchboard ringed by eight contact studs and an orange wiper arm."
+    },
+    {
+      "key": "e:jit-osr",
+      "idea": "A grounded cast-iron railway switch stand with a weighted orange-and-yellow throw lever angled between two converging track rails."
+    },
+    {
+      "key": "e:jit-guard",
+      "idea": null
+    }
+  ],
+  "new": [
+    {
+      "id": "jit-inline-cache",
+      "name": "Hot Key Hook",
+      "concept": "Inline Cache (IC)",
+      "depicts": "A small wall-mounted dark indigo plaque with a brass hook holding a single bright yellow-gold key.",
+      "focal": "the glowing gold key hanging ready on the hook",
+      "size": "small",
+      "replacesKey": "e:jit-ic"
+    },
+    {
+      "id": "jit-megamorphic",
+      "name": "Many-Way Dial",
+      "concept": "Megamorphic Dispatch Table",
+      "depicts": "A floor-standing dark indigo pedestal topped with a circular brass rotary switchboard ringed by eight contact studs and a central orange wiper arm.",
+      "focal": "the eight radial contact studs around the central wiper",
+      "size": "medium",
+      "replacesKey": "e:jit-profile"
+    },
+    {
+      "id": "jit-osr-switch",
+      "name": "Mid-Run Switch",
+      "concept": "On-Stack Replacement (OSR)",
+      "depicts": "A grounded cast-iron railway switch stand with a weighted orange-and-yellow throw lever angled between two short converging track rails.",
+      "focal": "the weighted orange-and-yellow throw lever mid-throw",
+      "size": "medium",
+      "replacesKey": "e:jit-osr"
+    },
+    {
+      "id": "jit-trace-recorder",
+      "name": "Spark Reel",
+      "concept": "Trace Recording (Tracing JIT)",
+      "depicts": "A small floor-standing dark indigo ticker-tape spindle with a glowing orange-yellow paper loop feeding off a brass guide roller.",
+      "focal": "the glowing orange-yellow loop of recorded tape",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "jit-register-anvil",
+      "name": "Register Anvil",
+      "concept": "Register Allocation",
+      "depicts": "A heavy dark indigo blacksmith anvil bolted to a stepped iron block, with four glowing orange-gold slot-notches cut into its flat horn.",
+      "focal": "the four glowing orange-gold register notches on the anvil's horn",
+      "size": "large",
+      "replacesKey": null
+    },
+    {
+      "id": "jit-warmup-bellows",
+      "name": "Warmup Bellows",
+      "concept": "JIT Warmup / Tiered Compilation",
+      "depicts": "A small floor-resting leather-and-indigo hand bellows with brass-riveted handles and a bright orange-tipped nozzle.",
+      "focal": "the bright orange-tipped nozzle",
+      "size": "small",
+      "replacesKey": null
+    }
+  ],
+  "rework": [
+    {
+      "key": "e:jit-deopt",
+      "redesign": "Redraw as a floor-standing mechanical abort-lever pedestal: a dark indigo cast-iron housing with an orange caution-striped hood and a pulled-down yellow emergency bailout lever."
+    }
+  ]
+}

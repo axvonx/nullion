@@ -1,0 +1,110 @@
+{
+ "layer": "libraries",
+ "replaces": [
+  {
+   "key": "e:lib-shelf",
+   "idea": null
+  },
+  {
+   "key": "e:lib-ladder",
+   "idea": null
+  },
+  {
+   "key": "e:lib-lamp",
+   "idea": "A desktop rotary card index (Rolodex) on a wooden base with a brass knob and fanned cream tabs, representing the dynamic-linker cache index (ld.so.cache)."
+  },
+  {
+   "key": "e:lib-thread",
+   "idea": null
+  },
+  {
+   "key": "e:lib-plaque",
+   "idea": null
+  },
+  {
+   "key": "e:lib-card",
+   "idea": null
+  },
+  {
+   "key": "e:lib-pile",
+   "idea": null
+  },
+  {
+   "key": "e:lib-scroll",
+   "idea": "A wall-hung manila manifest tag with a brass eyelet and red tie cord, representing a pkg-config metadata tag."
+  },
+  {
+   "key": "e:lib-magnifier",
+   "idea": null
+  },
+  {
+   "key": "e:lib-pigeon",
+   "idea": null
+  },
+  {
+   "key": "e:lib-desk",
+   "idea": null
+  },
+  {
+   "key": "e:lib-bookmark",
+   "idea": null
+  }
+ ],
+ "new": [
+  {
+   "id": "lib-cache-wheel",
+   "name": "The Cache Rolodex",
+   "concept": "Dynamic-linker cache index (ld.so.cache)",
+   "depicts": "A compact rotary card index sitting on a dark wooden base, with a brass side knob and a fanned arc of cream index cards.",
+   "focal": "The fanned arc of cream index cards above the brass knob",
+   "size": "small",
+   "replacesKey": "e:lib-lamp"
+  },
+  {
+   "id": "lib-pkg-tag",
+   "name": "Pkg-Config Tag",
+   "concept": "pkg-config metadata tag (.pc)",
+   "depicts": "A chamfered cream manila shipping tag with a brass eyelet, two dark ink lines, and a red tie cord hanging from a small wall peg.",
+   "focal": "The brass eyelet and red tie cord at the top of the tag",
+   "size": "small",
+   "replacesKey": "e:lib-scroll"
+  },
+  {
+   "id": "lib-abi-seal",
+   "name": "ABI Wax Seal",
+   "concept": "Application Binary Interface (ABI) compatibility contract",
+   "depicts": "A folded cream parchment strip resting flat on the floor, pinned down by a round crimson wax seal with a raised inner ring.",
+   "focal": "The round crimson wax seal with its raised inner ring",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "lib-ar-binder",
+   "name": "Static Archive Bundle",
+   "concept": "Static library archive (.a / ar)",
+   "depicts": "A tight upright bundle of thin cream object-file pamphlets cinched together by two dark brown leather straps with brass buckles, standing on the floor.",
+   "focal": "The two buckled leather straps cinching the pamphlet bundle",
+   "size": "medium",
+   "replacesKey": null
+  },
+  {
+   "id": "lib-dlopen-lift",
+   "name": "The Dlopen Dumbwaiter",
+   "concept": "Runtime dynamic loading (dlopen)",
+   "depicts": "A tall wooden library dumbwaiter frame with a brass pulley wheel at the top, a taut rope, and an open wooden service box carrying a single gold-banded volume.",
+   "focal": "The open wooden service box suspended by the rope below the brass pulley",
+   "size": "large",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:lib-inkwell",
+   "redesign": "Redraw as a grounded square dark-grey ink bottle with a silver collar and a pale-yellow quill whose tip rests directly inside the bottle neck, removing the detached pixel."
+  },
+  {
+   "key": "c:libraries:core",
+   "redesign": "Redraw with a clean 6x6+ square body, 1x1 darkest-ink eyes, and a clearly recognizable miniature hardcover book with a coloured cover and cream page edge resting flat on its head."
+  }
+ ]
+}

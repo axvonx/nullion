@@ -1,0 +1,109 @@
+{
+  "layer": "rtl",
+  "replaces": [
+    {
+      "key": "e:rtl-nand",
+      "idea": "A squat cast-iron bench press with two top input levers that stamp down to pop a single spring-loaded output plunger on the right."
+    },
+    {
+      "key": "e:rtl-dff",
+      "idea": "A small upright brass-and-slate mechanical flip-card box with a side crank and a hinged front shutter that snaps open on each tick."
+    },
+    {
+      "key": "e:rtl-wave",
+      "idea": "A compact benchtop logic analyzer with a recessed CRT screen showing two stepped square-wave traces and three probe jacks."
+    },
+    {
+      "key": "e:rtl-mux",
+      "idea": "A floor-mounted railway-style signal switch box with two input rails on the left, a selector lever on top, and one output rail on the right."
+    },
+    {
+      "key": "e:rtl-adder",
+      "idea": "A tall four-column mechanical carry abacus on a flat base with beads pushed up and a single overflow carry bead tipped at the top-left."
+    },
+    {
+      "key": "e:rtl-clk",
+      "idea": null
+    }
+  ],
+  "new": [
+    {
+      "id": "rtl-nand-press",
+      "name": "NAND Press",
+      "concept": "NAND Gate (Universal Logic Gate)",
+      "depicts": "A squat cast-iron bench press bolted to a floor plate, with two vertical input levers on top, a heavy stamping die in the middle, and a single spring-loaded output plunger sticking out the right side.",
+      "focal": "the two top levers pressing down to pop the side plunger",
+      "size": "medium",
+      "replacesKey": "e:rtl-nand"
+    },
+    {
+      "id": "rtl-flip-latch",
+      "name": "Clocked Latch",
+      "concept": "D Flip-Flop (Edge-Triggered Storage)",
+      "depicts": "A small upright brass-and-slate mechanical flip-card box on four stubby feet, with a side crank handle and a hinged front shutter that snaps open to show a single lit tile.",
+      "focal": "the hinged shutter snapping open on the side crank's tick",
+      "size": "small",
+      "replacesKey": "e:rtl-dff"
+    },
+    {
+      "id": "rtl-logic-analyzer",
+      "name": "Logic Probe Bench",
+      "concept": "Timing Waveform & Logic Analyzer",
+      "depicts": "A compact benchtop logic analyzer on rubber feet with a recessed CRT screen showing two stepped square-wave traces and three tiny probe jacks along the bottom bezel.",
+      "focal": "the two stepped square-wave traces on the recessed screen",
+      "size": "medium",
+      "replacesKey": "e:rtl-wave"
+    },
+    {
+      "id": "rtl-track-switch",
+      "name": "Signal Switcher",
+      "concept": "Multiplexer (MUX)",
+      "depicts": "A small floor-mounted railway-style signal switch box with two brass input rails entering the left, a tall selector lever on top, and one output rail exiting the right.",
+      "focal": "the tall selector lever routing one of two input rails to the single output",
+      "size": "small",
+      "replacesKey": "e:rtl-mux"
+    },
+    {
+      "id": "rtl-carry-abacus",
+      "name": "Carry Abacus",
+      "concept": "Ripple-Carry Adder",
+      "depicts": "A tall wooden-framed four-column mechanical abacus on a flat base, with bright cyan beads pushed up on the right columns and a single overflow bead tipped at the top-left.",
+      "focal": "the tipped overflow carry bead at the top-left",
+      "size": "large",
+      "replacesKey": "e:rtl-adder"
+    },
+    {
+      "id": "rtl-shift-rack",
+      "name": "Bucket-Brigade Rack",
+      "concept": "Shift Register",
+      "depicts": "A wall-mounted horizontal rail holding four sliding square tiles in a row, with a spring-loaded pusher at the left end.",
+      "focal": "the four sliding tiles lined up on the rail",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "rtl-state-drum",
+      "name": "State Drum",
+      "concept": "Finite State Machine (FSM)",
+      "depicts": "A small upright mechanical drum-sequencer on a weighted base, with a slotted cylinder showing one lit state window and a ratchet pawl on the side.",
+      "focal": "the single lit state window in the slotted cylinder",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "rtl-truth-pegboard",
+      "name": "Truth Pegboard",
+      "concept": "Look-Up Table (LUT) / Truth Table",
+      "depicts": "A standing wooden-framed pegboard on two splayed feet, with a four-by-two grid of holes holding bright cyan and dark pegs.",
+      "focal": "the grid of bright and dark pegs",
+      "size": "medium",
+      "replacesKey": null
+    }
+  ],
+  "rework": [
+    {
+      "key": "e:rtl-htree",
+      "redesign": "Redraw as a symmetrical clockwork distribution gantry with a central brass metronome tower feeding four branching overhead conduit arms to corner bell-housings."
+    }
+  ]
+}

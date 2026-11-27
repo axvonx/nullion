@@ -1,0 +1,214 @@
+{
+ "layer": "ring-2",
+ "layerName": "SMI Trap & Freeze",
+ "daily": true,
+ "propsAlive": 14,
+ "newPropsNeeded": 3,
+ "kept": [
+  {
+   "key": "e:r2-clocktower",
+   "kind": "anchor",
+   "name": 2,
+   "depicts": "A tall monochrome clock tower with a pointed roof, three dark louver vents, and clock hands frozen at 11:10."
+  },
+  {
+   "key": "e:r2-cascade",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A cluster of small monochrome debris, gears, and windows suspended mid-air above a dark ground line with vertical motion trails."
+  },
+  {
+   "key": "e:r2-clock",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A round monochrome wall clock with its hands frozen at roughly ten past nine."
+  },
+  {
+   "key": "e:r2-hourglass",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A small monochrome hourglass with sand frozen in the neck and upper bulb."
+  },
+  {
+   "key": "e:r2-ghostgear",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A grey gear paired with a hollow outline of its own previous position, suggesting a frozen afterimage."
+  },
+  {
+   "key": "e:r2-safe",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A dark grey square safe with a light grey dial and handle in the center."
+  },
+  {
+   "key": "e:r2-metronome",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A triangular metronome body with its arm angled to the right, frozen mid-beat."
+  },
+  {
+   "key": "e:r2-cracks",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A round dark dial with a ring at the top and a jagged crack running down its face."
+  },
+  {
+   "key": "e:r2-hook",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A vertical segmented rod ending in a small hook at the bottom."
+  },
+  {
+   "key": "e:r2-stopwatch",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A round monochrome stopwatch with a top crown button and a single vertical hand."
+  },
+  {
+   "key": "e:r2-domino",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A standing domino, a domino tilting mid-fall, and a flat fallen block on a dark floor line."
+  },
+  {
+   "key": "e:r2-pause",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A single light-grey droplet hovering above a crown-like splash of grey pixels."
+  },
+  {
+   "key": "e:r2-prism",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A hollow grey triangle resting on a flat base with a faint white core."
+  },
+  {
+   "key": "c:ring-2:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A monochrome hovering sprite with two dark eyes and a small trailing tail, shown in three slightly different float poses."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:r2-coin",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A monochrome coin standing on edge beneath a vertical motion streak.",
+   "problem": "ART-STYLE rule 7: under 8 px wide"
+  },
+  {
+   "key": "e:r2-feather",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Two overlapping grey rectangles with tiny diagonal pixel tips, resembling a drifting feather.",
+   "problem": "ART-STYLE rule 6: floats (fine if it is falling: make that legible)"
+  },
+  {
+   "key": "e:r2-spark",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A symmetrical four-pointed grey cross with a bright white square center.",
+   "problem": "ART-STYLE rule 1: free-floating sparkle glyph"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:r2-debris",
+   "name": 1,
+   "depicts": "A single small rectangular block suspended in mid-air beneath a vertical motion streak.",
+   "pass": "cull",
+   "reason": "Generic single-block filler that is visually minimal and redundant with Preempted Avalanche.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r2-shards",
+   "name": 2,
+   "depicts": "A small cluster of jagged grey pixel fragments floating in mid-air.",
+   "pass": "cull",
+   "reason": "Generic floating pixel fragments with no clear visual identity or distinct computing concept.",
+   "earlierIdea": "an SMM TSEG boundary fence"
+  },
+  {
+   "key": "e:r2-tag",
+   "name": 1,
+   "depicts": "Pixel text reading 'SMI#4' in grey.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 2: a word in a box (\"SMI4\")",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r2-rain",
+   "name": 2,
+   "depicts": "Four vertical grey streaks representing raindrops frozen mid-fall.",
+   "pass": "cull",
+   "reason": "Generic frozen-streak filler that is weaker than RSM Pending for showing halted motion.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r2-pendulum",
+   "name": 1,
+   "depicts": "A pendulum bob suspended on a diagonal grey rod, caught at the far end of its swing.",
+   "pass": "cull",
+   "reason": "Redundant halted-oscillator concept that is weaker than Gated Oscillator.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r2-smoke",
+   "name": 2,
+   "depicts": "A small diagonal puff of grey pixels rising from a dark base.",
+   "pass": "cull",
+   "reason": "Generic low-priority smoke puff with a weak connection to the layer's SMI freeze theme.",
+   "earlierIdea": "a frozen CPU thermal-throttle gauge"
+  },
+  {
+   "key": "e:r2-ripple",
+   "name": 1,
+   "depicts": "Concentric monochrome rings forming a flat circular ripple.",
+   "pass": "cull",
+   "reason": "Generic concentric-ring filler that lacks a distinct silhouette or strong SMI concept.",
+   "earlierIdea": "an SMI handler jump table"
+  },
+  {
+   "key": "e:r2-book",
+   "name": 1,
+   "depicts": "A small monochrome open book or pages-spread silhouette.",
+   "pass": "cull",
+   "reason": "Generic open-book silhouette that belongs in the libraries layer rather than ring-2.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r2-bubbles",
+   "name": 1,
+   "depicts": "Two small monochrome bubbles, one plain and one with a tiny highlight, stacked vertically.",
+   "pass": "cull",
+   "reason": "Visually minimal filler whose pipeline-stall concept is already covered by Preempted Avalanche.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r2-flame",
+   "name": 1,
+   "depicts": "A small monochrome flame with a bright core and a single detached pixel spark above it.",
+   "pass": "cull",
+   "reason": "Generic low-priority flame filler that adds little to the SMI Trap & Freeze theme.",
+   "earlierIdea": "an SMI pin-assertion latch"
+  },
+  {
+   "key": "e:r2-drop",
+   "name": 1,
+   "depicts": "A single rounded droplet with a vertical trail above it.",
+   "pass": "cull",
+   "reason": "Redundant frozen-droplet filler that is much weaker than RSM Pending.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r2-leaf",
+   "name": 1,
+   "depicts": "A tiny grey rectangle with diagonal pixel stems on opposite corners, resembling a drifting leaf.",
+   "pass": "cull",
+   "reason": "Generic low-priority leaf filler with a weak, unclear visual and tenuous computing concept.",
+   "earlierIdea": "a saved-state SMRAM map"
+  }
+ ]
+}

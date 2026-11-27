@@ -1,0 +1,127 @@
+{
+ "layer": "ring-3",
+ "replaces": [
+  {
+   "key": "e:r3-trace",
+   "idea": null
+  },
+  {
+   "key": "e:r3-decap",
+   "idea": null
+  },
+  {
+   "key": "e:r3-testpads",
+   "idea": null
+  },
+  {
+   "key": "e:r3-fuses",
+   "idea": null
+  },
+  {
+   "key": "e:r3-resistor",
+   "idea": null
+  },
+  {
+   "key": "e:r3-diode",
+   "idea": null
+  },
+  {
+   "key": "e:r3-inductor",
+   "idea": null
+  },
+  {
+   "key": "e:r3-pll",
+   "idea": "A compact benchtop frequency-multiplier unit on rubber feet with a spinning rotor behind a circular sight-glass and two side coax jacks."
+  },
+  {
+   "key": "e:r3-jtag",
+   "idea": null
+  },
+  {
+   "key": "e:r3-rom",
+   "idea": "A sealed ceramic DIP package with gold-plated legs standing upright in a dark socket, representing immutable mask-programmed boot ROM."
+  },
+  {
+   "key": "e:r3-htree",
+   "idea": null
+  },
+  {
+   "key": "e:r3-gate",
+   "idea": null
+  },
+  {
+   "key": "e:r3-pulse",
+   "idea": "A small standing pulse-generator box on four feet with a single BNC output post on the right and a glowing indicator pip."
+  },
+  {
+   "key": "e:r3-fiducial",
+   "idea": null
+  }
+ ],
+ "new": [
+  {
+   "id": "r3-bootrom",
+   "name": "Mask ROM",
+   "concept": "Immutable Mask-Programmed Boot ROM",
+   "depicts": "A sealed ceramic DIP chip with gold-plated legs standing upright in a dark socketed base.",
+   "focal": "The solid, windowless ceramic lid",
+   "size": "small",
+   "replacesKey": "e:r3-rom"
+  },
+  {
+   "id": "r3-pulser",
+   "name": "Clock Pulser",
+   "concept": "Hardware Clock Pulse Generator",
+   "depicts": "A small standing pulse-generator box on four feet with a BNC output post on the right.",
+   "focal": "The glowing indicator pip beside the BNC post",
+   "size": "small",
+   "replacesKey": "e:r3-pulse"
+  },
+  {
+   "id": "r3-strap",
+   "name": "Hardware Strap",
+   "concept": "PCH Soft-Strap / Configuration Jumper",
+   "depicts": "An upright three-pin header block on a dark base with a bright shunt cap bridging two pins.",
+   "focal": "The removable shunt cap bridging two gold pins",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "r3-pll",
+   "name": "PLL Multiplier",
+   "concept": "Phase-Locked Loop Frequency Multiplier",
+   "depicts": "A compact benchtop unit on rubber feet with a circular sight-glass and two side coax jacks.",
+   "focal": "The spinning rotor visible inside the sight-glass",
+   "size": "medium",
+   "replacesKey": "e:r3-pll"
+  },
+  {
+   "id": "r3-mailbox",
+   "name": "HECI Chute",
+   "concept": "HECI (Host Embedded Controller Interface) Mailbox",
+   "depicts": "An armored pneumatic-tube dispatch chute on a heavy pedestal with a hinged slot.",
+   "focal": "The hinged brass mail slot with a lit status pip",
+   "size": "medium",
+   "replacesKey": null
+  },
+  {
+   "id": "r3-amt-nic",
+   "name": "AMT Sidecar",
+   "concept": "Out-of-Band Management (Intel AMT)",
+   "depicts": "A rack-mounted sidecar transceiver on a heavy base with a recessed RJ-45 jack and a stubby antenna.",
+   "focal": "The glowing out-of-band link bar beside the RJ-45 port",
+   "size": "large",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:r3-pad",
+   "redesign": "Ground the metallic contact pad on a dark silicon substrate pedestal with a solid bottom base so it rests on the floor."
+  },
+  {
+   "key": "e:r3-sram",
+   "redesign": "Redraw it as a physical upright SRAM memory cartridge standing on a socketed base with gold edge-pins and a dark casing."
+  }
+ ]
+}

@@ -1,0 +1,86 @@
+{
+ "layer": "internet",
+ "replaces": [
+  {
+   "key": "e:net-bgp",
+   "idea": "A grounded cast-iron route signpost with stacked directional blades pointing toward neighboring networks."
+  },
+  {
+   "key": "e:net-dns",
+   "idea": "A desktop rotary Rolodex on a weighted base with a side knob and fanned index cards."
+  },
+  {
+   "key": "e:net-asn",
+   "idea": "A grounded stone-and-brass boundary milestone bollard bearing a stamped AS number plate."
+  },
+  {
+   "key": "e:net-fiber",
+   "idea": null
+  },
+  {
+   "key": "e:net-dish",
+   "idea": null
+  },
+  {
+   "key": "e:net-packet",
+   "idea": "A tied canvas dispatch parcel with a bright wax seal resting on a small wooden sorting tray."
+  },
+  {
+   "key": "e:net-tls",
+   "idea": "A grounded brass cipher cylinder with notched rotating rings instead of a generic padlock."
+  }
+ ],
+ "new": [
+  {
+   "id": "net-signpost",
+   "name": "BGP Signpost",
+   "concept": "Border Gateway Protocol (inter-AS path selection)",
+   "depicts": "A tall cast-iron signpost anchored in a flared base, with three stacked directional blades pointing left and right.",
+   "focal": "The staggered directional blades mounted on the central post",
+   "size": "large",
+   "replacesKey": "e:net-bgp"
+  },
+  {
+   "id": "net-rolodex",
+   "name": "DNS Rolodex",
+   "concept": "Domain Name System (name-to-address lookup)",
+   "depicts": "A desktop rotary card index on a flat weighted base with a side crank knob and fanned cream cards.",
+   "focal": "The fanned index cards protruding from the rotary drum",
+   "size": "medium",
+   "replacesKey": "e:net-dns"
+  },
+  {
+   "id": "net-milestone",
+   "name": "AS Milestone",
+   "concept": "Autonomous System Number (network domain boundary)",
+   "depicts": "A squat stone boundary bollard on a plinth with a riveted brass plate on its front face.",
+   "focal": "The riveted brass number plate set into the stone face",
+   "size": "medium",
+   "replacesKey": "e:net-asn"
+  },
+  {
+   "id": "net-parcel",
+   "name": "Datagram Parcel",
+   "concept": "IP packet encapsulation and routing header",
+   "depicts": "A small twine-tied dispatch parcel resting on a low wooden sorting tray, stamped with a red-amber wax seal.",
+   "focal": "The wax seal centered over the crossed twine",
+   "size": "small",
+   "replacesKey": "e:net-packet"
+  },
+  {
+   "id": "net-cipher",
+   "name": "TLS Cipher Drum",
+   "concept": "TLS encrypted session and key agreement",
+   "depicts": "A compact brass cipher cylinder mounted horizontally on two short cradle feet with three notched rotating rings.",
+   "focal": "The three notched brass rings along the cylinder",
+   "size": "small",
+   "replacesKey": "e:net-tls"
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:net-cable",
+   "redesign": "Thicken the armored undersea cable run to at least 8 px tall with flanged end-connectors and four raised amber collars resting on the floor."
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "layer": "firmware",
+ "replaces": [
+  {
+   "key": "e:fw-vault",
+   "idea": null
+  },
+  {
+   "key": "e:fw-post",
+   "idea": null
+  },
+  {
+   "key": "e:fw-flash",
+   "idea": null
+  },
+  {
+   "key": "e:fw-plate",
+   "idea": null
+  },
+  {
+   "key": "e:fw-setup",
+   "idea": "A compact phosphor-green CRT setup terminal on a pedestal base with a sloped keyboard lip and three horizontal menu bars on its screen."
+  },
+  {
+   "key": "e:fw-bootorder",
+   "idea": "A wall-mounted rotary selector dial on a square backplate with four stepped detent notches and a pointer knob."
+  },
+  {
+   "key": "e:fw-acpi",
+   "idea": "A standing contactor relay housing with a visible coil and a pivoted mechanical armature bar bridging its top contacts."
+  },
+  {
+   "key": "e:fw-nvram",
+   "idea": null
+  },
+  {
+   "key": "e:fw-floppy",
+   "idea": "A bracket-mounted dual-BIOS toggle switch with a hinged flip-up safety guard lifted open above a tilted metal lever."
+  },
+  {
+   "key": "e:fw-key",
+   "idea": null
+  },
+  {
+   "key": "e:fw-uart",
+   "idea": null
+  },
+  {
+   "key": "e:fw-watchdog",
+   "idea": null
+  }
+ ],
+ "new": [
+  {
+   "id": "fw-bootdial",
+   "name": "Boot Selector Dial",
+   "concept": "UEFI Boot Order (BootOrder / BootNext priority)",
+   "depicts": "A wall-mounted circular rotary selector dial on a square backplate with four stepped detent notches around the rim and a pointer knob turned to the top-left notch.",
+   "focal": "The pointer knob aimed at one of the four stepped detent notches.",
+   "size": "medium",
+   "replacesKey": "e:fw-bootorder"
+  },
+  {
+   "id": "fw-dualbios",
+   "name": "Dual-BIOS Guard Switch",
+   "concept": "Dual-BIOS / A-B Firmware Recovery",
+   "depicts": "A small bracket-mounted toggle switch with a hinged flip-up safety guard lifted open, exposing a metal bat-handle lever tilted to the left.",
+   "focal": "The hinged safety guard flipped open above the tilted lever.",
+   "size": "small",
+   "replacesKey": "e:fw-floppy"
+  },
+  {
+   "id": "fw-acpirelay",
+   "name": "ACPI Power Relay",
+   "concept": "ACPI Power States (S0-S5 soft-power control)",
+   "depicts": "A standing rectangular contactor relay housing with a visible coil, a pivoted mechanical armature bar on top, and two heavy bottom terminal lugs.",
+   "focal": "The pivoted mechanical armature bar bridging the top contacts.",
+   "size": "medium",
+   "replacesKey": "e:fw-acpi"
+  },
+  {
+   "id": "fw-setupterm",
+   "name": "Pre-Boot Terminal",
+   "concept": "UEFI Setup Utility (pre-boot configuration interface)",
+   "depicts": "A compact phosphor-green CRT terminal sitting on a pedestal base with a sloped front keyboard lip and a recessed screen showing three horizontal menu bars.",
+   "focal": "The recessed CRT screen glowing with three horizontal menu bars.",
+   "size": "large",
+   "replacesKey": "e:fw-setup"
+  },
+  {
+   "id": "fw-pxeboot",
+   "name": "PXE Keystone Jack",
+   "concept": "PXE Network Boot (Preboot Execution Environment)",
+   "depicts": "A small floor-standing RJ45 keystone jack block with a latched Ethernet plug seated inside and a tiny glowing link LED on its top bezel.",
+   "focal": "The latched Ethernet plug seated in the keystone jack.",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:fw-beeper",
+   "redesign": "Mount the circular piezo speaker on a small L-shaped metal bracket with a flat base foot so it stands grounded on the floor."
+  }
+ ]
+}

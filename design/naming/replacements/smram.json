@@ -1,0 +1,87 @@
+{
+  "layer": "smram",
+  "replaces": [
+    {
+      "key": "e:sm-savestate",
+      "idea": "A stout steel safe-deposit drawer on a low base with four tabbed metal index plates protruding from the top, representing the CPU register snapshot saved on SMI entry."
+    },
+    {
+      "key": "e:sm-rsm",
+      "idea": "A wall-mounted spring-loaded deadbolt latch with a bright angled release lever, representing the RSM instruction that unlatches SMRAM and returns to normal execution."
+    },
+    {
+      "key": "e:sm-tseg",
+      "idea": "A tall riveted steel vault bulkhead bolted to the floor, marking the TSEG protected memory boundary carved out at the top of memory."
+    },
+    {
+      "key": "e:sm-lockbit",
+      "idea": null
+    }
+  ],
+  "new": [
+    {
+      "id": "sm-savestate",
+      "name": "Save-State Drawer",
+      "concept": "SMRAM Save State Map (CPU register dump on SMI entry)",
+      "depicts": "A heavy steel safe-deposit drawer sitting on a low base with a front pull handle and four tabbed metal index plates protruding from the top.",
+      "focal": "The four stacked tabbed index plates",
+      "size": "medium",
+      "replacesKey": "e:sm-savestate"
+    },
+    {
+      "id": "sm-rsm",
+      "name": "RSM Latch",
+      "concept": "RSM (Resume from System Management Mode) instruction",
+      "depicts": "A compact wall-mounted spring-loaded deadbolt latch on a rectangular backplate with a bright angled release lever.",
+      "focal": "The bright angled release lever",
+      "size": "small",
+      "replacesKey": "e:sm-rsm"
+    },
+    {
+      "id": "sm-tseg",
+      "name": "TSEG Bulkhead",
+      "concept": "TSEG (Top of Memory Segment) protected SMRAM region",
+      "depicts": "A tall riveted steel vault bulkhead bolted to the floor with a thick top flange and a recessed armored seam.",
+      "focal": "The vertical row of heavy rivets along the seam",
+      "size": "large",
+      "replacesKey": "e:sm-tseg"
+    },
+    {
+      "id": "sm-smbase",
+      "name": "SMBASE Compass",
+      "concept": "SMBASE register (relocatable base address of SMRAM)",
+      "depicts": "A small steel surveyor's transit dial mounted on a stubby tripod base with a single bright pointer needle.",
+      "focal": "The bright pointer needle on the dial",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "sm-smi-bell",
+      "name": "SMI# Klaxon",
+      "concept": "SMI# (System Management Interrupt) non-maskable hardware trigger",
+      "depicts": "A wall-mounted industrial alarm bell with a round dome, a bottom striker hammer, and a bright indicator stud.",
+      "focal": "The striker hammer poised beneath the dome",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "sm-dopen",
+      "name": "D_OPEN Keyway",
+      "concept": "D_OPEN bit (temporarily opens SMRAM to normal memory access)",
+      "depicts": "A small wall-mounted key-switch escutcheon with a turned key protruding from the vertical slot.",
+      "focal": "The turned key protruding from the slot",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "sm-handler",
+      "name": "SMI Dispatch Desk",
+      "concept": "SMM Interrupt Handler (privileged code at SMBASE + 0x8000)",
+      "depicts": "A sturdy steel-framed dispatch console standing on four legs with a tilted switchboard and a single glowing lamp.",
+      "focal": "The glowing dispatch lamp on the tilted console",
+      "size": "medium",
+      "replacesKey": null
+    }
+  ],
+  "rework": []
+}

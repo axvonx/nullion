@@ -1,0 +1,105 @@
+{
+ "layer": "drivers",
+ "replaces": [
+  {
+   "key": "e:dr-connector",
+   "idea": null
+  },
+  {
+   "key": "e:dr-caps",
+   "idea": "A standing vertical rack of physical toggle levers and tiny indicator bulbs wired to a bus bar at the base, representing memory-mapped I/O registers."
+  },
+  {
+   "key": "e:dr-disk",
+   "idea": null
+  },
+  {
+   "key": "e:dr-jumpers",
+   "idea": null
+  },
+  {
+   "key": "e:dr-heatsink",
+   "idea": null
+  },
+  {
+   "key": "e:dr-rj45",
+   "idea": null
+  },
+  {
+   "key": "e:dr-speaker",
+   "idea": null
+  },
+  {
+   "key": "e:dr-crystal",
+   "idea": null
+  },
+  {
+   "key": "e:dr-sata",
+   "idea": null
+  },
+  {
+   "key": "e:dr-fanheader",
+   "idea": null
+  },
+  {
+   "key": "e:dr-ledstrip",
+   "idea": null
+  },
+  {
+   "key": "e:dr-nvme",
+   "idea": "An upright, bracket-mounted solid-state drive cartridge with a ribbed heatsink cap, a bottom edge-connector tongue, and a tiny activity LED."
+  }
+ ],
+ "new": [
+  {
+   "id": "dr-mmio",
+   "name": "MMIO Register Rack",
+   "concept": "Memory-mapped I/O (MMIO) registers",
+   "depicts": "A standing vertical metal rack holding four rows of tiny toggle switches and indicator bulbs, bolted onto a flat baseplate with a bus-bar rail along the bottom.",
+   "focal": "The row of glowing indicator bulbs beside the toggle switches",
+   "size": "medium",
+   "replacesKey": "e:dr-caps"
+  },
+  {
+   "id": "dr-nvme",
+   "name": "NVMe Cartridge",
+   "concept": "NVMe solid-state storage",
+   "depicts": "An upright solid-state drive cartridge mounted in a small vertical bracket, topped with a ribbed heatsink cap and showing a notched edge-connector tongue at the base.",
+   "focal": "The ribbed heatsink cap with a single bright activity LED",
+   "size": "small",
+   "replacesKey": "e:dr-nvme"
+  },
+  {
+   "id": "dr-ringbuf",
+   "name": "Descriptor Carousel",
+   "concept": "DMA descriptor ring buffer",
+   "depicts": "A floor-mounted circular turntable machine on four stubby feet, carrying eight slotted packet trays around its rim past a fixed read/write gate arm.",
+   "focal": "The fixed read/write gate arm poised over the rotating ring of trays",
+   "size": "large",
+   "replacesKey": null
+  },
+  {
+   "id": "dr-watchdog",
+   "name": "Watchdog Bell",
+   "concept": "Hardware watchdog timer",
+   "depicts": "A spring-wound mechanical desk timer on a weighted baseplate with a sweeping dial hand and a small hammer poised beside a dome bell.",
+   "focal": "The poised hammer and dome bell atop the timer dial",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:dr-dma",
+   "redesign": "Raise the perforated transfer track onto two sturdy pedestal legs with a taller arched bridge housing so the sprite is at least 10 px tall and grounded on the floor."
+  },
+  {
+   "key": "e:dr-fwload",
+   "redesign": "Mount the storage module and controller chip side-by-side on a shared circuit-board baseplate connected by a physical ribbon-cable bridge."
+  },
+  {
+   "key": "c:drivers:core",
+   "redesign": "Enlarge the scuttling bug's body to at least 6x6 px with a 1 px darkest-ink outline, add 1x1 px dark eyes, and trim the empty canvas padding."
+  }
+ ]
+}

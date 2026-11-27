@@ -1,0 +1,121 @@
+{
+ "layer": "kernel-entry",
+ "replaces": [
+  {
+   "key": "e:ke-seccomp",
+   "idea": "A standing brass coin-sorter box with slotted sieve plates that only let permitted syscall tokens drop through."
+  },
+  {
+   "key": "e:ke-uaccess",
+   "idea": "A stone-and-brass customs inspection counter with a recessed pass-through tray for validating user-space parcels."
+  },
+  {
+   "key": "e:ke-sysgate",
+   "idea": null
+  },
+  {
+   "key": "e:ke-ptrace",
+   "idea": "A brass periscope mounted on a tripod floor stand, angled to peer into another process's workspace."
+  },
+  {
+   "key": "e:ke-cred",
+   "idea": "A heavy brass keyring hanging from a wall peg, holding three differently notched capability keys."
+  },
+  {
+   "key": "e:ke-fdtable",
+   "idea": "A wall-mounted numbered file-descriptor ticket dispenser with a paper ticket stub sticking out of the slot."
+  },
+  {
+   "key": "e:ke-vdso",
+   "idea": "A curved brass pneumatic message tube mounted on wall brackets, bypassing the main gatehouse queue."
+  }
+ ],
+ "new": [
+  {
+   "id": "ke-seccomp",
+   "name": "Syscall Sieve",
+   "concept": "seccomp-bpf syscall filtering",
+   "depicts": "A standing brass coin-sorter box on four short feet, with an angled top hopper and three slotted sieve plates visible through a front cutout.",
+   "focal": "The stepped brass sieve plates inside the front cutout",
+   "size": "medium",
+   "replacesKey": "e:ke-seccomp"
+  },
+  {
+   "id": "ke-uaccess",
+   "name": "Uaccess Inspection Desk",
+   "concept": "copy_from_user and copy_to_user boundary validation",
+   "depicts": "A wide stone-and-brass customs counter grounded on a plinth, with a recessed pass-through tray in the middle and an upright inspection lamp on the left.",
+   "focal": "The glowing brass pass-through tray in the center",
+   "size": "large",
+   "replacesKey": "e:ke-uaccess"
+  },
+  {
+   "id": "ke-ptrace",
+   "name": "Ptrace Periscope",
+   "concept": "ptrace process inspection and debugging",
+   "depicts": "A tall brass periscope tube mounted on a heavy tripod floor stand, with a hooded eyepiece at the bottom and an angled mirror hood at the top.",
+   "focal": "The gleaming angled mirror hood at the top",
+   "size": "medium",
+   "replacesKey": "e:ke-ptrace"
+  },
+  {
+   "id": "ke-cred",
+   "name": "Capability Keyring",
+   "concept": "Process credentials and capabilities (struct cred)",
+   "depicts": "A heavy brass ring hanging from a small wall-mounted peg, holding three differently notched metal keys.",
+   "focal": "The notched teeth of the three keys",
+   "size": "small",
+   "replacesKey": "e:ke-cred"
+  },
+  {
+   "id": "ke-fdtable",
+   "name": "FD Ticket Dispenser",
+   "concept": "File descriptor table (fdtable)",
+   "depicts": "A wall-mounted curved metal ticket dispenser with a bright paper ticket stub sticking out of the bottom slot.",
+   "focal": "The protruding paper ticket stub",
+   "size": "small",
+   "replacesKey": "e:ke-fdtable"
+  },
+  {
+   "id": "ke-vdso",
+   "name": "vDSO Pneumatic Tube",
+   "concept": "vDSO fast userspace-kernel syscall bypass",
+   "depicts": "A curved brass pneumatic tube mounted on two wall brackets, with a clear glass capsule chamber in the middle.",
+   "focal": "The glowing capsule inside the middle chamber",
+   "size": "medium",
+   "replacesKey": "e:ke-vdso"
+  },
+  {
+   "id": "ke-vfs-mount",
+   "name": "VFS Mount Signpost",
+   "concept": "VFS mount point (vfsmount)",
+   "depicts": "A short iron post planted in a round floor base, topped by two riveted metal directional sign blades pointing opposite ways.",
+   "focal": "The two riveted directional blades",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "ke-ioctl",
+   "name": "Ioctl Valve Manifold",
+   "concept": "ioctl device-control multiplexor",
+   "depicts": "A compact cast-iron pipe manifold bolted to the floor, with three small brass handwheel valves in a row.",
+   "focal": "The three brass handwheel valves",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:ke-gatehouse",
+   "redesign": "Redraw as a symmetrical stone-and-iron portcullis gatehouse with a heavy brass padlock on the crossbar and consistent layer-palette ink."
+  },
+  {
+   "key": "c:kernel-entry:core",
+   "redesign": "Redraw as a readable 6x6+ gatekeeper beetle with 1px dark-ink eyes and a tiny brass key-crest on its shell."
+  },
+  {
+   "key": "c:kernel-entry:alt",
+   "redesign": "Redraw as a distinct 6x6+ hooded courier sprite carrying a tiny wax-sealed scroll, with 1px dark-ink eyes."
+  }
+ ]
+}

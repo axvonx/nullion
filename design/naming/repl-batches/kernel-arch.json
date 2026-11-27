@@ -1,0 +1,79 @@
+{
+ "layer": "kernel-arch",
+ "layerName": "Arch & Interrupt Core",
+ "daily": false,
+ "propsAlive": 2,
+ "newPropsNeeded": 6,
+ "kept": [
+  {
+   "key": "e:ka-nmi",
+   "kind": "prop",
+   "name": "e:ka-nmi",
+   "depicts": "A glowing yellow starburst core encircled by a notched deep crimson ring on a short stem, resembling an urgent alarm beacon."
+  },
+  {
+   "key": "e:ka-spinlock",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A hollow bright yellow pixel circle looping continuously around a solid coral-red square at its center."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:ka-apicbank",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A large black console framed in coral-red holding a six-by-four grid of dark red and lit yellow interrupt indicator tiles.",
+   "problem": "ART-STYLE rule 1: anchor is a panel of dots; redraw as a machine"
+  },
+  {
+   "key": "c:kernel-arch:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny red square with a single yellow core pixel and two short yellow side bars, occupying only a few pixels of a larger canvas.",
+   "problem": ""
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:ka-apic",
+   "name": 1,
+   "depicts": "A small black module bordered in coral-red containing four vertical bars alternating between dark red and bright yellow.",
+   "pass": "cull",
+   "reason": "Overlaps conceptually with the I/O APIC anchor and is visually a generic four-bar module.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ka-idt",
+   "name": 2,
+   "depicts": "A grey-framed dark cabinet displaying four stacked horizontal bars, with the top entry lit coral-red above three amber rows.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: panel of bars",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ka-cr3",
+   "name": "e:ka-cr3",
+   "depicts": "A yellow-bordered black register housing a deep red bar with a bright white rectangular core.",
+   "pass": "cull",
+   "reason": "Lowest-priority register prop whose page-directory concept is already covered by the kernel layer's page table.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ka-rcu",
+   "name": 1,
+   "depicts": "Two identical dark rectangular panes side by side, the left bordered in bright cyan and the right bordered in bright yellow.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: letter H on a panel",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ka-tlb",
+   "name": 1,
+   "depicts": "A coral-red framed black box containing three vertical rectangular blocks, two dark red flanking a bright yellow middle slot.",
+   "pass": "cull",
+   "reason": "Duplicates the hardware TLB concept already represented by the Shootdown Board in the kernel layer.",
+   "earlierIdea": null
+  }
+ ]
+}

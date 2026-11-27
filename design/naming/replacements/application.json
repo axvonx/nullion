@@ -1,0 +1,166 @@
+{
+ "layer": "application",
+ "replaces": [
+  {
+   "key": "e:app-browser",
+   "idea": null
+  },
+  {
+   "key": "e:app-toast",
+   "idea": "A chrome pop-up toaster with a half-ejected slice of toast representing transient toast notifications."
+  },
+  {
+   "key": "e:app-progress",
+   "idea": "A mechanical four-drum odometer counter on rubber feet representing determinate progress tracking."
+  },
+  {
+   "key": "e:app-icon",
+   "idea": null
+  },
+  {
+   "key": "e:app-bubble",
+   "idea": "A retro desk intercom with a speaker grille and push-to-talk key representing real-time messaging."
+  },
+  {
+   "key": "e:app-slider",
+   "idea": "A weighted brass receipt spindle with stacked paper slips representing an undo/redo history stack."
+  },
+  {
+   "key": "e:app-toggle",
+   "idea": "A wooden clipboard with a brass spring clip holding a pinned note representing the clipboard pasteboard buffer."
+  },
+  {
+   "key": "e:app-checklist",
+   "idea": null
+  },
+  {
+   "key": "e:app-status",
+   "idea": "A desktop battery-pack unit with a glowing charge bar and power cord representing device power and connectivity state."
+  },
+  {
+   "key": "e:app-search",
+   "idea": "A brass-ringed magnifying loupe on a hinged desk stand over a slip representing client-side search and indexing."
+  },
+  {
+   "key": "e:app-dropdown",
+   "idea": null
+  },
+  {
+   "key": "e:app-swatches",
+   "idea": "An oval wooden painter's palette with four bright paint dabs on a low stand representing color-space and theme palettes."
+  },
+  {
+   "key": "e:app-photo",
+   "idea": null
+  },
+  {
+   "key": "e:app-avatar",
+   "idea": null
+  },
+  {
+   "key": "e:app-music",
+   "idea": null
+  },
+  {
+   "key": "e:app-pin",
+   "idea": "A wall-mounted corkboard with a red-headed pushpin and a pinned map card representing geolocation and pinning."
+  },
+  {
+   "key": "e:app-pill",
+   "idea": null
+  }
+ ],
+ "new": [
+  {
+   "id": "app-clipboard",
+   "name": "Pasteboard",
+   "concept": "Clipboard pasteboard buffer",
+   "depicts": "A wooden clipboard leaning on a small easel stand, topped by a wide brass spring clip holding a cream paper slip.",
+   "focal": "The wide brass spring clip clamping the top of the paper slip.",
+   "size": "medium",
+   "replacesKey": "e:app-toggle"
+  },
+  {
+   "id": "app-undospindle",
+   "name": "Undo Spike",
+   "concept": "Undo/redo history stack",
+   "depicts": "A weighted round brass desk spindle with a vertical needle skewering three stacked cream paper slips.",
+   "focal": "The vertical brass needle piercing the stack of paper slips.",
+   "size": "small",
+   "replacesKey": "e:app-slider"
+  },
+  {
+   "id": "app-toaster",
+   "name": "Toast Pop",
+   "concept": "Transient toast notification",
+   "depicts": "A rounded chrome-and-enamel two-slot toaster sitting on four dark rubber feet with a golden slice of toast half-ejected from the top.",
+   "focal": "The golden slice of toast popping out of the top slot.",
+   "size": "medium",
+   "replacesKey": "e:app-toast"
+  },
+  {
+   "id": "app-loupe",
+   "name": "Query Loupe",
+   "concept": "Client-side search and indexing",
+   "depicts": "A brass-rimmed magnifying lens mounted on a short hinged desk arm poised over a small white index slip.",
+   "focal": "The bright glass lens framed in brass above the slip.",
+   "size": "small",
+   "replacesKey": "e:app-search"
+  },
+  {
+   "id": "app-intercom",
+   "name": "Ping Box",
+   "concept": "Real-time messaging and presence",
+   "depicts": "A boxy retro desk intercom on rubber feet with a slotted front speaker grille and a red push-to-talk key.",
+   "focal": "The red push-to-talk key beside the slotted speaker grille.",
+   "size": "medium",
+   "replacesKey": "e:app-bubble"
+  },
+  {
+   "id": "app-palette",
+   "name": "Theme Palette",
+   "concept": "Color-space and theme palette",
+   "depicts": "An oval wooden painter's palette resting on a low peg stand, dotted with four bright paint dabs in red, yellow, green, and blue.",
+   "focal": "The four bright paint dabs arranged along the palette rim.",
+   "size": "small",
+   "replacesKey": "e:app-swatches"
+  },
+  {
+   "id": "app-odometer",
+   "name": "Progress Drum",
+   "concept": "Determinate progress tracking",
+   "depicts": "A compact dark-cased mechanical counter on rubber feet with four side-by-side white number drums behind a narrow window.",
+   "focal": "The row of four white mechanical counter drums.",
+   "size": "small",
+   "replacesKey": "e:app-progress"
+  },
+  {
+   "id": "app-corkboard",
+   "name": "Pinboard",
+   "concept": "Geolocation and pinning",
+   "depicts": "A wooden-framed corkboard mounted on the wall holding a cream map card anchored by a single red-headed pushpin.",
+   "focal": "The red-headed pushpin pinning the map card to the cork.",
+   "size": "large",
+   "replacesKey": "e:app-pin"
+  },
+  {
+   "id": "app-batterypack",
+   "name": "Power Brick",
+   "concept": "Device power and connectivity state",
+   "depicts": "A heavy desktop battery-backup unit with a dark vented casing, a glowing green charge-level bar, and a coiled power cord.",
+   "focal": "The glowing green charge-level bar on the front bezel.",
+   "size": "large",
+   "replacesKey": "e:app-status"
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:app-video",
+   "redesign": "Frame the video player inside a physical desktop monitor or portable media-player casing on a stand, with a 1 px darkest-ink silhouette outline."
+  },
+  {
+   "key": "c:application:alt",
+   "redesign": "Redraw as a solid 6x6+ px critter body with a 1 px darkest-ink outline and 1x1 px dark eyes, rather than two isolated floating squares."
+  }
+ ]
+}

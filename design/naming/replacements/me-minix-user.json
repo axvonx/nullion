@@ -1,0 +1,104 @@
+{
+ "layer": "me-minix-user",
+ "replaces": [
+  {
+   "key": "e:mx-amt",
+   "idea": "A brass out-of-band intercom box on stubby feet with a perforated speaker grille, a toggle switch, and a glowing amber lamp."
+  },
+  {
+   "key": "e:mx-tinycity",
+   "idea": null
+  },
+  {
+   "key": "e:mx-rs",
+   "idea": "A hand-crank brass starter box on a base with two jumper-clamp electrodes on top for restarting stalled servers."
+  },
+  {
+   "key": "e:mx-httpd",
+   "idea": "A countertop brass ticket-dispenser on feet spitting out a short paper slip from a front slot."
+  },
+  {
+   "key": "e:mx-tcp",
+   "idea": "A brass three-way pipe manifold on a floor flange with a round pressure gauge and two braided hoses."
+  },
+  {
+   "key": "e:mx-tinytower",
+   "idea": null
+  }
+ ],
+ "new": [
+  {
+   "id": "mx-amt-intercom",
+   "name": "Out-of-Band Intercom",
+   "concept": "Intel AMT (Active Management Technology) remote out-of-band management",
+   "depicts": "A small brass intercom box standing on four stubby feet, with a perforated speaker grille, a side toggle switch, and a single amber indicator lamp on top.",
+   "focal": "The glowing amber indicator lamp above the speaker grille",
+   "size": "small",
+   "replacesKey": "e:mx-amt"
+  },
+  {
+   "id": "mx-rs-starter",
+   "name": "Reincarnation Crank",
+   "concept": "MINIX 3 Reincarnation Server (rs) restarting crashed user-space drivers",
+   "depicts": "A heavy ochre-and-brass magneto starter box on a flat base, with a side hand-crank and two upright jumper-clamp electrodes on top.",
+   "focal": "The twin upright jumper-clamp electrodes",
+   "size": "medium",
+   "replacesKey": "e:mx-rs"
+  },
+  {
+   "id": "mx-httpd-dispenser",
+   "name": "Port 16992 Dispenser",
+   "concept": "Embedded HTTP web server (httpd) serving ME management pages",
+   "depicts": "A compact brass countertop ticket-dispenser on four short feet, with a front slot ejecting a short cream paper slip.",
+   "focal": "The cream paper slip emerging from the front slot",
+   "size": "small",
+   "replacesKey": "e:mx-httpd"
+  },
+  {
+   "id": "mx-tcp-manifold",
+   "name": "Packet Manifold",
+   "concept": "User-space TCP/IP network stack (inet) inside the Management Engine",
+   "depicts": "A three-way brass pipe manifold bolted to a floor flange, topped with a round pressure gauge and flanked by two curved braided hoses.",
+   "focal": "The round pressure gauge mounted at the center junction",
+   "size": "large",
+   "replacesKey": "e:mx-tcp"
+  },
+  {
+   "id": "mx-pm-timeclock",
+   "name": "Process Timeclock",
+   "concept": "MINIX 3 Process Manager (pm) handling fork, exec, and exit",
+   "depicts": "A tall narrow brass punch-card timeclock on a pedestal base, with a top card slot and a small side lever.",
+   "focal": "The top card slot with a protruding punch card",
+   "size": "medium",
+   "replacesKey": null
+  },
+  {
+   "id": "mx-vfs-rolodex",
+   "name": "VFS Rotary Index",
+   "concept": "MINIX 3 Virtual File System (vfs) server",
+   "depicts": "A small brass rotary card index on an A-frame stand, with a side knob and fanned-out tabbed index cards.",
+   "focal": "The fanned-out tabbed index cards on the drum",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "mx-ipc-capsule",
+   "name": "Pneumatic Dispatch",
+   "concept": "MINIX 3 synchronous message-passing IPC between user-space servers",
+   "depicts": "A vertical brass pneumatic-tube station on a floor stand, with a hinged hatch and a cylindrical message capsule resting inside.",
+   "focal": "The cylindrical message capsule visible in the open hatch",
+   "size": "medium",
+   "replacesKey": null
+  },
+  {
+   "id": "mx-watchdog-clock",
+   "name": "Escapement Watchdog",
+   "concept": "User-space watchdog timer keeping the ME subsystem responsive",
+   "depicts": "A small exposed-gear brass escapement clockwork mounted on a weighted pedestal base.",
+   "focal": "The toothed brass balance wheel at the center",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": []
+}

@@ -1,0 +1,82 @@
+{
+ "layer": "bus-fabric",
+ "layerName": "PCIe / DMA Fabric",
+ "daily": false,
+ "propsAlive": 0,
+ "newPropsNeeded": 8,
+ "kept": [],
+ "rework": [
+  {
+   "key": "e:bf-pcieswitch",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A wide magenta-framed enclosure with five horizontal white and cyan bus lanes converging on a central white-bordered magenta core.",
+   "problem": "ART-STYLE rule 1: anchor reads as a panel; redraw as a switch chassis"
+  },
+  {
+   "key": "c:bus-fabric:core",
+   "kind": "critter",
+   "name": "c:bus-fabric:core",
+   "depicts": "A tiny 7-by-2-pixel horizontal magenta streak with a two-pixel white leading tip, centered in a mostly empty 26x22 frame.",
+   "problem": ""
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:bf-crossbar",
+   "name": "e:bf-crossbar",
+   "depicts": "A magenta-framed grid where four vertical white lines intersect three horizontal cyan bus bars.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: grid diagram",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bf-dmaring",
+   "name": "e:bf-dmaring",
+   "depicts": "Concentric magenta and cyan pixel rings surrounding a solid white central hub.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: concentric ring symbol",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bf-mmio",
+   "name": 1,
+   "depicts": "A white-framed dark horizontal housing containing five alternating cyan and magenta vertical register blocks.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: panel of bars",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bf-retimer",
+   "name": 1,
+   "depicts": "A small magenta-bordered black rectangle with a single horizontal cyan signal bar centered inside.",
+   "pass": "cull",
+   "reason": "Low-priority generic rectangle with a single bar that is visually indistinct.",
+   "earlierIdea": "a PCIe hot-plug surprise-removal latch"
+  },
+  {
+   "key": "e:bf-msix",
+   "name": "e:bf-msix",
+   "depicts": "A cyan-bordered black rectangle containing four tall vertical vector columns alternating white and magenta.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: panel of bars; twin of bf-mmio",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bf-lane",
+   "name": "e:bf-lane",
+   "depicts": "Two parallel full-width horizontal stripes, one cyan above and one magenta below, separated by a narrow gap.",
+   "pass": "cull",
+   "reason": "Two plain parallel stripes are generic filler rather than a memorable prop.",
+   "earlierIdea": "a PCIe credit-based flow-control counter"
+  },
+  {
+   "key": "e:bf-iommu",
+   "name": "e:bf-iommu",
+   "depicts": "A white-bordered square enclosing a smaller magenta square frame around a solid black center.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: square in a square",
+   "earlierIdea": null
+  }
+ ]
+}

@@ -1,0 +1,211 @@
+{
+ "layer": "ring-3",
+ "layerName": "MEI / HECI Mailbox",
+ "daily": true,
+ "propsAlive": 12,
+ "newPropsNeeded": 6,
+ "kept": [
+  {
+   "key": "e:r3-me",
+   "kind": "anchor",
+   "name": "e:r3-me",
+   "depicts": "A large, animated silicon die package representing the Intel Management Engine at the bottom of the stack."
+  },
+  {
+   "key": "e:r3-vias",
+   "kind": "prop",
+   "name": "e:r3-vias",
+   "depicts": "A small 10x10 cluster of vertical copper-plated holes connecting different layers of a circuit board or die."
+  },
+  {
+   "key": "e:r3-xtal",
+   "kind": "prop",
+   "name": "e:r3-xtal",
+   "depicts": "A 15x9 animated quartz crystal oscillator."
+  },
+  {
+   "key": "e:r3-ringosc",
+   "kind": "prop",
+   "name": "e:r3-ringosc",
+   "depicts": "A 15x16 animated loop of inverters forming a ring oscillator."
+  },
+  {
+   "key": "e:r3-thermal",
+   "kind": "prop",
+   "name": "e:r3-thermal",
+   "depicts": "A 7x13 vertical thermal diode or temperature sensor on the die."
+  },
+  {
+   "key": "e:r3-guard",
+   "kind": "prop",
+   "name": "e:r3-guard",
+   "depicts": "A 15x17 guard ring or shield structure isolating sensitive silicon."
+  },
+  {
+   "key": "e:r3-probe",
+   "kind": "prop",
+   "name": "e:r3-probe",
+   "depicts": "A 7x15 sharp microprobe needle touching down on a die."
+  },
+  {
+   "key": "e:r3-align",
+   "kind": "prop",
+   "name": "e:r3-align",
+   "depicts": "A 9x9 optical alignment target used during photolithography."
+  },
+  {
+   "key": "e:r3-bondwire",
+   "kind": "prop",
+   "name": "e:r3-bondwire",
+   "depicts": "A 16x10 arched gold wire connecting a die pad to the package leadframe."
+  },
+  {
+   "key": "e:r3-capbank",
+   "kind": "prop",
+   "name": "e:r3-capbank",
+   "depicts": "A 14x9 row of matched capacitors forming a capacitor bank."
+  },
+  {
+   "key": "e:r3-fusebank",
+   "kind": "prop",
+   "name": "e:r3-fusebank",
+   "depicts": "A 14x8 dense bank of programmable fuses."
+  },
+  {
+   "key": "c:ring-3:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A 26x22 grid-bound critter with two sprite variants that steps along orthogonal silicon rails."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:r3-pad",
+   "kind": "prop",
+   "name": "e:r3-pad",
+   "depicts": "A 16x10 metallic contact pad on the silicon die used for external bonding or probing.",
+   "problem": "ART-STYLE rule 6: floats"
+  },
+  {
+   "key": "e:r3-sram",
+   "kind": "prop",
+   "name": "e:r3-sram",
+   "depicts": "A 17x15 dense grid block representing static RAM cells.",
+   "problem": "ART-STYLE rule 1: abstract ringed shape"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:r3-trace",
+   "name": "e:r3-trace",
+   "depicts": "A 24x12 etched copper trace routing signals across the substrate.",
+   "pass": "cull",
+   "reason": "Generic etched copper trace that overlaps with crosstalk lanes in the CMOS layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-decap",
+   "name": "e:r3-decap",
+   "depicts": "A tiny 13x7 surface-mount decoupling capacitor.",
+   "pass": "cull",
+   "reason": "Tiny surface-mount decoupling capacitor redundant with the on-die capacitor bank.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-testpads",
+   "name": "e:r3-testpads",
+   "depicts": "A 17x7 row of exposed gold test pads for factory diagnostics.",
+   "pass": "cull",
+   "reason": "Row of gold test pads that duplicates the higher-priority bonding pad.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-fuses",
+   "name": 1,
+   "depicts": "A 19x9 array of microscopic programmable fuses on the silicon die.",
+   "pass": "cull",
+   "reason": "Programmable fuse array redundant with the higher-priority fuse bank in this layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-resistor",
+   "name": "e:r3-resistor",
+   "depicts": "A 15x5 surface-mount resistor.",
+   "pass": "cull",
+   "reason": "Generic low-priority surface-mount resistor with weak conceptual tie to the Management Engine.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-diode",
+   "name": "e:r3-diode",
+   "depicts": "An 11x7 semiconductor diode.",
+   "pass": "cull",
+   "reason": "Generic low-priority semiconductor diode overshadowed by the on-die thermal diode.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-inductor",
+   "name": "e:r3-inductor",
+   "depicts": "A 15x6 coiled or shielded surface-mount inductor.",
+   "pass": "cull",
+   "reason": "Generic low-priority power inductor filler without a strong silicon or ME concept.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-pll",
+   "name": "e:r3-pll",
+   "depicts": "A 15x13 phase-locked loop frequency multiplier block.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: capacitor schematic symbol",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-jtag",
+   "name": "e:r3-jtag",
+   "depicts": "An 18x12 multi-pin JTAG debug header or TAP controller.",
+   "pass": "cull",
+   "reason": "Duplicates the JTAG header already present in the firmware layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-rom",
+   "name": "e:r3-rom",
+   "depicts": "A 22x11 mask ROM block carrying immutable boot code.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 2: a word in a box (\"ROM\")",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-htree",
+   "name": "e:r3-htree",
+   "depicts": "A 15x15 symmetric H-shaped clock distribution network.",
+   "pass": "cull",
+   "reason": "Duplicates the clock H-tree already present in the RTL layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-gate",
+   "name": "e:r3-gate",
+   "depicts": "A 14x9 individual logic gate etched in silicon.",
+   "pass": "cull",
+   "reason": "Duplicates the NAND gate already present in the RTL layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-pulse",
+   "name": 1,
+   "depicts": "A 16x7 animated square-wave or clock pulse traveling along a line.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 7: a bar under 8 px",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r3-fiducial",
+   "name": "e:r3-fiducial",
+   "depicts": "An 11x11 circular or crosshair fiducial marker on a circuit board.",
+   "pass": "cull",
+   "reason": "Generic PCB pick-and-place fiducial marker with little conceptual value for a man page.",
+   "earlierIdea": null
+  }
+ ]
+}

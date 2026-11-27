@@ -1,0 +1,96 @@
+{
+ "layer": "vmm",
+ "replaces": [
+  {
+   "key": "e:vmm-virtio",
+   "idea": "A twin-roller conveyor bench with a continuous notched belt loop carrying crates, representing a shared paravirtualized virtqueue."
+  },
+  {
+   "key": "e:vmm-ghostnic",
+   "idea": null
+  },
+  {
+   "key": "e:vmm-hpet",
+   "idea": "An upright accordion bellows pump with a pressure dial and pedal base, representing virtio-balloon memory reclamation."
+  },
+  {
+   "key": "e:vmm-bios",
+   "idea": "A chunky upright ROM cartridge with a ribbed top grip on a bevelled base, representing virtual guest firmware."
+  }
+ ],
+ "new": [
+  {
+   "id": "vmm-balloon",
+   "name": "Balloon Pump",
+   "concept": "Virtio-balloon memory reclamation",
+   "depicts": "An upright accordion bellows with a T-handle on top, a round pressure dial on its front plate, and a flat pedal base.",
+   "focal": "the round pressure dial on the bellows",
+   "size": "medium",
+   "replacesKey": "e:vmm-hpet"
+  },
+  {
+   "id": "vmm-virtio",
+   "name": "Ring Conveyor",
+   "concept": "Virtio split/packed virtqueue",
+   "depicts": "A horizontal twin-roller conveyor bench on four short legs, with a continuous notched belt loop and two small crates riding on top.",
+   "focal": "the notched belt loop between the two rollers",
+   "size": "large",
+   "replacesKey": "e:vmm-virtio"
+  },
+  {
+   "id": "vmm-ovmf",
+   "name": "Boot Cartridge",
+   "concept": "Virtual guest firmware (OVMF / SeaBIOS)",
+   "depicts": "A chunky upright ROM cartridge with a ribbed grip on top and a bevelled base plate.",
+   "focal": "the ribbed top grip",
+   "size": "small",
+   "replacesKey": "e:vmm-bios"
+  },
+  {
+   "id": "vmm-vfio",
+   "name": "Passthrough Coupler",
+   "concept": "VFIO direct device passthrough",
+   "depicts": "A heavy flanged pipe coupling bolted to a floor bracket, with a straight brass conduit passing cleanly through its center.",
+   "focal": "the straight conduit passing through the flanged collar",
+   "size": "medium",
+   "replacesKey": null
+  },
+  {
+   "id": "vmm-snapshot",
+   "name": "State Polaroid",
+   "concept": "VM live snapshot and restore",
+   "depicts": "A boxy instant camera resting on a squat tripod stand, with a thick square film card sticking out of its front slot.",
+   "focal": "the square film card protruding from the front slot",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "vmm-serial",
+   "name": "Null-Modem Plug",
+   "concept": "Virtual UART / serial console",
+   "depicts": "A trapezoidal D-sub 9-pin connector housing standing on a small rubber boot, with two thumbscrews flanking its top.",
+   "focal": "the twin thumbscrews on the D-sub housing",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "vmm-watchdog",
+   "name": "Watchdog Bell",
+   "concept": "Virtual hardware watchdog timer",
+   "depicts": "A dome-shaped brass desk bell on a dark base with a tiny spring-loaded striker lever on its side.",
+   "focal": "the side striker lever",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:vmm-qemu",
+   "redesign": "Redraw as a heavy industrial rack-mounted hypervisor cabinet on four leveling feet, with two recessed machine-bay doors and a physical teleprinter keyboard shelf below."
+  },
+  {
+   "key": "c:vmm:core",
+   "redesign": "Redraw as a tiny winged visor-beetle with a rounded carapace and two 1x1 dark-ink eyes so its silhouette is distinct from c:ept:core."
+  }
+ ]
+}

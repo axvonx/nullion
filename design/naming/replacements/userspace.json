@@ -1,0 +1,96 @@
+{
+  "layer": "userspace",
+  "replaces": [
+    {
+      "key": "e:us-tower",
+      "idea": null
+    },
+    {
+      "key": "e:us-sign",
+      "idea": "A floor-standing cast-iron teleprinter pedestal with a glass-domed paper-tape reel feeding a continuous strip into a catch-basket."
+    },
+    {
+      "key": "e:us-pidplate",
+      "idea": "A compact cast-iron ticket dispenser on a short curb post issuing a curled paper stub for each new process."
+    },
+    {
+      "key": "e:us-cabinet",
+      "idea": null
+    },
+    {
+      "key": "e:us-crate",
+      "idea": null
+    },
+    {
+      "key": "e:us-busbar",
+      "idea": null
+    },
+    {
+      "key": "e:us-journal",
+      "idea": null
+    },
+    {
+      "key": "e:us-padlock",
+      "idea": null
+    },
+    {
+      "key": "e:us-antenna",
+      "idea": null
+    },
+    {
+      "key": "e:us-billboard",
+      "idea": "A freestanding A-frame pegboard on two splayed feet hung with rows of small brass and cyan key tags."
+    },
+    {
+      "key": "e:us-manhole",
+      "idea": null
+    },
+    {
+      "key": "e:us-vent",
+      "idea": null
+    }
+  ],
+  "new": [
+    {
+      "id": "us-pidpunch",
+      "name": "PID Ticket Dispenser",
+      "concept": "Process IDs (unique numeric identifiers assigned to each running process)",
+      "depicts": "A compact red-and-grey cast-iron ticket dispenser mounted on a short curb post, with a curled white paper stub poking from its front slot.",
+      "focal": "The curled white ticket stub emerging from the front slot",
+      "size": "small",
+      "replacesKey": "e:us-pidplate"
+    },
+    {
+      "id": "us-envrack",
+      "name": "Env Tag Rack",
+      "concept": "Environment variables (key-value configuration inherited by processes)",
+      "depicts": "A freestanding dark-grey A-frame pegboard on two splayed feet, hung with two rows of small rectangular brass and cyan key tags.",
+      "focal": "The neat grid of hanging coloured key tags on hooks",
+      "size": "medium",
+      "replacesKey": "e:us-billboard"
+    },
+    {
+      "id": "us-logdrum",
+      "name": "Journal Ticker",
+      "concept": "Systemd journal (structured daemon logging)",
+      "depicts": "A floor-standing cast-iron teleprinter pedestal with a glass-domed paper-tape reel on top and a continuous cream paper strip spilling into a wire catch-basket.",
+      "focal": "The glass-domed paper-tape reel feeding a continuous strip",
+      "size": "large",
+      "replacesKey": "e:us-sign"
+    }
+  ],
+  "rework": [
+    {
+      "key": "e:us-pipe",
+      "redesign": "Draw two vertical grey pipe stanchions bolted to the floor beneath the horizontal conduit so it stands grounded rather than floating, and scale it to at least 8 px tall."
+    },
+    {
+      "key": "e:us-tty",
+      "redesign": "Mount the CRT monitor onto a sloped grey keyboard-and-pedestal terminal desk with a dark base so it sits grounded on the floor."
+    },
+    {
+      "key": "e:us-firewall",
+      "redesign": "Add a continuous 1 px darkest-ink outline around the entire brick wall and flame silhouette."
+    }
+  ]
+}

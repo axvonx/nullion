@@ -1,0 +1,220 @@
+{
+ "layer": "runtime",
+ "layerName": "Heap & GC",
+ "daily": true,
+ "propsAlive": 14,
+ "newPropsNeeded": 5,
+ "kept": [
+  {
+   "key": "e:rt-scaffold",
+   "kind": "anchor",
+   "name": "e:rt-scaffold",
+   "depicts": "A three-tier metal scaffolding rack packed with multi-colored rectangular blocks and a ladder on the right."
+  },
+  {
+   "key": "e:rt-incinerator",
+   "kind": "anchor",
+   "name": "e:rt-incinerator",
+   "depicts": "A dark industrial furnace with glowing orange-yellow bars inside a grate and two small grey smoke puffs rising from a chimney."
+  },
+  {
+   "key": "e:rt-objects",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A shelf holding three or four colored rectangular blocks of varying heights."
+  },
+  {
+   "key": "e:rt-sweeper",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A small wheeled blue-violet robot with a cyan eye and yellow scoop patrolling a shelf past grey and blue blocks."
+  },
+  {
+   "key": "e:rt-tape",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Two grey circular tape reels mounted side-by-side on a tan and grey horizontal base."
+  },
+  {
+   "key": "e:rt-callstack",
+   "kind": "prop",
+   "name": "e:rt-callstack",
+   "depicts": "A vertical stack of horizontal colored bars (pink, yellow, blue, green, red) topped by a small purple marker."
+  },
+  {
+   "key": "e:rt-refcount",
+   "kind": "prop",
+   "name": "e:rt-refcount",
+   "depicts": "A blue block with a red tag-like counter attached to its upper-right corner."
+  },
+  {
+   "key": "e:rt-weakref",
+   "kind": "prop",
+   "name": "e:rt-weakref",
+   "depicts": "A blue block on the left connected by three dotted purple squares to a hollow grey square on the right."
+  },
+  {
+   "key": "e:rt-finalizer",
+   "kind": "prop",
+   "name": "e:rt-finalizer",
+   "depicts": "Two blue blocks and a red block on a shelf moving toward a dark doorway with a yellow handle."
+  },
+  {
+   "key": "e:rt-interp",
+   "kind": "prop",
+   "name": "e:rt-interp",
+   "depicts": "A tall grey housing with four horizontal colored slots and a yellow tab sticking out the left side."
+  },
+  {
+   "key": "e:rt-hashmap",
+   "kind": "prop",
+   "name": "e:rt-hashmap",
+   "depicts": "A grey vertical rack with four dark bucket slots, three of which have colored blocks attached by purple tabs."
+  },
+  {
+   "key": "e:rt-closure",
+   "kind": "prop",
+   "name": "e:rt-closure",
+   "depicts": "A purple-framed tank holding a blue liquid block with a small purple pipe and yellow cap at the bottom."
+  },
+  {
+   "key": "e:rt-eventloop",
+   "kind": "prop",
+   "name": "e:rt-eventloop",
+   "depicts": "A dark circular dial with four tick marks and a yellow hand pointing downward."
+  },
+  {
+   "key": "e:rt-promise",
+   "kind": "prop",
+   "name": "e:rt-promise",
+   "depicts": "A small square frame containing a yellow hourglass."
+  },
+  {
+   "key": "e:rt-vtable",
+   "kind": "prop",
+   "name": "e:rt-vtable",
+   "depicts": "A dark grey column with two dark slots on the left and three purple-and-yellow pointer tabs on the right."
+  },
+  {
+   "key": "c:runtime:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A small boxy, crenellated pixel critter with two dark eyes sitting in a dark cradle, appearing in cyan, green, and yellow variants."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:rt-nursery",
+   "kind": "prop",
+   "name": "e:rt-nursery",
+   "depicts": "A green-bordered dark box holding four alternating yellow and mint-green squares.",
+   "problem": "ART-STYLE rule 8: plain box with squares; needs a focal detail"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:rt-marks",
+   "name": 1,
+   "depicts": "Four colored blocks on a shelf with yellow L-shaped checkmarks above three of them and a dark bar above the blue one.",
+   "pass": "cull",
+   "reason": "Redundant with Tri-Color Markers for GC marking and visually too similar to Boxed Values.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-ref",
+   "name": "e:rt-ref",
+   "depicts": "A blue block in the upper left connected by an L-shaped purple pipe with a cross-shaped end to another blue block in the lower right.",
+   "pass": "cull",
+   "reason": "Generic pointer visual that is overshadowed by the more specific Weak Reference and Reference Counter.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-heapcol",
+   "name": "e:rt-heapcol",
+   "depicts": "A vertical dark purple pillar with four horizontal green and blue bars extending to the right.",
+   "pass": "cull",
+   "reason": "Generic filler depicting no distinct computing concept worth its own manual page.",
+   "earlierIdea": "a write-barrier card table"
+  },
+  {
+   "key": "e:rt-jit",
+   "name": 1,
+   "depicts": "A grey anvil with glowing orange and yellow flames rising from its top surface.",
+   "pass": "cull",
+   "reason": "Duplicates the Hotspot Hearth in the JIT layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-tricolor",
+   "name": "e:rt-tricolor",
+   "depicts": "Three squares in a row\u2014black, grey, and white\u2014linked by short purple bars.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: three-box diagram, under 8 px, no outline",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-bump",
+   "name": "e:rt-bump",
+   "depicts": "A horizontal dark trough with a green block at the left end and a yellow T-shaped cursor above it.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: flat bar; reads as nothing",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-strpool",
+   "name": "e:rt-strpool",
+   "depicts": "Three colored squares on the left wired through a purple junction into a dark box containing a yellow bar.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: connector diagram floating in air",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-compact",
+   "name": "e:rt-compact",
+   "depicts": "A grey shelf with six colored blocks pushed together into tight clusters.",
+   "pass": "cull",
+   "reason": "Visually almost identical to Boxed Values and low priority.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-bytecode",
+   "name": "e:rt-bytecode",
+   "depicts": "Pixel-art purple text reading \"RETUR\" (truncated \"RETURN\").",
+   "pass": "cull",
+   "reason": "Visually broken truncated text ('RETUR') and redundant with the bytecode layer's Opcode Tile.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-arena",
+   "name": "e:rt-arena",
+   "depicts": "A purple-bordered dark box containing five alternating green and blue vertical bars.",
+   "pass": "cull",
+   "reason": "Generic box-of-bars visual that overlaps with Bump Allocator and Eden Nursery.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-stackframe",
+   "name": "e:rt-stackframe",
+   "depicts": "A dark box with three horizontal colored bars (yellow, blue, pink) of different lengths.",
+   "pass": "cull",
+   "reason": "Redundant with Call Stack, which already depicts stacked frames.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-upvalue",
+   "name": "e:rt-upvalue",
+   "depicts": "A yellow-framed box linked by a vertical purple bar to a green-framed box below it.",
+   "pass": "cull",
+   "reason": "Redundant with Lexical Closure, which already covers captured environment state.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:rt-safepoint",
+   "name": "e:rt-safepoint",
+   "depicts": "A red rectangular sign with a yellow center mounted on a purple post.",
+   "pass": "cull",
+   "reason": "Visually generic sign on a post and low priority.",
+   "earlierIdea": "a stop-the-world pause whistle"
+  }
+ ]
+}

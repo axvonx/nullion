@@ -1,0 +1,110 @@
+{
+ "layer": "runtime",
+ "replaces": [
+  {
+   "key": "e:rt-marks",
+   "idea": null
+  },
+  {
+   "key": "e:rt-ref",
+   "idea": null
+  },
+  {
+   "key": "e:rt-heapcol",
+   "idea": "A wall-mounted metal card rack holding slotted index cards with red-inked edge tabs to record dirty heap regions."
+  },
+  {
+   "key": "e:rt-jit",
+   "idea": null
+  },
+  {
+   "key": "e:rt-tricolor",
+   "idea": "A three-lens signal lantern on a short iron post with dark, grey, and glowing white lenses."
+  },
+  {
+   "key": "e:rt-bump",
+   "idea": "A counter-mounted spring-loaded ticket dispenser with a brass pointer arm advancing along a paper roll."
+  },
+  {
+   "key": "e:rt-strpool",
+   "idea": "A wide cast-iron key-duplicating board on floor legs with brass key blanks hanging on numbered hooks."
+  },
+  {
+   "key": "e:rt-compact",
+   "idea": null
+  },
+  {
+   "key": "e:rt-bytecode",
+   "idea": null
+  },
+  {
+   "key": "e:rt-arena",
+   "idea": null
+  },
+  {
+   "key": "e:rt-stackframe",
+   "idea": null
+  },
+  {
+   "key": "e:rt-upvalue",
+   "idea": null
+  },
+  {
+   "key": "e:rt-safepoint",
+   "idea": "A brass referee's whistle hanging from a wall-mounted iron hook with a short lanyard cord."
+  }
+ ],
+ "new": [
+  {
+   "id": "rt-tricolor-signal",
+   "name": "Tri-Color Signal",
+   "concept": "Tri-color mark-and-sweep garbage collection",
+   "depicts": "A compact three-lens signal lantern bolted to a short iron floor post, with a dark bottom lens, a grey middle lens, and a lit white top lens.",
+   "focal": "The three stacked circular lenses (black, grey, white)",
+   "size": "small",
+   "replacesKey": "e:rt-tricolor"
+  },
+  {
+   "id": "rt-bump-dispenser",
+   "name": "Bump Dispenser",
+   "concept": "Bump-pointer allocation",
+   "depicts": "A counter-mounted metal ticket dispenser on a flat base, holding a thick paper roll with a brass pointer arm resting at the advancing tear edge.",
+   "focal": "The brass pointer arm at the paper roll's tear edge",
+   "size": "medium",
+   "replacesKey": "e:rt-bump"
+  },
+  {
+   "id": "rt-card-table",
+   "name": "Dirty Card Rack",
+   "concept": "Write-barrier card table",
+   "depicts": "A wall-mounted sheet-metal card rack with two rows of slotted index cards, two of which stick up with bright red-inked top tabs.",
+   "focal": "The two red-tabbed dirty cards protruding from the slots",
+   "size": "medium",
+   "replacesKey": "e:rt-heapcol"
+  },
+  {
+   "id": "rt-intern-rack",
+   "name": "Intern Key Board",
+   "concept": "String interning pool",
+   "depicts": "A wide cast-iron key-duplicating board standing on two floor legs, with a row of identical brass key blanks hanging from numbered hooks along a top rail.",
+   "focal": "The row of identical brass key blanks on hooks",
+   "size": "large",
+   "replacesKey": "e:rt-strpool"
+  },
+  {
+   "id": "rt-safepoint-whistle",
+   "name": "Safepoint Whistle",
+   "concept": "GC safepoint (stop-the-world pause)",
+   "depicts": "A rounded brass referee's whistle hanging from a wall-mounted iron peg by a short dark lanyard loop.",
+   "focal": "The brass whistle body and pea chamber",
+   "size": "small",
+   "replacesKey": "e:rt-safepoint"
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:rt-nursery",
+   "redesign": "Redraw as a low wooden seedling flat on short feet with a small brass tag on the front rim and four tiny green-and-yellow sprouts growing out of dark soil."
+  }
+ ]
+}

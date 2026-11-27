@@ -1,0 +1,230 @@
+{
+ "layer": "kernel",
+ "layerName": "Kernel Core",
+ "daily": true,
+ "propsAlive": 6,
+ "newPropsNeeded": 11,
+ "kept": [
+  {
+   "key": "e:kr-furnace",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A red-walled kernel furnace with glowing yellow and coral bars inside, topped by a large silver gear, a smaller copper gear, and a grey smokestack."
+  },
+  {
+   "key": "e:kr-systable",
+   "kind": "anchor",
+   "name": "e:kr-systable",
+   "depicts": "A dark grey-framed dispatch board holding a four-by-eight grid of cyan-indexed blue and grey slots with one active yellow entry."
+  },
+  {
+   "key": "e:kr-pagetable",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A grey four-drawer vertical cabinet whose dark slots each hold a silver bar, three of them marked with a lit green square."
+  },
+  {
+   "key": "e:kr-mutex",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A brown brass padlock with yellow top trim, a silver shackle, a dark keyhole, and a small yellow key extending from its right side."
+  },
+  {
+   "key": "e:kr-semaphore",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A narrow vertical dark grey signal housing on a post with three square lenses, the top red lens lit and the lower two dark."
+  },
+  {
+   "key": "c:kernel:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A compact silver-grey boxy automaton in a black U-frame with two stubby feet, a glowing cyan, green, or yellow visor, and a tipped top antenna."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:kr-gauge",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A horizontal red bar clamped by two dark grey brackets with a detached vertical red needle hovering above a central notch.",
+   "problem": ""
+  },
+  {
+   "key": "e:kr-schedwheel",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A spoked grey wheel mounted on a dark base with six colour-coded task squares riding around its rim.",
+   "problem": "ART-STYLE rule 3: missing outline"
+  },
+  {
+   "key": "e:kr-irqbell",
+   "kind": "prop",
+   "name": "e:kr-irqbell",
+   "depicts": "A bright yellow bell suspended from a dark grey bracket with a brown clapper hanging below.",
+   "problem": "ART-STYLE rule 6: floating bell; hang it from a bracket"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:kr-gears",
+   "name": 1,
+   "depicts": "A meshing pair of silver and copper toothed gears turning against each other.",
+   "pass": "cull",
+   "reason": "Generic mechanical filler that does not represent a specific kernel concept worth a manual page.",
+   "earlierIdea": "a NUMA node interconnect bridge"
+  },
+  {
+   "key": "e:kr-dmesg",
+   "name": 1,
+   "depicts": "A wide dark console bezel scrolling bright green kernel log fragments such as FUTEX and EXT4-FS above a green status lamp.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 2: truncated text (\"FUTE EXT4\") is the whole prop",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-piston",
+   "name": 1,
+   "depicts": "A narrow vertical dark grey cylinder hovering above a flat light grey rail.",
+   "pass": "cull",
+   "reason": "Visually unclear generic cylinder-and-rail filler without a distinct computing concept.",
+   "earlierIdea": "a kernel panic oops tombstone"
+  },
+  {
+   "key": "e:kr-leds",
+   "name": 1,
+   "depicts": "A small grey-bezelled black panel housing a two-by-three bank of square green lamps and one red lamp.",
+   "pass": "cull",
+   "reason": "Generic LED indicator panel that is visually indistinct and too minor for its own page.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-turnstile",
+   "name": "e:kr-turnstile",
+   "depicts": "A dark grey pedestal mounted with rotating silver barrier arms.",
+   "pass": "cull",
+   "reason": "Redundant synchronization prop whose concept is better covered by the core mutex.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-slab",
+   "name": 2,
+   "depicts": "Four grey vertical compartments beneath a copper header bar, three stacked with paired green or cyan fixed-width bars and one empty.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 2: glyph strip that reads as text",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-ticker",
+   "name": 1,
+   "depicts": "A small grey box on the left emitting a horizontal trail of red and grey rectangular dashes to the right.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: flat bar; reads as nothing",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-gate",
+   "name": 1,
+   "depicts": "A heavy dark grey archway fitted with a lowered silver portcullis grate.",
+   "pass": "cull",
+   "reason": "Too similar in both visual form (portcullis archway) and concept to the Syscall Gatehouse in kernel-entry.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-runqueue",
+   "name": "e:kr-runqueue",
+   "depicts": "A horizontal two-tone grey track carrying cyan, yellow, green, and narrow red task blocks lined up in order.",
+   "pass": "cull",
+   "reason": "Redundant scheduler prop; the Round-Robin Wheel is a stronger visual for runnable task scheduling.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-irqmeter",
+   "name": 1,
+   "depicts": "A square dark grey-framed screen showing four vertical bars, three cyan and one tall yellow column, above a silver baseline.",
+   "pass": "cull",
+   "reason": "Generic four-bar chart that is redundant with the Interrupt Bell for representing interrupts.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-tlb",
+   "name": 1,
+   "depicts": "A grey-framed black panel holding a four-by-three grid of teal and navy cache slots with one bright white hit.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: panel of dots; abstract",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-schedrack",
+   "name": 1,
+   "depicts": "A small grey-framed black panel displaying three horizontal progress bars, one green and two cyan, across dark blue tracks.",
+   "pass": "cull",
+   "reason": "Generic progress-bar panel that is redundant with the Round-Robin Wheel for scheduler accounting.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-ringbuf",
+   "name": "e:kr-ringbuf",
+   "depicts": "An open circle of ten small square slots, seven dark grey and three sequentially lit bright cyan.",
+   "pass": "cull",
+   "reason": "Redundant with the Dmesg Marquee, which already represents the kernel ring buffer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-wdtimer",
+   "name": 1,
+   "depicts": "A grey-framed black console with a green indicator on the top left, a dark indicator on the top right, and a yellow-and-grey countdown bar below.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: UI panel with a bar",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-vfs",
+   "name": "e:kr-vfs",
+   "depicts": "A round silver junction hub with a red-and-charcoal core connected to four coloured conduits in green, cyan, magenta, and yellow.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: abstract gem/cross shape",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-futex",
+   "name": "e:kr-futex",
+   "depicts": "A yellow-bordered black box enclosing two large square state cells, bright green on the left and coral red on the right.",
+   "pass": "cull",
+   "reason": "Visually plain two-cell box that is redundant with the Sleeping Padlock for mutex synchronization.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-epoll",
+   "name": 2,
+   "depicts": "A cyan-framed black panel containing four vertical descriptor bars, three dark grey and one lit bright green.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: panel of bars",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-cgroups",
+   "name": 1,
+   "depicts": "A grey-framed white enclosure subdivided into three nested coloured boxes: cyan-blue at top left, green at top right, and a wide red partition below.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: three coloured boxes",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-workq",
+   "name": 1,
+   "depicts": "A dark grey horizontal rail carrying four alternating cyan and yellow square work items.",
+   "pass": "cull",
+   "reason": "Generic rail with alternating squares that overlaps with other scheduling and queue props.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:kr-buddy",
+   "name": "e:kr-buddy",
+   "depicts": "Three grey-bordered vertical strips showing power-of-two memory subdivision: a wide blue block, a half-width green block, and two stacked brown and red quarter-blocks.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: panel of coloured stripes",
+   "earlierIdea": null
+  }
+ ]
+}

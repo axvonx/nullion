@@ -1,0 +1,70 @@
+{
+ "layer": "bytecode",
+ "layerName": "AST & Bytecode",
+ "daily": false,
+ "propsAlive": 0,
+ "newPropsNeeded": 8,
+ "kept": [
+  {
+   "key": "e:bc-parsetree",
+   "kind": "anchor",
+   "name": "e:bc-parsetree",
+   "depicts": "A large symmetrical three-tier tree with a framed yellow root node, orange and green intermediate nodes, and four yellow-rimmed dark-navy leaf boxes linked by stepped diagonal edges."
+  },
+  {
+   "key": "c:bytecode:core",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A tiny dark-navy rectangular frame enclosing a bright yellow core, flanked by two pale-yellow single-pixel side tabs like stubby wings."
+  },
+  {
+   "key": "c:bytecode:alt",
+   "kind": "critter-alt",
+   "name": "c:bytecode:alt",
+   "depicts": "A compact dark-navy horizontal tile containing a narrow yellow bar on the left and a wider green square on the right, resembling an opcode-and-operand pair."
+  }
+ ],
+ "rework": [],
+ "deleted": [
+  {
+   "key": "e:bc-ast",
+   "name": 1,
+   "depicts": "A compact, asymmetric tree of borderless blocks with a yellow root branching to orange and green children, and only the left branch splitting further into pale-yellow and light-blue leaves.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: tree diagram; twin of bc-parsetree and bc-cfg",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bc-token",
+   "name": 1,
+   "depicts": "A dark-navy rectangular tray holding four evenly spaced vertical coloured tiles in yellow, green, light blue, and coral.",
+   "pass": "cull",
+   "reason": "Redundant with the higher-priority lexical analyzer prop covering the same lexing concept.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bc-constpool",
+   "name": "e:bc-constpool",
+   "depicts": "A lavender-bordered dark-navy box containing four left-aligned horizontal bars of varying lengths, three steel blue and one highlighted in yellow.",
+   "pass": "cull",
+   "reason": "Priority 1 generic box of horizontal bars that is visually weak and indistinct.",
+   "earlierIdea": "a stack-machine operand stack with pushed and popped value blocks"
+  },
+  {
+   "key": "e:bc-lexer",
+   "name": 1,
+   "depicts": "A yellow-bordered dark-navy window framing three distinct coloured rectangles in green, orange, and light blue of increasing widths from left to right.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: flat bar of coloured squares",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bc-cfg",
+   "name": "e:bc-cfg",
+   "depicts": "A yellow-framed dark box at the top with stepped lavender paths diverging downward to a green-framed box on the left and a coral-framed box on the right.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: flow diagram; third tree-diagram in the layer",
+   "earlierIdea": null
+  }
+ ]
+}

@@ -1,0 +1,109 @@
+{
+ "layer": "me-minix-kern",
+ "replaces": [
+  {
+   "key": "e:mk-ipc",
+   "idea": "A brass-and-copper pneumatic tube dispatch terminal with a cylindrical message canister visible inside a glass window."
+  },
+  {
+   "key": "e:mk-arc",
+   "idea": "A cast-iron clockwork reincarnation watchdog pedestal topped by a domed brass bell and a spring-loaded reset hammer."
+  },
+  {
+   "key": "e:mk-notify",
+   "idea": "A wall-mounted mahogany-and-brass annunciator box with a hinged metal flag dropped down to reveal an amber target."
+  },
+  {
+   "key": "e:mk-grant",
+   "idea": "A hexagonal brass passkey token resting upright in a slotted dark-iron stand, stamped with a keyhole notch."
+  },
+  {
+   "key": "e:mk-fused",
+   "idea": "A bolted steel-and-glass isolation bell jar on an iron baseplate, enclosing a tiny brass gearset safely inside."
+  }
+ ],
+ "new": [
+  {
+   "id": "mk-pneumatic",
+   "name": "Pneumatic Tube",
+   "concept": "Synchronous IPC message passing between isolated processes",
+   "depicts": "A tall brass-and-copper pneumatic tube terminal standing on a cast-iron base, with two curved glass-windowed pipes and a cylindrical message canister inside.",
+   "focal": "The brass message canister glowing inside the glass tube window",
+   "size": "large",
+   "replacesKey": "e:mk-ipc"
+  },
+  {
+   "id": "mk-watchdog",
+   "name": "Reincarnation Bell",
+   "concept": "Reincarnation server watchdog that restarts crashed user-space servers",
+   "depicts": "A squat cast-iron clockwork pedestal topped by a domed brass alarm bell, a side wind-up key, and a spring-loaded reset hammer.",
+   "focal": "The spring-loaded brass hammer poised beside the bell dome",
+   "size": "medium",
+   "replacesKey": "e:mk-arc"
+  },
+  {
+   "id": "mk-annunciator",
+   "name": "Drop Annunciator",
+   "concept": "Asynchronous non-blocking kernel notification",
+   "depicts": "A small wall-mounted mahogany-and-brass annunciator box with a single hinged metal flag dropped down to reveal a bright amber target.",
+   "focal": "The dropped amber indicator flag",
+   "size": "small",
+   "replacesKey": "e:mk-notify"
+  },
+  {
+   "id": "mk-grantkey",
+   "name": "Grant Token",
+   "concept": "Safecopy memory grant for capability-based cross-process memory access",
+   "depicts": "A small hexagonal brass passkey token resting upright in a slotted dark-iron stand, stamped with a crisp keyhole notch.",
+   "focal": "The notched keyhole cutout in the brass token",
+   "size": "small",
+   "replacesKey": "e:mk-grant"
+  },
+  {
+   "id": "mk-sandbox",
+   "name": "Driver Bell",
+   "concept": "User-space driver isolation so faulty drivers cannot crash the kernel",
+   "depicts": "A bolted steel-and-glass isolation bell jar mounted on a heavy iron baseplate, enclosing a tiny spinning brass gearset safely inside.",
+   "focal": "The tiny brass gearset sealed behind the thick glass dome",
+   "size": "medium",
+   "replacesKey": "e:mk-fused"
+  },
+  {
+   "id": "mk-ringbuffer",
+   "name": "Ring Carousel",
+   "concept": "Kernel-to-user-space circular message queue",
+   "depicts": "A tabletop brass-and-slate lazy-Susan carousel on a central spindle, holding six slate-and-amber message slots around its rim.",
+   "focal": "The glowing amber slot aligned at the front of the carousel",
+   "size": "medium",
+   "replacesKey": null
+  },
+  {
+   "id": "mk-endpoint",
+   "name": "Endpoint Jack",
+   "concept": "Process endpoint address used for microkernel IPC routing",
+   "depicts": "A small upright slate switchboard block on rubber feet with a single brass jack socket and a plugged-in braided patch cord.",
+   "focal": "The brass jack socket with its amber collar",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "mk-schedwheel",
+   "name": "Priority Ratchet",
+   "concept": "Multilevel priority queue scheduler",
+   "depicts": "A compact stepped brass ratchet wheel mounted on a dark-iron A-frame stand, with a spring pawl resting on the highest tooth.",
+   "focal": "The stepped brass teeth and clicking pawl",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:mk-microkern",
+   "redesign": "Redraw as a physical brass-and-slate message-switching rotunda with a small central kernel plinth and four isolated server booths around it connected by pneumatic tubes."
+  },
+  {
+   "key": "c:me-minix-kern:core",
+   "redesign": "Redraw as a compact 6x6+ px dark-outlined mechanical courier bug with two 1x1 dark eyes and a tiny brass message pouch."
+  }
+ ]
+}

@@ -1,0 +1,212 @@
+{
+ "layer": "firmware",
+ "layerName": "Firmware / UEFI",
+ "daily": true,
+ "propsAlive": 14,
+ "newPropsNeeded": 5,
+ "kept": [
+  {
+   "key": "e:fw-bigvault",
+   "kind": "anchor",
+   "name": "e:fw-bigvault",
+   "depicts": "A massive circular green-phosphor bank vault door with twelve perimeter bolts, heavy right-hand hinges, and a three-spoke locking wheel."
+  },
+  {
+   "key": "e:fw-romcab",
+   "kind": "anchor",
+   "name": "e:fw-romcab",
+   "depicts": "A tall green-phosphor equipment rack housing four stacked DIP-pinned ROM cartridges beneath a black panel of eight blinking indicator bars."
+  },
+  {
+   "key": "e:fw-drawers",
+   "kind": "prop",
+   "name": "e:fw-drawers",
+   "depicts": "A three-by-two bank of six dark green metal drawers, each fitted with a bright horizontal pull."
+  },
+  {
+   "key": "e:fw-cmos",
+   "kind": "prop",
+   "name": "e:fw-cmos",
+   "depicts": "A round green coin-cell battery held by four retainer tabs with a bright plus sign stamped in the center."
+  },
+  {
+   "key": "e:fw-dipsw",
+   "kind": "prop",
+   "name": "e:fw-dipsw",
+   "depicts": "A green four-position DIP switch block with three toggles pushed up and the third pushed down."
+  },
+  {
+   "key": "e:fw-fan",
+   "kind": "prop",
+   "name": "e:fw-fan",
+   "depicts": "A square dark-green chassis fan housing with four corner screw holes and a four-blade spinning rotor."
+  },
+  {
+   "key": "e:fw-capsule",
+   "kind": "prop",
+   "name": "e:fw-capsule",
+   "depicts": "A green-bordered rectangular module with bottom pins and a bright padlock emblem centered in a dark recess."
+  },
+  {
+   "key": "e:fw-spiclip",
+   "kind": "prop",
+   "name": "e:fw-spiclip",
+   "depicts": "A green test clip clamped over a dark chip body, with two probe leads extending from the top and four pins below."
+  },
+  {
+   "key": "e:fw-optrom",
+   "kind": "prop",
+   "name": "e:fw-optrom",
+   "depicts": "A dark-green expansion circuit board with bottom edge-connector fingers and one large bright chip beside two smaller ICs."
+  },
+  {
+   "key": "e:fw-reset",
+   "kind": "prop",
+   "name": "e:fw-reset",
+   "depicts": "A bright green rounded tactile switch set into a dark green square housing."
+  },
+  {
+   "key": "e:fw-postcard",
+   "kind": "prop",
+   "name": "e:fw-postcard",
+   "depicts": "A dark-green plug-in circuit card with bottom edge-connector pins, a bright LED, and a two-character readout showing BF."
+  },
+  {
+   "key": "e:fw-ucode",
+   "kind": "prop",
+   "name": "e:fw-ucode",
+   "depicts": "A green ten-pin DIP chip with a central circular quartz window revealing the dark silicon die inside."
+  },
+  {
+   "key": "e:fw-tpm",
+   "kind": "prop",
+   "name": "e:fw-tpm",
+   "depicts": "A square green-bordered chip housing a small padlock with a bright shackle and a dark keyhole."
+  },
+  {
+   "key": "e:fw-jtag",
+   "kind": "prop",
+   "name": "e:fw-jtag",
+   "depicts": "A black-centered green rectangular shroud containing two rows of five square pin contacts."
+  },
+  {
+   "key": "e:fw-secureboot",
+   "kind": "prop",
+   "name": "e:fw-secureboot",
+   "depicts": "A green stepped heraldic shield enclosing a dark field with a bright horizontal bar in the center."
+  },
+  {
+   "key": "c:firmware:core",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A hovering green-phosphor rectangular module with bright upper and lower plates and a central visor that blinks dark and light."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:fw-beeper",
+   "kind": "prop",
+   "name": "e:fw-beeper",
+   "depicts": "A small dark-green circular piezo speaker with a bright green cross aperture positioned to emit animated sound pulses.",
+   "problem": "ART-STYLE rule 6: floats"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:fw-vault",
+   "name": "e:fw-vault",
+   "depicts": "A miniature circular green vault door with a three-spoke wheel and a single right-hand hinge.",
+   "pass": "cull",
+   "reason": "Redundant miniature duplicate of the Boot Vault door.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:fw-post",
+   "name": 1,
+   "depicts": "A dark green rectangular bezel holding a two-digit seven-segment LED readout glowing bright green.",
+   "pass": "cull",
+   "reason": "Duplicates the POST diagnostic code concept already represented better by the POST Card.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:fw-flash",
+   "name": "e:fw-flash",
+   "depicts": "A small green ten-pin dual-inline chip package with a bright square pin-one orientation dot.",
+   "pass": "cull",
+   "reason": "Generic DIP chip that overlaps with the more distinctive Microcode EPROM and SOIC Clip.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:fw-plate",
+   "name": "e:fw-plate",
+   "depicts": "A sturdy green phosphor padlock with a bright crossbar and a dark warded keyhole.",
+   "pass": "cull",
+   "reason": "Generic padlock icon that overlaps with the TPM Chip and other security locks across layers.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:fw-setup",
+   "name": 1,
+   "depicts": "A wide dark-green terminal panel with an inverted header bar above the pixel-art word BOOT.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 2: text panel (\"BOOT\") is the whole prop",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:fw-bootorder",
+   "name": "e:fw-bootorder",
+   "depicts": "A small green-framed rectangle standing on two stubs with three dark and light blocks arranged inside.",
+   "pass": "cull",
+   "reason": "Visually unclear rectangle with abstract blocks that does not read well as boot order.",
+   "earlierIdea": "a boot-priority daisy-chain selector dial"
+  },
+  {
+   "key": "e:fw-acpi",
+   "name": "e:fw-acpi",
+   "depicts": "A green circular standby-power icon formed by a broken ring and a vertical line at the top.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: power-button icon",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:fw-nvram",
+   "name": "e:fw-nvram",
+   "depicts": "Four vertical dark-green memory columns with bright caps standing on a shared bus, three filled high and one low.",
+   "pass": "cull",
+   "reason": "Duplicates the NVRAM variable storage concept already covered by Variable Chest.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:fw-floppy",
+   "name": "e:fw-floppy",
+   "depicts": "A miniature green 3.5-inch floppy disk with a top sliding shutter, bottom label, and corner notch.",
+   "pass": "cull",
+   "reason": "Generic retro floppy disk filler without a strong firmware-specific identity.",
+   "earlierIdea": "a dual-BIOS recovery toggle switch"
+  },
+  {
+   "key": "e:fw-key",
+   "name": "e:fw-key",
+   "depicts": "A horizontal green skeleton key with a cross-slotted circular bow on the left and two warded teeth on the right.",
+   "pass": "cull",
+   "reason": "Generic skeleton key whose UEFI signing concept is better served by Secure Boot.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:fw-uart",
+   "name": "e:fw-uart",
+   "depicts": "A rectangular green-framed black header with three square pins in a row, the leftmost glowing bright green.",
+   "pass": "cull",
+   "reason": "Too visually similar to the JTAG Header as a dark pin-header block.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:fw-watchdog",
+   "name": "e:fw-watchdog",
+   "depicts": "A dark-green framed monitor holding a bright horizontal bar approaching a vertical threshold line on the right.",
+   "pass": "cull",
+   "reason": "Visually abstract bar that duplicates the Deadman Countdown watchdog timer in the kernel layer.",
+   "earlierIdea": null
+  }
+ ]
+}

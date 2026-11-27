@@ -1,0 +1,72 @@
+{
+ "layer": "me-minix-user",
+ "layerName": "ME MINIX 3 Userspace",
+ "daily": false,
+ "propsAlive": 0,
+ "newPropsNeeded": 8,
+ "kept": [
+  {
+   "key": "e:mx-bottle",
+   "kind": "anchor",
+   "name": 2,
+   "depicts": "Three miniature amber-and-brown skyline towers sealed inside a square stoppered glass bottle."
+  },
+  {
+   "key": "c:me-minix-user:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny grey monitor-headed automaton with a blank black screen walking on stubby dark-grey legs."
+  }
+ ],
+ "rework": [],
+ "deleted": [
+  {
+   "key": "e:mx-amt",
+   "name": 1,
+   "depicts": "A small amber-framed dark console window with an ochre title bar and two horizontal status bars.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: UI panel",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:mx-tinycity",
+   "name": 2,
+   "depicts": "Three miniature ochre and amber rectangular towers standing side by side, the centre one taller with two dark windows.",
+   "pass": "cull",
+   "reason": "Redundant with Amber Terrarium, depicting the same three miniature towers without the glass bottle.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:mx-rs",
+   "name": "e:mx-rs",
+   "depicts": "An ochre-bordered black panel displaying one bright amber square beside one dim brown square.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: two squares",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:mx-httpd",
+   "name": "e:mx-httpd",
+   "depicts": "An ochre-bordered black rectangular panel showing a long bright-amber bar above a shorter brown bar.",
+   "pass": "cull",
+   "reason": "Visually generic two-bar panel whose embedded web server concept overlaps heavily with Port 16992 (AMT).",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:mx-tcp",
+   "name": 1,
+   "depicts": "Two dark vertical boxes, one framed in ochre and one in pale gold, joined at the centre by a short horizontal bridge.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: letter H on a panel",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:mx-tinytower",
+   "name": 2,
+   "depicts": "A narrow dark-brown miniature tower with two vertically stacked amber windows and a short ochre roof cap.",
+   "pass": "cull",
+   "reason": "Generic low-priority miniature tower that repeats the skyline motif of Amber Terrarium without a distinct concept.",
+   "earlierIdea": null
+  }
+ ]
+}

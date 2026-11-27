@@ -1,0 +1,66 @@
+{
+ "layer": "me-minix-kern",
+ "layerName": "MINIX 3 Microkernel",
+ "daily": false,
+ "propsAlive": 0,
+ "newPropsNeeded": 8,
+ "kept": [],
+ "rework": [
+  {
+   "key": "e:mk-microkern",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "Four dark amber-bordered corner boxes wired by diagonal dotted buses to a central gold-rimmed square containing a smaller amber block.",
+   "problem": "ART-STYLE rule 1: anchor is a diagram; redraw as a place"
+  },
+  {
+   "key": "c:me-minix-kern:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny flat-grey horizontal rectangle with a single-pixel notch on its right edge floating in an otherwise empty frame.",
+   "problem": ""
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:mk-ipc",
+   "name": 1,
+   "depicts": "Two black squares in bright-gold frames joined horizontally by a solid amber bar.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: bracket-connector symbol",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:mk-arc",
+   "name": 1,
+   "depicts": "A square gold-framed microchip with four amber pins on each side and a solid amber die at its centre.",
+   "pass": "cull",
+   "reason": "Generic microchip silhouette that is visually indistinguishable from other IC props and better replaced by a microkernel-specific concept.",
+   "earlierIdea": "a reincarnation server watchdog that restarts crashed drivers"
+  },
+  {
+   "key": "e:mk-notify",
+   "name": 1,
+   "depicts": "An amber-bordered black tile containing a hollow bright-gold ring-shaped alert glyph.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: ring symbol",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:mk-grant",
+   "name": 1,
+   "depicts": "Two black squares, the left bordered in amber and the right in bright gold, joined by a short dark-brown bar.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: bracket-connector symbol; twin of mk-ipc",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:mk-fused",
+   "name": 1,
+   "depicts": "A bright-gold-framed black rectangle holding four vertical strips alternating between amber and dark brown.",
+   "pass": "cull",
+   "reason": "Hardware e-fuses belong to silicon/firmware rather than the microkernel layer and the striped-bar sprite is visually generic.",
+   "earlierIdea": "a user-space driver isolation sandbox"
+  }
+ ]
+}

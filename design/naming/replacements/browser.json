@@ -1,0 +1,104 @@
+{
+ "layer": "browser",
+ "replaces": [
+  {
+   "key": "e:br-dom",
+   "idea": "A potted bonsai tree with tiny paper tags hanging from its branches to represent the DOM tree."
+  },
+  {
+   "key": "e:br-css",
+   "idea": "A row of wooden nesting dolls on a plinth to represent the concentric layers of the CSS box model."
+  },
+  {
+   "key": "e:br-layer",
+   "idea": null
+  },
+  {
+   "key": "e:br-tab",
+   "idea": "A waist-high transit turnstile with an indicator lamp to represent a CORS preflight gate."
+  },
+  {
+   "key": "e:br-paint",
+   "idea": "A sloped metal paint tray with a green-soaked roller to represent browser repaint flashing."
+  },
+  {
+   "key": "e:br-canvas",
+   "idea": "A tall folding frosted-glass privacy screen on brass feet to represent a Shadow DOM boundary."
+  },
+  {
+   "key": "e:br-devtools",
+   "idea": "A benchtop strip-chart recorder tracing staggered ink bars on paper tape to represent the DevTools performance timeline."
+  }
+ ],
+ "new": [
+  {
+   "id": "br-dom-bonsai",
+   "name": "DOM Bonsai",
+   "concept": "Document Object Model (DOM)",
+   "depicts": "A small gnarled bonsai tree planted in a squat rectangular ceramic pot on four stubby feet, with three clipped leafy pads.",
+   "focal": "Tiny cream paper node-tags dangling from the branches.",
+   "size": "medium",
+   "replacesKey": "e:br-dom"
+  },
+  {
+   "id": "br-box-matryoshka",
+   "name": "Box-Model Dolls",
+   "concept": "CSS Box Model",
+   "depicts": "Three wooden nesting dolls lined up from largest to smallest on a thin wooden plinth, each painted with a different coloured band.",
+   "focal": "The open middle doll revealing the smaller painted doll nested inside.",
+   "size": "small",
+   "replacesKey": "e:br-css"
+  },
+  {
+   "id": "br-cors-turnstile",
+   "name": "Preflight Turnstile",
+   "concept": "CORS Preflight Request",
+   "depicts": "A waist-high brushed-steel transit turnstile bolted to a floor plate, with three angled metal tripod arms and a topped card reader.",
+   "focal": "A tiny amber-and-green indicator lamp on the reader head.",
+   "size": "medium",
+   "replacesKey": "e:br-tab"
+  },
+  {
+   "id": "br-paint-roller",
+   "name": "Repaint Roller",
+   "concept": "Browser Repaint / Paint Flashing",
+   "depicts": "A sloped metal paint tray standing on two rear legs, with a fuzzy green roller resting diagonally against the ribbed ramp.",
+   "focal": "A bright green paint stripe pooling at the bottom of the tray.",
+   "size": "small",
+   "replacesKey": "e:br-paint"
+  },
+  {
+   "id": "br-shadow-screen",
+   "name": "Shadow-DOM Screen",
+   "concept": "Shadow DOM Encapsulation",
+   "depicts": "A tall folding privacy screen with three hinged frosted-glass panels in dark-navy frames, standing on four brass feet.",
+   "focal": "Blurred coloured silhouettes faintly visible behind the frosted centre panel.",
+   "size": "large",
+   "replacesKey": "e:br-canvas"
+  },
+  {
+   "id": "br-perf-recorder",
+   "name": "Frame Seismograph",
+   "concept": "DevTools Performance Timeline",
+   "depicts": "A compact benchtop strip-chart recorder on rubber feet, with a brass stylus arm poised over a scrolled paper tape.",
+   "focal": "Staggered green and orange ink bars traced along the paper strip.",
+   "size": "medium",
+   "replacesKey": "e:br-devtools"
+  },
+  {
+   "id": "br-worker-pager",
+   "name": "Service-Worker Pager",
+   "concept": "Service Worker",
+   "depicts": "A chunky dark-slate belt pager standing upright in a small charging cradle, with a stubby antenna and a belt clip.",
+   "focal": "A glowing green-lit two-line LCD window on its front face.",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "c:browser:core",
+   "redesign": "Redraw as a solid, 1-px-outlined pixel-art critter—a tiny scuttle-bug with a 6x6+ body, a tiny orange tab-ear on top, and two 1x1 dark-ink eyes."
+  }
+ ]
+}

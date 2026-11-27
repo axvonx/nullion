@@ -1,0 +1,72 @@
+{
+ "layer": "bandgap",
+ "layerName": "Bandgap & Tunneling",
+ "daily": false,
+ "propsAlive": 1,
+ "newPropsNeeded": 7,
+ "kept": [
+  {
+   "key": "e:bg-hole",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A hollow cyan octagonal pixel ring with an empty white interior representing an absent electron."
+  },
+  {
+   "key": "c:bandgap:core",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A dark charcoal hollow square body with two asymmetrical grey side stubs that floats and snaps along a grid."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:bg-diagram",
+   "kind": "anchor",
+   "name": 2,
+   "depicts": "A wide semiconductor energy-band diagram with a dark navy conduction band above a cyan valence band, linked by five vertical transition rails each holding a pale blue carrier.",
+   "problem": "ART-STYLE rule 1: anchor is a band diagram; redraw as a place/instrument"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:bg-band",
+   "name": 2,
+   "depicts": "Two parallel horizontal energy bands in cyan and dark navy separated by a narrow white gap containing two pale blue carrier specks.",
+   "pass": "cull",
+   "reason": "Redundant smaller version of the Valence Viaduct anchor, depicting the same valence and conduction bands.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bg-tunnel",
+   "name": 2,
+   "depicts": "A tall vertical cyan potential barrier with a single square notch emerging along its left face to indicate a particle passing through.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: abstract bar",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bg-wave",
+   "name": "e:bg-wave",
+   "depicts": "A pale ice-blue stepped pixel sine wave oscillating horizontally across a dark field.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: sine wave in a box",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bg-photonabs",
+   "name": 1,
+   "depicts": "A diagonal pale blue photon ray striking a dark navy valence bar while a cyan carrier block sits elevated above it.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: diagram strokes",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:bg-recomb",
+   "name": 2,
+   "depicts": "A horizontal dark navy barrier separating a pale blue square above from a cyan square below, animated to show carrier recombination.",
+   "pass": "cull",
+   "reason": "Inverse of Optical Promotion with a weak, abstract visual of two squares separated by a bar.",
+   "earlierIdea": null
+  }
+ ]
+}

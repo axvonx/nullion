@@ -1,0 +1,113 @@
+{
+ "layer": "uarch",
+ "replaces": [
+  {
+   "key": "e:ua-rob",
+   "idea": "A tabletop brass ticket-rail stand holding hanging numbered metal clips that release out-of-order work cards in strict sequence."
+  },
+  {
+   "key": "e:ua-bpred",
+   "idea": "A floor-mounted railway switch stand with a throw lever and a two-aspect semaphore paddle."
+  },
+  {
+   "key": "e:ua-l1",
+   "idea": "A compact steel desk-side cabinet on short legs with three shallow, pull-out brass-handled drawers."
+  },
+  {
+   "key": "e:ua-alu",
+   "idea": "A heavy cast-iron mechanical arithmometer with stepped number wheels and a side hand crank."
+  },
+  {
+   "key": "e:ua-btb",
+   "idea": null
+  },
+  {
+   "key": "e:ua-rs",
+   "idea": null
+  },
+  {
+   "key": "e:ua-prefetch",
+   "idea": null
+  }
+ ],
+ "new": [
+  {
+   "id": "ua-rob",
+   "name": "In-Order Ticket Rail",
+   "concept": "Reorder Buffer (ROB)",
+   "depicts": "A tabletop brass ticket-rail stand with a weighted base and four hanging numbered metal clips holding small punched cards in a row.",
+   "focal": "One highlighted brass clip at the front end of the rail ready to be unhooked.",
+   "size": "medium",
+   "replacesKey": "e:ua-rob"
+  },
+  {
+   "id": "ua-bpred",
+   "name": "Switchman's Lever",
+   "concept": "Branch Predictor",
+   "depicts": "A small floor-mounted railway switch stand with a cast-iron base, an upright throw lever, and a two-aspect semaphore paddle on top.",
+   "focal": "The tilted semaphore paddle pointing toward the predicted track.",
+   "size": "medium",
+   "replacesKey": "e:ua-bpred"
+  },
+  {
+   "id": "ua-l1",
+   "name": "Quick-Draw Cubby",
+   "concept": "L1 Cache",
+   "depicts": "A compact steel desk-side cabinet on four short legs with three shallow, pull-out brass-handled drawers.",
+   "focal": "The top drawer slightly pulled open with a glowing pale-blue card peeking out.",
+   "size": "medium",
+   "replacesKey": "e:ua-l1"
+  },
+  {
+   "id": "ua-alu",
+   "name": "Brass Arithmometer",
+   "concept": "Arithmetic Logic Unit (ALU)",
+   "depicts": "A heavy cast-iron mechanical calculator sitting on a flat base, featuring a stepped drum housing, a top row of number wheels, and a side crank.",
+   "focal": "The gleaming brass hand crank on the right side.",
+   "size": "large",
+   "replacesKey": "e:ua-alu"
+  },
+  {
+   "id": "ua-tlb",
+   "name": "Page-Flipper Index",
+   "concept": "Translation Lookaside Buffer (TLB)",
+   "depicts": "A small desktop rotary card index on a two-legged wire stand with a side knob and fanned index cards.",
+   "focal": "A single bright cyan index tab sticking up at the top of the wheel.",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "ua-regfile",
+   "name": "Pigeonhole Tag Rack",
+   "concept": "Register File and Register Renaming",
+   "depicts": "A compact wall-mounted brass key-and-tag rack with four small hooks holding stamped metal key fobs.",
+   "focal": "A bright pale-blue tag hanging on the second hook.",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "ua-clock",
+   "name": "Quartz Crystal Canister",
+   "concept": "Clock Generator (Oscillator)",
+   "depicts": "A tiny silver-capped quartz crystal canister mounted upright on a two-pin ceramic base.",
+   "focal": "A bright cyan glint on the beveled top of the crystal canister.",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "ua-storebuf",
+   "name": "Outbox Card Tray",
+   "concept": "Store Buffer",
+   "depicts": "A small slanted metal wire-mesh desk tray on rubber feet, holding a neat stack of three punched cards.",
+   "focal": "The top card protruding slightly from the front lip of the tray.",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:ua-pipeline",
+   "redesign": "Redraw as a multi-station factory assembly line on floor-mounted steel legs, with four distinct mechanical stamping stations linked by a conveyor belt."
+  }
+ ]
+}

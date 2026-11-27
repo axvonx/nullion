@@ -1,0 +1,1488 @@
+{
+ "items": [
+  {
+   "key": "e:net-ixp",
+   "layer": "internet",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A large framed switchboard panel with a blue header bar and four vertical light-blue bays, each topped by a dark bezel with an animated green status light on the leftmost unit."
+  },
+  {
+   "key": "e:net-cable",
+   "layer": "internet",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A horizontal two-tone blue-and-navy conduit banded at regular intervals by four amber collars, resembling an armored undersea cable."
+  },
+  {
+   "key": "e:net-router",
+   "layer": "internet",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A dark navy box with a cream front panel, four alternating amber and green LEDs, and two upright dark gray antennas."
+  },
+  {
+   "key": "c:internet:core",
+   "layer": "internet",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny white flying bird with a blue head and beak and a two-pixel cyan contrail trailing behind it."
+  },
+  {
+   "key": "c:internet:alt",
+   "layer": "internet",
+   "kind": "critter-alt",
+   "name": 1,
+   "depicts": "A tiny floating white probe with two blue top-mounted panels and a single green beacon pixel underneath."
+  },
+  {
+   "key": "e:br-viewport",
+   "layer": "browser",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A large framed browser window with a dark navy border, drop shadow, white active tab, blue hero rectangle above five grey text lines, and a tall beige sidebar."
+  },
+  {
+   "key": "e:br-cookie",
+   "layer": "browser",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A round golden-ochre pixel biscuit dotted with four dark-grey square chips."
+  },
+  {
+   "key": "c:browser:core",
+   "layer": "browser",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny hollow square (blue in v0, green in v2) with a two-pixel orange tab on its upper-right corner, sitting inside a mostly empty 26x22 frame."
+  },
+  {
+   "key": "e:app-cascade",
+   "layer": "application",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "Three overlapping desktop windows stacked diagonally, with a bar chart rendered inside the foreground yellow-titled frame."
+  },
+  {
+   "key": "e:app-launcher",
+   "layer": "application",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A white launcher panel topped by a search bar above a four-by-three grid of multicolored rounded application icons."
+  },
+  {
+   "key": "e:app-dialog",
+   "layer": "application",
+   "kind": "prop",
+   "name": "e:app-dialog",
+   "depicts": "A modal dialog box with an orange title bar, a yellow alert icon, grey text lines, and two bottom action buttons."
+  },
+  {
+   "key": "e:app-spinner",
+   "layer": "application",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A pale square card containing an eight-dot circular loading spinner with fading amber and beige pips."
+  },
+  {
+   "key": "e:app-cloudsync",
+   "layer": "application",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A pixelated white cloud silhouette with a blue upward synchronization arrow set into its lower center."
+  },
+  {
+   "key": "e:app-folder",
+   "layer": "application",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A yellow tabbed manila folder icon with white document edges visible behind the front flap."
+  },
+  {
+   "key": "e:app-trash",
+   "layer": "application",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A grey lidded wastebasket icon with three vertical ribs along its body."
+  },
+  {
+   "key": "e:app-calendar",
+   "layer": "application",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wall-calendar widget with a red header bar, a grid of grey date squares, and one date highlighted in red."
+  },
+  {
+   "key": "e:app-video",
+   "layer": "application",
+   "kind": "prop",
+   "name": "e:app-video",
+   "depicts": "A dark video player frame with a centered white play triangle and a bottom scrub bar marked by a red progress tick."
+  },
+  {
+   "key": "e:app-download",
+   "layer": "application",
+   "kind": "prop",
+   "name": "e:app-download",
+   "depicts": "A bright green downward arrow hovering over a grey horizontal tray bar on a dark background."
+  },
+  {
+   "key": "e:app-clock",
+   "layer": "application",
+   "kind": "prop",
+   "name": "e:app-clock",
+   "depicts": "A round white analog wall clock with dark tick marks and hands pointing near three o'clock."
+  },
+  {
+   "key": "e:app-bell",
+   "layer": "application",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A gold notification bell with a clapper underneath and a red unread indicator square at its top-right corner."
+  },
+  {
+   "key": "c:application:core",
+   "layer": "application",
+   "kind": "critter",
+   "name": "c:application:core",
+   "depicts": "A tiny pixel-art songbird in pink or sky-blue plumage with a white belly and yellow beak, seen flying and perching."
+  },
+  {
+   "key": "c:application:alt",
+   "layer": "application",
+   "kind": "critter-alt",
+   "name": 1,
+   "depicts": "Two tiny isolated squares, one pink and one yellow, floating in the lower-left of a mostly empty frame."
+  },
+  {
+   "key": "e:bc-parsetree",
+   "layer": "bytecode",
+   "kind": "anchor",
+   "name": "e:bc-parsetree",
+   "depicts": "A large symmetrical three-tier tree with a framed yellow root node, orange and green intermediate nodes, and four yellow-rimmed dark-navy leaf boxes linked by stepped diagonal edges."
+  },
+  {
+   "key": "c:bytecode:core",
+   "layer": "bytecode",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A tiny dark-navy rectangular frame enclosing a bright yellow core, flanked by two pale-yellow single-pixel side tabs like stubby wings."
+  },
+  {
+   "key": "c:bytecode:alt",
+   "layer": "bytecode",
+   "kind": "critter-alt",
+   "name": "c:bytecode:alt",
+   "depicts": "A compact dark-navy horizontal tile containing a narrow yellow bar on the left and a wider green square on the right, resembling an opcode-and-operand pair."
+  },
+  {
+   "key": "e:jit-forge",
+   "layer": "jit",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A dark indigo rectangular furnace with an orange-and-gold hopper on top and five flickering yellow and orange flame bars inside its black firebox."
+  },
+  {
+   "key": "e:jit-deopt",
+   "layer": "jit",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A dark indigo panel topped by an orange header bar with a pixelated yellow X-shaped cross in the center."
+  },
+  {
+   "key": "c:jit:core",
+   "layer": "jit",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A tiny orange-red square ember with a bright yellow notch and a detached gold spark pixel trailing to its left."
+  },
+  {
+   "key": "e:rt-scaffold",
+   "layer": "runtime",
+   "kind": "anchor",
+   "name": "e:rt-scaffold",
+   "depicts": "A three-tier metal scaffolding rack packed with multi-colored rectangular blocks and a ladder on the right."
+  },
+  {
+   "key": "e:rt-incinerator",
+   "layer": "runtime",
+   "kind": "anchor",
+   "name": "e:rt-incinerator",
+   "depicts": "A dark industrial furnace with glowing orange-yellow bars inside a grate and two small grey smoke puffs rising from a chimney."
+  },
+  {
+   "key": "e:rt-objects",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A shelf holding three or four colored rectangular blocks of varying heights."
+  },
+  {
+   "key": "e:rt-sweeper",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A small wheeled blue-violet robot with a cyan eye and yellow scoop patrolling a shelf past grey and blue blocks."
+  },
+  {
+   "key": "e:rt-tape",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Two grey circular tape reels mounted side-by-side on a tan and grey horizontal base."
+  },
+  {
+   "key": "e:rt-callstack",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-callstack",
+   "depicts": "A vertical stack of horizontal colored bars (pink, yellow, blue, green, red) topped by a small purple marker."
+  },
+  {
+   "key": "e:rt-refcount",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-refcount",
+   "depicts": "A blue block with a red tag-like counter attached to its upper-right corner."
+  },
+  {
+   "key": "e:rt-weakref",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-weakref",
+   "depicts": "A blue block on the left connected by three dotted purple squares to a hollow grey square on the right."
+  },
+  {
+   "key": "e:rt-finalizer",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-finalizer",
+   "depicts": "Two blue blocks and a red block on a shelf moving toward a dark doorway with a yellow handle."
+  },
+  {
+   "key": "e:rt-interp",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-interp",
+   "depicts": "A tall grey housing with four horizontal colored slots and a yellow tab sticking out the left side."
+  },
+  {
+   "key": "e:rt-hashmap",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-hashmap",
+   "depicts": "A grey vertical rack with four dark bucket slots, three of which have colored blocks attached by purple tabs."
+  },
+  {
+   "key": "e:rt-closure",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-closure",
+   "depicts": "A purple-framed tank holding a blue liquid block with a small purple pipe and yellow cap at the bottom."
+  },
+  {
+   "key": "e:rt-eventloop",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-eventloop",
+   "depicts": "A dark circular dial with four tick marks and a yellow hand pointing downward."
+  },
+  {
+   "key": "e:rt-promise",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-promise",
+   "depicts": "A small square frame containing a yellow hourglass."
+  },
+  {
+   "key": "e:rt-vtable",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-vtable",
+   "depicts": "A dark grey column with two dark slots on the left and three purple-and-yellow pointer tabs on the right."
+  },
+  {
+   "key": "e:rt-nursery",
+   "layer": "runtime",
+   "kind": "prop",
+   "name": "e:rt-nursery",
+   "depicts": "A green-bordered dark box holding four alternating yellow and mint-green squares."
+  },
+  {
+   "key": "c:runtime:core",
+   "layer": "runtime",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A small boxy, crenellated pixel critter with two dark eyes sitting in a dark cradle, appearing in cyan, green, and yellow variants."
+  },
+  {
+   "key": "e:lib-aisle",
+   "layer": "libraries",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "Two towering five-shelf wooden bookcases packed with gold-banded volumes, flanking a rolling ladder suspended from an overhead rail."
+  },
+  {
+   "key": "e:lib-press",
+   "layer": "libraries",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A grey iron screw press with a side gear wheel lowering a platen onto a cream signature marked with brown text bars."
+  },
+  {
+   "key": "e:lib-catalogue",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wooden three-by-three drawer chest on legs with brass pulls, two lower drawers slid open to reveal cream index stock."
+  },
+  {
+   "key": "e:lib-spool",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": "e:lib-spool",
+   "depicts": "A wooden bobbin wound with red thread, paying out a bright-tipped horizontal strand to the right."
+  },
+  {
+   "key": "e:lib-cart",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A two-tier grey metal book trolley on spoked wheels, loaded with colourful gold-banded volumes."
+  },
+  {
+   "key": "e:lib-crates",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Three stacked brown wooden shipping crates with diagonal slats, each stencilled with .C in cream lettering."
+  },
+  {
+   "key": "e:lib-loom",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wooden frame loom strung with vertical red and blue warp threads, a grey heddle bar, and a yellow shuttle passing across."
+  },
+  {
+   "key": "e:lib-archive",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wooden filing unit with a closed upper drawer above an open lower tray holding upright white and cream tabbed folders."
+  },
+  {
+   "key": "e:lib-tangle",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A framed dark pinboard with five pale nodes linked by crossing red, yellow, and brown threads."
+  },
+  {
+   "key": "e:lib-lectern",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wooden pedestal lectern supporting an open cream reference volume with grey text blocks on both pages."
+  },
+  {
+   "key": "e:lib-stamp",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A purple ink pad beside a tiered wooden rubber stamp hovering above a cream slip bearing a fresh purple impression."
+  },
+  {
+   "key": "e:lib-globe",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A small blue-and-green terrestrial globe mounted in a yellow brass meridian ring on a stepped wooden stand."
+  },
+  {
+   "key": "e:lib-inkwell",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A dark grey square ink bottle with a silver collar and a three-pixel pale yellow quill leading toward a detached yellow pixel at top right."
+  },
+  {
+   "key": "e:lib-codex",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A heavy dark-brown leather codex with golden side clasps and a cream cover plate bearing two dark grey title bars."
+  },
+  {
+   "key": "e:lib-scales",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A yellow brass balance scale on a wooden base with two level brown weighing pans suspended by grey chains."
+  },
+  {
+   "key": "e:lib-hourglass",
+   "layer": "libraries",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wooden-framed glass hourglass with pale sand in the upper bulb and a fuller pile of bright yellow sand below."
+  },
+  {
+   "key": "c:libraries:core",
+   "layer": "libraries",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A tiny square-bodied critter with dark eyes, corner ear-tabs, and an open miniature book balanced on its head, in tan, pale blue, and dusty rose variants."
+  },
+  {
+   "key": "e:ld-switchboard",
+   "layer": "linker",
+   "kind": "anchor",
+   "name": "e:ld-switchboard",
+   "depicts": "A black switchboard frame with five grey jack blocks on the left wired by criss-crossing yellow and orange patch cords to five amber blocks on the right."
+  },
+  {
+   "key": "e:ld-lazy",
+   "layer": "linker",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A grey-bordered white card containing a dark grey horizontal bar over a shorter bright-yellow bar."
+  },
+  {
+   "key": "c:linker:core",
+   "layer": "linker",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A small brown boxy creature with a yellow top ridge, two stubby grey legs underneath, and a pale-yellow plug prong extending to the right."
+  },
+  {
+   "key": "c:linker:alt",
+   "layer": "linker",
+   "kind": "critter-alt",
+   "name": 1,
+   "depicts": "A smaller legless brown block with a pale-yellow top-left tab and a bright-yellow prong projecting to the right."
+  },
+  {
+   "key": "e:us-skyline",
+   "layer": "userspace",
+   "kind": "anchor",
+   "name": "e:us-skyline",
+   "depicts": "Four dark-blue skyscrapers dotted with yellow and cyan lit windows, one topped by a spire and another by a cyan rooftop tank."
+  },
+  {
+   "key": "e:us-pid1",
+   "layer": "userspace",
+   "kind": "anchor",
+   "name": "e:us-pid1",
+   "depicts": "A tall grey observation tower with two catwalks, yellow and cyan windows, and a glowing green beacon at its summit."
+  },
+  {
+   "key": "e:us-manifold",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A grey horizontal pipe manifold fitted with four square sight-glass ports glowing cyan and green."
+  },
+  {
+   "key": "e:us-pipe",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-pipe",
+   "depicts": "An overhead grey horizontal conduit with two vertical drop-legs and two cyan flow indicators."
+  },
+  {
+   "key": "e:us-tty",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-tty",
+   "depicts": "A grey-bezeled CRT monitor showing green text bars and a bright green block cursor on a black screen."
+  },
+  {
+   "key": "e:us-crontower",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-crontower",
+   "depicts": "A slender grey clock tower with a white clock face, black hands, three yellow windows, and a red beacon on top."
+  },
+  {
+   "key": "e:us-socket",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-socket",
+   "depicts": "A grey two-prong plug hovering beside a dark-grey two-hole receptacle."
+  },
+  {
+   "key": "e:us-shm",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A cyan water-tower tank with a pale-cyan level window resting on a cross-braced grey steel trestle."
+  },
+  {
+   "key": "e:us-signal",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-signal",
+   "depicts": "A tall grey flagpole flying a waving two-tone red pennant."
+  },
+  {
+   "key": "e:us-mailbox",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-mailbox",
+   "depicts": "A blue curbside mailbox on a grey post with a raised red flag and a black mail slot."
+  },
+  {
+   "key": "e:us-fork",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-fork",
+   "depicts": "A grey signpost splitting into two staggered green-and-white street-name blades."
+  },
+  {
+   "key": "e:us-callbox",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-callbox",
+   "depicts": "A blue emergency callbox on a dark base with a cyan indicator screen and a teal beacon light on top."
+  },
+  {
+   "key": "e:us-firewall",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-firewall",
+   "depicts": "A low red-brick wall topped by four flickering yellow and red flames."
+  },
+  {
+   "key": "e:us-container",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-container",
+   "depicts": "A corrugated green shipping container with a grey-framed door panel on the right."
+  },
+  {
+   "key": "e:us-hydrant",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A red fire hydrant with bright-red side nozzles and cap on a dark-grey base."
+  },
+  {
+   "key": "e:us-meter",
+   "layer": "userspace",
+   "kind": "prop",
+   "name": "e:us-meter",
+   "depicts": "A square grey parking-style meter on a post with a black face and a glowing green rectangular readout."
+  },
+  {
+   "key": "c:userspace:core",
+   "layer": "userspace",
+   "kind": "critter",
+   "name": "c:userspace:core",
+   "depicts": "A small red horned creature with yellow eyes and a trailing red tail, accompanied by a floating yellow square."
+  },
+  {
+   "key": "e:ke-gatehouse",
+   "layer": "kernel-entry",
+   "kind": "anchor",
+   "name": "e:ke-gatehouse",
+   "depicts": "A grey stone-like gatehouse archway framing a black opening barred by five vertical cyan portcullis rods resting on a yellow crossbar."
+  },
+  {
+   "key": "c:kernel-entry:core",
+   "layer": "kernel-entry",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A small black-bezelled cyan monitor screen with a rightward-facing black notch, perched on a compact grey pedestal foot."
+  },
+  {
+   "key": "c:kernel-entry:alt",
+   "layer": "kernel-entry",
+   "kind": "critter-alt",
+   "name": 1,
+   "depicts": "A compact cyan rectangular block with a single black square eye in the centre and a flat grey cap resting on top."
+  },
+  {
+   "key": "e:kr-furnace",
+   "layer": "kernel",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A red-walled kernel furnace with glowing yellow and coral bars inside, topped by a large silver gear, a smaller copper gear, and a grey smokestack."
+  },
+  {
+   "key": "e:kr-systable",
+   "layer": "kernel",
+   "kind": "anchor",
+   "name": "e:kr-systable",
+   "depicts": "A dark grey-framed dispatch board holding a four-by-eight grid of cyan-indexed blue and grey slots with one active yellow entry."
+  },
+  {
+   "key": "e:kr-gauge",
+   "layer": "kernel",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A horizontal red bar clamped by two dark grey brackets with a detached vertical red needle hovering above a central notch."
+  },
+  {
+   "key": "e:kr-schedwheel",
+   "layer": "kernel",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A spoked grey wheel mounted on a dark base with six colour-coded task squares riding around its rim."
+  },
+  {
+   "key": "e:kr-pagetable",
+   "layer": "kernel",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A grey four-drawer vertical cabinet whose dark slots each hold a silver bar, three of them marked with a lit green square."
+  },
+  {
+   "key": "e:kr-irqbell",
+   "layer": "kernel",
+   "kind": "prop",
+   "name": "e:kr-irqbell",
+   "depicts": "A bright yellow bell suspended from a dark grey bracket with a brown clapper hanging below."
+  },
+  {
+   "key": "e:kr-mutex",
+   "layer": "kernel",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A brown brass padlock with yellow top trim, a silver shackle, a dark keyhole, and a small yellow key extending from its right side."
+  },
+  {
+   "key": "e:kr-semaphore",
+   "layer": "kernel",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A narrow vertical dark grey signal housing on a post with three square lenses, the top red lens lit and the lower two dark."
+  },
+  {
+   "key": "c:kernel:core",
+   "layer": "kernel",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A compact silver-grey boxy automaton in a black U-frame with two stubby feet, a glowing cyan, green, or yellow visor, and a tipped top antenna."
+  },
+  {
+   "key": "e:ka-apicbank",
+   "layer": "kernel-arch",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A large black console framed in coral-red holding a six-by-four grid of dark red and lit yellow interrupt indicator tiles."
+  },
+  {
+   "key": "e:ka-nmi",
+   "layer": "kernel-arch",
+   "kind": "prop",
+   "name": "e:ka-nmi",
+   "depicts": "A glowing yellow starburst core encircled by a notched deep crimson ring on a short stem, resembling an urgent alarm beacon."
+  },
+  {
+   "key": "e:ka-spinlock",
+   "layer": "kernel-arch",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A hollow bright yellow pixel circle looping continuously around a solid coral-red square at its center."
+  },
+  {
+   "key": "c:kernel-arch:core",
+   "layer": "kernel-arch",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny red square with a single yellow core pixel and two short yellow side bars, occupying only a few pixels of a larger canvas."
+  },
+  {
+   "key": "e:dr-backplane",
+   "layer": "drivers",
+   "kind": "anchor",
+   "name": "e:dr-backplane",
+   "depicts": "A cyan bus rail holding four magenta card sockets, three populated with vertical expansion boards of varying heights and one left empty."
+  },
+  {
+   "key": "e:dr-hdd",
+   "layer": "drivers",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "An open hard-drive chassis with corner mounting screws, a spinning cyan magnetic platter, a white spindle hub, and a magenta-pivoted read/write actuator arm."
+  },
+  {
+   "key": "e:dr-chip",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": "e:dr-chip",
+   "depicts": "A magenta-framed black dual-inline integrated circuit with a white pin-one dot and cyan legs, appearing in ten-pin and fourteen-pin widths."
+  },
+  {
+   "key": "e:dr-ribbon",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A flat cyan parallel ribbon cable with a mid-span twist and an animated pulse gap running along its conductors."
+  },
+  {
+   "key": "e:dr-irq",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": "e:dr-irq",
+   "depicts": "A ten-pin magenta-framed controller chip with a cyan status bar and vertical headroom above it for an animated interrupt discharge."
+  },
+  {
+   "key": "e:dr-usb",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A horizontal USB Type-A plug with a magenta cable tail, a white molded grip marked in cyan, and a slotted metal shield."
+  },
+  {
+   "key": "e:dr-pcie",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": "e:dr-pcie",
+   "depicts": "A horizontal cyan-outlined PCI Express expansion slot with a notched partition, magenta rail, and white contact pins along the bottom."
+  },
+  {
+   "key": "e:dr-dma",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": "e:dr-dma",
+   "depicts": "A white perforated transfer track carrying three sliding magenta and cyan data blocks between two cyan endpoints."
+  },
+  {
+   "key": "e:dr-nic",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A cyan-framed network expansion card with a magenta controller die, a white link LED, bottom edge contacts, and a detached black rear bracket."
+  },
+  {
+   "key": "e:dr-gpu",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": "e:dr-gpu",
+   "depicts": "A magenta-shrouded graphics card with twin spinning white-and-cyan cooling fans and a cyan PCIe edge connector underneath."
+  },
+  {
+   "key": "e:dr-keys",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": "e:dr-keys",
+   "depicts": "Three staggered rows of white keycaps with cyan undersides, including a wide spacebar on the bottom row."
+  },
+  {
+   "key": "e:dr-db9",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A magenta-shelled nine-pin D-subminiature port with black side mounting ears and nine staggered cyan contacts."
+  },
+  {
+   "key": "e:dr-scope",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": "e:dr-scope",
+   "depicts": "A black oscilloscope display tracing an animated cyan sine wave across magenta center ticks, flanked by three magenta rotary dials."
+  },
+  {
+   "key": "e:dr-dip",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": "e:dr-dip",
+   "depicts": "A magenta six-position DIP switch block with five white toggles flipped up and the third flipped down."
+  },
+  {
+   "key": "e:dr-fwload",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A small black storage module streaming cyan data pulses leftward-to-rightward into an eight-pin magenta-framed controller chip."
+  },
+  {
+   "key": "e:dr-mouse",
+   "layer": "drivers",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A top-down white two-button computer mouse with a cyan cord at the top and a magenta scroll wheel between the buttons."
+  },
+  {
+   "key": "c:drivers:core",
+   "layer": "drivers",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny six-by-five-pixel scuttling bug with a white carapace ridge, a cyan or magenta rectangular body, and two white legs centered in a large empty canvas."
+  },
+  {
+   "key": "e:bf-pcieswitch",
+   "layer": "bus-fabric",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A wide magenta-framed enclosure with five horizontal white and cyan bus lanes converging on a central white-bordered magenta core."
+  },
+  {
+   "key": "c:bus-fabric:core",
+   "layer": "bus-fabric",
+   "kind": "critter",
+   "name": "c:bus-fabric:core",
+   "depicts": "A tiny 7-by-2-pixel horizontal magenta streak with a two-pixel white leading tip, centered in a mostly empty 26x22 frame."
+  },
+  {
+   "key": "e:fw-bigvault",
+   "layer": "firmware",
+   "kind": "anchor",
+   "name": "e:fw-bigvault",
+   "depicts": "A massive circular green-phosphor bank vault door with twelve perimeter bolts, heavy right-hand hinges, and a three-spoke locking wheel."
+  },
+  {
+   "key": "e:fw-romcab",
+   "layer": "firmware",
+   "kind": "anchor",
+   "name": "e:fw-romcab",
+   "depicts": "A tall green-phosphor equipment rack housing four stacked DIP-pinned ROM cartridges beneath a black panel of eight blinking indicator bars."
+  },
+  {
+   "key": "e:fw-drawers",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-drawers",
+   "depicts": "A three-by-two bank of six dark green metal drawers, each fitted with a bright horizontal pull."
+  },
+  {
+   "key": "e:fw-cmos",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-cmos",
+   "depicts": "A round green coin-cell battery held by four retainer tabs with a bright plus sign stamped in the center."
+  },
+  {
+   "key": "e:fw-dipsw",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-dipsw",
+   "depicts": "A green four-position DIP switch block with three toggles pushed up and the third pushed down."
+  },
+  {
+   "key": "e:fw-fan",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-fan",
+   "depicts": "A square dark-green chassis fan housing with four corner screw holes and a four-blade spinning rotor."
+  },
+  {
+   "key": "e:fw-capsule",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-capsule",
+   "depicts": "A green-bordered rectangular module with bottom pins and a bright padlock emblem centered in a dark recess."
+  },
+  {
+   "key": "e:fw-spiclip",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-spiclip",
+   "depicts": "A green test clip clamped over a dark chip body, with two probe leads extending from the top and four pins below."
+  },
+  {
+   "key": "e:fw-optrom",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-optrom",
+   "depicts": "A dark-green expansion circuit board with bottom edge-connector fingers and one large bright chip beside two smaller ICs."
+  },
+  {
+   "key": "e:fw-beeper",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-beeper",
+   "depicts": "A small dark-green circular piezo speaker with a bright green cross aperture positioned to emit animated sound pulses."
+  },
+  {
+   "key": "e:fw-reset",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-reset",
+   "depicts": "A bright green rounded tactile switch set into a dark green square housing."
+  },
+  {
+   "key": "e:fw-postcard",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-postcard",
+   "depicts": "A dark-green plug-in circuit card with bottom edge-connector pins, a bright LED, and a two-character readout showing BF."
+  },
+  {
+   "key": "e:fw-ucode",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-ucode",
+   "depicts": "A green ten-pin DIP chip with a central circular quartz window revealing the dark silicon die inside."
+  },
+  {
+   "key": "e:fw-tpm",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-tpm",
+   "depicts": "A square green-bordered chip housing a small padlock with a bright shackle and a dark keyhole."
+  },
+  {
+   "key": "e:fw-jtag",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-jtag",
+   "depicts": "A black-centered green rectangular shroud containing two rows of five square pin contacts."
+  },
+  {
+   "key": "e:fw-secureboot",
+   "layer": "firmware",
+   "kind": "prop",
+   "name": "e:fw-secureboot",
+   "depicts": "A green stepped heraldic shield enclosing a dark field with a bright horizontal bar in the center."
+  },
+  {
+   "key": "c:firmware:core",
+   "layer": "firmware",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A hovering green-phosphor rectangular module with bright upper and lower plates and a central visor that blinks dark and light."
+  },
+  {
+   "key": "e:vmm-qemu",
+   "layer": "vmm",
+   "kind": "anchor",
+   "name": "e:vmm-qemu",
+   "depicts": "A wide green-framed machine chassis housing two smaller rectangular guest frames above a single long console bar."
+  },
+  {
+   "key": "e:vmm-ghostcard",
+   "layer": "vmm",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A green-outlined expansion card with six bottom edge-connector pins and a dark rectangular chip."
+  },
+  {
+   "key": "c:vmm:core",
+   "layer": "vmm",
+   "kind": "critter",
+   "name": "c:vmm:core",
+   "depicts": "A small grey rectangular mask with two square white eyeholes."
+  },
+  {
+   "key": "e:r1-mirrorgate",
+   "layer": "ring-1",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "Two tall dark-green monitors on stands facing each other across a dotted vertical line, each displaying mirrored bar charts."
+  },
+  {
+   "key": "e:r1-portal",
+   "layer": "ring-1",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "Four concentric glowing green rectangular frames receding inward into a dark void."
+  },
+  {
+   "key": "e:r1-bubble",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A circular green-outlined orb with a bright highlight and a dark interior containing vertical bar columns."
+  },
+  {
+   "key": "e:r1-vmcs",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Two pixelated round faces side by side, the left in medium green with dark features and the right in dark green with bright-green features."
+  },
+  {
+   "key": "e:r1-trapdoor",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A horizontal green floor line with a dark pit underneath and an angled bright-green hatch swung open upward."
+  },
+  {
+   "key": "e:r1-shadowpage",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wide pixel-art eye outlined in green with a dark pupil and a bright-green square glint."
+  },
+  {
+   "key": "e:r1-dolls",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Three nested, concentric dome-like outlines in green shades, rising from a bright-green base."
+  },
+  {
+   "key": "e:r1-mempress",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A vertical press with a flat green upper plate, a bright-green middle platen, and a lower green base."
+  },
+  {
+   "key": "e:r1-migrate",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Three horizontal bars on the left trailing toward a green-framed square screen on the right."
+  },
+  {
+   "key": "e:r1-snapshot",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A dark-green camera-like box with a circular lens in the center and a small viewfinder block on top."
+  },
+  {
+   "key": "e:r1-hypercall",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Two rectangular frames stacked above and below a horizontal green bar, connected by a bright-green vertical stem."
+  },
+  {
+   "key": "e:r1-vswitch",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wide green bar with five dark square ports along its front and five vertical stalks rising from the top."
+  },
+  {
+   "key": "e:r1-iommu",
+   "layer": "ring-1",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A tall dark-green pillar with four horizontal slots and a bright-green square indicator at the top."
+  },
+  {
+   "key": "c:ring-1:core",
+   "layer": "ring-1",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A small bright-green creature with dark-green square eyes and a horizontal mouth, flanked by two small green side tabs."
+  },
+  {
+   "key": "e:ept-matrix",
+   "layer": "ept",
+   "kind": "anchor",
+   "name": "e:ept-matrix",
+   "depicts": "Two tall dark vertical monoliths framed in green and mint green, bridged across a narrow gap by a glowing mint-green lattice of crossed paths."
+  },
+  {
+   "key": "e:ept-walker",
+   "layer": "ept",
+   "kind": "prop",
+   "name": "e:ept-walker",
+   "depicts": "Four rectangular blocks stepping diagonally downward from top-left to bottom-right, three dark green leading to one bright mint-green leaf block."
+  },
+  {
+   "key": "c:ept:core",
+   "layer": "ept",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A small plain grey horizontal rectangle containing two empty square windows centered on a mostly blank canvas."
+  },
+  {
+   "key": "e:r2-clocktower",
+   "layer": "ring-2",
+   "kind": "anchor",
+   "name": 2,
+   "depicts": "A tall monochrome clock tower with a pointed roof, three dark louver vents, and clock hands frozen at 11:10."
+  },
+  {
+   "key": "e:r2-cascade",
+   "layer": "ring-2",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A cluster of small monochrome debris, gears, and windows suspended mid-air above a dark ground line with vertical motion trails."
+  },
+  {
+   "key": "e:r2-clock",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A round monochrome wall clock with its hands frozen at roughly ten past nine."
+  },
+  {
+   "key": "e:r2-hourglass",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A small monochrome hourglass with sand frozen in the neck and upper bulb."
+  },
+  {
+   "key": "e:r2-ghostgear",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A grey gear paired with a hollow outline of its own previous position, suggesting a frozen afterimage."
+  },
+  {
+   "key": "e:r2-safe",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A dark grey square safe with a light grey dial and handle in the center."
+  },
+  {
+   "key": "e:r2-metronome",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A triangular metronome body with its arm angled to the right, frozen mid-beat."
+  },
+  {
+   "key": "e:r2-cracks",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A round dark dial with a ring at the top and a jagged crack running down its face."
+  },
+  {
+   "key": "e:r2-hook",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A vertical segmented rod ending in a small hook at the bottom."
+  },
+  {
+   "key": "e:r2-stopwatch",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A round monochrome stopwatch with a top crown button and a single vertical hand."
+  },
+  {
+   "key": "e:r2-domino",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A standing domino, a domino tilting mid-fall, and a flat fallen block on a dark floor line."
+  },
+  {
+   "key": "e:r2-coin",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A monochrome coin standing on edge beneath a vertical motion streak."
+  },
+  {
+   "key": "e:r2-pause",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A single light-grey droplet hovering above a crown-like splash of grey pixels."
+  },
+  {
+   "key": "e:r2-feather",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Two overlapping grey rectangles with tiny diagonal pixel tips, resembling a drifting feather."
+  },
+  {
+   "key": "e:r2-spark",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A symmetrical four-pointed grey cross with a bright white square center."
+  },
+  {
+   "key": "e:r2-prism",
+   "layer": "ring-2",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A hollow grey triangle resting on a flat base with a faint white core."
+  },
+  {
+   "key": "c:ring-2:core",
+   "layer": "ring-2",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A monochrome hovering sprite with two dark eyes and a small trailing tail, shown in three slightly different float poses."
+  },
+  {
+   "key": "e:sm-vaultdoor",
+   "layer": "smram",
+   "kind": "anchor",
+   "name": "e:sm-vaultdoor",
+   "depicts": "A heavy grey circular vault door with a white four-spoked locking wheel in the center."
+  },
+  {
+   "key": "e:sm-dlck",
+   "layer": "smram",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A grey square padlock with a white shackle and a black keyhole."
+  },
+  {
+   "key": "c:smram:core",
+   "layer": "smram",
+   "kind": "critter",
+   "name": "c:smram:core",
+   "depicts": "A small floating grey rectangular core with a white-centered inner aperture."
+  },
+  {
+   "key": "e:r3-me",
+   "layer": "ring-3",
+   "kind": "anchor",
+   "name": "e:r3-me",
+   "depicts": "A large, animated silicon die package representing the Intel Management Engine at the bottom of the stack."
+  },
+  {
+   "key": "e:r3-vias",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-vias",
+   "depicts": "A small 10x10 cluster of vertical copper-plated holes connecting different layers of a circuit board or die."
+  },
+  {
+   "key": "e:r3-pad",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-pad",
+   "depicts": "A 16x10 metallic contact pad on the silicon die used for external bonding or probing."
+  },
+  {
+   "key": "e:r3-xtal",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-xtal",
+   "depicts": "A 15x9 animated quartz crystal oscillator."
+  },
+  {
+   "key": "e:r3-sram",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-sram",
+   "depicts": "A 17x15 dense grid block representing static RAM cells."
+  },
+  {
+   "key": "e:r3-ringosc",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-ringosc",
+   "depicts": "A 15x16 animated loop of inverters forming a ring oscillator."
+  },
+  {
+   "key": "e:r3-thermal",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-thermal",
+   "depicts": "A 7x13 vertical thermal diode or temperature sensor on the die."
+  },
+  {
+   "key": "e:r3-guard",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-guard",
+   "depicts": "A 15x17 guard ring or shield structure isolating sensitive silicon."
+  },
+  {
+   "key": "e:r3-probe",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-probe",
+   "depicts": "A 7x15 sharp microprobe needle touching down on a die."
+  },
+  {
+   "key": "e:r3-align",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-align",
+   "depicts": "A 9x9 optical alignment target used during photolithography."
+  },
+  {
+   "key": "e:r3-bondwire",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-bondwire",
+   "depicts": "A 16x10 arched gold wire connecting a die pad to the package leadframe."
+  },
+  {
+   "key": "e:r3-capbank",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-capbank",
+   "depicts": "A 14x9 row of matched capacitors forming a capacitor bank."
+  },
+  {
+   "key": "e:r3-fusebank",
+   "layer": "ring-3",
+   "kind": "prop",
+   "name": "e:r3-fusebank",
+   "depicts": "A 14x8 dense bank of programmable fuses."
+  },
+  {
+   "key": "c:ring-3:core",
+   "layer": "ring-3",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A 26x22 grid-bound critter with two sprite variants that steps along orthogonal silicon rails."
+  },
+  {
+   "key": "e:mx-bottle",
+   "layer": "me-minix-user",
+   "kind": "anchor",
+   "name": 2,
+   "depicts": "Three miniature amber-and-brown skyline towers sealed inside a square stoppered glass bottle."
+  },
+  {
+   "key": "c:me-minix-user:core",
+   "layer": "me-minix-user",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny grey monitor-headed automaton with a blank black screen walking on stubby dark-grey legs."
+  },
+  {
+   "key": "e:mk-microkern",
+   "layer": "me-minix-kern",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "Four dark amber-bordered corner boxes wired by diagonal dotted buses to a central gold-rimmed square containing a smaller amber block."
+  },
+  {
+   "key": "c:me-minix-kern:core",
+   "layer": "me-minix-kern",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny flat-grey horizontal rectangle with a single-pixel notch on its right edge floating in an otherwise empty frame."
+  },
+  {
+   "key": "e:ua-pipeline",
+   "layer": "uarch",
+   "kind": "anchor",
+   "name": "e:ua-pipeline",
+   "depicts": "Four dark vertical stage boxes connected by short pale-blue links, with the third stage highlighted in white."
+  },
+  {
+   "key": "c:uarch:core",
+   "layer": "uarch",
+   "kind": "critter",
+   "name": "c:uarch:core",
+   "depicts": "A small grey-bordered black rectangle on a 26x22 canvas."
+  },
+  {
+   "key": "e:rtl-htree",
+   "layer": "rtl",
+   "kind": "anchor",
+   "name": "e:rtl-htree",
+   "depicts": "A symmetrical blue and pale-cyan H-tree clock distribution network branching into four terminal bars."
+  },
+  {
+   "key": "c:rtl:core",
+   "layer": "rtl",
+   "kind": "critter",
+   "name": "c:rtl:core",
+   "depicts": "A tiny grey-and-black pixelated critter that scuttles along the RTL logic grid."
+  },
+  {
+   "key": "e:cm-viatower",
+   "layer": "cmos",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A four-by-five grid of intersecting purple vertical and orange horizontal metal tracks with a bright square via at every crossing."
+  },
+  {
+   "key": "e:cm-finfet",
+   "layer": "cmos",
+   "kind": "prop",
+   "name": "e:cm-finfet",
+   "depicts": "A top-down transistor layout showing a teal active region bisected by a vertical purple gate bar and flanked by two orange source-drain pads with white contacts."
+  },
+  {
+   "key": "c:cmos:core",
+   "layer": "cmos",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny orange hollow square with one-pixel side lugs centered inside a mostly empty canvas, scuttling or floating."
+  },
+  {
+   "key": "c:cmos:alt",
+   "layer": "cmos",
+   "kind": "critter-alt",
+   "name": "c:cmos:alt",
+   "depicts": "A tiny three-by-three teal square trailed on the left by a single detached black pixel inside a mostly empty canvas."
+  },
+  {
+   "key": "e:li-reticle",
+   "layer": "litho",
+   "kind": "anchor",
+   "name": "e:li-reticle",
+   "depicts": "A large circular target of three concentric violet rings bisected by thick dark-indigo vertical and horizontal crosshairs."
+  },
+  {
+   "key": "e:li-lattice",
+   "layer": "litho",
+   "kind": "prop",
+   "name": "e:li-lattice",
+   "depicts": "Three staggered rows of violet square lattice sites with a single pale-lavender square standing out as a point defect in the middle row."
+  },
+  {
+   "key": "e:li-mask",
+   "layer": "litho",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A violet square frame containing two offset dark-indigo rectangular apertures on a clear field, depicting a chrome-on-quartz photomask."
+  },
+  {
+   "key": "e:li-resist",
+   "layer": "litho",
+   "kind": "prop",
+   "name": "e:li-resist",
+   "depicts": "Four evenly spaced violet vertical pillars rising from a dark-indigo horizontal substrate band, showing developed photoresist trenches."
+  },
+  {
+   "key": "c:litho:core",
+   "layer": "litho",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny 5x5-pixel plus-shaped speck\u2014pure white in v0 and grey-armed with a white center in v2\u2014isolated in a 26x22 transparent frame."
+  },
+  {
+   "key": "e:bg-diagram",
+   "layer": "bandgap",
+   "kind": "anchor",
+   "name": 2,
+   "depicts": "A wide semiconductor energy-band diagram with a dark navy conduction band above a cyan valence band, linked by five vertical transition rails each holding a pale blue carrier."
+  },
+  {
+   "key": "e:bg-hole",
+   "layer": "bandgap",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A hollow cyan octagonal pixel ring with an empty white interior representing an absent electron."
+  },
+  {
+   "key": "c:bandgap:core",
+   "layer": "bandgap",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A dark charcoal hollow square body with two asymmetrical grey side stubs that floats and snaps along a grid."
+  },
+  {
+   "key": "e:la-horizon",
+   "layer": "landauer",
+   "kind": "anchor",
+   "name": "e:la-horizon",
+   "depicts": "Two concentric rings in dark navy and cyan bisected by a full-width horizontal line, with a pale-white glint on the lower-right inner arc."
+  },
+  {
+   "key": "e:la-lonebit",
+   "layer": "landauer",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A 6x6 cyan square centred with a 2x2 pale ice-white core on an 8x8 frame."
+  },
+  {
+   "key": "c:landauer:core",
+   "layer": "landauer",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A minimal floating white glyph that appears either as a 2x3 solid bar (1) or a 3x3 hollow ring (0) drifting in empty space."
+  }
+ ]
+}

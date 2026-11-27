@@ -1,0 +1,8054 @@
+{
+ "survivors": 295,
+ "endlessOwnProps": {
+  "internet": 5,
+  "browser": 5,
+  "bytecode": 3,
+  "jit": 3,
+  "linker": 4,
+  "kernel-entry": 4,
+  "kernel-arch": 4,
+  "bus-fabric": 5,
+  "vmm": 3,
+  "ept": 3,
+  "smram": 3,
+  "me-minix-user": 3,
+  "me-minix-kern": 3,
+  "uarch": 4,
+  "rtl": 4,
+  "cmos": 3,
+  "litho": 3,
+  "bandgap": 4,
+  "landauer": 3
+ },
+ "items": [
+  {
+   "key": "e:net-ixp",
+   "kind": "anchor",
+   "layer": "internet",
+   "daily": false,
+   "name": "net-ixp",
+   "description": "",
+   "text": false,
+   "img": "e-net-ixp-internet-v0.png",
+   "layers": [
+    "internet"
+   ],
+   "bbox": [
+    56,
+    42
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:br-viewport",
+    "score": 0.48
+   },
+   "flags": []
+  },
+  {
+   "key": "e:net-bgp",
+   "kind": "prop",
+   "layer": "internet",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-net-bgp-internet-v0.png",
+   "layers": [
+    "internet"
+   ],
+   "bbox": [
+    22,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 7,
+   "twin": {
+    "key": "e:app-progress",
+    "score": 0.7
+   },
+   "flags": []
+  },
+  {
+   "key": "e:net-cable",
+   "kind": "prop",
+   "layer": "internet",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-net-cable-internet-v0.png",
+   "layers": [
+    "internet"
+   ],
+   "bbox": [
+    26,
+    6
+   ],
+   "class": "medium",
+   "tiny": true,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:dr-pcie",
+    "score": 0.14
+   },
+   "flags": [
+    "tiny"
+   ]
+  },
+  {
+   "key": "e:net-dns",
+   "kind": "prop",
+   "layer": "internet",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-net-dns-internet-v0.png",
+   "layers": [
+    "internet"
+   ],
+   "bbox": [
+    14,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 6,
+   "twin": {
+    "key": "e:app-calendar",
+    "score": 0.6
+   },
+   "flags": []
+  },
+  {
+   "key": "e:net-router",
+   "kind": "prop",
+   "layer": "internet",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-net-router-internet-v0.png",
+   "layers": [
+    "internet"
+   ],
+   "bbox": [
+    16,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:net-packet",
+    "score": 0.45
+   },
+   "flags": []
+  },
+  {
+   "key": "e:net-packet",
+   "kind": "prop",
+   "layer": "internet",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-net-packet-internet-v0.png",
+   "layers": [
+    "internet"
+   ],
+   "bbox": [
+    14,
+    9
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:net-bgp",
+    "score": 0.57
+   },
+   "flags": []
+  },
+  {
+   "key": "c:internet:core",
+   "kind": "critter",
+   "layer": "internet",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-internet-core-v0.png",
+   "layers": [
+    "internet"
+   ],
+   "bbox": [
+    11,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.18,
+   "colours": 6,
+   "twin": {
+    "key": "c:application:core",
+    "score": 0.25
+   },
+   "flags": []
+  },
+  {
+   "key": "c:internet:alt",
+   "kind": "critter-alt",
+   "layer": "internet",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-internet-alt-v1.png",
+   "layers": [
+    "internet"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 4,
+   "twin": {
+    "key": "c:cmos:alt",
+    "score": 0.23
+   },
+   "flags": []
+  },
+  {
+   "key": "e:br-viewport",
+   "kind": "anchor",
+   "layer": "browser",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-br-viewport-browser-v0.png",
+   "layers": [
+    "browser"
+   ],
+   "bbox": [
+    54,
+    40
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 6,
+   "twin": {
+    "key": "e:app-launcher",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:br-dom",
+   "kind": "prop",
+   "layer": "browser",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-br-dom-browser-v0.png",
+   "layers": [
+    "browser"
+   ],
+   "bbox": [
+    18,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.44,
+   "colours": 6,
+   "twin": {
+    "key": "e:r2-clock",
+    "score": 0.29
+   },
+   "flags": []
+  },
+  {
+   "key": "e:br-css",
+   "kind": "prop",
+   "layer": "browser",
+   "daily": false,
+   "name": "br-css",
+   "description": "",
+   "text": false,
+   "img": "e-br-css-browser-v0.png",
+   "layers": [
+    "browser"
+   ],
+   "bbox": [
+    16,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:app-folder",
+    "score": 0.54
+   },
+   "flags": []
+  },
+  {
+   "key": "e:br-paint",
+   "kind": "prop",
+   "layer": "browser",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-br-paint-browser-v0.png",
+   "layers": [
+    "browser"
+   ],
+   "bbox": [
+    14,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:app-calendar",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "e:br-cookie",
+   "kind": "prop",
+   "layer": "browser",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-br-cookie-browser-v0.png",
+   "layers": [
+    "browser"
+   ],
+   "bbox": [
+    11,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.64,
+   "colours": 3,
+   "twin": {
+    "key": "e:app-trash",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:br-devtools",
+   "kind": "prop",
+   "layer": "browser",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-br-devtools-browser-v0.png",
+   "layers": [
+    "browser"
+   ],
+   "bbox": [
+    18,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:jit-deopt",
+    "score": 0.42
+   },
+   "flags": [
+    "outline"
+   ]
+  },
+  {
+   "key": "c:browser:core",
+   "kind": "critter",
+   "layer": "browser",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-browser-core-v0.png",
+   "layers": [
+    "browser"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 4,
+   "twin": {
+    "key": "c:cmos:core",
+    "score": 0.52
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-cascade",
+   "kind": "anchor",
+   "layer": "application",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-app-cascade-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    58,
+    44
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.71,
+   "colours": 12,
+   "twin": {
+    "key": "e:app-launcher",
+    "score": 0.43
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-launcher",
+   "kind": "anchor",
+   "layer": "application",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-app-launcher-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    46,
+    36
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 16,
+   "twin": {
+    "key": "e:br-viewport",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-dialog",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": "app-dialog",
+   "description": "",
+   "text": false,
+   "img": "e-app-dialog-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    20,
+    13
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 9,
+   "twin": {
+    "key": "e:net-bgp",
+    "score": 0.61
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-toast",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": "app-toast",
+   "description": "",
+   "text": false,
+   "img": "e-app-toast-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    16,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 6,
+   "twin": {
+    "key": "e:app-progress",
+    "score": 0.87
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-spinner",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-app-spinner-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    9,
+    9
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:br-paint",
+    "score": 0.63
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-progress",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-app-progress-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    18,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:app-toast",
+    "score": 0.87
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-bubble",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-app-bubble-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    15,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.2,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-dipsw",
+    "score": 0.36
+   },
+   "flags": [
+    "float?"
+   ]
+  },
+  {
+   "key": "e:app-cloudsync",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-app-cloudsync-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    14,
+    10
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.86,
+   "colours": 4,
+   "twin": {
+    "key": "e:net-packet",
+    "score": 0.5
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-folder",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-app-folder-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    12,
+    9
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:br-paint",
+    "score": 0.58
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-trash",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-app-trash-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    9,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:br-cookie",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-calendar",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-app-calendar-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    13,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:br-paint",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-status",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": "app-status",
+   "description": "",
+   "text": false,
+   "img": "e-app-status-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    16,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.62,
+   "colours": 3,
+   "twin": {
+    "key": "e:r1-vswitch",
+    "score": 0.31
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-search",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-app-search-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    20,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:app-progress",
+    "score": 0.87
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-dropdown",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": "app-dropdown",
+   "description": "",
+   "text": false,
+   "img": "e-app-dropdown-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    16,
+    16
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:br-paint",
+    "score": 0.62
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-video",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": "app-video",
+   "description": "",
+   "text": false,
+   "img": "e-app-video-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    20,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:mx-tcp",
+    "score": 0.59
+   },
+   "flags": [
+    "outline"
+   ]
+  },
+  {
+   "key": "e:app-download",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": "app-download",
+   "description": "",
+   "text": false,
+   "img": "e-app-download-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    11,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 0.74,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:app-trash",
+    "score": 0.27
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-clock",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": "app-clock",
+   "description": "",
+   "text": false,
+   "img": "e-app-clock-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    11,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.64,
+   "colours": 4,
+   "twin": {
+    "key": "e:app-spinner",
+    "score": 0.62
+   },
+   "flags": []
+  },
+  {
+   "key": "e:app-bell",
+   "kind": "prop",
+   "layer": "application",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-app-bell-application-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    11,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.45,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-reset",
+    "score": 0.5
+   },
+   "flags": []
+  },
+  {
+   "key": "c:application:core",
+   "kind": "critter",
+   "layer": "application",
+   "daily": true,
+   "name": null,
+   "description": "",
+   "text": false,
+   "img": "c-application-core-v0.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    13,
+    9
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.46,
+   "colours": 5,
+   "twin": {
+    "key": "c:linker:core",
+    "score": 0.27
+   },
+   "flags": []
+  },
+  {
+   "key": "c:application:alt",
+   "kind": "critter-alt",
+   "layer": "application",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-application-alt-v1.png",
+   "layers": [
+    "application"
+   ],
+   "bbox": [
+    9,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.11,
+   "colours": 3,
+   "twin": {
+    "key": "c:bytecode:alt",
+    "score": 0.33
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bc-parsetree",
+   "kind": "anchor",
+   "layer": "bytecode",
+   "daily": false,
+   "name": "bc-parsetree",
+   "description": "",
+   "text": false,
+   "img": "e-bc-parsetree-bytecode-v0.png",
+   "layers": [
+    "bytecode"
+   ],
+   "bbox": [
+    50,
+    43
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.64,
+   "colours": 9,
+   "twin": {
+    "key": "e:ept-matrix",
+    "score": 0.23
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bc-ast",
+   "kind": "prop",
+   "layer": "bytecode",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-bc-ast-bytecode-v0.png",
+   "layers": [
+    "bytecode"
+   ],
+   "bbox": [
+    17,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.59,
+   "colours": 8,
+   "twin": {
+    "key": "e:mk-notify",
+    "score": 0.3
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bc-lexer",
+   "kind": "prop",
+   "layer": "bytecode",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-bc-lexer-bytecode-v0.png",
+   "layers": [
+    "bytecode"
+   ],
+   "bbox": [
+    20,
+    9
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.75
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bc-cfg",
+   "kind": "prop",
+   "layer": "bytecode",
+   "daily": false,
+   "name": "bc-cfg",
+   "description": "",
+   "text": false,
+   "img": "e-bc-cfg-bytecode-v0.png",
+   "layers": [
+    "bytecode"
+   ],
+   "bbox": [
+    16,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 6,
+   "twin": {
+    "key": "e:mk-notify",
+    "score": 0.47
+   },
+   "flags": []
+  },
+  {
+   "key": "c:bytecode:core",
+   "kind": "critter",
+   "layer": "bytecode",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "c-bytecode-core-v0.png",
+   "layers": [
+    "bytecode"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 4,
+   "twin": {
+    "key": "c:libraries:core",
+    "score": 0.47
+   },
+   "flags": []
+  },
+  {
+   "key": "c:bytecode:alt",
+   "kind": "critter-alt",
+   "layer": "bytecode",
+   "daily": false,
+   "name": null,
+   "description": "",
+   "text": false,
+   "img": "c-bytecode-alt-v1.png",
+   "layers": [
+    "bytecode"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 4,
+   "twin": {
+    "key": "c:cmos:alt",
+    "score": 0.4
+   },
+   "flags": []
+  },
+  {
+   "key": "e:jit-forge",
+   "kind": "anchor",
+   "layer": "jit",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-jit-forge-jit-v0.png",
+   "layers": [
+    "jit"
+   ],
+   "bbox": [
+    42,
+    37
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 7,
+   "twin": {
+    "key": "e:ke-gatehouse",
+    "score": 0.47
+   },
+   "flags": []
+  },
+  {
+   "key": "e:jit-ic",
+   "kind": "prop",
+   "layer": "jit",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-jit-ic-jit-v0.png",
+   "layers": [
+    "jit"
+   ],
+   "bbox": [
+    18,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.76
+   },
+   "flags": []
+  },
+  {
+   "key": "e:jit-deopt",
+   "kind": "prop",
+   "layer": "jit",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-jit-deopt-jit-v0.png",
+   "layers": [
+    "jit"
+   ],
+   "bbox": [
+    16,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-ucode",
+    "score": 0.73
+   },
+   "flags": []
+  },
+  {
+   "key": "e:jit-osr",
+   "kind": "prop",
+   "layer": "jit",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-jit-osr-jit-v0.png",
+   "layers": [
+    "jit"
+   ],
+   "bbox": [
+    18,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.22,
+   "colours": 4,
+   "twin": {
+    "key": "e:rtl-nand",
+    "score": 0.42
+   },
+   "flags": [
+    "float?"
+   ]
+  },
+  {
+   "key": "c:jit:core",
+   "kind": "critter",
+   "layer": "jit",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "c-jit-core-v0.png",
+   "layers": [
+    "jit"
+   ],
+   "bbox": [
+    10,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.6,
+   "colours": 4,
+   "twin": {
+    "key": "c:cmos:core",
+    "score": 0.59
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-scaffold",
+   "kind": "anchor",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-scaffold",
+   "description": "",
+   "text": false,
+   "img": "e-rt-scaffold-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    64,
+    52
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.53,
+   "colours": 14,
+   "twin": {
+    "key": "e:ld-switchboard",
+    "score": 0.25
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-incinerator",
+   "kind": "anchor",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-incinerator",
+   "description": "",
+   "text": false,
+   "img": "e-rt-incinerator-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    38,
+    43
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 0.91,
+   "ground": 1.0,
+   "colours": 153,
+   "twin": {
+    "key": "e:kr-furnace",
+    "score": 0.38
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-objects",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-rt-objects-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    20,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.45,
+   "colours": 8,
+   "twin": {
+    "key": "e:cm-well",
+    "score": 0.38
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-sweeper",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-rt-sweeper-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    30,
+    11
+   ],
+   "class": "large",
+   "tiny": false,
+   "outline": 0.65,
+   "ground": 0.5,
+   "colours": 12,
+   "twin": {
+    "key": "e:cm-metal",
+    "score": 0.39
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-tape",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-rt-tape-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    22,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.82,
+   "colours": 5,
+   "twin": {
+    "key": "e:cm-metal",
+    "score": 0.48
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-callstack",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-callstack",
+   "description": "",
+   "text": false,
+   "img": "e-rt-callstack-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    12,
+    16
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 11,
+   "twin": {
+    "key": "e:r1-iommu",
+    "score": 0.41
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-refcount",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-refcount",
+   "description": "",
+   "text": false,
+   "img": "e-rt-refcount-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    11,
+    10
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.73,
+   "colours": 5,
+   "twin": {
+    "key": "e:cm-finfet",
+    "score": 0.52
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-weakref",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-weakref",
+   "description": "",
+   "text": false,
+   "img": "e-rt-weakref-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    20,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.55,
+   "colours": 6,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.48
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-tricolor",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-tricolor",
+   "description": "",
+   "text": false,
+   "img": "e-rt-tricolor-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    22,
+    6
+   ],
+   "class": "medium",
+   "tiny": true,
+   "outline": 0.14,
+   "ground": 0.82,
+   "colours": 7,
+   "twin": {
+    "key": "e:r3-pulse",
+    "score": 0.17
+   },
+   "flags": [
+    "tiny",
+    "outline"
+   ]
+  },
+  {
+   "key": "e:rt-bump",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-bump",
+   "description": "",
+   "text": false,
+   "img": "e-rt-bump-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    24,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.95,
+   "ground": 1.0,
+   "colours": 6,
+   "twin": {
+    "key": "e:fw-setup",
+    "score": 0.59
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-finalizer",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-finalizer",
+   "description": "",
+   "text": false,
+   "img": "e-rt-finalizer-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    24,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 10,
+   "twin": {
+    "key": "e:bg-tunnel",
+    "score": 0.45
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-interp",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-interp",
+   "description": "",
+   "text": false,
+   "img": "e-rt-interp-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    12,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.9,
+   "ground": 0.83,
+   "colours": 8,
+   "twin": {
+    "key": "e:rtl-dff",
+    "score": 0.52
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-hashmap",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-hashmap",
+   "description": "",
+   "text": false,
+   "img": "e-rt-hashmap-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    8,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 10,
+   "twin": {
+    "key": "e:kr-semaphore",
+    "score": 0.35
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-strpool",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-strpool",
+   "description": "",
+   "text": false,
+   "img": "e-rt-strpool-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    22,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.18,
+   "colours": 8,
+   "twin": {
+    "key": "e:sm-tseg",
+    "score": 0.43
+   },
+   "flags": [
+    "float?"
+   ]
+  },
+  {
+   "key": "e:rt-closure",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-closure",
+   "description": "",
+   "text": false,
+   "img": "e-rt-closure-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    12,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 0.97,
+   "ground": 0.5,
+   "colours": 7,
+   "twin": {
+    "key": "e:cm-finfet",
+    "score": 0.53
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-eventloop",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-eventloop",
+   "description": "",
+   "text": false,
+   "img": "e-rt-eventloop-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    14,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 7,
+   "twin": {
+    "key": "e:r2-stopwatch",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-promise",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-promise",
+   "description": "",
+   "text": false,
+   "img": "e-rt-promise-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    12,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:ke-seccomp",
+    "score": 0.73
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-vtable",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-vtable",
+   "description": "",
+   "text": false,
+   "img": "e-rt-vtable-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    14,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.64,
+   "colours": 6,
+   "twin": {
+    "key": "e:rt-promise",
+    "score": 0.41
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rt-nursery",
+   "kind": "prop",
+   "layer": "runtime",
+   "daily": true,
+   "name": "rt-nursery",
+   "description": "",
+   "text": false,
+   "img": "e-rt-nursery-runtime-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    18,
+    9
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:ka-rcu",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "c:runtime:core",
+   "kind": "critter",
+   "layer": "runtime",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-runtime-core-v0.png",
+   "layers": [
+    "runtime"
+   ],
+   "bbox": [
+    8,
+    7
+   ],
+   "class": "small",
+   "tiny": true,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 3,
+   "twin": {
+    "key": "c:me-minix-kern:core",
+    "score": 0.86
+   },
+   "flags": [
+    "tiny"
+   ]
+  },
+  {
+   "key": "e:lib-aisle",
+   "kind": "anchor",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-aisle-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    64,
+    62
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.91,
+   "colours": 14,
+   "twin": {
+    "key": "e:ept-matrix",
+    "score": 0.45
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-press",
+   "kind": "anchor",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-press-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    39,
+    40
+   ],
+   "class": "large",
+   "tiny": false,
+   "outline": 0.81,
+   "ground": 0.97,
+   "colours": 7,
+   "twin": {
+    "key": "e:r1-portal",
+    "score": 0.21
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-catalogue",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-catalogue-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    16,
+    17
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.38,
+   "colours": 5,
+   "twin": {
+    "key": "e:bf-iommu",
+    "score": 0.54
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-spool",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": "lib-spool",
+   "description": "",
+   "text": false,
+   "img": "e-lib-spool-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    14,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 0.98,
+   "ground": 0.71,
+   "colours": 5,
+   "twin": {
+    "key": "e:cm-finfet",
+    "score": 0.62
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-cart",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-cart-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    19,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.32,
+   "colours": 11,
+   "twin": {
+    "key": "e:ld-elf",
+    "score": 0.45
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-crates",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-crates-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    17,
+    16
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:lib-spool",
+    "score": 0.48
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-loom",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-loom-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    22,
+    16
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.27,
+   "colours": 8,
+   "twin": {
+    "key": "e:bf-msix",
+    "score": 0.6
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-archive",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-archive-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    18,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 7,
+   "twin": {
+    "key": "e:ka-idt",
+    "score": 0.52
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-tangle",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-tangle-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    20,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 6,
+   "twin": {
+    "key": "e:r3-fusebank",
+    "score": 0.76
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-lectern",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-lectern-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    15,
+    13
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.73,
+   "colours": 5,
+   "twin": {
+    "key": "e:mx-tcp",
+    "score": 0.35
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-stamp",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-stamp-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    14,
+    9
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 0.7,
+   "ground": 1.0,
+   "colours": 6,
+   "twin": {
+    "key": "e:bg-photonabs",
+    "score": 0.39
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-globe",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-globe-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    11,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.82,
+   "colours": 8,
+   "twin": {
+    "key": "e:us-hydrant",
+    "score": 0.34
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-inkwell",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-inkwell-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    11,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.91,
+   "colours": 5,
+   "twin": {
+    "key": "e:fw-reset",
+    "score": 0.38
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-codex",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-codex-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    15,
+    13
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 6,
+   "twin": {
+    "key": "e:bf-msix",
+    "score": 0.48
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-scales",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-scales-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    17,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.53,
+   "colours": 4,
+   "twin": {
+    "key": "e:ua-l1",
+    "score": 0.36
+   },
+   "flags": []
+  },
+  {
+   "key": "e:lib-hourglass",
+   "kind": "prop",
+   "layer": "libraries",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-lib-hourglass-libraries-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    11,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:r1-mempress",
+    "score": 0.42
+   },
+   "flags": []
+  },
+  {
+   "key": "c:libraries:core",
+   "kind": "critter",
+   "layer": "libraries",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "c-libraries-core-v0.png",
+   "layers": [
+    "libraries"
+   ],
+   "bbox": [
+    8,
+    9
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 4,
+   "twin": {
+    "key": "c:kernel-entry:core",
+    "score": 0.75
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ld-switchboard",
+   "kind": "anchor",
+   "layer": "linker",
+   "daily": false,
+   "name": "ld-switchboard",
+   "description": "",
+   "text": false,
+   "img": "e-ld-switchboard-linker-v0.png",
+   "layers": [
+    "linker"
+   ],
+   "bbox": [
+    50,
+    44
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:bf-pcieswitch",
+    "score": 0.61
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ld-elf",
+   "kind": "prop",
+   "layer": "linker",
+   "daily": false,
+   "name": "ld-elf",
+   "description": "",
+   "text": false,
+   "img": "e-ld-elf-linker-v0.png",
+   "layers": [
+    "linker"
+   ],
+   "bbox": [
+    18,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:ua-l1",
+    "score": 0.7
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ld-plt",
+   "kind": "prop",
+   "layer": "linker",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-ld-plt-linker-v0.png",
+   "layers": [
+    "linker"
+   ],
+   "bbox": [
+    20,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.9,
+   "colours": 5,
+   "twin": {
+    "key": "e:bg-tunnel",
+    "score": 0.85
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ld-got",
+   "kind": "prop",
+   "layer": "linker",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-ld-got-linker-v0.png",
+   "layers": [
+    "linker"
+   ],
+   "bbox": [
+    16,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:us-tty",
+    "score": 0.76
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ld-lazy",
+   "kind": "prop",
+   "layer": "linker",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-ld-lazy-linker-v0.png",
+   "layers": [
+    "linker"
+   ],
+   "bbox": [
+    14,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:kr-wdtimer",
+    "score": 0.71
+   },
+   "flags": []
+  },
+  {
+   "key": "c:linker:core",
+   "kind": "critter",
+   "layer": "linker",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-linker-core-v0.png",
+   "layers": [
+    "linker"
+   ],
+   "bbox": [
+    10,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.2,
+   "colours": 5,
+   "twin": {
+    "key": "c:bus-fabric:core",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "c:linker:alt",
+   "kind": "critter-alt",
+   "layer": "linker",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-linker-alt-v1.png",
+   "layers": [
+    "linker"
+   ],
+   "bbox": [
+    9,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.44,
+   "colours": 4,
+   "twin": {
+    "key": "c:cmos:alt",
+    "score": 0.33
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-skyline",
+   "kind": "anchor",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-skyline",
+   "description": "",
+   "text": false,
+   "img": "e-us-skyline-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    65,
+    74
+   ],
+   "class": "over",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 8,
+   "twin": {
+    "key": "e:lib-aisle",
+    "score": 0.3
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-pid1",
+   "kind": "anchor",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-pid1",
+   "description": "",
+   "text": false,
+   "img": "e-us-pid1-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    26,
+    80
+   ],
+   "class": "over",
+   "tiny": false,
+   "outline": 0.93,
+   "ground": 1.0,
+   "colours": 67,
+   "twin": {
+    "key": null,
+    "score": 0.0
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-manifold",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-us-manifold-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    24,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:r1-vswitch",
+    "score": 0.52
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-sign",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-sign",
+   "description": "",
+   "text": true,
+   "img": "e-us-sign-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    30,
+    10
+   ],
+   "class": "large",
+   "tiny": false,
+   "outline": 0.93,
+   "ground": 1.0,
+   "colours": 87,
+   "twin": {
+    "key": "e:cm-metal",
+    "score": 0.64
+   },
+   "flags": [
+    "text"
+   ]
+  },
+  {
+   "key": "e:us-pipe",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-pipe",
+   "description": "",
+   "text": false,
+   "img": "e-us-pipe-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    26,
+    7
+   ],
+   "class": "medium",
+   "tiny": true,
+   "outline": 1.0,
+   "ground": 0.23,
+   "colours": 4,
+   "twin": {
+    "key": "e:rt-bump",
+    "score": 0.36
+   },
+   "flags": [
+    "tiny",
+    "float?"
+   ]
+  },
+  {
+   "key": "e:us-tty",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-tty",
+   "description": "",
+   "text": false,
+   "img": "e-us-tty-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    14,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:ld-got",
+    "score": 0.76
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-crontower",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-crontower",
+   "description": "",
+   "text": false,
+   "img": "e-us-crontower-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    12,
+    24
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.83,
+   "colours": 6,
+   "twin": {
+    "key": "e:r3-thermal",
+    "score": 0.28
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-socket",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-socket",
+   "description": "",
+   "text": false,
+   "img": "e-us-socket-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    18,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.33,
+   "colours": 4,
+   "twin": {
+    "key": "e:ke-uaccess",
+    "score": 0.53
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-shm",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-us-shm-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    14,
+    19
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.43,
+   "colours": 5,
+   "twin": {
+    "key": "e:r1-iommu",
+    "score": 0.37
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-signal",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-signal",
+   "description": "",
+   "text": false,
+   "img": "e-us-signal-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    11,
+    19
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.64,
+   "ground": 0.36,
+   "colours": 4,
+   "twin": {
+    "key": "e:rt-hashmap",
+    "score": 0.18
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-pidplate",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-pidplate",
+   "description": "",
+   "text": true,
+   "img": "e-us-pidplate-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    22,
+    9
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 10,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.7
+   },
+   "flags": [
+    "text"
+   ]
+  },
+  {
+   "key": "e:us-mailbox",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-mailbox",
+   "description": "",
+   "text": false,
+   "img": "e-us-mailbox-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    11,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.27,
+   "colours": 6,
+   "twin": {
+    "key": "e:us-meter",
+    "score": 0.54
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-fork",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-fork",
+   "description": "",
+   "text": false,
+   "img": "e-us-fork-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    13,
+    17
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.54,
+   "colours": 4,
+   "twin": {
+    "key": "e:us-mailbox",
+    "score": 0.32
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-callbox",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-callbox",
+   "description": "",
+   "text": false,
+   "img": "e-us-callbox-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    10,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.95,
+   "ground": 1.0,
+   "colours": 6,
+   "twin": {
+    "key": "e:rt-interp",
+    "score": 0.43
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-firewall",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-firewall",
+   "description": "",
+   "text": false,
+   "img": "e-us-firewall-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    18,
+    13
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.57,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:kr-epoll",
+    "score": 0.39
+   },
+   "flags": [
+    "outline"
+   ]
+  },
+  {
+   "key": "e:us-container",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-container",
+   "description": "",
+   "text": false,
+   "img": "e-us-container-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    22,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:sm-tseg",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-hydrant",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-us-hydrant-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    9,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:r2-metronome",
+    "score": 0.38
+   },
+   "flags": []
+  },
+  {
+   "key": "e:us-meter",
+   "kind": "prop",
+   "layer": "userspace",
+   "daily": true,
+   "name": "us-meter",
+   "description": "",
+   "text": false,
+   "img": "e-us-meter-userspace-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    10,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.4,
+   "colours": 4,
+   "twin": {
+    "key": "e:us-mailbox",
+    "score": 0.54
+   },
+   "flags": []
+  },
+  {
+   "key": "c:userspace:core",
+   "kind": "critter",
+   "layer": "userspace",
+   "daily": true,
+   "name": null,
+   "description": "",
+   "text": false,
+   "img": "c-userspace-core-v0.png",
+   "layers": [
+    "userspace"
+   ],
+   "bbox": [
+    10,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.1,
+   "colours": 4,
+   "twin": {
+    "key": "c:bandgap:core",
+    "score": 0.4
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ke-gatehouse",
+   "kind": "anchor",
+   "layer": "kernel-entry",
+   "daily": false,
+   "name": "ke-gatehouse",
+   "description": "",
+   "text": false,
+   "img": "e-ke-gatehouse-kernel-entry-v0.png",
+   "layers": [
+    "kernel-entry"
+   ],
+   "bbox": [
+    52,
+    42
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:kr-systable",
+    "score": 0.48
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ke-seccomp",
+   "kind": "prop",
+   "layer": "kernel-entry",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-ke-seccomp-kernel-entry-v0.png",
+   "layers": [
+    "kernel-entry"
+   ],
+   "bbox": [
+    16,
+    13
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:mx-tcp",
+    "score": 0.76
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ke-uaccess",
+   "kind": "prop",
+   "layer": "kernel-entry",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-ke-uaccess-kernel-entry-v0.png",
+   "layers": [
+    "kernel-entry"
+   ],
+   "bbox": [
+    22,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.91,
+   "colours": 4,
+   "twin": {
+    "key": "e:ka-rcu",
+    "score": 0.59
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ke-ptrace",
+   "kind": "prop",
+   "layer": "kernel-entry",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-ke-ptrace-kernel-entry-v0.png",
+   "layers": [
+    "kernel-entry"
+   ],
+   "bbox": [
+    16,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:mx-rs",
+    "score": 0.8
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ke-vdso",
+   "kind": "prop",
+   "layer": "kernel-entry",
+   "daily": false,
+   "name": "ke-vdso",
+   "description": "",
+   "text": false,
+   "img": "e-ke-vdso-kernel-entry-v0.png",
+   "layers": [
+    "kernel-entry"
+   ],
+   "bbox": [
+    18,
+    9
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.33,
+   "colours": 3,
+   "twin": {
+    "key": "e:r3-fusebank",
+    "score": 0.36
+   },
+   "flags": []
+  },
+  {
+   "key": "c:kernel-entry:core",
+   "kind": "critter",
+   "layer": "kernel-entry",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-kernel-entry-core-v0.png",
+   "layers": [
+    "kernel-entry"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 3,
+   "twin": {
+    "key": "c:landauer:core",
+    "score": 0.77
+   },
+   "flags": []
+  },
+  {
+   "key": "c:kernel-entry:alt",
+   "kind": "critter-alt",
+   "layer": "kernel-entry",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-kernel-entry-alt-v1.png",
+   "layers": [
+    "kernel-entry"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 3,
+   "twin": {
+    "key": "c:bytecode:alt",
+    "score": 0.38
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-furnace",
+   "kind": "anchor",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-kr-furnace-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    57,
+    52
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 0.63,
+   "ground": 0.95,
+   "colours": 56,
+   "twin": {
+    "key": "e:rt-incinerator",
+    "score": 0.38
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-systable",
+   "kind": "anchor",
+   "layer": "kernel",
+   "daily": true,
+   "name": "kr-systable",
+   "description": "",
+   "text": false,
+   "img": "e-kr-systable-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    50,
+    42
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:r1-mirrorgate",
+    "score": 0.63
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-dmesg",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": true,
+   "img": "e-kr-dmesg-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    46,
+    19
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 14,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.59
+   },
+   "flags": [
+    "text"
+   ]
+  },
+  {
+   "key": "e:kr-gauge",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-kr-gauge-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    22,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.18,
+   "colours": 5,
+   "twin": {
+    "key": "e:li-resist",
+    "score": 0.38
+   },
+   "flags": [
+    "float?"
+   ]
+  },
+  {
+   "key": "e:kr-schedwheel",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-kr-schedwheel-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    15,
+    17
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.19,
+   "ground": 0.73,
+   "colours": 10,
+   "twin": {
+    "key": "e:fw-spiclip",
+    "score": 0.21
+   },
+   "flags": [
+    "outline"
+   ]
+  },
+  {
+   "key": "e:kr-pagetable",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-kr-pagetable-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    15,
+    19
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:r1-iommu",
+    "score": 0.58
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-irqbell",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": "kr-irqbell",
+   "description": "",
+   "text": false,
+   "img": "e-kr-irqbell-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    9,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 0.23,
+   "ground": 0.11,
+   "colours": 5,
+   "twin": {
+    "key": "e:dr-mouse",
+    "score": 0.43
+   },
+   "flags": [
+    "outline",
+    "float?"
+   ]
+  },
+  {
+   "key": "e:kr-slab",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-kr-slab-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    23,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.69
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-ticker",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-kr-ticker-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    24,
+    9
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.25,
+   "colours": 5,
+   "twin": {
+    "key": "e:us-pidplate",
+    "score": 0.36
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-mutex",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-kr-mutex-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    13,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.77,
+   "colours": 4,
+   "twin": {
+    "key": "e:lib-spool",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-tlb",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-kr-tlb-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    15,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:li-lattice",
+    "score": 0.8
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-semaphore",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-kr-semaphore-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    8,
+    16
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 3,
+   "twin": {
+    "key": "e:rt-hashmap",
+    "score": 0.35
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-wdtimer",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-kr-wdtimer-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    16,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:r3-fusebank",
+    "score": 0.77
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-vfs",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": "kr-vfs",
+   "description": "",
+   "text": false,
+   "img": "e-kr-vfs-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    17,
+    13
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.29,
+   "colours": 9,
+   "twin": {
+    "key": "e:mk-notify",
+    "score": 0.29
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-epoll",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-kr-epoll-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    16,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:mx-tcp",
+    "score": 0.73
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-cgroups",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-kr-cgroups-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    16,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 7,
+   "twin": {
+    "key": "e:ka-idt",
+    "score": 0.59
+   },
+   "flags": []
+  },
+  {
+   "key": "e:kr-buddy",
+   "kind": "prop",
+   "layer": "kernel",
+   "daily": true,
+   "name": "kr-buddy",
+   "description": "",
+   "text": false,
+   "img": "e-kr-buddy-kernel-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    18,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 6,
+   "twin": {
+    "key": "e:bc-lexer",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "c:kernel:core",
+   "kind": "critter",
+   "layer": "kernel",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-kernel-core-v0.png",
+   "layers": [
+    "kernel"
+   ],
+   "bbox": [
+    9,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.44,
+   "colours": 5,
+   "twin": {
+    "key": "c:libraries:core",
+    "score": 0.65
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ka-apicbank",
+   "kind": "anchor",
+   "layer": "kernel-arch",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-ka-apicbank-kernel-arch-v0.png",
+   "layers": [
+    "kernel-arch"
+   ],
+   "bbox": [
+    50,
+    42
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:bf-pcieswitch",
+    "score": 0.62
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ka-idt",
+   "kind": "prop",
+   "layer": "kernel-arch",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-ka-idt-kernel-arch-v0.png",
+   "layers": [
+    "kernel-arch"
+   ],
+   "bbox": [
+    18,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:ept-vtd",
+    "score": 0.64
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ka-nmi",
+   "kind": "prop",
+   "layer": "kernel-arch",
+   "daily": false,
+   "name": "ka-nmi",
+   "description": "",
+   "text": false,
+   "img": "e-ka-nmi-kernel-arch-v0.png",
+   "layers": [
+    "kernel-arch"
+   ],
+   "bbox": [
+    14,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 4,
+   "twin": {
+    "key": "e:r2-clock",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ka-spinlock",
+   "kind": "prop",
+   "layer": "kernel-arch",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-ka-spinlock-kernel-arch-v0.png",
+   "layers": [
+    "kernel-arch"
+   ],
+   "bbox": [
+    13,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.54,
+   "colours": 3,
+   "twin": {
+    "key": "e:r1-bubble",
+    "score": 0.41
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ka-rcu",
+   "kind": "prop",
+   "layer": "kernel-arch",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-ka-rcu-kernel-arch-v0.png",
+   "layers": [
+    "kernel-arch"
+   ],
+   "bbox": [
+    18,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.81
+   },
+   "flags": []
+  },
+  {
+   "key": "c:kernel-arch:core",
+   "kind": "critter",
+   "layer": "kernel-arch",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-kernel-arch-core-v0.png",
+   "layers": [
+    "kernel-arch"
+   ],
+   "bbox": [
+    10,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.4,
+   "colours": 3,
+   "twin": {
+    "key": "c:cmos:core",
+    "score": 0.58
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-backplane",
+   "kind": "anchor",
+   "layer": "drivers",
+   "daily": true,
+   "name": "dr-backplane",
+   "description": "",
+   "text": false,
+   "img": "e-dr-backplane-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    66,
+    40
+   ],
+   "class": "over",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:r1-mirrorgate",
+    "score": 0.23
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-hdd",
+   "kind": "anchor",
+   "layer": "drivers",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-dr-hdd-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    46,
+    38
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:ept-matrix",
+    "score": 0.59
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-chip",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": "dr-chip",
+   "description": "",
+   "text": false,
+   "img": "e-dr-chip-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    12,
+    10
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.92,
+   "colours": 4,
+   "twin": {
+    "key": "e:li-lattice",
+    "score": 0.74
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-ribbon",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-dr-ribbon-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    26,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.42,
+   "colours": 3,
+   "twin": {
+    "key": "e:bc-lexer",
+    "score": 0.46
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-irq",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": "dr-irq",
+   "description": "",
+   "text": false,
+   "img": "e-dr-irq-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    12,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.92,
+   "colours": 3,
+   "twin": {
+    "key": "e:dr-chip",
+    "score": 0.7
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-usb",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-dr-usb-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    18,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.33,
+   "colours": 4,
+   "twin": {
+    "key": "e:bg-wave",
+    "score": 0.39
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-pcie",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": "dr-pcie",
+   "description": "",
+   "text": false,
+   "img": "e-dr-pcie-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    28,
+    8
+   ],
+   "class": "large",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.29,
+   "colours": 4,
+   "twin": {
+    "key": "e:r2-tag",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-dma",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": "dr-dma",
+   "description": "",
+   "text": false,
+   "img": "e-dr-dma-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    24,
+    6
+   ],
+   "class": "medium",
+   "tiny": true,
+   "outline": 0.74,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:r3-pulse",
+    "score": 0.44
+   },
+   "flags": [
+    "tiny"
+   ]
+  },
+  {
+   "key": "e:dr-nic",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-dr-nic-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    19,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.37,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-optrom",
+    "score": 0.65
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-gpu",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": "dr-gpu",
+   "description": "",
+   "text": false,
+   "img": "e-dr-gpu-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    24,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.71,
+   "colours": 4,
+   "twin": {
+    "key": "e:ka-rcu",
+    "score": 0.68
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-keys",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": "dr-keys",
+   "description": "",
+   "text": false,
+   "img": "e-dr-keys-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    17,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.76,
+   "colours": 3,
+   "twin": {
+    "key": "e:r3-xtal",
+    "score": 0.54
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-db9",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-dr-db9-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    15,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-dipsw",
+    "score": 0.63
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-scope",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": "dr-scope",
+   "description": "",
+   "text": false,
+   "img": "e-dr-scope-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    19,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.42,
+   "colours": 4,
+   "twin": {
+    "key": "e:kr-tlb",
+    "score": 0.62
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-dip",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": "dr-dip",
+   "description": "",
+   "text": false,
+   "img": "e-dr-dip-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    15,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:fw-dipsw",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-fwload",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-dr-fwload-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    19,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.21,
+   "colours": 4,
+   "twin": {
+    "key": "e:bg-tunnel",
+    "score": 0.52
+   },
+   "flags": [
+    "float?"
+   ]
+  },
+  {
+   "key": "e:dr-mouse",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-dr-mouse-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    9,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.78,
+   "colours": 4,
+   "twin": {
+    "key": "e:r3-thermal",
+    "score": 0.52
+   },
+   "flags": []
+  },
+  {
+   "key": "e:dr-nvme",
+   "kind": "prop",
+   "layer": "drivers",
+   "daily": true,
+   "name": "dr-nvme",
+   "description": "",
+   "text": false,
+   "img": "e-dr-nvme-drivers-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    22,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:bf-mmio",
+    "score": 0.72
+   },
+   "flags": []
+  },
+  {
+   "key": "c:drivers:core",
+   "kind": "critter",
+   "layer": "drivers",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-drivers-core-v0.png",
+   "layers": [
+    "drivers"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.25,
+   "colours": 3,
+   "twin": {
+    "key": "c:me-minix-kern:core",
+    "score": 0.77
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bf-pcieswitch",
+   "kind": "anchor",
+   "layer": "bus-fabric",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-bf-pcieswitch-bus-fabric-v0.png",
+   "layers": [
+    "bus-fabric"
+   ],
+   "bbox": [
+    56,
+    40
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:ept-matrix",
+    "score": 0.68
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bf-crossbar",
+   "kind": "prop",
+   "layer": "bus-fabric",
+   "daily": false,
+   "name": "bf-crossbar",
+   "description": "",
+   "text": false,
+   "img": "e-bf-crossbar-bus-fabric-v0.png",
+   "layers": [
+    "bus-fabric"
+   ],
+   "bbox": [
+    20,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:mk-notify",
+    "score": 0.64
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bf-dmaring",
+   "kind": "prop",
+   "layer": "bus-fabric",
+   "daily": false,
+   "name": "bf-dmaring",
+   "description": "",
+   "text": false,
+   "img": "e-bf-dmaring-bus-fabric-v0.png",
+   "layers": [
+    "bus-fabric"
+   ],
+   "bbox": [
+    15,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.33,
+   "colours": 4,
+   "twin": {
+    "key": "e:ke-seccomp",
+    "score": 0.46
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bf-mmio",
+   "kind": "prop",
+   "layer": "bus-fabric",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-bf-mmio-bus-fabric-v0.png",
+   "layers": [
+    "bus-fabric"
+   ],
+   "bbox": [
+    22,
+    9
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:dr-nvme",
+    "score": 0.72
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bf-msix",
+   "kind": "prop",
+   "layer": "bus-fabric",
+   "daily": false,
+   "name": "bf-msix",
+   "description": "",
+   "text": false,
+   "img": "e-bf-msix-bus-fabric-v0.png",
+   "layers": [
+    "bus-fabric"
+   ],
+   "bbox": [
+    16,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:ua-l1",
+    "score": 0.72
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bf-iommu",
+   "kind": "prop",
+   "layer": "bus-fabric",
+   "daily": false,
+   "name": "bf-iommu",
+   "description": "",
+   "text": false,
+   "img": "e-bf-iommu-bus-fabric-v0.png",
+   "layers": [
+    "bus-fabric"
+   ],
+   "bbox": [
+    14,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:bf-msix",
+    "score": 0.7
+   },
+   "flags": []
+  },
+  {
+   "key": "c:bus-fabric:core",
+   "kind": "critter",
+   "layer": "bus-fabric",
+   "daily": false,
+   "name": null,
+   "description": "",
+   "text": false,
+   "img": "c-bus-fabric-core-v0.png",
+   "layers": [
+    "bus-fabric"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 3,
+   "twin": {
+    "key": "c:smram:core",
+    "score": 0.67
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-bigvault",
+   "kind": "anchor",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-bigvault",
+   "description": "",
+   "text": false,
+   "img": "e-fw-bigvault-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    52,
+    52
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 0.91,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:sm-vaultdoor",
+    "score": 0.57
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-romcab",
+   "kind": "anchor",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-romcab",
+   "description": "",
+   "text": false,
+   "img": "e-fw-romcab-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    40,
+    56
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:rt-incinerator",
+    "score": 0.33
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-drawers",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-drawers",
+   "description": "",
+   "text": false,
+   "img": "e-fw-drawers-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    22,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-cmos",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-cmos",
+   "description": "",
+   "text": false,
+   "img": "e-fw-cmos-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    11,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.64,
+   "colours": 4,
+   "twin": {
+    "key": "e:r2-clock",
+    "score": 0.62
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-setup",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": true,
+   "img": "e-fw-setup-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    36,
+    15
+   ],
+   "class": "large",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 16,
+   "twin": {
+    "key": "e:cm-metal",
+    "score": 0.68
+   },
+   "flags": [
+    "text"
+   ]
+  },
+  {
+   "key": "e:fw-dipsw",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-dipsw",
+   "description": "",
+   "text": false,
+   "img": "e-fw-dipsw-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    12,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.83,
+   "colours": 3,
+   "twin": {
+    "key": "e:dr-dip",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-fan",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-fan",
+   "description": "",
+   "text": false,
+   "img": "e-fw-fan-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    13,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:r1-vcpu",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-capsule",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-capsule",
+   "description": "",
+   "text": false,
+   "img": "e-fw-capsule-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    15,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.87,
+   "colours": 4,
+   "twin": {
+    "key": "e:ld-elf",
+    "score": 0.57
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-spiclip",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-spiclip",
+   "description": "",
+   "text": false,
+   "img": "e-fw-spiclip-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    14,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.71,
+   "colours": 4,
+   "twin": {
+    "key": "e:cm-finfet",
+    "score": 0.45
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-optrom",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-optrom",
+   "description": "",
+   "text": false,
+   "img": "e-fw-optrom-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    19,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.47,
+   "colours": 3,
+   "twin": {
+    "key": "e:dr-nic",
+    "score": 0.65
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-beeper",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-beeper",
+   "description": "",
+   "text": false,
+   "img": "e-fw-beeper-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    8,
+    9
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.12,
+   "colours": 3,
+   "twin": {
+    "key": "e:ka-nmi",
+    "score": 0.38
+   },
+   "flags": [
+    "float?"
+   ]
+  },
+  {
+   "key": "e:fw-reset",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-reset",
+   "description": "",
+   "text": false,
+   "img": "e-fw-reset-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    11,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:r2-safe",
+    "score": 0.71
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-postcard",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-postcard",
+   "description": "",
+   "text": false,
+   "img": "e-fw-postcard-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    17,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.47,
+   "colours": 4,
+   "twin": {
+    "key": "e:kr-wdtimer",
+    "score": 0.54
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-acpi",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-acpi",
+   "description": "",
+   "text": false,
+   "img": "e-fw-acpi-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    15,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.47,
+   "colours": 3,
+   "twin": {
+    "key": "e:r1-bubble",
+    "score": 0.65
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-ucode",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-ucode",
+   "description": "",
+   "text": false,
+   "img": "e-fw-ucode-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    17,
+    13
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.94,
+   "colours": 3,
+   "twin": {
+    "key": "e:jit-deopt",
+    "score": 0.73
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-tpm",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-tpm",
+   "description": "",
+   "text": false,
+   "img": "e-fw-tpm-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    12,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.83,
+   "colours": 4,
+   "twin": {
+    "key": "e:rt-closure",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-jtag",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-jtag",
+   "description": "",
+   "text": false,
+   "img": "e-fw-jtag-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    16,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:ld-plt",
+    "score": 0.83
+   },
+   "flags": []
+  },
+  {
+   "key": "e:fw-secureboot",
+   "kind": "prop",
+   "layer": "firmware",
+   "daily": true,
+   "name": "fw-secureboot",
+   "description": "",
+   "text": false,
+   "img": "e-fw-secureboot-firmware-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    12,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.33,
+   "colours": 3,
+   "twin": {
+    "key": "e:rt-promise",
+    "score": 0.53
+   },
+   "flags": []
+  },
+  {
+   "key": "c:firmware:core",
+   "kind": "critter",
+   "layer": "firmware",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "c-firmware-core-v0.png",
+   "layers": [
+    "firmware"
+   ],
+   "bbox": [
+    9,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.56,
+   "colours": 4,
+   "twin": {
+    "key": "c:cmos:core",
+    "score": 0.81
+   },
+   "flags": []
+  },
+  {
+   "key": "e:vmm-qemu",
+   "kind": "anchor",
+   "layer": "vmm",
+   "daily": false,
+   "name": "vmm-qemu",
+   "description": "",
+   "text": false,
+   "img": "e-vmm-qemu-vmm-v0.png",
+   "layers": [
+    "vmm"
+   ],
+   "bbox": [
+    50,
+    38
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:ept-matrix",
+    "score": 0.57
+   },
+   "flags": []
+  },
+  {
+   "key": "e:vmm-virtio",
+   "kind": "prop",
+   "layer": "vmm",
+   "daily": false,
+   "name": "vmm-virtio",
+   "description": "",
+   "text": false,
+   "img": "e-vmm-virtio-vmm-v0.png",
+   "layers": [
+    "vmm"
+   ],
+   "bbox": [
+    20,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:sm-tseg",
+    "score": 0.67
+   },
+   "flags": []
+  },
+  {
+   "key": "e:vmm-ghostcard",
+   "kind": "prop",
+   "layer": "vmm",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-vmm-ghostcard-vmm-v0.png",
+   "layers": [
+    "vmm"
+   ],
+   "bbox": [
+    22,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.82,
+   "colours": 3,
+   "twin": {
+    "key": "e:sm-savestate",
+    "score": 0.63
+   },
+   "flags": []
+  },
+  {
+   "key": "e:vmm-bios",
+   "kind": "prop",
+   "layer": "vmm",
+   "daily": false,
+   "name": "vmm-bios",
+   "description": "",
+   "text": false,
+   "img": "e-vmm-bios-vmm-v0.png",
+   "layers": [
+    "vmm"
+   ],
+   "bbox": [
+    16,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.75
+   },
+   "flags": []
+  },
+  {
+   "key": "c:vmm:core",
+   "kind": "critter",
+   "layer": "vmm",
+   "daily": false,
+   "name": null,
+   "description": "",
+   "text": false,
+   "img": "c-vmm-core-v0.png",
+   "layers": [
+    "vmm"
+   ],
+   "bbox": [
+    12,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.83,
+   "colours": 4,
+   "twin": {
+    "key": "c:ept:core",
+    "score": 1.0
+   },
+   "flags": [
+    "twin"
+   ]
+  },
+  {
+   "key": "e:r1-mirrorgate",
+   "kind": "anchor",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-mirrorgate-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    62,
+    42
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 3,
+   "twin": {
+    "key": "e:kr-systable",
+    "score": 0.63
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-portal",
+   "kind": "anchor",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-portal-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    46,
+    38
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:bg-diagram",
+    "score": 0.69
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-bubble",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-bubble-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    15,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.6,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-acpi",
+    "score": 0.65
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-ept",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-ept-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    17,
+    13
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.82,
+   "colours": 4,
+   "twin": {
+    "key": "e:jit-deopt",
+    "score": 0.55
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-vcpu",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-vcpu-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    11,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.82,
+   "colours": 3,
+   "twin": {
+    "key": "e:fw-fan",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-vmcs",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-vmcs-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    18,
+    13
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.33,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-dipsw",
+    "score": 0.37
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-trapdoor",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-trapdoor-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    15,
+    9
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.74,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.37
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-shadowpage",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-shadowpage-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    17,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.41,
+   "colours": 4,
+   "twin": {
+    "key": "e:bg-tunnel",
+    "score": 0.38
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-dolls",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-dolls-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    19,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:mk-notify",
+    "score": 0.44
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-mempress",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-mempress-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    13,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 0.7,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:lib-hourglass",
+    "score": 0.42
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-migrate",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-migrate-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    18,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.77,
+   "ground": 0.67,
+   "colours": 3,
+   "twin": {
+    "key": "e:dr-dip",
+    "score": 0.45
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-snapshot",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-snapshot-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    13,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-ucode",
+    "score": 0.64
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-hypercall",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-hypercall-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    15,
+    13
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.87,
+   "colours": 4,
+   "twin": {
+    "key": "e:kr-epoll",
+    "score": 0.54
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-vswitch",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-vswitch-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    19,
+    9
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:li-resist",
+    "score": 0.6
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-iommu",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-iommu-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    13,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:r1-vcpu",
+    "score": 0.62
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r1-paravirt",
+   "kind": "prop",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r1-paravirt-ring-1-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    18,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.56,
+   "colours": 4,
+   "twin": {
+    "key": "e:mk-grant",
+    "score": 0.69
+   },
+   "flags": []
+  },
+  {
+   "key": "c:ring-1:core",
+   "kind": "critter",
+   "layer": "ring-1",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "c-ring-1-core-v0.png",
+   "layers": [
+    "ring-1"
+   ],
+   "bbox": [
+    12,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.67,
+   "colours": 4,
+   "twin": {
+    "key": "c:vmm:core",
+    "score": 0.44
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ept-matrix",
+   "kind": "anchor",
+   "layer": "ept",
+   "daily": false,
+   "name": "ept-matrix",
+   "description": "",
+   "text": false,
+   "img": "e-ept-matrix-ept-v0.png",
+   "layers": [
+    "ept"
+   ],
+   "bbox": [
+    50,
+    40
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.84,
+   "colours": 3,
+   "twin": {
+    "key": "e:bg-diagram",
+    "score": 0.71
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ept-grid",
+   "kind": "prop",
+   "layer": "ept",
+   "daily": false,
+   "name": "ept-grid",
+   "description": "",
+   "text": false,
+   "img": "e-ept-grid-ept-v0.png",
+   "layers": [
+    "ept"
+   ],
+   "bbox": [
+    18,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:mx-rs",
+    "score": 0.67
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ept-vtd",
+   "kind": "prop",
+   "layer": "ept",
+   "daily": false,
+   "name": "ept-vtd",
+   "description": "",
+   "text": false,
+   "img": "e-ept-vtd-ept-v0.png",
+   "layers": [
+    "ept"
+   ],
+   "bbox": [
+    16,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:mx-tcp",
+    "score": 0.8
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ept-walker",
+   "kind": "prop",
+   "layer": "ept",
+   "daily": false,
+   "name": "ept-walker",
+   "description": "",
+   "text": false,
+   "img": "e-ept-walker-ept-v0.png",
+   "layers": [
+    "ept"
+   ],
+   "bbox": [
+    15,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.27,
+   "colours": 3,
+   "twin": {
+    "key": "e:li-mask",
+    "score": 0.25
+   },
+   "flags": []
+  },
+  {
+   "key": "c:ept:core",
+   "kind": "critter",
+   "layer": "ept",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "c-ept-core-v0.png",
+   "layers": [
+    "ept"
+   ],
+   "bbox": [
+    12,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.83,
+   "colours": 4,
+   "twin": {
+    "key": "c:vmm:core",
+    "score": 1.0
+   },
+   "flags": [
+    "twin"
+   ]
+  },
+  {
+   "key": "e:r2-clocktower",
+   "kind": "anchor",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-r2-clocktower-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    30,
+    66
+   ],
+   "class": "over",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.87,
+   "colours": 5,
+   "twin": {
+    "key": null,
+    "score": 0.0
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-cascade",
+   "kind": "anchor",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-cascade-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    48,
+    58
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:fw-romcab",
+    "score": 0.14
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-clock",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-clock-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    13,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.54,
+   "colours": 5,
+   "twin": {
+    "key": "e:fw-cmos",
+    "score": 0.62
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-tag",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": true,
+   "img": "e-r2-tag-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    28,
+    10
+   ],
+   "class": "large",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 8,
+   "twin": {
+    "key": "e:us-pidplate",
+    "score": 0.61
+   },
+   "flags": [
+    "text"
+   ]
+  },
+  {
+   "key": "e:r2-hourglass",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-r2-hourglass-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    9,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:lib-hourglass",
+    "score": 0.4
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-ghostgear",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-r2-ghostgear-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    17,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.82,
+   "colours": 4,
+   "twin": {
+    "key": "e:kr-buddy",
+    "score": 0.44
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-safe",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-safe-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    13,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-reset",
+    "score": 0.71
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-metronome",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-metronome-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    11,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 5,
+   "twin": {
+    "key": "e:us-hydrant",
+    "score": 0.38
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-cracks",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-cracks-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    15,
+    17
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.47,
+   "colours": 5,
+   "twin": {
+    "key": "e:r2-stopwatch",
+    "score": 0.54
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-hook",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-hook-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    8,
+    16
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.62,
+   "colours": 4,
+   "twin": {
+    "key": "e:r2-coin",
+    "score": 0.25
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-stopwatch",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-stopwatch-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    11,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.64,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-acpi",
+    "score": 0.54
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-domino",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-domino-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    15,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:ld-plt",
+    "score": 0.39
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-coin",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-coin-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    7,
+    14
+   ],
+   "class": "small",
+   "tiny": true,
+   "outline": 1.0,
+   "ground": 0.71,
+   "colours": 5,
+   "twin": {
+    "key": "e:us-crontower",
+    "score": 0.25
+   },
+   "flags": [
+    "tiny"
+   ]
+  },
+  {
+   "key": "e:r2-pause",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-pause-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    13,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:r2-stopwatch",
+    "score": 0.38
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r2-feather",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-feather-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    13,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.08,
+   "colours": 4,
+   "twin": {
+    "key": "e:mx-tcp",
+    "score": 0.23
+   },
+   "flags": [
+    "float?"
+   ]
+  },
+  {
+   "key": "e:r2-spark",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-spark-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    11,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.09,
+   "colours": 3,
+   "twin": {
+    "key": "e:bf-dmaring",
+    "score": 0.29
+   },
+   "flags": [
+    "float?"
+   ]
+  },
+  {
+   "key": "e:r2-prism",
+   "kind": "prop",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r2-prism-ring-2-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    13,
+    11
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:kr-wdtimer",
+    "score": 0.43
+   },
+   "flags": []
+  },
+  {
+   "key": "c:ring-2:core",
+   "kind": "critter",
+   "layer": "ring-2",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-ring-2-core-v0.png",
+   "layers": [
+    "ring-2"
+   ],
+   "bbox": [
+    9,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.67,
+   "colours": 3,
+   "twin": {
+    "key": "c:kernel-entry:core",
+    "score": 0.74
+   },
+   "flags": []
+  },
+  {
+   "key": "e:sm-vaultdoor",
+   "kind": "anchor",
+   "layer": "smram",
+   "daily": false,
+   "name": "sm-vaultdoor",
+   "description": "",
+   "text": false,
+   "img": "e-sm-vaultdoor-smram-v0.png",
+   "layers": [
+    "smram"
+   ],
+   "bbox": [
+    48,
+    44
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-bigvault",
+    "score": 0.57
+   },
+   "flags": []
+  },
+  {
+   "key": "e:sm-dlck",
+   "kind": "prop",
+   "layer": "smram",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-sm-dlck-smram-v0.png",
+   "layers": [
+    "smram"
+   ],
+   "bbox": [
+    16,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:fw-reset",
+    "score": 0.65
+   },
+   "flags": []
+  },
+  {
+   "key": "e:sm-savestate",
+   "kind": "prop",
+   "layer": "smram",
+   "daily": false,
+   "name": "sm-savestate",
+   "description": "",
+   "text": false,
+   "img": "e-sm-savestate-smram-v0.png",
+   "layers": [
+    "smram"
+   ],
+   "bbox": [
+    20,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:sm-tseg",
+    "score": 0.79
+   },
+   "flags": []
+  },
+  {
+   "key": "e:sm-tseg",
+   "kind": "prop",
+   "layer": "smram",
+   "daily": false,
+   "name": "sm-tseg",
+   "description": "",
+   "text": false,
+   "img": "e-sm-tseg-smram-v0.png",
+   "layers": [
+    "smram"
+   ],
+   "bbox": [
+    18,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:sm-savestate",
+    "score": 0.79
+   },
+   "flags": []
+  },
+  {
+   "key": "c:smram:core",
+   "kind": "critter",
+   "layer": "smram",
+   "daily": false,
+   "name": null,
+   "description": "",
+   "text": false,
+   "img": "c-smram-core-v0.png",
+   "layers": [
+    "smram"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 4,
+   "twin": {
+    "key": "c:bus-fabric:core",
+    "score": 0.67
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-me",
+   "kind": "anchor",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-me",
+   "description": "",
+   "text": false,
+   "img": "e-r3-me-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    44,
+    34
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.73,
+   "colours": 2,
+   "twin": {
+    "key": "e:ept-matrix",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-vias",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-vias",
+   "description": "",
+   "text": false,
+   "img": "e-r3-vias-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    10,
+    10
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:ke-seccomp",
+    "score": 0.68
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-pad",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-pad",
+   "description": "",
+   "text": false,
+   "img": "e-r3-pad-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    16,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.19,
+   "colours": 2,
+   "twin": {
+    "key": "e:bg-wave",
+    "score": 0.42
+   },
+   "flags": [
+    "float?"
+   ]
+  },
+  {
+   "key": "e:r3-xtal",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-xtal",
+   "description": "",
+   "text": false,
+   "img": "e-r3-xtal-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    15,
+    9
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.87,
+   "colours": 2,
+   "twin": {
+    "key": "e:bg-wave",
+    "score": 0.63
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-sram",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-sram",
+   "description": "",
+   "text": false,
+   "img": "e-r3-sram-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    17,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.41,
+   "colours": 2,
+   "twin": {
+    "key": "e:r3-align",
+    "score": 0.4
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-ringosc",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-ringosc",
+   "description": "",
+   "text": false,
+   "img": "e-r3-ringosc-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    15,
+    16
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:lib-codex",
+    "score": 0.46
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-thermal",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-thermal",
+   "description": "",
+   "text": false,
+   "img": "e-r3-thermal-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    8,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.62,
+   "colours": 2,
+   "twin": {
+    "key": "e:dr-mouse",
+    "score": 0.52
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-pll",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-pll",
+   "description": "",
+   "text": false,
+   "img": "e-r3-pll-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    13,
+    13
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.85,
+   "colours": 2,
+   "twin": {
+    "key": "e:r3-align",
+    "score": 0.43
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-rom",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-rom",
+   "description": "",
+   "text": true,
+   "img": "e-r3-rom-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    22,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.99,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:r3-fusebank",
+    "score": 0.68
+   },
+   "flags": [
+    "text"
+   ]
+  },
+  {
+   "key": "e:r3-guard",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-guard",
+   "description": "",
+   "text": false,
+   "img": "e-r3-guard-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    15,
+    17
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.87,
+   "colours": 2,
+   "twin": {
+    "key": "e:rtl-dff",
+    "score": 0.37
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-probe",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-probe",
+   "description": "",
+   "text": false,
+   "img": "e-r3-probe-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    8,
+    15
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 2,
+   "twin": {
+    "key": "e:r3-thermal",
+    "score": 0.45
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-align",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-align",
+   "description": "",
+   "text": false,
+   "img": "e-r3-align-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    9,
+    9
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.33,
+   "colours": 2,
+   "twin": {
+    "key": "e:r2-stopwatch",
+    "score": 0.44
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-bondwire",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-bondwire",
+   "description": "",
+   "text": false,
+   "img": "e-r3-bondwire-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    16,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 2,
+   "twin": {
+    "key": "e:ld-plt",
+    "score": 0.27
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-capbank",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-capbank",
+   "description": "",
+   "text": false,
+   "img": "e-r3-capbank-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    14,
+    9
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.43,
+   "colours": 2,
+   "twin": {
+    "key": "e:r3-fusebank",
+    "score": 0.53
+   },
+   "flags": []
+  },
+  {
+   "key": "e:r3-pulse",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-r3-pulse-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    16,
+    4
+   ],
+   "class": "medium",
+   "tiny": true,
+   "outline": 0.88,
+   "ground": 0.88,
+   "colours": 2,
+   "twin": {
+    "key": "e:dr-dma",
+    "score": 0.44
+   },
+   "flags": [
+    "tiny"
+   ]
+  },
+  {
+   "key": "e:r3-fusebank",
+   "kind": "prop",
+   "layer": "ring-3",
+   "daily": true,
+   "name": "r3-fusebank",
+   "description": "",
+   "text": false,
+   "img": "e-r3-fusebank-ring-3-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    14,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.8
+   },
+   "flags": []
+  },
+  {
+   "key": "c:ring-3:core",
+   "kind": "critter",
+   "layer": "ring-3",
+   "daily": true,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-ring-3-core-v0.png",
+   "layers": [
+    "ring-3"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 2,
+   "twin": {
+    "key": "c:bus-fabric:core",
+    "score": 0.53
+   },
+   "flags": []
+  },
+  {
+   "key": "e:mx-bottle",
+   "kind": "anchor",
+   "layer": "me-minix-user",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-mx-bottle-me-minix-user-v0.png",
+   "layers": [
+    "me-minix-user"
+   ],
+   "bbox": [
+    40,
+    44
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:kr-furnace",
+    "score": 0.19
+   },
+   "flags": []
+  },
+  {
+   "key": "e:mx-amt",
+   "kind": "prop",
+   "layer": "me-minix-user",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-mx-amt-me-minix-user-v0.png",
+   "layers": [
+    "me-minix-user"
+   ],
+   "bbox": [
+    18,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:jit-ic",
+    "score": 0.71
+   },
+   "flags": []
+  },
+  {
+   "key": "e:mx-rs",
+   "kind": "prop",
+   "layer": "me-minix-user",
+   "daily": false,
+   "name": "mx-rs",
+   "description": "",
+   "text": false,
+   "img": "e-mx-rs-me-minix-user-v0.png",
+   "layers": [
+    "me-minix-user"
+   ],
+   "bbox": [
+    14,
+    10
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:ke-ptrace",
+    "score": 0.8
+   },
+   "flags": []
+  },
+  {
+   "key": "e:mx-tcp",
+   "kind": "prop",
+   "layer": "me-minix-user",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-mx-tcp-me-minix-user-v0.png",
+   "layers": [
+    "me-minix-user"
+   ],
+   "bbox": [
+    14,
+    10
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:ld-plt",
+    "score": 0.82
+   },
+   "flags": []
+  },
+  {
+   "key": "c:me-minix-user:core",
+   "kind": "critter",
+   "layer": "me-minix-user",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-me-minix-user-core-v0.png",
+   "layers": [
+    "me-minix-user"
+   ],
+   "bbox": [
+    8,
+    9
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.25,
+   "colours": 4,
+   "twin": {
+    "key": "c:kernel-entry:core",
+    "score": 0.66
+   },
+   "flags": []
+  },
+  {
+   "key": "e:mk-microkern",
+   "kind": "anchor",
+   "layer": "me-minix-kern",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-mk-microkern-me-minix-kern-v0.png",
+   "layers": [
+    "me-minix-kern"
+   ],
+   "bbox": [
+    46,
+    36
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.43,
+   "colours": 4,
+   "twin": {
+    "key": "e:bg-diagram",
+    "score": 0.22
+   },
+   "flags": []
+  },
+  {
+   "key": "e:mk-ipc",
+   "kind": "prop",
+   "layer": "me-minix-kern",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-mk-ipc-me-minix-kern-v0.png",
+   "layers": [
+    "me-minix-kern"
+   ],
+   "bbox": [
+    22,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.55,
+   "colours": 3,
+   "twin": {
+    "key": "e:us-sign",
+    "score": 0.48
+   },
+   "flags": []
+  },
+  {
+   "key": "e:mk-notify",
+   "kind": "prop",
+   "layer": "me-minix-kern",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-mk-notify-me-minix-kern-v0.png",
+   "layers": [
+    "me-minix-kern"
+   ],
+   "bbox": [
+    14,
+    10
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:mx-tcp",
+    "score": 0.79
+   },
+   "flags": []
+  },
+  {
+   "key": "e:mk-grant",
+   "kind": "prop",
+   "layer": "me-minix-kern",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-mk-grant-me-minix-kern-v0.png",
+   "layers": [
+    "me-minix-kern"
+   ],
+   "bbox": [
+    16,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 4,
+   "twin": {
+    "key": "e:r1-paravirt",
+    "score": 0.69
+   },
+   "flags": []
+  },
+  {
+   "key": "c:me-minix-kern:core",
+   "kind": "critter",
+   "layer": "me-minix-kern",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-me-minix-kern-core-v0.png",
+   "layers": [
+    "me-minix-kern"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 3,
+   "twin": {
+    "key": "c:runtime:core",
+    "score": 0.86
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ua-pipeline",
+   "kind": "anchor",
+   "layer": "uarch",
+   "daily": false,
+   "name": "ua-pipeline",
+   "description": "",
+   "text": false,
+   "img": "e-ua-pipeline-uarch-v0.png",
+   "layers": [
+    "uarch"
+   ],
+   "bbox": [
+    55,
+    26
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.8,
+   "colours": 3,
+   "twin": {
+    "key": null,
+    "score": 0.0
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ua-rob",
+   "kind": "prop",
+   "layer": "uarch",
+   "daily": false,
+   "name": "ua-rob",
+   "description": "",
+   "text": false,
+   "img": "e-ua-rob-uarch-v0.png",
+   "layers": [
+    "uarch"
+   ],
+   "bbox": [
+    22,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:dr-nvme",
+    "score": 0.7
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ua-bpred",
+   "kind": "prop",
+   "layer": "uarch",
+   "daily": false,
+   "name": "ua-bpred",
+   "description": "",
+   "text": false,
+   "img": "e-ua-bpred-uarch-v0.png",
+   "layers": [
+    "uarch"
+   ],
+   "bbox": [
+    20,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.15,
+   "colours": 3,
+   "twin": {
+    "key": "e:ua-l1",
+    "score": 0.27
+   },
+   "flags": [
+    "float?"
+   ]
+  },
+  {
+   "key": "e:ua-l1",
+   "kind": "prop",
+   "layer": "uarch",
+   "daily": false,
+   "name": "ua-l1",
+   "description": "",
+   "text": false,
+   "img": "e-ua-l1-uarch-v0.png",
+   "layers": [
+    "uarch"
+   ],
+   "bbox": [
+    16,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:kr-tlb",
+    "score": 0.76
+   },
+   "flags": []
+  },
+  {
+   "key": "e:ua-alu",
+   "kind": "prop",
+   "layer": "uarch",
+   "daily": false,
+   "name": "ua-alu",
+   "description": "",
+   "text": false,
+   "img": "e-ua-alu-uarch-v0.png",
+   "layers": [
+    "uarch"
+   ],
+   "bbox": [
+    14,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 3,
+   "twin": {
+    "key": "e:la-erase",
+    "score": 0.43
+   },
+   "flags": []
+  },
+  {
+   "key": "c:uarch:core",
+   "kind": "critter",
+   "layer": "uarch",
+   "daily": false,
+   "name": null,
+   "description": "",
+   "text": false,
+   "img": "c-uarch-core-v0.png",
+   "layers": [
+    "uarch"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 3,
+   "twin": {
+    "key": "c:landauer:core",
+    "score": 0.77
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rtl-htree",
+   "kind": "anchor",
+   "layer": "rtl",
+   "daily": false,
+   "name": "rtl-htree",
+   "description": "",
+   "text": false,
+   "img": "e-rtl-htree-rtl-v0.png",
+   "layers": [
+    "rtl"
+   ],
+   "bbox": [
+    44,
+    42
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.45,
+   "colours": 4,
+   "twin": {
+    "key": "e:kr-systable",
+    "score": 0.21
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rtl-nand",
+   "kind": "prop",
+   "layer": "rtl",
+   "daily": false,
+   "name": "rtl-nand",
+   "description": "",
+   "text": false,
+   "img": "e-rtl-nand-rtl-v0.png",
+   "layers": [
+    "rtl"
+   ],
+   "bbox": [
+    16,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.44,
+   "colours": 3,
+   "twin": {
+    "key": "e:ept-vtd",
+    "score": 0.51
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rtl-dff",
+   "kind": "prop",
+   "layer": "rtl",
+   "daily": false,
+   "name": "rtl-dff",
+   "description": "",
+   "text": false,
+   "img": "e-rtl-dff-rtl-v0.png",
+   "layers": [
+    "rtl"
+   ],
+   "bbox": [
+    14,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.86,
+   "colours": 3,
+   "twin": {
+    "key": "e:ke-seccomp",
+    "score": 0.59
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rtl-wave",
+   "kind": "prop",
+   "layer": "rtl",
+   "daily": false,
+   "name": "rtl-wave",
+   "description": "",
+   "text": false,
+   "img": "e-rtl-wave-rtl-v0.png",
+   "layers": [
+    "rtl"
+   ],
+   "bbox": [
+    22,
+    9
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 0.82,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:bc-lexer",
+    "score": 0.56
+   },
+   "flags": []
+  },
+  {
+   "key": "e:rtl-mux",
+   "kind": "prop",
+   "layer": "rtl",
+   "daily": false,
+   "name": "rtl-mux",
+   "description": "",
+   "text": false,
+   "img": "e-rtl-mux-rtl-v0.png",
+   "layers": [
+    "rtl"
+   ],
+   "bbox": [
+    12,
+    14
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.42,
+   "colours": 2,
+   "twin": {
+    "key": "e:fw-tpm",
+    "score": 0.41
+   },
+   "flags": []
+  },
+  {
+   "key": "c:rtl:core",
+   "kind": "critter",
+   "layer": "rtl",
+   "daily": false,
+   "name": null,
+   "description": "",
+   "text": false,
+   "img": "c-rtl-core-v0.png",
+   "layers": [
+    "rtl"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.38,
+   "colours": 3,
+   "twin": {
+    "key": "c:drivers:core",
+    "score": 0.52
+   },
+   "flags": []
+  },
+  {
+   "key": "e:cm-viatower",
+   "kind": "anchor",
+   "layer": "cmos",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-cm-viatower-cmos-v0.png",
+   "layers": [
+    "cmos"
+   ],
+   "bbox": [
+    50,
+    40
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.32,
+   "colours": 4,
+   "twin": {
+    "key": "e:r1-portal",
+    "score": 0.31
+   },
+   "flags": []
+  },
+  {
+   "key": "e:cm-finfet",
+   "kind": "prop",
+   "layer": "cmos",
+   "daily": false,
+   "name": "cm-finfet",
+   "description": "",
+   "text": false,
+   "img": "e-cm-finfet-cmos-v0.png",
+   "layers": [
+    "cmos"
+   ],
+   "bbox": [
+    16,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.38,
+   "colours": 5,
+   "twin": {
+    "key": "e:la-lonebit",
+    "score": 0.73
+   },
+   "flags": []
+  },
+  {
+   "key": "e:cm-well",
+   "kind": "prop",
+   "layer": "cmos",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-cm-well-cmos-v0.png",
+   "layers": [
+    "cmos"
+   ],
+   "bbox": [
+    20,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:kr-tlb",
+    "score": 0.73
+   },
+   "flags": []
+  },
+  {
+   "key": "e:cm-metal",
+   "kind": "prop",
+   "layer": "cmos",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-cm-metal-cmos-v0.png",
+   "layers": [
+    "cmos"
+   ],
+   "bbox": [
+    22,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:dr-nvme",
+    "score": 0.69
+   },
+   "flags": []
+  },
+  {
+   "key": "c:cmos:core",
+   "kind": "critter",
+   "layer": "cmos",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-cmos-core-v0.png",
+   "layers": [
+    "cmos"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 3,
+   "twin": {
+    "key": "c:firmware:core",
+    "score": 0.81
+   },
+   "flags": []
+  },
+  {
+   "key": "c:cmos:alt",
+   "kind": "critter-alt",
+   "layer": "cmos",
+   "daily": false,
+   "name": null,
+   "description": "",
+   "text": false,
+   "img": "c-cmos-alt-v1.png",
+   "layers": [
+    "cmos"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 3,
+   "twin": {
+    "key": "c:bytecode:alt",
+    "score": 0.4
+   },
+   "flags": []
+  },
+  {
+   "key": "e:li-reticle",
+   "kind": "anchor",
+   "layer": "litho",
+   "daily": false,
+   "name": "li-reticle",
+   "description": "",
+   "text": false,
+   "img": "e-li-reticle-litho-v0.png",
+   "layers": [
+    "litho"
+   ],
+   "bbox": [
+    47,
+    47
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.02,
+   "colours": 4,
+   "twin": {
+    "key": "e:sm-vaultdoor",
+    "score": 0.53
+   },
+   "flags": []
+  },
+  {
+   "key": "e:li-lattice",
+   "kind": "prop",
+   "layer": "litho",
+   "daily": false,
+   "name": "li-lattice",
+   "description": "",
+   "text": false,
+   "img": "e-li-lattice-litho-v0.png",
+   "layers": [
+    "litho"
+   ],
+   "bbox": [
+    18,
+    14
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.89,
+   "colours": 3,
+   "twin": {
+    "key": "e:kr-tlb",
+    "score": 0.8
+   },
+   "flags": []
+  },
+  {
+   "key": "e:li-mask",
+   "kind": "prop",
+   "layer": "litho",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-li-mask-litho-v0.png",
+   "layers": [
+    "litho"
+   ],
+   "bbox": [
+    18,
+    18
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:la-erase",
+    "score": 0.62
+   },
+   "flags": []
+  },
+  {
+   "key": "e:li-resist",
+   "kind": "prop",
+   "layer": "litho",
+   "daily": false,
+   "name": "li-resist",
+   "description": "",
+   "text": false,
+   "img": "e-li-resist-litho-v0.png",
+   "layers": [
+    "litho"
+   ],
+   "bbox": [
+    20,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 3,
+   "twin": {
+    "key": "e:r1-vswitch",
+    "score": 0.6
+   },
+   "flags": []
+  },
+  {
+   "key": "c:litho:core",
+   "kind": "critter",
+   "layer": "litho",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-litho-core-v0.png",
+   "layers": [
+    "litho"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.25,
+   "colours": 3,
+   "twin": {
+    "key": "c:kernel-arch:core",
+    "score": 0.55
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bg-diagram",
+   "kind": "anchor",
+   "layer": "bandgap",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-bg-diagram-bandgap-v0.png",
+   "layers": [
+    "bandgap"
+   ],
+   "bbox": [
+    52,
+    40
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.96,
+   "colours": 4,
+   "twin": {
+    "key": "e:ept-matrix",
+    "score": 0.71
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bg-tunnel",
+   "kind": "prop",
+   "layer": "bandgap",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "e-bg-tunnel-bandgap-v0.png",
+   "layers": [
+    "bandgap"
+   ],
+   "bbox": [
+    20,
+    12
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.9,
+   "colours": 2,
+   "twin": {
+    "key": "e:ld-plt",
+    "score": 0.85
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bg-wave",
+   "kind": "prop",
+   "layer": "bandgap",
+   "daily": false,
+   "name": "bg-wave",
+   "description": "",
+   "text": false,
+   "img": "e-bg-wave-bandgap-v0.png",
+   "layers": [
+    "bandgap"
+   ],
+   "bbox": [
+    20,
+    10
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.9,
+   "colours": 2,
+   "twin": {
+    "key": "e:fw-jtag",
+    "score": 0.77
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bg-hole",
+   "kind": "prop",
+   "layer": "bandgap",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-bg-hole-bandgap-v0.png",
+   "layers": [
+    "bandgap"
+   ],
+   "bbox": [
+    10,
+    10
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 2,
+   "twin": {
+    "key": "e:dr-chip",
+    "score": 0.5
+   },
+   "flags": []
+  },
+  {
+   "key": "e:bg-photonabs",
+   "kind": "prop",
+   "layer": "bandgap",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-bg-photonabs-bandgap-v0.png",
+   "layers": [
+    "bandgap"
+   ],
+   "bbox": [
+    16,
+    11
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 4,
+   "twin": {
+    "key": "e:jit-ic",
+    "score": 0.53
+   },
+   "flags": []
+  },
+  {
+   "key": "c:bandgap:core",
+   "kind": "critter",
+   "layer": "bandgap",
+   "daily": false,
+   "name": 2,
+   "description": "",
+   "text": false,
+   "img": "c-bandgap-core-v0.png",
+   "layers": [
+    "bandgap"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 4,
+   "twin": {
+    "key": "c:landauer:core",
+    "score": 0.53
+   },
+   "flags": []
+  },
+  {
+   "key": "e:la-horizon",
+   "kind": "anchor",
+   "layer": "landauer",
+   "daily": false,
+   "name": "la-horizon",
+   "description": "",
+   "text": false,
+   "img": "e-la-horizon-landauer-v0.png",
+   "layers": [
+    "landauer"
+   ],
+   "bbox": [
+    46,
+    31
+   ],
+   "class": "setpiece",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.02,
+   "colours": 4,
+   "twin": {
+    "key": "e:ept-matrix",
+    "score": 0.41
+   },
+   "flags": []
+  },
+  {
+   "key": "e:la-erase",
+   "kind": "prop",
+   "layer": "landauer",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-la-erase-landauer-v0.png",
+   "layers": [
+    "landauer"
+   ],
+   "bbox": [
+    12,
+    12
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 1.0,
+   "colours": 2,
+   "twin": {
+    "key": "e:r3-vias",
+    "score": 0.63
+   },
+   "flags": []
+  },
+  {
+   "key": "e:la-heat",
+   "kind": "prop",
+   "layer": "landauer",
+   "daily": false,
+   "name": "la-heat",
+   "description": "",
+   "text": false,
+   "img": "e-la-heat-landauer-v0.png",
+   "layers": [
+    "landauer"
+   ],
+   "bbox": [
+    16,
+    8
+   ],
+   "class": "medium",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.5,
+   "colours": 2,
+   "twin": {
+    "key": "e:ld-plt",
+    "score": 0.67
+   },
+   "flags": []
+  },
+  {
+   "key": "e:la-lonebit",
+   "kind": "prop",
+   "layer": "landauer",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "e-la-lonebit-landauer-v0.png",
+   "layers": [
+    "landauer"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 3,
+   "twin": {
+    "key": "e:cm-finfet",
+    "score": 0.73
+   },
+   "flags": []
+  },
+  {
+   "key": "c:landauer:core",
+   "kind": "critter",
+   "layer": "landauer",
+   "daily": false,
+   "name": 1,
+   "description": "",
+   "text": false,
+   "img": "c-landauer-core-v0.png",
+   "layers": [
+    "landauer"
+   ],
+   "bbox": [
+    8,
+    8
+   ],
+   "class": "small",
+   "tiny": false,
+   "outline": 1.0,
+   "ground": 0.75,
+   "colours": 3,
+   "twin": {
+    "key": "c:kernel-entry:core",
+    "score": 0.77
+   },
+   "flags": []
+  }
+ ]
+}

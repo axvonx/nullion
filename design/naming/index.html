@@ -94,7 +94,7 @@ textarea { width: 100%; min-height: 70px; background: #0c0b10; border: 1px solid
   </select>
   <select id="fSort" aria-label="Sort"><option value="priority">red first</option><option value="layer">by layer</option></select>
   <select id="fStatus" aria-label="Status">
-    <option value="">all</option><option value="needs-you">needs you (red/orange, not yet yours)</option><option value="llm">LLM defaults (unconfirmed)</option><option value="owner">decided by you</option><option value="merged">verified merges (folded away)</option><option value="deleted">marked for deletion</option><option value="name-open">name still open</option><option value="dec-open">decision still open</option><option value="done">named + decided</option><option value="notes">has design notes</option>
+    <option value="">all</option><option value="needs-you">needs you (red/orange, not yet yours)</option><option value="llm">LLM defaults (unconfirmed)</option><option value="owner">decided by you</option><option value="merged">verified merges (folded away)</option><option value="deleted">marked for deletion</option><option value="art">art-style slate (delete/rework)</option><option value="name-open">name still open</option><option value="dec-open">decision still open</option><option value="done">named + decided</option><option value="notes">has design notes</option>
   </select>
   <input type="search" id="fSearch" placeholder="search id, name, concept…" />
   <span class="save" id="save">loading…</span>
@@ -227,11 +227,12 @@ function filter(keepKey) {
     if (K && it.kind !== K) return false;
     const d = rec(it);
     if (S === 'merged' ? !isMerged(it) : isMerged(it)) return false;
-    if (S === 'deleted' ? !isDeleted(it) : S !== 'merged' && isDeleted(it)) return false;
+    if (S === 'deleted' ? !isDeleted(it) : S !== 'merged' && S !== 'art' && isDeleted(it)) return false;
     if (S === 'name-open' && d.name.choice !== 'open') return false;
     if (S === 'dec-open' && d.decision.choice !== 'open') return false;
     if (S === 'done' && (d.name.choice === 'open' || d.decision.choice === 'open')) return false;
     if (S === 'notes' && !d.description.trim()) return false;
+    if (S === 'art' && d.decision.by !== 'art') return false;
     if (S === 'needs-you' && !(PR(it) >= 4 && (d.name.by !== 'owner' || d.decision.by !== 'owner'))) return false;
     if (S === 'llm' && d.name.by !== 'llm' && d.decision.by !== 'llm') return false;
     if (S === 'owner' && d.name.by !== 'owner' && d.decision.by !== 'owner') return false;
@@ -392,7 +393,7 @@ function renderChoices(it) {
 
   put($('#choices'),
     h('h2', {}, 'Name', h('span', { class: `by ${d.name.by ?? ''}` }, d.name.by === 'llm' ? 'LLM default' : d.name.by === 'owner' ? 'yours' : d.name.by === 'verified' ? 'takes the target’s name' : 'open')), ...nameOpts,
-    h('h2', {}, 'Other decision', h('span', { class: `by ${d.decision.by ?? ''}` }, d.decision.by === 'llm' ? 'LLM default' : d.decision.by === 'owner' ? 'yours' : d.decision.by === 'verified' ? 'verified merge' : d.decision.by === 'cull' ? 'cull pass (LLM)' : 'open')), h('div', { class: 'grid2' }, decOpts), target, note,
+    h('h2', {}, 'Other decision', h('span', { class: `by ${d.decision.by ?? ''}` }, d.decision.by === 'llm' ? 'LLM default' : d.decision.by === 'owner' ? 'yours' : d.decision.by === 'verified' ? 'verified merge' : d.decision.by === 'cull' ? 'cull pass (LLM)' : d.decision.by === 'art' ? 'art-style slate' : 'open')), h('div', { class: 'grid2' }, decOpts), target, note,
     h('h2', {}, 'Design notes'), notes,
     h('div', { class: 'nav' },
       h('button', { type: 'button', onclick: () => step(-1) }, '◀ prev'),

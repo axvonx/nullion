@@ -1,0 +1,117 @@
+{
+ "layer": "bus-fabric",
+ "replaces": [
+  {
+   "key": "e:bf-crossbar",
+   "idea": "A floor-mounted telecom patchbay cabinet with jack sockets and draped patch cords bridging inputs to outputs."
+  },
+  {
+   "key": "e:bf-dmaring",
+   "idea": "A rotating metal carousel stand on a pedestal base with clip-on descriptor cards hanging around its rim."
+  },
+  {
+   "key": "e:bf-mmio",
+   "idea": "A wall-mounted pigeonhole cubby box with slot openings holding protruding register key-cards."
+  },
+  {
+   "key": "e:bf-retimer",
+   "idea": "A compact PCIe card-edge ejector latch mounted on a bracket with a hooked lever arm."
+  },
+  {
+   "key": "e:bf-msix",
+   "idea": "A desk-mounted brass telegraph tapper on a plinth that sends interrupt pulses when pressed."
+  },
+  {
+   "key": "e:bf-lane",
+   "idea": "A mechanical tally clicker on a base with a thumb plunger and a 3-digit credit drum window."
+  },
+  {
+   "key": "e:bf-iommu",
+   "idea": "A standing customs tollbooth with a striped barrier arm that translates and gates DMA traffic."
+  }
+ ],
+ "new": [
+  {
+   "id": "bf-iommu",
+   "name": "IOMMU Tollbooth",
+   "concept": "IOMMU (DMA address translation and memory isolation)",
+   "depicts": "A standing customs tollbooth on a flat base, with a striped barrier arm raised on the right and a small inspection window on the front.",
+   "focal": "The striped barrier arm",
+   "size": "large",
+   "replacesKey": "e:bf-iommu"
+  },
+  {
+   "id": "bf-dmaring",
+   "name": "Descriptor Carousel",
+   "concept": "DMA ring buffer (circular descriptor queue)",
+   "depicts": "A rotating metal carousel stand on a pedestal base, with evenly spaced clip-on ticket cards hanging around its rim.",
+   "focal": "The ring of hanging ticket cards",
+   "size": "medium",
+   "replacesKey": "e:bf-dmaring"
+  },
+  {
+   "id": "bf-crossbar",
+   "name": "Fabric Patchbay",
+   "concept": "Non-blocking bus crossbar interconnect",
+   "depicts": "A standing floor-mounted telecom patchbay cabinet on two stubby feet, with a grid of jack sockets and two draped patch cords plugged across it.",
+   "focal": "The draped patch cords bridging sockets",
+   "size": "medium",
+   "replacesKey": "e:bf-crossbar"
+  },
+  {
+   "id": "bf-mmio",
+   "name": "MMIO Pigeonhole",
+   "concept": "Memory-Mapped I/O (MMIO) register window",
+   "depicts": "A wall-mounted brass-framed pigeonhole cubby box with four slot openings, two holding protruding metal key-cards.",
+   "focal": "The protruding key-cards in the slots",
+   "size": "medium",
+   "replacesKey": "e:bf-mmio"
+  },
+  {
+   "id": "bf-msix",
+   "name": "MSI-X Tapper",
+   "concept": "Message Signaled Interrupts (MSI-X)",
+   "depicts": "A small desk-mounted brass telegraph tapper on a plinth with a rounded knob and a spring-loaded contact arm.",
+   "focal": "The raised brass tapper knob",
+   "size": "small",
+   "replacesKey": "e:bf-msix"
+  },
+  {
+   "id": "bf-retimer",
+   "name": "Hot-Plug Latch",
+   "concept": "PCIe hot-plug surprise-removal latch",
+   "depicts": "A compact card-edge ejector latch mounted on a short bracket, with a hooked lever arm and a tiny status pip on the pivot.",
+   "focal": "The hooked ejector lever arm",
+   "size": "small",
+   "replacesKey": "e:bf-retimer"
+  },
+  {
+   "id": "bf-lane",
+   "name": "Credit Clicker",
+   "concept": "PCIe credit-based flow-control counter",
+   "depicts": "A handheld mechanical tally clicker resting on a flat base, with a thumb-press plunger on top and a 3-digit drum window on the front.",
+   "focal": "The 3-digit mechanical drum window",
+   "size": "small",
+   "replacesKey": "e:bf-lane"
+  },
+  {
+   "id": "bf-tlp",
+   "name": "TLP Capsule",
+   "concept": "PCIe Transaction Layer Packet (TLP)",
+   "depicts": "A cylindrical brass-capped pneumatic dispatch capsule resting on a cradle stand, with a band collar around its middle.",
+   "focal": "The brass-capped cylinder in its cradle",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:bf-pcieswitch",
+   "redesign": "Redraw as a physical rackmount PCIe switch chassis with front-facing port cages, status LEDs, and mounting ears on a stand."
+  },
+  {
+   "key": "c:bus-fabric:core",
+   "redesign": "Redraw as a 6x6+ px darting packet-mote critter with a 1px darkest-ink outline, two 1x1 dark eyes, and a short trailing fin."
+  }
+ ]
+}

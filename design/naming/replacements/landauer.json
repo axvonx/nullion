@@ -1,0 +1,91 @@
+{
+  "layer": "landauer",
+  "replaces": [
+    {
+      "key": "e:la-ray",
+      "idea": "A tall cast-iron finned radiator standing on four legs with a side valve wheel, representing thermal radiation of dissipated heat."
+    },
+    {
+      "key": "e:la-entropy",
+      "idea": "A brass-framed partition box with a hinged sliding trapdoor, representing Maxwell's demon sorting molecules and paying the entropy cost."
+    },
+    {
+      "key": "e:la-spark",
+      "idea": "A horizontal piston cylinder on a pedestal with a hanging pulley weight, representing a Szilard engine converting one bit into work."
+    },
+    {
+      "key": "e:la-erase",
+      "idea": "A hinged accordion bellows standing on its nozzle base, representing phase-space compression during irreversible bit erasure."
+    },
+    {
+      "key": "e:la-heat",
+      "idea": "A bulb thermometer mounted on a metal backing plate, representing the kT ln 2 waste heat of computation."
+    }
+  ],
+  "new": [
+    {
+      "id": "la-thermometer",
+      "name": "kT Thermometer",
+      "concept": "Waste Heat (kT ln 2)",
+      "depicts": "A glass bulb thermometer mounted on a small metal backing plate, with a dark-navy column rising from a round lower bulb.",
+      "focal": "The bright cyan-white meniscus at the top of the thermometer column.",
+      "size": "small",
+      "replacesKey": "e:la-heat"
+    },
+    {
+      "id": "la-bellows",
+      "name": "Phase Bellows",
+      "concept": "Irreversible Erasure",
+      "depicts": "A hinged wooden-and-leather hand bellows standing upright on its flat nozzle base, with pleated accordion ribs and two handles.",
+      "focal": "The pinched accordion pleats of the bellows.",
+      "size": "medium",
+      "replacesKey": "e:la-erase"
+    },
+    {
+      "id": "la-demon",
+      "name": "Demon's Trapdoor",
+      "concept": "Maxwell's Demon",
+      "depicts": "A tiny brass-framed partition box standing on two feet, with a hinged sliding trapdoor in the middle and a small knob on top.",
+      "focal": "The half-open sliding trapdoor in the partition.",
+      "size": "small",
+      "replacesKey": "e:la-entropy"
+    },
+    {
+      "id": "la-szilard",
+      "name": "Szilard Cylinder",
+      "concept": "Szilard Engine",
+      "depicts": "A horizontal glass-walled piston cylinder mounted on a heavy pedestal, with a central dividing piston and a small hanging weight on a pulley cord.",
+      "focal": "The suspended weight hanging from the side pulley.",
+      "size": "medium",
+      "replacesKey": "e:la-spark"
+    },
+    {
+      "id": "la-radiator",
+      "name": "Fin Radiator",
+      "concept": "Thermal Radiation",
+      "depicts": "A tall cast-iron finned radiator standing on four stubby legs, with six vertical ribbed columns joined by top and bottom manifolds and a side valve wheel.",
+      "focal": "The glowing pale-cyan valve wheel on the side pipe.",
+      "size": "large",
+      "replacesKey": "e:la-ray"
+    },
+    {
+      "id": "la-pendulum",
+      "name": "Ballistic Pendulum",
+      "concept": "Reversible Computing",
+      "depicts": "A miniature brass A-frame stand resting on a flat base, suspending a single round bob on a vertical rod.",
+      "focal": "The round bob hanging at the bottom of the rod.",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "la-calorimeter",
+      "name": "Bomb Calorimeter",
+      "concept": "Landauer Bound",
+      "depicts": "A stout cylindrical metal vessel with a bolted lid, two side handles, and a short stubby dial gauge protruding from the top.",
+      "focal": "The bolted flange rim around the lid.",
+      "size": "small",
+      "replacesKey": null
+    }
+  ],
+  "rework": []
+}

@@ -1,0 +1,214 @@
+{
+ "layer": "drivers",
+ "layerName": "Device Drivers",
+ "daily": true,
+ "propsAlive": 14,
+ "newPropsNeeded": 4,
+ "kept": [
+  {
+   "key": "e:dr-backplane",
+   "kind": "anchor",
+   "name": "e:dr-backplane",
+   "depicts": "A cyan bus rail holding four magenta card sockets, three populated with vertical expansion boards of varying heights and one left empty."
+  },
+  {
+   "key": "e:dr-hdd",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "An open hard-drive chassis with corner mounting screws, a spinning cyan magnetic platter, a white spindle hub, and a magenta-pivoted read/write actuator arm."
+  },
+  {
+   "key": "e:dr-chip",
+   "kind": "prop",
+   "name": "e:dr-chip",
+   "depicts": "A magenta-framed black dual-inline integrated circuit with a white pin-one dot and cyan legs, appearing in ten-pin and fourteen-pin widths."
+  },
+  {
+   "key": "e:dr-ribbon",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A flat cyan parallel ribbon cable with a mid-span twist and an animated pulse gap running along its conductors."
+  },
+  {
+   "key": "e:dr-irq",
+   "kind": "prop",
+   "name": "e:dr-irq",
+   "depicts": "A ten-pin magenta-framed controller chip with a cyan status bar and vertical headroom above it for an animated interrupt discharge."
+  },
+  {
+   "key": "e:dr-usb",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A horizontal USB Type-A plug with a magenta cable tail, a white molded grip marked in cyan, and a slotted metal shield."
+  },
+  {
+   "key": "e:dr-pcie",
+   "kind": "prop",
+   "name": "e:dr-pcie",
+   "depicts": "A horizontal cyan-outlined PCI Express expansion slot with a notched partition, magenta rail, and white contact pins along the bottom."
+  },
+  {
+   "key": "e:dr-nic",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A cyan-framed network expansion card with a magenta controller die, a white link LED, bottom edge contacts, and a detached black rear bracket."
+  },
+  {
+   "key": "e:dr-gpu",
+   "kind": "prop",
+   "name": "e:dr-gpu",
+   "depicts": "A magenta-shrouded graphics card with twin spinning white-and-cyan cooling fans and a cyan PCIe edge connector underneath."
+  },
+  {
+   "key": "e:dr-keys",
+   "kind": "prop",
+   "name": "e:dr-keys",
+   "depicts": "Three staggered rows of white keycaps with cyan undersides, including a wide spacebar on the bottom row."
+  },
+  {
+   "key": "e:dr-db9",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A magenta-shelled nine-pin D-subminiature port with black side mounting ears and nine staggered cyan contacts."
+  },
+  {
+   "key": "e:dr-scope",
+   "kind": "prop",
+   "name": "e:dr-scope",
+   "depicts": "A black oscilloscope display tracing an animated cyan sine wave across magenta center ticks, flanked by three magenta rotary dials."
+  },
+  {
+   "key": "e:dr-dip",
+   "kind": "prop",
+   "name": "e:dr-dip",
+   "depicts": "A magenta six-position DIP switch block with five white toggles flipped up and the third flipped down."
+  },
+  {
+   "key": "e:dr-mouse",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A top-down white two-button computer mouse with a cyan cord at the top and a magenta scroll wheel between the buttons."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:dr-dma",
+   "kind": "prop",
+   "name": "e:dr-dma",
+   "depicts": "A white perforated transfer track carrying three sliding magenta and cyan data blocks between two cyan endpoints.",
+   "problem": "ART-STYLE rule 7: under 8 px tall"
+  },
+  {
+   "key": "e:dr-fwload",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A small black storage module streaming cyan data pulses leftward-to-rightward into an eight-pin magenta-framed controller chip.",
+   "problem": "ART-STYLE rule 6: floating connector symbol"
+  },
+  {
+   "key": "c:drivers:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny six-by-five-pixel scuttling bug with a white carapace ridge, a cyan or magenta rectangular body, and two white legs centered in a large empty canvas.",
+   "problem": ""
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:dr-connector",
+   "name": "e:dr-connector",
+   "depicts": "A compact black rectangular socket housing nine staggered cyan pins arranged five over four.",
+   "pass": "cull",
+   "reason": "Too similar to the COM1 Port, which is a stronger, more recognizable 9-pin serial connector.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:dr-caps",
+   "name": 1,
+   "depicts": "Three vertical cyan electrolytic capacitors with white metallic tops and dual lead pins, the middle cylinder slightly shorter.",
+   "pass": "cull",
+   "reason": "Generic motherboard component filler without a distinct device driver concept.",
+   "earlierIdea": "an MMIO register bank"
+  },
+  {
+   "key": "e:dr-disk",
+   "name": 1,
+   "depicts": "A compact cyan-framed square drive containing a spinning white magnetic platter, black spindle cross, and diagonal magenta actuator arm.",
+   "pass": "cull",
+   "reason": "Too similar to Spinning Rust, both depicting a spinning magnetic platter and actuator arm.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:dr-jumpers",
+   "name": "e:dr-jumpers",
+   "depicts": "A black two-by-five header block of cyan pins with two vertical pairs bridged by magenta plastic shunts.",
+   "pass": "cull",
+   "reason": "Too similar to the DIP Switch, which is a more recognizable hardware configuration prop.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:dr-heatsink",
+   "name": "e:dr-heatsink",
+   "depicts": "Eight tall vertical white cooling fins rising evenly from a solid cyan baseplate.",
+   "pass": "cull",
+   "reason": "Generic passive cooling hardware filler without a driver-specific concept.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:dr-rj45",
+   "name": "e:dr-rj45",
+   "depicts": "A square black modular Ethernet jack with a cyan contact bar inside, a bottom latch cutout, and magenta and cyan status LEDs above.",
+   "pass": "cull",
+   "reason": "Redundant networking hardware prop alongside the eth0 Card.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:dr-speaker",
+   "name": 1,
+   "depicts": "A white loudspeaker cone backed by a cyan driver box, emitting cyan and white sound-wave arcs to the right.",
+   "pass": "cull",
+   "reason": "Generic low-priority peripheral filler compared to core driver devices.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:dr-crystal",
+   "name": 1,
+   "depicts": "A rounded white metallic quartz-crystal oscillator can with a dark face and two cyan leads extending downward.",
+   "pass": "cull",
+   "reason": "Generic board-level component filler with low priority and little driver-specific meaning.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:dr-sata",
+   "name": "e:dr-sata",
+   "depicts": "A magenta-framed black SATA receptacle containing a cyan horizontal contact blade with a white L-shaped keying tab on the right.",
+   "pass": "cull",
+   "reason": "Weak standalone port prop; storage is already well represented by Spinning Rust and NVMe Stick.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:dr-fanheader",
+   "name": 1,
+   "depicts": "A white-bordered black rectangular shroud enclosing four vertical cyan pins.",
+   "pass": "cull",
+   "reason": "Generic low-priority motherboard header filler without a strong driver concept.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:dr-ledstrip",
+   "name": 1,
+   "depicts": "A narrow magenta circuit strip studded with four alternating cyan and white glowing LEDs.",
+   "pass": "cull",
+   "reason": "Generic diagnostic LED filler with low priority.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:dr-nvme",
+   "name": "e:dr-nvme",
+   "depicts": "A horizontal cyan-edged M.2 solid-state drive stick with two magenta NAND flash packages and a white edge-connector end.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: pink boxes; nothing reads as a drive",
+   "earlierIdea": null
+  }
+ ]
+}

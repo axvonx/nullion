@@ -1,0 +1,149 @@
+{
+ "layer": "ring-1",
+ "replaces": [
+  {
+   "key": "e:r1-mirror",
+   "idea": null
+  },
+  {
+   "key": "e:r1-tunnel",
+   "idea": null
+  },
+  {
+   "key": "e:r1-tag",
+   "idea": null
+  },
+  {
+   "key": "e:r1-glass",
+   "idea": "A post-mounted EPT violation trip-breaker box with a tripped bright-green toggle lever."
+  },
+  {
+   "key": "e:r1-ept",
+   "idea": "A two-stage geared translation machine on a pedestal with two meshed index wheels."
+  },
+  {
+   "key": "e:r1-vcpu",
+   "idea": "A socketed processor cartridge with vertical heatsink fins seated in a floor-mounted dock."
+  },
+  {
+   "key": "e:r1-cage",
+   "idea": null
+  },
+  {
+   "key": "e:r1-split",
+   "idea": null
+  },
+  {
+   "key": "e:r1-clone",
+   "idea": null
+  },
+  {
+   "key": "e:r1-timeslice",
+   "idea": "A mechanical parking-meter-style steal-time gauge on a slender floor post."
+  },
+  {
+   "key": "e:r1-nested",
+   "idea": null
+  },
+  {
+   "key": "e:r1-paravirt",
+   "idea": "A bench-mounted twin-housing belt-drive chute passing capsules between guest and host."
+  },
+  {
+   "key": "e:r1-vram",
+   "idea": "A pedestal-mounted rotary telegraph dial with a pointer needle for VM-exit reasons."
+  },
+  {
+   "key": "e:r1-vmexit",
+   "idea": null
+  },
+  {
+   "key": "e:r1-console",
+   "idea": null
+  }
+ ],
+ "new": [
+  {
+   "id": "r1-paravirt",
+   "name": "Virtio Belt Chute",
+   "concept": "Paravirtualization (virtio shared ring buffer)",
+   "depicts": "Two low dark-green housings bolted to a wide bench, linked by an exposed horizontal conveyor belt carrying a bright-green capsule.",
+   "focal": "The bright-green capsule riding the horizontal belt between the two housings",
+   "size": "large",
+   "replacesKey": "e:r1-paravirt"
+  },
+  {
+   "id": "r1-ept",
+   "name": "EPT Gear Translator",
+   "concept": "Extended Page Tables (two-dimensional address translation)",
+   "depicts": "A pedestal-mounted mechanical translator housing two meshed toothed wheels side by side behind a cutaway front plate.",
+   "focal": "The two interlocking toothed gears",
+   "size": "medium",
+   "replacesKey": "e:r1-ept"
+  },
+  {
+   "id": "r1-sr-iov",
+   "name": "SR-IOV Manifold",
+   "concept": "Single Root I/O Virtualization (physical device slicing)",
+   "depicts": "A heavy dark-green pipe trunk rising from a floor flange into a horizontal manifold block with four smaller upright nozzles.",
+   "focal": "The four bright-green-tipped nozzles branching from one trunk",
+   "size": "medium",
+   "replacesKey": null
+  },
+  {
+   "id": "r1-postedirq",
+   "name": "Posted-IRQ Annunciator",
+   "concept": "Posted Interrupts (direct virtual interrupt delivery)",
+   "depicts": "A wall-mounted rectangular annunciator cabinet with three small shuttered windows and a bright-green drop flag in the middle slot.",
+   "focal": "The dropped bright-green indicator flag",
+   "size": "medium",
+   "replacesKey": null
+  },
+  {
+   "id": "r1-vcpu",
+   "name": "vCPU Cartridge",
+   "concept": "Virtual CPU (scheduled execution context)",
+   "depicts": "A compact upright processor cartridge with four vertical heatsink fins seated in a notched floor socket.",
+   "focal": "The ribbed heatsink fins",
+   "size": "small",
+   "replacesKey": "e:r1-vcpu"
+  },
+  {
+   "id": "r1-stealmeter",
+   "name": "Steal-Time Meter",
+   "concept": "vCPU steal time (hypervisor scheduling contention)",
+   "depicts": "A slender floor post topped by a rounded meter head with a semi-circular dial face and a bright-green needle.",
+   "focal": "The bright-green needle on the rounded meter head",
+   "size": "small",
+   "replacesKey": "e:r1-timeslice"
+  },
+  {
+   "id": "r1-msrdial",
+   "name": "VM-Exit MSR Dial",
+   "concept": "VM-Exit reason MSR (hardware exit-cause register)",
+   "depicts": "A stout squat pedestal supporting a round brass-style rotary selector dial with a bright-green pointer knob.",
+   "focal": "The bright-green pointer knob on the circular dial",
+   "size": "small",
+   "replacesKey": "e:r1-vram"
+  },
+  {
+   "id": "r1-eptfault",
+   "name": "EPT Trip Breaker",
+   "concept": "EPT violation fault handler",
+   "depicts": "A small post-mounted breaker box with a hinged front cover and a bright-green toggle lever snapped to the tripped position.",
+   "focal": "The snapped bright-green toggle lever",
+   "size": "small",
+   "replacesKey": "e:r1-glass"
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:r1-portal",
+   "redesign": "Redraw as a heavy industrial airlock gate with a floor threshold plate, riveted side stanchions, and a glowing bright-green status beacon mounted on the lintel."
+  },
+  {
+   "key": "e:r1-migrate",
+   "redesign": "Redraw as a wheeled server canister being winched along an overhead rail between two floor-mounted docking pedestals."
+  }
+ ]
+}

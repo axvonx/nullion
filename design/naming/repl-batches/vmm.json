@@ -1,0 +1,65 @@
+{
+ "layer": "vmm",
+ "layerName": "VMM & Virtual Devices",
+ "daily": false,
+ "propsAlive": 1,
+ "newPropsNeeded": 7,
+ "kept": [
+  {
+   "key": "e:vmm-ghostcard",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A green-outlined expansion card with six bottom edge-connector pins and a dark rectangular chip."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:vmm-qemu",
+   "kind": "anchor",
+   "name": "e:vmm-qemu",
+   "depicts": "A wide green-framed machine chassis housing two smaller rectangular guest frames above a single long console bar.",
+   "problem": "ART-STYLE rule 1: anchor is a UI panel; redraw as a machine"
+  },
+  {
+   "key": "c:vmm:core",
+   "kind": "critter",
+   "name": "c:vmm:core",
+   "depicts": "A small grey rectangular mask with two square white eyeholes.",
+   "problem": "ART-STYLE rule 9: same silhouette as c:ept:core"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:vmm-virtio",
+   "name": "e:vmm-virtio",
+   "depicts": "Two pale green ring buffers linked across the center by a dark rectangular bridge.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: abstract two-ring glyph",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:vmm-ghostnic",
+   "name": 1,
+   "depicts": "A green-outlined rectangular bar with four evenly spaced dark green square ports.",
+   "pass": "cull",
+   "reason": "Redundant emulated hardware concept alongside e:vmm-ghostcard in this layer and e:dr-nic in drivers.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:vmm-hpet",
+   "name": 1,
+   "depicts": "A round green clock face with a single pale green vertical hand.",
+   "pass": "cull",
+   "reason": "Visually generic clock face for a niche timer concept better replaced by a core virtualization mechanic.",
+   "earlierIdea": "a memory balloon pump"
+  },
+  {
+   "key": "e:vmm-bios",
+   "name": "e:vmm-bios",
+   "depicts": "A dark green rectangular screen showing two unequal horizontal green text lines.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: panel of lines",
+   "earlierIdea": null
+  }
+ ]
+}

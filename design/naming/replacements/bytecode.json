@@ -1,0 +1,100 @@
+{
+  "layer": "bytecode",
+  "replaces": [
+    {
+      "key": "e:bc-ast",
+      "idea": "A pruned geometric bonsai tree in a ceramic tray whose stepped trunk splits into distinct leaf-pad canopies."
+    },
+    {
+      "key": "e:bc-token",
+      "idea": null
+    },
+    {
+      "key": "e:bc-constpool",
+      "idea": "A tall apothecary cabinet with brass-rimmed cubbies holding glowing literal slugs."
+    },
+    {
+      "key": "e:bc-lexer",
+      "idea": "A tabletop cast-iron paper guillotine slicing a continuous paper ribbon into discrete coloured chits."
+    },
+    {
+      "key": "e:bc-cfg",
+      "idea": "A wall-mounted railway signal-box lever frame with two brass-handled switch levers above a diverging track plate."
+    }
+  ],
+  "new": [
+    {
+      "id": "bc-chopper",
+      "name": "Token Guillotine",
+      "concept": "Lexical analysis (tokenizing a character stream into discrete tokens)",
+      "depicts": "A tabletop cast-iron paper guillotine on four stubby feet, with a hinged brass blade arm raised over a cream paper ribbon emerging as cut coloured chits.",
+      "focal": "The angled brass cutting blade poised above the notched paper strip.",
+      "size": "medium",
+      "replacesKey": "e:bc-lexer"
+    },
+    {
+      "id": "bc-constpool",
+      "name": "Constant Cubbies",
+      "concept": "Constant pool (deduplicated table of literals and symbolic references)",
+      "depicts": "A tall dark-navy apothecary cabinet standing on a plinth, with a 3x3 grid of brass-rimmed cubbies holding glowing yellow and green literal slugs.",
+      "focal": "One pulled-out cubby drawer gleaming with a bright yellow literal slug.",
+      "size": "large",
+      "replacesKey": "e:bc-constpool"
+    },
+    {
+      "id": "bc-switchyard",
+      "name": "Branch Switch",
+      "concept": "Control-flow graph (basic blocks connected by conditional jump edges)",
+      "depicts": "A wall-mounted railway signal-box lever frame with a cast-iron base, two upright brass-handled levers, and a diverging Y-shaped track plate below.",
+      "focal": "The two brass-tipped switch levers angled in opposite directions.",
+      "size": "medium",
+      "replacesKey": "e:bc-cfg"
+    },
+    {
+      "id": "bc-bonsai",
+      "name": "Syntax Bonsai",
+      "concept": "Abstract syntax tree (hierarchical tree representation of source structure)",
+      "depicts": "A pruned geometric bonsai tree potted in a dark-navy ceramic tray, its stepped amber trunk splitting into two green and yellow leaf-pad canopies.",
+      "focal": "The asymmetric stepped trunk fork where the main branch splits.",
+      "size": "medium",
+      "replacesKey": "e:bc-ast"
+    },
+    {
+      "id": "bc-pez",
+      "name": "Operand Dispenser",
+      "concept": "Operand stack (LIFO stack used by stack-based bytecode VMs)",
+      "depicts": "A spring-loaded vertical brass chute on a weighted base, holding three stacked square yellow-and-green value blocks with a side push-slot at the top.",
+      "focal": "The top yellow value block peeking out of the dispenser slot.",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "bc-punchcard",
+      "name": "Opcode Punch",
+      "concept": "Bytecode instruction (compact fixed-width opcode and operand encoding)",
+      "depicts": "A stiff cream-and-navy punch card standing upright in a slotted brass desk holder, perforated with two crisp square holes.",
+      "focal": "The pair of dark punched holes near the upper-left corner.",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "bc-metronome",
+      "name": "Bytecode Metronome",
+      "concept": "Instruction pointer (tracks the current bytecode offset being executed)",
+      "depicts": "A pyramid-shaped dark-navy mechanical metronome on brass feet, with a pale-yellow pendulum needle tilted to the right.",
+      "focal": "The bright yellow ticking pendulum arm.",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "bc-compass",
+      "name": "Offset Caliper",
+      "concept": "Line number table (maps bytecode offsets back to source-code lines)",
+      "depicts": "A pair of hinged brass proportional dividers resting upright on a small wooden stand, with a tiny cream-ticked scale bar between the legs.",
+      "focal": "The brass pivot screw linking the two pointed legs.",
+      "size": "small",
+      "replacesKey": null
+    }
+  ],
+  "rework": []
+}

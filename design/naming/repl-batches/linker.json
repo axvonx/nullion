@@ -1,0 +1,86 @@
+{
+ "layer": "linker",
+ "layerName": "Dynamic Linker / ABI",
+ "daily": false,
+ "propsAlive": 1,
+ "newPropsNeeded": 6,
+ "kept": [
+  {
+   "key": "e:ld-switchboard",
+   "kind": "anchor",
+   "name": "e:ld-switchboard",
+   "depicts": "A black switchboard frame with five grey jack blocks on the left wired by criss-crossing yellow and orange patch cords to five amber blocks on the right."
+  },
+  {
+   "key": "c:linker:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A small brown boxy creature with a yellow top ridge, two stubby grey legs underneath, and a pale-yellow plug prong extending to the right."
+  },
+  {
+   "key": "c:linker:alt",
+   "kind": "critter-alt",
+   "name": 1,
+   "depicts": "A smaller legless brown block with a pale-yellow top-left tab and a bright-yellow prong projecting to the right."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:ld-lazy",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A grey-bordered white card containing a dark grey horizontal bar over a shorter bright-yellow bar.",
+   "problem": ""
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:ld-elf",
+   "name": "e:ld-elf",
+   "depicts": "A grey-framed dark plate with a deep blue header band above a short yellow bar and a longer grey bar.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: UI card with bars",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ld-plt",
+   "name": 1,
+   "depicts": "Two dark vertical panels framed in grey and yellow, bridged across a central gap by crossing orange and teal diagonal tracks.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: abstract panel",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ld-reloc",
+   "name": 1,
+   "depicts": "Two vertical blocks, one bright yellow and one brown, threaded side by side onto a single horizontal grey rail.",
+   "pass": "cull",
+   "reason": "Low-priority abstract blocks on a rail that look too similar to e:ld-rpath and lack clear visual identity.",
+   "earlierIdea": "a binary patch-tape splicer"
+  },
+  {
+   "key": "e:ld-got",
+   "name": 1,
+   "depicts": "A grey-framed black panel holding four horizontal bars, three dark grey and the second illuminated in bright yellow.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: panel of lines",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ld-soname",
+   "name": "e:ld-soname",
+   "depicts": "A brown-framed cream plaque showing a long dark-grey bar above a shorter brown bar, like a two-line name and version plate.",
+   "pass": "cull",
+   "reason": "Duplicates the Soname Plaque in the libraries layer and is visually just a generic two-bar plaque.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ld-rpath",
+   "name": 1,
+   "depicts": "Three vertical bars in yellow, teal, and orange spaced evenly across a single horizontal grey rail.",
+   "pass": "cull",
+   "reason": "Low-priority generic bars on a rail that are visually indistinct from other bar-and-rail props.",
+   "earlierIdea": "a library search-path signpost with stacked directory arrows"
+  }
+ ]
+}

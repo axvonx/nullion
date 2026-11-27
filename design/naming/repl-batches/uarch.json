@@ -1,0 +1,82 @@
+{
+ "layer": "uarch",
+ "layerName": "Microarchitecture",
+ "daily": false,
+ "propsAlive": 0,
+ "newPropsNeeded": 8,
+ "kept": [
+  {
+   "key": "c:uarch:core",
+   "kind": "critter",
+   "name": "c:uarch:core",
+   "depicts": "A small grey-bordered black rectangle on a 26x22 canvas."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:ua-pipeline",
+   "kind": "anchor",
+   "name": "e:ua-pipeline",
+   "depicts": "Four dark vertical stage boxes connected by short pale-blue links, with the third stage highlighted in white.",
+   "problem": "ART-STYLE rule 1: anchor is a pipeline diagram; redraw as a machine/factory line"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:ua-rob",
+   "name": "e:ua-rob",
+   "depicts": "A dark horizontal bar containing five vertical slots, three lit in cyan and two dim navy.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: bars",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ua-bpred",
+   "name": "e:ua-bpred",
+   "depicts": "A pale-blue horizontal trace splitting into an upward pale-blue branch and a downward dark-navy branch.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: branch diagram, floating",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ua-l1",
+   "name": "e:ua-l1",
+   "depicts": "A cyan-bordered dark rectangle holding a 4x3 checkerboard grid of navy and pale-blue squares.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: grid of squares",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ua-alu",
+   "name": "e:ua-alu",
+   "depicts": "A pale-blue octagonal outline with a cyan chevron notch pointing inward from the left.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: ALU schematic symbol",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ua-btb",
+   "name": "e:ua-btb",
+   "depicts": "A cyan-bordered dark rectangle containing three horizontal navy bars of increasing length.",
+   "pass": "cull",
+   "reason": "Overlaps conceptually with the Branch Predictor and is visually just a generic barred rectangle.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ua-rs",
+   "name": "e:ua-rs",
+   "depicts": "A white rectangle framed in cyan holding four vertical slots, three navy and one pale blue.",
+   "pass": "cull",
+   "reason": "Visually and conceptually too close to the Reorder Buffer as a slotted out-of-order structure.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ua-prefetch",
+   "name": "e:ua-prefetch",
+   "depicts": "Three cyan vertical blocks straddling a horizontal dark-navy line.",
+   "pass": "cull",
+   "reason": "Visually abstract three-block sprite that is weaker than L1 Cache for representing memory hierarchy.",
+   "earlierIdea": "a register-renaming scoreboard"
+  }
+ ]
+}

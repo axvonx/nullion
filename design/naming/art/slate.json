@@ -1,0 +1,1076 @@
+{
+ "generated": "2026-11-27",
+ "items": [
+  {
+   "key": "e:net-ixp",
+   "layer": "internet",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor reads as a UI window grid; redraw as an exchange hall / rack room",
+   "ownerDecided": true
+  },
+  {
+   "key": "e:net-bgp",
+   "layer": "internet",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "a UI card with coloured bars; no object reads as BGP",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:net-dns",
+   "layer": "internet",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "a UI card; same \"panel with lines\" as net-packet and net-bgp",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:net-packet",
+   "layer": "internet",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "a UI card; indistinct from net-dns",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:net-cable",
+   "layer": "internet",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 7,
+   "reason": "under 8 px tall; thicken into a cable run with connectors",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:br-dom",
+   "layer": "browser",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "a tree diagram, not an object (twin of the bytecode trees)",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:br-css",
+   "layer": "browser",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "nested coloured rectangles; abstract",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:br-paint",
+   "layer": "browser",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "white box with a green square; reads as nothing",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:br-devtools",
+   "layer": "browser",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 3,
+   "reason": "bare code panel with no outline or device",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:app-toast",
+   "layer": "application",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "generic \"panel with bars\"; indistinct from app-dialog/search/progress",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:app-progress",
+   "layer": "application",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "a bare progress-bar panel",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:app-search",
+   "layer": "application",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "a bare search-field panel",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:app-dropdown",
+   "layer": "application",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "generic list panel; twin of app-dialog",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:app-bubble",
+   "layer": "application",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 6,
+   "reason": "floating speech-bubble glyph",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:app-status",
+   "layer": "application",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "unreadable dark shape with bars",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:app-video",
+   "layer": "application",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 3,
+   "reason": "no outline; give the player a device/frame",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bc-parsetree",
+   "layer": "bytecode",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor is a tree diagram; redraw as a place (e.g. a parse-tree orchard/greenhouse)",
+   "ownerDecided": true
+  },
+  {
+   "key": "e:bc-ast",
+   "layer": "bytecode",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "tree diagram; twin of bc-parsetree and bc-cfg",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bc-cfg",
+   "layer": "bytecode",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "flow diagram; third tree-diagram in the layer",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bc-lexer",
+   "layer": "bytecode",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "flat bar of coloured squares",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:jit-ic",
+   "layer": "jit",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "dark panel with one square; abstract",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:jit-osr",
+   "layer": "jit",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 6,
+   "reason": "floating bar-and-block symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:jit-deopt",
+   "layer": "jit",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "box with an X; make it a recognisable object",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:rt-tricolor",
+   "layer": "runtime",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "three-box diagram, under 8 px, no outline",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:rt-bump",
+   "layer": "runtime",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "flat bar; reads as nothing",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:rt-strpool",
+   "layer": "runtime",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "connector diagram floating in air",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:rt-nursery",
+   "layer": "runtime",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 8,
+   "reason": "plain box with squares; needs a focal detail",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ld-elf",
+   "layer": "linker",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "UI card with bars",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ld-plt",
+   "layer": "linker",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "abstract panel",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ld-got",
+   "layer": "linker",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "panel of lines",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:us-sign",
+   "layer": "userspace",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 2,
+   "reason": "a word in a box (\"UDEV\")",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:us-pidplate",
+   "layer": "userspace",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 2,
+   "reason": "big number plate; text carries the whole prop",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:us-pid1",
+   "layer": "userspace",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 7,
+   "reason": "anchor is a thin sliver; widen into a tower",
+   "ownerDecided": true
+  },
+  {
+   "key": "e:us-pipe",
+   "layer": "userspace",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 7,
+   "reason": "under 8 px and floating; give it supports",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:us-tty",
+   "layer": "userspace",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 6,
+   "reason": "floating screen; give it a terminal body/stand",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:us-firewall",
+   "layer": "userspace",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 3,
+   "reason": "missing outline",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ke-seccomp",
+   "layer": "kernel-entry",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "UI bars panel",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ke-uaccess",
+   "layer": "kernel-entry",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "two boxes and a connector; diagram",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ke-ptrace",
+   "layer": "kernel-entry",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "two coloured squares; abstract",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ke-vdso",
+   "layer": "kernel-entry",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "dumbbell symbol; twin of r1-paravirt",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-dmesg",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 2,
+   "reason": "truncated text (\"FUTE EXT4\") is the whole prop",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-slab",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 2,
+   "reason": "glyph strip that reads as text",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-ticker",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "flat bar; reads as nothing",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-tlb",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "panel of dots; abstract",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-wdtimer",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "UI panel with a bar",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-vfs",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "abstract gem/cross shape",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-epoll",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "panel of bars",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-cgroups",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "three coloured boxes",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-buddy",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "panel of coloured stripes",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-gauge",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 6,
+   "reason": "floats; mount or ground it",
+   "ownerDecided": true
+  },
+  {
+   "key": "e:kr-schedwheel",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 3,
+   "reason": "missing outline",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:kr-irqbell",
+   "layer": "kernel",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 6,
+   "reason": "floating bell; hang it from a bracket",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ka-apicbank",
+   "layer": "kernel-arch",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor is a panel of dots; redraw as a machine",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ka-idt",
+   "layer": "kernel-arch",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "panel of bars",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ka-rcu",
+   "layer": "kernel-arch",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "letter H on a panel",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:dr-nvme",
+   "layer": "drivers",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "pink boxes; nothing reads as a drive",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:dr-dma",
+   "layer": "drivers",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 7,
+   "reason": "under 8 px tall",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:dr-fwload",
+   "layer": "drivers",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 6,
+   "reason": "floating connector symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bf-pcieswitch",
+   "layer": "bus-fabric",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor reads as a panel; redraw as a switch chassis",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bf-crossbar",
+   "layer": "bus-fabric",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "grid diagram",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bf-dmaring",
+   "layer": "bus-fabric",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "concentric ring symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bf-mmio",
+   "layer": "bus-fabric",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "panel of bars",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bf-msix",
+   "layer": "bus-fabric",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "panel of bars; twin of bf-mmio",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bf-iommu",
+   "layer": "bus-fabric",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "square in a square",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:fw-setup",
+   "layer": "firmware",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 2,
+   "reason": "text panel (\"BOOT\") is the whole prop",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:fw-acpi",
+   "layer": "firmware",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "power-button icon",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:fw-beeper",
+   "layer": "firmware",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 6,
+   "reason": "floats",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:vmm-qemu",
+   "layer": "vmm",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor is a UI panel; redraw as a machine",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:vmm-virtio",
+   "layer": "vmm",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "abstract two-ring glyph",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:vmm-bios",
+   "layer": "vmm",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "panel of lines",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r1-portal",
+   "layer": "ring-1",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor is nested squares; redraw as a gate/place",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r1-ept",
+   "layer": "ring-1",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "panel of bars",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r1-vcpu",
+   "layer": "ring-1",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "letter in a box",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r1-paravirt",
+   "layer": "ring-1",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "dumbbell symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r1-migrate",
+   "layer": "ring-1",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "speedline glyph on a box",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ept-matrix",
+   "layer": "ept",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor is a grid; redraw as a place",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ept-grid",
+   "layer": "ept",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "grid diagram",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ept-vtd",
+   "layer": "ept",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "bars",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ept-walker",
+   "layer": "ept",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 6,
+   "reason": "floating diagonal; ground it",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r2-tag",
+   "layer": "ring-2",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 2,
+   "reason": "a word in a box (\"SMI4\")",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r2-coin",
+   "layer": "ring-2",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 7,
+   "reason": "under 8 px wide",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r2-feather",
+   "layer": "ring-2",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 6,
+   "reason": "floats (fine if it is falling: make that legible)",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r2-spark",
+   "layer": "ring-2",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "free-floating sparkle glyph",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:sm-savestate",
+   "layer": "smram",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "panel of lines",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:sm-tseg",
+   "layer": "smram",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "a single bar",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r3-pll",
+   "layer": "ring-3",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "capacitor schematic symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r3-rom",
+   "layer": "ring-3",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 2,
+   "reason": "a word in a box (\"ROM\")",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r3-pulse",
+   "layer": "ring-3",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 7,
+   "reason": "a bar under 8 px",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r3-pad",
+   "layer": "ring-3",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 6,
+   "reason": "floats",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:r3-sram",
+   "layer": "ring-3",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "abstract ringed shape",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:mx-amt",
+   "layer": "me-minix-user",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "UI panel",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:mx-rs",
+   "layer": "me-minix-user",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "two squares",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:mx-tcp",
+   "layer": "me-minix-user",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "letter H on a panel",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:mk-microkern",
+   "layer": "me-minix-kern",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor is a diagram; redraw as a place",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:mk-ipc",
+   "layer": "me-minix-kern",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "bracket-connector symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:mk-notify",
+   "layer": "me-minix-kern",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "ring symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:mk-grant",
+   "layer": "me-minix-kern",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "bracket-connector symbol; twin of mk-ipc",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ua-pipeline",
+   "layer": "uarch",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor is a pipeline diagram; redraw as a machine/factory line",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ua-rob",
+   "layer": "uarch",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "bars",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ua-bpred",
+   "layer": "uarch",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "branch diagram, floating",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ua-l1",
+   "layer": "uarch",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "grid of squares",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:ua-alu",
+   "layer": "uarch",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "ALU schematic symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:rtl-htree",
+   "layer": "rtl",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor is an H-tree diagram; redraw as a place",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:rtl-nand",
+   "layer": "rtl",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "gate schematic symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:rtl-dff",
+   "layer": "rtl",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "flip-flop schematic symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:rtl-wave",
+   "layer": "rtl",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "waveform glyph",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:rtl-mux",
+   "layer": "rtl",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "mux schematic symbol",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:cm-well",
+   "layer": "cmos",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "two coloured squares",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:cm-metal",
+   "layer": "cmos",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "two coloured bars",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:li-lattice",
+   "layer": "litho",
+   "kind": "prop",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "dot grid; make it a wafer/object",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bg-diagram",
+   "layer": "bandgap",
+   "kind": "anchor",
+   "verdict": "rework",
+   "rule": 1,
+   "reason": "anchor is a band diagram; redraw as a place/instrument",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bg-tunnel",
+   "layer": "bandgap",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "abstract bar",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bg-wave",
+   "layer": "bandgap",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "sine wave in a box",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:bg-photonabs",
+   "layer": "bandgap",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "diagram strokes",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:la-erase",
+   "layer": "landauer",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "dot in a square",
+   "ownerDecided": false
+  },
+  {
+   "key": "e:la-heat",
+   "layer": "landauer",
+   "kind": "prop",
+   "verdict": "delete",
+   "rule": 1,
+   "reason": "abstract bars",
+   "ownerDecided": false
+  },
+  {
+   "key": "c:runtime:core",
+   "layer": "runtime",
+   "kind": "critter",
+   "verdict": "rework",
+   "rule": 9,
+   "reason": "body under 6x6",
+   "ownerDecided": false
+  },
+  {
+   "key": "c:vmm:core",
+   "layer": "vmm",
+   "kind": "critter",
+   "verdict": "rework",
+   "rule": 9,
+   "reason": "same silhouette as c:ept:core",
+   "ownerDecided": false
+  },
+  {
+   "key": "c:ept:core",
+   "layer": "ept",
+   "kind": "critter",
+   "verdict": "rework",
+   "rule": 9,
+   "reason": "same silhouette as c:vmm:core",
+   "ownerDecided": false
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "layer": "litho",
+ "replaces": [
+  {
+   "key": "e:li-fringe",
+   "idea": "A mounted optical diffraction grating with fine parallel ruled grooves on a small lab stand, representing optical interference."
+  },
+  {
+   "key": "e:li-dopant",
+   "idea": "A Czochralski monocrystalline silicon boule resting in a V-block cradle, representing crystal growth and impurity doping."
+  },
+  {
+   "key": "e:li-photon",
+   "idea": null
+  }
+ ],
+ "new": [
+  {
+   "id": "li-boule",
+   "name": "Silicon Boule",
+   "concept": "Czochralski monocrystalline silicon ingot",
+   "depicts": "A cylindrical violet silicon ingot with a tapered conical top and thin seed-crystal rod, resting horizontally in a dark-indigo V-block cradle.",
+   "focal": "the tapered conical seed-pull neck",
+   "size": "large",
+   "replacesKey": "e:li-dopant"
+  },
+  {
+   "id": "li-grating",
+   "name": "Ruled Grating",
+   "concept": "Optical diffraction and interference",
+   "depicts": "A small rectangular violet glass plate with fine vertical ruled grooves, clamped upright in a dark-indigo lab pedestal.",
+   "focal": "the parallel vertical diffraction grooves",
+   "size": "small",
+   "replacesKey": "e:li-fringe"
+  },
+  {
+   "id": "li-wafer-boat",
+   "name": "Wafer Boat",
+   "concept": "Batch wafer cassette carrier",
+   "depicts": "A slotted dark-indigo quartz carrier rack standing on flat feet, holding four upright circular violet silicon wafers in parallel grooves.",
+   "focal": "the row of notched wafer rims protruding from the slots",
+   "size": "medium",
+   "replacesKey": null
+  },
+  {
+   "id": "li-coater",
+   "name": "Spin Coater",
+   "concept": "Photoresist spin coating",
+   "depicts": "A squat dark-indigo cylindrical vacuum chuck holding a flat violet wafer on top, with a tiny curved dispense nozzle arm mounted on the side.",
+   "focal": "the curved dispense nozzle poised above the wafer center",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:li-lattice",
+   "redesign": "Redraw as a physical circular silicon wafer mounted on a dark-indigo chuck, with the crystal lattice grid and single pale-lavender point defect etched onto its surface."
+  },
+  {
+   "key": "c:litho:core",
+   "redesign": "Redraw with a solid body at least 6x6 px, a 1 px darkest-ink silhouette outline, and 1x1 px darkest-ink eyes so it reads as a stray EUV photon critter rather than a 5x5 speck."
+  }
+ ]
+}

@@ -1,0 +1,219 @@
+{
+ "layer": "ring-1",
+ "layerName": "VMX Root Core",
+ "daily": true,
+ "propsAlive": 11,
+ "newPropsNeeded": 8,
+ "kept": [
+  {
+   "key": "e:r1-mirrorgate",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "Two tall dark-green monitors on stands facing each other across a dotted vertical line, each displaying mirrored bar charts."
+  },
+  {
+   "key": "e:r1-bubble",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A circular green-outlined orb with a bright highlight and a dark interior containing vertical bar columns."
+  },
+  {
+   "key": "e:r1-vmcs",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Two pixelated round faces side by side, the left in medium green with dark features and the right in dark green with bright-green features."
+  },
+  {
+   "key": "e:r1-trapdoor",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A horizontal green floor line with a dark pit underneath and an angled bright-green hatch swung open upward."
+  },
+  {
+   "key": "e:r1-shadowpage",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wide pixel-art eye outlined in green with a dark pupil and a bright-green square glint."
+  },
+  {
+   "key": "e:r1-dolls",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Three nested, concentric dome-like outlines in green shades, rising from a bright-green base."
+  },
+  {
+   "key": "e:r1-mempress",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A vertical press with a flat green upper plate, a bright-green middle platen, and a lower green base."
+  },
+  {
+   "key": "e:r1-snapshot",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A dark-green camera-like box with a circular lens in the center and a small viewfinder block on top."
+  },
+  {
+   "key": "e:r1-hypercall",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Two rectangular frames stacked above and below a horizontal green bar, connected by a bright-green vertical stem."
+  },
+  {
+   "key": "e:r1-vswitch",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wide green bar with five dark square ports along its front and five vertical stalks rising from the top."
+  },
+  {
+   "key": "e:r1-iommu",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A tall dark-green pillar with four horizontal slots and a bright-green square indicator at the top."
+  },
+  {
+   "key": "c:ring-1:core",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A small bright-green creature with dark-green square eyes and a horizontal mouth, flanked by two small green side tabs."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:r1-portal",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "Four concentric glowing green rectangular frames receding inward into a dark void.",
+   "problem": "ART-STYLE rule 1: anchor is nested squares; redraw as a gate/place"
+  },
+  {
+   "key": "e:r1-migrate",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Three horizontal bars on the left trailing toward a green-framed square screen on the right.",
+   "problem": "ART-STYLE rule 1: speedline glyph on a box"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:r1-mirror",
+   "name": 1,
+   "depicts": "Two small green-rimmed screens side by side separated by a white gap, showing mirrored bar patterns.",
+   "pass": "cull",
+   "reason": "Redundant with The Symmetry Gate, depicting the same mirrored-screens concept and visual.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-tunnel",
+   "name": 1,
+   "depicts": "A dark rectangular archway framed by two nested green borders receding slightly to the right.",
+   "pass": "cull",
+   "reason": "Visually a generic nested archway that overlaps with VMENTRY Threshold.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-tag",
+   "name": "e:r1-tag",
+   "depicts": "Pixelated green text reading 'VMCS' above a thin dark-green horizontal underline.",
+   "pass": "cull",
+   "reason": "Just text on a placard; weak visual filler when Context-Switch Twins already represents VMCS.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-glass",
+   "name": 2,
+   "depicts": "A jagged, diamond-like shard of dark green glass with bright-green specular highlights.",
+   "pass": "cull",
+   "reason": "Generic glass shard filler that does not clearly communicate hypervisor isolation.",
+   "earlierIdea": "an EPT violation fault-handler badge"
+  },
+  {
+   "key": "e:r1-ept",
+   "name": 1,
+   "depicts": "Two columns of three dark-green rectangles bridged by a jagged bright-green lightning-like path.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: panel of bars",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-vcpu",
+   "name": 1,
+   "depicts": "A small square chip with pins on all four sides and a bright-green 'V' on its dark center.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: letter in a box",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-cage",
+   "name": 1,
+   "depicts": "A green-framed rectangular enclosure divided by vertical bars into dark cells.",
+   "pass": "cull",
+   "reason": "Redundant with Sandbox Sphere for representing hypervisor isolation.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-split",
+   "name": 1,
+   "depicts": "A green frame divided down the middle into two side-by-side screens on a single central stand.",
+   "pass": "cull",
+   "reason": "Visually too similar to The Symmetry Gate with its side-by-side screens.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-clone",
+   "name": 1,
+   "depicts": "Two identical green-bordered rectangles side by side, separated by a white gap with two small green dots.",
+   "pass": "cull",
+   "reason": "Visually generic pair of rectangles that overlaps with Grace Period in kernel-arch.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-timeslice",
+   "name": 2,
+   "depicts": "A narrow green hourglass with sand pooling in the upper and lower bulbs.",
+   "pass": "cull",
+   "reason": "Hourglass visual is already used by Timeout Glass in libraries and Async Promise in runtime.",
+   "earlierIdea": "a vCPU steal-time meter"
+  },
+  {
+   "key": "e:r1-nested",
+   "name": 1,
+   "depicts": "A green outer border framing a white space containing a dark-green inner border and a bright-green center block.",
+   "pass": "cull",
+   "reason": "Redundant with Matryoshka Hypervisor, which conveys nested virtualization more clearly.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-paravirt",
+   "name": 1,
+   "depicts": "Two vertical green-bordered panels\u2014one medium green, one bright green\u2014threaded along a dark horizontal bar.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: dumbbell symbol",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-vram",
+   "name": 1,
+   "depicts": "A green-framed rectangle containing three horizontal bars, with the top bar lit bright green.",
+   "pass": "cull",
+   "reason": "Generic rectangle with horizontal bars representing a minor concept compared to core VMX props.",
+   "earlierIdea": "a VM-exit reason MSR dial"
+  },
+  {
+   "key": "e:r1-vmexit",
+   "name": 1,
+   "depicts": "A bright-green upward arrow rising out of a dark-green horizontal floor line.",
+   "pass": "cull",
+   "reason": "Redundant with Trap-and-Emulate and VMENTRY Threshold for representing VM exits.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:r1-console",
+   "name": 1,
+   "depicts": "A dark-green rectangular screen with two horizontal bars of different lengths in medium and bright green.",
+   "pass": "cull",
+   "reason": "Generic screen with bars that overlaps with Teletype Terminal in userspace.",
+   "earlierIdea": null
+  }
+ ]
+}

@@ -26,13 +26,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: a UI card with coloured bars; no object reads as BGP",
+        "replacement": "A grounded cast-iron route signpost with stacked directional blades pointing toward neighboring networks.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:net-cable": {
       "name": {
@@ -42,13 +59,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 7: under 8 px tall; thicken into a cable run with connectors",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:net-dns": {
       "name": {
@@ -58,13 +92,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: a UI card; same \"panel with lines\" as net-packet and net-bgp",
+        "replacement": "A desktop rotary Rolodex on a weighted base with a side knob and fanned index cards.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:net-asn": {
       "name": {
@@ -189,13 +240,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: a UI card; indistinct from net-dns",
+        "replacement": "A tied canvas dispatch parcel with a bright wax seal resting on a small wooden sorting tray.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:net-tls": {
       "name": {
@@ -638,13 +706,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: a tree diagram, not an object (twin of the bytecode trees)",
+        "replacement": "A potted bonsai tree with tiny paper tags hanging from its branches to represent the DOM tree.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:br-css": {
       "name": {
@@ -654,13 +739,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: nested coloured rectangles; abstract",
+        "replacement": "A row of wooden nesting dolls on a plinth to represent the concentric layers of the CSS box model.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:br-layer": {
       "name": {
@@ -736,13 +838,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: white box with a green square; reads as nothing",
+        "replacement": "A sloped metal paint tray with a green-soaked roller to represent browser repaint flashing.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:br-cookie": {
       "name": {
@@ -801,13 +920,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 3: bare code panel with no outline or device",
+        "replacement": "A benchtop strip-chart recorder tracing staggered ink bars on paper tape to represent the DevTools performance timeline.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:br-app-browser": {
       "name": {
@@ -1331,13 +1467,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: generic \"panel with bars\"; indistinct from app-dialog/search/progress",
+        "replacement": "A chrome pop-up toaster with a half-ejected slice of toast representing transient toast notifications.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-spinner": {
       "name": {
@@ -1363,13 +1516,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: a bare progress-bar panel",
+        "replacement": "A mechanical four-drum odometer counter on rubber feet representing determinate progress tracking.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-icon": {
       "name": {
@@ -1412,13 +1582,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 6: floating speech-bubble glyph",
+        "replacement": "A retro desk intercom with a speaker grille and push-to-talk key representing real-time messaging.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-cloudsync": {
       "name": {
@@ -1591,13 +1778,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: unreadable dark shape with bars",
+        "replacement": "A desktop battery-pack unit with a glowing charge bar and power cord representing device power and connectivity state.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-search": {
       "name": {
@@ -1607,13 +1811,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: a bare search-field panel",
+        "replacement": "A brass-ringed magnifying loupe on a hinged desk stand over a slip representing client-side search and indexing.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-dropdown": {
       "name": {
@@ -1623,13 +1844,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: generic list panel; twin of app-dialog",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-swatches": {
       "name": {
@@ -1705,13 +1943,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 3: no outline; give the player a device/frame",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-download": {
       "name": {
@@ -1949,13 +2204,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: tree diagram; twin of bc-parsetree and bc-cfg",
+        "replacement": "A pruned geometric bonsai tree in a ceramic tray whose stepped trunk splits into distinct leaf-pad canopies.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bc-token": {
       "name": {
@@ -2031,13 +2303,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: flat bar of coloured squares",
+        "replacement": "A tabletop cast-iron paper guillotine slicing a continuous paper ribbon into discrete coloured chits.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bc-cfg": {
       "name": {
@@ -2047,13 +2336,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: flow diagram; third tree-diagram in the layer",
+        "replacement": "A wall-mounted railway signal-box lever frame with two brass-handled switch levers above a diverging track plate.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bc-rt-objects": {
       "name": {
@@ -2591,13 +2897,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: dark panel with one square; abstract",
+        "replacement": "A wall-mounted dark indigo plaque with a brass hook holding a single glowing gold key ready for immediate reuse.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:jit-deopt": {
       "name": {
@@ -2607,13 +2930,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: box with an X; make it a recognisable object",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:jit-profile": {
       "name": {
@@ -2656,13 +2996,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 6: floating bar-and-block symbol",
+        "replacement": "A grounded cast-iron railway switch stand with a weighted orange-and-yellow throw lever angled between two converging track rails.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:jit-guard": {
       "name": {
@@ -3494,13 +3851,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: three-box diagram, under 8 px, no outline",
+        "replacement": "A three-lens signal lantern on a short iron post with dark, grey, and glowing white lenses.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-bump": {
       "name": {
@@ -3510,13 +3884,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: flat bar; reads as nothing",
+        "replacement": "A counter-mounted spring-loaded ticket dispenser with a brass pointer arm advancing along a paper roll.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-finalizer": {
       "name": {
@@ -3574,13 +3965,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: connector diagram floating in air",
+        "replacement": "A wide cast-iron key-duplicating board on floor legs with brass key blanks hanging on numbered hooks.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-closure": {
       "name": {
@@ -3852,13 +4260,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 8: plain box with squares; needs a focal detail",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:runtime:core": {
       "name": {
@@ -4568,13 +4993,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: UI card with bars",
+        "replacement": "An upright cylindrical steel dispatch canister with a riveted dark-blue header collar and a hinged brass clasp.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ld-plt": {
       "name": {
@@ -4584,13 +5026,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: abstract panel",
+        "replacement": "A small bakelite terminal block with two brass binding posts bridged by an arched copper jumper bar.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ld-reloc": {
       "name": {
@@ -5177,13 +5636,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: panel of lines",
+        "replacement": "A wall-mounted dark iron key-rack with four rows of brass hooks and one bright yellow key hanging on the second row.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ld-soname": {
       "name": {
@@ -5388,13 +5864,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 2: a word in a box (\"UDEV\")",
+        "replacement": "A floor-standing cast-iron teleprinter pedestal with a glass-domed paper-tape reel feeding a continuous strip into a catch-basket.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-pipe": {
       "name": {
@@ -5404,13 +5897,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 7: under 8 px and floating; give it supports",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-tty": {
       "name": {
@@ -5420,13 +5930,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 6: floating screen; give it a terminal body/stand",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-crontower": {
       "name": {
@@ -5500,13 +6027,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 2: big number plate; text carries the whole prop",
+        "replacement": "A compact cast-iron ticket dispenser on a short curb post issuing a curled paper stub for each new process.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-cabinet": {
       "name": {
@@ -5729,13 +6273,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 3: missing outline",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-container": {
       "name": {
@@ -5957,13 +6518,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: UI bars panel",
+        "replacement": "A standing brass coin-sorter box with slotted sieve plates that only let permitted syscall tokens drop through.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ke-uaccess": {
       "name": {
@@ -5973,13 +6551,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: two boxes and a connector; diagram",
+        "replacement": "A stone-and-brass customs inspection counter with a recessed pass-through tray for validating user-space parcels.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ke-sysgate": {
       "name": {
@@ -6566,13 +7161,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: two coloured squares; abstract",
+        "replacement": "A brass periscope mounted on a tripod floor stand, angled to peer into another process's workspace.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ke-cred": {
       "name": {
@@ -6648,13 +7260,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: dumbbell symbol; twin of r1-paravirt",
+        "replacement": "A curved brass pneumatic message tube mounted on wall brackets, bypassing the main gatehouse queue.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:kernel-entry:core": {
       "name": {
@@ -6761,13 +7390,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 2: truncated text (\"FUTE EXT4\") is the whole prop",
+        "replacement": "A compact teletype paper-tape printer on feet feeding a curled strip of kernel log tape.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-gauge": {
       "name": {
@@ -6859,13 +7505,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 3: missing outline",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-pagetable": {
       "name": {
@@ -6891,13 +7554,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 6: floating bell; hang it from a bracket",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-turnstile": {
       "name": {
@@ -6940,13 +7620,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 2: glyph strip that reads as text",
+        "replacement": "A compartmentalized steel parts tray on short feet holding uniform machined cylinders.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-ticker": {
       "name": {
@@ -6956,13 +7653,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: flat bar; reads as nothing",
+        "replacement": "A pyramid-shaped brass-and-iron mechanical metronome on a base with a ticked pendulum arm.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-gate": {
       "name": {
@@ -7087,13 +7801,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: panel of dots; abstract",
+        "replacement": "A desktop rotary index-card file on a stand with a side knob and a bright tabbed card flipped forward.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-schedrack": {
       "name": {
@@ -7185,13 +7916,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: UI panel with a bar",
+        "replacement": "A wall-mounted brass hourglass in a pivoting bracket with a trip-lever at the bottom.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-vfs": {
       "name": {
@@ -7201,13 +7949,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: abstract gem/cross shape",
+        "replacement": "A cast-iron pipe manifold on a stand with a red valve wheel joining four distinct branch pipes.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-futex": {
       "name": {
@@ -7250,13 +8015,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: panel of bars",
+        "replacement": "A wall-mounted mechanical annunciator board with four brass drop-flaps, one dropped to show a lit flag.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-cgroups": {
       "name": {
@@ -7266,13 +8048,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: three coloured boxes",
+        "replacement": "A riveted steel ration locker on feet divided by bolted baffles into three unequal metered compartments.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-workq": {
       "name": {
@@ -7315,13 +8114,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: panel of coloured stripes",
+        "replacement": "A stepped metal rack holding a full-width block, a half-width block, and two quarter-width blocks.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:kernel:core": {
       "name": {
@@ -7347,13 +8163,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: anchor is a panel of dots; redraw as a machine",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ka-apic": {
       "name": {
@@ -7396,13 +8229,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: panel of bars",
+        "replacement": "A standing dark-iron rotary card index (rolodex) with numbered tabs that flips to the matching interrupt handler.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ka-cr3": {
       "name": {
@@ -8021,13 +8871,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: letter H on a panel",
+        "replacement": "A twin-track railway switch lever that diverts readers onto a fresh rail while the old rail is retired.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ka-tlb": {
       "name": {
@@ -8297,13 +9164,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 7: under 8 px tall",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-nic": {
       "name": {
@@ -8541,13 +9425,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 6: floating connector symbol",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-speaker": {
       "name": {
@@ -8738,13 +9639,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: pink boxes; nothing reads as a drive",
+        "replacement": "An upright, bracket-mounted solid-state drive cartridge with a ribbed heatsink cap, a bottom edge-connector tongue, and a tiny activity LED.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:drivers:core": {
       "name": {
@@ -8770,13 +9688,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: anchor reads as a panel; redraw as a switch chassis",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bf-crossbar": {
       "name": {
@@ -8786,13 +9721,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: grid diagram",
+        "replacement": "A floor-mounted telecom patchbay cabinet with jack sockets and draped patch cords bridging inputs to outputs.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bf-dmaring": {
       "name": {
@@ -8802,13 +9754,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: concentric ring symbol",
+        "replacement": "A rotating metal carousel stand on a pedestal base with clip-on descriptor cards hanging around its rim.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bf-mmio": {
       "name": {
@@ -8818,13 +9787,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: panel of bars",
+        "replacement": "A wall-mounted pigeonhole cubby box with slot openings holding protruding register key-cards.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bf-dr-chip": {
       "name": {
@@ -9411,13 +10397,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: panel of bars; twin of bf-mmio",
+        "replacement": "A desk-mounted brass telegraph tapper on a plinth that sends interrupt pulses when pressed.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bf-lane": {
       "name": {
@@ -9460,13 +10463,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "merge",
-        "target": "e:r1-iommu",
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": null,
+        "note": "ART-STYLE rule 1: square in a square",
+        "replacement": "A standing customs tollbooth with a striped barrier arm that translates and gates DMA traffic.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "merge",
+          "target": "e:r1-iommu",
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:bus-fabric:core": {
       "name": {
@@ -9721,13 +10741,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 2: text panel (\"BOOT\") is the whole prop",
+        "replacement": "A compact phosphor-green CRT setup terminal on a pedestal base with a sloped keyboard lip and three horizontal menu bars on its screen.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-bootorder": {
       "name": {
@@ -9850,13 +10887,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 6: floats",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-reset": {
       "name": {
@@ -9898,13 +10952,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: power-button icon",
+        "replacement": "A standing contactor relay housing with a visible coil and a pivoted mechanical armature bar bridging its top contacts.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-ucode": {
       "name": {
@@ -10159,13 +11230,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: anchor is a UI panel; redraw as a machine",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:vmm-virtio": {
       "name": {
@@ -10175,13 +11263,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: abstract two-ring glyph",
+        "replacement": "A twin-roller conveyor bench with a continuous notched belt loop carrying crates, representing a shared paravirtualized virtqueue.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:vmm-ghostcard": {
       "name": {
@@ -10849,13 +11954,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: panel of lines",
+        "replacement": "A chunky upright ROM cartridge with a ribbed top grip on a bevelled base, representing virtual guest firmware.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:vmm:core": {
       "name": {
@@ -10865,13 +11987,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 9: same silhouette as c:ept:core",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-mirrorgate": {
       "name": {
@@ -10897,13 +12036,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: anchor is nested squares; redraw as a gate/place",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-mirror": {
       "name": {
@@ -11061,13 +12217,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: panel of bars",
+        "replacement": "A two-stage geared translation machine on a pedestal with two meshed index wheels.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-vcpu": {
       "name": {
@@ -11077,13 +12250,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: letter in a box",
+        "replacement": "A socketed processor cartridge with vertical heatsink fins seated in a floor-mounted dock.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-vmcs": {
       "name": {
@@ -11173,13 +12363,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: speedline glyph on a box",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-snapshot": {
       "name": {
@@ -11418,13 +12625,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: dumbbell symbol",
+        "replacement": "A bench-mounted twin-housing belt-drive chute passing capsules between guest and host.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-vram": {
       "name": {
@@ -11549,13 +12773,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: anchor is a grid; redraw as a place",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ept-grid": {
       "name": {
@@ -11565,13 +12806,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: grid diagram",
+        "replacement": "A freestanding two-tier slate-and-brass mail-sorting cabinet on stubby feet with one glowing mint-green parcel, representing two-dimensional EPT guest-to-host page translation.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ept-vtd": {
       "name": {
@@ -11581,13 +12839,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: bars",
+        "replacement": "A bolted iron railway switchstand with a weighted hand lever and semaphore target plate that gates DMA tracks into physical memory.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ept-r1-mirror": {
       "name": {
@@ -12239,13 +13514,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 6: floating diagonal; ground it",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:ept:core": {
       "name": {
@@ -12257,11 +13549,28 @@
       "decision": {
         "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 9: same silhouette as c:vmm:core",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "rework",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-clocktower": {
       "name": {
@@ -12385,13 +13694,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 2: a word in a box (\"SMI4\")",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-rain": {
       "name": {
@@ -12760,13 +14086,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 7: under 8 px wide",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-pause": {
       "name": {
@@ -12858,13 +14201,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 6: floats (fine if it is falling: make that legible)",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-spark": {
       "name": {
@@ -12874,13 +14234,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: free-floating sparkle glyph",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-prism": {
       "name": {
@@ -12954,13 +14331,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: panel of lines",
+        "replacement": "A stout steel safe-deposit drawer on a low base with four tabbed metal index plates protruding from the top, representing the CPU register snapshot saved on SMI entry.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:sm-r2-debris": {
       "name": {
@@ -13579,13 +14973,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: a single bar",
+        "replacement": "A tall riveted steel vault bulkhead bolted to the floor, marking the TSEG protected memory boundary carved out at the top of memory.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:sm-lockbit": {
       "name": {
@@ -13676,13 +15087,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 6: floats",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-trace": {
       "name": {
@@ -13939,13 +15367,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: abstract ringed shape",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-ringosc": {
       "name": {
@@ -13987,13 +15432,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: capacitor schematic symbol",
+        "replacement": "A compact benchtop frequency-multiplier unit on rubber feet with a spinning rotor behind a circular sight-glass and two side coax jacks.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-jtag": {
       "name": {
@@ -14036,13 +15498,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 2: a word in a box (\"ROM\")",
+        "replacement": "A sealed ceramic DIP package with gold-plated legs standing upright in a dark socket, representing immutable mask-programmed boot ROM.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-htree": {
       "name": {
@@ -14198,13 +15677,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 7: a bar under 8 px",
+        "replacement": "A small standing pulse-generator box on four feet with a single BNC output post on the right and a glowing indicator pip.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-fiducial": {
       "name": {
@@ -14295,13 +15791,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: UI panel",
+        "replacement": "A brass out-of-band intercom box on stubby feet with a perforated speaker grille, a toggle switch, and a glowing amber lamp.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:mx-tinycity": {
       "name": {
@@ -14344,13 +15857,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: two squares",
+        "replacement": "A hand-crank brass starter box on a base with two jumper-clamp electrodes on top for restarting stalled servers.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:mx-us-tower": {
       "name": {
@@ -14937,13 +16467,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: letter H on a panel",
+        "replacement": "A brass three-way pipe manifold on a floor flange with a round pressure gauge and two braided hoses.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:mx-tinytower": {
       "name": {
@@ -15002,13 +16549,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: anchor is a diagram; redraw as a place",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:mk-ipc": {
       "name": {
@@ -15018,13 +16582,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: bracket-connector symbol",
+        "replacement": "A brass-and-copper pneumatic tube dispatch terminal with a cylindrical message canister visible inside a glass window.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:mk-arc": {
       "name": {
@@ -15643,13 +17224,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: ring symbol",
+        "replacement": "A wall-mounted mahogany-and-brass annunciator box with a hinged metal flag dropped down to reveal an amber target.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:mk-grant": {
       "name": {
@@ -15659,13 +17257,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: bracket-connector symbol; twin of mk-ipc",
+        "replacement": "A hexagonal brass passkey token resting upright in a slotted dark-iron stand, stamped with a keyhole notch.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:mk-fused": {
       "name": {
@@ -15724,13 +17339,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: anchor is a pipeline diagram; redraw as a machine/factory line",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ua-rob": {
       "name": {
@@ -15740,13 +17372,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: bars",
+        "replacement": "A tabletop brass ticket-rail stand holding hanging numbered metal clips that release out-of-order work cards in strict sequence.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ua-bpred": {
       "name": {
@@ -15756,13 +17405,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: branch diagram, floating",
+        "replacement": "A floor-mounted railway switch stand with a throw lever and a two-aspect semaphore paddle.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ua-l1": {
       "name": {
@@ -15772,13 +17438,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: grid of squares",
+        "replacement": "A compact steel desk-side cabinet on short legs with three shallow, pull-out brass-handled drawers.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ua-alu": {
       "name": {
@@ -15788,13 +17471,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: ALU schematic symbol",
+        "replacement": "A heavy cast-iron mechanical arithmometer with stepped number wheels and a side hand crank.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ua-r3-vias": {
       "name": {
@@ -16464,13 +18164,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: anchor is an H-tree diagram; redraw as a place",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rtl-nand": {
       "name": {
@@ -16480,13 +18197,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: gate schematic symbol",
+        "replacement": "A squat cast-iron bench press with two top input levers that stamp down to pop a single spring-loaded output plunger on the right.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rtl-dff": {
       "name": {
@@ -16496,13 +18230,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: flip-flop schematic symbol",
+        "replacement": "A small upright brass-and-slate mechanical flip-card box with a side crank and a hinged front shutter that snaps open on each tick.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rtl-wave": {
       "name": {
@@ -16512,13 +18263,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: waveform glyph",
+        "replacement": "A compact benchtop logic analyzer with a recessed CRT screen showing two stepped square-wave traces and three probe jacks.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rtl-r3-vias": {
       "name": {
@@ -17072,13 +18840,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: mux schematic symbol",
+        "replacement": "A floor-mounted railway-style signal switch box with two input rails on the left, a selector lever on top, and one output rail on the right.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rtl-adder": {
       "name": {
@@ -17235,13 +19020,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: two coloured squares",
+        "replacement": "A divided dual-basin silicon bath on short feet, with one purple basin and one orange basin separated by a raised teal divider wall.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:cm-r3-vias": {
       "name": {
@@ -17861,13 +19663,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: two coloured bars",
+        "replacement": "A stepped three-tier rack of parallel metal rails bolted to two upright porcelain insulator posts.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:cmos:core": {
       "name": {
@@ -17958,13 +19777,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: dot grid; make it a wafer/object",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:li-dopant": {
       "name": {
@@ -18632,13 +20468,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "rework",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: anchor is a band diagram; redraw as a place/instrument",
+        "replacement": null,
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bg-band": {
       "name": {
@@ -18681,13 +20534,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: abstract bar",
+        "replacement": "A thick quartz barrier wall on a base with a glowing cyan bead embedded halfway through its face.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bg-wave": {
       "name": {
@@ -18697,13 +20567,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: sine wave in a box",
+        "replacement": "A glass-walled laboratory wave tank on four stubby legs with a brass crank and a standing cyan ripple inside.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bg-r3-vias": {
       "name": {
@@ -19273,13 +21160,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: diagram strokes",
+        "replacement": "A brass-mounted crystal prism on a pedestal with a tiny upper shelf holding a lifted cyan bead.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bg-recomb": {
       "name": {
@@ -19997,13 +21901,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: dot in a square",
+        "replacement": "A hinged accordion bellows standing on its nozzle base, representing phase-space compression during irreversible bit erasure.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:la-heat": {
       "name": {
@@ -20013,13 +21934,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "ART-STYLE rule 1: abstract bars",
+        "replacement": "A bulb thermometer mounted on a metal backing plate, representing the kT ln 2 waste heat of computation.",
+        "by": "art"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T16:07:36.894064Z",
+      "beforeArt": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:la-lonebit": {
       "name": {

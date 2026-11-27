@@ -1,0 +1,96 @@
+{
+ "layer": "ring-2",
+ "replaces": [
+  {
+   "key": "e:r2-debris",
+   "idea": null
+  },
+  {
+   "key": "e:r2-shards",
+   "idea": "A short iron picket fence bolted to a baseplate with a central clasp, representing the SMM TSEG memory boundary."
+  },
+  {
+   "key": "e:r2-tag",
+   "idea": null
+  },
+  {
+   "key": "e:r2-rain",
+   "idea": null
+  },
+  {
+   "key": "e:r2-pendulum",
+   "idea": null
+  },
+  {
+   "key": "e:r2-smoke",
+   "idea": "A round wall-mounted pressure gauge with its needle frozen at the redline, representing a frozen CPU thermal-throttle state."
+  },
+  {
+   "key": "e:r2-ripple",
+   "idea": "A freestanding wooden pegboard with numbered hooks, representing an SMI handler jump table."
+  },
+  {
+   "key": "e:r2-book",
+   "idea": null
+  },
+  {
+   "key": "e:r2-bubbles",
+   "idea": null
+  },
+  {
+   "key": "e:r2-flame",
+   "idea": "A wall-mounted toggle latch on a backplate with its lever snapped into the locked-down notch, representing an SMI# pin-assertion latch."
+  },
+  {
+   "key": "e:r2-drop",
+   "idea": null
+  },
+  {
+   "key": "e:r2-leaf",
+   "idea": "A thick bound ledger lying flat on a stand with a metal corner-clasp holding it shut, representing the saved-state SMRAM map."
+  }
+ ],
+ "new": [
+  {
+   "id": "r2-tseg-fence",
+   "name": "TSEG Barricade",
+   "concept": "SMM TSEG (Top Segment) protected memory boundary",
+   "depicts": "A short iron picket fence with three vertical posts bolted to a flat baseplate and a horizontal crossbar.",
+   "focal": "A heavy clasp bolted across the center rail.",
+   "size": "medium",
+   "replacesKey": "e:r2-shards"
+  },
+  {
+   "id": "r2-smi-latch",
+   "name": "SMI Pin Latch",
+   "concept": "SMI# pin assertion and hardware latch",
+   "depicts": "A wall-mounted toggle latch on a rectangular backplate with a spring-loaded lever.",
+   "focal": "The lever snapped into the locked-down notch.",
+   "size": "small",
+   "replacesKey": "e:r2-flame"
+  },
+  {
+   "id": "r2-smram-ledger",
+   "name": "SMRAM Ledger",
+   "concept": "SMRAM saved-state map",
+   "depicts": "A small thick bound ledger lying flat on a stand with a ribbon bookmark sticking out.",
+   "focal": "A metal corner-clasp holding the cover shut.",
+   "size": "small",
+   "replacesKey": "e:r2-leaf"
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:r2-coin",
+   "redesign": "Redraw the coin standing on edge inside a small slotted coin-stand so it is at least 8 px wide and grounded on a base."
+  },
+  {
+   "key": "e:r2-feather",
+   "redesign": "Redraw the feather resting on a small stone plinth or caught in a downward-tilted fall with a clear ground shadow-line beneath it."
+  },
+  {
+   "key": "e:r2-spark",
+   "redesign": "Replace the free-floating sparkle glyph with a small brass-style spark-gap post mounted on a ceramic baseplate."
+  }
+ ]
+}

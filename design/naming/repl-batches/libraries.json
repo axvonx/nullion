@@ -1,0 +1,213 @@
+{
+ "layer": "libraries",
+ "layerName": "Libraries",
+ "daily": true,
+ "propsAlive": 14,
+ "newPropsNeeded": 5,
+ "kept": [
+  {
+   "key": "e:lib-aisle",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "Two towering five-shelf wooden bookcases packed with gold-banded volumes, flanking a rolling ladder suspended from an overhead rail."
+  },
+  {
+   "key": "e:lib-press",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A grey iron screw press with a side gear wheel lowering a platen onto a cream signature marked with brown text bars."
+  },
+  {
+   "key": "e:lib-catalogue",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wooden three-by-three drawer chest on legs with brass pulls, two lower drawers slid open to reveal cream index stock."
+  },
+  {
+   "key": "e:lib-spool",
+   "kind": "prop",
+   "name": "e:lib-spool",
+   "depicts": "A wooden bobbin wound with red thread, paying out a bright-tipped horizontal strand to the right."
+  },
+  {
+   "key": "e:lib-cart",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A two-tier grey metal book trolley on spoked wheels, loaded with colourful gold-banded volumes."
+  },
+  {
+   "key": "e:lib-crates",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "Three stacked brown wooden shipping crates with diagonal slats, each stencilled with .C in cream lettering."
+  },
+  {
+   "key": "e:lib-loom",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wooden frame loom strung with vertical red and blue warp threads, a grey heddle bar, and a yellow shuttle passing across."
+  },
+  {
+   "key": "e:lib-archive",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wooden filing unit with a closed upper drawer above an open lower tray holding upright white and cream tabbed folders."
+  },
+  {
+   "key": "e:lib-tangle",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A framed dark pinboard with five pale nodes linked by crossing red, yellow, and brown threads."
+  },
+  {
+   "key": "e:lib-lectern",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wooden pedestal lectern supporting an open cream reference volume with grey text blocks on both pages."
+  },
+  {
+   "key": "e:lib-stamp",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A purple ink pad beside a tiered wooden rubber stamp hovering above a cream slip bearing a fresh purple impression."
+  },
+  {
+   "key": "e:lib-globe",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A small blue-and-green terrestrial globe mounted in a yellow brass meridian ring on a stepped wooden stand."
+  },
+  {
+   "key": "e:lib-codex",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A heavy dark-brown leather codex with golden side clasps and a cream cover plate bearing two dark grey title bars."
+  },
+  {
+   "key": "e:lib-scales",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A yellow brass balance scale on a wooden base with two level brown weighing pans suspended by grey chains."
+  },
+  {
+   "key": "e:lib-hourglass",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wooden-framed glass hourglass with pale sand in the upper bulb and a fuller pile of bright yellow sand below."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:lib-inkwell",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A dark grey square ink bottle with a silver collar and a three-pixel pale yellow quill leading toward a detached yellow pixel at top right.",
+   "problem": ""
+  },
+  {
+   "key": "c:libraries:core",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A tiny square-bodied critter with dark eyes, corner ear-tabs, and an open miniature book balanced on its head, in tan, pale blue, and dusty rose variants.",
+   "problem": "looks like a sentient gourd. book head is unclear"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:lib-shelf",
+   "name": 1,
+   "depicts": "A single wooden shelf section holding colourful gold-banded volumes and one leaning olive book, shown in narrow and wide widths.",
+   "pass": "cull",
+   "reason": "Redundant smaller version of the towering bookcases already shown in The Include Aisle.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:lib-ladder",
+   "name": 1,
+   "depicts": "A tall angled wooden rolling ladder with pale rungs and grey iron rail hooks at the top and feet.",
+   "pass": "cull",
+   "reason": "Generic rolling ladder already depicted as part of The Include Aisle.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:lib-lamp",
+   "name": "e:lib-lamp",
+   "depicts": "A classic green-shaded banker's desk lamp with a brass stem, a tiny yellow pull-chain pixel, and a dark wooden base.",
+   "pass": "cull",
+   "reason": "Generic library desk filler whose syntax-highlighting concept does not fit the libraries layer.",
+   "earlierIdea": "a dynamic-linker cache index (ld.so.cache)"
+  },
+  {
+   "key": "e:lib-thread",
+   "name": 1,
+   "depicts": "Two orange square endpoints joined by a sagging dotted brown line carrying a bright yellow pulse along its span.",
+   "pass": "cull",
+   "reason": "Visually abstract dotted line that overlaps with Linker Loom and Thread Bobbin.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:lib-plaque",
+   "name": 1,
+   "depicts": "A wooden aisle plaque inlaid with bright yellow brass lettering, shown in two text variants reading LIBDL and LIBZ.",
+   "pass": "cull",
+   "reason": "Duplicates the SONAME Tag concept already present in the linker layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:lib-card",
+   "name": 1,
+   "depicts": "A single cream index card with a red top rule, two olive-grey text lines, and a dark drop shadow.",
+   "pass": "cull",
+   "reason": "Generic index card filler that is weaker than Symbol Catalogue.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:lib-pile",
+   "name": 1,
+   "depicts": "A small uneven stack of four horizontal hardcover books in green, purple, and brown with cream page edges.",
+   "pass": "cull",
+   "reason": "Generic stack of books that adds no distinct concept beyond The Include Aisle.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:lib-scroll",
+   "name": 1,
+   "depicts": "An unrolled cream parchment scroll between two wooden rollers, showing three olive-grey lines of text with a red mark on the top line.",
+   "pass": "cull",
+   "reason": "Generic parchment scroll filler with a weak legacy-changelog concept.",
+   "earlierIdea": "a pkg-config metadata tag"
+  },
+  {
+   "key": "e:lib-magnifier",
+   "name": 1,
+   "depicts": "A grey-rimmed magnifying glass with a wooden handle hovering over four olive-grey lines of text on a cream page.",
+   "pass": "cull",
+   "reason": "Generic magnifying-glass prop that is weaker than Symbol Catalogue for symbol inspection.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:lib-pigeon",
+   "name": 1,
+   "depicts": "A wooden four-by-three pigeonhole cabinet with nine cubbies holding cream or white stacks of slips and three empty black slots.",
+   "pass": "cull",
+   "reason": "Duplicates the Hash Map bucket concept already represented in the runtime layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:lib-desk",
+   "name": "e:lib-desk",
+   "depicts": "A wooden reading table holding a pale book and a teal box, paired with a tall-backed wooden chair on the right.",
+   "pass": "cull",
+   "reason": "Generic reading table and chair filler with a weak linkage-context concept.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:lib-bookmark",
+   "name": 1,
+   "depicts": "A crimson-bound book face with a cream panel and a bright yellow ribbon bookmark hanging past the bottom edge.",
+   "pass": "cull",
+   "reason": "Generic book-face prop that is weaker than The Libc Codex.",
+   "earlierIdea": null
+  }
+ ]
+}

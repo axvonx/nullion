@@ -1,0 +1,91 @@
+{
+ "layer": "ept",
+ "replaces": [
+  {
+   "key": "e:ept-grid",
+   "idea": "A freestanding two-tier slate-and-brass mail-sorting cabinet on stubby feet with one glowing mint-green parcel, representing two-dimensional EPT guest-to-host page translation."
+  },
+  {
+   "key": "e:ept-vtd",
+   "idea": "A bolted iron railway switchstand with a weighted hand lever and semaphore target plate that gates DMA tracks into physical memory."
+  },
+  {
+   "key": "e:ept-pte",
+   "idea": "A cylindrical pneumatic-tube dispatch canister on a cradle stand with a glowing status band, representing a posted-interrupt descriptor."
+  },
+  {
+   "key": "e:ept-dirty",
+   "idea": "A wall-mounted mechanical ticker-tape register with twin brass spools and a notched paper strip, representing an IOMMU fault log."
+  }
+ ],
+ "new": [
+  {
+   "id": "ept-pigeonhole",
+   "name": "Two-Level Mail Sorter",
+   "concept": "Extended Page Table (EPT) 2D address translation",
+   "depicts": "A freestanding slate-and-brass mail-sorting cabinet on four stubby feet with two stacked tiers of cubbies and one glowing mint-green parcel",
+   "focal": "the glowing mint-green parcel in the lower-right cubby",
+   "size": "medium",
+   "replacesKey": "e:ept-grid"
+  },
+  {
+   "id": "ept-switchstand",
+   "name": "DMA Switchstand",
+   "concept": "Intel VT-d / IOMMU DMA remapping",
+   "depicts": "A grounded iron railway switchstand bolted to a baseplate with a tall weighted lever and a slotted semaphore target plate",
+   "focal": "the slotted semaphore target plate",
+   "size": "large",
+   "replacesKey": "e:ept-vtd"
+  },
+  {
+   "id": "ept-canister",
+   "name": "Interrupt Canister",
+   "concept": "Posted-Interrupt Descriptor",
+   "depicts": "A cylindrical pneumatic-tube dispatch canister resting on a cradle stand with a brass end-cap and a glowing mint-green status band",
+   "focal": "the glowing mint-green status band",
+   "size": "small",
+   "replacesKey": "e:ept-pte"
+  },
+  {
+   "id": "ept-fault-reel",
+   "name": "Fault Tape Reel",
+   "concept": "IOMMU fault log",
+   "depicts": "A wall-mounted mechanical ticker-tape register with two brass spools and a short strip of notched paper tape hanging down",
+   "focal": "the notched paper tape strip",
+   "size": "small",
+   "replacesKey": "e:ept-dirty"
+  },
+  {
+   "id": "ept-tlb-stamp",
+   "name": "Cached Address Stamp",
+   "concept": "EPT / IOMMU Translation Lookaside Buffer (TLB)",
+   "depicts": "A wooden-handled rubber desk stamp resting in a shallow ink-pad tray on a small pedestal",
+   "focal": "the mint-green ink pad",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "ept-root-plaque",
+   "name": "Root Pointer Plaque",
+   "concept": "EPTP (Extended Page Table Pointer) & IOMMU Root Table",
+   "depicts": "A heavy bolted iron wall plaque with four corner rivets and a raised mint-green keyhole slot in the center",
+   "focal": "the raised mint-green keyhole slot",
+   "size": "medium",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:ept-matrix",
+   "redesign": "Redraw as a grounded twin-towered gatehouse bridged by a catwalk with glowing mint-green signal lamps."
+  },
+  {
+   "key": "e:ept-walker",
+   "redesign": "Ground the four stepping blocks as a solid stone staircase with a mint-green lantern resting on the bottom step."
+  },
+  {
+   "key": "c:ept:core",
+   "redesign": "Reshape into a squat hexagonal beetle-like translation bug with two 1x1 dark-ink eyes and a notched mint-green carapace."
+  }
+ ]
+}

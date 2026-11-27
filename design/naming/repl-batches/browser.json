@@ -1,0 +1,88 @@
+{
+ "layer": "browser",
+ "layerName": "Browser / Compositor",
+ "daily": false,
+ "propsAlive": 1,
+ "newPropsNeeded": 7,
+ "kept": [
+  {
+   "key": "e:br-viewport",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A large framed browser window with a dark navy border, drop shadow, white active tab, blue hero rectangle above five grey text lines, and a tall beige sidebar."
+  },
+  {
+   "key": "e:br-cookie",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A round golden-ochre pixel biscuit dotted with four dark-grey square chips."
+  }
+ ],
+ "rework": [
+  {
+   "key": "c:browser:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny hollow square (blue in v0, green in v2) with a two-pixel orange tab on its upper-right corner, sitting inside a mostly empty 26x22 frame.",
+   "problem": ""
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:br-dom",
+   "name": 2,
+   "depicts": "Four coloured rectangular nodes (blue root, green and orange children, purple grandchild) connected by stepped dark-grey branches.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: a tree diagram, not an object (twin of the bytecode trees)",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:br-css",
+   "name": "e:br-css",
+   "depicts": "Four concentric nested rectangles in orange, green, blue, and white matching the DevTools CSS box-model diagram.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: nested coloured rectangles; abstract",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:br-layer",
+   "name": 1,
+   "depicts": "Three overlapping dark-bordered rectangular panes stepped diagonally forward from pale blue-grey to white.",
+   "pass": "cull",
+   "reason": "Visually and conceptually overlaps with Z-Order Pileup in the application layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:br-tab",
+   "name": 1,
+   "depicts": "A pale grey browser tab strip with a raised white active tab containing a blue bar beside a muted grey inactive tab.",
+   "pass": "cull",
+   "reason": "Generic browser chrome already depicted inside the viewport anchor and too thin for its own page.",
+   "earlierIdea": "a CORS preflight gate"
+  },
+  {
+   "key": "e:br-paint",
+   "name": 1,
+   "depicts": "A dark-framed white rectangle with a bright green patch flashing in its lower-right quadrant, like a DevTools paint-flash overlay.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: white box with a green square; reads as nothing",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:br-canvas",
+   "name": "e:br-canvas",
+   "depicts": "A dark-framed white rectangle containing a red circle overlapping a blue square.",
+   "pass": "cull",
+   "reason": "Visually generic red circle on blue square that lacks a strong computing-trivia hook.",
+   "earlierIdea": "a shadow DOM boundary"
+  },
+  {
+   "key": "e:br-devtools",
+   "name": 1,
+   "depicts": "A dark-slate console panel displaying three staggered horizontal timing bars in green, blue, and orange.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 3: bare code panel with no outline or device",
+   "earlierIdea": null
+  }
+ ]
+}

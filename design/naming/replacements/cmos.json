@@ -1,0 +1,100 @@
+{
+ "layer": "cmos",
+ "replaces": [
+  {
+   "key": "e:cm-via",
+   "idea": null
+  },
+  {
+   "key": "e:cm-well",
+   "idea": "A divided dual-basin silicon bath on short feet, with one purple basin and one orange basin separated by a raised teal divider wall."
+  },
+  {
+   "key": "e:cm-nwell",
+   "idea": null
+  },
+  {
+   "key": "e:cm-contact",
+   "idea": "A thick copper busbar mounted on two insulator blocks with a jagged electromigration void eaten out of its top edge."
+  },
+  {
+   "key": "e:cm-metal",
+   "idea": "A stepped three-tier rack of parallel metal rails bolted to two upright porcelain insulator posts."
+  }
+ ],
+ "new": [
+  {
+   "id": "cm-tub",
+   "name": "Complementary Tub",
+   "concept": "Complementary N-well and P-well CMOS substrate isolation",
+   "depicts": "A divided ceramic-and-silicon dual-basin bath standing on four short feet, with a purple-tinted left basin and an orange-tinted right basin separated by a raised teal divider wall.",
+   "focal": "The raised teal isolation wall dividing the two differently tinted basins.",
+   "size": "medium",
+   "replacesKey": "e:cm-well"
+  },
+  {
+   "id": "cm-void",
+   "name": "Electromigration Void",
+   "concept": "Electromigration voiding in a high-current metal interconnect",
+   "depicts": "A thick orange copper busbar mounted on two dark insulator blocks, with a jagged dark-ink pit eaten out of its top edge.",
+   "focal": "The jagged dark void notch carved into the busbar's upper edge.",
+   "size": "small",
+   "replacesKey": "e:cm-contact"
+  },
+  {
+   "id": "cm-busbar",
+   "name": "Metal Busbar Rack",
+   "concept": "Multi-layer metal routing and inter-layer dielectric spacing",
+   "depicts": "A stepped three-tier rack of parallel copper and purple metal rails bolted to two upright porcelain insulator posts.",
+   "focal": "The stacked metal rails separated by air-gap spacers between the upright posts.",
+   "size": "medium",
+   "replacesKey": "e:cm-metal"
+  },
+  {
+   "id": "cm-probe",
+   "name": "Wafer Microprobe",
+   "concept": "Wafer-level microprobe contact testing",
+   "depicts": "A miniature brass-and-steel needle probe arm angled down from a weighted benchtop stand onto a tiny silicon pad.",
+   "focal": "The fine needle tip touching the silicon pad.",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "cm-cmp",
+   "name": "Planarizing Platen",
+   "concept": "Chemical-mechanical planarization (CMP) of metal and dielectric layers",
+   "depicts": "A heavy circular polishing platen on a squat pedestal with a rotating spindle arm pressing a wafer carrier disk flat against its teal pad.",
+   "focal": "The flat wafer carrier disk pressed against the circular polishing pad.",
+   "size": "large",
+   "replacesKey": null
+  },
+  {
+   "id": "cm-mask",
+   "name": "Quartz Reticle",
+   "concept": "Photolithography photomask / reticle",
+   "depicts": "A framed quartz glass plate standing upright in a slotted dark-metal easel, etched with a tiny crisp grid pattern.",
+   "focal": "The etched grid pattern inside the upright glass frame.",
+   "size": "small",
+   "replacesKey": null
+  },
+  {
+   "id": "cm-capacitor",
+   "name": "Dielectric Sandwich",
+   "concept": "Metal-insulator-metal (MIM) decoupling and parasitic capacitance",
+   "depicts": "Two parallel metal plates clamped upright in a dark ceramic base, separated by a thin glowing teal dielectric slab.",
+   "focal": "The thin teal dielectric slab sandwiched between the two upright plates.",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "c:cmos:core",
+   "redesign": "Redraw as a 6x6+ scuttling orange copper-clad beetle with a solid 1 px dark-ink outline, two 1x1 px dark eyes, and short side legs."
+  },
+  {
+   "key": "c:cmos:alt",
+   "redesign": "Redraw as a 6x6+ teal silicon mite with a solid 1 px dark-ink outline, two 1x1 px dark eyes, and a short attached tail."
+  }
+ ]
+}

@@ -1,0 +1,214 @@
+{
+ "layer": "userspace",
+ "layerName": "OS userspace",
+ "daily": true,
+ "propsAlive": 14,
+ "newPropsNeeded": 3,
+ "kept": [
+  {
+   "key": "e:us-skyline",
+   "kind": "anchor",
+   "name": "e:us-skyline",
+   "depicts": "Four dark-blue skyscrapers dotted with yellow and cyan lit windows, one topped by a spire and another by a cyan rooftop tank."
+  },
+  {
+   "key": "e:us-pid1",
+   "kind": "anchor",
+   "name": "e:us-pid1",
+   "depicts": "A tall grey observation tower with two catwalks, yellow and cyan windows, and a glowing green beacon at its summit."
+  },
+  {
+   "key": "e:us-manifold",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A grey horizontal pipe manifold fitted with four square sight-glass ports glowing cyan and green."
+  },
+  {
+   "key": "e:us-crontower",
+   "kind": "prop",
+   "name": "e:us-crontower",
+   "depicts": "A slender grey clock tower with a white clock face, black hands, three yellow windows, and a red beacon on top."
+  },
+  {
+   "key": "e:us-socket",
+   "kind": "prop",
+   "name": "e:us-socket",
+   "depicts": "A grey two-prong plug hovering beside a dark-grey two-hole receptacle."
+  },
+  {
+   "key": "e:us-shm",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A cyan water-tower tank with a pale-cyan level window resting on a cross-braced grey steel trestle."
+  },
+  {
+   "key": "e:us-signal",
+   "kind": "prop",
+   "name": "e:us-signal",
+   "depicts": "A tall grey flagpole flying a waving two-tone red pennant."
+  },
+  {
+   "key": "e:us-mailbox",
+   "kind": "prop",
+   "name": "e:us-mailbox",
+   "depicts": "A blue curbside mailbox on a grey post with a raised red flag and a black mail slot."
+  },
+  {
+   "key": "e:us-fork",
+   "kind": "prop",
+   "name": "e:us-fork",
+   "depicts": "A grey signpost splitting into two staggered green-and-white street-name blades."
+  },
+  {
+   "key": "e:us-callbox",
+   "kind": "prop",
+   "name": "e:us-callbox",
+   "depicts": "A blue emergency callbox on a dark base with a cyan indicator screen and a teal beacon light on top."
+  },
+  {
+   "key": "e:us-container",
+   "kind": "prop",
+   "name": "e:us-container",
+   "depicts": "A corrugated green shipping container with a grey-framed door panel on the right."
+  },
+  {
+   "key": "e:us-hydrant",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A red fire hydrant with bright-red side nozzles and cap on a dark-grey base."
+  },
+  {
+   "key": "e:us-meter",
+   "kind": "prop",
+   "name": "e:us-meter",
+   "depicts": "A square grey parking-style meter on a post with a black face and a glowing green rectangular readout."
+  },
+  {
+   "key": "c:userspace:core",
+   "kind": "critter",
+   "name": "c:userspace:core",
+   "depicts": "A small red horned creature with yellow eyes and a trailing red tail, accompanied by a floating yellow square."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:us-pipe",
+   "kind": "prop",
+   "name": "e:us-pipe",
+   "depicts": "An overhead grey horizontal conduit with two vertical drop-legs and two cyan flow indicators.",
+   "problem": "ART-STYLE rule 7: under 8 px and floating; give it supports"
+  },
+  {
+   "key": "e:us-tty",
+   "kind": "prop",
+   "name": "e:us-tty",
+   "depicts": "A grey-bezeled CRT monitor showing green text bars and a bright green block cursor on a black screen.",
+   "problem": "ART-STYLE rule 6: floating screen; give it a terminal body/stand"
+  },
+  {
+   "key": "e:us-firewall",
+   "kind": "prop",
+   "name": "e:us-firewall",
+   "depicts": "A low red-brick wall topped by four flickering yellow and red flames.",
+   "problem": "ART-STYLE rule 3: missing outline"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:us-tower",
+   "name": "e:us-tower",
+   "depicts": "A narrow blue high-rise block with lit yellow and cyan office windows, appearing in three height variants.",
+   "pass": "cull",
+   "reason": "Visually and conceptually redundant with the Process Skyline anchor.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:us-sign",
+   "name": "e:us-sign",
+   "depicts": "A black horizontal marquee bordered in magenta displaying glowing pink pixel text reading JOURNAL.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 2: a word in a box (\"UDEV\")",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:us-pidplate",
+   "name": "e:us-pidplate",
+   "depicts": "A dark-blue rectangular license plate displaying white pixel numerals reading 564.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 2: big number plate; text carries the whole prop",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:us-cabinet",
+   "name": "e:us-cabinet",
+   "depicts": "A grey three-drawer filing cabinet with dark-grey drawer fronts and yellow label strips.",
+   "pass": "cull",
+   "reason": "Generic filing cabinet filler that overlaps with the Dot-A Archive in libraries.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:us-crate",
+   "name": "e:us-crate",
+   "depicts": "A brown shipping crate strapped with a yellow band and stamped with a white-bordered grey label.",
+   "pass": "cull",
+   "reason": "Generic shipping crate that overlaps with Dot-C Crates in the libraries layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:us-busbar",
+   "name": "e:us-busbar",
+   "depicts": "A horizontal grey-framed conduit carrying two dark-blue and teal rails with yellow and cyan pulse segments.",
+   "pass": "cull",
+   "reason": "Generic horizontal conduit visually similar to Unix Pipe.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:us-journal",
+   "name": "e:us-journal",
+   "depicts": "A grey corner bracket beside four staggered horizontal log bars alternating red and dark grey.",
+   "pass": "cull",
+   "reason": "Duplicates the systemd journal concept already represented by Journal Marquee.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:us-padlock",
+   "name": "e:us-padlock",
+   "depicts": "A bright yellow rectangular padlock with a grey shackle and a vertical black keyhole.",
+   "pass": "cull",
+   "reason": "Generic padlock visual that overlaps with Sleeping Padlock in kernel and Trust Anchor in internet.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:us-antenna",
+   "name": "e:us-antenna",
+   "depicts": "A grey tripod mast topped by a blinking red beacon.",
+   "pass": "cull",
+   "reason": "Generic rooftop antenna filler; network beacons are better covered in the internet layer.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:us-billboard",
+   "name": 1,
+   "depicts": "A cyan-framed rooftop billboard on two grey legs displaying a magenta bar above a yellow bar.",
+   "pass": "cull",
+   "reason": "Generic rooftop billboard for a minor concept (MOTD).",
+   "earlierIdea": "an environment variable tag rack"
+  },
+  {
+   "key": "e:us-manhole",
+   "name": 1,
+   "depicts": "A circular grey iron manhole cover with a dark-grey rim and a black slot across the center.",
+   "pass": "cull",
+   "reason": "Overlaps with Syscall Booth for kernel entry from userspace.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:us-vent",
+   "name": "e:us-vent",
+   "depicts": "A dark-grey rectangular wall vent with three horizontal light-grey louver slats.",
+   "pass": "cull",
+   "reason": "Generic architectural vent filler; stdout/stderr is better represented by Stdout Hydrant.",
+   "earlierIdea": null
+  }
+ ]
+}

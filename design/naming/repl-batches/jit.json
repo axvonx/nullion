@@ -1,0 +1,64 @@
+{
+ "layer": "jit",
+ "layerName": "JIT & Inline Caches",
+ "daily": false,
+ "propsAlive": 1,
+ "newPropsNeeded": 6,
+ "kept": [
+  {
+   "key": "e:jit-forge",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A dark indigo rectangular furnace with an orange-and-gold hopper on top and five flickering yellow and orange flame bars inside its black firebox."
+  },
+  {
+   "key": "c:jit:core",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A tiny orange-red square ember with a bright yellow notch and a detached gold spark pixel trailing to its left."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:jit-deopt",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A dark indigo panel topped by an orange header bar with a pixelated yellow X-shaped cross in the center.",
+   "problem": "ART-STYLE rule 1: box with an X; make it a recognisable object"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:jit-ic",
+   "name": 1,
+   "depicts": "An orange-framed dark navy box holding a horizontal slate slot bar above a single centered yellow square.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: dark panel with one square; abstract",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:jit-profile",
+   "name": "e:jit-profile",
+   "depicts": "A lavender-bordered dark navy meter displaying four vertical bars, three yellow and the tallest glowing orange-red.",
+   "pass": "cull",
+   "reason": "Generic four-bar meter whose hot-path concept overlaps with the Hotspot Hearth anchor.",
+   "earlierIdea": "a megamorphic dispatch table"
+  },
+  {
+   "key": "e:jit-osr",
+   "name": 2,
+   "depicts": "A horizontal track entering in cool blue from the left, passing through a tall vertical orange-red block, and exiting in bright yellow to the right.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 6: floating bar-and-block symbol",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:jit-guard",
+   "name": "e:jit-guard",
+   "depicts": "An orange hooded housing framing a dark purple recess with a bright yellow horizontal slit, mounted on a short yellow post.",
+   "pass": "cull",
+   "reason": "Overlaps conceptually with speculative deoptimization bailout in Uncommon Trap.",
+   "earlierIdea": null
+  }
+ ]
+}

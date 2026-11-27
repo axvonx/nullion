@@ -1,0 +1,62 @@
+{
+ "layer": "smram",
+ "layerName": "SMRAM Vault (TSEG)",
+ "daily": false,
+ "propsAlive": 1,
+ "newPropsNeeded": 7,
+ "kept": [
+  {
+   "key": "e:sm-vaultdoor",
+   "kind": "anchor",
+   "name": "e:sm-vaultdoor",
+   "depicts": "A heavy grey circular vault door with a white four-spoked locking wheel in the center."
+  },
+  {
+   "key": "e:sm-dlck",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A grey square padlock with a white shackle and a black keyhole."
+  },
+  {
+   "key": "c:smram:core",
+   "kind": "critter",
+   "name": "c:smram:core",
+   "depicts": "A small floating grey rectangular core with a white-centered inner aperture."
+  }
+ ],
+ "rework": [],
+ "deleted": [
+  {
+   "key": "e:sm-savestate",
+   "name": "e:sm-savestate",
+   "depicts": "A dark rectangular register block with four horizontal bars, the top one highlighted in white.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: panel of lines",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:sm-rsm",
+   "name": "e:sm-rsm",
+   "depicts": "A dark grey square with a centered light-grey vertical rectangle.",
+   "pass": "cull",
+   "reason": "Visually unclear generic grey square that does not distinctly convey the RSM instruction.",
+   "earlierIdea": "a glowing return-to-ring-0 portal or SMI/RSM context-switch latch"
+  },
+  {
+   "key": "e:sm-tseg",
+   "name": "e:sm-tseg",
+   "depicts": "A dark horizontal bar with a centered grey inner strip.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: a single bar",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:sm-lockbit",
+   "name": "e:sm-lockbit",
+   "depicts": "A grey pedestal topped by a lighter grey square housing a black screen or aperture.",
+   "pass": "cull",
+   "reason": "Duplicates the D_LCK hardware lock bit concept already better represented by e:sm-dlck.",
+   "earlierIdea": null
+  }
+ ]
+}

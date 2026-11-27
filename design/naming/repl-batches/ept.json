@@ -1,0 +1,65 @@
+{
+ "layer": "ept",
+ "layerName": "EPT & IOMMU",
+ "daily": false,
+ "propsAlive": 1,
+ "newPropsNeeded": 6,
+ "kept": [],
+ "rework": [
+  {
+   "key": "e:ept-matrix",
+   "kind": "anchor",
+   "name": "e:ept-matrix",
+   "depicts": "Two tall dark vertical monoliths framed in green and mint green, bridged across a narrow gap by a glowing mint-green lattice of crossed paths.",
+   "problem": "ART-STYLE rule 1: anchor is a grid; redraw as a place"
+  },
+  {
+   "key": "e:ept-walker",
+   "kind": "prop",
+   "name": "e:ept-walker",
+   "depicts": "Four rectangular blocks stepping diagonally downward from top-left to bottom-right, three dark green leading to one bright mint-green leaf block.",
+   "problem": "ART-STYLE rule 6: floating diagonal; ground it"
+  },
+  {
+   "key": "c:ept:core",
+   "kind": "critter",
+   "name": 2,
+   "depicts": "A small plain grey horizontal rectangle containing two empty square windows centered on a mostly blank canvas.",
+   "problem": "ART-STYLE rule 9: same silhouette as c:vmm:core"
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:ept-grid",
+   "name": "e:ept-grid",
+   "depicts": "A green-bordered four-by-three grid of dark bars enclosing twelve square cells with one middle-row cell illuminated in bright mint green.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: grid diagram",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ept-vtd",
+   "name": "e:ept-vtd",
+   "depicts": "A mint-green bordered rectangle partitioned by four vertical green dividers into five dark parallel slots.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: bars",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:ept-pte",
+   "name": "e:ept-pte",
+   "depicts": "A green rectangular frame containing a single horizontal row of six alternating dark-green and mint-green square cells.",
+   "pass": "cull",
+   "reason": "Low-priority generic row of alternating cells that is visually weak and redundant with the page table grid.",
+   "earlierIdea": "a posted-interrupt descriptor"
+  },
+  {
+   "key": "e:ept-dirty",
+   "name": "e:ept-dirty",
+   "depicts": "A small green-bordered black square with a single bright mint-green square centered inside it.",
+   "pass": "cull",
+   "reason": "Minimal single-square sprite that is too visually generic to carry a full man-page entry.",
+   "earlierIdea": "an IOMMU fault log"
+  }
+ ]
+}

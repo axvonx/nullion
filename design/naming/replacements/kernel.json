@@ -1,0 +1,200 @@
+{
+ "layer": "kernel",
+ "replaces": [
+  {
+   "key": "e:kr-gears",
+   "idea": "A twin-arch iron cable bridge linking two low socketed pedestals to represent a NUMA node interconnect."
+  },
+  {
+   "key": "e:kr-dmesg",
+   "idea": "A compact teletype paper-tape printer on feet feeding a curled strip of kernel log tape."
+  },
+  {
+   "key": "e:kr-piston",
+   "idea": "A cracked grey stone tombstone on a flat plinth representing a kernel panic or oops."
+  },
+  {
+   "key": "e:kr-leds",
+   "idea": null
+  },
+  {
+   "key": "e:kr-turnstile",
+   "idea": null
+  },
+  {
+   "key": "e:kr-slab",
+   "idea": "A compartmentalized steel parts tray on short feet holding uniform machined cylinders."
+  },
+  {
+   "key": "e:kr-ticker",
+   "idea": "A pyramid-shaped brass-and-iron mechanical metronome on a base with a ticked pendulum arm."
+  },
+  {
+   "key": "e:kr-gate",
+   "idea": null
+  },
+  {
+   "key": "e:kr-runqueue",
+   "idea": null
+  },
+  {
+   "key": "e:kr-irqmeter",
+   "idea": null
+  },
+  {
+   "key": "e:kr-tlb",
+   "idea": "A desktop rotary index-card file on a stand with a side knob and a bright tabbed card flipped forward."
+  },
+  {
+   "key": "e:kr-schedrack",
+   "idea": null
+  },
+  {
+   "key": "e:kr-ringbuf",
+   "idea": null
+  },
+  {
+   "key": "e:kr-wdtimer",
+   "idea": "A wall-mounted brass hourglass in a pivoting bracket with a trip-lever at the bottom."
+  },
+  {
+   "key": "e:kr-vfs",
+   "idea": "A cast-iron pipe manifold on a stand with a red valve wheel joining four distinct branch pipes."
+  },
+  {
+   "key": "e:kr-futex",
+   "idea": null
+  },
+  {
+   "key": "e:kr-epoll",
+   "idea": "A wall-mounted mechanical annunciator board with four brass drop-flaps, one dropped to show a lit flag."
+  },
+  {
+   "key": "e:kr-cgroups",
+   "idea": "A riveted steel ration locker on feet divided by bolted baffles into three unequal metered compartments."
+  },
+  {
+   "key": "e:kr-workq",
+   "idea": null
+  },
+  {
+   "key": "e:kr-buddy",
+   "idea": "A stepped metal rack holding a full-width block, a half-width block, and two quarter-width blocks."
+  }
+ ],
+ "new": [
+  {
+   "id": "kr-numabridge",
+   "name": "NUMA Span",
+   "concept": "NUMA node interconnect",
+   "depicts": "Two low socketed iron pedestals standing on the floor, linked by a twin-arch braided cable bridge.",
+   "focal": "the twin-arch cable spanning the two pedestals",
+   "size": "small",
+   "replacesKey": "e:kr-gears"
+  },
+  {
+   "id": "kr-teletype",
+   "name": "Dmesg Spooler",
+   "concept": "Kernel ring buffer log (dmesg)",
+   "depicts": "A boxy cast-iron teletype tape puncher on four short feet, feeding a curled paper strip out its front slot.",
+   "focal": "the curled paper tape emerging from the slot",
+   "size": "medium",
+   "replacesKey": "e:kr-dmesg"
+  },
+  {
+   "id": "kr-oops",
+   "name": "Oops Stone",
+   "concept": "Kernel panic / oops",
+   "depicts": "A small, chipped grey stone tombstone resting on a flat stone plinth with a diagonal crack down its face.",
+   "focal": "the jagged diagonal crack across the stone",
+   "size": "small",
+   "replacesKey": "e:kr-piston"
+  },
+  {
+   "id": "kr-slabtray",
+   "name": "Slab Tray",
+   "concept": "Slab allocator",
+   "depicts": "A flat steel parts tray on four stubby feet, divided into four bays each holding identical machined cylinders.",
+   "focal": "the uniform machined cylinders seated in identical bays",
+   "size": "small",
+   "replacesKey": "e:kr-slab"
+  },
+  {
+   "id": "kr-metronome",
+   "name": "Jiffy Metronome",
+   "concept": "Kernel timer tick (jiffies)",
+   "depicts": "A tapered iron-and-brass mechanical metronome standing on a weighted base with a ticked pendulum arm.",
+   "focal": "the angled brass pendulum arm with its sliding weight",
+   "size": "small",
+   "replacesKey": "e:kr-ticker"
+  },
+  {
+   "id": "kr-rolodex",
+   "name": "TLB Rolodex",
+   "concept": "Translation Lookaside Buffer (TLB)",
+   "depicts": "A desktop rotary card file on a metal stand with a side turn-knob and one bright tabbed card flipped forward.",
+   "focal": "the single bright tabbed card flipped to the front",
+   "size": "small",
+   "replacesKey": "e:kr-tlb"
+  },
+  {
+   "id": "kr-watchdog",
+   "name": "Watchdog Glass",
+   "concept": "Hardware/kernel watchdog timer",
+   "depicts": "A wall-mounted brass hourglass held in a C-shaped bracket with a small trip-lever beneath the lower bulb.",
+   "focal": "the brass hourglass bulb with sand trickling toward the trip-lever",
+   "size": "small",
+   "replacesKey": "e:kr-wdtimer"
+  },
+  {
+   "id": "kr-vfsmanifold",
+   "name": "VFS Manifold",
+   "concept": "Virtual File System (VFS)",
+   "depicts": "A heavy cast-iron pipe junction standing on a bolted base, topped by a red handwheel and branching into four differently colored pipes.",
+   "focal": "the red valve handwheel joining the four colored branch pipes",
+   "size": "large",
+   "replacesKey": "e:kr-vfs"
+  },
+  {
+   "id": "kr-callboard",
+   "name": "Epoll Annunciator",
+   "concept": "I/O multiplexing (epoll)",
+   "depicts": "A wall-mounted wooden-and-brass annunciator box with four numbered shutter windows, one shutter dropped to reveal a lit green flag.",
+   "focal": "the single dropped shutter revealing the lit green flag",
+   "size": "medium",
+   "replacesKey": "e:kr-epoll"
+  },
+  {
+   "id": "kr-rationbox",
+   "name": "Cgroup Locker",
+   "concept": "Control groups (cgroups)",
+   "depicts": "A riveted steel ration locker standing on short legs, partitioned by bolted baffles into three unequal metered compartments.",
+   "focal": "the bolted metal baffles dividing the locker into unequal compartments",
+   "size": "large",
+   "replacesKey": "e:kr-cgroups"
+  },
+  {
+   "id": "kr-buddyblocks",
+   "name": "Buddy Rack",
+   "concept": "Buddy memory allocator",
+   "depicts": "A tiered steel workbench rack on feet holding a full-width block on top, a half-width block below, and two quarter-width blocks at the bottom.",
+   "focal": "the power-of-two halved blocks stacked on the tiered rack",
+   "size": "medium",
+   "replacesKey": "e:kr-buddy"
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:kr-gauge",
+   "redesign": "Mount the red bar and needle inside a bolted rectangular pressure-gauge housing on a stand with a pivoted needle so nothing hovers."
+  },
+  {
+   "key": "e:kr-schedwheel",
+   "redesign": "Add a continuous 1 px darkest-ink outline around the spoked wheel's outer rim and its dark mounting base."
+  },
+  {
+   "key": "e:kr-irqbell",
+   "redesign": "Attach the yellow bell's top loop directly to a wall-mounted dark grey bracket arm so it is visibly suspended rather than floating."
+  }
+ ]
+}

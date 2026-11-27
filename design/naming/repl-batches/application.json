@@ -1,0 +1,235 @@
+{
+ "layer": "application",
+ "layerName": "Application",
+ "daily": true,
+ "propsAlive": 10,
+ "newPropsNeeded": 9,
+ "kept": [
+  {
+   "key": "e:app-cascade",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "Three overlapping desktop windows stacked diagonally, with a bar chart rendered inside the foreground yellow-titled frame."
+  },
+  {
+   "key": "e:app-launcher",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A white launcher panel topped by a search bar above a four-by-three grid of multicolored rounded application icons."
+  },
+  {
+   "key": "e:app-dialog",
+   "kind": "prop",
+   "name": "e:app-dialog",
+   "depicts": "A modal dialog box with an orange title bar, a yellow alert icon, grey text lines, and two bottom action buttons."
+  },
+  {
+   "key": "e:app-spinner",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A pale square card containing an eight-dot circular loading spinner with fading amber and beige pips."
+  },
+  {
+   "key": "e:app-cloudsync",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A pixelated white cloud silhouette with a blue upward synchronization arrow set into its lower center."
+  },
+  {
+   "key": "e:app-folder",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A yellow tabbed manila folder icon with white document edges visible behind the front flap."
+  },
+  {
+   "key": "e:app-trash",
+   "kind": "prop",
+   "name": 2,
+   "depicts": "A grey lidded wastebasket icon with three vertical ribs along its body."
+  },
+  {
+   "key": "e:app-calendar",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A wall-calendar widget with a red header bar, a grid of grey date squares, and one date highlighted in red."
+  },
+  {
+   "key": "e:app-download",
+   "kind": "prop",
+   "name": "e:app-download",
+   "depicts": "A bright green downward arrow hovering over a grey horizontal tray bar on a dark background."
+  },
+  {
+   "key": "e:app-clock",
+   "kind": "prop",
+   "name": "e:app-clock",
+   "depicts": "A round white analog wall clock with dark tick marks and hands pointing near three o'clock."
+  },
+  {
+   "key": "e:app-bell",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A gold notification bell with a clapper underneath and a red unread indicator square at its top-right corner."
+  },
+  {
+   "key": "c:application:core",
+   "kind": "critter",
+   "name": "c:application:core",
+   "depicts": "A tiny pixel-art songbird in pink or sky-blue plumage with a white belly and yellow beak, seen flying and perching."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:app-video",
+   "kind": "prop",
+   "name": "e:app-video",
+   "depicts": "A dark video player frame with a centered white play triangle and a bottom scrub bar marked by a red progress tick.",
+   "problem": "ART-STYLE rule 3: no outline; give the player a device/frame"
+  },
+  {
+   "key": "c:application:alt",
+   "kind": "critter-alt",
+   "name": 1,
+   "depicts": "Two tiny isolated squares, one pink and one yellow, floating in the lower-left of a mostly empty frame.",
+   "problem": ""
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:app-browser",
+   "name": "e:app-browser",
+   "depicts": "A compact web browser window displaying a top address bar, an orange hero banner, and grey placeholder text lines.",
+   "pass": "cull",
+   "reason": "Redundant with the browser layer's primary viewport anchor.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-toast",
+   "name": "e:app-toast",
+   "depicts": "A compact floating notification card with an orange square icon on the left and two grey text bars beside it.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: generic \"panel with bars\"; indistinct from app-dialog/search/progress",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-progress",
+   "name": 1,
+   "depicts": "A horizontal progress bar framed in dark blue with a cream track and a small amber fill block near the left edge.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: a bare progress-bar panel",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-icon",
+   "name": "e:app-icon",
+   "depicts": "A green rounded-square application icon with a white central glyph and a red notification badge at its top-right corner.",
+   "pass": "cull",
+   "reason": "Overlaps with the unread notification concept of the push bell and the icons in the launcher.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-bubble",
+   "name": 1,
+   "depicts": "A blue speech bubble with a bottom-right tail and three typing-indicator squares inside, the leftmost lit white.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 6: floating speech-bubble glyph",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-slider",
+   "name": "e:app-slider",
+   "depicts": "A dark horizontal range slider track filled with amber on the left and a white-and-amber thumb near the right end.",
+   "pass": "cull",
+   "reason": "Generic UI form widget without enough conceptual depth for a dedicated page.",
+   "earlierIdea": "an undo/redo history stack"
+  },
+  {
+   "key": "e:app-toggle",
+   "name": 1,
+   "depicts": "A bright green rectangular toggle switch with a white square knob positioned on the right side.",
+   "pass": "cull",
+   "reason": "Generic boolean switch widget that is too thin for its own Field Manual entry.",
+   "earlierIdea": "a clipboard pasteboard buffer"
+  },
+  {
+   "key": "e:app-checklist",
+   "name": 1,
+   "depicts": "A white card listing three horizontal rows, with the top two checkboxes filled green and the bottom one grey.",
+   "pass": "cull",
+   "reason": "Generic UI card filler with no deep computing concept behind it.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-status",
+   "name": "e:app-status",
+   "depicts": "A dark status bar holding a low battery icon with a single red charge bar beside three ascending signal-strength bars.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: unreadable dark shape with bars",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-search",
+   "name": 1,
+   "depicts": "A white search input box with a magnifying-glass icon on the left, a grey query bar, and a blue text caret.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: a bare search-field panel",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-dropdown",
+   "name": "e:app-dropdown",
+   "depicts": "An expanded dropdown menu box with a top select bar and a white list of three entries, the bottom highlighted in red.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: generic list panel; twin of app-dialog",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-swatches",
+   "name": 1,
+   "depicts": "A white color-picker card showing eight colored tiles in two rows, with the bottom-left blue swatch outlined as selected.",
+   "pass": "cull",
+   "reason": "Generic color-picker widget with low priority and narrow conceptual scope.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-photo",
+   "name": 1,
+   "depicts": "A white-bordered photo thumbnail depicting green blocky hills under a pale blue sky and a yellow square sun.",
+   "pass": "cull",
+   "reason": "Generic placeholder image thumbnail that adds little to the Field Manual.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-avatar",
+   "name": "e:app-avatar",
+   "depicts": "A blue circular user-profile badge containing a simplified white head-and-shoulders silhouette.",
+   "pass": "cull",
+   "reason": "Generic profile silhouette that overlaps visually with the kernel-entry credential badge.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-music",
+   "name": "e:app-music",
+   "depicts": "A white media card featuring a purple album-art square on the left, a dark title bar, and a green playback bar on the right.",
+   "pass": "cull",
+   "reason": "Redundant media-player widget; video player is the stronger representative.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-pin",
+   "name": 1,
+   "depicts": "A red circular map pin with a white center crosshair resting on a thin vertical stem.",
+   "pass": "cull",
+   "reason": "Generic map pin filler with low priority and thin conceptual value.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:app-pill",
+   "name": 1,
+   "depicts": "A green capsule-shaped button or tag containing a single centered white horizontal bar.",
+   "pass": "cull",
+   "reason": "Generic button/tag UI filler that does not warrant its own page.",
+   "earlierIdea": null
+  }
+ ]
+}

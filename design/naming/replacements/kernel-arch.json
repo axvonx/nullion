@@ -1,0 +1,91 @@
+{
+  "layer": "kernel-arch",
+  "replaces": [
+    {
+      "key": "e:ka-apic",
+      "idea": null
+    },
+    {
+      "key": "e:ka-idt",
+      "idea": "A standing dark-iron rotary card index (rolodex) with numbered tabs that flips to the matching interrupt handler."
+    },
+    {
+      "key": "e:ka-cr3",
+      "idea": null
+    },
+    {
+      "key": "e:ka-rcu",
+      "idea": "A twin-track railway switch lever that diverts readers onto a fresh rail while the old rail is retired."
+    },
+    {
+      "key": "e:ka-tlb",
+      "idea": null
+    }
+  ],
+  "new": [
+    {
+      "id": "ka-idt",
+      "name": "Vector Rolodex",
+      "concept": "Interrupt Descriptor Table (IDT)",
+      "depicts": "A standing dark-iron rotary card index on two splayed feet, with a side knob and fanned cream index cards.",
+      "focal": "One bright yellow-tabbed index card flipped upright at the top.",
+      "size": "medium",
+      "replacesKey": "e:ka-idt"
+    },
+    {
+      "id": "ka-rcu",
+      "name": "Grace-Period Switch",
+      "concept": "Read-Copy-Update (RCU)",
+      "depicts": "A heavy iron twin-track railway switch lever mounted on a riveted baseplate, with a coral-red handle and two diverging short rails.",
+      "focal": "The bright yellow pivot pin locking the switch blade onto the fresh rail.",
+      "size": "medium",
+      "replacesKey": "e:ka-rcu"
+    },
+    {
+      "id": "ka-fence",
+      "name": "Memory Barrier",
+      "concept": "Hardware Memory Fence (MFENCE/DMB)",
+      "depicts": "A weighted iron-post crossing gate with a striped coral-red and yellow barrier arm resting across a forked catch-post.",
+      "focal": "The glowing yellow warning lantern mounted atop the hinge post.",
+      "size": "large",
+      "replacesKey": null
+    },
+    {
+      "id": "ka-ipi",
+      "name": "Core Telegraph",
+      "concept": "Inter-Processor Interrupt (IPI)",
+      "depicts": "A compact brass-and-iron telegraph tapper key mounted on a dark rectangular plinth with two binding posts.",
+      "focal": "The bright yellow contact spark between the anvil and the depressed key.",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "ka-cas",
+      "name": "Swap Interlock",
+      "concept": "Atomic Compare-and-Swap (CAS)",
+      "depicts": "A small spring-loaded dual-keyed brass padlock body resting on a flat iron baseplate with two keyholes side by side.",
+      "focal": "One bright yellow key inserted and turned in the right keyhole.",
+      "size": "small",
+      "replacesKey": null
+    },
+    {
+      "id": "ka-syscall",
+      "name": "Ring Turnstile",
+      "concept": "Privilege Ring Transition (SYSCALL/SYSRET)",
+      "depicts": "A waist-high iron tripod turnstile bolted to a floor plate, with three angled barrier arms.",
+      "focal": "The bright yellow mechanical ratchet gear at the hub.",
+      "size": "small",
+      "replacesKey": null
+    }
+  ],
+  "rework": [
+    {
+      "key": "e:ka-apicbank",
+      "redesign": "Redraw as a standing brass-and-iron mechanical relay switchboard on heavy legs, with physical clapper switches, busbar rods, and a top row of hooded status lamps."
+    },
+    {
+      "key": "c:kernel-arch:core",
+      "redesign": "Redraw as a 6x6+ px armored interrupt spark-mite with a 1 px darkest-ink outline, two 1x1 px dark eyes, and two stubby yellow side fins."
+    }
+  ]
+}

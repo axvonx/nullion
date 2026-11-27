@@ -1,0 +1,91 @@
+{
+ "layer": "linker",
+ "replaces": [
+  {
+   "key": "e:ld-elf",
+   "idea": "An upright cylindrical steel dispatch canister with a riveted dark-blue header collar and a hinged brass clasp."
+  },
+  {
+   "key": "e:ld-plt",
+   "idea": "A small bakelite terminal block with two brass binding posts bridged by an arched copper jumper bar."
+  },
+  {
+   "key": "e:ld-reloc",
+   "idea": "A tabletop brass tape-splicing press with a dark tape strip threaded under a hinged yellow-handled crimping lever."
+  },
+  {
+   "key": "e:ld-got",
+   "idea": "A wall-mounted dark iron key-rack with four rows of brass hooks and one bright yellow key hanging on the second row."
+  },
+  {
+   "key": "e:ld-soname",
+   "idea": null
+  },
+  {
+   "key": "e:ld-rpath",
+   "idea": "A short cast-iron signpost on a round baseplate with three stacked colored directional blades."
+  }
+ ],
+ "new": [
+  {
+   "id": "ld-elf-canister",
+   "name": "ELF Header Canister",
+   "concept": "ELF binary format (Executable and Linkable Format)",
+   "depicts": "A cylindrical steel dispatch canister standing upright on a flat base, with a dark blue riveted collar band around the top and a hinged brass clasp.",
+   "focal": "The riveted blue header collar and brass clasp.",
+   "size": "medium",
+   "replacesKey": "e:ld-elf"
+  },
+  {
+   "id": "ld-plt-jumper",
+   "name": "PLT Jump-Jack",
+   "concept": "Procedure Linkage Table (PLT) trampolines",
+   "depicts": "A small bakelite terminal block with two brass binding posts on the sides and a pivoted copper jumper bar arcing between them.",
+   "focal": "The arched copper jumper bar bridging the two posts.",
+   "size": "small",
+   "replacesKey": "e:ld-plt"
+  },
+  {
+   "id": "ld-splicer",
+   "name": "Relocation Splicer",
+   "concept": "Load-time address relocation",
+   "depicts": "A tabletop brass tape-splicing press on four stubby feet, with a dark tape strip threaded under a hinged yellow-handled crimping lever.",
+   "focal": "The hinged yellow-handled crimping lever.",
+   "size": "medium",
+   "replacesKey": "e:ld-reloc"
+  },
+  {
+   "id": "ld-got-rack",
+   "name": "GOT Key-Rack",
+   "concept": "Global Offset Table (GOT) indirection",
+   "depicts": "A tall wall-mounted dark iron key-rack with four horizontal rows of brass hooks, with one bright yellow brass key hanging on the second row.",
+   "focal": "The single bright yellow key on the second hook.",
+   "size": "large",
+   "replacesKey": "e:ld-got"
+  },
+  {
+   "id": "ld-rpath-post",
+   "name": "RPATH Signpost",
+   "concept": "RPATH / RUNPATH library search order",
+   "depicts": "A short cast-iron signpost on a round baseplate with three stacked wooden directional blades painted in yellow, teal, and orange.",
+   "focal": "The three stacked colored directional blades.",
+   "size": "small",
+   "replacesKey": "e:ld-rpath"
+  },
+  {
+   "id": "ld-abi-gauge",
+   "name": "ABI Caliper",
+   "concept": "Application Binary Interface (ABI) calling convention",
+   "depicts": "A small brass go/no-go pocket caliper lying on a dark rubber mat, its jaws set to a fixed yellow-marked gap.",
+   "focal": "The fixed yellow-marked jaw gap.",
+   "size": "small",
+   "replacesKey": null
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:ld-lazy",
+   "redesign": "Redraw as a tabletop brass-and-bakelite trip-latch switch on a wooden plinth, with a coiled spring held back by a tiny yellow release pin."
+  }
+ ]
+}

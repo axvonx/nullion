@@ -1,0 +1,79 @@
+{
+ "layer": "cmos",
+ "layerName": "CMOS & Metal Layers",
+ "daily": false,
+ "propsAlive": 1,
+ "newPropsNeeded": 7,
+ "kept": [
+  {
+   "key": "e:cm-viatower",
+   "kind": "anchor",
+   "name": 1,
+   "depicts": "A four-by-five grid of intersecting purple vertical and orange horizontal metal tracks with a bright square via at every crossing."
+  },
+  {
+   "key": "e:cm-finfet",
+   "kind": "prop",
+   "name": "e:cm-finfet",
+   "depicts": "A top-down transistor layout showing a teal active region bisected by a vertical purple gate bar and flanked by two orange source-drain pads with white contacts."
+  }
+ ],
+ "rework": [
+  {
+   "key": "c:cmos:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny orange hollow square with one-pixel side lugs centered inside a mostly empty canvas, scuttling or floating.",
+   "problem": ""
+  },
+  {
+   "key": "c:cmos:alt",
+   "kind": "critter-alt",
+   "name": "c:cmos:alt",
+   "depicts": "A tiny three-by-three teal square trailed on the left by a single detached black pixel inside a mostly empty canvas.",
+   "problem": ""
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:cm-via",
+   "name": "e:cm-via",
+   "depicts": "A single perpendicular crossing of an orange horizontal metal line and a purple vertical metal line joined by a white square via.",
+   "pass": "cull",
+   "reason": "Redundant single-crossing subset of the multilayer metal interconnect and via grid already shown by Metal Manhattan.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:cm-well",
+   "name": 1,
+   "depicts": "A teal substrate border framing two side-by-side square regions, one purple and one orange, separated by a narrow gap.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: two coloured squares",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:cm-nwell",
+   "name": "e:cm-nwell",
+   "depicts": "A solid purple rectangle centered inside a thicker teal rectangular border.",
+   "pass": "cull",
+   "reason": "Redundant single-well subset of Complementary Tub and visually just a plain rectangle.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:cm-contact",
+   "name": "e:cm-contact",
+   "depicts": "A small orange square pad with a single white square contact window centered inside it.",
+   "pass": "cull",
+   "reason": "Visually minimal square pad whose contact-window concept is already shown in FinFET Cell and Metal Manhattan.",
+   "earlierIdea": "an electromigration void in a metal trace"
+  },
+  {
+   "key": "e:cm-metal",
+   "name": 1,
+   "depicts": "Three parallel horizontal routing stripes\u2014purple, orange, and purple\u2014separated by white dielectric gaps.",
+   "pass": "art",
+   "reason": "ART-STYLE rule 1: two coloured bars",
+   "earlierIdea": null
+  }
+ ]
+}

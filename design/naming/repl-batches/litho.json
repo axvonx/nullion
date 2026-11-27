@@ -1,0 +1,69 @@
+{
+ "layer": "litho",
+ "layerName": "Photolithography & Lattice",
+ "daily": false,
+ "propsAlive": 3,
+ "newPropsNeeded": 4,
+ "kept": [
+  {
+   "key": "e:li-reticle",
+   "kind": "anchor",
+   "name": "e:li-reticle",
+   "depicts": "A large circular target of three concentric violet rings bisected by thick dark-indigo vertical and horizontal crosshairs."
+  },
+  {
+   "key": "e:li-mask",
+   "kind": "prop",
+   "name": 1,
+   "depicts": "A violet square frame containing two offset dark-indigo rectangular apertures on a clear field, depicting a chrome-on-quartz photomask."
+  },
+  {
+   "key": "e:li-resist",
+   "kind": "prop",
+   "name": "e:li-resist",
+   "depicts": "Four evenly spaced violet vertical pillars rising from a dark-indigo horizontal substrate band, showing developed photoresist trenches."
+  }
+ ],
+ "rework": [
+  {
+   "key": "e:li-lattice",
+   "kind": "prop",
+   "name": "e:li-lattice",
+   "depicts": "Three staggered rows of violet square lattice sites with a single pale-lavender square standing out as a point defect in the middle row.",
+   "problem": "ART-STYLE rule 1: dot grid; make it a wafer/object"
+  },
+  {
+   "key": "c:litho:core",
+   "kind": "critter",
+   "name": 1,
+   "depicts": "A tiny 5x5-pixel plus-shaped speck\u2014pure white in v0 and grey-armed with a white center in v2\u2014isolated in a 26x22 transparent frame.",
+   "problem": ""
+  }
+ ],
+ "deleted": [
+  {
+   "key": "e:li-fringe",
+   "name": "e:li-fringe",
+   "depicts": "Concentric dark-indigo and violet circular rings enclosing a pale-lavender central cross, resembling an optical interference pattern.",
+   "pass": "cull",
+   "reason": "Visually redundant with the alignment reticle as another set of concentric violet rings with a central cross.",
+   "earlierIdea": null
+  },
+  {
+   "key": "e:li-dopant",
+   "name": "e:li-dopant",
+   "depicts": "A dark-indigo circular ring enclosing a pale-lavender cross-shaped core, representing an implanted impurity atom.",
+   "pass": "cull",
+   "reason": "Low-priority ring-and-cross sprite that is visually similar to the reticle and conceptually overlaps with the lattice point defect.",
+   "earlierIdea": "a Czochralski silicon wafer boule"
+  },
+  {
+   "key": "e:li-photon",
+   "name": "e:li-photon",
+   "depicts": "A bright violet horizontal bar crossing a faint lavender vertical beam, forming a compact 10x10 optical flare.",
+   "pass": "cull",
+   "reason": "Tiny, low-priority optical flare that is visually weak and conceptually overlaps with the stray EUV photon critter.",
+   "earlierIdea": null
+  }
+ ]
+}
