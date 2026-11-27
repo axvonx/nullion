@@ -1,8 +1,9 @@
 # Name a data serialization format
-id: serialization-format · domain: data-graphics-algorithms · status: draft
+id: serialization-format · domain: data-graphics-algorithms · status: approved
 > Any named format for encoding structured data as bytes or text for storage or transport.
 
 ## Off-by-one
+- CSV | Comma-Separated Values
 - XML | eXtensible Markup Language | xml file (auto)
 - YAML | YAML Ain't Markup Language | yml (auto)
 
@@ -38,7 +39,7 @@ id: serialization-format · domain: data-graphics-algorithms · status: draft
 - Smile | Smile binary JSON (auto)
 
 ## Bit Flip
-- CSV | Comma-Separated Values
+- PAX | Portable Archive Exchange | POSIX.1-2001 pax
 
 ## Inbox
 - Ion (suggested: heisenbug)

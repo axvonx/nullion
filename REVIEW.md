@@ -4,50 +4,22 @@ Written 2026-11-27 at version 0.1.0-alpha. Things only the owner can decide, mos
 items as they're done; tell Claude which ones passed and it does the mechanical part (approving, moving files,
 re-running the pipeline).
 
-## 1. Content: 11 drafted categories (blocks the next pipeline batch)
+## 1. Triage: the bottom of the keep list
 
-Read each bank file next to its report (`bank/reports/<id>.md`: gates, precision sample, Bit Flip / Works on my
-machine shortlists, link coverage, and every "NEEDS A LOOK" item).
-
-| Category | Bank file | Answers | Look at |
-|---|---|---|---|
-| serialization-format | `bank/data-graphics-algorithms/serialization-format.md` | 31 | **Bit Flip is CSV: wrong.** Thin: cut or widen. |
-| historical-cipher | `bank/hardware-security-history/historical-cipher.md` | 36 | Bit Flip M-209 is on the obvious list: is it obvious, or is the list wrong? Thin. |
-| compiler | `bank/languages-tools/compiler.md` | 70 | The pipeline agent removed OpenJDK and Reason and changed Mono to `mcs`: confirm. Bit Flip mrustc. |
-| complexity-class | `bank/data-graphics-algorithms/complexity-class.md` | 102 | Bit Flip A_0PP; only 42% of answers have a reference link. Plan was hand-written (Complexity Zoo). |
-| network-protocol | `bank/os-systems/network-protocol.md` | 157 | HTTPS and HTTP are separate answers: fine? Bit Flip EtherIP. |
-| database | `bank/data-graphics-algorithms/database.md` | 70 | Bit Flip Ocient. |
-| dns-record-type | `bank/os-systems/dns-record-type.md` | 68 | Bit Flip X25. |
-| game-engine | `bank/data-graphics-algorithms/game-engine.md` | 64 | Bit Flip Tinsel. |
-| linux-device-node | `bank/os-systems/linux-device-node.md` | 114 | Bit Flip `/dev/scanners/cuecat`. |
-| text-editor | `bank/languages-tools/text-editor.md` | 77 | Bit Flip SciTECO. |
-| unix-daemon | `bank/os-systems/unix-daemon.md` | 80 | Bit Flip rpc.sprayd. |
-
-For each: the Bit Flip and Works-on-my-machine picks (chosen by Haiku), the LLM-drafted obvious list
-(`scripts/bank/obvious-draft/<id>.json`), and, only if the answers look thin, the LLM-drafted source plan
-(`scripts/bank/plans/<id>.json`).
-
-**To approve:** `status: draft` → `status: approved` in the bank file, move `scripts/bank/obvious-draft/<id>.json` to
-`scripts/bank/obvious/`, run `npm run bank:index`. Or tell Claude which pass.
-
-**turing-award-winner** failed at harvest (a list of people; the code/paper corpora can't supply it): needs a
-hand-written source plan pointing at a list of winners.
-
-**Then:** `python3 -I scripts/bank/pipeline.py --batch 10` runs the next ten (uses Gemini and the owner's Claude
-allowance for the Haiku passes).
-
-## 2. Triage: the bottom of the keep list
-
-`design/triage/ranked.md` is the harvesting order for the 159 drafts (Gemini hydrogen-low; lenient). Skim the
+`design/triage/ranked.md` is the harvesting order for the remaining drafts (Gemini hydrogen-low; lenient). Skim the
 lowest-ranked "keep" rows and cut what you wouldn't play, e.g. `acpi-table` (obvious score 1),
 `dependency-injection-framework`.
 
-## 3. Naming desk: 221 new entities
+**Next pipeline batch:** `python3 -I scripts/bank/pipeline.py --batch 10` runs the next ten (uses Gemini and the
+owner's Claude allowance for the Haiku passes). Note: **turing-award-winner** failed at harvest (a list of people;
+the code/paper corpora can't supply it) and needs a hand-written source plan pointing at a list of winners.
 
-`node scripts/naming-desk.mjs` → http://127.0.0.1:4870, status filter **"new in the art pass"**. Each has Gemini's
+## 2. Naming desk: 221 new entities
+
+`npm run naming` → http://127.0.0.1:4870, status filter **"new in the art pass"**. Each has Gemini's
 proposed name as a write-in. Named entities get draft Field Manual pages from `python3 -I scripts/manual-from-desk.py`.
 
-## 4. Smaller decisions
+## 3. Smaller decisions
 
 - **Duplicate answers in approved categories:** `python3 -I scripts/bank-dupes.py` lists 40 (e.g. "Sinusoidal" vs
   "Sinusoidal projection"; RISC-V "M" vs "M extension"). Each should become one entry with the other as an alias.
@@ -58,7 +30,7 @@ proposed name as a write-in. Named entities get draft Field Manual pages from `p
   it appears. Give it a page (e.g. a well-known article or essay) if you want one.
 - **Plain-text "nullion":** the title screen's and Settings' version lines are still plain text, not the title font.
 
-## 5. Writing (whenever you want to start)
+## 4. Writing (whenever you want to start)
 
 - `writing/VOICE.md`: yours to write: what the game sounds like.
 - `writing/*.md`: 106 strings extracted verbatim, all `status: draft`. Rewrite any and mark it `status: owner`;
@@ -66,7 +38,7 @@ proposed name as a write-in. Named entities get draft Field Manual pages from `p
 - `writing/manual/`: 38 approved Field Manual pages (with recorded style debt) and 347 LLM drafts (debug builds
   only). Promote a draft by editing it and setting `status: approved`.
 
-## 6. Feel checks in the browser (can't be judged from screenshots)
+## 5. Feel checks in the browser (can't be judged from screenshots)
 
 - The reveal's background flicker: the black region is now still, the world outside it refreshes at most every
   250 ms, and the held jiggle steps no faster than that. Enough, or calmer still?

@@ -1,5 +1,5 @@
 # Name a game engine
-id: game-engine · domain: data-graphics-algorithms · status: draft
+id: game-engine · domain: data-graphics-algorithms · status: approved
 > Any named real-time game engine or proprietary studio engine with a public name.
 
 ## Off-by-one

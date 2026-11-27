@@ -1,5 +1,5 @@
 # Name a Unix daemon
-id: unix-daemon · domain: os-systems · status: draft
+id: unix-daemon · domain: os-systems · status: approved
 > Any named background service program on a Unix-like system, as named in its man page or the system's standard service list.
 
 ## Off-by-one

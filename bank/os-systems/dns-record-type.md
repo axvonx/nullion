@@ -1,5 +1,5 @@
 # Name a DNS record type
-id: dns-record-type · domain: os-systems · status: draft
+id: dns-record-type · domain: os-systems · status: approved
 > Any resource record type with a registered TYPE number in the IANA DNS parameters registry.
 
 ## Off-by-one

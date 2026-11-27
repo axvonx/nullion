@@ -1,5 +1,5 @@
 # Name a complexity class
-id: complexity-class · domain: data-graphics-algorithms · status: draft
+id: complexity-class · domain: data-graphics-algorithms · status: approved
 > Any named class of decision problems defined by a resource bound or model in the Complexity Zoo or the literature.
 
 ## Off-by-one

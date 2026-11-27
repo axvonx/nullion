@@ -1,5 +1,5 @@
 # Name a compiler
-id: compiler · domain: languages-tools · status: draft
+id: compiler · domain: languages-tools · status: approved
 > Any named program that translates source code in a programming language into another form, current or historical.
 
 ## Off-by-one
@@ -14,6 +14,7 @@ id: compiler · domain: languages-tools · status: draft
 - GHC | Glasgow Haskell Compiler
 - SBCL | Steel Bank Common Lisp
 - CHICKEN | CHICKEN Scheme
+- FASM | Flat Assembler
 
 ## Null pointer exception
 - Clang | LLVM Clang | clang compiler (auto)
@@ -41,7 +42,6 @@ id: compiler · domain: languages-tools · status: draft
 - OCaml (auto)
 - Scala | scalac | Scala compiler | Scala 3 compiler (auto)
 - Julia (auto)
-- FASM | Flat Assembler (auto)
 - Crystal | crystal compiler (auto)
 - Elm (auto)
 - PureScript (auto)

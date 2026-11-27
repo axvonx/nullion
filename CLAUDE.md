@@ -186,7 +186,7 @@ Debug-only for now (`?endless=1` or the header chip). A 29-layer stack to about 
   - Absolute cut-offs (`CUTOFFS`, fitted to the pilot's judge calls) map score to tier, so adding obscure candidates never pushes common answers deeper.
   - Counts decide only with at least 10 hits in some corpus; below that the candidate's `judge` tier decides, and a weak candidate without one is an error. Bit Flip and Works on my machine are pinned.
 - **The "Answer set" menu** switches between `bank` (the default) and `sample` (the hand-written `src/data/sample.ts`, kept for comparison).
-- **Status, 2026-11-26:** 34 approved categories (precision 95–100% on 20-answer samples; `Bit Flip` and `Works on my machine` picks carry 1-sentence `note:` whispers) and 159 drafts.
+- **Status, 2026-11-27:** 45 approved categories (precision 95–100% on 20-answer samples; `Bit Flip` and `Works on my machine` picks carry 1-sentence `note:` whispers) and 148 drafts.
 
 ## Persistence
 

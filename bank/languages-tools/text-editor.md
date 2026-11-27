@@ -1,5 +1,5 @@
 # Name a text editor
-id: text-editor · domain: languages-tools · status: draft
+id: text-editor · domain: languages-tools · status: approved
 > Any named program whose main purpose is editing plain text files, whether terminal, GUI, or historical, such as Notepad or ed.
 
 ## Off-by-one

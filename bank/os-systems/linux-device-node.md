@@ -1,5 +1,5 @@
 # Name a Linux device node
-id: linux-device-node · domain: os-systems · status: draft
+id: linux-device-node · domain: os-systems · status: approved
 > Any path under /dev that the Linux kernel or a driver creates as a character or block device node, such as the names documented in the kernel or devices.txt.
 
 ## Off-by-one
@@ -13,6 +13,7 @@ id: linux-device-node · domain: os-systems · status: draft
 - /dev/ptmx | ptmx
 - /dev/kmem
 - /dev/full
+- /dev/kmsg
 
 ## Null pointer exception
 - /dev/sda | /dev/sdb | /dev/sdc | sda | sdb (auto)
@@ -35,7 +36,6 @@ id: linux-device-node · domain: os-systems · status: draft
 - /dev/uinput | uinput (auto)
 
 ## Memory leak
-- /dev/kmsg (auto)
 - /dev/lp0 | /dev/lp1 (auto)
 - /dev/kvm (auto)
 - /dev/fuse (auto)

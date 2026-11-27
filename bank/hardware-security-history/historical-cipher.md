@@ -1,5 +1,5 @@
 # Name a historical cipher
-id: historical-cipher · domain: hardware-security-history · status: draft
+id: historical-cipher · domain: hardware-security-history · status: approved
 > a named classical or mechanical cipher system used before modern computing.
 
 ## Off-by-one

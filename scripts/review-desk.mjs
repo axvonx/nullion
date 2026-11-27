@@ -159,11 +159,12 @@ function loadDrafts() {
       const parsed = parseBankFile(readText(full));
       if (parsed.status !== 'draft') continue;
       const reportPath = path.join(reportsDir, `${parsed.id}.md`);
-      const hasReport = fs.existsSync(reportPath);
+      const reportText = readText(reportPath);
+      const hasPipelineReport = reportText.includes('## Pipeline report');
       const hasObvious = fs.existsSync(path.join(obviousDir, `${parsed.id}.json`));
-      if (!hasReport && !hasObvious) continue;
+      if (!hasPipelineReport && !hasObvious) continue;
 
-      const report = parseReport(readText(reportPath));
+      const report = parseReport(reportText);
       const obvious = readJson(path.join(obviousDir, `${parsed.id}.json`), []);
       const plan = readJson(path.join(plansDir, `${parsed.id}.json`), null);
       const totalAnswers = Object.entries(parsed.sections)

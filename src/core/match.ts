@@ -7,9 +7,10 @@ export function normalize(s: string): string {
     .normalize('NFKD')
     .replace(/\p{M}/gu, '')
     .toLowerCase()
-    // Symbols that carry meaning in names (C++, C#, F#) are spelled out before punctuation is dropped.
+    // Symbols that carry meaning in names (C++, C#, F#, MIP*, A*) are spelled out before punctuation is dropped.
     .replace(/\+/g, 'plus')
     .replace(/#/g, 'sharp')
+    .replace(/\*/g, 'star')
     .replace(/[^\p{L}\p{N}]/gu, '');
 }
 

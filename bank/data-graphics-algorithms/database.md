@@ -1,5 +1,5 @@
 # Name a database
-id: database · domain: data-graphics-algorithms · status: draft
+id: database · domain: data-graphics-algorithms · status: approved
 > Any named database management system, open-source or commercial, relational or not.
 
 ## Off-by-one

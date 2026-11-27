@@ -1,5 +1,5 @@
 # Name a network protocol
-id: network-protocol · domain: os-systems · status: draft
+id: network-protocol · domain: os-systems · status: approved
 > Any named communication protocol specified in an RFC, IEEE, ITU or vendor standard, or a documented historic protocol.
 
 ## Off-by-one
