@@ -226,3 +226,18 @@ export function bufferBlock(a: number): number {
   if (!step) throw new Error(`bufferBlock: progress ${a} out of range`);
   return step[1];
 }
+
+/**
+ * A reaction that lands with its dive waits this long for the reveal to hold it. In play the HUD opens the reveal on
+ * its next update after the landing frame; without this grace the reaction ended in between and the reveal held
+ * nothing (the leak's cursor ghosts, off-by-one's stepping and the rest vanished in play, though not in demos).
+ */
+export const LANDING_GRACE_MS = 500;
+
+/**
+ * Whether the cursor's reaction is still playing: within its own run, sustained (held by the reveal, or carried by a
+ * dive that is still moving), or just landed and waiting the grace period for the reveal to hold it.
+ */
+export function reactionAlive(elapsedMs: number, tier: TierId, sustained: boolean, sinceLandingMs: number): boolean {
+  return elapsedMs <= REACTION_MS[tier] || sustained || sinceLandingMs <= LANDING_GRACE_MS;
+}

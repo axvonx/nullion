@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { TIER_IDS } from '../core/tiers';
-import { bufferBlock, CASCADE, NULLION_BANNER, PAGE_FAULT, PAGE_FAULT_MS, pageCovers, LEAD_MS, WOMM, reactionFrame } from './reaction-fx';
+import { bufferBlock, CASCADE, LANDING_GRACE_MS, NULLION_BANNER, PAGE_FAULT, PAGE_FAULT_MS, REACTION_MS, pageCovers, LEAD_MS, WOMM, reactionAlive, reactionFrame } from './reaction-fx';
 
 const timeline = (tier: (typeof TIER_IDS)[number], sustained: boolean, reduced: boolean, until = 6000) => {
   const out = [];
@@ -159,5 +159,20 @@ describe('reaction timelines', () => {
         expect(seen.every((f) => f.t >= CASCADE.blackout[0] && f.t < CASCADE.blackout[1] && f.blackout)).toBe(true);
       }
     });
+  });
+});
+
+describe('a reaction survives its landing until the reveal holds it', () => {
+  it('lives through its own run, while sustained, and for the grace after landing; then ends', () => {
+    for (const t of TIER_IDS) {
+      const past = REACTION_MS[t] + 1;
+      expect(reactionAlive(10, t, false, Infinity)).toBe(true);
+      expect(reactionAlive(past, t, true, Infinity)).toBe(true);
+      // The play-mode case: the dive landed this frame; the HUD only holds it on its next update.
+      expect(reactionAlive(past, t, false, 0)).toBe(true);
+      expect(reactionAlive(past, t, false, LANDING_GRACE_MS)).toBe(true);
+      expect(reactionAlive(past, t, false, LANDING_GRACE_MS + 1)).toBe(false);
+      expect(reactionAlive(past, t, false, Infinity)).toBe(false);
+    }
   });
 });

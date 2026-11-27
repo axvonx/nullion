@@ -14,7 +14,7 @@ import type { WorldSpecV4 } from './v4/world';
 import { quantizeRow, snapColor } from './palettes';
 import { LAYER_ART } from '../layers';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
-import { LEAD_MS, bufferBlock, NO_REACTION, REACTION_MS, WOMM, reactionFrame, type ReactionFrame } from './reaction-fx';
+import { LEAD_MS, bufferBlock, NO_REACTION, REACTION_MS, WOMM, LANDING_GRACE_MS, reactionAlive, reactionFrame, type ReactionFrame } from './reaction-fx';
 import { drawNullionBanner } from './nullion-banner';
 import { ReactionPaint } from './reaction-paint';
 import { BAYER16, get2d, type Surface } from './surface';
@@ -261,6 +261,8 @@ export class Scene {
   private rf: ReactionFrame = NO_REACTION;
   private lastLayer = 0;
   private reaction: Reaction | undefined;
+  /** When the last dive carrying a reaction landed (reactionAlive's grace for the reveal to hold it). */
+  private reactionLandedAt = -Infinity;
   private tearUntil = 0;
   private tearStrength = 0;
   private artTime = 0;
@@ -522,6 +524,7 @@ export class Scene {
     }
     const r = this.reaction;
     if (r && now - r.start > REACTION_MS[r.tier]) this.reaction = undefined;
+    this.reactionLandedAt = -Infinity;
   }
 
   /** A dive carrying a reaction keeps it going through its lead and descent (the reveal's hold takes over on landing). */
@@ -760,6 +763,7 @@ export class Scene {
     }
     if (d.react) sound.playLand(Math.round(d.to - d.from), d.react, layersFor(this.stackMode)[layerIndexAt(this.depth, this.stackMode)]!.id);
     if (d.react === 'leak') this.paint.leakAtLanding();
+    if (d.react) this.reactionLandedAt = now;
     d.onLand?.();
     if (d.pop) this.pops.push({ ...d.pop, start: now });
     if (this.queue.length) this.queueAt = now + 140;
@@ -873,8 +877,9 @@ export class Scene {
     // The screen's half of the tier reaction.
     const rx = this.reaction;
     const rel = rx ? now - rx.start : Infinity;
-    const sustained = this.held || this.sustainedByDive();
-    const act = rx && (sustained || rel <= REACTION_MS[rx.tier]) ? rx.tier : undefined;
+    // Just landed and waiting for the reveal counts as held, so the screen doesn't drop its loop for a frame.
+    const sustained = this.held || this.sustainedByDive() || now - this.reactionLandedAt <= LANDING_GRACE_MS;
+    const act = rx && reactionAlive(rel, rx.tier, sustained, Infinity) ? rx.tier : undefined;
     // The reaction's timeline (pure, tested in reaction-fx.test.ts): hang, jiggle, inversion or tint, black-out.
     const rf = act ? reactionFrame(act, rel, sustained, reduced) : NO_REACTION;
     this.rf = rf;
@@ -1240,8 +1245,9 @@ export class Scene {
     const r = this.reaction;
     const el = r ? now - r.start : Infinity;
     const sustained = this.held || this.sustainedByDive();
-    if (r && el > REACTION_MS[r.tier] && !sustained) this.reaction = undefined;
-    const active = r && (el <= REACTION_MS[r.tier] || sustained) ? r.tier : undefined;
+    const alive = r !== undefined && reactionAlive(el, r.tier, sustained, now - this.reactionLandedAt);
+    if (r && !alive) this.reaction = undefined;
+    const active = alive ? r.tier : undefined;
     // Past its first play-through and held by the reveal: loop calmly.
     const looping = active !== undefined && el > REACTION_MS[active];
     const ctx = this.ctx;
@@ -1268,7 +1274,7 @@ export class Scene {
         for (let k = 0; k < 8; k++) {
           const p = this.trail[Math.max(0, this.trail.length - 1 - k * 4)]!;
           // The smear trails off to the side (not upward, where the reveal puts the tier's name).
-          drawSprite(ctx, spr, p.x - (k + 1) * 6, p.y + (k % 2), fill, outline, alpha * (0.6 - k * 0.07));
+          drawSprite(ctx, spr, p.x - (k + 1) * 6, p.y + (k % 2), fill, outline, alpha * (0.8 - k * 0.08));
         }
         visible = true;
         break;
