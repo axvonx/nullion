@@ -6,9 +6,9 @@ import { enforce } from '../../core/enforce';
  * (art-v4.ts) and the layer's palette dithering snaps it, so it reads as atmosphere and never as a sign.
  */
 
-const GLYPH_H = 7;
-const GLYPH_W = 5;
-const SPACE_W = 3;
+export const GLYPH_H = 7;
+export const GLYPH_W = 5;
+export const SPACE_W = 3;
 /** Biggest lettering, in scene pixels per font pixel (a scene pixel is 3+ CSS pixels on desktop). */
 const MAX_SCALE = 6;
 
@@ -58,7 +58,8 @@ const FACE: Record<string, string> = {
   ')': '01000 00100 00010 00010 00010 00100 01000',
 };
 
-const ROWS: Record<string, string[]> = Object.fromEntries(Object.entries(FACE).map(([k, v]) => [k, v.split(' ')]));
+export const WATERMARK_GLYPHS: Record<string, readonly string[]> = Object.fromEntries(Object.entries(FACE).map(([k, v]) => [k, v.split(' ')]));
+const ROWS = WATERMARK_GLYPHS;
 for (const [k, rows] of Object.entries(ROWS)) enforce(rows.length === GLYPH_H && rows.every((r) => r.length === GLYPH_W), `watermark glyph ${k} is malformed`);
 
 const advance = (ch: string) => (ch === ' ' ? SPACE_W : GLYPH_W + 1);

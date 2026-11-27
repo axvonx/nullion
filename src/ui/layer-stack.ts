@@ -8,6 +8,7 @@ import {
   type LayerId,
   type StackMode,
 } from '../core/layers';
+import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from '../render/v4/watermark';
 
 /**
  * RHS top-down application stack indicator.
@@ -423,6 +424,50 @@ function makeIcon(theme: LayerTheme): SVGSVGElement {
   return svg;
 }
 
+/**
+ * Render the layer name using the same crude 5×7 bitmap font as the background watermarks, shrunken down
+ * into a crisp pixel SVG (2× scale for normal names, 1× scale for very long Endless names so nothing clips).
+ */
+function makeBitmapLabel(name: string): SVGSVGElement {
+  const ns = 'http://www.w3.org/2000/svg';
+  const text = name.toUpperCase();
+  const w = Math.max(1, lineWidth(text));
+  const scale = w <= 78 ? 2 : 1;
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${w} ${GLYPH_H}`);
+  svg.setAttribute('width', String(w * scale));
+  svg.setAttribute('height', String(GLYPH_H * scale));
+  svg.setAttribute('shape-rendering', 'crispEdges');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.classList.add('ls-bitmap');
+
+  let x = 0;
+  for (const ch of text) {
+    if (ch === ' ') {
+      x += SPACE_W;
+      continue;
+    }
+    const rows = WATERMARK_GLYPHS[ch];
+    if (rows) {
+      for (let r = 0; r < GLYPH_H; r++) {
+        const row = rows[r]!;
+        for (let k = 0; k < GLYPH_W; k++) {
+          if (row[k] !== '1') continue;
+          const rect = document.createElementNS(ns, 'rect');
+          rect.setAttribute('x', String(x + k));
+          rect.setAttribute('y', String(r));
+          rect.setAttribute('width', '1');
+          rect.setAttribute('height', '1');
+          rect.setAttribute('fill', 'currentColor');
+          svg.append(rect);
+        }
+      }
+    }
+    x += GLYPH_W + 1;
+  }
+  return svg;
+}
+
 function makeBlock(layer: Layer): HTMLLIElement {
   const theme = LAYER_THEMES[layer.id];
   const li = document.createElement('li');
@@ -430,6 +475,7 @@ function makeBlock(layer: Layer): HTMLLIElement {
   li.dataset.layer = layer.id;
   if (layer.boundary) li.dataset.boundary = layer.boundary;
   li.title = layer.name;
+  li.setAttribute('aria-label', layer.name);
   li.style.setProperty('--ls-accent', theme.accent);
   li.style.setProperty('--ls-tint', theme.tint);
   li.style.setProperty('--ls-border', theme.border);
@@ -437,16 +483,7 @@ function makeBlock(layer: Layer): HTMLLIElement {
   const inner = document.createElement('div');
   inner.className = 'ls-inner';
   inner.append(makeIcon(theme));
-
-  const label = document.createElement('span');
-  label.className = 'ls-name';
-  label.textContent = layer.name;
-  inner.append(label);
-
-  const pip = document.createElement('span');
-  pip.className = 'ls-pip';
-  pip.setAttribute('aria-hidden', 'true');
-  inner.append(pip);
+  inner.append(makeBitmapLabel(layer.name));
 
   li.append(inner);
   return li;

@@ -70,6 +70,16 @@ export function saveDaily(storage: SaveStorage | null, game: Game): void {
   }
 }
 
+/** Remove today's saved game from storage (used by the debug menu's "Restart day"). */
+export function clearDaily(storage: SaveStorage | null, puzzle: number): void {
+  if (!storage) return;
+  try {
+    storage.removeItem(dailyKey(puzzle));
+  } catch {
+    /* unavailable storage */
+  }
+}
+
 /** Browser storage, or null when it is unavailable (private mode, blocked site data). */
 export function browserStorage(): SaveStorage | null {
   try {

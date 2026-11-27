@@ -166,8 +166,8 @@ const easeOutCubic = (p: number) => 1 - (1 - p) ** 3;
 
 const VIGNETTE_MS = 260;
 const BAYER16 = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
-/** The reveal's blocky dim bands, outermost to innermost: cumulative darkness. */
-const VIGNETTE_STEPS = [0.54, 0.74, 0.88];
+/** The reveal's blocky dim bands, outermost to innermost: cumulative darkness (innermost core dims all the way to black). */
+const VIGNETTE_STEPS = [0.68, 0.88, 1.0];
 
 
 
@@ -479,12 +479,12 @@ export class Scene {
     const snap = (n: number) => Math.round(n / 8) * 8;
     const cx = snap(W / 2);
     const cy = snap(this.cursorY);
-    const rx = snap(Math.min(Math.round(W * 0.56), 204));
-    const ry = snap(Math.round(H * 0.29));
+    const rx = snap(Math.min(Math.round(W * 0.62), 232));
+    const ry = snap(Math.round(H * 0.36));
     // Cumulative darkness of the base dim and the nested rectangles, outermost to innermost.
-    const levels = [0.26, ...VIGNETTE_STEPS];
+    const levels = [0.42, ...VIGNETTE_STEPS];
     const rects = VIGNETTE_STEPS.map((_, idx) => {
-      const frac = 1 - idx * (0.22 / Math.max(1, VIGNETTE_STEPS.length - 1));
+      const frac = 1 - idx * (0.16 / Math.max(1, VIGNETTE_STEPS.length - 1));
       return { hw: snap(rx * frac), hh: snap(ry * frac) };
     });
     const quantised = look('palette') === 'per-layer';

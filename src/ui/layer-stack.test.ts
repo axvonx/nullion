@@ -20,6 +20,8 @@ describe('LayerStack', () => {
     let blocks = [...stack.el.querySelectorAll('.ls-block')];
     expect(blocks.length).toBe(1);
     expect(blocks[0]!.getAttribute('data-layer')).toBe('application');
+    expect(blocks[0]!.querySelector('.ls-icon')).toBeTruthy();
+    expect(blocks[0]!.querySelector('.ls-bitmap rect')).toBeTruthy();
     expect(blocks[0]!.classList.contains('is-current')).toBe(true);
     expect(blocks[0]!.getAttribute('aria-current')).toBe('step');
 

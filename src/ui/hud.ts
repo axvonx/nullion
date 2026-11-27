@@ -408,6 +408,8 @@ export class Hud {
     this.onUnwind = undefined;
     sound.stopReactions();
     this.hideReveal();
+    this.scene?.setVignette(false);
+    this.scene?.setHold(false, true);
     this.promptKey = '';
     this.els.result!.hidden = true;
     this.els.copy!.textContent = shareLabel();

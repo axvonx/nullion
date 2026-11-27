@@ -7,7 +7,7 @@ import { formatLocalDate, parseLocalDate, pickForDay, puzzleNumber } from './cor
 import { PROMPTS_PER_DAY, layerAt } from './core/layers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from './data/sample';
 import { BANK_QUESTIONS, loadBankTerms, scheduledQuestions } from './data/bank';
-import { browserStorage, canPersistDaily, loadDaily, saveDaily, type SaveStorage } from './game/daily-save';
+import { browserStorage, canPersistDaily, clearDaily, loadDaily, saveDaily, type SaveStorage } from './game/daily-save';
 import { Game } from './game/game';
 import { finishDaily } from './game/stats';
 import { LOOK_SLOTS, looks, type LookSlot } from './looks';
@@ -92,7 +92,7 @@ async function boot() {
 
   // Restarts load their categories asynchronously; a newer restart supersedes an older one still loading.
   let restartGen = 0;
-  const startDay = async () => {
+  const startDay = async (fresh = false) => {
     const gen = ++restartGen;
     const s = activeSettings();
     const source = SETS[s.answerSet] ?? SETS.bank!;
@@ -104,12 +104,13 @@ async function boot() {
     const set = await source.load(questions);
     if (gen !== restartGen) return;
     game = new Game(set, daySeed, { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect, mode });
-    // Resume today's game after a reload, unless this is Endless or a debug mode.
+    // Resume today's game after a reload, unless this is Endless, a debug mode, or an explicit debug restart.
     const depthDeepLink = DEBUG && new URLSearchParams(location.search).has('depth');
     persisting = canPersistDaily({ mode, unlimited: s.unlimited, timer: s.timer, date: s.date, scroll: s.mode === 'scroll' || depthDeepLink });
     persistTo = persisting ? storage : null;
+    if (fresh) clearDaily(storage, daySeed);
     let notice: { text: string; kind: 'info' | 'error' } | undefined;
-    if (persisting) {
+    if (persisting && !fresh) {
       const res = loadDaily(persistTo, game);
       if (res.kind === 'invalid') notice = { text: `Your saved game for today could not be restored (${res.reason}). Starting fresh.`, kind: 'error' };
       else if (res.kind === 'resumed' && game.phase.kind !== 'done')
@@ -140,8 +141,8 @@ async function boot() {
     sound.setVolume(p.volume);
   });
 
-  const restart = () => {
-    startDay().catch(showFatal);
+  const restart = (fresh = false) => {
+    startDay(fresh).catch(showFatal);
   };
 
   hud.bind(scene, clock);
@@ -186,7 +187,7 @@ async function boot() {
   if (DEBUG) {
     settings.subscribe(() => restart());
     const { mountDebugMenu } = await import('./debug/menu');
-    mountDebugMenu({ scene, hud, game: () => game, restart, sets: SETS });
+    mountDebugMenu({ scene, hud, game: () => game, restart: () => restart(true), sets: SETS });
   }
 }
 
