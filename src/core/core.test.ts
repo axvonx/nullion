@@ -84,6 +84,88 @@ describe('matching', () => {
     expect(idx.check('deez lock').kind).toBe('rejected');
   });
 
+  describe('other phrasings of the same answer are exact, not typos', () => {
+    const locks = new CategoryIndex(
+      [
+        { name: 'mutex', tier: 'off-by-one', keys: ['mutex'] },
+        { name: 'spinlock', tier: 'off-by-one', keys: ['spinlock'] },
+        { name: 'B-tree', tier: 'npe', keys: ['btree'] },
+        { name: 'query', tier: 'npe', keys: ['query'] },
+        { name: 'ext4', tier: 'npe', keys: ['ext4'] },
+        { name: 'ext3', tier: 'npe', keys: ['ext3'] },
+        { name: 'MCS lock', tier: 'race', keys: ['mcslock'] },
+      ],
+      'Name a type of lock',
+    );
+    const exact = (g: string) => locks.check(g);
+    it.each([
+      ['mutexes', 'mutex'],
+      ['a mutex', 'mutex'],
+      ['the mutex', 'mutex'],
+      ['mutex lock', 'mutex'],
+      ['mutex locks', 'mutex'],
+      ['the spinlocks', 'spinlock'],
+      ['B-trees', 'B-tree'],
+      ['queries', 'query'],
+      ['ext4 filesystem', 'ext4'],
+      ['MCS lock', 'MCS lock'], // the subject noun is part of this name: kept whole
+      ['MCS locks', 'MCS lock'],
+    ])('%s → %s, with no correction to confirm', (guess, name) => {
+      const r = exact(guess);
+      expect(r).toMatchObject({ kind: 'accepted', corrected: false });
+      expect(r.kind === 'accepted' && r.entry.name).toBe(name);
+    });
+
+    it('four letters: an adjacent swap is forgiven, a changed letter never is', () => {
+      expect(locks.check('etx4')).toMatchObject({ kind: 'accepted', corrected: true });
+      expect(locks.check('ext5').kind).toBe('rejected');
+      expect(locks.check('ext3')).toMatchObject({ kind: 'accepted', corrected: false });
+    });
+
+    it('one typo on a long name is a sure correction; short names and two typos are not', () => {
+      expect(locks.check('spinlcok')).toMatchObject({ kind: 'accepted', corrected: true, sure: true });
+      expect(locks.check('mutx')).toMatchObject({ kind: 'rejected' });
+      const long = new CategoryIndex([{ name: 'fissile lock', tier: 'bitflip', keys: ['fissilelock'] }]);
+      expect(long.check('fisle lock')).toMatchObject({ kind: 'accepted', corrected: true, sure: false });
+    });
+
+    it('a phrasing that could mean two answers is rejected, not guessed', () => {
+      const amb = new CategoryIndex(
+        [
+          { name: 'lock', tier: 'npe', keys: ['lock'] },
+          { name: 'locks', tier: 'npe', keys: ['locks'] },
+          { name: 'tree', tier: 'npe', keys: ['tree'] },
+          { name: 'tree lock', tier: 'npe', keys: ['treelock'] },
+        ],
+        'Name a type of lock',
+      );
+      expect(amb.check('locks')).toMatchObject({ kind: 'accepted', corrected: false }); // exact key wins
+      // Plural first: "tree locks" is "tree lock"; only if that found nothing would "tree" (tail dropped) count.
+      const tl = amb.check('tree locks');
+      expect(tl.kind === 'accepted' && tl.entry.name).toBe('tree lock');
+      const two = new CategoryIndex(
+        [
+          { name: 'red', tier: 'npe', keys: ['red'] },
+          { name: 'reds', tier: 'npe', keys: ['reds'] },
+        ],
+        'Name a type of lock',
+      );
+      expect(two.check('the red lock').kind).toBe('accepted');
+      expect(new CategoryIndex([{ name: 'ab cd', tier: 'npe', keys: ['abcd'] }, { name: 'ab', tier: 'npe', keys: ['ab'] }], 'Name a type of cd').check('ab cds').kind).toBe('accepted');
+    });
+
+    it('two entries in the same round is ambiguous and rejected', () => {
+      const amb = new CategoryIndex(
+        [
+          { name: 'box', tier: 'npe', keys: ['box'] },
+          { name: 'boxe', tier: 'npe', keys: ['boxe'] },
+        ],
+        'Name a type of lock',
+      );
+      expect(amb.check('boxes').kind).toBe('rejected'); // singular is "box" or "boxe"
+    });
+  });
+
   it('refuses duplicate keys across entries', () => {
     expect(
       () =>

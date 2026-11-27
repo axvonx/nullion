@@ -46,7 +46,7 @@ export function buildAnswerSet(id: string, label: string, terms: readonly Term[]
     enforce(entries && entries.length > 0, `question ${q.id} queries tag ${q.tag} with no terms`);
     const bitflips = entries.filter((e) => e.tier === 'bitflip');
     enforce(bitflips.length === 1, `question ${q.id} must have exactly one Bit Flip answer, has ${bitflips.length}`);
-    indexes.set(q.id, new CategoryIndex(entries));
+    indexes.set(q.id, new CategoryIndex(entries, q.prompt));
   }
 
   const idx = (qid: string) => {

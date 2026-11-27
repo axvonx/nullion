@@ -710,8 +710,8 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
  */
 .rv-hide {
   display: block;
-  /* As wide as the "show" bar and "Unwind further" (#app.unwinding .console), so the pair reads as one control. */
-  width: min(360px, calc(100vw - 32px));
+  /* Half as wide as the "show" bar and "Unwind further" (#app.unwinding .console): present, not competing. */
+  width: min(180px, calc(50vw - 16px));
   height: 22px;
   margin: 14px auto 0;
   padding: 0;
@@ -1463,3 +1463,6 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   flex: none;
   image-rendering: pixelated;
 }
+
+/* The build's version at the foot of the end card: small, quiet, there to quote in a bug report. */
+.build-tag { margin-top: 10px; text-align: center; font-family: var(--mono, monospace); font-size: 10px; letter-spacing: 0.06em; color: var(--dim); opacity: 0.7; }

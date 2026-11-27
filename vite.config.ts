@@ -50,8 +50,12 @@ function manualFiles(): Plugin {
 }
 
 // base './' so the build works from any GitHub Pages path (user.github.io/nullion/ or a custom domain).
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
+
 export default defineConfig({
   base: './',
+  // The build's version and stage, shown small at the foot of the end card (src/ui/end-card.ts).
+  define: { __APP_VERSION__: JSON.stringify(pkg.version), __APP_STAGE__: JSON.stringify('alpha') },
   plugins: [manualFiles()],
   test: { environment: 'node' },
 });

@@ -305,7 +305,7 @@ describe('typo correction', () => {
       for (let i = 1; i < t.name.length - 1; i++) {
         const typo = t.name.slice(0, i) + t.name.slice(i + 1);
         const r = SET.check(q.id, typo);
-        if (r.kind === 'accepted' && r.corrected) return { typo, name: r.entry.name };
+        if (r.kind === 'accepted' && r.corrected && !r.sure) return { typo, name: r.entry.name };
       }
     }
     throw new Error(`no correctable typo for ${q.id}`);

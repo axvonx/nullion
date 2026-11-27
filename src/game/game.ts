@@ -249,7 +249,8 @@ export class Game {
       return { kind: 'rejected', guess: trimmed };
     }
     if (r.locked?.entry === res.entry || r.extra.includes(res.entry)) return { kind: 'duplicate', entry: res.entry };
-    if (res.corrected && this.opts.autocorrect === 'confirm') return { kind: 'suggestion', entry: res.entry, guess: trimmed };
+    // Ask first only when the correction is a real judgement call: one typo on a long name needs no confirming.
+    if (res.corrected && !res.sure && this.opts.autocorrect === 'confirm') return { kind: 'suggestion', entry: res.entry, guess: trimmed };
     if (!r.locked) {
       r.locked = { entry: res.entry, corrected: res.corrected, guess: trimmed };
       if (!this.opts.unlimited) this.toBetween(p.round, now);

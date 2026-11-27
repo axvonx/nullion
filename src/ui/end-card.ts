@@ -43,6 +43,7 @@ export const END_CARD_HTML = `
           <div class="result-foot"><span class="next-day" data-el="nextDay">A new stack opens at local midnight.</span><button type="button" data-el="copy">Copy result</button></div>
           <div class="result-manual"><button type="button" class="fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
           <div class="result-links" data-el="resultLinks"></div>
+          <div class="build-tag" data-el="buildTag">nullion ${__APP_VERSION__} · ${__APP_STAGE__}</div>
         </div>`;
 
 /** What the end card reads from the HUD around it. */

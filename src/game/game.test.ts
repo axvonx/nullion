@@ -144,16 +144,22 @@ describe('game loop', () => {
       return { g, now };
     }
 
-    it('confirm mode suggests the correction without locking or logging a rejection', () => {
+    it('confirm mode suggests a two-typo correction without locking or logging a rejection', () => {
       const { g, now } = atLockRound('confirm');
-      const res = g.submit('fisile lock', now);
-      expect(res).toMatchObject({ kind: 'suggestion', guess: 'fisile lock' });
+      const res = g.submit('fisle lock', now);
+      expect(res).toMatchObject({ kind: 'suggestion', guess: 'fisle lock' });
       expect(res.kind === 'suggestion' && res.entry.name).toBe('fissile lock');
       expect(g.phase.kind).toBe('answering');
       expect(g.current()!.locked).toBeUndefined();
       expect(g.current()!.rejected).toEqual([]);
       // Submitting the suggested name is an exact match.
       expect(g.submit('fissile lock', now)).toMatchObject({ kind: 'accepted', corrected: false });
+    });
+
+    it('confirm mode takes one typo on a long name without asking (a sure correction)', () => {
+      const { g, now } = atLockRound('confirm');
+      expect(g.submit('fisile lock', now)).toMatchObject({ kind: 'accepted', corrected: true });
+      expect(g.phase.kind).toBe('between');
     });
 
     it('auto mode accepts the corrected answer straight away', () => {

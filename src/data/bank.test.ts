@@ -67,6 +67,38 @@ describe('reference links (bank/links, scripts/verify-links.py)', () => {
   });
 });
 
+describe('answer phrasings never land on the wrong answer (src/core/match.ts)', () => {
+  it('a plural, "the X" or "X <prompt noun>" of an approved answer is that answer, or rejected, unless it is another answer\'s own name', async () => {
+    const { promptSubject, normalize, phrasings } = await import('../core/match');
+    const { categoryTerms } = await import('./bank');
+    const { buildAnswerSet } = await import('../core/answers');
+    const wrong: string[] = [];
+    let tried = 0;
+    let landed = 0;
+    for (const q of BANK_QUESTIONS) {
+      const c = await loadBankCategory(q.id);
+      const set = buildAnswerSet('t', 't', categoryTerms(c), [q]);
+      const keys = new Set(set.entries(q.id).flatMap((e) => e.keys));
+      const head = promptSubject(q.prompt).toLowerCase().split(/\s+/).at(-1)!;
+      for (const e of set.entries(q.id)) {
+        for (const g of [`${e.name}s`, `the ${e.name}`, `a ${e.name}`, `${e.name} ${head}`, `${e.name} ${head}s`]) {
+          // Literally another answer's name, or its plural: an exact match, rightly (and a duplicate the content
+          // pass should merge, e.g. "Sinusoidal" vs "Sinusoidal projection": listed by scripts/bank-dupes.py).
+          if (keys.has(normalize(g)) || phrasings(g, [])[0].some((f) => keys.has(f) && !e.keys.includes(f))) continue;
+          tried++;
+          const r = set.check(q.id, g);
+          if (r.kind !== 'accepted') continue;
+          if (r.entry === e) landed++;
+          else wrong.push(`${q.id}: "${g}" → ${r.entry.name} (meant ${e.name})`);
+        }
+      }
+    }
+    expect(wrong.slice(0, 20), `${wrong.length} phrasings land on another answer`).toEqual([]);
+    // And the point of it: almost all of them land.
+    expect(landed / tried).toBeGreaterThan(0.95);
+  });
+});
+
 describe('bank file grammar', () => {
   const head = '# Name a type of lock\nid: lock · domain: os-systems · status: draft\n';
   const parse = (body: string, status = 'draft') => parseBankFile('t.md', head.replace('draft', status) + body);
