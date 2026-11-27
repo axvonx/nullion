@@ -192,7 +192,15 @@ export function mountRail(h: DebugHooks) {
       });
       t += diveLeadMs(tier) + diveMs(f) + REVEAL_MS + 600;
     }
-    later(t, () => h.hud.endOfDay(SAMPLE_DAY, depth, 0));
+    // Rows carry the live game's prompts (and one of its answers in the right tier, where it has one) so the answer-sheet dropdown works.
+    later(t, () => {
+      const g = h.game();
+      const rows = SAMPLE_DAY.map((d, i) => {
+        const question = g.rounds[i]!.question.id;
+        return { question, tier: d.tier, name: g.set.entries(question).find((e) => e.tier === d.tier)?.name ?? d.name };
+      });
+      h.hud.endOfDay(rows, depth, 0);
+    });
   });
 
   // v4's world is seeded once (by the day). Reroll it to see other arrangements; ?seed=N brings one back.

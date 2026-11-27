@@ -218,12 +218,13 @@ body {
 /*
  * The day's backtrace: one row per round, #0 the most recent. A row shows its frames and its tier's cursor icon;
  * hover, keyboard focus or a tap opens it in place (same height, no shift) to the tier, the answer and a larger
- * icon. The empty last column is kept for a future dropdown (other players' answers to that question).
+ * icon. The last column holds the dropdown arrow, which opens the prompt's answer sheet under the row.
  */
 .record { list-style: none; margin: 8px 0 6px; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.record > li { position: relative; }
 .bt-row {
   display: grid;
-  grid-template-columns: 3ch 40px minmax(0, 1fr) 20px;
+  grid-template-columns: 3ch 40px minmax(0, 1fr) 28px;
   align-items: center;
   gap: 8px;
   width: 100%;
@@ -243,6 +244,25 @@ body {
 .bt-sum, .bt-detail { grid-column: 3; grid-row: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .bt-detail { display: none; }
 .bt-more { grid-column: 4; }
+/* The dropdown arrow sits over the row's last slot; its tap target is the full row height. */
+.bt-sheet-btn {
+  position: absolute; top: 0; right: 0; width: 40px; height: 36px; padding: 0;
+  font: inherit; font-size: 18px; color: var(--dim); background: transparent; border: 1px solid transparent; cursor: pointer;
+}
+.bt-sheet-btn:is(:hover, :focus-visible) { color: var(--ink); border-color: var(--rule); }
+.bt-sheet-btn[aria-expanded='true'] { color: var(--ink); transform: scaleY(-1); }
+.bt-sheet { margin: 2px 0 6px 4ch; padding: 6px 8px; max-height: min(50dvh, 360px); overflow-y: auto; border-left: 2px solid var(--rule); font-size: 17px; line-height: 1.2; }
+.bt-sheet[hidden] { display: none; }
+.sheet-group + .sheet-group { margin-top: 8px; }
+.sheet-head { color: var(--dim); margin-bottom: 2px; }
+.sheet-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 14px; }
+.sheet-list li { overflow-wrap: anywhere; }
+.sheet-list li.own { color: var(--signal); }
+.sheet-you { font-size: 14px; }
+.sheet-more { margin-top: 2px; padding: 4px 6px; min-height: 32px; font: inherit; font-size: 16px; color: var(--dim); background: transparent; border: 1px solid var(--rule); cursor: pointer; }
+.sheet-more:is(:hover, :focus-visible) { color: var(--ink); }
+.console[data-form='gui'] :is(.bt-sheet, .sheet-head, .sheet-more, .bt-sheet-btn) { color: #4a4656; }
+.console[data-form='gui'] .sheet-list li.own { color: #0b3fa0; }
 .bt-row:is(:hover, :focus-visible, [aria-expanded='true']) { background: rgba(255, 255, 255, 0.07); border-color: var(--rule); }
 .bt-row:is(:hover, :focus-visible, [aria-expanded='true']) .bt-sum { display: none; }
 .bt-row:is(:hover, :focus-visible, [aria-expanded='true']) .bt-detail { display: block; }
