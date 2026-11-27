@@ -3,6 +3,7 @@ import { SEAM_H, glow, hash, prows, vgrad } from '../render/art-common';
 import { MotionType } from '../render/motion';
 import { ent, type EntityDef, type Pen } from '../render/v4/kit';
 import { R, TAU, disc, fill, frame, line, mod, rect } from './shared/draw-kit';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 // Application: a GUI desktop floating in a bright sky.
@@ -388,7 +389,7 @@ const ANCHORS: EntityDef[] = [
 
 export const application: LayerArt = {
   family: 'application',
-  blurb: 'The apps you click, tap and type into',
+  blurb: text('layers.application.blurb'),
   palette: 'full',
   form: 'gui',
   cursor: 'arrow',
@@ -522,7 +523,7 @@ export const application: LayerArt = {
   critters: {
     motions: [MotionType.Fly, MotionType.Perch],
     count: 3,
-    exitLabels: ['closed', 'minimized'],
+    exitLabels: variants('layers.application.exit'),
     draw: ({ px, ink, t, phase, variant, dir, perched }) => {
       const bodies = ['#ff5f7a', '#ffd166', '#4cc9f0', '#7ee0a1', '#c58bff'];
       const bellies = ['#ffe5ec', '#fff6d6', '#e0f7ff', '#e8fff0', '#f3e8ff'];

@@ -11,7 +11,8 @@
     "test": "vitest run",
     "bank:index": "UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts",
     "bank:schedule": "UPDATE_SCHEDULE=1 vitest run src/data/schedule.test.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "writing:report": "node scripts/writing-report.mjs"
   },
   "devDependencies": {
     "happy-dom": "^21.0.4",

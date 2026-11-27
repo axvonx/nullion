@@ -4,6 +4,7 @@ import { MotionType } from '../render/motion';
 import { ent, type EntityDef, type Pen } from '../render/v4/kit';
 import { runtime } from './runtime';
 import { R, TAU, disc, fill, line, mod, px, rect, ring } from './shared/draw-kit';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 // Libraries (rgb4): a reading room of shared objects. Wood, paper, brass and thread.
@@ -384,7 +385,7 @@ const ANCHORS: EntityDef[] = [
 
 export const libraries: LayerArt = {
   family: 'libraries',
-  blurb: 'Shared code every program leans on',
+  blurb: text('layers.libraries.blurb'),
   palette: 'rgb4',
   form: 'repl',
   cursor: 'ibeam',
@@ -470,7 +471,7 @@ export const libraries: LayerArt = {
   critters: {
     motions: [MotionType.Hop, MotionType.Perch],
     count: 3,
-    exitLabels: ['unloaded', 'dlclose'],
+    exitLabels: variants('layers.libraries.exit'),
     draw: ({ px, ink, variant, dir, perched }) => {
       // Bookworm: a square 6x6 body with two dark eyes and a hardcover book lying flat on its head
       // (coloured cover above and below, cream page block between).

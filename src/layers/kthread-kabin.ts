@@ -4,6 +4,7 @@ import { MotionType } from '../render/motion';
 import { ent, type EntityDef } from '../render/v4/kit';
 import { kernel } from './kernel';
 import { fill, mod, rect } from './shared/draw-kit';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 // 1978 · The Kthread Kabin (cozy log cabin of off-duty kworkers, workqueue logs & softirq hearth)
@@ -137,7 +138,7 @@ const ANCHORS: EntityDef[] = [
 
 export const kthreadKabin: LayerArt = {
   family: 'kernel',
-  blurb: '1978 · Cozy timber cabin where off-duty kworkers chop workqueue logs by a softirq hearth',
+  blurb: text('layers.kthread-kabin.blurb'),
   palette: 'rgb4',
   form: 'serial',
   cursor: 'underscore',
@@ -214,7 +215,7 @@ export const kthreadKabin: LayerArt = {
   critters: {
     motions: [MotionType.Hop, MotionType.Perch],
     count: 3,
-    exitLabels: ['kworker', 'wake!'],
+    exitLabels: variants('layers.kthread-kabin.exit'),
     draw: ({ px, ink, t, phase, perched }) => {
       // Cozy hooded Cabin Sprite
       const hop = perched ? 0 : Math.floor(t * 6 + phase) % 2;

@@ -5,6 +5,7 @@ import { ent, type EntityDef } from '../render/v4/kit';
 import { firmware } from './firmware';
 import { fill, mod, rect } from './shared/draw-kit';
 import { E, K, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const WK: K = { i: '#08060e', d: '#9448d4', m: '#24989c', l: '#e88438', h: '#f8f6f0', w: '#e88438', wl: '#f8f6f0', o: '#9448d4', ol: '#e88438', a: '#f8f6f0', b: '#24989c', g: '#24989c', c: '#f8f6f0', r: '#e88438' };
@@ -94,7 +95,7 @@ const ANCHORS: EntityDef[] = [
 
 export const cmos: LayerArt = {
   family: 'drivers',
-  blurb: 'FinFET transistors, doped wells and stacked copper metal interconnects',
+  blurb: text('layers.cmos.blurb'),
   palette: 'wafer',
   form: 'raw',
   cursor: 'underscore',
@@ -144,7 +145,7 @@ export const cmos: LayerArt = {
   critters: {
     motions: [MotionType.Scuttle, MotionType.Float],
     count: 4,
-    exitLabels: ['leaked', 'drifted'],
+    exitLabels: variants('layers.cmos.exit'),
     draw: ({ px, ink, t, phase, perched }) => {
       // Copper-clad beetle: a rounded orange shell, two eyes, short side legs.
       const leg = perched ? 0 : Math.floor(t * 9 + phase) % 2;

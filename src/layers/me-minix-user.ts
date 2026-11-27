@@ -4,6 +4,7 @@ import { MotionType } from '../render/motion';
 import { ent, type EntityDef } from '../render/v4/kit';
 import { R, fill, frame, mod, rect } from './shared/draw-kit';
 import { amb, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 import { userspace } from './userspace';
 
@@ -110,7 +111,7 @@ const ANCHORS: EntityDef[] = [
 
 export const meMinixUser: LayerArt = {
   family: 'userspace',
-  blurb: 'A tiny hidden MINIX 3 userspace running even when your PC is off',
+  blurb: text('layers.me-minix-user.blurb'),
   palette: 'amber',
   form: 'shell',
   cursor: 'block',
@@ -180,7 +181,7 @@ export const meMinixUser: LayerArt = {
   critters: {
     motions: [MotionType.Patrol, MotionType.Perch],
     count: 4,
-    exitLabels: ['AMT idle', 'IPC wait'],
+    exitLabels: variants('layers.me-minix-user.exit'),
     draw: ({ px, ink, t, phase, perched }) => {
       // Miniature uncanny amber micro-daemon
       const step = perched ? 0 : Math.floor(t * 8 + phase) % 2;

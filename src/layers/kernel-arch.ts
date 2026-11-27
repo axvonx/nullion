@@ -5,6 +5,7 @@ import { ent, type EntityDef } from '../render/v4/kit';
 import { kernel } from './kernel';
 import { KWALL, R, disc, frame, mod, rect } from './shared/draw-kit';
 import { cga, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -121,7 +122,7 @@ const ANCHORS: EntityDef[] = [
 
 export const kernelArch: LayerArt = {
   family: 'kernel',
-  blurb: 'Interrupt controllers, spinlocks, RCU and raw hardware bridges',
+  blurb: text('layers.kernel-arch.blurb'),
   palette: 'cga16',
   form: 'serial',
   cursor: 'underscore',
@@ -180,7 +181,7 @@ export const kernelArch: LayerArt = {
   critters: {
     motions: [MotionType.Zip, MotionType.Scuttle],
     count: 3,
-    exitLabels: ['EOI', 'TLB flush'],
+    exitLabels: variants('layers.kernel-arch.exit'),
     draw: ({ px, ink, t, phase }) => {
       // Armoured interrupt spark-mite: a red body under a grey helmet, two stubby yellow side fins.
       const fin = Math.floor(t * 14 + phase) % 2 === 0;

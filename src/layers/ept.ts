@@ -5,6 +5,7 @@ import type { EntityDef } from '../render/v4/kit';
 import { ringMinus1 } from './ring-1';
 import { R, fill, frame, rect, ring } from './shared/draw-kit';
 import { grn, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -91,7 +92,7 @@ const ANCHORS: EntityDef[] = [
 
 export const ept: LayerArt = {
   family: 'ring-1',
-  blurb: 'Two-dimensional nested page tables and IOMMU quarantine gates',
+  blurb: text('layers.ept.blurb'),
   palette: 'green',
   form: 'hyper',
   cursor: 'bit',
@@ -156,7 +157,7 @@ export const ept: LayerArt = {
   critters: {
     motions: [MotionType.Grid, MotionType.Mirror],
     count: 2,
-    exitLabels: ['EPT viol!', 'remapped'],
+    exitLabels: variants('layers.ept.exit'),
     draw: ({ px, ink, t, phase, perched, mirror }) => {
       // Squat hexagonal translation bug: a notched mint carapace, two eyes, stubby feet.
       mirror();

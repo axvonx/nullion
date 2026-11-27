@@ -4,6 +4,7 @@ import { MotionType } from '../render/motion';
 import { ent, type EntityDef } from '../render/v4/kit';
 import type { Rect } from '../render/v4/place';
 import { R, TAU, fill, frame, line, mod, rect } from './shared/draw-kit';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 /** Ring −3's focal geometry, shared by its art and its keep-outs. */
@@ -293,7 +294,7 @@ const ANCHORS: EntityDef[] = [
 
 export const ringMinus3: LayerArt = {
   family: 'ring-3',
-  blurb: 'The Intel Management Engine, a hidden computer inside your computer',
+  blurb: text('layers.ring-3.blurb'),
   palette: 'onebit',
   form: 'raw',
   cursor: 'bit',
@@ -458,7 +459,7 @@ export const ringMinus3: LayerArt = {
   critters: {
     motions: [MotionType.Grid],
     count: 4,
-    exitLabels: ['0x00', 'bit-rot'],
+    exitLabels: variants('layers.ring-3.exit'),
     draw: ({ px, ink, t, phase }) => {
       const bit = Math.floor(t * 3 + phase) % 2 === 0;
       px(0, 0, 6, 6, '#e8eeff');

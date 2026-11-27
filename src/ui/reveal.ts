@@ -6,6 +6,7 @@ import type { Game, Round } from '../game/game';
 import { manualStore } from '../game/manual';
 import { sound } from '../audio/sound';
 import { reducedMotion } from '../looks';
+import { text, variants } from '../text';
 import type { Scene } from '../render/scene';
 import { $, framesLabel, replay, setText } from './dom';
 import { LayerStack, createLayerBadge } from './layer-stack';
@@ -18,17 +19,17 @@ const REVEAL_FADE_MS = 200;
 const REVEAL_SETTLE_MS = 700;
 
 /**
- * Plain-language lines for the reveal, used when the answer has no note of its own. They say how rare the answer
- * was, for players who aren't systems people; no terminal in-jokes.
+ * Plain-language lines for the reveal, used when the answer has no note of its own (the words live in
+ * writing/reveal.md). They say how rare the answer was, for players who aren't systems people; no terminal in-jokes.
  */
 export const TIER_QUIPS: Record<TierId, readonly string[]> = {
-  'off-by-one': ['Right answer. Most people said this one too.', 'A classic. Nearly everyone gets here.', 'Safe and solid. You’re in good company.'],
-  womm: ['Feels obscure, but it’s everyone’s go-to.', 'The “clever” pick lots of people make.', 'Everyone thinks they’re the only one who knows this.'],
-  npe: ['Good answer. Plenty of people found it.', 'Fairly well known, but not everyone thought of it.', 'A common pick, and a good one.'],
-  leak: ['Most players missed this one.', 'Getting into less-travelled ground.', 'Not many people reached for that.'],
-  race: ['Only a few people find this one.', 'Now you’re digging.', 'A rare find. Nicely done.'],
-  heisenbug: ['Hardly anyone thinks of this.', 'A deep cut. Very few found it.', 'That one hides from almost everyone.'],
-  bitflip: ['Today’s rarest answer. You found it.', 'The one answer almost nobody finds.', 'One in a billion. Well, almost.'],
+  'off-by-one': variants('reveal.quip.off-by-one'),
+  womm: variants('reveal.quip.womm'),
+  npe: variants('reveal.quip.npe'),
+  leak: variants('reveal.quip.leak'),
+  race: variants('reveal.quip.race'),
+  heisenbug: variants('reveal.quip.heisenbug'),
+  bitflip: variants('reveal.quip.bitflip'),
 };
 
 const PIPS_LIT: Record<TierId, number> = {
@@ -155,11 +156,11 @@ export class Reveal {
 
   /** The watchdog's lower-key reveal: smaller, no icon pose or rarity, just that the round pushed nothing. */
   showTimeout() {
-    setText(this.name, 'Time’s up');
+    setText(this.name, text('reveal.timeout.title'));
     delete this.name.dataset.text;
     setText(this.answer, '');
     const bz = this.host.game()?.current()?.buzzer;
-    setText(this.line, bz && !bz.accepted ? `${bz.guess}: Not accepted` : 'No answer, so no frames this round.');
+    setText(this.line, bz && !bz.accepted ? text('reveal.timeout.rejected', { guess: bz.guess }) : text('reveal.timeout.line'));
     this.openFor('timeout');
   }
 

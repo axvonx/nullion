@@ -4,6 +4,7 @@ import { MotionType } from '../render/motion';
 import { ent, type EntityDef, type Pen } from '../render/v4/kit';
 import { irqPulse } from './shared/ambient-kit';
 import { R, TAU, fill, frame, line, mod, rect, ring } from './shared/draw-kit';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 import { userspace } from './userspace';
 
@@ -415,7 +416,7 @@ const ANCHORS: EntityDef[] = [
 
 export const drivers: LayerArt = {
   family: 'drivers',
-  blurb: 'The translators between the operating system and the hardware',
+  blurb: text('layers.drivers.blurb'),
   palette: 'cga4',
   form: 'serial',
   cursor: 'underscore',
@@ -526,7 +527,7 @@ export const drivers: LayerArt = {
   critters: {
     motions: [MotionType.Scuttle],
     count: 4,
-    exitLabels: ['unplugged', 'DMA done'],
+    exitLabels: variants('layers.drivers.exit'),
     draw: ({ px, ink, t, phase, variant }) => {
       // Bus-beetle: a 7x6 shell with a white crest, two dark eyes and scuttling legs.
       const leg = Math.floor(t * 14 + phase) % 2;

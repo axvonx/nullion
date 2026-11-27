@@ -1,3 +1,4 @@
+import { text } from '../text';
 import { enforce } from './enforce';
 import {
   DAILY_LAYERS,
@@ -82,7 +83,7 @@ export interface ModeRules {
 
 const ENDLESS_SCROLL: ScrollRules = { capExtra: 60, snapGap: 220, wheelDivisor: 10, arrowStep: 12, pageStep: 80 };
 
-const endlessHeadline = (framesLabel: string, layerName: string) => `KERNEL PANIC · ${framesLabel} · ${layerName}`;
+const endlessHeadline = (framesLabel: string, layerName: string) => text('end-card.headline.endless', { frames: framesLabel, layer: layerName });
 
 export const MODE_RULES: Record<StackMode, ModeRules> = {
   daily: {
@@ -95,7 +96,7 @@ export const MODE_RULES: Record<StackMode, ModeRules> = {
     persistsDaily: true,
     roundCounter: 'slots',
     puzzleChip: (puzzle) => `#${puzzle}`,
-    headline: (framesLabel, layerName) => `${framesLabel} · ${layerName}`,
+    headline: (framesLabel, layerName) => text('end-card.headline.daily', { frames: framesLabel, layer: layerName }),
     shareTitle: (puzzle) => `nullion #${puzzle}`,
     shareGlyphLimit: Infinity,
     layerPerFrameH: 8,

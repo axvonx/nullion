@@ -3,6 +3,7 @@ import { hash, line as artLine, vis } from '../render/art-common';
 import { MotionType } from '../render/motion';
 import { ent, type EntityDef, type Pen } from '../render/v4/kit';
 import { R, TAU, disc, fill, line, rect, ring } from './shared/draw-kit';
+import { text } from '../text';
 import type { LayerArt } from './types';
 
 // Ring −2 (five greys): System Management Mode, where time stops. Everything hangs mid-motion.
@@ -287,7 +288,7 @@ const ANCHORS: EntityDef[] = [
 
 export const ringMinus2: LayerArt = {
   family: 'ring-2',
-  blurb: 'System Management Mode, which can pause everything above it',
+  blurb: text('layers.ring-2.blurb'),
   palette: 'gray',
   form: 'smm',
   cursor: 'bit',
@@ -383,7 +384,7 @@ export const ringMinus2: LayerArt = {
   critters: {
     motions: [MotionType.Frozen],
     count: 3,
-    exitLabels: [''],
+    exitLabels: [''], // none: time is stopped here, so nothing despawns with a tag
     draw: ({ px, ink, variant }) => {
       if (variant % 3 === 0) {
         px(0, 0, 6, 6, '#bebebe');

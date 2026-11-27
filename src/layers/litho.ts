@@ -5,6 +5,7 @@ import { ent, type EntityDef } from '../render/v4/kit';
 import { ringMinus3 } from './ring-3';
 import { R, disc, fill, line, mod, rect, ring } from './shared/draw-kit';
 import { E, K, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const EK: K = { i: '#080412', d: '#3a1876', m: '#8e4ee8', l: '#f4ecff', h: '#f4ecff', w: '#8e4ee8', wl: '#f4ecff', o: '#3a1876', ol: '#8e4ee8', a: '#f4ecff', b: '#f4ecff', g: '#8e4ee8', c: '#f4ecff', r: '#f4ecff' };
@@ -87,7 +88,7 @@ const ANCHORS: EntityDef[] = [
 
 export const litho: LayerArt = {
   family: 'ring-3',
-  blurb: '13.5nm EUV interference fringes etched into crystalline silicon',
+  blurb: text('layers.litho.blurb'),
   palette: 'euv',
   form: 'raw',
   cursor: 'bit',
@@ -155,7 +156,7 @@ export const litho: LayerArt = {
   critters: {
     motions: [MotionType.Fly, MotionType.Float],
     count: 3,
-    exitLabels: ['diffracted', 'etched'],
+    exitLabels: variants('layers.litho.exit'),
     draw: ({ px, ink, t, phase }) => {
       // Stray EUV photon: a solid violet body with a bright crown and two rays, eyes dark.
       const pulse = Math.floor(t * 7 + phase) % 2 === 0;

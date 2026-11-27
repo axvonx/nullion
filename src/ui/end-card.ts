@@ -1,4 +1,5 @@
 import { VERSION_LABEL } from '../version';
+import { text } from '../text';
 import { enforce } from '../core/enforce';
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
 import type { CategoryEntry } from '../core/match';
@@ -41,7 +42,7 @@ export const END_CARD_HTML = `
           <div class="headline" data-el="headline"></div>
           <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
           <div class="stats" data-el="stats" hidden></div>
-          <div class="result-foot"><span class="next-day" data-el="nextDay">A new stack opens at local midnight.</span><button type="button" data-el="copy">Copy result</button></div>
+          <div class="result-foot"><span class="next-day" data-el="nextDay"></span><button type="button" data-el="copy">Copy result</button></div>
           <div class="result-manual"><button type="button" class="fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
           <div class="result-links" data-el="resultLinks"></div>
           <div class="build-tag" data-el="buildTag">${VERSION_LABEL}</div>
@@ -78,12 +79,13 @@ export class EndCard {
     private readonly host: EndCardHost,
   ) {
     this.els = { result: el, ...elementsOf(el) };
+    this.els.nextDay!.textContent = text('end-card.next.waiting');
     this.els.manualEndBtn!.prepend(manualBookIcon(22));
     this.els.manualEndBtn!.addEventListener('click', () => host.openManual());
     const syncManualBadges = () => {
       const unread = manualStore.unreadCount();
       const found = manualStore.foundCount();
-      this.els.manualEndSub!.textContent = found > 0 ? `${found} logged · click background folks to collect more` : 'Click characters & props in the stack to log them';
+      this.els.manualEndSub!.textContent = found > 0 ? text('end-card.manual.found', { found }) : text('end-card.manual.none');
       this.els.manualEndBadge!.textContent = `${unread} NEW`;
       this.els.manualEndBadge!.hidden = unread === 0;
       this.els.manualEndBtn!.classList.toggle('has-unread', unread > 0);
@@ -113,7 +115,7 @@ export class EndCard {
     this.statsSource = statsSource;
     this.liveDaily = g.rules.persistsDaily && g.puzzle === puzzleNumber(new Date(this.host.clock()));
     this.nextDaySig = '';
-    this.els.nextDay!.textContent = 'A new stack opens at local midnight.';
+    this.els.nextDay!.textContent = text('end-card.next.waiting');
     this.hide();
     this.els.copy!.textContent = shareLabel();
   }
@@ -180,7 +182,7 @@ export class EndCard {
         row.setAttribute('aria-label', `#${i}: ${t.name}, ${r.name ?? 'answer'}, ${sum.textContent}`);
       } else {
         row.classList.add('timeout');
-        det.textContent = r.timedOut ? 'Timed out · no frames' : 'Skipped · no frames';
+        det.textContent = r.timedOut ? text('end-card.row.timed-out') : text('end-card.row.skipped');
         row.setAttribute('aria-label', `#${i}: ${r.timedOut ? 'timed out' : 'skipped'}, no frames`);
       }
       // Tap (and click) pins a row open; hover and keyboard focus open it while they last (CSS).
@@ -218,13 +220,13 @@ export class EndCard {
     missLink.href = missedAnswerUrl({ guesses: rejected, puzzle });
     missLink.target = '_blank';
     missLink.rel = 'noopener noreferrer';
-    missLink.textContent = 'Report a missed answer';
+    missLink.textContent = text('end-card.link.missed');
     const ideaLink = document.createElement('a');
     ideaLink.className = 'issue-link';
     ideaLink.href = suggestQuestionUrl();
     ideaLink.target = '_blank';
     ideaLink.rel = 'noopener noreferrer';
-    ideaLink.textContent = 'Suggest a question';
+    ideaLink.textContent = text('end-card.link.suggest');
     this.els.resultLinks!.replaceChildren(missLink, ' · ', ideaLink);
   }
 
@@ -390,7 +392,7 @@ export class EndCard {
     if (out.reset !== undefined) {
       const warn = document.createElement('p');
       warn.className = 'stats-warn';
-      warn.textContent = `Your saved stats could not be read (${out.reset}) and were reset.`;
+      warn.textContent = text('notices.stats.reset', { reason: out.reset });
       box.append(warn);
       this.host.notify(warn.textContent, 'error');
     }
@@ -408,12 +410,12 @@ export class EndCard {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'next-day-reload';
-      b.textContent = 'A new stack is open · reload';
+      b.textContent = text('end-card.next.reload');
       b.addEventListener('click', () => location.reload());
       el.replaceChildren(b);
       return;
     }
-    const txt = `Next stack in ${formatCountdown(msUntilNextDay(now))}`;
+    const txt = text('end-card.next.countdown', { countdown: formatCountdown(msUntilNextDay(now)) });
     if (txt === this.nextDaySig) return;
     this.nextDaySig = txt;
     el.textContent = txt;

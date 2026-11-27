@@ -5,6 +5,7 @@ import { ent, type EntityDef } from '../render/v4/kit';
 import { application } from './application';
 import { R, fill, line, mod, px, rect, ring } from './shared/draw-kit';
 import { net, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -138,7 +139,7 @@ const ANCHORS: EntityDef[] = [
 
 export const internet: LayerArt = {
   family: 'application',
-  blurb: 'Autonomous systems, BGP routes and undersea fiber above your machine',
+  blurb: text('layers.internet.blurb'),
   palette: 'full',
   form: 'gui',
   cursor: 'arrow',
@@ -259,7 +260,7 @@ export const internet: LayerArt = {
   critters: {
     motions: [MotionType.Fly, MotionType.Perch],
     count: 3,
-    exitLabels: ['TTL=0', 'dropped'],
+    exitLabels: variants('layers.internet.exit'),
     draw: ({ px, dir, perched }) => {
       // Crisp white paper-plane packet swallow with trailing cyan packet dot
       px(0, 1, 6, 4, '#ffffff');

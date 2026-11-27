@@ -20,7 +20,7 @@ const FULL: ManualEntry = {
   seeAlso: ['small-ben'],
 };
 
-const PATH = 'manual/kernel/lock-ness.md';
+const PATH = 'writing/manual/kernel/lock-ness.md';
 const TEXT = formatManualEntry(FULL);
 
 function expectError(text: string, pattern: RegExp, path = PATH) {
@@ -56,11 +56,11 @@ describe('parseManualFile', () => {
     delete e.seeAlso;
     const text = formatManualEntry(e, ['kept for the editor']);
     expect(text).toContain('<!-- kept for the editor -->');
-    expect(parseManualFile('manual/application/crit-x.md', text)).toEqual(e);
+    expect(parseManualFile('writing/manual/application/crit-x.md', text)).toEqual(e);
   });
 
   it('names the file and the line of each kind of mistake', () => {
-    expectError(TEXT.replace('# Lock Ness', 'Lock Ness'), /^manual\/kernel\/lock-ness\.md:1: expected "# <name>"/);
+    expectError(TEXT.replace('# Lock Ness', 'Lock Ness'), /^writing\/manual\/kernel\/lock-ness\.md:1: expected "# <name>"/);
     expectError(TEXT.replace(' · tag: ', ' · label: '), /:3: header field 2 must be "tag: <value>"/);
     expectError(TEXT.replace('kind: prop', 'kind: thing'), /:3: kind "thing"/);
     expectError(TEXT.replace('rarity: uncommon', 'rarity: epic'), /:3: rarity "epic"/);
@@ -78,11 +78,11 @@ describe('parseManualFile', () => {
   });
 
   it('checks the path against the content', () => {
-    expectError(TEXT, /in manual\/application\/ but its first sighting is on kernel|file is in manual\/application\//, 'manual/application/lock-ness.md');
-    expectError(TEXT, /named other\.md but its id is lock-ness/, 'manual/kernel/other.md');
+    expectError(TEXT, /file is in writing\/manual\/application\//, 'writing/manual/application/lock-ness.md');
+    expectError(TEXT, /named other\.md but its id is lock-ness/, 'writing/manual/kernel/other.md');
   });
 
-  it('puts an entry at manual/<layer of its first sighting>/<id>.md', () => {
+  it('puts an entry at writing/manual/<layer of its first sighting>/<id>.md', () => {
     expect(manualPath(FULL)).toBe(PATH);
   });
 });

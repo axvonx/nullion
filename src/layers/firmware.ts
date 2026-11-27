@@ -4,6 +4,7 @@ import { MotionType } from '../render/motion';
 import { ent, type EntityDef, type Pen } from '../render/v4/kit';
 import { PLATE, R, TAU, disc, frame, line, mod, px, rect, ring } from './shared/draw-kit';
 import { G0, G1, G2, G3 } from './shared/lower-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 /** A seven-segment digit, 3×5. */
@@ -348,7 +349,7 @@ const ANCHORS: EntityDef[] = [
 
 export const firmware: LayerArt = {
   family: 'firmware',
-  blurb: 'Code built into the hardware that starts the machine',
+  blurb: text('layers.firmware.blurb'),
   palette: 'green',
   form: 'bios',
   cursor: 'bioscell',
@@ -445,7 +446,7 @@ export const firmware: LayerArt = {
   critters: {
     motions: [MotionType.Float],
     count: 3,
-    exitLabels: ['halt', 'POST ok'],
+    exitLabels: variants('layers.firmware.exit'),
     draw: ({ px, t, phase }) => {
       const pulse = Math.floor(t * 2 + phase) % 2 === 0;
       px(1, 0, 5, 1, '#8cff9c');

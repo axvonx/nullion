@@ -5,6 +5,7 @@ import { ent, type EntityDef } from '../render/v4/kit';
 import { ringMinus2 } from './ring-2';
 import { PLATE, R, disc, frame, px, rect, ring } from './shared/draw-kit';
 import { E, K, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const SK: K = { i: '#0c0c0c', d: '#464646', m: '#828282', l: '#bebebe', h: '#f0f0f0', w: '#828282', wl: '#bebebe', o: '#464646', ol: '#828282', a: '#f0f0f0', b: '#bebebe', g: '#828282', c: '#f0f0f0', r: '#f0f0f0' };
@@ -96,7 +97,7 @@ const ANCHORS: EntityDef[] = [
 
 export const smram: LayerArt = {
   family: 'ring-2',
-  blurb: 'Locked hardware-shielded memory invisible to the OS and hypervisor',
+  blurb: text('layers.smram.blurb'),
   palette: 'gray',
   form: 'smm',
   cursor: 'bit',
@@ -199,7 +200,7 @@ export const smram: LayerArt = {
   critters: {
     motions: [MotionType.Float],
     count: 2,
-    exitLabels: ['RSM', 'locked'],
+    exitLabels: variants('layers.smram.exit'),
     draw: ({ px }) => {
       // Silent silver vault sentinel
       px(0, 0, 6, 6, '#808080');

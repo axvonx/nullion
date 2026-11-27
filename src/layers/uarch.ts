@@ -5,6 +5,7 @@ import type { EntityDef } from '../render/v4/kit';
 import { drivers } from './drivers';
 import { fill, frame, line, mod, rect } from './shared/draw-kit';
 import { bpr, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -123,7 +124,7 @@ const ANCHORS: EntityDef[] = [
 
 export const uarch: LayerArt = {
   family: 'ring-3',
-  blurb: 'Out-of-order μops, branch predictors and L1/L2/L3 cache banks',
+  blurb: text('layers.uarch.blurb'),
   palette: 'blueprint',
   form: 'raw',
   cursor: 'bit',
@@ -209,7 +210,7 @@ export const uarch: LayerArt = {
   critters: {
     motions: [MotionType.Zip, MotionType.Mirror],
     count: 3,
-    exitLabels: ['mispredict!', 'flushed'],
+    exitLabels: variants('layers.uarch.exit'),
     draw: ({ px, ink, t, phase, dir }) => {
       // Speculative phantom: flickering μop glider
       const ghost = Math.floor(t * 6 + phase) % 2 === 0;

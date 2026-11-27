@@ -5,6 +5,7 @@ import { ent, type EntityDef } from '../render/v4/kit';
 import { application } from './application';
 import { R, disc, fill, frame, mod, px, rect, ring } from './shared/draw-kit';
 import { net, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -143,7 +144,7 @@ const ANCHORS: EntityDef[] = [
 
 export const browser: LayerArt = {
   family: 'application',
-  blurb: 'The DOM tree, CSS layout engine and GPU compositor framing your apps',
+  blurb: text('layers.browser.blurb'),
   palette: 'full',
   form: 'gui',
   cursor: 'arrow',
@@ -242,7 +243,7 @@ export const browser: LayerArt = {
   critters: {
     motions: [MotionType.Fly, MotionType.Perch],
     count: 3,
-    exitLabels: ['unmounted', 'reflow'],
+    exitLabels: variants('layers.browser.exit'),
     draw: ({ px, ink, t, phase, dir, perched }) => {
       // Tab-bug: a scuttling 6x6 beetle with an orange browser-tab ear and two dark eyes.
       const leg = perched ? 0 : Math.floor(t * 10 + phase) % 2;

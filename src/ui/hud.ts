@@ -10,6 +10,7 @@ import type { Scene } from '../render/scene';
 import { FORMS, type FormId } from './forms';
 import { LAYER_ART } from '../layers';
 import { tierIcon } from './tier-icons';
+import { text } from '../text';
 import { $, elementsOf, framesLabel, replay, setText } from './dom';
 import { END_CARD_HTML, EndCard, rowsOf, type RecordRow } from './end-card';
 import { REVEAL_HTML, REVEAL_MS, Reveal } from './reveal';
@@ -89,8 +90,8 @@ export class Hud {
       <section class="title-screen" data-el="titleScreen" aria-label="Nullion" hidden>
         <div class="title-head" data-el="titleHead"></div>
         <div class="title-foot">
-          <p class="title-tag">Seven prompts a day. Rarer answers descend deeper into the stack.</p>
-          <button type="button" class="title-start" data-el="titleStart"><span>Unwind the stack</span><span class="title-arrow" aria-hidden="true">▾</span></button>
+          <p class="title-tag" data-el="titleTag"></p>
+          <button type="button" class="title-start" data-el="titleStart"><span data-el="titleStartText"></span><span class="title-arrow" aria-hidden="true">▾</span></button>
           <div class="title-foot-links">
             <button type="button" class="title-how-btn" data-el="titleHowBtn" aria-expanded="false" aria-controls="title-how">How to play</button>
             <button type="button" class="title-how-btn title-manual-btn" data-el="titleManualBtn"><span data-el="titleManualLabel">Field Manual</span></button>
@@ -103,8 +104,8 @@ export class Hud {
             <button type="button" class="title-how-close" data-el="titleHowClose" aria-label="Close">×</button>
           </div>
           <ul class="title-rules" data-el="titleRules"></ul>
-          <div class="title-how-title title-how-sub">Tiers · stack frames</div>
-          <p class="title-how-note">Wrong guesses cost nothing but time. Harder-to-reproduce answers descend deeper:</p>
+          <div class="title-how-title title-how-sub" data-el="titleTiersHeading"></div>
+          <p class="title-how-note" data-el="titleTiersNote"></p>
           <ol class="title-tiers" data-el="titleTiers"></ol>
         </div>
       </section>
@@ -159,6 +160,10 @@ ${REVEAL_HTML}`;
     };
     syncManualBadges();
     manualStore.subscribe(syncManualBadges);
+    this.els.titleTag!.textContent = text('title.tag');
+    this.els.titleStartText!.textContent = text('title.start');
+    this.els.titleTiersHeading!.textContent = text('title.tiers.heading');
+    this.els.titleTiersNote!.textContent = text('title.tiers.note');
     this.buildTitleRules();
     this.buildTitleTiers();
     mountPrefsMenu(mount, this.els.barLeft!);
@@ -168,13 +173,13 @@ ${REVEAL_HTML}`;
   private buildTitleRules() {
     const frames = TIER_IDS.map((id) => TIERS[id].frames);
     const lines = [
-      `${PROMPTS_PER_DAY} prompts a day, ${ANSWER_MS / 1000} seconds each.`,
-      'One answer per prompt: the first one accepted is locked in.',
-      `Rarer answers push more stack frames (${Math.min(...frames)} to ${Math.max(...frames)}), so you descend deeper.`,
-      'More stack frames = deeper inside the computer, from Apps down to bare silicon.',
-      'Tiers are named after bugs — rarer answers are harder-to-reproduce bugs.',
-      'Everyone gets the same puzzle.',
-      'A new one opens at your local midnight.',
+      text('title.rule.prompts', { prompts: PROMPTS_PER_DAY, seconds: ANSWER_MS / 1000 }),
+      text('title.rule.answer'),
+      text('title.rule.frames', { min: Math.min(...frames), max: Math.max(...frames) }),
+      text('title.rule.depth'),
+      text('title.rule.bugs'),
+      text('title.rule.same'),
+      text('title.rule.midnight'),
     ];
     this.els.titleRules!.replaceChildren(
       ...lines.map((t) => {
@@ -602,7 +607,7 @@ ${REVEAL_HTML}`;
         this.lastReadSec = secs;
         sound.countdownTick(secs, layerAt(depthShown, g.mode).id);
       }
-      const wantPlaceholder = `Starting in ${secs}s`;
+      const wantPlaceholder = text('console.countdown', { secs });
       if (this.input.placeholder !== wantPlaceholder) this.input.placeholder = wantPlaceholder;
       left = 1;
       this.input.disabled = true;
@@ -633,7 +638,7 @@ ${REVEAL_HTML}`;
         if (r!.buzzer.accepted && lk && this.scene) {
           const t = TIERS[lk.entry.tier];
           this.els.feedback!.className = 'feedback ok';
-          this.els.feedback!.textContent = lk.corrected ? `read as '${lk.entry.name}'` : '';
+          this.els.feedback!.textContent = lk.corrected ? text('console.corrected', { name: lk.entry.name }) : '';
           this.scene.diveTo(g.depth, t.id, t.frames);
         }
       }
@@ -789,7 +794,7 @@ ${REVEAL_HTML}`;
         fb.replaceChildren();
         const hintText =
           cur && cur.rejected.length >= 2
-            ? cur.question.accepts ?? bankAcceptsFor(cur.question.id) ?? 'Try a broad, common name.'
+            ? cur.question.accepts ?? bankAcceptsFor(cur.question.id) ?? text('console.hint.generic')
             : undefined;
         requestAnimationFrame(() => {
           const link = document.createElement('a');
@@ -797,14 +802,14 @@ ${REVEAL_HTML}`;
           link.href = url;
           link.target = '_blank';
           link.rel = 'noopener noreferrer';
-          link.textContent = 'Missing an answer?';
+          link.textContent = text('console.missing-link');
           if (hintText) {
             const hint = document.createElement('span');
             hint.className = 'fb-hint';
-            hint.textContent = ` · Hint: ${hintText}`;
-            fb.replaceChildren('Not accepted · ', link, hint);
+            hint.textContent = ` · ${text('console.hint', { hint: hintText })}`;
+            fb.replaceChildren(`${text('console.rejected')} · `, link, hint);
           } else {
-            fb.replaceChildren('Not accepted · ', link);
+            fb.replaceChildren(`${text('console.rejected')} · `, link);
           }
         });
         replay(this.els.console!, 'reject');
@@ -815,7 +820,7 @@ ${REVEAL_HTML}`;
       case 'duplicate':
         this.input.value = '';
         fb.className = 'feedback';
-        fb.textContent = `${res.entry.name} is already on the stack`;
+        fb.textContent = text('console.duplicate', { name: res.entry.name });
         replay(fb, 'settle-in');
         return;
       case 'suggestion':
@@ -825,7 +830,7 @@ ${REVEAL_HTML}`;
         this.input.focus();
         this.input.setSelectionRange(res.entry.name.length, res.entry.name.length);
         fb.className = 'feedback hint';
-        fb.textContent = `Corrected to '${res.entry.name}'. Press Enter to submit.`;
+        fb.textContent = text('console.suggestion', { name: res.entry.name });
         sound.suggest(layerAt(scene.displayDepth).id);
         replay(fb, 'settle-in');
         return;
@@ -833,7 +838,7 @@ ${REVEAL_HTML}`;
         this.input.value = '';
         const t = TIERS[res.entry.tier];
         fb.className = 'feedback ok';
-        fb.textContent = res.corrected ? `read as '${res.entry.name}'` : '';
+        fb.textContent = res.corrected ? text('console.corrected', { name: res.entry.name }) : '';
         // The reveal opens from update() once the dive has landed (the round then waits on its button).
         if (res.pushed > 0) scene.diveTo(g.depth, t.id, res.pushed);
         else scene.react(t.id);

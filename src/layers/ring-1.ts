@@ -5,6 +5,7 @@ import { ent, type EntityDef, type Pen } from '../render/v4/kit';
 import { firmware } from './firmware';
 import { R, TAU, disc, fill, frame, line, mod, rect, ring } from './shared/draw-kit';
 import { G0, G1, G2, G3 } from './shared/lower-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 // Ring −1 (green phosphor): the hypervisor's house of mirrors. Twins, nests, clones and gates.
@@ -419,7 +420,7 @@ const ANCHORS: EntityDef[] = [
 
 export const ringMinus1: LayerArt = {
   family: 'ring-1',
-  blurb: 'The hypervisor, running whole operating systems as guests',
+  blurb: text('layers.ring-1.blurb'),
   palette: 'green',
   form: 'hyper',
   cursor: 'bit',
@@ -523,7 +524,7 @@ export const ringMinus1: LayerArt = {
   critters: {
     motions: [MotionType.Mirror],
     count: 2,
-    exitLabels: ['vmexit', 'trapped'],
+    exitLabels: variants('layers.ring-1.exit'),
     draw: ({ px, mirror }) => {
       mirror();
       px(0, 1, 6, 4, '#1ea046');

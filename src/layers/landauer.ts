@@ -5,6 +5,7 @@ import { ent, type EntityDef } from '../render/v4/kit';
 import { ringMinus3 } from './ring-3';
 import { R, TAU, fill, frame, line, mod, rect, ring } from './shared/draw-kit';
 import { aby, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -104,7 +105,7 @@ const ANCHORS: EntityDef[] = [
 
 export const landauer: LayerArt = {
   family: 'ring-3',
-  blurb: 'The thermodynamic floor of computation: kT ln 2 per erased bit',
+  blurb: text('layers.landauer.blurb'),
   palette: 'abyss',
   form: 'raw',
   cursor: 'bit',
@@ -186,7 +187,7 @@ export const landauer: LayerArt = {
   critters: {
     motions: [MotionType.Float],
     count: 2,
-    exitLabels: ['kT ln 2', 'erased'],
+    exitLabels: variants('layers.landauer.exit'),
     draw: ({ px, ink, t, phase }) => {
       // Lone stray bit in the void
       const bit = Math.floor(t * 2 + phase) % 2 === 0;

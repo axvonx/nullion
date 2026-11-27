@@ -3,6 +3,7 @@ import { hash, prows, vgrad, vis } from '../render/art-common';
 import { MotionType } from '../render/motion';
 import { ent, type EntityDef, type Pen } from '../render/v4/kit';
 import { R, TAU, fill, frame, line, mod, rect } from './shared/draw-kit';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 // Runtime (rgb6): heap objects on girders, references, GC, JIT, the event loop.
@@ -383,7 +384,7 @@ const ANCHORS: EntityDef[] = [
 
 export const runtime: LayerArt = {
   family: 'runtime',
-  blurb: 'The engine that runs your code and tidies up its memory',
+  blurb: text('layers.runtime.blurb'),
   palette: 'rgb6',
   form: 'repl',
   cursor: 'ibeam',
@@ -492,7 +493,7 @@ export const runtime: LayerArt = {
   critters: {
     motions: [MotionType.Hop, MotionType.Perch],
     count: 3,
-    exitLabels: ["GC'd!", 'swept!'],
+    exitLabels: variants('layers.runtime.exit'),
     draw: ({ px, ink, variant, dir, perched, hopFrac }) => {
       const bodies = ['#5fd3e0', '#7ee0a1', '#f5d76e', '#ff9f43', '#c58bff'];
       const body = bodies[variant % bodies.length]!;
