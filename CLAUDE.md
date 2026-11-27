@@ -109,6 +109,18 @@ Debug-only for now (`?endless=1` or the header chip). A 29-layer stack to about 
   - A player gives one answer per prompt, so overlapping entries never double-score. The rule only decides what's accepted and whether a system's own name earns its own tier.
   - Category-specific limits go in the file's `> Accepts:` line.
 - **Recall comes from real sources, not memory.** `scripts/mine-heads.py <bank file> <head,nouns> <dirs…>` mines phrases and identifiers ending in a head noun from source trees in `~/nullion-corpora/src`. Those are sparse clones: FreeBSD `share/man/man9`, MicrosoftDocs `windows-driver-docs` (kernel) and `win32` (Sync), and PostgreSQL docs plus `lmgr`. The output is noisy, so an agent applies the membership rule to it, and survivors go through the scorer into the Inbox. Add source trees per domain as categories need them.
+- **Unconfirmed answers are capped.**
+  - A tiered line ending in `(auto)` was accepted by the pipeline and not yet confirmed by a person. It plays at most Memory leak (`AUTO_TIER_CAP` in `src/data/bank-format.ts`), so a wrong accept can't be farmed for deep-tier frames.
+  - Delete the marker to confirm an answer. Bit Flip and Works on my machine can never be `(auto)`.
+  - The index counts unconfirmed answers per category.
+- **Harvesting a category** (error classes behind each step: `research/inbox-review-2026-11-26.md`):
+  1. Write a source plan, `scripts/bank/plans/<id>.json`. Use head-noun mining over trees, or GitHub directory/file listings for proper-noun categories, plus an optional `context` for counts. Source choice is the biggest recall lever, so an agent proposes it and a person can veto.
+  2. Run `python3 -I scripts/harvest.py <id>`. It sparse-clones and lists, mines, and writes `scripts/bank/mined/<id>/batch-NN.txt`.
+  3. Run two independent Haiku filter passes per batch with `scripts/bank/prompts/filter.md`, as `batch-NN.a` and `batch-NN.b`.
+  4. Run `python3 -I scripts/compare-passes.py <id>`. It writes agreed candidates (tiers at most one step apart, shallower wins) and `disputed.json`, plus `picks.json` with both passes' Bit Flip and Works-on-my-machine proposals.
+  5. A stronger model resolves the disputes with `scripts/bank/prompts/escalate.md` and writes `resolved-*`. Unsure ones get `"confidence": "low"` and go to the Inbox.
+  6. Run `python3 -I scripts/merge-mined.py <id> <out.json> <dir>/agreed <dir>/resolved`. Add the person's `pin`s, plus `_context` when needed. Then run `python3 -I scripts/score-candidates.py <out.json> ~/nullion-corpora`, then `npm run bank:index`.
+  7. Run `python3 -I scripts/sample-precision.py <id> sample`. A reviewer writes `sample-verdicts.json`, then `… score` records precision in the report. It exits 1 below 90%, so the category isn't approved.
 - **Your edits win.** `scripts/score-candidates.py <candidates.json> ~/nullion-corpora` fills the tiers of a category that has none yet (a fresh draft). Once a file has tiered answers it never moves or deletes a line: it appends new candidates to the Inbox with a suggested tier, and `bank/reports/<id>.md` lists counts, scores and answers whose file tier differs from the scored tier by more than one.
 - **Scoring:**
   - The corpora live in `~/nullion-corpora`, indexed by `scripts/index-corpora.py` with SQLite FTS5 and the porter tokenizer: dblp titles, arXiv cs title and abstract (`scripts/harvest-arxiv.py`) and kernel Documentation paragraphs.

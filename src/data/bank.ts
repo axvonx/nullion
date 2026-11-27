@@ -1,5 +1,5 @@
 import { enforce } from '../core/enforce';
-import { parseBankFile, parseIndex, type BankCategory, type IndexRow } from './bank-format';
+import { parseBankFile, parseIndex, playTier, type BankCategory, type IndexRow } from './bank-format';
 import type { Question, Term } from './sample';
 import indexText from '../../bank/index.md?raw';
 
@@ -46,12 +46,13 @@ export async function loadBankCategory(id: string): Promise<BankCategory> {
   return c;
 }
 
-/** A category's playable answers as terms. Inbox candidates are not playable until moved into a tier. */
+/** A category's playable answers as terms. Inbox candidates are not playable until moved into a tier, and
+ * unconfirmed (auto) answers play at most at AUTO_TIER_CAP. */
 export function categoryTerms(c: BankCategory): Term[] {
   return c.entries.map((e) => ({
     name: e.name,
     ...(e.aliases.length ? { aliases: e.aliases } : {}),
-    tags: { [c.id]: e.tier },
+    tags: { [c.id]: playTier(e) },
     ...(e.note ? { note: e.note } : {}),
   }));
 }

@@ -67,8 +67,12 @@ def main() -> None:
             m = next((merged[key(n)] for n in names if key(n) in merged), None)
             if m is None:
                 m = {"name": c["name"], "aliases": [], "judge": c["judge"]}
+                if c.get("confidence") == "low":
+                    m["confidence"] = "low"
                 merged[key(c["name"])] = m
-            elif m["judge"] != c["judge"]:
+            elif c.get("confidence") != "low" and m.get("confidence") == "low":
+                m.pop("confidence")  # another batch was sure about it
+            if m["judge"] != c["judge"]:
                 print(f"note: {m['name']}: batches disagree ({m['judge']} vs {c['judge']}); keeping the shallower")
                 m["judge"] = min(m["judge"], c["judge"], key=LADDER.index)
             for n in names:

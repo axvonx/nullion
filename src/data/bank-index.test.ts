@@ -9,7 +9,7 @@ const RAW = import.meta.glob(['../../bank/*/*.md', '!../../bank/reports/*.md'], 
 describe('bank index', () => {
   it('bank/index.md is up to date (run `npm run bank:index` after editing a category)', () => {
     const want = formatIndex(
-      Object.entries(RAW).map(([p, text]) => parseBankFile(p.replace(/^.*?bank\//, 'bank/'), text)).map((c) => ({ id: c.id, prompt: c.prompt, domain: c.domain, status: c.status, answers: c.entries.length, inbox: c.inbox.length })),
+      Object.entries(RAW).map(([p, text]) => parseBankFile(p.replace(/^.*?bank\//, 'bank/'), text)).map((c) => ({ id: c.id, prompt: c.prompt, domain: c.domain, status: c.status, answers: c.entries.length, auto: c.entries.filter((e) => e.auto).length, inbox: c.inbox.length })),
     );
     const path = new URL('../../bank/index.md', import.meta.url);
     if (process.env.UPDATE_BANK_INDEX === '1') writeFileSync(path, want);

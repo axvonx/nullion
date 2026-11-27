@@ -4,9 +4,11 @@
 Usage: python3 -I scripts/score-candidates.py scripts/pilot/candidates.json ~/nullion-corpora
 Merges into the human-edited bank (bank/<domain>/<tag>.md; grammar in src/data/bank-format.ts) and writes a
 report per category to bank/reports/<tag>.md. The human file always wins:
-- a category file with no tiered answers yet (a fresh draft) gets its tiers filled in;
+- a category file with no tiered answers yet (a fresh draft) gets its tiers filled in, every answer marked (auto)
+  (unconfirmed: plays at most Memory leak until a person deletes the marker) except the pinned picks;
 - once it has tiered answers, nothing in it is moved or deleted. New candidates are appended to its Inbox with a
   suggested tier, and the report lists answers whose file tier and scored tier differ by more than one.
+A candidate with "confidence": "low" (an escalation that stayed unsure) goes to the Inbox even on a fresh fill.
 Every tag in the candidates file must already have a bank file. An optional "_context": {tag: [phrases]} makes counts
 require one of those phrases in the same row, for categories of short proper nouns (filesystems, languages).
 
@@ -67,6 +69,7 @@ TIER_HEADINGS = {"Off-by-one": "off-by-one", "Works on my machine": "womm", "Nul
 HEADING_OF = {v: k for k, v in TIER_HEADINGS.items()}
 ORDER = list(HEADING_OF)
 SUGGESTED = re.compile(r"^(.*?)\s+\(suggested: ([a-z-]+)\)$")
+AUTO = re.compile(r"\s+\(auto\)$")
 
 
 def bank_file(tag: str) -> pathlib.Path:
@@ -94,6 +97,7 @@ def read_bank(path: pathlib.Path) -> dict:
                 names = (m.group(1) if m else body).split(" | ")
                 inbox.append({"names": names, "suggested": m.group(2) if m else None, "line": line})
             else:
+                body = AUTO.sub("", body)
                 tiers[body.split(" | ")[0].lower()] = section
                 tiers.setdefault("_lines", []).append((section, line))
         elif line.strip() and section != "inbox" and tiers.get("_lines"):
@@ -104,17 +108,17 @@ def read_bank(path: pathlib.Path) -> dict:
         keys |= {n.lower() for n in e["names"]}
     for _, l in lines:
         if l.startswith("- "):
-            keys |= {n.lower() for n in l[2:].strip().split(" | ")}
+            keys |= {n.lower() for n in AUTO.sub("", l[2:].strip()).split(" | ")}
     return {"head": head, "tiers": tiers, "lines": lines, "inbox": inbox, "keys": keys}
 
 
-def entry_line(e: dict) -> str:
+def entry_line(e: dict, auto: bool = False) -> str:
     seen, names = set(), []
     for n in [e["name"], *e.get("aliases", [])]:
         if n.lower() not in seen:  # the bank grammar rejects repeats, case-insensitively
             seen.add(n.lower())
             names.append(n)
-    return "- " + " | ".join(names)
+    return "- " + " | ".join(names) + (" (auto)" if auto else "")
 
 
 def main() -> None:
@@ -232,11 +236,15 @@ def main() -> None:
             # Fresh draft: fill the tiers. Keep inbox items the candidates don't cover.
             scored = {n.lower() for r in rows for n in [r["e"]["name"], *r["e"].get("aliases", [])]}
             out = list(bank["head"])
+            low = [r for r in rows if r["e"].get("confidence") == "low" and not r["e"].get("pin")]
             for t in ORDER:
-                es = [r["e"] for r in rows if r["tier"] == t]
+                es = [r["e"] for r in rows if r["tier"] == t and r not in low]
                 if es:
-                    out += ["", f"## {HEADING_OF[t]}", *[entry_line(e) for e in es]]
+                    # Filled answers are unconfirmed (auto) and play capped until a person deletes the marker;
+                    # pinned picks are the person's own.
+                    out += ["", f"## {HEADING_OF[t]}", *[entry_line(e, auto=not e.get("pin")) for e in es]]
             keep = [e["line"] for e in bank["inbox"] if not any(n.lower() in scored for n in e["names"])]
+            keep += [f"{entry_line(r['e'])} (suggested: {r['tier']})" for r in low]
             if keep:
                 out += ["", "## Inbox", *keep]
             path.write_text("\n".join(out) + "\n")

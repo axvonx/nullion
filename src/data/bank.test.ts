@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { buildAnswerSet } from '../core/answers';
 import { BANK_INDEX, BANK_QUESTIONS, loadBankCategory, loadBankTerms } from './bank';
-import { formatBankFile, parseBankFile, type BankCategory } from './bank-format';
+import { AUTO_TIER_CAP, formatBankFile, parseBankFile, playTier, type BankCategory } from './bank-format';
 
 // Every category file, read eagerly so the whole bank is validated on every test run.
 const RAW = import.meta.glob(['../../bank/*/*.md', '!../../bank/reports/*.md'], { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
@@ -64,6 +64,18 @@ describe('bank file grammar', () => {
     expect(() => parse('## Inbox\n- a (suggested: common)\n')).toThrow(/unknown suggested tier/);
     expect(() => parse('## Off-by-one\n- a\n\n  note: x\n')).toThrow(/directly under/);
     expect(() => parseBankFile('t.md', head.replace('os-systems', 'misc'))).toThrow(/unknown domain/);
+  });
+
+  it('(auto) marks an unconfirmed answer, which plays at most at the cap', () => {
+    const c = parse('## Off-by-one\n- mutex (auto)\n## Heisenbug\n- ERESOURCE | executive resource (auto)\n- fissile lock\n');
+    expect(c.entries.map((e) => [e.name, e.aliases, e.tier, e.auto])).toEqual([
+      ['mutex', [], 'off-by-one', true],
+      ['ERESOURCE', ['executive resource'], 'heisenbug', true],
+      ['fissile lock', [], 'heisenbug', undefined],
+    ]);
+    expect(c.entries.map(playTier)).toEqual(['off-by-one', AUTO_TIER_CAP, 'heisenbug']);
+    expect(() => parse('## Bit Flip\n- b (auto)\n')).toThrow(/picked by a person/);
+    expect(() => parse('## Inbox\n- b (auto)\n')).not.toThrow(); // inbox lines take names literally
   });
 
   it('an approved category needs exactly one Bit Flip and at least one Works on my machine', () => {

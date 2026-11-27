@@ -13,6 +13,8 @@ import { TIERS, TIER_IDS, type TierId } from '../core/tiers';
  *   ## Off-by-one                      one section per tier, in the canonical order, each at most once
  *   - mutex
  *   - spinlock | spin lock | spin-lock  aliases after " | "
+ *   - ERESOURCE (auto)                 accepted by the pipeline, not yet confirmed by a person: scores at most
+ *                                      AUTO_TIER_CAP until someone deletes the marker
  *     note: shown on the reveal         optional, indented, directly under its answer
  *   ...
  *   ## Bit Flip
@@ -35,6 +37,8 @@ export interface BankEntry {
   aliases: string[];
   tier: TierId;
   note?: string;
+  /** Accepted by the pipeline and not yet confirmed by a person. */
+  auto?: true;
 }
 
 export interface InboxEntry {
@@ -57,6 +61,22 @@ const TIER_BY_HEADING = new Map<string, TierId>(TIER_IDS.map((t) => [TIERS[t].na
 const ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const HEADER_RE = /^id: (\S+) · domain: (\S+) · status: (\S+)$/;
 const SUGGESTED_RE = /^(.*?)\s+\(suggested: ([a-z-]+)\)$/;
+const AUTO_RE = /^(.*?)\s+\(auto\)$/;
+
+/**
+ * Unconfirmed answers score at most this tier, so a wrongly accepted string can't be farmed for deep-tier
+ * frames. A person confirms an answer by deleting its (auto) marker.
+ */
+export const AUTO_TIER_CAP: TierId = 'leak';
+
+/** The tier an entry actually plays at: its own, capped for unconfirmed (auto) entries. */
+export function playTier(e: BankEntry): TierId {
+  if (!e.auto) return e.tier;
+  const ladder: readonly TierId[] = ['off-by-one', 'npe', 'leak', 'race', 'heisenbug'];
+  const i = ladder.indexOf(e.tier);
+  enforce(i >= 0, `an (auto) entry cannot be ${e.tier}: Bit Flip and Works on my machine are picked by a person`);
+  return i > ladder.indexOf(AUTO_TIER_CAP) ? AUTO_TIER_CAP : e.tier;
+}
 
 function splitNames(text: string, where: string): { name: string; aliases: string[] } {
   const parts = text.split(' | ').map((p) => p.trim());
@@ -138,9 +158,11 @@ export function parseBankFile(path: string, text: string): BankCategory {
         for (const k of [n.name, ...n.aliases]) claim(k, where);
         inbox.push({ ...n, ...(suggested ? { suggested } : {}) });
       } else {
-        const n = splitNames(body, where);
+        const am = AUTO_RE.exec(body);
+        const n = splitNames(am ? am[1]! : body, where);
         for (const k of [n.name, ...n.aliases]) claim(k, where);
-        entries.push({ ...n, tier: section });
+        enforce(!am || (section !== 'bitflip' && section !== 'womm'), `${where}: Bit Flip and Works on my machine are picked by a person; remove (auto)`);
+        entries.push({ ...n, tier: section, ...(am ? { auto: true as const } : {}) });
       }
     } else if (/^\s+note: /.test(l)) {
       const last = entries[entries.length - 1];
@@ -171,7 +193,7 @@ export function formatBankFile(c: BankCategory): string {
     if (!es.length) continue;
     out.push('', `## ${TIERS[t].name}`);
     for (const e of es) {
-      out.push(`- ${[e.name, ...e.aliases].join(' | ')}`);
+      out.push(`- ${[e.name, ...e.aliases].join(' | ')}${e.auto ? ' (auto)' : ''}`);
       if (e.note) out.push(`  note: ${e.note}`);
     }
   }
@@ -189,6 +211,8 @@ export interface IndexRow {
   domain: Domain;
   status: Status;
   answers: number;
+  /** Answers still marked (auto). */
+  auto: number;
   inbox: number;
 }
 
@@ -202,9 +226,9 @@ export function formatIndex(rows: readonly IndexRow[]): string {
     '',
     `${sorted.length} categories: ${counts}.`,
     '',
-    '| id | prompt | domain | status | answers | inbox |',
-    '|---|---|---|---|---|---|',
-    ...sorted.map((r) => `| ${r.id} | ${r.prompt.replaceAll('|', '\\|')} | ${r.domain} | ${r.status} | ${r.answers} | ${r.inbox} |`),
+    '| id | prompt | domain | status | answers | unconfirmed | inbox |',
+    '|---|---|---|---|---|---|---|',
+    ...sorted.map((r) => `| ${r.id} | ${r.prompt.replaceAll('|', '\\|')} | ${r.domain} | ${r.status} | ${r.answers} | ${r.auto} | ${r.inbox} |`),
     '',
   ].join('\n');
 }
@@ -217,11 +241,11 @@ export function parseIndex(text: string): IndexRow[] {
       .slice(2, -2)
       .split(/ (?<!\\)\| /)
       .map((c) => c.replaceAll('\\|', '|'));
-    enforce(cells.length === 6, `bank/index.md:${n + 1}: expected 6 cells, got ${cells.length}`);
-    const [id, prompt, domain, status, answers, inbox] = cells as [string, string, string, string, string, string];
+    enforce(cells.length === 7, `bank/index.md:${n + 1}: expected 7 cells, got ${cells.length}`);
+    const [id, prompt, domain, status, answers, auto, inbox] = cells as [string, string, string, string, string, string, string];
     enforce((DOMAINS as readonly string[]).includes(domain), `bank/index.md:${n + 1}: unknown domain ${domain}`);
     enforce((STATUSES as readonly string[]).includes(status), `bank/index.md:${n + 1}: unknown status ${status}`);
-    rows.push({ id, prompt, domain: domain as Domain, status: status as Status, answers: Number(answers), inbox: Number(inbox) });
+    rows.push({ id, prompt, domain: domain as Domain, status: status as Status, answers: Number(answers), auto: Number(auto), inbox: Number(inbox) });
   }
   return rows;
 }
