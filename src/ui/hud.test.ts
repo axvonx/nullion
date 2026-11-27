@@ -526,3 +526,71 @@ describe('title screen', () => {
     expect(mount.classList.contains('on-title')).toBe(false);
   });
 });
+
+describe('resume and end-card extras', () => {
+  const finishedSnapshot = () => {
+    const g = new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
+    let t = 0;
+    g.start(t);
+    for (let i = 0; i < 7; i++) {
+      t += READ_MS;
+      g.tick(t);
+      g.submit(SET.entries(g.rounds[i]!.question.id).find((e) => e.tier === 'bitflip')!.name, t);
+      g.advance(t);
+    }
+    return g.snapshot();
+  };
+
+  function mountWith(game: Game, clock: () => number) {
+    document.body.innerHTML = '<div id="app"></div>';
+    const mount = document.getElementById('app')!;
+    const hud = new Hud(mount);
+    hud.bind(new FakeScene() as unknown as Scene, clock);
+    hud.setGame(game, '2026-11-26');
+    return { hud, mount };
+  }
+
+  it('a finished day restored from a save opens on the end card, not a fresh game', () => {
+    const g = new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
+    g.restore(finishedSnapshot());
+    const { hud, mount } = mountWith(g, () => 0);
+    hud.update(0, 91);
+    expect(mount.querySelector<HTMLElement>('[data-el="result"]')!.hidden).toBe(false);
+    expect(mount.querySelector<HTMLElement>('[data-el="titleScreen"]')!.hidden).toBe(true);
+    expect(mount.querySelectorAll('.bt-row')).toHaveLength(7);
+  });
+
+  it('the end card counts down to local midnight, then offers a reload', () => {
+    const g = new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
+    g.restore(finishedSnapshot());
+    const evening = new Date(2026, 10, 26, 22, 30, 0).getTime(); // puzzle #1 (the epoch day)
+    const { hud, mount } = mountWith(g, () => evening);
+    const el = mount.querySelector<HTMLElement>('[data-el="nextDay"]')!;
+    hud.update(0, 91, evening);
+    expect(el.textContent).toBe('Next stack in 1:30:00');
+    hud.update(16, 91, evening + 60_000);
+    expect(el.textContent).toBe('Next stack in 1:29:00');
+    hud.update(32, 91, new Date(2026, 10, 27, 0, 0, 1).getTime());
+    expect(el.querySelector('button')?.textContent).toContain('reload');
+  });
+
+  it('a debug-date game gets no countdown', () => {
+    const g = new Game(SET, 5, { timer: true, unlimited: false, autocorrect: 'confirm' });
+    const { hud, mount } = mountWith(g, () => new Date(2026, 10, 26, 22, 0, 0).getTime());
+    hud.notify('x');
+    hud.update(0, 0);
+    expect(mount.querySelector('[data-el="nextDay"]')!.textContent).toBe('A new stack opens at local midnight.');
+  });
+
+  it('notify shows a dismissible notice', () => {
+    const g = new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
+    const { hud, mount } = mountWith(g, () => 0);
+    const n = mount.querySelector<HTMLElement>('[data-el="notice"]')!;
+    expect(n.hidden).toBe(true);
+    hud.notify('Your saved game could not be restored. Starting fresh.');
+    expect(n.hidden).toBe(false);
+    expect(n.textContent).toContain('Starting fresh');
+    mount.querySelector<HTMLButtonElement>('[data-el="noticeClose"]')!.click();
+    expect(n.hidden).toBe(true);
+  });
+});

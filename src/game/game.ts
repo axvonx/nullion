@@ -47,6 +47,33 @@ export type SubmitResult =
   | { kind: 'rejected'; guess: string }
   | { kind: 'ignored' };
 
+/** The persisted shape of a daily game (see src/game/save.ts). `phase` is never 'ready': nothing is saved before Start. */
+export interface GameSnapshot {
+  v: 1;
+  puzzle: number;
+  rounds: {
+    q: string;
+    locked?: { name: string; corrected: boolean; guess: string };
+    extra: string[];
+    rejected: string[];
+    timedOut: boolean;
+    missed?: boolean;
+  }[];
+  phase:
+    | { kind: 'reading'; round: number; until: number }
+    | { kind: 'answering'; round: number; until: number | null }
+    | { kind: 'between'; round: number }
+    | { kind: 'done' };
+}
+
+/** A save that cannot be restored (corrupt, wrong shape, or from different questions). Expected input failure, not a bug. */
+export class InvalidSaveError extends Error {
+  constructor(reason: string) {
+    super(reason);
+    this.name = 'InvalidSaveError';
+  }
+}
+
 export interface GameOptions {
   timer: boolean;
   unlimited: boolean;
@@ -64,6 +91,12 @@ export class Game {
   readonly maxStrikes: number;
   readonly rounds: Round[];
   phase: Phase = { kind: 'ready' };
+  /**
+   * Bumped on every state change (including rejected guesses, which don't move the phase), so the host can
+   * persist cheaply by comparing it. Times are in the caller's clock: pass wall-clock ms to make deadlines
+   * survive reloads; this class never reads a clock itself.
+   */
+  rev = 0;
 
   /** Rolling shuffle-bag for Endless mode so prompts never repeat back-to-back. */
   private endlessRand: () => number;
@@ -136,30 +169,38 @@ export class Game {
   start(now: number) {
     enforce(this.phase.kind === 'ready', `start() from ${this.phase.kind}`);
     this.phase = { kind: 'reading', round: 0, until: now + READ_MS };
+    this.rev++;
   }
 
-  /** Advance timed phases. Returns true if the phase changed. */
+  /**
+   * Advance timed phases. Returns true if the phase changed. Deadlines chain from the previous deadline, not from
+   * `now`, so being away (hidden tab, closed page) never grants extra time: a tick long after the fact replays
+   * reading, answering and the timeout in one call.
+   */
   tick(now: number): boolean {
-    const p = this.phase;
-    if (p.kind === 'reading' && now >= p.until) {
-      this.phase = { kind: 'answering', round: p.round, until: this.opts.timer ? now + this.answerMs : null };
-      return true;
+    let changed = false;
+    for (;;) {
+      const p = this.phase;
+      if (p.kind === 'reading' && now >= p.until) {
+        this.phase = { kind: 'answering', round: p.round, until: this.opts.timer ? p.until + this.answerMs : null };
+      } else if (p.kind === 'answering' && p.until !== null && now >= p.until) {
+        const r = this.rounds[p.round]!;
+        if (!r.locked) {
+          r.timedOut = true;
+          r.missed = true;
+        }
+        this.toBetween(p.round, now);
+      } else break;
+      changed = true;
+      this.rev++;
     }
-    if (p.kind === 'answering' && p.until !== null && now >= p.until) {
-      const r = this.rounds[p.round]!;
-      if (!r.locked) {
-        r.timedOut = true;
-        r.missed = true;
-      }
-      this.toBetween(p.round, now);
-      return true;
-    }
-    return false;
+    return changed;
   }
 
   /** Move on: "Unwind further" after a reveal, debug "Next", or Enter on an empty box. */
   advance(now: number) {
     const p = this.phase;
+    this.rev++;
     if (p.kind === 'reading') this.phase = { kind: 'answering', round: p.round, until: this.opts.timer ? now + this.answerMs : null };
     else if (p.kind === 'answering') {
       const r = this.rounds[p.round]!;
@@ -174,6 +215,7 @@ export class Game {
     const r = this.rounds[p.round]!;
     const trimmed = guess.trim();
     if (!trimmed) return { kind: 'ignored' };
+    this.rev++;
     const res = this.set.check(r.question.id, trimmed);
     if (res.kind === 'rejected') {
       r.rejected.push(trimmed);
@@ -206,5 +248,90 @@ export class Game {
     }
     this.phase =
       round + 1 < this.rounds.length ? { kind: 'reading', round: round + 1, until: now + READ_MS } : { kind: 'done' };
+  }
+
+  /** The daily game's persistable state. Daily only: Endless is never saved. */
+  snapshot(): GameSnapshot {
+    enforce(this.mode === 'daily', 'only a daily game can be saved');
+    const p = this.phase;
+    enforce(p.kind !== 'ready', 'a game that has not started has nothing to save');
+    return {
+      v: 1,
+      puzzle: this.puzzle,
+      rounds: this.rounds.map((r) => ({
+        q: r.question.id,
+        ...(r.locked ? { locked: { name: r.locked.entry.name, corrected: r.locked.corrected, guess: r.locked.guess } } : {}),
+        extra: r.extra.map((e) => e.name),
+        rejected: [...r.rejected],
+        timedOut: r.timedOut,
+        ...(r.missed ? { missed: true } : {}),
+      })),
+      phase: { ...p },
+    };
+  }
+
+  /**
+   * Load a saved state into a game that has not started. Validates everything before changing anything and throws
+   * InvalidSaveError (never a silent reset) if the data is not a state this game could have produced.
+   */
+  restore(raw: unknown): void {
+    enforce(this.phase.kind === 'ready', `restore() from ${this.phase.kind}`);
+    enforce(this.mode === 'daily', 'only a daily game can be restored');
+    const bad = (why: string): never => {
+      throw new InvalidSaveError(why);
+    };
+    const isObj = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x);
+    const isStrs = (x: unknown): x is string[] => Array.isArray(x) && x.every((v) => typeof v === 'string');
+    if (!isObj(raw)) return bad('not an object');
+    if (raw.v !== 1) return bad(`unknown version ${String(raw.v)}`);
+    if (raw.puzzle !== this.puzzle) return bad(`save is for puzzle ${String(raw.puzzle)}, not ${this.puzzle}`);
+    if (!Array.isArray(raw.rounds) || raw.rounds.length !== this.rounds.length) return bad('wrong number of rounds');
+    const rounds: Round[] = [];
+    raw.rounds.forEach((sr: unknown, i: number) => {
+      const mine = this.rounds[i]!;
+      if (!isObj(sr)) return bad(`round ${i} is not an object`);
+      if (sr.q !== mine.question.id) return bad(`round ${i} asks '${String(sr.q)}', today's prompt is '${mine.question.id}'`);
+      const entries = this.set.entries(mine.question.id);
+      const find = (name: unknown) => {
+        const e = typeof name === 'string' ? entries.find((x) => x.name === name) : undefined;
+        return e ?? bad(`round ${i}: unknown answer ${JSON.stringify(name)}`);
+      };
+      if (!isStrs(sr.extra) || !isStrs(sr.rejected)) return bad(`round ${i}: extra/rejected must be string lists`);
+      if (typeof sr.timedOut !== 'boolean') return bad(`round ${i}: timedOut must be a boolean`);
+      if (sr.missed !== undefined && typeof sr.missed !== 'boolean') return bad(`round ${i}: missed must be a boolean`);
+      const round: Round = { question: mine.question, extra: sr.extra.map(find), rejected: [...sr.rejected], timedOut: sr.timedOut };
+      if (sr.missed) round.missed = true;
+      if (sr.locked !== undefined) {
+        const l = sr.locked;
+        if (!isObj(l) || typeof l.corrected !== 'boolean' || typeof l.guess !== 'string') return bad(`round ${i}: malformed locked answer`);
+        round.locked = { entry: find(l.name), corrected: l.corrected, guess: l.guess };
+      }
+      rounds.push(round);
+    });
+    const sp = raw.phase;
+    if (!isObj(sp)) return bad('phase is not an object');
+    let phase: Phase;
+    const idx = (): number =>
+      typeof sp.round === 'number' && Number.isInteger(sp.round) && sp.round >= 0 && sp.round < rounds.length
+        ? sp.round
+        : bad(`phase round ${String(sp.round)} out of range`);
+    if (sp.kind === 'reading') {
+      if (typeof sp.until !== 'number' || !Number.isFinite(sp.until)) return bad('reading deadline is not a number');
+      phase = { kind: 'reading', round: idx(), until: sp.until };
+    } else if (sp.kind === 'answering') {
+      if (typeof sp.until !== 'number' || !Number.isFinite(sp.until)) return bad('answer deadline is not a number');
+      phase = { kind: 'answering', round: idx(), until: sp.until };
+    } else if (sp.kind === 'between') phase = { kind: 'between', round: idx() };
+    else if (sp.kind === 'done') phase = { kind: 'done' };
+    else return bad(`unknown phase ${JSON.stringify(sp.kind)}`);
+    // Rounds before the current one are over: each has an answer or was missed.
+    const upTo = phase.kind === 'done' ? rounds.length : phase.round;
+    for (let i = 0; i < upTo; i++) if (!rounds[i]!.locked && !rounds[i]!.missed && !rounds[i]!.timedOut) return bad(`round ${i} is over but has no outcome`);
+    if (phase.kind === 'between' && !rounds[phase.round]!.locked && !rounds[phase.round]!.missed && !rounds[phase.round]!.timedOut)
+      return bad('round is over but has no outcome');
+
+    this.rounds.splice(0, this.rounds.length, ...rounds);
+    this.phase = phase;
+    this.rev++;
   }
 }

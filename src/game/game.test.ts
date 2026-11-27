@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { buildAnswerSet } from '../core/answers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
-import { ANSWER_MS, ENDLESS_MAX_STRIKES, Game, READ_MS, endlessAnswerMs } from './game';
+import { ANSWER_MS, ENDLESS_MAX_STRIKES, Game, InvalidSaveError, READ_MS, endlessAnswerMs } from './game';
+import { browserStorage, canPersistDaily, dailyKey, loadDaily, saveDaily, type SaveStorage } from './daily-save';
 
 const set = buildAnswerSet('sample', 'Sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);
 
@@ -157,5 +158,232 @@ describe('game loop', () => {
       expect(endlessAnswerMs(1500)).toBe(20000);
       expect(endlessAnswerMs(2200)).toBe(16000);
     });
+  });
+});
+
+
+class MemStorage implements SaveStorage {
+  private m = new Map<string, string>();
+  get length() {
+    return this.m.size;
+  }
+  key(i: number) {
+    return [...this.m.keys()][i] ?? null;
+  }
+  getItem(k: string) {
+    return this.m.get(k) ?? null;
+  }
+  setItem(k: string, v: string) {
+    this.m.set(k, v);
+  }
+  removeItem(k: string) {
+    this.m.delete(k);
+  }
+}
+
+const OPTS = { timer: true, unlimited: false, autocorrect: 'confirm' } as const;
+const fresh = (puzzle = 1) => new Game(set, puzzle, { ...OPTS });
+
+/** Simulate closing the page: only what is in storage survives into a brand new Game. */
+function reload(store: SaveStorage, puzzle = 1) {
+  const g = fresh(puzzle);
+  const res = loadDaily(store, g);
+  return { g, res };
+}
+
+describe('daily save and resume', () => {
+  it('save then reload gives identical state', () => {
+    const store = new MemStorage();
+    const g = fresh();
+    g.start(1000);
+    g.tick(1000 + READ_MS);
+    g.submit('definitely not an answer', 1000 + READ_MS + 50);
+    g.submit(bitflipFor(g, 0), 1000 + READ_MS + 100);
+    g.advance(1000 + READ_MS + 200);
+    g.tick(1000 + 2 * READ_MS + 200);
+    g.advance(1000 + 2 * READ_MS + 300); // round 1 skipped
+    saveDaily(store, g);
+    const { g: g2, res } = reload(store);
+    expect(res.kind).toBe('resumed');
+    expect(g2.snapshot()).toEqual(g.snapshot());
+    expect(g2.depth).toBe(g.depth);
+    expect(g2.phase).toEqual(g.phase);
+    expect(g2.rounds.map((r) => [r.locked?.entry.name, r.rejected, r.timedOut, r.missed])).toEqual(
+      g.rounds.map((r) => [r.locked?.entry.name, r.rejected, r.timedOut, r.missed]),
+    );
+  });
+
+  it('a deadline that passed while away becomes a timeout, even across the reading phase', () => {
+    const store = new MemStorage();
+    const g = fresh();
+    g.start(0);
+    g.tick(READ_MS);
+    saveDaily(store, g);
+    const { g: g2 } = reload(store);
+    expect(g2.phase).toMatchObject({ kind: 'answering', until: READ_MS + ANSWER_MS });
+    expect(g2.tick(READ_MS + ANSWER_MS + 60_000)).toBe(true);
+    expect(g2.rounds[0]!.timedOut).toBe(true);
+    expect(g2.phase).toEqual({ kind: 'between', round: 0 });
+    // Closed during reading and reopened long after both the reading and the answer window.
+    const store2 = new MemStorage();
+    const h = fresh();
+    h.start(0);
+    saveDaily(store2, h);
+    const { g: h2 } = reload(store2);
+    h2.tick(READ_MS + ANSWER_MS + 1);
+    expect(h2.rounds[0]!.timedOut).toBe(true);
+    expect(h2.depth).toBe(0);
+  });
+
+  it('reload during reading keeps the original deadline and the countdown does not reset', () => {
+    const store = new MemStorage();
+    const g = fresh();
+    g.start(5000);
+    saveDaily(store, g);
+    const { g: g2 } = reload(store);
+    expect(g2.phase).toEqual({ kind: 'reading', round: 0, until: 5000 + READ_MS });
+    g2.tick(5000 + 2000); // reopened 2s later: still reading, same deadline
+    expect(g2.phase).toEqual({ kind: 'reading', round: 0, until: 5000 + READ_MS });
+    g2.tick(5000 + READ_MS + 1);
+    // The answer window runs from the end of reading, not from whenever the page woke up.
+    expect(g2.phase).toMatchObject({ kind: 'answering', until: 5000 + READ_MS + ANSWER_MS });
+  });
+
+  it('a hidden tab gets no extra time: a late tick lands where an on-time one would', () => {
+    const a = fresh();
+    const b = fresh();
+    a.start(0);
+    b.start(0);
+    a.tick(READ_MS);
+    a.tick(READ_MS + ANSWER_MS);
+    b.tick(READ_MS + ANSWER_MS + 30_000);
+    expect(b.snapshot()).toEqual(a.snapshot());
+  });
+
+  it('a finished day restores to the done phase', () => {
+    const store = new MemStorage();
+    const g = fresh();
+    let now = 0;
+    g.start(now);
+    for (let i = 0; i < 7; i++) {
+      now += READ_MS;
+      g.tick(now);
+      g.submit(bitflipFor(g, i), now);
+      g.advance(now);
+    }
+    saveDaily(store, g);
+    const { g: g2, res } = reload(store);
+    expect(res.kind).toBe('resumed');
+    expect(g2.phase.kind).toBe('done');
+    expect(g2.depth).toBe(91);
+  });
+
+  it('day rollover starts fresh and drops the old save', () => {
+    const store = new MemStorage();
+    const g = fresh(1);
+    g.start(0);
+    saveDaily(store, g);
+    const { g: next, res } = reload(store, 2);
+    expect(res.kind).toBe('none');
+    expect(next.phase.kind).toBe('ready');
+    saveDaily(store, (() => { const n = fresh(2); n.start(0); return n; })());
+    expect(store.getItem(dailyKey(1))).toBeNull();
+    expect(store.getItem(dailyKey(2))).not.toBeNull();
+  });
+
+  it('nothing is saved before Start', () => {
+    const store = new MemStorage();
+    saveDaily(store, fresh());
+    expect(store.length).toBe(0);
+  });
+
+  describe('invalid saves are reported, never silently reset', () => {
+    const good = () => {
+      const g = fresh();
+      g.start(0);
+      g.tick(READ_MS);
+      return JSON.parse(JSON.stringify(g.snapshot())) as Record<string, any>;
+    };
+    const cases: [string, (s: Record<string, any>) => unknown][] = [
+      ['wrong version', (s) => ({ ...s, v: 2 })],
+      ['other puzzle', (s) => ({ ...s, puzzle: 99 })],
+      ['missing rounds', (s) => ({ ...s, rounds: s.rounds.slice(1) })],
+      ['swapped question', (s) => ({ ...s, rounds: [{ ...s.rounds[1], q: 'nope' }, ...s.rounds.slice(1)] })],
+      ['unknown answer', (s) => { s.rounds[0].locked = { name: 'zzz', corrected: false, guess: 'zzz' }; return s; }],
+      ['bad deadline', (s) => ({ ...s, phase: { kind: 'answering', round: 0, until: 'soon' } })],
+      ['round out of range', (s) => ({ ...s, phase: { kind: 'between', round: 40 } })],
+      ['unknown phase', (s) => ({ ...s, phase: { kind: 'ready' } })],
+      ['earlier round has no outcome', (s) => ({ ...s, phase: { kind: 'reading', round: 3, until: 1 } })],
+      ['array', () => []],
+      ['null', () => null],
+    ];
+    for (const [name, mut] of cases) {
+      it(name, () => {
+        const store = new MemStorage();
+        store.setItem(dailyKey(1), JSON.stringify(mut(good())));
+        const g = fresh();
+        const res = loadDaily(store, g);
+        expect(res.kind).toBe('invalid');
+        expect(g.phase.kind).toBe('ready'); // untouched, fresh
+        expect(store.getItem(dailyKey(1))).toBeNull(); // the bad save is removed so it reports once
+      });
+    }
+    it('unparseable JSON', () => {
+      const store = new MemStorage();
+      store.setItem(dailyKey(1), '{not json');
+      const res = loadDaily(store, fresh());
+      expect(res).toMatchObject({ kind: 'invalid' });
+    });
+    it('restore throws InvalidSaveError directly', () => {
+      expect(() => fresh().restore({ v: 1 })).toThrow(InvalidSaveError);
+    });
+  });
+
+  it('unavailable storage means no persistence, not a crash', () => {
+    const g = fresh();
+    g.start(0);
+    expect(loadDaily(null, fresh())).toEqual({ kind: 'none' });
+    expect(() => saveDaily(null, g)).not.toThrow();
+    const throwing: SaveStorage = {
+      length: 0,
+      key: () => null,
+      getItem: () => { throw new Error('blocked'); },
+      setItem: () => { throw new Error('quota'); },
+      removeItem: () => { throw new Error('blocked'); },
+    };
+    expect(loadDaily(throwing, fresh())).toEqual({ kind: 'none' });
+    expect(() => saveDaily(throwing, g)).not.toThrow();
+    expect(browserStorage() === null || typeof browserStorage() === 'object').toBe(true);
+  });
+
+  it('Endless and debug modes do not touch the save', () => {
+    const base = { mode: 'daily', unlimited: false, timer: true, date: '', scroll: false } as const;
+    expect(canPersistDaily(base)).toBe(true);
+    expect(canPersistDaily({ ...base, mode: 'endless' })).toBe(false);
+    expect(canPersistDaily({ ...base, unlimited: true })).toBe(false);
+    expect(canPersistDaily({ ...base, timer: false })).toBe(false);
+    expect(canPersistDaily({ ...base, date: '2026-12-01' })).toBe(false);
+    expect(canPersistDaily({ ...base, scroll: true })).toBe(false);
+    // And the save layer itself refuses to snapshot or write an Endless game.
+    const e = new Game(set, 1, { ...OPTS, mode: 'endless' });
+    e.start(0);
+    expect(() => e.snapshot()).toThrow();
+    const store = new MemStorage();
+    expect(() => saveDaily(store, e)).toThrow();
+    expect(store.length).toBe(0);
+  });
+
+  it('rev changes on every state change, including rejected guesses', () => {
+    const g = fresh();
+    const r0 = g.rev;
+    g.start(0);
+    expect(g.rev).toBeGreaterThan(r0);
+    g.tick(READ_MS);
+    const r1 = g.rev;
+    g.submit('definitely not an answer', READ_MS);
+    expect(g.rev).toBeGreaterThan(r1);
+    const r2 = g.rev;
+    g.tick(READ_MS + 1);
+    expect(g.rev).toBe(r2);
   });
 });

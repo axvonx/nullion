@@ -5,7 +5,7 @@ import { TIERS } from './tiers';
 import { CategoryIndex, normalize } from './match';
 import { buildAnswerSet } from './answers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
-import { pickForDay, puzzleNumber, parseLocalDate } from './day';
+import { pickForDay, puzzleNumber, parseLocalDate, msUntilNextDay, formatCountdown } from './day';
 
 describe('depth and layers', () => {
   it('a perfect day reaches exactly Ring −3', () => {
@@ -125,5 +125,23 @@ describe('daily selection', () => {
     const b = pickForDay(SAMPLE_QUESTIONS, 5, 7).map((q) => q.id);
     expect(a).toEqual(b);
     expect(new Set(a).size).toBe(7);
+  });
+});
+
+describe('next puzzle countdown', () => {
+  it('counts to the next local midnight', () => {
+    expect(msUntilNextDay(new Date(2026, 10, 26, 23, 0, 0))).toBe(3600_000);
+    expect(msUntilNextDay(new Date(2026, 10, 26, 0, 0, 0))).toBe(24 * 3600_000);
+    expect(msUntilNextDay(new Date(2026, 11, 31, 23, 59, 59))).toBe(1000);
+  });
+  it('rolls the puzzle number exactly at that moment', () => {
+    const now = new Date(2026, 10, 26, 22, 0, 0);
+    expect(puzzleNumber(new Date(now.getTime() + msUntilNextDay(now) - 1))).toBe(puzzleNumber(now));
+    expect(puzzleNumber(new Date(now.getTime() + msUntilNextDay(now)))).toBe(puzzleNumber(now) + 1);
+  });
+  it('formats H:MM:SS, rounding up', () => {
+    expect(formatCountdown(3600_000 + 61_000)).toBe('1:01:01');
+    expect(formatCountdown(500)).toBe('0:00:01');
+    expect(formatCountdown(0)).toBe('0:00:00');
   });
 });

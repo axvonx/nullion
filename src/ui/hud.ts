@@ -1,3 +1,4 @@
+import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
 import { layerAt, maxDepthFor, type Layer, type LayerId } from '../core/layers';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
@@ -122,6 +123,11 @@ export class Hud {
   private slotsSig = '';
   private ended = false;
   private shareText = '';
+  /** The game clock (wall-clock ms in production), set by bind(). Used wherever a deadline is read or set. */
+  private clock: () => number = () => Date.now();
+  private nextDaySig = '';
+  /** A daily game for the real current day (not a debug date), so the end card counts down to the next one. */
+  private liveDaily = false;
   private demo = false;
   private titleLogo: TitleLogo;
   private titleOpen = false;
@@ -142,6 +148,7 @@ export class Hud {
         <span class="bar-left" data-el="barLeft"><span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span></span>
         <span class="bar-right"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span><span class="chip depth float" data-el="depth"></span><button type="button" class="chip endless-btn float" data-el="endlessBtn" hidden aria-pressed="false" title="Toggle Endless Mode (3-strike watchdog descent)">Endless</button></span>
       </header>
+      <div class="notice" data-el="notice" role="alert" hidden><span data-el="noticeText"></span><button type="button" data-el="noticeClose" aria-label="Dismiss">×</button></div>
       <section class="title-screen" data-el="titleScreen" aria-label="Nullion" hidden>
         <div class="title-head" data-el="titleHead"></div>
         <div class="title-foot">
@@ -176,7 +183,7 @@ export class Hud {
           <div class="wordmark">nullion <span data-el="puzzleNo"></span></div>
           <div class="headline" data-el="headline"></div>
           <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
-          <div class="result-foot"><span class="next-day">A new stack opens at local midnight.</span><button type="button" data-el="copy">Copy result</button></div>
+          <div class="result-foot"><span class="next-day" data-el="nextDay">A new stack opens at local midnight.</span><button type="button" data-el="copy">Copy result</button></div>
           <div class="result-links" data-el="resultLinks"></div>
         </div>
         <div class="scroll-hint" data-el="scrollHint" hidden>scroll · ↑ ↓ · PgUp PgDn</div>
@@ -227,6 +234,7 @@ export class Hud {
 
   bind(scene: Scene, now: () => number) {
     this.scene = scene;
+    this.clock = now;
     // Entering a layer (on a dive, in the replay, at boot) shows its name card.
     scene.onLayerChange = (layer) => this.enterLayer(layer);
     this.els.form!.addEventListener('submit', (ev) => {
@@ -274,6 +282,7 @@ export class Hud {
 
     // "Unwind further": close the reveal and move the game on (the next prompt, or the end-of-day card).
     this.els.rvNext!.addEventListener('click', () => this.unwind(now()));
+    this.els.noticeClose!.addEventListener('click', () => (this.els.notice!.hidden = true));
 
     // Title screen: "Unwind the stack" dives into round 1. Hovering or clicking the logo triggers a glitch pulse.
     this.titleLogo.onBurst = (ev) => {
@@ -355,6 +364,10 @@ export class Hud {
 
   setGame(g: Game, dateLabel: string) {
     this.game = g;
+    this.liveDaily = g.mode === 'daily' && g.puzzle === puzzleNumber(new Date(this.clock()));
+    this.nextDaySig = '';
+    this.els.nextDay!.textContent = 'A new stack opens at local midnight.';
+    this.els.notice!.hidden = true;
     this.endDemo();
     this.ended = false;
     this.barked = -1;
@@ -534,7 +547,7 @@ export class Hud {
   }
 
   /** Per-frame refresh of the timed parts, the console's form and the panels' float. */
-  update(now: number, depthShown: number) {
+  update(now: number, depthShown: number, wall: number = now) {
     this.syncTitle();
     if (this.titleOpen) this.positionTitle();
     const activeMode = this.game?.mode ?? 'daily';
@@ -566,8 +579,8 @@ export class Hud {
     this.els.console!.classList.toggle('reading', p.kind === 'reading');
     if (p.kind === 'reading') {
       // A short boot beat: the question types in while the input is grayed out with a 3s → 2s → 1s countdown.
-      this.showPrompt(r!.question.prompt, now - (p.until - READ_MS));
-      const secs = Math.max(1, Math.ceil((p.until - now) / 1000));
+      this.showPrompt(r!.question.prompt, wall - (p.until - READ_MS));
+      const secs = Math.max(1, Math.ceil((p.until - wall) / 1000));
       if (secs !== this.lastReadSec) {
         this.lastReadSec = secs;
         sound.countdownTick(secs, layerAt(depthShown, g.mode).id);
@@ -578,7 +591,7 @@ export class Hud {
       this.input.disabled = true;
     } else if (p.kind === 'answering') {
       this.showPrompt(r!.question.prompt, Infinity);
-      left = p.until === null ? 1 : Math.max(0, (p.until - now) / g.answerMs);
+      left = p.until === null ? 1 : Math.max(0, (p.until - wall) / g.answerMs);
       const ph = answerPlaceholder();
       if (this.input.placeholder !== ph) this.input.placeholder = ph;
       if (this.input.disabled) {
@@ -610,6 +623,7 @@ export class Hud {
       this.input.disabled = true;
       left = 0;
       if (!this.ended) this.endOfDay(rowsOf(g), g.depth, g.puzzle);
+      this.updateNextDay(wall);
       this.showPrompt('', Infinity);
     } else {
       this.showPrompt('', Infinity);
@@ -617,6 +631,35 @@ export class Hud {
     }
     this.syncSlots(g);
     if (override === undefined) this.setWatchdog(left, p.kind === 'answering' && p.until !== null);
+  }
+
+  /** The end card's footer: a live countdown to the next puzzle, then a reload prompt once local midnight passes. */
+  private updateNextDay(wall: number) {
+    if (!this.liveDaily) return;
+    const el = this.els.nextDay!;
+    const now = new Date(wall);
+    if (puzzleNumber(now) !== this.game!.puzzle) {
+      if (this.nextDaySig === 'new') return;
+      this.nextDaySig = 'new';
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'next-day-reload';
+      b.textContent = 'A new stack is open · reload';
+      b.addEventListener('click', () => location.reload());
+      el.replaceChildren(b);
+      return;
+    }
+    const txt = `Next stack in ${formatCountdown(msUntilNextDay(now))}`;
+    if (txt === this.nextDaySig) return;
+    this.nextDaySig = txt;
+    el.textContent = txt;
+  }
+
+  /** A visible message for things the player should know (a save that could not be restored, a resume). */
+  notify(message: string, kind: 'info' | 'error' = 'error') {
+    this.els.notice!.classList.toggle('info', kind === 'info');
+    this.els.noticeText!.textContent = message;
+    this.els.notice!.hidden = false;
   }
 
   /** Show the question in the current form, typed in over `elapsed` ms (all at once under reduced motion). */
@@ -1054,7 +1097,7 @@ export class Hud {
       then?.();
     };
     this.reveal(tier, name, frames);
-    this.revealTimer = window.setTimeout(() => this.unwind(performance.now()), autoMs);
+    this.revealTimer = window.setTimeout(() => this.unwind(this.clock()), autoMs);
   }
 
   private endDemo() {

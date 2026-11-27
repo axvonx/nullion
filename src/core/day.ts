@@ -25,6 +25,19 @@ export function formatLocalDate(d: Date): string {
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
 }
 
+/** Milliseconds from `now` to the next local midnight (when the next puzzle opens). Always positive. */
+export function msUntilNextDay(now: Date): number {
+  const next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  return next.getTime() - now.getTime();
+}
+
+/** "H:MM:SS" for a countdown, rounding up so it never shows 0:00:00 before the moment arrives. */
+export function formatCountdown(ms: number): string {
+  const total = Math.max(0, Math.ceil(ms / 1000));
+  const p = (x: number) => String(x).padStart(2, '0');
+  return `${Math.floor(total / 3600)}:${p(Math.floor((total % 3600) / 60))}:${p(total % 60)}`;
+}
+
 /** mulberry32: tiny deterministic PRNG so every player gets the same order for a given day. */
 export function rng(seed: number): () => number {
   let a = seed >>> 0;

@@ -97,7 +97,7 @@ export function mountDebugMenu(h: DebugHooks) {
     actions.className = 'dbg-buttons';
     actions.append(
       button('Restart day', () => h.restart()),
-      button('Next round', () => h.game().advance(performance.now())),
+      button('Next round', () => h.game().advance(Date.now())),
     );
     play.append(actions);
 

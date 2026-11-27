@@ -4,9 +4,10 @@ import './style.css';
 import { buildAnswerSet, type AnswerSetSource } from './core/answers';
 import { enforce } from './core/enforce';
 import { formatLocalDate, parseLocalDate, pickForDay, puzzleNumber } from './core/day';
-import { PROMPTS_PER_DAY } from './core/layers';
+import { PROMPTS_PER_DAY, layerAt } from './core/layers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from './data/sample';
 import { BANK_QUESTIONS, loadBankTerms } from './data/bank';
+import { browserStorage, canPersistDaily, loadDaily, saveDaily, type SaveStorage } from './game/daily-save';
 import { Game } from './game/game';
 import { LOOK_SLOTS, looks, type LookSlot } from './looks';
 import { Scene } from './render/scene';
@@ -44,6 +45,12 @@ function activeSettings(): Settings {
   return DEBUG ? settings.get() : DEFAULT_SETTINGS;
 }
 
+/**
+ * The game clock. Wall-clock time, so a round's deadline keeps running while the page is closed, reloaded or
+ * hidden (performance.now() would restart or pause). Injected into the pure game logic; never read from src/game.
+ */
+const clock = () => Date.now();
+
 async function boot() {
   const mount = document.getElementById('app');
   enforce(mount, '#app missing');
@@ -62,6 +69,17 @@ async function boot() {
   const seedParam = DEBUG ? new URLSearchParams(location.search).get('seed') : null;
   const seedOverride = seedParam === null ? undefined : Number(seedParam);
   if (seedOverride !== undefined) enforce(Number.isInteger(seedOverride), `?seed must be an integer, got ${seedParam}`);
+  // The daily save: set per game by startDay(). Null whenever this game must not touch it.
+  const storage = browserStorage();
+  let persistTo: SaveStorage | null = null;
+  let persisting = false;
+  let savedRev = 0;
+  const flushSave = () => {
+    if (persisting && game.rev !== savedRev) {
+      saveDaily(persistTo, game);
+      savedRev = game.rev;
+    }
+  };
   let endlessMode = DEBUG && new URLSearchParams(location.search).get('endless') === '1';
 
 
@@ -79,6 +97,18 @@ async function boot() {
     const set = await source.load(questions);
     if (gen !== restartGen) return;
     game = new Game(set, daySeed, { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect, mode });
+    // Resume today's game after a reload, unless this is Endless or a debug mode.
+    const depthDeepLink = DEBUG && new URLSearchParams(location.search).has('depth');
+    persisting = canPersistDaily({ mode, unlimited: s.unlimited, timer: s.timer, date: s.date, scroll: s.mode === 'scroll' || depthDeepLink });
+    persistTo = persisting ? storage : null;
+    let notice: { text: string; kind: 'info' | 'error' } | undefined;
+    if (persisting) {
+      const res = loadDaily(persistTo, game);
+      if (res.kind === 'invalid') notice = { text: `Your saved game for today could not be restored (${res.reason}). Starting fresh.`, kind: 'error' };
+      else if (res.kind === 'resumed' && game.phase.kind !== 'done')
+        notice = { text: 'Resumed today’s game. The clock kept running while you were away.', kind: 'info' };
+    }
+    savedRev = game.rev;
     scene.setStackMode(mode);
     // Everyone sees the same world on a given day: landmarks and scatter are both seeded by the puzzle (or ?seed=N).
     scene.setWorldSeed(seedOverride ?? daySeed, seedOverride ?? daySeed * 997);
@@ -88,9 +118,10 @@ async function boot() {
       restart();
     });
     hud.setScrollMode(s.mode === 'scroll');
-    scene.setTarget(0, true);
+    if (notice) hud.notify(notice.text, notice.kind);
+    scene.setTarget(game.depth, true);
     sound.setPuzzleSeed(daySeed);
-    sound.setLayer(mode === 'endless' ? 'internet' : 'application');
+    sound.setLayer(mode === 'endless' ? 'internet' : layerAt(game.depth).id);
   };
 
   // A preference change applies to the game in progress; it never restarts the day.
@@ -104,7 +135,11 @@ async function boot() {
     startDay().catch(showFatal);
   };
 
-  hud.bind(scene, () => performance.now());
+  hud.bind(scene, clock);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') flushSave();
+  });
+  window.addEventListener('pagehide', flushSave);
   await startDay();
 
   // Debug deep link: ?depth=N opens scroll-only mode parked at that depth (not persisted).
@@ -131,8 +166,10 @@ async function boot() {
   scene.start();
 
   const tick = (now: number) => {
-    if (game.tick(now)) hud.onPhaseChange();
-    hud.update(now, scene.displayDepth);
+    const wall = clock();
+    if (game.tick(wall)) hud.onPhaseChange();
+    flushSave();
+    hud.update(now, scene.displayDepth, wall);
     requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
