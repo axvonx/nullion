@@ -5,40 +5,40 @@ id: software-license · domain: languages-tools · status: approved
 ## Off-by-one
 - BSD 2-Clause | Simplified BSD | FreeBSD License | BSD-2-Clause-FreeBSD | BSD-2-Clause-NetBSD | BSD-2-Clause-Patent | BSD-2-Clause-Darwin (auto)
 - BSD 3-Clause | New BSD | Modified BSD | BSD-3-Clause-Clear | BSD-3-Clause-Attribution | BSD-3-Clause-LBNL | BSD-3-Clause-HP | BSD-3-Clause-Sun (auto)
-- GPL | GNU General Public License | GPL-1.0 | GPL-2.0 | GPL-3.0 | GPL-2.0-only | GPL-2.0-or-later | GPL-3.0-only | GPL-3.0-or-later (auto)
-- LGPL | GNU Lesser General Public License | LGPL-2.0 | LGPL-2.1 | LGPL-3.0 | LGPL-2.1-only | LGPL-2.1-or-later | LGPL-3.0-only | LGPL-3.0-or-later (auto)
+- GPL | GNU General Public License | GPL-1.0 | GPL-2.0 | GPL-3.0 | GPL-2.0-only | GPL-2.0-or-later | GPL-3.0-only | GPL-3.0-or-later | GNU GPLv3 | GPLv3 | GPL 3 | GNU GPLv2 | GPLv2 | GPL 2 (auto)
+- LGPL | GNU Lesser General Public License | LGPL-2.0 | LGPL-2.1 | LGPL-3.0 | LGPL-2.1-only | LGPL-2.1-or-later | LGPL-3.0-only | LGPL-3.0-or-later | GNU LGPLv3 | LGPLv3 | GNU LGPLv2.1 | LGPLv2.1 (auto)
 
 ## Works on my machine
-- WTFPL
+- WTFPL | Do What The Fuck You Want To Public License
   note: The permissive joke license everyone reaches for after MIT and GPL.
 
 ## Null pointer exception
-- Apache License | Apache | Apache-1.0 | Apache-1.1 | Apache-2.0 (auto)
-- CC BY | CC-BY-1.0 | CC-BY-2.0 | CC-BY-2.5 | CC-BY-3.0 | CC-BY-4.0 (auto)
+- Apache License | Apache | Apache-1.0 | Apache-1.1 | Apache-2.0 | Apache License 2.0 | Apache License 1.1 (auto)
+- CC BY | CC-BY-1.0 | CC-BY-2.0 | CC-BY-2.5 | CC-BY-3.0 | CC-BY-4.0 | Creative Commons Attribution 4.0 (auto)
 - CC BY-NC-ND | CC-BY-NC-ND-1.0 | CC-BY-NC-ND-2.0 | CC-BY-NC-ND-2.5 | CC-BY-NC-ND-3.0 | CC-BY-NC-ND-4.0 (auto)
 - CC BY-NC-SA | CC-BY-NC-SA-1.0 | CC-BY-NC-SA-2.0 | CC-BY-NC-SA-2.5 | CC-BY-NC-SA-3.0 | CC-BY-NC-SA-4.0 (auto)
 - CC BY-ND | CC-BY-ND-1.0 | CC-BY-ND-2.0 | CC-BY-ND-2.5 | CC-BY-ND-3.0 | CC-BY-ND-4.0 (auto)
 - CC0 | CC0-1.0 | Creative Commons Zero (auto)
-- Eclipse Public License | EPL | EPL-1.0 | EPL-2.0 (auto)
+- Eclipse Public License | EPL | EPL-1.0 | EPL-2.0 | Eclipse Public License 2.0 (auto)
 - GFDL | GNU Free Documentation License | GFDL-1.1 | GFDL-1.2 | GFDL-1.3 (auto)
 - ISC | ISC License | ISC-Veillard (auto)
 - MIT | MIT License (auto)
-- MPL | Mozilla Public License | MPL-1.0 | MPL-1.1 | MPL-2.0 | MPL-2.0-no-copyleft-exception (auto)
+- MPL | Mozilla Public License | MPL-1.0 | MPL-1.1 | MPL-2.0 | MPL-2.0-no-copyleft-exception | Mozilla Public License 2.0 (auto)
 - Python Software Foundation License | PSF | PSF-2.0 | Python-2.0 | Python-2.0.1 (auto)
 - Server Side Public License | SSPL | SSPL-1.0 (auto)
 - Unlicense | Unlicense-libtelnet | Unlicense-libwhirlpool | The Unlicense (auto)
 - Zlib | zlib License | zlib-acknowledgement (auto)
 
 ## Memory leak
-- 0BSD | BSD Zero Clause | Zero-Clause BSD (auto)
-- AGPL | GNU Affero General Public License | AGPL-1.0 | AGPL-3.0 | AGPL-3.0-only | AGPL-3.0-or-later (auto)
+- 0BSD | BSD Zero Clause | Zero-Clause BSD | BSD 0-Clause (auto)
+- AGPL | GNU Affero General Public License | AGPL-1.0 | AGPL-3.0 | AGPL-3.0-only | AGPL-3.0-or-later | GNU AGPLv3 | AGPLv3 (auto)
 - Apple Public Source License | APSL | APSL-1.0 | APSL-1.1 | APSL-1.2 | APSL-2.0 (auto)
 - BSD 4-Clause | Original BSD | BSD-4-Clause-UC | BSD-4-Clause-Shortened | BSD-4.3RENO | BSD-4.3TAHOE (auto)
-- Boost Software License | BSL | BSL-1.0 (auto)
+- Boost Software License | BSL | BSL-1.0 | Boost (auto)
 - Business Source License | BUSL | BUSL-1.1 (auto)
 - Beerware (auto)
 - CC BY-NC | CC-BY-NC-1.0 | CC-BY-NC-2.0 | CC-BY-NC-2.5 | CC-BY-NC-3.0 | CC-BY-NC-4.0 (auto)
-- CC BY-SA | CC-BY-SA-1.0 | CC-BY-SA-2.0 | CC-BY-SA-2.5 | CC-BY-SA-3.0 | CC-BY-SA-4.0 (auto)
+- CC BY-SA | CC-BY-SA-1.0 | CC-BY-SA-2.0 | CC-BY-SA-2.5 | CC-BY-SA-3.0 | CC-BY-SA-4.0 | Creative Commons Attribution-ShareAlike 4.0 (auto)
 - CDDL | Common Development and Distribution License | CDDL-1.0 | CDDL-1.1 (auto)
 - EUPL | European Union Public Licence | EUPL-1.0 | EUPL-1.1 | EUPL-1.2 (auto)
 - Elastic License | Elastic-2.0 (auto)
@@ -64,7 +64,7 @@ id: software-license · domain: languages-tools · status: approved
 ## Race condition
 - Academic Free License | AFL | AFL-1.1 | AFL-1.2 | AFL-2.0 | AFL-2.1 | AFL-3.0 (auto)
 - Aladdin Free Public License | Aladdin (auto)
-- Artistic License | Artistic | Artistic-1.0 | Artistic-1.0-Perl | Artistic-1.0-cl8 | Artistic-2.0 | Artistic-dist (auto)
+- Artistic License | Artistic | Artistic-1.0 | Artistic-1.0-Perl | Artistic-1.0-cl8 | Artistic-2.0 | Artistic-dist | Artistic License 2.0 (auto)
 - BitTorrent Open Source License | BitTorrent-1.0 | BitTorrent-1.1 | BitTorrent (auto)
 - Blue Oak Model License | BlueOak-1.0.0 (auto)
 - Cryptographic Autonomy License | CAL-1.0 | CAL-1.0-Combined-Work-Exception (auto)

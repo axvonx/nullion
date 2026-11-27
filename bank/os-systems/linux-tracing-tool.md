@@ -4,14 +4,26 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 
 ## Off-by-one
 - strace (auto)
+- tcpdump (auto)
 
 ## Works on my machine
-- SystemTap
+- SystemTap | stap
   note: The pre-eBPF kernel scripting tool everyone remembers from the DTrace vs. Linux era.
 
 ## Null pointer exception
 - profile (auto)
 - ltrace (auto)
+- Valgrind | callgrind (auto)
+- rr (auto)
+- fatrace (auto)
+- auditd | Linux Audit (auto)
+- OProfile (auto)
+- gprof (auto)
+- ply (auto)
+- ktap (auto)
+- pwru | Packet, where are you? (auto)
+- retsnoop (auto)
+- apitrace (auto)
 
 ## Memory leak
 - bashreadline (auto)
@@ -45,11 +57,11 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 - tcptop (auto)
 - trace (auto)
 - uprobe (auto)
-- perf (auto)
+- perf | perf_events (auto)
 - ftrace (auto)
-- LTTng (auto)
+- LTTng | Linux Trace Toolkit next generation (auto)
 - bpftrace (auto)
-- BCC (auto)
+- BCC | BPF Compiler Collection (auto)
 - trace-cmd (auto)
 - kprobes (auto)
 - sysdig (auto)

@@ -3,9 +3,9 @@ id: operating-system · domain: os-systems · status: approved
 > Any operating system or OS kernel, current or historical.
 
 ## Off-by-one
-- Linux
+- Linux | GNU/Linux
 - Windows
-- macOS | os x | mac os
+- macOS | os x | mac os | Mac OS X
 - Android
 - iOS
 - Ubuntu | Canonical Ubuntu | Ubuntu GNU/linux | Ubuntu Linux operating system | Ubuntu OS | Ubuntu Project (auto)
@@ -38,7 +38,7 @@ id: operating-system · domain: os-systems · status: approved
 - Mandriva Linux | DrakX (auto)
 - Kali Linux | Kali | Kali Linux OS | Kernel Auditing LInux (auto)
 - Windows Mobile | Microsoft Windows Mobile (auto)
-- Arch Linux (auto)
+- Arch Linux | Arch (auto)
 - Darwin | Apple Darwin | Darwin OS (auto)
 - Fire OS | Amazon Fire OS (auto)
 - LineageOS (auto)
@@ -65,6 +65,7 @@ id: operating-system · domain: os-systems · status: approved
 - macOS Tahoe | macOS 26 (auto)
 - openSUSE | openSUSE Leap | openSUSE Tumbleweed (auto)
 - tvOS | Apple tvOS (auto)
+- CentOS (auto)
 
 ## Memory leak
 - OpenBSD
@@ -192,7 +193,7 @@ id: operating-system · domain: os-systems · status: approved
 - VxWorks (auto)
 - MEPIS (auto)
 - Android-x86 (auto)
-- Alpine Linux (auto)
+- Alpine Linux | Alpine (auto)
 - GhostBSD (auto)
 - Pardus | Eopkg (auto)
 - antiX (auto)

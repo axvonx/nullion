@@ -4,7 +4,7 @@ id: programming-language · domain: languages-tools · status: approved
 
 ## Off-by-one
 - Python
-- JavaScript | js
+- JavaScript | js | ECMAScript
 - Java
 - C
 - C++ | cpp | cplusplus
@@ -48,6 +48,7 @@ id: programming-language · domain: languages-tools · status: approved
 - Active Server Pages | ASP | ASP.Net | Classic ASP (auto)
 - Objective-C | Obj-C programming language | Objc (auto)
 - Logo (auto)
+- R (auto)
 
 ## Memory leak
 - Erlang
@@ -55,7 +56,7 @@ id: programming-language · domain: languages-tools · status: approved
 - Zig
 - Prolog
 - Tcl | Tool Command Language (auto)
-- TypeScript (auto)
+- TypeScript | TS (auto)
 - Mathematica | mma | Wolfram Mathematica (auto)
 - XSLT | Extensible Stylesheet Language Transformations | XSL Transformations (auto)
 - Visual Basic Script | VBS | Microsoft Visual Basic Scripting Edition | VBScript | VBScript Programming (auto)

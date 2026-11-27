@@ -13,7 +13,7 @@ id: block-cipher · domain: hardware-security-history · status: approved
 ## Null pointer exception
 - DES | Data Encryption Standard | des_generic (auto)
 - IDEA | International Data Encryption Algorithm (auto)
-- RC2 (auto)
+- RC2 | ARC2 (auto)
 - RC5 (auto)
 - TEA | Tiny Encryption Algorithm (auto)
 
@@ -22,23 +22,23 @@ id: block-cipher · domain: hardware-security-history · status: approved
 - Camellia | camellia_generic (auto)
 - CAST-128 | CAST5 | cast5_generic (auto)
 - Serpent | serpent_generic (auto)
-- SM4 | sm4_generic (auto)
+- SM4 | sm4_generic | SMS4 (auto)
 - Triple DES | 3DES | TDEA (auto)
 - RC6 (auto)
-- KASUMI (auto)
+- KASUMI | A5/3 (auto)
 - Speck (auto)
 
 ## Race condition
 - CAST-256 | CAST6 | cast6_generic (auto)
 - SEED (auto)
 - Skipjack (auto)
-- GOST 28147-89 | Magma (auto)
-- Kuznyechik (auto)
+- GOST 28147-89 | Magma | GOST (auto)
+- Kuznyechik | Kuznechik (auto)
 - Threefish (auto)
 - MARS (auto)
 - MISTY1 (auto)
 - LOKI97 (auto)
-- FEAL (auto)
+- FEAL | Fast Data Encipherment Algorithm (auto)
 - DES-X (auto)
 - SAFER (auto)
 - PRESENT (auto)
@@ -47,8 +47,8 @@ id: block-cipher · domain: hardware-security-history · status: approved
 - HIGHT (auto)
 - CLEFIA (auto)
 - Lucifer (auto)
-- XTEA (auto)
-- XXTEA (auto)
+- XTEA | eXtended TEA (auto)
+- XXTEA | Corrected Block TEA (auto)
 - SKINNY (auto)
 
 ## Heisenbug

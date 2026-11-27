@@ -7,7 +7,7 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
 - FBX | Filmbox (auto)
 - OBJ | Wavefront OBJ (auto)
 - STL | Stereolithography (auto)
-- glTF | glTF2 | glTF 2.0 | GLB | GL Transmission Format (auto)
+- glTF | glTF2 | glTF 2.0 | GLB | GL Transmission Format | Binary glTF (auto)
 
 ## Works on my machine
 - VRML | Virtual Reality Modeling Language | WRL
@@ -17,15 +17,22 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
 - COLLADA | DAE (auto)
 - DXF | Drawing Exchange Format (auto)
 - PLY | Stanford Triangle Format | Polygon File Format (auto)
-- STEP | ISO 10303 (auto)
-- USD | Universal Scene Description | USDZ (auto)
+- STEP | ISO 10303 | STP (auto)
+- USD | Universal Scene Description | USDZ | USDA | USDC (auto)
 - BLEND | Blender (auto)
+- IGES | IGS (auto)
+- Alembic | ABC (auto)
+- DWG (auto)
+- MAX | 3ds Max (auto)
+- MA | Maya ASCII (auto)
+- MB | Maya Binary (auto)
+- 3DM | Rhino 3D | OpenNURBS (auto)
 
 ## Memory leak
 - 3MF | 3D Manufacturing Format (auto)
 - BVH | Biovision Hierarchy (auto)
 - C4D | Cinema 4D (auto)
-- MD2 (auto)
+- MD2 | Quake 2 model (auto)
 - MD3 (auto)
 - MDL (auto)
 - DirectX X | DirectX .x (auto)
@@ -40,7 +47,7 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
 - IrrMesh | Irr | Irrlicht (auto)
 - LWO | LightWave Object (auto)
 - LWS | LightWave Scene (auto)
-- MD5 | MD5mesh (auto)
+- MD5 | MD5mesh | id Tech 4 model (auto)
 - MS3D | MilkShape 3D (auto)
 - OFF | Object File Format (auto)
 - OpenGEX | OGEX | Open Game Engine Exchange (auto)
@@ -71,5 +78,4 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
   note: Nendo's winged-edge polygon format — beloved by early low-poly modelers and Wings 3D.
 
 ## Inbox
-- Alembic (suggested: heisenbug)
 - RAW (suggested: heisenbug)

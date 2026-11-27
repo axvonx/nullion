@@ -3,14 +3,14 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 > Any data structure for storing or organizing data.
 
 ## Off-by-one
-- array | dynamic array | vector | FBVector | ArrayList | std::vector | Vec | growable array | resizable array
-- list
+- array | dynamic array | vector | FBVector | ArrayList | std::vector | Vec | growable array | resizable array | arrays
+- list | lists
 - hash table | hash map | hashmap | map | dictionary | dict | associative array | StringMap | unordered_map | concurrent_hash_map | HashSet
 - set
-- tree
-- stack | call stack | LifoQueue
-- queue | fifo queue | ConcurrentLinkedQueue | LinkedBlockingQueue | ArrayBlockingQueue | SimpleQueue
-- graph | DirectedGraph
+- tree | trees
+- stack | call stack | LifoQueue | LIFO
+- queue | fifo queue | ConcurrentLinkedQueue | LinkedBlockingQueue | ArrayBlockingQueue | SimpleQueue | FIFO
+- graph | DirectedGraph | graphs
 - tuple
 
 ## Works on my machine
@@ -19,9 +19,9 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 
 ## Null pointer exception
 - linked list | singly linked list | single-linked list
-- binary tree
+- binary tree | BT
 - heap | binary heap | heap queue
-- priority queue | PriorityBlockingQueue
+- priority queue | PriorityBlockingQueue | PQ
 - trie | prefix tree
 - B-tree | btree | b-tree index | btree_map | btree_set
 - B+ tree | b+tree | bplus tree
@@ -30,22 +30,24 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 - page table | translation table
 - symbol table
 - min-heap | min heap | min_heap
+- max-heap | max heap | max_heap (auto)
 - inverted index
 - call graph
 - control flow graph | flow graph
 - abstract syntax tree | syntax tree
 - directed acyclic graph | DAG
+- Matrix | 2D array (auto)
 
 ## Memory leak
-- doubly linked list | double linked list | list_head | IntrusiveList
+- doubly linked list | double linked list | list_head | IntrusiveList | DLL
 - deque | double-ended queue | ArrayDeque | VecDeque | LinkedBlockingDeque | ConcurrentLinkedDeque
 - binary search tree | bst
 - adjacency list
 - adjacency matrix
-- red-black tree | rb tree | rbtree | TreeMap | TreeSet
-- AVL tree | ImutAVLTree
+- red-black tree | rb tree | rbtree | TreeMap | TreeSet | RBT
+- AVL tree | ImutAVLTree | AVL
 - skip list | skiplist
-- segment tree
+- segment tree | segtree
 - radix tree | patricia tree | patricia trie | compact prefix tree
 - suffix tree
 - suffix array
@@ -77,7 +79,7 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 - LinkedHashMap
 
 ## Race condition
-- Fenwick tree | binary indexed tree
+- Fenwick tree | binary indexed tree | BIT
 - rope
 - treap
 - Fibonacci heap

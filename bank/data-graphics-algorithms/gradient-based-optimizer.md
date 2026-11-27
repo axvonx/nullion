@@ -3,38 +3,47 @@ id: gradient-based-optimizer · domain: data-graphics-algorithms · status: appr
 > Any named first-order or preconditioned optimizer that updates parameters from gradients, from papers or library implementations.
 
 ## Off-by-one
-- RMSProp (auto)
+- RMSProp | Root Mean Square Propagation (auto)
+- Momentum | SGD with momentum | heavy ball (auto)
 
 ## Works on my machine
-- Lion
+- Lion | Evolved Sign Momentum
   note: Google's EvoLved Sign Momentum optimizer — everyone's favorite recent drop-in after AdamW.
 
 ## Null pointer exception
-- SGD | Stochastic Gradient Descent (auto)
-- Adam (auto)
-- AdamW (auto)
-- Adagrad (auto)
+- SGD | Stochastic Gradient Descent | gradient descent (auto)
+- Adam | Adaptive Moment Estimation (auto)
+- AdamW | Adam with decoupled weight decay (auto)
+- Adagrad | Adaptive Gradient (auto)
 - L-BFGS | Limited-memory BFGS (auto)
-- BFGS (auto)
+- BFGS | Broyden-Fletcher-Goldfarb-Shanno (auto)
 - nonlinear conjugate gradient (auto)
+- Conjugate gradient | CG (auto)
+- Newton's method | Newton-Raphson (auto)
+- Gauss-Newton | Gauss-Newton algorithm (auto)
+- Levenberg-Marquardt | LM | damped least-squares (auto)
+- Proximal gradient descent | proximal gradient | ISTA (auto)
+- Coordinate descent | stochastic coordinate descent (auto)
+- Mirror descent (auto)
+- Frank-Wolfe | conditional gradient (auto)
 
 ## Memory leak
 - Adadelta (auto)
-- LAMB | Layer-wise Adaptive Moments (auto)
+- LAMB | Layer-wise Adaptive Moments | Layer-wise Adaptive Moments optimizer for Batch training (auto)
 - FTRL | Follow-The-Regularized-Leader | FTRL-Proximal (auto)
 - ASGD | Averaged SGD | Averaged Stochastic Gradient Descent (auto)
 - momentum SGD (auto)
-- Nesterov accelerated gradient (auto)
+- Nesterov accelerated gradient | NAG | Nesterov momentum (auto)
 - AMSGrad (auto)
 - AdaBelief (auto)
-- Sophia (auto)
-- LARS (auto)
+- Sophia | Second-order Clipped Stochastic Optimization (auto)
+- LARS | Layer-wise Adaptive Rate Scaling (auto)
 - K-FAC (auto)
 - Hessian-free optimization (auto)
 - signSGD (auto)
 
 ## Race condition
-- NAdam (auto)
+- NAdam | Nesterov-accelerated Adam (auto)
 - Adamax (auto)
 - RAdam | Rectified Adam (auto)
 - Adafactor (auto)
@@ -45,7 +54,7 @@ id: gradient-based-optimizer · domain: data-graphics-algorithms · status: appr
 - Yogi (auto)
 - Lookahead (auto)
 - Ranger (auto)
-- natural gradient (auto)
+- natural gradient | Natural gradient descent | NGD (auto)
 
 ## Heisenbug
 - Schedule-Free AdamW (auto)
@@ -66,6 +75,3 @@ id: gradient-based-optimizer · domain: data-graphics-algorithms · status: appr
 ## Bit Flip
 - Shampoo
   note: Second-order preconditioned optimizer using Kronecker-factored matrix roots of gradient statistics.
-
-## Inbox
-- SGD with momentum (suggested: off-by-one)

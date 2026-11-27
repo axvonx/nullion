@@ -17,39 +17,40 @@ id: lock · domain: os-systems · status: approved
 - optimistic lock | optimistic locking
 - pessimistic lock | pessimistic locking
 - two-phase locking | 2pl
-- shared lock | s lock | SHARE lock | ShareLock
+- shared lock | s lock | SHARE lock | ShareLock | read lock
 - row-level lock | row lock
 - table lock | table-level lock | relation-level lock
-- file lock | flock | file locking | file_lock
+- file lock | flock | file locking | file_lock | fcntl lock
 - distributed lock
 - global interpreter lock | GIL
 - counting semaphore
 - binary semaphore
+- Fair lock | FIFO lock (auto)
 
 ## Memory leak
 - recursive mutex | reentrant lock | reentrant mutex | recursive lock | ReentrantLock | std::recursive_mutex
 - adaptive mutex | adaptive lock
 - ticket lock | ticket spinlock
-- seqlock | sequence lock | seqcount
+- seqlock | sequence lock | seqcount | sequential lock
 - futex | fast userspace mutex | fast user mutex
 - test-and-test-and-set lock | ttas lock | test and test and set lock
 - backoff lock | exponential backoff lock
 - Peterson lock | peterson's algorithm | petersons lock
-- bakery lock | lamport's bakery algorithm | bakery algorithm
+- bakery lock | lamport's bakery algorithm | bakery algorithm | Lamport's bakery lock
 - Dekker's algorithm | dekker lock | dekkers algorithm
-- exclusive lock | x lock | ExclusiveLock
+- exclusive lock | x lock | ExclusiveLock | write lock
 - advisory lock | session-level advisory lock | transaction-level advisory lock
 - queue lock | queuing lock | queue-based lock
 - critical section | CRITICAL_SECTION
 - record lock | posix lock
 - page lock | page-level lock
 - latch
-- intrinsic lock | monitor lock
+- intrinsic lock | monitor lock | Monitor
 - named mutex
 
 ## Race condition
-- MCS lock | mellor-crummey scott lock
-- CLH lock | craig landin hagersten lock
+- MCS lock | mellor-crummey scott lock | Mellor-Crummey and Scott lock
+- CLH lock | craig landin hagersten lock | Craig, Landin, and Hagersten lock
 - qspinlock | queued spinlock
 - big kernel lock | bkl
 - Anderson lock | array-based queue lock | array lock

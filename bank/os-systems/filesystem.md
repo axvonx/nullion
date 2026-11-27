@@ -5,33 +5,35 @@ id: filesystem · domain: os-systems · status: approved
 ## Off-by-one
 - ext4 (auto)
 - FAT32 | vfat | FAT | msdosfs | pcfs (auto)
-- NFS | nfs4 (auto)
+- NFS | nfs4 | Network File System (auto)
 
 ## Works on my machine
-- ReiserFS
+- ReiserFS | Reiser3
   note: The balanced-tree Linux filesystem everyone remembers for its infamous history.
 
 ## Null pointer exception
 - Ceph (auto)
 - ext2 | ext2fs (auto)
 - ext3 (auto)
-- NTFS (auto)
+- NTFS | New Technology File System (auto)
 - exFAT (auto)
-- CIFS | SMB | smbfs | smbclnt (auto)
-- Btrfs (auto)
+- CIFS | SMB | smbfs | smbclnt | Server Message Block (auto)
+- Btrfs | B-tree FS (auto)
 - XFS (auto)
-- ISO 9660 | isofs | cd9660 | iso9660 | hsfs (auto)
+- ISO 9660 | isofs | cd9660 | iso9660 | hsfs | CDFS (auto)
 - AFS | Andrew File System (auto)
-- OverlayFS (auto)
+- OverlayFS | overlay (auto)
 - procfs | proc (auto)
 - sysfs (auto)
-- ZFS (auto)
-- APFS (auto)
+- ZFS | OpenZFS (auto)
+- APFS | Apple File System (auto)
+- FAT16 (auto)
+- CephFS (auto)
 
 ## Memory leak
 - HFS (auto)
-- HFS+ | hfsplus | HFS Plus (auto)
-- UDF | udfs (auto)
+- HFS+ | hfsplus | HFS Plus | Mac OS Extended (auto)
+- UDF | udfs | Universal Disk Format (auto)
 - Coda (auto)
 - debugfs (auto)
 - devpts (auto)
@@ -40,7 +42,7 @@ id: filesystem · domain: os-systems · status: approved
 - tmpfs (auto)
 - autofs (auto)
 - hugetlbfs (auto)
-- UFS | ufs2 | FFS (auto)
+- UFS | ufs2 | FFS | Unix File System (auto)
 - devfs (auto)
 - lofs (auto)
 - ReFS | Resilient File System (auto)
@@ -48,7 +50,7 @@ id: filesystem · domain: os-systems · status: approved
 ## Race condition
 - cramfs (auto)
 - EROFS (auto)
-- F2FS (auto)
+- F2FS | Flash-Friendly File System (auto)
 - OCFS2 (auto)
 - virtiofs (auto)
 - JFFS2 (auto)
@@ -80,7 +82,7 @@ id: filesystem · domain: os-systems · status: approved
 - NILFS2 | nilfs (auto)
 - 9P | v9fs | p9fs (auto)
 - hostfs (auto)
-- JFS (auto)
+- JFS | Journaled File System (auto)
 - OpenPROM FS | openpromfs (auto)
 - pstore (auto)
 - QNX4 (auto)

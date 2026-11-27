@@ -7,19 +7,19 @@ id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
   note: The go-to non-parametric mode-seeker everyone names right after k-means and DBSCAN.
 
 ## Null pointer exception
-- agglomerative clustering | agglomerative hierarchical clustering | hierarchical agglomerative clustering (auto)
-- DBSCAN (auto)
-- k-means | Lloyd's algorithm (auto)
-- spectral clustering (auto)
-- hierarchical clustering (auto)
+- agglomerative clustering | agglomerative hierarchical clustering | hierarchical agglomerative clustering | agglomerative (auto)
+- DBSCAN | Density-Based Spatial Clustering of Applications with Noise (auto)
+- k-means | Lloyd's algorithm | k-means clustering (auto)
+- spectral clustering | spectral (auto)
+- hierarchical clustering | hierarchical (auto)
 - fuzzy c-means | FCM (auto)
-- Gaussian mixture model | GMM | EM clustering (auto)
-- self-organizing map | SOM | Kohonen map (auto)
+- Gaussian mixture model | GMM | EM clustering | Gaussian mixture | Expectation-Maximization | EM (auto)
+- self-organizing map | SOM | Kohonen map | Kohonen network (auto)
 - k-means++ (auto)
 
 ## Memory leak
-- Affinity Propagation (auto)
-- HDBSCAN (auto)
+- Affinity Propagation | AP (auto)
+- HDBSCAN | Hierarchical DBSCAN (auto)
 - k-medoids | PAM | partitioning around medoids (auto)
 - k-modes (auto)
 - single-linkage clustering | single linkage (auto)
@@ -31,29 +31,29 @@ id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
 
 ## Race condition
 - bisecting k-means (auto)
-- OPTICS (auto)
+- OPTICS | Ordering Points To Identify the Clustering Structure (auto)
 - mini-batch k-means (auto)
 - biclustering | co-clustering (auto)
-- CLARA (auto)
-- CURE (auto)
+- CLARA | Clustering Large Applications (auto)
+- CURE | Clustering Using Representatives (auto)
 - X-means (auto)
 - G-means (auto)
-- Ward's method | Ward linkage (auto)
+- Ward's method | Ward linkage | Ward clustering (auto)
 - growing neural gas (auto)
 
 ## Heisenbug
 - Elkan's k-means | Elkan k-means (auto)
-- CLARANS (auto)
+- CLARANS | Clustering Large Applications based upon Randomized Search (auto)
 - ROCK (auto)
 - CHAMELEON (auto)
-- STING (auto)
-- CLIQUE (auto)
-- DENCLUE (auto)
+- STING | Statistical Information Grid (auto)
+- CLIQUE | Clustering In Quest (auto)
+- DENCLUE | Density-Based Clustering (auto)
 - k-prototypes (auto)
 - SLINK (auto)
-- DIANA (auto)
+- DIANA | Divisive clustering | Divisive Analysis (auto)
 - COBWEB (auto)
-- canopy clustering (auto)
+- canopy clustering | Canopy (auto)
 - neural gas (auto)
 - Jarvis-Patrick clustering (auto)
 - density peaks clustering (auto)
@@ -64,7 +64,7 @@ id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
 - CLINK (auto)
 
 ## Bit Flip
-- BIRCH
+- BIRCH | Balanced Iterative Reducing and Clustering using Hierarchies
   note: Balanced Iterative Reducing and Clustering using Hierarchies — builds a CF-tree in a single pass.
 
 ## Inbox

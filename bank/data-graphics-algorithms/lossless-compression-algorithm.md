@@ -6,37 +6,41 @@ id: lossless-compression-algorithm · domain: data-graphics-algorithms · status
 - Huffman coding | Huffman (auto)
 
 ## Works on my machine
-- LZW
+- LZW | Lempel-Ziv-Welch
   note: The GIF/TIFF dictionary coder everyone remembers from the Unisys patent drama.
 
 ## Null pointer exception
 - Burrows-Wheeler transform | bwt (auto)
 - Lempel-Ziv (auto)
-- arithmetic coding (auto)
+- arithmetic coding | arithmetic compression (auto)
 - DEFLATE (auto)
-- LZ77 (auto)
+- LZ77 | Lempel-Ziv 77 (auto)
 - LZ4 (auto)
 - Zstandard | zstd (auto)
 - Brotli (auto)
 - run-length encoding | RLE (auto)
+- Delta encoding | delta compression (auto)
+- Rice coding (auto)
+- Canonical Huffman coding (auto)
+- CABAC | Context-adaptive binary arithmetic coding (auto)
 
 ## Memory leak
-- LZ78 (auto)
-- LZSS (auto)
-- LZMA (auto)
-- Snappy (auto)
+- LZ78 | Lempel-Ziv 78 (auto)
+- LZSS | Lempel-Ziv-Storer-Szymanski (auto)
+- LZMA | Lempel-Ziv-Markov chain algorithm (auto)
+- Snappy | Zippy (auto)
 - bzip2 (auto)
 - PPM | prediction by partial matching (auto)
-- range coding (auto)
+- range coding | range encoding (auto)
 - asymmetric numeral systems | ANS | rANS | tANS (auto)
-- Shannon-Fano coding (auto)
-- Golomb coding (auto)
-- LZO (auto)
+- Shannon-Fano coding | Shannon-Fano (auto)
+- Golomb coding | Golomb-Rice coding (auto)
+- LZO | Lempel-Ziv-Oberhumer (auto)
 - move-to-front transform | MTF (auto)
 
 ## Race condition
-- PAQ (auto)
-- Elias gamma coding (auto)
+- PAQ | PAQ8 (auto)
+- Elias gamma coding | Elias gamma (auto)
 - LZF (auto)
 - LZFSE (auto)
 - LZX (auto)
@@ -52,7 +56,7 @@ id: lossless-compression-algorithm · domain: data-graphics-algorithms · status
 - QuickLZ (auto)
 - FastLZ (auto)
 - LZHAM (auto)
-- adaptive Huffman coding | Vitter algorithm | FGK (auto)
+- adaptive Huffman coding | Vitter algorithm | FGK | dynamic Huffman coding (auto)
 - dynamic Markov compression | DMC (auto)
 - ZPAQ (auto)
 - cmix (auto)

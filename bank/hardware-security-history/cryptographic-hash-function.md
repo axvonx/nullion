@@ -16,6 +16,10 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - SHA-3 | Keccak (auto)
 - SHA-2 (auto)
 - BLAKE3 (auto)
+- SHA3-256 (auto)
+- SHA3-512 (auto)
+- SHAKE128 (auto)
+- SHAKE256 (auto)
 
 ## Memory leak
 - BLAKE2b | BLAKE2 (auto)
@@ -23,7 +27,7 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - MD4 (auto)
 - SHA-224 (auto)
 - SHA-384 (auto)
-- BLAKE (auto)
+- BLAKE | BLAKE-256 | BLAKE-512 (auto)
 - BLAKE2s (auto)
 
 ## Race condition
@@ -57,9 +61,9 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - Blue Midnight Wish (auto)
 - Panama (auto)
 - SWIFFT (auto)
-- KangarooTwelve (auto)
+- KangarooTwelve | K12 (auto)
 - Gimli (auto)
-- Ascon-Hash (auto)
+- Ascon-Hash | Ascon (auto)
 - Xoodyak (auto)
 - RIPEMD-320 (auto)
 

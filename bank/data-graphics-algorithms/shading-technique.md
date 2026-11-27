@@ -3,26 +3,26 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 > Any technique for computing surface shading or lighting in rendering.
 
 ## Off-by-one
-- flat shading
+- flat shading | flat
 - Phong shading | phong
 - Gouraud shading | gouraud
-- cel shading | toon shading
+- cel shading | toon shading | cel
 
 ## Works on my machine
 - ray tracing | raytracing
   note: The photorealistic rendering buzzword everyone reaches for first.
 
 ## Null pointer exception
-- Blinn-Phong | blinn phong shading
+- Blinn-Phong | blinn phong shading | Blinn shading
 - normal mapping
-- ambient occlusion | ssao
-- physically based rendering | pbr
-- Lambertian shading | Lambertian reflectance | Lambert shading (auto)
+- ambient occlusion | ssao | AO | Screen-space ambient occlusion
+- physically based rendering | pbr | PBR shading
+- Lambertian shading | Lambertian reflectance | Lambert shading | Lambert | Lambertian (auto)
 - Rim lighting | rim shading (auto)
 - Forward shading | forward rendering (auto)
 - Bump mapping (auto)
 - Displacement mapping (auto)
-- Environment mapping | reflection mapping | cubemap reflection (auto)
+- Environment mapping | reflection mapping | cubemap reflection | cubemap shading (auto)
 - Lightmapping | lightmap | baked lighting (auto)
 - Path tracing (auto)
 
@@ -30,10 +30,10 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 - deferred shading | deferred rendering
 - shadow mapping
 - parallax mapping
-- GGX | Trowbridge-Reitz | Trowbridge-Reitz GGX (auto)
+- GGX | Trowbridge-Reitz | Trowbridge-Reitz GGX | GGX shading (auto)
 - Disney BRDF | Disney principled BRDF | principled BSDF (auto)
 - Schlick BRDF | Schlick approximation | Schlick Fresnel (auto)
-- Gooch shading | Gooch technical illustration (auto)
+- Gooch shading | Gooch technical illustration | Gooch (auto)
 - Hatching | cross-hatching | tonal art maps (auto)
 - Halftone shading | halftoning | Ben-Day shading (auto)
 - MatCap | matcap shading | lit sphere (auto)
@@ -49,11 +49,11 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 
 ## Race condition
 - subsurface scattering | sss
-- Cook-Torrance
-- Oren-Nayar
+- Cook-Torrance | Cook-Torrance shading
+- Oren-Nayar | Oren-Nayar shading
 - clustered shading | clustered forward shading
 - Half-Lambert | half-Lambert shading (auto)
-- Ward BRDF | Ward reflectance model | Ward shading (auto)
+- Ward BRDF | Ward reflectance model | Ward shading | Ward anisotropic shading (auto)
 - Beckmann | Beckmann distribution | Beckmann microfacet (auto)
 - Torrance-Sparrow | Torrance-Sparrow BRDF (auto)
 - Kajiya-Kay | Kajiya-Kay hair shading | Kajiya-Kay model (auto)
@@ -75,8 +75,8 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 ## Heisenbug
 - visibility buffer | vbuffer
 - spherical harmonic lighting | sh lighting
-- Minnaert shading
-- Ashikhmin-Shirley | Ashikhmin-Shirley BRDF (auto)
+- Minnaert shading | Minnaert
+- Ashikhmin-Shirley | Ashikhmin-Shirley BRDF | Ashikhmin-Shirley shading (auto)
 - Lafortune | Lafortune BRDF | Lafortune reflectance model (auto)
 - He-Torrance-Sillion-Greenberg | HTSG BRDF | He BRDF (auto)
 - Hapke | Hapke BRDF | Hapke reflectance model (auto)

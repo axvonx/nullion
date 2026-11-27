@@ -49,6 +49,8 @@ The filter's raw precision on kinds is about 89% for data structures: 11 of 101 
 14. **Wikidata's lowercase-label heuristic fails for some classes:** for "software bug" it let in "spiritual fraud", a French place name and a certificate-compromise notice. Wikidata class dumps need a membership filter unless the class is clean, as programming language and operating system are.
 15. **The game's normalizer folds more than a naive key:** `#` and `♯` both become "sharp", and names like `///` normalise to nothing. Merge scripts must use the game's exact normalize. `scripts/wikidata-merge.py` ports it.
 
+16. **The obvious end was never checked** (found by the owner: "list" missing from data structures). Every check pointed at the deep end. Worse, the data-structure filter prompt said "the list" isn't an answer, and head-noun mining can't see a bare head noun at all. A Gemini list of each category's 30 most obvious answers found gaps in 32 of 34 categories, among them Mercator, Robinson, mark-and-sweep, TCP Tahoe, the RISC-V base letters, and cd, curl and ssh. It's now a standing test (`src/data/obvious.test.ts`) and harvest step 7.
+
 ## Implications for the full version
 
 - **Rule text:** add "a single subsystem's named struct type is an instance, not a kind" and "a name differing from a shallower answer only by inflection is its alias". Drop open-ended allowances like "hardware tables are allowed". Put allowances in the category's `> Accepts:` line instead.

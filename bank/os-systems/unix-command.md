@@ -65,6 +65,7 @@ id: unix-command · domain: os-systems · status: approved
 - zstd (auto)
 - clang (auto)
 - xargs (auto)
+- cd (auto)
 
 ## Works on my machine
 - yes
@@ -190,6 +191,8 @@ id: unix-command · domain: os-systems · status: approved
 - rpcinfo (auto)
 - showmount (auto)
 - what (auto)
+- curl (auto)
+- ssh (auto)
 
 ## Memory leak
 - arch (auto)

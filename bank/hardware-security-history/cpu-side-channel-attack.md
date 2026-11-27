@@ -4,15 +4,24 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 
 ## Off-by-one
 - Spectre (auto)
-- Meltdown (auto)
+- Meltdown | Rogue Data Cache Load (auto)
+- Rowhammer (auto)
+- Timing attack | cache timing attack (auto)
+- Power analysis | DPA | differential power analysis | SPA (auto)
 
 ## Works on my machine
 - L1 Terminal Fault | L1TF | Foreshadow
   note: Foreshadow — the first speculative-execution leak people name after Spectre and Meltdown.
 
 ## Null pointer exception
-- Prime+Probe (auto)
-- Flush+Reload (auto)
+- Prime+Probe | Prime and Probe (auto)
+- Flush+Reload | Flush and Reload (auto)
+- Plundervolt (auto)
+- Branch target injection | BTI (auto)
+- Bounds check bypass | BCB (auto)
+- Acoustic cryptanalysis | acoustic side-channel (auto)
+- Electromagnetic attack | EM side-channel | TEMPEST (auto)
+- GhostRace (auto)
 
 ## Memory leak
 - Microarchitectural Data Sampling | MDS (auto)
@@ -28,19 +37,19 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 - Processor MMIO Stale Data | MMIO Stale Data (auto)
 - Register File Data Sampling | RFDS | reg-file-data-sampling (auto)
 - Indirect Target Selection | ITS (auto)
-- RIDL (auto)
-- Fallout (auto)
+- RIDL | Rogue In-Flight Data Load (auto)
+- Fallout | Microarchitectural Store Buffer Data Sampling | MSBDS (auto)
 - CacheOut (auto)
 - SGAxe (auto)
-- Load Value Injection (auto)
-- Spectre v4 (auto)
+- Load Value Injection | LVI (auto)
+- Spectre v4 | Speculative store bypass | SSB (auto)
 - Branch History Injection (auto)
 - Retbleed (auto)
 - SpectreRSB (auto)
 - BranchScope (auto)
-- Flush+Flush (auto)
+- Flush+Flush | Flush and Flush (auto)
 - Evict+Reload (auto)
-- Evict+Time (auto)
+- Evict+Time | Evict and Time (auto)
 - Hertzbleed (auto)
 - PLATYPUS (auto)
 - Zenbleed (auto)

@@ -2,9 +2,26 @@
 id: riscv-extension · domain: hardware-security-history · status: approved
 > a named RISC-V ISA extension (single-letter or Z/S-prefixed) from the RISC-V specifications.
 
+## Off-by-one
+- M | Integer Multiplication and Division | RV32M | RV64M (auto)
+- A | Atomic | Atomic Instructions | RV32A | RV64A (auto)
+- F | Single-Precision Floating-Point | RV32F | RV64F (auto)
+- D | Double-Precision Floating-Point | RV32D | RV64D (auto)
+- C | Compressed | Compressed Instructions | RVC (auto)
+- V | Vector | RVV | Vector Extension (auto)
+- B | Bit Manipulation | Bitmanip (auto)
+- G | General-Purpose | IMAFD (auto)
+- H | Hypervisor (auto)
+- Q | Quad-Precision Floating-Point (auto)
+
 ## Works on my machine
 - V extension
   note: The Vector extension — the headline RISC-V letter almost everyone names first.
+
+## Null pointer exception
+- Zk | Scalar Cryptography (auto)
+- Zkn | NIST Algorithm Suite (auto)
+- Zks | ShangMi Algorithm Suite (auto)
 
 ## Memory leak
 - M extension (auto)
@@ -18,23 +35,23 @@ id: riscv-extension · domain: hardware-security-history · status: approved
 ## Race condition
 - Q extension (auto)
 - P extension (auto)
-- Zicsr (auto)
-- Zifencei (auto)
-- Zba (auto)
-- Zbb (auto)
-- Zbc (auto)
-- Zbs (auto)
-- Zfh (auto)
-- Zicbom (auto)
-- Zicboz (auto)
+- Zicsr | Control and Status Register (auto)
+- Zifencei | Instruction-Fetch Fence (auto)
+- Zba | Address Generation (auto)
+- Zbb | Basic Bit-Manipulation (auto)
+- Zbc | Carry-less Multiplication (auto)
+- Zbs | Single-Bit Instructions (auto)
+- Zfh | Half-Precision Floating-Point (auto)
+- Zicbom | Cache-Block Management (auto)
+- Zicboz | Cache-Block Zero (auto)
 - Zicbop (auto)
 - Zicntr (auto)
 - Zihpm (auto)
 - Zihintpause (auto)
-- Zicond (auto)
+- Zicond | Integer Conditional Operations (auto)
 - Ztso (auto)
 - Zmmul (auto)
-- Sstc (auto)
+- Sstc | Supervisor-mode Timer Interrupts (auto)
 
 ## Heisenbug
 - Zbkb (auto)
@@ -52,12 +69,12 @@ id: riscv-extension · domain: hardware-security-history · status: approved
 - Zdinx (auto)
 - Zhinx (auto)
 - Zihintntl (auto)
-- Zawrs (auto)
+- Zawrs | Wait-on-Reservation-Set (auto)
 - Zacas (auto)
 - Zabha (auto)
-- Zca (auto)
-- Zcb (auto)
-- Zcd (auto)
+- Zca | Compressed Integer (auto)
+- Zcb | Additional Compressed Instructions (auto)
+- Zcd | Compressed Double-Precision Floating-Point (auto)
 - Zcf (auto)
 - Zcmp (auto)
 - Zcmt (auto)
@@ -72,8 +89,8 @@ id: riscv-extension · domain: hardware-security-history · status: approved
 - Zvksed (auto)
 - Zvksh (auto)
 - Zfa (auto)
-- Svnapot (auto)
-- Svpbmt (auto)
+- Svnapot | NAPOT Translation Contiguity (auto)
+- Svpbmt | Page-Based Memory Types (auto)
 - Svinval (auto)
 - Sscofpmf (auto)
 - Smepmp (auto)
@@ -86,8 +103,3 @@ id: riscv-extension · domain: hardware-security-history · status: approved
 ## Bit Flip
 - Zimop
   note: May-Be-Operations: reserves safe no-op encodings for forward-compatible hints like CFI.
-
-## Inbox
-- M (suggested: off-by-one)
-- A (suggested: off-by-one)
-- F (suggested: off-by-one)

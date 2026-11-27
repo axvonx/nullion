@@ -3,38 +3,56 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 > Any named method of projecting the Earth's surface onto a plane, from cartography.
 
 ## Off-by-one
-- Mercator projection | merc (auto)
-- Robinson projection | robin (auto)
+- Mercator projection | merc | Mercator (auto)
+- Robinson projection | robin | Robinson (auto)
+- Winkel tripel | Winkel III (auto)
+- Gall-Peters | Peters projection | Peters (auto)
+- Transverse Mercator | Gauss-Kruger (auto)
+- Universal Transverse Mercator | UTM (auto)
 
 ## Works on my machine
 - Dymaxion map | airocean
   note: Buckminster Fuller's icosahedral unfold — the classic 'clever map' pick.
 
 ## Null pointer exception
-- Albers equal-area conic | aea | Albers equal-area conic projection (auto)
+- Albers equal-area conic | aea | Albers equal-area conic projection | Albers | Albers projection (auto)
 - Azimuthal equidistant projection | aeqd (auto)
 - Cylindrical equal-area projection | cea (auto)
-- Equirectangular projection | eqc | Plate carrée (auto)
+- Equirectangular projection | eqc | Plate carrée | Equirectangular | geographic projection (auto)
 - Sinusoidal projection | gn_sinu (auto)
-- Gnomonic projection | gnom (auto)
+- Gnomonic projection | gnom | Gnomonic (auto)
 - Goode homolosine projection | goode | igh | igh_o (auto)
-- Lambert azimuthal equal-area projection | laea (auto)
-- Lambert conformal conic projection | lcc (auto)
+- Lambert azimuthal equal-area projection | laea | Lambert azimuthal equal-area (auto)
+- Lambert conformal conic projection | lcc | Lambert conformal conic (auto)
 - Miller cylindrical projection | mill (auto)
-- Orthographic projection | ortho (auto)
-- Stereographic projection | stere (auto)
+- Orthographic projection | ortho | Orthographic (auto)
+- Stereographic projection | stere | Stereographic (auto)
 - Transverse Mercator projection | tmerc | tmerczoned (auto)
+- Web Mercator | Pseudo-Mercator | Spherical Mercator | EPSG:3857 (auto)
+- Azimuthal equidistant (auto)
+- Sinusoidal | Sanson-Flamsteed (auto)
+- Goode homolosine | interrupted Goode homolosine | Goode's homolosine (auto)
+- Dymaxion | Fuller projection | Fuller (auto)
+- Eckert IV | Eckert 4 (auto)
+- Miller cylindrical | Miller (auto)
+- Van der Grinten (auto)
+- Kavrayskiy VII | Kavrayskiy 7 (auto)
+- Cassini | Cassini-Soldner (auto)
+- Behrmann | Behrmann projection (auto)
+- Polyconic | American polyconic (auto)
+- Peirce quincuncial (auto)
+- Waterman butterfly | Waterman (auto)
 
 ## Memory leak
 - Bonne projection | bonne (auto)
 - Equidistant conic projection | eqdc (auto)
-- Equal Earth projection | eqearth (auto)
+- Equal Earth projection | eqearth | Equal Earth (auto)
 - Gall stereographic projection | gall (auto)
 - Natural Earth projection | natearth (auto)
 - Oblique Mercator projection | omerc (auto)
 - Polyconic projection | poly | American polyconic projection (auto)
 - Van der Grinten projection | vandg (auto)
-- Mollweide projection (auto)
+- Mollweide projection | Mollweide (auto)
 
 ## Race condition
 - Aitoff projection | aitoff (auto)

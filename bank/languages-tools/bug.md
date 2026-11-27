@@ -3,10 +3,10 @@ id: bug · domain: languages-tools · status: approved
 > Any named kind of software bug or defect.
 
 ## Off-by-one
-- off-by-one | off by one error | obo | fencepost error
+- off-by-one | off by one error | obo | fencepost error | OBOE
 - null pointer dereference | null pointer | null pointer exception | npe | null dereference
 - memory leak
-- infinite loop
+- infinite loop | endless loop
 - segfault | segmentation fault
 
 ## Works on my machine
@@ -17,24 +17,33 @@ id: bug · domain: languages-tools · status: approved
 
 ## Null pointer exception
 - race condition | data race
-- buffer overflow
+- buffer overflow | buffer overrun
 - deadlock
 - stack overflow
 - Out-of-bounds array index | index-out-of-range | array index underflow (auto)
 - Prompt injection (auto)
 - Uncaught exception (auto)
-- Divide by zero (auto)
-- Use of uninitialized variable | uninitialized variable (auto)
+- Divide by zero | Division by zero (auto)
+- Use of uninitialized variable | uninitialized variable | uninitialized memory (auto)
 - Assertion failure | reachable assertion (auto)
 - Command injection | OS command injection | shell injection (auto)
 - Cross-site scripting | XSS | HTML injection (auto)
 - SQL injection | SQLi (auto)
 - Code injection (auto)
+- Syntax error (auto)
+- Logic error (auto)
+- Type error | type mismatch (auto)
+- Floating-point precision error | rounding error | floating point error (auto)
+- Out-of-bounds access | index out of bounds | array out of bounds (auto)
+- Livelock (auto)
+- Timezone bug | DST bug | daylight saving bug (auto)
+- Character encoding bug | mojibake | encoding error (auto)
+- Format string bug | format string vulnerability (auto)
 
 ## Memory leak
 - use-after-free | uaf
 - double free
-- integer overflow
+- integer overflow | arithmetic overflow
 - Clickjacking | UI Redress Attack | Tapjacking (auto)
 - Stack-based buffer overflow | stack buffer overflow (auto)
 - Heap-based buffer overflow | heap overflow | heap buffer overflow (auto)

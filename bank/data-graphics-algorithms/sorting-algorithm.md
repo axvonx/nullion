@@ -10,33 +10,34 @@ id: sorting-algorithm · domain: data-graphics-algorithms · status: approved
 - selection sort
 
 ## Works on my machine
-- bogosort | bogo sort | stupid sort
+- bogosort | bogo sort | stupid sort | permutation sort
   note: The joke shuffle-until-sorted algorithm everyone thinks they're being cheeky by naming.
 - sleep sort
 
 ## Null pointer exception
 - heapsort | heap sort
 - radix sort
-- counting sort
+- counting sort | count sort
+- Block sort | block merge sort (auto)
 
 ## Memory leak
-- bucket sort
+- bucket sort | bin sort
 - shell sort | shellsort
 - timsort | tim sort
 
 ## Race condition
 - introsort | introspective sort
-- cocktail shaker sort | cocktail sort | shaker sort
+- cocktail shaker sort | cocktail sort | shaker sort | bidirectional bubble sort
 - comb sort
 - gnome sort (auto)
 - odd–even sort | brick sort | odd–even transposition sort | parity sort (auto)
-- pancake sorting (auto)
+- pancake sorting | Pancake sort (auto)
 - stooge sort (auto)
 - pigeonhole sort (auto)
-- bead sort (auto)
+- bead sort | gravity sort (auto)
 - bitonic sorter | Bitonic mergesort (auto)
 - tree sort (auto)
-- patience sorting (auto)
+- patience sorting | patience sort (auto)
 - strand sort (auto)
 
 ## Heisenbug

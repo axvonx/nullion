@@ -36,6 +36,8 @@ MEMBERSHIP RULE (decided by the project owner; apply it exactly):
   - neighbouring-domain concepts that are merely stored in or near the thing (a TLB is a hardware cache, not a
     data structure; an access control list is a security model);
   - prose fragments.
+- Bare generic names ARE answers when they name a kind ("list", "tree", "map" for data structures). They are
+  usually the most common answers of all. Don't drop a line just because it's one plain word.
 - The `> Accepts:` line can narrow or widen this. No other allowances apply.
 - Aliases shorter than 3 characters, or that are common English words, are too generic. Leave them out.
 - Never invent anything. Every kept entry must come from a line in the batch file; quote it in "evidence". A

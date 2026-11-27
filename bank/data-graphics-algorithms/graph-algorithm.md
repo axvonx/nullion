@@ -2,18 +2,24 @@
 id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 > Any named algorithm whose input is a graph and whose purpose is to compute a graph property, path, tree, flow or matching.
 
+## Off-by-one
+- Topological sort | toposort | topological sorting (auto)
+
 ## Works on my machine
-- Tarjan's strongly connected components algorithm | Tarjan's algorithm
+- Tarjan's strongly connected components algorithm | Tarjan's algorithm | Tarjan's strongly connected components | Tarjan
   note: Everyone's favorite single-DFS strongly-connected-components flex.
 
 ## Null pointer exception
 - Dijkstra's algorithm | Dijkstra (auto)
-- A* search | A star (auto)
+- A* search | A star | A* (auto)
 - breadth-first search | BFS (auto)
 - depth-first search | DFS (auto)
 - Prim's algorithm | Prim (auto)
 - Ford-Fulkerson algorithm | Ford-Fulkerson (auto)
 - PageRank (auto)
+- Fleury's algorithm | Fleury (auto)
+- SPFA | Shortest Path Faster Algorithm (auto)
+- Iterative deepening DFS | IDDFS | iterative deepening depth-first search (auto)
 
 ## Memory leak
 - d-separation (auto)
@@ -23,24 +29,24 @@ id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 - Borůvka's algorithm | Boruvka (auto)
 - Kosaraju's algorithm | Kosaraju (auto)
 - Edmonds-Karp algorithm | Edmonds-Karp (auto)
-- Dinic's algorithm | Dinic (auto)
-- push-relabel algorithm | Goldberg-Tarjan (auto)
+- Dinic's algorithm | Dinic | Dinitz's algorithm (auto)
+- push-relabel algorithm | Goldberg-Tarjan | Push-relabel (auto)
 - Hopcroft-Karp algorithm | Hopcroft-Karp (auto)
 - Hungarian algorithm | Kuhn-Munkres (auto)
-- Kahn's algorithm (auto)
+- Kahn's algorithm | Kahn (auto)
 - Louvain method (auto)
-- bidirectional search (auto)
+- bidirectional search | bidirectional BFS (auto)
 - IDA* (auto)
 
 ## Race condition
 - Edmonds' blossom algorithm | blossom algorithm (auto)
 - Johnson's algorithm | Johnson (auto)
 - Held-Karp algorithm (auto)
-- Stoer-Wagner algorithm (auto)
-- Karger's algorithm (auto)
-- Hierholzer's algorithm (auto)
+- Stoer-Wagner algorithm | Stoer-Wagner (auto)
+- Karger's algorithm | Karger (auto)
+- Hierholzer's algorithm | Hierholzer (auto)
 - Chu-Liu/Edmonds algorithm (auto)
-- Bron-Kerbosch algorithm (auto)
+- Bron-Kerbosch algorithm | Bron-Kerbosch (auto)
 - Girvan-Newman algorithm (auto)
 - HITS algorithm (auto)
 - Lexicographic breadth-first search (auto)

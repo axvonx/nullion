@@ -6,9 +6,11 @@ id: compiler-optimization · domain: languages-tools · status: approved
 - common subexpression elimination | CSE | EarlyCSE (auto)
 - constant propagation (auto)
 - dead code elimination | DCE (auto)
-- inlining | function inlining | AlwaysInliner (auto)
+- inlining | function inlining | AlwaysInliner | inline expansion (auto)
 - speculative execution (auto)
 - tail call optimization | tail call elimination | tail recursion elimination | TCO (auto)
+- Constant folding (auto)
+- Register allocation (auto)
 
 ## Works on my machine
 - peephole optimization
@@ -18,10 +20,17 @@ id: compiler-optimization · domain: languages-tools · status: approved
 - copy propagation (auto)
 - dead store elimination | DSE (auto)
 - interprocedural optimization | IPO (auto)
-- loop unrolling | LoopUnroll | LoopUnrollPass (auto)
-- loop-invariant code motion | LICM (auto)
+- loop unrolling | LoopUnroll | LoopUnrollPass | loop unwinding (auto)
+- loop-invariant code motion | LICM | code hoisting (auto)
 - profile-guided optimization | PGO (auto)
 - strength reduction | loop strength reduction | LoopStrengthReduce (auto)
+- Escape analysis (auto)
+- Loop tiling | loop blocking (auto)
+- Bounds check elimination | BCE (auto)
+- Instruction scheduling (auto)
+- Tree shaking (auto)
+- If-conversion | predication (auto)
+- Tail duplication (auto)
 
 ## Memory leak
 - CFG simplification | SimplifyCFG | control-flow graph simplification (auto)
@@ -29,12 +38,12 @@ id: compiler-optimization · domain: languages-tools · status: approved
 - global value numbering | GVN | NewGVN (auto)
 - instruction combining | InstCombine (auto)
 - jump threading (auto)
-- link-time optimization | LTO (auto)
-- loop distribution | loop fission | LoopDistribute (auto)
+- link-time optimization | LTO | whole-program optimization (auto)
+- loop distribution | loop fission | LoopDistribute | loop splitting (auto)
 - loop fusion | loop jamming | LoopFuse (auto)
-- loop interchange (auto)
+- loop interchange | loop permutation (auto)
 - loop unswitching | SimpleLoopUnswitch (auto)
-- loop vectorization | auto-vectorization | LoopVectorize (auto)
+- loop vectorization | auto-vectorization | LoopVectorize | vectorization | SIMD vectorization (auto)
 - mem2reg | memory-to-register promotion | PromoteMemoryToRegister (auto)
 - scalar replacement of aggregates | SROA (auto)
 - sparse conditional constant propagation | SCCP | conditional constant propagation (auto)
@@ -98,6 +107,5 @@ id: compiler-optimization · domain: languages-tools · status: approved
   note: Uses a finite automaton over control-flow paths to thread redundant conditional branches.
 
 ## Inbox
-- constant folding (suggested: off-by-one)
 - lazy code motion (suggested: heisenbug)
 - shrink wrapping (suggested: heisenbug)

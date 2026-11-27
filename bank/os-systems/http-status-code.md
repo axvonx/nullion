@@ -3,14 +3,14 @@ id: http-status-code · domain: os-systems · status: approved
 > Any three-digit status code registered in the IANA HTTP Status Code Registry, named by number or by its reason phrase.
 
 ## Off-by-one
-- 200 OK | 200 (auto)
-- 201 Created | 201 (auto)
+- 200 OK | 200 | OK (auto)
+- 201 Created | 201 | Created (auto)
 - 204 No Content | 204 | No Content (auto)
 - 301 Moved Permanently | 301 | Moved Permanently (auto)
-- 302 Found | 302 (auto)
+- 302 Found | 302 | Found (auto)
 - 400 Bad Request | 400 | Bad Request (auto)
-- 401 Unauthorized | 401 (auto)
-- 403 Forbidden | 403 (auto)
+- 401 Unauthorized | 401 | Unauthorized (auto)
+- 403 Forbidden | 403 | Forbidden (auto)
 - 429 Too Many Requests | 429 | Too Many Requests (auto)
 - 500 Internal Server Error | 500 | Internal Server Error (auto)
 - 502 Bad Gateway | 502 | Bad Gateway (auto)
@@ -22,15 +22,15 @@ id: http-status-code · domain: os-systems · status: approved
   note: RFC 2324's April Fools' coffee-pot error — the #1 'clever' HTTP status code.
 
 ## Null pointer exception
-- 100 Continue | 100 (auto)
-- 202 Accepted | 202 (auto)
+- 100 Continue | 100 | Continue (auto)
+- 202 Accepted | 202 | Accepted (auto)
 - 307 Temporary Redirect | 307 | Temporary Redirect (auto)
 - 402 Payment Required | 402 | Payment Required (auto)
 - 404 Not Found | 404 | Not Found (auto)
 - 405 Method Not Allowed | 405 | Method Not Allowed (auto)
 - 408 Request Timeout | 408 | Request Timeout (auto)
-- 409 Conflict | 409 (auto)
-- 413 Content Too Large | 413 | Content Too Large | Payload Too Large (auto)
+- 409 Conflict | 409 | Conflict (auto)
+- 413 Content Too Large | 413 | Content Too Large | Payload Too Large | Request Entity Too Large (auto)
 - 415 Unsupported Media Type | 415 | Unsupported Media Type (auto)
 - 422 Unprocessable Content | 422 | Unprocessable Content | Unprocessable Entity (auto)
 - 501 Not Implemented | 501 | Not Implemented (auto)
@@ -43,7 +43,7 @@ id: http-status-code · domain: os-systems · status: approved
 - 304 Not Modified | 304 | Not Modified (auto)
 - 308 Permanent Redirect | 308 | Permanent Redirect (auto)
 - 406 Not Acceptable | 406 | Not Acceptable (auto)
-- 410 Gone | 410 (auto)
+- 410 Gone | 410 | Gone (auto)
 - 411 Length Required | 411 | Length Required (auto)
 - 412 Precondition Failed | 412 | Precondition Failed (auto)
 - 414 URI Too Long | 414 | URI Too Long (auto)
