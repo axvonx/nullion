@@ -1583,7 +1583,9 @@ html.kb-open .still .console.low { animation: none; }
   pointer-events: none;
   transition: opacity 120ms ease;
 }
-/* Keep the pointers hidden until the deepest badge actually lands in place. */
+/* Keep the pointers hidden until the last flying badge has landed in place. */
+.eod-stack.is-flying li.is-current::before,
+.eod-stack.is-flying li.is-current::after,
 .eod-stack li.is-current:has(.ls-badge-gone)::before,
 .eod-stack li.is-current:has(.ls-badge-gone)::after {
   opacity: 0;

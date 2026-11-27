@@ -146,51 +146,106 @@ export interface BadgeFlightOptions {
   staggerMs: number;
   /** A badge has landed (the crunch sound). */
   onLand?: (layer: Layer) => void;
+  /** All badges have landed (or none flew, e.g. reduced motion). */
+  onDone?: () => void;
 }
 
 const FLIGHT_MS = 760;
 
 /**
  * Fly the stack's badges (clones of the RHS blocks, sitting exactly where those blocks were) to standing badges
- * elsewhere, top-down, each landing with a crunch squash and seam sparks. The standing badges stay invisible until
- * their flyer lands. Under reduced motion (or when the source was not on screen) nothing flies: the badges are just
- * there. Returns a cancel function that drops every flyer and shows every badge.
+ * elsewhere, top-down, each landing with a crunch squash and seam sparks. Each flyer tracks its destination's live
+ * bounding rect on every animation frame, so scrolling the target container mid-flight never strands or drops a
+ * flyer. The standing badges stay invisible until their flyer lands. Under reduced motion (or when the source was
+ * not on screen) nothing flies: the badges are just there. Returns a cancel function that drops every flyer and
+ * shows every badge.
  */
 export function flyBadges(flights: readonly BadgeFlight[], opts: BadgeFlightOptions): () => void {
   const flying = opts.reduced ? [] : flights.filter((f) => f.from.width > 0 && f.from.height > 0);
+  if (flying.length === 0) {
+    opts.onDone?.();
+    return () => {};
+  }
   const timers: number[] = [];
   const flyers: HTMLElement[] = [];
+  interface ActiveFlight {
+    f: BadgeFlight;
+    flyer: HTMLElement;
+    startAt: number;
+    done: boolean;
+  }
+  const active: ActiveFlight[] = [];
+  let rafId = 0;
+  let remaining = flying.length;
+
+  const stopRaf = () => {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = 0;
+    }
+  };
+
+  const step = () => {
+    rafId = 0;
+    const now = performance.now();
+    let any = false;
+    for (const a of active) {
+      if (a.done) continue;
+      any = true;
+      const dst = a.f.to.getBoundingClientRect();
+      const raw = Math.min(1, Math.max(0, (now - a.startAt) / FLIGHT_MS));
+      const p = 1 - (1 - raw) ** 3;
+      const dx = (dst.left - a.f.from.left) * p;
+      const dy = (dst.top - a.f.from.top) * p;
+      const w = a.f.from.width + (dst.width - a.f.from.width) * p;
+      a.flyer.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0)`;
+      if (w > 0) a.flyer.style.width = `${w.toFixed(1)}px`;
+    }
+    if (any) rafId = requestAnimationFrame(step);
+  };
+
   const cancel = () => {
+    stopRaf();
     for (const t of timers) clearTimeout(t);
     timers.length = 0;
+    for (const a of active) a.done = true;
+    active.length = 0;
     for (const f of flyers) f.remove();
     flyers.length = 0;
     for (const f of flights) f.to.classList.remove('ls-badge-gone');
   };
+
   flying.forEach((f, i) => {
     f.to.classList.add('ls-badge-gone');
     const flyer = createLayerBadge(f.layer);
     flyer.classList.add('ls-flyer');
+    flyer.style.transition = 'none';
     flyer.style.left = `${Math.round(f.from.left)}px`;
     flyer.style.top = `${Math.round(f.from.top)}px`;
     flyer.style.width = `${Math.round(f.from.width)}px`;
     document.body.append(flyer);
     flyers.push(flyer);
     const go = opts.delayMs + i * opts.staggerMs;
+    const entry: ActiveFlight = { f, flyer, startAt: 0, done: false };
     timers.push(
       window.setTimeout(() => {
-        // The destination is measured as the flyer leaves, so a scrolled or still-settling card is still hit exactly.
-        const dst = f.to.getBoundingClientRect();
-        flyer.style.transform = `translate(${Math.round(dst.left - f.from.left)}px, ${Math.round(dst.top - f.from.top)}px)`;
-        flyer.style.width = `${Math.round(dst.width)}px`;
+        entry.startAt = performance.now();
+        active.push(entry);
+        if (!rafId) rafId = requestAnimationFrame(step);
       }, go),
       window.setTimeout(() => {
+        entry.done = true;
         flyer.remove();
         f.to.classList.remove('ls-badge-gone');
         f.to.classList.add('ls-crunch');
         spawnSparks(f.to);
         opts.onLand?.(f.layer);
         timers.push(window.setTimeout(() => f.to.classList.remove('ls-crunch'), 260));
+        remaining -= 1;
+        if (remaining === 0) {
+          stopRaf();
+          opts.onDone?.();
+        }
       }, go + FLIGHT_MS),
     );
   });

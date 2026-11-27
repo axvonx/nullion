@@ -22,11 +22,14 @@
 .bd-sheet { display: grid; grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr); min-height: min(560px, calc(var(--vvh, 100dvh) - 112px)); height: calc(var(--vvh, 100dvh) - 112px); max-height: 760px; }
 .bd-leaf { position: relative; min-width: 0; min-height: 0; overflow: hidden; display: flex; flex-direction: column; background: var(--bond); color: var(--toner); color-scheme: light;
   font-family: var(--serif); font-size: 17px; line-height: 1.3; padding: 14px 20px 8px 36px; }
+/* Real ring binder: left leaf is punched along its right (inner/spine) edge; right leaf along its left (inner/spine) edge. */
+.bd-l { padding: 14px 36px 8px 20px; }
 /* Header and footer stay put; only the page body scrolls (the long permuted index). */
 .bd-body { flex: 1; min-height: 0; overflow: auto; scrollbar-width: thin; padding-right: 4px; }
 .bd-rings { display: flex; flex-direction: column; justify-content: space-around; align-items: center; background: linear-gradient(90deg, #1d222b, #3a4350 50%, #1d222b); }
 .bd-rings i { width: 34px; height: 14px; border-radius: 7px; background: linear-gradient(#e3e6ea, #8d939b); box-shadow: 0 2px 0 var(--slate-lo); }
 .bd-holes { position: absolute; left: 11px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: space-around; pointer-events: none; }
+.bd-l .bd-holes { left: auto; right: 11px; }
 .bd-holes i { width: 12px; height: 12px; border-radius: 50%; background: var(--slate); box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.5); }
 
 .bd-wetdot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--stamp); margin-left: 5px; vertical-align: 2px; }
@@ -74,12 +77,12 @@
 .bd-boxes i { width: 7px; height: 7px; border: 1px solid var(--toner); } .bd-boxes i.on { background: var(--toner); }
 
 /* dividers: heavy tinted card */
-.bd-divider { position: absolute; inset: 0; padding: 36px 28px; background: #c9ced6; color: var(--toner); }
+.bd-divider { position: absolute; inset: 0; padding: 36px 36px 36px 28px; background: #c9ced6; color: var(--toner); }
 .bd-divider.tint-2 { background: #d9c9cf; } .bd-divider.tint-0 { background: #c6d5c9; }
 .bd-divider.sealed { background: #d9d7d0; color: #8d8b86; }
 .bd-div-num { font-size: 96px; font-weight: 700; line-height: 1; } .bd-div-name { font-size: 24px; margin-top: 6px; }
 .bd-div-sub { font-style: italic; margin-top: 18px; font-size: 16px; max-width: 34ch; }
-.bd-div-folio { position: absolute; left: 36px; top: 14px; font-size: 13px; font-variant-numeric: tabular-nums; }
+.bd-div-folio { position: absolute; left: 20px; top: 14px; font-size: 13px; font-variant-numeric: tabular-nums; }
 .bd-seal { position: absolute; right: 32px; bottom: 40px; border: 2px solid var(--pencil); color: var(--pencil); padding: 6px 10px; font-family: var(--mono); font-weight: 700; font-size: 14px;
   transform: rotate(4deg); letter-spacing: 0.08em; }
 
@@ -150,7 +153,9 @@
   .bd { padding: 10px 10px 44px; margin-top: 40px; height: calc(var(--vvh, 100dvh) - 64px); max-height: none; }
   .bd-sheet { display: block; height: auto; min-height: 0; max-height: none; flex: 1; overflow-y: auto; overscroll-behavior: contain; background: var(--bond); touch-action: pan-y; }
   .bd-rings { display: none; }
-  .bd-leaf { overflow: visible; padding-left: 32px; }
+  .bd-leaf { overflow: visible; padding: 14px 16px 8px 34px; }
+  .bd-l .bd-holes, .bd-r .bd-holes { left: 11px; right: auto; }
+  .bd-div-folio { left: 34px; }
   .bd-leaf .bd-body { overflow: visible; }
   .bd-r .bd-mhead { display: none; }
   .bd-l { padding-bottom: 0; } .bd-r { padding-top: 0; }

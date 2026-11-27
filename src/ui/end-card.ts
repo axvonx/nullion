@@ -198,6 +198,7 @@ export class EndCard {
   hide() {
     this.cancelFlight?.();
     this.cancelFlight = undefined;
+    this.els.eodStack?.classList.remove('is-flying');
     this.unstow();
     this.shownNow = false;
     this.els.result!.hidden = true;
@@ -226,12 +227,19 @@ export class EndCard {
       enforce(rect, `end card: no right-hand block for ${b.layer.id} to fly from`);
       flights.push({ layer: b.layer, from: rect, to: b.el });
     }
-    this.cancelFlight = flyBadges(flights, {
+    const ol = this.els.eodStack!;
+    ol.classList.add('is-flying');
+    const stop = flyBadges(flights, {
       reduced,
       delayMs: 320,
       staggerMs: Math.min(110, Math.floor(1200 / Math.max(1, flights.length))),
       onLand: (l) => sound.stackCrunch(l.id),
+      onDone: () => ol.classList.remove('is-flying'),
     });
+    this.cancelFlight = () => {
+      stop();
+      ol.classList.remove('is-flying');
+    };
   }
 
   /**

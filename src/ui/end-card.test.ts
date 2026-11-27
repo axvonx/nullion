@@ -70,13 +70,16 @@ describe('EndCard', () => {
       const from = new Map(['application', 'runtime', 'libraries', 'userspace', 'kernel'].map((id) => [id as never, rect]));
       t.card.flyStackIn(from, false);
       expect(document.querySelectorAll('.ls-flyer')).toHaveLength(5);
+      expect(t.q('.eod-stack').classList.contains('is-flying')).toBe(true);
       expect(t.q('.eod-stack .ls-badge').classList.contains('ls-badge-gone')).toBe(true);
       vi.advanceTimersByTime(5000);
       expect(document.querySelectorAll('.ls-flyer')).toHaveLength(0);
+      expect(t.q('.eod-stack').classList.contains('is-flying')).toBe(false);
       expect(t.q('.eod-stack').querySelectorAll('.ls-badge-gone')).toHaveLength(0);
 
       t.card.flyStackIn(from, true);
       expect(document.querySelectorAll('.ls-flyer')).toHaveLength(0);
+      expect(t.q('.eod-stack').classList.contains('is-flying')).toBe(false);
       expect(t.q('.eod-stack').querySelectorAll('.ls-badge-gone')).toHaveLength(0);
 
       // A stack with no block to fly from is a bug, not a quiet skip.
