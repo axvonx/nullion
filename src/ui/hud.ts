@@ -839,7 +839,7 @@ export class Hud {
         window.innerHeight,
         scene.markCss(),
         { name: this.els.rvName!.textContent ?? '', answer: this.els.rvAnswer!.textContent ?? '', line: this.els.rvLine!.textContent ?? '', lowKey: kind === 'timeout' },
-        { name: layer.name, desc: LAYER_BLURBS[layer.id] },
+        look('layerName') === 'card' ? { name: layer.name, desc: LAYER_BLURBS[layer.id] } : undefined,
         scene.uiReserveRightCss > 0,
       );
       const st = el.style;
@@ -892,7 +892,7 @@ export class Hud {
   }
 
   // ---------------------------------------------------------------------------------------------
-  // Layer entrances: the layer's name and what it is, in one plain line, at the top of the screen (clear of the
+  // Layer entrances (old look 'card'): the layer's name and what it is, in one plain line, at the top of the screen (clear of the
   // reveal in the middle). Fades in, holds, fades.
 
   private entranceUp = false;
@@ -900,8 +900,9 @@ export class Hud {
   private entranceBooted = false;
 
   private enterLayer(layer: Layer) {
-    // v1 keeps its plain boundary labels for comparison.
-    if (look('artStyle') === 'v1') return;
+    // Layer names are painted into the world (v4 art); the card is the old look, kept switchable. v1 keeps its plain
+    // boundary labels for comparison.
+    if (look('layerName') !== 'card' || look('artStyle') === 'v1') return;
     this.showEntrance(layer);
   }
 

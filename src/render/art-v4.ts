@@ -8,6 +8,7 @@ import { c, checkLibrary, drawEntity, setPaint, type RGB } from './v4/kit';
 import { V4_LIBRARIES } from './v4/libraries';
 import { FAR_F, type LayerPlacement, type Placed } from './v4/place';
 import { drawSetpiece } from './v4/setpieces';
+import { WATERMARK_ALPHA, drawName, layoutName, nameHeight, type NamePattern } from './v4/watermark';
 import { CORE_DY, RAIL_START, RAIL_STEP, placeBandForSpec, specKey, type WorldSpecV4 } from './v4/world';
 
 /**
@@ -132,10 +133,48 @@ function firstAtOrAfter(list: readonly Placed[], minY: number): number {
   return lo;
 }
 
+/** Layer-name lettering per palette family: one of the palette's own levels (snapped), and how sparsely it is stippled. */
+const NAME_INK: Record<PaletteMode, [string, NamePattern]> = {
+  full: ['#141e5a', 'solid'],
+  rgb6: ['#333399', 'checker'],
+  rgb4: ['#552200', 'checker'],
+  cga16: ['#555555', 'checker'],
+  cga4: ['#55ffff', 'dots'],
+  green: ['#0a461e', 'checker'],
+  gray: ['#464646', 'checker'],
+  onebit: ['#e8eeff', 'dots'],
+  amber: ['#582c04', 'checker'],
+  blueprint: ['#123866', 'checker'],
+  wafer: ['#24989c', 'dots'],
+  euv: ['#3a1876', 'checker'],
+  abyss: ['#101c40', 'checker'],
+};
+/** World y of the Application lettering (that band is open-ended upward; the cursor starts at world y 40). */
+const FIRST_NAME_Y = 100;
+
+/**
+ * The layer's name, painted into the band behind everything: big, faint pixel lettering near the top of the band,
+ * so a landing in the layer's first frame shows it. Baked once per (name, width, palette) and blitted at a world
+ * position, so it scrolls with the world; the final palette dither leaves it alone and props may cover it.
+ */
+function layerName(ctx: Ctx, b: Band, idx: number) {
+  if (look('layerName') !== 'watermark') return;
+  enforce(worldSpec, 'v4: drawing before ensureWorldV4()');
+  const name = layersFor(worldSpec.mode ?? 'daily')[idx]!.name;
+  const blockW = Math.round(b.w * 0.9);
+  const lay = layoutName(name, blockW);
+  const [ink, pattern] = NAME_INK[mode];
+  const color = pattern === 'solid' ? `rgba(${parseInt(ink.slice(1, 3), 16)},${parseInt(ink.slice(3, 5), 16)},${parseInt(ink.slice(5, 7), 16)},${WATERMARK_ALPHA})` : c(ink);
+  const sprite = offscreen(`v4-name|${name}|${blockW}|${mode}`, blockW, nameHeight(lay), (cx) => drawName(cx, lay, 0, 0, blockW, color, pattern));
+  const y = idx === 0 ? FIRST_NAME_Y - b.camY : b.top + 24;
+  ctx.drawImage(sprite, Math.round(b.w * 0.05), R(y));
+}
+
 /** Draw a band's monumental setpiece, far plane (fogged), and near plane in O(log N + visible). */
 function entities(ctx: Ctx, b: Band, id: LayerId) {
   const idx = bandIndexById.get(id);
   enforce(idx !== undefined, `v4: layer ${id} not in active stack`);
+  layerName(ctx, b, idx);
   // Monumental deep-background architectural landmark sits behind all far & near trinkets
   setPaint(mode, undefined);
   drawSetpiece(ctx, b, id, T);

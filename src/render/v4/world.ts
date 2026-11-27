@@ -17,7 +17,7 @@ export interface WorldSpecV4 {
   W: number;
   /**
    * Per layer: the band's world top (bandTop; for the first layer, the highest row the camera can show) and bottom
-   * (for the last layer, the lowest row it can show), and keep-outs the scene knows about (the arrival title).
+   * (for the last layer, the lowest row it can show), and keep-outs the scene knows about (none today).
    */
   bands: { top: number; bottom: number; keepOut: Rect[] }[];
   cursorLane: readonly [number, number];
@@ -65,7 +65,7 @@ function artKeepOut(id: LayerId, top: number, bottom: number, W: number): Rect[]
 }
 
 /**
- * Uniform density by width. On a phone the reveal and the layer entrance span nearly the whole width, so the
+ * Uniform density by width. On a phone the reveal spans nearly the whole width, so the
  * scene behind them must be calmer everywhere (not just carved out behind the text): half density at phone
  * width, rising linearly to full density by about 1280 px wide.
  */

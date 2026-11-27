@@ -28,9 +28,10 @@ describe('reveal layout', () => {
             ...TIER_IDS.map((id) => ({ name: TIERS[id].name, answer: LONG_ANSWER, line: LONG_LINE })),
             { name: 'Time’s up', answer: '', line: 'No answer, so no frames this round.', lowKey: true },
           ];
-          for (const t of reveals) {
-            const L = revealLayout(vw, vh, mark, t, { name: layer.name, desc: BLURB }, railed);
-            const where = `${layer.id} / ${t.name}`;
+          for (const [t, card] of reveals.flatMap((r) => [[r, true] as const, [r, false] as const])) {
+            // The entrance card is the old look; by default layer names live in the world and no band is reserved.
+            const L = revealLayout(vw, vh, mark, t, card ? { name: layer.name, desc: BLURB } : undefined, railed);
+            const where = `${layer.id} / ${t.name}${card ? ' + card' : ''}`;
             const boxes = { entrance: L.entrance, name: L.name, mark: L.mark, body: L.body, console: L.console };
             const keys = Object.keys(boxes) as (keyof typeof boxes)[];
             for (let a = 0; a < keys.length; a++)

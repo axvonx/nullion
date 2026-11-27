@@ -60,7 +60,7 @@ export interface BandGeom {
   /** World y range the camera can actually show of this band. */
   top: number;
   bottom: number;
-  /** Hard keep-outs for this band (world rects): focal structures, the arrival title, floors. */
+  /** Hard keep-outs for this band (world rects): focal structures and floors (layer names are a faint watermark that props may cover, so they need none). */
   keepOut: Rect[];
 }
 

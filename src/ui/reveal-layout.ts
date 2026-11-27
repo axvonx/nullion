@@ -99,12 +99,13 @@ export function entranceBox(vw: number, t: EntranceText, railed = false): { box:
 }
 
 /**
- * The reveal around a cursor mark (from cursor-geom, in CSS px). The entrance band may be up at the same time
- * (landing in a new layer), so the name stays below it; the details stay above the console card.
+ * The reveal around a cursor mark (from cursor-geom, in CSS px). The entrance card (old look only) may be up at the
+ * same time, so the name stays below it; the details stay above the console card.
  */
-export function revealLayout(vw: number, vh: number, mark: Box, t: RevealText, entrance: EntranceText, railed = false): RevealLayout {
+export function revealLayout(vw: number, vh: number, mark: Box, t: RevealText, entrance: EntranceText | undefined, railed = false): RevealLayout {
   const w = columnWidth(vw, railed);
-  const en = entranceBox(vw, entrance, railed);
+  // Without the entrance card (layer names live in the world) the name only has to clear the header chips.
+  const en = entrance ? entranceBox(vw, entrance, railed) : { box: { top: CHIPS_BOTTOM, bottom: CHIPS_BOTTOM }, namePx: 0, descPx: 0 };
   const consoleBox = { top: vh - 16 - consoleBetweenHeight(vw), bottom: vh - 16 };
 
   // The name grows upward from just above the mark; step it down until it clears the entrance band.

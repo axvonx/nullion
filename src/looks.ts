@@ -12,6 +12,11 @@ export const LOOK_SLOTS = {
     options: { v4: 'Seeded entity world (v4)', v3: 'Mixed small props (v3)', v2: 'Detailed places (v2)', v1: 'Flat components (v1)' },
     default: 'v4',
   },
+  layerName: {
+    label: 'Layer names',
+    options: { watermark: 'Watermark in the world', card: 'Entrance card (old)' },
+    default: 'watermark',
+  },
   cursor: {
     label: 'Cursor',
     options: { evolving: 'Changes with layer', arrow: 'Always arrow', block: 'Always block', bit: 'Always bit' },

@@ -369,7 +369,7 @@ export class Scene {
    * - The cursor lane is the column the cursor descends through.
    * - Panel lanes are the x-spans of the console card and the two header chips (see style.css): the world scrolls
    *   under them, so only small props may sit there and anchors stay out.
-   * - The layer entrance and the tier reveal are DOM text over the middle of the screen; rather than carve a hole
+   * - The tier reveal is DOM text over the middle of the screen; rather than carve a hole
    *   for them, v4 lowers its density uniformly on narrow screens, where that text spans most of the width.
    */
   private worldSpec(): WorldSpecV4 {
