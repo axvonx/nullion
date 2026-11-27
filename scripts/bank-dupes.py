@@ -24,7 +24,7 @@ GENERIC = ["algorithm", "algo", "language", "lang", "filesystem", "file system",
 
 def norm(s: str) -> str:
     s = unicodedata.normalize("NFKD", s)
-    s = "".join(ch for ch in s if not unicodedata.combining(ch)).lower().replace("+", "plus").replace("#", "sharp")
+    s = "".join(ch for ch in s if not unicodedata.combining(ch)).lower().replace("+", "plus").replace("#", "sharp").replace("*", "star")
     return re.sub(r"[\W_]", "", s)
 
 

@@ -24,12 +24,13 @@ function readText(p) {
   return fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : '';
 }
 
+/** A missing file is the fallback; a file that exists but isn't JSON is a broken file, and says so. */
 function readJson(p, fallback = null) {
   if (!fs.existsSync(p)) return fallback;
   try {
     return JSON.parse(fs.readFileSync(p, 'utf8'));
-  } catch {
-    return fallback;
+  } catch (e) {
+    throw new Error(`review desk: ${path.relative(process.cwd(), p)} is not valid JSON: ${e.message}`);
   }
 }
 
@@ -318,13 +319,13 @@ http
   .createServer((req, res) => {
     const url = new URL(req.url, 'http://x');
     if (url.pathname === '/api/data' && req.method === 'GET') {
-      const payload = {
-        drafts: loadDrafts(),
-        triage: loadTriage(),
-        dupes: loadDupes(),
-        linkHosts: loadLinkHosts(),
-        misc: MISC_ITEMS,
-      };
+      let payload;
+      try {
+        payload = { drafts: loadDrafts(), triage: loadTriage(), dupes: loadDupes(), linkHosts: loadLinkHosts(), misc: MISC_ITEMS };
+      } catch (e) {
+        console.error(e);
+        return send(res, 500, JSON.stringify({ error: e.message }));
+      }
       return send(res, 200, JSON.stringify(payload));
     }
     if (url.pathname === '/api/decisions' && req.method === 'GET') {

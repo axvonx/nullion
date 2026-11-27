@@ -261,6 +261,7 @@ export class FieldManualBinder {
     }
     this.at = at;
     this.render();
+    this.sheet.scrollTop = 0;
     if (!reducedMotion()) this.play('bd-opening', 360);
     this.loop();
   }
@@ -309,6 +310,8 @@ export class FieldManualBinder {
     this.leaveSpread();
     this.at = to;
     this.render();
+    // A new page starts at its top (phones scroll a spread); re-renders in place (a figure, the index search) keep it.
+    this.sheet.scrollTop = 0;
     if (!reducedMotion()) this.play(dir > 0 ? 'bd-turn-next' : 'bd-turn-prev', 260);
   }
 
@@ -320,6 +323,8 @@ export class FieldManualBinder {
     this.leaveSpread();
     this.at = to;
     this.render();
+    // A new page starts at its top (phones scroll a spread); re-renders in place (a figure, the index search) keep it.
+    this.sheet.scrollTop = 0;
     if (!reducedMotion()) this.play(far ? 'bd-riffle' : fwd ? 'bd-turn-next' : 'bd-turn-prev', far ? 420 : 260);
   }
 
@@ -347,7 +352,6 @@ export class FieldManualBinder {
     this.live.clear();
     this.leaves[0].replaceChildren(...this.leaf(s.left, s.folios[0]));
     this.leaves[1].replaceChildren(...this.leaf(s.right, s.folios[1]));
-    this.sheet.scrollTop = 0;
     this.renderTabs(s);
     this.el.querySelector<HTMLButtonElement>('[data-bd="prev"]')!.disabled = this.at === 0;
     this.el.querySelector<HTMLButtonElement>('[data-bd="next"]')!.disabled = this.at === this.book.length - 1;

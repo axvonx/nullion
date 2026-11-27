@@ -1,8 +1,23 @@
 # Owner review queue
 
-Written 2026-11-27 at version 0.1.0-alpha. Things only the owner can decide, most important first. Tick or delete
+Written 2026-11-27, updated at version 0.2.0-alpha. Things only the owner can decide, most important first. Tick or delete
 items as they're done; tell Claude which ones passed and it does the mechanical part (approving, moving files,
 re-running the pipeline).
+
+## 0. Content decisions to confirm (the 11 categories approved 2026-11-27)
+
+These were open when the categories were approved and the answers weren't recorded (`design/review/decisions.json`
+is empty). Each is a one-line answer:
+
+- **serialization-format:** the Bit Flip is now **Ion** (was PAX, an archive format). Still open: the Works on my
+  machine pick is **JSON**, the most common answer, so the most common guess plays the full Bit Flip fake-out and
+  scores 1. Move JSON to Off-by-one and pick an obscure-sounding WOMM (e.g. Protocol Buffers)?
+- **historical-cipher:** the Bit Flip **M-209** is on its own obvious list (`scripts/bank/obvious/historical-cipher.json`,
+  as Null pointer). Drop it from the list, or pick another Bit Flip?
+- **Notes:** none of the 11 new Bit Flip / WOMM picks has a `note:` whisper (the first 34 all do; Ion now has one).
+  Write the other 21, or let Claude draft them for you to vet?
+- **compiler:** confirm the pipeline's edits: OpenJDK folded into `javac` as an alias, Reason removed, Mono → `mcs`.
+- **network-protocol:** HTTP and HTTPS are separate answers (separate tiers). Keep, or HTTPS as an alias of HTTP?
 
 ## 1. Triage: the bottom of the keep list
 
@@ -21,7 +36,7 @@ proposed name as a write-in. Named entities get draft Field Manual pages from `p
 
 ## 3. Smaller decisions
 
-- **Duplicate answers in approved categories:** `python3 -I scripts/bank-dupes.py` lists 40 (e.g. "Sinusoidal" vs
+- **Duplicate answers in approved categories:** `python3 -I scripts/bank-dupes.py` lists 41 (e.g. "Sinusoidal" vs
   "Sinusoidal projection"; RISC-V "M" vs "M extension"). Each should become one entry with the other as an alias.
   A few are false alarms (`logins` and `login` are different commands).
 - **Reference links left out:** `design/links/review.txt` lists 116 links on hosts outside the allowlist

@@ -33,7 +33,7 @@ DISAMBIG = re.compile(r"\s*\((?:programming language|operating system|software|c
 def key(s: str) -> str:
     """Exactly the game's normalize() (src/core/match.ts), so a collision here is a collision in play."""
     s = "".join(c for c in unicodedata.normalize("NFKD", s) if not unicodedata.category(c).startswith("M"))
-    s = s.lower().replace("+", "plus").replace("#", "sharp")
+    s = s.lower().replace("+", "plus").replace("#", "sharp").replace("*", "star")
     return "".join(c for c in s if unicodedata.category(c)[0] in "LN")
 
 

@@ -598,6 +598,9 @@ html.kb-open .console {
   animation: none;
   translate: none;
 }
+/* Low watchdog time matters most while typing: keep the alarm, drop only the bob. */
+html.kb-open .console.low { animation: alarm 900ms ease-in-out infinite; }
+html.kb-open .still .console.low { animation: none; }
 
 /*
  * Tier reveal: after a dive lands, the rarity front and centre. The tier's name sits just above the cursor and the

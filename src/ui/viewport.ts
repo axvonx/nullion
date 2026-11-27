@@ -2,8 +2,9 @@
  * Tracks the visual viewport (soft keyboard inset & visible height) and exposes CSS custom properties on `:root`:
  *   --vvh: visible viewport height in px (equals visualViewport.height, or innerHeight when unavailable)
  *   --vvt: visual viewport top offset in px
- *   --kb:  distance from the layout viewport bottom to the visual viewport bottom (soft keyboard height on
- *          resizes-visual browsers like Android Chrome and iOS Safari; 0 on resizes-content browsers)
+ *   --kb:  while the keyboard is open (`kb-open`), the distance from the layout viewport bottom to the visual
+ *          viewport bottom (its height on resizes-visual browsers like Android Chrome and iOS Safari; 0 on
+ *          resizes-content browsers); 0 otherwise, so a pinch-zoom never lifts anything
  *
  * Also toggles `html.kb-open` whenever a text input is focused and the visual viewport has shrunk (covering both
  * resizes-visual and resizes-content mobile browsers), so fixed bottom UI stays visible above the keyboard.
@@ -51,7 +52,8 @@ export function mountVisualViewport(win: Window = window, doc: Document = docume
 
     if (vvH > 0) root.style.setProperty('--vvh', `${vvH}px`);
     root.style.setProperty('--vvt', `${vvTop}px`);
-    root.style.setProperty('--kb', `${kb}px`);
+    // Only a keyboard lifts the UI: a pinch-zoom also shrinks the visual viewport, and must not move anything.
+    root.style.setProperty('--kb', `${kbOpen ? kb : 0}px`);
     root.classList.toggle('kb-open', kbOpen);
 
     // If the console itself had to scroll to fit above the keyboard, keep the prompt line at the bottom in view.

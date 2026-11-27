@@ -845,6 +845,7 @@ window.addEventListener('keydown', (e) => {
   try {
     const [dataRes, decRes] = await Promise.all([fetch('/api/data'), fetch('/api/decisions')]);
     state.data = await dataRes.json();
+    if (!dataRes.ok) throw new Error(state.data.error ?? `data: HTTP ${dataRes.status}`);
     const saved = await decRes.json();
     if (saved && typeof saved === 'object') {
       state.decisions = {

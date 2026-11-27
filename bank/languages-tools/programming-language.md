@@ -454,7 +454,7 @@ id: programming-language · domain: languages-tools · status: approved
 - TADS | Text Adventure Development System (auto)
 - AIMMS | Advanced Interactive Multidimensional Modeling System (auto)
 - P′′ (auto)
-- Pro*C | Pro-C/C++ (auto)
+- Pro*C | Pro-C/C++ | Pro C (auto)
 - Qalb | Alb | Qlb (auto)
 - Vimscript | VimL (auto)
 - MetaQuotes Language | MQL | MQL4 | MQL5 (auto)

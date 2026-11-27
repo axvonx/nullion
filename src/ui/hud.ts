@@ -169,6 +169,7 @@ ${REVEAL_HTML}`;
     this.buildTitleRules();
     this.buildTitleTiers();
     mountPrefsMenu(mount, this.els.barLeft!);
+    // Lives as long as the page (one Hud per page), so its cleanup is never needed.
     mountVisualViewport();
   }
 

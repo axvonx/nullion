@@ -7,6 +7,17 @@ for fixes, and add an entry here. Stage bars (ROADMAP.md): beta at ~100 approved
 or data bugs and phones verified; 1.0 at ~150 categories, a schedule kept 30+ days ahead, and the small backend for
 "% of players".
 
+## 0.2.0-alpha — 2026-11-27
+
+- 45 approved answer categories (11 new: serialization formats, historical ciphers, compilers, complexity classes,
+  network protocols, databases, DNS record types, game engines, Linux device nodes, text editors, Unix daemons).
+- Matching: `*` is part of a name (A\*, MIP\*, Pro\*C), like `+` and `#`.
+- Phones: the console, rail and Field Manual stay above the on-screen keyboard; the Field Manual shows a whole entry
+  as one scrolling page and turns by swipe; the reveal's reached layers are icons, matching the right-hand spine;
+  the end card's stack is tighter, with pointers on both sides of the layer reached, and larger tap targets.
+- Fixes: Field Manual in landscape, Win95 form contrast, Enter on the reveal, notices kept on screen, sound waits
+  for the first tap.
+
 ## 0.1.0-alpha — 2026-11-27
 
 The first numbered build: the whole daily loop works, content is thin.

@@ -39,7 +39,7 @@ id: serialization-format · domain: data-graphics-algorithms · status: approved
 - Smile | Smile binary JSON (auto)
 
 ## Bit Flip
-- PAX | Portable Archive Exchange | POSIX.1-2001 pax
+- Ion | Amazon Ion
+  note: Amazon's typed superset of JSON, with interchangeable text and binary forms.
 
 ## Inbox
-- Ion (suggested: heisenbug)

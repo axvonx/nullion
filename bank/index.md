@@ -49,7 +49,7 @@
 | pseudorandom-number-generator | Name a pseudorandom number generator | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | quantum-algorithm | Name a quantum algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | query-optimization-technique | Name a query optimization technique | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| serialization-format | Name a data serialization format | data-graphics-algorithms | approved | 31 | 28 | 1 |
+| serialization-format | Name a data serialization format | data-graphics-algorithms | approved | 31 | 28 | 0 |
 | shading-technique | Name a shading technique | data-graphics-algorithms | approved | 81 | 61 | 0 |
 | sorting-algorithm | Name a sorting algorithm | data-graphics-algorithms | approved | 51 | 30 | 0 |
 | storage-engine | Name a storage engine | data-graphics-algorithms | draft | 0 | 0 | 7 |

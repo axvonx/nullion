@@ -63,6 +63,19 @@ describe('mountVisualViewport', () => {
     expect(document.documentElement.classList.contains('kb-open')).toBe(false);
   });
 
+  it('keeps --kb at 0 for a pinch-zoom (visual viewport shrinks with no text field focused)', () => {
+    const vv = makeFakeViewport(844, 0);
+    Object.defineProperty(window, 'innerWidth', { value: 390, configurable: true });
+    Object.defineProperty(window, 'innerHeight', { value: 844, configurable: true });
+    Object.defineProperty(window, 'visualViewport', { value: vv, configurable: true });
+    cleanup = mountVisualViewport();
+    vv.height = 400;
+    vv.offsetTop = 100;
+    vv.emit('resize');
+    expect(document.documentElement.style.getPropertyValue('--kb')).toBe('0px');
+    expect(document.documentElement.classList.contains('kb-open')).toBe(false);
+  });
+
   it('also sets html.kb-open on resizes-content browsers where innerHeight shrinks with the keyboard', () => {
     const vv = makeFakeViewport(800, 0);
     Object.defineProperty(window, 'innerWidth', { value: 390, configurable: true });
