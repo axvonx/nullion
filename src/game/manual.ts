@@ -1,3 +1,4 @@
+import { text } from '../text';
 import { enforce } from '../core/enforce';
 import { ENDLESS_LAYERS, type LayerId } from '../core/layers';
 import { LAYER_ART } from '../layers';
@@ -15,7 +16,7 @@ import { fromV1, InvalidManualSave, MANUAL_V1_KEY, MANUAL_V2_KEY, parseV2, prune
  * from highest (shallowest) to lowest (deepest) layer. Discovering an entry in any layer unlocks it; spotting it
  * again in a different layer logs a new sighting and unlocks that layer's appearance in the profile dropdown.
  *
- * The entries are Markdown files, manual/<layer of first sighting>/<id>.md (grammar: src/data/manual-format.ts, loading
+ * The entries are Markdown files, writing/manual/<layer of first sighting>/<id>.md (grammar: src/data/manual-format.ts, loading
  * and world checks: manual-registry.ts). This file holds the lookups and the persistent discovery store.
  */
 
@@ -152,12 +153,12 @@ export class ManualStore {
       save = raw !== null ? parseV2(raw) : fromV1(v1!);
     } catch (e) {
       if (!(e instanceof InvalidManualSave)) throw e; // a bug in the parser, not a bad save
-      this.loadNotice = `Your Field Manual could not be read (${e.message}), so it starts empty.`;
+      this.loadNotice = text('notices.manual.unreadable', { reason: e.message });
       this.remove(raw !== null ? MANUAL_V2_KEY : MANUAL_V1_KEY);
       return;
     }
     const { save: clean, dropped } = prune(save, (id, layer) => BY_ID.get(id)?.sightings.some((x) => x.layer === layer) ?? false);
-    if (dropped.length) this.loadNotice = `Some Field Manual pages no longer exist and were removed: ${dropped.join(', ')}.`;
+    if (dropped.length) this.loadNotice = text('notices.manual.dropped', { pages: dropped.join(', ') });
     for (const [id, layers] of Object.entries(clean.seen)) this.found.set(id, new Map(Object.entries(layers) as [LayerId, Stamp][]));
     for (const w of clean.wet) this.wet.add(w);
     for (const l of clean.reached ?? []) if (LAYER_ORDER.has(l as LayerId)) this.reached.add(l as LayerId);

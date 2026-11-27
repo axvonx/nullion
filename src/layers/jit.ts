@@ -5,6 +5,7 @@ import { ent, type EntityDef } from '../render/v4/kit';
 import { runtime } from './runtime';
 import { R, TAU, disc, fill, frame, mod, rect, ring } from './shared/draw-kit';
 import { byc, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -120,7 +121,7 @@ const ANCHORS: EntityDef[] = [
 
 export const jit: LayerArt = {
   family: 'runtime',
-  blurb: 'Just-in-time compilers forging hot loops into native machine code',
+  blurb: text('layers.jit.blurb'),
   palette: 'rgb6',
   form: 'repl',
   cursor: 'ibeam',
@@ -216,7 +217,7 @@ export const jit: LayerArt = {
   critters: {
     motions: [MotionType.Zip, MotionType.Perch],
     count: 3,
-    exitLabels: ['deopt!', 'inlined'],
+    exitLabels: variants('layers.jit.exit'),
     draw: ({ px, dir }) => {
       // Fiery orange-gold spark mite with trailing ember pixel
       px(0, 1, 6, 5, '#ff6633');

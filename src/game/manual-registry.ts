@@ -7,7 +7,7 @@ import { TOPIC_PROPS } from '../render/v4/topics';
 import { DEBUG } from '../keys';
 
 /**
- * Loads the Field Manual from manual/<layer>/<id>.md (grammar: src/data/manual-format.ts) and checks it against the
+ * Loads the Field Manual from writing/manual/<layer>/<id>.md (grammar: src/data/manual-format.ts) and checks it against the
  * world. `virtual:manual-files` (vite.config.ts) hands over the files' text; a production build leaves the `draft`
  * files out of the bundle entirely, and debug builds and tests get them all.
  */
@@ -86,10 +86,10 @@ export function compareEntries(a: ManualEntry, b: ManualEntry): number {
 /** Parse every file in `files` (path to text) and keep the entries `showDrafts` allows, in `compareEntries` order. */
 export function loadManualEntries(files: Readonly<Record<string, string>>, showDrafts: boolean): ManualEntry[] {
   const paths = Object.keys(files).sort();
-  enforce(paths.length > 0, 'manual: no manual/<layer>/<id>.md files found');
+  enforce(paths.length > 0, 'manual: no manual files (writing/manual/<layer>/<id>.md) found');
   const entries: ManualEntry[] = [];
   for (const path of paths) {
-    enforce(manualPathParts(path), `manual: ${path} is not manual/<layer>/<id>.md`);
+    enforce(manualPathParts(path), `manual: ${path} is not writing/manual/<layer>/<id>.md`);
     const e = parseManualFile(path, files[path]!);
     if (e.status === 'draft' && !showDrafts) continue;
     entries.push(e);

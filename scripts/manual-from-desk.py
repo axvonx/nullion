@@ -8,7 +8,7 @@ For every desk record that
   - is not deleted, and is not folded into another record (a verified merge, or a variant with a target),
   - has a resolved name (a write-in, or a chosen proposal), and
   - is not already covered by a manual file (an existing file with a sighting of its entity id, or of its critter layer),
-write manual/<layer of first sighting>/<id>.md with `status: draft`. Merges and variants that target a drafted record
+write writing/manual/<layer of first sighting>/<id>.md with `status: draft`. Merges and variants that target a drafted record
 become extra sightings in their own layers. Existing files are never overwritten or edited ("your edits win", like
 bank/): rerunning only adds drafts for records that have none yet. Grammar: src/data/manual-format.ts.
 
@@ -21,7 +21,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DESK = ROOT / 'design' / 'naming'
-MANUAL = ROOT / 'manual'
+MANUAL = ROOT / 'writing' / 'manual'
 SEP = ' · '
 TAG_BASE_MAX = 14  # src/game/manual-style.ts TAG_BASE_MAX
 

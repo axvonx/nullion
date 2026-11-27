@@ -4,6 +4,7 @@ import { MotionType } from '../render/motion';
 import type { EntityDef } from '../render/v4/kit';
 import { R, fill, line, mod, rect, ring } from './shared/draw-kit';
 import { bpr, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 import { uarch } from './uarch';
 
@@ -120,7 +121,7 @@ const ANCHORS: EntityDef[] = [
 
 export const rtl: LayerArt = {
   family: 'ring-3',
-  blurb: 'NAND gates, flip-flops and the clock tree pulsing in lockstep',
+  blurb: text('layers.rtl.blurb'),
   palette: 'blueprint',
   form: 'raw',
   cursor: 'bit',
@@ -226,7 +227,7 @@ export const rtl: LayerArt = {
   critters: {
     motions: [MotionType.Scuttle, MotionType.Grid],
     count: 4,
-    exitLabels: ['metastable', 'latched'],
+    exitLabels: variants('layers.rtl.exit'),
     draw: ({ px, ink, dir }) => {
       // Logic pulse glider
       px(0, 1, 6, 4, '#aaaaaa');

@@ -6,6 +6,7 @@ import { kernel } from './kernel';
 import { meMinixUser } from './me-minix-user';
 import { R, TAU, disc, fill, frame, line, mod, px, rect, ring } from './shared/draw-kit';
 import { amb, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -118,7 +119,7 @@ const ANCHORS: EntityDef[] = [
 
 export const meMinixKern: LayerArt = {
   family: 'kernel',
-  blurb: 'The message-passing microkernel deep inside the management core',
+  blurb: text('layers.me-minix-kern.blurb'),
   palette: 'amber',
   form: 'serial',
   cursor: 'underscore',
@@ -195,7 +196,7 @@ export const meMinixKern: LayerArt = {
   critters: {
     motions: [MotionType.Zip],
     count: 3,
-    exitLabels: ['SENDREC', 'blocked'],
+    exitLabels: variants('layers.me-minix-kern.exit'),
     draw: ({ px, ink, t, phase, dir, perched }) => {
       // Mechanical courier bug: a plated body, two dark eyes, a small message pouch strapped on.
       const leg = perched ? 0 : Math.floor(t * 8 + phase) % 2;

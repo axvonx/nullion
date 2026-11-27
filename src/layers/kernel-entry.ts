@@ -5,6 +5,7 @@ import type { EntityDef } from '../render/v4/kit';
 import { kernel } from './kernel';
 import { KWALL, R, frame, line, mod, px, rect } from './shared/draw-kit';
 import { cga, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -132,7 +133,7 @@ const ANCHORS: EntityDef[] = [
 
 export const kernelEntry: LayerArt = {
   family: 'kernel',
-  blurb: 'The syscall gate, seccomp checks and VFS facade into Ring 0',
+  blurb: text('layers.kernel-entry.blurb'),
   palette: 'cga16',
   form: 'serial',
   cursor: 'underscore',
@@ -196,7 +197,7 @@ export const kernelEntry: LayerArt = {
   critters: {
     motions: [MotionType.Patrol, MotionType.Perch],
     count: 3,
-    exitLabels: ['EACCES', 'trapped'],
+    exitLabels: variants('layers.kernel-entry.exit'),
     draw: ({ px, ink, t, phase, perched }) => {
       // Gatekeeper beetle: a cyan shell with a brass key-crest, a grey head with two dark eyes.
       const leg = perched ? 0 : Math.floor(t * 9 + phase) % 2;

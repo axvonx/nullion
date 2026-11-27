@@ -5,6 +5,7 @@ import type { EntityDef } from '../render/v4/kit';
 import { drivers } from './drivers';
 import { R, fill, line, mod, px, rect } from './shared/draw-kit';
 import { E, K, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const FK: K = { i: '#000000', d: '#ff55ff', m: '#55ffff', l: '#ffffff', h: '#ffffff', w: '#ff55ff', wl: '#ffffff', o: '#ff55ff', ol: '#55ffff', a: '#ffffff', b: '#ff55ff', g: '#55ffff', c: '#ffffff', r: '#ff55ff' };
@@ -116,7 +117,7 @@ const ANCHORS: EntityDef[] = [
 
 export const busFabric: LayerArt = {
   family: 'drivers',
-  blurb: 'PCIe lanes, DMA rings and memory-mapped I/O crisscrossing the board',
+  blurb: text('layers.bus-fabric.blurb'),
   palette: 'cga4',
   form: 'serial',
   cursor: 'underscore',
@@ -186,7 +187,7 @@ export const busFabric: LayerArt = {
   critters: {
     motions: [MotionType.Scuttle, MotionType.Zip],
     count: 4,
-    exitLabels: ['ARB lost', 'posted'],
+    exitLabels: variants('layers.bus-fabric.exit'),
     draw: ({ px, ink, dir }) => {
       // Packet-mote: a magenta body with a white leading face, two eyes and a short trailing fin.
       const fx = dir > 0 ? 3 : 0;

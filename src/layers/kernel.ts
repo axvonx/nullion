@@ -5,6 +5,7 @@ import { ent, type EntityDef, type Pen } from '../render/v4/kit';
 import { irqPulse } from './shared/ambient-kit';
 import { KWALL, R, TAU, fill, giantCog, mod, rect } from './shared/draw-kit';
 import { C } from './shared/mid-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 import { userspace } from './userspace';
 
@@ -446,7 +447,7 @@ const HAZARD = () =>
 
 export const kernel: LayerArt = {
   family: 'kernel',
-  blurb: 'The core of the operating system, in charge of everything above',
+  blurb: text('layers.kernel.blurb'),
   palette: 'cga16',
   form: 'serial',
   cursor: 'underscore',
@@ -523,7 +524,7 @@ export const kernel: LayerArt = {
   critters: {
     motions: [MotionType.Zip, MotionType.Perch],
     count: 3,
-    exitLabels: ['paged out!', 'preempted'],
+    exitLabels: variants('layers.kernel.exit'),
     draw: ({ px, t, phase, variant, dir }) => {
       const visors = ['#55ffff', '#55ff55', '#ffff55', '#ff55ff'];
       const visor = visors[variant % visors.length]!;

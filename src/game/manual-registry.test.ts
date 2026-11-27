@@ -171,7 +171,7 @@ const SAMPLE: ManualEntry = {
   sightings: [{ layer: 'application', entityId: 'app-clock' }],
 };
 
-const FILES = (...es: ManualEntry[]) => Object.fromEntries(es.map((e) => [`manual/${e.sightings[0]!.layer}/${e.id}.md`, formatManualEntry(e)]));
+const FILES = (...es: ManualEntry[]) => Object.fromEntries(es.map((e) => [`writing/manual/${e.sightings[0]!.layer}/${e.id}.md`, formatManualEntry(e)]));
 
 describe('the shipped Field Manual files', () => {
   it('loads (every file parses and every sighting resolves) in debug and production views', () => {
@@ -211,14 +211,14 @@ describe('loadManualEntries', () => {
   });
 
   it('names the file and line of a malformed entry', () => {
-    const bad = { 'manual/application/prop-sample.md': formatManualEntry(SAMPLE).replace('## Sightings', '## Sighting') };
+    const bad = { 'writing/manual/application/prop-sample.md': formatManualEntry(SAMPLE).replace('## Sightings', '## Sighting') };
     expect(() => loadManualEntries(bad, true)).toThrow(ManualFormatError);
     expect(() => loadManualEntries(bad, true)).toThrow(/manual\/application\/prop-sample\.md:\d+: expected "## Sightings"/);
   });
 
   it('refuses an empty manual and a stray path', () => {
     expect(() => loadManualEntries({}, true)).toThrow(/no manual/);
-    expect(() => loadManualEntries({ 'notes/readme.md': 'x' }, true)).toThrow(/not manual\/<layer>\/<id>\.md/);
+    expect(() => loadManualEntries({ 'notes/readme.md': 'x' }, true)).toThrow(/not writing\/manual\/<layer>\/<id>\.md/);
   });
 
   it('orders by page, then approved before draft, then id', () => {

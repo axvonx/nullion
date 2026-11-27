@@ -4,6 +4,7 @@ import { MotionType } from '../render/motion';
 import { ent, type EntityDef } from '../render/v4/kit';
 import { libraries } from './libraries';
 import { R, fill, frame, line, mod, px, rect } from './shared/draw-kit';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -264,7 +265,7 @@ const ANCHORS: EntityDef[] = [
 
 export const slabSpa: LayerArt = {
   family: 'libraries',
-  blurb: '1994 · Misty cedar bathhouse of kmalloc caches, freelist pools & OOM steam vents',
+  blurb: text('layers.slab-spa.blurb'),
   palette: 'full',
   form: 'repl',
   cursor: 'ibeam',
@@ -558,7 +559,7 @@ export const slabSpa: LayerArt = {
   critters: {
     motions: [MotionType.Float, MotionType.Hop],
     count: 3,
-    exitLabels: ['kmalloc', 'steamed'],
+    exitLabels: variants('layers.slab-spa.exit'),
     draw: ({ px, ink, t, phase }) => {
       // Steamy turquoise Bubble Slime
       const bob = Math.floor(t * 4 + phase) % 2;

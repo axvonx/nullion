@@ -1,7 +1,7 @@
 import { ALL_LAYER_IDS, type LayerId } from '../core/layers';
 
 /**
- * The Field Manual's file format: manual/<layer of the first sighting>/<entry id>.md, one file per entry. Like
+ * The Field Manual's file format: writing/manual/<layer of the first sighting>/<entry id>.md, one file per entry. Like
  * bank-format.ts, the grammar is strict and every error names the file and line.
  *
  *   # Sky Sprite
@@ -86,7 +86,7 @@ const ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const LAYERS = new Set<string>(ALL_LAYER_IDS);
 const SEP = ' · ';
 
-/** The layer folder and id a path names: `manual/<layer>/<id>.md`, with any leading directories. */
+/** The layer folder and id a path names: `writing/manual/<layer>/<id>.md`, with any leading directories. */
 export function manualPathParts(path: string): { layer: string; id: string } | undefined {
   const m = /(?:^|\/)manual\/([^/]+)\/([^/]+)\.md$/.exec(path);
   return m ? { layer: m[1]!, id: m[2]! } : undefined;
@@ -188,7 +188,7 @@ export function parseManualFile(path: string, text: string): ManualEntry {
     i++;
   }
   if (sightings.length === 0) fail('## Sightings needs at least one "- " line');
-  if (first && first.layer !== sightings[0]!.layer) fail(`the file is in manual/${first.layer}/ but its first sighting is on ${sightings[0]!.layer}`, i - sightings.length);
+  if (first && first.layer !== sightings[0]!.layer) fail(`the file is in writing/manual/${first.layer}/ but its first sighting is on ${sightings[0]!.layer}`, i - sightings.length);
   if (first && first.id !== id) fail(`the file is named ${first.id}.md but its id is ${id}`, headerAt);
 
   // Optional sections, in a fixed order.
@@ -255,7 +255,7 @@ export function formatManualEntry(e: ManualEntry, comments: readonly string[] = 
   return out.join('\n') + '\n';
 }
 
-/** Where `e`'s file lives: manual/<layer of its first sighting>/<id>.md. */
+/** Where `e`'s file lives: writing/manual/<layer of its first sighting>/<id>.md. */
 export function manualPath(e: ManualEntry): string {
-  return `manual/${e.sightings[0]!.layer}/${e.id}.md`;
+  return `writing/manual/${e.sightings[0]!.layer}/${e.id}.md`;
 }

@@ -6,6 +6,7 @@ import type { Rect } from '../render/v4/place';
 import { irqPulse } from './shared/ambient-kit';
 import { R, fill, line, mod, rect } from './shared/draw-kit';
 import { C } from './shared/mid-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -397,7 +398,7 @@ const ANCHORS: EntityDef[] = [
 
 export const userspace: LayerArt = {
   family: 'userspace',
-  blurb: 'The operating system’s own programs and services',
+  blurb: text('layers.userspace.blurb'),
   palette: 'cga16',
   form: 'shell',
   cursor: 'block',
@@ -501,7 +502,7 @@ export const userspace: LayerArt = {
   critters: {
     motions: [MotionType.Patrol, MotionType.Hop, MotionType.Perch],
     count: 3,
-    exitLabels: ['SIGTERM', 'reaped'],
+    exitLabels: variants('layers.userspace.exit'),
     draw: ({ px, ink, t, phase, variant, dir, perched }) => {
       const bodies = ['#ff5555', '#ff9f43', '#ff55ff', '#55ffff', '#ffff55'];
       const darks = ['#aa0000', '#aa5500', '#aa00aa', '#00aaaa', '#aa5500'];

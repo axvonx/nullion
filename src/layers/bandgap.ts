@@ -6,6 +6,7 @@ import { litho } from './litho';
 import { ringMinus3 } from './ring-3';
 import { R, disc, fill, frame, mod, rect, ring } from './shared/draw-kit';
 import { aby, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -108,7 +109,7 @@ const ANCHORS: EntityDef[] = [
 
 export const bandgap: LayerArt = {
   family: 'ring-3',
-  blurb: 'Valence and conduction bands where electrons tunnel through barriers',
+  blurb: text('layers.bandgap.blurb'),
   palette: 'abyss',
   form: 'raw',
   cursor: 'bit',
@@ -181,7 +182,7 @@ export const bandgap: LayerArt = {
   critters: {
     motions: [MotionType.Float, MotionType.Grid],
     count: 3,
-    exitLabels: ['tunneled!', 'recombined'],
+    exitLabels: variants('layers.bandgap.exit'),
     draw: ({ px }) => {
       // Tunneling electron cloud
       px(0, 0, 6, 6, '#555555');

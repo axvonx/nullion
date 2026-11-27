@@ -5,6 +5,7 @@ import { ent, type EntityDef } from '../render/v4/kit';
 import { runtime } from './runtime';
 import { fill, frame, line, mod, rect } from './shared/draw-kit';
 import { byc, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -134,7 +135,7 @@ const ANCHORS: EntityDef[] = [
 
 export const bytecode: LayerArt = {
   family: 'runtime',
-  blurb: 'Parsed syntax trees and virtual instructions before execution',
+  blurb: text('layers.bytecode.blurb'),
   palette: 'rgb6',
   form: 'repl',
   cursor: 'ibeam',
@@ -226,7 +227,7 @@ export const bytecode: LayerArt = {
   critters: {
     motions: [MotionType.Hop, MotionType.Perch],
     count: 3,
-    exitLabels: ['parsed', 'folded'],
+    exitLabels: variants('layers.bytecode.exit'),
     draw: ({ px }) => {
       // Floating curly-brace / syntax token sprite
       px(1, 0, 4, 6, '#333366');

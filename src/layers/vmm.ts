@@ -5,6 +5,7 @@ import { ent, type EntityDef } from '../render/v4/kit';
 import { ringMinus1 } from './ring-1';
 import { R, fill, frame, line, rect } from './shared/draw-kit';
 import { grn, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const PROPS: EntityDef[] = [
@@ -115,7 +116,7 @@ const ANCHORS: EntityDef[] = [
 
 export const vmm: LayerArt = {
   family: 'ring-1',
-  blurb: 'Virtual device models pretending to be disks, NICs and consoles',
+  blurb: text('layers.vmm.blurb'),
   palette: 'green',
   form: 'hyper',
   cursor: 'bit',
@@ -178,7 +179,7 @@ export const vmm: LayerArt = {
   critters: {
     motions: [MotionType.Mirror, MotionType.Perch],
     count: 2,
-    exitLabels: ['virtio!', 'emulated'],
+    exitLabels: variants('layers.vmm.exit'),
     draw: ({ px, ink, t, phase, mirror }) => {
       // Winged visor-beetle: a rounded carapace with a bright visor band, wings flicking at its sides.
       mirror();

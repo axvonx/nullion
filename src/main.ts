@@ -1,3 +1,4 @@
+import { text } from './text';
 import { VERSION } from './version';
 import '@fontsource/silkscreen/400.css';
 import '@fontsource/vt323/400.css';
@@ -126,9 +127,9 @@ async function boot() {
     let notice: { text: string; kind: 'info' | 'error' } | undefined;
     if (persisting && !fresh) {
       const res = loadDaily(persistTo, game);
-      if (res.kind === 'invalid') notice = { text: `Your saved game for today could not be restored (${res.reason}). Starting fresh.`, kind: 'error' };
+      if (res.kind === 'invalid') notice = { text: text('notices.daily.invalid', { reason: res.reason }), kind: 'error' };
       else if (res.kind === 'resumed' && game.phase.kind !== 'done')
-        notice = { text: 'Resumed today’s game. The clock kept running while you were away.', kind: 'info' };
+        notice = { text: text('notices.daily.resumed'), kind: 'info' };
     }
     savedRev = game.rev;
     scene.setStackMode(mode);

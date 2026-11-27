@@ -5,6 +5,7 @@ import type { EntityDef } from '../render/v4/kit';
 import { libraries } from './libraries';
 import { R, fill, frame, line, mod, px, rect } from './shared/draw-kit';
 import { E, K, sl } from './shared/endless-props';
+import { text, variants } from '../text';
 import type { LayerArt } from './types';
 
 const LK: K = { i: '#000000', d: '#555555', m: '#aaaaaa', l: '#ffffff', h: '#ffffff', w: '#aa5500', wl: '#ffaa55', o: '#aa5500', ol: '#ffaa55', a: '#ffff55', b: '#55aaaa', g: '#55aa55', c: '#ffffaa', r: '#ff5555' };
@@ -127,7 +128,7 @@ const ANCHORS: EntityDef[] = [
 
 export const linker: LayerArt = {
   family: 'libraries',
-  blurb: 'The dynamic linker resolving symbols and wiring shared objects together',
+  blurb: text('layers.linker.blurb'),
   palette: 'rgb4',
   form: 'repl',
   cursor: 'ibeam',
@@ -215,7 +216,7 @@ export const linker: LayerArt = {
   critters: {
     motions: [MotionType.Patrol, MotionType.Hop],
     count: 3,
-    exitLabels: ['resolved', 'bound'],
+    exitLabels: variants('layers.linker.exit'),
     draw: ({ px, t, phase, dir }) => {
       // Brass plug-beetle carrying a gold symbol pin
       const leg = Math.floor(t * 10 + phase) % 2;

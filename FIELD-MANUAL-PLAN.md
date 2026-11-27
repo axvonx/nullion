@@ -1,7 +1,7 @@
 # Field Manual plan
 
 Decisions from the design session on 2026-11-26 (the working page was `.lavish/field-manual.html`). The current
-The approved `manual/**/*.md` entries (names, blurbs, notes) are scaffolding. Every word of them gets rewritten.
+The approved `writing/manual/**/*.md` entries (names, blurbs, notes) are scaffolding. Every word of them gets rewritten.
 
 ## Rarity is real
 
@@ -123,7 +123,7 @@ The approved `manual/**/*.md` entries (names, blurbs, notes) are scaffolding. Ev
 
 ## Writing entries
 
-- **Entries are Markdown files, one per entry:** `manual/<layer of first sighting>/<entry id>.md`. The grammar is strict
+- **Entries are Markdown files, one per entry:** `writing/manual/<layer of first sighting>/<entry id>.md`. The grammar is strict
   and every error names file and line (`src/data/manual-format.ts`, modelled on `bank-format.ts`):
 
   ```
