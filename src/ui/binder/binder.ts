@@ -88,9 +88,11 @@ function plateCanvas(s: ManualSighting, maxW: number, maxH: number, mode: 'sprit
   if (!sp) return c;
   c.width = sp.w;
   c.height = sp.h;
-  const k = Math.max(1, Math.floor(Math.min(maxW / sp.w, maxH / sp.h)));
-  c.style.width = `${sp.w * k}px`;
-  c.style.height = `${sp.h * k}px`;
+  const fit = Math.min(maxW / sp.w, maxH / sp.h);
+  // Integer upscale keeps pixels crisp; a sprite bigger than its box (an anchor in a figure thumbnail) shrinks to fit.
+  const k = fit >= 1 ? Math.floor(fit) : fit;
+  c.style.width = `${Math.floor(sp.w * k)}px`;
+  c.style.height = `${Math.floor(sp.h * k)}px`;
   const ctx = c.getContext('2d');
   if (!ctx) return c;
   ctx.imageSmoothingEnabled = false;
@@ -136,7 +138,7 @@ export class FieldManualBinder {
     wrap.hidden = true;
     wrap.innerHTML = `
       <section class="bd" role="dialog" aria-modal="true" aria-label="Field Manual">
-        <div class="bd-tabs" data-bd="tabs"></div>
+        <div class="bd-stickies" data-bd="tabs"></div>
         <div class="bd-sheet" data-bd="sheet">
           <article class="bd-leaf bd-l" data-bd="l"></article>
           <div class="bd-rings" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -303,21 +305,21 @@ export class FieldManualBinder {
     this.el.querySelector<HTMLButtonElement>('[data-bd="next"]')!.disabled = this.at === this.book.length - 1 && (this.side === 1 || !this.single());
   }
 
+  /** Two sticky-note bookmarks on the binder's top edge: back to the title page, and into the permuted index. */
   private renderTabs(s: Spread) {
-    const chapters = bookChapters();
-    const tabs = chapters.map((c) => {
-      const b = el('button', `bd-tab${s.chapter === c.no ? ' cur' : ''}${manualStore.hasReached(c.layer) ? '' : ' sealed'}`, c.no);
+    const note = (cls: string, label: string, sub: string, to: number, here: boolean) => {
+      const b = el('button', `bd-sticky ${cls}${here ? ' here' : ''}`);
       b.type = 'button';
-      b.title = `${c.no} · ${c.name}`;
-      if (c.entries.some((e) => manualStore.isUnread(e.id))) b.append(el('i', 'bd-wetdot'));
-      b.addEventListener('click', () => this.go(this.book.findIndex((x) => x.chapter === c.no)));
+      b.setAttribute('aria-label', `${label} (bookmark)`);
+      b.append(el('span', 'bd-sticky-k', 'bookmark'), el('span', 'bd-sticky-l', label), el('span', 'bd-sticky-s', sub));
+      b.addEventListener('click', () => this.go(to));
       return b;
-    });
-    const idx = el('button', `bd-tab${s.left.kind === 'index' ? ' cur' : ''}`, 'I');
-    idx.type = 'button';
-    idx.title = 'Permuted index';
-    idx.addEventListener('click', () => this.go(this.book.length - 1));
-    this.tabs.replaceChildren(...tabs, idx);
+    };
+    const unread = manualStore.unreadCount();
+    this.tabs.replaceChildren(
+      note('to-title', '↩ Title', unread ? `${unread} new stamp${unread === 1 ? '' : 's'}` : 'and contents', 0, this.at === 0),
+      note('to-index', 'Index →', 'permuted index', this.book.length - 1, s.left.kind === 'index'),
+    );
   }
 
   // ---------------------------------------------------------------------------------------------------------------
@@ -330,7 +332,9 @@ export class FieldManualBinder {
     foot.append(el('span', '', 'Field Distribution'), el('span', '', 'Volume I'), el('span', '', folio));
     const holes = el('div', 'bd-holes');
     holes.innerHTML = '<i></i><i></i><i></i>';
-    return [holes, head, ...body, foot];
+    const main = el('div', 'bd-body');
+    main.append(...body);
+    return [holes, head, main, foot];
   }
 
   private sec(title: string, ...body: (Node | string)[]): Node[] {
@@ -398,6 +402,7 @@ export class FieldManualBinder {
         const boxes = el('span', 'bd-boxes');
         for (const e of c.entries) boxes.append(el('i', manualStore.isFound(e.id) ? 'on' : ''));
         name.append(boxes);
+        if (c.entries.some((e) => manualStore.isUnread(e.id))) name.append(el('i', 'bd-wetdot'));
       }
       row.append(el('span', 'bd-ct-n', c.no), name, el('span', 'bd-ct-p', `${c.no}-1`));
       row.addEventListener('click', () => this.go(this.book.findIndex((s) => s.chapter === c.no)));
@@ -508,7 +513,7 @@ export class FieldManualBinder {
     }
     const s = this.shown(e);
     const name = el('span');
-    name.append(el('b', '', e.id), ` — ${e.name}`);
+    name.append(el('b', '', manTag(e).replace(/\(.*\)$/, '').toLowerCase()), ` — ${e.name}`);
     const hab = el('span', 'bd-hab');
     for (const l of DAILY) {
       const has = e.sightings.some((x) => x.layer === l);
@@ -556,7 +561,7 @@ export class FieldManualBinder {
     const lines = bookChapters()
       .flatMap((c) => c.entries)
       .filter((e) => manualStore.isFound(e.id))
-      .map((e) => ({ tag: manTag(e), line: `${e.id} — ${e.name}`, target: e.id }));
+      .map((e) => ({ tag: manTag(e), line: e.name, target: e.id }));
     const q = this.query.toLowerCase();
     const rows = kwicRows(lines).filter((r) => !q || r.key.toLowerCase().startsWith(q) || r.key.toLowerCase().includes(` ${q}`));
     const mid = Math.ceil(rows.length / 2);
@@ -586,7 +591,9 @@ export class FieldManualBinder {
       const key = el('span', 'bd-kw-k');
       const [first, ...rest] = r.key.split(' ');
       key.append(el('b', '', first), rest.length ? ` ${rest.join(' ')}` : '');
-      row.append(el('span', 'bd-kw-l', r.before), key, el('span', 'bd-kw-r', r.tag));
+      const before = el('span', 'bd-kw-l');
+      before.append(el('span', '', r.before));
+      row.append(before, key, el('span', 'bd-kw-r', r.tag));
       row.addEventListener('click', () => this.go(spreadOf(this.book, r.target)));
       table.append(row);
     }
