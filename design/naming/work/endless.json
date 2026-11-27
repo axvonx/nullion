@@ -1,0 +1,2073 @@
+{
+ "internet": {
+  "delete": [
+   {
+    "id": "net-bgp",
+    "why": "ART-STYLE rule 1: a UI card with coloured bars; no object reads as BGP",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "net-dns",
+    "why": "ART-STYLE rule 1: a UI card; same \"panel with lines\" as net-packet and net-bgp",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "net-asn",
+    "why": "Generic cloud silhouette that overlaps visually with Eventual Cloud and conceptually with BGP routing.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:app-cloudsync"
+   },
+   {
+    "id": "net-fiber",
+    "why": "Low-priority thin line that is redundant with Abyssal Trunkline for fiber-optic transmission.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:net-cable"
+   },
+   {
+    "id": "net-dish",
+    "why": "Secondary backhaul prop whose orbital relay concept is already covered by Ping Probe.",
+    "backsManualOrTopic": false,
+    "similarTo": "c:internet:alt"
+   },
+   {
+    "id": "net-packet",
+    "why": "ART-STYLE rule 1: a UI card; indistinct from net-dns",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "net-tls",
+    "why": "Generic padlock icon that duplicates padlock props in other layers.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:us-padlock"
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:net-cable",
+    "id": "net-cable",
+    "kind": "prop",
+    "problem": "ART-STYLE rule 7: under 8 px tall; thicken into a cable run with connectors",
+    "redesign": "Thicken the armored undersea cable run to at least 8 px tall with flanged end-connectors and four raised amber collars resting on the floor.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "net-signpost",
+    "name": "BGP Signpost",
+    "concept": "Border Gateway Protocol (inter-AS path selection)",
+    "depicts": "A tall cast-iron signpost anchored in a flared base, with three stacked directional blades pointing left and right.",
+    "focal": "The staggered directional blades mounted on the central post",
+    "size": "large",
+    "replacesKey": "e:net-bgp"
+   },
+   {
+    "id": "net-rolodex",
+    "name": "DNS Rolodex",
+    "concept": "Domain Name System (name-to-address lookup)",
+    "depicts": "A desktop rotary card index on a flat weighted base with a side crank knob and fanned cream cards.",
+    "focal": "The fanned index cards protruding from the rotary drum",
+    "size": "medium",
+    "replacesKey": "e:net-dns"
+   },
+   {
+    "id": "net-milestone",
+    "name": "AS Milestone",
+    "concept": "Autonomous System Number (network domain boundary)",
+    "depicts": "A squat stone boundary bollard on a plinth with a riveted brass plate on its front face.",
+    "focal": "The riveted brass number plate set into the stone face",
+    "size": "medium",
+    "replacesKey": "e:net-asn"
+   },
+   {
+    "id": "net-parcel",
+    "name": "Datagram Parcel",
+    "concept": "IP packet encapsulation and routing header",
+    "depicts": "A small twine-tied dispatch parcel resting on a low wooden sorting tray, stamped with a red-amber wax seal.",
+    "focal": "The wax seal centered over the crossed twine",
+    "size": "small",
+    "replacesKey": "e:net-packet"
+   },
+   {
+    "id": "net-cipher",
+    "name": "TLS Cipher Drum",
+    "concept": "TLS encrypted session and key agreement",
+    "depicts": "A compact brass cipher cylinder mounted horizontally on two short cradle feet with three notched rotating rings.",
+    "focal": "The three notched brass rings along the cylinder",
+    "size": "small",
+    "replacesKey": "e:net-tls"
+   }
+  ]
+ },
+ "browser": {
+  "delete": [
+   {
+    "id": "br-dom",
+    "why": "ART-STYLE rule 1: a tree diagram, not an object (twin of the bytecode trees)",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "br-css",
+    "why": "ART-STYLE rule 1: nested coloured rectangles; abstract",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "br-layer",
+    "why": "Visually and conceptually overlaps with Z-Order Pileup in the application layer.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:app-cascade"
+   },
+   {
+    "id": "br-tab",
+    "why": "Generic browser chrome already depicted inside the viewport anchor and too thin for its own page.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:br-viewport"
+   },
+   {
+    "id": "br-paint",
+    "why": "ART-STYLE rule 1: white box with a green square; reads as nothing",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "br-canvas",
+    "why": "Visually generic red circle on blue square that lacks a strong computing-trivia hook.",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "br-devtools",
+    "why": "ART-STYLE rule 3: bare code panel with no outline or device",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   }
+  ],
+  "rework": [],
+  "new": [
+   {
+    "id": "br-dom-bonsai",
+    "name": "DOM Bonsai",
+    "concept": "Document Object Model (DOM)",
+    "depicts": "A small gnarled bonsai tree planted in a squat rectangular ceramic pot on four stubby feet, with three clipped leafy pads.",
+    "focal": "Tiny cream paper node-tags dangling from the branches.",
+    "size": "medium",
+    "replacesKey": "e:br-dom"
+   },
+   {
+    "id": "br-box-matryoshka",
+    "name": "Box-Model Dolls",
+    "concept": "CSS Box Model",
+    "depicts": "Three wooden nesting dolls lined up from largest to smallest on a thin wooden plinth, each painted with a different coloured band.",
+    "focal": "The open middle doll revealing the smaller painted doll nested inside.",
+    "size": "small",
+    "replacesKey": "e:br-css"
+   },
+   {
+    "id": "br-cors-turnstile",
+    "name": "Preflight Turnstile",
+    "concept": "CORS Preflight Request",
+    "depicts": "A waist-high brushed-steel transit turnstile bolted to a floor plate, with three angled metal tripod arms and a topped card reader.",
+    "focal": "A tiny amber-and-green indicator lamp on the reader head.",
+    "size": "medium",
+    "replacesKey": "e:br-tab"
+   },
+   {
+    "id": "br-paint-roller",
+    "name": "Repaint Roller",
+    "concept": "Browser Repaint / Paint Flashing",
+    "depicts": "A sloped metal paint tray standing on two rear legs, with a fuzzy green roller resting diagonally against the ribbed ramp.",
+    "focal": "A bright green paint stripe pooling at the bottom of the tray.",
+    "size": "small",
+    "replacesKey": "e:br-paint"
+   },
+   {
+    "id": "br-shadow-screen",
+    "name": "Shadow-DOM Screen",
+    "concept": "Shadow DOM Encapsulation",
+    "depicts": "A tall folding privacy screen with three hinged frosted-glass panels in dark-navy frames, standing on four brass feet.",
+    "focal": "Blurred coloured silhouettes faintly visible behind the frosted centre panel.",
+    "size": "large",
+    "replacesKey": "e:br-canvas"
+   },
+   {
+    "id": "br-perf-recorder",
+    "name": "Frame Seismograph",
+    "concept": "DevTools Performance Timeline",
+    "depicts": "A compact benchtop strip-chart recorder on rubber feet, with a brass stylus arm poised over a scrolled paper tape.",
+    "focal": "Staggered green and orange ink bars traced along the paper strip.",
+    "size": "medium",
+    "replacesKey": "e:br-devtools"
+   },
+   {
+    "id": "br-worker-pager",
+    "name": "Service-Worker Pager",
+    "concept": "Service Worker",
+    "depicts": "A chunky dark-slate belt pager standing upright in a small charging cradle, with a stubby antenna and a belt clip.",
+    "focal": "A glowing green-lit two-line LCD window on its front face.",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "bytecode": {
+  "delete": [
+   {
+    "id": "bc-ast",
+    "why": "ART-STYLE rule 1: tree diagram; twin of bc-parsetree and bc-cfg",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bc-token",
+    "why": "Redundant with the higher-priority lexical analyzer prop covering the same lexing concept.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:bc-lexer"
+   },
+   {
+    "id": "bc-constpool",
+    "why": "Priority 1 generic box of horizontal bars that is visually weak and indistinct.",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bc-lexer",
+    "why": "ART-STYLE rule 1: flat bar of coloured squares",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bc-cfg",
+    "why": "ART-STYLE rule 1: flow diagram; third tree-diagram in the layer",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   }
+  ],
+  "rework": [],
+  "new": [
+   {
+    "id": "bc-chopper",
+    "name": "Token Guillotine",
+    "concept": "Lexical analysis (tokenizing a character stream into discrete tokens)",
+    "depicts": "A tabletop cast-iron paper guillotine on four stubby feet, with a hinged brass blade arm raised over a cream paper ribbon emerging as cut coloured chits.",
+    "focal": "The angled brass cutting blade poised above the notched paper strip.",
+    "size": "medium",
+    "replacesKey": "e:bc-lexer"
+   },
+   {
+    "id": "bc-constpool",
+    "name": "Constant Cubbies",
+    "concept": "Constant pool (deduplicated table of literals and symbolic references)",
+    "depicts": "A tall dark-navy apothecary cabinet standing on a plinth, with a 3x3 grid of brass-rimmed cubbies holding glowing yellow and green literal slugs.",
+    "focal": "One pulled-out cubby drawer gleaming with a bright yellow literal slug.",
+    "size": "large",
+    "replacesKey": "e:bc-constpool"
+   },
+   {
+    "id": "bc-switchyard",
+    "name": "Branch Switch",
+    "concept": "Control-flow graph (basic blocks connected by conditional jump edges)",
+    "depicts": "A wall-mounted railway signal-box lever frame with a cast-iron base, two upright brass-handled levers, and a diverging Y-shaped track plate below.",
+    "focal": "The two brass-tipped switch levers angled in opposite directions.",
+    "size": "medium",
+    "replacesKey": "e:bc-cfg"
+   },
+   {
+    "id": "bc-bonsai",
+    "name": "Syntax Bonsai",
+    "concept": "Abstract syntax tree (hierarchical tree representation of source structure)",
+    "depicts": "A pruned geometric bonsai tree potted in a dark-navy ceramic tray, its stepped amber trunk splitting into two green and yellow leaf-pad canopies.",
+    "focal": "The asymmetric stepped trunk fork where the main branch splits.",
+    "size": "medium",
+    "replacesKey": "e:bc-ast"
+   },
+   {
+    "id": "bc-pez",
+    "name": "Operand Dispenser",
+    "concept": "Operand stack (LIFO stack used by stack-based bytecode VMs)",
+    "depicts": "A spring-loaded vertical brass chute on a weighted base, holding three stacked square yellow-and-green value blocks with a side push-slot at the top.",
+    "focal": "The top yellow value block peeking out of the dispenser slot.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "bc-punchcard",
+    "name": "Opcode Punch",
+    "concept": "Bytecode instruction (compact fixed-width opcode and operand encoding)",
+    "depicts": "A stiff cream-and-navy punch card standing upright in a slotted brass desk holder, perforated with two crisp square holes.",
+    "focal": "The pair of dark punched holes near the upper-left corner.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "bc-metronome",
+    "name": "Bytecode Metronome",
+    "concept": "Instruction pointer (tracks the current bytecode offset being executed)",
+    "depicts": "A pyramid-shaped dark-navy mechanical metronome on brass feet, with a pale-yellow pendulum needle tilted to the right.",
+    "focal": "The bright yellow ticking pendulum arm.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "bc-compass",
+    "name": "Offset Caliper",
+    "concept": "Line number table (maps bytecode offsets back to source-code lines)",
+    "depicts": "A pair of hinged brass proportional dividers resting upright on a small wooden stand, with a tiny cream-ticked scale bar between the legs.",
+    "focal": "The brass pivot screw linking the two pointed legs.",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "jit": {
+  "delete": [
+   {
+    "id": "jit-ic",
+    "why": "ART-STYLE rule 1: dark panel with one square; abstract",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "jit-profile",
+    "why": "Generic four-bar meter whose hot-path concept overlaps with the Hotspot Hearth anchor.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:jit-forge"
+   },
+   {
+    "id": "jit-osr",
+    "why": "ART-STYLE rule 6: floating bar-and-block symbol",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "jit-guard",
+    "why": "Overlaps conceptually with speculative deoptimization bailout in Uncommon Trap.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:jit-deopt"
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:jit-deopt",
+    "id": "jit-deopt",
+    "kind": "prop",
+    "problem": "ART-STYLE rule 1: box with an X; make it a recognisable object",
+    "redesign": "Redraw as a floor-standing mechanical abort-lever pedestal: a dark indigo cast-iron housing with an orange caution-striped hood and a pulled-down yellow emergency bailout lever.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "jit-inline-cache",
+    "name": "Hot Key Hook",
+    "concept": "Inline Cache (IC)",
+    "depicts": "A small wall-mounted dark indigo plaque with a brass hook holding a single bright yellow-gold key.",
+    "focal": "the glowing gold key hanging ready on the hook",
+    "size": "small",
+    "replacesKey": "e:jit-ic"
+   },
+   {
+    "id": "jit-megamorphic",
+    "name": "Many-Way Dial",
+    "concept": "Megamorphic Dispatch Table",
+    "depicts": "A floor-standing dark indigo pedestal topped with a circular brass rotary switchboard ringed by eight contact studs and a central orange wiper arm.",
+    "focal": "the eight radial contact studs around the central wiper",
+    "size": "medium",
+    "replacesKey": "e:jit-profile"
+   },
+   {
+    "id": "jit-osr-switch",
+    "name": "Mid-Run Switch",
+    "concept": "On-Stack Replacement (OSR)",
+    "depicts": "A grounded cast-iron railway switch stand with a weighted orange-and-yellow throw lever angled between two short converging track rails.",
+    "focal": "the weighted orange-and-yellow throw lever mid-throw",
+    "size": "medium",
+    "replacesKey": "e:jit-osr"
+   },
+   {
+    "id": "jit-trace-recorder",
+    "name": "Spark Reel",
+    "concept": "Trace Recording (Tracing JIT)",
+    "depicts": "A small floor-standing dark indigo ticker-tape spindle with a glowing orange-yellow paper loop feeding off a brass guide roller.",
+    "focal": "the glowing orange-yellow loop of recorded tape",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "jit-register-anvil",
+    "name": "Register Anvil",
+    "concept": "Register Allocation",
+    "depicts": "A heavy dark indigo blacksmith anvil bolted to a stepped iron block, with four glowing orange-gold slot-notches cut into its flat horn.",
+    "focal": "the four glowing orange-gold register notches on the anvil's horn",
+    "size": "large",
+    "replacesKey": null
+   },
+   {
+    "id": "jit-warmup-bellows",
+    "name": "Warmup Bellows",
+    "concept": "JIT Warmup / Tiered Compilation",
+    "depicts": "A small floor-resting leather-and-indigo hand bellows with brass-riveted handles and a bright orange-tipped nozzle.",
+    "focal": "the bright orange-tipped nozzle",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "linker": {
+  "delete": [
+   {
+    "id": "ld-elf",
+    "why": "ART-STYLE rule 1: UI card with bars",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ld-plt",
+    "why": "ART-STYLE rule 1: abstract panel",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ld-reloc",
+    "why": "Low-priority abstract blocks on a rail that look too similar to e:ld-rpath and lack clear visual identity.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:ld-rpath"
+   },
+   {
+    "id": "ld-got",
+    "why": "ART-STYLE rule 1: panel of lines",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ld-soname",
+    "why": "Duplicates the Soname Plaque in the libraries layer and is visually just a generic two-bar plaque.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:lib-plaque"
+   },
+   {
+    "id": "ld-rpath",
+    "why": "Low-priority generic bars on a rail that are visually indistinct from other bar-and-rail props.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:ld-reloc"
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:ld-switchboard",
+    "id": "ld-switchboard",
+    "kind": "anchor",
+    "problem": "owner request (other)",
+    "ownerNotes": "make it more clearly switches ",
+    "by": "owner"
+   },
+   {
+    "key": "e:ld-lazy",
+    "id": "ld-lazy",
+    "kind": "prop",
+    "problem": "",
+    "redesign": "Redraw as a tabletop brass-and-bakelite trip-latch switch on a wooden plinth, with a coiled spring held back by a tiny yellow release pin.",
+    "ownerNotes": null,
+    "by": "owner"
+   }
+  ],
+  "new": [
+   {
+    "id": "ld-elf-canister",
+    "name": "ELF Header Canister",
+    "concept": "ELF binary format (Executable and Linkable Format)",
+    "depicts": "A cylindrical steel dispatch canister standing upright on a flat base, with a dark blue riveted collar band around the top and a hinged brass clasp.",
+    "focal": "The riveted blue header collar and brass clasp.",
+    "size": "medium",
+    "replacesKey": "e:ld-elf"
+   },
+   {
+    "id": "ld-plt-jumper",
+    "name": "PLT Jump-Jack",
+    "concept": "Procedure Linkage Table (PLT) trampolines",
+    "depicts": "A small bakelite terminal block with two brass binding posts on the sides and a pivoted copper jumper bar arcing between them.",
+    "focal": "The arched copper jumper bar bridging the two posts.",
+    "size": "small",
+    "replacesKey": "e:ld-plt"
+   },
+   {
+    "id": "ld-splicer",
+    "name": "Relocation Splicer",
+    "concept": "Load-time address relocation",
+    "depicts": "A tabletop brass tape-splicing press on four stubby feet, with a dark tape strip threaded under a hinged yellow-handled crimping lever.",
+    "focal": "The hinged yellow-handled crimping lever.",
+    "size": "medium",
+    "replacesKey": "e:ld-reloc"
+   },
+   {
+    "id": "ld-got-rack",
+    "name": "GOT Key-Rack",
+    "concept": "Global Offset Table (GOT) indirection",
+    "depicts": "A tall wall-mounted dark iron key-rack with four horizontal rows of brass hooks, with one bright yellow brass key hanging on the second row.",
+    "focal": "The single bright yellow key on the second hook.",
+    "size": "large",
+    "replacesKey": "e:ld-got"
+   },
+   {
+    "id": "ld-rpath-post",
+    "name": "RPATH Signpost",
+    "concept": "RPATH / RUNPATH library search order",
+    "depicts": "A short cast-iron signpost on a round baseplate with three stacked wooden directional blades painted in yellow, teal, and orange.",
+    "focal": "The three stacked colored directional blades.",
+    "size": "small",
+    "replacesKey": "e:ld-rpath"
+   },
+   {
+    "id": "ld-abi-gauge",
+    "name": "ABI Caliper",
+    "concept": "Application Binary Interface (ABI) calling convention",
+    "depicts": "A small brass go/no-go pocket caliper lying on a dark rubber mat, its jaws set to a fixed yellow-marked gap.",
+    "focal": "The fixed yellow-marked jaw gap.",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "kernel-entry": {
+  "delete": [
+   {
+    "id": "ke-seccomp",
+    "why": "ART-STYLE rule 1: UI bars panel",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ke-uaccess",
+    "why": "ART-STYLE rule 1: two boxes and a connector; diagram",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ke-sysgate",
+    "why": "Redundant archway prop that duplicates both the visual motif and syscall-boundary concept of the Syscall Gatehouse.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:ke-gatehouse"
+   },
+   {
+    "id": "ke-ptrace",
+    "why": "ART-STYLE rule 1: two coloured squares; abstract",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ke-cred",
+    "why": "Visually generic head-and-shoulders badge that closely resembles User Avatar.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:app-avatar"
+   },
+   {
+    "id": "ke-fdtable",
+    "why": "Visually generic slate of four horizontal bars that lacks a distinct silhouette.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:kr-schedrack"
+   },
+   {
+    "id": "ke-vdso",
+    "why": "ART-STYLE rule 1: dumbbell symbol; twin of r1-paravirt",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:ke-gatehouse",
+    "id": "ke-gatehouse",
+    "kind": "anchor",
+    "problem": "randomly asymmetrical? no lock or other indication of being a gate, strange color choices",
+    "redesign": "Redraw as a symmetrical stone-and-iron portcullis gatehouse with a heavy brass padlock on the crossbar and consistent layer-palette ink.",
+    "ownerNotes": null,
+    "by": "owner"
+   }
+  ],
+  "new": [
+   {
+    "id": "ke-seccomp",
+    "name": "Syscall Sieve",
+    "concept": "seccomp-bpf syscall filtering",
+    "depicts": "A standing brass coin-sorter box on four short feet, with an angled top hopper and three slotted sieve plates visible through a front cutout.",
+    "focal": "The stepped brass sieve plates inside the front cutout",
+    "size": "medium",
+    "replacesKey": "e:ke-seccomp"
+   },
+   {
+    "id": "ke-uaccess",
+    "name": "Uaccess Inspection Desk",
+    "concept": "copy_from_user and copy_to_user boundary validation",
+    "depicts": "A wide stone-and-brass customs counter grounded on a plinth, with a recessed pass-through tray in the middle and an upright inspection lamp on the left.",
+    "focal": "The glowing brass pass-through tray in the center",
+    "size": "large",
+    "replacesKey": "e:ke-uaccess"
+   },
+   {
+    "id": "ke-ptrace",
+    "name": "Ptrace Periscope",
+    "concept": "ptrace process inspection and debugging",
+    "depicts": "A tall brass periscope tube mounted on a heavy tripod floor stand, with a hooded eyepiece at the bottom and an angled mirror hood at the top.",
+    "focal": "The gleaming angled mirror hood at the top",
+    "size": "medium",
+    "replacesKey": "e:ke-ptrace"
+   },
+   {
+    "id": "ke-cred",
+    "name": "Capability Keyring",
+    "concept": "Process credentials and capabilities (struct cred)",
+    "depicts": "A heavy brass ring hanging from a small wall-mounted peg, holding three differently notched metal keys.",
+    "focal": "The notched teeth of the three keys",
+    "size": "small",
+    "replacesKey": "e:ke-cred"
+   },
+   {
+    "id": "ke-fdtable",
+    "name": "FD Ticket Dispenser",
+    "concept": "File descriptor table (fdtable)",
+    "depicts": "A wall-mounted curved metal ticket dispenser with a bright paper ticket stub sticking out of the bottom slot.",
+    "focal": "The protruding paper ticket stub",
+    "size": "small",
+    "replacesKey": "e:ke-fdtable"
+   },
+   {
+    "id": "ke-vdso",
+    "name": "vDSO Pneumatic Tube",
+    "concept": "vDSO fast userspace-kernel syscall bypass",
+    "depicts": "A curved brass pneumatic tube mounted on two wall brackets, with a clear glass capsule chamber in the middle.",
+    "focal": "The glowing capsule inside the middle chamber",
+    "size": "medium",
+    "replacesKey": "e:ke-vdso"
+   },
+   {
+    "id": "ke-vfs-mount",
+    "name": "VFS Mount Signpost",
+    "concept": "VFS mount point (vfsmount)",
+    "depicts": "A short iron post planted in a round floor base, topped by two riveted metal directional sign blades pointing opposite ways.",
+    "focal": "The two riveted directional blades",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "ke-ioctl",
+    "name": "Ioctl Valve Manifold",
+    "concept": "ioctl device-control multiplexor",
+    "depicts": "A compact cast-iron pipe manifold bolted to the floor, with three small brass handwheel valves in a row.",
+    "focal": "The three brass handwheel valves",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "kernel-arch": {
+  "delete": [
+   {
+    "id": "ka-apic",
+    "why": "Overlaps conceptually with the I/O APIC anchor and is visually a generic four-bar module.",
+    "backsManualOrTopic": true,
+    "similarTo": "e:ka-apicbank"
+   },
+   {
+    "id": "ka-idt",
+    "why": "ART-STYLE rule 1: panel of bars",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ka-cr3",
+    "why": "Lowest-priority register prop whose page-directory concept is already covered by the kernel layer's page table.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:kr-pagetable"
+   },
+   {
+    "id": "ka-rcu",
+    "why": "ART-STYLE rule 1: letter H on a panel",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ka-tlb",
+    "why": "Duplicates the hardware TLB concept already represented by the Shootdown Board in the kernel layer.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:kr-tlb"
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:ka-apicbank",
+    "id": "ka-apicbank",
+    "kind": "anchor",
+    "problem": "ART-STYLE rule 1: anchor is a panel of dots; redraw as a machine",
+    "redesign": "Redraw as a standing brass-and-iron mechanical relay switchboard on heavy legs, with physical clapper switches, busbar rods, and a top row of hooded status lamps.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "ka-idt",
+    "name": "Vector Rolodex",
+    "concept": "Interrupt Descriptor Table (IDT)",
+    "depicts": "A standing dark-iron rotary card index on two splayed feet, with a side knob and fanned cream index cards.",
+    "focal": "One bright yellow-tabbed index card flipped upright at the top.",
+    "size": "medium",
+    "replacesKey": "e:ka-idt"
+   },
+   {
+    "id": "ka-rcu",
+    "name": "Grace-Period Switch",
+    "concept": "Read-Copy-Update (RCU)",
+    "depicts": "A heavy iron twin-track railway switch lever mounted on a riveted baseplate, with a coral-red handle and two diverging short rails.",
+    "focal": "The bright yellow pivot pin locking the switch blade onto the fresh rail.",
+    "size": "medium",
+    "replacesKey": "e:ka-rcu"
+   },
+   {
+    "id": "ka-fence",
+    "name": "Memory Barrier",
+    "concept": "Hardware Memory Fence (MFENCE/DMB)",
+    "depicts": "A weighted iron-post crossing gate with a striped coral-red and yellow barrier arm resting across a forked catch-post.",
+    "focal": "The glowing yellow warning lantern mounted atop the hinge post.",
+    "size": "large",
+    "replacesKey": null
+   },
+   {
+    "id": "ka-ipi",
+    "name": "Core Telegraph",
+    "concept": "Inter-Processor Interrupt (IPI)",
+    "depicts": "A compact brass-and-iron telegraph tapper key mounted on a dark rectangular plinth with two binding posts.",
+    "focal": "The bright yellow contact spark between the anvil and the depressed key.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "ka-cas",
+    "name": "Swap Interlock",
+    "concept": "Atomic Compare-and-Swap (CAS)",
+    "depicts": "A small spring-loaded dual-keyed brass padlock body resting on a flat iron baseplate with two keyholes side by side.",
+    "focal": "One bright yellow key inserted and turned in the right keyhole.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "ka-syscall",
+    "name": "Ring Turnstile",
+    "concept": "Privilege Ring Transition (SYSCALL/SYSRET)",
+    "depicts": "A waist-high iron tripod turnstile bolted to a floor plate, with three angled barrier arms.",
+    "focal": "The bright yellow mechanical ratchet gear at the hub.",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "bus-fabric": {
+  "delete": [
+   {
+    "id": "bf-crossbar",
+    "why": "ART-STYLE rule 1: grid diagram",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bf-dmaring",
+    "why": "ART-STYLE rule 1: concentric ring symbol",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bf-mmio",
+    "why": "ART-STYLE rule 1: panel of bars",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bf-retimer",
+    "why": "Low-priority generic rectangle with a single bar that is visually indistinct.",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bf-msix",
+    "why": "ART-STYLE rule 1: panel of bars; twin of bf-mmio",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bf-lane",
+    "why": "Two plain parallel stripes are generic filler rather than a memorable prop.",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bf-iommu",
+    "why": "ART-STYLE rule 1: square in a square",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:bf-pcieswitch",
+    "id": "bf-pcieswitch",
+    "kind": "anchor",
+    "problem": "ART-STYLE rule 1: anchor reads as a panel; redraw as a switch chassis",
+    "redesign": "Redraw as a physical rackmount PCIe switch chassis with front-facing port cages, status LEDs, and mounting ears on a stand.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "bf-iommu",
+    "name": "IOMMU Tollbooth",
+    "concept": "IOMMU (DMA address translation and memory isolation)",
+    "depicts": "A standing customs tollbooth on a flat base, with a striped barrier arm raised on the right and a small inspection window on the front.",
+    "focal": "The striped barrier arm",
+    "size": "large",
+    "replacesKey": "e:bf-iommu"
+   },
+   {
+    "id": "bf-dmaring",
+    "name": "Descriptor Carousel",
+    "concept": "DMA ring buffer (circular descriptor queue)",
+    "depicts": "A rotating metal carousel stand on a pedestal base, with evenly spaced clip-on ticket cards hanging around its rim.",
+    "focal": "The ring of hanging ticket cards",
+    "size": "medium",
+    "replacesKey": "e:bf-dmaring"
+   },
+   {
+    "id": "bf-crossbar",
+    "name": "Fabric Patchbay",
+    "concept": "Non-blocking bus crossbar interconnect",
+    "depicts": "A standing floor-mounted telecom patchbay cabinet on two stubby feet, with a grid of jack sockets and two draped patch cords plugged across it.",
+    "focal": "The draped patch cords bridging sockets",
+    "size": "medium",
+    "replacesKey": "e:bf-crossbar"
+   },
+   {
+    "id": "bf-mmio",
+    "name": "MMIO Pigeonhole",
+    "concept": "Memory-Mapped I/O (MMIO) register window",
+    "depicts": "A wall-mounted brass-framed pigeonhole cubby box with four slot openings, two holding protruding metal key-cards.",
+    "focal": "The protruding key-cards in the slots",
+    "size": "medium",
+    "replacesKey": "e:bf-mmio"
+   },
+   {
+    "id": "bf-msix",
+    "name": "MSI-X Tapper",
+    "concept": "Message Signaled Interrupts (MSI-X)",
+    "depicts": "A small desk-mounted brass telegraph tapper on a plinth with a rounded knob and a spring-loaded contact arm.",
+    "focal": "The raised brass tapper knob",
+    "size": "small",
+    "replacesKey": "e:bf-msix"
+   },
+   {
+    "id": "bf-retimer",
+    "name": "Hot-Plug Latch",
+    "concept": "PCIe hot-plug surprise-removal latch",
+    "depicts": "A compact card-edge ejector latch mounted on a short bracket, with a hooked lever arm and a tiny status pip on the pivot.",
+    "focal": "The hooked ejector lever arm",
+    "size": "small",
+    "replacesKey": "e:bf-retimer"
+   },
+   {
+    "id": "bf-lane",
+    "name": "Credit Clicker",
+    "concept": "PCIe credit-based flow-control counter",
+    "depicts": "A handheld mechanical tally clicker resting on a flat base, with a thumb-press plunger on top and a 3-digit drum window on the front.",
+    "focal": "The 3-digit mechanical drum window",
+    "size": "small",
+    "replacesKey": "e:bf-lane"
+   },
+   {
+    "id": "bf-tlp",
+    "name": "TLP Capsule",
+    "concept": "PCIe Transaction Layer Packet (TLP)",
+    "depicts": "A cylindrical brass-capped pneumatic dispatch capsule resting on a cradle stand, with a band collar around its middle.",
+    "focal": "The brass-capped cylinder in its cradle",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "vmm": {
+  "delete": [
+   {
+    "id": "vmm-virtio",
+    "why": "ART-STYLE rule 1: abstract two-ring glyph",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "vmm-ghostnic",
+    "why": "Redundant emulated hardware concept alongside e:vmm-ghostcard in this layer and e:dr-nic in drivers.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:dr-nic"
+   },
+   {
+    "id": "vmm-hpet",
+    "why": "Visually generic clock face for a niche timer concept better replaced by a core virtualization mechanic.",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "vmm-bios",
+    "why": "ART-STYLE rule 1: panel of lines",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:vmm-qemu",
+    "id": "vmm-qemu",
+    "kind": "anchor",
+    "problem": "ART-STYLE rule 1: anchor is a UI panel; redraw as a machine",
+    "redesign": "Redraw as a heavy industrial rack-mounted hypervisor cabinet on four leveling feet, with two recessed machine-bay doors and a physical teleprinter keyboard shelf below.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "vmm-balloon",
+    "name": "Balloon Pump",
+    "concept": "Virtio-balloon memory reclamation",
+    "depicts": "An upright accordion bellows with a T-handle on top, a round pressure dial on its front plate, and a flat pedal base.",
+    "focal": "the round pressure dial on the bellows",
+    "size": "medium",
+    "replacesKey": "e:vmm-hpet"
+   },
+   {
+    "id": "vmm-virtio",
+    "name": "Ring Conveyor",
+    "concept": "Virtio split/packed virtqueue",
+    "depicts": "A horizontal twin-roller conveyor bench on four short legs, with a continuous notched belt loop and two small crates riding on top.",
+    "focal": "the notched belt loop between the two rollers",
+    "size": "large",
+    "replacesKey": "e:vmm-virtio"
+   },
+   {
+    "id": "vmm-ovmf",
+    "name": "Boot Cartridge",
+    "concept": "Virtual guest firmware (OVMF / SeaBIOS)",
+    "depicts": "A chunky upright ROM cartridge with a ribbed grip on top and a bevelled base plate.",
+    "focal": "the ribbed top grip",
+    "size": "small",
+    "replacesKey": "e:vmm-bios"
+   },
+   {
+    "id": "vmm-vfio",
+    "name": "Passthrough Coupler",
+    "concept": "VFIO direct device passthrough",
+    "depicts": "A heavy flanged pipe coupling bolted to a floor bracket, with a straight brass conduit passing cleanly through its center.",
+    "focal": "the straight conduit passing through the flanged collar",
+    "size": "medium",
+    "replacesKey": null
+   },
+   {
+    "id": "vmm-snapshot",
+    "name": "State Polaroid",
+    "concept": "VM live snapshot and restore",
+    "depicts": "A boxy instant camera resting on a squat tripod stand, with a thick square film card sticking out of its front slot.",
+    "focal": "the square film card protruding from the front slot",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "vmm-serial",
+    "name": "Null-Modem Plug",
+    "concept": "Virtual UART / serial console",
+    "depicts": "A trapezoidal D-sub 9-pin connector housing standing on a small rubber boot, with two thumbscrews flanking its top.",
+    "focal": "the twin thumbscrews on the D-sub housing",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "vmm-watchdog",
+    "name": "Watchdog Bell",
+    "concept": "Virtual hardware watchdog timer",
+    "depicts": "A dome-shaped brass desk bell on a dark base with a tiny spring-loaded striker lever on its side.",
+    "focal": "the side striker lever",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "ept": {
+  "delete": [
+   {
+    "id": "ept-grid",
+    "why": "ART-STYLE rule 1: grid diagram",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ept-vtd",
+    "why": "ART-STYLE rule 1: bars",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ept-pte",
+    "why": "Low-priority generic row of alternating cells that is visually weak and redundant with the page table grid.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:ept-grid"
+   },
+   {
+    "id": "ept-dirty",
+    "why": "Minimal single-square sprite that is too visually generic to carry a full man-page entry.",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:ept-matrix",
+    "id": "ept-matrix",
+    "kind": "anchor",
+    "problem": "ART-STYLE rule 1: anchor is a grid; redraw as a place",
+    "redesign": "Redraw as a grounded twin-towered gatehouse bridged by a catwalk with glowing mint-green signal lamps.",
+    "ownerNotes": null,
+    "by": "art"
+   },
+   {
+    "key": "e:ept-walker",
+    "id": "ept-walker",
+    "kind": "prop",
+    "problem": "ART-STYLE rule 6: floating diagonal; ground it",
+    "redesign": "Ground the four stepping blocks as a solid stone staircase with a mint-green lantern resting on the bottom step.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "ept-pigeonhole",
+    "name": "Two-Level Mail Sorter",
+    "concept": "Extended Page Table (EPT) 2D address translation",
+    "depicts": "A freestanding slate-and-brass mail-sorting cabinet on four stubby feet with two stacked tiers of cubbies and one glowing mint-green parcel",
+    "focal": "the glowing mint-green parcel in the lower-right cubby",
+    "size": "medium",
+    "replacesKey": "e:ept-grid"
+   },
+   {
+    "id": "ept-switchstand",
+    "name": "DMA Switchstand",
+    "concept": "Intel VT-d / IOMMU DMA remapping",
+    "depicts": "A grounded iron railway switchstand bolted to a baseplate with a tall weighted lever and a slotted semaphore target plate",
+    "focal": "the slotted semaphore target plate",
+    "size": "large",
+    "replacesKey": "e:ept-vtd"
+   },
+   {
+    "id": "ept-canister",
+    "name": "Interrupt Canister",
+    "concept": "Posted-Interrupt Descriptor",
+    "depicts": "A cylindrical pneumatic-tube dispatch canister resting on a cradle stand with a brass end-cap and a glowing mint-green status band",
+    "focal": "the glowing mint-green status band",
+    "size": "small",
+    "replacesKey": "e:ept-pte"
+   },
+   {
+    "id": "ept-fault-reel",
+    "name": "Fault Tape Reel",
+    "concept": "IOMMU fault log",
+    "depicts": "A wall-mounted mechanical ticker-tape register with two brass spools and a short strip of notched paper tape hanging down",
+    "focal": "the notched paper tape strip",
+    "size": "small",
+    "replacesKey": "e:ept-dirty"
+   },
+   {
+    "id": "ept-tlb-stamp",
+    "name": "Cached Address Stamp",
+    "concept": "EPT / IOMMU Translation Lookaside Buffer (TLB)",
+    "depicts": "A wooden-handled rubber desk stamp resting in a shallow ink-pad tray on a small pedestal",
+    "focal": "the mint-green ink pad",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "ept-root-plaque",
+    "name": "Root Pointer Plaque",
+    "concept": "EPTP (Extended Page Table Pointer) & IOMMU Root Table",
+    "depicts": "A heavy bolted iron wall plaque with four corner rivets and a raised mint-green keyhole slot in the center",
+    "focal": "the raised mint-green keyhole slot",
+    "size": "medium",
+    "replacesKey": null
+   }
+  ]
+ },
+ "smram": {
+  "delete": [
+   {
+    "id": "sm-savestate",
+    "why": "ART-STYLE rule 1: panel of lines",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "sm-rsm",
+    "why": "Visually unclear generic grey square that does not distinctly convey the RSM instruction.",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "sm-tseg",
+    "why": "ART-STYLE rule 1: a single bar",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "sm-lockbit",
+    "why": "Duplicates the D_LCK hardware lock bit concept already better represented by e:sm-dlck.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:sm-dlck"
+   }
+  ],
+  "rework": [],
+  "new": [
+   {
+    "id": "sm-savestate",
+    "name": "Save-State Drawer",
+    "concept": "SMRAM Save State Map (CPU register dump on SMI entry)",
+    "depicts": "A heavy steel safe-deposit drawer sitting on a low base with a front pull handle and four tabbed metal index plates protruding from the top.",
+    "focal": "The four stacked tabbed index plates",
+    "size": "medium",
+    "replacesKey": "e:sm-savestate"
+   },
+   {
+    "id": "sm-rsm",
+    "name": "RSM Latch",
+    "concept": "RSM (Resume from System Management Mode) instruction",
+    "depicts": "A compact wall-mounted spring-loaded deadbolt latch on a rectangular backplate with a bright angled release lever.",
+    "focal": "The bright angled release lever",
+    "size": "small",
+    "replacesKey": "e:sm-rsm"
+   },
+   {
+    "id": "sm-tseg",
+    "name": "TSEG Bulkhead",
+    "concept": "TSEG (Top of Memory Segment) protected SMRAM region",
+    "depicts": "A tall riveted steel vault bulkhead bolted to the floor with a thick top flange and a recessed armored seam.",
+    "focal": "The vertical row of heavy rivets along the seam",
+    "size": "large",
+    "replacesKey": "e:sm-tseg"
+   },
+   {
+    "id": "sm-smbase",
+    "name": "SMBASE Compass",
+    "concept": "SMBASE register (relocatable base address of SMRAM)",
+    "depicts": "A small steel surveyor's transit dial mounted on a stubby tripod base with a single bright pointer needle.",
+    "focal": "The bright pointer needle on the dial",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "sm-smi-bell",
+    "name": "SMI# Klaxon",
+    "concept": "SMI# (System Management Interrupt) non-maskable hardware trigger",
+    "depicts": "A wall-mounted industrial alarm bell with a round dome, a bottom striker hammer, and a bright indicator stud.",
+    "focal": "The striker hammer poised beneath the dome",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "sm-dopen",
+    "name": "D_OPEN Keyway",
+    "concept": "D_OPEN bit (temporarily opens SMRAM to normal memory access)",
+    "depicts": "A small wall-mounted key-switch escutcheon with a turned key protruding from the vertical slot.",
+    "focal": "The turned key protruding from the slot",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "sm-handler",
+    "name": "SMI Dispatch Desk",
+    "concept": "SMM Interrupt Handler (privileged code at SMBASE + 0x8000)",
+    "depicts": "A sturdy steel-framed dispatch console standing on four legs with a tilted switchboard and a single glowing lamp.",
+    "focal": "The glowing dispatch lamp on the tilted console",
+    "size": "medium",
+    "replacesKey": null
+   }
+  ]
+ },
+ "me-minix-user": {
+  "delete": [
+   {
+    "id": "mx-amt",
+    "why": "ART-STYLE rule 1: UI panel",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "mx-tinycity",
+    "why": "Redundant with Amber Terrarium, depicting the same three miniature towers without the glass bottle.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:mx-bottle"
+   },
+   {
+    "id": "mx-rs",
+    "why": "ART-STYLE rule 1: two squares",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "mx-httpd",
+    "why": "Visually generic two-bar panel whose embedded web server concept overlaps heavily with Port 16992 (AMT).",
+    "backsManualOrTopic": false,
+    "similarTo": "e:mx-amt"
+   },
+   {
+    "id": "mx-tcp",
+    "why": "ART-STYLE rule 1: letter H on a panel",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "mx-tinytower",
+    "why": "Generic low-priority miniature tower that repeats the skyline motif of Amber Terrarium without a distinct concept.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:mx-bottle"
+   }
+  ],
+  "rework": [],
+  "new": [
+   {
+    "id": "mx-amt-intercom",
+    "name": "Out-of-Band Intercom",
+    "concept": "Intel AMT (Active Management Technology) remote out-of-band management",
+    "depicts": "A small brass intercom box standing on four stubby feet, with a perforated speaker grille, a side toggle switch, and a single amber indicator lamp on top.",
+    "focal": "The glowing amber indicator lamp above the speaker grille",
+    "size": "small",
+    "replacesKey": "e:mx-amt"
+   },
+   {
+    "id": "mx-rs-starter",
+    "name": "Reincarnation Crank",
+    "concept": "MINIX 3 Reincarnation Server (rs) restarting crashed user-space drivers",
+    "depicts": "A heavy ochre-and-brass magneto starter box on a flat base, with a side hand-crank and two upright jumper-clamp electrodes on top.",
+    "focal": "The twin upright jumper-clamp electrodes",
+    "size": "medium",
+    "replacesKey": "e:mx-rs"
+   },
+   {
+    "id": "mx-httpd-dispenser",
+    "name": "Port 16992 Dispenser",
+    "concept": "Embedded HTTP web server (httpd) serving ME management pages",
+    "depicts": "A compact brass countertop ticket-dispenser on four short feet, with a front slot ejecting a short cream paper slip.",
+    "focal": "The cream paper slip emerging from the front slot",
+    "size": "small",
+    "replacesKey": "e:mx-httpd"
+   },
+   {
+    "id": "mx-tcp-manifold",
+    "name": "Packet Manifold",
+    "concept": "User-space TCP/IP network stack (inet) inside the Management Engine",
+    "depicts": "A three-way brass pipe manifold bolted to a floor flange, topped with a round pressure gauge and flanked by two curved braided hoses.",
+    "focal": "The round pressure gauge mounted at the center junction",
+    "size": "large",
+    "replacesKey": "e:mx-tcp"
+   },
+   {
+    "id": "mx-pm-timeclock",
+    "name": "Process Timeclock",
+    "concept": "MINIX 3 Process Manager (pm) handling fork, exec, and exit",
+    "depicts": "A tall narrow brass punch-card timeclock on a pedestal base, with a top card slot and a small side lever.",
+    "focal": "The top card slot with a protruding punch card",
+    "size": "medium",
+    "replacesKey": null
+   },
+   {
+    "id": "mx-vfs-rolodex",
+    "name": "VFS Rotary Index",
+    "concept": "MINIX 3 Virtual File System (vfs) server",
+    "depicts": "A small brass rotary card index on an A-frame stand, with a side knob and fanned-out tabbed index cards.",
+    "focal": "The fanned-out tabbed index cards on the drum",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "mx-ipc-capsule",
+    "name": "Pneumatic Dispatch",
+    "concept": "MINIX 3 synchronous message-passing IPC between user-space servers",
+    "depicts": "A vertical brass pneumatic-tube station on a floor stand, with a hinged hatch and a cylindrical message capsule resting inside.",
+    "focal": "The cylindrical message capsule visible in the open hatch",
+    "size": "medium",
+    "replacesKey": null
+   },
+   {
+    "id": "mx-watchdog-clock",
+    "name": "Escapement Watchdog",
+    "concept": "User-space watchdog timer keeping the ME subsystem responsive",
+    "depicts": "A small exposed-gear brass escapement clockwork mounted on a weighted pedestal base.",
+    "focal": "The toothed brass balance wheel at the center",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "me-minix-kern": {
+  "delete": [
+   {
+    "id": "mk-ipc",
+    "why": "ART-STYLE rule 1: bracket-connector symbol",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "mk-arc",
+    "why": "Generic microchip silhouette that is visually indistinguishable from other IC props and better replaced by a microkernel-specific concept.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:dr-chip"
+   },
+   {
+    "id": "mk-notify",
+    "why": "ART-STYLE rule 1: ring symbol",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "mk-grant",
+    "why": "ART-STYLE rule 1: bracket-connector symbol; twin of mk-ipc",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "mk-fused",
+    "why": "Hardware e-fuses belong to silicon/firmware rather than the microkernel layer and the striped-bar sprite is visually generic.",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:mk-microkern",
+    "id": "mk-microkern",
+    "kind": "anchor",
+    "problem": "ART-STYLE rule 1: anchor is a diagram; redraw as a place",
+    "redesign": "Redraw as a physical brass-and-slate message-switching rotunda with a small central kernel plinth and four isolated server booths around it connected by pneumatic tubes.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "mk-pneumatic",
+    "name": "Pneumatic Tube",
+    "concept": "Synchronous IPC message passing between isolated processes",
+    "depicts": "A tall brass-and-copper pneumatic tube terminal standing on a cast-iron base, with two curved glass-windowed pipes and a cylindrical message canister inside.",
+    "focal": "The brass message canister glowing inside the glass tube window",
+    "size": "large",
+    "replacesKey": "e:mk-ipc"
+   },
+   {
+    "id": "mk-watchdog",
+    "name": "Reincarnation Bell",
+    "concept": "Reincarnation server watchdog that restarts crashed user-space servers",
+    "depicts": "A squat cast-iron clockwork pedestal topped by a domed brass alarm bell, a side wind-up key, and a spring-loaded reset hammer.",
+    "focal": "The spring-loaded brass hammer poised beside the bell dome",
+    "size": "medium",
+    "replacesKey": "e:mk-arc"
+   },
+   {
+    "id": "mk-annunciator",
+    "name": "Drop Annunciator",
+    "concept": "Asynchronous non-blocking kernel notification",
+    "depicts": "A small wall-mounted mahogany-and-brass annunciator box with a single hinged metal flag dropped down to reveal a bright amber target.",
+    "focal": "The dropped amber indicator flag",
+    "size": "small",
+    "replacesKey": "e:mk-notify"
+   },
+   {
+    "id": "mk-grantkey",
+    "name": "Grant Token",
+    "concept": "Safecopy memory grant for capability-based cross-process memory access",
+    "depicts": "A small hexagonal brass passkey token resting upright in a slotted dark-iron stand, stamped with a crisp keyhole notch.",
+    "focal": "The notched keyhole cutout in the brass token",
+    "size": "small",
+    "replacesKey": "e:mk-grant"
+   },
+   {
+    "id": "mk-sandbox",
+    "name": "Driver Bell",
+    "concept": "User-space driver isolation so faulty drivers cannot crash the kernel",
+    "depicts": "A bolted steel-and-glass isolation bell jar mounted on a heavy iron baseplate, enclosing a tiny spinning brass gearset safely inside.",
+    "focal": "The tiny brass gearset sealed behind the thick glass dome",
+    "size": "medium",
+    "replacesKey": "e:mk-fused"
+   },
+   {
+    "id": "mk-ringbuffer",
+    "name": "Ring Carousel",
+    "concept": "Kernel-to-user-space circular message queue",
+    "depicts": "A tabletop brass-and-slate lazy-Susan carousel on a central spindle, holding six slate-and-amber message slots around its rim.",
+    "focal": "The glowing amber slot aligned at the front of the carousel",
+    "size": "medium",
+    "replacesKey": null
+   },
+   {
+    "id": "mk-endpoint",
+    "name": "Endpoint Jack",
+    "concept": "Process endpoint address used for microkernel IPC routing",
+    "depicts": "A small upright slate switchboard block on rubber feet with a single brass jack socket and a plugged-in braided patch cord.",
+    "focal": "The brass jack socket with its amber collar",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "mk-schedwheel",
+    "name": "Priority Ratchet",
+    "concept": "Multilevel priority queue scheduler",
+    "depicts": "A compact stepped brass ratchet wheel mounted on a dark-iron A-frame stand, with a spring pawl resting on the highest tooth.",
+    "focal": "The stepped brass teeth and clicking pawl",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "uarch": {
+  "delete": [
+   {
+    "id": "ua-rob",
+    "why": "ART-STYLE rule 1: bars",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ua-bpred",
+    "why": "ART-STYLE rule 1: branch diagram, floating",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ua-l1",
+    "why": "ART-STYLE rule 1: grid of squares",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ua-alu",
+    "why": "ART-STYLE rule 1: ALU schematic symbol",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "ua-btb",
+    "why": "Overlaps conceptually with the Branch Predictor and is visually just a generic barred rectangle.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:ua-bpred"
+   },
+   {
+    "id": "ua-rs",
+    "why": "Visually and conceptually too close to the Reorder Buffer as a slotted out-of-order structure.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:ua-rob"
+   },
+   {
+    "id": "ua-prefetch",
+    "why": "Visually abstract three-block sprite that is weaker than L1 Cache for representing memory hierarchy.",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:ua-pipeline",
+    "id": "ua-pipeline",
+    "kind": "anchor",
+    "problem": "ART-STYLE rule 1: anchor is a pipeline diagram; redraw as a machine/factory line",
+    "redesign": "Redraw as a multi-station factory assembly line on floor-mounted steel legs, with four distinct mechanical stamping stations linked by a conveyor belt.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "ua-rob",
+    "name": "In-Order Ticket Rail",
+    "concept": "Reorder Buffer (ROB)",
+    "depicts": "A tabletop brass ticket-rail stand with a weighted base and four hanging numbered metal clips holding small punched cards in a row.",
+    "focal": "One highlighted brass clip at the front end of the rail ready to be unhooked.",
+    "size": "medium",
+    "replacesKey": "e:ua-rob"
+   },
+   {
+    "id": "ua-bpred",
+    "name": "Switchman's Lever",
+    "concept": "Branch Predictor",
+    "depicts": "A small floor-mounted railway switch stand with a cast-iron base, an upright throw lever, and a two-aspect semaphore paddle on top.",
+    "focal": "The tilted semaphore paddle pointing toward the predicted track.",
+    "size": "medium",
+    "replacesKey": "e:ua-bpred"
+   },
+   {
+    "id": "ua-l1",
+    "name": "Quick-Draw Cubby",
+    "concept": "L1 Cache",
+    "depicts": "A compact steel desk-side cabinet on four short legs with three shallow, pull-out brass-handled drawers.",
+    "focal": "The top drawer slightly pulled open with a glowing pale-blue card peeking out.",
+    "size": "medium",
+    "replacesKey": "e:ua-l1"
+   },
+   {
+    "id": "ua-alu",
+    "name": "Brass Arithmometer",
+    "concept": "Arithmetic Logic Unit (ALU)",
+    "depicts": "A heavy cast-iron mechanical calculator sitting on a flat base, featuring a stepped drum housing, a top row of number wheels, and a side crank.",
+    "focal": "The gleaming brass hand crank on the right side.",
+    "size": "large",
+    "replacesKey": "e:ua-alu"
+   },
+   {
+    "id": "ua-tlb",
+    "name": "Page-Flipper Index",
+    "concept": "Translation Lookaside Buffer (TLB)",
+    "depicts": "A small desktop rotary card index on a two-legged wire stand with a side knob and fanned index cards.",
+    "focal": "A single bright cyan index tab sticking up at the top of the wheel.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "ua-regfile",
+    "name": "Pigeonhole Tag Rack",
+    "concept": "Register File and Register Renaming",
+    "depicts": "A compact wall-mounted brass key-and-tag rack with four small hooks holding stamped metal key fobs.",
+    "focal": "A bright pale-blue tag hanging on the second hook.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "ua-clock",
+    "name": "Quartz Crystal Canister",
+    "concept": "Clock Generator (Oscillator)",
+    "depicts": "A tiny silver-capped quartz crystal canister mounted upright on a two-pin ceramic base.",
+    "focal": "A bright cyan glint on the beveled top of the crystal canister.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "ua-storebuf",
+    "name": "Outbox Card Tray",
+    "concept": "Store Buffer",
+    "depicts": "A small slanted metal wire-mesh desk tray on rubber feet, holding a neat stack of three punched cards.",
+    "focal": "The top card protruding slightly from the front lip of the tray.",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "rtl": {
+  "delete": [
+   {
+    "id": "rtl-nand",
+    "why": "ART-STYLE rule 1: gate schematic symbol",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "rtl-dff",
+    "why": "ART-STYLE rule 1: flip-flop schematic symbol",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "rtl-wave",
+    "why": "ART-STYLE rule 1: waveform glyph",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "rtl-mux",
+    "why": "ART-STYLE rule 1: mux schematic symbol",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "rtl-adder",
+    "why": "Visually generic block with a plus sign that is weaker than the core gate, flip-flop, and mux props.",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "rtl-clk",
+    "why": "Redundant clock-distribution prop alongside the Clock H-Tree anchor.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:rtl-htree"
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:rtl-htree",
+    "id": "rtl-htree",
+    "kind": "anchor",
+    "problem": "ART-STYLE rule 1: anchor is an H-tree diagram; redraw as a place",
+    "redesign": "Redraw as a symmetrical clockwork distribution gantry with a central brass metronome tower feeding four branching overhead conduit arms to corner bell-housings.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "rtl-nand-press",
+    "name": "NAND Press",
+    "concept": "NAND Gate (Universal Logic Gate)",
+    "depicts": "A squat cast-iron bench press bolted to a floor plate, with two vertical input levers on top, a heavy stamping die in the middle, and a single spring-loaded output plunger sticking out the right side.",
+    "focal": "the two top levers pressing down to pop the side plunger",
+    "size": "medium",
+    "replacesKey": "e:rtl-nand"
+   },
+   {
+    "id": "rtl-flip-latch",
+    "name": "Clocked Latch",
+    "concept": "D Flip-Flop (Edge-Triggered Storage)",
+    "depicts": "A small upright brass-and-slate mechanical flip-card box on four stubby feet, with a side crank handle and a hinged front shutter that snaps open to show a single lit tile.",
+    "focal": "the hinged shutter snapping open on the side crank's tick",
+    "size": "small",
+    "replacesKey": "e:rtl-dff"
+   },
+   {
+    "id": "rtl-logic-analyzer",
+    "name": "Logic Probe Bench",
+    "concept": "Timing Waveform & Logic Analyzer",
+    "depicts": "A compact benchtop logic analyzer on rubber feet with a recessed CRT screen showing two stepped square-wave traces and three tiny probe jacks along the bottom bezel.",
+    "focal": "the two stepped square-wave traces on the recessed screen",
+    "size": "medium",
+    "replacesKey": "e:rtl-wave"
+   },
+   {
+    "id": "rtl-track-switch",
+    "name": "Signal Switcher",
+    "concept": "Multiplexer (MUX)",
+    "depicts": "A small floor-mounted railway-style signal switch box with two brass input rails entering the left, a tall selector lever on top, and one output rail exiting the right.",
+    "focal": "the tall selector lever routing one of two input rails to the single output",
+    "size": "small",
+    "replacesKey": "e:rtl-mux"
+   },
+   {
+    "id": "rtl-carry-abacus",
+    "name": "Carry Abacus",
+    "concept": "Ripple-Carry Adder",
+    "depicts": "A tall wooden-framed four-column mechanical abacus on a flat base, with bright cyan beads pushed up on the right columns and a single overflow bead tipped at the top-left.",
+    "focal": "the tipped overflow carry bead at the top-left",
+    "size": "large",
+    "replacesKey": "e:rtl-adder"
+   },
+   {
+    "id": "rtl-shift-rack",
+    "name": "Bucket-Brigade Rack",
+    "concept": "Shift Register",
+    "depicts": "A wall-mounted horizontal rail holding four sliding square tiles in a row, with a spring-loaded pusher at the left end.",
+    "focal": "the four sliding tiles lined up on the rail",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "rtl-state-drum",
+    "name": "State Drum",
+    "concept": "Finite State Machine (FSM)",
+    "depicts": "A small upright mechanical drum-sequencer on a weighted base, with a slotted cylinder showing one lit state window and a ratchet pawl on the side.",
+    "focal": "the single lit state window in the slotted cylinder",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "rtl-truth-pegboard",
+    "name": "Truth Pegboard",
+    "concept": "Look-Up Table (LUT) / Truth Table",
+    "depicts": "A standing wooden-framed pegboard on two splayed feet, with a four-by-two grid of holes holding bright cyan and dark pegs.",
+    "focal": "the grid of bright and dark pegs",
+    "size": "medium",
+    "replacesKey": null
+   }
+  ]
+ },
+ "cmos": {
+  "delete": [
+   {
+    "id": "cm-via",
+    "why": "Redundant single-crossing subset of the multilayer metal interconnect and via grid already shown by Metal Manhattan.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:cm-viatower"
+   },
+   {
+    "id": "cm-well",
+    "why": "ART-STYLE rule 1: two coloured squares",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "cm-nwell",
+    "why": "Redundant single-well subset of Complementary Tub and visually just a plain rectangle.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:cm-well"
+   },
+   {
+    "id": "cm-contact",
+    "why": "Visually minimal square pad whose contact-window concept is already shown in FinFET Cell and Metal Manhattan.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:cm-finfet"
+   },
+   {
+    "id": "cm-metal",
+    "why": "ART-STYLE rule 1: two coloured bars",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   }
+  ],
+  "rework": [],
+  "new": [
+   {
+    "id": "cm-tub",
+    "name": "Complementary Tub",
+    "concept": "Complementary N-well and P-well CMOS substrate isolation",
+    "depicts": "A divided ceramic-and-silicon dual-basin bath standing on four short feet, with a purple-tinted left basin and an orange-tinted right basin separated by a raised teal divider wall.",
+    "focal": "The raised teal isolation wall dividing the two differently tinted basins.",
+    "size": "medium",
+    "replacesKey": "e:cm-well"
+   },
+   {
+    "id": "cm-void",
+    "name": "Electromigration Void",
+    "concept": "Electromigration voiding in a high-current metal interconnect",
+    "depicts": "A thick orange copper busbar mounted on two dark insulator blocks, with a jagged dark-ink pit eaten out of its top edge.",
+    "focal": "The jagged dark void notch carved into the busbar's upper edge.",
+    "size": "small",
+    "replacesKey": "e:cm-contact"
+   },
+   {
+    "id": "cm-busbar",
+    "name": "Metal Busbar Rack",
+    "concept": "Multi-layer metal routing and inter-layer dielectric spacing",
+    "depicts": "A stepped three-tier rack of parallel copper and purple metal rails bolted to two upright porcelain insulator posts.",
+    "focal": "The stacked metal rails separated by air-gap spacers between the upright posts.",
+    "size": "medium",
+    "replacesKey": "e:cm-metal"
+   },
+   {
+    "id": "cm-probe",
+    "name": "Wafer Microprobe",
+    "concept": "Wafer-level microprobe contact testing",
+    "depicts": "A miniature brass-and-steel needle probe arm angled down from a weighted benchtop stand onto a tiny silicon pad.",
+    "focal": "The fine needle tip touching the silicon pad.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "cm-cmp",
+    "name": "Planarizing Platen",
+    "concept": "Chemical-mechanical planarization (CMP) of metal and dielectric layers",
+    "depicts": "A heavy circular polishing platen on a squat pedestal with a rotating spindle arm pressing a wafer carrier disk flat against its teal pad.",
+    "focal": "The flat wafer carrier disk pressed against the circular polishing pad.",
+    "size": "large",
+    "replacesKey": null
+   },
+   {
+    "id": "cm-mask",
+    "name": "Quartz Reticle",
+    "concept": "Photolithography photomask / reticle",
+    "depicts": "A framed quartz glass plate standing upright in a slotted dark-metal easel, etched with a tiny crisp grid pattern.",
+    "focal": "The etched grid pattern inside the upright glass frame.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "cm-capacitor",
+    "name": "Dielectric Sandwich",
+    "concept": "Metal-insulator-metal (MIM) decoupling and parasitic capacitance",
+    "depicts": "Two parallel metal plates clamped upright in a dark ceramic base, separated by a thin glowing teal dielectric slab.",
+    "focal": "The thin teal dielectric slab sandwiched between the two upright plates.",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "litho": {
+  "delete": [
+   {
+    "id": "li-fringe",
+    "why": "Visually redundant with the alignment reticle as another set of concentric violet rings with a central cross.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:li-reticle"
+   },
+   {
+    "id": "li-dopant",
+    "why": "Low-priority ring-and-cross sprite that is visually similar to the reticle and conceptually overlaps with the lattice point defect.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:li-reticle"
+   },
+   {
+    "id": "li-photon",
+    "why": "Tiny, low-priority optical flare that is visually weak and conceptually overlaps with the stray EUV photon critter.",
+    "backsManualOrTopic": false,
+    "similarTo": "c:litho:core"
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:li-lattice",
+    "id": "li-lattice",
+    "kind": "prop",
+    "problem": "ART-STYLE rule 1: dot grid; make it a wafer/object",
+    "redesign": "Redraw as a physical circular silicon wafer mounted on a dark-indigo chuck, with the crystal lattice grid and single pale-lavender point defect etched onto its surface.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "li-boule",
+    "name": "Silicon Boule",
+    "concept": "Czochralski monocrystalline silicon ingot",
+    "depicts": "A cylindrical violet silicon ingot with a tapered conical top and thin seed-crystal rod, resting horizontally in a dark-indigo V-block cradle.",
+    "focal": "the tapered conical seed-pull neck",
+    "size": "large",
+    "replacesKey": "e:li-dopant"
+   },
+   {
+    "id": "li-grating",
+    "name": "Ruled Grating",
+    "concept": "Optical diffraction and interference",
+    "depicts": "A small rectangular violet glass plate with fine vertical ruled grooves, clamped upright in a dark-indigo lab pedestal.",
+    "focal": "the parallel vertical diffraction grooves",
+    "size": "small",
+    "replacesKey": "e:li-fringe"
+   },
+   {
+    "id": "li-wafer-boat",
+    "name": "Wafer Boat",
+    "concept": "Batch wafer cassette carrier",
+    "depicts": "A slotted dark-indigo quartz carrier rack standing on flat feet, holding four upright circular violet silicon wafers in parallel grooves.",
+    "focal": "the row of notched wafer rims protruding from the slots",
+    "size": "medium",
+    "replacesKey": null
+   },
+   {
+    "id": "li-coater",
+    "name": "Spin Coater",
+    "concept": "Photoresist spin coating",
+    "depicts": "A squat dark-indigo cylindrical vacuum chuck holding a flat violet wafer on top, with a tiny curved dispense nozzle arm mounted on the side.",
+    "focal": "the curved dispense nozzle poised above the wafer center",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "bandgap": {
+  "delete": [
+   {
+    "id": "bg-band",
+    "why": "Redundant smaller version of the Valence Viaduct anchor, depicting the same valence and conduction bands.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:bg-diagram"
+   },
+   {
+    "id": "bg-tunnel",
+    "why": "ART-STYLE rule 1: abstract bar",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bg-wave",
+    "why": "ART-STYLE rule 1: sine wave in a box",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bg-photonabs",
+    "why": "ART-STYLE rule 1: diagram strokes",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "bg-recomb",
+    "why": "Inverse of Optical Promotion with a weak, abstract visual of two squares separated by a bar.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:bg-photonabs"
+   }
+  ],
+  "rework": [
+   {
+    "key": "e:bg-diagram",
+    "id": "bg-diagram",
+    "kind": "anchor",
+    "problem": "ART-STYLE rule 1: anchor is a band diagram; redraw as a place/instrument",
+    "redesign": "Redraw as a two-tier semiconductor viaduct bench with a lower valence deck and an upper conduction deck separated by a physical gap and linked by five vertical glass elevator tubes holding glowing carrier beads.",
+    "ownerNotes": null,
+    "by": "art"
+   }
+  ],
+  "new": [
+   {
+    "id": "bg-tunnel-wall",
+    "name": "Phantom Wall",
+    "concept": "Quantum tunneling",
+    "depicts": "A squat, thick rectangular stone-and-quartz barrier block standing on a flat base, with a glowing cyan bead embedded halfway through its side.",
+    "focal": "the cyan bead emerging from the solid wall face",
+    "size": "medium",
+    "replacesKey": "e:bg-tunnel"
+   },
+   {
+    "id": "bg-wave-tank",
+    "name": "Ripple Tank",
+    "concept": "Electron wave function",
+    "depicts": "A wide glass-walled laboratory water tank on four stubby legs, with a brass hand-crank on the left and a frozen stepped cyan standing wave inside.",
+    "focal": "the stepped cyan standing wave inside the glass tank",
+    "size": "large",
+    "replacesKey": "e:bg-wave"
+   },
+   {
+    "id": "bg-photon-lamp",
+    "name": "Promotion Prism",
+    "concept": "Optical carrier promotion",
+    "depicts": "A small brass-mounted crystal prism on a pedestal with a tiny upper shelf holding a lifted cyan bead.",
+    "focal": "the glowing cyan bead perched on the upper shelf",
+    "size": "medium",
+    "replacesKey": "e:bg-photonabs"
+   },
+   {
+    "id": "bg-led-bulb",
+    "name": "Recombination Diode",
+    "concept": "Radiative recombination",
+    "depicts": "A tiny domed glass LED bulb standing on two wire leads, glowing with a single bright cyan spark at its tip.",
+    "focal": "the bright cyan spark inside the glass dome",
+    "size": "small",
+    "replacesKey": "e:bg-recomb"
+   },
+   {
+    "id": "bg-fermi-gauge",
+    "name": "Fermi Sight-Glass",
+    "concept": "Fermi level",
+    "depicts": "A vertical glass level-gauge tube mounted in brass end-caps, half-filled with dark cyan fluid and marked with a bright horizontal meniscus.",
+    "focal": "the bright horizontal fluid meniscus",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "bg-dopant-cruet",
+    "name": "Dopant Shaker",
+    "concept": "Semiconductor doping",
+    "depicts": "A tiny faceted glass salt-shaker with a perforated silver cap, holding a pinch of pale-blue impurity crystals.",
+    "focal": "the perforated silver cap",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "bg-zener-gate",
+    "name": "Avalanche Fuse",
+    "concept": "Zener breakdown",
+    "depicts": "A short ceramic-and-glass cartridge fuse standing upright in two brass clips, with a jagged cyan arc bridged inside.",
+    "focal": "the jagged cyan arc inside the glass tube",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ },
+ "landauer": {
+  "delete": [
+   {
+    "id": "la-ray",
+    "why": "A single dark-navy pixel in an 18x18 frame is visually invisible and its thermal radiation concept is better represented by Waste Heat.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:la-heat"
+   },
+   {
+    "id": "la-entropy",
+    "why": "Visually redundant with Reset Cell (a hollow dark-navy shape enclosing a single pale-blue pixel) and less specific to bit erasure.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:la-erase"
+   },
+   {
+    "id": "la-spark",
+    "why": "Lowest-priority tiny 3x3 pixel cross whose kT ln 2 energy dissipation concept duplicates Waste Heat.",
+    "backsManualOrTopic": false,
+    "similarTo": "e:la-heat"
+   },
+   {
+    "id": "la-erase",
+    "why": "ART-STYLE rule 1: dot in a square",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   },
+   {
+    "id": "la-heat",
+    "why": "ART-STYLE rule 1: abstract bars",
+    "backsManualOrTopic": false,
+    "similarTo": null
+   }
+  ],
+  "rework": [],
+  "new": [
+   {
+    "id": "la-thermometer",
+    "name": "kT Thermometer",
+    "concept": "Waste Heat (kT ln 2)",
+    "depicts": "A glass bulb thermometer mounted on a small metal backing plate, with a dark-navy column rising from a round lower bulb.",
+    "focal": "The bright cyan-white meniscus at the top of the thermometer column.",
+    "size": "small",
+    "replacesKey": "e:la-heat"
+   },
+   {
+    "id": "la-bellows",
+    "name": "Phase Bellows",
+    "concept": "Irreversible Erasure",
+    "depicts": "A hinged wooden-and-leather hand bellows standing upright on its flat nozzle base, with pleated accordion ribs and two handles.",
+    "focal": "The pinched accordion pleats of the bellows.",
+    "size": "medium",
+    "replacesKey": "e:la-erase"
+   },
+   {
+    "id": "la-demon",
+    "name": "Demon's Trapdoor",
+    "concept": "Maxwell's Demon",
+    "depicts": "A tiny brass-framed partition box standing on two feet, with a hinged sliding trapdoor in the middle and a small knob on top.",
+    "focal": "The half-open sliding trapdoor in the partition.",
+    "size": "small",
+    "replacesKey": "e:la-entropy"
+   },
+   {
+    "id": "la-szilard",
+    "name": "Szilard Cylinder",
+    "concept": "Szilard Engine",
+    "depicts": "A horizontal glass-walled piston cylinder mounted on a heavy pedestal, with a central dividing piston and a small hanging weight on a pulley cord.",
+    "focal": "The suspended weight hanging from the side pulley.",
+    "size": "medium",
+    "replacesKey": "e:la-spark"
+   },
+   {
+    "id": "la-radiator",
+    "name": "Fin Radiator",
+    "concept": "Thermal Radiation",
+    "depicts": "A tall cast-iron finned radiator standing on four stubby legs, with six vertical ribbed columns joined by top and bottom manifolds and a side valve wheel.",
+    "focal": "The glowing pale-cyan valve wheel on the side pipe.",
+    "size": "large",
+    "replacesKey": "e:la-ray"
+   },
+   {
+    "id": "la-pendulum",
+    "name": "Ballistic Pendulum",
+    "concept": "Reversible Computing",
+    "depicts": "A miniature brass A-frame stand resting on a flat base, suspending a single round bob on a vertical rod.",
+    "focal": "The round bob hanging at the bottom of the rod.",
+    "size": "small",
+    "replacesKey": null
+   },
+   {
+    "id": "la-calorimeter",
+    "name": "Bomb Calorimeter",
+    "concept": "Landauer Bound",
+    "depicts": "A stout cylindrical metal vessel with a bolted lid, two side handles, and a short stubby dial gauge protruding from the top.",
+    "focal": "The bolted flange rim around the lid.",
+    "size": "small",
+    "replacesKey": null
+   }
+  ]
+ }
+}

@@ -17,6 +17,10 @@ gets redrawn.
 1. **Things, not symbols.** Every prop is a physical object that could sit in that layer's place: a resistor is a
    resistor component, not the schematic zigzag; a flowchart is a whiteboard with a flowchart on it. No free-floating
    UI glyphs, arrows or diagram strokes. Setpieces are places or machines.
+   - **GUI layers (Internet, Browser, Application) are looser:** their place is a desktop, so windows, icons and
+     widgets count as objects there. Each one still needs a recognisable, distinct shape (a folder, a trash can, a
+     calendar, a bell). A generic "panel with coloured bars" is not one, and two widgets that only differ in which
+     bars they hold are one widget.
 2. **Text is rare and whole.** At most 4 glyphs, from the shared bitmap font, never cut off. A label never stands in
    for the object: a sign with a word on it is fine, a word in a box is not. A prop that needs more text to be read
    needs a different design.
