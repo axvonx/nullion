@@ -15,7 +15,7 @@ import { drawEntity, setPaint } from '../../render/v4/kit';
 import { V4_LIBRARIES } from '../../render/v4/libraries';
 import { drawTopicProp, TOPIC_PROPS } from '../../render/v4/topics';
 import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from '../../render/v4/watermark';
-import { CELL_H, drawGlyph, layoutWord } from '../wordmark';
+import { CELL_H, CELL_W, GLYPHS, WORDMARK_OUTLINE, drawGlyph, layoutWord } from '../wordmark';
 
 /**
  * The Field Manual as an archive ring binder of manual pages (FIELD-MANUAL-PLAN.md). Layout comes from the pure
@@ -530,11 +530,11 @@ export class FieldManualBinder {
     }
   }
 
-  /** Paper-inked "nullion" title wordmark with an occasional, restrained photocopier/glitch homage. */
+  /** White-fill, black-outline "nullion" wordmark (matching the title screen) with periodic title-style homage glitches. */
   private titleWordmark(): HTMLCanvasElement {
     const { glyphs, width } = layoutWord('nullion');
-    const padX = 3;
-    const padY = 3;
+    const padX = 4;
+    const padY = 4;
     const w = width + padX * 2;
     const h = CELL_H + padY * 2;
     const c = el('canvas', 'bd-t-wm');
@@ -547,29 +547,31 @@ export class FieldManualBinder {
     if (!ctx) return c;
     ctx.imageSmoothingEnabled = false;
 
-    const INK = '#19191d';
-    const SHADOW = 'rgba(25, 25, 29, 0.14)';
-    const GHOST = 'rgba(62, 90, 154, 0.38)';
-    const FAINT = '#8e8c92';
+    const FILL = '#ffffff';
+    const OUT = WORDMARK_OUTLINE;
+    const SHADOW = 'rgba(13, 11, 18, 0.28)';
+    const HEX_POOL = ['0', '1', 'x', 'F', 'A', 'E', '3'] as const;
 
-    let nextAt = performance.now() + 2600 + Math.random() * 2400;
+    let nextAt = performance.now() + 1400 + Math.random() * 1000;
     let until = 0;
     let kind = 0;
     let pick = 0;
     let dir = 1;
     let bandY = 0;
+    let hexCh: string = '0';
     let lastDrawn = -1;
 
     const paint = (now: number) => {
       const glitching = !reducedMotion() && now >= nextAt && now < until;
       if (!reducedMotion() && now >= nextAt && until < nextAt) {
-        until = nextAt + 120 + Math.random() * 70;
-        kind = Math.floor(Math.random() * 3);
+        until = nextAt + 220 + Math.random() * 140;
+        kind = Math.floor(Math.random() * 8);
         pick = Math.floor(Math.random() * glyphs.length);
         dir = Math.random() < 0.5 ? -1 : 1;
         bandY = padY + 2 + Math.floor(Math.random() * (CELL_H - 4));
+        hexCh = HEX_POOL[Math.floor(Math.random() * HEX_POOL.length)]!;
       } else if (!reducedMotion() && until >= nextAt && now >= until) {
-        nextAt = now + 4500 + Math.random() * 3500;
+        nextAt = now + 2000 + Math.random() * 1000;
       }
       const stateKey = glitching ? 1 : 0;
       if (stateKey === lastDrawn) return;
@@ -578,23 +580,48 @@ export class FieldManualBinder {
       ctx.clearRect(0, 0, w, h);
       glyphs.forEach((g, i) => {
         const isHit = glitching && i === pick;
-        if (isHit && kind === 0) {
-          // Subtle blue-pencil misregistration + 1px shift on a single letter.
-          drawGlyph(ctx, g.rows, padX + g.x - dir, padY, GHOST, 'transparent', 'transparent', '');
-          drawGlyph(ctx, g.rows, padX + g.x + dir, padY, INK, 'transparent', SHADOW, '');
+        const gx = padX + g.x;
+        const gy = padY;
+        if (glitching && kind === 0) {
+          // null-zero: o -> 0, l/i -> 1
+          const alt = g.ch === 'o' ? '0' : g.ch === 'l' || g.ch === 'i' ? '1' : g.ch;
+          const rows = GLYPHS[alt] ?? g.rows;
+          const fill = alt !== g.ch ? '#ffe25a' : FILL;
+          drawGlyph(ctx, rows, gx, gy, fill, OUT, SHADOW, '');
         } else if (isHit && kind === 1) {
-          // Brief toner skip on one letter.
-          drawGlyph(ctx, g.rows, padX + g.x, padY + 1, FAINT, 'transparent', 'transparent', '');
+          // bitflip: invert one letter (dark fill, white outline)
+          drawGlyph(ctx, g.rows, gx, gy, OUT, FILL, SHADOW, '');
+        } else if (isHit && kind === 2) {
+          // heisenbug: twin ghost offset
+          drawGlyph(ctx, g.rows, gx - dir, gy, 'rgba(62, 90, 154, 0.45)', 'transparent', 'transparent', '');
+          drawGlyph(ctx, g.rows, gx + dir, gy, FILL, OUT, SHADOW, '');
+        } else if (isHit && kind === 3) {
+          // hex-corrupt: swap one letter with a hex digit
+          drawGlyph(ctx, GLYPHS[hexCh] ?? g.rows, gx, gy, '#ffb000', OUT, SHADOW, '');
+        } else if (glitching && kind === 4 && (i === pick || i === (pick + 1) % glyphs.length)) {
+          // race: two letters jitter out of phase
+          const dy = i === pick ? dir : -dir;
+          drawGlyph(ctx, g.rows, gx, gy + dy, FILL, OUT, SHADOW, '');
+        } else if (isHit && kind === 5) {
+          // npe: letter drops out to a hollow void box
+          ctx.fillStyle = OUT;
+          ctx.fillRect(gx, gy + 1, CELL_W, CELL_H - 1);
+          ctx.fillStyle = '#f1f0ec';
+          ctx.fillRect(gx + 1, gy + 2, CELL_W - 2, CELL_H - 3);
         } else {
-          drawGlyph(ctx, g.rows, padX + g.x, padY, INK, 'transparent', SHADOW, '');
+          drawGlyph(ctx, g.rows, gx, gy, FILL, OUT, SHADOW, '');
         }
       });
 
-      if (glitching && kind === 2) {
-        // Tiny 2px horizontal plate-shear slice.
+      if (glitching && kind === 6) {
+        // bit-shift: 2px horizontal slice shear
         const slice = ctx.getImageData(0, bandY, w, 2);
         ctx.clearRect(0, bandY, w, 2);
         ctx.putImageData(slice, dir, bandY);
+      } else if (glitching && kind === 7) {
+        // scan-dropout: clear alternating rows across the picked letter
+        const gx = padX + glyphs[pick]!.x;
+        for (let r = 0; r < CELL_H; r += 2) ctx.clearRect(gx - 1, padY + r, CELL_W + 2, 1);
       }
     };
 
