@@ -35,6 +35,12 @@ describe('answer bank files', () => {
     }
   });
 
+  it('accepts the deep operating systems the owner caught missing (not in Wikidata at all)', async () => {
+    const qs = BANK_QUESTIONS.filter((q) => q.id === 'operating-system');
+    const set = buildAnswerSet('bank', 'Bank', await loadBankTerms(qs.map((q) => q.id)), qs);
+    for (const g of ['DEC MICA', 'MICA', 'Topaz', 'DEC Topaz']) expect(set.check('operating-system', g).kind, g).toBe('accepted');
+  });
+
   it('header id and domain match the file path', async () => {
     for (const r of BANK_INDEX) await expect(loadBankCategory(r.id)).resolves.toMatchObject({ id: r.id, domain: r.domain });
   });

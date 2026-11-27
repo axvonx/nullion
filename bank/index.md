@@ -187,7 +187,7 @@
 | monitoring-system | Name a monitoring system | os-systems | draft | 0 | 0 | 7 |
 | network-protocol | Name a network protocol | os-systems | draft | 0 | 0 | 7 |
 | nvme-command | Name an NVMe command | os-systems | draft | 0 | 0 | 7 |
-| operating-system | Name an operating system | os-systems | approved | 2064 | 2043 | 0 |
+| operating-system | Name an operating system | os-systems | approved | 2259 | 2238 | 0 |
 | routing-protocol | Name a routing protocol | os-systems | draft | 0 | 0 | 7 |
 | socket-address-family | Name a socket address family | os-systems | draft | 0 | 0 | 7 |
 | systemd-directive | Name a systemd unit directive | os-systems | draft | 0 | 0 | 7 |
