@@ -3,7 +3,7 @@ id: lock · domain: os-systems · status: approved
 > Any locking or mutual-exclusion primitive, protocol or scheme.
 
 ## Off-by-one
-- mutex | mutual exclusion lock
+- mutex | mutual exclusion lock | std::mutex | pthread mutex | pthread_mutex
 - spinlock | spin lock
 - semaphore
 
@@ -12,7 +12,7 @@ id: lock · domain: os-systems · status: approved
   note: Not technically a lock, which is why everyone says it.
 
 ## Null pointer exception
-- read-write lock | rwlock | readers-writer lock | reader-writer lock | shared-exclusive lock
+- read-write lock | rwlock | readers-writer lock | reader-writer lock | shared-exclusive lock | std::shared_mutex
 - test-and-set lock | tas lock | test and set lock
 - optimistic lock | optimistic locking
 - pessimistic lock | pessimistic locking
@@ -22,9 +22,12 @@ id: lock · domain: os-systems · status: approved
 - table lock | table-level lock
 - file lock | flock | file locking
 - distributed lock
+- global interpreter lock | GIL
+- counting semaphore
+- binary semaphore
 
 ## Memory leak
-- recursive mutex | reentrant lock | reentrant mutex | recursive lock
+- recursive mutex | reentrant lock | reentrant mutex | recursive lock | ReentrantLock | std::recursive_mutex
 - adaptive mutex | adaptive lock
 - ticket lock | ticket spinlock
 - seqlock | sequence lock | seqcount
@@ -37,6 +40,11 @@ id: lock · domain: os-systems · status: approved
 - exclusive lock | x lock
 - advisory lock
 - queue lock | queuing lock | queue-based lock
+- critical section | CRITICAL_SECTION
+- record lock
+- page lock
+- latch
+- intrinsic lock | monitor lock
 
 ## Race condition
 - MCS lock | mellor-crummey scott lock
@@ -48,6 +56,13 @@ id: lock · domain: os-systems · status: approved
 - intention lock | intent lock
 - Redlock
 - biased lock | biased locking
+- SRW lock | slim reader/writer lock | slim reader-writer lock | SRWLOCK
+- IX lock | intention exclusive lock
+- IS lock | intention shared lock
+- update lock | U lock
+- gap lock
+- next-key lock
+- predicate lock
 
 ## Heisenbug
 - qrwlock | queued rwlock | queued read-write lock
@@ -70,6 +85,25 @@ id: lock · domain: os-systems · status: approved
 - lglock | local/global lock
 - brlock | big reader lock
 - osq lock | optimistic spin queue | osq
+- SIX lock | shared intention exclusive lock
+- ERESOURCE | executive resource
+- push lock | pushlock | EX_PUSH_LOCK
+- fast mutex | FAST_MUTEX
+- guarded mutex | KGUARDED_MUTEX
+- in-stack queued spin lock | in-stack queued spinlock
+- rmlock | read-mostly lock
+- sx lock | sx(9)
+- lockmgr lock | lockmgr
+- sleep mutex
+- insert intention lock
+- AUTO-INC lock | auto-increment lock
+- key-range lock
+- schema lock | Sch-M lock
+- LWLock | lightweight lock
+- StampedLock | stamped lock
+- parking lot lock | WTF::Lock
+- raw spinlock | raw_spinlock
+- bit spinlock | bit_spin_lock
 
 ## Bit Flip
 - fissile lock

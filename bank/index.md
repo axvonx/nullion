@@ -180,7 +180,7 @@
 | linux-sysctl-key | Name a Linux sysctl key | os-systems | draft | 0 | 7 |
 | linux-system-call | Name a Linux system call | os-systems | draft | 0 | 7 |
 | linux-tracing-tool | Name a Linux tracing tool | os-systems | draft | 0 | 7 |
-| lock | Name a type of lock | os-systems | approved | 57 | 0 |
+| lock | Name a type of lock | os-systems | approved | 91 | 0 |
 | macho-load-command | Name a Mach-O load command | os-systems | draft | 0 | 7 |
 | memory-allocator | Name a memory allocator | os-systems | draft | 0 | 7 |
 | memory-consistency-model | Name a memory consistency model | os-systems | draft | 0 | 7 |

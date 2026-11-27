@@ -20,7 +20,8 @@ describe('answer bank files', () => {
   it('keeps the deep answers the user named', async () => {
     const qs = BANK_QUESTIONS.filter((q) => q.id === 'lock' || q.id === 'data-structure');
     const set = buildAnswerSet('bank', 'Bank', await loadBankTerms(qs.map((q) => q.id)), qs);
-    for (const [q, g] of [['data-structure', 'maple tree'], ['data-structure', 'xarray'], ['lock', 'fissile lock'], ['lock', 'cna lock']] as const) {
+    for (const [q, g] of [['data-structure', 'maple tree'], ['data-structure', 'xarray'], ['lock', 'fissile lock'], ['lock', 'cna lock'],
+      ['lock', 'ERESOURCE'], ['lock', 'push lock'], ['lock', 'rmlock'], ['lock', 'SIX lock'], ['lock', 'slim reader/writer lock'], ['lock', 'std::mutex']] as const) {
       expect(set.check(q, g).kind, g).toBe('accepted');
     }
     expect(set.check('lock', 'spinlock')).toMatchObject({ kind: 'accepted', entry: { tier: 'off-by-one' } });

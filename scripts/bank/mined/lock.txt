@@ -1,0 +1,569 @@
+## source: kernel
+    39  spin_lock
+    28  rcu_read_lock
+    18  mutex_lock
+    16  read lock
+    16  global lock
+    12  spinlock_t lock
+    12  rw_semaphore
+    12  i_rwsem
+    11  write lock
+    11  rcu lock
+     9  rcu read lock
+     9  DEBUG_SPINLOCK
+     9  mmap_lock
+     9  struct mutex
+     8  kernel lock
+     8  sleeping lock
+     7  lru_lock
+     7  page table lock
+     7  CONFIG_DEBUG_SPINLOCK
+     6  are lock
+     6  list_lock
+     6  DEFINE_MUTEX
+     6  read_lock
+     6  invalidate_lock
+     5  DEFINE_SPINLOCK
+     5  already lock
+     5  write_lock
+     5  srcu_read_lock
+     5  d_lock
+     5  i_lock
+     5  folio lock
+     5  bpf_spin_lock
+     5  the_lock
+     4  separate lock
+     4  different lock
+     4  split_page_table_lock
+     4  could lock
+     4  spinning lock
+     4  following lock
+     4  what lock
+     4  bus lock
+     4  split lock
+     4  CAP_IPC_LOCK
+     4  also lock
+     4  page_table_lock
+     4  mmap_write_lock
+     4  current lock
+     4  host_lock
+     4  instance lock
+     4  percpu_rw_semaphore
+     4  between lock
+     4  rw_lock
+     4  rtmutex_lock
+     4  wait_lock
+     4  atomic_dec_and_mutex_lock
+     4  file_lock
+     4  pmd_lock
+     4  i_mutex
+     4  inode lock
+     3  protected lock
+     3  tries lock
+     3  normal lock
+     3  up lock
+     3  like lock
+     3  bottom half lock
+     3  half lock
+     3  even spinlock
+     3  driver lock
+     3  dma_resv_lock
+     3  level lock
+     3  trying lock
+     3  about lock
+     3  structures lock
+     3  scheduler lock
+     3  caps lock
+     3  inode mutex
+     3  types lock
+     3  console_lock
+     3  open lock
+     3  global mutex
+     3  i_pages lock
+     3  under spinlock
+     3  io_request_lock
+     3  netdev instance lock
+     3  under lock
+     3  remove lock
+     3  handle lock
+     3  bit lock
+     3  tasklist_lock
+     3  contending lock
+     3  writer lock
+     3  contended lock
+     3  sharing lock
+     3  unlocking mutex
+     3  another mutex
+     3  simple spinlock
+     3  DEFINE_RWLOCK
+     3  internal spinlock
+     3  reacquire lock
+     3  set lock
+     3  dev_lock
+     3  main lock
+     3  write semaphore
+     3  dlm lock
+     3  irq lock
+     3  update-side lock
+     3  would lock
+     3  mem_hotplug_lock
+     3  pte_offset_map_lock
+     3  mmap_read_lock
+     3  user mutex
+     3  fast user mutex
+     3  V4L2_CID_3A_LOCK
+     3  kernel spinlock
+     3  uno spinlock
+     3  gli spinlock
+     3  filesystem lock
+     2  w semaphore
+     2  particular lock
+     2  wait_on_bit_lock
+     2  considerations lock
+     2  w spin lock
+     2  system_transition_mutex
+     2  private_lock
+     2  want lock
+     2  avoid spinlock
+     2  type lock
+     2  both spinlock
+     2  make lock
+     2  than spinlock
+     2  nf_sockopt_mutex
+     2  initialize mutex
+     2  grabs lock
+     2  since mutex
+     2  cache_lock
+     2  per-object lock
+     2  grabbing lock
+     2  int lock
+     2  CDO_LOCK
+     2  hotplug lock
+     2  cpu hotplug lock
+     2  outermost lock
+     2  whether lock
+     2  add lock
+     2  notifier lock
+     2  at lock
+     2  dma_resv lock
+     2  resource lock
+     2  non-blocking lock
+     2  dma-resv lock
+     2  range lock
+     2  whichever lock
+     2  additional lock
+     2  side lock
+     2  cpus_read_lock
+     2  recursion lock
+     2  lru lock
+     2  sort lock
+     2  affected lock
+     2  they lock
+     2  mmu lock
+     2  maximum lock
+     2  print lock
+     2  reduces lock
+     2  n bus lock
+     2  info lock
+     2  live lock
+     2  timers info lock
+     2  indicates lock
+     2  cause lock
+     2  cap_ipc_lock
+     2  various lock
+     2  w lock
+     2  task_lock
+     2  pte_lock
+     2  folio_lock
+     2  fn lock
+     2  posix lock
+     2  mandatory lock
+     2  SHM_LOCK
+     2  causes lock
+     2  previous lock
+     2  block lock
+     2  operation lock
+     2  cred_replace_mutex
+     2  grained lock
+     2  assumes lock
+     2  rtnl_lock
+     2  rtnl lock
+     2  queue_lock
+     2  otherwise lock
+     2  keeping lock
+     2  removing lock
+     2  futex lock
+     2  clockevents_lock
+     2  task_rq_lock
+     2  double_rq_lock
+     2  i_mmap_mutex
+     2  tick_broadcast_lock
+     2  unix_table_lock
+     2  statistics lock
+     2  rwsem_lock
+     2  try_lock
+     2  task_interruptible lock
+     2  task_running lock
+     2  raw_spin_lock
+     2  foo_lock
+     2  describes lock
+     2  per-cpu lock
+     2  non lock
+     2  userspace lock
+     2  owns lock
+     2  stealing lock
+     2  uncontended mutex
+     2  based lock
+     2  xxx_rw_lock
+     2  kind lock
+     2  xxx_lock
+     2  runtime lock
+     2  bd_mutex
+     2  how lock
+     2  tracks lock
+     2  rq_unpin_lock
+     2  lockdep_unpin_lock
+     2  non-recursive lock
+     2  pin_lock
+     2  allow lock
+     2  certain lock
+     2  lockdep_pin_lock
+     2  rq_pin_lock
+     2  through lock
+     2  class lock
+     2  initialize lock
+     2  sequential lock
+     2  external lock
+     2  serialization lock
+     2  associated lock
+     2  where lock
+     2  struct semaphore
+     2  attempt lock
+     2  since lock
+     2  device lock
+     2  transfer lock
+     2  freeze lock
+     2  ex lock
+     2  second lock
+     2  FE_HAS_LOCK
+     2  helpers lock
+     2  parent lock
+     2  smp_mb__after_spinlock
+     2  kvm lock
+     2  once lock
+     2  patchset turns spinlock
+     2  turns spinlock
+     2  my_lock
+     2  update-side spinlock
+     2  outside lock
+     2  existence lock
+     2  node lock
+     2  reduce lock
+     2  used lock
+     2  pte lock
+     2  ordinary spinlock
+     2  linux spinlock
+     2  swap_lock
+     2  mapping lock
+     2  mmap read lock
+     2  rmap lock
+     2  due lock
+     2  mmap lock
+     2  correct lock
+     2  inode_lock
+     2  huge_pte_lock
+     2  pte_alloc_map_lock
+     2  node_size_lock
+     2  pgdat_resize_lock
+     2  take_lock
+     2  release_lock
+     2  cluster lock
+     2  should lock
+     2  s_wd_err_lock
+     2  su_wd_err_lock
+     2  xa_lock
+     2  refcount_dec_and_mutex_lock
+     2  refcount_dec_and_lock
+     2  atomic_dec_and_lock
+     2  device_lock
+     2  consumer_lock
+     2  producer_lock
+     2  sleeping spin lock
+     2  sync lock
+     2  test_spin_lock
+     2  bpf_rcu_read_lock
+     2  o lock
+     2  it_lock
+     2  de spinlock
+     2  un lock
+     2  i mutex
+     2  lo spinlock
+     2  o mutex
+     2  spinlock o mutex
+     2  del lock
+     2  i_rw_mutex
+     2  GLF_LOCK
+     2  open_mutex
+     2  rename_lock
+     2  inode semaphore
+     2  dcache_lock
+     2  whatever lock
+     2  higher level lock
+## source: freebsd
+    35  sh lock
+    23  xr mutex
+    11  xr rwlock
+     9  non-sleepable lock
+     8  topology lock
+     8  BUF_LOCK
+     8  vm_map_lock
+     6  mtx_lock
+     5  giant mutex
+     5  spin mutex
+     5  fa lock
+     5  process lock
+     5  vnode lock
+     5  ignore lock
+     5  duplicate lock
+     5  about duplicate lock
+     5  g_topology_lock
+     5  buffer lock
+     4  read lock
+     4  va giant mutex
+     4  writer lock
+     4  global lock
+     4  function lock
+     3  additional lock
+     3  sleepable read-mostly lock
+     3  struct rwlock
+     3  thread lock
+     3  driver lock
+     3  write lock
+     3  profile lock
+     3  vn_lock
+     3  sleep lock
+     3  type lock
+     3  kernel lock
+     3  sched_lock
+     2  giant lock
+     2  wait lock
+     2  nor exclusive lock
+     2  destroys lock
+     2  fa mutex
+     2  associated lock
+     2  sleepable lock
+     2  standard mutex
+     2  leaf lock
+     2  VOP_LOCK
+     2  initialize mutex
+     2  nm lock
+     2  non-spin mutex
+     2  recursive exclusive lock
+     2  flags lock
+     2  disable lock
+     2  recursed lock
+     2  requested lock
+     2  interlock mutex
+     2  xr lock
+     2  object lock
+     2  buffer whose lock
+     2  whose lock
+     2  pp lock
+     2  va sched_lock mutex
+     2  sched_lock mutex
+     2  private mutex
+     2  types lock
+     2  during lock
+## source: windows-driver-docs
+    16  executive spin lock
+    14  KeAcquireSpinLock
+    12  cancel spin lock
+    11  KeReleaseSpinLock
+    10  interrupt spin lock
+    10  IoReleaseRemoveLock
+     9  IoReleaseCancelSpinLock
+     9  KeAcquireInStackQueuedSpinLock
+     9  IoAcquireRemoveLock
+     7  remove lock
+     7  KeReleaseInStackQueuedSpinLock
+     7  queued spin lock
+     6  KeInitializeSpinLock
+     5  IoAcquireCancelSpinLock
+     5  previously lock
+     5  _LOCK
+     4  KeReleaseMutex
+     4  KeReleaseSemaphore
+     4  driver-supplied spin lock
+     3  KSPIN_LOCK
+     3  introduction mutex
+     3  IoInitializeRemoveLock
+     3  another spin lock
+     2  system lock
+     2  driver lock
+     2  KeAcquireInterruptSpinLock
+     2  ExTryToAcquireFastMutex
+     2  KeInitializeGuardedMutex
+     2  ExInitializeFastMutex
+     2  KeReleaseInterruptSpinLock
+     2  ExReleaseFastMutex
+     2  ExAcquireFastMutex
+     2  KeAcquireGuardedMutex
+     2  initializing spin lock
+     2  IRP_MN_SET_LOCK
+     2  alternatives mutex
+     2  writer spin lock
+     2  sets semaphore
+     2  ordinary spin lock
+## source: win32
+     9  CreateMutex
+     6  OpenMutex
+     6  CreateSemaphore
+     5  OpenSemaphore
+     5  ReleaseSemaphore
+     5  ReleaseMutex
+     3  named mutex
+     3  create mutex
+     3  InitializeSRWLock
+     3  names mutex
+     3  unnamed mutex
+     2  writer lock
+     2  existing mutex
+     2  create semaphore
+     2  unnamed semaphore
+     2  decrements semaphore
+     2  existing named mutex
+     2  abandoned mutex
+     2  specified lock
+## source: postgres
+    16  conflicting lock
+     6  requested lock
+     6  AccessShareLock
+     5  waiting lock
+     5  type lock
+     5  obtain lock
+     5  extension lock
+     4  return lock
+     4  read lock
+     4  since lock
+     4  RowExclusiveLock
+     4  ShareLock
+     4  transaction lock
+     4  regular lock
+     4  remove lock
+     4  session lock
+     4  relation extension lock
+     4  partition lock
+     4  ProcArrayLock
+     3  most lock
+     3  write lock
+     3  heavyweight lock
+     3  transactions lock
+     3  but lock
+     3  free lock
+     3  about lock
+     3  granted lock
+     3  current lock
+     3  GrantLock
+     3  user lock
+     3  main lock
+     3  fast-path lock
+     3  true lock
+     3  awaiting lock
+     3  ExclusiveLock
+     3  tuple lock
+     3  relation lock
+     3  set lock
+     3  out lock
+     3  AccessExclusiveLock
+     3  conflict lock
+     3  transaction-level lock
+     3  existing lock
+     3  standard lock
+     3  specified lock
+     3  session-level lock
+     3  additional lock
+     3  partitionLock
+     3  check lock
+     3  up lock
+     3  off lock
+     3  waitLock
+     2  group lock
+     2  lmgr lock
+     2  manager lock
+     2  outstanding lock
+     2  share lock
+     2  initialize lock
+     2  UnGrantLock
+     2  trace lock
+     2  CleanUpLock
+     2  light-weight lock
+     2  relation-level lock
+     2  thus lock
+     2  access exclusive lock
+     2  over lock
+     2  entire lock
+     2  containing lock
+     2  store lock
+     2  create semaphore
+     2  memory semaphore
+     2  session-level advisory lock
+     2  available lock
+     2  page-level lock
+     2  cannot lock
+     2  particular lock
+     2  siread lock
+     2  grant lock
+     2  ShareRowExclusiveLock
+     2  than lock
+     2  RowShareLock
+     2  conflicts lock
+     2  blocking lock
+     2  keeps lock
+     2  coarser-grained lock
+     2  non-conflicting lock
+     2  various lock
+     2  finer-grained lock
+     2  ShareUpdateExclusiveLock
+     2  pg_advisory_lock
+     2  old lock
+     2  shared table lock
+     2  unable lock
+     2  desired lock
+     2  transaction-level advisory lock
+     2  used lock
+     2  getting lock
+     2  NoLock
+     2  VirtualXactLock
+     2  delete lock
+     2  updates lock
+     2  create lock
+     2  transfer lock
+     2  list lock
+     2  whether lock
+     2  duplicate lock
+     2  normal lock
+     2  lw lock
+     2  hash partition lock
+     2  slock_t lock
+     2  during lock
+     2  remember lock
+     2  another lock
+     2  wait lock
+     2  count lock
+     2  kind lock
+     2  LockHashPartitionLock
+     2  ResetAwaitedLock
+     2  entire shared lock
+     2  CheckDeadLock
+     2  GrantAwaitedLock
+     2  increment lock
+     2  trying lock
+     2  including session lock
+     2  RememberSimpleDeadLock
+     2  already-held lock
+     2  join lock
+     2  fpVXIDLock
+     2  us lock
+     2  fpInfoLock
+     2  GetAwaitedLock
+     2  strong lock
