@@ -1,0 +1,358 @@
+{
+ "id": "gradient-based-optimizer",
+ "prompt": "Name a gradient-based optimizer",
+ "accepts": "Any named first-order or preconditioned optimizer that updates parameters from gradients, from papers or library implementations.",
+ "answers": [
+  {
+   "name": "RMSProp",
+   "aliases": [
+    "Root Mean Square Propagation"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Momentum",
+   "aliases": [
+    "SGD with momentum",
+    "heavy ball"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Lion",
+   "aliases": [
+    "Evolved Sign Momentum"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "SGD",
+   "aliases": [
+    "Stochastic Gradient Descent",
+    "gradient descent"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Adam",
+   "aliases": [
+    "Adaptive Moment Estimation"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "AdamW",
+   "aliases": [
+    "Adam with decoupled weight decay"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Adagrad",
+   "aliases": [
+    "Adaptive Gradient"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "L-BFGS",
+   "aliases": [
+    "Limited-memory BFGS"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BFGS",
+   "aliases": [
+    "Broyden-Fletcher-Goldfarb-Shanno"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "nonlinear conjugate gradient",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Conjugate gradient",
+   "aliases": [
+    "CG"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Newton's method",
+   "aliases": [
+    "Newton-Raphson"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Gauss-Newton",
+   "aliases": [
+    "Gauss-Newton algorithm"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Levenberg-Marquardt",
+   "aliases": [
+    "LM",
+    "damped least-squares"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Proximal gradient descent",
+   "aliases": [
+    "proximal gradient",
+    "ISTA"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Coordinate descent",
+   "aliases": [
+    "stochastic coordinate descent"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Mirror descent",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Frank-Wolfe",
+   "aliases": [
+    "conditional gradient"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Adadelta",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LAMB",
+   "aliases": [
+    "Layer-wise Adaptive Moments",
+    "Layer-wise Adaptive Moments optimizer for Batch training"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FTRL",
+   "aliases": [
+    "Follow-The-Regularized-Leader",
+    "FTRL-Proximal"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ASGD",
+   "aliases": [
+    "Averaged SGD",
+    "Averaged Stochastic Gradient Descent"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "momentum SGD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Nesterov accelerated gradient",
+   "aliases": [
+    "NAG",
+    "Nesterov momentum"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AMSGrad",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AdaBelief",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Sophia",
+   "aliases": [
+    "Second-order Clipped Stochastic Optimization"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LARS",
+   "aliases": [
+    "Layer-wise Adaptive Rate Scaling"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "K-FAC",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Hessian-free optimization",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "signSGD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "NAdam",
+   "aliases": [
+    "Nesterov-accelerated Adam"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Adamax",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RAdam",
+   "aliases": [
+    "Rectified Adam"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Adafactor",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Rprop",
+   "aliases": [
+    "Resilient Backpropagation"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Muon",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SparseAdam",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AdaBound",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Yogi",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Lookahead",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Ranger",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "natural gradient",
+   "aliases": [
+    "Natural gradient descent",
+    "NGD"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Schedule-Free AdamW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SOAP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AdaHessian",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Adan",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Prodigy",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "D-Adaptation",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QHAdam",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Madgrad",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Novograd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Adam-mini",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Fromage",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AdaGrad-Norm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "diffGrad",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Apollo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Shampoo",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

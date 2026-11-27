@@ -1,0 +1,409 @@
+{
+ "id": "3d-model-file-format",
+ "prompt": "Name a 3D model file format",
+ "accepts": "Any named file format for storing 3D geometry, scenes, or animation data.",
+ "answers": [
+  {
+   "name": "3DS",
+   "aliases": [
+    "3D Studio"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "FBX",
+   "aliases": [
+    "Filmbox"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "OBJ",
+   "aliases": [
+    "Wavefront OBJ"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "STL",
+   "aliases": [
+    "Stereolithography"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "glTF",
+   "aliases": [
+    "glTF2",
+    "glTF 2.0",
+    "GLB",
+    "GL Transmission Format",
+    "Binary glTF"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "VRML",
+   "aliases": [
+    "Virtual Reality Modeling Language",
+    "WRL"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "COLLADA",
+   "aliases": [
+    "DAE"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DXF",
+   "aliases": [
+    "Drawing Exchange Format"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PLY",
+   "aliases": [
+    "Stanford Triangle Format",
+    "Polygon File Format"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "STEP",
+   "aliases": [
+    "ISO 10303",
+    "STP"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "USD",
+   "aliases": [
+    "Universal Scene Description",
+    "USDZ",
+    "USDA",
+    "USDC"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BLEND",
+   "aliases": [
+    "Blender"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "IGES",
+   "aliases": [
+    "IGS"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Alembic",
+   "aliases": [
+    "ABC"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DWG",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MAX",
+   "aliases": [
+    "3ds Max"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MA",
+   "aliases": [
+    "Maya ASCII"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MB",
+   "aliases": [
+    "Maya Binary"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "3DM",
+   "aliases": [
+    "Rhino 3D",
+    "OpenNURBS"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "3MF",
+   "aliases": [
+    "3D Manufacturing Format"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "BVH",
+   "aliases": [
+    "Biovision Hierarchy"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "C4D",
+   "aliases": [
+    "Cinema 4D"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MD2",
+   "aliases": [
+    "Quake 2 model"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MD3",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MDL",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DirectX X",
+   "aliases": [
+    "DirectX .x"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "X3D",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AC3D",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AMF",
+   "aliases": [
+    "Additive Manufacturing File Format"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ASE",
+   "aliases": [
+    "ASCII Scene Exporter"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "B3D",
+   "aliases": [
+    "Blitz3D"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IFC",
+   "aliases": [
+    "Industry Foundation Classes"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IrrMesh",
+   "aliases": [
+    "Irr",
+    "Irrlicht"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LWO",
+   "aliases": [
+    "LightWave Object"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LWS",
+   "aliases": [
+    "LightWave Scene"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MD5",
+   "aliases": [
+    "MD5mesh",
+    "id Tech 4 model"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MS3D",
+   "aliases": [
+    "MilkShape 3D"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "OFF",
+   "aliases": [
+    "Object File Format"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "OpenGEX",
+   "aliases": [
+    "OGEX",
+    "Open Game Engine Exchange"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Q3BSP",
+   "aliases": [
+    "BSP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SMD",
+   "aliases": [
+    "Studiomdl Data"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMX",
+   "aliases": [
+    "PMD",
+    "MikuMikuDance"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Ogre XML",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TER",
+   "aliases": [
+    "Terragen"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Unreal 3D",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Assbin",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Assjson",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Assxml",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "COB",
+   "aliases": [
+    "Caligari trueSpace"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CSM",
+   "aliases": [
+    "Character Studio Marker"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HMP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IQM",
+   "aliases": [
+    "Inter-Quake Model"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "M3D",
+   "aliases": [
+    "Model 3D"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MDC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NFF",
+   "aliases": [
+    "Neutral File Format"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Q3D",
+   "aliases": [
+    "Quick3D"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SIB",
+   "aliases": [
+    "Silo"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XGL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NDO",
+   "aliases": [
+    "Nendo"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

@@ -1,0 +1,336 @@
+{
+ "id": "block-cipher",
+ "prompt": "Name a block cipher",
+ "accepts": "a named symmetric block cipher algorithm that has been published or standardized.",
+ "answers": [
+  {
+   "name": "AES",
+   "aliases": [
+    "Rijndael",
+    "Advanced Encryption Standard"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Blowfish",
+   "aliases": [
+    "blowfish_common",
+    "blowfish_generic"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Twofish",
+   "aliases": [
+    "twofish_common",
+    "twofish_generic"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "DES",
+   "aliases": [
+    "Data Encryption Standard",
+    "des_generic"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "IDEA",
+   "aliases": [
+    "International Data Encryption Algorithm"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RC2",
+   "aliases": [
+    "ARC2"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RC5",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "TEA",
+   "aliases": [
+    "Tiny Encryption Algorithm"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ARIA",
+   "aliases": [
+    "aria_generic"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Camellia",
+   "aliases": [
+    "camellia_generic"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CAST-128",
+   "aliases": [
+    "CAST5",
+    "cast5_generic"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Serpent",
+   "aliases": [
+    "serpent_generic"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SM4",
+   "aliases": [
+    "sm4_generic",
+    "SMS4"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Triple DES",
+   "aliases": [
+    "3DES",
+    "TDEA"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "RC6",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "KASUMI",
+   "aliases": [
+    "A5/3"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Speck",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CAST-256",
+   "aliases": [
+    "CAST6",
+    "cast6_generic"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SEED",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Skipjack",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GOST 28147-89",
+   "aliases": [
+    "Magma",
+    "GOST"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Kuznyechik",
+   "aliases": [
+    "Kuznechik"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Threefish",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MARS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MISTY1",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LOKI97",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FEAL",
+   "aliases": [
+    "Fast Data Encipherment Algorithm"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DES-X",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SAFER",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PRESENT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Simon",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LEA",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HIGHT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CLEFIA",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Lucifer",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XTEA",
+   "aliases": [
+    "eXtended TEA"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XXTEA",
+   "aliases": [
+    "Corrected Block TEA"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SKINNY",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Anubis",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "KHAZAD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Square",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Crypton",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DEAL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "E2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Hierocrypt",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NOEKEON",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PRINCE",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Magenta",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "3-Way",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Khafre",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "REDOC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Kalyna",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Deoxys",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GIFT",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Adiantum",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Khufu",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

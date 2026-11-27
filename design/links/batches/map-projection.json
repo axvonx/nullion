@@ -1,0 +1,882 @@
+{
+ "id": "map-projection",
+ "prompt": "Name a map projection",
+ "accepts": "Any named method of projecting the Earth's surface onto a plane, from cartography.",
+ "answers": [
+  {
+   "name": "Mercator projection",
+   "aliases": [
+    "merc",
+    "Mercator"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Robinson projection",
+   "aliases": [
+    "robin",
+    "Robinson"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Winkel tripel",
+   "aliases": [
+    "Winkel III"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Gall-Peters",
+   "aliases": [
+    "Peters projection",
+    "Peters"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Transverse Mercator",
+   "aliases": [
+    "Gauss-Kruger"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Universal Transverse Mercator",
+   "aliases": [
+    "UTM"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Dymaxion map",
+   "aliases": [
+    "airocean"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Albers equal-area conic",
+   "aliases": [
+    "aea",
+    "Albers equal-area conic projection",
+    "Albers",
+    "Albers projection"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Azimuthal equidistant projection",
+   "aliases": [
+    "aeqd"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Cylindrical equal-area projection",
+   "aliases": [
+    "cea"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Equirectangular projection",
+   "aliases": [
+    "eqc",
+    "Plate carr\u00e9e",
+    "Equirectangular",
+    "geographic projection"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Sinusoidal projection",
+   "aliases": [
+    "gn_sinu"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Gnomonic projection",
+   "aliases": [
+    "gnom",
+    "Gnomonic"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Goode homolosine projection",
+   "aliases": [
+    "goode",
+    "igh",
+    "igh_o"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Lambert azimuthal equal-area projection",
+   "aliases": [
+    "laea",
+    "Lambert azimuthal equal-area"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Lambert conformal conic projection",
+   "aliases": [
+    "lcc",
+    "Lambert conformal conic"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Miller cylindrical projection",
+   "aliases": [
+    "mill"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Orthographic projection",
+   "aliases": [
+    "ortho",
+    "Orthographic"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Stereographic projection",
+   "aliases": [
+    "stere",
+    "Stereographic"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Transverse Mercator projection",
+   "aliases": [
+    "tmerc",
+    "tmerczoned"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Web Mercator",
+   "aliases": [
+    "Pseudo-Mercator",
+    "Spherical Mercator",
+    "EPSG:3857"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Azimuthal equidistant",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Sinusoidal",
+   "aliases": [
+    "Sanson-Flamsteed"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Goode homolosine",
+   "aliases": [
+    "interrupted Goode homolosine",
+    "Goode's homolosine"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Dymaxion",
+   "aliases": [
+    "Fuller projection",
+    "Fuller"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Eckert IV",
+   "aliases": [
+    "Eckert 4"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Miller cylindrical",
+   "aliases": [
+    "Miller"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Van der Grinten",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Kavrayskiy VII",
+   "aliases": [
+    "Kavrayskiy 7"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Cassini",
+   "aliases": [
+    "Cassini-Soldner"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Behrmann",
+   "aliases": [
+    "Behrmann projection"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Polyconic",
+   "aliases": [
+    "American polyconic"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Peirce quincuncial",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Waterman butterfly",
+   "aliases": [
+    "Waterman"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Bonne projection",
+   "aliases": [
+    "bonne"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Equidistant conic projection",
+   "aliases": [
+    "eqdc"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Equal Earth projection",
+   "aliases": [
+    "eqearth",
+    "Equal Earth"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Gall stereographic projection",
+   "aliases": [
+    "gall"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Natural Earth projection",
+   "aliases": [
+    "natearth"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Oblique Mercator projection",
+   "aliases": [
+    "omerc"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Polyconic projection",
+   "aliases": [
+    "poly",
+    "American polyconic projection"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Van der Grinten projection",
+   "aliases": [
+    "vandg"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Mollweide projection",
+   "aliases": [
+    "Mollweide"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Aitoff projection",
+   "aliases": [
+    "aitoff"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Cassini projection",
+   "aliases": [
+    "cass",
+    "Cassini-Soldner projection"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Central cylindrical projection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Eckert IV projection",
+   "aliases": [
+    "eck4"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Geostationary satellite view projection",
+   "aliases": [
+    "geos"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Hammer projection",
+   "aliases": [
+    "hammer"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HEALPix projection",
+   "aliases": [
+    "healpix"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Krovak projection",
+   "aliases": [
+    "krovak"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Near-sided perspective projection",
+   "aliases": [
+    "nsper"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "New Zealand Map Grid projection",
+   "aliases": [
+    "nzmg",
+    "New Zealand Map Grid"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Patterson cylindrical projection",
+   "aliases": [
+    "patterson"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Transverse Cylindrical Equal Area projection",
+   "aliases": [
+    "tcea"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Two-Point Equidistant projection",
+   "aliases": [
+    "tpeqd"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Interrupted Mollweide projection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Simple conic projection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Adams projection",
+   "aliases": [
+    "adams",
+    "Adams hemisphere-in-a-square projection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Airy projection",
+   "aliases": [
+    "airy"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Bacon globular projection",
+   "aliases": [
+    "bacon"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Bertin 1953 projection",
+   "aliases": [
+    "bertin1953"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Bipolar oblique conic conformal projection",
+   "aliases": [
+    "bipc",
+    "Bipolar oblique conformal conic projection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Boggs eumorphic projection",
+   "aliases": [
+    "boggs"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Central conic projection",
+   "aliases": [
+    "ccon"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Chamberlin trimetric projection",
+   "aliases": [
+    "chamb"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Colombia Urban projection",
+   "aliases": [
+    "col_urban"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Collignon projection",
+   "aliases": [
+    "collg"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Compact Miller projection",
+   "aliases": [
+    "comill"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Craster parabolic projection",
+   "aliases": [
+    "crast"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Denoyer semi-elliptical projection",
+   "aliases": [
+    "denoy"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Eckert I projection",
+   "aliases": [
+    "eck1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Eckert II projection",
+   "aliases": [
+    "eck2"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Eckert III projection",
+   "aliases": [
+    "eck3"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Eckert V projection",
+   "aliases": [
+    "eck5"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Fahey projection",
+   "aliases": [
+    "fahey"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Foucaut sinusoidal projection",
+   "aliases": [
+    "fouc_s"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Ginsburg VIII projection",
+   "aliases": [
+    "gins8"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Gauss-Schreiber transverse Mercator projection",
+   "aliases": [
+    "gstmerc"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Hatano asymmetrical equal-area projection",
+   "aliases": [
+    "hatano"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "International Map of the World polyconic projection",
+   "aliases": [
+    "imw_p"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Laborde projection",
+   "aliases": [
+    "labrd"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Lagrange projection",
+   "aliases": [
+    "lagrng"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Larriv\u00e9e projection",
+   "aliases": [
+    "larr",
+    "Larrivee projection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Laskowski tri-optimal projection",
+   "aliases": [
+    "lask"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Lambert conformal conic alternative projection",
+   "aliases": [
+    "lcca"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Loximuthal projection",
+   "aliases": [
+    "loxim"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "McBryde-Thomas flat-polar sinusoidal projection",
+   "aliases": [
+    "mbt_fps"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "McBryde-Thomas flat-polar parabolic projection",
+   "aliases": [
+    "mbtfpp"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "McBryde-Thomas flat-polar quartic projection",
+   "aliases": [
+    "mbtfpq"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Modified-Stereographic conformal projection",
+   "aliases": [
+    "mod_ster"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Natural Earth II projection",
+   "aliases": [
+    "natearth2"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Nell projection",
+   "aliases": [
+    "nell"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Nell-Hammer projection",
+   "aliases": [
+    "nell_h"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Nicolosi globular projection",
+   "aliases": [
+    "nicol"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Oblique cylindrical equal-area projection",
+   "aliases": [
+    "ocea"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Oblated equal-area projection",
+   "aliases": [
+    "oea"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Putnins P2 projection",
+   "aliases": [
+    "putp2",
+    "Putni\u0146\u0161 P2 projection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Putnins P3 projection",
+   "aliases": [
+    "putp3",
+    "Putni\u0146\u0161 P3 projection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Putnins P4' projection",
+   "aliases": [
+    "putp4p",
+    "Putni\u0146\u0161 P4' projection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Putnins P5 projection",
+   "aliases": [
+    "putp5",
+    "Putni\u0146\u0161 P5 projection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Putnins P6 projection",
+   "aliases": [
+    "putp6",
+    "Putni\u0146\u0161 P6 projection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Quadrilateralized Spherical Cube projection",
+   "aliases": [
+    "qsc"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Roussilhe stereographic projection",
+   "aliases": [
+    "rouss"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Rectangular polyconic projection",
+   "aliases": [
+    "rpoly"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Space Oblique Mercator projection",
+   "aliases": [
+    "som"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Swiss Oblique Mercator projection",
+   "aliases": [
+    "somerc",
+    "Swiss oblique cylindrical projection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Oblique Stereographic Alternative projection",
+   "aliases": [
+    "sterea"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Transverse Central Cylindrical projection",
+   "aliases": [
+    "tcc"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Times projection",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Tobler-Mercator projection",
+   "aliases": [
+    "tobmerc"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Urmaev V projection",
+   "aliases": [
+    "urm5"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Urmaev Flat-Polar Sinusoidal projection",
+   "aliases": [
+    "urmfps"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Van der Grinten II projection",
+   "aliases": [
+    "vandg2"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Van der Grinten IV projection",
+   "aliases": [
+    "vandg4"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Wagner II projection",
+   "aliases": [
+    "wag2"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Wagner III projection",
+   "aliases": [
+    "wag3"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Wagner VII projection",
+   "aliases": [
+    "wag7"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Winkel I projection",
+   "aliases": [
+    "wink1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Winkel II projection",
+   "aliases": [
+    "wink2"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "August projection",
+   "aliases": [
+    "August epicycloidal projection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Spilhaus world ocean projection",
+   "aliases": [
+    "spilhaus",
+    "Spilhaus projection"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

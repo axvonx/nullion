@@ -1,0 +1,311 @@
+{
+ "id": "sorting-algorithm",
+ "prompt": "Name a sorting algorithm",
+ "accepts": "Any algorithm that sorts a sequence.",
+ "answers": [
+  {
+   "name": "quicksort",
+   "aliases": [
+    "quick sort"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "merge sort",
+   "aliases": [
+    "mergesort"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "bubble sort",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "insertion sort",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "selection sort",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "bogosort",
+   "aliases": [
+    "bogo sort",
+    "stupid sort",
+    "permutation sort"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "sleep sort",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "heapsort",
+   "aliases": [
+    "heap sort"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "radix sort",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "counting sort",
+   "aliases": [
+    "count sort"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Block sort",
+   "aliases": [
+    "block merge sort"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "bucket sort",
+   "aliases": [
+    "bin sort"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "shell sort",
+   "aliases": [
+    "shellsort"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "timsort",
+   "aliases": [
+    "tim sort"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "introsort",
+   "aliases": [
+    "introspective sort"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "cocktail shaker sort",
+   "aliases": [
+    "cocktail sort",
+    "shaker sort",
+    "bidirectional bubble sort"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "comb sort",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "gnome sort",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "odd\u2013even sort",
+   "aliases": [
+    "brick sort",
+    "odd\u2013even transposition sort",
+    "parity sort"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pancake sorting",
+   "aliases": [
+    "Pancake sort"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "stooge sort",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pigeonhole sort",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bead sort",
+   "aliases": [
+    "gravity sort"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bitonic sorter",
+   "aliases": [
+    "Bitonic mergesort"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tree sort",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "patience sorting",
+   "aliases": [
+    "patience sort"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "strand sort",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pdqsort",
+   "aliases": [
+    "pattern-defeating quicksort"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "smoothsort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bitonic sort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "library sort",
+   "aliases": [
+    "gapped insertion sort"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "slowsort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Batcher odd\u2013even mergesort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Burstsort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "cycle sort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "merge-insertion sort",
+   "aliases": [
+    "Ford\u2013Johnson algorithm",
+    "merge insertion"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tournament sort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "oscillating merge sort",
+   "aliases": [
+    "oscillating sort"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "samplesort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Proxmap sort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "multi-key quicksort",
+   "aliases": [
+    "three-way radix quicksort"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "cubesort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Kirkpatrick\u2013Reisch sort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hybridsort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "straight selection sort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "swapsort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "exchange sort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pairwise sorting network",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Powersort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Stalin sort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "spaghetti sort",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

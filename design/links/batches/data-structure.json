@@ -1,0 +1,1129 @@
+{
+ "id": "data-structure",
+ "prompt": "Name a data structure",
+ "accepts": "Any data structure for storing or organizing data.",
+ "answers": [
+  {
+   "name": "array",
+   "aliases": [
+    "dynamic array",
+    "vector",
+    "FBVector",
+    "ArrayList",
+    "std::vector",
+    "Vec",
+    "growable array",
+    "resizable array",
+    "arrays"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "list",
+   "aliases": [
+    "lists"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "hash table",
+   "aliases": [
+    "hash map",
+    "hashmap",
+    "map",
+    "dictionary",
+    "dict",
+    "associative array",
+    "StringMap",
+    "unordered_map",
+    "concurrent_hash_map",
+    "HashSet"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "set",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tree",
+   "aliases": [
+    "trees"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "stack",
+   "aliases": [
+    "call stack",
+    "LifoQueue",
+    "LIFO"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "queue",
+   "aliases": [
+    "fifo queue",
+    "ConcurrentLinkedQueue",
+    "LinkedBlockingQueue",
+    "ArrayBlockingQueue",
+    "SimpleQueue",
+    "FIFO"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "graph",
+   "aliases": [
+    "DirectedGraph",
+    "graphs"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tuple",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "bloom filter",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "linked list",
+   "aliases": [
+    "singly linked list",
+    "single-linked list"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "binary tree",
+   "aliases": [
+    "BT"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "heap",
+   "aliases": [
+    "binary heap",
+    "heap queue"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "priority queue",
+   "aliases": [
+    "PriorityBlockingQueue",
+    "PQ"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "trie",
+   "aliases": [
+    "prefix tree"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "B-tree",
+   "aliases": [
+    "btree",
+    "b-tree index",
+    "btree_map",
+    "btree_set"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "B+ tree",
+   "aliases": [
+    "b+tree",
+    "bplus tree"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "bit array",
+   "aliases": [
+    "bitmap",
+    "bitset",
+    "bit vector"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Merkle tree",
+   "aliases": [
+    "hash tree"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "page table",
+   "aliases": [
+    "translation table"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "symbol table",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "min-heap",
+   "aliases": [
+    "min heap",
+    "min_heap"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "max-heap",
+   "aliases": [
+    "max heap",
+    "max_heap"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "inverted index",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "call graph",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "control flow graph",
+   "aliases": [
+    "flow graph"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "abstract syntax tree",
+   "aliases": [
+    "syntax tree"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "directed acyclic graph",
+   "aliases": [
+    "DAG"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Matrix",
+   "aliases": [
+    "2D array"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "doubly linked list",
+   "aliases": [
+    "double linked list",
+    "list_head",
+    "IntrusiveList",
+    "DLL"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "deque",
+   "aliases": [
+    "double-ended queue",
+    "ArrayDeque",
+    "VecDeque",
+    "LinkedBlockingDeque",
+    "ConcurrentLinkedDeque"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "binary search tree",
+   "aliases": [
+    "bst"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "adjacency list",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "adjacency matrix",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "red-black tree",
+   "aliases": [
+    "rb tree",
+    "rbtree",
+    "TreeMap",
+    "TreeSet",
+    "RBT"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AVL tree",
+   "aliases": [
+    "ImutAVLTree",
+    "AVL"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "skip list",
+   "aliases": [
+    "skiplist"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "segment tree",
+   "aliases": [
+    "segtree"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "radix tree",
+   "aliases": [
+    "patricia tree",
+    "patricia trie",
+    "compact prefix tree"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "suffix tree",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "suffix array",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "splay tree",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "k-d tree",
+   "aliases": [
+    "kd tree",
+    "kd-tree"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "quadtree",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "octree",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "R-tree",
+   "aliases": [
+    "rtree",
+    "r-tree index"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "interval tree",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "disjoint-set",
+   "aliases": [
+    "union-find",
+    "union find",
+    "disjoint set union",
+    "dsu"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ring buffer",
+   "aliases": [
+    "circular buffer",
+    "circular queue",
+    "descriptor ring",
+    "FixedCapacityRingQueue",
+    "DynamicRingQueue"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LSM tree",
+   "aliases": [
+    "log-structured merge-tree",
+    "log structured merge tree"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "cuckoo hash table",
+   "aliases": [
+    "cuckoo hashing",
+    "cuckoo table"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "cuckoo filter",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "count-min sketch",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "HyperLogLog",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DAWG",
+   "aliases": [
+    "directed acyclic word graph"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "scatter-gather list",
+   "aliases": [
+    "scatter list",
+    "scatter-gather table",
+    "sg list",
+    "gather list"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "partition table",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "free list",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "process table",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "socket buffer",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "interrupt descriptor table",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "dominator tree",
+   "aliases": [
+    "post-dominator tree"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "virtual table",
+   "aliases": [
+    "VTable",
+    "virtual function table"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "jump table",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "global offset table",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "roaring bitmap",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LinkedHashMap",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Fenwick tree",
+   "aliases": [
+    "binary indexed tree",
+    "BIT"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rope",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "treap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Fibonacci heap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "binomial heap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pairing heap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "leftist heap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "d-ary heap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "hash array mapped trie",
+   "aliases": [
+    "hamt"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XArray",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "quotient filter",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "zipper",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "finger tree",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "gap buffer",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "piece table",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "2-3 tree",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "2-3-4 tree",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "B-epsilon tree",
+   "aliases": [
+    "b\u03b5-tree",
+    "fractal tree"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Cartesian tree",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XOR linked list",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "unrolled linked list",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "top tree",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "order-statistic tree",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "file descriptor table",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "shadow page table",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "extended page table",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LPM trie",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "posting list",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "generalized search tree",
+   "aliases": [
+    "GiST"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GIN",
+   "aliases": [
+    "generalized inverted index"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "lookaside list",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "memory descriptor list",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SmallVector",
+   "aliases": [
+    "InlinedVector"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DenseMap",
+   "aliases": [
+    "SmallDenseMap"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SparseSet",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "string table",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Swiss table",
+   "aliases": [
+    "raw_hash_set",
+    "flat_hash_map",
+    "flat_hash_set"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "concurrent skip list",
+   "aliases": [
+    "ConcurrentSkipListMap",
+    "ConcurrentSkipListSet"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bounded MPMC queue",
+   "aliases": [
+    "MPMCQueue"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "intrusive heap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rax",
+   "aliases": [
+    "rax tree"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "listpack",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "quicklist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Treiber stack",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ChainMap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IdentityHashMap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CopyOnWriteArrayList",
+   "aliases": [
+    "copy-on-write array"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ziplist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "intset",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "skew heap",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "soft heap",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "min-max heap",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Brodal queue",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CHAMP",
+   "aliases": [
+    "compressed hash-array mapped prefix-tree"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RRB vector",
+   "aliases": [
+    "relaxed radix balanced tree",
+    "rrb tree"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "van Emde Boas tree",
+   "aliases": [
+    "veb tree"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "maple tree",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IDR",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "kfifo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hlist",
+   "aliases": [
+    "hash list"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "plist",
+   "aliases": [
+    "priority sorted list"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "xor filter",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "scapegoat tree",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Judy array",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "adaptive radix tree",
+   "aliases": [
+    "art"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Bw-tree",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "wavelet tree",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BK-tree",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "link-cut tree",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Euler tour tree",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "sparse table",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "radix heap",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ACPI table",
+   "aliases": [
+    "system description table"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "auxiliary vector",
+   "aliases": [
+    "aux vector"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "combining tree",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "sbitmap",
+   "aliases": [
+    "scalability bitmap"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "assoc_array",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "folio_queue",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "generic radix tree",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fib_trie",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "e820 table",
+   "aliases": [
+    "e820 map",
+    "e820 memory map"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PRD table",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "write-intent bitmap",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "block translation table",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "visibility map",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "free space map",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BRIN",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SLRU",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "buf_ring",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SLIST",
+   "aliases": [
+    "interlocked singly linked list"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "device queue",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "cancel-safe IRP queue",
+   "aliases": [
+    "cancel-safe queue"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DenseSet",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SmallPtrSet",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SetVector",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MapVector",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SparseMultiSet",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SparseBitVector",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CoalescingBitVector",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SmallBitVector",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FoldingSet",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ImmutableMap",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ImmutableSet",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IntervalMap",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "F14 hash table",
+   "aliases": [
+    "F14",
+    "F14Table",
+    "F14Map",
+    "F14Set",
+    "F14FastMap",
+    "F14FastSet",
+    "F14VectorMap",
+    "F14VectorSet",
+    "F14NodeMap",
+    "F14NodeSet",
+    "F14ValueMap",
+    "F14ValueSet",
+    "F14BasicMap",
+    "F14BasicSet"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AtomicHashMap",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "concurrent B-skip list",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ProducerConsumerQueue",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EvictingCacheMap",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "kvstore",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ebuckets",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CLH queue",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SpinedBuffer",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fusion tree",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

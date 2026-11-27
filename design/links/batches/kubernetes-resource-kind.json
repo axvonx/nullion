@@ -1,0 +1,500 @@
+{
+ "id": "kubernetes-resource-kind",
+ "prompt": "Name a Kubernetes resource kind",
+ "accepts": "Any kind name served by the Kubernetes API, built-in or from a standard API group, as listed by kubectl api-resources.",
+ "answers": [
+  {
+   "name": "Job",
+   "aliases": [
+    "job-v1"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ConfigMap",
+   "aliases": [
+    "config-map-v1",
+    "cm"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Namespace",
+   "aliases": [
+    "namespace-v1",
+    "ns"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Secret",
+   "aliases": [
+    "secret-v1"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Ingress",
+   "aliases": [
+    "ingress-v1",
+    "ing"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "PodDisruptionBudget",
+   "aliases": [
+    "PDB",
+    "pod-disruption-budget-v1"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "CustomResourceDefinition",
+   "aliases": [
+    "CRD",
+    "custom-resource-definition-v1"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DaemonSet",
+   "aliases": [
+    "daemon-set-v1",
+    "ds"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Deployment",
+   "aliases": [
+    "deployment-v1",
+    "deploy"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ReplicaSet",
+   "aliases": [
+    "replica-set-v1",
+    "rs"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "StatefulSet",
+   "aliases": [
+    "stateful-set-v1",
+    "sts"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "HorizontalPodAutoscaler",
+   "aliases": [
+    "HPA",
+    "horizontal-pod-autoscaler-v2"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CronJob",
+   "aliases": [
+    "cron-job-v1",
+    "cj"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Node",
+   "aliases": [
+    "node-v1",
+    "no"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PersistentVolumeClaim",
+   "aliases": [
+    "PVC",
+    "persistent-volume-claim-v1"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PersistentVolume",
+   "aliases": [
+    "persistent-volume-v1",
+    "pv"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Pod",
+   "aliases": [
+    "pod-v1",
+    "po"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ServiceAccount",
+   "aliases": [
+    "service-account-v1",
+    "sa"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Service",
+   "aliases": [
+    "service-v1",
+    "svc"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NetworkPolicy",
+   "aliases": [
+    "network-policy-v1",
+    "netpol"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ClusterRoleBinding",
+   "aliases": [
+    "cluster-role-binding-v1"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ClusterRole",
+   "aliases": [
+    "cluster-role-v1"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RoleBinding",
+   "aliases": [
+    "role-binding-v1"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "StorageClass",
+   "aliases": [
+    "storage-class-v1",
+    "sc"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MutatingWebhookConfiguration",
+   "aliases": [
+    "mutating-webhook-configuration-v1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ValidatingWebhookConfiguration",
+   "aliases": [
+    "validating-webhook-configuration-v1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CertificateSigningRequest",
+   "aliases": [
+    "CSR",
+    "certificate-signing-request-v1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Lease",
+   "aliases": [
+    "lease-v1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Endpoints",
+   "aliases": [
+    "endpoints-v1",
+    "ep"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Event",
+   "aliases": [
+    "event-v1",
+    "ev"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LimitRange",
+   "aliases": [
+    "limit-range-v1",
+    "limits"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ReplicationController",
+   "aliases": [
+    "replication-controller-v1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ResourceQuota",
+   "aliases": [
+    "resource-quota-v1",
+    "quota"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "EndpointSlice",
+   "aliases": [
+    "endpoint-slice-v1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "IngressClass",
+   "aliases": [
+    "ingress-class-v1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "RuntimeClass",
+   "aliases": [
+    "runtime-class-v1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Role",
+   "aliases": [
+    "role-v1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PriorityClass",
+   "aliases": [
+    "priority-class-v1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ValidatingAdmissionPolicyBinding",
+   "aliases": [
+    "validating-admission-policy-binding-v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ValidatingAdmissionPolicy",
+   "aliases": [
+    "validating-admission-policy-v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "APIService",
+   "aliases": [
+    "api-service-v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ControllerRevision",
+   "aliases": [
+    "controller-revision-v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ComponentStatus",
+   "aliases": [
+    "component-status-v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PodTemplate",
+   "aliases": [
+    "pod-template-v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ResourceClaim",
+   "aliases": [
+    "resource-claim-v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PodGroup",
+   "aliases": [
+    "pod-group-v1beta1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Workload",
+   "aliases": [
+    "workload-v1beta1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CSIDriver",
+   "aliases": [
+    "csi-driver-v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CSINode",
+   "aliases": [
+    "csi-node-v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VolumeAttachment",
+   "aliases": [
+    "volume-attachment-v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MutatingAdmissionPolicyBinding",
+   "aliases": [
+    "mutating-admission-policy-binding-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MutatingAdmissionPolicy",
+   "aliases": [
+    "mutating-admission-policy-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ClusterTrustBundle",
+   "aliases": [
+    "cluster-trust-bundle-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PodCertificateRequest",
+   "aliases": [
+    "pod-certificate-request-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LeaseCandidate",
+   "aliases": [
+    "lease-candidate-v1beta1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PriorityLevelConfiguration",
+   "aliases": [
+    "priority-level-configuration-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IPAddress",
+   "aliases": [
+    "ip-address-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ServiceCIDR",
+   "aliases": [
+    "service-cidr-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DeviceClass",
+   "aliases": [
+    "device-class-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DeviceTaintRule",
+   "aliases": [
+    "device-taint-rule-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ResourceClaimTemplate",
+   "aliases": [
+    "resource-claim-template-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ResourcePoolStatusRequest",
+   "aliases": [
+    "resource-pool-status-request-v1alpha3"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ResourceSlice",
+   "aliases": [
+    "resource-slice-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CompositePodGroup",
+   "aliases": [
+    "composite-pod-group-v1alpha3"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CSIStorageCapacity",
+   "aliases": [
+    "csi-storage-capacity-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VolumeAttributesClass",
+   "aliases": [
+    "volume-attributes-class-v1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FlowSchema",
+   "aliases": [
+    "flow-schema-v1"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

@@ -1,0 +1,913 @@
+{
+ "id": "linux-tracing-tool",
+ "prompt": "Name a Linux tracing tool",
+ "accepts": "Any named program or kernel facility whose documented purpose is recording or analysing kernel or user-space execution traces on Linux.",
+ "answers": [
+  {
+   "name": "strace",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tcpdump",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "SystemTap",
+   "aliases": [
+    "stap"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "profile",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ltrace",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Valgrind",
+   "aliases": [
+    "callgrind"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "rr",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "fatrace",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "auditd",
+   "aliases": [
+    "Linux Audit"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "OProfile",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "gprof",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ply",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ktap",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "pwru",
+   "aliases": [
+    "Packet, where are you?"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "retsnoop",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "apitrace",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "bashreadline",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "biolatency",
+   "aliases": [
+    "biolatency-kp"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "biosnoop",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "biotop",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "cachestat",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "deadlock",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "execsnoop",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "funccount",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "funcgraph",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "funclatency",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "functrace",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "iolatency",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "iosnoop",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "killsnoop",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "kprobe",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "memleak",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "offcputime",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "oomkill",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "opensnoop",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "runqlat",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "sslsniff",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "stackcount",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "syscount",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tcpaccept",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tcpconnect",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tcpdrop",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tcplife",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tcpretrans",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tcptop",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "trace",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "uprobe",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "perf",
+   "aliases": [
+    "perf_events"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ftrace",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LTTng",
+   "aliases": [
+    "Linux Trace Toolkit next generation"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "bpftrace",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "BCC",
+   "aliases": [
+    "BPF Compiler Collection"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "trace-cmd",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "kprobes",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "sysdig",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "argdist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bindsnoop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "biostacks",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bitesize",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bpflist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "btrfsdist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "btrfsslower",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "cachetop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "capable",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "cpudist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "dbslower",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "dbstat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "dcsnoop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "dcstat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "dirtop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "exitsnoop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ext4dist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ext4slower",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "filelife",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "fileslower",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "filetop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "funcslower",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "gethostlatency",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "klockstat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "llcstat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "mountsnoop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "nfsdist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "nfsslower",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "offwaketime",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pidpersec",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pythoncalls",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pythonflow",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pythongc",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pythonstat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "runqlen",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "runqslower",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ssllatency",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "sslsnoop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "stacksnoop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "statsnoop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "swapin",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "syncsnoop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tcpconnlat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tcprtt",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tcpstates",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tcptracer",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "threadsnoop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tplist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tpoint",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ttysnoop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "vfscount",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "vfsstat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "wakeuptime",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "xfsdist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "xfsslower",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "zfsdist",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "zfsslower",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "KernelShark",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "blktrace",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "uftrace",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Perfetto",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "biolatpcts",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "biopattern",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "cobjnew",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "compactsnoop",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "cpuunclaimed",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "cpuwalk",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "drsnoop",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "f2fsslower",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "filegone",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "funcinterval",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hardirqs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "javacalls",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "javaflow",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "javagc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "javaobjnew",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "javastat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "javathreads",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "kvmexit",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "loads",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mdflush",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mysqld_qslower",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "naptime",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "netqtop",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "nodegc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "nodestat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "numasched",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "perf-stat-hist",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "perlcalls",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "perlflow",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "perlstat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "phpcalls",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "phpflow",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "phpstat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ppchcalls",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rdmaucma",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "readahead",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rubycalls",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rubyflow",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rubygc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rubyobjnew",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rubystat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "setuids",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "shmsnoop",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "slabratetop",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "sofdsnoop",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "softirqs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "softirqslower",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "solisten",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tclcalls",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tclflow",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tclobjnew",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tclstat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tcpcong",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tcpsubnet",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tcpsynbl",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "undump",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "virtiostat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "wqlat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "writeback",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "uprobes",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Tracee",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "criticalstat",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

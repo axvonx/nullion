@@ -1,0 +1,463 @@
+{
+ "id": "non-cryptographic-hash-function",
+ "prompt": "Name a non-cryptographic hash function",
+ "accepts": "Any named function mapping arbitrary byte input to a fixed-size digest, cryptographic or non-cryptographic.",
+ "answers": [
+  {
+   "name": "xxHash",
+   "aliases": [
+    "xxh3",
+    "XXH64",
+    "XXH32"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "MD5",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "SHA-1",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "CRC32",
+   "aliases": [
+    "crc32c",
+    "crc",
+    "crc32_hw"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "FNV-1a",
+   "aliases": [
+    "FNV",
+    "Fowler-Noll-Vo"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "djb2",
+   "aliases": [
+    "Bernstein hash"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Adler-32",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "MurmurHash",
+   "aliases": [
+    "MurmurHash1",
+    "MurmurHash2",
+    "MurmurHash3",
+    "PMurHash",
+    "Murmur",
+    "Murmur3",
+    "Murmur2"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "SHA-3",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CRC64",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SipHash",
+   "aliases": [
+    "halfsiphash"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CityHash",
+   "aliases": [
+    "City",
+    "CityCrc"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FarmHash",
+   "aliases": [
+    "farmhash-c"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BLAKE2",
+   "aliases": [
+    "blake2b",
+    "blake2s"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "tabulation hashing",
+   "aliases": [
+    "tabulation"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FNV-1",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "sdbm",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Pearson hashing",
+   "aliases": [
+    "Pearson hash"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Rabin-Karp rolling hash",
+   "aliases": [
+    "rolling hash",
+    "polynomial rolling hash"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Buzhash",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Zobrist hashing",
+   "aliases": [
+    "Zobrist hash"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Fletcher's checksum",
+   "aliases": [
+    "Fletcher-16",
+    "Fletcher-32"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PJW hash",
+   "aliases": [
+    "ELF hash"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FxHash",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RIPEMD",
+   "aliases": [
+    "rmd128",
+    "rmd160",
+    "rmd256",
+    "RIPEMD-128",
+    "RIPEMD-160",
+    "RIPEMD-256"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "HighwayHash",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SpookyHash",
+   "aliases": [
+    "Spooky",
+    "SpookyV2"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "lookup3",
+   "aliases": [
+    "Jenkins hash",
+    "one-at-a-time"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "wyhash",
+   "aliases": [
+    "wyhash32",
+    "wyhash_condom"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "aHash",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SeaHash",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SuperFastHash",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MetroHash",
+   "aliases": [
+    "cmetrohash",
+    "cmetrohash64"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CLHash",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GxHash",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rapidhash",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "t1ha",
+   "aliases": [
+    "Fast Positive Hash"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "komihash",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "UMASH",
+   "aliases": [
+    "umash_long"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMAC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "fasthash",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MUM",
+   "aliases": [
+    "mum_v3",
+    "MUM-hash"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Chaskey",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Edon-R",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "a5hash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Discohash",
+   "aliases": [
+    "discohash1",
+    "discohash2",
+    "discohash_512"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "falkhash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FARSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fhtw",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "floppsyhash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HalftimeHash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hasshe2",
+   "aliases": [
+    "hassh64"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "jodyhash",
+   "aliases": [
+    "jody_hash32",
+    "jody_hash64"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "k-hashv",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "khash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LaneHash",
+   "aliases": [
+    "lanehash_aes"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mir-hash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mx3",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "o1hash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pengyhash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Pippip",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMP_Multilinear",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "polymur-hash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "prvhash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Rainbow",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Rainstorm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "silicium_hash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tifuhash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tsip",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "w1hash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "xmsx",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "aesni-hash",
+   "aliases": [
+    "aesnihash-peterrk"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "beamsplitter",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MeowHash",
+   "aliases": [
+    "meow_hash_x64_aesni"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

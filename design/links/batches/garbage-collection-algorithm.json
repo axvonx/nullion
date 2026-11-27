@@ -1,0 +1,314 @@
+{
+ "id": "garbage-collection-algorithm",
+ "prompt": "Name a garbage collection algorithm",
+ "accepts": "Any named garbage collection algorithm or collector scheme described in the GC literature or a runtime's documentation, such as mark-sweep, copying, or incremental collection.",
+ "answers": [
+  {
+   "name": "Copying garbage collection",
+   "aliases": [
+    "stop-and-copy",
+    "semispace GC",
+    "semi-space"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Concurrent garbage collection",
+   "aliases": [
+    "concurrent GC"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ZGC",
+   "aliases": [
+    "Z Garbage Collector"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "G1",
+   "aliases": [
+    "G1GC",
+    "Garbage-First",
+    "Garbage-First GC"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "conservative garbage collection",
+   "aliases": [
+    "conservative GC",
+    "conservative collector"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mark-sweep",
+   "aliases": [
+    "Mark-and-sweep"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mark-compact",
+   "aliases": [
+    "mark and compact",
+    "mark-sweep-compact"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "reference counting",
+   "aliases": [
+    "refcounting",
+    "RC"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "generational garbage collection",
+   "aliases": [
+    "generational GC"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "copying collector",
+   "aliases": [
+    "copying collection",
+    "copying GC"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Trial deletion",
+   "aliases": [
+    "cycle collection"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Oilpan",
+   "aliases": [
+    "Blink Oilpan"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "accurate garbage collection",
+   "aliases": [
+    "precise garbage collection",
+    "exact garbage collection"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Parallel GC",
+   "aliases": [
+    "Parallel Scavenge",
+    "Parallel Old",
+    "Parallel Collector"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Serial GC",
+   "aliases": [
+    "Serial Collector"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Shenandoah",
+   "aliases": [
+    "Shenandoah GC"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "incremental garbage collection",
+   "aliases": [
+    "incremental GC"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tri-color marking",
+   "aliases": [
+    "tri-color abstraction"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Cheney's algorithm",
+   "aliases": [
+    "Cheney copying"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "semispace collector",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Concurrent Mark Sweep",
+   "aliases": [
+    "CMS"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Boehm GC",
+   "aliases": [
+    "Boehm-Demers-Weiser"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Epsilon GC",
+   "aliases": [
+    "Epsilon",
+    "Epsilon Garbage Collector",
+    "no-op GC"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "C4",
+   "aliases": [
+    "Pauseless GC",
+    "Continuously Concurrent Compacting Collector"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Orinoco",
+   "aliases": [
+    "V8 Orinoco"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Generational ZGC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Immix",
+   "aliases": [
+    "mark-region",
+    "Immix GC",
+    "mark-region GC"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Baker's algorithm",
+   "aliases": [
+    "Baker's treadmill",
+    "incremental copying"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Lisp2 algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Compressor",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Morris algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Metronome",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Sapphire",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Deutsch-Schorr-Waite algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "weighted reference counting",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "deferred reference counting",
+   "aliases": [
+    "DRC"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Bacon-Rajan cycle collection",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Appel collector",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Beltway",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "snapshot-at-the-beginning",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Brooks forwarding pointer",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Mostly Parallel GC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LXR",
+   "aliases": [
+    "Low-Latency, High-Throughput Garbage Collector"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RC Immix",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Ulterior reference counting",
+   "aliases": [
+    "URC"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Train algorithm",
+   "aliases": [
+    "Mature Object Space"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

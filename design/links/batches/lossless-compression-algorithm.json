@@ -1,0 +1,299 @@
+{
+ "id": "lossless-compression-algorithm",
+ "prompt": "Name a lossless compression algorithm",
+ "accepts": "Any named algorithm that compresses data so the original can be exactly recovered.",
+ "answers": [
+  {
+   "name": "Huffman coding",
+   "aliases": [
+    "Huffman"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "LZW",
+   "aliases": [
+    "Lempel-Ziv-Welch"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Burrows-Wheeler transform",
+   "aliases": [
+    "bwt"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Lempel-Ziv",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "arithmetic coding",
+   "aliases": [
+    "arithmetic compression"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DEFLATE",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "LZ77",
+   "aliases": [
+    "Lempel-Ziv 77"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "LZ4",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Zstandard",
+   "aliases": [
+    "zstd"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Brotli",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "run-length encoding",
+   "aliases": [
+    "RLE"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Delta encoding",
+   "aliases": [
+    "delta compression"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Rice coding",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Canonical Huffman coding",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CABAC",
+   "aliases": [
+    "Context-adaptive binary arithmetic coding"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "LZ78",
+   "aliases": [
+    "Lempel-Ziv 78"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LZSS",
+   "aliases": [
+    "Lempel-Ziv-Storer-Szymanski"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LZMA",
+   "aliases": [
+    "Lempel-Ziv-Markov chain algorithm"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Snappy",
+   "aliases": [
+    "Zippy"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "bzip2",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PPM",
+   "aliases": [
+    "prediction by partial matching"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "range coding",
+   "aliases": [
+    "range encoding"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "asymmetric numeral systems",
+   "aliases": [
+    "ANS",
+    "rANS",
+    "tANS"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Shannon-Fano coding",
+   "aliases": [
+    "Shannon-Fano"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Golomb coding",
+   "aliases": [
+    "Golomb-Rice coding"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LZO",
+   "aliases": [
+    "Lempel-Ziv-Oberhumer"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "move-to-front transform",
+   "aliases": [
+    "MTF"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PAQ",
+   "aliases": [
+    "PAQ8"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Elias gamma coding",
+   "aliases": [
+    "Elias gamma"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LZF",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LZFSE",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LZX",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LZJB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LZMA2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PPMd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zopfli",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LZ4HC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LZRW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LZP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QuickLZ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FastLZ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LZHAM",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "adaptive Huffman coding",
+   "aliases": [
+    "Vitter algorithm",
+    "FGK",
+    "dynamic Huffman coding"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "dynamic Markov compression",
+   "aliases": [
+    "DMC"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ZPAQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "cmix",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Lizard",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Tunstall coding",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}
