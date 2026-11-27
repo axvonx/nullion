@@ -216,9 +216,10 @@ export function mountRail(h: DebugHooks) {
     const g = h.game();
     const rows = SAMPLE_DAY.map((d, i) => {
       // A game that has not started has no rounds yet: borrow the set's first prompts so the dropdowns still work.
-      const question = (g.rounds[i]?.question ?? g.set.questions[i])?.id;
-      enforce(question, `rail: no prompt for sample row ${i}`);
-      return { question, tier: d.tier, name: g.set.entries(question).find((e) => e.tier === d.tier)?.name ?? d.name };
+      const q = g.rounds[i]?.question ?? g.set.questions[i];
+      enforce(q, `rail: no prompt for sample row ${i}`);
+      const question = q.id;
+      return { question, prompt: q.prompt, tier: d.tier, name: g.set.entries(question).find((e) => e.tier === d.tier)?.name ?? d.name };
     });
     // Made-up lifetime stats so the card's stats block has something to show.
     const days = { 1: { d: 31, t: ['race', 'npe', null, 'womm', 'leak', 'off-by-one', 'npe'] }, 2: { d: 56, t: ['bitflip', 'race', 'heisenbug', 'womm', 'npe', 'leak', 'off-by-one'] } } as const;

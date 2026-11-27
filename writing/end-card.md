@@ -93,3 +93,11 @@ max: 40
 status: draft
 
 Suggest a question
+
+## end-card.sheet.others
+where: the top of a backtrace row’s dropdown
+when: the player opens a row’s dropdown at the end of the day
+max: 40
+status: draft
+
+Other answers

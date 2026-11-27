@@ -45,7 +45,7 @@ describe('EndCard', () => {
     const rows = [...t.q('.record').querySelectorAll('.bt-row')];
     expect(rows).toHaveLength(3);
     expect(rows[0]!.textContent).toContain('#0');
-    expect(rows[0]!.textContent).toContain('frames 6–18');
+    expect(rows[0]!.querySelector('.bt-sum')!.textContent).toBe('frames 6–18');
     expect(rows[1]!.classList.contains('timeout')).toBe(true);
     expect(rows[2]!.textContent).toContain('frames 1–5');
   });

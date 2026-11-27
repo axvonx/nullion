@@ -269,7 +269,8 @@ describe('HUD flow', () => {
     expect(h.game.phase.kind).toBe('done');
     const rows = [...h.mount.querySelectorAll<HTMLButtonElement>('.bt-row')];
     expect(rows).toHaveLength(7);
-    expect(rows[0]!.getAttribute('aria-label')).toBe('#0: timed out, no frames');
+    expect(rows[0]!.getAttribute('aria-label')).toMatch(/^#0: .+: timed out, no frames$/);
+    expect(rows[0]!.querySelector('.bt-q')!.textContent).not.toBe('');
     expect(rows[0]!.classList.contains('timeout')).toBe(true);
   });
 
@@ -385,9 +386,9 @@ describe('end card', () => {
     );
     const rows = [...h.mount.querySelectorAll<HTMLButtonElement>('.bt-row')];
     expect(rows.map((r) => r.getAttribute('aria-label'))).toEqual([
-      `#0: ${TIERS.npe.name}, spinlock, frames 6–7`,
+      `#0: spinlock, ${TIERS.npe.name}, frames 6–7`,
       '#1: timed out, no frames',
-      `#2: ${TIERS.race.name}, mutex, frames 1–5`,
+      `#2: mutex, ${TIERS.race.name}, frames 1–5`,
     ]);
     expect(rows.every((r) => r.querySelector('.bt-more'))).toBe(true);
     // A tap pins a row open; another closes it.
@@ -736,16 +737,32 @@ describe('end card answer sheet', () => {
   }
   const shownNames = (panel: HTMLElement) => [...panel.querySelectorAll('.sheet-list li')].map((li) => li.firstChild!.textContent);
 
-  it('shows the prompt and links every answer to Wikipedia in the prompt\'s sense', () => {
+  it('names the question in the row, links it out from the collapsed row, and links every other answer to Wikipedia in the prompt\'s sense', () => {
     const h = sheetSetup();
+    expect(h.mount.querySelector('.bt-row .bt-q')!.textContent).toBe(h.q.prompt);
+    const ref = h.mount.querySelector<HTMLAnchorElement>('a.bt-ref')!;
+    expect(ref.getAttribute('aria-label')).toContain(h.q.prompt);
+    expect(ref.target).toBe('_blank');
+    expect(ref.rel).toContain('noopener');
+    expect(new URL(ref.href).hostname).toBe('en.wikipedia.org');
     h.toggle.click();
-    expect(h.panel.querySelector('.sheet-q')!.textContent).toContain(h.q.prompt);
-    const own = [...h.panel.querySelectorAll<HTMLAnchorElement>('a.sheet-a')].find((a) => a.textContent === h.own.name)!;
-    const url = new URL(own.href);
+    expect(h.panel.querySelector('.sheet-q')!.textContent).toBe('Other answers');
+    expect(h.panel.querySelector('a.sheet-ref')).toBeNull();
+    const other = h.panel.querySelector<HTMLAnchorElement>('a.sheet-a')!;
+    const url = new URL(other.href);
     expect(url.hostname).toBe('en.wikipedia.org');
-    expect(url.searchParams.get('search')).toContain(h.own.name);
-    expect(own.target).toBe('_blank');
-    expect(own.rel).toContain('noopener');
+    expect(url.searchParams.get('search')).toContain(other.textContent!);
+    expect(other.target).toBe('_blank');
+    expect(other.rel).toContain('noopener');
+  });
+
+  it('the row\'s hover says what was answered, in which tier, for how many frames', () => {
+    const h = sheetSetup();
+    const det = h.mount.querySelector('.bt-row .bt-detail')!;
+    expect(det.querySelector('.bt-ans')!.textContent).toBe(h.own.name);
+    expect(det.querySelector('.bt-tier')!.textContent).toBe(TIERS['off-by-one'].name);
+    expect(det.textContent).toContain('+1');
+    expect(h.mount.querySelector('.bt-row .bt-sum')!.textContent).toBe('frame 1');
   });
 
   it('opens and closes from the row arrow, and says so to assistive tech', () => {
@@ -771,14 +788,12 @@ describe('end card answer sheet', () => {
     expect(tiers[0]).toBe('bitflip');
   });
 
-  it('marks the players own answer and shows at most 8 per tier, with a +N more count', () => {
+  it('leaves the players own answer out, shows at most 8 per tier, with a +N more count', () => {
     const h = sheetSetup();
     h.toggle.click();
-    const own = h.panel.querySelectorAll('.sheet-list li.own');
-    expect(own).toHaveLength(1);
-    expect(own[0]!.textContent).toContain(h.own.name);
+    expect([...h.panel.querySelectorAll('a.sheet-a')].some((a) => a.textContent === h.own.name)).toBe(false);
     const group = [...h.panel.querySelectorAll<HTMLElement>('.sheet-group')].find((g) => g.querySelector<HTMLElement>('.bt-tier')!.dataset.tier === 'off-by-one')!;
-    const total = h.entries.filter((e) => e.tier === 'off-by-one').length;
+    const total = h.entries.filter((e) => e.tier === 'off-by-one').length - 1;
     expect(group.querySelectorAll('.sheet-list li')).toHaveLength(8);
     expect(group.querySelector('.sheet-more')!.textContent).toBe(`+${total - 8} more`);
   });
@@ -787,11 +802,10 @@ describe('end card answer sheet', () => {
     const h = sheetSetup();
     h.toggle.click();
     const group = [...h.panel.querySelectorAll<HTMLElement>('.sheet-group')].find((g) => g.querySelector<HTMLElement>('.bt-tier')!.dataset.tier === 'off-by-one')!;
-    const total = h.entries.filter((e) => e.tier === 'off-by-one').length;
+    const total = h.entries.filter((e) => e.tier === 'off-by-one').length - 1;
     const more = group.querySelector<HTMLButtonElement>('.sheet-more')!;
     more.click();
     expect(group.querySelectorAll('.sheet-list li')).toHaveLength(total);
-    expect(group.querySelectorAll('li.own')).toHaveLength(1);
     expect(more.getAttribute('aria-expanded')).toBe('true');
     more.click();
     expect(group.querySelectorAll('.sheet-list li')).toHaveLength(8);

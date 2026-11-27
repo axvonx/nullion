@@ -24,6 +24,8 @@ import { wordmarkCanvas } from './wordmark';
 export interface RecordRow {
   /** The prompt's question id: lets the row open its answer sheet. */
   question?: string;
+  /** The prompt's text, shown in the row's centre. Rows built without a game (a test, a demo) may leave it out. */
+  prompt?: string;
   tier?: TierId;
   name?: string;
   timedOut?: boolean;
@@ -31,7 +33,11 @@ export interface RecordRow {
 
 /** A finished game's rows, in round order. */
 export function rowsOf(g: Game): RecordRow[] {
-  return g.rounds.map((r) => (r.locked ? { question: r.question.id, tier: r.locked.entry.tier, name: r.locked.entry.name } : { question: r.question.id, timedOut: r.timedOut }));
+  return g.rounds.map((r) =>
+    r.locked
+      ? { question: r.question.id, prompt: r.question.prompt, tier: r.locked.entry.tier, name: r.locked.entry.name }
+      : { question: r.question.id, prompt: r.question.prompt, timedOut: r.timedOut },
+  );
 }
 
 /** The share button says what it will do: native share where the device has it, else copy. */
@@ -191,42 +197,65 @@ export class EndCard {
       row.type = 'button';
       row.className = 'bt-row';
       row.setAttribute('aria-expanded', 'false');
+      const prompt = r.prompt ?? this.host.game()?.set.questions.find((q) => q.id === r.question)?.prompt;
       const num = document.createElement('span');
       num.className = 'bt-n';
       num.textContent = `#${i}`;
       const icon = document.createElement('span');
       icon.className = 'bt-icon';
       icon.append(tierIcon(r.tier ?? 'timeout'));
-      const sum = document.createElement('span');
-      sum.className = 'bt-sum';
-      sum.textContent = n === 0 ? 'no frames' : n === 1 ? `frame ${from}` : `frames ${from}–${to}`;
+      // The centre names the question; hovering, focusing or tapping the row swaps in what the player did with it.
+      const mid = document.createElement('span');
+      mid.className = 'bt-mid';
+      const q = document.createElement('span');
+      q.className = 'bt-q';
+      q.textContent = prompt ?? '';
       const det = document.createElement('span');
       det.className = 'bt-detail';
+      // The frame count sits at the right, beside the dropdown arrow.
+      const sum = document.createElement('span');
+      sum.className = 'bt-sum';
+      const span = n === 0 ? 'no frames' : n === 1 ? `frame ${from}` : `frames ${from}–${to}`;
+      if (n === 0) sum.textContent = span;
+      else {
+        const word = document.createElement('span');
+        word.className = 'bt-fw';
+        word.textContent = n === 1 ? 'frame ' : 'frames ';
+        sum.append(word, n === 1 ? String(from) : `${from}–${to}`);
+      }
       const more = document.createElement('span');
       more.className = 'bt-more';
       more.setAttribute('aria-hidden', 'true');
       if (r.tier) {
         const t = TIERS[r.tier];
+        const ans = document.createElement('span');
+        ans.className = 'bt-ans';
+        ans.textContent = r.name ?? '—';
         const name = document.createElement('span');
         name.className = 'bt-tier';
         name.dataset.tier = t.id;
         name.textContent = t.name;
         name.title = `${t.name}: +${framesLabel(t.frames)}${t.id === 'womm' ? ' (the cliché “clever” pick)' : ''}`;
-        det.append(name, ` · ${r.name ?? '—'} · +${n}`);
-        row.setAttribute('aria-label', `#${i}: ${t.name}, ${r.name ?? 'answer'}, ${sum.textContent}`);
+        det.append(ans, ' · ', name, ` · +${n}`);
+        row.setAttribute('aria-label', `#${i}: ${prompt ? `${prompt}: ` : ''}${r.name ?? 'answer'}, ${t.name}, ${span}`);
       } else {
         row.classList.add('timeout');
         det.textContent = r.timedOut ? text('end-card.row.timed-out') : text('end-card.row.skipped');
-        row.setAttribute('aria-label', `#${i}: ${r.timedOut ? 'timed out' : 'skipped'}, no frames`);
+        row.setAttribute('aria-label', `#${i}: ${prompt ? `${prompt}: ` : ''}${r.timedOut ? 'timed out' : 'skipped'}, no frames`);
       }
+      // A row without a prompt text has no centre to swap: it shows its detail all the time.
+      if (!prompt) row.classList.add('no-prompt');
+      mid.append(q, det);
       // Tap (and click) pins a row open; hover and keyboard focus open it while they last (CSS).
       row.addEventListener('click', () => {
         const open = row.getAttribute('aria-expanded') !== 'true';
         for (const b of ol.querySelectorAll('.bt-row')) b.setAttribute('aria-expanded', 'false');
         row.setAttribute('aria-expanded', String(open));
       });
-      row.append(num, icon, sum, det, more);
+      row.append(num, icon, mid, sum, more);
       li.append(row);
+      const ref = prompt && r.question ? this.questionLink(i, prompt, r.question) : undefined;
+      if (ref) li.append(ref);
       const sheetBtn = this.answerSheetFor(li, i, r, puzzle);
       if (sheetBtn) li.append(sheetBtn.toggle, sheetBtn.panel);
       ol.append(li);
@@ -293,8 +322,21 @@ export class EndCard {
     this.els.wordmark!.setAttribute('aria-label', `nullion ${chip}`);
   }
 
+  /** The row's small link-out icon: what the question means in computing (the checked link where the bank has one). */
+  private questionLink(i: number, prompt: string, qid: string): HTMLAnchorElement {
+    const ref = document.createElement('a');
+    ref.className = 'bt-ref';
+    ref.href = questionUrl(prompt, bankLink(qid));
+    ref.target = '_blank';
+    ref.rel = 'noopener noreferrer';
+    ref.textContent = '↗';
+    ref.setAttribute('aria-label', `#${i}: what is “${prompt}”? (opens a new tab)`);
+    ref.title = 'What’s this?';
+    return ref;
+  }
+
   /**
-   * The row's dropdown: an arrow button over the row's last slot that opens the prompt's answer sheet in place.
+   * The row's dropdown: an arrow button over the row's last slot that opens the prompt's other answers in place.
    * The sheet is built on first open. Needs the loaded answer set (the day is over, so showing it spoils nothing).
    */
   private answerSheetFor(li: HTMLElement, i: number, r: RecordRow, puzzle: number): { toggle: HTMLButtonElement; panel: HTMLElement } | undefined {
@@ -305,7 +347,7 @@ export class EndCard {
     toggle.type = 'button';
     toggle.className = 'bt-sheet-btn';
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', `#${i}: all answers to this prompt`);
+    toggle.setAttribute('aria-label', `#${i}: other answers to this prompt`);
     toggle.textContent = '▾';
     const panel = document.createElement('div');
     panel.className = 'bt-sheet';
@@ -319,17 +361,12 @@ export class EndCard {
         built = true;
         const prompt = set.questions.find((q) => q.id === qid)?.prompt;
         enforce(prompt, `answer sheet: no question ${qid} in the loaded set`);
-        // The prompt itself, so the list reads in context, with a link to what it means in computing.
+        // The prompt is already in the row's centre and the player's own pick in its hover: this is only the others.
         const head = document.createElement('div');
         head.className = 'sheet-q';
-        const ref = document.createElement('a');
-        ref.className = 'sheet-ref';
-        ref.href = questionUrl(prompt, bankLink(qid));
-        ref.target = '_blank';
-        ref.rel = 'noopener noreferrer';
-        ref.textContent = 'what’s this? ↗';
-        head.append(`“${prompt}”`, ' ', ref);
-        panel.replaceChildren(head, ...this.sheetNodes(answerSheet(set.entries(qid), puzzle, qid, r.name), r.name, prompt, qid));
+        head.textContent = text('end-card.sheet.others');
+        const others = set.entries(qid).filter((e) => e.name !== r.name);
+        panel.replaceChildren(head, ...this.sheetNodes(answerSheet(others, puzzle, qid), prompt, qid));
       }
       toggle.setAttribute('aria-expanded', String(open));
       panel.hidden = !open;
@@ -338,7 +375,7 @@ export class EndCard {
     return { toggle, panel };
   }
 
-  private sheetNodes(groups: SheetGroup[], own: string | undefined, prompt: string, qid: string): HTMLElement[] {
+  private sheetNodes(groups: SheetGroup[], prompt: string, qid: string): HTMLElement[] {
     return groups.map((g) => {
       const box = document.createElement('section');
       box.className = 'sheet-group';
@@ -351,7 +388,7 @@ export class EndCard {
       head.append(name, ` · ${g.total}`);
       const list = document.createElement('ul');
       list.className = 'sheet-list';
-      const fill = (entries: readonly CategoryEntry[]) => list.replaceChildren(...entries.map((e) => this.sheetItem(e, e.name === own, prompt, qid)));
+      const fill = (entries: readonly CategoryEntry[]) => list.replaceChildren(...entries.map((e) => this.sheetItem(e, prompt, qid)));
       box.append(head, list);
       fill(g.shown);
       if (g.total > g.shown.length) {
@@ -373,7 +410,7 @@ export class EndCard {
     });
   }
 
-  private sheetItem(e: CategoryEntry, own: boolean, prompt: string, qid: string): HTMLElement {
+  private sheetItem(e: CategoryEntry, prompt: string, qid: string): HTMLElement {
     const li = document.createElement('li');
     // Each answer looks itself up in the sense the prompt means ("spinlock" + "lock"), in a new tab.
     const a = document.createElement('a');
@@ -385,13 +422,6 @@ export class EndCard {
     a.textContent = e.name;
     a.title = `${e.note ? `${e.note}\n` : ''}${checked ? `About “${e.name}”: ${new URL(checked).hostname}` : `Look up “${e.name}” on Wikipedia`}`;
     li.append(a);
-    if (own) {
-      li.className = 'own';
-      const you = document.createElement('span');
-      you.className = 'sheet-you';
-      you.textContent = ' ◂ you';
-      li.append(you);
-    }
     if (e.note && (e.tier === 'bitflip' || e.tier === 'womm')) {
       const note = document.createElement('span');
       note.className = 'sheet-note';
