@@ -1,0 +1,2088 @@
+{
+ "id": "unix-command",
+ "prompt": "Name a Unix command",
+ "accepts": "Any executable program in POSIX, GNU coreutils, util-linux, BSD userland or a comparable standard Unix toolset, named in its man page.",
+ "answers": [
+  {
+   "name": "cat",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "chmod",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "chown",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "cp",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "cut",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "date",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "df",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "du",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "echo",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "env",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "false",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "head",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "hostname",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "kill",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ln",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ls",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "mkdir",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "mv",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "printf",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "pwd",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "rm",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "rmdir",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "sleep",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "sort",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "stat",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tail",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tee",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "touch",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tr",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "true",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "uname",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "uniq",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "uptime",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "users",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "wc",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "whoami",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "dmesg",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "mount",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "umount",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ps",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "sh",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "awk",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "bc",
+   "aliases": [
+    "gh-bc"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "bzip2",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "diff",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ftp",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "grep",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "gzip",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "less",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "man",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "passwd",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "sed",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "su",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tar",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "time",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "top",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "unzip",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "vi",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "xz",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "zstd",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "clang",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "xargs",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "cd",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "yes",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "base32",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "base64",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "basename",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "chgrp",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "chroot",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "cksum",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "comm",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "dd",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "dirname",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "expr",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "fmt",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "groups",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "join",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "link",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "md5sum",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mkfifo",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mknod",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mktemp",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "nice",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "nl",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "nohup",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "nproc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "od",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "printenv",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "readlink",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "realpath",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "seq",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "sha1sum",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "sha256sum",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "sha512sum",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "shred",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "shuf",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "stty",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "sync",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "tac",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "test",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "timeout",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "tty",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "unexpand",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "eject",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "fallocate",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "flock",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "fstrim",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "hwclock",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ipcrm",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ipcs",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "losetup",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "lscpu",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "nsenter",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "renice",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "setsid",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "swapoff",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "swapon",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "unshare",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "blkid",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "cal",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "findmnt",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "getopt",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "logger",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "rename",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "uuidgen",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "whereis",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "column",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "hexdump",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "more",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "rev",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "csh",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "pkill",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "addr2line",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ar",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "at",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "cmp",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "compress",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "cpio",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ctags",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "dc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "file",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "find",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "fortune",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "getent",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "gprof",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "host",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "iconv",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "indent",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "killall",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ldd",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "lex",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "limits",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "locale",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "login",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "m4",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mail",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "nc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "netstat",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "newgrp",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "nm",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "quota",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "random",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "readelf",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "script",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "size",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ssh-copy-id",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "telnet",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "tftp",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "units",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "vmstat",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "wg",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "which",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "whois",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "write",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "yacc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "csplit",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "logname",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "sum",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "lsns",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "wipefs",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "rpcinfo",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "showmount",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "what",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "curl",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ssh",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "arch",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "b2sum",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "basenc",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "chcon",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "dir",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "dircolors",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "expand",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "fold",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "hostid",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "id",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "install",
+   "aliases": [
+    "xinstall"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "numfmt",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "paste",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "pathchk",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "pr",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "sha224sum",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "sha384sum",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "split",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "stdbuf",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "truncate",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "unlink",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "vdir",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "who",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "blkdiscard",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "chcpu",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "chmem",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "fsfreeze",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ipcmk",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "lsipc",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "lsmem",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "mountpoint",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "pivot_root",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "prlimit",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "rfkill",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "rtcwake",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "setarch",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "setpriv",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "switch_root",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "zramctl",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "findfs",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "hardlink",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "look",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "lslocks",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "namei",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "col",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "colrm",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "chflags",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "cpuset",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "domainname",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ed",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "getfacl",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "pax",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "setfacl",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "banner",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "bmake",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "bsdiff",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "c++filt",
+   "aliases": [
+    "cxxfilt"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "c89",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "c99",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "calendar",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "chpass",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "command",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "diff3",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "drill",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "dtc",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ee",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "elfdump",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "finger",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "fstat",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "fsync",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "gcore",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "getconf",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ident",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "kdump",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ktrace",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "last",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "lastcomm",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "leave",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "locate",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "lock",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "lockf",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "mandoc",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "mesg",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "mt",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ncal",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "nfsstat",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "pagesize",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "patch",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "pkgconf",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "procstat",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "rpcgen",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ruptime",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "rusers",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "rwall",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "rwho",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "sdiff",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "sockstat",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "strings",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "systat",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tabs",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "talk",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "truss",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "vacation",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "w",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "wall",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ypcat",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ypmatch",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ypwhich",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "factor",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "pinky",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ptx",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "runcon",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tsort",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ctrlaltdel",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ldattach",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "mcookie",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "uuidd",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "uuidparse",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "line",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "pg",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ul",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "bzip2recover",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "getaddrinfo",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "lzmainfo",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "choom",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "irqtop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "lsirq",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "readprofile",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "setpgid",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tunelp",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "wdctl",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "fincore",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "lastlog2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "lsclocks",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "waitpid",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "colcrt",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "freebsd-version",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "kenv",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pwait",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rmail",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "apply",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "backlight",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "biff",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "brandelf",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bsdcat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bsddialog",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "caesar",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "cap_mkdb",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "chat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "compile_et",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "elfcopy",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "elfctl",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "enigma",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "fetch",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "file2c",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "from",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "gencat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "grdc",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "iscsictl",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "jot",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "kyua",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "lam",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ldd32",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "lessecho",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "localedef",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "logins",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "lorder",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ministat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "mkdep",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "mkimg",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "mkuzip",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "morse",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "number",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "primes",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rctl",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "resizewin",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rs",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rup",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "smbutil",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "soelim",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tip",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ts",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "unifdef",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "unvis",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "vis",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "xo",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "xzdec",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "blkpr",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "blkzone",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "copyfilerange",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "enosys",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "exch",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fadvise",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "getino",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pipesz",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bits",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "chio",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "asa",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bintrans",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bomtool",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ctlstat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "etdump",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "genl",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hesinfo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ktrdump",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "lsvfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mdo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mididump",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mkcsmapper",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mkesdb",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mkstr",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "msgs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pamtest",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "posixmqcontrol",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "posixshmcontrol",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "proccontrol",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "protect",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "revoke",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "runat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "sdiotool",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "spdxtool",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tcopy",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "usbhidaction",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "usbhidctl",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "vtfontcvt",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "xohtml",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "xolint",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "xopo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "xstr",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pom",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

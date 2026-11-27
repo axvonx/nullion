@@ -1,0 +1,232 @@
+{
+ "id": "tcp-congestion-control-algorithm",
+ "prompt": "Name a TCP congestion control algorithm",
+ "accepts": "Any named algorithm that adjusts TCP's congestion window, from RFCs, Linux tcp_* modules or research papers.",
+ "answers": [
+  {
+   "name": "Reno",
+   "aliases": [
+    "TCP Reno"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "CUBIC",
+   "aliases": [
+    "TCP CUBIC",
+    "cc_cubic"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "TCP Tahoe",
+   "aliases": [
+    "Tahoe"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Compound TCP",
+   "aliases": [
+    "CTCP"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "TCP Vegas",
+   "aliases": [
+    "cc_vegas",
+    "Vegas"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "BBR",
+   "aliases": [
+    "TCP BBR",
+    "Bottleneck Bandwidth and Round-trip propagation time"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "TCP Westwood+",
+   "aliases": [
+    "Westwood+"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "LEDBAT",
+   "aliases": [
+    "Low Extra Delay Background Transport"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BBRv2",
+   "aliases": [
+    "BBR2"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BBRv3",
+   "aliases": [
+    "BBR3"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PCC",
+   "aliases": [
+    "Performance-oriented Congestion Control",
+    "PCC Vivace"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Copa",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Sprout",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "TIMELY",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Swift",
+   "aliases": [
+    "Swift congestion control"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "TCP Nice",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NewReno",
+   "aliases": [
+    "cc_newreno",
+    "TCP NewReno"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DCTCP",
+   "aliases": [
+    "tcp_dctcp",
+    "cc_dctcp",
+    "Data Center TCP"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "TCP BIC",
+   "aliases": [
+    "BIC",
+    "BIC-TCP",
+    "Binary Increase Congestion control"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HighSpeed TCP",
+   "aliases": [
+    "tcp_highspeed",
+    "HSTCP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "H-TCP",
+   "aliases": [
+    "tcp_htcp",
+    "cc_htcp",
+    "Hamilton TCP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Scalable TCP",
+   "aliases": [
+    "tcp_scalable",
+    "STCP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TCP Westwood",
+   "aliases": [
+    "Westwood"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Hybla",
+   "aliases": [
+    "TCP Hybla"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TCP-NV",
+   "aliases": [
+    "New Vegas"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TCP-LP",
+   "aliases": [
+    "Low Priority TCP"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Veno",
+   "aliases": [
+    "TCP Veno"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "YeAH",
+   "aliases": [
+    "YeAH-TCP",
+    "tcp_yeah"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Illinois",
+   "aliases": [
+    "TCP-Illinois"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CHD",
+   "aliases": [
+    "cc_chd"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CDG",
+   "aliases": [
+    "tcp_cdg",
+    "cc_cdg",
+    "CAIA Delay-Gradient"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

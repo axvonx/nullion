@@ -3,7 +3,7 @@ import { MODE_RULES, layersFor, layerIndexAt, maxDepthFor, rulesFor } from '../c
 import type { TierId } from '../core/tiers';
 import { look, reducedMotion } from '../looks';
 import { enforce } from '../core/enforce';
-import { FONT, SEAM_ART, SEAM_H, hash, type Art, type Band } from './art-common';
+import { FONT, SEAM_H, hash, type Art, type Band } from './art-common';
 import { LAYER_ART_V4, ensureWorldV4, setActiveTopicV4 } from './art-v4';
 import { Collectibles } from './collectibles';
 import { CritterSystem } from './critters';
@@ -11,14 +11,15 @@ import { MANUAL_RARITIES, manualEntryById, manualStore } from '../game/manual';
 import { tagsForQuestion } from './v4/topics';
 import { FAR_F } from './v4/place';
 import type { WorldSpecV4 } from './v4/world';
-import { LAYER_PALETTE, quantizeRow, snapColor } from './palettes';
+import { quantizeRow, snapColor } from './palettes';
+import { LAYER_ART } from '../layers';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
 import { LEAD_MS, bufferBlock, NO_REACTION, REACTION_MS, WOMM, reactionFrame, type ReactionFrame } from './reaction-fx';
 import { drawNullionBanner } from './nullion-banner';
 import { ReactionPaint } from './reaction-paint';
 import { BAYER16, get2d, type Surface } from './surface';
 import { TitleGlitches } from './title-glitches';
-import { CURSOR_FRAC, FORM_BY_LAYER, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
+import { CURSOR_FRAC, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
 import type { TitleGlitchEvent } from '../ui/title-logo';
 import { sound } from '../audio/sound';
 
@@ -521,7 +522,7 @@ export class Scene {
   /** The cursor form shown in a layer (the look can pin one form everywhere). */
   formFor(layerId: LayerId): CursorForm {
     const override = look('cursor');
-    return override === 'evolving' ? FORM_BY_LAYER[layerId] : override;
+    return override === 'evolving' ? LAYER_ART[layerId].cursor : override;
   }
 
   /** The cursor's bracket mark at rest, in CSS pixels: the HUD frames it with the reveal's text. */
@@ -586,7 +587,7 @@ export class Scene {
       }
       // Full-colour rows have no palette to fall to: give them a coarse one so the degrade still reads.
       const li = layerIndexAtWorldY(camY + y, this.stackMode);
-      if (!quantised || LAYER_PALETTE[stack[li]!.id] === 'full') quantizeRow(d, y * W * 4, W, y, 'rgb4', true);
+      if (!quantised || LAYER_ART[stack[li]!.id].palette === 'full') quantizeRow(d, y * W * 4, W, y, 'rgb4', true);
     }
     ctx.putImageData(img, 0, 0);
   }
@@ -857,7 +858,7 @@ export class Scene {
 
   /** The screen's half of the tier reaction: its timeline, the world clock's freeze and the collectibles reset. */
   private stepReaction(now: number, dt: number, reduced: boolean, layer: Layer): { act: TierId | undefined; worldFrozen: boolean } {
-    const frozen = layer.id === 'ring-2' && look('freeze') === 'on';
+    const frozen = LAYER_ART[layer.id].frozenTime === true && look('freeze') === 'on';
     // The screen's half of the tier reaction.
     const rx = this.reaction;
     const rel = rx ? now - rx.start : Infinity;
@@ -933,7 +934,7 @@ export class Scene {
       if (y < -SEAM_H || y > H + 10) continue;
       const l = stack[i]!;
       this.drawSeam(art[stack[i - 1]!.id], band(i - 1), y);
-      SEAM_ART[l.id]?.(ctx, y, band(i));
+      LAYER_ART[l.id].seam?.(ctx, y, band(i));
     }
 
     // 3. Rain (kernel and below).
@@ -1009,7 +1010,7 @@ export class Scene {
       const dither = look('dither') === 'bayer';
       for (let y = 0; y < H; y++) {
         const li = layerIndexAtWorldY(camY + y, this.stackMode);
-        quantizeRow(img.data, y * W * 4, W, y, LAYER_PALETTE[stack[li]!.id], dither);
+        quantizeRow(img.data, y * W * 4, W, y, LAYER_ART[stack[li]!.id].palette, dither);
       }
       ctx.putImageData(img, 0, 0);
     }
@@ -1033,7 +1034,7 @@ export class Scene {
 
     // 7. Scanlines (softened/skipped in 1-bit Ring −3 so crisp white verticals don't zebra-stripe).
     const sl = look('scanlines');
-    const isOneBit = layer.id === 'ring-3';
+    const isOneBit = LAYER_ART[layer.id].palette === 'onebit';
     if (sl === 'always' || (sl === 'auto' && layerIdx >= kernelIdx && !isOneBit)) {
       ctx.fillStyle = isOneBit ? 'rgba(0,0,0,0.08)' : 'rgba(0,0,0,0.3)';
       for (let y = 1; y < H; y += 2) ctx.fillRect(0, y, W, 1);
@@ -1086,9 +1087,8 @@ export class Scene {
 
 
   /**
-   * Subtle layer-specific ambient particles on `artTime`: sky motes in Application, rising GC sparks in
-   * Runtime/Libraries, horizontal IRQ pulses in Userspace/Kernel/Drivers, phosphor dust in Firmware/Ring −1,
-   * frozen dust in Ring −2, stark 1-bit flecks in Ring −3. Off under reduced motion.
+   * Subtle layer-specific ambient particles on `artTime` (each layer's own `LAYER_ART[id].ambient`: sky motes, rising
+   * GC sparks, IRQ pulses, phosphor dust, frozen dust, 1-bit flecks). Off under reduced motion.
    */
   private drawAmbience(layerId: LayerId, reduced: boolean) {
     if (reduced) return;
@@ -1096,73 +1096,18 @@ export class Scene {
     const { W, H } = this;
     const t = this.artTime;
     const perLayer = look('palette') === 'per-layer';
-    const pal = LAYER_PALETTE[layerId];
+    const pal = LAYER_ART[layerId].palette;
     const col = (hex: string) => (perLayer ? snapColor(hex, pal) : hex);
     const count = 12;
+    const ambient = LAYER_ART[layerId].ambient;
+    const pulse = () => sound.playAmbientEvent(layerId);
 
     ctx.save();
     for (let i = 0; i < count; i++) {
       const s1 = hash(i * 43 + 11);
       const s2 = hash(i * 67 + 23);
       const s3 = hash(i * 97 + 37);
-      switch (layerId) {
-        case 'application': {
-          const x = Math.round(((s1 * W + t * (4 + s3 * 6)) % (W + 8)) - 4);
-          const y = Math.round(s2 * H);
-          ctx.globalAlpha = 0.45;
-          ctx.fillStyle = col('#ffffff');
-          ctx.fillRect(x, y, s3 > 0.65 ? 2 : 1, 1);
-          break;
-        }
-        case 'runtime':
-        case 'libraries': {
-          const x = Math.round(s1 * W);
-          const y = Math.round((((s2 * H - t * (10 + s3 * 14)) % H) + H) % H);
-          ctx.globalAlpha = 0.55;
-          ctx.fillStyle = col(i % 2 === 0 ? '#7ec8e3' : '#f5d76e');
-          ctx.fillRect(x, y, 1, 1);
-          break;
-        }
-        case 'userspace':
-        case 'kernel':
-        case 'drivers': {
-          const dir = i % 2 === 0 ? 1 : -1;
-          const speed = 28 + s3 * 42;
-          const x = Math.round((((s1 * W + dir * t * speed) % (W + 12)) + (W + 12)) % (W + 12) - 6);
-          const y = Math.round(s2 * H);
-          if (i === 0 && Math.abs(x - W / 2) < 2) sound.playAmbientEvent(layerId);
-          ctx.globalAlpha = 0.5;
-          ctx.fillStyle = col(layerId === 'drivers' ? '#55ffff' : layerId === 'kernel' ? '#ffb000' : '#7ee0a1');
-          ctx.fillRect(x, y, 3, 1);
-          break;
-        }
-        case 'firmware':
-        case 'ring-1': {
-          const x = Math.round(s1 * W + Math.sin(t * 0.8 + i) * 3);
-          const y = Math.round(((s2 * H + t * (5 + s3 * 6)) % H));
-          ctx.globalAlpha = 0.45;
-          ctx.fillStyle = col('#8cff9c');
-          ctx.fillRect(x, y, 1, 1);
-          break;
-        }
-        case 'ring-2': {
-          const x = Math.round(s1 * W);
-          const y = Math.round(s2 * H);
-          ctx.globalAlpha = 0.4;
-          ctx.fillStyle = col('#bebebe');
-          ctx.fillRect(x, y, 1, 1);
-          break;
-        }
-        case 'ring-3': {
-          if (Math.floor(t * 3 + i * 1.7) % 3 !== 0) break;
-          const x = Math.round(s1 * W);
-          const y = Math.round(s2 * H);
-          ctx.globalAlpha = 0.6;
-          ctx.fillStyle = col('#e8eeff');
-          ctx.fillRect(x, y, 1, 1);
-          break;
-        }
-      }
+      ambient?.({ ctx, W, H, t, col, i, s1, s2, s3, pulse });
     }
     ctx.restore();
   }
@@ -1175,7 +1120,7 @@ export class Scene {
     const ctx = this.ctx;
     const { W, H } = this;
     const perLayer = look('palette') === 'per-layer';
-    const pal = LAYER_PALETTE[layerId];
+    const pal = LAYER_ART[layerId].palette;
     const ink = perLayer ? snapColor('#ffffff', pal) : '#ffffff';
     const count = dv.to - dv.from >= 10 ? 14 : 10;
     const margin = Math.max(12, Math.round(W * 0.22));
@@ -1211,7 +1156,7 @@ export class Scene {
       ctx.globalAlpha = a < 0.7 ? 1 : 1 - (a - 0.7) / 0.3;
       ctx.fillStyle = '#000';
       for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1], [1, 1]] as const) ctx.fillText(p.text, x + dx, y + dy);
-      ctx.fillStyle = perLayer ? snapColor(TIER_HEX[p.tier], LAYER_PALETTE[layerId]) : TIER_HEX[p.tier];
+      ctx.fillStyle = perLayer ? snapColor(TIER_HEX[p.tier], LAYER_ART[layerId].palette) : TIER_HEX[p.tier];
       ctx.fillText(p.text, x, y);
     });
     ctx.globalAlpha = 1;
@@ -1400,7 +1345,7 @@ export class Scene {
     ctx.fillStyle = 'rgba(0,0,0,0.72)';
     ctx.fillRect(cx - rx, cy - ry, rx * 2, ry * 2);
     // Amber normally, fault-red on low time, bright white flash during cursor morph.
-    const pal = LAYER_PALETTE[layerId];
+    const pal = LAYER_ART[layerId].palette;
     const perLayer = look('palette') === 'per-layer';
     const baseHex = morphing ? '#ffffff' : this.lowTime ? '#ff5f7a' : '#ffb000';
     const accent = !perLayer
@@ -1448,7 +1393,7 @@ export class Scene {
       this.bubbles.push({ x: cx + (Math.random() - 0.5) * 10, y: this.cursorY + this.cursorLead + 4, age: 0 });
     }
     const ctx = this.ctx;
-    const ink = look('palette') === 'per-layer' ? snapColor('#ffffff', LAYER_PALETTE[layerId]) : '#ffffff';
+    const ink = look('palette') === 'per-layer' ? snapColor('#ffffff', LAYER_ART[layerId].palette) : '#ffffff';
     ctx.fillStyle = ink;
     // Bubbles rise relative to the world, and the world is scrolling up past the cursor: they stream upward.
     const rise = 14 + speed * 10;

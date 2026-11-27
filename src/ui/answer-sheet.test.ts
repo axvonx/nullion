@@ -39,6 +39,12 @@ describe('answer sheet', () => {
 });
 
 describe('reference links', () => {
+  it('a checked reference link wins over the search fallback', () => {
+    expect(answerUrl('mutex', 'Name a type of lock', 'https://en.wikipedia.org/wiki/Lock_(computer_science)')).toBe('https://en.wikipedia.org/wiki/Lock_(computer_science)');
+    expect(questionUrl('Name a type of lock', 'https://en.wikipedia.org/wiki/Lock_(computer_science)')).toBe('https://en.wikipedia.org/wiki/Lock_(computer_science)');
+    expect(new URL(answerUrl('mutex', 'Name a type of lock', undefined)).searchParams.get('search')).toBe('mutex lock');
+  });
+
   it('reduces a prompt to its subject', () => {
     expect(promptSubject('Name a type of lock')).toBe('lock');
     expect(promptSubject('Name an ODE solver')).toBe('ODE solver');

@@ -1,0 +1,318 @@
+{
+ "id": "stream-cipher",
+ "prompt": "Name a stream cipher",
+ "accepts": "a named symmetric cipher that generates a keystream to encrypt data bit by bit or byte by byte.",
+ "answers": [
+  {
+   "name": "One-time pad",
+   "aliases": [
+    "OTP",
+    "Vernam cipher"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Salsa20",
+   "aliases": [
+    "Salsa"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "RC4",
+   "aliases": [
+    "ARC4",
+    "ARCFOUR"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ChaCha20",
+   "aliases": [
+    "ChaCha",
+    "chacha20poly1305"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "A5/1",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RC4A",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SOBER-128",
+   "aliases": [
+    "SOBER"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Shrinking generator",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Alternating step generator",
+   "aliases": [
+    "ASG"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "XChaCha20",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MICKEY",
+   "aliases": [
+    "MICKEY 2.0"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Rabbit",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "E0",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ZUC",
+   "aliases": [
+    "ZUC-128",
+    "ZUC-256"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "XSalsa20",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ChaCha8",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ChaCha12",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Grain",
+   "aliases": [
+    "Grain v1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Grain-128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Trivium",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HC-128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HC-256",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SOSEMANUK",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ISAAC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "A5/2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Crypto1",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SNOW 3G",
+   "aliases": [
+    "SNOW"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Spritz",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Fruit",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Content Scramble System",
+   "aliases": [
+    "CSS cipher"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SNOW 2.0",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SEAL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WAKE",
+   "aliases": [
+    "Word Auto Key Encryption"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Py",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Phelix",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Helix",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LEVIATHAN",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Scream",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMPC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Achterbahn",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "F-FCSR",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DECIM",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MUGI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Turing",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Dragon",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LEX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Plantlet",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Lizard",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Sprout",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "KCipher-2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WG",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CryptMT",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Hitag2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SNOW-V",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Panama",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Lorenz cipher",
+   "aliases": [
+    "SZ40",
+    "SZ42"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

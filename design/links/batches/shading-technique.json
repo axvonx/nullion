@@ -1,0 +1,574 @@
+{
+ "id": "shading-technique",
+ "prompt": "Name a shading technique",
+ "accepts": "Any technique for computing surface shading or lighting in rendering.",
+ "answers": [
+  {
+   "name": "flat shading",
+   "aliases": [
+    "flat"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Phong shading",
+   "aliases": [
+    "phong"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Gouraud shading",
+   "aliases": [
+    "gouraud"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "cel shading",
+   "aliases": [
+    "toon shading",
+    "cel"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ray tracing",
+   "aliases": [
+    "raytracing"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Blinn-Phong",
+   "aliases": [
+    "blinn phong shading",
+    "Blinn shading"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "normal mapping",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ambient occlusion",
+   "aliases": [
+    "ssao",
+    "AO",
+    "Screen-space ambient occlusion"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "physically based rendering",
+   "aliases": [
+    "pbr",
+    "PBR shading"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Lambertian shading",
+   "aliases": [
+    "Lambertian reflectance",
+    "Lambert shading",
+    "Lambert",
+    "Lambertian"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Rim lighting",
+   "aliases": [
+    "rim shading"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Forward shading",
+   "aliases": [
+    "forward rendering"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Bump mapping",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Displacement mapping",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Environment mapping",
+   "aliases": [
+    "reflection mapping",
+    "cubemap reflection",
+    "cubemap shading"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Lightmapping",
+   "aliases": [
+    "lightmap",
+    "baked lighting"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Path tracing",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "deferred shading",
+   "aliases": [
+    "deferred rendering"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "shadow mapping",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "parallax mapping",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "GGX",
+   "aliases": [
+    "Trowbridge-Reitz",
+    "Trowbridge-Reitz GGX",
+    "GGX shading"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Disney BRDF",
+   "aliases": [
+    "Disney principled BRDF",
+    "principled BSDF"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Schlick BRDF",
+   "aliases": [
+    "Schlick approximation",
+    "Schlick Fresnel"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Gooch shading",
+   "aliases": [
+    "Gooch technical illustration",
+    "Gooch"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Hatching",
+   "aliases": [
+    "cross-hatching",
+    "tonal art maps"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Halftone shading",
+   "aliases": [
+    "halftoning",
+    "Ben-Day shading"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MatCap",
+   "aliases": [
+    "matcap shading",
+    "lit sphere"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Forward+",
+   "aliases": [
+    "tiled forward shading"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Variable rate shading",
+   "aliases": [
+    "VRS",
+    "coarse pixel shading"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Parallax occlusion mapping",
+   "aliases": [
+    "POM"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Image-based lighting",
+   "aliases": [
+    "IBL"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Radiosity",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Photon mapping",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Screen-space reflections",
+   "aliases": [
+    "SSR"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Procedural shading",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Hemisphere lighting",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "subsurface scattering",
+   "aliases": [
+    "sss"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Cook-Torrance",
+   "aliases": [
+    "Cook-Torrance shading"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Oren-Nayar",
+   "aliases": [
+    "Oren-Nayar shading"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "clustered shading",
+   "aliases": [
+    "clustered forward shading"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Half-Lambert",
+   "aliases": [
+    "half-Lambert shading"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Ward BRDF",
+   "aliases": [
+    "Ward reflectance model",
+    "Ward shading",
+    "Ward anisotropic shading"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Beckmann",
+   "aliases": [
+    "Beckmann distribution",
+    "Beckmann microfacet"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Torrance-Sparrow",
+   "aliases": [
+    "Torrance-Sparrow BRDF"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Kajiya-Kay",
+   "aliases": [
+    "Kajiya-Kay hair shading",
+    "Kajiya-Kay model"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Burley diffuse",
+   "aliases": [
+    "Disney diffuse"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Stipple shading",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Wrap lighting",
+   "aliases": [
+    "wrap shading",
+    "wrapped diffuse"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Tiled deferred shading",
+   "aliases": [
+    "tile-based deferred shading"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Deferred lighting",
+   "aliases": [
+    "light pre-pass"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Texture-space shading",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Relief mapping",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Voxel cone tracing",
+   "aliases": [
+    "VXGI"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Screen-space global illumination",
+   "aliases": [
+    "SSGI"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Virtual point lights",
+   "aliases": [
+    "instant radiosity",
+    "VPL"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ReSTIR",
+   "aliases": [
+    "reservoir resampling"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Neural shading",
+   "aliases": [
+    "neural deferred shading"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Relief shading",
+   "aliases": [
+    "hillshading",
+    "cartographic relief shading"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Thin-film interference",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "visibility buffer",
+   "aliases": [
+    "vbuffer"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "spherical harmonic lighting",
+   "aliases": [
+    "sh lighting"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Minnaert shading",
+   "aliases": [
+    "Minnaert"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Ashikhmin-Shirley",
+   "aliases": [
+    "Ashikhmin-Shirley BRDF",
+    "Ashikhmin-Shirley shading"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Lafortune",
+   "aliases": [
+    "Lafortune BRDF",
+    "Lafortune reflectance model"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "He-Torrance-Sillion-Greenberg",
+   "aliases": [
+    "HTSG BRDF",
+    "He BRDF"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Hapke",
+   "aliases": [
+    "Hapke BRDF",
+    "Hapke reflectance model"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Marschner",
+   "aliases": [
+    "Marschner hair shading",
+    "Marschner BCSDF"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Strauss shading",
+   "aliases": [
+    "Strauss reflectance model"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Banks shading",
+   "aliases": [
+    "Banks anisotropic shading"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Charlie sheen",
+   "aliases": [
+    "Charlie BRDF"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Kulla-Conty",
+   "aliases": [
+    "Kulla-Conty approximation"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Object-space shading",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Decoupled deferred shading",
+   "aliases": [
+    "decoupled sampling"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Reyes shading",
+   "aliases": [
+    "micropolygon shading"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Precomputed radiance transfer",
+   "aliases": [
+    "PRT"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Reflective shadow maps",
+   "aliases": [
+    "RSM"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Light propagation volumes",
+   "aliases": [
+    "LPV"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Linearly transformed cosines",
+   "aliases": [
+    "LTC"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Spherical Gaussian lighting",
+   "aliases": [
+    "SG lighting"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Ambient cube",
+   "aliases": [
+    "ambient dice"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Lommel-Seeliger",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

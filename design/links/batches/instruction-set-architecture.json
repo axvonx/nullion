@@ -1,0 +1,432 @@
+{
+ "id": "instruction-set-architecture",
+ "prompt": "Name an instruction set architecture",
+ "accepts": "a named processor instruction set architecture, past or present.",
+ "answers": [
+  {
+   "name": "AArch64",
+   "aliases": [
+    "ARM64",
+    "ARMv8"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ARM",
+   "aliases": [
+    "ARM32",
+    "ARMv7"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "RISC-V",
+   "aliases": [
+    "RV64",
+    "RV32"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "x86",
+   "aliases": [
+    "i386",
+    "IA-32",
+    "x86-64",
+    "AMD64",
+    "x64"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "6502",
+   "aliases": [
+    "MOS 6502"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "IA-64",
+   "aliases": [
+    "Itanium"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "AVR",
+   "aliases": [
+    "ATmega"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Motorola 68000",
+   "aliases": [
+    "M68k",
+    "68k",
+    "68000"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MIPS",
+   "aliases": [
+    "MIPS32",
+    "MIPS64"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PowerPC",
+   "aliases": [
+    "ppc",
+    "POWER",
+    "rs6000",
+    "Power ISA"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SPARC",
+   "aliases": [
+    "SPARC64"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DEC Alpha",
+   "aliases": [
+    "Alpha",
+    "Alpha AXP"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PDP-11",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "VAX",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "eBPF",
+   "aliases": [
+    "BPF"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Z80",
+   "aliases": [
+    "Zilog Z80"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "8051",
+   "aliases": [
+    "MCS-51",
+    "Intel 8051"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "8086",
+   "aliases": [
+    "Intel 8086"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PIC",
+   "aliases": [
+    "Microchip PIC"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "WebAssembly",
+   "aliases": [
+    "Wasm"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "JVM bytecode",
+   "aliases": [
+    "JVM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "System/360",
+   "aliases": [
+    "S/360"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "z/Architecture",
+   "aliases": [
+    "SystemZ",
+    "s390x",
+    "s390",
+    "System/390"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Xtensa",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AMD GCN",
+   "aliases": [
+    "GCN",
+    "AMDGPU"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MicroBlaze",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PA-RISC",
+   "aliases": [
+    "HPPA"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SuperH",
+   "aliases": [
+    "sh4",
+    "SH"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PTX",
+   "aliases": [
+    "NVPTX"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ARC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Qualcomm Hexagon",
+   "aliases": [
+    "Hexagon",
+    "QDSP6"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LoongArch",
+   "aliases": [
+    "LoongArch64"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MSP430",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Blackfin",
+   "aliases": [
+    "bfin"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CRIS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Hitachi H8",
+   "aliases": [
+    "H8/300",
+    "h8300"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "OpenRISC",
+   "aliases": [
+    "or1k"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TI PRU",
+   "aliases": [
+    "PRU"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "NEC V850",
+   "aliases": [
+    "V850"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Infineon TriCore",
+   "aliases": [
+    "TriCore"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "C-SKY",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Lanai",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XMOS XCore",
+   "aliases": [
+    "XCore"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TI C6000",
+   "aliases": [
+    "C6x",
+    "TMS320C6x"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Adapteva Epiphany",
+   "aliases": [
+    "Epiphany"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Fujitsu FR30",
+   "aliases": [
+    "FR30"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Fujitsu FR-V",
+   "aliases": [
+    "FR-V"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FT32",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Vitesse IQ2000",
+   "aliases": [
+    "IQ2000"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LatticeMico32",
+   "aliases": [
+    "LM32"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Mitsubishi M32R",
+   "aliases": [
+    "M32R"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Motorola M\u00b7CORE",
+   "aliases": [
+    "MCore",
+    "M\u00b7CORE"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Matsushita MN10300",
+   "aliases": [
+    "MN10300"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Moxie",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Andes NDS32",
+   "aliases": [
+    "NDS32"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Renesas RL78",
+   "aliases": [
+    "RL78"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Renesas RX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Sanyo Xstormy16",
+   "aliases": [
+    "Xstormy16",
+    "stormy16"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Visium",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NEC Vector Engine",
+   "aliases": [
+    "SX-Aurora",
+    "SX-Aurora VE"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MMIX",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

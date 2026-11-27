@@ -1,0 +1,775 @@
+{
+ "id": "lock",
+ "prompt": "Name a type of lock",
+ "accepts": "Any locking or mutual-exclusion primitive, protocol or scheme.",
+ "answers": [
+  {
+   "name": "mutex",
+   "aliases": [
+    "mutual exclusion lock",
+    "std::mutex",
+    "pthread mutex",
+    "pthread_mutex",
+    "struct mutex",
+    "unnamed mutex"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "spinlock",
+   "aliases": [
+    "spin lock",
+    "spinlock_t",
+    "slock_t"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "semaphore",
+   "aliases": [
+    "struct semaphore",
+    "unnamed semaphore"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "RCU",
+   "aliases": [
+    "read-copy-update"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "read-write lock",
+   "aliases": [
+    "rwlock",
+    "readers-writer lock",
+    "reader-writer lock",
+    "shared-exclusive lock",
+    "std::shared_mutex",
+    "rw_lock",
+    "struct rwlock"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "test-and-set lock",
+   "aliases": [
+    "tas lock",
+    "test and set lock"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "optimistic lock",
+   "aliases": [
+    "optimistic locking"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "pessimistic lock",
+   "aliases": [
+    "pessimistic locking"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "two-phase locking",
+   "aliases": [
+    "2pl"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "shared lock",
+   "aliases": [
+    "s lock",
+    "SHARE lock",
+    "ShareLock",
+    "read lock"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "row-level lock",
+   "aliases": [
+    "row lock"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "table lock",
+   "aliases": [
+    "table-level lock",
+    "relation-level lock"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "file lock",
+   "aliases": [
+    "flock",
+    "file locking",
+    "file_lock",
+    "fcntl lock"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "distributed lock",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "global interpreter lock",
+   "aliases": [
+    "GIL"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "counting semaphore",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "binary semaphore",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Fair lock",
+   "aliases": [
+    "FIFO lock"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "recursive mutex",
+   "aliases": [
+    "reentrant lock",
+    "reentrant mutex",
+    "recursive lock",
+    "ReentrantLock",
+    "std::recursive_mutex"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "adaptive mutex",
+   "aliases": [
+    "adaptive lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ticket lock",
+   "aliases": [
+    "ticket spinlock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "seqlock",
+   "aliases": [
+    "sequence lock",
+    "seqcount",
+    "sequential lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "futex",
+   "aliases": [
+    "fast userspace mutex",
+    "fast user mutex"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "test-and-test-and-set lock",
+   "aliases": [
+    "ttas lock",
+    "test and test and set lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "backoff lock",
+   "aliases": [
+    "exponential backoff lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Peterson lock",
+   "aliases": [
+    "peterson's algorithm",
+    "petersons lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "bakery lock",
+   "aliases": [
+    "lamport's bakery algorithm",
+    "bakery algorithm",
+    "Lamport's bakery lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Dekker's algorithm",
+   "aliases": [
+    "dekker lock",
+    "dekkers algorithm"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "exclusive lock",
+   "aliases": [
+    "x lock",
+    "ExclusiveLock",
+    "write lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "advisory lock",
+   "aliases": [
+    "session-level advisory lock",
+    "transaction-level advisory lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "queue lock",
+   "aliases": [
+    "queuing lock",
+    "queue-based lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "critical section",
+   "aliases": [
+    "CRITICAL_SECTION"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "record lock",
+   "aliases": [
+    "posix lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "page lock",
+   "aliases": [
+    "page-level lock"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "latch",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "intrinsic lock",
+   "aliases": [
+    "monitor lock",
+    "Monitor"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "named mutex",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MCS lock",
+   "aliases": [
+    "mellor-crummey scott lock",
+    "Mellor-Crummey and Scott lock"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CLH lock",
+   "aliases": [
+    "craig landin hagersten lock",
+    "Craig, Landin, and Hagersten lock"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "qspinlock",
+   "aliases": [
+    "queued spinlock"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "big kernel lock",
+   "aliases": [
+    "bkl"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Anderson lock",
+   "aliases": [
+    "array-based queue lock",
+    "array lock"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "filter lock",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "intention lock",
+   "aliases": [
+    "intent lock"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Redlock",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "biased lock",
+   "aliases": [
+    "biased locking"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SRW lock",
+   "aliases": [
+    "slim reader/writer lock",
+    "slim reader-writer lock",
+    "SRWLOCK"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IX lock",
+   "aliases": [
+    "intention exclusive lock"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IS lock",
+   "aliases": [
+    "intention shared lock"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "update lock",
+   "aliases": [
+    "U lock"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "gap lock",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "next-key lock",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "predicate lock",
+   "aliases": [
+    "SIREAD lock"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "executive spin lock",
+   "aliases": [
+    "KSPIN_LOCK"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Giant",
+   "aliases": [
+    "Giant lock",
+    "giant mutex"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "mandatory lock",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ACCESS EXCLUSIVE lock",
+   "aliases": [
+    "AccessExclusiveLock"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "qrwlock",
+   "aliases": [
+    "queued rwlock",
+    "queued read-write lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hierarchical backoff lock",
+   "aliases": [
+    "hbo lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "lock cohorting",
+   "aliases": [
+    "cohort lock",
+    "cohort locks"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CNA lock",
+   "aliases": [
+    "compact numa-aware lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HMCS lock",
+   "aliases": [
+    "hierarchical mcs lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "shuffle lock",
+   "aliases": [
+    "shfllock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Malthusian lock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Hemlock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "reciprocating lock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TWA lock",
+   "aliases": [
+    "ticket lock with waiting array"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "partitioned ticket lock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "thin lock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rw semaphore",
+   "aliases": [
+    "rwsem",
+    "read-write semaphore",
+    "rw_semaphore"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "percpu rwsem",
+   "aliases": [
+    "per-cpu rwsem",
+    "percpu rw semaphore",
+    "percpu_rw_semaphore"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "local lock",
+   "aliases": [
+    "local_lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rt mutex",
+   "aliases": [
+    "rtmutex",
+    "rt_mutex"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ww mutex",
+   "aliases": [
+    "wound/wait mutex",
+    "wound-wait mutex",
+    "ww_mutex"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "lglock",
+   "aliases": [
+    "local/global lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "brlock",
+   "aliases": [
+    "big reader lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "osq lock",
+   "aliases": [
+    "optimistic spin queue",
+    "osq"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SIX lock",
+   "aliases": [
+    "shared intention exclusive lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ERESOURCE",
+   "aliases": [
+    "executive resource"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "push lock",
+   "aliases": [
+    "pushlock",
+    "EX_PUSH_LOCK"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fast mutex",
+   "aliases": [
+    "FAST_MUTEX"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "guarded mutex",
+   "aliases": [
+    "KGUARDED_MUTEX"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "in-stack queued spin lock",
+   "aliases": [
+    "in-stack queued spinlock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rmlock",
+   "aliases": [
+    "read-mostly lock",
+    "sleepable read-mostly lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "sx lock",
+   "aliases": [
+    "sx(9)"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "lockmgr lock",
+   "aliases": [
+    "lockmgr"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "sleep mutex",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "insert intention lock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AUTO-INC lock",
+   "aliases": [
+    "auto-increment lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "key-range lock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "schema lock",
+   "aliases": [
+    "Sch-M lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LWLock",
+   "aliases": [
+    "lightweight lock",
+    "light-weight lock",
+    "LW lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "StampedLock",
+   "aliases": [
+    "stamped lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "parking lot lock",
+   "aliases": [
+    "WTF::Lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "raw spinlock",
+   "aliases": [
+    "raw_spinlock",
+    "raw_spin_lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bit spinlock",
+   "aliases": [
+    "bit_spin_lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "remove lock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "interrupt spin lock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BPF spin lock",
+   "aliases": [
+    "bpf_spin_lock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "spin mutex",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "heavyweight lock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "relation extension lock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ACCESS SHARE lock",
+   "aliases": [
+    "AccessShareLock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ROW EXCLUSIVE lock",
+   "aliases": [
+    "RowExclusiveLock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ROW SHARE lock",
+   "aliases": [
+    "RowShareLock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SHARE ROW EXCLUSIVE lock",
+   "aliases": [
+    "ShareRowExclusiveLock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SHARE UPDATE EXCLUSIVE lock",
+   "aliases": [
+    "ShareUpdateExclusiveLock"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fissile lock",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

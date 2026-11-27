@@ -13,6 +13,14 @@ import { parseSchedule } from './schedule';
 
 const FILES = import.meta.glob(['../../bank/*/*.md', '!../../bank/reports/*.md'], { query: '?raw', import: 'default' }) as Record<string, () => Promise<string>>;
 
+/** Checked reference links per category (scripts/verify-links.py): the end card's answer sheet links to these. */
+const LINK_FILES = import.meta.glob('../../bank/links/*.json', { import: 'default' }) as Record<string, () => Promise<CategoryLinks>>;
+export interface CategoryLinks {
+  prompt: string | null;
+  answers: Record<string, string>;
+}
+const LINKS_BY_ID = new Map<string, CategoryLinks>();
+
 interface FileRef {
   path: string;
   domain: string;
@@ -80,11 +88,29 @@ export function bankAcceptsFor(id: string): string | undefined {
   return ACCEPTS_BY_ID.get(id);
 }
 
+/**
+ * A loaded category's checked reference link for an answer (or, with no answer, for the prompt's subject).
+ * Undefined when none was found: the sheet then falls back to a Wikipedia search. Every approved category has a
+ * links file (bank.test.ts), so a missing one at runtime only means a category approved since the last link run.
+ */
+export function bankLink(id: string, answer?: string): string | undefined {
+  const l = LINKS_BY_ID.get(id);
+  if (!l) return undefined;
+  return (answer === undefined ? l.prompt : l.answers[answer]) ?? undefined;
+}
+
 export async function loadBankTerms(ids: readonly string[]): Promise<Term[]> {
-  const cats = await Promise.all([...new Set(ids)].map(loadBankCategory));
+  const unique = [...new Set(ids)];
+  const cats = await Promise.all(unique.map(loadBankCategory));
   for (const c of cats) {
     enforce(c.status === 'approved', `bank: ${c.id} is ${c.status}, not approved`);
     if (c.accepts) ACCEPTS_BY_ID.set(c.id, c.accepts);
   }
+  await Promise.all(
+    unique.map(async (id) => {
+      const load = LINK_FILES[`../../bank/links/${id}.json`];
+      if (load) LINKS_BY_ID.set(id, await load());
+    }),
+  );
   return cats.flatMap(categoryTerms);
 }

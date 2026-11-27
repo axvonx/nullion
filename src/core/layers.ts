@@ -132,53 +132,6 @@ export const ALL_LAYER_IDS: readonly LayerId[] = [
   ...TRUE_ENDLESS_LAYERS.map((l) => l.id),
 ];
 
-/** Canonical daily layer fallback for default audio/art inheritance. */
-export const DAILY_FALLBACK: Record<LayerId, DailyLayerId> = {
-  internet: 'application',
-  browser: 'application',
-  application: 'application',
-  bytecode: 'runtime',
-  jit: 'runtime',
-  runtime: 'runtime',
-  libraries: 'libraries',
-  linker: 'libraries',
-  userspace: 'userspace',
-  'kernel-entry': 'kernel',
-  kernel: 'kernel',
-  'kernel-arch': 'kernel',
-  drivers: 'drivers',
-  'bus-fabric': 'drivers',
-  firmware: 'firmware',
-  vmm: 'ring-1',
-  'ring-1': 'ring-1',
-  ept: 'ring-1',
-  'ring-2': 'ring-2',
-  smram: 'ring-2',
-  'ring-3': 'ring-3',
-  'me-minix-user': 'userspace',
-  'me-minix-kern': 'kernel',
-  uarch: 'ring-3',
-  rtl: 'ring-3',
-  cmos: 'drivers',
-  litho: 'ring-3',
-  bandgap: 'ring-3',
-  landauer: 'ring-3',
-  'slab-spa': 'libraries',
-  'kthread-kabin': 'kernel',
-};
-
-/** Expand a 10-entry Daily map into a complete LayerId map using `DAILY_FALLBACK` + optional overrides. */
-export function expandLayerMap<T>(
-  base: Record<DailyLayerId, T>,
-  overrides: Partial<Record<EndlessOnlyLayerId | TrueEndlessLayerId, T>> = {},
-): Record<LayerId, T> {
-  const out = {} as Record<LayerId, T>;
-  for (const id of ALL_LAYER_IDS) {
-    out[id] = (overrides as Partial<Record<LayerId, T>>)[id] ?? base[DAILY_FALLBACK[id]];
-  }
-  return out;
-}
-
 for (const stack of [DAILY_LAYERS, ENDLESS_LAYERS, TRUE_ENDLESS_LAYERS]) {
   for (let i = 1; i < stack.length; i++) {
     enforce(stack[i]!.from > stack[i - 1]!.from, 'layer thresholds must strictly increase');

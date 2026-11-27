@@ -1,0 +1,294 @@
+{
+ "id": "cryptographic-hash-function",
+ "prompt": "Name a cryptographic hash function",
+ "accepts": "a named cryptographic hash function standard or published design.",
+ "answers": [
+  {
+   "name": "MD5",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "SHA-1",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "SHA-256",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Whirlpool",
+   "aliases": [
+    "wp512",
+    "whrlpool"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "SHA-512",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SHA-3",
+   "aliases": [
+    "Keccak"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SHA-2",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BLAKE3",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SHA3-256",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SHA3-512",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SHAKE128",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SHAKE256",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BLAKE2b",
+   "aliases": [
+    "BLAKE2"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "RIPEMD-160",
+   "aliases": [
+    "RIPEMD",
+    "rmd160"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MD4",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SHA-224",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SHA-384",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "BLAKE",
+   "aliases": [
+    "BLAKE-256",
+    "BLAKE-512"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "BLAKE2s",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MD2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SM3",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SHA-0",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MD6",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Tiger",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HAVAL",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Skein",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Groestl",
+   "aliases": [
+    "Gr\u00f8stl"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "JH",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GOST R 34.11-94",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RIPEMD-128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SHA-512/256",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Streebog",
+   "aliases": [
+    "streebog_generic",
+    "GOST R 34.11-2012"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MDC-2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Snefru",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "N-Hash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FORK-256",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Fugue",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Hamsi",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Luffa",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CubeHash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ECHO",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Shabal",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SHAvite-3",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Blue Midnight Wish",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Panama",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SWIFFT",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "KangarooTwelve",
+   "aliases": [
+    "K12"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Gimli",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Ascon-Hash",
+   "aliases": [
+    "Ascon"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Xoodyak",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RIPEMD-320",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RadioGatun",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

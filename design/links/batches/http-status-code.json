@@ -1,0 +1,503 @@
+{
+ "id": "http-status-code",
+ "prompt": "Name an HTTP status code",
+ "accepts": "Any three-digit status code registered in the IANA HTTP Status Code Registry, named by number or by its reason phrase.",
+ "answers": [
+  {
+   "name": "200 OK",
+   "aliases": [
+    "200",
+    "OK"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "201 Created",
+   "aliases": [
+    "201",
+    "Created"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "204 No Content",
+   "aliases": [
+    "204",
+    "No Content"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "301 Moved Permanently",
+   "aliases": [
+    "301",
+    "Moved Permanently"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "302 Found",
+   "aliases": [
+    "302",
+    "Found"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "400 Bad Request",
+   "aliases": [
+    "400",
+    "Bad Request"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "401 Unauthorized",
+   "aliases": [
+    "401",
+    "Unauthorized"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "403 Forbidden",
+   "aliases": [
+    "403",
+    "Forbidden"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "429 Too Many Requests",
+   "aliases": [
+    "429",
+    "Too Many Requests"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "500 Internal Server Error",
+   "aliases": [
+    "500",
+    "Internal Server Error"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "502 Bad Gateway",
+   "aliases": [
+    "502",
+    "Bad Gateway"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "503 Service Unavailable",
+   "aliases": [
+    "503",
+    "Service Unavailable"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "504 Gateway Timeout",
+   "aliases": [
+    "504",
+    "Gateway Timeout"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "418 I'm a teapot",
+   "aliases": [
+    "418",
+    "I'm a teapot"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "100 Continue",
+   "aliases": [
+    "100",
+    "Continue"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "202 Accepted",
+   "aliases": [
+    "202",
+    "Accepted"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "307 Temporary Redirect",
+   "aliases": [
+    "307",
+    "Temporary Redirect"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "402 Payment Required",
+   "aliases": [
+    "402",
+    "Payment Required"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "404 Not Found",
+   "aliases": [
+    "404",
+    "Not Found"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "405 Method Not Allowed",
+   "aliases": [
+    "405",
+    "Method Not Allowed"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "408 Request Timeout",
+   "aliases": [
+    "408",
+    "Request Timeout"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "409 Conflict",
+   "aliases": [
+    "409",
+    "Conflict"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "413 Content Too Large",
+   "aliases": [
+    "413",
+    "Content Too Large",
+    "Payload Too Large",
+    "Request Entity Too Large"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "415 Unsupported Media Type",
+   "aliases": [
+    "415",
+    "Unsupported Media Type"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "422 Unprocessable Content",
+   "aliases": [
+    "422",
+    "Unprocessable Content",
+    "Unprocessable Entity"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "501 Not Implemented",
+   "aliases": [
+    "501",
+    "Not Implemented"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "101 Switching Protocols",
+   "aliases": [
+    "101",
+    "Switching Protocols"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "206 Partial Content",
+   "aliases": [
+    "206",
+    "Partial Content"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "300 Multiple Choices",
+   "aliases": [
+    "300",
+    "Multiple Choices"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "303 See Other",
+   "aliases": [
+    "303",
+    "See Other"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "304 Not Modified",
+   "aliases": [
+    "304",
+    "Not Modified"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "308 Permanent Redirect",
+   "aliases": [
+    "308",
+    "Permanent Redirect"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "406 Not Acceptable",
+   "aliases": [
+    "406",
+    "Not Acceptable"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "410 Gone",
+   "aliases": [
+    "410",
+    "Gone"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "411 Length Required",
+   "aliases": [
+    "411",
+    "Length Required"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "412 Precondition Failed",
+   "aliases": [
+    "412",
+    "Precondition Failed"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "414 URI Too Long",
+   "aliases": [
+    "414",
+    "URI Too Long"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "425 Too Early",
+   "aliases": [
+    "425",
+    "Too Early"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "426 Upgrade Required",
+   "aliases": [
+    "426",
+    "Upgrade Required"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "451 Unavailable For Legal Reasons",
+   "aliases": [
+    "451",
+    "Unavailable For Legal Reasons"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "505 HTTP Version Not Supported",
+   "aliases": [
+    "505",
+    "HTTP Version Not Supported"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "103 Early Hints",
+   "aliases": [
+    "103",
+    "Early Hints"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "203 Non-Authoritative Information",
+   "aliases": [
+    "203",
+    "Non-Authoritative Information"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "205 Reset Content",
+   "aliases": [
+    "205",
+    "Reset Content"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "207 Multi-Status",
+   "aliases": [
+    "207",
+    "Multi-Status"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "407 Proxy Authentication Required",
+   "aliases": [
+    "407",
+    "Proxy Authentication Required"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "416 Range Not Satisfiable",
+   "aliases": [
+    "416",
+    "Range Not Satisfiable"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "417 Expectation Failed",
+   "aliases": [
+    "417",
+    "Expectation Failed"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "421 Misdirected Request",
+   "aliases": [
+    "421",
+    "Misdirected Request"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "423 Locked",
+   "aliases": [
+    "423"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "424 Failed Dependency",
+   "aliases": [
+    "424",
+    "Failed Dependency"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "428 Precondition Required",
+   "aliases": [
+    "428",
+    "Precondition Required"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "431 Request Header Fields Too Large",
+   "aliases": [
+    "431",
+    "Request Header Fields Too Large"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "507 Insufficient Storage",
+   "aliases": [
+    "507",
+    "Insufficient Storage"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "511 Network Authentication Required",
+   "aliases": [
+    "511",
+    "Network Authentication Required"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "102 Processing",
+   "aliases": [
+    "102"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "305 Use Proxy",
+   "aliases": [
+    "305"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "208 Already Reported",
+   "aliases": [
+    "208",
+    "Already Reported"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "506 Variant Also Negotiates",
+   "aliases": [
+    "506",
+    "Variant Also Negotiates"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "508 Loop Detected",
+   "aliases": [
+    "508",
+    "Loop Detected"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "510 Not Extended",
+   "aliases": [
+    "510",
+    "Not Extended"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "226 IM Used",
+   "aliases": [
+    "226",
+    "IM Used"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

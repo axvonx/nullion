@@ -1,7 +1,8 @@
 import { LAYERS } from '../core/layers';
 import { TIERS, TIER_IDS, type TierId } from '../core/tiers';
 import { diveLeadMs, diveMs } from '../render/scene';
-import { FORM_BY_LAYER, FORM_IDS, FORM_NAMES } from '../ui/forms';
+import { LAYER_ART } from '../layers';
+import { FORM_IDS, FORM_NAMES } from '../ui/forms';
 import { REVEAL_MS } from '../ui/reveal';
 import { tierIcon } from '../ui/tier-icons';
 import { manualBookIcon } from '../ui/manual-icon';
@@ -235,7 +236,7 @@ export function mountRail(h: DebugHooks) {
     }
     const form = FORM_IDS[formIdx]!;
     h.hud.formOverride = form;
-    const layer = LAYERS.find((l) => FORM_BY_LAYER[l.id] === form);
+    const layer = LAYERS.find((l) => LAYER_ART[l.id].form === form);
     if (!layer) throw new Error(`rail: no layer uses form '${form}'`);
     h.scene.setTarget(layer.from + 0.5);
     if (!h.hud.showsPrompt) h.hud.demoBegin('Name a type of lock');

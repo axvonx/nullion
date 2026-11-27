@@ -1,0 +1,512 @@
+{
+ "id": "riscv-extension",
+ "prompt": "Name a RISC-V extension",
+ "accepts": "a named RISC-V ISA extension (single-letter or Z/S-prefixed) from the RISC-V specifications.",
+ "answers": [
+  {
+   "name": "M",
+   "aliases": [
+    "Integer Multiplication and Division",
+    "RV32M",
+    "RV64M"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "A",
+   "aliases": [
+    "Atomic",
+    "Atomic Instructions",
+    "RV32A",
+    "RV64A"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "F",
+   "aliases": [
+    "Single-Precision Floating-Point",
+    "RV32F",
+    "RV64F"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "D",
+   "aliases": [
+    "Double-Precision Floating-Point",
+    "RV32D",
+    "RV64D"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "C",
+   "aliases": [
+    "Compressed",
+    "Compressed Instructions",
+    "RVC"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "V",
+   "aliases": [
+    "Vector",
+    "RVV",
+    "Vector Extension"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "B",
+   "aliases": [
+    "Bit Manipulation",
+    "Bitmanip"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "G",
+   "aliases": [
+    "General-Purpose",
+    "IMAFD"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "H",
+   "aliases": [
+    "Hypervisor"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Q",
+   "aliases": [
+    "Quad-Precision Floating-Point"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "V extension",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Zk",
+   "aliases": [
+    "Scalar Cryptography"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Zkn",
+   "aliases": [
+    "NIST Algorithm Suite"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Zks",
+   "aliases": [
+    "ShangMi Algorithm Suite"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "M extension",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "A extension",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "F extension",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "D extension",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "C extension",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "B extension",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "H extension",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Q extension",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "P extension",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zicsr",
+   "aliases": [
+    "Control and Status Register"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zifencei",
+   "aliases": [
+    "Instruction-Fetch Fence"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zba",
+   "aliases": [
+    "Address Generation"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zbb",
+   "aliases": [
+    "Basic Bit-Manipulation"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zbc",
+   "aliases": [
+    "Carry-less Multiplication"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zbs",
+   "aliases": [
+    "Single-Bit Instructions"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zfh",
+   "aliases": [
+    "Half-Precision Floating-Point"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zicbom",
+   "aliases": [
+    "Cache-Block Management"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zicboz",
+   "aliases": [
+    "Cache-Block Zero"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zicbop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zicntr",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zihpm",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zihintpause",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zicond",
+   "aliases": [
+    "Integer Conditional Operations"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Ztso",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zmmul",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Sstc",
+   "aliases": [
+    "Supervisor-mode Timer Interrupts"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zbkb",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zbkc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zbkx",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zknd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zkne",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zknh",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zksed",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zksh",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zkr",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zkt",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zfhmin",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zfinx",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zdinx",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zhinx",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zihintntl",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zawrs",
+   "aliases": [
+    "Wait-on-Reservation-Set"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zacas",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zabha",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zca",
+   "aliases": [
+    "Compressed Integer"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zcb",
+   "aliases": [
+    "Additional Compressed Instructions"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zcd",
+   "aliases": [
+    "Compressed Double-Precision Floating-Point"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zcf",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zcmp",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zcmt",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zvl128b",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zve32x",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zvfh",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zvbb",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zvbc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zvkg",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zvkned",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zvknha",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zvksed",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zvksh",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zfa",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Svnapot",
+   "aliases": [
+    "NAPOT Translation Contiguity"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Svpbmt",
+   "aliases": [
+    "Page-Based Memory Types"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Svinval",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Sscofpmf",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Smepmp",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Smstateen",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Ssaia",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Sdtrig",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zicfilp",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zicfiss",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zimop",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

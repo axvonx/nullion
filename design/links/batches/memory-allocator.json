@@ -1,0 +1,325 @@
+{
+ "id": "memory-allocator",
+ "prompt": "Name a memory allocator",
+ "accepts": "Any named general-purpose or specialised dynamic memory allocator implementation or allocation algorithm for C-style heaps.",
+ "answers": [
+  {
+   "name": "jemalloc",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "first-fit allocator",
+   "aliases": [
+    "first fit"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Free list allocator",
+   "aliases": [
+    "freelist"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PartitionAlloc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "libumem",
+   "aliases": [
+    "umem"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "kmalloc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "vmalloc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "vmem",
+   "aliases": [
+    "vmem allocator"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "buddy allocator",
+   "aliases": [
+    "buddy memory allocation"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "slab allocator",
+   "aliases": [
+    "SLAB"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Contiguous Memory Allocator",
+   "aliases": [
+    "CMA",
+    "cma allocator"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Arena allocator",
+   "aliases": [
+    "region allocator",
+    "zone allocator"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Pool allocator",
+   "aliases": [
+    "memory pool",
+    "fixed-size block allocator"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ptmalloc",
+   "aliases": [
+    "ptmalloc2",
+    "glibc malloc"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "dlmalloc",
+   "aliases": [
+    "Doug Lea's malloc",
+    "Doug Lea malloc"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tcmalloc",
+   "aliases": [
+    "Thread-Caching Malloc"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "mimalloc",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "best-fit allocator",
+   "aliases": [
+    "best fit"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "next-fit allocator",
+   "aliases": [
+    "next fit"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "stack allocator",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Electric Fence",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "BumpPtrAllocator",
+   "aliases": [
+    "bump allocator",
+    "bump pointer allocator",
+    "linear allocator",
+    "monotonic allocator"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Hoard",
+   "aliases": [
+    "Hoard memory allocator"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "snmalloc",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rpmalloc",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TLSF",
+   "aliases": [
+    "two-level segregated fit"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "omalloc",
+   "aliases": [
+    "OpenBSD malloc"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Low Fragmentation Heap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Segment Heap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SLUB allocator",
+   "aliases": [
+    "SLUB"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SLOB allocator",
+   "aliases": [
+    "SLOB"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "segregated free list allocator",
+   "aliases": [
+    "segregated fit"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bitmap allocator",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pymalloc",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "zsmalloc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SuperMalloc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "nedmalloc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "phkmalloc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mallocng",
+   "aliases": [
+    "musl mallocng"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hardened_malloc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Scalloc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Streamflow",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LFMalloc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Mesh",
+   "aliases": [
+    "Mesh allocator"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "memblock",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "genalloc",
+   "aliases": [
+    "gen_pool"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bootmem",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DieHard",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DieHarder",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zend MM",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "half-fit",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Scudo",
+   "aliases": [
+    "Scudo Hardened Allocator"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

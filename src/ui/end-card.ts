@@ -9,6 +9,7 @@ import { buildShareText, deliverShare, siteUrl } from '../game/share';
 import type { StatsOutcome } from '../game/stats';
 import { answerSheet, answerUrl, questionUrl, type SheetGroup } from './answer-sheet';
 import { elementsOf, framesLabel, replay, setText } from './dom';
+import { bankLink } from '../data/bank';
 import { missedAnswerUrl, suggestQuestionUrl } from './issues';
 import { manualBookIcon } from './manual-icon';
 import { tierIcon } from './tier-icons';
@@ -256,12 +257,12 @@ export class EndCard {
         head.className = 'sheet-q';
         const ref = document.createElement('a');
         ref.className = 'sheet-ref';
-        ref.href = questionUrl(prompt);
+        ref.href = questionUrl(prompt, bankLink(qid));
         ref.target = '_blank';
         ref.rel = 'noopener noreferrer';
         ref.textContent = 'what’s this? ↗';
         head.append(`“${prompt}”`, ' ', ref);
-        panel.replaceChildren(head, ...this.sheetNodes(answerSheet(set.entries(qid), puzzle, qid, r.name), r.name, prompt));
+        panel.replaceChildren(head, ...this.sheetNodes(answerSheet(set.entries(qid), puzzle, qid, r.name), r.name, prompt, qid));
       }
       toggle.setAttribute('aria-expanded', String(open));
       panel.hidden = !open;
@@ -270,7 +271,7 @@ export class EndCard {
     return { toggle, panel };
   }
 
-  private sheetNodes(groups: SheetGroup[], own: string | undefined, prompt: string): HTMLElement[] {
+  private sheetNodes(groups: SheetGroup[], own: string | undefined, prompt: string, qid: string): HTMLElement[] {
     return groups.map((g) => {
       const box = document.createElement('section');
       box.className = 'sheet-group';
@@ -283,7 +284,7 @@ export class EndCard {
       head.append(name, ` · ${g.total}`);
       const list = document.createElement('ul');
       list.className = 'sheet-list';
-      const fill = (entries: readonly CategoryEntry[]) => list.replaceChildren(...entries.map((e) => this.sheetItem(e, e.name === own, prompt)));
+      const fill = (entries: readonly CategoryEntry[]) => list.replaceChildren(...entries.map((e) => this.sheetItem(e, e.name === own, prompt, qid)));
       box.append(head, list);
       fill(g.shown);
       if (g.total > g.shown.length) {
@@ -305,16 +306,17 @@ export class EndCard {
     });
   }
 
-  private sheetItem(e: CategoryEntry, own: boolean, prompt: string): HTMLElement {
+  private sheetItem(e: CategoryEntry, own: boolean, prompt: string, qid: string): HTMLElement {
     const li = document.createElement('li');
     // Each answer looks itself up in the sense the prompt means ("spinlock" + "lock"), in a new tab.
     const a = document.createElement('a');
     a.className = 'sheet-a';
-    a.href = answerUrl(e.name, prompt);
+    const checked = bankLink(qid, e.name);
+    a.href = answerUrl(e.name, prompt, checked);
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
     a.textContent = e.name;
-    a.title = `${e.note ? `${e.note}\n` : ''}Look up “${e.name}” on Wikipedia`;
+    a.title = `${e.note ? `${e.note}\n` : ''}${checked ? `About “${e.name}”: ${new URL(checked).hostname}` : `Look up “${e.name}” on Wikipedia`}`;
     li.append(a);
     if (own) {
       li.className = 'own';

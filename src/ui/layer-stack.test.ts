@@ -1,17 +1,18 @@
 // @vitest-environment happy-dom
 import { describe, expect, it, vi } from 'vitest';
 import { ALL_LAYER_IDS, DAILY_LAYERS } from '../core/layers';
-import { LAYER_THEMES, LayerStack, createLayerBadge } from './layer-stack';
+import { LAYER_ART } from '../layers';
+import { LayerStack, createLayerBadge } from './layer-stack';
 
 describe('LayerStack', () => {
   it('defines a valid 9x9 theme and icon for every daily and endless layer', () => {
     for (const id of ALL_LAYER_IDS) {
-      const t = LAYER_THEMES[id];
+      const t = LAYER_ART[id].stackTheme;
       expect(t).toBeDefined();
       expect(t.icon.length).toBe(9);
       for (const row of t.icon) expect(row.length).toBe(9);
     }
-    expect(LAYER_THEMES['ring-2'].anim).toBe('none');
+    expect(LAYER_ART['ring-2'].stackTheme.anim).toBe('none');
   });
 
   it('starts with Application and builds top-down with the bottommost block highlighted', () => {

@@ -1,0 +1,1322 @@
+{
+ "id": "python-stdlib-module",
+ "prompt": "Name a Python standard library module",
+ "accepts": "Any module shipped with CPython and listed in the Python standard library documentation.",
+ "answers": [
+  {
+   "name": "os",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "sys",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "json",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "math",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "re",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "datetime",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "time",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "pathlib",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "itertools",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "functools",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "dataclasses",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "argparse",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "subprocess",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "logging",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "unittest",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "asyncio",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "threading",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "multiprocessing",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "csv",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "io",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "shutil",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "glob",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tempfile",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "pickle",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "sqlite3",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "socket",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "urllib",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "hashlib",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "base64",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "copy",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "enum",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "os.path",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "pdb",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "pprint",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "timeit",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tkinter",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "traceback",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "turtle",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "unittest.mock",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "uuid",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "venv",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "zipfile",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "this",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "random",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "collections",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "typing",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "http",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "abc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "atexit",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "bisect",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "builtins",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "bz2",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "calendar",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "cmath",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "codecs",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "collections.abc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "concurrent.futures",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "configparser",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "contextlib",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ctypes",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "decimal",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "difflib",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "doctest",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "email",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "errno",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "fnmatch",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "gc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "getopt",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "getpass",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "gettext",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "gzip",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "heapq",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "hmac",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "http.client",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "http.server",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "importlib",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ipaddress",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "keyword",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "locale",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "lzma",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mimetypes",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mmap",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "operator",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "optparse",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "platform",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "pstats",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "pwd",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "queue",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "secrets",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "select",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "shlex",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "signal",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "smtplib",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "socketserver",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ssl",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "stat",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "statistics",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "struct",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "tarfile",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "textwrap",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "tomllib",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "types",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "urllib.parse",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "urllib.request",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "warnings",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "weakref",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "webbrowser",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "xml.etree.ElementTree",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "zlib",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "zoneinfo",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "pydoc",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "resource",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "unicodedata",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "__future__",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "array",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ast",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "dis",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "fractions",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "html",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "inspect",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "numbers",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "profile",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "string",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "xml",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "__main__",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "_thread",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "binascii",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "cgi",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "cmd",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "code",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "colorsys",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "compileall",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "contextvars",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "dbm",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "distutils",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ensurepip",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "faulthandler",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "fcntl",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "filecmp",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "fileinput",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ftplib",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "graphlib",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "grp",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "html.parser",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "http.cookiejar",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "http.cookies",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "imaplib",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "importlib.metadata",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "importlib.resources",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "linecache",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "logging.config",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "logging.handlers",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "mailbox",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "marshal",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "msvcrt",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "multiprocessing.shared_memory",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "netrc",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "pkgutil",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "plistlib",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "poplib",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "posix",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "pty",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "py_compile",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "quopri",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "readline",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "reprlib",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "runpy",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "sched",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "selectors",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "shelve",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "site",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "sysconfig",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "syslog",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "termios",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "test",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tkinter.messagebox",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tkinter.ttk",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "token",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tokenize",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "trace",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tracemalloc",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tty",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "urllib.error",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "urllib.robotparser",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "wave",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "winreg",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "wsgiref",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "xml.dom",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "xml.dom.minidom",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "xml.sax",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "xmlrpc",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "xmlrpc.client",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "xmlrpc.server",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "zipapp",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "zipimport",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "telnetlib",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "copyreg",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "curses",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "aifc",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "asynchat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "asyncore",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "audioop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bdb",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "cgitb",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "chunk",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "codeop",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "crypt",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "curses.ascii",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "curses.panel",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.charset",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.encoders",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.errors",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.generator",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.header",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.headerregistry",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.iterators",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.message",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.mime",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.parser",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.policy",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "email.utils",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "html.entities",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "imghdr",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "imp",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "mailcap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "modulefinder",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "msilib",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "nis",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "nntplib",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ossaudiodev",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pickletools",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pyclbr",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pyexpat",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rlcompleter",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "smtpd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "sndhdr",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "spwd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "stringprep",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "sunau",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "symtable",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tkinter.colorchooser",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tkinter.font",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tkinter.scrolledtext",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "uu",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "winsound",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "xdrlib",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "xml.dom.pulldom",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "xml.sax.handler",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "xml.sax.reader",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "xml.sax.utils",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "sys.monitoring",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pipes",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "annotationlib",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "compression",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "compression.zstd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "concurrent.interpreters",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "importlib.resources.abc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "profiling.sampling",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "profiling.tracing",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "string.templatelib",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "email.contentmanager",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tkinter.dnd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tabnanny",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

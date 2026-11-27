@@ -1,0 +1,699 @@
+{
+ "id": "bug",
+ "prompt": "Name a type of bug",
+ "accepts": "Any named kind of software bug or defect.",
+ "answers": [
+  {
+   "name": "off-by-one",
+   "aliases": [
+    "off by one error",
+    "obo",
+    "fencepost error",
+    "OBOE"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "null pointer dereference",
+   "aliases": [
+    "null pointer",
+    "null pointer exception",
+    "npe",
+    "null dereference"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "memory leak",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "infinite loop",
+   "aliases": [
+    "endless loop"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "segfault",
+   "aliases": [
+    "segmentation fault"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "heisenbug",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "bit flip",
+   "aliases": [
+    "cosmic ray",
+    "cosmic ray bit flip"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Y2K",
+   "aliases": [
+    "y2k bug",
+    "millennium bug"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "race condition",
+   "aliases": [
+    "data race"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "buffer overflow",
+   "aliases": [
+    "buffer overrun"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "deadlock",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "stack overflow",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Out-of-bounds array index",
+   "aliases": [
+    "index-out-of-range",
+    "array index underflow"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Prompt injection",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Uncaught exception",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Divide by zero",
+   "aliases": [
+    "Division by zero"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Use of uninitialized variable",
+   "aliases": [
+    "uninitialized variable",
+    "uninitialized memory"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Assertion failure",
+   "aliases": [
+    "reachable assertion"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Command injection",
+   "aliases": [
+    "OS command injection",
+    "shell injection"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Cross-site scripting",
+   "aliases": [
+    "XSS",
+    "HTML injection"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SQL injection",
+   "aliases": [
+    "SQLi"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Code injection",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Syntax error",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Logic error",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Type error",
+   "aliases": [
+    "type mismatch"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Floating-point precision error",
+   "aliases": [
+    "rounding error",
+    "floating point error"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Out-of-bounds access",
+   "aliases": [
+    "index out of bounds",
+    "array out of bounds"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Livelock",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Timezone bug",
+   "aliases": [
+    "DST bug",
+    "daylight saving bug"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Character encoding bug",
+   "aliases": [
+    "mojibake",
+    "encoding error"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Format string bug",
+   "aliases": [
+    "format string vulnerability"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "use-after-free",
+   "aliases": [
+    "uaf"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "double free",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "integer overflow",
+   "aliases": [
+    "arithmetic overflow"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Clickjacking",
+   "aliases": [
+    "UI Redress Attack",
+    "Tapjacking"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Stack-based buffer overflow",
+   "aliases": [
+    "stack buffer overflow"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Heap-based buffer overflow",
+   "aliases": [
+    "heap overflow",
+    "heap buffer overflow"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Buffer underwrite",
+   "aliases": [
+    "buffer underrun",
+    "buffer underflow"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Out-of-bounds read",
+   "aliases": [
+    "OOB read"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Buffer over-read",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Prototype pollution",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ReDoS",
+   "aliases": [
+    "catastrophic backtracking",
+    "inefficient regular expression complexity"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Improper null termination",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Integer underflow",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Numeric truncation error",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Information disclosure",
+   "aliases": [
+    "information leak"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Path traversal",
+   "aliases": [
+    "directory traversal"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Unchecked return value",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Resource exhaustion",
+   "aliases": [
+    "uncontrolled resource consumption"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Resource leak",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "File descriptor leak",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Deserialization of untrusted data",
+   "aliases": [
+    "PHP object injection"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Open redirect",
+   "aliases": [
+    "cross-site redirect",
+    "cross-domain redirect",
+    "unvalidated redirect"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "XXE",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Uncontrolled recursion",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Out-of-bounds write",
+   "aliases": [
+    "memory corruption"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Dangling pointer",
+   "aliases": [
+    "expired pointer dereference"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Server-side request forgery",
+   "aliases": [
+    "SSRF",
+    "XSPA"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "NoSQL injection",
+   "aliases": [
+    "NoSQLi"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Remote file inclusion",
+   "aliases": [
+    "remote file include",
+    "RFI",
+    "local file inclusion"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Insecure direct object reference",
+   "aliases": [
+    "IDOR"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Bit rot",
+   "aliases": [
+    "software rot"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "TOCTOU",
+   "aliases": [
+    "time-of-check to time-of-use"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "priority inversion",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ABA problem",
+   "aliases": [
+    "aba"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Y2038",
+   "aliases": [
+    "year 2038 problem",
+    "y2k38"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Bohrbug",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Tabnabbing",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HTTP request splitting",
+   "aliases": [
+    "HTTP response splitting"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Log forging",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Write-what-where condition",
+   "aliases": [
+    "write-what-where"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CSV injection",
+   "aliases": [
+    "formula injection",
+    "Excel macro injection"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Buffer under-read",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Cross-site WebSocket hijacking",
+   "aliases": [
+    "CSWSH"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Parser differential",
+   "aliases": [
+    "insufficiently controlled parser differential"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ANSI injection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Unexpected sign extension",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zip Slip",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Signal handler race condition",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DLL preloading",
+   "aliases": [
+    "binary planting"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Dependency confusion",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Confused deputy",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HTTP request smuggling",
+   "aliases": [
+    "HTTP response smuggling",
+    "HTTP smuggling"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Reflection injection",
+   "aliases": [
+    "unsafe reflection"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HQL injection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Double-checked locking",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XPath injection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XQuery injection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Algorithm downgrade",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Mismatched memory management routines",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Billion laughs attack",
+   "aliases": [
+    "XML bomb",
+    "XEE"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Type confusion",
+   "aliases": [
+    "object type confusion"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Argument injection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LDAP injection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XML injection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Stale file descriptor",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Mass assignment",
+   "aliases": [
+    "AutoBinding"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "EL injection",
+   "aliases": [
+    "expression language injection"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Intent spoofing",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CRLF injection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Eval injection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Mandelbug",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Schr\u00f6dinbug",
+   "aliases": [
+    "schrodinbug"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Hindenbug",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "false sharing",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "torn write",
+   "aliases": [
+    "torn read"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Higgs-bugson",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Loch Ness monster bug",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "moth",
+   "aliases": [
+    "the moth"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

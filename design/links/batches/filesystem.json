@@ -1,0 +1,595 @@
+{
+ "id": "filesystem",
+ "prompt": "Name a filesystem",
+ "accepts": "Any named on-disk or in-memory file system implementation, local or flash-based, used or historic, as listed in Linux or BSD kernel sources or Wikipedia's comparison list.",
+ "answers": [
+  {
+   "name": "ext4",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "FAT32",
+   "aliases": [
+    "vfat",
+    "FAT",
+    "msdosfs",
+    "pcfs"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "NFS",
+   "aliases": [
+    "nfs4",
+    "Network File System"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ReiserFS",
+   "aliases": [
+    "Reiser3"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Ceph",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ext2",
+   "aliases": [
+    "ext2fs"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ext3",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NTFS",
+   "aliases": [
+    "New Technology File System"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "exFAT",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CIFS",
+   "aliases": [
+    "SMB",
+    "smbfs",
+    "smbclnt",
+    "Server Message Block"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Btrfs",
+   "aliases": [
+    "B-tree FS"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "XFS",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ISO 9660",
+   "aliases": [
+    "isofs",
+    "cd9660",
+    "iso9660",
+    "hsfs",
+    "CDFS"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "AFS",
+   "aliases": [
+    "Andrew File System"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "OverlayFS",
+   "aliases": [
+    "overlay"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "procfs",
+   "aliases": [
+    "proc"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "sysfs",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ZFS",
+   "aliases": [
+    "OpenZFS"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "APFS",
+   "aliases": [
+    "Apple File System"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FAT16",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CephFS",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "HFS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "HFS+",
+   "aliases": [
+    "hfsplus",
+    "HFS Plus",
+    "Mac OS Extended"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "UDF",
+   "aliases": [
+    "udfs",
+    "Universal Disk Format"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Coda",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "debugfs",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "devpts",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ramfs",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SquashFS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tmpfs",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "autofs",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "hugetlbfs",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "UFS",
+   "aliases": [
+    "ufs2",
+    "FFS",
+    "Unix File System"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "devfs",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "lofs",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ReFS",
+   "aliases": [
+    "Resilient File System"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "cramfs",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "EROFS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "F2FS",
+   "aliases": [
+    "Flash-Friendly File System"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "OCFS2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "virtiofs",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "JFFS2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Minix FS",
+   "aliases": [
+    "minix"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "tracefs",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "vboxsf",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Lustre",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GlusterFS",
+   "aliases": [
+    "Gluster"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GPFS",
+   "aliases": [
+    "IBM Spectrum Scale",
+    "Spectrum Scale"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ntfs3",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HPFS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AFFS",
+   "aliases": [
+    "Amiga FFS",
+    "adosfs"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ADFS",
+   "aliases": [
+    "filecorefs"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BeFS",
+   "aliases": [
+    "bfs"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "configfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "dlmfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "eCryptfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "efivarfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GFS2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "OMFS",
+   "aliases": [
+    "Optimized MPEG File System"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "OrangeFS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QNX6",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "resctrl",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ROMFS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "UBIFS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "zonefs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NILFS2",
+   "aliases": [
+    "nilfs"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "9P",
+   "aliases": [
+    "v9fs",
+    "p9fs"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hostfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "JFS",
+   "aliases": [
+    "Journaled File System"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "OpenPROM FS",
+   "aliases": [
+    "openpromfs"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pstore",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QNX4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fdescfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "nullfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tarfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "unionfs",
+   "aliases": [
+    "union"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mntfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EFS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ptyfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SysV BFS",
+   "aliases": [
+    "sysvbfs"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "V7FS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HAMMER",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HAMMER2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MFS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ctfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "dcfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "doorfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "namefs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "objfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "portfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "sharefs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "sockfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bindfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CDDA",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "packagefs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "websearchfs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Fossil",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tapefs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bcachefs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WAFL",
+   "aliases": [
+    "Write Anywhere File Layout"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "spufs",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

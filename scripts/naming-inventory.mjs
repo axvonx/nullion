@@ -21,7 +21,7 @@ const r = await send('Runtime.evaluate', { awaitPromise: true, returnByValue: tr
   const { ENDLESS_LAYERS, LAYERS } = await import(find('/src/core/layers.ts'));
   const { V4_LIBRARIES } = await import(find('/src/render/v4/libraries.ts'));
   const { drawEntity, setPaint } = await import(find('/src/render/v4/kit.ts'));
-  const { LAYER_PALETTE } = await import(find('/src/render/palettes.ts'));
+  const { LAYER_ART } = await import(find('/src/layers/index.ts'));
   const C = await import(find('/src/render/critters.ts'));
   const M = await import(find('/src/game/manual.ts'));
   const daily = new Set(LAYERS.map(l => l.id));
@@ -47,13 +47,13 @@ const r = await send('Runtime.evaluate', { awaitPromise: true, returnByValue: tr
       items.set(key, it);
       def.sizes.forEach((sz, v) => {
         const img = 'e-' + def.id + '-' + L.id + '-v' + v + '.png';
-        images[img] = png(sz[0], sz[1], (c) => { setPaint(LAYER_PALETTE[L.id], undefined); drawEntity(c, def, v, 1, 0, 0, false, 1.2); });
+        images[img] = png(sz[0], sz[1], (c) => { setPaint(LAYER_ART[L.id].palette, undefined); drawEntity(c, def, v, 1, 0, 0, false, 1.2); });
         it.appearances.push({ layer: L.id, layerName: L.name, daily: daily.has(L.id), variant: v, size: sz, img });
       });
     }
     const sys = new C.CritterSystem();
     for (const alt of [false, true]) {
-      if (alt && !C.ALT_SPECIES_MOTIONS[L.id]) continue;
+      if (alt && !LAYER_ART[L.id].critters.alt) continue;
       const key = 'c:' + L.id + ':' + (alt ? 'alt' : 'core');
       const apps = []; const seen = new Set();
       sys.ensureSeed(1);
@@ -65,7 +65,7 @@ const r = await send('Runtime.evaluate', { awaitPromise: true, returnByValue: tr
         seen.add(data); images[img] = data;
         apps.push({ layer: L.id, layerName: L.name, daily: daily.has(L.id), variant: v, size: [26, 22], img, colourVariant: true });
       }
-      items.set(key, { key, kind: alt ? 'critter-alt' : 'critter', entityId: null, critterLayer: L.id, motions: (alt ? C.ALT_SPECIES_MOTIONS[L.id] : C.SPECIES_MOTIONS[L.id]), appearances: apps, manual: manualBy.get(key) ?? null });
+      items.set(key, { key, kind: alt ? 'critter-alt' : 'critter', entityId: null, critterLayer: L.id, motions: (alt ? LAYER_ART[L.id].critters.alt.motions : LAYER_ART[L.id].critters.motions), appearances: apps, manual: manualBy.get(key) ?? null });
     }
   }
   return JSON.stringify({ layers: ENDLESS_LAYERS.map(l => ({ id: l.id, name: l.name, daily: daily.has(l.id) })), items: [...items.values()], images });

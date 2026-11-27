@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { LAYERS } from '../core/layers';
 import { TIERS, TIER_IDS } from '../core/tiers';
-import { FORM_BY_LAYER, cursorRow, markExtentY, pixelScale } from '../render/cursor-geom';
+import { LAYER_ART } from '../layers';
+import { cursorRow, markExtentY, pixelScale } from '../render/cursor-geom';
 import { CHIPS_BOTTOM, overlaps, revealLayout } from './reveal-layout';
 
 // Mirror the HUD's copy without importing it (it builds DOM): the longest lines it can show.
@@ -21,7 +22,7 @@ describe('reveal layout', () => {
         const bad: string[] = [];
         const scale = pixelScale(vw);
         for (const layer of LAYERS) {
-          const m = markExtentY(FORM_BY_LAYER[layer.id], cursorRow(vw, vh));
+          const m = markExtentY(LAYER_ART[layer.id].cursor, cursorRow(vw, vh));
           const mark = { top: m.top * scale, bottom: m.bottom * scale };
           const reveals = [
             ...TIER_IDS.map((id) => ({ name: TIERS[id].name, answer: LONG_ANSWER, line: LONG_LINE })),

@@ -1,0 +1,361 @@
+{
+ "id": "cpu-side-channel-attack",
+ "prompt": "Name a CPU side-channel attack",
+ "accepts": "a named attack that infers secret data from CPU microarchitectural behaviour such as timing, caches or power, as described in papers or disclosures.",
+ "answers": [
+  {
+   "name": "Spectre",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Meltdown",
+   "aliases": [
+    "Rogue Data Cache Load"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Rowhammer",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Timing attack",
+   "aliases": [
+    "cache timing attack"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Power analysis",
+   "aliases": [
+    "DPA",
+    "differential power analysis",
+    "SPA"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "L1 Terminal Fault",
+   "aliases": [
+    "L1TF",
+    "Foreshadow"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Prime+Probe",
+   "aliases": [
+    "Prime and Probe"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Flush+Reload",
+   "aliases": [
+    "Flush and Reload"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Plundervolt",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Branch target injection",
+   "aliases": [
+    "BTI"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Bounds check bypass",
+   "aliases": [
+    "BCB"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Acoustic cryptanalysis",
+   "aliases": [
+    "acoustic side-channel"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Electromagnetic attack",
+   "aliases": [
+    "EM side-channel",
+    "TEMPEST"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "GhostRace",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Microarchitectural Data Sampling",
+   "aliases": [
+    "MDS"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Gather Data Sampling",
+   "aliases": [
+    "Downfall",
+    "GDS"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ZombieLoad",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Spectre v1",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Spectre v2",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "TSX Async Abort",
+   "aliases": [
+    "TAA",
+    "TSX Asynchronous Abort"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Special Register Buffer Data Sampling",
+   "aliases": [
+    "SRBDS",
+    "CrossTalk"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Speculative Return Stack Overflow",
+   "aliases": [
+    "SRSO",
+    "Inception"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Processor MMIO Stale Data",
+   "aliases": [
+    "MMIO Stale Data"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Register File Data Sampling",
+   "aliases": [
+    "RFDS",
+    "reg-file-data-sampling"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Indirect Target Selection",
+   "aliases": [
+    "ITS"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RIDL",
+   "aliases": [
+    "Rogue In-Flight Data Load"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Fallout",
+   "aliases": [
+    "Microarchitectural Store Buffer Data Sampling",
+    "MSBDS"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CacheOut",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SGAxe",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Load Value Injection",
+   "aliases": [
+    "LVI"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Spectre v4",
+   "aliases": [
+    "Speculative store bypass",
+    "SSB"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Branch History Injection",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Retbleed",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SpectreRSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BranchScope",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Flush+Flush",
+   "aliases": [
+    "Flush and Flush"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Evict+Reload",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Evict+Time",
+   "aliases": [
+    "Evict and Time"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Hertzbleed",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PLATYPUS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zenbleed",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GoFetch",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "NetSpectre",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TLBleed",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PortSmash",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PACMAN",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMSCAPE",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Augury",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SWAPGS attack",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SMoTherSpectre",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Spectre-PHT",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Branch Privilege Injection",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Training Solo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Phantom",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Prime+Abort",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ret2spec",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MeltdownPrime",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SpectrePrime",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Collide+Power",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

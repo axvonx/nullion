@@ -1,0 +1,330 @@
+{
+ "id": "clustering-algorithm",
+ "prompt": "Name a clustering algorithm",
+ "accepts": "Any named algorithm that partitions or groups unlabeled data points by similarity.",
+ "answers": [
+  {
+   "name": "Mean Shift",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "agglomerative clustering",
+   "aliases": [
+    "agglomerative hierarchical clustering",
+    "hierarchical agglomerative clustering",
+    "agglomerative"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DBSCAN",
+   "aliases": [
+    "Density-Based Spatial Clustering of Applications with Noise"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "k-means",
+   "aliases": [
+    "Lloyd's algorithm",
+    "k-means clustering"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "spectral clustering",
+   "aliases": [
+    "spectral"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "hierarchical clustering",
+   "aliases": [
+    "hierarchical"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "fuzzy c-means",
+   "aliases": [
+    "FCM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Gaussian mixture model",
+   "aliases": [
+    "GMM",
+    "EM clustering",
+    "Gaussian mixture",
+    "Expectation-Maximization",
+    "EM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "self-organizing map",
+   "aliases": [
+    "SOM",
+    "Kohonen map",
+    "Kohonen network"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "k-means++",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Affinity Propagation",
+   "aliases": [
+    "AP"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "HDBSCAN",
+   "aliases": [
+    "Hierarchical DBSCAN"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "k-medoids",
+   "aliases": [
+    "PAM",
+    "partitioning around medoids"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "k-modes",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "single-linkage clustering",
+   "aliases": [
+    "single linkage"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "complete-linkage clustering",
+   "aliases": [
+    "complete linkage"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "UPGMA",
+   "aliases": [
+    "average linkage"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Markov clustering",
+   "aliases": [
+    "MCL"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "kernel k-means",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "spherical k-means",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "bisecting k-means",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "OPTICS",
+   "aliases": [
+    "Ordering Points To Identify the Clustering Structure"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "mini-batch k-means",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "biclustering",
+   "aliases": [
+    "co-clustering"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CLARA",
+   "aliases": [
+    "Clustering Large Applications"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CURE",
+   "aliases": [
+    "Clustering Using Representatives"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "X-means",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "G-means",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Ward's method",
+   "aliases": [
+    "Ward linkage",
+    "Ward clustering"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "growing neural gas",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Elkan's k-means",
+   "aliases": [
+    "Elkan k-means"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CLARANS",
+   "aliases": [
+    "Clustering Large Applications based upon Randomized Search"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ROCK",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CHAMELEON",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "STING",
+   "aliases": [
+    "Statistical Information Grid"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CLIQUE",
+   "aliases": [
+    "Clustering In Quest"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DENCLUE",
+   "aliases": [
+    "Density-Based Clustering"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "k-prototypes",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SLINK",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DIANA",
+   "aliases": [
+    "Divisive clustering",
+    "Divisive Analysis"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "COBWEB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "canopy clustering",
+   "aliases": [
+    "Canopy"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "neural gas",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Jarvis-Patrick clustering",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "density peaks clustering",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PROCLUS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SUBCLU",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Chinese whispering",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Leader algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CLINK",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BIRCH",
+   "aliases": [
+    "Balanced Iterative Reducing and Clustering using Hierarchies"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

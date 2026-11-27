@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS, ENDLESS_LAYERS, ENDLESS_MAX_DEPTH, LAYERS, MAX_DEPTH } from './layers';
 import { layerAt } from './modes';
-import { LAYER_PALETTE, snapColor } from '../render/palettes';
+import { LAYER_ART } from '../layers';
+import { snapColor } from '../render/palettes';
 import { TIERS } from './tiers';
 import { CategoryIndex, normalize } from './match';
 import { buildAnswerSet } from './answers';
@@ -42,7 +43,7 @@ describe('depth and layers', () => {
     expect(layerAt(ENDLESS_MAX_DEPTH, 'endless').id).toBe('landauer');
     expect(layerAt(ENDLESS_MAX_DEPTH - 1, 'endless').id).toBe('bandgap');
     for (const id of ALL_LAYER_IDS) {
-      expect(snapColor('#88aa44', LAYER_PALETTE[id])).toMatch(/^#[0-9a-f]{6}$/);
+      expect(snapColor('#88aa44', LAYER_ART[id].palette)).toMatch(/^#[0-9a-f]{6}$/);
     }
   });
 });

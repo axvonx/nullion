@@ -1,9 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS, type LayerId } from '../../core/layers';
 import { ent, type EntityDef } from './kit';
-import { LAYER_TOPIC_TAGS } from './layer-topics';
 import { buildLibraries, MIN_NEAR_TYPES, type LayerSpec } from './library';
-import { V4_LIBRARIES } from './libraries';
+import { LAYER_TOPIC_TAGS, V4_LIBRARIES } from './libraries';
 
 const stubs = (prefix: string, n: number, opts: Partial<EntityDef> = {}): EntityDef[] =>
   Array.from({ length: n }, (_, i) => ent(`${prefix}-${i}`, [[10, 10]], () => {}, opts));

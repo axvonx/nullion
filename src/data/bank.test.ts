@@ -50,6 +50,23 @@ describe('answer bank files', () => {
   });
 });
 
+describe('reference links (bank/links, scripts/verify-links.py)', () => {
+  const files = import.meta.glob('../../bank/links/*.json', { eager: true, import: 'default' }) as Record<string, { prompt: string | null; answers: Record<string, string> }>;
+  it('every approved category has a checked links file whose keys are its answers and whose links are articles or docs, never searches', async () => {
+    for (const q of BANK_QUESTIONS) {
+      const f = files[`../../bank/links/${q.id}.json`];
+      expect(f, `bank/links/${q.id}.json missing: run design/links/run.sh ${q.id} then scripts/verify-links.py`).toBeDefined();
+      const names = new Set((await loadBankCategory(q.id)).entries.map((e) => e.name));
+      for (const [name, url] of Object.entries(f!.answers)) {
+        expect(names.has(name), `bank/links/${q.id}.json: '${name}' is not an answer`).toBe(true);
+        const u = new URL(url);
+        expect(u.protocol).toBe('https:');
+        expect(u.pathname.includes('Special:') || u.searchParams.has('search'), `${q.id}: ${url} is a search`).toBe(false);
+      }
+    }
+  });
+});
+
 describe('bank file grammar', () => {
   const head = '# Name a type of lock\nid: lock · domain: os-systems · status: draft\n';
   const parse = (body: string, status = 'draft') => parseBankFile('t.md', head.replace('draft', status) + body);

@@ -61,14 +61,16 @@ export function promptSubject(prompt: string): string {
 const search = (q: string) => `${WIKI}?${new URLSearchParams({ search: q, title: 'Special:Search' })}`;
 
 /** The answer plus whichever subject words it doesn't already say ("fissile lock" stays as is; "mutex" gets "lock"). */
-export function answerUrl(answer: string, prompt: string): string {
+export function answerUrl(answer: string, prompt: string, checked?: string): string {
+  if (checked) return checked;
   const has = new Set(answer.toLowerCase().split(/[^\p{L}\p{N}]+/u));
   const extra = promptSubject(prompt).split(/\s+/).filter((w) => !has.has(w.toLowerCase()));
   return search([answer, ...extra].join(' '));
 }
 
 /** The prompt's own subject. A one-word subject ("lock", "bug") is ambiguous, so it asks for the computing sense. */
-export function questionUrl(prompt: string): string {
+export function questionUrl(prompt: string, checked?: string): string {
+  if (checked) return checked;
   const s = promptSubject(prompt);
   return search(/\s/.test(s) ? s : `${s} (computer science)`);
 }

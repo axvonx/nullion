@@ -1,0 +1,1134 @@
+{
+ "id": "git-subcommand",
+ "prompt": "Name a git subcommand",
+ "accepts": "Any command in git's documented list of porcelain or plumbing commands, such as those shown by git help -a.",
+ "answers": [
+  {
+   "name": "add",
+   "aliases": [
+    "git-add"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "checkout",
+   "aliases": [
+    "git-checkout"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "commit",
+   "aliases": [
+    "git-commit"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "config",
+   "aliases": [
+    "git-config"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "fetch",
+   "aliases": [
+    "git-fetch"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "init",
+   "aliases": [
+    "git-init"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "pull",
+   "aliases": [
+    "git-pull"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "push",
+   "aliases": [
+    "git-push"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "rebase",
+   "aliases": [
+    "git-rebase"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "remote",
+   "aliases": [
+    "git-remote"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "reset",
+   "aliases": [
+    "git-reset"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "revert",
+   "aliases": [
+    "git-revert"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "stash",
+   "aliases": [
+    "git-stash"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "status",
+   "aliases": [
+    "git-status"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "version",
+   "aliases": [
+    "git-version"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "rerere",
+   "aliases": [
+    "git-rerere"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "archive",
+   "aliases": [
+    "git-archive"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "bisect",
+   "aliases": [
+    "git-bisect"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "branch",
+   "aliases": [
+    "git-branch"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "cherry-pick",
+   "aliases": [
+    "git-cherry-pick"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "clone",
+   "aliases": [
+    "git-clone"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "diff",
+   "aliases": [
+    "git-diff"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "format-patch",
+   "aliases": [
+    "git-format-patch"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "fsck",
+   "aliases": [
+    "git-fsck"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "gc",
+   "aliases": [
+    "git-gc"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "grep",
+   "aliases": [
+    "git-grep"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "log",
+   "aliases": [
+    "git-log"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "merge",
+   "aliases": [
+    "git-merge"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mv",
+   "aliases": [
+    "git-mv"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "reflog",
+   "aliases": [
+    "git-reflog"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "rm",
+   "aliases": [
+    "git-rm"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "submodule",
+   "aliases": [
+    "git-submodule"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "tag",
+   "aliases": [
+    "git-tag"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "worktree",
+   "aliases": [
+    "git-worktree"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mergetool",
+   "aliases": [
+    "git-mergetool"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "annotate",
+   "aliases": [
+    "git-annotate"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "apply",
+   "aliases": [
+    "git-apply"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "blame",
+   "aliases": [
+    "git-blame"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "cat-file",
+   "aliases": [
+    "git-cat-file"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "check-ignore",
+   "aliases": [
+    "git-check-ignore"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "clean",
+   "aliases": [
+    "git-clean"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "daemon",
+   "aliases": [
+    "git-daemon"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "describe",
+   "aliases": [
+    "git-describe"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "difftool",
+   "aliases": [
+    "git-difftool"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "filter-branch",
+   "aliases": [
+    "git-filter-branch"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "for-each-ref",
+   "aliases": [
+    "git-for-each-ref"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "gui",
+   "aliases": [
+    "git-gui"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "hash-object",
+   "aliases": [
+    "git-hash-object"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "help",
+   "aliases": [
+    "git-help"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ls-files",
+   "aliases": [
+    "git-ls-files"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ls-remote",
+   "aliases": [
+    "git-ls-remote"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ls-tree",
+   "aliases": [
+    "git-ls-tree"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "merge-base",
+   "aliases": [
+    "git-merge-base"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "notes",
+   "aliases": [
+    "git-notes"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "range-diff",
+   "aliases": [
+    "git-range-diff"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "replace",
+   "aliases": [
+    "git-replace"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "restore",
+   "aliases": [
+    "git-restore"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "rev-list",
+   "aliases": [
+    "git-rev-list"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "rev-parse",
+   "aliases": [
+    "git-rev-parse"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "send-email",
+   "aliases": [
+    "git-send-email"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "shortlog",
+   "aliases": [
+    "git-shortlog"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "show",
+   "aliases": [
+    "git-show"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "show-ref",
+   "aliases": [
+    "git-show-ref"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "sparse-checkout",
+   "aliases": [
+    "git-sparse-checkout"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "stage",
+   "aliases": [
+    "git-stage"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "svn",
+   "aliases": [
+    "git-svn"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "switch",
+   "aliases": [
+    "git-switch"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "symbolic-ref",
+   "aliases": [
+    "git-symbolic-ref"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "update-index",
+   "aliases": [
+    "git-update-index"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "update-ref",
+   "aliases": [
+    "git-update-ref"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "whatchanged",
+   "aliases": [
+    "git-whatchanged"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "am",
+   "aliases": [
+    "git-am"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bugreport",
+   "aliases": [
+    "git-bugreport"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bundle",
+   "aliases": [
+    "git-bundle"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "check-attr",
+   "aliases": [
+    "git-check-attr"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "check-ref-format",
+   "aliases": [
+    "git-check-ref-format"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "checkout-index",
+   "aliases": [
+    "git-checkout-index"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "cherry",
+   "aliases": [
+    "git-cherry"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "citool",
+   "aliases": [
+    "git-citool"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "commit-graph",
+   "aliases": [
+    "git-commit-graph"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "commit-tree",
+   "aliases": [
+    "git-commit-tree"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "count-objects",
+   "aliases": [
+    "git-count-objects"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "credential",
+   "aliases": [
+    "git-credential"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "credential-cache",
+   "aliases": [
+    "git-credential-cache"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "credential-store",
+   "aliases": [
+    "git-credential-store"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "diagnose",
+   "aliases": [
+    "git-diagnose"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "diff-files",
+   "aliases": [
+    "git-diff-files"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "diff-index",
+   "aliases": [
+    "git-diff-index"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "diff-tree",
+   "aliases": [
+    "git-diff-tree"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "fast-export",
+   "aliases": [
+    "git-fast-export"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "fast-import",
+   "aliases": [
+    "git-fast-import"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "instaweb",
+   "aliases": [
+    "git-instaweb"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "maintenance",
+   "aliases": [
+    "git-maintenance"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "merge-file",
+   "aliases": [
+    "git-merge-file"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "merge-tree",
+   "aliases": [
+    "git-merge-tree"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "name-rev",
+   "aliases": [
+    "git-name-rev"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "p4",
+   "aliases": [
+    "git-p4"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pack-objects",
+   "aliases": [
+    "git-pack-objects"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "pack-refs",
+   "aliases": [
+    "git-pack-refs"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "prune",
+   "aliases": [
+    "git-prune"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "read-tree",
+   "aliases": [
+    "git-read-tree"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "receive-pack",
+   "aliases": [
+    "git-receive-pack"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "refs",
+   "aliases": [
+    "git-refs"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "repack",
+   "aliases": [
+    "git-repack"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "replay",
+   "aliases": [
+    "git-replay"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "show-branch",
+   "aliases": [
+    "git-show-branch"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "upload-pack",
+   "aliases": [
+    "git-upload-pack"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "verify-commit",
+   "aliases": [
+    "git-verify-commit"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "verify-tag",
+   "aliases": [
+    "git-verify-tag"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "write-tree",
+   "aliases": [
+    "git-write-tree"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "shell",
+   "aliases": [
+    "git-shell"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "archimport",
+   "aliases": [
+    "git-archimport"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "backfill",
+   "aliases": [
+    "git-backfill"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "check-mailmap",
+   "aliases": [
+    "git-check-mailmap"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "column",
+   "aliases": [
+    "git-column"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "cvsexportcommit",
+   "aliases": [
+    "git-cvsexportcommit"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "cvsimport",
+   "aliases": [
+    "git-cvsimport"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "cvsserver",
+   "aliases": [
+    "git-cvsserver"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "diff-pairs",
+   "aliases": [
+    "git-diff-pairs"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fetch-pack",
+   "aliases": [
+    "git-fetch-pack"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fmt-merge-msg",
+   "aliases": [
+    "git-fmt-merge-msg"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "for-each-repo",
+   "aliases": [
+    "git-for-each-repo"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "format-rev",
+   "aliases": [
+    "git-format-rev"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fsck-objects",
+   "aliases": [
+    "git-fsck-objects"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fsmonitor--daemon",
+   "aliases": [
+    "git-fsmonitor--daemon"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "get-tar-commit-id",
+   "aliases": [
+    "git-get-tar-commit-id"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "history",
+   "aliases": [
+    "git-history"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hook",
+   "aliases": [
+    "git-hook"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "http-backend",
+   "aliases": [
+    "git-http-backend"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "http-fetch",
+   "aliases": [
+    "git-http-fetch"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "http-push",
+   "aliases": [
+    "git-http-push"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "imap-send",
+   "aliases": [
+    "git-imap-send"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "index-pack",
+   "aliases": [
+    "git-index-pack"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "init-db",
+   "aliases": [
+    "git-init-db"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "interpret-trailers",
+   "aliases": [
+    "git-interpret-trailers"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "last-modified",
+   "aliases": [
+    "git-last-modified"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mailinfo",
+   "aliases": [
+    "git-mailinfo"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mailsplit",
+   "aliases": [
+    "git-mailsplit"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "merge-index",
+   "aliases": [
+    "git-merge-index"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "merge-one-file",
+   "aliases": [
+    "git-merge-one-file"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mktag",
+   "aliases": [
+    "git-mktag"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mktree",
+   "aliases": [
+    "git-mktree"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "multi-pack-index",
+   "aliases": [
+    "git-multi-pack-index"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pack-redundant",
+   "aliases": [
+    "git-pack-redundant"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "patch-id",
+   "aliases": [
+    "git-patch-id"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "prune-packed",
+   "aliases": [
+    "git-prune-packed"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "quiltimport",
+   "aliases": [
+    "git-quiltimport"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "repo",
+   "aliases": [
+    "git-repo"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "request-pull",
+   "aliases": [
+    "git-request-pull"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "send-pack",
+   "aliases": [
+    "git-send-pack"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "show-index",
+   "aliases": [
+    "git-show-index"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "unpack-file",
+   "aliases": [
+    "git-unpack-file"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "unpack-objects",
+   "aliases": [
+    "git-unpack-objects"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "update-server-info",
+   "aliases": [
+    "git-update-server-info"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "upload-archive",
+   "aliases": [
+    "git-upload-archive"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "url-parse",
+   "aliases": [
+    "git-url-parse"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "var",
+   "aliases": [
+    "git-var"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "verify-pack",
+   "aliases": [
+    "git-verify-pack"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "remote-ext",
+   "aliases": [
+    "git-remote-ext"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "remote-fd",
+   "aliases": [
+    "git-remote-fd"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "stripspace",
+   "aliases": [
+    "git-stripspace"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

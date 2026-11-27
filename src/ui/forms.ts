@@ -1,5 +1,3 @@
-import { expandLayerMap, type LayerId } from '../core/layers';
-
 /**
  * The console card takes the idiom of the layer the cursor is in, the way the cursor changes form:
  * a GUI dialog up top, then a REPL, a shell, a serial console, BIOS setup, and barer logs below.
@@ -8,31 +6,6 @@ import { expandLayerMap, type LayerId } from '../core/layers';
 export type FormId = 'gui' | 'repl' | 'shell' | 'serial' | 'bios' | 'hyper' | 'smm' | 'raw';
 
 export const FORM_IDS: readonly FormId[] = ['gui', 'repl', 'shell', 'serial', 'bios', 'hyper', 'smm', 'raw'];
-
-export const FORM_BY_LAYER: Record<LayerId, FormId> = expandLayerMap(
-  {
-    application: 'gui',
-    runtime: 'repl',
-    libraries: 'repl',
-    userspace: 'shell',
-    kernel: 'serial',
-    drivers: 'serial',
-    firmware: 'bios',
-    'ring-1': 'hyper',
-    'ring-2': 'smm',
-    'ring-3': 'raw',
-  },
-  {
-    'me-minix-user': 'shell',
-    'me-minix-kern': 'serial',
-    uarch: 'raw',
-    rtl: 'raw',
-    cmos: 'raw',
-    litho: 'raw',
-    bandgap: 'raw',
-    landauer: 'raw',
-  },
-);
 
 export const FORM_NAMES: Record<FormId, string> = {
   gui: 'GUI dialog',

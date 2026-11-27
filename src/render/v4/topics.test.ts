@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { BANK_QUESTIONS } from '../../data/bank';
 import { ent } from './kit';
-import { LAYER_TOPIC_TAGS } from './layer-topics';
-import { V4_LIBRARIES } from './libraries';
+import { LAYER_TOPIC_TAGS, V4_LIBRARIES } from './libraries';
 import { MIN_FLIP_H, MIN_FLIP_W, TOPIC_PROPS, TOPIC_TAGS, pickTopicFlip, tagsForEntity, tagsForQuestion } from './topics';
 
 describe('many-to-many question & element topic tags', () => {

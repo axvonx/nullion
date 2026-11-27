@@ -1,9 +1,12 @@
 import { enforce } from '../core/enforce';
-import { ALL_LAYER_IDS, DAILY_FALLBACK, type LayerId } from '../core/layers';
+import { ALL_LAYER_IDS, type LayerId } from '../core/layers';
+import { LAYER_ART } from '../layers';
+import type { HopTuning, SpriteEnv } from '../layers/types';
 import { look } from '../looks';
 import { FONT, SEAM_H, hash, type Band } from './art-common';
 import type { Box, Collectibles } from './collectibles';
-import { LAYER_PALETTE, darkestInk, snapColor } from './palettes';
+import { MotionType } from './motion';
+import { darkestInk, snapColor } from './palettes';
 
 /**
  * The System Biosphere: living pixel-art critters unique to each of the 10 layers of the software stack.
@@ -26,91 +29,11 @@ import { LAYER_PALETTE, darkestInk, snapColor } from './palettes';
  * exit tags ("paged out!", "GC'd!", "SIGTERM", etc.).
  */
 
-export const MotionType = {
-  /** Free continuous flight through open space (gliding curves, flapping wings). */
-  Fly: 'fly',
-  /** Rest on a prop top or ledge (wings folded / squished gently) before the next action. */
-  Perch: 'perch',
-  /** Arced jump from one prop top to a nearby prop top — always starts where it landed. */
-  Hop: 'hop',
-  /** Brisk horizontal walking/patrolling along a lane. */
-  Patrol: 'patrol',
-  /** Burst-and-pause horizontal dashing (scheduling quanta). */
-  Zip: 'zip',
-  /** Rapid continuous horizontal scuttling along PCB traces. */
-  Scuttle: 'scuttle',
-  /** Slow, rigid metronomic floating/sweeping (no jumping or landing). */
-  Float: 'float',
-  /** Horizontally mirrored smooth gliding across the viewport centerline. */
-  Mirror: 'mirror',
-  /** Discrete orthogonal steps snapped to a 4px silicon grid. */
-  Grid: 'grid',
-  /** Motionless frozen silhouette. */
-  Frozen: 'frozen',
-} as const;
-
-export type MotionType = (typeof MotionType)[keyof typeof MotionType];
-
 /** Visible critter hitboxes collected each frame in scene pixels (cleared each frame by Scene). */
 
-/** Allowed motion set for each layer's species across all 29 Daily & Endless layers. */
-export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = {
-  // Zone A — Above Application
-  internet: [MotionType.Fly, MotionType.Perch],
-  browser: [MotionType.Fly, MotionType.Perch],
-  application: [MotionType.Fly, MotionType.Perch],
-  // Zone B — Expanded Runtime & Libraries
-  bytecode: [MotionType.Hop, MotionType.Perch],
-  jit: [MotionType.Zip, MotionType.Perch],
-  runtime: [MotionType.Hop, MotionType.Perch],
-  libraries: [MotionType.Hop, MotionType.Perch],
-  linker: [MotionType.Patrol, MotionType.Hop],
-  // Zone C — Userspace & Expanded OS Kernel
-  userspace: [MotionType.Patrol, MotionType.Hop, MotionType.Perch],
-  'kernel-entry': [MotionType.Patrol, MotionType.Perch],
-  kernel: [MotionType.Zip, MotionType.Perch],
-  'kernel-arch': [MotionType.Zip, MotionType.Scuttle],
-  // Zone D — Drivers, Bus & Firmware
-  drivers: [MotionType.Scuttle],
-  'bus-fabric': [MotionType.Scuttle, MotionType.Zip],
-  firmware: [MotionType.Float],
-  // Zone E — Expanded Hidden Rings & MINIX-Inside-ME
-  vmm: [MotionType.Mirror, MotionType.Perch],
-  'ring-1': [MotionType.Mirror],
-  ept: [MotionType.Grid, MotionType.Mirror],
-  'ring-2': [MotionType.Frozen],
-  smram: [MotionType.Float],
-  'ring-3': [MotionType.Grid],
-  'me-minix-user': [MotionType.Patrol, MotionType.Perch],
-  'me-minix-kern': [MotionType.Zip],
-  // Zone F — Deep Silicon, Lithography & Physics
-  uarch: [MotionType.Zip, MotionType.Mirror],
-  rtl: [MotionType.Scuttle, MotionType.Grid],
-  cmos: [MotionType.Scuttle, MotionType.Float],
-  litho: [MotionType.Fly, MotionType.Float],
-  bandgap: [MotionType.Float, MotionType.Grid],
-  landauer: [MotionType.Float],
-  'slab-spa': [MotionType.Float, MotionType.Hop],
-  'kthread-kabin': [MotionType.Hop, MotionType.Perch],
-};
-
-/**
- * Second species on some layers: odd variants draw an alternate creature (see `drawCritter`) and move with
- * their own motion set rather than the main species'. This table is the single source of truth: a layer listed
- * here must have an alternate sprite, and vice versa.
- */
-export const ALT_SPECIES_MOTIONS: Partial<Record<LayerId, readonly MotionType[]>> = {
-  application: [MotionType.Fly], // butterfly: only flutters, never lands
-  internet: [MotionType.Float], // drone: hovers in place
-  bytecode: [MotionType.Grid], // opcode byte: discrete steps
-  linker: [MotionType.Hop, MotionType.Perch], // brass plug: socket to socket
-  'kernel-entry': [MotionType.Hop, MotionType.Perch], // padlock: mostly sits on props
-  cmos: [MotionType.Float], // electron-hole pair: drifts
-};
-
-/** Alternate-species critters are the odd variants on a layer listed in ALT_SPECIES_MOTIONS. */
+/** Alternate-species critters are the odd variants on a layer that has an alternate species (`critters.alt`). */
 export function isAltSpecies(layerId: LayerId, variant: number): boolean {
-  return variant % 2 === 1 && ALT_SPECIES_MOTIONS[layerId] !== undefined;
+  return variant % 2 === 1 && LAYER_ART[layerId].critters.alt !== undefined;
 }
 
 export interface CritterCall {
@@ -168,75 +91,12 @@ export interface CritterState {
   init: boolean;
 }
 
-const COUNT_BY_LAYER: Record<LayerId, number> = {
-  internet: 3,
-  browser: 3,
-  application: 3,
-  bytecode: 3,
-  jit: 3,
-  runtime: 3,
-  libraries: 3,
-  linker: 3,
-  userspace: 3,
-  'kernel-entry': 3,
-  kernel: 3,
-  'kernel-arch': 3,
-  drivers: 4,
-  'bus-fabric': 4,
-  firmware: 3,
-  vmm: 2,
-  'ring-1': 2,
-  ept: 2,
-  'ring-2': 3,
-  smram: 2,
-  'ring-3': 4,
-  'me-minix-user': 4,
-  'me-minix-kern': 3,
-  uarch: 3,
-  rtl: 4,
-  cmos: 4,
-  litho: 3,
-  bandgap: 3,
-  landauer: 2,
-  'slab-spa': 3,
-  'kthread-kabin': 3,
-};
-
-const EXIT_LABELS: Record<LayerId, readonly string[]> = {
-  internet: ['TTL=0', 'dropped'],
-  browser: ['unmounted', 'reflow'],
-  application: ['closed', 'minimized'],
-  bytecode: ['parsed', 'folded'],
-  jit: ['deopt!', 'inlined'],
-  runtime: ["GC'd!", 'swept!'],
-  libraries: ['unloaded', 'dlclose'],
-  linker: ['resolved', 'bound'],
-  userspace: ['SIGTERM', 'reaped'],
-  'kernel-entry': ['EACCES', 'trapped'],
-  kernel: ['paged out!', 'preempted'],
-  'kernel-arch': ['EOI', 'TLB flush'],
-  drivers: ['unplugged', 'DMA done'],
-  'bus-fabric': ['ARB lost', 'posted'],
-  firmware: ['halt', 'POST ok'],
-  vmm: ['virtio!', 'emulated'],
-  'ring-1': ['vmexit', 'trapped'],
-  ept: ['EPT viol!', 'remapped'],
-  'ring-2': [''],
-  smram: ['RSM', 'locked'],
-  'ring-3': ['0x00', 'bit-rot'],
-  'me-minix-user': ['AMT idle', 'IPC wait'],
-  'me-minix-kern': ['SENDREC', 'blocked'],
-  uarch: ['mispredict!', 'flushed'],
-  rtl: ['metastable', 'latched'],
-  cmos: ['leaked', 'drifted'],
-  litho: ['diffracted', 'etched'],
-  bandgap: ['tunneled!', 'recombined'],
-  landauer: ['kT ln 2', 'erased'],
-  'slab-spa': ['kmalloc', 'steamed'],
-  'kthread-kabin': ['kworker', 'wake!'],
-};
-
 const R = Math.round;
+
+/** Hop timing unless a layer's `critters.hop` overrides parts of it. */
+const DEFAULT_HOP: HopTuning = { dur: 0.65, jitter: 0.25, arc: 12, pause: 0.6 };
+
+const hopOf = (layerId: LayerId): HopTuning => ({ ...DEFAULT_HOP, ...LAYER_ART[layerId].critters.hop });
 
 /**
  * Compute the safe world-Y span for a layer band, avoiding top seam overlap (`SEAM_H`)
@@ -244,8 +104,9 @@ const R = Math.round;
  */
 function bandWorldRange(layerId: LayerId, b: Band): { minY: number; maxY: number } {
   const rawBottom = b.worldTop + (b.bottom - b.top);
-  const isTopOpen = layerId === 'application' || layerId === 'internet' || layerId === 'slab-spa';
-  const isBotOpen = layerId === 'ring-3' || layerId === 'landauer' || layerId === 'kthread-kabin';
+  const open = LAYER_ART[layerId].open;
+  const isTopOpen = open === 'top';
+  const isBotOpen = open === 'bottom';
   const minY = isTopOpen ? Math.max(b.worldTop + 26, -60) : b.worldTop + SEAM_H + 16;
   const maxY = isBotOpen ? Math.min(rawBottom - 16, b.worldTop + 340) : rawBottom - 16;
   return { minY, maxY: Math.max(minY + 40, maxY) };
@@ -275,7 +136,7 @@ export class CritterSystem {
    * alternate species (a layer without one throws); `variant` (0–4) picks a colour variant. Reports nothing to the scene's collectibles.
    */
   portrait(ctx: CanvasRenderingContext2D, layerId: LayerId, alt: boolean, x: number, y: number, t = 0, variant?: number) {
-    enforce(!alt || ALT_SPECIES_MOTIONS[layerId], `critter portrait: ${layerId} has no alternate species`);
+    enforce(!alt || LAYER_ART[layerId].critters.alt, `critter portrait: ${layerId} has no alternate species`);
     this.ensureSeed(this.seed < 0 ? 1 : this.seed);
     const c = this.byLayer.get(layerId)?.find((s) => isAltSpecies(layerId, s.variant) === alt && (variant === undefined || s.variant === variant));
     enforce(c, `critter portrait: no ${alt ? 'alternate' : 'core'} critter state for ${layerId}`);
@@ -289,14 +150,15 @@ export class CritterSystem {
     this.lastTByLayer.clear();
     this.byLayer.clear();
     ALL_LAYER_IDS.forEach((id, li) => {
-      const n = COUNT_BY_LAYER[id];
-      const allowed = SPECIES_MOTIONS[id];
+      const spec = LAYER_ART[id].critters;
+      const n = spec.count;
+      const allowed = spec.motions;
       const list: CritterState[] = [];
       for (let i = 0; i < n; i++) {
         const s = seed * 131 + li * 37 + i * 17;
         const lifeDur = 14 + hash(s + 6) * 10;
         const variant = i % 5;
-        const set = isAltSpecies(id, variant) ? ALT_SPECIES_MOTIONS[id]! : allowed;
+        const set = isAltSpecies(id, variant) ? spec.alt!.motions : allowed;
         const motions = new Set<MotionType>(set);
         list.push({
           x: 0,
@@ -360,9 +222,10 @@ export class CritterSystem {
     if (W < 24 || H < 24) return;
 
     const perLayer = look('palette') === 'per-layer';
-    const pal = LAYER_PALETTE[layerId];
+    const art = LAYER_ART[layerId];
+    const pal = art.palette;
     const col = (hex: string) => (perLayer ? snapColor(hex, pal) : hex);
-    const t = b.reduced || layerId === 'ring-2' ? 0 : b.t;
+    const t = b.reduced || art.frozenTime ? 0 : b.t;
     const prevT = this.lastTByLayer.get(layerId);
     const rawGap = prevT !== undefined && t >= prevT ? t - prevT : 0;
     const dt = Math.min(0.1, rawGap);
@@ -370,7 +233,7 @@ export class CritterSystem {
 
     // If this band was off-screen (or reduced motion just toggled off), shift all timers forward by the unsimulated gap
     // so critters don't mass-despawn or fire simultaneous audio bursts on the first frame back in view.
-    if (rawGap > 0.5 && !b.reduced && layerId !== 'ring-2') {
+    if (rawGap > 0.5 && !b.reduced && !art.frozenTime) {
       const shift = rawGap - dt;
       for (const c of list) {
         if (!c.init) continue;
@@ -502,7 +365,7 @@ export class CritterSystem {
 
       // Tiny in-world lifespan status tag ("paged out!", "GC'd!", "SIGTERM", etc.) rising as the critter dissolves
       if (exiting) {
-        const labels = EXIT_LABELS[layerId];
+        const labels = art.critters.exitLabels;
         const text = labels[(i + c.gen) % labels.length]!;
         if (text) {
           ctx.save();
@@ -610,10 +473,8 @@ export class CritterSystem {
     c.toWorldY = dest.worldY;
     c.dir = c.toX >= c.fromX ? 1 : -1;
     c.moveStartT = t;
-    c.moveDur =
-      layerId === 'libraries'
-        ? 0.85 + hash(c.stepCount * 13 + i) * 0.3
-        : 0.65 + hash(c.stepCount * 13 + i) * 0.25;
+    const hop = hopOf(layerId);
+    c.moveDur = hop.dur + hash(c.stepCount * 13 + i) * hop.jitter;
   }
 
   /** Execute the critter's current motion and transition cleanly among its allowed `c.motions` set. */
@@ -664,7 +525,7 @@ export class CritterSystem {
       case MotionType.Hop: {
         const p = Math.min(1, (t - c.moveStartT) / Math.max(0.05, c.moveDur));
         hopFrac = p;
-        const arcH = layerId === 'runtime' ? 16 : layerId === 'libraries' ? 10 : 12;
+        const arcH = hopOf(layerId).arc;
         c.x = c.fromX + (c.toX - c.fromX) * p;
         c.worldY = c.fromWorldY + (c.toWorldY - c.fromWorldY) * p - Math.sin(p * Math.PI) * arcH;
         if (p >= 1) {
@@ -673,7 +534,7 @@ export class CritterSystem {
           c.landedAtT = t;
           if (c.motions.has(MotionType.Perch)) {
             c.motion = MotionType.Perch;
-            const pauseBase = layerId === 'libraries' ? 0.85 : layerId === 'runtime' ? 0.45 : 0.6;
+            const pauseBase = hopOf(layerId).pause;
             c.motionUntilT = t + pauseBase + hash(c.stepCount * 19 + i * 23 + this.seed) * 0.75;
           } else {
             const dest = this.pickNearbyProp(c, props, i) ?? this.pickFallbackHop(c, W, worldMinY, worldMaxY, i);
@@ -871,7 +732,7 @@ export class CritterSystem {
     const y = R(rawY);
     collectibles?.addCritter({ x: x - 2, y: y - 3, w: 12, h: 11 }, layerId);
     const variant = c.variant;
-    const ink = col(darkestInk(LAYER_PALETTE[layerId]));
+    const ink = col(darkestInk(LAYER_ART[layerId].palette));
     const grid = new Map<number, string>();
     const gkey = (dx: number, dy: number) => ((dy + 32) << 8) | (dx + 32);
     const px = (dx: number, dy: number, w: number, h: number, hex: string) => {
@@ -908,432 +769,24 @@ export class CritterSystem {
       }
     };
 
-    // Second species per layer: odd variants draw an alternate creature so each layer's fauna isn't uniform.
-    // ALT_SPECIES_MOTIONS lists the layers that have one.
-    const altDone = ((): boolean => {
-      if (!isAltSpecies(layerId, variant)) return false;
-      const tick = Math.floor(t * 8 + c.phase) % 2;
-      switch (layerId) {
-        case 'application': // butterfly: two joined wings round a pale body with eyes (8x6)
-          px(0, tick ? 0 : 1, 3, 5, '#ff9fd0');
-          px(5, tick ? 0 : 1, 3, 5, '#ffd166');
-          px(3, 0, 2, 6, '#fff6e0');
-          px(3, 1, 1, 1, ink);
-          px(4, 1, 1, 1, ink);
-          return true;
-        case 'internet': // tiny drone with blinking light (6x6)
-          px(0, 2, 6, 4, '#ffffff');
-          px(0, 0, 2, 2, '#5b8ee6');
-          px(4, 0, 2, 2, '#5b8ee6');
-          px(2, 4, 2, 1, tick ? '#e6a23c' : '#59c08a');
-          return true;
-        case 'bytecode': // opcode byte (6x6)
-          px(0, 0, 6, 6, '#333366');
-          px(1, 2, 1, 2, '#ffcc33');
-          px(3, 2, 2, 2, '#66cc99');
-          return true;
-        case 'linker': // brass plug (6x6)
-          px(0, 0, 4, 6, '#aa5500');
-          px(4, 2, 3, 2, '#ffff55');
-          px(1, 1, 2, 1, '#ffffaa');
-          return true;
-        case 'kernel-entry': {
-          // Hooded courier: a robed 6x6 with a pale face window and a tiny wax-sealed scroll under one arm.
-          px(2, 0, 2, 1, '#ff55ff');
-          px(1, 1, 4, 1, '#ff55ff');
-          px(0, 2, 6, 4, '#aa00aa');
-          px(1, 2, 4, 2, '#ffffaa');
-          px(2, 3, 1, 1, ink);
-          px(4, 3, 1, 1, ink);
-          px(dir > 0 ? 6 : -3, 3, 3, 2, '#ffffff');
-          px(dir > 0 ? 8 : -3, 3, 1, 2, '#ff5555');
-          px(tick ? 1 : 3, 6, 1, 1, '#555555');
-          return true;
-        }
-        case 'cmos': {
-          // Teal silicon mite: a rounded body, two eyes and a short attached tail.
-          px(1, 0, 4, 1, '#24989c');
-          px(0, 1, 6, 5, '#24989c');
-          px(1, 1, 2, 1, '#8ff0ee');
-          px(1, 3, 1, 1, ink);
-          px(4, 3, 1, 1, ink);
-          px(dir > 0 ? -3 : 6, 4, 3, 1, '#24989c');
-          px(dir > 0 ? -4 : 9, tick ? 3 : 4, 1, 1, '#24989c');
-          return true;
-        }
-        default:
-          throw new Error(`critters: ${layerId} is in ALT_SPECIES_MOTIONS but has no alternate sprite`);
-      }
-    })();
-
+    // The layer draws its own critter (and, on odd variants where it has one, an alternate species).
     let mirrorPair = false;
-    if (!altDone) switch (layerId) {
-      // Bespoke Endless sprites for Zones A–F (distinct silhouettes instead of reusing Daily sprites!)
-      case 'internet': {
-        // Crisp white paper-plane packet swallow with trailing cyan packet dot
-        px(0, 1, 6, 4, '#ffffff');
-        px(dir > 0 ? 1 : 0, 0, 4, 2, '#dfe6f6');
-        px(dir > 0 ? 4 : 0, 2, 2, 2, '#5b8ee6');
-        px(dir > 0 ? 1 : 4, 5, 2, 1, '#c8d6f0');
-        if (!perched) px(dir > 0 ? -3 : 8, 3, 2, 1, '#5fd3e0');
-        break;
-      }
-      case 'browser': {
-        // Tab-bug: a scuttling 6x6 beetle with an orange browser-tab ear and two dark eyes.
-        const leg = perched ? 0 : Math.floor(t * 10 + c.phase) % 2;
-        const glow = Math.floor(t * 3 + c.phase) % 2 === 0;
-        px(1, 0, 4, 1, glow ? '#59c08a' : '#5b8ee6');
-        px(0, 1, 6, 5, glow ? '#59c08a' : '#5b8ee6');
-        px(dir > 0 ? 3 : 0, -2, 3, 2, '#e6a23c');
-        px(1, 2, 1, 1, ink);
-        px(4, 2, 1, 1, ink);
-        px(2, 4, 2, 1, '#dff5e8');
-        px(leg, 6, 1, 1, ink);
-        px(5 - leg, 6, 1, 1, ink);
-        break;
-      }
-      case 'bytecode': {
-        // Floating curly-brace / syntax token sprite
-        px(1, 0, 4, 6, '#333366');
-        px(2, 1, 2, 4, '#ffcc33');
-        px(0, 2, 1, 2, '#ffff99');
-        px(5, 2, 1, 2, '#ffff99');
-        break;
-      }
-      case 'jit': {
-        // Fiery orange-gold spark mite with trailing ember pixel
-        px(0, 1, 6, 5, '#ff6633');
-        px(1, 0, 4, 2, '#ff6633');
-        px(2, 1, 2, 2, '#ffff66');
-        px(dir > 0 ? -2 : 7, 3, 1, 1, '#ffcc33');
-        break;
-      }
-      case 'linker': {
-        // Brass plug-beetle carrying a gold symbol pin
-        const leg = Math.floor(t * 10 + c.phase) % 2;
-        px(0, 1, 6, 4, '#aa5500');
-        px(1, 0, 4, 1, '#ffff55');
-        px(dir > 0 ? 6 : -2, 2, 2, 2, '#ffffaa');
-        px(1 + leg, 5, 1, 1, '#aaaaaa');
-        px(4 - leg, 5, 1, 1, '#aaaaaa');
-        break;
-      }
-      case 'kernel-entry': {
-        // Gatekeeper beetle: a cyan shell with a brass key-crest, a grey head with two dark eyes.
-        const leg = perched ? 0 : Math.floor(t * 9 + c.phase) % 2;
-        px(1, 0, 5, 2, '#aaaaaa');
-        px(2, 1, 1, 1, ink);
-        px(4, 1, 1, 1, ink);
-        px(0, 2, 7, 4, '#55ffff');
-        px(3, 3, 1, 3, '#ffff55');
-        px(2, 3, 3, 1, '#ffff55');
-        px(leg, 6, 1, 1, '#555555');
-        px(6 - leg, 6, 1, 1, '#555555');
-        break;
-      }
-      case 'kernel-arch': {
-        // Armoured interrupt spark-mite: a red body under a grey helmet, two stubby yellow side fins.
-        const fin = Math.floor(t * 14 + c.phase) % 2 === 0;
-        px(1, 0, 4, 1, '#aaaaaa');
-        px(0, 1, 6, 5, '#ff5555');
-        px(1, 2, 1, 1, ink);
-        px(4, 2, 1, 1, ink);
-        px(2, 4, 2, 1, '#ffff55');
-        px(-1, fin ? 2 : 3, 1, 2, '#ffff55');
-        px(6, fin ? 2 : 3, 1, 2, '#ffff55');
-        break;
-      }
-      case 'bus-fabric': {
-        // Packet-mote: a magenta body with a white leading face, two eyes and a short trailing fin.
-        const fx = dir > 0 ? 3 : 0;
-        px(0, 0, 6, 6, '#ff55ff');
-        px(fx, 0, 3, 6, '#ffffff');
-        px(fx, 2, 1, 1, ink);
-        px(fx + 2, 2, 1, 1, ink);
-        px(dir > 0 ? -2 : 6, 2, 2, 2, '#ff55ff');
-        break;
-      }
-      case 'vmm': {
-        // Winged visor-beetle: a rounded carapace with a bright visor band, wings flicking at its sides.
+    const env: SpriteEnv = {
+      px,
+      ink,
+      t,
+      phase: c.phase,
+      variant,
+      dir,
+      perched,
+      hopFrac,
+      mirror() {
         mirrorPair = true;
-        const wing = Math.floor(t * 10 + c.phase) % 2 === 0;
-        px(2, 0, 2, 1, '#8cff9c');
-        px(1, 1, 4, 5, '#1ea046');
-        px(0, 2, 6, 3, '#1ea046');
-        px(1, 2, 4, 1, '#8cff9c');
-        px(1, 2, 1, 1, ink);
-        px(4, 2, 1, 1, ink);
-        px(-2, wing ? 0 : 2, 2, 3, '#8cff9c');
-        px(6, wing ? 0 : 2, 2, 3, '#8cff9c');
-        break;
-      }
-      case 'ept': {
-        // Squat hexagonal translation bug: a notched mint carapace, two eyes, stubby feet.
-        mirrorPair = true;
-        const step = perched ? 0 : Math.floor(t * 6 + c.phase) % 2;
-        px(1, 0, 2, 1, '#8cff9c');
-        px(4, 0, 2, 1, '#8cff9c');
-        px(0, 1, 7, 4, '#8cff9c');
-        px(1, 5, 5, 1, '#8cff9c');
-        px(2, 2, 1, 1, ink);
-        px(4, 2, 1, 1, ink);
-        px(3, 3, 1, 2, '#1ea046');
-        px(1 + step, 6, 1, 1, '#1ea046');
-        px(5 - step, 6, 1, 1, '#1ea046');
-        break;
-      }
-      case 'smram': {
-        // Silent silver vault sentinel
-        px(0, 0, 6, 6, '#808080');
-        px(1, 1, 4, 4, '#c0c0c0');
-        px(2, 2, 2, 2, '#ffffff');
-        break;
-      }
-      case 'me-minix-user': {
-        // Miniature uncanny amber micro-daemon
-        const step = perched ? 0 : Math.floor(t * 8 + c.phase) % 2;
-        px(0, -1, 1, 2, '#ffffff');
-        px(5, -1, 1, 2, '#ffffff');
-        px(0, 0, 6, 5, '#aaaaaa');
-        px(1, 2, 1, 1, ink);
-        px(4, 2, 1, 1, ink);
-        px(1 + step, 5, 1, 1, '#555555');
-        px(4 - step, 5, 1, 1, '#555555');
-        break;
-      }
-      case 'me-minix-kern': {
-        // Mechanical courier bug: a plated body, two dark eyes, a small message pouch strapped on.
-        const leg = perched ? 0 : Math.floor(t * 8 + c.phase) % 2;
-        px(1, 0, 4, 1, '#ffffff');
-        px(0, 1, 6, 5, '#aaaaaa');
-        px(1, 2, 1, 1, ink);
-        px(4, 2, 1, 1, ink);
-        px(dir > 0 ? -2 : 6, 3, 2, 3, '#ffffff');
-        px(dir > 0 ? -1 : 6, 2, 1, 1, '#555555');
-        px(leg, 6, 1, 1, '#555555');
-        px(5 - leg, 6, 1, 1, '#555555');
-        break;
-      }
-      case 'uarch': {
-        // Speculative phantom: flickering μop glider
-        const ghost = Math.floor(t * 6 + c.phase) % 2 === 0;
-        px(0, 0, 6, 6, ghost ? '#ffffff' : '#aaaaaa');
-        px(1, 2, 4, 2, ink);
-        px(dir > 0 ? 5 : 0, 2, 1, 2, '#ffffff');
-        break;
-      }
-      case 'rtl': {
-        // Logic pulse glider
-        px(0, 1, 6, 4, '#aaaaaa');
-        px(dir > 0 ? 3 : 1, 0, 3, 6, '#ffffff');
-        px(dir > 0 ? 4 : 2, 2, 1, 1, ink);
-        break;
-      }
-      case 'cmos': {
-        // Copper-clad beetle: a rounded orange shell, two eyes, short side legs.
-        const leg = perched ? 0 : Math.floor(t * 9 + c.phase) % 2;
-        px(1, 0, 4, 1, '#e88438');
-        px(0, 1, 6, 5, '#e88438');
-        px(1, 1, 2, 1, '#ffd0a0');
-        px(1, 2, 1, 1, ink);
-        px(4, 2, 1, 1, ink);
-        px(-1, 2 + leg, 1, 1, '#b85a1c');
-        px(-1, 4 - leg, 1, 1, '#b85a1c');
-        px(6, 2 + leg, 1, 1, '#b85a1c');
-        px(6, 4 - leg, 1, 1, '#b85a1c');
-        break;
-      }
-      case 'litho': {
-        // Stray EUV photon: a solid violet body with a bright crown and two rays, eyes dark.
-        const pulse = Math.floor(t * 7 + c.phase) % 2 === 0;
-        px(1, 0, 4, 1, '#ffffff');
-        px(0, 1, 6, 5, pulse ? '#aaaaaa' : '#555555');
-        px(1, 2, 1, 1, ink);
-        px(4, 2, 1, 1, ink);
-        px(2, 4, 2, 1, '#ffffff');
-        px(-1, pulse ? 2 : 3, 1, 2, '#ffffff');
-        px(6, pulse ? 2 : 3, 1, 2, '#ffffff');
-        break;
-      }
-      case 'bandgap': {
-        // Tunneling electron cloud
-        px(0, 0, 6, 6, '#555555');
-        px(2, 2, 2, 2, '#ffffff');
-        px(0, 2, 1, 2, '#aaaaaa');
-        px(5, 2, 1, 2, '#aaaaaa');
-        break;
-      }
-      case 'landauer': {
-        // Lone stray bit in the void
-        const bit = Math.floor(t * 2 + c.phase) % 2 === 0;
-        px(0, 0, 6, 6, '#aaaaaa');
-        px(2, 1, bit ? 2 : 3, 4, '#ffffff');
-        if (!bit) px(3, 2, 1, 2, ink);
-        break;
-      }
-      case 'slab-spa': {
-        // Steamy turquoise Bubble Slime
-        const bob = Math.floor(t * 4 + c.phase) % 2;
-        px(1, 0 + bob, 4, 1, '#d4f5f0');
-        px(0, 1, 6, 5, '#5cc8c0');
-        px(1, 1, 4, 2, '#a8f0ea');
-        px(1, 3, 1, 1, ink);
-        px(4, 3, 1, 1, ink);
-        break;
-      }
-      case 'kthread-kabin': {
-        // Cozy hooded Cabin Sprite
-        const hop = perched ? 0 : Math.floor(t * 6 + c.phase) % 2;
-        px(1, 0 - hop, 4, 2, '#e86820');
-        px(0, 2 - hop, 6, 4, '#c87e4b');
-        px(1, 3 - hop, 1, 1, ink);
-        px(4, 3 - hop, 1, 1, ink);
-        px(1, 5, 1, 1, '#784222');
-        px(4, 5, 1, 1, '#784222');
-        break;
-      }
-      default:
-        // All 10 Daily layers + tinted intermediate Endless layers share their family sprite (palette-snapped!)
-        switch (DAILY_FALLBACK[layerId]) {
-      case 'application': {
-        const bodies = ['#ff5f7a', '#ffd166', '#4cc9f0', '#7ee0a1', '#c58bff'];
-        const bellies = ['#ffe5ec', '#fff6d6', '#e0f7ff', '#e8fff0', '#f3e8ff'];
-        const body = bodies[variant % bodies.length]!;
-        const belly = bellies[variant % bellies.length]!;
-        const flap = !perched && Math.floor(t * 9 + c.phase) % 2 === 0;
-        px(0, 1, 6, 5, body);
-        px(2, 3, 3, 3, belly);
-        if (variant === 0 || variant === 2) px(dir > 0 ? 4 : 1, -1, 2, 1, body);
-        // Wings fold neatly against the body when perched, flap smoothly when flying
-        px(2, perched ? 2 : flap ? -1 : 2, 3, perched ? 1 : 2, '#ffffff');
-        const hx = dir > 0 ? 4 : -1;
-        px(hx, 0, 3, 3, body);
-        px(dir > 0 ? 5 : 0, 1, 1, 1, ink);
-        px(dir > 0 ? 7 : -2, 1, 2, 1, '#ffb000');
-        px(dir > 0 ? -2 : 6, 2, 2, 2, body);
-        if (perched) {
-          px(2, 6, 1, 1, '#ffb000');
-          px(4, 6, 1, 1, '#ffb000');
-        }
-        break;
-      }
-      case 'runtime': {
-        const bodies = ['#5fd3e0', '#7ee0a1', '#f5d76e', '#ff9f43', '#c58bff'];
-        const body = bodies[variant % bodies.length]!;
-        const squish = perched || hopFrac < 0.1 || hopFrac > 0.9;
-        const topY = squish ? 1 : 0;
-        px(1, topY, 4, 6 - topY, body);
-        px(0, topY + 1, 6, 5 - topY, body);
-        px(2, topY, 2, 1, '#ffffff');
-        const ex = dir > 0 ? 2 : 1;
-        const ey = squish ? 3 : 2;
-        px(ex, ey, 1, 1, ink);
-        px(ex + 2, ey, 1, 1, ink);
-        break;
-      }
-      case 'libraries': {
-        // Bookworm: a square 6x6 body with two dark eyes and a hardcover book lying flat on its head
-        // (coloured cover above and below, cream page block between).
-        const bodies = ['#e6c785', '#7ec8e3', '#d990a8', '#8fd694', '#c5a3ff'];
-        const covers = ['#c0392b', '#2e6fb7', '#2f8f5b', '#8e44ad', '#d68910'];
-        const body = bodies[variant % bodies.length]!;
-        const cover = covers[variant % covers.length]!;
-        const dy = perched ? 1 : 0;
-        px(-1, -3 + dy, 8, 1, cover);
-        px(0, -2 + dy, 7, 2, '#fff5d6');
-        px(0, -2 + dy, 7, 1, '#e6dcc0');
-        px(-1, dy, 8, 1, cover);
-        px(0, 1, 6, 5, body);
-        px(dir > 0 ? 2 : 1, 3, 1, 1, ink);
-        px(dir > 0 ? 4 : 3, 3, 1, 1, ink);
-        break;
-      }
-      case 'userspace': {
-        const bodies = ['#ff5555', '#ff9f43', '#ff55ff', '#55ffff', '#ffff55'];
-        const darks = ['#aa0000', '#aa5500', '#aa00aa', '#00aaaa', '#aa5500'];
-        const body = bodies[variant % bodies.length]!;
-        const dark = darks[variant % darks.length]!;
-        const step = perched ? 0 : Math.floor(t * 7 + c.phase) % 2;
-        px(0, -1, 1, 2, body);
-        px(5, -1, 1, 2, body);
-        px(0, 0, 6, 6, dark);
-        px(0, 2, 6, 2, body);
-        px(1, 2, 1, 1, ink);
-        px(4, 2, 1, 1, ink);
-        px(1, 6, 1, 1 + step, dark);
-        px(4, 6, 1, 2 - step, dark);
-        px(dir > 0 ? 6 : -2, 2 + step, 2, 2, '#ffff55');
-        break;
-      }
-      case 'kernel': {
-        const visors = ['#55ffff', '#55ff55', '#ffff55', '#ff55ff'];
-        const visor = visors[variant % visors.length]!;
-        const blink = Math.floor(t * 5 + c.phase) % 2 === 0;
-        px(3, -2, 1, 2, '#aaaaaa');
-        px(3, -3, 1, 1, blink ? '#ff5555' : '#ffff55');
-        px(0, 0, 7, 6, '#aaaaaa');
-        px(dir > 0 ? 2 : 1, 2, 4, 2, visor);
-        px(1, 6, 2, 1, '#555555');
-        px(4, 6, 2, 1, '#555555');
-        break;
-      }
-      case 'drivers': {
-        // Bus-beetle: a 7x6 shell with a white crest, two dark eyes and scuttling legs.
-        const leg = Math.floor(t * 14 + c.phase) % 2;
-        const body = variant % 2 === 0 ? '#55ffff' : '#ff55ff';
-        px(1, 0, 5, 1, '#ffffff');
-        px(0, 1, 7, 5, body);
-        px(1, 2, 1, 1, ink);
-        px(5, 2, 1, 1, ink);
-        px(leg, 6, 1, 1, '#ffffff');
-        px(6 - leg, 6, 1, 1, '#ffffff');
-        break;
-      }
-      case 'firmware': {
-        const pulse = Math.floor(t * 2 + c.phase) % 2 === 0;
-        px(1, 0, 5, 1, '#8cff9c');
-        px(0, 1, 7, 4, '#1ea046');
-        px(2, 2, 3, 2, pulse ? '#ffffff' : '#0a461e');
-        px(1, 5, 5, 1, '#8cff9c');
-        break;
-      }
-      case 'ring-1': {
-        mirrorPair = true;
-        px(0, 1, 6, 4, '#1ea046');
-        px(1, 0, 4, 6, '#8cff9c');
-        px(2, 2, 2, 1, '#ffffff');
-        break;
-      }
-      case 'ring-2': {
-        if (variant % 3 === 0) {
-          px(0, 0, 6, 6, '#bebebe');
-          px(2, 0, 2, 2, '#f0f0f0');
-          px(5, 1, 2, 2, '#bebebe');
-        } else if (variant % 3 === 1) {
-          px(0, 0, 6, 6, '#bebebe');
-          px(1, 2, 1, 1, ink);
-          px(4, 2, 1, 1, ink);
-        } else {
-          px(0, 0, 6, 6, '#bebebe');
-          px(2, -1, 1, 1, '#f0f0f0');
-          px(1, 2, 4, 2, ink);
-        }
-        break;
-      }
-      case 'ring-3': {
-        const bit = Math.floor(t * 3 + c.phase) % 2 === 0;
-        px(0, 0, 6, 6, '#e8eeff');
-        if (bit) {
-          px(2, 1, 2, 4, ink);
-        } else {
-          px(1, 1, 4, 4, ink);
-          px(2, 2, 2, 2, '#e8eeff');
-        }
-        break;
-      }
-        }
-        break;
-    }
+      },
+    };
+    const spec = LAYER_ART[layerId].critters;
+    if (isAltSpecies(layerId, variant)) spec.alt!.draw({ ...env, tick: Math.floor(t * 8 + c.phase) % 2 });
+    else spec.draw(env);
 
     flushGrid(x, y);
     if (mirrorPair) flushGrid(W - x - 6, y);

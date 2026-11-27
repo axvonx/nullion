@@ -1,0 +1,265 @@
+{
+ "id": "post-quantum-signature-scheme",
+ "prompt": "Name a post-quantum signature scheme",
+ "accepts": "a named digital signature scheme designed to resist quantum attacks.",
+ "answers": [
+  {
+   "name": "ML-DSA",
+   "aliases": [
+    "Dilithium",
+    "CRYSTALS-Dilithium"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Falcon",
+   "aliases": [
+    "FN-DSA"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "SLH-DSA",
+   "aliases": [
+    "SPHINCS+"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "UOV",
+   "aliases": [
+    "Unbalanced Oil and Vinegar"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MAYO",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Rainbow",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Picnic",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "XMSS",
+   "aliases": [
+    "eXtended Merkle Signature Scheme"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LMS",
+   "aliases": [
+    "Leighton-Micali Signature"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Lamport signature",
+   "aliases": [
+    "Lamport OTS",
+    "Lamport one-time signature"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Winternitz one-time signature",
+   "aliases": [
+    "W-OTS",
+    "W-OTS+",
+    "Winternitz OTS"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SPHINCS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GeMSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LUOV",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "qTESLA",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XMSS-MT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HSS",
+   "aliases": [
+    "Hierarchical Signature System"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MQDSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BLISS",
+   "aliases": [
+    "Bimodal Lattice Signature Scheme"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HAWK",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LESS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MEDS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Wave",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Merkle signature scheme",
+   "aliases": [
+    "MSS"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CROSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FAEST",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MQOM",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QR-UOV",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SDitH",
+   "aliases": [
+    "SD-in-the-Head"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SNOVA",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GLP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PERK",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RYDE",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Mirath",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Biscuit",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HuFu",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SQUIRRELS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FuLeeca",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Raccoon",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DME-Sign",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ALTEQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Gravity-SPHINCS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pqsigRM",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EagleSign",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SOFIA",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SQIsign",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

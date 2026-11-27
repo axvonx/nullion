@@ -1,0 +1,342 @@
+{
+ "id": "graph-algorithm",
+ "prompt": "Name a graph algorithm",
+ "accepts": "Any named algorithm whose input is a graph and whose purpose is to compute a graph property, path, tree, flow or matching.",
+ "answers": [
+  {
+   "name": "Topological sort",
+   "aliases": [
+    "toposort",
+    "topological sorting"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Tarjan's strongly connected components algorithm",
+   "aliases": [
+    "Tarjan's algorithm",
+    "Tarjan's strongly connected components",
+    "Tarjan"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Dijkstra's algorithm",
+   "aliases": [
+    "Dijkstra"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "A* search",
+   "aliases": [
+    "A star",
+    "A*"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "breadth-first search",
+   "aliases": [
+    "BFS"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "depth-first search",
+   "aliases": [
+    "DFS"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Prim's algorithm",
+   "aliases": [
+    "Prim"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Ford-Fulkerson algorithm",
+   "aliases": [
+    "Ford-Fulkerson"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PageRank",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Fleury's algorithm",
+   "aliases": [
+    "Fleury"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SPFA",
+   "aliases": [
+    "Shortest Path Faster Algorithm"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Iterative deepening DFS",
+   "aliases": [
+    "IDDFS",
+    "iterative deepening depth-first search"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "d-separation",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Bellman-Ford algorithm",
+   "aliases": [
+    "Bellman-Ford"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Floyd-Warshall algorithm",
+   "aliases": [
+    "Floyd-Warshall"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Kruskal's algorithm",
+   "aliases": [
+    "Kruskal"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Bor\u016fvka's algorithm",
+   "aliases": [
+    "Boruvka"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Kosaraju's algorithm",
+   "aliases": [
+    "Kosaraju"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Edmonds-Karp algorithm",
+   "aliases": [
+    "Edmonds-Karp"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Dinic's algorithm",
+   "aliases": [
+    "Dinic",
+    "Dinitz's algorithm"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "push-relabel algorithm",
+   "aliases": [
+    "Goldberg-Tarjan",
+    "Push-relabel"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Hopcroft-Karp algorithm",
+   "aliases": [
+    "Hopcroft-Karp"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Hungarian algorithm",
+   "aliases": [
+    "Kuhn-Munkres"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Kahn's algorithm",
+   "aliases": [
+    "Kahn"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Louvain method",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "bidirectional search",
+   "aliases": [
+    "bidirectional BFS"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "IDA*",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Edmonds' blossom algorithm",
+   "aliases": [
+    "blossom algorithm"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Johnson's algorithm",
+   "aliases": [
+    "Johnson"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Held-Karp algorithm",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Stoer-Wagner algorithm",
+   "aliases": [
+    "Stoer-Wagner"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Karger's algorithm",
+   "aliases": [
+    "Karger"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Hierholzer's algorithm",
+   "aliases": [
+    "Hierholzer"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Chu-Liu/Edmonds algorithm",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Bron-Kerbosch algorithm",
+   "aliases": [
+    "Bron-Kerbosch"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Girvan-Newman algorithm",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HITS algorithm",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Lexicographic breadth-first search",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Christofides algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Brandes' algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Yen's algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Eppstein's algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "contraction hierarchies",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Jump Point Search",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "D* Lite",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Cuthill-McKee algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Welsh-Powell algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DSatur",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Weisfeiler-Lehman algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VF2 algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Boykov-Kolmogorov algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Gabow's algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Dial's algorithm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Gomory-Hu tree",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

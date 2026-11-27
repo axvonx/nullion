@@ -1,0 +1,579 @@
+{
+ "id": "compiler-optimization",
+ "prompt": "Name a compiler optimization",
+ "accepts": "Any named code transformation a compiler applies to improve generated code, as described in a compiler textbook, paper, or compiler's documentation.",
+ "answers": [
+  {
+   "name": "common subexpression elimination",
+   "aliases": [
+    "CSE",
+    "EarlyCSE"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "constant propagation",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "dead code elimination",
+   "aliases": [
+    "DCE"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "inlining",
+   "aliases": [
+    "function inlining",
+    "AlwaysInliner",
+    "inline expansion"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "speculative execution",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tail call optimization",
+   "aliases": [
+    "tail call elimination",
+    "tail recursion elimination",
+    "TCO"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Constant folding",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Register allocation",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "peephole optimization",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "copy propagation",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "dead store elimination",
+   "aliases": [
+    "DSE"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "interprocedural optimization",
+   "aliases": [
+    "IPO"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "loop unrolling",
+   "aliases": [
+    "LoopUnroll",
+    "LoopUnrollPass",
+    "loop unwinding"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "loop-invariant code motion",
+   "aliases": [
+    "LICM",
+    "code hoisting"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "profile-guided optimization",
+   "aliases": [
+    "PGO"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "strength reduction",
+   "aliases": [
+    "loop strength reduction",
+    "LoopStrengthReduce"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Escape analysis",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Loop tiling",
+   "aliases": [
+    "loop blocking"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Bounds check elimination",
+   "aliases": [
+    "BCE"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Instruction scheduling",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Tree shaking",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "If-conversion",
+   "aliases": [
+    "predication"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Tail duplication",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CFG simplification",
+   "aliases": [
+    "SimplifyCFG",
+    "control-flow graph simplification"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "function specialization",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "global value numbering",
+   "aliases": [
+    "GVN",
+    "NewGVN"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "instruction combining",
+   "aliases": [
+    "InstCombine"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "jump threading",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "link-time optimization",
+   "aliases": [
+    "LTO",
+    "whole-program optimization"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "loop distribution",
+   "aliases": [
+    "loop fission",
+    "LoopDistribute",
+    "loop splitting"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "loop fusion",
+   "aliases": [
+    "loop jamming",
+    "LoopFuse"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "loop interchange",
+   "aliases": [
+    "loop permutation"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "loop unswitching",
+   "aliases": [
+    "SimpleLoopUnswitch"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "loop vectorization",
+   "aliases": [
+    "auto-vectorization",
+    "LoopVectorize",
+    "vectorization",
+    "SIMD vectorization"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "mem2reg",
+   "aliases": [
+    "memory-to-register promotion",
+    "PromoteMemoryToRegister"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "scalar replacement of aggregates",
+   "aliases": [
+    "SROA"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "sparse conditional constant propagation",
+   "aliases": [
+    "SCCP",
+    "conditional constant propagation"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "whole-program devirtualization",
+   "aliases": [
+    "devirtualization",
+    "WholeProgramDevirt"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "aggressive dead code elimination",
+   "aliases": [
+    "ADCE"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "constant hoisting",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "constant merging",
+   "aliases": [
+    "ConstantMerge"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "constraint elimination",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "correlated value propagation",
+   "aliases": [
+    "CVP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "dead argument elimination",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "expression reassociation",
+   "aliases": [
+    "reassociation"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "full unrolling",
+   "aliases": [
+    "full loop unrolling"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "function merging",
+   "aliases": [
+    "MergeFunctions"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "global dead code elimination",
+   "aliases": [
+    "GlobalDCE"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "induction variable simplification",
+   "aliases": [
+    "IndVarSimplify"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "loop data prefetching",
+   "aliases": [
+    "LoopDataPrefetch"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "loop deletion",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "loop flattening",
+   "aliases": [
+    "LoopFlatten"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "loop idiom recognition",
+   "aliases": [
+    "LoopIdiomRecognize"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "loop peeling",
+   "aliases": [
+    "LoopPeel"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "loop rotation",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "memcpy optimization",
+   "aliases": [
+    "MemCpyOptimizer"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "partial inlining",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "partial unrolling",
+   "aliases": [
+    "partial loop unrolling"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "superword-level parallelism",
+   "aliases": [
+    "SLP vectorization",
+    "SLP",
+    "SLPVectorizer"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "unroll-and-jam",
+   "aliases": [
+    "loop unroll and jam",
+    "LoopUnrollAndJamPass"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CFG flattening",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "code sinking",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "hot/cold splitting",
+   "aliases": [
+    "hot-cold splitting"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "instruction simplification",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "library call simplification",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "loop versioning",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "scalarization",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "critical edge splitting",
+   "aliases": [
+    "BreakCriticalEdges"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "argument promotion",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bit-tracking dead code elimination",
+   "aliases": [
+    "BDCE"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "call-site splitting",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "epilogue vectorization",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "global variable optimization",
+   "aliases": [
+    "GlobalOpt"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GVN hoisting",
+   "aliases": [
+    "GVNHoist"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GVN sinking",
+   "aliases": [
+    "GVNSink"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "load-store vectorization",
+   "aliases": [
+    "LoadStoreVectorizer"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "loop load elimination",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "loop predication",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "loop sinking",
+   "aliases": [
+    "LoopSink"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "merged load-store motion",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "straight-line strength reduction",
+   "aliases": [
+    "StraightLineStrengthReduce"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "guard widening",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "inductive range check elimination",
+   "aliases": [
+    "IRCE"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "loop bound splitting",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "n-ary reassociation",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "vector combining",
+   "aliases": [
+    "VectorCombine"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "loop-closed SSA",
+   "aliases": [
+    "LCSSA"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DFA jump threading",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}
