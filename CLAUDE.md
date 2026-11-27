@@ -68,6 +68,15 @@ What's next lives in `ROADMAP.md`; the next milestone is question and answer gen
 - **`sounds/` directory:** kept locally and gitignored (`/sounds/` in `.gitignore`) for now while SFX are generated procedurally in JS; if custom recorded audio assets are added later, remove `/sounds/` from `.gitignore` to track them.
 - **Animated favicon (`src/ui/favicon.ts`, `index.html`):** transparent hollow pixel-art `0` with 1px dark outline and periodic non-strobing glitch frames (static under reduced motion).
 
+## Art style (pinned 2026-11-27)
+
+`ART-STYLE.md` is the style guide for every v4 entity, critter and setpiece, and any sprite drawn or redrawn must
+follow it. The palette snap keeps each layer's colours coherent; everything else drifted across sessions. The guide
+covers: physical objects not symbols; whole, rare text; one dark 1 px outline; light from the top left; a front-on
+view; grounded props; size classes; detail density; critter eyes and silhouettes; Endless layers' own props. Review
+consistency on contact sheets: `python3 -I scripts/art-sheet.py <layer>…`. Restyle existing sprites as part of the
+world cull, not before.
+
 ## Visual alternatives
 
 Looks are drafted live:
