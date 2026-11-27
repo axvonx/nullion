@@ -157,9 +157,13 @@ def main() -> None:
                 WEIGHTS[t] * min(1.0, math.log1p(r["counts"][t]) / math.log1p(ref[t])) for t in tables if ref[t] > 0
             ) / wsum
 
+        # Pins matter only when filling a fresh draft; merging into a tiered file never touches its picks.
         pins = [r for r in rows if r["e"].get("pin") == "bitflip"]
-        if len(pins) != 1:
-            raise RuntimeError(f"{tag}: need exactly one bitflip pin, have {len(pins)}")
+        fresh = not read_bank(bank_file(tag))["lines"]
+        if fresh and len(pins) != 1:
+            raise RuntimeError(f"{tag}: filling a fresh draft needs exactly one bitflip pin, have {len(pins)}")
+        if not fresh and pins:
+            raise RuntimeError(f"{tag}: has tiers already; pick its Bit Flip in the bank file, not with a pin")
 
         for r in rows:
             r["strong"] = max(r["counts"].values()) >= STRONG_MIN

@@ -1,0 +1,53 @@
+{
+  "spinlock": [
+    "spinlock_t",
+    "slock_t"
+  ],
+  "mutex": [
+    "struct mutex",
+    "unnamed mutex"
+  ],
+  "semaphore": [
+    "struct semaphore",
+    "unnamed semaphore"
+  ],
+  "rw semaphore": [
+    "rw_semaphore"
+  ],
+  "percpu rwsem": [
+    "percpu_rw_semaphore"
+  ],
+  "read-write lock": [
+    "rw_lock",
+    "struct rwlock"
+  ],
+  "raw spinlock": [
+    "raw_spin_lock"
+  ],
+  "file lock": [
+    "file_lock"
+  ],
+  "record lock": [
+    "posix lock"
+  ],
+  "futex": [
+    "fast user mutex"
+  ],
+  "LWLock": [
+    "light-weight lock",
+    "LW lock"
+  ],
+  "page lock": [
+    "page-level lock"
+  ],
+  "table lock": [
+    "relation-level lock"
+  ],
+  "predicate lock": [
+    "SIREAD lock"
+  ],
+  "advisory lock": [
+    "session-level advisory lock",
+    "transaction-level advisory lock"
+  ]
+}

@@ -3,24 +3,24 @@ id: lock · domain: os-systems · status: approved
 > Any locking or mutual-exclusion primitive, protocol or scheme.
 
 ## Off-by-one
-- mutex | mutual exclusion lock | std::mutex | pthread mutex | pthread_mutex
-- spinlock | spin lock
-- semaphore
+- mutex | mutual exclusion lock | std::mutex | pthread mutex | pthread_mutex | struct mutex | unnamed mutex
+- spinlock | spin lock | spinlock_t | slock_t
+- semaphore | struct semaphore | unnamed semaphore
 
 ## Works on my machine
 - RCU | read-copy-update
   note: Not technically a lock, which is why everyone says it.
 
 ## Null pointer exception
-- read-write lock | rwlock | readers-writer lock | reader-writer lock | shared-exclusive lock | std::shared_mutex
+- read-write lock | rwlock | readers-writer lock | reader-writer lock | shared-exclusive lock | std::shared_mutex | rw_lock | struct rwlock
 - test-and-set lock | tas lock | test and set lock
 - optimistic lock | optimistic locking
 - pessimistic lock | pessimistic locking
 - two-phase locking | 2pl
 - shared lock | s lock
 - row-level lock | row lock
-- table lock | table-level lock
-- file lock | flock | file locking
+- table lock | table-level lock | relation-level lock
+- file lock | flock | file locking | file_lock
 - distributed lock
 - global interpreter lock | GIL
 - counting semaphore
@@ -31,18 +31,18 @@ id: lock · domain: os-systems · status: approved
 - adaptive mutex | adaptive lock
 - ticket lock | ticket spinlock
 - seqlock | sequence lock | seqcount
-- futex | fast userspace mutex
+- futex | fast userspace mutex | fast user mutex
 - test-and-test-and-set lock | ttas lock | test and test and set lock
 - backoff lock | exponential backoff lock
 - Peterson lock | peterson's algorithm | petersons lock
 - bakery lock | lamport's bakery algorithm | bakery algorithm
 - Dekker's algorithm | dekker lock | dekkers algorithm
-- exclusive lock | x lock
-- advisory lock
+- exclusive lock | x lock | ExclusiveLock
+- advisory lock | session-level advisory lock | transaction-level advisory lock
 - queue lock | queuing lock | queue-based lock
 - critical section | CRITICAL_SECTION
-- record lock
-- page lock
+- record lock | posix lock
+- page lock | page-level lock
 - latch
 - intrinsic lock | monitor lock
 
@@ -62,7 +62,7 @@ id: lock · domain: os-systems · status: approved
 - update lock | U lock
 - gap lock
 - next-key lock
-- predicate lock
+- predicate lock | SIREAD lock
 
 ## Heisenbug
 - qrwlock | queued rwlock | queued read-write lock
@@ -77,8 +77,8 @@ id: lock · domain: os-systems · status: approved
 - TWA lock | ticket lock with waiting array
 - partitioned ticket lock
 - thin lock
-- rw semaphore | rwsem | read-write semaphore
-- percpu rwsem | per-cpu rwsem | percpu rw semaphore
+- rw semaphore | rwsem | read-write semaphore | rw_semaphore
+- percpu rwsem | per-cpu rwsem | percpu rw semaphore | percpu_rw_semaphore
 - local lock | local_lock
 - rt mutex | rtmutex | rt_mutex
 - ww mutex | wound/wait mutex | wound-wait mutex | ww_mutex
@@ -91,7 +91,7 @@ id: lock · domain: os-systems · status: approved
 - fast mutex | FAST_MUTEX
 - guarded mutex | KGUARDED_MUTEX
 - in-stack queued spin lock | in-stack queued spinlock
-- rmlock | read-mostly lock
+- rmlock | read-mostly lock | sleepable read-mostly lock
 - sx lock | sx(9)
 - lockmgr lock | lockmgr
 - sleep mutex
@@ -99,12 +99,31 @@ id: lock · domain: os-systems · status: approved
 - AUTO-INC lock | auto-increment lock
 - key-range lock
 - schema lock | Sch-M lock
-- LWLock | lightweight lock
+- LWLock | lightweight lock | light-weight lock | LW lock
 - StampedLock | stamped lock
 - parking lot lock | WTF::Lock
-- raw spinlock | raw_spinlock
+- raw spinlock | raw_spinlock | raw_spin_lock
 - bit spinlock | bit_spin_lock
 
 ## Bit Flip
 - fissile lock
   note: Dice & Kogan, 2020: a TAS fast path that fissions into an MCS-like slow path.
+
+## Inbox
+- executive spin lock | KSPIN_LOCK (suggested: race)
+- remove lock (suggested: heisenbug)
+- interrupt spin lock (suggested: heisenbug)
+- BPF spin lock | bpf_spin_lock (suggested: heisenbug)
+- named mutex (suggested: leak)
+- spin mutex (suggested: heisenbug)
+- Giant | Giant lock | giant mutex (suggested: race)
+- mandatory lock (suggested: heisenbug)
+- heavyweight lock (suggested: race)
+- relation extension lock (suggested: heisenbug)
+- ACCESS SHARE lock | AccessShareLock (suggested: race)
+- ROW EXCLUSIVE lock | RowExclusiveLock (suggested: race)
+- ROW SHARE lock | RowShareLock (suggested: heisenbug)
+- SHARE lock | ShareLock (suggested: race)
+- SHARE ROW EXCLUSIVE lock | ShareRowExclusiveLock (suggested: heisenbug)
+- SHARE UPDATE EXCLUSIVE lock | ShareUpdateExclusiveLock (suggested: heisenbug)
+- ACCESS EXCLUSIVE lock | AccessExclusiveLock (suggested: leak)

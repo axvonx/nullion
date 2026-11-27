@@ -1,0 +1,110 @@
+{
+ "lock": [
+  {
+   "name": "executive spin lock",
+   "aliases": [
+    "KSPIN_LOCK"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "remove lock",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "interrupt spin lock",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BPF spin lock",
+   "aliases": [
+    "bpf_spin_lock"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "named mutex",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "spin mutex",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Giant",
+   "aliases": [
+    "Giant lock",
+    "giant mutex"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "mandatory lock",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "heavyweight lock",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "relation extension lock",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ACCESS SHARE lock",
+   "aliases": [
+    "AccessShareLock"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ROW EXCLUSIVE lock",
+   "aliases": [
+    "RowExclusiveLock"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ROW SHARE lock",
+   "aliases": [
+    "RowShareLock"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SHARE lock",
+   "aliases": [
+    "ShareLock"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "SHARE ROW EXCLUSIVE lock",
+   "aliases": [
+    "ShareRowExclusiveLock"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SHARE UPDATE EXCLUSIVE lock",
+   "aliases": [
+    "ShareUpdateExclusiveLock"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ACCESS EXCLUSIVE lock",
+   "aliases": [
+    "AccessExclusiveLock"
+   ],
+   "judge": "leak"
+  }
+ ]
+}
