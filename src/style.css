@@ -734,9 +734,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 
 .title-logo {
   display: block;
-  width: auto;
-  max-width: min(620px, calc(100vw - 20px));
-  max-height: min(248px, max(56px, calc(100dvh - var(--logo-bottom) - 52px)));
+  width: min(620px, calc(100vw - 20px), max(180px, calc((100dvh - var(--logo-bottom) - 12px) * 2.5)));
   height: auto;
   aspect-ratio: 75 / 30;
   image-rendering: pixelated;
