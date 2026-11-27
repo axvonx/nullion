@@ -48,7 +48,7 @@ def read() -> dict:
         elif (m := BOX.match(line)) and m.group(1) in "xX":
             if cid is None or kind is None:
                 raise RuntimeError(f"bank/picks.md:{n}: a tick outside any category list")
-            name = m.group(2).strip()
+            name = re.sub(r"\s+←.*$", "", m.group(2)).strip()  # "← my pick: …" notes are not part of the name
             if name.startswith("other:"):
                 name = name[len("other:"):].strip()
                 if not name:

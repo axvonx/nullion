@@ -105,6 +105,33 @@ The user's time is the scarce resource, so per category the only manual work sho
   - The Pages workflow currently deploys the debug build. Switch it to `npm run build` for launch, and keep the debug build at a separate path if it's still wanted.
   - Keep the dist grep for debug strings as a CI check.
 
+## Player data (planned 2026-11-26)
+
+- **Today:**
+  - The day in progress (`nullion.daily.<puzzle>`), one compact record per finished day for stats, and prefs, all in localStorage.
+  - Debug builds use a `nullion.debug.` prefix.
+  - Krillion stores the same things locally, plus a server-side player ID and a Google-linked account for sync. It has no file export.
+- **JSON export and import, next:**
+  - A versioned file holding finished day records, stats and prefs. The in-progress day is left out.
+  - Day records are immutable and keyed by puzzle, so importing is a union merge: no conflicts, and nothing like version control is needed. Streaks and averages are recomputed. If the same day was played on two devices, keep the earliest completion.
+  - Old versions upgrade forward. A file from a newer version is refused loudly.
+  - Transport: download or upload a file, copy and paste text, and later a QR code.
+- **Safari storage eviction:** iOS Safari deletes script-written storage after 7 days without a visit. Call `navigator.storage.persist()`, and prompt an export after long streaks.
+- **History is stored as played** (tier and frames per answer), so re-tiering or retiring a category never rewrites past days.
+- **Stats are self-reported.** That's fine until leaderboards exist; those need server-issued signed receipts per answer, as krillion does.
+- **Shared state needs a small API next to the static site,** not a hosting move:
+  - cross-player averages and percentiles;
+  - the counter of rejected guesses;
+  - leaderboards;
+  - sync.
+
+  A Cloudflare Worker with KV or D1 fits.
+- **GitHub login** needs that Worker, because the login code must be exchanged for a token server-side, with a client secret. Options:
+  - opt-in sync to the player's own private Gist (it needs the `gist` scope);
+  - our own accounts, with GitHub as the login.
+
+  Export comes first, then Gist sync, then accounts once leaderboards exist.
+
 ## Milestone 3: after launch
 
 - **Other players' answers:** a dropdown per backtrace row, which needs a backend for answer counts. Pinned in `CLAUDE.md`.
