@@ -3,7 +3,7 @@ import '@fontsource/caveat/400.css';
 import './binder.css';
 import { sound } from '../../audio/sound';
 import { enforce } from '../../core/enforce';
-import { LAYERS, type LayerId } from '../../core/layers';
+import { DAILY_LAYERS, ENDLESS_LAYERS, LAYERS, TRUE_ENDLESS_LAYERS, type LayerId } from '../../core/layers';
 import { buildBook, bookChapters, kwicRows, manTag, spreadOf, type Chapter, type Leaf, type Spread } from '../../game/manual-book';
 import { MANUAL_RARITIES, manualEntryById, manualStore, type ManualEntry, type ManualSighting } from '../../game/manual';
 import { formatRate, shownRate } from '../../game/rarity';
@@ -21,7 +21,47 @@ import { drawTopicProp, TOPIC_PROPS } from '../../render/v4/topics';
  */
 
 const DAILY = LAYERS.map((l) => l.id);
-const LAYER_NAME = new Map(LAYERS.map((l) => [l.id, l.name]));
+const ENDLESS_ONLY = ENDLESS_LAYERS.map((l) => l.id).filter((id) => !DAILY.includes(id));
+const TRUE_ENDLESS = TRUE_ENDLESS_LAYERS.map((l) => l.id);
+const LAYER_NAME = new Map<LayerId, string>([
+  ...ENDLESS_LAYERS.map((l): [LayerId, string] => [l.id, l.name]),
+  ...TRUE_ENDLESS_LAYERS.map((l): [LayerId, string] => [l.id, l.name]),
+  ...DAILY_LAYERS.map((l): [LayerId, string] => [l.id, l.name]),
+]);
+/** Compact ≤4-character indicator shown inside each HABITAT chip. */
+const LAYER_CODE: Record<LayerId, string> = {
+  application: 'APP',
+  runtime: 'RT',
+  libraries: 'LIB',
+  userspace: 'USER',
+  kernel: 'KERN',
+  drivers: 'DRV',
+  firmware: 'FW',
+  'ring-1': 'R−1',
+  'ring-2': 'R−2',
+  'ring-3': 'R−3',
+  internet: 'BGP',
+  browser: 'DOM',
+  bytecode: 'AST',
+  jit: 'JIT',
+  linker: 'ELF',
+  'kernel-entry': 'VFS',
+  'kernel-arch': 'IRQ',
+  'bus-fabric': 'DMA',
+  vmm: 'VMM',
+  ept: 'EPT',
+  smram: 'TSEG',
+  'me-minix-user': 'ME3U',
+  'me-minix-kern': 'ME3K',
+  uarch: 'UOP',
+  rtl: 'RTL',
+  cmos: 'CMOS',
+  litho: 'EUV',
+  bandgap: 'GAP',
+  landauer: 'kT',
+  'slab-spa': 'SLAB',
+  'kthread-kabin': 'KTH',
+};
 const PAGE_KEY = storageKey('manual.page');
 const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
@@ -116,6 +156,7 @@ export class FieldManualBinder {
   private sheet: HTMLElement;
   private leaves: [HTMLElement, HTMLElement];
   private tabs: HTMLElement;
+  private habPop: HTMLElement;
   private book: Spread[] = [];
   private at = 0;
   private selected = new Map<string, LayerId>();
@@ -142,6 +183,7 @@ export class FieldManualBinder {
         <button type="button" class="bd-edge bd-prev" data-bd="prev" aria-label="Previous page">◀</button>
         <button type="button" class="bd-edge bd-next" data-bd="next" aria-label="Next page">▶</button>
         <button type="button" class="bd-close" data-bd="close" aria-label="Close Field Manual">×</button>
+        <div class="bd-hab-pop" data-bd="habPop" role="tooltip" hidden></div>
       </section>`;
     mount.append(wrap);
     this.el = wrap;
@@ -149,6 +191,7 @@ export class FieldManualBinder {
     this.sheet = q('sheet');
     this.leaves = [q('l'), q('r')];
     this.tabs = q('tabs');
+    this.habPop = q('habPop');
     q('close').addEventListener('click', () => this.close());
     q('prev').addEventListener('click', () => this.step(-1));
     q('next').addEventListener('click', () => this.step(1));
@@ -350,6 +393,7 @@ export class FieldManualBinder {
       }
     }
     this.live.clear();
+    this.hideHabPop();
     this.leaves[0].replaceChildren(...this.leaf(s.left, s.folios[0], 'l'));
     this.leaves[1].replaceChildren(...this.leaf(s.right, s.folios[1], 'r'));
     this.renderTabs(s);
@@ -557,6 +601,77 @@ export class FieldManualBinder {
     return this.frame(tag, folio, side, [mount, cap, strip, rar]);
   }
 
+  private hideHabPop() {
+    this.habPop.hidden = true;
+  }
+
+  private showHabPop(anchor: HTMLElement, layer: LayerId, status: string, detail?: string) {
+    const pop = this.habPop;
+    const art = LAYER_ART[layer];
+    const head = el('div', 'bd-hab-pop-head');
+    const dot = el('i', 'bd-hab-pop-dot');
+    dot.style.background = art.stackTheme.accent;
+    head.append(dot, el('b', '', LAYER_NAME.get(layer) ?? layer), el('span', 'bd-hab-pop-st', status));
+    const nodes: Node[] = [head, el('div', 'bd-hab-pop-blurb', art.blurb)];
+    if (detail) nodes.push(el('div', 'bd-hab-pop-det', detail));
+    pop.replaceChildren(...nodes);
+    pop.hidden = false;
+
+    const bd = this.el.querySelector<HTMLElement>('.bd')!;
+    const bdR = bd.getBoundingClientRect();
+    const aR = anchor.getBoundingClientRect();
+    const pR = pop.getBoundingClientRect();
+    const pad = 10;
+    let left = aR.left - bdR.left + aR.width / 2 - pR.width / 2;
+    left = Math.max(pad, Math.min(bdR.width - pR.width - pad, left));
+    let top = aR.top - bdR.top - pR.height - 8;
+    if (top < pad) top = aR.bottom - bdR.top + 8;
+    pop.style.left = `${Math.round(left)}px`;
+    pop.style.top = `${Math.round(top)}px`;
+  }
+
+  private buildHabitat(e: ManualEntry, shown: ManualSighting): HTMLElement {
+    const wrap = el('div', 'bd-hab-wrap');
+    const byLayer = new Map(e.sightings.map((x) => [x.layer, x]));
+    const makeRow = (ids: readonly LayerId[], extraCls = '') => {
+      const row = el('div', `bd-hab${extraCls ? ` ${extraCls}` : ''}`);
+      for (const l of ids) {
+        const sighting = byLayer.get(l);
+        const present = Boolean(sighting);
+        const isCurrent = l === shown.layer;
+        const seen = present && manualStore.hasLayer(e.id, l);
+        const cls = `bd-hab-cell${isCurrent ? ' you' : present ? ' on' : ' off'}`;
+        const cell = el('button', cls);
+        cell.type = 'button';
+        const accent = LAYER_ART[l].stackTheme.accent;
+        cell.style.setProperty('--hb-accent', accent);
+        const status = isCurrent ? 'in figure' : seen ? 'logged' : present ? 'present' : 'not here';
+        const fullName = LAYER_NAME.get(l) ?? l;
+        cell.setAttribute('aria-label', `${fullName}: ${status}`);
+        cell.append(el('span', 'bd-hab-code', LAYER_CODE[l]));
+        const open = () => this.showHabPop(cell, l, status, sighting?.detailNote);
+        cell.addEventListener('pointerenter', open);
+        cell.addEventListener('focus', open);
+        cell.addEventListener('pointerleave', () => this.hideHabPop());
+        cell.addEventListener('blur', () => this.hideHabPop());
+        if (seen && DAILY.includes(l)) {
+          cell.addEventListener('click', () => {
+            this.selected.set(e.id, l);
+            this.render();
+          });
+        }
+        row.append(cell);
+      }
+      return row;
+    };
+    wrap.append(makeRow(DAILY));
+    const hasEndless = e.sightings.some((x) => ENDLESS_ONLY.includes(x.layer));
+    if (hasEndless) wrap.append(makeRow(ENDLESS_ONLY, 'bd-hab-endless'));
+    const hasTrueEndless = e.sightings.some((x) => TRUE_ENDLESS.includes(x.layer));
+    if (hasTrueEndless) wrap.append(makeRow(TRUE_ENDLESS, 'bd-hab-endless'));
+    return wrap;
+  }
+
   private textLeaf(e: ManualEntry, folio: string, side: 'l' | 'r'): Node[] {
     const tag = manTag(e);
     if (!manualStore.isFound(e.id)) {
@@ -569,13 +684,7 @@ export class FieldManualBinder {
     const s = this.shown(e);
     const name = el('span');
     name.append(el('b', '', manTag(e).replace(/\(.*\)$/, '').toLowerCase()), ` — ${e.name}`);
-    const hab = el('span', 'bd-hab');
-    for (const l of DAILY) {
-      const has = e.sightings.some((x) => x.layer === l);
-      hab.append(el('i', l === s.layer ? 'you' : has ? 'on' : ''));
-    }
-    const habL = el('span', 'bd-habl', 'Application … Ring −3; ringed: the one in the figure');
-    const body: Node[] = [...this.sec('NAME', name), ...this.sec('HABITAT', hab, habL)];
+    const body: Node[] = [...this.sec('NAME', name), ...this.sec('HABITAT', this.buildHabitat(e, s))];
     if (s.critterLayer) {
       const bh = el('span', 'bd-behav');
       for (const m of LAYER_ART[s.critterLayer].critters.motions) bh.append(el('span', '', m));

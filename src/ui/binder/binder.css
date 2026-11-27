@@ -108,11 +108,53 @@
 .bd-hl { isolation: isolate; }
 .hl-common::before { background: #b9c7d6; } .hl-uncommon::before { background: #8fd9a8; } .hl-rare::before { background: #d3a8f5; } .hl-mythic::before { background: #f59fb9; }
 
-/* text leaf */
-.bd-hab { display: inline-flex; gap: 2px; width: min(70%, 240px); vertical-align: middle; }
-.bd-hab i { flex: 1; height: 10px; border: 1px solid var(--toner); }
-.bd-hab i.on { background: var(--toner); } .bd-hab i.you { background: var(--toner); box-shadow: 0 0 0 2px var(--bond), 0 0 0 3px var(--pencil); }
-.bd-habl { display: block; font-size: 12px; font-style: italic; color: var(--toner-dim); }
+/* text leaf: colored layer habitat chips with ≤4-letter indicators and on-hover detail popup */
+.bd-hab-wrap { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.bd-hab { display: flex; flex-wrap: wrap; gap: 6px; }
+.bd-hab-endless { padding-top: 6px; border-top: 1px dotted var(--rule2); }
+.bd-hab-cell {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 42px; height: 22px; padding: 0 5px;
+  font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.03em; line-height: 1;
+  border-radius: 2px; border: 1.5px solid var(--toner); background: transparent; color: #14131a;
+  cursor: pointer; transition: transform 110ms ease, background-color 110ms ease, border-color 110ms ease;
+}
+.bd-hab-cell.on, .bd-hab-cell.you {
+  background: var(--hb-accent);
+  border-color: color-mix(in srgb, var(--hb-accent) 55%, #14131a);
+  color: #14131a;
+}
+.bd-hab-cell.you {
+  box-shadow: 0 0 0 2px var(--bond), 0 0 0 3.5px var(--pencil);
+}
+.bd-hab-cell.off {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--hb-accent) 62%, #7a7682);
+}
+.bd-hab-cell.off .bd-hab-code { opacity: 0; transition: opacity 110ms ease; }
+.bd-hab-cell:hover, .bd-hab-cell:focus-visible {
+  transform: translateY(-1px) scale(1.1); z-index: 2; outline: none;
+}
+.bd-hab-cell.off:hover, .bd-hab-cell.off:focus-visible {
+  background: color-mix(in srgb, var(--hb-accent) 14%, transparent);
+  border-color: var(--hb-accent);
+}
+.bd-hab-cell.off:hover .bd-hab-code, .bd-hab-cell.off:focus-visible .bd-hab-code {
+  opacity: 0.52;
+  color: color-mix(in srgb, var(--hb-accent) 45%, #2a2733);
+}
+.bd-hab-pop {
+  position: absolute; z-index: 10; width: min(240px, calc(100% - 20px));
+  padding: 8px 10px; background: #18171f; color: #ebe6d6;
+  border: 1px solid #46505f; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  font-family: var(--serif); font-size: 13px; line-height: 1.3; pointer-events: none;
+}
+.bd-hab-pop[hidden] { display: none; }
+.bd-hab-pop-head { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.bd-hab-pop-dot { flex: none; width: 8px; height: 8px; border-radius: 2px; }
+.bd-hab-pop-st { margin-left: auto; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; color: #a7a1b8; }
+.bd-hab-pop-blurb { color: #d7d2c6; }
+.bd-hab-pop-det { margin-top: 4px; font-style: italic; color: #b9c7d6; }
 .bd-behav { display: inline-flex; gap: 6px; flex-wrap: wrap; } .bd-behav span { border: 1px solid var(--toner); padding: 0 6px; font-size: 14px; }
 /* Sighting stamp & found-during note: un-indented block at the foot of the entry text with vertical breathing room. */
 .bd-sighting-foot { margin: 24px 0 6px; padding: 0; }
