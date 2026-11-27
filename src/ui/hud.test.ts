@@ -411,7 +411,8 @@ describe('end card', () => {
     h.hud.endOfDay([{ tier: 'race', name: 'mutex' }], 5, 1);
     const box = h.mount.querySelector<HTMLElement>('[data-el="stats"]')!;
     expect(box.hidden).toBe(false);
-    expect(box.textContent).toContain('Your stats');
+    expect(box.querySelector('.stats-head')!.textContent).toBe('Your all-time stats');
+    expect(box.querySelectorAll('.stats-block')).toHaveLength(2);
     expect(box.textContent).toMatch(/4played/);
     expect(box.textContent).toMatch(/3streak/);
     expect(box.querySelectorAll('.stats-dist li')).toHaveLength(TIER_IDS.length);

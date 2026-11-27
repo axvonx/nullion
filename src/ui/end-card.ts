@@ -53,9 +53,10 @@ export const END_CARD_HTML = `
             <div class="headline" data-el="headline"></div>
             <ol class="eod-stack" data-el="eodStack" aria-label="The stack you reached, top-down"></ol>
           </section>
+          <div class="eod-h">Today’s backtrace</div>
           <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
+          <div class="result-share"><button type="button" class="share-big" data-el="copy">Copy result</button><div class="next-day" data-el="nextDay"></div></div>
           <div class="stats" data-el="stats" hidden></div>
-          <div class="result-foot"><span class="next-day" data-el="nextDay"></span><button type="button" data-el="copy">Copy result</button></div>
           <div class="result-manual"><button type="button" class="fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
           <div class="result-links" data-el="resultLinks"></div>
           <div class="build-tag" data-el="buildTag"><span class="build-wm" data-wm="nullion">nullion</span> v${VERSION}</div>
@@ -441,9 +442,13 @@ export class EndCard {
       return;
     }
     const { stats } = out;
-    const head = document.createElement('div');
+    const head = document.createElement('h3');
     head.className = 'stats-head';
-    head.textContent = 'Your stats';
+    head.textContent = 'Your all-time stats';
+    // Two blocks, each in its own box: the numbers across all days, then every answer by tier.
+    const totals = document.createElement('section');
+    totals.className = 'stats-block';
+    totals.setAttribute('aria-label', 'Totals across all days');
     const grid = document.createElement('dl');
     grid.className = 'stats-grid';
     const cell = (label: string, value: string) => {
@@ -460,6 +465,12 @@ export class EndCard {
     cell('best streak', String(stats.bestStreak));
     cell('avg frames', String(stats.avgDepth));
     cell('best frames', String(stats.bestDepth));
+    totals.append(grid);
+    const tiers = document.createElement('section');
+    tiers.className = 'stats-block';
+    const tiersHead = document.createElement('div');
+    tiersHead.className = 'stats-sub';
+    tiersHead.textContent = 'Every answer, by tier';
     const dist = document.createElement('ul');
     dist.className = 'stats-dist';
     dist.setAttribute('aria-label', 'Every answer you have given, by tier');
@@ -481,7 +492,8 @@ export class EndCard {
       li.append(name, bar, n);
       dist.append(li);
     }
-    box.replaceChildren(head, grid, dist);
+    tiers.append(tiersHead, dist);
+    box.replaceChildren(head, totals, tiers);
     if (out.reset !== undefined) {
       const warn = document.createElement('p');
       warn.className = 'stats-warn';
