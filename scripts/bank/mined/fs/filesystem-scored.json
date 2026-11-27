@@ -1,0 +1,646 @@
+{
+ "filesystem": [
+  {
+   "name": "ext2",
+   "aliases": [
+    "ext2fs"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "ext3",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ext4",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "NTFS",
+   "aliases": [
+    "ntfs"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ntfs3",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FAT32",
+   "aliases": [
+    "vfat",
+    "FAT",
+    "fat",
+    "msdosfs",
+    "pcfs"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "exFAT",
+   "aliases": [
+    "exfat"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "NFS",
+   "aliases": [
+    "nfs",
+    "nfs4"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "CIFS",
+   "aliases": [
+    "SMB",
+    "smb",
+    "smbfs",
+    "smbclnt"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Btrfs",
+   "aliases": [
+    "btrfs"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "XFS",
+   "aliases": [
+    "xfs"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ISO 9660",
+   "aliases": [
+    "isofs",
+    "cd9660",
+    "iso9660",
+    "hsfs"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "HFS",
+   "aliases": [
+    "hfs"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "HFS+",
+   "aliases": [
+    "hfsplus",
+    "HFS Plus"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "HPFS",
+   "aliases": [
+    "hpfs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "UDF",
+   "aliases": [
+    "udf",
+    "udfs"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Ceph",
+   "aliases": [
+    "ceph"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Coda",
+   "aliases": [
+    "coda"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "AFS",
+   "aliases": [
+    "afs",
+    "Andrew File System"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "AFFS",
+   "aliases": [
+    "affs",
+    "Amiga FFS",
+    "adosfs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ADFS",
+   "aliases": [
+    "adfs",
+    "filecorefs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BeFS",
+   "aliases": [
+    "befs",
+    "bfs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "cramfs",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "configfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "debugfs",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "devpts",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "dlmfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "eCryptfs",
+   "aliases": [
+    "ecryptfs"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "efivarfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "EROFS",
+   "aliases": [
+    "erofs"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "F2FS",
+   "aliases": [
+    "f2fs"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "GFS2",
+   "aliases": [
+    "gfs2"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "OCFS2",
+   "aliases": [
+    "ocfs2"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "OMFS",
+   "aliases": [
+    "omfs",
+    "Optimized MPEG File System"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "OrangeFS",
+   "aliases": [
+    "orangefs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "OverlayFS",
+   "aliases": [
+    "overlayfs"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "procfs",
+   "aliases": [
+    "proc"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "QNX6",
+   "aliases": [
+    "qnx6"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ramfs",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "resctrl",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ROMFS",
+   "aliases": [
+    "romfs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "spufs",
+   "aliases": [],
+   "pin": "bitflip"
+  },
+  {
+   "name": "SquashFS",
+   "aliases": [
+    "squashfs"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "sysfs",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "tmpfs",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "UBIFS",
+   "aliases": [
+    "ubifs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "virtiofs",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "zonefs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NILFS2",
+   "aliases": [
+    "nilfs2",
+    "nilfs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "9P",
+   "aliases": [
+    "9p",
+    "v9fs",
+    "p9fs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "autofs",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "hostfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "hugetlbfs",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "JFFS2",
+   "aliases": [
+    "jffs2"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "JFS",
+   "aliases": [
+    "jfs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Minix FS",
+   "aliases": [
+    "minix"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "OpenPROM FS",
+   "aliases": [
+    "openpromfs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "pstore",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QNX4",
+   "aliases": [
+    "qnx4"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tracefs",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "UFS",
+   "aliases": [
+    "ufs",
+    "ufs2",
+    "FFS"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "vboxsf",
+   "aliases": [
+    "vboxsf"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "devfs",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "fdescfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "nullfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tarfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "unionfs",
+   "aliases": [
+    "union"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mntfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "EFS",
+   "aliases": [
+    "efs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ptyfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SysV BFS",
+   "aliases": [
+    "sysvbfs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "V7FS",
+   "aliases": [
+    "v7fs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HAMMER",
+   "aliases": [
+    "hammer"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HAMMER2",
+   "aliases": [
+    "hammer2"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MFS",
+   "aliases": [
+    "mfs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ctfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "dcfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "doorfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "lofs",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "namefs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "objfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "portfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "sharefs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "sockfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ZFS",
+   "aliases": [
+    "zfs"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "bindfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CDDA",
+   "aliases": [
+    "cdda"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "packagefs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ReiserFS",
+   "aliases": [
+    "reiserfs"
+   ],
+   "pin": "womm"
+  },
+  {
+   "name": "websearchfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Fossil",
+   "aliases": [
+    "fossil"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tapefs",
+   "aliases": [
+    "tapefs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "APFS",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "bcachefs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ReFS",
+   "aliases": [
+    "Resilient File System"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Lustre",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "GlusterFS",
+   "aliases": [
+    "Gluster"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "GPFS",
+   "aliases": [
+    "IBM Spectrum Scale",
+    "Spectrum Scale"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "WAFL",
+   "aliases": [
+    "Write Anywhere File Layout"
+   ],
+   "judge": "heisenbug"
+  }
+ ],
+ "_context": {
+  "filesystem": [
+   "file system",
+   "filesystem",
+   "file systems",
+   "filesystems"
+  ]
+ }
+}

@@ -7,7 +7,8 @@ report per category to bank/reports/<tag>.md. The human file always wins:
 - a category file with no tiered answers yet (a fresh draft) gets its tiers filled in;
 - once it has tiered answers, nothing in it is moved or deleted. New candidates are appended to its Inbox with a
   suggested tier, and the report lists answers whose file tier and scored tier differ by more than one.
-Every tag in the candidates file must already have a bank file.
+Every tag in the candidates file must already have a bank file. An optional "_context": {tag: [phrases]} makes counts
+require one of those phrases in the same row, for categories of short proper nouns (filesystems, languages).
 
 Evidence for an entry = rows matching ANY of its phrases (name, `search` phrases, and multi-word or long aliases),
 counted per corpus table. An entry whose words mean something else elsewhere ("rope" in robotics, "IDR" as an
@@ -108,7 +109,12 @@ def read_bank(path: pathlib.Path) -> dict:
 
 
 def entry_line(e: dict) -> str:
-    return "- " + " | ".join([e["name"], *[a for a in e.get("aliases", []) if a.lower() != e["name"].lower()]])
+    seen, names = set(), []
+    for n in [e["name"], *e.get("aliases", [])]:
+        if n.lower() not in seen:  # the bank grammar rejects repeats, case-insensitively
+            seen.add(n.lower())
+            names.append(n)
+    return "- " + " | ".join(names)
 
 
 def main() -> None:
@@ -127,6 +133,9 @@ def main() -> None:
         if tag.startswith("_"):
             continue
         report = [*HEADER]
+        context = cands.get("_context", {}).get(tag, [])
+        if context:
+            report += [f"Counts only rows that also mention: {', '.join(context)}.", ""]
         names = [e["name"].lower() for e in entries]
         dupes = {n for n in names if names.count(n) > 1}
         if dupes:
@@ -144,7 +153,12 @@ def main() -> None:
             counts = {}
             for t in tables:
                 ps = phrases(e) if ev is None else ev.get(t, [])
-                counts[t] = con.execute(f"SELECT count(*) FROM {t} WHERE {t} MATCH ?", (fts_query(ps),)).fetchone()[0] if ps else 0
+                q = fts_query(ps)
+                if context and ev is None:
+                    # Short proper nouns (HFS, Coda, Fossil) collide with unrelated words: count only rows that
+                    # also mention the category.
+                    q = f"({q}) AND ({fts_query(context)})"
+                counts[t] = con.execute(f"SELECT count(*) FROM {t} WHERE {t} MATCH ?", (q,)).fetchone()[0] if ps else 0
             rows.append({"e": e, "counts": counts})
 
         ref = {}

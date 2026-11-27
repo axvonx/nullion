@@ -164,7 +164,7 @@
 | eap-method | Name an EAP method | os-systems | draft | 0 | 7 |
 | elf-section | Name an ELF section | os-systems | draft | 0 | 7 |
 | erasure-code | Name an erasure code | os-systems | draft | 0 | 7 |
-| filesystem | Name a filesystem | os-systems | draft | 0 | 7 |
+| filesystem | Name a filesystem | os-systems | draft | 99 | 0 |
 | http-status-code | Name an HTTP status code | os-systems | draft | 0 | 7 |
 | ieee-802-standard | Name an IEEE 802 standard | os-systems | draft | 0 | 7 |
 | kubernetes-resource-kind | Name a Kubernetes resource kind | os-systems | draft | 0 | 7 |
