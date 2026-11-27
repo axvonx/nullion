@@ -1578,6 +1578,13 @@ html.kb-open .console {
   color: var(--ls-accent, var(--signal));
   text-shadow: 0 0 6px var(--ls-tint, transparent);
   pointer-events: none;
+  transition: opacity 120ms ease;
+}
+/* Keep the pointers hidden until the deepest badge actually lands in place. */
+.eod-stack li.is-current:has(.ls-badge-gone)::before,
+.eod-stack li.is-current:has(.ls-badge-gone)::after {
+  opacity: 0;
+  animation: none;
 }
 .eod-stack li.is-current::before { content: '▶'; left: -16px; animation: eod-pointer-l 2.6s ease-in-out infinite; }
 .eod-stack li.is-current::after { content: '◀'; right: -16px; animation: eod-pointer-r 2.6s ease-in-out infinite; }
