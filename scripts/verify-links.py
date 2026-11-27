@@ -45,7 +45,7 @@ def fetch(url: str) -> tuple[int, bytes]:
     for attempt in range(6):
         try:
             with urllib.request.urlopen(req, timeout=20) as r:
-                return r.status, r.read(200_000)
+                return r.status, r.read(2_000_000)
         except urllib.error.HTTPError as e:
             if e.code != 429 and e.code < 500:
                 return e.code, b""
@@ -77,6 +77,35 @@ def check(url: str) -> str:
     return "ok"
 
 
+def check_wikipedia_batch(urls: list[str]) -> dict[str, str]:
+    """Up to 50 article URLs in one action=query request: missing, disambiguation or a real article."""
+    titles = {u: urllib.parse.unquote(urllib.parse.urlsplit(u).path[len("/wiki/"):]).replace("_", " ") for u in urls}
+    q = urllib.parse.urlencode({"action": "query", "format": "json", "formatversion": "2", "redirects": "1",
+                                "prop": "pageprops", "ppprop": "disambiguation", "titles": "|".join(titles.values())})
+    code, body = fetch(f"https://en.wikipedia.org/w/api.php?{q}")
+    if code != 200:
+        raise Throttled(f"wikipedia batch {code}")
+    d = json.loads(body)["query"]
+    hop = {}
+    for key in ("normalized", "redirects"):
+        for m in d.get(key, []):
+            hop[m["from"]] = m["to"]
+    pages = {pg["title"]: pg for pg in d["pages"]}
+    out = {}
+    for u, t in titles.items():
+        seen = 0
+        while t in hop and seen < 5:
+            t, seen = hop[t], seen + 1
+        pg = pages.get(t)
+        if pg is None or pg.get("missing") or pg.get("invalid"):
+            out[u] = "wikipedia missing"
+        elif "disambiguation" in pg.get("pageprops", {}):
+            out[u] = "wikipedia disambiguation"
+        else:
+            out[u] = "ok"
+    return out
+
+
 def main() -> None:
     ids = sys.argv[1:] or sorted(pathlib.Path(f).stem for f in glob.glob(str(LINKS / "proposed" / "*.json")))
     cache: dict[str, str] = json.loads(CACHE.read_text()) if CACHE.exists() else {}
@@ -90,6 +119,12 @@ def main() -> None:
             raise SystemExit(f"{cid}: proposed links for answers not in the bank: {sorted(unknown)[:5]}")
         props[cid] = p
     urls = {u for p in props.values() for u in [p.get("prompt"), *p["answers"].values()] if u} - set(cache)
+    wiki = sorted(u for u in urls if urllib.parse.urlsplit(u).netloc == "en.wikipedia.org" and urllib.parse.urlsplit(u).path.startswith("/wiki/") and "Special:" not in u)
+    for i in range(0, len(wiki), 50):
+        cache.update(check_wikipedia_batch(wiki[i : i + 50]))
+        CACHE.write_text(json.dumps(cache, indent=1, sort_keys=True) + "\n")
+        print(f"wikipedia {min(i + 50, len(wiki))}/{len(wiki)}", flush=True)
+    urls -= set(wiki)
     unchecked = []
 
     def safe(url: str) -> str | None:
@@ -98,12 +133,16 @@ def main() -> None:
         except Throttled:
             return None
 
-    with concurrent.futures.ThreadPoolExecutor(3) as ex:
-        for url, verdict in zip(urls, ex.map(safe, urls)):
+    urls = sorted(urls)
+    with concurrent.futures.ThreadPoolExecutor(6) as ex:
+        for n, (url, verdict) in enumerate(zip(urls, ex.map(safe, urls)), 1):
             if verdict is None:
                 unchecked.append(url)
             else:
                 cache[url] = verdict
+            if n % 100 == 0:
+                CACHE.write_text(json.dumps(cache, indent=1, sort_keys=True) + "\n")
+                print(f"docs {n}/{len(urls)}", flush=True)
     CACHE.write_text(json.dumps(cache, indent=1, sort_keys=True) + "\n")
     if unchecked:
         raise SystemExit(f"{len(unchecked)} links could not be checked (throttled); the cache kept the rest, re-run later")
