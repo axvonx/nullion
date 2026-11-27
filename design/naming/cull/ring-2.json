@@ -1,0 +1,208 @@
+{
+  "layer": "ring-2",
+  "items": [
+    {
+      "key": "e:r2-clocktower",
+      "verdict": "keep",
+      "reason": "Strong layer anchor representing system clock freeze with a clear, recognizable silhouette.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-cascade",
+      "verdict": "keep",
+      "reason": "Strong layer anchor vividly depicting a frozen execution pipeline mid-collapse.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-debris",
+      "verdict": "delete",
+      "reason": "Generic single-block filler that is visually minimal and redundant with Preempted Avalanche.",
+      "similarTo": "e:r2-cascade",
+      "replacement": null
+    },
+    {
+      "key": "e:r2-clock",
+      "verdict": "keep",
+      "reason": "High-priority prop clearly representing a frozen RTC / wall clock.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-shards",
+      "verdict": "delete",
+      "reason": "Generic floating pixel fragments with no clear visual identity or distinct computing concept.",
+      "similarTo": null,
+      "replacement": "an SMM TSEG boundary fence"
+    },
+    {
+      "key": "e:r2-tag",
+      "verdict": "keep",
+      "reason": "Directly and unmistakably represents an SMI#4 System Management Interrupt vector.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-rain",
+      "verdict": "delete",
+      "reason": "Generic frozen-streak filler that is weaker than RSM Pending for showing halted motion.",
+      "similarTo": "e:r2-pause",
+      "replacement": null
+    },
+    {
+      "key": "e:r2-pendulum",
+      "verdict": "delete",
+      "reason": "Redundant halted-oscillator concept that is weaker than Gated Oscillator.",
+      "similarTo": "e:r2-metronome",
+      "replacement": null
+    },
+    {
+      "key": "e:r2-hourglass",
+      "verdict": "keep",
+      "reason": "High-priority prop with an iconic silhouette for a halted timeout counter.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-ghostgear",
+      "verdict": "keep",
+      "reason": "Distinctive afterimage visual that clearly conveys a preempted clock cycle.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-safe",
+      "verdict": "keep",
+      "reason": "Essential ring-2 prop representing the SMRAM lock and D_LCK bit.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-smoke",
+      "verdict": "delete",
+      "reason": "Generic low-priority smoke puff with a weak connection to the layer's SMI freeze theme.",
+      "similarTo": null,
+      "replacement": "a frozen CPU thermal-throttle gauge"
+    },
+    {
+      "key": "e:r2-metronome",
+      "verdict": "keep",
+      "reason": "Distinctive silhouette and strong representation of a halted bus clock.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-cracks",
+      "verdict": "keep",
+      "reason": "Clear visual metaphor for clock skew and broken timers.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-ripple",
+      "verdict": "delete",
+      "reason": "Generic concentric-ring filler that lacks a distinct silhouette or strong SMI concept.",
+      "similarTo": null,
+      "replacement": "an SMI handler jump table"
+    },
+    {
+      "key": "e:r2-book",
+      "verdict": "delete",
+      "reason": "Generic open-book silhouette that belongs in the libraries layer rather than ring-2.",
+      "similarTo": "e:lib-lectern",
+      "replacement": null
+    },
+    {
+      "key": "e:r2-bubbles",
+      "verdict": "delete",
+      "reason": "Visually minimal filler whose pipeline-stall concept is already covered by Preempted Avalanche.",
+      "similarTo": "e:r2-cascade",
+      "replacement": null
+    },
+    {
+      "key": "e:r2-hook",
+      "verdict": "keep",
+      "reason": "Distinctive prop representing an SMI interrupt hook.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-stopwatch",
+      "verdict": "keep",
+      "reason": "Clearly represents a halted Time Stamp Counter (TSC) / performance counter.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-flame",
+      "verdict": "delete",
+      "reason": "Generic low-priority flame filler that adds little to the SMI Trap & Freeze theme.",
+      "similarTo": null,
+      "replacement": "an SMI pin-assertion latch"
+    },
+    {
+      "key": "e:r2-domino",
+      "verdict": "keep",
+      "reason": "Memorable, readable visual for a halted chain reaction.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-coin",
+      "verdict": "keep",
+      "reason": "Clever visual metaphor for an unresolved bit or suspended flip-flop state.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-pause",
+      "verdict": "keep",
+      "reason": "High-priority, iconic frozen-splash prop representing SMI execution pause and RSM pending.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-drop",
+      "verdict": "delete",
+      "reason": "Redundant frozen-droplet filler that is much weaker than RSM Pending.",
+      "similarTo": "e:r2-pause",
+      "replacement": null
+    },
+    {
+      "key": "e:r2-leaf",
+      "verdict": "delete",
+      "reason": "Generic low-priority leaf filler with a weak, unclear visual and tenuous computing concept.",
+      "similarTo": null,
+      "replacement": "a saved-state SMRAM map"
+    },
+    {
+      "key": "e:r2-feather",
+      "verdict": "keep",
+      "reason": "Distinctive prop representing a paused lightweight fiber/thread.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-spark",
+      "verdict": "keep",
+      "reason": "Clear, recognizable visual for a latched IRQ pulse.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r2-prism",
+      "verdict": "keep",
+      "reason": "Distinctive geometric prop representing frozen instruction decode.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:ring-2:core",
+      "verdict": "keep",
+      "reason": "Core critter species for the ring-2 layer.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

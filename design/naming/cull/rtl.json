@@ -1,0 +1,61 @@
+{
+  "layer": "rtl",
+  "items": [
+    {
+      "key": "e:rtl-htree",
+      "verdict": "keep",
+      "reason": "Iconic layer anchor representing H-tree clock distribution.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:rtl-nand",
+      "verdict": "keep",
+      "reason": "Foundational universal logic gate with a clear, recognizable symbol.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:rtl-dff",
+      "verdict": "keep",
+      "reason": "Core sequential logic element representing state storage and clocked registers.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:rtl-wave",
+      "verdict": "keep",
+      "reason": "Distinct timing-diagram prop that anchors digital timing and setup/hold concepts.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:rtl-mux",
+      "verdict": "keep",
+      "reason": "Fundamental combinational selector with an unmistakable trapezoidal symbol.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:rtl-adder",
+      "verdict": "delete",
+      "reason": "Visually generic block with a plus sign that is weaker than the core gate, flip-flop, and mux props.",
+      "similarTo": null,
+      "replacement": "a Karnaugh map grid"
+    },
+    {
+      "key": "e:rtl-clk",
+      "verdict": "delete",
+      "reason": "Redundant clock-distribution prop alongside the Clock H-Tree anchor.",
+      "similarTo": "e:rtl-htree",
+      "replacement": null
+    },
+    {
+      "key": "c:rtl:core",
+      "verdict": "keep",
+      "reason": "Core critter species for the RTL layer.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

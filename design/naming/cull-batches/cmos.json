@@ -1,0 +1,100 @@
+{
+ "layer": {
+  "id": "cmos",
+  "name": "CMOS & Metal Layers",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 17,
+ "items": [
+  {
+   "key": "e:cm-viatower",
+   "kind": "anchor",
+   "name": "Metal Manhattan",
+   "depicts": "A four-by-five grid of intersecting purple vertical and orange horizontal metal tracks with a bright square via at every crossing.",
+   "concept": "multilayer metal interconnect stack",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-cm-viatower-cmos-v0.png"
+  },
+  {
+   "key": "e:cm-finfet",
+   "kind": "prop",
+   "name": "FinFET Cell",
+   "depicts": "A top-down transistor layout showing a teal active region bisected by a vertical purple gate bar and flanked by two orange source-drain pads with white contacts.",
+   "concept": "FinFET MOSFET transistor",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-cm-finfet-cmos-v0.png"
+  },
+  {
+   "key": "e:cm-via",
+   "kind": "prop",
+   "name": "Interlayer Via",
+   "depicts": "A single perpendicular crossing of an orange horizontal metal line and a purple vertical metal line joined by a white square via.",
+   "concept": "interlayer metal via",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-cm-via-cmos-v0.png"
+  },
+  {
+   "key": "e:cm-well",
+   "kind": "prop",
+   "name": "Complementary Tub",
+   "depicts": "A teal substrate border framing two side-by-side square regions, one purple and one orange, separated by a narrow gap.",
+   "concept": "CMOS twin-well substrate",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-cm-well-cmos-v0.png"
+  },
+  {
+   "key": "e:cm-nwell",
+   "kind": "prop",
+   "name": "N-Well Pocket",
+   "depicts": "A solid purple rectangle centered inside a thicker teal rectangular border.",
+   "concept": "N-type doped diffusion well",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-cm-nwell-cmos-v0.png"
+  },
+  {
+   "key": "e:cm-contact",
+   "kind": "prop",
+   "name": "Contact Cut",
+   "depicts": "A small orange square pad with a single white square contact window centered inside it.",
+   "concept": "diffusion-to-metal contact cut",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-cm-contact-cmos-v0.png"
+  },
+  {
+   "key": "e:cm-metal",
+   "kind": "prop",
+   "name": "Crosstalk Lanes",
+   "depicts": "Three parallel horizontal routing stripes\u2014purple, orange, and purple\u2014separated by white dielectric gaps.",
+   "concept": "parallel metal interconnect bus",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-cm-metal-cmos-v0.png"
+  },
+  {
+   "key": "c:cmos:core",
+   "kind": "critter",
+   "name": "Stray Electron",
+   "depicts": "A tiny orange hollow square with one-pixel side lugs centered inside a mostly empty canvas, scuttling or floating.",
+   "concept": "electron-hole charge carrier / migrating via",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-cmos-core-v0.png"
+  },
+  {
+   "key": "c:cmos:alt",
+   "kind": "critter-alt",
+   "name": "Vacancy Hole",
+   "depicts": "A tiny three-by-three teal square trailed on the left by a single detached black pixel inside a mostly empty canvas.",
+   "concept": "electron-hole pair / lattice defect",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-cmos-alt-v1.png"
+  }
+ ]
+}

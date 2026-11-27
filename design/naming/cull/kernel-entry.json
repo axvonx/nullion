@@ -1,0 +1,75 @@
+{
+  "layer": "kernel-entry",
+  "items": [
+    {
+      "key": "e:ke-gatehouse",
+      "verdict": "keep",
+      "reason": "Strong layer anchor representing the syscall boundary and privilege-ring transition.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ke-seccomp",
+      "verdict": "keep",
+      "reason": "Distinct, important kernel-entry concept for seccomp-bpf syscall filtering.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ke-uaccess",
+      "verdict": "keep",
+      "reason": "Clear visual metaphor and essential concept for safe user-to-kernel memory copies.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ke-sysgate",
+      "verdict": "delete",
+      "reason": "Redundant archway prop that duplicates both the visual motif and syscall-boundary concept of the Syscall Gatehouse.",
+      "similarTo": "e:ke-gatehouse",
+      "replacement": null
+    },
+    {
+      "key": "e:ke-ptrace",
+      "verdict": "keep",
+      "reason": "Distinct concept covering process tracing and syscall interception.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ke-cred",
+      "verdict": "delete",
+      "reason": "Visually generic head-and-shoulders badge that closely resembles User Avatar.",
+      "similarTo": "e:app-avatar",
+      "replacement": "a capability bitmask keycard"
+    },
+    {
+      "key": "e:ke-fdtable",
+      "verdict": "delete",
+      "reason": "Visually generic slate of four horizontal bars that lacks a distinct silhouette.",
+      "similarTo": "e:kr-schedrack",
+      "replacement": "a numbered file-descriptor ticket dispenser"
+    },
+    {
+      "key": "e:ke-vdso",
+      "verdict": "keep",
+      "reason": "Iconic kernel-entry optimization (vDSO fast-path syscall bypass) with a compact bypass-conduit visual.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:kernel-entry:core",
+      "verdict": "keep",
+      "reason": "Core critter for the kernel-entry layer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:kernel-entry:alt",
+      "verdict": "keep",
+      "reason": "Strong alternate critter representing VFS path-lookup and dentry caching at the gate.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

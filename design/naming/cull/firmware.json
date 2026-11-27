@@ -1,0 +1,208 @@
+{
+  "layer": "firmware",
+  "items": [
+    {
+      "key": "e:fw-bigvault",
+      "verdict": "keep",
+      "reason": "Iconic anchor representing the hardware root of trust and locked boot ROM.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-romcab",
+      "verdict": "keep",
+      "reason": "Strong anchor depicting the system ROM bank and firmware volume storage.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-drawers",
+      "verdict": "keep",
+      "reason": "Clear, distinct physical metaphor for UEFI firmware variable storage and NVRAM partitions.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-vault",
+      "verdict": "delete",
+      "reason": "Redundant miniature duplicate of the Boot Vault door.",
+      "similarTo": "e:fw-bigvault",
+      "replacement": null
+    },
+    {
+      "key": "e:fw-post",
+      "verdict": "delete",
+      "reason": "Duplicates the POST diagnostic code concept already represented better by the POST Card.",
+      "similarTo": "e:fw-postcard",
+      "replacement": null
+    },
+    {
+      "key": "e:fw-flash",
+      "verdict": "delete",
+      "reason": "Generic DIP chip that overlaps with the more distinctive Microcode EPROM and SOIC Clip.",
+      "similarTo": "e:fw-ucode",
+      "replacement": null
+    },
+    {
+      "key": "e:fw-plate",
+      "verdict": "delete",
+      "reason": "Generic padlock icon that overlaps with the TPM Chip and other security locks across layers.",
+      "similarTo": "e:fw-tpm",
+      "replacement": null
+    },
+    {
+      "key": "e:fw-cmos",
+      "verdict": "keep",
+      "reason": "Instantly recognizable CR2032 coin-cell battery representing CMOS/RTC backing.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-setup",
+      "verdict": "keep",
+      "reason": "Classic pre-boot BIOS/UEFI setup utility terminal.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-bootorder",
+      "verdict": "delete",
+      "reason": "Visually unclear rectangle with abstract blocks that does not read well as boot order.",
+      "similarTo": null,
+      "replacement": "a boot-priority daisy-chain selector dial"
+    },
+    {
+      "key": "e:fw-dipsw",
+      "verdict": "keep",
+      "reason": "Distinctive hardware configuration DIP switch block.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-fan",
+      "verdict": "keep",
+      "reason": "Recognizable chassis fan representing firmware-controlled PWM cooling curves.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-capsule",
+      "verdict": "keep",
+      "reason": "Strong representation of cryptographically signed UEFI capsule firmware updates.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-spiclip",
+      "verdict": "keep",
+      "reason": "Distinctive SOIC-8 test clip for external SPI firmware flashing.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-optrom",
+      "verdict": "keep",
+      "reason": "Clear expansion board representing PCI/ISA Option ROMs.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-beeper",
+      "verdict": "keep",
+      "reason": "Iconic motherboard piezo speaker for POST beep codes.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-reset",
+      "verdict": "keep",
+      "reason": "Clean tactile switch representing the hardware reset vector and cold-reset line.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-postcard",
+      "verdict": "keep",
+      "reason": "Detailed plug-in POST diagnostic analyzer card with BF hex readout.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-acpi",
+      "verdict": "keep",
+      "reason": "Universally recognizable standby-power symbol for ACPI power states and tables.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-ucode",
+      "verdict": "keep",
+      "reason": "Iconic UV-erasable EPROM with quartz window representing CPU microcode patches.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-nvram",
+      "verdict": "delete",
+      "reason": "Duplicates the NVRAM variable storage concept already covered by Variable Chest.",
+      "similarTo": "e:fw-drawers",
+      "replacement": null
+    },
+    {
+      "key": "e:fw-floppy",
+      "verdict": "delete",
+      "reason": "Generic retro floppy disk filler without a strong firmware-specific identity.",
+      "similarTo": null,
+      "replacement": "a dual-BIOS recovery toggle switch"
+    },
+    {
+      "key": "e:fw-key",
+      "verdict": "delete",
+      "reason": "Generic skeleton key whose UEFI signing concept is better served by Secure Boot.",
+      "similarTo": "e:fw-secureboot",
+      "replacement": null
+    },
+    {
+      "key": "e:fw-tpm",
+      "verdict": "keep",
+      "reason": "Essential firmware security coprocessor (Trusted Platform Module).",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-jtag",
+      "verdict": "keep",
+      "reason": "Distinctive 10-pin shrouded JTAG boundary-scan and debug header.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-secureboot",
+      "verdict": "keep",
+      "reason": "Strong heraldic shield representing UEFI Secure Boot signature verification.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:fw-uart",
+      "verdict": "delete",
+      "reason": "Too visually similar to the JTAG Header as a dark pin-header block.",
+      "similarTo": "e:fw-jtag",
+      "replacement": null
+    },
+    {
+      "key": "e:fw-watchdog",
+      "verdict": "delete",
+      "reason": "Visually abstract bar that duplicates the Deadman Countdown watchdog timer in the kernel layer.",
+      "similarTo": "e:kr-wdtimer",
+      "replacement": null
+    },
+    {
+      "key": "c:firmware:core",
+      "verdict": "keep",
+      "reason": "Core species critter for the firmware layer.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

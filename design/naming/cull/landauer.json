@@ -1,0 +1,61 @@
+{
+ "layer": "landauer",
+ "items": [
+  {
+   "key": "e:la-horizon",
+   "verdict": "keep",
+   "reason": "Layer anchor representing the Landauer thermodynamic limit (kT ln 2) with a clear concentric-ring silhouette.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:la-ray",
+   "verdict": "delete",
+   "reason": "A single dark-navy pixel in an 18x18 frame is visually invisible and its thermal radiation concept is better represented by Waste Heat.",
+   "similarTo": "e:la-heat",
+   "replacement": null
+  },
+  {
+   "key": "e:la-entropy",
+   "verdict": "delete",
+   "reason": "Visually redundant with Reset Cell (a hollow dark-navy shape enclosing a single pale-blue pixel) and less specific to bit erasure.",
+   "similarTo": "e:la-erase",
+   "replacement": null
+  },
+  {
+   "key": "e:la-spark",
+   "verdict": "delete",
+   "reason": "Lowest-priority tiny 3x3 pixel cross whose kT ln 2 energy dissipation concept duplicates Waste Heat.",
+   "similarTo": "e:la-heat",
+   "replacement": null
+  },
+  {
+   "key": "e:la-erase",
+   "verdict": "keep",
+   "reason": "Represents irreversible single-bit erasure, the core operation behind Landauer's principle.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:la-heat",
+   "verdict": "keep",
+   "reason": "Distinct rising thermal plume silhouette that clearly depicts waste heat dissipation (kT ln 2).",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:la-lonebit",
+   "verdict": "keep",
+   "reason": "Visually clear cyan-and-ice-white square representing a single isolated bit of information.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "c:landauer:core",
+   "verdict": "keep",
+   "reason": "Core critter of the layer representing Maxwell's demon and binary states at the thermodynamic floor.",
+   "similarTo": null,
+   "replacement": null
+  }
+ ]
+}

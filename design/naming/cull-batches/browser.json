@@ -1,0 +1,120 @@
+{
+ "layer": {
+  "id": "browser",
+  "name": "Browser / Compositor",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 12,
+ "items": [
+  {
+   "key": "e:br-viewport",
+   "kind": "anchor",
+   "name": "Above the Fold",
+   "depicts": "A large framed browser window with a dark navy border, drop shadow, white active tab, blue hero rectangle above five grey text lines, and a tall beige sidebar.",
+   "concept": "browser viewport and page layout",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-br-viewport-browser-v0.png"
+  },
+  {
+   "key": "e:br-dom",
+   "kind": "prop",
+   "name": "Node Sapling",
+   "depicts": "Four coloured rectangular nodes (blue root, green and orange children, purple grandchild) connected by stepped dark-grey branches.",
+   "concept": "Document Object Model tree",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-br-dom-browser-v0.png"
+  },
+  {
+   "key": "e:br-css",
+   "kind": "prop",
+   "name": "CSS Box Model",
+   "depicts": "Four concentric nested rectangles in orange, green, blue, and white matching the DevTools CSS box-model diagram.",
+   "concept": "CSS box model",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-br-css-browser-v0.png"
+  },
+  {
+   "key": "e:br-layer",
+   "kind": "prop",
+   "name": "Z-Index Stack",
+   "depicts": "Three overlapping dark-bordered rectangular panes stepped diagonally forward from pale blue-grey to white.",
+   "concept": "compositor stacking layers",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-br-layer-browser-v0.png"
+  },
+  {
+   "key": "e:br-tab",
+   "kind": "prop",
+   "name": "Unclosed Tab",
+   "depicts": "A pale grey browser tab strip with a raised white active tab containing a blue bar beside a muted grey inactive tab.",
+   "concept": "browser tab bar",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-br-tab-browser-v0.png"
+  },
+  {
+   "key": "e:br-paint",
+   "kind": "prop",
+   "name": "Dirty Rect",
+   "depicts": "A dark-framed white rectangle with a bright green patch flashing in its lower-right quadrant, like a DevTools paint-flash overlay.",
+   "concept": "repaint region and paint flashing",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-br-paint-browser-v0.png"
+  },
+  {
+   "key": "e:br-cookie",
+   "kind": "prop",
+   "name": "Third-Party Crumb",
+   "depicts": "A round golden-ochre pixel biscuit dotted with four dark-grey square chips.",
+   "concept": "HTTP browser cookies",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-br-cookie-browser-v0.png"
+  },
+  {
+   "key": "e:br-canvas",
+   "kind": "prop",
+   "name": "Canvas Surface",
+   "depicts": "A dark-framed white rectangle containing a red circle overlapping a blue square.",
+   "concept": "HTML5 2D canvas surface",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-br-canvas-browser-v0.png"
+  },
+  {
+   "key": "e:br-devtools",
+   "kind": "prop",
+   "name": "F12 Inspector",
+   "depicts": "A dark-slate console panel displaying three staggered horizontal timing bars in green, blue, and orange.",
+   "concept": "browser DevTools waterfall profiler",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-br-devtools-browser-v0.png"
+  },
+  {
+   "key": "c:browser:core",
+   "kind": "critter",
+   "name": "Floating Div",
+   "depicts": "A tiny hollow square (blue in v0, green in v2) with a two-pixel orange tab on its upper-right corner, sitting inside a mostly empty 26x22 frame.",
+   "concept": "floating DOM box or focus ring",
+   "priority": 5,
+   "ownerDecision": "rework",
+   "sprite": "design/naming/sprites/c-browser-core-v0.png"
+  },
+  {
+   "key": "c:browser:alt",
+   "kind": "critter-alt",
+   "name": "Text Caret",
+   "depicts": "A single dark-navy 1x8 vertical bar on the left side of a 26x22 transparent frame, resembling a text insertion caret.",
+   "concept": "blinking text insertion caret",
+   "priority": 5,
+   "ownerDecision": "rework",
+   "sprite": "design/naming/sprites/c-browser-alt-v1.png"
+  }
+ ]
+}

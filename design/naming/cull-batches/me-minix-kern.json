@@ -1,0 +1,80 @@
+{
+ "layer": {
+  "id": "me-minix-kern",
+  "name": "MINIX 3 Microkernel",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 18,
+ "items": [
+  {
+   "key": "e:mk-microkern",
+   "kind": "anchor",
+   "name": "Tanenbaum Switch",
+   "depicts": "Four dark amber-bordered corner boxes wired by diagonal dotted buses to a central gold-rimmed square containing a smaller amber block.",
+   "concept": "MINIX 3 microkernel architecture",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-mk-microkern-me-minix-kern-v0.png"
+  },
+  {
+   "key": "e:mk-ipc",
+   "kind": "prop",
+   "name": "Sendrec Bridge",
+   "depicts": "Two black squares in bright-gold frames joined horizontally by a solid amber bar.",
+   "concept": "synchronous inter-process communication",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-mk-ipc-me-minix-kern-v0.png"
+  },
+  {
+   "key": "e:mk-arc",
+   "kind": "prop",
+   "name": "Argonaut Die",
+   "depicts": "A square gold-framed microchip with four amber pins on each side and a solid amber die at its centre.",
+   "concept": "ARC embedded microprocessor core",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-mk-arc-me-minix-kern-v0.png"
+  },
+  {
+   "key": "e:mk-notify",
+   "kind": "prop",
+   "name": "Async Ring-Bit",
+   "depicts": "An amber-bordered black tile containing a hollow bright-gold ring-shaped alert glyph.",
+   "concept": "asynchronous microkernel notification",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-mk-notify-me-minix-kern-v0.png"
+  },
+  {
+   "key": "e:mk-grant",
+   "kind": "prop",
+   "name": "Safecopy Tether",
+   "depicts": "Two black squares, the left bordered in amber and the right in bright gold, joined by a short dark-brown bar.",
+   "concept": "MINIX 3 safecopy memory grants",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-mk-grant-me-minix-kern-v0.png"
+  },
+  {
+   "key": "e:mk-fused",
+   "kind": "prop",
+   "name": "Blown-Bit Bar",
+   "depicts": "A bright-gold-framed black rectangle holding four vertical strips alternating between amber and dark brown.",
+   "concept": "one-time programmable hardware e-fuses",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-mk-fused-me-minix-kern-v0.png"
+  },
+  {
+   "key": "c:me-minix-kern:core",
+   "kind": "critter",
+   "name": "Fixed-Size Mite",
+   "depicts": "A tiny flat-grey horizontal rectangle with a single-pixel notch on its right edge floating in an otherwise empty frame.",
+   "concept": "fixed-size microkernel IPC message",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-me-minix-kern-core-v0.png"
+  }
+ ]
+}

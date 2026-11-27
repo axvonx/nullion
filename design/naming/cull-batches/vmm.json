@@ -1,0 +1,80 @@
+{
+ "layer": {
+  "id": "vmm",
+  "name": "VMM & Virtual Devices",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 18,
+ "items": [
+  {
+   "key": "e:vmm-qemu",
+   "kind": "anchor",
+   "name": "Machine Emulator",
+   "depicts": "A wide green-framed machine chassis housing two smaller rectangular guest frames above a single long console bar.",
+   "concept": "userspace virtual machine monitor",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-vmm-qemu-vmm-v0.png"
+  },
+  {
+   "key": "e:vmm-virtio",
+   "kind": "prop",
+   "name": "Virtio Ring",
+   "depicts": "Two pale green ring buffers linked across the center by a dark rectangular bridge.",
+   "concept": "paravirtualized virtio ring",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-vmm-virtio-vmm-v0.png"
+  },
+  {
+   "key": "e:vmm-ghostcard",
+   "kind": "prop",
+   "name": "Phantom PCI",
+   "depicts": "A green-outlined expansion card with six bottom edge-connector pins and a dark rectangular chip.",
+   "concept": "emulated PCI expansion card",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-vmm-ghostcard-vmm-v0.png"
+  },
+  {
+   "key": "e:vmm-ghostnic",
+   "kind": "prop",
+   "name": "Phantom Ethernet",
+   "depicts": "A green-outlined rectangular bar with four evenly spaced dark green square ports.",
+   "concept": "emulated network interface",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-vmm-ghostnic-vmm-v0.png"
+  },
+  {
+   "key": "e:vmm-hpet",
+   "kind": "prop",
+   "name": "Virtual HPET",
+   "depicts": "A round green clock face with a single pale green vertical hand.",
+   "concept": "High Precision Event Timer",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-vmm-hpet-vmm-v0.png"
+  },
+  {
+   "key": "e:vmm-bios",
+   "kind": "prop",
+   "name": "Virtual BIOS",
+   "depicts": "A dark green rectangular screen showing two unequal horizontal green text lines.",
+   "concept": "virtual firmware / SeaBIOS",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-vmm-bios-vmm-v0.png"
+  },
+  {
+   "key": "c:vmm:core",
+   "kind": "critter",
+   "name": "VMM Mimic",
+   "depicts": "A small grey rectangular mask with two square white eyeholes.",
+   "concept": "hypervisor guest-facing mask",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-vmm-core-v0.png"
+  }
+ ]
+}

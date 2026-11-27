@@ -1,0 +1,54 @@
+{
+ "layer": "ept",
+ "items": [
+  {
+   "key": "e:ept-matrix",
+   "verdict": "keep",
+   "reason": "Layer anchor with a distinctive two-monolith lattice silhouette representing two-dimensional EPT address translation.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:ept-grid",
+   "verdict": "keep",
+   "reason": "Clear, recognisable visual for nested page table lookup that complements the anchor.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:ept-vtd",
+   "verdict": "keep",
+   "reason": "Essential, distinct prop representing Intel VT-d DMA remapping for the IOMMU half of the layer.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:ept-pte",
+   "verdict": "delete",
+   "reason": "Low-priority generic row of alternating cells that is visually weak and redundant with the page table grid.",
+   "similarTo": "e:ept-grid",
+   "replacement": "a posted-interrupt descriptor"
+  },
+  {
+   "key": "e:ept-dirty",
+   "verdict": "delete",
+   "reason": "Minimal single-square sprite that is too visually generic to carry a full man-page entry.",
+   "similarTo": null,
+   "replacement": "an IOMMU fault log"
+  },
+  {
+   "key": "e:ept-walker",
+   "verdict": "keep",
+   "reason": "Strong diagonal stepping visual that clearly conveys a four-level hardware page table walker.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "c:ept:core",
+   "verdict": "keep",
+   "reason": "Core critter species for the EPT & IOMMU layer.",
+   "similarTo": null,
+   "replacement": null
+  }
+ ]
+}

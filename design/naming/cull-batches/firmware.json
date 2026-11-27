@@ -1,0 +1,300 @@
+{
+ "layer": {
+  "id": "firmware",
+  "name": "Firmware / UEFI",
+  "daily": true
+ },
+ "reusedCopiesAlsoInThisLayer": 0,
+ "items": [
+  {
+   "key": "e:fw-bigvault",
+   "kind": "anchor",
+   "name": "Boot Vault",
+   "depicts": "A massive circular green-phosphor bank vault door with twelve perimeter bolts, heavy right-hand hinges, and a three-spoke locking wheel.",
+   "concept": "hardware root of trust and locked boot ROM",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-bigvault-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-romcab",
+   "kind": "anchor",
+   "name": "ROM Rack",
+   "depicts": "A tall green-phosphor equipment rack housing four stacked DIP-pinned ROM cartridges beneath a black panel of eight blinking indicator bars.",
+   "concept": "system ROM bank and firmware volume storage",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-romcab-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-drawers",
+   "kind": "prop",
+   "name": "Variable Chest",
+   "depicts": "A three-by-two bank of six dark green metal drawers, each fitted with a bright horizontal pull.",
+   "concept": "UEFI firmware variable store and NVRAM partitions",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-drawers-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-vault",
+   "kind": "prop",
+   "name": "Pocket Vault",
+   "depicts": "A miniature circular green vault door with a three-spoke wheel and a single right-hand hinge.",
+   "concept": "sealed firmware storage compartment",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-vault-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-post",
+   "kind": "prop",
+   "name": "Port 80 Oracle",
+   "depicts": "A dark green rectangular bezel holding a two-digit seven-segment LED readout glowing bright green.",
+   "concept": "power-on self-test diagnostic codes",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-post-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-flash",
+   "kind": "prop",
+   "name": "SPI Flash",
+   "depicts": "A small green ten-pin dual-inline chip package with a bright square pin-one orientation dot.",
+   "concept": "SPI NOR flash memory chip",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-flash-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-plate",
+   "kind": "prop",
+   "name": "Write-Protect Lock",
+   "depicts": "A sturdy green phosphor padlock with a bright crossbar and a dark warded keyhole.",
+   "concept": "BIOS flash write-protection lock",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-plate-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-cmos",
+   "kind": "prop",
+   "name": "CMOS Cell",
+   "depicts": "A round green coin-cell battery held by four retainer tabs with a bright plus sign stamped in the center.",
+   "concept": "CR2032 CMOS battery backing RTC and BIOS settings",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-cmos-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-setup",
+   "kind": "prop",
+   "name": "Press F2",
+   "depicts": "A wide dark-green terminal panel with an inverted header bar above the pixel-art word BOOT.",
+   "concept": "pre-boot BIOS/UEFI setup utility menu",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-setup-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-bootorder",
+   "kind": "prop",
+   "name": "Boot Order",
+   "depicts": "A small green-framed rectangle standing on two stubs with three dark and light blocks arranged inside.",
+   "concept": "UEFI boot device priority order",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-bootorder-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-dipsw",
+   "kind": "prop",
+   "name": "DIP Bank",
+   "depicts": "A green four-position DIP switch block with three toggles pushed up and the third pushed down.",
+   "concept": "hardware configuration DIP switches",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-dipsw-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-fan",
+   "kind": "prop",
+   "name": "PWM Fan",
+   "depicts": "A square dark-green chassis fan housing with four corner screw holes and a four-blade spinning rotor.",
+   "concept": "firmware-controlled PWM chassis cooling fan",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-fan-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-capsule",
+   "kind": "prop",
+   "name": "Firmware Capsule",
+   "depicts": "A green-bordered rectangular module with bottom pins and a bright padlock emblem centered in a dark recess.",
+   "concept": "cryptographically signed UEFI capsule firmware update",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-capsule-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-spiclip",
+   "kind": "prop",
+   "name": "SOIC Clip",
+   "depicts": "A green test clip clamped over a dark chip body, with two probe leads extending from the top and four pins below.",
+   "concept": "SOIC-8 SPI test clip for external firmware flashing",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-spiclip-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-optrom",
+   "kind": "prop",
+   "name": "Option ROM",
+   "depicts": "A dark-green expansion circuit board with bottom edge-connector fingers and one large bright chip beside two smaller ICs.",
+   "concept": "PCI/ISA expansion card Option ROM",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-optrom-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-beeper",
+   "kind": "prop",
+   "name": "POST Beeper",
+   "depicts": "A small dark-green circular piezo speaker with a bright green cross aperture positioned to emit animated sound pulses.",
+   "concept": "motherboard PC speaker POST beep codes",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-beeper-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-reset",
+   "kind": "prop",
+   "name": "Reset Switch",
+   "depicts": "A bright green rounded tactile switch set into a dark green square housing.",
+   "concept": "hardware reset vector and cold-reset line",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-reset-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-postcard",
+   "kind": "prop",
+   "name": "POST Card",
+   "depicts": "A dark-green plug-in circuit card with bottom edge-connector pins, a bright LED, and a two-character readout showing BF.",
+   "concept": "plug-in ISA/PCI POST diagnostic analyzer card",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-postcard-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-acpi",
+   "kind": "prop",
+   "name": "ACPI Seal",
+   "depicts": "A green circular standby-power icon formed by a broken ring and a vertical line at the top.",
+   "concept": "ACPI power states and firmware tables",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-acpi-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-ucode",
+   "kind": "prop",
+   "name": "Microcode EPROM",
+   "depicts": "A green ten-pin DIP chip with a central circular quartz window revealing the dark silicon die inside.",
+   "concept": "CPU microcode patch and UV-erasable EPROM",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-ucode-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-nvram",
+   "kind": "prop",
+   "name": "NVRAM Cells",
+   "depicts": "Four vertical dark-green memory columns with bright caps standing on a shared bus, three filled high and one low.",
+   "concept": "non-volatile RAM variable storage",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-nvram-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-floppy",
+   "kind": "prop",
+   "name": "Boot Floppy",
+   "depicts": "A miniature green 3.5-inch floppy disk with a top sliding shutter, bottom label, and corner notch.",
+   "concept": "removable BIOS recovery and boot floppy disk",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-floppy-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-key",
+   "kind": "prop",
+   "name": "Platform Key",
+   "depicts": "A horizontal green skeleton key with a cross-slotted circular bow on the left and two warded teeth on the right.",
+   "concept": "UEFI Platform Key and cryptographic root signing key",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-key-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-tpm",
+   "kind": "prop",
+   "name": "TPM Chip",
+   "depicts": "A square green-bordered chip housing a small padlock with a bright shackle and a dark keyhole.",
+   "concept": "Trusted Platform Module security coprocessor",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-tpm-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-jtag",
+   "kind": "prop",
+   "name": "JTAG Header",
+   "depicts": "A black-centered green rectangular shroud containing two rows of five square pin contacts.",
+   "concept": "10-pin JTAG hardware boundary-scan and debug header",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-jtag-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-secureboot",
+   "kind": "prop",
+   "name": "Secure Boot",
+   "depicts": "A green stepped heraldic shield enclosing a dark field with a bright horizontal bar in the center.",
+   "concept": "UEFI Secure Boot signature verification",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-secureboot-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-uart",
+   "kind": "prop",
+   "name": "UART Header",
+   "depicts": "A rectangular green-framed black header with three square pins in a row, the leftmost glowing bright green.",
+   "concept": "3-pin serial UART debug console header",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-uart-firmware-v0.png"
+  },
+  {
+   "key": "e:fw-watchdog",
+   "kind": "prop",
+   "name": "Watchdog Timer",
+   "depicts": "A dark-green framed monitor holding a bright horizontal bar approaching a vertical threshold line on the right.",
+   "concept": "hardware watchdog timer (WDT)",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-fw-watchdog-firmware-v0.png"
+  },
+  {
+   "key": "c:firmware:core",
+   "kind": "critter",
+   "name": "Phosphor Pacer",
+   "depicts": "A hovering green-phosphor rectangular module with bright upper and lower plates and a central visor that blinks dark and light.",
+   "concept": "UEFI Boot Services polling daemon and firmware supervisor",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-firmware-core-v0.png"
+  }
+ ]
+}

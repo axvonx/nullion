@@ -1,0 +1,130 @@
+{
+ "layer": {
+  "id": "internet",
+  "name": "Internet / BGP",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 11,
+ "items": [
+  {
+   "key": "e:net-ixp",
+   "kind": "anchor",
+   "name": "Meet-Me Room",
+   "depicts": "A large framed switchboard panel with a blue header bar and four vertical light-blue bays, each topped by a dark bezel with an animated green status light on the leftmost unit.",
+   "concept": "Internet Exchange Point (IXP) peering fabric",
+   "priority": 5,
+   "ownerDecision": "keep",
+   "sprite": "design/naming/sprites/e-net-ixp-internet-v0.png"
+  },
+  {
+   "key": "e:net-bgp",
+   "kind": "prop",
+   "name": "Route Flap Board",
+   "depicts": "A dark-framed card displaying a blue header block, a dark label bar, a gray rule, and an animated green-and-amber segmented bar along the bottom.",
+   "concept": "BGP routing tables and prefix announcements",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-net-bgp-internet-v0.png"
+  },
+  {
+   "key": "e:net-cable",
+   "kind": "prop",
+   "name": "Abyssal Trunkline",
+   "depicts": "A horizontal two-tone blue-and-navy conduit banded at regular intervals by four amber collars, resembling an armored undersea cable.",
+   "concept": "submarine fiber-optic trunk cables",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-net-cable-internet-v0.png"
+  },
+  {
+   "key": "e:net-dns",
+   "kind": "prop",
+   "name": "Resolver Ledger",
+   "depicts": "A white index card with a green header strip, a navy drop shadow, and three horizontal bars representing resolved record fields.",
+   "concept": "Domain Name System (DNS) zone records",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-net-dns-internet-v0.png"
+  },
+  {
+   "key": "e:net-asn",
+   "kind": "prop",
+   "name": "Autonomous Cloud",
+   "depicts": "A white pixelated cloud with a blue rectangular badge across its center and a pale blue shadow beneath it.",
+   "concept": "Autonomous System Numbers (ASNs)",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-net-asn-internet-v0.png"
+  },
+  {
+   "key": "e:net-fiber",
+   "kind": "prop",
+   "name": "Glass Filament",
+   "depicts": "A thin horizontal cyan optical line with a bright white light pulse traveling at its right tip.",
+   "concept": "fiber-optic light transmission",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-net-fiber-internet-v0.png"
+  },
+  {
+   "key": "e:net-router",
+   "kind": "prop",
+   "name": "Default Gateway",
+   "depicts": "A dark navy box with a cream front panel, four alternating amber and green LEDs, and two upright dark gray antennas.",
+   "concept": "edge router and packet forwarding",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-net-router-internet-v0.png"
+  },
+  {
+   "key": "e:net-dish",
+   "kind": "prop",
+   "name": "Uplink Dish",
+   "depicts": "A dark gray pedestal supporting a tilted pale-blue parabolic dish with a darker blue feed horn angled toward the lower right.",
+   "concept": "satellite uplink and microwave backhaul",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-net-dish-internet-v0.png"
+  },
+  {
+   "key": "e:net-packet",
+   "kind": "prop",
+   "name": "Best-Effort Datagram",
+   "depicts": "A white envelope-like card with a cyan top header bar, a navy drop shadow, a gray address line, and an amber square payload block.",
+   "concept": "IP datagram and packet encapsulation",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-net-packet-internet-v0.png"
+  },
+  {
+   "key": "e:net-tls",
+   "kind": "prop",
+   "name": "Trust Anchor",
+   "depicts": "A closed green padlock with a lighter green shackle and a vertical white keyhole slot in the center.",
+   "concept": "Transport Layer Security (TLS) encryption",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-net-tls-internet-v0.png"
+  },
+  {
+   "key": "c:internet:core",
+   "kind": "critter",
+   "name": "RFC 1149 Carrier",
+   "depicts": "A tiny white flying bird with a blue head and beak and a two-pixel cyan contrail trailing behind it.",
+   "concept": "IP over Avian Carriers (RFC 1149)",
+   "priority": 5,
+   "ownerDecision": "keep",
+   "sprite": "design/naming/sprites/c-internet-core-v0.png"
+  },
+  {
+   "key": "c:internet:alt",
+   "kind": "critter-alt",
+   "name": "Ping Probe",
+   "depicts": "A tiny floating white probe with two blue top-mounted panels and a single green beacon pixel underneath.",
+   "concept": "network probe and orbital relay satellite",
+   "priority": 5,
+   "ownerDecision": "keep",
+   "sprite": "design/naming/sprites/c-internet-alt-v1.png"
+  }
+ ]
+}

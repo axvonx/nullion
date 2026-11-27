@@ -94,7 +94,7 @@ textarea { width: 100%; min-height: 70px; background: #0c0b10; border: 1px solid
   </select>
   <select id="fSort" aria-label="Sort"><option value="priority">red first</option><option value="layer">by layer</option></select>
   <select id="fStatus" aria-label="Status">
-    <option value="">all</option><option value="needs-you">needs you (red/orange, not yet yours)</option><option value="llm">LLM defaults (unconfirmed)</option><option value="owner">decided by you</option><option value="merged">verified merges (folded away)</option><option value="name-open">name still open</option><option value="dec-open">decision still open</option><option value="done">named + decided</option><option value="notes">has design notes</option>
+    <option value="">all</option><option value="needs-you">needs you (red/orange, not yet yours)</option><option value="llm">LLM defaults (unconfirmed)</option><option value="owner">decided by you</option><option value="merged">verified merges (folded away)</option><option value="deleted">marked for deletion</option><option value="name-open">name still open</option><option value="dec-open">decision still open</option><option value="done">named + decided</option><option value="notes">has design notes</option>
   </select>
   <input type="search" id="fSearch" placeholder="search id, name, concept…" />
   <span class="save" id="save">loading…</span>
@@ -151,6 +151,7 @@ async function load() {
   const layerSel = $('#fLayer');
   layerSel.append(h('option', { value: '' }, 'all layers'), h('option', { value: 'daily' }, 'Daily layers'), h('option', { value: 'endless' }, 'Endless-only layers'));
   for (const l of inv.layers) layerSel.append(h('option', { value: l.id }, `${l.name}${l.daily ? '' : ' (Endless)'}`));
+  refreshLayerLabels();
   for (const id of ['#fLayer', '#fKind', '#fStatus', '#fSort']) $(id).addEventListener('change', () => filter());
   $('#fSearch').addEventListener('input', () => filter());
   try { const last = localStorage.getItem('namingDesk.key'); filter(last); } catch { filter(); }
@@ -188,6 +189,15 @@ const PR = (it) => (isMerged(it) ? -1 : dedup[it.key]?.verdict === 'needs-owner'
 /** A verified merge (scripts/naming-dedup.py → naming-apply-dedup.py): the same drawing as its target, so it folds
  * into the target's appearances and leaves the queue. */
 const isMerged = (it) => rec(it).decision.by === 'verified' && rec(it).decision.choice === 'merge';
+/** Marked for deletion (the cull pass, or anyone's "Delete"): out of the new set, reviewable under its own filter. */
+const isDeleted = (it) => rec(it).decision.choice === 'delete';
+const KEYS = () => new Map(items.map((x) => [x.key, x]));
+/** Scatter-prop types a layer keeps after deletions; v4 placement needs at least 20 (checkLibrary). */
+function propsLeft(layerId) {
+  const gone = new Set(items.filter(isDeleted).map((x) => x.key));
+  const props = items.filter((x) => x.kind === 'prop' && x.appearances[0].layer === layerId);
+  return { total: props.length, left: props.filter((x) => !gone.has(x.key) && !(isMerged(x) && gone.has(rec(x).decision.target))).length };
+}
 function foldedInto(it) { return items.filter((x) => x !== it && isMerged(x) && rec(x).decision.target === it.key); }
 /** The item's own appearances plus those of everything merged into it, each tagged with where it came from. */
 function allAppearances(it) {
@@ -217,6 +227,7 @@ function filter(keepKey) {
     if (K && it.kind !== K) return false;
     const d = rec(it);
     if (S === 'merged' ? !isMerged(it) : isMerged(it)) return false;
+    if (S === 'deleted' ? !isDeleted(it) : S !== 'merged' && isDeleted(it)) return false;
     if (S === 'name-open' && d.name.choice !== 'open') return false;
     if (S === 'dec-open' && d.decision.choice !== 'open') return false;
     if (S === 'done' && (d.name.choice === 'open' || d.decision.choice === 'open')) return false;
@@ -240,13 +251,24 @@ function filter(keepKey) {
   render();
 }
 
+function refreshLayerLabels() {
+  for (const o of $('#fLayer').options) {
+    const l = inv.layers.find((x) => x.id === o.value);
+    if (!l) continue;
+    const pl = propsLeft(l.id);
+    o.textContent = `${l.name}${l.daily ? '' : ' (Endless)'} · ${pl.left}/${pl.total} props${pl.left < 20 ? ' ⚠' : ''}`;
+  }
+}
 function progress() {
+  refreshLayerLabels();
   const all = Object.values(dec.items);
   const mine = all.filter((d) => d.name.by === 'owner' && d.decision.by === 'owner').length;
   const llm = all.filter((d) => d.name.by === 'llm' || d.decision.by === 'llm').length;
   const urgent = items.filter((it) => PR(it) >= 4 && !(rec(it).name.by === 'owner' && rec(it).decision.by === 'owner')).length;
   const merged = items.filter(isMerged).length;
-  $('#progress').innerHTML = `<b>${mine}</b> yours · <b>${llm}</b> LLM defaults · <b style="color:#ff6b5b">${urgent}</b> red/orange left · <b>${merged}</b> verified merges folded away · ${Object.keys(props).length}/${items.length} proposed · ${Object.keys(prio).length} triaged · showing ${view.length}`;
+  const deleted = items.filter((x) => isDeleted(x) && !isMerged(x)).length;
+  const short = inv.layers.filter((l) => propsLeft(l.id).left < 20).length;
+  $('#progress').innerHTML = `<b>${mine}</b> yours · <b>${llm}</b> LLM defaults · <b style="color:#ff6b5b">${urgent}</b> red/orange left · <b>${merged}</b> merged · <b>${deleted}</b> marked for deletion${short ? ` · <b style="color:#ff6b5b">${short}</b> layers under 20 props` : ''} · <b>${items.length - merged - deleted}</b> in the new set · ${Object.keys(props).length}/${items.length} proposed · ${Object.keys(prio).length} triaged · showing ${view.length}`;
 }
 
 function renderList() {
@@ -256,7 +278,11 @@ function renderList() {
   const byPrio = $('#fSort').value === 'priority';
   view.forEach((it, i) => {
     const group = byPrio ? PRIO_NAME[PR(it)] : it.appearances[0].layerName;
-    if (group !== lastLayer) { list.append(h('h4', { class: `p${PR(it)}` }, byPrio ? h('span', { class: 'prio' }) : null, ' ', group)); lastLayer = group; }
+    if (group !== lastLayer) {
+      const pl = byPrio ? null : propsLeft(it.appearances[0].layer);
+      list.append(h('h4', { class: `p${PR(it)}` }, byPrio ? h('span', { class: 'prio' }) : null, ' ', group, pl ? h('span', { style: `float:right;color:${pl.left < 20 ? '#ff6b5b' : 'inherit'}`, title: 'scatter-prop types left after deletions (placement needs 20)' }, `${pl.left}/${pl.total}`) : null));
+      lastLayer = group;
+    }
     const d = rec(it);
     const b = h('button', { class: `pc p${PR(it)}${i === at ? ' cur' : ''}`, title: prio[it.key]?.why, onclick: () => { at = i; appAt = 0; render(); } },
       h('img', { src: `sprites/${it.appearances[0].img}`, alt: '' }),
@@ -299,9 +325,15 @@ function renderArt(it) {
     ` · ${apps.length} appearance${apps.length === 1 ? '' : 's'}`,
     foldedInto(it).length ? ` (${foldedInto(it).length} merged in)` : '');
   const pr = prio[it.key];
+  const dd2 = rec(it).decision;
+  const deleteNote = !isMerged(it) && isDeleted(it) ? h('div', { class: 'pbadge p5' }, h('b', {}, 'DELETE'),
+    h('span', {}, dd2.note || 'marked for deletion',
+      dd2.target ? [' · too close to ', h('a', { href: '#', onclick: (e) => { e.preventDefault(); goKey(dd2.target); } }, label(KEYS().get(dd2.target) ?? { key: dd2.target, appearances: [{}] }))] : null,
+      dd2.replacement ? h('div', { class: 'sub', style: 'margin-top:4px' }, `replace with: ${dd2.replacement}`) : null),
+    h('button', { type: 'button', style: 'margin-left:auto;background:#1d3a2a;border:1px solid #2f6b48;color:var(--ink);padding:4px 10px;border-radius:3px;cursor:pointer', onclick: () => { rec(it).decision = { choice: 'keep', target: null, note: '', by: 'owner' }; touch(it); render(); } }, 'keep it')) : null;
   const mergedNote = isMerged(it) ? h('div', { class: 'pbadge p0' }, h('b', {}, 'MERGED'), `verified the same drawing as ${rec(it).decision.target}: ${rec(it).decision.note}`) : null;
   put($('#art'),
-    mergedNote ?? h('div', { class: `pbadge p${PR(it)}` }, h('b', {}, pr ? `P${pr.priority}` : 'P?'), pr ? `${PRIO_NAME[pr.priority]} · ${pr.why}` : 'not triaged yet'),
+    deleteNote ?? mergedNote ?? h('div', { class: `pbadge p${PR(it)}` }, h('b', {}, pr ? `P${pr.priority}` : 'P?'), pr ? `${PRIO_NAME[pr.priority]} · ${pr.why}` : 'not triaged yet'),
     h('div', { class: 'stage' }, bigImg(app)),
     h('div', { class: 'app-row' }, h('span', { class: 'meta', style: 'margin:0' }, 'Appearance'), sel),
     apps.length > 1 ? h('div', { class: 'thumbs' }, apps.map((a, i) => h('button', { class: i === appAt ? 'cur' : '', title: appLabel(a), onclick: () => { appAt = i; renderArt(it); } }, h('img', { src: `sprites/${a.img}`, alt: appLabel(a) })))) : null,
@@ -360,7 +392,7 @@ function renderChoices(it) {
 
   put($('#choices'),
     h('h2', {}, 'Name', h('span', { class: `by ${d.name.by ?? ''}` }, d.name.by === 'llm' ? 'LLM default' : d.name.by === 'owner' ? 'yours' : d.name.by === 'verified' ? 'takes the target’s name' : 'open')), ...nameOpts,
-    h('h2', {}, 'Other decision', h('span', { class: `by ${d.decision.by ?? ''}` }, d.decision.by === 'llm' ? 'LLM default' : d.decision.by === 'owner' ? 'yours' : d.decision.by === 'verified' ? 'verified merge' : 'open')), h('div', { class: 'grid2' }, decOpts), target, note,
+    h('h2', {}, 'Other decision', h('span', { class: `by ${d.decision.by ?? ''}` }, d.decision.by === 'llm' ? 'LLM default' : d.decision.by === 'owner' ? 'yours' : d.decision.by === 'verified' ? 'verified merge' : d.decision.by === 'cull' ? 'cull pass (LLM)' : 'open')), h('div', { class: 'grid2' }, decOpts), target, note,
     h('h2', {}, 'Design notes'), notes,
     h('div', { class: 'nav' },
       h('button', { type: 'button', onclick: () => step(-1) }, '◀ prev'),
@@ -386,6 +418,13 @@ function accept() {
   d.name.by = 'owner'; d.decision.by = 'owner';
   touch(it);
   step(1);
+}
+/** Jump to an item by key, widening the filters if it's hidden. */
+function goKey(key) {
+  let i = view.findIndex((x) => x.key === key);
+  if (i < 0) { $('#fLayer').value = ''; $('#fKind').value = ''; $('#fStatus').value = ''; $('#fSearch').value = ''; filter(key); i = view.findIndex((x) => x.key === key); }
+  if (i < 0) { const s = $('#fStatus'); s.value = isDeleted(KEYS().get(key)) ? 'deleted' : 'merged'; filter(key); return; }
+  at = i; appAt = 0; render();
 }
 function step(dir) { if (!view.length) return; at = (at + dir + view.length) % view.length; appAt = 0; render(); }
 window.addEventListener('keydown', (e) => {

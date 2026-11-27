@@ -1,0 +1,54 @@
+{
+  "layer": "vmm",
+  "items": [
+    {
+      "key": "e:vmm-qemu",
+      "verdict": "keep",
+      "reason": "Layer anchor representing the userspace virtual machine monitor with a clear multi-guest chassis.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:vmm-virtio",
+      "verdict": "keep",
+      "reason": "Distinct visual of two linked ring buffers representing paravirtualized virtio queues.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:vmm-ghostcard",
+      "verdict": "keep",
+      "reason": "Stronger and more general representative of an emulated PCI device than the redundant phantom NIC.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:vmm-ghostnic",
+      "verdict": "delete",
+      "reason": "Redundant emulated hardware concept alongside e:vmm-ghostcard in this layer and e:dr-nic in drivers.",
+      "similarTo": "e:dr-nic",
+      "replacement": null
+    },
+    {
+      "key": "e:vmm-hpet",
+      "verdict": "delete",
+      "reason": "Visually generic clock face for a niche timer concept better replaced by a core virtualization mechanic.",
+      "similarTo": null,
+      "replacement": "a memory balloon pump"
+    },
+    {
+      "key": "e:vmm-bios",
+      "verdict": "keep",
+      "reason": "Covers virtual firmware and guest boot initialization, a key VMM concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:vmm:core",
+      "verdict": "keep",
+      "reason": "Core critter species for the VMM layer.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

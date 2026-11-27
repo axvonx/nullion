@@ -1,0 +1,300 @@
+{
+ "layer": {
+  "id": "kernel",
+  "name": "Kernel Core",
+  "daily": true
+ },
+ "reusedCopiesAlsoInThisLayer": 0,
+ "items": [
+  {
+   "key": "e:kr-furnace",
+   "kind": "anchor",
+   "name": "Ring Zero Hearth",
+   "depicts": "A red-walled kernel furnace with glowing yellow and coral bars inside, topped by a large silver gear, a smaller copper gear, and a grey smokestack.",
+   "concept": "kernel core execution engine",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-furnace-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-systable",
+   "kind": "anchor",
+   "name": "Syscall Table",
+   "depicts": "A dark grey-framed dispatch board holding a four-by-eight grid of cyan-indexed blue and grey slots with one active yellow entry.",
+   "concept": "system call dispatch table",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-systable-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-gears",
+   "kind": "prop",
+   "name": "Cycle Cogs",
+   "depicts": "A meshing pair of silver and copper toothed gears turning against each other.",
+   "concept": "kernel clockwork and scheduling machinery",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-gears-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-dmesg",
+   "kind": "prop",
+   "name": "Dmesg Marquee",
+   "depicts": "A wide dark console bezel scrolling bright green kernel log fragments such as FUTEX and EXT4-FS above a green status lamp.",
+   "concept": "kernel ring buffer log output",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-dmesg-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-gauge",
+   "kind": "prop",
+   "name": "PSI Barometer",
+   "depicts": "A horizontal red bar clamped by two dark grey brackets with a detached vertical red needle hovering above a central notch.",
+   "concept": "kernel load and pressure telemetry",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-gauge-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-piston",
+   "kind": "prop",
+   "name": "Preempt Plunger",
+   "depicts": "A narrow vertical dark grey cylinder hovering above a flat light grey rail.",
+   "concept": "periodic kernel work stroke",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-piston-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-leds",
+   "kind": "prop",
+   "name": "Taint Indicators",
+   "depicts": "A small grey-bezelled black panel housing a two-by-three bank of square green lamps and one red lamp.",
+   "concept": "kernel subsystem status flags",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-leds-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-schedwheel",
+   "kind": "prop",
+   "name": "Round-Robin Wheel",
+   "depicts": "A spoked grey wheel mounted on a dark base with six colour-coded task squares riding around its rim.",
+   "concept": "round-robin and timer-wheel scheduling",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-schedwheel-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-pagetable",
+   "kind": "prop",
+   "name": "Four-Level Folio",
+   "depicts": "A grey four-drawer vertical cabinet whose dark slots each hold a silver bar, three of them marked with a lit green square.",
+   "concept": "virtual-to-physical page tables",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-pagetable-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-irqbell",
+   "kind": "prop",
+   "name": "Interrupt Bell",
+   "depicts": "A bright yellow bell suspended from a dark grey bracket with a brown clapper hanging below.",
+   "concept": "hardware interrupt requests",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-irqbell-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-turnstile",
+   "kind": "prop",
+   "name": "Kernel Turnstile",
+   "depicts": "A dark grey pedestal mounted with rotating silver barrier arms.",
+   "concept": "priority-inheritance wait queues",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-turnstile-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-slab",
+   "kind": "prop",
+   "name": "Bonwick Tray",
+   "depicts": "Four grey vertical compartments beneath a copper header bar, three stacked with paired green or cyan fixed-width bars and one empty.",
+   "concept": "slab memory allocator",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-slab-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-ticker",
+   "kind": "prop",
+   "name": "Jiffy Spitter",
+   "depicts": "A small grey box on the left emitting a horizontal trail of red and grey rectangular dashes to the right.",
+   "concept": "periodic timer tick and jiffies",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-ticker-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-gate",
+   "kind": "prop",
+   "name": "Call-Gate Portcullis",
+   "depicts": "A heavy dark grey archway fitted with a lowered silver portcullis grate.",
+   "concept": "privilege transition and call gates",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-gate-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-runqueue",
+   "kind": "prop",
+   "name": "Run Queue",
+   "depicts": "A horizontal two-tone grey track carrying cyan, yellow, green, and narrow red task blocks lined up in order.",
+   "concept": "scheduler runnable task queue",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-runqueue-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-mutex",
+   "kind": "prop",
+   "name": "Sleeping Padlock",
+   "depicts": "A brown brass padlock with yellow top trim, a silver shackle, a dark keyhole, and a small yellow key extending from its right side.",
+   "concept": "mutual exclusion lock",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-mutex-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-irqmeter",
+   "kind": "prop",
+   "name": "Storm Gauge",
+   "depicts": "A square dark grey-framed screen showing four vertical bars, three cyan and one tall yellow column, above a silver baseline.",
+   "concept": "interrupt rate monitoring",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-irqmeter-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-tlb",
+   "kind": "prop",
+   "name": "Shootdown Board",
+   "depicts": "A grey-framed black panel holding a four-by-three grid of teal and navy cache slots with one bright white hit.",
+   "concept": "translation lookaside buffer",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-tlb-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-schedrack",
+   "kind": "prop",
+   "name": "Vruntime Meter",
+   "depicts": "A small grey-framed black panel displaying three horizontal progress bars, one green and two cyan, across dark blue tracks.",
+   "concept": "per-task scheduler time-slice accounting",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-schedrack-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-semaphore",
+   "kind": "prop",
+   "name": "Dijkstra Signal",
+   "depicts": "A narrow vertical dark grey signal housing on a post with three square lenses, the top red lens lit and the lower two dark.",
+   "concept": "counting semaphore synchronization",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-semaphore-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-ringbuf",
+   "kind": "prop",
+   "name": "Ring Buffer",
+   "depicts": "An open circle of ten small square slots, seven dark grey and three sequentially lit bright cyan.",
+   "concept": "circular ring buffer",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-ringbuf-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-wdtimer",
+   "kind": "prop",
+   "name": "Deadman Countdown",
+   "depicts": "A grey-framed black console with a green indicator on the top left, a dark indicator on the top right, and a yellow-and-grey countdown bar below.",
+   "concept": "hardware and kernel watchdog timer",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-wdtimer-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-vfs",
+   "kind": "prop",
+   "name": "VFS Junction",
+   "depicts": "A round silver junction hub with a red-and-charcoal core connected to four coloured conduits in green, cyan, magenta, and yellow.",
+   "concept": "virtual file system switch",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-vfs-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-futex",
+   "kind": "prop",
+   "name": "Futex Box",
+   "depicts": "A yellow-bordered black box enclosing two large square state cells, bright green on the left and coral red on the right.",
+   "concept": "fast userspace mutex",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-futex-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-epoll",
+   "kind": "prop",
+   "name": "Edge-Trigger Slate",
+   "depicts": "A cyan-framed black panel containing four vertical descriptor bars, three dark grey and one lit bright green.",
+   "concept": "scalable I/O event notification",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-epoll-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-cgroups",
+   "kind": "prop",
+   "name": "Quota Terrarium",
+   "depicts": "A grey-framed white enclosure subdivided into three nested coloured boxes: cyan-blue at top left, green at top right, and a wide red partition below.",
+   "concept": "control groups resource partitioning",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-cgroups-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-workq",
+   "kind": "prop",
+   "name": "Bottom-Half Belt",
+   "depicts": "A dark grey horizontal rail carrying four alternating cyan and yellow square work items.",
+   "concept": "deferred kernel workqueues",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-workq-kernel-v0.png"
+  },
+  {
+   "key": "e:kr-buddy",
+   "kind": "prop",
+   "name": "Buddy Allocator",
+   "depicts": "Three grey-bordered vertical strips showing power-of-two memory subdivision: a wide blue block, a half-width green block, and two stacked brown and red quarter-blocks.",
+   "concept": "buddy memory allocator",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-kr-buddy-kernel-v0.png"
+  },
+  {
+   "key": "c:kernel:core",
+   "kind": "critter",
+   "name": "Kworker Drone",
+   "depicts": "A compact silver-grey boxy automaton in a black U-frame with two stubby feet, a glowing cyan, green, or yellow visor, and a tipped top antenna.",
+   "concept": "kernel thread (kthread)",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-kernel-core-v0.png"
+  }
+ ]
+}

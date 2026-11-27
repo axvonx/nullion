@@ -1,0 +1,90 @@
+{
+ "layer": {
+  "id": "jit",
+  "name": "JIT & Inline Caches",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 15,
+ "items": [
+  {
+   "key": "e:jit-forge",
+   "kind": "anchor",
+   "name": "Hotspot Hearth",
+   "depicts": "A dark indigo rectangular furnace with an orange-and-gold hopper on top and five flickering yellow and orange flame bars inside its black firebox.",
+   "concept": "Tiered just-in-time compilation of hot code paths",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-jit-forge-jit-v0.png"
+  },
+  {
+   "key": "e:jit-ic",
+   "kind": "prop",
+   "name": "Monomorphic Slot",
+   "depicts": "An orange-framed dark navy box holding a horizontal slate slot bar above a single centered yellow square.",
+   "concept": "Inline cache for fast dynamic property lookup",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-jit-ic-jit-v0.png"
+  },
+  {
+   "key": "e:jit-deopt",
+   "kind": "prop",
+   "name": "Uncommon Trap",
+   "depicts": "A dark indigo panel topped by an orange header bar with a pixelated yellow X-shaped cross in the center.",
+   "concept": "Speculative deoptimization bailout",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-jit-deopt-jit-v0.png"
+  },
+  {
+   "key": "e:jit-profile",
+   "kind": "prop",
+   "name": "Hotness Counter",
+   "depicts": "A lavender-bordered dark navy meter displaying four vertical bars, three yellow and the tallest glowing orange-red.",
+   "concept": "Execution profiling and hotness counters",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-jit-profile-jit-v0.png"
+  },
+  {
+   "key": "e:jit-osr",
+   "kind": "prop",
+   "name": "Tempering Chute",
+   "depicts": "A horizontal track entering in cool blue from the left, passing through a tall vertical orange-red block, and exiting in bright yellow to the right.",
+   "concept": "On-stack replacement of running loop frames",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-jit-osr-jit-v0.png"
+  },
+  {
+   "key": "e:jit-guard",
+   "kind": "prop",
+   "name": "Type Guard",
+   "depicts": "An orange hooded housing framing a dark purple recess with a bright yellow horizontal slit, mounted on a short yellow post.",
+   "concept": "Speculative type and shape guard checks",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-jit-guard-jit-v0.png"
+  },
+  {
+   "key": "c:jit:core",
+   "kind": "critter",
+   "name": "Cinder Dart",
+   "depicts": "A tiny orange-red square ember with a bright yellow notch and a detached gold spark pixel trailing to its left.",
+   "concept": "Hot execution trace",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-jit-core-v0.png"
+  },
+  {
+   "key": "c:jit:alt",
+   "kind": "critter-alt",
+   "name": "Tier-Two Wick",
+   "depicts": "A tiny orange-red square ember with a tall yellow-and-gold flame plume rising vertically from its center.",
+   "concept": "Tier-up hot flare",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-jit-alt-v1.png"
+  }
+ ]
+}

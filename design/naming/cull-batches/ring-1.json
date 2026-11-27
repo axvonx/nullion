@@ -1,0 +1,300 @@
+{
+ "layer": {
+  "id": "ring-1",
+  "name": "VMX Root Core",
+  "daily": true
+ },
+ "reusedCopiesAlsoInThisLayer": 0,
+ "items": [
+  {
+   "key": "e:r1-mirrorgate",
+   "kind": "anchor",
+   "name": "The Symmetry Gate",
+   "depicts": "Two tall dark-green monitors on stands facing each other across a dotted vertical line, each displaying mirrored bar charts.",
+   "concept": "VMX root/non-root state mirroring",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-mirrorgate-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-portal",
+   "kind": "anchor",
+   "name": "VMENTRY Threshold",
+   "depicts": "Four concentric glowing green rectangular frames receding inward into a dark void.",
+   "concept": "VM entry and exit",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-portal-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-mirror",
+   "kind": "prop",
+   "name": "Shadow-State Glass",
+   "depicts": "Two small green-rimmed screens side by side separated by a white gap, showing mirrored bar patterns.",
+   "concept": "guest-host state reflection",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-mirror-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-tunnel",
+   "kind": "prop",
+   "name": "Ring-Crossing Conduit",
+   "depicts": "A dark rectangular archway framed by two nested green borders receding slightly to the right.",
+   "concept": "virtio / paravirtualized channel",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-tunnel-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-tag",
+   "kind": "prop",
+   "name": "VMCS Placard",
+   "depicts": "Pixelated green text reading 'VMCS' above a thin dark-green horizontal underline.",
+   "concept": "Virtual Machine Control Structure",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-tag-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-glass",
+   "kind": "prop",
+   "name": "Vitreous Splinter",
+   "depicts": "A jagged, diamond-like shard of dark green glass with bright-green specular highlights.",
+   "concept": "hypervisor isolation pane",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-glass-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-bubble",
+   "kind": "prop",
+   "name": "Sandbox Sphere",
+   "depicts": "A circular green-outlined orb with a bright highlight and a dark interior containing vertical bar columns.",
+   "concept": "isolated VM sandbox",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-bubble-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-ept",
+   "kind": "prop",
+   "name": "Guest-to-Host Bridge",
+   "depicts": "Two columns of three dark-green rectangles bridged by a jagged bright-green lightning-like path.",
+   "concept": "Extended Page Tables",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-ept-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-vcpu",
+   "kind": "prop",
+   "name": "vCPU Socket",
+   "depicts": "A small square chip with pins on all four sides and a bright-green 'V' on its dark center.",
+   "concept": "virtual CPU",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-vcpu-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-vmcs",
+   "kind": "prop",
+   "name": "Context-Switch Twins",
+   "depicts": "Two pixelated round faces side by side, the left in medium green with dark features and the right in dark green with bright-green features.",
+   "concept": "VMCS guest/host state area",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-vmcs-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-trapdoor",
+   "kind": "prop",
+   "name": "Trap-and-Emulate",
+   "depicts": "A horizontal green floor line with a dark pit underneath and an angled bright-green hatch swung open upward.",
+   "concept": "privileged instruction trap / VM exit",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-trapdoor-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-shadowpage",
+   "kind": "prop",
+   "name": "Page-Fault Sentinel",
+   "depicts": "A wide pixel-art eye outlined in green with a dark pupil and a bright-green square glint.",
+   "concept": "shadow page tables",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-shadowpage-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-dolls",
+   "kind": "prop",
+   "name": "Matryoshka Hypervisor",
+   "depicts": "Three nested, concentric dome-like outlines in green shades, rising from a bright-green base.",
+   "concept": "nested virtualization",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-dolls-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-mempress",
+   "kind": "prop",
+   "name": "Balloon Compactor",
+   "depicts": "A vertical press with a flat green upper plate, a bright-green middle platen, and a lower green base.",
+   "concept": "memory ballooning / page compression",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-mempress-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-migrate",
+   "kind": "prop",
+   "name": "Live-State Transfer",
+   "depicts": "Three horizontal bars on the left trailing toward a green-framed square screen on the right.",
+   "concept": "live VM migration",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-migrate-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-snapshot",
+   "kind": "prop",
+   "name": "Checkpoint Shutter",
+   "depicts": "A dark-green camera-like box with a circular lens in the center and a small viewfinder block on top.",
+   "concept": "VM state snapshot",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-snapshot-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-hypercall",
+   "kind": "prop",
+   "name": "VMCALL Uplink",
+   "depicts": "Two rectangular frames stacked above and below a horizontal green bar, connected by a bright-green vertical stem.",
+   "concept": "hypercall (VMCALL)",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-hypercall-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-vswitch",
+   "kind": "prop",
+   "name": "Soft-Bridge Hub",
+   "depicts": "A wide green bar with five dark square ports along its front and five vertical stalks rising from the top.",
+   "concept": "virtual network switch",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-vswitch-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-cage",
+   "kind": "prop",
+   "name": "Non-Root Pen",
+   "depicts": "A green-framed rectangular enclosure divided by vertical bars into dark cells.",
+   "concept": "hypervisor isolation / sandbox",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-cage-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-split",
+   "kind": "prop",
+   "name": "Partitioned Console",
+   "depicts": "A green frame divided down the middle into two side-by-side screens on a single central stand.",
+   "concept": "CPU/memory partitioning",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-split-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-iommu",
+   "kind": "prop",
+   "name": "DMA Gatekeeper",
+   "depicts": "A tall dark-green pillar with four horizontal slots and a bright-green square indicator at the top.",
+   "concept": "IOMMU / VT-d DMA remapping",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-iommu-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-clone",
+   "kind": "prop",
+   "name": "Copy-on-Write Pair",
+   "depicts": "Two identical green-bordered rectangles side by side, separated by a white gap with two small green dots.",
+   "concept": "VM cloning / copy-on-write fork",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-clone-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-timeslice",
+   "kind": "prop",
+   "name": "Preemption Glass",
+   "depicts": "A narrow green hourglass with sand pooling in the upper and lower bulbs.",
+   "concept": "vCPU time-slice scheduling",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-timeslice-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-nested",
+   "kind": "prop",
+   "name": "L2 Enclosure",
+   "depicts": "A green outer border framing a white space containing a dark-green inner border and a bright-green center block.",
+   "concept": "nested virtualization (L1/L2)",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-nested-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-paravirt",
+   "kind": "prop",
+   "name": "Cooperating Guest",
+   "depicts": "Two vertical green-bordered panels\u2014one medium green, one bright green\u2014threaded along a dark horizontal bar.",
+   "concept": "paravirtualization",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-paravirt-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-vram",
+   "kind": "prop",
+   "name": "Shadow Framebuffer",
+   "depicts": "A green-framed rectangle containing three horizontal bars, with the top bar lit bright green.",
+   "concept": "virtualized framebuffer / VRAM",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-vram-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-vmexit",
+   "kind": "prop",
+   "name": "VMEXIT Beacon",
+   "depicts": "A bright-green upward arrow rising out of a dark-green horizontal floor line.",
+   "concept": "VM exit",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-vmexit-ring-1-v0.png"
+  },
+  {
+   "key": "e:r1-console",
+   "kind": "prop",
+   "name": "Dom0 Terminal",
+   "depicts": "A dark-green rectangular screen with two horizontal bars of different lengths in medium and bright green.",
+   "concept": "hypervisor serial/management console",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r1-console-ring-1-v0.png"
+  },
+  {
+   "key": "c:ring-1:core",
+   "kind": "critter",
+   "name": "Bilateral Mote",
+   "depicts": "A small bright-green creature with dark-green square eyes and a horizontal mouth, flanked by two small green side tabs.",
+   "concept": "mirrored execution / VMX symmetry",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-ring-1-core-v0.png"
+  }
+ ]
+}

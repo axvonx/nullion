@@ -1,0 +1,290 @@
+{
+ "layer": {
+  "id": "ring-3",
+  "name": "MEI / HECI Mailbox",
+  "daily": true
+ },
+ "reusedCopiesAlsoInThisLayer": 0,
+ "items": [
+  {
+   "key": "e:r3-me",
+   "kind": "anchor",
+   "name": "Management Engine",
+   "depicts": "A large, animated silicon die package representing the Intel Management Engine at the bottom of the stack.",
+   "concept": "out-of-band management processor",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-me-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-vias",
+   "kind": "prop",
+   "name": "Through-Hole Vias",
+   "depicts": "A small 10x10 cluster of vertical copper-plated holes connecting different layers of a circuit board or die.",
+   "concept": "inter-layer PCB vias",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-vias-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-pad",
+   "kind": "prop",
+   "name": "Bonding Pad",
+   "depicts": "A 16x10 metallic contact pad on the silicon die used for external bonding or probing.",
+   "concept": "die bond pad",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-pad-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-trace",
+   "kind": "prop",
+   "name": "Copper Trace",
+   "depicts": "A 24x12 etched copper trace routing signals across the substrate.",
+   "concept": "PCB signal routing",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-trace-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-decap",
+   "kind": "prop",
+   "name": "Decoupling Cap",
+   "depicts": "A tiny 13x7 surface-mount decoupling capacitor.",
+   "concept": "power rail decoupling",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-decap-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-xtal",
+   "kind": "prop",
+   "name": "Quartz Oscillator",
+   "depicts": "A 15x9 animated quartz crystal oscillator.",
+   "concept": "piezoelectric clock reference",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-xtal-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-testpads",
+   "kind": "prop",
+   "name": "Test Pads",
+   "depicts": "A 17x7 row of exposed gold test pads for factory diagnostics.",
+   "concept": "in-circuit test points",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-testpads-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-fuses",
+   "kind": "prop",
+   "name": "Burnt Bridges",
+   "depicts": "A 19x9 array of microscopic programmable fuses on the silicon die.",
+   "concept": "one-time programmable eFuses",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-fuses-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-resistor",
+   "kind": "prop",
+   "name": "Pull-Up Resistor",
+   "depicts": "A 15x5 surface-mount resistor.",
+   "concept": "current-limiting resistance",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-resistor-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-diode",
+   "kind": "prop",
+   "name": "Schottky Diode",
+   "depicts": "An 11x7 semiconductor diode.",
+   "concept": "one-way current rectification",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-diode-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-inductor",
+   "kind": "prop",
+   "name": "Power Inductor",
+   "depicts": "A 15x6 coiled or shielded surface-mount inductor.",
+   "concept": "magnetic energy storage",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-inductor-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-sram",
+   "kind": "prop",
+   "name": "Static RAM",
+   "depicts": "A 17x15 dense grid block representing static RAM cells.",
+   "concept": "on-die static RAM",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-sram-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-ringosc",
+   "kind": "prop",
+   "name": "Ring Oscillator",
+   "depicts": "A 15x16 animated loop of inverters forming a ring oscillator.",
+   "concept": "on-die ring oscillator",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-ringosc-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-thermal",
+   "kind": "prop",
+   "name": "Thermal Diode",
+   "depicts": "A 7x13 vertical thermal diode or temperature sensor on the die.",
+   "concept": "on-die thermal sensor",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-thermal-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-pll",
+   "kind": "prop",
+   "name": "Phase-Locked Loop",
+   "depicts": "A 15x13 phase-locked loop frequency multiplier block.",
+   "concept": "phase-locked loop clock synthesis",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-pll-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-jtag",
+   "kind": "prop",
+   "name": "JTAG Header",
+   "depicts": "An 18x12 multi-pin JTAG debug header or TAP controller.",
+   "concept": "JTAG hardware debug interface",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-jtag-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-rom",
+   "kind": "prop",
+   "name": "Mask ROM",
+   "depicts": "A 22x11 mask ROM block carrying immutable boot code.",
+   "concept": "immutable mask ROM",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-rom-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-htree",
+   "kind": "prop",
+   "name": "H-Tree Clock",
+   "depicts": "A 15x15 symmetric H-shaped clock distribution network.",
+   "concept": "H-tree clock distribution",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-htree-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-guard",
+   "kind": "prop",
+   "name": "Guard Ring",
+   "depicts": "A 15x17 guard ring or shield structure isolating sensitive silicon.",
+   "concept": "silicon guard ring",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-guard-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-gate",
+   "kind": "prop",
+   "name": "NAND Gate",
+   "depicts": "A 14x9 individual logic gate etched in silicon.",
+   "concept": "CMOS logic gate",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-gate-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-probe",
+   "kind": "prop",
+   "name": "Microprobe Needle",
+   "depicts": "A 7x15 sharp microprobe needle touching down on a die.",
+   "concept": "silicon microprobing",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-probe-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-align",
+   "kind": "prop",
+   "name": "Alignment Mark",
+   "depicts": "A 9x9 optical alignment target used during photolithography.",
+   "concept": "wafer alignment mark",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-align-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-bondwire",
+   "kind": "prop",
+   "name": "Gold Bondwire",
+   "depicts": "A 16x10 arched gold wire connecting a die pad to the package leadframe.",
+   "concept": "gold wire bonding",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-bondwire-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-capbank",
+   "kind": "prop",
+   "name": "Capacitor Bank",
+   "depicts": "A 14x9 row of matched capacitors forming a capacitor bank.",
+   "concept": "on-die capacitor bank",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-capbank-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-pulse",
+   "kind": "prop",
+   "name": "Rising Edge",
+   "depicts": "A 16x7 animated square-wave or clock pulse traveling along a line.",
+   "concept": "digital clock pulse",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-pulse-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-fiducial",
+   "kind": "prop",
+   "name": "Fiducial Marker",
+   "depicts": "An 11x11 circular or crosshair fiducial marker on a circuit board.",
+   "concept": "pick-and-place fiducial",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-fiducial-ring-3-v0.png"
+  },
+  {
+   "key": "e:r3-fusebank",
+   "kind": "prop",
+   "name": "Fuse Bank",
+   "depicts": "A 14x8 dense bank of programmable fuses.",
+   "concept": "eFuse configuration bank",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r3-fusebank-ring-3-v0.png"
+  },
+  {
+   "key": "c:ring-3:core",
+   "kind": "critter",
+   "name": "HECI Courier",
+   "depicts": "A 26x22 grid-bound critter with two sprite variants that steps along orthogonal silicon rails.",
+   "concept": "bus-clocked state machine",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-ring-3-core-v0.png"
+  }
+ ]
+}

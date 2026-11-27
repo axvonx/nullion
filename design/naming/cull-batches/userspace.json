@@ -1,0 +1,300 @@
+{
+ "layer": {
+  "id": "userspace",
+  "name": "OS userspace",
+  "daily": true
+ },
+ "reusedCopiesAlsoInThisLayer": 0,
+ "items": [
+  {
+   "key": "e:us-skyline",
+   "kind": "anchor",
+   "name": "Process Skyline",
+   "depicts": "Four dark-blue skyscrapers dotted with yellow and cyan lit windows, one topped by a spire and another by a cyan rooftop tank.",
+   "concept": "multi-process userspace cityscape",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-skyline-userspace-v0.png"
+  },
+  {
+   "key": "e:us-pid1",
+   "kind": "anchor",
+   "name": "Init Spire",
+   "depicts": "A tall grey observation tower with two catwalks, yellow and cyan windows, and a glowing green beacon at its summit.",
+   "concept": "init process (PID 1)",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-pid1-userspace-v0.png"
+  },
+  {
+   "key": "e:us-tower",
+   "kind": "prop",
+   "name": "Process Block",
+   "depicts": "A narrow blue high-rise block with lit yellow and cyan office windows, appearing in three height variants.",
+   "concept": "long-running user process",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-tower-userspace-v0.png"
+  },
+  {
+   "key": "e:us-manifold",
+   "kind": "prop",
+   "name": "Select Junction",
+   "depicts": "A grey horizontal pipe manifold fitted with four square sight-glass ports glowing cyan and green.",
+   "concept": "I/O multiplexing",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-manifold-userspace-v0.png"
+  },
+  {
+   "key": "e:us-sign",
+   "kind": "prop",
+   "name": "Journal Marquee",
+   "depicts": "A black horizontal marquee bordered in magenta displaying glowing pink pixel text reading JOURNAL.",
+   "concept": "systemd journal / syslog",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-sign-userspace-v0.png"
+  },
+  {
+   "key": "e:us-pipe",
+   "kind": "prop",
+   "name": "Unix Pipe",
+   "depicts": "An overhead grey horizontal conduit with two vertical drop-legs and two cyan flow indicators.",
+   "concept": "Unix anonymous pipe",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-pipe-userspace-v0.png"
+  },
+  {
+   "key": "e:us-tty",
+   "kind": "prop",
+   "name": "Teletype Terminal",
+   "depicts": "A grey-bezeled CRT monitor showing green text bars and a bright green block cursor on a black screen.",
+   "concept": "teletype terminal (TTY)",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-tty-userspace-v0.png"
+  },
+  {
+   "key": "e:us-crontower",
+   "kind": "prop",
+   "name": "Cron Tower",
+   "depicts": "A slender grey clock tower with a white clock face, black hands, three yellow windows, and a red beacon on top.",
+   "concept": "cron job scheduling",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-crontower-userspace-v0.png"
+  },
+  {
+   "key": "e:us-socket",
+   "kind": "prop",
+   "name": "Domain Socket",
+   "depicts": "A grey two-prong plug hovering beside a dark-grey two-hole receptacle.",
+   "concept": "IPC socket",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-socket-userspace-v0.png"
+  },
+  {
+   "key": "e:us-shm",
+   "kind": "prop",
+   "name": "Mmap Cistern",
+   "depicts": "A cyan water-tower tank with a pale-cyan level window resting on a cross-braced grey steel trestle.",
+   "concept": "POSIX shared memory",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-shm-userspace-v0.png"
+  },
+  {
+   "key": "e:us-signal",
+   "kind": "prop",
+   "name": "Signal Pennant",
+   "depicts": "A tall grey flagpole flying a waving two-tone red pennant.",
+   "concept": "POSIX signals",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-signal-userspace-v0.png"
+  },
+  {
+   "key": "e:us-pidplate",
+   "kind": "prop",
+   "name": "Process Plate",
+   "depicts": "A dark-blue rectangular license plate displaying white pixel numerals reading 564.",
+   "concept": "process identifier (PID)",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-pidplate-userspace-v0.png"
+  },
+  {
+   "key": "e:us-cabinet",
+   "kind": "prop",
+   "name": "Config Cabinet",
+   "depicts": "A grey three-drawer filing cabinet with dark-grey drawer fronts and yellow label strips.",
+   "concept": "etc configuration / file storage",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-cabinet-userspace-v0.png"
+  },
+  {
+   "key": "e:us-mailbox",
+   "kind": "prop",
+   "name": "Spool Mailbox",
+   "depicts": "A blue curbside mailbox on a grey post with a raised red flag and a black mail slot.",
+   "concept": "IPC message queue / local mail spool",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-mailbox-userspace-v0.png"
+  },
+  {
+   "key": "e:us-crate",
+   "kind": "prop",
+   "name": "Package Crate",
+   "depicts": "A brown shipping crate strapped with a yellow band and stamped with a white-bordered grey label.",
+   "concept": "tarball / software package",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-crate-userspace-v0.png"
+  },
+  {
+   "key": "e:us-fork",
+   "kind": "prop",
+   "name": "Fork Signpost",
+   "depicts": "A grey signpost splitting into two staggered green-and-white street-name blades.",
+   "concept": "fork() process branching",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-fork-userspace-v0.png"
+  },
+  {
+   "key": "e:us-callbox",
+   "kind": "prop",
+   "name": "Syscall Booth",
+   "depicts": "A blue emergency callbox on a dark base with a cyan indicator screen and a teal beacon light on top.",
+   "concept": "syscall / emergency trap",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-callbox-userspace-v0.png"
+  },
+  {
+   "key": "e:us-busbar",
+   "kind": "prop",
+   "name": "Message Busbar",
+   "depicts": "A horizontal grey-framed conduit carrying two dark-blue and teal rails with yellow and cyan pulse segments.",
+   "concept": "D-Bus / message bus",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-busbar-userspace-v0.png"
+  },
+  {
+   "key": "e:us-journal",
+   "kind": "prop",
+   "name": "Event Ledger",
+   "depicts": "A grey corner bracket beside four staggered horizontal log bars alternating red and dark grey.",
+   "concept": "system log / journald",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-journal-userspace-v0.png"
+  },
+  {
+   "key": "e:us-padlock",
+   "kind": "prop",
+   "name": "Advisory Padlock",
+   "depicts": "A bright yellow rectangular padlock with a grey shackle and a vertical black keyhole.",
+   "concept": "advisory file locks",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-padlock-userspace-v0.png"
+  },
+  {
+   "key": "e:us-firewall",
+   "kind": "prop",
+   "name": "Packet Firewall",
+   "depicts": "A low red-brick wall topped by four flickering yellow and red flames.",
+   "concept": "userspace firewall / packet filter",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-firewall-userspace-v0.png"
+  },
+  {
+   "key": "e:us-container",
+   "kind": "prop",
+   "name": "Shipping Container",
+   "depicts": "A corrugated green shipping container with a grey-framed door panel on the right.",
+   "concept": "Linux container / namespace",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-container-userspace-v0.png"
+  },
+  {
+   "key": "e:us-antenna",
+   "kind": "prop",
+   "name": "Tripod Antenna",
+   "depicts": "A grey tripod mast topped by a blinking red beacon.",
+   "concept": "network daemon / beacon",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-antenna-userspace-v0.png"
+  },
+  {
+   "key": "e:us-hydrant",
+   "kind": "prop",
+   "name": "Stdout Hydrant",
+   "depicts": "A red fire hydrant with bright-red side nozzles and cap on a dark-grey base.",
+   "concept": "high-throughput stream / emergency flush",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-hydrant-userspace-v0.png"
+  },
+  {
+   "key": "e:us-billboard",
+   "kind": "prop",
+   "name": "Motd Hoarding",
+   "depicts": "A cyan-framed rooftop billboard on two grey legs displaying a magenta bar above a yellow bar.",
+   "concept": "environment banner / MOTD",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-billboard-userspace-v0.png"
+  },
+  {
+   "key": "e:us-manhole",
+   "kind": "prop",
+   "name": "Syscall Hatch",
+   "depicts": "A circular grey iron manhole cover with a dark-grey rim and a black slot across the center.",
+   "concept": "kernel entry / /dev/null hatch",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-manhole-userspace-v0.png"
+  },
+  {
+   "key": "e:us-meter",
+   "kind": "prop",
+   "name": "Usage Meter",
+   "depicts": "A square grey parking-style meter on a post with a black face and a glowing green rectangular readout.",
+   "concept": "resource quota / CPU accounting",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-meter-userspace-v0.png"
+  },
+  {
+   "key": "e:us-vent",
+   "kind": "prop",
+   "name": "Louver Vent",
+   "depicts": "A dark-grey rectangular wall vent with three horizontal light-grey louver slats.",
+   "concept": "background exhaust / stdout/stderr",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-us-vent-userspace-v0.png"
+  },
+  {
+   "key": "c:userspace:core",
+   "kind": "critter",
+   "name": "Userspace Daemon",
+   "depicts": "A small red horned creature with yellow eyes and a trailing red tail, accompanied by a floating yellow square.",
+   "concept": "Unix background daemon",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-userspace-core-v0.png"
+  }
+ ]
+}

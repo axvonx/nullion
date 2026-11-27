@@ -1,0 +1,90 @@
+{
+ "layer": {
+  "id": "bandgap",
+  "name": "Bandgap & Tunneling",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 17,
+ "items": [
+  {
+   "key": "e:bg-diagram",
+   "kind": "anchor",
+   "name": "Valence Viaduct",
+   "depicts": "A wide semiconductor energy-band diagram with a dark navy conduction band above a cyan valence band, linked by five vertical transition rails each holding a pale blue carrier.",
+   "concept": "semiconductor energy band structure",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bg-diagram-bandgap-v0.png"
+  },
+  {
+   "key": "e:bg-band",
+   "kind": "prop",
+   "name": "Fermi Strait",
+   "depicts": "Two parallel horizontal energy bands in cyan and dark navy separated by a narrow white gap containing two pale blue carrier specks.",
+   "concept": "valence and conduction bands",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bg-band-bandgap-v0.png"
+  },
+  {
+   "key": "e:bg-tunnel",
+   "kind": "prop",
+   "name": "Evanescent Wall",
+   "depicts": "A tall vertical cyan potential barrier with a single square notch emerging along its left face to indicate a particle passing through.",
+   "concept": "quantum tunneling through gate oxide",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bg-tunnel-bandgap-v0.png"
+  },
+  {
+   "key": "e:bg-wave",
+   "kind": "prop",
+   "name": "Bloch Wave",
+   "depicts": "A pale ice-blue stepped pixel sine wave oscillating horizontally across a dark field.",
+   "concept": "electron wavefunction and Bloch waves",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bg-wave-bandgap-v0.png"
+  },
+  {
+   "key": "e:bg-hole",
+   "kind": "prop",
+   "name": "Positive Absence",
+   "depicts": "A hollow cyan octagonal pixel ring with an empty white interior representing an absent electron.",
+   "concept": "electron hole quasiparticle",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bg-hole-bandgap-v0.png"
+  },
+  {
+   "key": "e:bg-photonabs",
+   "kind": "prop",
+   "name": "Optical Promotion",
+   "depicts": "A diagonal pale blue photon ray striking a dark navy valence bar while a cyan carrier block sits elevated above it.",
+   "concept": "photoelectric carrier excitation",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bg-photonabs-bandgap-v0.png"
+  },
+  {
+   "key": "e:bg-recomb",
+   "kind": "prop",
+   "name": "Radiative Fall",
+   "depicts": "A horizontal dark navy barrier separating a pale blue square above from a cyan square below, animated to show carrier recombination.",
+   "concept": "electron-hole recombination",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bg-recomb-bandgap-v0.png"
+  },
+  {
+   "key": "c:bandgap:core",
+   "kind": "critter",
+   "name": "Tunnel Drifter",
+   "depicts": "A dark charcoal hollow square body with two asymmetrical grey side stubs that floats and snaps along a grid.",
+   "concept": "quantum charge carrier quasiparticle",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-bandgap-core-v0.png"
+  }
+ ]
+}

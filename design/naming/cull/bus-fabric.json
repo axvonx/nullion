@@ -1,0 +1,75 @@
+{
+  "layer": "bus-fabric",
+  "items": [
+    {
+      "key": "e:bf-pcieswitch",
+      "verdict": "keep",
+      "reason": "Layer anchor representing the PCIe Root Complex and switch fabric routing.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bf-crossbar",
+      "verdict": "keep",
+      "reason": "Distinct grid visual representing non-blocking crossbar interconnect.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bf-dmaring",
+      "verdict": "keep",
+      "reason": "Strong representation of a DMA circular descriptor ring, central to bus-fabric I/O.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bf-mmio",
+      "verdict": "keep",
+      "reason": "Essential PCIe Base Address Register (BAR) and MMIO aperture concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bf-retimer",
+      "verdict": "delete",
+      "reason": "Low-priority generic rectangle with a single bar that is visually indistinct.",
+      "similarTo": null,
+      "replacement": "a PCIe hot-plug surprise-removal latch"
+    },
+    {
+      "key": "e:bf-msix",
+      "verdict": "keep",
+      "reason": "Specific and important PCIe MSI-X message-signaled interrupt table concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bf-lane",
+      "verdict": "delete",
+      "reason": "Two plain parallel stripes are generic filler rather than a memorable prop.",
+      "similarTo": null,
+      "replacement": "a PCIe credit-based flow-control counter"
+    },
+    {
+      "key": "e:bf-iommu",
+      "verdict": "keep",
+      "reason": "High-priority, essential concept for DMA address remapping and device isolation.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:bus-fabric:core",
+      "verdict": "keep",
+      "reason": "Core critter species representing a PCIe Transaction Layer Packet (TLP).",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:bus-fabric:alt",
+      "verdict": "delete",
+      "reason": "Alternate critter that is visually too similar to the core Bus Flit.",
+      "similarTo": "c:bus-fabric:core",
+      "replacement": null
+    }
+  ]
+}

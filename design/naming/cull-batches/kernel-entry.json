@@ -1,0 +1,110 @@
+{
+ "layer": {
+  "id": "kernel-entry",
+  "name": "Kernel Entry & VFS Gate",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 17,
+ "items": [
+  {
+   "key": "e:ke-gatehouse",
+   "kind": "anchor",
+   "name": "Syscall Gatehouse",
+   "depicts": "A grey stone-like gatehouse archway framing a black opening barred by five vertical cyan portcullis rods resting on a yellow crossbar.",
+   "concept": "syscall boundary and privilege-ring transition",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ke-gatehouse-kernel-entry-v0.png"
+  },
+  {
+   "key": "e:ke-seccomp",
+   "kind": "prop",
+   "name": "Seccomp Sieve",
+   "depicts": "A cyan-framed black panel displaying three horizontal status bars of decreasing length in green, yellow, and red.",
+   "concept": "seccomp-bpf syscall filtering",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ke-seccomp-kernel-entry-v0.png"
+  },
+  {
+   "key": "e:ke-uaccess",
+   "kind": "prop",
+   "name": "Uaccess Gangplank",
+   "depicts": "A blue block on the left and a dark-grey block on the right separated by a white chasm bridged by a single yellow span.",
+   "concept": "safe user-to-kernel memory copy (uaccess / SMAP)",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ke-uaccess-kernel-entry-v0.png"
+  },
+  {
+   "key": "e:ke-sysgate",
+   "kind": "prop",
+   "name": "Sysenter Arch",
+   "depicts": "Two grey vertical pillars beneath a wide cyan lintel with a floating yellow barrier bar across the archway.",
+   "concept": "SYSCALL / SYSENTER trap gate",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ke-sysgate-kernel-entry-v0.png"
+  },
+  {
+   "key": "e:ke-ptrace",
+   "kind": "prop",
+   "name": "Ptrace Mirror",
+   "depicts": "A magenta-framed black screen displaying two vertical rectangular panes side by side, one cyan and one yellow.",
+   "concept": "process tracing and syscall interception (ptrace)",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ke-ptrace-kernel-entry-v0.png"
+  },
+  {
+   "key": "e:ke-cred",
+   "kind": "prop",
+   "name": "Credential Badge",
+   "depicts": "A cyan-bordered dark-blue square badge displaying a white head-and-shoulders silhouette.",
+   "concept": "task credentials (struct cred, UID/GID, capabilities)",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ke-cred-kernel-entry-v0.png"
+  },
+  {
+   "key": "e:ke-fdtable",
+   "kind": "prop",
+   "name": "Descriptor Table",
+   "depicts": "A grey-bordered black slate displaying four horizontal bright-green bars of increasing length stacked vertically.",
+   "concept": "per-process file descriptor table (fdtable)",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ke-fdtable-kernel-entry-v0.png"
+  },
+  {
+   "key": "e:ke-vdso",
+   "kind": "prop",
+   "name": "vDSO Bypass",
+   "depicts": "A horizontal cyan strip pierced by two vertical yellow pillars, forming a compact bypass conduit.",
+   "concept": "vDSO fast-path syscall bypass",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ke-vdso-kernel-entry-v0.png"
+  },
+  {
+   "key": "c:kernel-entry:core",
+   "kind": "critter",
+   "name": "Syscall Clerk",
+   "depicts": "A small black-bezelled cyan monitor screen with a rightward-facing black notch, perched on a compact grey pedestal foot.",
+   "concept": "syscall entry-stub gatekeeper patrolling the ring boundary",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-kernel-entry-core-v0.png"
+  },
+  {
+   "key": "c:kernel-entry:alt",
+   "kind": "critter-alt",
+   "name": "Dentry Runner",
+   "depicts": "A compact cyan rectangular block with a single black square eye in the centre and a flat grey cap resting on top.",
+   "concept": "VFS path-lookup / dentry courier hopping across the gate",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-kernel-entry-alt-v1.png"
+  }
+ ]
+}

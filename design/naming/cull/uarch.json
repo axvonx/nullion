@@ -1,0 +1,75 @@
+{
+  "layer": "uarch",
+  "items": [
+    {
+      "key": "e:ua-pipeline",
+      "verdict": "keep",
+      "reason": "Layer anchor representing the foundational instruction pipeline stages.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ua-rob",
+      "verdict": "keep",
+      "reason": "Strong, distinct representation of out-of-order commit via the reorder buffer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ua-bpred",
+      "verdict": "keep",
+      "reason": "Iconic microarchitecture concept with a clear, recognizable forking-trace sprite.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ua-l1",
+      "verdict": "keep",
+      "reason": "Essential memory-hierarchy landmark representing the L1 cache.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ua-alu",
+      "verdict": "keep",
+      "reason": "Classic, immediately recognizable notched-chevron ALU symbol.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ua-btb",
+      "verdict": "delete",
+      "reason": "Overlaps conceptually with the Branch Predictor and is visually just a generic barred rectangle.",
+      "similarTo": "e:ua-bpred",
+      "replacement": null
+    },
+    {
+      "key": "e:ua-rs",
+      "verdict": "delete",
+      "reason": "Visually and conceptually too close to the Reorder Buffer as a slotted out-of-order structure.",
+      "similarTo": "e:ua-rob",
+      "replacement": null
+    },
+    {
+      "key": "e:ua-prefetch",
+      "verdict": "delete",
+      "reason": "Visually abstract three-block sprite that is weaker than L1 Cache for representing memory hierarchy.",
+      "similarTo": null,
+      "replacement": "a register-renaming scoreboard"
+    },
+    {
+      "key": "c:uarch:core",
+      "verdict": "keep",
+      "reason": "Core critter species for the microarchitecture layer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:uarch:alt",
+      "verdict": "delete",
+      "reason": "Alternate critter consisting of two tiny adjacent squares is visually weak and redundant with the core Micro-Op.",
+      "similarTo": "c:uarch:core",
+      "replacement": null
+    }
+  ]
+}

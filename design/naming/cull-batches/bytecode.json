@@ -1,0 +1,90 @@
+{
+ "layer": {
+  "id": "bytecode",
+  "name": "AST & Bytecode",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 15,
+ "items": [
+  {
+   "key": "e:bc-parsetree",
+   "kind": "anchor",
+   "name": "Parse Tree",
+   "depicts": "A large symmetrical three-tier tree with a framed yellow root node, orange and green intermediate nodes, and four yellow-rimmed dark-navy leaf boxes linked by stepped diagonal edges.",
+   "concept": "concrete parse tree",
+   "priority": 5,
+   "ownerDecision": "keep",
+   "sprite": "design/naming/sprites/e-bc-parsetree-bytecode-v0.png"
+  },
+  {
+   "key": "e:bc-ast",
+   "kind": "prop",
+   "name": "Pruned Expression",
+   "depicts": "A compact, asymmetric tree of borderless blocks with a yellow root branching to orange and green children, and only the left branch splitting further into pale-yellow and light-blue leaves.",
+   "concept": "abstract syntax tree",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bc-ast-bytecode-v0.png"
+  },
+  {
+   "key": "e:bc-token",
+   "kind": "prop",
+   "name": "Lexeme Tray",
+   "depicts": "A dark-navy rectangular tray holding four evenly spaced vertical coloured tiles in yellow, green, light blue, and coral.",
+   "concept": "lexical token stream",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bc-token-bytecode-v0.png"
+  },
+  {
+   "key": "e:bc-constpool",
+   "kind": "prop",
+   "name": "Constant Pool",
+   "depicts": "A lavender-bordered dark-navy box containing four left-aligned horizontal bars of varying lengths, three steel blue and one highlighted in yellow.",
+   "concept": "bytecode constant pool",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bc-constpool-bytecode-v0.png"
+  },
+  {
+   "key": "e:bc-lexer",
+   "kind": "prop",
+   "name": "Maximal Muncher",
+   "depicts": "A yellow-bordered dark-navy window framing three distinct coloured rectangles in green, orange, and light blue of increasing widths from left to right.",
+   "concept": "lexical analyzer",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bc-lexer-bytecode-v0.png"
+  },
+  {
+   "key": "e:bc-cfg",
+   "kind": "prop",
+   "name": "Control-Flow Fork",
+   "depicts": "A yellow-framed dark box at the top with stepped lavender paths diverging downward to a green-framed box on the left and a coral-framed box on the right.",
+   "concept": "control-flow graph",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bc-cfg-bytecode-v0.png"
+  },
+  {
+   "key": "c:bytecode:core",
+   "kind": "critter",
+   "name": "Gilded Nodelet",
+   "depicts": "A tiny dark-navy rectangular frame enclosing a bright yellow core, flanked by two pale-yellow single-pixel side tabs like stubby wings.",
+   "concept": "syntax-tree node token",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-bytecode-core-v0.png"
+  },
+  {
+   "key": "c:bytecode:alt",
+   "kind": "critter-alt",
+   "name": "Opcode Tile",
+   "depicts": "A compact dark-navy horizontal tile containing a narrow yellow bar on the left and a wider green square on the right, resembling an opcode-and-operand pair.",
+   "concept": "bytecode opcode and operand pair",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-bytecode-alt-v1.png"
+  }
+ ]
+}

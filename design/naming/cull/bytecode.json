@@ -1,0 +1,61 @@
+{
+  "layer": "bytecode",
+  "items": [
+    {
+      "key": "e:bc-parsetree",
+      "verdict": "keep",
+      "reason": "Layer anchor with owner keep decision representing the concrete parse tree.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bc-ast",
+      "verdict": "keep",
+      "reason": "Core concept of the layer with a distinct asymmetric tree silhouette.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bc-token",
+      "verdict": "delete",
+      "reason": "Redundant with the higher-priority lexical analyzer prop covering the same lexing concept.",
+      "similarTo": "e:bc-lexer",
+      "replacement": null
+    },
+    {
+      "key": "e:bc-constpool",
+      "verdict": "delete",
+      "reason": "Priority 1 generic box of horizontal bars that is visually weak and indistinct.",
+      "similarTo": null,
+      "replacement": "a stack-machine operand stack with pushed and popped value blocks"
+    },
+    {
+      "key": "e:bc-lexer",
+      "verdict": "keep",
+      "reason": "Strongest representative of lexical analysis and maximal munch in this layer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bc-cfg",
+      "verdict": "keep",
+      "reason": "Distinct branching visual representing control-flow graphs.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:bytecode:core",
+      "verdict": "keep",
+      "reason": "Core species critter for the bytecode layer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:bytecode:alt",
+      "verdict": "keep",
+      "reason": "High-priority alternate critter clearly depicting an opcode-and-operand pair.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

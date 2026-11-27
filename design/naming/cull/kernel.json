@@ -1,0 +1,208 @@
+{
+  "layer": "kernel",
+  "items": [
+    {
+      "key": "e:kr-furnace",
+      "verdict": "keep",
+      "reason": "Layer anchor representing the kernel core execution engine with a distinctive furnace-and-gears silhouette.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-systable",
+      "verdict": "keep",
+      "reason": "Layer anchor depicting the system call dispatch table with an active indexed slot.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-gears",
+      "verdict": "delete",
+      "reason": "Generic mechanical filler that does not represent a specific kernel concept worth a manual page.",
+      "similarTo": null,
+      "replacement": "a NUMA node interconnect bridge"
+    },
+    {
+      "key": "e:kr-dmesg",
+      "verdict": "keep",
+      "reason": "Iconic representation of the kernel ring buffer log output showing recognizable log fragments.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-gauge",
+      "verdict": "keep",
+      "reason": "High-priority prop representing kernel Pressure Stall Information (PSI) telemetry.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-piston",
+      "verdict": "delete",
+      "reason": "Visually unclear generic cylinder-and-rail filler without a distinct computing concept.",
+      "similarTo": null,
+      "replacement": "a kernel panic oops tombstone"
+    },
+    {
+      "key": "e:kr-leds",
+      "verdict": "delete",
+      "reason": "Generic LED indicator panel that is visually indistinct and too minor for its own page.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-schedwheel",
+      "verdict": "keep",
+      "reason": "Distinctive spoked wheel visual that clearly conveys round-robin and timer-wheel scheduling.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-pagetable",
+      "verdict": "keep",
+      "reason": "Strong four-drawer cabinet metaphor for multi-level virtual-to-physical page tables.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-irqbell",
+      "verdict": "keep",
+      "reason": "Clear, recognizable hardware interrupt request bell.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-turnstile",
+      "verdict": "delete",
+      "reason": "Redundant synchronization prop whose concept is better covered by the core mutex.",
+      "similarTo": "e:kr-mutex",
+      "replacement": null
+    },
+    {
+      "key": "e:kr-slab",
+      "verdict": "keep",
+      "reason": "Distinctive compartmentalized tray representing the slab memory allocator.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-ticker",
+      "verdict": "keep",
+      "reason": "Clear visual of periodic timer ticks and jiffies.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-gate",
+      "verdict": "delete",
+      "reason": "Too similar in both visual form (portcullis archway) and concept to the Syscall Gatehouse in kernel-entry.",
+      "similarTo": "e:ke-gatehouse",
+      "replacement": null
+    },
+    {
+      "key": "e:kr-runqueue",
+      "verdict": "delete",
+      "reason": "Redundant scheduler prop; the Round-Robin Wheel is a stronger visual for runnable task scheduling.",
+      "similarTo": "e:kr-schedwheel",
+      "replacement": null
+    },
+    {
+      "key": "e:kr-mutex",
+      "verdict": "keep",
+      "reason": "Classic, recognizable padlock representation of mutual exclusion locks in the kernel.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-irqmeter",
+      "verdict": "delete",
+      "reason": "Generic four-bar chart that is redundant with the Interrupt Bell for representing interrupts.",
+      "similarTo": "e:kr-irqbell",
+      "replacement": null
+    },
+    {
+      "key": "e:kr-tlb",
+      "verdict": "keep",
+      "reason": "Strong cache-grid representation of the translation lookaside buffer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-schedrack",
+      "verdict": "delete",
+      "reason": "Generic progress-bar panel that is redundant with the Round-Robin Wheel for scheduler accounting.",
+      "similarTo": "e:kr-schedwheel",
+      "replacement": null
+    },
+    {
+      "key": "e:kr-semaphore",
+      "verdict": "keep",
+      "reason": "Iconic traffic-signal housing representing Dijkstra counting semaphores.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-ringbuf",
+      "verdict": "delete",
+      "reason": "Redundant with the Dmesg Marquee, which already represents the kernel ring buffer.",
+      "similarTo": "e:kr-dmesg",
+      "replacement": null
+    },
+    {
+      "key": "e:kr-wdtimer",
+      "verdict": "keep",
+      "reason": "High-priority prop representing the hardware and kernel watchdog timer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-vfs",
+      "verdict": "keep",
+      "reason": "Distinctive multi-conduit junction hub representing the Virtual File System switch.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-futex",
+      "verdict": "delete",
+      "reason": "Visually plain two-cell box that is redundant with the Sleeping Padlock for mutex synchronization.",
+      "similarTo": "e:kr-mutex",
+      "replacement": null
+    },
+    {
+      "key": "e:kr-epoll",
+      "verdict": "keep",
+      "reason": "Represents scalable I/O event notification (epoll), a key kernel concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-cgroups",
+      "verdict": "keep",
+      "reason": "Clear nested-box visual for control groups (cgroups) resource partitioning.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:kr-workq",
+      "verdict": "delete",
+      "reason": "Generic rail with alternating squares that overlaps with other scheduling and queue props.",
+      "similarTo": "e:kr-schedwheel",
+      "replacement": null
+    },
+    {
+      "key": "e:kr-buddy",
+      "verdict": "keep",
+      "reason": "Visually clear power-of-two subdivision diagram for the buddy memory allocator.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:kernel:core",
+      "verdict": "keep",
+      "reason": "Core species critter representing kernel threads (kthreads).",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

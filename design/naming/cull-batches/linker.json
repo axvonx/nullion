@@ -1,0 +1,110 @@
+{
+ "layer": {
+  "id": "linker",
+  "name": "Dynamic Linker / ABI",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 17,
+ "items": [
+  {
+   "key": "e:ld-switchboard",
+   "kind": "anchor",
+   "name": "Symbol Switchboard",
+   "depicts": "A black switchboard frame with five grey jack blocks on the left wired by criss-crossing yellow and orange patch cords to five amber blocks on the right.",
+   "concept": "dynamic symbol resolution",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ld-switchboard-linker-v0.png"
+  },
+  {
+   "key": "e:ld-elf",
+   "kind": "prop",
+   "name": "ELF Header",
+   "depicts": "A grey-framed dark plate with a deep blue header band above a short yellow bar and a longer grey bar.",
+   "concept": "ELF executable header",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ld-elf-linker-v0.png"
+  },
+  {
+   "key": "e:ld-plt",
+   "kind": "prop",
+   "name": "Trampoline Bridge",
+   "depicts": "Two dark vertical panels framed in grey and yellow, bridged across a central gap by crossing orange and teal diagonal tracks.",
+   "concept": "Procedure Linkage Table",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ld-plt-linker-v0.png"
+  },
+  {
+   "key": "e:ld-reloc",
+   "kind": "prop",
+   "name": "Offset Fixup",
+   "depicts": "Two vertical blocks, one bright yellow and one brown, threaded side by side onto a single horizontal grey rail.",
+   "concept": "relocation entries",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ld-reloc-linker-v0.png"
+  },
+  {
+   "key": "e:ld-got",
+   "kind": "prop",
+   "name": "Indirection Ledger",
+   "depicts": "A grey-framed black panel holding four horizontal bars, three dark grey and the second illuminated in bright yellow.",
+   "concept": "Global Offset Table",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ld-got-linker-v0.png"
+  },
+  {
+   "key": "e:ld-soname",
+   "kind": "prop",
+   "name": "SONAME Tag",
+   "depicts": "A brown-framed cream plaque showing a long dark-grey bar above a shorter brown bar, like a two-line name and version plate.",
+   "concept": "ELF SONAME versioning",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ld-soname-linker-v0.png"
+  },
+  {
+   "key": "e:ld-rpath",
+   "kind": "prop",
+   "name": "RPATH Signpost",
+   "depicts": "Three vertical bars in yellow, teal, and orange spaced evenly across a single horizontal grey rail.",
+   "concept": "RPATH library search order",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ld-rpath-linker-v0.png"
+  },
+  {
+   "key": "e:ld-lazy",
+   "kind": "prop",
+   "name": "Deferred Resolver",
+   "depicts": "A grey-bordered white card containing a dark grey horizontal bar over a shorter bright-yellow bar.",
+   "concept": "lazy symbol binding",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ld-lazy-linker-v0.png"
+  },
+  {
+   "key": "c:linker:core",
+   "kind": "critter",
+   "name": "Bind-Time Beetle",
+   "depicts": "A small brown boxy creature with a yellow top ridge, two stubby grey legs underneath, and a pale-yellow plug prong extending to the right.",
+   "concept": "dynamic linker daemon (ld.so)",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-linker-core-v0.png"
+  },
+  {
+   "key": "c:linker:alt",
+   "kind": "critter-alt",
+   "name": "Unbound Plug",
+   "depicts": "A smaller legless brown block with a pale-yellow top-left tab and a bright-yellow prong projecting to the right.",
+   "concept": "unresolved symbol stub",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-linker-alt-v1.png"
+  }
+ ]
+}

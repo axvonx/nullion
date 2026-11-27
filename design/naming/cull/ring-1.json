@@ -1,0 +1,208 @@
+{
+  "layer": "ring-1",
+  "items": [
+    {
+      "key": "e:r1-mirrorgate",
+      "verdict": "keep",
+      "reason": "Landmark anchor for the layer representing VMX root/non-root state mirroring.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-portal",
+      "verdict": "keep",
+      "reason": "Landmark anchor representing VM entry and exit transitions.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-mirror",
+      "verdict": "delete",
+      "reason": "Redundant with The Symmetry Gate, depicting the same mirrored-screens concept and visual.",
+      "similarTo": "e:r1-mirrorgate",
+      "replacement": null
+    },
+    {
+      "key": "e:r1-tunnel",
+      "verdict": "delete",
+      "reason": "Visually a generic nested archway that overlaps with VMENTRY Threshold.",
+      "similarTo": "e:r1-portal",
+      "replacement": null
+    },
+    {
+      "key": "e:r1-tag",
+      "verdict": "delete",
+      "reason": "Just text on a placard; weak visual filler when Context-Switch Twins already represents VMCS.",
+      "similarTo": "e:r1-vmcs",
+      "replacement": null
+    },
+    {
+      "key": "e:r1-glass",
+      "verdict": "delete",
+      "reason": "Generic glass shard filler that does not clearly communicate hypervisor isolation.",
+      "similarTo": "e:r1-bubble",
+      "replacement": "an EPT violation fault-handler badge"
+    },
+    {
+      "key": "e:r1-bubble",
+      "verdict": "keep",
+      "reason": "Distinct orb visual representing an isolated VM sandbox.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-ept",
+      "verdict": "keep",
+      "reason": "Represents Extended Page Tables, a core hardware virtualization concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-vcpu",
+      "verdict": "keep",
+      "reason": "Clear, recognizable chip icon for the fundamental virtual CPU concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-vmcs",
+      "verdict": "keep",
+      "reason": "Distinctive twin-face visual for the VMCS guest/host state area.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-trapdoor",
+      "verdict": "keep",
+      "reason": "Iconic open-hatch visual for trap-and-emulate privileged instruction handling.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-shadowpage",
+      "verdict": "keep",
+      "reason": "Distinctive sentinel eye representing shadow page tables.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-dolls",
+      "verdict": "keep",
+      "reason": "Evocative concentric-dome visual for nested virtualization.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-mempress",
+      "verdict": "keep",
+      "reason": "Clear mechanical press visual for memory ballooning and page compression.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-migrate",
+      "verdict": "keep",
+      "reason": "Represents live VM migration, a key hypervisor capability.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-snapshot",
+      "verdict": "keep",
+      "reason": "Recognizable camera-shutter visual for VM state snapshots.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-hypercall",
+      "verdict": "keep",
+      "reason": "Represents VMCALL hypercalls, a core guest-to-hypervisor mechanism.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-vswitch",
+      "verdict": "keep",
+      "reason": "Distinctive multi-port hub visual for virtual network switching.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-cage",
+      "verdict": "delete",
+      "reason": "Redundant with Sandbox Sphere for representing hypervisor isolation.",
+      "similarTo": "e:r1-bubble",
+      "replacement": null
+    },
+    {
+      "key": "e:r1-split",
+      "verdict": "delete",
+      "reason": "Visually too similar to The Symmetry Gate with its side-by-side screens.",
+      "similarTo": "e:r1-mirrorgate",
+      "replacement": null
+    },
+    {
+      "key": "e:r1-iommu",
+      "verdict": "keep",
+      "reason": "Represents IOMMU / VT-d DMA remapping, an essential hardware virtualization concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-clone",
+      "verdict": "delete",
+      "reason": "Visually generic pair of rectangles that overlaps with Grace Period in kernel-arch.",
+      "similarTo": "e:kr-rcu",
+      "replacement": null
+    },
+    {
+      "key": "e:r1-timeslice",
+      "verdict": "delete",
+      "reason": "Hourglass visual is already used by Timeout Glass in libraries and Async Promise in runtime.",
+      "similarTo": "e:lib-hourglass",
+      "replacement": "a vCPU steal-time meter"
+    },
+    {
+      "key": "e:r1-nested",
+      "verdict": "delete",
+      "reason": "Redundant with Matryoshka Hypervisor, which conveys nested virtualization more clearly.",
+      "similarTo": "e:r1-dolls",
+      "replacement": null
+    },
+    {
+      "key": "e:r1-paravirt",
+      "verdict": "keep",
+      "reason": "Represents paravirtualization, a distinct and important virtualization model.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r1-vram",
+      "verdict": "delete",
+      "reason": "Generic rectangle with horizontal bars representing a minor concept compared to core VMX props.",
+      "similarTo": null,
+      "replacement": "a VM-exit reason MSR dial"
+    },
+    {
+      "key": "e:r1-vmexit",
+      "verdict": "delete",
+      "reason": "Redundant with Trap-and-Emulate and VMENTRY Threshold for representing VM exits.",
+      "similarTo": "e:r1-trapdoor",
+      "replacement": null
+    },
+    {
+      "key": "e:r1-console",
+      "verdict": "delete",
+      "reason": "Generic screen with bars that overlaps with Teletype Terminal in userspace.",
+      "similarTo": "e:us-tty",
+      "replacement": null
+    },
+    {
+      "key": "c:ring-1:core",
+      "verdict": "keep",
+      "reason": "Core critter species for the ring-1 layer.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

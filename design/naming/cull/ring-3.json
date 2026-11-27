@@ -1,0 +1,201 @@
+{
+  "layer": "ring-3",
+  "items": [
+    {
+      "key": "e:r3-me",
+      "verdict": "keep",
+      "reason": "Layer anchor representing the Intel Management Engine silicon die package.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-vias",
+      "verdict": "keep",
+      "reason": "Distinct copper-plated through-hole via cluster representing inter-layer PCB connections.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-pad",
+      "verdict": "keep",
+      "reason": "High-priority die bond pad representing external silicon probing and wire bonding.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-trace",
+      "verdict": "delete",
+      "reason": "Generic etched copper trace that overlaps with crosstalk lanes in the CMOS layer.",
+      "similarTo": "e:cm-metal",
+      "replacement": null
+    },
+    {
+      "key": "e:r3-decap",
+      "verdict": "delete",
+      "reason": "Tiny surface-mount decoupling capacitor redundant with the on-die capacitor bank.",
+      "similarTo": "e:r3-capbank",
+      "replacement": null
+    },
+    {
+      "key": "e:r3-xtal",
+      "verdict": "keep",
+      "reason": "Animated quartz crystal oscillator providing a clear piezoelectric clock reference.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-testpads",
+      "verdict": "delete",
+      "reason": "Row of gold test pads that duplicates the higher-priority bonding pad.",
+      "similarTo": "e:r3-pad",
+      "replacement": null
+    },
+    {
+      "key": "e:r3-fuses",
+      "verdict": "delete",
+      "reason": "Programmable fuse array redundant with the higher-priority fuse bank in this layer.",
+      "similarTo": "e:r3-fusebank",
+      "replacement": null
+    },
+    {
+      "key": "e:r3-resistor",
+      "verdict": "delete",
+      "reason": "Generic low-priority surface-mount resistor with weak conceptual tie to the Management Engine.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-diode",
+      "verdict": "delete",
+      "reason": "Generic low-priority semiconductor diode overshadowed by the on-die thermal diode.",
+      "similarTo": "e:r3-thermal",
+      "replacement": null
+    },
+    {
+      "key": "e:r3-inductor",
+      "verdict": "delete",
+      "reason": "Generic low-priority power inductor filler without a strong silicon or ME concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-sram",
+      "verdict": "keep",
+      "reason": "High-priority on-die static RAM block essential to the Management Engine.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-ringosc",
+      "verdict": "keep",
+      "reason": "High-priority animated ring oscillator representing on-die clock generation.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-thermal",
+      "verdict": "keep",
+      "reason": "Distinct on-die thermal diode representing silicon temperature sensing.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-pll",
+      "verdict": "keep",
+      "reason": "Distinct phase-locked loop block representing clock frequency synthesis.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-jtag",
+      "verdict": "delete",
+      "reason": "Duplicates the JTAG header already present in the firmware layer.",
+      "similarTo": "e:fw-jtag",
+      "replacement": null
+    },
+    {
+      "key": "e:r3-rom",
+      "verdict": "keep",
+      "reason": "Distinct mask ROM block representing immutable boot code.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-htree",
+      "verdict": "delete",
+      "reason": "Duplicates the clock H-tree already present in the RTL layer.",
+      "similarTo": "e:rtl-htree",
+      "replacement": null
+    },
+    {
+      "key": "e:r3-guard",
+      "verdict": "keep",
+      "reason": "High-priority silicon guard ring representing isolation of sensitive circuitry.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-gate",
+      "verdict": "delete",
+      "reason": "Duplicates the NAND gate already present in the RTL layer.",
+      "similarTo": "e:rtl-nand",
+      "replacement": null
+    },
+    {
+      "key": "e:r3-probe",
+      "verdict": "keep",
+      "reason": "Distinct microprobe needle representing physical silicon probing and fault analysis.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-align",
+      "verdict": "keep",
+      "reason": "Distinct wafer alignment mark representing photolithography registration.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-bondwire",
+      "verdict": "keep",
+      "reason": "Distinct gold bondwire connecting the silicon die to its package leadframe.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-capbank",
+      "verdict": "keep",
+      "reason": "Distinct on-die capacitor bank representing matched capacitive arrays.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-pulse",
+      "verdict": "keep",
+      "reason": "Animated rising-edge clock pulse clearly illustrating digital signal transitions.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-fiducial",
+      "verdict": "delete",
+      "reason": "Generic PCB pick-and-place fiducial marker with little conceptual value for a man page.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:r3-fusebank",
+      "verdict": "keep",
+      "reason": "High-priority eFuse configuration bank representing one-time programmable silicon.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:ring-3:core",
+      "verdict": "keep",
+      "reason": "Core critter of the ring-3 layer representing a bus-clocked state machine.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

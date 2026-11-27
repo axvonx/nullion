@@ -1,0 +1,110 @@
+{
+ "layer": {
+  "id": "uarch",
+  "name": "Microarchitecture",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 16,
+ "items": [
+  {
+   "key": "e:ua-pipeline",
+   "kind": "anchor",
+   "name": "Instruction Pipeline",
+   "depicts": "Four dark vertical stage boxes connected by short pale-blue links, with the third stage highlighted in white.",
+   "concept": "instruction pipeline stages",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ua-pipeline-uarch-v0.png"
+  },
+  {
+   "key": "e:ua-rob",
+   "kind": "prop",
+   "name": "Reorder Buffer",
+   "depicts": "A dark horizontal bar containing five vertical slots, three lit in cyan and two dim navy.",
+   "concept": "reorder buffer",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ua-rob-uarch-v0.png"
+  },
+  {
+   "key": "e:ua-bpred",
+   "kind": "prop",
+   "name": "Branch Predictor",
+   "depicts": "A pale-blue horizontal trace splitting into an upward pale-blue branch and a downward dark-navy branch.",
+   "concept": "branch prediction",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ua-bpred-uarch-v0.png"
+  },
+  {
+   "key": "e:ua-l1",
+   "kind": "prop",
+   "name": "L1 Cache",
+   "depicts": "A cyan-bordered dark rectangle holding a 4x3 checkerboard grid of navy and pale-blue squares.",
+   "concept": "L1 cache",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ua-l1-uarch-v0.png"
+  },
+  {
+   "key": "e:ua-alu",
+   "kind": "prop",
+   "name": "Arithmetic Logic Unit",
+   "depicts": "A pale-blue octagonal outline with a cyan chevron notch pointing inward from the left.",
+   "concept": "arithmetic logic unit",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ua-alu-uarch-v0.png"
+  },
+  {
+   "key": "e:ua-btb",
+   "kind": "prop",
+   "name": "Branch Target Buffer",
+   "depicts": "A cyan-bordered dark rectangle containing three horizontal navy bars of increasing length.",
+   "concept": "branch target buffer",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ua-btb-uarch-v0.png"
+  },
+  {
+   "key": "e:ua-rs",
+   "kind": "prop",
+   "name": "Reservation Station",
+   "depicts": "A white rectangle framed in cyan holding four vertical slots, three navy and one pale blue.",
+   "concept": "reservation station",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ua-rs-uarch-v0.png"
+  },
+  {
+   "key": "e:ua-prefetch",
+   "kind": "prop",
+   "name": "Hardware Prefetcher",
+   "depicts": "Three cyan vertical blocks straddling a horizontal dark-navy line.",
+   "concept": "hardware prefetcher",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ua-prefetch-uarch-v0.png"
+  },
+  {
+   "key": "c:uarch:core",
+   "kind": "critter",
+   "name": "Micro-Op",
+   "depicts": "A small grey-bordered black rectangle on a 26x22 canvas.",
+   "concept": "micro-op",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-uarch-core-v0.png"
+  },
+  {
+   "key": "c:uarch:alt",
+   "kind": "critter-alt",
+   "name": "Fused Micro-Op",
+   "depicts": "Two tiny adjacent squares, one light grey and one dark charcoal, on a 26x22 canvas.",
+   "concept": "paired micro-ops",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-uarch-alt-v1.png"
+  }
+ ]
+}

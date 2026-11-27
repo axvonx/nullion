@@ -1,0 +1,89 @@
+{
+ "layer": "internet",
+ "items": [
+  {
+   "key": "e:net-ixp",
+   "verdict": "keep",
+   "reason": "Layer anchor and owner-marked keep representing Internet Exchange Point peering.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:net-bgp",
+   "verdict": "keep",
+   "reason": "Core concept of the Internet/BGP layer representing BGP routing tables and prefix announcements.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:net-cable",
+   "verdict": "keep",
+   "reason": "Distinctive, recognizable submarine fiber-optic trunk cable prop.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:net-dns",
+   "verdict": "keep",
+   "reason": "Essential Internet concept representing DNS zone records and resolution.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:net-asn",
+   "verdict": "delete",
+   "reason": "Generic cloud silhouette that overlaps visually with Eventual Cloud and conceptually with BGP routing.",
+   "similarTo": "e:app-cloudsync",
+   "replacement": null
+  },
+  {
+   "key": "e:net-fiber",
+   "verdict": "delete",
+   "reason": "Low-priority thin line that is redundant with Abyssal Trunkline for fiber-optic transmission.",
+   "similarTo": "e:net-cable",
+   "replacement": null
+  },
+  {
+   "key": "e:net-router",
+   "verdict": "keep",
+   "reason": "Recognizable hardware prop representing edge routers and packet forwarding.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:net-dish",
+   "verdict": "delete",
+   "reason": "Secondary backhaul prop whose orbital relay concept is already covered by Ping Probe.",
+   "similarTo": "c:internet:alt",
+   "replacement": null
+  },
+  {
+   "key": "e:net-packet",
+   "verdict": "keep",
+   "reason": "Fundamental networking concept representing IP datagrams and packet encapsulation.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:net-tls",
+   "verdict": "delete",
+   "reason": "Generic padlock icon that duplicates padlock props in other layers.",
+   "similarTo": "e:us-padlock",
+   "replacement": null
+  },
+  {
+   "key": "c:internet:core",
+   "verdict": "keep",
+   "reason": "Core species critter and owner-marked keep representing RFC 1149.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "c:internet:alt",
+   "verdict": "keep",
+   "reason": "Owner-marked keep critter-alt representing network probes and orbital relays.",
+   "similarTo": null,
+   "replacement": null
+  }
+ ]
+}

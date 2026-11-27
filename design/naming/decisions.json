@@ -74,13 +74,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:app-cloudsync",
+        "note": "Generic cloud silhouette that overlaps visually with Eventual Cloud and conceptually with BGP routing.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:net-fiber": {
       "name": {
@@ -90,13 +107,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:net-cable",
+        "note": "Low-priority thin line that is redundant with Abyssal Trunkline for fiber-optic transmission.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:net-router": {
       "name": {
@@ -122,13 +156,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "c:internet:alt",
+        "note": "Secondary backhaul prop whose orbital relay concept is already covered by Ping Probe.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:net-packet": {
       "name": {
@@ -154,13 +205,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:us-padlock",
+        "note": "Generic padlock icon that duplicates padlock props in other layers.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:net-app-browser": {
       "name": {
@@ -602,13 +670,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:app-cascade",
+        "note": "Visually and conceptually overlaps with Z-Order Pileup in the application layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:br-tab": {
       "name": {
@@ -618,13 +703,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:br-viewport",
+        "note": "Generic browser chrome already depicted inside the viewport anchor and too thin for its own page.",
+        "replacement": "a CORS preflight gate",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:br-paint": {
       "name": {
@@ -666,13 +768,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Visually generic red circle on blue square that lacks a strong computing-trivia hook.",
+        "replacement": "a shadow DOM boundary",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:br-devtools": {
       "name": {
@@ -1098,13 +1217,30 @@
         "by": "owner"
       },
       "decision": {
-        "choice": "rework",
-        "target": null,
-        "note": "",
-        "by": "owner"
+        "choice": "delete",
+        "target": "e:app-search",
+        "note": "Visually weak 1x8 vertical bar that is barely visible and redundant with text carets elsewhere.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": "2026-11-27T06:42:37.743Z"
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "owner"
+        },
+        "decision": {
+          "choice": "rework",
+          "target": null,
+          "note": "",
+          "by": "owner"
+        },
+        "description": "",
+        "updatedAt": "2026-11-27T06:42:37.743Z"
+      }
     },
     "e:app-cascade": {
       "name": {
@@ -1146,13 +1282,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:br-viewport",
+        "note": "Redundant with the browser layer's primary viewport anchor.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-dialog": {
       "name": {
@@ -1226,13 +1379,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:app-bell",
+        "note": "Overlaps with the unread notification concept of the push bell and the icons in the launcher.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-bubble": {
       "name": {
@@ -1306,13 +1476,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic UI form widget without enough conceptual depth for a dedicated page.",
+        "replacement": "an undo/redo history stack",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-toggle": {
       "name": {
@@ -1322,13 +1509,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic boolean switch widget that is too thin for its own Field Manual entry.",
+        "replacement": "a clipboard pasteboard buffer",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-checklist": {
       "name": {
@@ -1338,13 +1542,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic UI card filler with no deep computing concept behind it.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-calendar": {
       "name": {
@@ -1418,13 +1639,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic color-picker widget with low priority and narrow conceptual scope.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-photo": {
       "name": {
@@ -1434,13 +1672,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic placeholder image thumbnail that adds little to the Field Manual.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-video": {
       "name": {
@@ -1498,13 +1753,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:ke-cred",
+        "note": "Generic profile silhouette that overlaps visually with the kernel-entry credential badge.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-music": {
       "name": {
@@ -1514,13 +1786,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:app-video",
+        "note": "Redundant media-player widget; video player is the stronger representative.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-pin": {
       "name": {
@@ -1530,13 +1819,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic map pin filler with low priority and thin conceptual value.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-pill": {
       "name": {
@@ -1546,13 +1852,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic button/tag UI filler that does not warrant its own page.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:app-bell": {
       "name": {
@@ -1600,7 +1923,7 @@
         "by": "owner"
       },
       "description": "",
-      "updatedAt": "2026-11-27T06:43:12.209Z"
+      "updatedAt": "2026-11-27T07:00:28.852363Z"
     },
     "e:bc-parsetree": {
       "name": {
@@ -1642,13 +1965,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:bc-lexer",
+        "note": "Redundant with the higher-priority lexical analyzer prop covering the same lexing concept.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bc-constpool": {
       "name": {
@@ -1658,13 +1998,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Priority 1 generic box of horizontal bars that is visually weak and indistinct.",
+        "replacement": "a stack-machine operand stack with pushed and popped value blocks",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bc-lexer": {
       "name": {
@@ -2266,13 +2623,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:jit-forge",
+        "note": "Generic four-bar meter whose hot-path concept overlaps with the Hotspot Hearth anchor.",
+        "replacement": "a megamorphic dispatch table",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:jit-osr": {
       "name": {
@@ -2298,13 +2672,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:jit-deopt",
+        "note": "Overlaps conceptually with speculative deoptimization bailout in Uncommon Trap.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:jit-rt-objects": {
       "name": {
@@ -2810,13 +3201,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "not a duplicate (mask-diff): Silhouette differs from c:jit:core: 57.1% of mask pixels disagree.",
-        "by": "llm"
+        "choice": "delete",
+        "target": "c:jit:core",
+        "note": "Weak alternate critter that is visually and conceptually too similar to Cinder Dart.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": "2026-11-27T06:50:03.981844Z"
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "not a duplicate (mask-diff): Silhouette differs from c:jit:core: 57.1% of mask pixels disagree.",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": "2026-11-27T06:50:03.981844Z"
+      }
     },
     "e:rt-scaffold": {
       "name": {
@@ -2890,13 +3298,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:rt-tricolor",
+        "note": "Redundant with Tri-Color Markers for GC marking and visually too similar to Boxed Values.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-ref": {
       "name": {
@@ -2906,13 +3331,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:rt-weakref",
+        "note": "Generic pointer visual that is overshadowed by the more specific Weak Reference and Reference Counter.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-heapcol": {
       "name": {
@@ -2922,13 +3364,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic filler depicting no distinct computing concept worth its own manual page.",
+        "replacement": "a write-barrier card table",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-jit": {
       "name": {
@@ -2938,13 +3397,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:jit-forge",
+        "note": "Duplicates the Hotspot Hearth in the JIT layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-tape": {
       "name": {
@@ -3162,13 +3638,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:rt-objects",
+        "note": "Visually almost identical to Boxed Values and low priority.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-vtable": {
       "name": {
@@ -3194,13 +3687,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "c:bytecode:alt",
+        "note": "Visually broken truncated text ('RETUR') and redundant with the bytecode layer's Opcode Tile.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-arena": {
       "name": {
@@ -3210,13 +3720,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:rt-nursery",
+        "note": "Generic box-of-bars visual that overlaps with Bump Allocator and Eden Nursery.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-stackframe": {
       "name": {
@@ -3226,13 +3753,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:rt-callstack",
+        "note": "Redundant with Call Stack, which already depicts stacked frames.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-upvalue": {
       "name": {
@@ -3242,13 +3786,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:rt-closure",
+        "note": "Redundant with Lexical Closure, which already covers captured environment state.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-safepoint": {
       "name": {
@@ -3258,13 +3819,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Visually generic sign on a post and low priority.",
+        "replacement": "a stop-the-world pause whistle",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rt-nursery": {
       "name": {
@@ -3338,13 +3916,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-aisle",
+        "note": "Redundant smaller version of the towering bookcases already shown in The Include Aisle.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-catalogue": {
       "name": {
@@ -3370,13 +3965,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-aisle",
+        "note": "Generic rolling ladder already depicted as part of The Include Aisle.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-spool": {
       "name": {
@@ -3466,13 +4078,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic library desk filler whose syntax-highlighting concept does not fit the libraries layer.",
+        "replacement": "a dynamic-linker cache index (ld.so.cache)",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-tangle": {
       "name": {
@@ -3498,13 +4127,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-loom",
+        "note": "Visually abstract dotted line that overlaps with Linker Loom and Thread Bobbin.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-plaque": {
       "name": {
@@ -3514,13 +4160,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:ld-soname",
+        "note": "Duplicates the SONAME Tag concept already present in the linker layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-card": {
       "name": {
@@ -3530,13 +4193,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-catalogue",
+        "note": "Generic index card filler that is weaker than Symbol Catalogue.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-lectern": {
       "name": {
@@ -3578,13 +4258,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-aisle",
+        "note": "Generic stack of books that adds no distinct concept beyond The Include Aisle.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-scroll": {
       "name": {
@@ -3594,13 +4291,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic parchment scroll filler with a weak legacy-changelog concept.",
+        "replacement": "a pkg-config metadata tag",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-magnifier": {
       "name": {
@@ -3610,13 +4324,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-catalogue",
+        "note": "Generic magnifying-glass prop that is weaker than Symbol Catalogue for symbol inspection.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-pigeon": {
       "name": {
@@ -3626,13 +4357,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:rt-hashmap",
+        "note": "Duplicates the Hash Map bucket concept already represented in the runtime layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-globe": {
       "name": {
@@ -3658,13 +4406,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-lectern",
+        "note": "Generic reading table and chair filler with a weak linkage-context concept.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-inkwell": {
       "name": {
@@ -3690,13 +4455,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-codex",
+        "note": "Generic book-face prop that is weaker than The Libc Codex.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:lib-codex": {
       "name": {
@@ -3818,13 +4600,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:ld-rpath",
+        "note": "Low-priority abstract blocks on a rail that look too similar to e:ld-rpath and lack clear visual identity.",
+        "replacement": "a binary patch-tape splicer",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ld-lib-shelf": {
       "name": {
@@ -4394,13 +5193,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-plaque",
+        "note": "Duplicates the Soname Plaque in the libraries layer and is visually just a generic two-bar plaque.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ld-rpath": {
       "name": {
@@ -4410,13 +5226,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:ld-reloc",
+        "note": "Low-priority generic bars on a rail that are visually indistinct from other bar-and-rail props.",
+        "replacement": "a library search-path signpost with stacked directory arrows",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ld-lazy": {
       "name": {
@@ -4506,13 +5339,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:us-skyline",
+        "note": "Visually and conceptually redundant with the Process Skyline anchor.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-manifold": {
       "name": {
@@ -4666,13 +5516,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-archive",
+        "note": "Generic filing cabinet filler that overlaps with the Dot-A Archive in libraries.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-mailbox": {
       "name": {
@@ -4698,13 +5565,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-crates",
+        "note": "Generic shipping crate that overlaps with Dot-C Crates in the libraries layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-fork": {
       "name": {
@@ -4746,13 +5630,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:us-pipe",
+        "note": "Generic horizontal conduit visually similar to Unix Pipe.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-journal": {
       "name": {
@@ -4762,13 +5663,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:us-sign",
+        "note": "Duplicates the systemd journal concept already represented by Journal Marquee.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-padlock": {
       "name": {
@@ -4778,13 +5696,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-mutex",
+        "note": "Generic padlock visual that overlaps with Sleeping Padlock in kernel and Trust Anchor in internet.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-firewall": {
       "name": {
@@ -4826,13 +5761,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:net-router",
+        "note": "Generic rooftop antenna filler; network beacons are better covered in the internet layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-hydrant": {
       "name": {
@@ -4858,13 +5810,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic rooftop billboard for a minor concept (MOTD).",
+        "replacement": "an environment variable tag rack",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-manhole": {
       "name": {
@@ -4874,13 +5843,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:us-callbox",
+        "note": "Overlaps with Syscall Booth for kernel entry from userspace.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:us-meter": {
       "name": {
@@ -4906,13 +5892,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:us-hydrant",
+        "note": "Generic architectural vent filler; stdout/stderr is better represented by Stdout Hydrant.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:userspace:core": {
       "name": {
@@ -4986,13 +5989,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:ke-gatehouse",
+        "note": "Redundant archway prop that duplicates both the visual motif and syscall-boundary concept of the Syscall Gatehouse.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ke-kr-gears": {
       "name": {
@@ -5562,13 +6582,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:app-avatar",
+        "note": "Visually generic head-and-shoulders badge that closely resembles User Avatar.",
+        "replacement": "a capability bitmask keycard",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ke-fdtable": {
       "name": {
@@ -5578,13 +6615,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-schedrack",
+        "note": "Visually generic slate of four horizontal bars that lacks a distinct silhouette.",
+        "replacement": "a numbered file-descriptor ticket dispenser",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ke-vdso": {
       "name": {
@@ -5674,13 +6728,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic mechanical filler that does not represent a specific kernel concept worth a manual page.",
+        "replacement": "a NUMA node interconnect bridge",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-dmesg": {
       "name": {
@@ -5722,13 +6793,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Visually unclear generic cylinder-and-rail filler without a distinct computing concept.",
+        "replacement": "a kernel panic oops tombstone",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-leds": {
       "name": {
@@ -5738,13 +6826,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic LED indicator panel that is visually indistinct and too minor for its own page.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-schedwheel": {
       "name": {
@@ -5802,13 +6907,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-mutex",
+        "note": "Redundant synchronization prop whose concept is better covered by the core mutex.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-slab": {
       "name": {
@@ -5850,13 +6972,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:ke-gatehouse",
+        "note": "Too similar in both visual form (portcullis archway) and concept to the Syscall Gatehouse in kernel-entry.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-runqueue": {
       "name": {
@@ -5866,13 +7005,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-schedwheel",
+        "note": "Redundant scheduler prop; the Round-Robin Wheel is a stronger visual for runnable task scheduling.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-mutex": {
       "name": {
@@ -5898,13 +7054,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-irqbell",
+        "note": "Generic four-bar chart that is redundant with the Interrupt Bell for representing interrupts.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-tlb": {
       "name": {
@@ -5930,13 +7103,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-schedwheel",
+        "note": "Generic progress-bar panel that is redundant with the Round-Robin Wheel for scheduler accounting.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-semaphore": {
       "name": {
@@ -5962,13 +7152,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-dmesg",
+        "note": "Redundant with the Dmesg Marquee, which already represents the kernel ring buffer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-wdtimer": {
       "name": {
@@ -6010,13 +7217,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-mutex",
+        "note": "Visually plain two-cell box that is redundant with the Sleeping Padlock for mutex synchronization.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-epoll": {
       "name": {
@@ -6058,13 +7282,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-schedwheel",
+        "note": "Generic rail with alternating squares that overlaps with other scheduling and queue props.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:kr-buddy": {
       "name": {
@@ -6122,13 +7363,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:ka-apicbank",
+        "note": "Overlaps conceptually with the I/O APIC anchor and is visually a generic four-bar module.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ka-idt": {
       "name": {
@@ -6154,13 +7412,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-pagetable",
+        "note": "Lowest-priority register prop whose page-directory concept is already covered by the kernel layer's page table.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ka-kr-gears": {
       "name": {
@@ -6762,13 +8037,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "merge",
+        "choice": "delete",
         "target": "e:kr-tlb",
-        "note": "",
-        "by": "llm"
+        "note": "Duplicates the hardware TLB concept already represented by the Shootdown Board in the kernel layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "merge",
+          "target": "e:kr-tlb",
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:kernel-arch:core": {
       "name": {
@@ -6794,13 +8086,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "rework",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "c:kernel-arch:core",
+        "note": "Weak alternate critter consisting of three tiny floating squares, redundant with the core interrupt critter.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "rework",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-backplane": {
       "name": {
@@ -6890,13 +8199,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "variant",
+        "choice": "delete",
         "target": "e:dr-db9",
-        "note": "",
-        "by": "llm"
+        "note": "Too similar to the COM1 Port, which is a stronger, more recognizable 9-pin serial connector.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "variant",
+          "target": "e:dr-db9",
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-caps": {
       "name": {
@@ -6906,13 +8232,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic motherboard component filler without a distinct device driver concept.",
+        "replacement": "an MMIO register bank",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-usb": {
       "name": {
@@ -7002,13 +8345,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "variant",
+        "choice": "delete",
         "target": "e:dr-hdd",
-        "note": "",
-        "by": "llm"
+        "note": "Too similar to Spinning Rust, both depicting a spinning magnetic platter and actuator arm.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "variant",
+          "target": "e:dr-hdd",
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-keys": {
       "name": {
@@ -7050,13 +8410,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:dr-dip",
+        "note": "Too similar to the DIP Switch, which is a more recognizable hardware configuration prop.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-heatsink": {
       "name": {
@@ -7066,13 +8443,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic passive cooling hardware filler without a driver-specific concept.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-rj45": {
       "name": {
@@ -7082,13 +8476,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:dr-nic",
+        "note": "Redundant networking hardware prop alongside the eth0 Card.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-scope": {
       "name": {
@@ -7146,13 +8557,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic low-priority peripheral filler compared to core driver devices.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-mouse": {
       "name": {
@@ -7178,13 +8606,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic board-level component filler with low priority and little driver-specific meaning.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-sata": {
       "name": {
@@ -7194,13 +8639,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:dr-nvme",
+        "note": "Weak standalone port prop; storage is already well represented by Spinning Rust and NVMe Stick.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-fanheader": {
       "name": {
@@ -7210,13 +8672,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic low-priority motherboard header filler without a strong driver concept.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-ledstrip": {
       "name": {
@@ -7226,13 +8705,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic diagnostic LED filler with low priority.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:dr-nvme": {
       "name": {
@@ -7882,13 +9378,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Low-priority generic rectangle with a single bar that is visually indistinct.",
+        "replacement": "a PCIe hot-plug surprise-removal latch",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bf-msix": {
       "name": {
@@ -7914,13 +9427,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Two plain parallel stripes are generic filler rather than a memorable prop.",
+        "replacement": "a PCIe credit-based flow-control counter",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bf-iommu": {
       "name": {
@@ -7962,13 +9492,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "rework",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "c:bus-fabric:core",
+        "note": "Alternate critter that is visually too similar to the core Bus Flit.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "rework",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-bigvault": {
       "name": {
@@ -8026,13 +9573,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "variant",
+        "choice": "delete",
         "target": "e:fw-bigvault",
-        "note": "",
-        "by": "llm"
+        "note": "Redundant miniature duplicate of the Boot Vault door.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "variant",
+          "target": "e:fw-bigvault",
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-post": {
       "name": {
@@ -8042,13 +9606,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:fw-postcard",
+        "note": "Duplicates the POST diagnostic code concept already represented better by the POST Card.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-flash": {
       "name": {
@@ -8058,13 +9639,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "variant",
-        "target": "e:dr-chip",
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:fw-ucode",
+        "note": "Generic DIP chip that overlaps with the more distinctive Microcode EPROM and SOIC Clip.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "variant",
+          "target": "e:dr-chip",
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-plate": {
       "name": {
@@ -8074,13 +9672,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:fw-tpm",
+        "note": "Generic padlock icon that overlaps with the TPM Chip and other security locks across layers.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-cmos": {
       "name": {
@@ -8122,13 +9737,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "rework",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Visually unclear rectangle with abstract blocks that does not read well as boot order.",
+        "replacement": "a boot-priority daisy-chain selector dial",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "rework",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-dipsw": {
       "name": {
@@ -8298,13 +9930,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:fw-drawers",
+        "note": "Duplicates the NVRAM variable storage concept already covered by Variable Chest.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-floppy": {
       "name": {
@@ -8314,13 +9963,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic retro floppy disk filler without a strong firmware-specific identity.",
+        "replacement": "a dual-BIOS recovery toggle switch",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-key": {
       "name": {
@@ -8330,13 +9996,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:fw-secureboot",
+        "note": "Generic skeleton key whose UEFI signing concept is better served by Secure Boot.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-tpm": {
       "name": {
@@ -8394,13 +10077,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:fw-jtag",
+        "note": "Too visually similar to the JTAG Header as a dark pin-header block.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:fw-watchdog": {
       "name": {
@@ -8410,13 +10110,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:kr-wdtimer",
+        "note": "Visually abstract bar that duplicates the Deadman Countdown watchdog timer in the kernel layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:firmware:core": {
       "name": {
@@ -9066,13 +10783,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:dr-nic",
+        "note": "Redundant emulated hardware concept alongside e:vmm-ghostcard in this layer and e:dr-nic in drivers.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:vmm-hpet": {
       "name": {
@@ -9082,13 +10816,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Visually generic clock face for a niche timer concept better replaced by a core virtualization mechanic.",
+        "replacement": "a memory balloon pump",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:vmm-bios": {
       "name": {
@@ -9162,13 +10913,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r1-mirrorgate",
+        "note": "Redundant with The Symmetry Gate, depicting the same mirrored-screens concept and visual.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-tunnel": {
       "name": {
@@ -9178,13 +10946,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r1-portal",
+        "note": "Visually a generic nested archway that overlaps with VMENTRY Threshold.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-tag": {
       "name": {
@@ -9194,13 +10979,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r1-vmcs",
+        "note": "Just text on a placard; weak visual filler when Context-Switch Twins already represents VMCS.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-glass": {
       "name": {
@@ -9210,13 +11012,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r1-bubble",
+        "note": "Generic glass shard filler that does not clearly communicate hypervisor isolation.",
+        "replacement": "an EPT violation fault-handler badge",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-bubble": {
       "name": {
@@ -9418,13 +11237,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r1-bubble",
+        "note": "Redundant with Sandbox Sphere for representing hypervisor isolation.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-split": {
       "name": {
@@ -9434,13 +11270,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r1-mirrorgate",
+        "note": "Visually too similar to The Symmetry Gate with its side-by-side screens.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-iommu": {
       "name": {
@@ -9466,13 +11319,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Visually generic pair of rectangles that overlaps with Grace Period in kernel-arch.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-timeslice": {
       "name": {
@@ -9482,13 +11352,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-hourglass",
+        "note": "Hourglass visual is already used by Timeout Glass in libraries and Async Promise in runtime.",
+        "replacement": "a vCPU steal-time meter",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-nested": {
       "name": {
@@ -9498,13 +11385,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r1-dolls",
+        "note": "Redundant with Matryoshka Hypervisor, which conveys nested virtualization more clearly.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-paravirt": {
       "name": {
@@ -9530,13 +11434,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic rectangle with horizontal bars representing a minor concept compared to core VMX props.",
+        "replacement": "a VM-exit reason MSR dial",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-vmexit": {
       "name": {
@@ -9546,13 +11467,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r1-trapdoor",
+        "note": "Redundant with Trap-and-Emulate and VMENTRY Threshold for representing VM exits.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r1-console": {
       "name": {
@@ -9562,13 +11500,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:us-tty",
+        "note": "Generic screen with bars that overlaps with Teletype Terminal in userspace.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:ring-1:core": {
       "name": {
@@ -10218,13 +12173,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:ept-grid",
+        "note": "Low-priority generic row of alternating cells that is visually weak and redundant with the page table grid.",
+        "replacement": "a posted-interrupt descriptor",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ept-dirty": {
       "name": {
@@ -10234,13 +12206,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Minimal single-square sprite that is too visually generic to carry a full man-page entry.",
+        "replacement": "an IOMMU fault log",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ept-walker": {
       "name": {
@@ -10314,13 +12303,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r2-cascade",
+        "note": "Generic single-block filler that is visually minimal and redundant with Preempted Avalanche.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-clock": {
       "name": {
@@ -10346,13 +12352,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic floating pixel fragments with no clear visual identity or distinct computing concept.",
+        "replacement": "an SMM TSEG boundary fence",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-tag": {
       "name": {
@@ -10378,13 +12401,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r2-pause",
+        "note": "Generic frozen-streak filler that is weaker than RSM Pending for showing halted motion.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-pendulum": {
       "name": {
@@ -10394,13 +12434,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r2-metronome",
+        "note": "Redundant halted-oscillator concept that is weaker than Gated Oscillator.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-hourglass": {
       "name": {
@@ -10458,13 +12515,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic low-priority smoke puff with a weak connection to the layer's SMI freeze theme.",
+        "replacement": "a frozen CPU thermal-throttle gauge",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-metronome": {
       "name": {
@@ -10506,13 +12580,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic concentric-ring filler that lacks a distinct silhouette or strong SMI concept.",
+        "replacement": "an SMI handler jump table",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-book": {
       "name": {
@@ -10522,13 +12613,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:lib-lectern",
+        "note": "Generic open-book silhouette that belongs in the libraries layer rather than ring-2.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-bubbles": {
       "name": {
@@ -10538,13 +12646,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r2-cascade",
+        "note": "Visually minimal filler whose pipeline-stall concept is already covered by Preempted Avalanche.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-hook": {
       "name": {
@@ -10586,13 +12711,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic low-priority flame filler that adds little to the SMI Trap & Freeze theme.",
+        "replacement": "an SMI pin-assertion latch",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-domino": {
       "name": {
@@ -10650,13 +12792,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r2-pause",
+        "note": "Redundant frozen-droplet filler that is much weaker than RSM Pending.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-leaf": {
       "name": {
@@ -10666,13 +12825,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic low-priority leaf filler with a weak, unclear visual and tenuous computing concept.",
+        "replacement": "a saved-state SMRAM map",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r2-feather": {
       "name": {
@@ -11370,13 +13546,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Visually unclear generic grey square that does not distinctly convey the RSM instruction.",
+        "replacement": "a glowing return-to-ring-0 portal or SMI/RSM context-switch latch",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:sm-tseg": {
       "name": {
@@ -11402,13 +13595,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:sm-dlck",
+        "note": "Duplicates the D_LCK hardware lock bit concept already better represented by e:sm-dlck.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:smram:core": {
       "name": {
@@ -11482,13 +13692,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:cm-metal",
+        "note": "Generic etched copper trace that overlaps with crosstalk lanes in the CMOS layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-decap": {
       "name": {
@@ -11498,13 +13725,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r3-capbank",
+        "note": "Tiny surface-mount decoupling capacitor redundant with the on-die capacitor bank.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-xtal": {
       "name": {
@@ -11530,13 +13774,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r3-pad",
+        "note": "Row of gold test pads that duplicates the higher-priority bonding pad.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-fuses": {
       "name": {
@@ -11546,13 +13807,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r3-fusebank",
+        "note": "Programmable fuse array redundant with the higher-priority fuse bank in this layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-resistor": {
       "name": {
@@ -11562,13 +13840,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic low-priority surface-mount resistor with weak conceptual tie to the Management Engine.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-diode": {
       "name": {
@@ -11578,13 +13873,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:r3-thermal",
+        "note": "Generic low-priority semiconductor diode overshadowed by the on-die thermal diode.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-inductor": {
       "name": {
@@ -11594,13 +13906,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic low-priority power inductor filler without a strong silicon or ME concept.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-sram": {
       "name": {
@@ -11674,13 +14003,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:fw-jtag",
+        "note": "Duplicates the JTAG header already present in the firmware layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-rom": {
       "name": {
@@ -11706,13 +14052,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:rtl-htree",
+        "note": "Duplicates the clock H-tree already present in the RTL layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-guard": {
       "name": {
@@ -11738,13 +14101,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:rtl-nand",
+        "note": "Duplicates the NAND gate already present in the RTL layer.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-probe": {
       "name": {
@@ -11834,13 +14214,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Generic PCB pick-and-place fiducial marker with little conceptual value for a man page.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:r3-fusebank": {
       "name": {
@@ -11914,13 +14311,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:mx-bottle",
+        "note": "Redundant with Amber Terrarium, depicting the same three miniature towers without the glass bottle.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:mx-rs": {
       "name": {
@@ -12490,13 +14904,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:mx-amt",
+        "note": "Visually generic two-bar panel whose embedded web server concept overlaps heavily with Port 16992 (AMT).",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:mx-tcp": {
       "name": {
@@ -12522,13 +14953,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:mx-bottle",
+        "note": "Generic low-priority miniature tower that repeats the skyline motif of Amber Terrarium without a distinct concept.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:me-minix-user:core": {
       "name": {
@@ -12586,13 +15034,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:dr-chip",
+        "note": "Generic microchip silhouette that is visually indistinguishable from other IC props and better replaced by a microkernel-specific concept.",
+        "replacement": "a reincarnation server watchdog that restarts crashed drivers",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:mk-fw-drawers": {
       "name": {
@@ -13210,13 +15675,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Hardware e-fuses belong to silicon/firmware rather than the microkernel layer and the striped-bar sprite is visually generic.",
+        "replacement": "a user-space driver isolation sandbox",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:me-minix-kern:core": {
       "name": {
@@ -13834,13 +16316,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:ua-bpred",
+        "note": "Overlaps conceptually with the Branch Predictor and is visually just a generic barred rectangle.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ua-rs": {
       "name": {
@@ -13850,13 +16349,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:ua-rob",
+        "note": "Visually and conceptually too close to the Reorder Buffer as a slotted out-of-order structure.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:ua-prefetch": {
       "name": {
@@ -13866,13 +16382,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Visually abstract three-block sprite that is weaker than L1 Cache for representing memory hierarchy.",
+        "replacement": "a register-renaming scoreboard",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:uarch:core": {
       "name": {
@@ -13898,13 +16431,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "not a duplicate (mask-diff): Silhouette differs from c:uarch:core: 53.3% of mask pixels disagree.",
-        "by": "llm"
+        "choice": "delete",
+        "target": "c:uarch:core",
+        "note": "Alternate critter consisting of two tiny adjacent squares is visually weak and redundant with the core Micro-Op.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": "2026-11-27T06:50:03.981844Z"
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "not a duplicate (mask-diff): Silhouette differs from c:uarch:core: 53.3% of mask pixels disagree.",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": "2026-11-27T06:50:03.981844Z"
+      }
     },
     "e:rtl-htree": {
       "name": {
@@ -14538,13 +17088,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
+        "choice": "delete",
         "target": null,
-        "note": "",
-        "by": "llm"
+        "note": "Visually generic block with a plus sign that is weaker than the core gate, flip-flop, and mux props.",
+        "replacement": "a Karnaugh map grid",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:rtl-clk": {
       "name": {
@@ -14554,13 +17121,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:rtl-htree",
+        "note": "Redundant clock-distribution prop alongside the Clock H-Tree anchor.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:rtl:core": {
       "name": {
@@ -14618,13 +17202,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:cm-viatower",
+        "note": "Redundant single-crossing subset of the multilayer metal interconnect and via grid already shown by Metal Manhattan.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:cm-well": {
       "name": {
@@ -15194,13 +17795,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:cm-well",
+        "note": "Redundant single-well subset of Complementary Tub and visually just a plain rectangle.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:cm-contact": {
       "name": {
@@ -15210,13 +17828,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:cm-finfet",
+        "note": "Visually minimal square pad whose contact-window concept is already shown in FinFET Cell and Metal Manhattan.",
+        "replacement": "an electromigration void in a metal trace",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:cm-metal": {
       "name": {
@@ -15290,13 +17925,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:li-reticle",
+        "note": "Visually redundant with the alignment reticle as another set of concentric violet rings with a central cross.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:li-lattice": {
       "name": {
@@ -15322,13 +17974,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:li-reticle",
+        "note": "Low-priority ring-and-cross sprite that is visually similar to the reticle and conceptually overlaps with the lattice point defect.",
+        "replacement": "a Czochralski silicon wafer boule",
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:li-r3-vias": {
       "name": {
@@ -15898,13 +18567,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "c:litho:core",
+        "note": "Tiny, low-priority optical flare that is visually weak and conceptually overlaps with the stray EUV photon critter.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:li-resist": {
       "name": {
@@ -15962,13 +18648,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:bg-diagram",
+        "note": "Redundant smaller version of the Valence Viaduct anchor, depicting the same valence and conduction bands.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:bg-tunnel": {
       "name": {
@@ -16586,13 +19289,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:bg-photonabs",
+        "note": "Inverse of Optical Promotion with a weak, abstract visual of two squares separated by a bar.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 2,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "c:bandgap:core": {
       "name": {
@@ -16634,13 +19354,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "rework",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:la-heat",
+        "note": "A single dark-navy pixel in an 18x18 frame is visually invisible and its thermal radiation concept is better represented by Waste Heat.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "rework",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:la-entropy": {
       "name": {
@@ -16650,13 +19387,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "keep",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:la-erase",
+        "note": "Visually redundant with Reset Cell (a hollow dark-navy shape enclosing a single pale-blue pixel) and less specific to bit erasure.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "keep",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:la-spark": {
       "name": {
@@ -16666,13 +19420,30 @@
         "by": "llm"
       },
       "decision": {
-        "choice": "catalogue",
-        "target": null,
-        "note": "",
-        "by": "llm"
+        "choice": "delete",
+        "target": "e:la-heat",
+        "note": "Lowest-priority tiny 3x3 pixel cross whose kT ln 2 energy dissipation concept duplicates Waste Heat.",
+        "replacement": null,
+        "by": "cull"
       },
       "description": "",
-      "updatedAt": null
+      "updatedAt": "2026-11-27T07:00:07.843619Z",
+      "beforeCull": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "llm"
+        },
+        "decision": {
+          "choice": "catalogue",
+          "target": null,
+          "note": "",
+          "by": "llm"
+        },
+        "description": "",
+        "updatedAt": null
+      }
     },
     "e:la-r3-vias": {
       "name": {

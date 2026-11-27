@@ -1,0 +1,300 @@
+{
+ "layer": {
+  "id": "drivers",
+  "name": "Device Drivers",
+  "daily": true
+ },
+ "reusedCopiesAlsoInThisLayer": 0,
+ "items": [
+  {
+   "key": "e:dr-backplane",
+   "kind": "anchor",
+   "name": "Expansion Backplane",
+   "depicts": "A cyan bus rail holding four magenta card sockets, three populated with vertical expansion boards of varying heights and one left empty.",
+   "concept": "expansion bus backplane",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-backplane-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-hdd",
+   "kind": "anchor",
+   "name": "Spinning Rust",
+   "depicts": "An open hard-drive chassis with corner mounting screws, a spinning cyan magnetic platter, a white spindle hub, and a magenta-pivoted read/write actuator arm.",
+   "concept": "magnetic disk storage",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-hdd-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-chip",
+   "kind": "prop",
+   "name": "Controller Chip",
+   "depicts": "A magenta-framed black dual-inline integrated circuit with a white pin-one dot and cyan legs, appearing in ten-pin and fourteen-pin widths.",
+   "concept": "device controller IC",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-chip-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-ribbon",
+   "kind": "prop",
+   "name": "Twisted Ribbon",
+   "depicts": "A flat cyan parallel ribbon cable with a mid-span twist and an animated pulse gap running along its conductors.",
+   "concept": "parallel PATA/floppy bus cabling",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-ribbon-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-irq",
+   "kind": "prop",
+   "name": "IRQ Line",
+   "depicts": "A ten-pin magenta-framed controller chip with a cyan status bar and vertical headroom above it for an animated interrupt discharge.",
+   "concept": "hardware interrupt request",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-irq-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-connector",
+   "kind": "prop",
+   "name": "Pin Socket",
+   "depicts": "A compact black rectangular socket housing nine staggered cyan pins arranged five over four.",
+   "concept": "D-subminiature serial connector",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-connector-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-caps",
+   "kind": "prop",
+   "name": "Bulging Caps",
+   "depicts": "Three vertical cyan electrolytic capacitors with white metallic tops and dual lead pins, the middle cylinder slightly shorter.",
+   "concept": "power-rail decoupling capacitors",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-caps-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-usb",
+   "kind": "prop",
+   "name": "Third-Try Plug",
+   "depicts": "A horizontal USB Type-A plug with a magenta cable tail, a white molded grip marked in cyan, and a slotted metal shield.",
+   "concept": "Universal Serial Bus peripheral interface",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-usb-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-pcie",
+   "kind": "prop",
+   "name": "PCIe Slot",
+   "depicts": "A horizontal cyan-outlined PCI Express expansion slot with a notched partition, magenta rail, and white contact pins along the bottom.",
+   "concept": "PCI Express expansion slot",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-pcie-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-dma",
+   "kind": "prop",
+   "name": "DMA Channel",
+   "depicts": "A white perforated transfer track carrying three sliding magenta and cyan data blocks between two cyan endpoints.",
+   "concept": "direct memory access transfer",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-dma-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-nic",
+   "kind": "prop",
+   "name": "eth0 Card",
+   "depicts": "A cyan-framed network expansion card with a magenta controller die, a white link LED, bottom edge contacts, and a detached black rear bracket.",
+   "concept": "network interface controller",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-nic-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-gpu",
+   "kind": "prop",
+   "name": "Graphics Card",
+   "depicts": "A magenta-shrouded graphics card with twin spinning white-and-cyan cooling fans and a cyan PCIe edge connector underneath.",
+   "concept": "graphics processing unit card",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-gpu-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-disk",
+   "kind": "prop",
+   "name": "Block Device",
+   "depicts": "A compact cyan-framed square drive containing a spinning white magnetic platter, black spindle cross, and diagonal magenta actuator arm.",
+   "concept": "block storage drive",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-disk-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-keys",
+   "kind": "prop",
+   "name": "Key Matrix",
+   "depicts": "Three staggered rows of white keycaps with cyan undersides, including a wide spacebar on the bottom row.",
+   "concept": "HID keyboard matrix",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-keys-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-db9",
+   "kind": "prop",
+   "name": "COM1 Port",
+   "depicts": "A magenta-shelled nine-pin D-subminiature port with black side mounting ears and nine staggered cyan contacts.",
+   "concept": "RS-232 serial port",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-db9-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-jumpers",
+   "kind": "prop",
+   "name": "Jumper Block",
+   "depicts": "A black two-by-five header block of cyan pins with two vertical pairs bridged by magenta plastic shunts.",
+   "concept": "hardware configuration jumpers",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-jumpers-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-heatsink",
+   "kind": "prop",
+   "name": "Finned Heatsink",
+   "depicts": "Eight tall vertical white cooling fins rising evenly from a solid cyan baseplate.",
+   "concept": "passive thermal dissipation",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-heatsink-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-rj45",
+   "kind": "prop",
+   "name": "Ethernet Jack",
+   "depicts": "A square black modular Ethernet jack with a cyan contact bar inside, a bottom latch cutout, and magenta and cyan status LEDs above.",
+   "concept": "8P8C Ethernet jack",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-rj45-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-scope",
+   "kind": "prop",
+   "name": "Bench Oscilloscope",
+   "depicts": "A black oscilloscope display tracing an animated cyan sine wave across magenta center ticks, flanked by three magenta rotary dials.",
+   "concept": "hardware signal diagnostics",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-scope-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-dip",
+   "kind": "prop",
+   "name": "DIP Switch",
+   "depicts": "A magenta six-position DIP switch block with five white toggles flipped up and the third flipped down.",
+   "concept": "DIP switch hardware addressing",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-dip-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-fwload",
+   "kind": "prop",
+   "name": "Binary Blob",
+   "depicts": "A small black storage module streaming cyan data pulses leftward-to-rightward into an eight-pin magenta-framed controller chip.",
+   "concept": "driver firmware blob loading",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-fwload-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-speaker",
+   "kind": "prop",
+   "name": "PCM Cone",
+   "depicts": "A white loudspeaker cone backed by a cyan driver box, emitting cyan and white sound-wave arcs to the right.",
+   "concept": "audio output device",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-speaker-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-mouse",
+   "kind": "prop",
+   "name": "PS/2 Rodent",
+   "depicts": "A top-down white two-button computer mouse with a cyan cord at the top and a magenta scroll wheel between the buttons.",
+   "concept": "pointing device HID input",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-mouse-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-crystal",
+   "kind": "prop",
+   "name": "Clock Can",
+   "depicts": "A rounded white metallic quartz-crystal oscillator can with a dark face and two cyan leads extending downward.",
+   "concept": "quartz clock oscillator",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-crystal-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-sata",
+   "kind": "prop",
+   "name": "SATA Port",
+   "depicts": "A magenta-framed black SATA receptacle containing a cyan horizontal contact blade with a white L-shaped keying tab on the right.",
+   "concept": "Serial ATA storage interface",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-sata-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-fanheader",
+   "kind": "prop",
+   "name": "PWM Four-Pin",
+   "depicts": "A white-bordered black rectangular shroud enclosing four vertical cyan pins.",
+   "concept": "4-pin PWM fan control header",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-fanheader-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-ledstrip",
+   "kind": "prop",
+   "name": "Blinkenlights",
+   "depicts": "A narrow magenta circuit strip studded with four alternating cyan and white glowing LEDs.",
+   "concept": "status and diagnostic LED array",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-ledstrip-drivers-v0.png"
+  },
+  {
+   "key": "e:dr-nvme",
+   "kind": "prop",
+   "name": "NVMe Stick",
+   "depicts": "A horizontal cyan-edged M.2 solid-state drive stick with two magenta NAND flash packages and a white edge-connector end.",
+   "concept": "NVMe M.2 solid-state storage",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-dr-nvme-drivers-v0.png"
+  },
+  {
+   "key": "c:drivers:core",
+   "kind": "critter",
+   "name": "IRQ Mite",
+   "depicts": "A tiny six-by-five-pixel scuttling bug with a white carapace ridge, a cyan or magenta rectangular body, and two white legs centered in a large empty canvas.",
+   "concept": "bus-polling hardware interrupt traffic",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-drivers-core-v0.png"
+  }
+ ]
+}

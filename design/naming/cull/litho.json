@@ -1,0 +1,61 @@
+{
+ "layer": "litho",
+ "items": [
+  {
+   "key": "e:li-reticle",
+   "verdict": "keep",
+   "reason": "Strongest landmark anchor for the layer, depicting a classic photolithography alignment reticle.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:li-fringe",
+   "verdict": "delete",
+   "reason": "Visually redundant with the alignment reticle as another set of concentric violet rings with a central cross.",
+   "similarTo": "e:li-reticle",
+   "replacement": null
+  },
+  {
+   "key": "e:li-lattice",
+   "verdict": "keep",
+   "reason": "Distinct visual representation of a monocrystalline silicon lattice and point defect, central to the layer's theme.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:li-dopant",
+   "verdict": "delete",
+   "reason": "Low-priority ring-and-cross sprite that is visually similar to the reticle and conceptually overlaps with the lattice point defect.",
+   "similarTo": "e:li-reticle",
+   "replacement": "a Czochralski silicon wafer boule"
+  },
+  {
+   "key": "e:li-mask",
+   "verdict": "keep",
+   "reason": "Clear, high-priority prop representing a chrome-on-quartz photomask aperture plate.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:li-photon",
+   "verdict": "delete",
+   "reason": "Tiny, low-priority optical flare that is visually weak and conceptually overlaps with the stray EUV photon critter.",
+   "similarTo": "c:litho:core",
+   "replacement": null
+  },
+  {
+   "key": "e:li-resist",
+   "verdict": "keep",
+   "reason": "Distinctive pillar-and-trench silhouette illustrating developed photoresist on a silicon wafer.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "c:litho:core",
+   "verdict": "keep",
+   "reason": "Core critter for the photolithography layer representing a killer cleanroom defect.",
+   "similarTo": null,
+   "replacement": null
+  }
+ ]
+}

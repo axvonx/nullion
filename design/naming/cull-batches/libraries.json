@@ -1,0 +1,300 @@
+{
+ "layer": {
+  "id": "libraries",
+  "name": "Libraries",
+  "daily": true
+ },
+ "reusedCopiesAlsoInThisLayer": 0,
+ "items": [
+  {
+   "key": "e:lib-aisle",
+   "kind": "anchor",
+   "name": "The Include Aisle",
+   "depicts": "Two towering five-shelf wooden bookcases packed with gold-banded volumes, flanking a rolling ladder suspended from an overhead rail.",
+   "concept": "standard library search path",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-aisle-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-press",
+   "kind": "anchor",
+   "name": "Static Binder",
+   "depicts": "A grey iron screw press with a side gear wheel lowering a platen onto a cream signature marked with brown text bars.",
+   "concept": "library compilation and binding",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-press-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-shelf",
+   "kind": "prop",
+   "name": "Libpath Bay",
+   "depicts": "A single wooden shelf section holding colourful gold-banded volumes and one leaning olive book, shown in narrow and wide widths.",
+   "concept": "shared library repository",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-shelf-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-catalogue",
+   "kind": "prop",
+   "name": "Symbol Catalogue",
+   "depicts": "A wooden three-by-three drawer chest on legs with brass pulls, two lower drawers slid open to reveal cream index stock.",
+   "concept": "symbol table lookup",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-catalogue-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-ladder",
+   "kind": "prop",
+   "name": "Stack Climber",
+   "depicts": "A tall angled wooden rolling ladder with pale rungs and grey iron rail hooks at the top and feet.",
+   "concept": "call stack traversal",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-ladder-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-spool",
+   "kind": "prop",
+   "name": "Thread Bobbin",
+   "depicts": "A wooden bobbin wound with red thread, paying out a bright-tipped horizontal strand to the right.",
+   "concept": "output spooling and streaming",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-spool-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-cart",
+   "kind": "prop",
+   "name": "Autoloader Cart",
+   "depicts": "A two-tier grey metal book trolley on spoked wheels, loaded with colourful gold-banded volumes.",
+   "concept": "package dependency transport",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-cart-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-crates",
+   "kind": "prop",
+   "name": "Dot-C Crates",
+   "depicts": "Three stacked brown wooden shipping crates with diagonal slats, each stencilled with .C in cream lettering.",
+   "concept": "compiled source packages",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-crates-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-loom",
+   "kind": "prop",
+   "name": "Linker Loom",
+   "depicts": "A wooden frame loom strung with vertical red and blue warp threads, a grey heddle bar, and a yellow shuttle passing across.",
+   "concept": "linking and thread interleaving",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-loom-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-archive",
+   "kind": "prop",
+   "name": "Dot-A Archive",
+   "depicts": "A wooden filing unit with a closed upper drawer above an open lower tray holding upright white and cream tabbed folders.",
+   "concept": "static library archive",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-archive-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-lamp",
+   "kind": "prop",
+   "name": "Banker's Desk Lamp",
+   "depicts": "A classic green-shaded banker's desk lamp with a brass stem, a tiny yellow pull-chain pixel, and a dark wooden base.",
+   "concept": "syntax highlighting and inspection",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-lamp-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-tangle",
+   "kind": "prop",
+   "name": "Diamond Dependency",
+   "depicts": "A framed dark pinboard with five pale nodes linked by crossing red, yellow, and brown threads.",
+   "concept": "circular dependency graph",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-tangle-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-thread",
+   "kind": "prop",
+   "name": "Pthread Line",
+   "depicts": "Two orange square endpoints joined by a sagging dotted brown line carrying a bright yellow pulse along its span.",
+   "concept": "POSIX execution thread",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-thread-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-plaque",
+   "kind": "prop",
+   "name": "Soname Plaque",
+   "depicts": "A wooden aisle plaque inlaid with bright yellow brass lettering, shown in two text variants reading LIBDL and LIBZ.",
+   "concept": "shared object naming",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-plaque-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-card",
+   "kind": "prop",
+   "name": "Header Slip",
+   "depicts": "A single cream index card with a red top rule, two olive-grey text lines, and a dark drop shadow.",
+   "concept": "header file declaration",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-card-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-lectern",
+   "kind": "prop",
+   "name": "Manpage Lectern",
+   "depicts": "A wooden pedestal lectern supporting an open cream reference volume with grey text blocks on both pages.",
+   "concept": "API reference manual",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-lectern-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-stamp",
+   "kind": "prop",
+   "name": "Deprecation Stamp",
+   "depicts": "A purple ink pad beside a tiered wooden rubber stamp hovering above a cream slip bearing a fresh purple impression.",
+   "concept": "ABI version stamping",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-stamp-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-pile",
+   "kind": "prop",
+   "name": "Vendored Pile",
+   "depicts": "A small uneven stack of four horizontal hardcover books in green, purple, and brown with cream page edges.",
+   "concept": "vendored dependency stack",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-pile-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-scroll",
+   "kind": "prop",
+   "name": "Legacy Changelog",
+   "depicts": "An unrolled cream parchment scroll between two wooden rollers, showing three olive-grey lines of text with a red mark on the top line.",
+   "concept": "legacy specification and changelog",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-scroll-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-magnifier",
+   "kind": "prop",
+   "name": "Symbol Inspector",
+   "depicts": "A grey-rimmed magnifying glass with a wooden handle hovering over four olive-grey lines of text on a cream page.",
+   "concept": "symbol inspection and debugging",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-magnifier-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-pigeon",
+   "kind": "prop",
+   "name": "Hash Pigeonholes",
+   "depicts": "A wooden four-by-three pigeonhole cabinet with nine cubbies holding cream or white stacks of slips and three empty black slots.",
+   "concept": "hash table buckets",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-pigeon-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-globe",
+   "kind": "prop",
+   "name": "Locale Globe",
+   "depicts": "A small blue-and-green terrestrial globe mounted in a yellow brass meridian ring on a stepped wooden stand.",
+   "concept": "internationalization and locale tables",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-globe-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-desk",
+   "kind": "prop",
+   "name": "Reading Carrel",
+   "depicts": "A wooden reading table holding a pale book and a teal box, paired with a tall-backed wooden chair on the right.",
+   "concept": "library workspace and linkage context",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-desk-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-inkwell",
+   "kind": "prop",
+   "name": "Errno Inkwell",
+   "depicts": "A dark grey square ink bottle with a silver collar and a three-pixel pale yellow quill leading toward a detached yellow pixel at top right.",
+   "concept": "mutable global state",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-inkwell-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-bookmark",
+   "kind": "prop",
+   "name": "Fseek Ribbon",
+   "depicts": "A crimson-bound book face with a cream panel and a bright yellow ribbon bookmark hanging past the bottom edge.",
+   "concept": "file stream offset",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-bookmark-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-codex",
+   "kind": "prop",
+   "name": "The Libc Codex",
+   "depicts": "A heavy dark-brown leather codex with golden side clasps and a cream cover plate bearing two dark grey title bars.",
+   "concept": "standard C library",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-codex-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-scales",
+   "kind": "prop",
+   "name": "AVL Balance",
+   "depicts": "A yellow brass balance scale on a wooden base with two level brown weighing pans suspended by grey chains.",
+   "concept": "balanced tree structures",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-scales-libraries-v0.png"
+  },
+  {
+   "key": "e:lib-hourglass",
+   "kind": "prop",
+   "name": "Timeout Glass",
+   "depicts": "A wooden-framed glass hourglass with pale sand in the upper bulb and a fuller pile of bright yellow sand below.",
+   "concept": "library timeout and clock",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-lib-hourglass-libraries-v0.png"
+  },
+  {
+   "key": "c:libraries:core",
+   "kind": "critter",
+   "name": "Folio-Crowned Pager",
+   "depicts": "A tiny square-bodied critter with dark eyes, corner ear-tabs, and an open miniature book balanced on its head, in tan, pale blue, and dusty rose variants.",
+   "concept": "lazy symbol resolution",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-libraries-core-v0.png"
+  }
+ ]
+}

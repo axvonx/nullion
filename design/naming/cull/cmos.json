@@ -1,0 +1,68 @@
+{
+ "layer": "cmos",
+ "items": [
+  {
+   "key": "e:cm-viatower",
+   "verdict": "keep",
+   "reason": "Layer anchor that clearly depicts a multilayer metal interconnect stack with intersecting tracks and vias.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:cm-finfet",
+   "verdict": "keep",
+   "reason": "Distinct, recognizable top-down layout representing the fundamental FinFET MOSFET transistor.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:cm-via",
+   "verdict": "delete",
+   "reason": "Redundant single-crossing subset of the multilayer metal interconnect and via grid already shown by Metal Manhattan.",
+   "similarTo": "e:cm-viatower",
+   "replacement": null
+  },
+  {
+   "key": "e:cm-well",
+   "verdict": "keep",
+   "reason": "Strong, distinct representation of the complementary twin-well substrate that defines CMOS.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:cm-nwell",
+   "verdict": "delete",
+   "reason": "Redundant single-well subset of Complementary Tub and visually just a plain rectangle.",
+   "similarTo": "e:cm-well",
+   "replacement": null
+  },
+  {
+   "key": "e:cm-contact",
+   "verdict": "delete",
+   "reason": "Visually minimal square pad whose contact-window concept is already shown in FinFET Cell and Metal Manhattan.",
+   "similarTo": "e:cm-finfet",
+   "replacement": "an electromigration void in a metal trace"
+  },
+  {
+   "key": "e:cm-metal",
+   "verdict": "keep",
+   "reason": "Distinct parallel routing stripes representing metal interconnect buses, dielectric spacing, and crosstalk.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "c:cmos:core",
+   "verdict": "keep",
+   "reason": "Core critter for the CMOS layer representing a stray electron charge carrier.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "c:cmos:alt",
+   "verdict": "keep",
+   "reason": "Alternate critter that pairs cleanly with Stray Electron to complete the electron-hole pair concept.",
+   "similarTo": null,
+   "replacement": null
+  }
+ ]
+}

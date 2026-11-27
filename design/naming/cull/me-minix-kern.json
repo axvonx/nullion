@@ -1,0 +1,54 @@
+{
+ "layer": "me-minix-kern",
+ "items": [
+  {
+   "key": "e:mk-microkern",
+   "verdict": "keep",
+   "reason": "Layer anchor representing the core MINIX 3 microkernel message-passing architecture.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:mk-ipc",
+   "verdict": "keep",
+   "reason": "Represents synchronous sendrec inter-process communication, a foundational MINIX 3 microkernel primitive.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:mk-arc",
+   "verdict": "delete",
+   "reason": "Generic microchip silhouette that is visually indistinguishable from other IC props and better replaced by a microkernel-specific concept.",
+   "similarTo": "e:dr-chip",
+   "replacement": "a reincarnation server watchdog that restarts crashed drivers"
+  },
+  {
+   "key": "e:mk-notify",
+   "verdict": "keep",
+   "reason": "Distinct visual and concept representing non-blocking asynchronous microkernel notifications.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:mk-grant",
+   "verdict": "keep",
+   "reason": "Represents MINIX 3 safecopy memory grants, a signature microkernel isolation mechanism.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:mk-fused",
+   "verdict": "delete",
+   "reason": "Hardware e-fuses belong to silicon/firmware rather than the microkernel layer and the striped-bar sprite is visually generic.",
+   "similarTo": null,
+   "replacement": "a user-space driver isolation sandbox"
+  },
+  {
+   "key": "c:me-minix-kern:core",
+   "verdict": "keep",
+   "reason": "Core critter for the layer representing fixed-size microkernel IPC messages.",
+   "similarTo": null,
+   "replacement": null
+  }
+ ]
+}

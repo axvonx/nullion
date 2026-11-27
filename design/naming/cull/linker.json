@@ -1,0 +1,75 @@
+{
+  "layer": "linker",
+  "items": [
+    {
+      "key": "e:ld-switchboard",
+      "verdict": "keep",
+      "reason": "Distinctive anchor set piece representing dynamic symbol resolution with clear patch-cord visuals.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ld-elf",
+      "verdict": "keep",
+      "reason": "Represents the foundational ELF executable header concept for the linker layer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ld-plt",
+      "verdict": "keep",
+      "reason": "Visually distinct crossing-track bridge that clearly conveys Procedure Linkage Table trampolines.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ld-reloc",
+      "verdict": "delete",
+      "reason": "Low-priority abstract blocks on a rail that look too similar to e:ld-rpath and lack clear visual identity.",
+      "similarTo": "e:ld-rpath",
+      "replacement": "a binary patch-tape splicer"
+    },
+    {
+      "key": "e:ld-got",
+      "verdict": "keep",
+      "reason": "Core Global Offset Table concept that pairs naturally with the Procedure Linkage Table.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:ld-soname",
+      "verdict": "delete",
+      "reason": "Duplicates the Soname Plaque in the libraries layer and is visually just a generic two-bar plaque.",
+      "similarTo": "e:lib-plaque",
+      "replacement": null
+    },
+    {
+      "key": "e:ld-rpath",
+      "verdict": "delete",
+      "reason": "Low-priority generic bars on a rail that are visually indistinct from other bar-and-rail props.",
+      "similarTo": "e:ld-reloc",
+      "replacement": "a library search-path signpost with stacked directory arrows"
+    },
+    {
+      "key": "e:ld-lazy",
+      "verdict": "keep",
+      "reason": "High-priority core concept representing lazy symbol binding.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:linker:core",
+      "verdict": "keep",
+      "reason": "Core critter species representing the dynamic linker daemon (ld.so).",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:linker:alt",
+      "verdict": "keep",
+      "reason": "Strong alternate critter representing an unresolved symbol stub.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

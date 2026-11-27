@@ -1,0 +1,61 @@
+{
+  "layer": "me-minix-user",
+  "items": [
+    {
+      "key": "e:mx-bottle",
+      "verdict": "keep",
+      "reason": "Layer anchor that vividly depicts the embedded MINIX 3 userspace sealed inside Intel ME.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:mx-amt",
+      "verdict": "keep",
+      "reason": "Represents Intel Active Management Technology (Port 16992), a signature and notorious ME userspace feature.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:mx-tinycity",
+      "verdict": "delete",
+      "reason": "Redundant with Amber Terrarium, depicting the same three miniature towers without the glass bottle.",
+      "similarTo": "e:mx-bottle",
+      "replacement": null
+    },
+    {
+      "key": "e:mx-rs",
+      "verdict": "keep",
+      "reason": "Stands for the MINIX 3 Reincarnation Server (rs), a defining concept of MINIX 3's fault-tolerant userspace.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:mx-httpd",
+      "verdict": "delete",
+      "reason": "Visually generic two-bar panel whose embedded web server concept overlaps heavily with Port 16992 (AMT).",
+      "similarTo": "e:mx-amt",
+      "replacement": null
+    },
+    {
+      "key": "e:mx-tcp",
+      "verdict": "keep",
+      "reason": "Captures the independent out-of-band TCP/IP stack running inside Intel ME.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:mx-tinytower",
+      "verdict": "delete",
+      "reason": "Generic low-priority miniature tower that repeats the skyline motif of Amber Terrarium without a distinct concept.",
+      "similarTo": "e:mx-bottle",
+      "replacement": null
+    },
+    {
+      "key": "c:me-minix-user:core",
+      "verdict": "keep",
+      "reason": "Core critter for the layer representing a MINIX 3 userspace server process.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

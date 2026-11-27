@@ -1,0 +1,310 @@
+{
+ "layer": {
+  "id": "runtime",
+  "name": "Heap & GC",
+  "daily": true
+ },
+ "reusedCopiesAlsoInThisLayer": 0,
+ "items": [
+  {
+   "key": "e:rt-scaffold",
+   "kind": "anchor",
+   "name": "Heap Scaffold",
+   "depicts": "A three-tier metal scaffolding rack packed with multi-colored rectangular blocks and a ladder on the right.",
+   "concept": "managed heap memory",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-scaffold-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-incinerator",
+   "kind": "anchor",
+   "name": "Reclamation Furnace",
+   "depicts": "A dark industrial furnace with glowing orange-yellow bars inside a grate and two small grey smoke puffs rising from a chimney.",
+   "concept": "garbage collection reclamation",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-incinerator-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-objects",
+   "kind": "prop",
+   "name": "Boxed Values",
+   "depicts": "A shelf holding three or four colored rectangular blocks of varying heights.",
+   "concept": "heap-allocated objects",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-objects-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-sweeper",
+   "kind": "prop",
+   "name": "Stop-the-World Sweeper",
+   "depicts": "A small wheeled blue-violet robot with a cyan eye and yellow scoop patrolling a shelf past grey and blue blocks.",
+   "concept": "mark-and-sweep garbage collector",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-sweeper-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-marks",
+   "kind": "prop",
+   "name": "Mark Bits",
+   "depicts": "Four colored blocks on a shelf with yellow L-shaped checkmarks above three of them and a dark bar above the blue one.",
+   "concept": "GC reachability marking",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-marks-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-ref",
+   "kind": "prop",
+   "name": "Object Reference",
+   "depicts": "A blue block in the upper left connected by an L-shaped purple pipe with a cross-shaped end to another blue block in the lower right.",
+   "concept": "object reference pointer",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-ref-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-heapcol",
+   "kind": "prop",
+   "name": "Heap Column",
+   "depicts": "A vertical dark purple pillar with four horizontal green and blue bars extending to the right.",
+   "concept": "heap memory column",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-heapcol-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-jit",
+   "kind": "prop",
+   "name": "Hotspot Forge",
+   "depicts": "A grey anvil with glowing orange and yellow flames rising from its top surface.",
+   "concept": "just-in-time compilation",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-jit-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-tape",
+   "kind": "prop",
+   "name": "Turing Spool",
+   "depicts": "Two grey circular tape reels mounted side-by-side on a tan and grey horizontal base.",
+   "concept": "bytecode instruction stream",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-tape-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-callstack",
+   "kind": "prop",
+   "name": "Call Stack",
+   "depicts": "A vertical stack of horizontal colored bars (pink, yellow, blue, green, red) topped by a small purple marker.",
+   "concept": "execution call stack",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-callstack-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-refcount",
+   "kind": "prop",
+   "name": "Reference Counter",
+   "depicts": "A blue block with a red tag-like counter attached to its upper-right corner.",
+   "concept": "reference counting",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-refcount-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-weakref",
+   "kind": "prop",
+   "name": "Weak Reference",
+   "depicts": "A blue block on the left connected by three dotted purple squares to a hollow grey square on the right.",
+   "concept": "weak reference",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-weakref-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-tricolor",
+   "kind": "prop",
+   "name": "Tri-Color Markers",
+   "depicts": "Three squares in a row\u2014black, grey, and white\u2014linked by short purple bars.",
+   "concept": "tri-color marking algorithm",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-tricolor-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-bump",
+   "kind": "prop",
+   "name": "Bump Allocator",
+   "depicts": "A horizontal dark trough with a green block at the left end and a yellow T-shaped cursor above it.",
+   "concept": "bump-pointer allocation",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-bump-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-finalizer",
+   "kind": "prop",
+   "name": "Finalizer Queue",
+   "depicts": "Two blue blocks and a red block on a shelf moving toward a dark doorway with a yellow handle.",
+   "concept": "object finalizer queue",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-finalizer-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-interp",
+   "kind": "prop",
+   "name": "Bytecode Interpreter",
+   "depicts": "A tall grey housing with four horizontal colored slots and a yellow tab sticking out the left side.",
+   "concept": "bytecode interpreter",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-interp-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-hashmap",
+   "kind": "prop",
+   "name": "Hash Map",
+   "depicts": "A grey vertical rack with four dark bucket slots, three of which have colored blocks attached by purple tabs.",
+   "concept": "hash table buckets",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-hashmap-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-strpool",
+   "kind": "prop",
+   "name": "String Pool",
+   "depicts": "Three colored squares on the left wired through a purple junction into a dark box containing a yellow bar.",
+   "concept": "string interning pool",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-strpool-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-closure",
+   "kind": "prop",
+   "name": "Lexical Closure",
+   "depicts": "A purple-framed tank holding a blue liquid block with a small purple pipe and yellow cap at the bottom.",
+   "concept": "lexical closure",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-closure-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-eventloop",
+   "kind": "prop",
+   "name": "Event Loop",
+   "depicts": "A dark circular dial with four tick marks and a yellow hand pointing downward.",
+   "concept": "event loop",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-eventloop-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-promise",
+   "kind": "prop",
+   "name": "Async Promise",
+   "depicts": "A small square frame containing a yellow hourglass.",
+   "concept": "async promise or future",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-promise-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-compact",
+   "kind": "prop",
+   "name": "Heap Compactor",
+   "depicts": "A grey shelf with six colored blocks pushed together into tight clusters.",
+   "concept": "heap compaction",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-compact-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-vtable",
+   "kind": "prop",
+   "name": "Virtual Table",
+   "depicts": "A dark grey column with two dark slots on the left and three purple-and-yellow pointer tabs on the right.",
+   "concept": "virtual method table",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-vtable-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-bytecode",
+   "kind": "prop",
+   "name": "Return Opcode",
+   "depicts": "Pixel-art purple text reading \"RETUR\" (truncated \"RETURN\").",
+   "concept": "bytecode opcode",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-bytecode-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-arena",
+   "kind": "prop",
+   "name": "Memory Arena",
+   "depicts": "A purple-bordered dark box containing five alternating green and blue vertical bars.",
+   "concept": "memory arena",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-arena-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-stackframe",
+   "kind": "prop",
+   "name": "Stack Frame",
+   "depicts": "A dark box with three horizontal colored bars (yellow, blue, pink) of different lengths.",
+   "concept": "call stack frame",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-stackframe-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-upvalue",
+   "kind": "prop",
+   "name": "Captured Upvalue",
+   "depicts": "A yellow-framed box linked by a vertical purple bar to a green-framed box below it.",
+   "concept": "captured upvalue",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-upvalue-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-safepoint",
+   "kind": "prop",
+   "name": "GC Safepoint",
+   "depicts": "A red rectangular sign with a yellow center mounted on a purple post.",
+   "concept": "GC safepoint",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-safepoint-runtime-v0.png"
+  },
+  {
+   "key": "e:rt-nursery",
+   "kind": "prop",
+   "name": "Eden Nursery",
+   "depicts": "A green-bordered dark box holding four alternating yellow and mint-green squares.",
+   "concept": "generational GC nursery",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rt-nursery-runtime-v0.png"
+  },
+  {
+   "key": "c:runtime:core",
+   "kind": "critter",
+   "name": "Malloc Mite",
+   "depicts": "A small boxy, crenellated pixel critter with two dark eyes sitting in a dark cradle, appearing in cyan, green, and yellow variants.",
+   "concept": "heap-hopping runtime critter",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-runtime-core-v0.png"
+  }
+ ]
+}

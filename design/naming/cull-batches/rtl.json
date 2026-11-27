@@ -1,0 +1,90 @@
+{
+ "layer": {
+  "id": "rtl",
+  "name": "RTL & Logic Gates",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 17,
+ "items": [
+  {
+   "key": "e:rtl-htree",
+   "kind": "anchor",
+   "name": "Clock H-Tree",
+   "depicts": "A symmetrical blue and pale-cyan H-tree clock distribution network branching into four terminal bars.",
+   "concept": "H-tree clock distribution",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rtl-htree-rtl-v0.png"
+  },
+  {
+   "key": "e:rtl-nand",
+   "kind": "prop",
+   "name": "NAND Gate",
+   "depicts": "A blue-bordered logic gate with two input leads on the left, a dark body, and an inversion bubble on the right.",
+   "concept": "NAND logic gate",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rtl-nand-rtl-v0.png"
+  },
+  {
+   "key": "e:rtl-dff",
+   "kind": "prop",
+   "name": "D Flip-Flop",
+   "depicts": "A tall dark rectangular flip-flop cell with a pale-cyan border, a clock triangle at the bottom left, and data leads.",
+   "concept": "D flip-flop",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rtl-dff-rtl-v0.png"
+  },
+  {
+   "key": "e:rtl-wave",
+   "kind": "prop",
+   "name": "Timing Waveform",
+   "depicts": "A dark-blue framed white timing-diagram window displaying pale-cyan square-wave pulse segments.",
+   "concept": "digital timing waveform",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rtl-wave-rtl-v0.png"
+  },
+  {
+   "key": "e:rtl-mux",
+   "kind": "prop",
+   "name": "Multiplexer",
+   "depicts": "A bright-blue trapezoidal multiplexer symbol tapering from left to right.",
+   "concept": "multiplexer",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rtl-mux-rtl-v0.png"
+  },
+  {
+   "key": "e:rtl-adder",
+   "kind": "prop",
+   "name": "Binary Adder",
+   "depicts": "A blue-framed dark block containing a pale-cyan plus sign.",
+   "concept": "binary adder",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rtl-adder-rtl-v0.png"
+  },
+  {
+   "key": "e:rtl-clk",
+   "kind": "prop",
+   "name": "Clock Rail",
+   "depicts": "Two parallel horizontal clock rails, one pale cyan and one dark navy, in an animated 18x7 strip.",
+   "concept": "clock rail",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-rtl-clk-rtl-v0.png"
+  },
+  {
+   "key": "c:rtl:core",
+   "kind": "critter",
+   "name": "Gate Scuttler",
+   "depicts": "A tiny grey-and-black pixelated critter that scuttles along the RTL logic grid.",
+   "concept": "synchronous logic pulse",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-rtl-core-v0.png"
+  }
+ ]
+}

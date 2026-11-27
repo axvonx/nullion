@@ -1,0 +1,82 @@
+{
+  "layer": "browser",
+  "items": [
+    {
+      "key": "e:br-viewport",
+      "verdict": "keep",
+      "reason": "Layer anchor representing the browser viewport and page layout.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:br-dom",
+      "verdict": "keep",
+      "reason": "Core browser concept depicting the Document Object Model tree.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:br-css",
+      "verdict": "keep",
+      "reason": "Iconic DevTools diagram representing the CSS box model.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:br-layer",
+      "verdict": "delete",
+      "reason": "Visually and conceptually overlaps with Z-Order Pileup in the application layer.",
+      "similarTo": "e:app-cascade",
+      "replacement": null
+    },
+    {
+      "key": "e:br-tab",
+      "verdict": "delete",
+      "reason": "Generic browser chrome already depicted inside the viewport anchor and too thin for its own page.",
+      "similarTo": "e:br-viewport",
+      "replacement": "a CORS preflight gate"
+    },
+    {
+      "key": "e:br-paint",
+      "verdict": "keep",
+      "reason": "Distinctive compositor concept showing repaint regions and DevTools paint flashing.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:br-cookie",
+      "verdict": "keep",
+      "reason": "Recognisable and iconic representation of HTTP browser cookies.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:br-canvas",
+      "verdict": "delete",
+      "reason": "Visually generic red circle on blue square that lacks a strong computing-trivia hook.",
+      "similarTo": null,
+      "replacement": "a shadow DOM boundary"
+    },
+    {
+      "key": "e:br-devtools",
+      "verdict": "keep",
+      "reason": "Strong representation of the browser DevTools waterfall profiler.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:browser:core",
+      "verdict": "keep",
+      "reason": "Core critter species for the browser layer (marked for rework by owner).",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:browser:alt",
+      "verdict": "delete",
+      "reason": "Visually weak 1x8 vertical bar that is barely visible and redundant with text carets elsewhere.",
+      "similarTo": "e:app-search",
+      "replacement": null
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "layer": "libraries",
+  "items": [
+    {
+      "key": "e:lib-aisle",
+      "verdict": "keep",
+      "reason": "Landmark anchor for the libraries layer representing the standard library search path.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-press",
+      "verdict": "keep",
+      "reason": "Landmark anchor with a distinct mechanical silhouette representing library compilation and binding.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-shelf",
+      "verdict": "delete",
+      "reason": "Redundant smaller version of the towering bookcases already shown in The Include Aisle.",
+      "similarTo": "e:lib-aisle",
+      "replacement": null
+    },
+    {
+      "key": "e:lib-catalogue",
+      "verdict": "keep",
+      "reason": "Classic card-catalogue chest that clearly represents symbol table lookup.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-ladder",
+      "verdict": "delete",
+      "reason": "Generic rolling ladder already depicted as part of The Include Aisle.",
+      "similarTo": "e:lib-aisle",
+      "replacement": null
+    },
+    {
+      "key": "e:lib-spool",
+      "verdict": "keep",
+      "reason": "Distinct wooden bobbin prop representing output spooling and streaming.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-cart",
+      "verdict": "keep",
+      "reason": "Recognizable book trolley representing package dependency transport.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-crates",
+      "verdict": "keep",
+      "reason": "Distinct .C-stencilled shipping crates representing compiled source packages.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-loom",
+      "verdict": "keep",
+      "reason": "Memorable frame loom prop representing linking and thread interleaving.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-archive",
+      "verdict": "keep",
+      "reason": "Distinct filing unit representing static .a library archives.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-lamp",
+      "verdict": "delete",
+      "reason": "Generic library desk filler whose syntax-highlighting concept does not fit the libraries layer.",
+      "similarTo": null,
+      "replacement": "a dynamic-linker cache index (ld.so.cache)"
+    },
+    {
+      "key": "e:lib-tangle",
+      "verdict": "keep",
+      "reason": "Strong visual metaphor for circular and diamond dependency graphs.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-thread",
+      "verdict": "delete",
+      "reason": "Visually abstract dotted line that overlaps with Linker Loom and Thread Bobbin.",
+      "similarTo": "e:lib-loom",
+      "replacement": null
+    },
+    {
+      "key": "e:lib-plaque",
+      "verdict": "delete",
+      "reason": "Duplicates the SONAME Tag concept already present in the linker layer.",
+      "similarTo": "e:ld-soname",
+      "replacement": null
+    },
+    {
+      "key": "e:lib-card",
+      "verdict": "delete",
+      "reason": "Generic index card filler that is weaker than Symbol Catalogue.",
+      "similarTo": "e:lib-catalogue",
+      "replacement": null
+    },
+    {
+      "key": "e:lib-lectern",
+      "verdict": "keep",
+      "reason": "Iconic pedestal lectern representing the API reference manual.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-stamp",
+      "verdict": "keep",
+      "reason": "Distinct rubber-stamp prop representing ABI version stamping and deprecation.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-pile",
+      "verdict": "delete",
+      "reason": "Generic stack of books that adds no distinct concept beyond The Include Aisle.",
+      "similarTo": "e:lib-aisle",
+      "replacement": null
+    },
+    {
+      "key": "e:lib-scroll",
+      "verdict": "delete",
+      "reason": "Generic parchment scroll filler with a weak legacy-changelog concept.",
+      "similarTo": null,
+      "replacement": "a pkg-config metadata tag"
+    },
+    {
+      "key": "e:lib-magnifier",
+      "verdict": "delete",
+      "reason": "Generic magnifying-glass prop that is weaker than Symbol Catalogue for symbol inspection.",
+      "similarTo": "e:lib-catalogue",
+      "replacement": null
+    },
+    {
+      "key": "e:lib-pigeon",
+      "verdict": "delete",
+      "reason": "Duplicates the Hash Map bucket concept already represented in the runtime layer.",
+      "similarTo": "e:rt-hashmap",
+      "replacement": null
+    },
+    {
+      "key": "e:lib-globe",
+      "verdict": "keep",
+      "reason": "Distinct terrestrial globe prop representing internationalization and locale tables.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-desk",
+      "verdict": "delete",
+      "reason": "Generic reading table and chair filler with a weak linkage-context concept.",
+      "similarTo": "e:lib-lectern",
+      "replacement": null
+    },
+    {
+      "key": "e:lib-inkwell",
+      "verdict": "keep",
+      "reason": "High-priority prop representing mutable global state (errno).",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-bookmark",
+      "verdict": "delete",
+      "reason": "Generic book-face prop that is weaker than The Libc Codex.",
+      "similarTo": "e:lib-codex",
+      "replacement": null
+    },
+    {
+      "key": "e:lib-codex",
+      "verdict": "keep",
+      "reason": "Strongest book prop in the layer, representing the standard C library (libc).",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-scales",
+      "verdict": "keep",
+      "reason": "Distinct brass balance scale representing balanced tree structures.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:lib-hourglass",
+      "verdict": "keep",
+      "reason": "High-priority hourglass prop representing library timeouts and clocks.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:libraries:core",
+      "verdict": "keep",
+      "reason": "Core critter for the libraries layer representing lazy symbol resolution.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

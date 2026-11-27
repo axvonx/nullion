@@ -1,0 +1,80 @@
+{
+ "layer": {
+  "id": "smram",
+  "name": "SMRAM Vault (TSEG)",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 18,
+ "items": [
+  {
+   "key": "e:sm-vaultdoor",
+   "kind": "anchor",
+   "name": "TSEG Vault Door",
+   "depicts": "A heavy grey circular vault door with a white four-spoked locking wheel in the center.",
+   "concept": "SMRAM hardware-enforced memory isolation",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-sm-vaultdoor-smram-v0.png"
+  },
+  {
+   "key": "e:sm-dlck",
+   "kind": "prop",
+   "name": "One-Way Latch",
+   "depicts": "A grey square padlock with a white shackle and a black keyhole.",
+   "concept": "D_LCK bit in SMRAMC register",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-sm-dlck-smram-v0.png"
+  },
+  {
+   "key": "e:sm-savestate",
+   "kind": "prop",
+   "name": "State Save Block",
+   "depicts": "A dark rectangular register block with four horizontal bars, the top one highlighted in white.",
+   "concept": "SMM CPU state save area",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-sm-savestate-smram-v0.png"
+  },
+  {
+   "key": "e:sm-rsm",
+   "kind": "prop",
+   "name": "RSM Gate",
+   "depicts": "A dark grey square with a centered light-grey vertical rectangle.",
+   "concept": "RSM (Resume from System Management Mode) instruction",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-sm-rsm-smram-v0.png"
+  },
+  {
+   "key": "e:sm-tseg",
+   "kind": "prop",
+   "name": "TSEG Boundary",
+   "depicts": "A dark horizontal bar with a centered grey inner strip.",
+   "concept": "TSEG (Top of Memory Segment) base and limit",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-sm-tseg-smram-v0.png"
+  },
+  {
+   "key": "e:sm-lockbit",
+   "kind": "prop",
+   "name": "Lock Bit",
+   "depicts": "A grey pedestal topped by a lighter grey square housing a black screen or aperture.",
+   "concept": "D_LCK hardware lock bit",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-sm-lockbit-smram-v0.png"
+  },
+  {
+   "key": "c:smram:core",
+   "kind": "critter",
+   "name": "Vault Core",
+   "depicts": "A small floating grey rectangular core with a white-centered inner aperture.",
+   "concept": "SMRAM resident handler core",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-smram-core-v0.png"
+  }
+ ]
+}

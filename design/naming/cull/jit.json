@@ -1,0 +1,61 @@
+{
+  "layer": "jit",
+  "items": [
+    {
+      "key": "e:jit-forge",
+      "verdict": "keep",
+      "reason": "Core layer anchor representing tiered JIT compilation of hot code paths with a distinct furnace silhouette.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:jit-ic",
+      "verdict": "keep",
+      "reason": "Represents inline caches, a namesake concept of the layer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:jit-deopt",
+      "verdict": "keep",
+      "reason": "Strong, distinct representation of speculative deoptimization bailout.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:jit-profile",
+      "verdict": "delete",
+      "reason": "Generic four-bar meter whose hot-path concept overlaps with the Hotspot Hearth anchor.",
+      "similarTo": "e:jit-forge",
+      "replacement": "a megamorphic dispatch table"
+    },
+    {
+      "key": "e:jit-osr",
+      "verdict": "keep",
+      "reason": "Distinct visual and conceptual representation of on-stack replacement.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:jit-guard",
+      "verdict": "delete",
+      "reason": "Overlaps conceptually with speculative deoptimization bailout in Uncommon Trap.",
+      "similarTo": "e:jit-deopt",
+      "replacement": null
+    },
+    {
+      "key": "c:jit:core",
+      "verdict": "keep",
+      "reason": "Core critter species for the JIT layer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:jit:alt",
+      "verdict": "delete",
+      "reason": "Weak alternate critter that is visually and conceptually too similar to Cinder Dart.",
+      "similarTo": "c:jit:core",
+      "replacement": null
+    }
+  ]
+}

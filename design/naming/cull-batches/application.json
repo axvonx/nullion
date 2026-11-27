@@ -1,0 +1,320 @@
+{
+ "layer": {
+  "id": "application",
+  "name": "Application",
+  "daily": true
+ },
+ "reusedCopiesAlsoInThisLayer": 0,
+ "items": [
+  {
+   "key": "e:app-cascade",
+   "kind": "anchor",
+   "name": "Z-Order Pileup",
+   "depicts": "Three overlapping desktop windows stacked diagonally, with a bar chart rendered inside the foreground yellow-titled frame.",
+   "concept": "window manager stacking order",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-cascade-application-v0.png"
+  },
+  {
+   "key": "e:app-launcher",
+   "kind": "anchor",
+   "name": "Exec Grid",
+   "depicts": "A white launcher panel topped by a search bar above a four-by-three grid of multicolored rounded application icons.",
+   "concept": "application launcher and desktop entry index",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-launcher-application-v0.png"
+  },
+  {
+   "key": "e:app-browser",
+   "kind": "prop",
+   "name": "Browser Frame",
+   "depicts": "A compact web browser window displaying a top address bar, an orange hero banner, and grey placeholder text lines.",
+   "concept": "web browser client viewport",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-browser-application-v0.png"
+  },
+  {
+   "key": "e:app-dialog",
+   "kind": "prop",
+   "name": "Modal Dialog",
+   "depicts": "A modal dialog box with an orange title bar, a yellow alert icon, grey text lines, and two bottom action buttons.",
+   "concept": "blocking modal dialog",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-dialog-application-v0.png"
+  },
+  {
+   "key": "e:app-toast",
+   "kind": "prop",
+   "name": "Toast Banner",
+   "depicts": "A compact floating notification card with an orange square icon on the left and two grey text bars beside it.",
+   "concept": "transient toast notification",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-toast-application-v0.png"
+  },
+  {
+   "key": "e:app-spinner",
+   "kind": "prop",
+   "name": "Amber Throbber",
+   "depicts": "A pale square card containing an eight-dot circular loading spinner with fading amber and beige pips.",
+   "concept": "indeterminate busy indicator and UI thread blocking",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-spinner-application-v0.png"
+  },
+  {
+   "key": "e:app-progress",
+   "kind": "prop",
+   "name": "Ninety-Nine Bar",
+   "depicts": "A horizontal progress bar framed in dark blue with a cream track and a small amber fill block near the left edge.",
+   "concept": "determinate progress estimation",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-progress-application-v0.png"
+  },
+  {
+   "key": "e:app-icon",
+   "kind": "prop",
+   "name": "Badged Icon",
+   "depicts": "A green rounded-square application icon with a white central glyph and a red notification badge at its top-right corner.",
+   "concept": "application icon and unread badge counter",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-icon-application-v0.png"
+  },
+  {
+   "key": "e:app-bubble",
+   "kind": "prop",
+   "name": "Typing Ellipsis",
+   "depicts": "A blue speech bubble with a bottom-right tail and three typing-indicator squares inside, the leftmost lit white.",
+   "concept": "asynchronous presence and typing indicator",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-bubble-application-v0.png"
+  },
+  {
+   "key": "e:app-cloudsync",
+   "kind": "prop",
+   "name": "Eventual Cloud",
+   "depicts": "A pixelated white cloud silhouette with a blue upward synchronization arrow set into its lower center.",
+   "concept": "cloud synchronization and eventual consistency",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-cloudsync-application-v0.png"
+  },
+  {
+   "key": "e:app-folder",
+   "kind": "prop",
+   "name": "Manila Inode",
+   "depicts": "A yellow tabbed manila folder icon with white document edges visible behind the front flap.",
+   "concept": "hierarchical directory metaphor",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-folder-application-v0.png"
+  },
+  {
+   "key": "e:app-trash",
+   "kind": "prop",
+   "name": "Deferred Unlink",
+   "depicts": "A grey lidded wastebasket icon with three vertical ribs along its body.",
+   "concept": "soft-delete staging and deferred unlink",
+   "priority": 5,
+   "ownerDecision": "keep",
+   "sprite": "design/naming/sprites/e-app-trash-application-v0.png"
+  },
+  {
+   "key": "e:app-slider",
+   "kind": "prop",
+   "name": "Range Slider",
+   "depicts": "A dark horizontal range slider track filled with amber on the left and a white-and-amber thumb near the right end.",
+   "concept": "bounded range input control",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-slider-application-v0.png"
+  },
+  {
+   "key": "e:app-toggle",
+   "kind": "prop",
+   "name": "Boolean Latch",
+   "depicts": "A bright green rectangular toggle switch with a white square knob positioned on the right side.",
+   "concept": "boolean feature flag and state toggle",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-toggle-application-v0.png"
+  },
+  {
+   "key": "e:app-checklist",
+   "kind": "prop",
+   "name": "Sprint Backlog",
+   "depicts": "A white card listing three horizontal rows, with the top two checkboxes filled green and the bottom one grey.",
+   "concept": "task checklist and completion state",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-checklist-application-v0.png"
+  },
+  {
+   "key": "e:app-calendar",
+   "kind": "prop",
+   "name": "Epoch Calendar",
+   "depicts": "A wall-calendar widget with a red header bar, a grid of grey date squares, and one date highlighted in red.",
+   "concept": "calendrical arithmetic and time zones",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-calendar-application-v0.png"
+  },
+  {
+   "key": "e:app-status",
+   "kind": "prop",
+   "name": "Status Tray",
+   "depicts": "A dark status bar holding a low battery icon with a single red charge bar beside three ascending signal-strength bars.",
+   "concept": "system telemetry and power-state reporting",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-status-application-v0.png"
+  },
+  {
+   "key": "e:app-search",
+   "kind": "prop",
+   "name": "Query Caret",
+   "depicts": "A white search input box with a magnifying-glass icon on the left, a grey query bar, and a blue text caret.",
+   "concept": "interactive query input and full-text search",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-search-application-v0.png"
+  },
+  {
+   "key": "e:app-dropdown",
+   "kind": "prop",
+   "name": "Dropdown Menu",
+   "depicts": "An expanded dropdown menu box with a top select bar and a white list of three entries, the bottom highlighted in red.",
+   "concept": "select menu and focus-trapping popover",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-dropdown-application-v0.png"
+  },
+  {
+   "key": "e:app-swatches",
+   "kind": "prop",
+   "name": "Hex Palette",
+   "depicts": "A white color-picker card showing eight colored tiles in two rows, with the bottom-left blue swatch outlined as selected.",
+   "concept": "sRGB color palette and swatch selection",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-swatches-application-v0.png"
+  },
+  {
+   "key": "e:app-photo",
+   "kind": "prop",
+   "name": "Default Wallpaper",
+   "depicts": "A white-bordered photo thumbnail depicting green blocky hills under a pale blue sky and a yellow square sun.",
+   "concept": "raster image thumbnail and placeholder asset",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-photo-application-v0.png"
+  },
+  {
+   "key": "e:app-video",
+   "kind": "prop",
+   "name": "Video Player",
+   "depicts": "A dark video player frame with a centered white play triangle and a bottom scrub bar marked by a red progress tick.",
+   "concept": "streaming media playback and codec decoding",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-video-application-v0.png"
+  },
+  {
+   "key": "e:app-download",
+   "kind": "prop",
+   "name": "Download Arrow",
+   "depicts": "A bright green downward arrow hovering over a grey horizontal tray bar on a dark background.",
+   "concept": "client file transfer and download staging",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-download-application-v0.png"
+  },
+  {
+   "key": "e:app-clock",
+   "kind": "prop",
+   "name": "Wall Clock",
+   "depicts": "A round white analog wall clock with dark tick marks and hands pointing near three o'clock.",
+   "concept": "wall-clock time and NTP synchronization",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-clock-application-v0.png"
+  },
+  {
+   "key": "e:app-avatar",
+   "kind": "prop",
+   "name": "User Avatar",
+   "depicts": "A blue circular user-profile badge containing a simplified white head-and-shoulders silhouette.",
+   "concept": "default user identity and profile avatar",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-avatar-application-v0.png"
+  },
+  {
+   "key": "e:app-music",
+   "kind": "prop",
+   "name": "Audio Card",
+   "depicts": "A white media card featuring a purple album-art square on the left, a dark title bar, and a green playback bar on the right.",
+   "concept": "audio player widget and media session",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-music-application-v0.png"
+  },
+  {
+   "key": "e:app-pin",
+   "kind": "prop",
+   "name": "Null Island Pin",
+   "depicts": "A red circular map pin with a white center crosshair resting on a thin vertical stem.",
+   "concept": "geolocation coordinate marker",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-pin-application-v0.png"
+  },
+  {
+   "key": "e:app-pill",
+   "kind": "prop",
+   "name": "Submit Lozenge",
+   "depicts": "A green capsule-shaped button or tag containing a single centered white horizontal bar.",
+   "concept": "pill tag and call-to-action button",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-pill-application-v0.png"
+  },
+  {
+   "key": "e:app-bell",
+   "kind": "prop",
+   "name": "Push Chime",
+   "depicts": "A gold notification bell with a clapper underneath and a red unread indicator square at its top-right corner.",
+   "concept": "push notification and alert subscription",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-app-bell-application-v0.png"
+  },
+  {
+   "key": "c:application:core",
+   "kind": "critter",
+   "name": "Titlebar Finch",
+   "depicts": "A tiny pixel-art songbird in pink or sky-blue plumage with a white belly and yellow beak, seen flying and perching.",
+   "concept": "user-facing application event and UI cursor companion",
+   "priority": 5,
+   "ownerDecision": "keep",
+   "sprite": "design/naming/sprites/c-application-core-v0.png"
+  },
+  {
+   "key": "c:application:alt",
+   "kind": "critter-alt",
+   "name": "Subpixel Gnat",
+   "depicts": "Two tiny isolated squares, one pink and one yellow, floating in the lower-left of a mostly empty frame.",
+   "concept": "transient UI particle or micro-event",
+   "priority": 5,
+   "ownerDecision": "rework",
+   "sprite": "design/naming/sprites/c-application-alt-v1.png"
+  }
+ ]
+}

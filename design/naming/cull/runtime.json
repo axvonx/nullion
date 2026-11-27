@@ -1,0 +1,215 @@
+{
+ "layer": "runtime",
+ "items": [
+  {
+   "key": "e:rt-scaffold",
+   "verdict": "keep",
+   "reason": "Layer anchor representing managed heap memory with a clear multi-tier scaffolding visual.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-incinerator",
+   "verdict": "keep",
+   "reason": "Layer anchor with a strong, unmistakable visual for garbage collection reclamation.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-objects",
+   "verdict": "keep",
+   "reason": "Core runtime concept representing heap-allocated objects.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-sweeper",
+   "verdict": "keep",
+   "reason": "Iconic mark-and-sweep garbage collector prop with a distinctive robot-and-scoop sprite.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-marks",
+   "verdict": "delete",
+   "reason": "Redundant with Tri-Color Markers for GC marking and visually too similar to Boxed Values.",
+   "similarTo": "e:rt-tricolor",
+   "replacement": null
+  },
+  {
+   "key": "e:rt-ref",
+   "verdict": "delete",
+   "reason": "Generic pointer visual that is overshadowed by the more specific Weak Reference and Reference Counter.",
+   "similarTo": "e:rt-weakref",
+   "replacement": null
+  },
+  {
+   "key": "e:rt-heapcol",
+   "verdict": "delete",
+   "reason": "Generic filler depicting no distinct computing concept worth its own manual page.",
+   "similarTo": null,
+   "replacement": "a write-barrier card table"
+  },
+  {
+   "key": "e:rt-jit",
+   "verdict": "delete",
+   "reason": "Duplicates the Hotspot Hearth in the JIT layer.",
+   "similarTo": "e:jit-forge",
+   "replacement": null
+  },
+  {
+   "key": "e:rt-tape",
+   "verdict": "keep",
+   "reason": "Distinctive dual-reel visual representing a bytecode instruction stream.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-callstack",
+   "verdict": "keep",
+   "reason": "Fundamental execution call stack concept with a clear stacked-bar silhouette.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-refcount",
+   "verdict": "keep",
+   "reason": "Represents reference counting, a classic memory-management strategy distinct from tracing GC.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-weakref",
+   "verdict": "keep",
+   "reason": "Distinctive visual and important runtime concept for non-owning references.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-tricolor",
+   "verdict": "keep",
+   "reason": "Classic tri-color marking algorithm with a clean, recognizable three-state visual.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-bump",
+   "verdict": "keep",
+   "reason": "Represents bump-pointer allocation, a key fast-path technique in managed runtimes.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-finalizer",
+   "verdict": "keep",
+   "reason": "Distinct runtime concept for object finalization queues before reclamation.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-interp",
+   "verdict": "keep",
+   "reason": "Core runtime component representing the bytecode interpreter.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-hashmap",
+   "verdict": "keep",
+   "reason": "Fundamental runtime data structure with a clear bucket-and-slot visual.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-strpool",
+   "verdict": "keep",
+   "reason": "Distinctive runtime optimization concept for string interning.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-closure",
+   "verdict": "keep",
+   "reason": "Core language-runtime concept with a memorable tank visual.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-eventloop",
+   "verdict": "keep",
+   "reason": "Essential async runtime concept with a clear dial visual.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-promise",
+   "verdict": "keep",
+   "reason": "Core async runtime concept with a recognizable hourglass-in-frame icon.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-compact",
+   "verdict": "delete",
+   "reason": "Visually almost identical to Boxed Values and low priority.",
+   "similarTo": "e:rt-objects",
+   "replacement": null
+  },
+  {
+   "key": "e:rt-vtable",
+   "verdict": "keep",
+   "reason": "Distinctive runtime dispatch concept for virtual method tables.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:rt-bytecode",
+   "verdict": "delete",
+   "reason": "Visually broken truncated text ('RETUR') and redundant with the bytecode layer's Opcode Tile.",
+   "similarTo": "c:bytecode:alt",
+   "replacement": null
+  },
+  {
+   "key": "e:rt-arena",
+   "verdict": "delete",
+   "reason": "Generic box-of-bars visual that overlaps with Bump Allocator and Eden Nursery.",
+   "similarTo": "e:rt-nursery",
+   "replacement": null
+  },
+  {
+   "key": "e:rt-stackframe",
+   "verdict": "delete",
+   "reason": "Redundant with Call Stack, which already depicts stacked frames.",
+   "similarTo": "e:rt-callstack",
+   "replacement": null
+  },
+  {
+   "key": "e:rt-upvalue",
+   "verdict": "delete",
+   "reason": "Redundant with Lexical Closure, which already covers captured environment state.",
+   "similarTo": "e:rt-closure",
+   "replacement": null
+  },
+  {
+   "key": "e:rt-safepoint",
+   "verdict": "delete",
+   "reason": "Visually generic sign on a post and low priority.",
+   "similarTo": null,
+   "replacement": "a stop-the-world pause whistle"
+  },
+  {
+   "key": "e:rt-nursery",
+   "verdict": "keep",
+   "reason": "Represents generational GC nurseries, a foundational modern GC concept.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "c:runtime:core",
+   "verdict": "keep",
+   "reason": "Core species critter for the runtime layer.",
+   "similarTo": null,
+   "replacement": null
+  }
+ ]
+}

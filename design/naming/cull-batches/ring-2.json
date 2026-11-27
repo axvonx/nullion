@@ -1,0 +1,300 @@
+{
+ "layer": {
+  "id": "ring-2",
+  "name": "SMI Trap & Freeze",
+  "daily": true
+ },
+ "reusedCopiesAlsoInThisLayer": 0,
+ "items": [
+  {
+   "key": "e:r2-clocktower",
+   "kind": "anchor",
+   "name": "Stillwatch Spire",
+   "depicts": "A tall monochrome clock tower with a pointed roof, three dark louver vents, and clock hands frozen at 11:10.",
+   "concept": "system clock freeze",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-clocktower-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-cascade",
+   "kind": "anchor",
+   "name": "Preempted Avalanche",
+   "depicts": "A cluster of small monochrome debris, gears, and windows suspended mid-air above a dark ground line with vertical motion trails.",
+   "concept": "frozen execution pipeline",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-cascade-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-debris",
+   "kind": "prop",
+   "name": "Stalled Word",
+   "depicts": "A single small rectangular block suspended in mid-air beneath a vertical motion streak.",
+   "concept": "halted instruction fragment",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-debris-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-clock",
+   "kind": "prop",
+   "name": "Deadlock Dial",
+   "depicts": "A round monochrome wall clock with its hands frozen at roughly ten past nine.",
+   "concept": "frozen RTC / wall clock",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-clock-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-shards",
+   "kind": "prop",
+   "name": "Shattered Grit",
+   "depicts": "A small cluster of jagged grey pixel fragments floating in mid-air.",
+   "concept": "shattered state / page fragments",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-shards-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-tag",
+   "kind": "prop",
+   "name": "Trap Vector Four",
+   "depicts": "Pixel text reading 'SMI#4' in grey.",
+   "concept": "System Management Interrupt vector",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-tag-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-rain",
+   "kind": "prop",
+   "name": "Standing Drizzle",
+   "depicts": "Four vertical grey streaks representing raindrops frozen mid-fall.",
+   "concept": "halted interrupt stream",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-rain-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-pendulum",
+   "kind": "prop",
+   "name": "Paused Escapement",
+   "depicts": "A pendulum bob suspended on a diagonal grey rod, caught at the far end of its swing.",
+   "concept": "halted oscillator / clock tick",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-pendulum-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-hourglass",
+   "kind": "prop",
+   "name": "Stillglass",
+   "depicts": "A small monochrome hourglass with sand frozen in the neck and upper bulb.",
+   "concept": "halted timeout counter",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-hourglass-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-ghostgear",
+   "kind": "prop",
+   "name": "Echo Pinion",
+   "depicts": "A grey gear paired with a hollow outline of its own previous position, suggesting a frozen afterimage.",
+   "concept": "preempted clock cycle / afterimage",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-ghostgear-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-safe",
+   "kind": "prop",
+   "name": "D-Lock Vault",
+   "depicts": "A dark grey square safe with a light grey dial and handle in the center.",
+   "concept": "SMRAM lock / D_LCK bit",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-safe-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-smoke",
+   "kind": "prop",
+   "name": "Still Wisp",
+   "depicts": "A small diagonal puff of grey pixels rising from a dark base.",
+   "concept": "frozen thermal dissipation",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-smoke-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-metronome",
+   "kind": "prop",
+   "name": "Gated Oscillator",
+   "depicts": "A triangular metronome body with its arm angled to the right, frozen mid-beat.",
+   "concept": "halted bus clock",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-metronome-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-cracks",
+   "kind": "prop",
+   "name": "Skewed Chrono",
+   "depicts": "A round dark dial with a ring at the top and a jagged crack running down its face.",
+   "concept": "clock skew / broken timer",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-cracks-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-ripple",
+   "kind": "prop",
+   "name": "Standing Wave",
+   "depicts": "Concentric monochrome rings forming a flat circular ripple.",
+   "concept": "frozen signal propagation",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-ripple-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-book",
+   "kind": "prop",
+   "name": "Pinned Page",
+   "depicts": "A small monochrome open book or pages-spread silhouette.",
+   "concept": "paused page / documentation",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-book-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-bubbles",
+   "kind": "prop",
+   "name": "Pipeline Stall",
+   "depicts": "Two small monochrome bubbles, one plain and one with a tiny highlight, stacked vertically.",
+   "concept": "pipeline bubble",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-bubbles-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-hook",
+   "kind": "prop",
+   "name": "Trap Hook",
+   "depicts": "A vertical segmented rod ending in a small hook at the bottom.",
+   "concept": "SMI interrupt hook",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-hook-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-stopwatch",
+   "kind": "prop",
+   "name": "Frozen TSC",
+   "depicts": "A round monochrome stopwatch with a top crown button and a single vertical hand.",
+   "concept": "halted TSC / performance counter",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-stopwatch-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-flame",
+   "kind": "prop",
+   "name": "Static Ember",
+   "depicts": "A small monochrome flame with a bright core and a single detached pixel spark above it.",
+   "concept": "halted thermal spike",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-flame-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-domino",
+   "kind": "prop",
+   "name": "Mid-Cascade",
+   "depicts": "A standing domino, a domino tilting mid-fall, and a flat fallen block on a dark floor line.",
+   "concept": "halted chain reaction",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-domino-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-coin",
+   "kind": "prop",
+   "name": "Unresolved Bit",
+   "depicts": "A monochrome coin standing on edge beneath a vertical motion streak.",
+   "concept": "suspended state / flip-flop",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-coin-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-pause",
+   "kind": "prop",
+   "name": "RSM Pending",
+   "depicts": "A single light-grey droplet hovering above a crown-like splash of grey pixels.",
+   "concept": "SMI execution pause",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-pause-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-drop",
+   "kind": "prop",
+   "name": "Stalled Byte",
+   "depicts": "A single rounded droplet with a vertical trail above it.",
+   "concept": "paused data packet",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-drop-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-leaf",
+   "kind": "prop",
+   "name": "Static Leaf",
+   "depicts": "A tiny grey rectangle with diagonal pixel stems on opposite corners, resembling a drifting leaf.",
+   "concept": "leaf node in stasis",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-leaf-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-feather",
+   "kind": "prop",
+   "name": "Paused Fiber",
+   "depicts": "Two overlapping grey rectangles with tiny diagonal pixel tips, resembling a drifting feather.",
+   "concept": "lightweight thread paused",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-feather-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-spark",
+   "kind": "prop",
+   "name": "Latched Pulse",
+   "depicts": "A symmetrical four-pointed grey cross with a bright white square center.",
+   "concept": "frozen IRQ / electrical spark",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-spark-ring-2-v0.png"
+  },
+  {
+   "key": "e:r2-prism",
+   "kind": "prop",
+   "name": "Null Spectrum",
+   "depicts": "A hollow grey triangle resting on a flat base with a faint white core.",
+   "concept": "frozen instruction decode",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-r2-prism-ring-2-v0.png"
+  },
+  {
+   "key": "c:ring-2:core",
+   "kind": "critter",
+   "name": "Preempted Shade",
+   "depicts": "A monochrome hovering sprite with two dark eyes and a small trailing tail, shown in three slightly different float poses.",
+   "concept": "frozen OS thread / SMI ghost",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-ring-2-core-v0.png"
+  }
+ ]
+}

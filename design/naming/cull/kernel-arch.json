@@ -1,0 +1,75 @@
+{
+ "layer": "kernel-arch",
+ "items": [
+  {
+   "key": "e:ka-apicbank",
+   "verdict": "keep",
+   "reason": "Strong layer anchor representing the I/O APIC interrupt routing bank with a clear console silhouette.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:ka-apic",
+   "verdict": "delete",
+   "reason": "Overlaps conceptually with the I/O APIC anchor and is visually a generic four-bar module.",
+   "similarTo": "e:ka-apicbank",
+   "replacement": null
+  },
+  {
+   "key": "e:ka-idt",
+   "verdict": "keep",
+   "reason": "Represents the Interrupt Descriptor Table, a foundational architecture concept for interrupt dispatch.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:ka-cr3",
+   "verdict": "delete",
+   "reason": "Lowest-priority register prop whose page-directory concept is already covered by the kernel layer's page table.",
+   "similarTo": "e:kr-pagetable",
+   "replacement": null
+  },
+  {
+   "key": "e:ka-nmi",
+   "verdict": "keep",
+   "reason": "Distinctive alarm-beacon sprite for Non-Maskable Interrupts, a memorable hardware architecture concept.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:ka-spinlock",
+   "verdict": "keep",
+   "reason": "Clear visual metaphor for busy-wait spinlock synchronization.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:ka-rcu",
+   "verdict": "keep",
+   "reason": "Strong representation of Read-Copy-Update lockless reclamation.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:ka-tlb",
+   "verdict": "delete",
+   "reason": "Duplicates the hardware TLB concept already represented by the Shootdown Board in the kernel layer.",
+   "similarTo": "e:kr-tlb",
+   "replacement": null
+  },
+  {
+   "key": "c:kernel-arch:core",
+   "verdict": "keep",
+   "reason": "Core critter species for the kernel-arch layer.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "c:kernel-arch:alt",
+   "verdict": "delete",
+   "reason": "Weak alternate critter consisting of three tiny floating squares, redundant with the core interrupt critter.",
+   "similarTo": "c:kernel-arch:core",
+   "replacement": null
+  }
+ ]
+}

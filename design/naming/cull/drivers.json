@@ -1,0 +1,208 @@
+{
+  "layer": "drivers",
+  "items": [
+    {
+      "key": "e:dr-backplane",
+      "verdict": "keep",
+      "reason": "Core layer anchor representing the expansion bus backplane.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-hdd",
+      "verdict": "keep",
+      "reason": "Core layer anchor depicting magnetic disk storage with a spinning platter and actuator arm.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-chip",
+      "verdict": "keep",
+      "reason": "Represents the fundamental device controller IC.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-ribbon",
+      "verdict": "keep",
+      "reason": "Distinctive, recognizable prop for parallel PATA/floppy bus cabling.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-irq",
+      "verdict": "keep",
+      "reason": "Represents hardware interrupt requests, a core device driver concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-connector",
+      "verdict": "delete",
+      "reason": "Too similar to the COM1 Port, which is a stronger, more recognizable 9-pin serial connector.",
+      "similarTo": "e:dr-db9",
+      "replacement": null
+    },
+    {
+      "key": "e:dr-caps",
+      "verdict": "delete",
+      "reason": "Generic motherboard component filler without a distinct device driver concept.",
+      "similarTo": null,
+      "replacement": "an MMIO register bank"
+    },
+    {
+      "key": "e:dr-usb",
+      "verdict": "keep",
+      "reason": "Iconic, recognizable prop for the Universal Serial Bus peripheral interface.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-pcie",
+      "verdict": "keep",
+      "reason": "Represents the PCI Express expansion slot, a central modern bus interface.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-dma",
+      "verdict": "keep",
+      "reason": "Represents direct memory access transfer, an essential driver concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-nic",
+      "verdict": "keep",
+      "reason": "Represents the network interface controller, a core hardware driver target.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-gpu",
+      "verdict": "keep",
+      "reason": "Distinctive, recognizable prop for a graphics processing unit card.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-disk",
+      "verdict": "delete",
+      "reason": "Too similar to Spinning Rust, both depicting a spinning magnetic platter and actuator arm.",
+      "similarTo": "e:dr-hdd",
+      "replacement": null
+    },
+    {
+      "key": "e:dr-keys",
+      "verdict": "keep",
+      "reason": "Represents the HID keyboard matrix, a classic input driver concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-db9",
+      "verdict": "keep",
+      "reason": "Stronger, more iconic representation of an RS-232 serial port.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-jumpers",
+      "verdict": "delete",
+      "reason": "Too similar to the DIP Switch, which is a more recognizable hardware configuration prop.",
+      "similarTo": "e:dr-dip",
+      "replacement": null
+    },
+    {
+      "key": "e:dr-heatsink",
+      "verdict": "delete",
+      "reason": "Generic passive cooling hardware filler without a driver-specific concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-rj45",
+      "verdict": "delete",
+      "reason": "Redundant networking hardware prop alongside the eth0 Card.",
+      "similarTo": "e:dr-nic",
+      "replacement": null
+    },
+    {
+      "key": "e:dr-scope",
+      "verdict": "keep",
+      "reason": "Distinctive visual prop representing hardware signal diagnostics.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-dip",
+      "verdict": "keep",
+      "reason": "Recognizable prop for hardware addressing and configuration switches.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-fwload",
+      "verdict": "keep",
+      "reason": "Represents driver firmware blob loading, a specific and important driver concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-speaker",
+      "verdict": "delete",
+      "reason": "Generic low-priority peripheral filler compared to core driver devices.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-mouse",
+      "verdict": "keep",
+      "reason": "Recognizable prop for pointing device HID input.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-crystal",
+      "verdict": "delete",
+      "reason": "Generic board-level component filler with low priority and little driver-specific meaning.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-sata",
+      "verdict": "delete",
+      "reason": "Weak standalone port prop; storage is already well represented by Spinning Rust and NVMe Stick.",
+      "similarTo": "e:dr-nvme",
+      "replacement": null
+    },
+    {
+      "key": "e:dr-fanheader",
+      "verdict": "delete",
+      "reason": "Generic low-priority motherboard header filler without a strong driver concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-ledstrip",
+      "verdict": "delete",
+      "reason": "Generic diagnostic LED filler with low priority.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:dr-nvme",
+      "verdict": "keep",
+      "reason": "Distinct modern solid-state storage interface complementing the magnetic HDD anchor.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "c:drivers:core",
+      "verdict": "keep",
+      "reason": "Core critter species for the drivers layer.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

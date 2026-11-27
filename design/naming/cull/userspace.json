@@ -1,0 +1,208 @@
+{
+ "layer": "userspace",
+ "items": [
+  {
+   "key": "e:us-skyline",
+   "verdict": "keep",
+   "reason": "Layer anchor representing the multi-process userspace cityscape.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-pid1",
+   "verdict": "keep",
+   "reason": "Layer anchor representing init (PID 1), the root of the userspace process tree.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-tower",
+   "verdict": "delete",
+   "reason": "Visually and conceptually redundant with the Process Skyline anchor.",
+   "similarTo": "e:us-skyline",
+   "replacement": null
+  },
+  {
+   "key": "e:us-manifold",
+   "verdict": "keep",
+   "reason": "Distinct visual and strong userspace concept for I/O multiplexing (select/poll/epoll).",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-sign",
+   "verdict": "keep",
+   "reason": "Recognisable marquee for systemd journal / syslog.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-pipe",
+   "verdict": "keep",
+   "reason": "Core Unix IPC primitive with a clear conduit visual.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-tty",
+   "verdict": "keep",
+   "reason": "Iconic teletype terminal (TTY) prop for userspace interaction.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-crontower",
+   "verdict": "keep",
+   "reason": "Distinctive clock tower representing cron job scheduling.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-socket",
+   "verdict": "keep",
+   "reason": "Clear plug-and-receptacle metaphor for Unix domain sockets.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-shm",
+   "verdict": "keep",
+   "reason": "Distinct water-tower visual for POSIX shared memory and mmap.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-signal",
+   "verdict": "keep",
+   "reason": "Clear flagpole visual for POSIX signals.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-pidplate",
+   "verdict": "keep",
+   "reason": "Distinctive license plate visual for process identifiers (PID).",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-cabinet",
+   "verdict": "delete",
+   "reason": "Generic filing cabinet filler that overlaps with the Dot-A Archive in libraries.",
+   "similarTo": "e:lib-archive",
+   "replacement": null
+  },
+  {
+   "key": "e:us-mailbox",
+   "verdict": "keep",
+   "reason": "Recognisable curbside mailbox representing IPC message queues and local mail spools.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-crate",
+   "verdict": "delete",
+   "reason": "Generic shipping crate that overlaps with Dot-C Crates in the libraries layer.",
+   "similarTo": "e:lib-crates",
+   "replacement": null
+  },
+  {
+   "key": "e:us-fork",
+   "verdict": "keep",
+   "reason": "Clever branching signpost visual for fork() process creation.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-callbox",
+   "verdict": "keep",
+   "reason": "Strong emergency callbox metaphor for userspace-to-kernel syscalls.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-busbar",
+   "verdict": "delete",
+   "reason": "Generic horizontal conduit visually similar to Unix Pipe.",
+   "similarTo": "e:us-pipe",
+   "replacement": null
+  },
+  {
+   "key": "e:us-journal",
+   "verdict": "delete",
+   "reason": "Duplicates the systemd journal concept already represented by Journal Marquee.",
+   "similarTo": "e:us-sign",
+   "replacement": null
+  },
+  {
+   "key": "e:us-padlock",
+   "verdict": "delete",
+   "reason": "Generic padlock visual that overlaps with Sleeping Padlock in kernel and Trust Anchor in internet.",
+   "similarTo": "e:kr-mutex",
+   "replacement": null
+  },
+  {
+   "key": "e:us-firewall",
+   "verdict": "keep",
+   "reason": "Iconic burning brick wall for userspace packet filtering.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-container",
+   "verdict": "keep",
+   "reason": "Essential userspace concept for Linux containers and namespaces.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-antenna",
+   "verdict": "delete",
+   "reason": "Generic rooftop antenna filler; network beacons are better covered in the internet layer.",
+   "similarTo": "e:net-router",
+   "replacement": null
+  },
+  {
+   "key": "e:us-hydrant",
+   "verdict": "keep",
+   "reason": "Distinctive fire hydrant visual for high-throughput stdout streams.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-billboard",
+   "verdict": "delete",
+   "reason": "Generic rooftop billboard for a minor concept (MOTD).",
+   "similarTo": null,
+   "replacement": "an environment variable tag rack"
+  },
+  {
+   "key": "e:us-manhole",
+   "verdict": "delete",
+   "reason": "Overlaps with Syscall Booth for kernel entry from userspace.",
+   "similarTo": "e:us-callbox",
+   "replacement": null
+  },
+  {
+   "key": "e:us-meter",
+   "verdict": "keep",
+   "reason": "Clear parking-meter visual for resource quotas and CPU accounting.",
+   "similarTo": null,
+   "replacement": null
+  },
+  {
+   "key": "e:us-vent",
+   "verdict": "delete",
+   "reason": "Generic architectural vent filler; stdout/stderr is better represented by Stdout Hydrant.",
+   "similarTo": "e:us-hydrant",
+   "replacement": null
+  },
+  {
+   "key": "c:userspace:core",
+   "verdict": "keep",
+   "reason": "Core critter for the userspace layer representing a Unix background daemon.",
+   "similarTo": null,
+   "replacement": null
+  }
+ ]
+}

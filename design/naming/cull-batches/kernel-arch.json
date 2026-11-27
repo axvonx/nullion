@@ -1,0 +1,110 @@
+{
+ "layer": {
+  "id": "kernel-arch",
+  "name": "Arch & Interrupt Core",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 17,
+ "items": [
+  {
+   "key": "e:ka-apicbank",
+   "kind": "anchor",
+   "name": "Vector Annunciator",
+   "depicts": "A large black console framed in coral-red holding a six-by-four grid of dark red and lit yellow interrupt indicator tiles.",
+   "concept": "I/O APIC interrupt routing bank",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ka-apicbank-kernel-arch-v0.png"
+  },
+  {
+   "key": "e:ka-apic",
+   "kind": "prop",
+   "name": "Priority Arbiter",
+   "depicts": "A small black module bordered in coral-red containing four vertical bars alternating between dark red and bright yellow.",
+   "concept": "Local APIC per-core interrupt controller",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ka-apic-kernel-arch-v0.png"
+  },
+  {
+   "key": "e:ka-idt",
+   "kind": "prop",
+   "name": "Trap Ledger",
+   "depicts": "A grey-framed dark cabinet displaying four stacked horizontal bars, with the top entry lit coral-red above three amber rows.",
+   "concept": "Interrupt Descriptor Table",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ka-idt-kernel-arch-v0.png"
+  },
+  {
+   "key": "e:ka-cr3",
+   "kind": "prop",
+   "name": "Root Register",
+   "depicts": "A yellow-bordered black register housing a deep red bar with a bright white rectangular core.",
+   "concept": "CR3 page-directory base register",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ka-cr3-kernel-arch-v0.png"
+  },
+  {
+   "key": "e:ka-nmi",
+   "kind": "prop",
+   "name": "Unmaskable Flare",
+   "depicts": "A glowing yellow starburst core encircled by a notched deep crimson ring on a short stem, resembling an urgent alarm beacon.",
+   "concept": "Non-Maskable Interrupt",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ka-nmi-kernel-arch-v0.png"
+  },
+  {
+   "key": "e:ka-spinlock",
+   "kind": "prop",
+   "name": "Busy Wheel",
+   "depicts": "A hollow bright yellow pixel circle looping continuously around a solid coral-red square at its center.",
+   "concept": "busy-wait spinlock synchronization",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ka-spinlock-kernel-arch-v0.png"
+  },
+  {
+   "key": "e:ka-rcu",
+   "kind": "prop",
+   "name": "Grace Period",
+   "depicts": "Two identical dark rectangular panes side by side, the left bordered in bright cyan and the right bordered in bright yellow.",
+   "concept": "Read-Copy-Update lockless reclamation",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ka-rcu-kernel-arch-v0.png"
+  },
+  {
+   "key": "e:ka-tlb",
+   "kind": "prop",
+   "name": "Stale Entry",
+   "depicts": "A coral-red framed black box containing three vertical rectangular blocks, two dark red flanking a bright yellow middle slot.",
+   "concept": "hardware Translation Lookaside Buffer",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-ka-tlb-kernel-arch-v0.png"
+  },
+  {
+   "key": "c:kernel-arch:core",
+   "kind": "critter",
+   "name": "Spurious Bug",
+   "depicts": "A tiny red square with a single yellow core pixel and two short yellow side bars, occupying only a few pixels of a larger canvas.",
+   "concept": "hardware interrupt / IPI courier",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-kernel-arch-core-v0.png"
+  },
+  {
+   "key": "c:kernel-arch:alt",
+   "kind": "critter-alt",
+   "name": "Interrupt Spark",
+   "depicts": "Three staggered square blocks\u2014two yellow and one coral-red\u2014forming a tiny zigzag spark floating in an empty canvas.",
+   "concept": "inter-processor interrupt (IPI) bolt",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-kernel-arch-alt-v1.png"
+  }
+ ]
+}

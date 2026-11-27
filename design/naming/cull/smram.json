@@ -1,0 +1,54 @@
+{
+  "layer": "smram",
+  "items": [
+    {
+      "key": "e:sm-vaultdoor",
+      "verdict": "keep",
+      "reason": "Iconic layer anchor representing SMRAM's hardware-enforced memory isolation.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:sm-dlck",
+      "verdict": "keep",
+      "reason": "Strongest representative of the one-way D_LCK bit in the SMRAMC register.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:sm-savestate",
+      "verdict": "keep",
+      "reason": "Distinct prop representing the SMM CPU state save area.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:sm-rsm",
+      "verdict": "delete",
+      "reason": "Visually unclear generic grey square that does not distinctly convey the RSM instruction.",
+      "similarTo": null,
+      "replacement": "a glowing return-to-ring-0 portal or SMI/RSM context-switch latch"
+    },
+    {
+      "key": "e:sm-tseg",
+      "verdict": "keep",
+      "reason": "Represents the TSEG base and limit boundary defining the protected SMRAM region.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:sm-lockbit",
+      "verdict": "delete",
+      "reason": "Duplicates the D_LCK hardware lock bit concept already better represented by e:sm-dlck.",
+      "similarTo": "e:sm-dlck",
+      "replacement": null
+    },
+    {
+      "key": "c:smram:core",
+      "verdict": "keep",
+      "reason": "Core critter species representing the SMRAM resident handler.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}

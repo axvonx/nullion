@@ -1,0 +1,110 @@
+{
+ "layer": {
+  "id": "bus-fabric",
+  "name": "PCIe / DMA Fabric",
+  "daily": false
+ },
+ "reusedCopiesAlsoInThisLayer": 17,
+ "items": [
+  {
+   "key": "e:bf-pcieswitch",
+   "kind": "anchor",
+   "name": "Root Complex",
+   "depicts": "A wide magenta-framed enclosure with five horizontal white and cyan bus lanes converging on a central white-bordered magenta core.",
+   "concept": "PCIe switch fabric routing",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bf-pcieswitch-bus-fabric-v0.png"
+  },
+  {
+   "key": "e:bf-crossbar",
+   "kind": "prop",
+   "name": "Crossbar Matrix",
+   "depicts": "A magenta-framed grid where four vertical white lines intersect three horizontal cyan bus bars.",
+   "concept": "non-blocking crossbar interconnect",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bf-crossbar-bus-fabric-v0.png"
+  },
+  {
+   "key": "e:bf-dmaring",
+   "kind": "prop",
+   "name": "Descriptor Ring",
+   "depicts": "Concentric magenta and cyan pixel rings surrounding a solid white central hub.",
+   "concept": "DMA circular descriptor ring",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bf-dmaring-bus-fabric-v0.png"
+  },
+  {
+   "key": "e:bf-mmio",
+   "kind": "prop",
+   "name": "BAR Window",
+   "depicts": "A white-framed dark horizontal housing containing five alternating cyan and magenta vertical register blocks.",
+   "concept": "memory-mapped I/O register aperture",
+   "priority": 3,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bf-mmio-bus-fabric-v0.png"
+  },
+  {
+   "key": "e:bf-retimer",
+   "kind": "prop",
+   "name": "Eye Opener",
+   "depicts": "A small magenta-bordered black rectangle with a single horizontal cyan signal bar centered inside.",
+   "concept": "PCIe signal retimer repeater",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bf-retimer-bus-fabric-v0.png"
+  },
+  {
+   "key": "e:bf-msix",
+   "kind": "prop",
+   "name": "MSI-X Table",
+   "depicts": "A cyan-bordered black rectangle containing four tall vertical vector columns alternating white and magenta.",
+   "concept": "MSI-X message-signaled interrupt table",
+   "priority": 2,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bf-msix-bus-fabric-v0.png"
+  },
+  {
+   "key": "e:bf-lane",
+   "kind": "prop",
+   "name": "Differential Pair",
+   "depicts": "Two parallel full-width horizontal stripes, one cyan above and one magenta below, separated by a narrow gap.",
+   "concept": "PCIe differential TX/RX lane pair",
+   "priority": 1,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bf-lane-bus-fabric-v0.png"
+  },
+  {
+   "key": "e:bf-iommu",
+   "kind": "prop",
+   "name": "IOMMU Gate",
+   "depicts": "A white-bordered square enclosing a smaller magenta square frame around a solid black center.",
+   "concept": "IOMMU DMA address remapping unit",
+   "priority": 4,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/e-bf-iommu-bus-fabric-v0.png"
+  },
+  {
+   "key": "c:bus-fabric:core",
+   "kind": "critter",
+   "name": "Bus Flit",
+   "depicts": "A tiny 7-by-2-pixel horizontal magenta streak with a two-pixel white leading tip, centered in a mostly empty 26x22 frame.",
+   "concept": "PCIe Transaction Layer Packet (TLP)",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-bus-fabric-core-v0.png"
+  },
+  {
+   "key": "c:bus-fabric:alt",
+   "kind": "critter-alt",
+   "name": "Framed Flit",
+   "depicts": "A tiny 6-by-3-pixel magenta core enclosed in a one-pixel white border, centered in a mostly empty 26x22 frame.",
+   "concept": "posted PCIe write completion packet",
+   "priority": 5,
+   "ownerDecision": null,
+   "sprite": "design/naming/sprites/c-bus-fabric-alt-v1.png"
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+  "layer": "bandgap",
+  "items": [
+    {
+      "key": "e:bg-diagram",
+      "verdict": "keep",
+      "reason": "Landmark anchor of the layer that clearly depicts the semiconductor energy-band structure and carrier transitions.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bg-band",
+      "verdict": "delete",
+      "reason": "Redundant smaller version of the Valence Viaduct anchor, depicting the same valence and conduction bands.",
+      "similarTo": "e:bg-diagram",
+      "replacement": null
+    },
+    {
+      "key": "e:bg-tunnel",
+      "verdict": "keep",
+      "reason": "Represents quantum tunneling through gate oxide, one of the two titular concepts of the layer.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bg-wave",
+      "verdict": "keep",
+      "reason": "Distinctly illustrates electron wavefunctions and Bloch waves in a crystal lattice.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bg-hole",
+      "verdict": "keep",
+      "reason": "Clear, recognizable visual for the electron hole quasiparticle concept.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bg-photonabs",
+      "verdict": "keep",
+      "reason": "Stronger and more visually legible representation of carrier excitation than radiative recombination.",
+      "similarTo": null,
+      "replacement": null
+    },
+    {
+      "key": "e:bg-recomb",
+      "verdict": "delete",
+      "reason": "Inverse of Optical Promotion with a weak, abstract visual of two squares separated by a bar.",
+      "similarTo": "e:bg-photonabs",
+      "replacement": null
+    },
+    {
+      "key": "c:bandgap:core",
+      "verdict": "keep",
+      "reason": "Core critter species for the bandgap layer.",
+      "similarTo": null,
+      "replacement": null
+    }
+  ]
+}
