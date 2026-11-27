@@ -5,11 +5,10 @@ id: network-protocol · domain: os-systems · status: approved
 ## Off-by-one
 - TCP | Transmission Control Protocol (auto)
 - IP | Internet Protocol | IPv4 (auto)
-- HTTP | Hypertext Transfer Protocol (auto)
+- HTTP | Hypertext Transfer Protocol | HTTPS | HTTP over TLS | Hypertext Transfer Protocol Secure (auto)
 - DHCP | Dynamic Host Configuration Protocol (auto)
 - FTP | File Transfer Protocol (auto)
 - SSH | Secure Shell (auto)
-- HTTPS | HTTP over TLS | Hypertext Transfer Protocol Secure (auto)
 - SMTP | Simple Mail Transfer Protocol (auto)
 - IMAP | Internet Message Access Protocol (auto)
 - POP3 | Post Office Protocol | POP (auto)

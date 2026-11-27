@@ -185,7 +185,7 @@
 | memory-allocator | Name a memory allocator | os-systems | approved | 52 | 50 | 0 |
 | memory-consistency-model | Name a memory consistency model | os-systems | draft | 0 | 0 | 7 |
 | monitoring-system | Name a monitoring system | os-systems | draft | 0 | 0 | 7 |
-| network-protocol | Name a network protocol | os-systems | approved | 150 | 146 | 7 |
+| network-protocol | Name a network protocol | os-systems | approved | 149 | 145 | 7 |
 | nvme-command | Name an NVMe command | os-systems | draft | 0 | 0 | 7 |
 | operating-system | Name an operating system | os-systems | approved | 2260 | 2239 | 0 |
 | routing-protocol | Name a routing protocol | os-systems | draft | 0 | 0 | 7 |

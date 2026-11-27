@@ -6,16 +6,13 @@ re-running the pipeline).
 
 ## 0. Content decisions to confirm (the 11 categories approved 2026-11-27)
 
-These were open when the categories were approved and the answers weren't recorded (`design/review/decisions.json`
-is empty). Each is a one-line answer:
+Left from the approvals:
 
-- **historical-cipher:** the Bit Flip **M-209** is on its own obvious list (`scripts/bank/obvious/historical-cipher.json`,
-  as Null pointer). Drop it from the list, or pick another Bit Flip?
 - **Notes (drafted by Claude 2026-11-27, vet them):** every Bit Flip and Works on my machine pick in the 11 has a
   `note:` whisper now (42; facts written from memory, so a skim for anything wrong is worth it). serialization-format
   is settled: JSON is Off-by-one, Protocol Buffers is Works on my machine, Ion is the Bit Flip.
-- **compiler:** confirm the pipeline's edits: OpenJDK folded into `javac` as an alias, Reason removed, Mono → `mcs`.
-- **network-protocol:** HTTP and HTTPS are separate answers (separate tiers). Keep, or HTTPS as an alias of HTTP?
+- Settled 2026-11-27: M-209 dropped from historical-cipher's obvious list; the compiler edits kept; HTTPS is an alias
+  of HTTP.
 
 ## 1. Triage: the bottom of the keep list
 
