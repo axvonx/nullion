@@ -11,9 +11,10 @@ describe('wordmark', () => {
   });
 
   it('has everything the end card and the banner need', () => {
-    for (const ch of 'nullion0123456789#ONEIA') expect(GLYPHS[ch], ch).toBeDefined();
+    for (const ch of 'nullion0123456789#ABCDEFGHIJKLMNOPQRSTUVWXYZ.:-!?/') expect(GLYPHS[ch], ch).toBeDefined();
     expect(() => layoutWord('ONE IN A')).not.toThrow();
     expect(() => layoutWord('nullion #42')).not.toThrow();
+    expect(() => layoutWord('ENDLESS')).not.toThrow();
   });
 
   it('lays glyphs out on the 9 px pitch with a 4 px space', () => {
@@ -23,7 +24,7 @@ describe('wordmark', () => {
   });
 
   it('throws loudly on a character it has no glyph for', () => {
-    expect(() => layoutWord('nullion!')).toThrow(/no glyph/);
+    expect(() => layoutWord('nullion~')).toThrow(/no glyph/);
   });
 
   it('a canvas is whole-number scaled and named by its text', () => {

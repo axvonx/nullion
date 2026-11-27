@@ -365,8 +365,7 @@ export class EndCard {
   private setPuzzleNo(chip: string) {
     const el = this.els.puzzleNo!;
     el.dataset.chip = chip;
-    if (/^#\d+$/.test(chip)) el.replaceChildren(wordmarkCanvas(chip, 3));
-    else setText(el, chip);
+    el.replaceChildren(wordmarkCanvas(chip, 3));
     this.els.wordmark!.setAttribute('aria-label', `nullion ${chip}`);
   }
 

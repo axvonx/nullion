@@ -99,7 +99,7 @@ describe('EndCard', () => {
     const game = new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });
     const t = setup(game);
     t.card.show(ROWS, 18, 7);
-    expect(t.q('[data-el="puzzleNo"]').textContent).toBe('ENDLESS');
+    expect(t.q('[data-el="puzzleNo"]').querySelector('canvas')?.getAttribute('aria-label')).toBe('ENDLESS');
     expect(t.q('[data-el="puzzleNo"]').dataset.chip).toBe('ENDLESS');
     expect(t.q('.headline').textContent).toMatch(/^KERNEL PANIC · 18 stack frames · /);
   });
