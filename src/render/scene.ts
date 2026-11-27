@@ -5,7 +5,8 @@ import { enforce } from '../core/enforce';
 import { FONT, LAYER_ART, hash, type Art, type Band } from './art';
 import { LAYER_ART_DETAILED, SEAM_ART, SEAM_H } from './art-detailed';
 import { LAYER_ART_V3, PROP_SPOTS } from './art-v3';
-import { ENTITY_SPOTS, LAYER_ART_V4, ensureWorldV4 } from './art-v4';
+import { ENTITY_SPOTS, LAYER_ART_V4, ensureWorldV4, setActiveTopicV4 } from './art-v4';
+import { tagsForQuestion } from './v4/topics';
 import { FAR_F } from './v4/place';
 import type { WorldSpecV4 } from './v4/world';
 import { LAYER_PALETTE, quantizeRow, snapColor, type PaletteMode } from './palettes';
@@ -378,6 +379,11 @@ export class Scene {
 
   get seed() {
     return this.worldSeed;
+  }
+
+  /** Notify v4 of the active question so a subset of near-plane props flip in place to match its topic tags. */
+  setQuestionTopic(questionId: string | undefined, roundSeed: number) {
+    setActiveTopicV4(questionId ? tagsForQuestion(questionId) : undefined, roundSeed);
   }
 
   /**

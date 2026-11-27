@@ -9,6 +9,7 @@ import { V4_LIBRARIES } from './v4/libraries';
 import { FAR_F, type LayerPlacement, type Placed } from './v4/place';
 import { drawSetpiece } from './v4/setpieces';
 import { WATERMARK_ALPHA, drawName, layoutName, nameHeight, type NamePattern } from './v4/watermark';
+import { drawTopicProp, pickTopicFlip, type TopicTag } from './v4/topics';
 import { CORE_DY, RAIL_START, RAIL_STEP, placeBandForSpec, specKey, type WorldSpecV4 } from './v4/world';
 
 /**
@@ -86,6 +87,12 @@ let worldSpec: WorldSpecV4 | undefined;
 let bandCache: (LayerPlacement | undefined)[] = [];
 let bandIndexById = new Map<LayerId, number>();
 let worldKey = '';
+let activeTopic: { tags: readonly TopicTag[]; seed: number } | undefined;
+
+/** Set (or clear) the active question's topic tags so eligible near-plane props flip their contents in place. */
+export function setActiveTopicV4(tags: readonly TopicTag[] | undefined, seed: number) {
+  activeTopic = tags && tags.length ? { tags, seed } : undefined;
+}
 
 /** Register (or keep) the current world spec. Cheap to call every frame: only clears the band cache when spec changes. */
 export function ensureWorldV4(spec: WorldSpecV4) {
@@ -206,7 +213,9 @@ function entities(ctx: Ctx, b: Band, id: LayerId) {
     const sy = e.y - b.camY;
     if (sy > y1) break;
     if (sy + e.h < y0) continue;
-    drawEntity(ctx, e.def, e.v, e.look, e.x, sy, e.flip, T + e.ph);
+    const flipped = activeTopic ? pickTopicFlip(e, activeTopic.tags, activeTopic.seed) : undefined;
+    if (flipped) drawTopicProp(ctx, flipped, e.w, e.h, e.x, sy, T + e.ph, e.v);
+    else drawEntity(ctx, e.def, e.v, e.look, e.x, sy, e.flip, T + e.ph);
     // Reactions copy and jiggle props, not whole buildings.
     if (report && !e.anchor && e.w <= 40 && e.h <= 32) ENTITY_SPOTS.push(e.x - 1, R(sy) - 1, e.w + 2, e.h + 2);
   }

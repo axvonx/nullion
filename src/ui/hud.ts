@@ -147,6 +147,7 @@ export class Hud {
   private layerStack: LayerStack;
   private titleOpen = false;
   private titleTimer = 0;
+  private topicKey = '';
 
   /**
    * Debug hooks. `watchdogOverride` shows this share of time left instead of the game's (the rail's timer demo);
@@ -612,10 +613,21 @@ export class Hud {
     if (override !== undefined) this.setWatchdog(override);
 
     const g = this.game;
-    if (!g || this.demo || this.scrollMode) return;
+    if (!g || this.demo || this.scrollMode) {
+      if (this.topicKey !== '') {
+        this.topicKey = '';
+        this.scene?.setQuestionTopic?.(undefined, 0);
+      }
+      return;
+    }
 
     const p = g.phase;
     const r = g.current();
+    const wantTopic = r && (p.kind === 'reading' || p.kind === 'answering' || p.kind === 'between') ? `${g.puzzle}|${p.round}|${r.question.id}` : '';
+    if (wantTopic !== this.topicKey) {
+      this.topicKey = wantTopic;
+      this.scene?.setQuestionTopic?.(wantTopic ? r!.question.id : undefined, wantTopic ? g.puzzle * 31 + (p.kind === 'reading' || p.kind === 'answering' || p.kind === 'between' ? p.round : 0) : 0);
+    }
     let left: number;
     this.els.console!.classList.toggle('resting', p.kind === 'between');
     this.els.console!.classList.toggle('reading', p.kind === 'reading');
