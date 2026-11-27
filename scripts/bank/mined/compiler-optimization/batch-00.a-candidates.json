@@ -1,0 +1,546 @@
+{
+  "compiler-optimization": [
+    {
+      "name": "aggressive dead code elimination",
+      "aliases": ["ADCE"],
+      "judge": "race",
+      "evidence": "ADCE",
+      "why": "assumes code is dead until proven live"
+    },
+    {
+      "name": "argument promotion",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "ArgumentPromotion",
+      "why": "replaces by-reference pointer arguments with by-value scalars"
+    },
+    {
+      "name": "bit-tracking dead code elimination",
+      "aliases": ["BDCE"],
+      "judge": "heisenbug",
+      "evidence": "BDCE",
+      "why": "eliminates instructions whose output bits are never demanded"
+    },
+    {
+      "name": "call-site splitting",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "CallSiteSplitting",
+      "why": "duplicates call sites along conditional paths to specialize arguments"
+    },
+    {
+      "name": "CFG flattening",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "FlattenCFGPass",
+      "why": "merges nested branches into a single conditional block"
+    },
+    {
+      "name": "CFG simplification",
+      "aliases": ["SimplifyCFG"],
+      "judge": "race",
+      "evidence": "SimplifyCFGPass",
+      "why": "merges basic blocks and removes unreachable control flow"
+    },
+    {
+      "name": "code sinking",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "Sink",
+      "why": "moves instructions down into conditional branches where used"
+    },
+    {
+      "name": "common subexpression elimination",
+      "aliases": ["CSE", "EarlyCSE"],
+      "judge": "off-by-one",
+      "evidence": "     2  common subexpression elimination",
+      "why": "reuses previously computed identical expressions"
+    },
+    {
+      "name": "constant hoisting",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "ConstantHoisting",
+      "why": "hoists expensive materialization of large constants out of loops"
+    },
+    {
+      "name": "constant merging",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "ConstantMerge",
+      "why": "deduplicates identical global constants"
+    },
+    {
+      "name": "constant propagation",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "     8  constant propagation",
+      "why": "substitutes known constant values into uses"
+    },
+    {
+      "name": "constraint elimination",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "ConstraintElimination",
+      "why": "eliminates redundant comparisons using linear inequality constraints"
+    },
+    {
+      "name": "copy propagation",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "     2  copy propagation",
+      "why": "replaces occurrences of copied variables with their sources"
+    },
+    {
+      "name": "correlated value propagation",
+      "aliases": ["CVP"],
+      "judge": "race",
+      "evidence": "CorrelatedValuePropagation",
+      "why": "propagates value range facts implied by dominating branches"
+    },
+    {
+      "name": "dead argument elimination",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "DeadArgumentElimination",
+      "why": "removes unused function parameters and return values"
+    },
+    {
+      "name": "dead code elimination",
+      "aliases": ["DCE"],
+      "judge": "off-by-one",
+      "evidence": "DCE",
+      "why": "removes unreachable or unused code"
+    },
+    {
+      "name": "dead store elimination",
+      "aliases": ["DSE"],
+      "judge": "npe",
+      "evidence": "DeadStoreElimination",
+      "why": "removes memory writes overwritten before being read"
+    },
+    {
+      "name": "DFA jump threading",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "DFAJumpThreading",
+      "why": "threads state-machine switch jumps across loop iterations"
+    },
+    {
+      "name": "epilogue vectorization",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "     3  epilogue vectorization",
+      "why": "vectorizes remainder iterations after a vectorized main loop"
+    },
+    {
+      "name": "expression reassociation",
+      "aliases": ["reassociation"],
+      "judge": "race",
+      "evidence": "Reassociate",
+      "why": "regroups associative operations to expose constants and CSE"
+    },
+    {
+      "name": "full unrolling",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "     3  full unrolling",
+      "why": "completely expands a fixed-trip-count loop"
+    },
+    {
+      "name": "function merging",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "MergeFunctions",
+      "why": "combines identical functions to reduce code size"
+    },
+    {
+      "name": "function specialization",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "FunctionSpecialization",
+      "why": "clones functions for constant arguments at call sites"
+    },
+    {
+      "name": "global dead code elimination",
+      "aliases": ["GlobalDCE"],
+      "judge": "race",
+      "evidence": "GlobalDCE",
+      "why": "removes unreachable functions and global variables"
+    },
+    {
+      "name": "global value numbering",
+      "aliases": ["GVN", "NewGVN"],
+      "judge": "leak",
+      "evidence": "GVN",
+      "why": "assigns value numbers to detect equivalent computations globally"
+    },
+    {
+      "name": "global variable optimization",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "GlobalOpt",
+      "why": "transforms and internalizes global variables across a module"
+    },
+    {
+      "name": "guard widening",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "GuardWidening",
+      "why": "combines multiple runtime guards into a single wider check"
+    },
+    {
+      "name": "GVN hoisting",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "GVNHoist",
+      "why": "hoists equivalent expressions found by GVN to common dominators"
+    },
+    {
+      "name": "GVN sinking",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "GVNSink",
+      "why": "sinks equivalent expressions found by GVN into merge blocks"
+    },
+    {
+      "name": "hot/cold splitting",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "HotColdSplitting",
+      "why": "outlines cold basic blocks to improve instruction cache locality"
+    },
+    {
+      "name": "induction variable simplification",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "IndVarSimplify",
+      "why": "canonicalizes loop induction variables and trip-count expressions"
+    },
+    {
+      "name": "inductive range check elimination",
+      "aliases": ["IRCE"],
+      "judge": "heisenbug",
+      "evidence": "InductiveRangeCheckElimination",
+      "why": "splits loops to eliminate bounds checks inside the main loop"
+    },
+    {
+      "name": "inlining",
+      "aliases": ["function inlining"],
+      "judge": "off-by-one",
+      "evidence": "Inliner",
+      "why": "replaces a function call with the callee's body"
+    },
+    {
+      "name": "instruction combining",
+      "aliases": ["InstCombine"],
+      "judge": "leak",
+      "evidence": "InstructionCombining",
+      "why": "peephole algebraic simplification and canonicalization of instructions"
+    },
+    {
+      "name": "instruction simplification",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "InstSimplifyPass",
+      "why": "simplifies instructions without creating new ones"
+    },
+    {
+      "name": "interprocedural optimization",
+      "aliases": ["IPO"],
+      "judge": "npe",
+      "evidence": "     9  interprocedural optimization",
+      "why": "optimizes across function boundaries"
+    },
+    {
+      "name": "jump threading",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "JumpThreading",
+      "why": "bypasses redundant conditional branches when outcome is known"
+    },
+    {
+      "name": "library call simplification",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "SimplifyLibCalls",
+      "why": "replaces known standard library calls with faster equivalents"
+    },
+    {
+      "name": "link-time optimization",
+      "aliases": ["LTO", "link time optimization", "LinkTimeOptimization"],
+      "judge": "npe",
+      "evidence": "     6  link-time optimization",
+      "why": "whole-program optimization performed at link time"
+    },
+    {
+      "name": "load-store vectorization",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "LoadStoreVectorizer",
+      "why": "combines adjacent scalar memory accesses into vector loads/stores"
+    },
+    {
+      "name": "loop bound splitting",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "LoopBoundSplit",
+      "why": "splits loops at a conditional bound to simplify each half"
+    },
+    {
+      "name": "loop data prefetching",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "LoopDataPrefetch",
+      "why": "inserts hardware prefetch instructions for strided loop accesses"
+    },
+    {
+      "name": "loop deletion",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "LoopDeletion",
+      "why": "removes finite loops with no observable side effects"
+    },
+    {
+      "name": "loop distribution",
+      "aliases": ["loop fission"],
+      "judge": "leak",
+      "evidence": "LoopDistribute",
+      "why": "splits one loop into multiple loops to enable vectorization"
+    },
+    {
+      "name": "loop flattening",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "LoopFlatten",
+      "why": "collapses nested loops into a single loop"
+    },
+    {
+      "name": "loop fusion",
+      "aliases": ["loop jamming"],
+      "judge": "leak",
+      "evidence": "LoopFuse",
+      "why": "combines adjacent loops with compatible bounds"
+    },
+    {
+      "name": "loop idiom recognition",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "LoopIdiomRecognize",
+      "why": "replaces recognizable loop patterns with memcpy or popcount"
+    },
+    {
+      "name": "loop interchange",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "LoopInterchange",
+      "why": "swaps inner and outer loops to improve cache locality"
+    },
+    {
+      "name": "loop load elimination",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "LoopLoadElimination",
+      "why": "forwards stores from previous loop iterations to eliminate loads"
+    },
+    {
+      "name": "loop peeling",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "LoopPeel",
+      "why": "separates early iterations from the main loop body"
+    },
+    {
+      "name": "loop predication",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "LoopPredication",
+      "why": "hoists loop-varying guard checks into a single preheader check"
+    },
+    {
+      "name": "loop rotation",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "LoopRotation",
+      "why": "converts while-loops into do-while form to aid LICM"
+    },
+    {
+      "name": "loop sinking",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "LoopSink",
+      "why": "sinks cold loop-invariant instructions back into rare loop paths"
+    },
+    {
+      "name": "loop unrolling",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "     9  loop unrolling",
+      "why": "replicates loop body to reduce branch overhead"
+    },
+    {
+      "name": "loop unswitching",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "SimpleLoopUnswitch",
+      "why": "hoists a loop-invariant conditional outside the loop"
+    },
+    {
+      "name": "loop vectorization",
+      "aliases": ["auto-vectorization"],
+      "judge": "npe",
+      "evidence": "     5  loop vectorization",
+      "why": "transforms scalar loops into SIMD vector instructions"
+    },
+    {
+      "name": "loop versioning",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "LoopVersioningLICM",
+      "why": "clones a loop with a runtime aliasing check to enable optimization"
+    },
+    {
+      "name": "loop-invariant code motion",
+      "aliases": ["LICM"],
+      "judge": "npe",
+      "evidence": "LICM",
+      "why": "hoists invariant computations outside a loop"
+    },
+    {
+      "name": "mem2reg",
+      "aliases": ["memory-to-register promotion"],
+      "judge": "leak",
+      "evidence": "Mem2Reg",
+      "why": "promotes stack allocations into SSA virtual registers"
+    },
+    {
+      "name": "memcpy optimization",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "MemCpyOptimizer",
+      "why": "eliminates redundant memory copies and merges adjacent stores"
+    },
+    {
+      "name": "merged load-store motion",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "MergedLoadStoreMotion",
+      "why": "hoists or sinks identical loads and stores across diamond CFGs"
+    },
+    {
+      "name": "n-ary reassociation",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "NaryReassociate",
+      "why": "reassociates n-ary expressions to expose common subexpressions"
+    },
+    {
+      "name": "partial inlining",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "PartialInlining",
+      "why": "inlines only the fast path or entry block of a function"
+    },
+    {
+      "name": "partial unrolling",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "     3  partial unrolling",
+      "why": "unrolls a loop by a fixed factor rather than completely"
+    },
+    {
+      "name": "peephole optimization",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "     3  peephole optimization",
+      "why": "replaces small local instruction sequences with faster ones"
+    },
+    {
+      "name": "profile-guided optimization",
+      "aliases": ["PGO", "profile guided optimization"],
+      "judge": "npe",
+      "evidence": "     6  profile-guided optimization",
+      "why": "uses runtime execution profiles to guide compiler decisions"
+    },
+    {
+      "name": "scalar replacement of aggregates",
+      "aliases": ["SROA"],
+      "judge": "leak",
+      "evidence": "SROA",
+      "why": "breaks up structs and arrays into independent scalar variables"
+    },
+    {
+      "name": "scalarization",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "Scalarizer",
+      "why": "converts vector operations into scalar element operations"
+    },
+    {
+      "name": "sparse conditional constant propagation",
+      "aliases": ["SCCP"],
+      "judge": "leak",
+      "evidence": "SCCP",
+      "why": "jointly propagates constants and eliminates unreachable branches"
+    },
+    {
+      "name": "speculative execution",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "SpeculativeExecution",
+      "why": "hoists safe instructions above branches to execute unconditionally"
+    },
+    {
+      "name": "straight-line strength reduction",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "StraightLineStrengthReduce",
+      "why": "replaces repeated multiplications in straight-line code with additions"
+    },
+    {
+      "name": "strength reduction",
+      "aliases": ["loop strength reduction"],
+      "judge": "npe",
+      "evidence": "LoopStrengthReduce",
+      "why": "replaces expensive operations like multiply with cheaper additions"
+    },
+    {
+      "name": "superword-level parallelism",
+      "aliases": ["SLP vectorization"],
+      "judge": "race",
+      "evidence": "SLPVectorizer",
+      "why": "vectorizes isomorphic scalar operations within a basic block"
+    },
+    {
+      "name": "tail call optimization",
+      "aliases": ["tail call elimination", "tail recursion elimination", "TCO"],
+      "judge": "npe",
+      "evidence": "     5  tail call optimization",
+      "why": "reuses the current stack frame for a final call"
+    },
+    {
+      "name": "unroll-and-jam",
+      "aliases": ["loop unroll and jam"],
+      "judge": "race",
+      "evidence": "LoopUnrollAndJamPass",
+      "why": "unrolls an outer loop and fuses the resulting inner loops"
+    },
+    {
+      "name": "whole-program devirtualization",
+      "aliases": ["devirtualization"],
+      "judge": "race",
+      "evidence": "WholeProgramDevirt",
+      "why": "converts virtual calls into direct calls using class hierarchy info"
+    }
+  ],
+  "womm_candidates": [
+    "loop-invariant code motion",
+    "peephole optimization",
+    "link-time optimization"
+  ],
+  "bitflip_candidates": [
+    "inductive range check elimination",
+    "n-ary reassociation",
+    "hot/cold splitting"
+  ]
+}

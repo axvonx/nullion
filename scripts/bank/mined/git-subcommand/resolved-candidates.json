@@ -1,0 +1,40 @@
+{
+ "git-subcommand": [
+  {
+   "name": "mergetool",
+   "aliases": [
+    "git-mergetool"
+   ],
+   "judge": "npe",
+   "why": "external merge tool launcher",
+   "evidence": "git-mergetool"
+  },
+  {
+   "name": "remote-ext",
+   "aliases": [
+    "git-remote-ext"
+   ],
+   "judge": "heisenbug",
+   "why": "smart transport bridge",
+   "evidence": "git/git/Documentation (file names): git-remote-ext"
+  },
+  {
+   "name": "remote-fd",
+   "aliases": [
+    "git-remote-fd"
+   ],
+   "judge": "heisenbug",
+   "why": "smart transport via fds",
+   "evidence": "git/git/Documentation (file names): git-remote-fd"
+  },
+  {
+   "name": "shell",
+   "aliases": [
+    "git-shell"
+   ],
+   "judge": "race",
+   "why": "restricted SSH shell",
+   "evidence": "git/git/Documentation (file names): git-shell"
+  }
+ ]
+}

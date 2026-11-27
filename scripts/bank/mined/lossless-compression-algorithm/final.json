@@ -1,0 +1,245 @@
+{
+ "lossless-compression-algorithm": [
+  {
+   "name": "Burrows-Wheeler transform",
+   "aliases": [
+    "bwt"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Lempel-Ziv",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Huffman coding",
+   "aliases": [
+    "Huffman"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "arithmetic coding",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "DEFLATE",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "LZ77",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "LZ78",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "LZW",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "LZSS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "LZMA",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "LZ4",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Snappy",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Zstandard",
+   "aliases": [
+    "zstd"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Brotli",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "bzip2",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "PPM",
+   "aliases": [
+    "prediction by partial matching"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "PAQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "range coding",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "asymmetric numeral systems",
+   "aliases": [
+    "ANS",
+    "rANS",
+    "tANS"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Shannon-Fano coding",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "run-length encoding",
+   "aliases": [
+    "RLE"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Golomb coding",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Elias gamma coding",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LZO",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "LZF",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LZFSE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LZX",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LZJB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LZRW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LZP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LZMA2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PPMd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "QuickLZ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FastLZ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LZHAM",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zopfli",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "move-to-front transform",
+   "aliases": [
+    "MTF"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Tunstall coding",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "adaptive Huffman coding",
+   "aliases": [
+    "Vitter algorithm",
+    "FGK"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "dynamic Markov compression",
+   "aliases": [
+    "DMC"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ZPAQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "cmix",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LZ4HC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Lizard",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

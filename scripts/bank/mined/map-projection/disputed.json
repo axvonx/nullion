@@ -1,0 +1,121 @@
+[
+ {
+  "name": "August projection",
+  "a": {
+   "name": "August projection",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "august",
+   "why": "epicycloidal conformal world projection"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Interrupted Mollweide projection",
+  "a": {
+   "name": "Interrupted Mollweide projection",
+   "aliases": [
+    "imoll",
+    "imoll_o"
+   ],
+   "judge": "race",
+   "evidence": "imoll",
+   "why": "interrupted version of Mollweide projection"
+  },
+  "b": {
+   "name": "Mollweide projection",
+   "aliases": [
+    "moll",
+    "imoll",
+    "imoll_o"
+   ],
+   "judge": "npe",
+   "evidence": "moll",
+   "why": "equal-area pseudocylindrical projection with an elliptical outline"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Mollweide projection",
+  "a": {
+   "name": "Mollweide projection",
+   "aliases": [
+    "moll"
+   ],
+   "judge": "npe",
+   "evidence": "moll",
+   "why": "equal-area elliptical pseudocylindrical projection"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Spherical Cross-track Height projection",
+  "a": {
+   "name": "Spherical Cross-track Height projection",
+   "aliases": [
+    "sch"
+   ],
+   "judge": "heisenbug",
+   "evidence": "sch",
+   "why": "radar swath coordinate projection"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "August epicycloidal projection",
+  "a": null,
+  "b": {
+   "name": "August epicycloidal projection",
+   "aliases": [
+    "august"
+   ],
+   "judge": "heisenbug",
+   "evidence": "august",
+   "why": "conformal map projection shaping the world inside an epicycloid"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CalCOFI grid",
+  "a": null,
+  "b": {
+   "name": "CalCOFI grid",
+   "aliases": [
+    "calcofi"
+   ],
+   "judge": "heisenbug",
+   "evidence": "calcofi",
+   "why": "oceanographic sampling grid projection used off California"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "S2 projection",
+  "a": null,
+  "b": {
+   "name": "S2 projection",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "s2",
+   "why": "spherical cube-face projection used in Google's S2 geometry library"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Simple conic projection",
+  "a": null,
+  "b": {
+   "name": "Simple conic projection",
+   "aliases": [
+    "sconics"
+   ],
+   "judge": "race",
+   "evidence": "sconics",
+   "why": "classical family of simple conic projections"
+  },
+  "batch": "batch-00.txt"
+ }
+]

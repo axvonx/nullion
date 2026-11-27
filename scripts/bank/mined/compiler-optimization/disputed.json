@@ -1,0 +1,204 @@
+[
+ {
+  "name": "CFG flattening",
+  "a": {
+   "name": "CFG flattening",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "FlattenCFGPass",
+   "why": "merges nested branches into a single conditional block"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "code sinking",
+  "a": {
+   "name": "code sinking",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "Sink",
+   "why": "moves instructions down into conditional branches where used"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DFA jump threading",
+  "a": {
+   "name": "DFA jump threading",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "DFAJumpThreading",
+   "why": "threads state-machine switch jumps across loop iterations"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "guard widening",
+  "a": {
+   "name": "guard widening",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "GuardWidening",
+   "why": "combines multiple runtime guards into a single wider check"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "hot/cold splitting",
+  "a": {
+   "name": "hot/cold splitting",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "HotColdSplitting",
+   "why": "outlines cold basic blocks to improve instruction cache locality"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "inductive range check elimination",
+  "a": {
+   "name": "inductive range check elimination",
+   "aliases": [
+    "IRCE"
+   ],
+   "judge": "heisenbug",
+   "evidence": "InductiveRangeCheckElimination",
+   "why": "splits loops to eliminate bounds checks inside the main loop"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "instruction simplification",
+  "a": {
+   "name": "instruction simplification",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "InstSimplifyPass",
+   "why": "simplifies instructions without creating new ones"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "library call simplification",
+  "a": {
+   "name": "library call simplification",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "SimplifyLibCalls",
+   "why": "replaces known standard library calls with faster equivalents"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "loop bound splitting",
+  "a": {
+   "name": "loop bound splitting",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "LoopBoundSplit",
+   "why": "splits loops at a conditional bound to simplify each half"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "loop versioning",
+  "a": {
+   "name": "loop versioning",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "LoopVersioningLICM",
+   "why": "clones a loop with a runtime aliasing check to enable optimization"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "n-ary reassociation",
+  "a": {
+   "name": "n-ary reassociation",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "NaryReassociate",
+   "why": "reassociates n-ary expressions to expose common subexpressions"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "scalarization",
+  "a": {
+   "name": "scalarization",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "Scalarizer",
+   "why": "converts vector operations into scalar element operations"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "hot-cold splitting",
+  "a": null,
+  "b": {
+   "name": "hot-cold splitting",
+   "aliases": [
+    "HotColdSplitting"
+   ],
+   "judge": "race",
+   "evidence": "HotColdSplitting",
+   "why": "outlines cold basic blocks into separate functions to improve icache locality"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "vector combining",
+  "a": null,
+  "b": {
+   "name": "vector combining",
+   "aliases": [
+    "VectorCombine"
+   ],
+   "judge": "heisenbug",
+   "evidence": "VectorCombine",
+   "why": "optimizes sequences of vector shuffles, extracts, and inserts"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "critical edge splitting",
+  "a": null,
+  "b": {
+   "name": "critical edge splitting",
+   "aliases": [
+    "BreakCriticalEdges"
+   ],
+   "judge": "race",
+   "evidence": "BreakCriticalEdges",
+   "why": "inserts empty blocks on critical CFG edges to enable code motion"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "loop-closed SSA",
+  "a": null,
+  "b": {
+   "name": "loop-closed SSA",
+   "aliases": [
+    "LCSSA"
+   ],
+   "judge": "heisenbug",
+   "evidence": "LCSSA",
+   "why": "inserts phi nodes at loop exits to simplify loop transformations"
+  },
+  "batch": "batch-00.txt"
+ }
+]

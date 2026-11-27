@@ -1,0 +1,384 @@
+{
+  "3d-model-file-format": [
+    {
+      "name": "OBJ",
+      "aliases": ["Wavefront OBJ"],
+      "judge": "off-by-one",
+      "evidence": "Obj",
+      "why": "ubiquitous plain-text Wavefront 3D geometry format"
+    },
+    {
+      "name": "FBX",
+      "aliases": ["Filmbox"],
+      "judge": "off-by-one",
+      "evidence": "FBX",
+      "why": "widely used Autodesk 3D scene and animation exchange format"
+    },
+    {
+      "name": "STL",
+      "aliases": ["Stereolithography"],
+      "judge": "off-by-one",
+      "evidence": "STL",
+      "why": "standard triangle mesh format for 3D printing and CAD"
+    },
+    {
+      "name": "glTF",
+      "aliases": ["glTF2", "GLB", "GL Transmission Format"],
+      "judge": "off-by-one",
+      "evidence": "glTF",
+      "why": "Khronos Group standard runtime 3D asset delivery format"
+    },
+    {
+      "name": "3DS",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "3DS",
+      "why": "legacy Autodesk 3D Studio binary mesh format"
+    },
+    {
+      "name": "BLEND",
+      "aliases": ["Blender"],
+      "judge": "npe",
+      "evidence": "Blender",
+      "why": "native binary project and scene format of Blender"
+    },
+    {
+      "name": "COLLADA",
+      "aliases": ["DAE"],
+      "judge": "npe",
+      "evidence": "Collada",
+      "why": "Khronos XML-based 3D digital asset exchange schema"
+    },
+    {
+      "name": "DXF",
+      "aliases": ["Drawing Exchange Format"],
+      "judge": "npe",
+      "evidence": "DXF",
+      "why": "Autodesk CAD data exchange format supporting 3D geometry"
+    },
+    {
+      "name": "PLY",
+      "aliases": ["Polygon File Format", "Stanford Triangle Format"],
+      "judge": "npe",
+      "evidence": "Ply",
+      "why": "Stanford polygon mesh format common in 3D scanning"
+    },
+    {
+      "name": "STEP",
+      "aliases": ["ISO 10303"],
+      "judge": "npe",
+      "evidence": "Step",
+      "why": "ISO standard CAD exchange format for 3D product models"
+    },
+    {
+      "name": "USD",
+      "aliases": ["Universal Scene Description", "USDZ"],
+      "judge": "npe",
+      "evidence": "USD",
+      "why": "Pixar's open format for composing 3D scenes"
+    },
+    {
+      "name": "VRML",
+      "aliases": ["WRL"],
+      "judge": "npe",
+      "evidence": "VRML",
+      "why": "classic 1990s text format for interactive 3D web worlds"
+    },
+    {
+      "name": "3MF",
+      "aliases": ["3D Manufacturing Format"],
+      "judge": "leak",
+      "evidence": "3MF",
+      "why": "XML-based 3D printing format succeeding STL"
+    },
+    {
+      "name": "BVH",
+      "aliases": ["Biovision Hierarchy"],
+      "judge": "leak",
+      "evidence": "BVH",
+      "why": "standard skeletal motion-capture animation format"
+    },
+    {
+      "name": "C4D",
+      "aliases": ["Cinema 4D"],
+      "judge": "leak",
+      "evidence": "C4D",
+      "why": "native 3D scene format of Maxon Cinema 4D"
+    },
+    {
+      "name": "IFC",
+      "aliases": ["Industry Foundation Classes"],
+      "judge": "leak",
+      "evidence": "IFC",
+      "why": "open BIM data model format for 3D architectural geometry"
+    },
+    {
+      "name": "MD2",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "MD2",
+      "why": "Quake II vertex-animated 3D model format"
+    },
+    {
+      "name": "MD3",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "MD3",
+      "why": "Quake III Arena 3D model format"
+    },
+    {
+      "name": "MDL",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "MDL",
+      "why": "Quake and Valve Source engine compiled 3D model format"
+    },
+    {
+      "name": "DirectX X",
+      "aliases": ["DirectX .x"],
+      "judge": "leak",
+      "evidence": "X",
+      "why": "legacy Microsoft Direct3D retained-mode .x mesh format"
+    },
+    {
+      "name": "X3D",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "X3D",
+      "why": "ISO XML-based successor to VRML for 3D scenes"
+    },
+    {
+      "name": "AC3D",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "AC",
+      "why": "plain-text .ac 3D model format used by AC3D and FlightGear"
+    },
+    {
+      "name": "AMF",
+      "aliases": ["Additive Manufacturing File Format"],
+      "judge": "race",
+      "evidence": "AMF",
+      "why": "ASTM XML-based additive manufacturing 3D model standard"
+    },
+    {
+      "name": "ASE",
+      "aliases": ["ASCII Scene Exporter"],
+      "judge": "race",
+      "evidence": "ASE",
+      "why": "3D Studio Max ASCII scene export format"
+    },
+    {
+      "name": "B3D",
+      "aliases": ["Blitz3D"],
+      "judge": "race",
+      "evidence": "B3D",
+      "why": "binary skeletal mesh format for the Blitz3D engine"
+    },
+    {
+      "name": "Irrlicht",
+      "aliases": ["IrrMesh", "Irr"],
+      "judge": "race",
+      "evidence": "Irr",
+      "why": "XML scene and mesh format of the Irrlicht 3D engine"
+    },
+    {
+      "name": "LWO",
+      "aliases": ["LightWave Object"],
+      "judge": "race",
+      "evidence": "LWO",
+      "why": "NewTek LightWave 3D object mesh format"
+    },
+    {
+      "name": "LWS",
+      "aliases": ["LightWave Scene"],
+      "judge": "race",
+      "evidence": "LWS",
+      "why": "NewTek LightWave 3D scene and animation format"
+    },
+    {
+      "name": "MD5mesh",
+      "aliases": ["MD5"],
+      "judge": "race",
+      "evidence": "MD5",
+      "why": "id Tech 4 skeletal mesh format introduced in Doom 3"
+    },
+    {
+      "name": "PMX",
+      "aliases": ["PMD", "MMD"],
+      "judge": "race",
+      "evidence": "MMD",
+      "why": "MikuMikuDance rigged character model format"
+    },
+    {
+      "name": "MS3D",
+      "aliases": ["MilkShape 3D"],
+      "judge": "race",
+      "evidence": "MS3D",
+      "why": "binary 3D model format of MilkShape 3D"
+    },
+    {
+      "name": "OFF",
+      "aliases": ["Object File Format"],
+      "judge": "race",
+      "evidence": "OFF",
+      "why": "minimalist ASCII polygon mesh format from Geomview"
+    },
+    {
+      "name": "Ogre XML",
+      "aliases": ["Ogre"],
+      "judge": "race",
+      "evidence": "Ogre",
+      "why": "OGRE 3D engine mesh and skeleton XML format"
+    },
+    {
+      "name": "OpenGEX",
+      "aliases": ["OGEX", "Open Game Engine Exchange"],
+      "judge": "race",
+      "evidence": "OpenGEX",
+      "why": "OpenDDL-based 3D scene exchange format for game engines"
+    },
+    {
+      "name": "Q3BSP",
+      "aliases": ["BSP"],
+      "judge": "race",
+      "evidence": "Q3BSP",
+      "why": "Quake III Arena binary space partitioning level geometry format"
+    },
+    {
+      "name": "SMD",
+      "aliases": ["Studiomdl Data"],
+      "judge": "race",
+      "evidence": "SMD",
+      "why": "Valve Half-Life and Source intermediate mesh and animation format"
+    },
+    {
+      "name": "TER",
+      "aliases": ["Terragen"],
+      "judge": "race",
+      "evidence": "Terragen",
+      "why": "Terragen binary heightfield terrain geometry format"
+    },
+    {
+      "name": "Unreal 3D",
+      "aliases": ["Unreal"],
+      "judge": "race",
+      "evidence": "Unreal",
+      "why": "legacy Unreal Engine vertex-animated .3d model format"
+    },
+    {
+      "name": "Assbin",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "Assbin",
+      "why": "Assimp's internal binary scene dump format"
+    },
+    {
+      "name": "Assjson",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "Assjson",
+      "why": "Assimp's JSON-serialized 3D scene format"
+    },
+    {
+      "name": "Assxml",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "Assxml",
+      "why": "Assimp's XML scene inspection format"
+    },
+    {
+      "name": "COB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "COB",
+      "why": "Caligari trueSpace 3D object file format"
+    },
+    {
+      "name": "CSM",
+      "aliases": ["Character Studio Marker"],
+      "judge": "heisenbug",
+      "evidence": "CSM",
+      "why": "3ds Max Character Studio motion-capture marker format"
+    },
+    {
+      "name": "HMP",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "HMP",
+      "why": "3D GameStudio terrain heightmap model format"
+    },
+    {
+      "name": "IQM",
+      "aliases": ["Inter-Quake Model"],
+      "judge": "heisenbug",
+      "evidence": "IQM",
+      "why": "open-source binary skeletal model format for indie engines"
+    },
+    {
+      "name": "M3D",
+      "aliases": ["Model 3D"],
+      "judge": "heisenbug",
+      "evidence": "M3D",
+      "why": "compact chunked universal 3D model format"
+    },
+    {
+      "name": "MD4",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "MD4",
+      "why": "unshipped id Tech 3 skeletal model format"
+    },
+    {
+      "name": "MDC",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "MDC",
+      "why": "compressed vertex-animated model format from Return to Castle Wolfenstein"
+    },
+    {
+      "name": "NDO",
+      "aliases": ["Nendo"],
+      "judge": "heisenbug",
+      "evidence": "NDO",
+      "why": "winged-edge 3D mesh format of the Nendo modeler"
+    },
+    {
+      "name": "NFF",
+      "aliases": ["Neutral File Format"],
+      "judge": "heisenbug",
+      "evidence": "NFF",
+      "why": "Eric Haines's Neutral File Format for ray-tracing benchmarks"
+    },
+    {
+      "name": "Q3D",
+      "aliases": ["Quick3D"],
+      "judge": "heisenbug",
+      "evidence": "Q3D",
+      "why": "Quick3D mesh, object, and scene format"
+    },
+    {
+      "name": "RAW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "Raw",
+      "why": "plain ASCII triangle-list format used with POV-Ray"
+    },
+    {
+      "name": "SIB",
+      "aliases": ["Silo"],
+      "judge": "heisenbug",
+      "evidence": "SIB",
+      "why": "Nevercenter Silo 3D subdivision model format"
+    },
+    {
+      "name": "XGL",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XGL",
+      "why": "XML-based 3D geometry format designed around OpenGL"
+    }
+  ],
+  "womm_candidates": ["PLY", "COLLADA", "VRML"],
+  "bitflip_candidates": ["NFF", "IQM", "MS3D"]
+}

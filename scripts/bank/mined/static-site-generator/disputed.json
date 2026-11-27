@@ -1,0 +1,59 @@
+[
+ {
+  "name": "Fresh",
+  "a": {
+   "name": "Fresh",
+   "aliases": [
+    "fresh"
+   ],
+   "judge": "leak",
+   "evidence": "fresh",
+   "why": "Deno web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Remix",
+  "a": {
+   "name": "Remix",
+   "aliases": [
+    "remix"
+   ],
+   "judge": "npe",
+   "evidence": "remix",
+   "why": "React web framework listed in jamstack.org"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "TanStack Start",
+  "a": {
+   "name": "TanStack Start",
+   "aliases": [
+    "tanstack-start"
+   ],
+   "judge": "leak",
+   "evidence": "tanstack-start",
+   "why": "TanStack web framework listed in jamstack.org"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Umi",
+  "a": {
+   "name": "Umi",
+   "aliases": [
+    "umi",
+    "umijs"
+   ],
+   "judge": "leak",
+   "evidence": "umi",
+   "why": "React enterprise framework with static export"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ }
+]

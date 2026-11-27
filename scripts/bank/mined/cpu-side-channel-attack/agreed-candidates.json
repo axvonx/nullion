@@ -1,0 +1,86 @@
+{
+ "cpu-side-channel-attack": [
+  {
+   "name": "Spectre",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "L1 Terminal Fault",
+   "aliases": [
+    "L1TF",
+    "Foreshadow",
+    "l1tf"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Microarchitectural Data Sampling",
+   "aliases": [
+    "MDS",
+    "mds"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Gather Data Sampling",
+   "aliases": [
+    "Downfall",
+    "GDS"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "TSX Async Abort",
+   "aliases": [
+    "TAA",
+    "TSX Asynchronous Abort"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Special Register Buffer Data Sampling",
+   "aliases": [
+    "SRBDS",
+    "CrossTalk"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Speculative Return Stack Overflow",
+   "aliases": [
+    "SRSO",
+    "Inception",
+    "srso"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Processor MMIO Stale Data",
+   "aliases": [
+    "MMIO Stale Data"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Register File Data Sampling",
+   "aliases": [
+    "RFDS",
+    "reg-file-data-sampling"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Indirect Target Selection",
+   "aliases": [
+    "ITS"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "VMSCAPE",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

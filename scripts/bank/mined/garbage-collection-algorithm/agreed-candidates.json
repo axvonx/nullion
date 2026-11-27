@@ -1,0 +1,76 @@
+{
+ "garbage-collection-algorithm": [
+  {
+   "name": "copying collector",
+   "aliases": [
+    "copying collection",
+    "copying GC"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "G1",
+   "aliases": [
+    "G1GC",
+    "Garbage-First",
+    "G1 GC",
+    "Garbage-First GC"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "conservative garbage collection",
+   "aliases": [
+    "conservative GC",
+    "conservative collector"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "accurate garbage collection",
+   "aliases": [
+    "precise garbage collection",
+    "exact garbage collection"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ZGC",
+   "aliases": [
+    "Z Garbage Collector"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Parallel GC",
+   "aliases": [
+    "Parallel Scavenge",
+    "Parallel Old",
+    "Parallel Collector"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Serial GC",
+   "aliases": [
+    "Serial Collector"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Shenandoah",
+   "aliases": [
+    "Shenandoah GC"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Epsilon GC",
+   "aliases": [
+    "Epsilon",
+    "Epsilon Garbage Collector"
+   ],
+   "judge": "race"
+  }
+ ]
+}

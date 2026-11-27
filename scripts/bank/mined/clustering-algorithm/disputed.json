@@ -1,0 +1,69 @@
+[
+ {
+  "name": "Lloyd's algorithm",
+  "a": {
+   "name": "Lloyd's algorithm",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "_k_means_lloyd",
+   "why": "standard iterative assignment-update algorithm for k-means"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "hierarchical clustering",
+  "a": null,
+  "b": {
+   "name": "hierarchical clustering",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "_hierarchical_fast",
+   "why": "classic clustering family building a nested tree of clusters"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "mini-batch k-means",
+  "a": null,
+  "b": {
+   "name": "mini-batch k-means",
+   "aliases": [
+    "minibatch k-means",
+    "mini-batch kmeans"
+   ],
+   "judge": "leak",
+   "evidence": "_k_means_minibatch",
+   "why": "scalable k-means variant updating centroids with random mini-batches"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "biclustering",
+  "a": null,
+  "b": {
+   "name": "biclustering",
+   "aliases": [
+    "co-clustering"
+   ],
+   "judge": "race",
+   "evidence": "_bicluster",
+   "why": "simultaneously clusters rows and columns of a data matrix"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "feature agglomeration",
+  "a": null,
+  "b": {
+   "name": "feature agglomeration",
+   "aliases": [
+    "feature_agglomeration"
+   ],
+   "judge": "heisenbug",
+   "evidence": "_feature_agglomeration",
+   "why": "agglomerative clustering applied to merge correlated features"
+  },
+  "batch": "batch-00.txt"
+ }
+]

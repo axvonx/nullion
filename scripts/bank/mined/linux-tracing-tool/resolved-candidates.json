@@ -1,0 +1,123 @@
+{
+ "linux-tracing-tool": [
+  {
+   "name": "strace",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "syscall tracer"
+  },
+  {
+   "name": "ltrace",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "library call tracer"
+  },
+  {
+   "name": "perf",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "Linux perf tool"
+  },
+  {
+   "name": "ftrace",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "kernel function tracer"
+  },
+  {
+   "name": "LTTng",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Linux Trace Toolkit next generation"
+  },
+  {
+   "name": "SystemTap",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "dynamic tracing scripts"
+  },
+  {
+   "name": "bpftrace",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "eBPF high-level tracer"
+  },
+  {
+   "name": "BCC",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "BPF Compiler Collection"
+  },
+  {
+   "name": "trace-cmd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "ftrace front end"
+  },
+  {
+   "name": "KernelShark",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "trace-cmd GUI"
+  },
+  {
+   "name": "blktrace",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "block layer tracer"
+  },
+  {
+   "name": "kprobes",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "kernel dynamic probes"
+  },
+  {
+   "name": "uprobes",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "user-space probes"
+  },
+  {
+   "name": "sysdig",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "system call capture"
+  },
+  {
+   "name": "uftrace",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "function graph tracer"
+  },
+  {
+   "name": "Perfetto",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "tracing platform"
+  },
+  {
+   "name": "Tracee",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Aqua eBPF tracer"
+  }
+ ]
+}

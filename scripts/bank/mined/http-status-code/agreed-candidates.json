@@ -1,0 +1,476 @@
+{
+ "http-status-code": [
+  {
+   "name": "100 Continue",
+   "aliases": [
+    "100"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "101 Switching Protocols",
+   "aliases": [
+    "101",
+    "Switching Protocols"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "103 Early Hints",
+   "aliases": [
+    "103",
+    "Early Hints"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "200 OK",
+   "aliases": [
+    "200"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "201 Created",
+   "aliases": [
+    "201"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "202 Accepted",
+   "aliases": [
+    "202"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "203 Non-Authoritative Information",
+   "aliases": [
+    "203",
+    "Non-Authoritative Information"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "204 No Content",
+   "aliases": [
+    "204",
+    "No Content"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "205 Reset Content",
+   "aliases": [
+    "205",
+    "Reset Content"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "206 Partial Content",
+   "aliases": [
+    "206",
+    "Partial Content"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "207 Multi-Status",
+   "aliases": [
+    "207",
+    "Multi-Status"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "208 Already Reported",
+   "aliases": [
+    "208",
+    "Already Reported"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "226 IM Used",
+   "aliases": [
+    "226",
+    "IM Used"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "300 Multiple Choices",
+   "aliases": [
+    "300",
+    "Multiple Choices"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "301 Moved Permanently",
+   "aliases": [
+    "301",
+    "Moved Permanently"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "302 Found",
+   "aliases": [
+    "302"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "303 See Other",
+   "aliases": [
+    "303",
+    "See Other"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "304 Not Modified",
+   "aliases": [
+    "304",
+    "Not Modified"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "307 Temporary Redirect",
+   "aliases": [
+    "307",
+    "Temporary Redirect"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "308 Permanent Redirect",
+   "aliases": [
+    "308",
+    "Permanent Redirect"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "400 Bad Request",
+   "aliases": [
+    "400",
+    "Bad Request"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "401 Unauthorized",
+   "aliases": [
+    "401"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "402 Payment Required",
+   "aliases": [
+    "402",
+    "Payment Required"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "403 Forbidden",
+   "aliases": [
+    "403"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "404 Not Found",
+   "aliases": [
+    "404",
+    "Not Found"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "405 Method Not Allowed",
+   "aliases": [
+    "405",
+    "Method Not Allowed"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "406 Not Acceptable",
+   "aliases": [
+    "406",
+    "Not Acceptable"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "407 Proxy Authentication Required",
+   "aliases": [
+    "407",
+    "Proxy Authentication Required"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "408 Request Timeout",
+   "aliases": [
+    "408",
+    "Request Timeout"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "409 Conflict",
+   "aliases": [
+    "409"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "410 Gone",
+   "aliases": [
+    "410"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "411 Length Required",
+   "aliases": [
+    "411",
+    "Length Required"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "412 Precondition Failed",
+   "aliases": [
+    "412",
+    "Precondition Failed"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "413 Content Too Large",
+   "aliases": [
+    "413",
+    "Content Too Large",
+    "Payload Too Large"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "414 URI Too Long",
+   "aliases": [
+    "414",
+    "URI Too Long"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "415 Unsupported Media Type",
+   "aliases": [
+    "415",
+    "Unsupported Media Type"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "416 Range Not Satisfiable",
+   "aliases": [
+    "416",
+    "Range Not Satisfiable"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "417 Expectation Failed",
+   "aliases": [
+    "417",
+    "Expectation Failed"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "418 I'm a teapot",
+   "aliases": [
+    "418",
+    "I'm a teapot"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "421 Misdirected Request",
+   "aliases": [
+    "421",
+    "Misdirected Request"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "422 Unprocessable Content",
+   "aliases": [
+    "422",
+    "Unprocessable Content",
+    "Unprocessable Entity"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "423 Locked",
+   "aliases": [
+    "423"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "424 Failed Dependency",
+   "aliases": [
+    "424",
+    "Failed Dependency"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "425 Too Early",
+   "aliases": [
+    "425",
+    "Too Early"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "426 Upgrade Required",
+   "aliases": [
+    "426",
+    "Upgrade Required"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "428 Precondition Required",
+   "aliases": [
+    "428",
+    "Precondition Required"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "429 Too Many Requests",
+   "aliases": [
+    "429",
+    "Too Many Requests"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "431 Request Header Fields Too Large",
+   "aliases": [
+    "431",
+    "Request Header Fields Too Large"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "451 Unavailable For Legal Reasons",
+   "aliases": [
+    "451",
+    "Unavailable For Legal Reasons"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "500 Internal Server Error",
+   "aliases": [
+    "500",
+    "Internal Server Error"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "501 Not Implemented",
+   "aliases": [
+    "501",
+    "Not Implemented"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "502 Bad Gateway",
+   "aliases": [
+    "502",
+    "Bad Gateway"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "503 Service Unavailable",
+   "aliases": [
+    "503",
+    "Service Unavailable"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "504 Gateway Timeout",
+   "aliases": [
+    "504",
+    "Gateway Timeout"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "505 HTTP Version Not Supported",
+   "aliases": [
+    "505",
+    "HTTP Version Not Supported"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "506 Variant Also Negotiates",
+   "aliases": [
+    "506",
+    "Variant Also Negotiates"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "507 Insufficient Storage",
+   "aliases": [
+    "507",
+    "Insufficient Storage"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "508 Loop Detected",
+   "aliases": [
+    "508",
+    "Loop Detected"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "510 Not Extended",
+   "aliases": [
+    "510",
+    "Not Extended"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "511 Network Authentication Required",
+   "aliases": [
+    "511",
+    "Network Authentication Required"
+   ],
+   "judge": "race"
+  }
+ ]
+}

@@ -1,0 +1,116 @@
+{
+ "gradient-based-optimizer": [
+  {
+   "name": "SGD",
+   "aliases": [
+    "Stochastic Gradient Descent"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Adam",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "AdamW",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "RMSProp",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Adagrad",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Adadelta",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "NAdam",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "L-BFGS",
+   "aliases": [
+    "Limited-memory BFGS"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Adamax",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "RAdam",
+   "aliases": [
+    "Rectified Adam"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Adafactor",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Lion",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "LAMB",
+   "aliases": [
+    "Layer-wise Adaptive Moments"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "FTRL",
+   "aliases": [
+    "Follow-The-Regularized-Leader",
+    "FTRL-Proximal",
+    "Follow The Regularized Leader"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Rprop",
+   "aliases": [
+    "Resilient Backpropagation"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ASGD",
+   "aliases": [
+    "Averaged SGD",
+    "Averaged Stochastic Gradient Descent"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Muon",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Schedule-Free AdamW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SparseAdam",
+   "aliases": [],
+   "judge": "race"
+  }
+ ]
+}

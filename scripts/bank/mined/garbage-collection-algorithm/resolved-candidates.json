@@ -1,0 +1,239 @@
+{
+ "garbage-collection-algorithm": [
+  {
+   "name": "mark-sweep",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "classic tracing collector"
+  },
+  {
+   "name": "mark-compact",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "tracing with compaction"
+  },
+  {
+   "name": "reference counting",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "count-based reclamation"
+  },
+  {
+   "name": "generational garbage collection",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "young/old generations"
+  },
+  {
+   "name": "incremental garbage collection",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "interleaved with mutator"
+  },
+  {
+   "name": "tri-color marking",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "white/grey/black abstraction"
+  },
+  {
+   "name": "Cheney's algorithm",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "breadth-first copying collector"
+  },
+  {
+   "name": "semispace collector",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "two-space copying"
+  },
+  {
+   "name": "Concurrent Mark Sweep",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "HotSpot CMS"
+  },
+  {
+   "name": "Train algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Hudson and Moss mature object collector"
+  },
+  {
+   "name": "Immix",
+   "aliases": [
+    "mark-region"
+   ],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "mark-region collector"
+  },
+  {
+   "name": "Baker's algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "real-time copying collector"
+  },
+  {
+   "name": "Lisp2 algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "sliding compaction"
+  },
+  {
+   "name": "Compressor",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "parallel compaction collector"
+  },
+  {
+   "name": "Morris algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "pointer-reversal compaction"
+  },
+  {
+   "name": "Boehm GC",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "conservative collector for C"
+  },
+  {
+   "name": "C4",
+   "aliases": [
+    "Pauseless GC"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Azul pauseless collector"
+  },
+  {
+   "name": "Metronome",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "IBM real-time collector"
+  },
+  {
+   "name": "Sapphire",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "concurrent copying collector"
+  },
+  {
+   "name": "Deutsch-Schorr-Waite algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "pointer reversal marking"
+  },
+  {
+   "name": "weighted reference counting",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "distributed refcounting"
+  },
+  {
+   "name": "deferred reference counting",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Deutsch-Bobrow"
+  },
+  {
+   "name": "Bacon-Rajan cycle collection",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "trial deletion for refcounts"
+  },
+  {
+   "name": "Appel collector",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "simple generational copying"
+  },
+  {
+   "name": "Beltway",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "belt-based copying framework"
+  },
+  {
+   "name": "Orinoco",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "V8 parallel collector"
+  },
+  {
+   "name": "Generational ZGC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "ZGC with generations"
+  },
+  {
+   "name": "snapshot-at-the-beginning",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SATB marking"
+  },
+  {
+   "name": "Brooks forwarding pointer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "concurrent copying technique"
+  },
+  {
+   "name": "Mostly Parallel GC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Boehm Demers Shenker"
+  },
+  {
+   "name": "LXR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "latency-critical Immix and RC"
+  },
+  {
+   "name": "RC Immix",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "refcounting with Immix"
+  },
+  {
+   "name": "Ulterior reference counting",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "hybrid generational RC"
+  }
+ ]
+}

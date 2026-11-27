@@ -1,0 +1,210 @@
+{
+ "unix-command": [
+  {
+   "name": "csplit",
+   "aliases": [],
+   "judge": "npe",
+   "why": "split by context",
+   "evidence": "csplit"
+  },
+  {
+   "name": "factor",
+   "aliases": [],
+   "judge": "npe",
+   "why": "prime factors",
+   "evidence": "factor"
+  },
+  {
+   "name": "logname",
+   "aliases": [],
+   "judge": "npe",
+   "why": "login name",
+   "evidence": "logname"
+  },
+  {
+   "name": "pinky",
+   "aliases": [],
+   "judge": "leak",
+   "why": "lightweight finger",
+   "evidence": "pinky"
+  },
+  {
+   "name": "ptx",
+   "aliases": [],
+   "judge": "leak",
+   "why": "permuted index",
+   "evidence": "ptx"
+  },
+  {
+   "name": "runcon",
+   "aliases": [],
+   "judge": "leak",
+   "why": "SELinux context runner",
+   "evidence": "runcon"
+  },
+  {
+   "name": "sum",
+   "aliases": [],
+   "judge": "npe",
+   "why": "checksum",
+   "evidence": "sum"
+  },
+  {
+   "name": "tsort",
+   "aliases": [],
+   "judge": "leak",
+   "why": "topological sort",
+   "evidence": "tsort"
+  },
+  {
+   "name": "ctrlaltdel",
+   "aliases": [],
+   "judge": "leak",
+   "why": "util-linux",
+   "evidence": "ctrlaltdel"
+  },
+  {
+   "name": "ldattach",
+   "aliases": [],
+   "judge": "leak",
+   "why": "util-linux",
+   "evidence": "ldattach"
+  },
+  {
+   "name": "lsns",
+   "aliases": [],
+   "judge": "npe",
+   "why": "list namespaces",
+   "evidence": "lsns"
+  },
+  {
+   "name": "mcookie",
+   "aliases": [],
+   "judge": "leak",
+   "why": "xauth cookies",
+   "evidence": "mcookie"
+  },
+  {
+   "name": "uuidd",
+   "aliases": [],
+   "judge": "leak",
+   "why": "UUID daemon",
+   "evidence": "uuidd"
+  },
+  {
+   "name": "uuidparse",
+   "aliases": [],
+   "judge": "leak",
+   "why": "UUID parser",
+   "evidence": "uuidparse"
+  },
+  {
+   "name": "wipefs",
+   "aliases": [],
+   "judge": "npe",
+   "why": "wipe signatures",
+   "evidence": "wipefs"
+  },
+  {
+   "name": "line",
+   "aliases": [],
+   "judge": "leak",
+   "why": "util-linux",
+   "evidence": "line"
+  },
+  {
+   "name": "pg",
+   "aliases": [],
+   "judge": "leak",
+   "why": "pager",
+   "evidence": "pg"
+  },
+  {
+   "name": "ul",
+   "aliases": [],
+   "judge": "leak",
+   "why": "underline",
+   "evidence": "ul"
+  },
+  {
+   "name": "bzip2recover",
+   "aliases": [],
+   "judge": "leak",
+   "why": "bzip2 recovery",
+   "evidence": "bzip2recover"
+  },
+  {
+   "name": "clang",
+   "aliases": [],
+   "judge": "off-by-one",
+   "why": "LLVM compiler in BSD base",
+   "evidence": "clang"
+  },
+  {
+   "name": "getaddrinfo",
+   "aliases": [],
+   "judge": "leak",
+   "why": "FreeBSD resolver tool",
+   "evidence": "getaddrinfo"
+  },
+  {
+   "name": "lzmainfo",
+   "aliases": [],
+   "judge": "leak",
+   "why": "xz-utils",
+   "evidence": "lzmainfo"
+  },
+  {
+   "name": "rpcinfo",
+   "aliases": [],
+   "judge": "npe",
+   "why": "RPC info",
+   "evidence": "rpcinfo"
+  },
+  {
+   "name": "showmount",
+   "aliases": [],
+   "judge": "npe",
+   "why": "NFS mounts",
+   "evidence": "showmount"
+  },
+  {
+   "name": "what",
+   "aliases": [],
+   "judge": "leak",
+   "why": "SCCS strings",
+   "evidence": "what"
+  },
+  {
+   "name": "xargs",
+   "aliases": [],
+   "judge": "off-by-one",
+   "why": "build command lines",
+   "evidence": "xargs"
+  },
+  {
+   "name": "coreutils",
+   "aliases": [],
+   "judge": "leak",
+   "confidence": "low",
+   "why": "multicall binary or package name",
+   "evidence": "coreutils"
+  },
+  {
+   "name": "beep",
+   "aliases": [],
+   "judge": "leak",
+   "confidence": "low",
+   "why": "unsure it ships in a standard toolset",
+   "evidence": "beep"
+  },
+  {
+   "name": "perror",
+   "aliases": [],
+   "judge": "leak",
+   "confidence": "low",
+   "why": "FreeBSD base presence uncertain",
+   "evidence": "perror"
+  }
+ ]
+}

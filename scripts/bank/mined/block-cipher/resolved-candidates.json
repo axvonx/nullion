@@ -1,0 +1,282 @@
+{
+ "block-cipher": [
+  {
+   "name": "Triple DES",
+   "aliases": [
+    "3DES",
+    "TDEA"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "DES applied three times"
+  },
+  {
+   "name": "Skipjack",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "NSA Clipper cipher"
+  },
+  {
+   "name": "GOST 28147-89",
+   "aliases": [
+    "Magma"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Soviet standard cipher"
+  },
+  {
+   "name": "Kuznyechik",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "GOST R 34.12-2015 cipher"
+  },
+  {
+   "name": "Threefish",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Skein's tweakable cipher"
+  },
+  {
+   "name": "MARS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "AES finalist from IBM"
+  },
+  {
+   "name": "RC6",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "AES finalist from Rivest"
+  },
+  {
+   "name": "MISTY1",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Mitsubishi cipher"
+  },
+  {
+   "name": "KASUMI",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "3G UMTS cipher"
+  },
+  {
+   "name": "LOKI97",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "AES candidate"
+  },
+  {
+   "name": "FEAL",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Japanese NTT Feistel cipher"
+  },
+  {
+   "name": "DES-X",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "DES with key whitening"
+  },
+  {
+   "name": "SAFER",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Massey's Secure And Fast Encryption Routine"
+  },
+  {
+   "name": "Square",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Rijndael predecessor"
+  },
+  {
+   "name": "Crypton",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "AES candidate"
+  },
+  {
+   "name": "DEAL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "AES candidate from DES blocks"
+  },
+  {
+   "name": "E2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "NTT AES candidate"
+  },
+  {
+   "name": "Hierocrypt",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Toshiba cipher"
+  },
+  {
+   "name": "NOEKEON",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Daemen et al. cipher"
+  },
+  {
+   "name": "PRESENT",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "lightweight cipher"
+  },
+  {
+   "name": "Simon",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "NSA lightweight cipher"
+  },
+  {
+   "name": "Speck",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "NSA lightweight cipher"
+  },
+  {
+   "name": "LEA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Korean lightweight cipher"
+  },
+  {
+   "name": "HIGHT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Korean lightweight cipher"
+  },
+  {
+   "name": "CLEFIA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Sony cipher"
+  },
+  {
+   "name": "PRINCE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "low-latency cipher"
+  },
+  {
+   "name": "Lucifer",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "IBM ancestor of DES"
+  },
+  {
+   "name": "Magenta",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Deutsche Telekom AES candidate"
+  },
+  {
+   "name": "3-Way",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Daemen cipher"
+  },
+  {
+   "name": "XTEA",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "TEA successor"
+  },
+  {
+   "name": "XXTEA",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Corrected Block TEA"
+  },
+  {
+   "name": "Khufu",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Merkle cipher"
+  },
+  {
+   "name": "Khafre",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Merkle cipher"
+  },
+  {
+   "name": "REDOC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Redoc II cipher"
+  },
+  {
+   "name": "Kalyna",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Ukrainian standard DSTU 7624"
+  },
+  {
+   "name": "Deoxys",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "CAESAR tweakable cipher"
+  },
+  {
+   "name": "SKINNY",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "tweakable lightweight cipher"
+  },
+  {
+   "name": "GIFT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lightweight cipher"
+  },
+  {
+   "name": "Adiantum",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "disk encryption wide block construction"
+  }
+ ]
+}

@@ -1,0 +1,270 @@
+{
+ "stream-cipher": [
+  {
+   "name": "RC4",
+   "aliases": [
+    "ARC4",
+    "ARCFOUR"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ChaCha20",
+   "aliases": [
+    "ChaCha",
+    "chacha20poly1305"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Salsa20",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "XSalsa20",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "XChaCha20",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ChaCha8",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ChaCha12",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Grain",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Grain-128",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Trivium",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MICKEY",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Rabbit",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "HC-128",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "HC-256",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SOSEMANUK",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ISAAC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "A5/1",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "A5/2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "E0",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Crypto1",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SNOW 3G",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SNOW 2.0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ZUC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SEAL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WAKE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Py",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Phelix",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Helix",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LEVIATHAN",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Scream",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMPC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Spritz",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Achterbahn",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "F-FCSR",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DECIM",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MUGI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Turing",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Dragon",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LEX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Fruit",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Plantlet",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Lizard",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Sprout",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "KCipher-2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WG",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CryptMT",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Lorenz cipher",
+   "aliases": [
+    "SZ40",
+    "SZ42"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Content Scramble System",
+   "aliases": [
+    "CSS cipher"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Hitag2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SNOW-V",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Panama",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

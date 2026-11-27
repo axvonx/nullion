@@ -1,0 +1,1103 @@
+{
+ "git-subcommand": [
+  {
+   "name": "add",
+   "aliases": [
+    "git-add"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "am",
+   "aliases": [
+    "git-am"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "annotate",
+   "aliases": [
+    "git-annotate"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "apply",
+   "aliases": [
+    "git-apply"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "archimport",
+   "aliases": [
+    "git-archimport"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "archive",
+   "aliases": [
+    "git-archive"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "backfill",
+   "aliases": [
+    "git-backfill"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "bisect",
+   "aliases": [
+    "git-bisect"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "blame",
+   "aliases": [
+    "git-blame"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "branch",
+   "aliases": [
+    "git-branch"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "bugreport",
+   "aliases": [
+    "git-bugreport"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "bundle",
+   "aliases": [
+    "git-bundle"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "cat-file",
+   "aliases": [
+    "git-cat-file"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "check-attr",
+   "aliases": [
+    "git-check-attr"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "check-ignore",
+   "aliases": [
+    "git-check-ignore"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "check-mailmap",
+   "aliases": [
+    "git-check-mailmap"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "check-ref-format",
+   "aliases": [
+    "git-check-ref-format"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "checkout",
+   "aliases": [
+    "git-checkout"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "checkout-index",
+   "aliases": [
+    "git-checkout-index"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "cherry",
+   "aliases": [
+    "git-cherry"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "cherry-pick",
+   "aliases": [
+    "git-cherry-pick"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "citool",
+   "aliases": [
+    "git-citool"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "clean",
+   "aliases": [
+    "git-clean"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "clone",
+   "aliases": [
+    "git-clone"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "column",
+   "aliases": [
+    "git-column"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "commit",
+   "aliases": [
+    "git-commit"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "commit-graph",
+   "aliases": [
+    "git-commit-graph"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "commit-tree",
+   "aliases": [
+    "git-commit-tree"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "config",
+   "aliases": [
+    "git-config"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "count-objects",
+   "aliases": [
+    "git-count-objects"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "credential",
+   "aliases": [
+    "git-credential"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "credential-cache",
+   "aliases": [
+    "git-credential-cache"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "credential-store",
+   "aliases": [
+    "git-credential-store"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "cvsexportcommit",
+   "aliases": [
+    "git-cvsexportcommit"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "cvsimport",
+   "aliases": [
+    "git-cvsimport"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "cvsserver",
+   "aliases": [
+    "git-cvsserver"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "daemon",
+   "aliases": [
+    "git-daemon"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "describe",
+   "aliases": [
+    "git-describe"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "diagnose",
+   "aliases": [
+    "git-diagnose"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "diff",
+   "aliases": [
+    "git-diff"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "diff-files",
+   "aliases": [
+    "git-diff-files"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "diff-index",
+   "aliases": [
+    "git-diff-index"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "diff-pairs",
+   "aliases": [
+    "git-diff-pairs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "diff-tree",
+   "aliases": [
+    "git-diff-tree"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "difftool",
+   "aliases": [
+    "git-difftool"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "fast-export",
+   "aliases": [
+    "git-fast-export"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "fast-import",
+   "aliases": [
+    "git-fast-import"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "fetch",
+   "aliases": [
+    "git-fetch"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "fetch-pack",
+   "aliases": [
+    "git-fetch-pack"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "filter-branch",
+   "aliases": [
+    "git-filter-branch"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "fmt-merge-msg",
+   "aliases": [
+    "git-fmt-merge-msg"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "for-each-ref",
+   "aliases": [
+    "git-for-each-ref"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "for-each-repo",
+   "aliases": [
+    "git-for-each-repo"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "format-patch",
+   "aliases": [
+    "git-format-patch"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "format-rev",
+   "aliases": [
+    "git-format-rev"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "fsck",
+   "aliases": [
+    "git-fsck"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "fsck-objects",
+   "aliases": [
+    "git-fsck-objects"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "fsmonitor--daemon",
+   "aliases": [
+    "git-fsmonitor--daemon"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "gc",
+   "aliases": [
+    "git-gc"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "get-tar-commit-id",
+   "aliases": [
+    "git-get-tar-commit-id"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "grep",
+   "aliases": [
+    "git-grep"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "gui",
+   "aliases": [
+    "git-gui"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "hash-object",
+   "aliases": [
+    "git-hash-object"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "help",
+   "aliases": [
+    "git-help"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "history",
+   "aliases": [
+    "git-history"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "hook",
+   "aliases": [
+    "git-hook"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "http-backend",
+   "aliases": [
+    "git-http-backend"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "http-fetch",
+   "aliases": [
+    "git-http-fetch"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "http-push",
+   "aliases": [
+    "git-http-push"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "imap-send",
+   "aliases": [
+    "git-imap-send"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "index-pack",
+   "aliases": [
+    "git-index-pack"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "init",
+   "aliases": [
+    "git-init"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "init-db",
+   "aliases": [
+    "git-init-db"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "instaweb",
+   "aliases": [
+    "git-instaweb"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "interpret-trailers",
+   "aliases": [
+    "git-interpret-trailers"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "last-modified",
+   "aliases": [
+    "git-last-modified"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "log",
+   "aliases": [
+    "git-log"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ls-files",
+   "aliases": [
+    "git-ls-files"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ls-remote",
+   "aliases": [
+    "git-ls-remote"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ls-tree",
+   "aliases": [
+    "git-ls-tree"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "mailinfo",
+   "aliases": [
+    "git-mailinfo"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mailsplit",
+   "aliases": [
+    "git-mailsplit"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "maintenance",
+   "aliases": [
+    "git-maintenance"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "merge",
+   "aliases": [
+    "git-merge"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "merge-base",
+   "aliases": [
+    "git-merge-base"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "merge-file",
+   "aliases": [
+    "git-merge-file"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "merge-index",
+   "aliases": [
+    "git-merge-index"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "merge-one-file",
+   "aliases": [
+    "git-merge-one-file"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "merge-tree",
+   "aliases": [
+    "git-merge-tree"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "mktag",
+   "aliases": [
+    "git-mktag"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mktree",
+   "aliases": [
+    "git-mktree"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "multi-pack-index",
+   "aliases": [
+    "git-multi-pack-index"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mv",
+   "aliases": [
+    "git-mv"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "name-rev",
+   "aliases": [
+    "git-name-rev"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "notes",
+   "aliases": [
+    "git-notes"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "p4",
+   "aliases": [
+    "git-p4"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "pack-objects",
+   "aliases": [
+    "git-pack-objects"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "pack-redundant",
+   "aliases": [
+    "git-pack-redundant"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "pack-refs",
+   "aliases": [
+    "git-pack-refs"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "patch-id",
+   "aliases": [
+    "git-patch-id"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "prune",
+   "aliases": [
+    "git-prune"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "prune-packed",
+   "aliases": [
+    "git-prune-packed"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "pull",
+   "aliases": [
+    "git-pull"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "push",
+   "aliases": [
+    "git-push"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "quiltimport",
+   "aliases": [
+    "git-quiltimport"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "range-diff",
+   "aliases": [
+    "git-range-diff"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "read-tree",
+   "aliases": [
+    "git-read-tree"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "rebase",
+   "aliases": [
+    "git-rebase"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "receive-pack",
+   "aliases": [
+    "git-receive-pack"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "reflog",
+   "aliases": [
+    "git-reflog"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "refs",
+   "aliases": [
+    "git-refs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "remote",
+   "aliases": [
+    "git-remote"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "repack",
+   "aliases": [
+    "git-repack"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "replace",
+   "aliases": [
+    "git-replace"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "replay",
+   "aliases": [
+    "git-replay"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "repo",
+   "aliases": [
+    "git-repo"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "request-pull",
+   "aliases": [
+    "git-request-pull"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "rerere",
+   "aliases": [
+    "git-rerere"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "reset",
+   "aliases": [
+    "git-reset"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "restore",
+   "aliases": [
+    "git-restore"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "rev-list",
+   "aliases": [
+    "git-rev-list"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "rev-parse",
+   "aliases": [
+    "git-rev-parse"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "revert",
+   "aliases": [
+    "git-revert"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "rm",
+   "aliases": [
+    "git-rm"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "send-email",
+   "aliases": [
+    "git-send-email"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "send-pack",
+   "aliases": [
+    "git-send-pack"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "shortlog",
+   "aliases": [
+    "git-shortlog"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "show",
+   "aliases": [
+    "git-show"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "show-branch",
+   "aliases": [
+    "git-show-branch"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "show-index",
+   "aliases": [
+    "git-show-index"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "show-ref",
+   "aliases": [
+    "git-show-ref"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "sparse-checkout",
+   "aliases": [
+    "git-sparse-checkout"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "stage",
+   "aliases": [
+    "git-stage"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "stash",
+   "aliases": [
+    "git-stash"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "status",
+   "aliases": [
+    "git-status"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "stripspace",
+   "aliases": [
+    "git-stripspace"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "submodule",
+   "aliases": [
+    "git-submodule"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "svn",
+   "aliases": [
+    "git-svn"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "switch",
+   "aliases": [
+    "git-switch"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "symbolic-ref",
+   "aliases": [
+    "git-symbolic-ref"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "tag",
+   "aliases": [
+    "git-tag"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "unpack-file",
+   "aliases": [
+    "git-unpack-file"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "unpack-objects",
+   "aliases": [
+    "git-unpack-objects"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "update-index",
+   "aliases": [
+    "git-update-index"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "update-ref",
+   "aliases": [
+    "git-update-ref"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "update-server-info",
+   "aliases": [
+    "git-update-server-info"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "upload-archive",
+   "aliases": [
+    "git-upload-archive"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "upload-pack",
+   "aliases": [
+    "git-upload-pack"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "url-parse",
+   "aliases": [
+    "git-url-parse"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "var",
+   "aliases": [
+    "git-var"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "verify-commit",
+   "aliases": [
+    "git-verify-commit"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "verify-pack",
+   "aliases": [
+    "git-verify-pack"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "verify-tag",
+   "aliases": [
+    "git-verify-tag"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "version",
+   "aliases": [
+    "git-version"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "whatchanged",
+   "aliases": [
+    "git-whatchanged"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "worktree",
+   "aliases": [
+    "git-worktree"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "write-tree",
+   "aliases": [
+    "git-write-tree"
+   ],
+   "judge": "race"
+  }
+ ]
+}

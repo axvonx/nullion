@@ -1,0 +1,516 @@
+{
+ "compiler-optimization": [
+  {
+   "name": "aggressive dead code elimination",
+   "aliases": [
+    "ADCE"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "argument promotion",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "bit-tracking dead code elimination",
+   "aliases": [
+    "BDCE"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "call-site splitting",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CFG simplification",
+   "aliases": [
+    "SimplifyCFG",
+    "control-flow graph simplification"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "common subexpression elimination",
+   "aliases": [
+    "CSE",
+    "EarlyCSE"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "constant hoisting",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "constant merging",
+   "aliases": [
+    "ConstantMerge"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "constant propagation",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "constraint elimination",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "copy propagation",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "correlated value propagation",
+   "aliases": [
+    "CVP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "dead argument elimination",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "dead code elimination",
+   "aliases": [
+    "DCE"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "dead store elimination",
+   "aliases": [
+    "DSE"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "epilogue vectorization",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "expression reassociation",
+   "aliases": [
+    "reassociation"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "full unrolling",
+   "aliases": [
+    "full loop unrolling"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "function merging",
+   "aliases": [
+    "MergeFunctions"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "function specialization",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "global dead code elimination",
+   "aliases": [
+    "GlobalDCE"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "global value numbering",
+   "aliases": [
+    "GVN",
+    "NewGVN"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "global variable optimization",
+   "aliases": [
+    "GlobalOpt"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "GVN hoisting",
+   "aliases": [
+    "GVNHoist"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "GVN sinking",
+   "aliases": [
+    "GVNSink"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "induction variable simplification",
+   "aliases": [
+    "IndVarSimplify"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "inlining",
+   "aliases": [
+    "function inlining",
+    "AlwaysInliner"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "instruction combining",
+   "aliases": [
+    "InstCombine"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "interprocedural optimization",
+   "aliases": [
+    "IPO"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "jump threading",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "link-time optimization",
+   "aliases": [
+    "LTO"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "load-store vectorization",
+   "aliases": [
+    "LoadStoreVectorizer"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "loop data prefetching",
+   "aliases": [
+    "LoopDataPrefetch"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "loop deletion",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "loop distribution",
+   "aliases": [
+    "loop fission",
+    "LoopDistribute"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "loop flattening",
+   "aliases": [
+    "LoopFlatten"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "loop fusion",
+   "aliases": [
+    "loop jamming",
+    "LoopFuse"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "loop idiom recognition",
+   "aliases": [
+    "LoopIdiomRecognize"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "loop interchange",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "loop load elimination",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "loop peeling",
+   "aliases": [
+    "LoopPeel"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "loop predication",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "loop rotation",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "loop sinking",
+   "aliases": [
+    "LoopSink"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "loop unrolling",
+   "aliases": [
+    "LoopUnroll",
+    "LoopUnrollPass"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "loop unswitching",
+   "aliases": [
+    "SimpleLoopUnswitch"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "loop vectorization",
+   "aliases": [
+    "auto-vectorization",
+    "LoopVectorize"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "loop-invariant code motion",
+   "aliases": [
+    "LICM"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "mem2reg",
+   "aliases": [
+    "memory-to-register promotion",
+    "PromoteMemoryToRegister"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "memcpy optimization",
+   "aliases": [
+    "MemCpyOptimizer"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "merged load-store motion",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "partial inlining",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "partial unrolling",
+   "aliases": [
+    "partial loop unrolling"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "peephole optimization",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "profile-guided optimization",
+   "aliases": [
+    "PGO"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "scalar replacement of aggregates",
+   "aliases": [
+    "SROA"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "sparse conditional constant propagation",
+   "aliases": [
+    "SCCP",
+    "conditional constant propagation"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "speculative execution",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "straight-line strength reduction",
+   "aliases": [
+    "StraightLineStrengthReduce"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "strength reduction",
+   "aliases": [
+    "loop strength reduction",
+    "LoopStrengthReduce"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "superword-level parallelism",
+   "aliases": [
+    "SLP vectorization",
+    "SLP",
+    "SLPVectorizer"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "tail call optimization",
+   "aliases": [
+    "tail call elimination",
+    "tail recursion elimination",
+    "TCO"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "unroll-and-jam",
+   "aliases": [
+    "loop unroll and jam",
+    "LoopUnrollAndJamPass"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "whole-program devirtualization",
+   "aliases": [
+    "devirtualization",
+    "WholeProgramDevirt"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "CFG flattening",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "code sinking",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DFA jump threading",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "guard widening",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "hot/cold splitting",
+   "aliases": [
+    "hot-cold splitting"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "inductive range check elimination",
+   "aliases": [
+    "IRCE"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "instruction simplification",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "library call simplification",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "loop bound splitting",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "loop versioning",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "n-ary reassociation",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scalarization",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "vector combining",
+   "aliases": [
+    "VectorCombine"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "critical edge splitting",
+   "aliases": [
+    "BreakCriticalEdges"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "loop-closed SSA",
+   "aliases": [
+    "LCSSA"
+   ],
+   "judge": "heisenbug"
+  }
+ ]
+}

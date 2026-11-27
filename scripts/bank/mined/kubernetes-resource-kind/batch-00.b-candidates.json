@@ -1,0 +1,475 @@
+{
+  "kubernetes-resource-kind": [
+    {
+      "name": "MutatingAdmissionPolicyBinding",
+      "aliases": ["mutating-admission-policy-binding-v1"],
+      "judge": "heisenbug",
+      "evidence": "mutating-admission-policy-binding-v1",
+      "why": "Kubernetes admissionregistration API kind binding a MutatingAdmissionPolicy"
+    },
+    {
+      "name": "MutatingAdmissionPolicy",
+      "aliases": ["mutating-admission-policy-v1"],
+      "judge": "heisenbug",
+      "evidence": "mutating-admission-policy-v1",
+      "why": "Kubernetes admissionregistration API kind for CEL-based mutating admission"
+    },
+    {
+      "name": "MutatingWebhookConfiguration",
+      "aliases": ["mutating-webhook-configuration-v1"],
+      "judge": "leak",
+      "evidence": "mutating-webhook-configuration-v1",
+      "why": "Kubernetes admissionregistration API kind configuring mutating webhooks"
+    },
+    {
+      "name": "ValidatingAdmissionPolicyBinding",
+      "aliases": ["validating-admission-policy-binding-v1"],
+      "judge": "race",
+      "evidence": "validating-admission-policy-binding-v1",
+      "why": "Kubernetes admissionregistration API kind binding a ValidatingAdmissionPolicy"
+    },
+    {
+      "name": "ValidatingAdmissionPolicy",
+      "aliases": ["validating-admission-policy-v1"],
+      "judge": "race",
+      "evidence": "validating-admission-policy-v1",
+      "why": "Kubernetes admissionregistration API kind for CEL-based validating admission"
+    },
+    {
+      "name": "ValidatingWebhookConfiguration",
+      "aliases": ["validating-webhook-configuration-v1"],
+      "judge": "leak",
+      "evidence": "validating-webhook-configuration-v1",
+      "why": "Kubernetes admissionregistration API kind configuring validating webhooks"
+    },
+    {
+      "name": "CustomResourceDefinition",
+      "aliases": ["custom-resource-definition-v1", "CRD"],
+      "judge": "npe",
+      "evidence": "custom-resource-definition-v1",
+      "why": "Kubernetes apiextensions API kind defining custom resource schemas"
+    },
+    {
+      "name": "APIService",
+      "aliases": ["api-service-v1"],
+      "judge": "race",
+      "evidence": "api-service-v1",
+      "why": "Kubernetes apiregistration API kind registering aggregated API servers"
+    },
+    {
+      "name": "ControllerRevision",
+      "aliases": ["controller-revision-v1"],
+      "judge": "heisenbug",
+      "evidence": "controller-revision-v1",
+      "why": "Kubernetes apps API kind storing immutable state snapshots for DaemonSets and StatefulSets"
+    },
+    {
+      "name": "DaemonSet",
+      "aliases": ["daemon-set-v1"],
+      "judge": "npe",
+      "evidence": "daemon-set-v1",
+      "why": "Kubernetes apps API kind running a pod on every matching node"
+    },
+    {
+      "name": "Deployment",
+      "aliases": ["deployment-v1"],
+      "judge": "off-by-one",
+      "evidence": "deployment-v1",
+      "why": "Kubernetes apps API kind managing declarative ReplicaSet rollouts"
+    },
+    {
+      "name": "ReplicaSet",
+      "aliases": ["replica-set-v1"],
+      "judge": "npe",
+      "evidence": "replica-set-v1",
+      "why": "Kubernetes apps API kind maintaining a stable set of replica Pods"
+    },
+    {
+      "name": "StatefulSet",
+      "aliases": ["stateful-set-v1"],
+      "judge": "npe",
+      "evidence": "stateful-set-v1",
+      "why": "Kubernetes apps API kind managing stateful Pods with stable identities"
+    },
+    {
+      "name": "HorizontalPodAutoscaler",
+      "aliases": ["horizontal-pod-autoscaler-v2", "HPA"],
+      "judge": "npe",
+      "evidence": "horizontal-pod-autoscaler-v2",
+      "why": "Kubernetes autoscaling API kind scaling workloads based on metrics"
+    },
+    {
+      "name": "CronJob",
+      "aliases": ["cron-job-v1"],
+      "judge": "npe",
+      "evidence": "cron-job-v1",
+      "why": "Kubernetes batch API kind creating Jobs on a cron schedule"
+    },
+    {
+      "name": "Job",
+      "aliases": ["job-v1"],
+      "judge": "npe",
+      "evidence": "job-v1",
+      "why": "Kubernetes batch API kind running Pods to completion"
+    },
+    {
+      "name": "CertificateSigningRequest",
+      "aliases": ["certificate-signing-request-v1", "CSR"],
+      "judge": "leak",
+      "evidence": "certificate-signing-request-v1",
+      "why": "Kubernetes certificates API kind requesting X.509 certificate signing"
+    },
+    {
+      "name": "ClusterTrustBundle",
+      "aliases": ["cluster-trust-bundle-v1"],
+      "judge": "heisenbug",
+      "evidence": "cluster-trust-bundle-v1",
+      "why": "Kubernetes certificates API kind distributing X.509 trust anchors"
+    },
+    {
+      "name": "PodCertificateRequest",
+      "aliases": ["pod-certificate-request-v1"],
+      "judge": "heisenbug",
+      "evidence": "pod-certificate-request-v1",
+      "why": "Kubernetes certificates API kind requesting a certificate for a Pod"
+    },
+    {
+      "name": "LeaseCandidate",
+      "aliases": ["lease-candidate-v1beta1"],
+      "judge": "heisenbug",
+      "evidence": "lease-candidate-v1beta1",
+      "why": "Kubernetes coordination API kind for coordinated leader election candidates"
+    },
+    {
+      "name": "Lease",
+      "aliases": ["lease-v1"],
+      "judge": "leak",
+      "evidence": "lease-v1",
+      "why": "Kubernetes coordination API kind for distributed locking and node heartbeats"
+    },
+    {
+      "name": "ComponentStatus",
+      "aliases": ["component-status-v1"],
+      "judge": "race",
+      "evidence": "component-status-v1",
+      "why": "Kubernetes core API kind reporting control-plane component health"
+    },
+    {
+      "name": "ConfigMap",
+      "aliases": ["config-map-v1"],
+      "judge": "off-by-one",
+      "evidence": "config-map-v1",
+      "why": "Kubernetes core API kind storing non-confidential configuration data"
+    },
+    {
+      "name": "Endpoints",
+      "aliases": ["endpoints-v1"],
+      "judge": "leak",
+      "evidence": "endpoints-v1",
+      "why": "Kubernetes core API kind listing network endpoints backing a Service"
+    },
+    {
+      "name": "Event",
+      "aliases": ["event-v1"],
+      "judge": "leak",
+      "evidence": "event-v1",
+      "why": "Kubernetes core/events API kind recording cluster state transitions"
+    },
+    {
+      "name": "LimitRange",
+      "aliases": ["limit-range-v1"],
+      "judge": "leak",
+      "evidence": "limit-range-v1",
+      "why": "Kubernetes core API kind constraining per-Pod or container resource allocations"
+    },
+    {
+      "name": "Namespace",
+      "aliases": ["namespace-v1"],
+      "judge": "off-by-one",
+      "evidence": "namespace-v1",
+      "why": "Kubernetes core API kind isolating groups of resources within a cluster"
+    },
+    {
+      "name": "Node",
+      "aliases": ["node-v1"],
+      "judge": "off-by-one",
+      "evidence": "node-v1",
+      "why": "Kubernetes core API kind representing a worker machine in the cluster"
+    },
+    {
+      "name": "PersistentVolumeClaim",
+      "aliases": ["persistent-volume-claim-v1", "PVC"],
+      "judge": "npe",
+      "evidence": "persistent-volume-claim-v1",
+      "why": "Kubernetes core API kind requesting persistent storage"
+    },
+    {
+      "name": "PersistentVolume",
+      "aliases": ["persistent-volume-v1"],
+      "judge": "npe",
+      "evidence": "persistent-volume-v1",
+      "why": "Kubernetes core API kind representing provisioned cluster storage"
+    },
+    {
+      "name": "PodTemplate",
+      "aliases": ["pod-template-v1"],
+      "judge": "race",
+      "evidence": "pod-template-v1",
+      "why": "Kubernetes core API kind describing a reusable Pod specification"
+    },
+    {
+      "name": "Pod",
+      "aliases": ["pod-v1"],
+      "judge": "off-by-one",
+      "evidence": "pod-v1",
+      "why": "Kubernetes core API kind representing the smallest deployable compute unit"
+    },
+    {
+      "name": "ReplicationController",
+      "aliases": ["replication-controller-v1"],
+      "judge": "leak",
+      "evidence": "replication-controller-v1",
+      "why": "Kubernetes core API kind that preceded ReplicaSet for Pod replication"
+    },
+    {
+      "name": "ResourceQuota",
+      "aliases": ["resource-quota-v1"],
+      "judge": "leak",
+      "evidence": "resource-quota-v1",
+      "why": "Kubernetes core API kind limiting aggregate resource consumption per Namespace"
+    },
+    {
+      "name": "Secret",
+      "aliases": ["secret-v1"],
+      "judge": "off-by-one",
+      "evidence": "secret-v1",
+      "why": "Kubernetes core API kind storing sensitive data such as tokens and keys"
+    },
+    {
+      "name": "ServiceAccount",
+      "aliases": ["service-account-v1"],
+      "judge": "npe",
+      "evidence": "service-account-v1",
+      "why": "Kubernetes core API kind providing an identity for processes running in Pods"
+    },
+    {
+      "name": "Service",
+      "aliases": ["service-v1"],
+      "judge": "off-by-one",
+      "evidence": "service-v1",
+      "why": "Kubernetes core API kind exposing a set of Pods as a network service"
+    },
+    {
+      "name": "EndpointSlice",
+      "aliases": ["endpoint-slice-v1"],
+      "judge": "leak",
+      "evidence": "endpoint-slice-v1",
+      "why": "Kubernetes discovery API kind scaling Service endpoint tracking"
+    },
+    {
+      "name": "FlowSchema",
+      "aliases": ["flow-schema-v1"],
+      "judge": "heisenbug",
+      "evidence": "flow-schema-v1",
+      "why": "Kubernetes flowcontrol API kind classifying API requests for priority and fairness"
+    },
+    {
+      "name": "PriorityLevelConfiguration",
+      "aliases": ["priority-level-configuration-v1"],
+      "judge": "heisenbug",
+      "evidence": "priority-level-configuration-v1",
+      "why": "Kubernetes flowcontrol API kind defining API server concurrency and queuing limits"
+    },
+    {
+      "name": "IngressClass",
+      "aliases": ["ingress-class-v1"],
+      "judge": "leak",
+      "evidence": "ingress-class-v1",
+      "why": "Kubernetes networking API kind identifying an Ingress controller implementation"
+    },
+    {
+      "name": "Ingress",
+      "aliases": ["ingress-v1"],
+      "judge": "off-by-one",
+      "evidence": "ingress-v1",
+      "why": "Kubernetes networking API kind managing external HTTP/HTTPS access to Services"
+    },
+    {
+      "name": "IPAddress",
+      "aliases": ["ip-address-v1"],
+      "judge": "heisenbug",
+      "evidence": "ip-address-v1",
+      "why": "Kubernetes networking API kind representing an allocated IP address"
+    },
+    {
+      "name": "NetworkPolicy",
+      "aliases": ["network-policy-v1"],
+      "judge": "npe",
+      "evidence": "network-policy-v1",
+      "why": "Kubernetes networking API kind specifying allowed traffic between Pods"
+    },
+    {
+      "name": "ServiceCIDR",
+      "aliases": ["service-cidr-v1"],
+      "judge": "heisenbug",
+      "evidence": "service-cidr-v1",
+      "why": "Kubernetes networking API kind defining IP ranges for Service ClusterIPs"
+    },
+    {
+      "name": "RuntimeClass",
+      "aliases": ["runtime-class-v1"],
+      "judge": "leak",
+      "evidence": "runtime-class-v1",
+      "why": "Kubernetes node API kind selecting container runtime configurations"
+    },
+    {
+      "name": "PodDisruptionBudget",
+      "aliases": ["pod-disruption-budget-v1", "PDB"],
+      "judge": "leak",
+      "evidence": "pod-disruption-budget-v1",
+      "why": "Kubernetes policy API kind limiting voluntary Pod evictions"
+    },
+    {
+      "name": "ClusterRoleBinding",
+      "aliases": ["cluster-role-binding-v1"],
+      "judge": "npe",
+      "evidence": "cluster-role-binding-v1",
+      "why": "Kubernetes RBAC API kind granting ClusterRole permissions cluster-wide"
+    },
+    {
+      "name": "ClusterRole",
+      "aliases": ["cluster-role-v1"],
+      "judge": "npe",
+      "evidence": "cluster-role-v1",
+      "why": "Kubernetes RBAC API kind defining cluster-wide permission rules"
+    },
+    {
+      "name": "RoleBinding",
+      "aliases": ["role-binding-v1"],
+      "judge": "npe",
+      "evidence": "role-binding-v1",
+      "why": "Kubernetes RBAC API kind granting Role permissions within a Namespace"
+    },
+    {
+      "name": "Role",
+      "aliases": ["role-v1"],
+      "judge": "npe",
+      "evidence": "role-v1",
+      "why": "Kubernetes RBAC API kind defining namespaced permission rules"
+    },
+    {
+      "name": "DeviceClass",
+      "aliases": ["device-class-v1"],
+      "judge": "heisenbug",
+      "evidence": "device-class-v1",
+      "why": "Kubernetes Dynamic Resource Allocation API kind describing a class of devices"
+    },
+    {
+      "name": "DeviceTaintRule",
+      "aliases": ["device-taint-rule-v1"],
+      "judge": "heisenbug",
+      "evidence": "device-taint-rule-v1",
+      "why": "Kubernetes Dynamic Resource Allocation API kind tainting matching devices"
+    },
+    {
+      "name": "ResourceClaimTemplate",
+      "aliases": ["resource-claim-template-v1"],
+      "judge": "heisenbug",
+      "evidence": "resource-claim-template-v1",
+      "why": "Kubernetes Dynamic Resource Allocation API kind templating ResourceClaims"
+    },
+    {
+      "name": "ResourceClaim",
+      "aliases": ["resource-claim-v1"],
+      "judge": "race",
+      "evidence": "resource-claim-v1",
+      "why": "Kubernetes Dynamic Resource Allocation API kind requesting hardware devices"
+    },
+    {
+      "name": "ResourcePoolStatusRequest",
+      "aliases": ["resource-pool-status-request-v1alpha3"],
+      "judge": "heisenbug",
+      "evidence": "resource-pool-status-request-v1alpha3",
+      "why": "Kubernetes Dynamic Resource Allocation API kind querying resource pool status"
+    },
+    {
+      "name": "ResourceSlice",
+      "aliases": ["resource-slice-v1"],
+      "judge": "heisenbug",
+      "evidence": "resource-slice-v1",
+      "why": "Kubernetes Dynamic Resource Allocation API kind publishing available node devices"
+    },
+    {
+      "name": "CompositePodGroup",
+      "aliases": ["composite-pod-group-v1alpha3"],
+      "judge": "heisenbug",
+      "evidence": "composite-pod-group-v1alpha3",
+      "why": "Kubernetes scheduling API kind grouping related PodGroups for gang scheduling"
+    },
+    {
+      "name": "PodGroup",
+      "aliases": ["pod-group-v1beta1"],
+      "judge": "race",
+      "evidence": "pod-group-v1beta1",
+      "why": "Kubernetes scheduling API kind representing a co-scheduled group of Pods"
+    },
+    {
+      "name": "PriorityClass",
+      "aliases": ["priority-class-v1"],
+      "judge": "leak",
+      "evidence": "priority-class-v1",
+      "why": "Kubernetes scheduling API kind defining Pod scheduling priority values"
+    },
+    {
+      "name": "Workload",
+      "aliases": ["workload-v1beta1"],
+      "judge": "race",
+      "evidence": "workload-v1beta1",
+      "why": "Kubernetes scheduling API kind describing workload-level scheduling metadata"
+    },
+    {
+      "name": "CSIDriver",
+      "aliases": ["csi-driver-v1"],
+      "judge": "race",
+      "evidence": "csi-driver-v1",
+      "why": "Kubernetes storage API kind registering a Container Storage Interface driver"
+    },
+    {
+      "name": "CSINode",
+      "aliases": ["csi-node-v1"],
+      "judge": "race",
+      "evidence": "csi-node-v1",
+      "why": "Kubernetes storage API kind recording CSI drivers installed on a Node"
+    },
+    {
+      "name": "CSIStorageCapacity",
+      "aliases": ["csi-storage-capacity-v1"],
+      "judge": "heisenbug",
+      "evidence": "csi-storage-capacity-v1",
+      "why": "Kubernetes storage API kind reporting available storage capacity for CSI"
+    },
+    {
+      "name": "StorageClass",
+      "aliases": ["storage-class-v1"],
+      "judge": "npe",
+      "evidence": "storage-class-v1",
+      "why": "Kubernetes storage API kind defining dynamic volume provisioner classes"
+    },
+    {
+      "name": "VolumeAttachment",
+      "aliases": ["volume-attachment-v1"],
+      "judge": "race",
+      "evidence": "volume-attachment-v1",
+      "why": "Kubernetes storage API kind tracking attachment of a PersistentVolume to a Node"
+    },
+    {
+      "name": "VolumeAttributesClass",
+      "aliases": ["volume-attributes-class-v1"],
+      "judge": "heisenbug",
+      "evidence": "volume-attributes-class-v1",
+      "why": "Kubernetes storage API kind defining mutable volume performance parameters"
+    }
+  ],
+  "womm_candidates": ["DaemonSet", "StatefulSet", "CustomResourceDefinition"],
+  "bitflip_candidates": ["FlowSchema", "ControllerRevision", "ResourcePoolStatusRequest"]
+}

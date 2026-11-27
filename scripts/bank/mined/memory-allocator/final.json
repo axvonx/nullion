@@ -1,0 +1,272 @@
+{
+ "memory-allocator": [
+  {
+   "name": "jemalloc",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "buddy allocator",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "slab allocator",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Scudo",
+   "aliases": [
+    "Scudo Hardened Allocator"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Contiguous Memory Allocator",
+   "aliases": [
+    "CMA",
+    "cma allocator"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "zsmalloc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BumpPtrAllocator",
+   "aliases": [
+    "bump allocator",
+    "bump pointer allocator"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Arena allocator",
+   "aliases": [
+    "region allocator"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Pool allocator",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ptmalloc",
+   "aliases": [
+    "ptmalloc2",
+    "glibc malloc"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "dlmalloc",
+   "aliases": [
+    "Doug Lea's malloc"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "tcmalloc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "mimalloc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Hoard",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "snmalloc",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rpmalloc",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SuperMalloc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "nedmalloc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TLSF",
+   "aliases": [
+    "two-level segregated fit"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "omalloc",
+   "aliases": [
+    "OpenBSD malloc"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "phkmalloc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mallocng",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Low Fragmentation Heap",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Segment Heap",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "hardened_malloc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Scalloc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Streamflow",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LFMalloc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Mesh",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SLUB allocator",
+   "aliases": [
+    "SLUB"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "SLOB allocator",
+   "aliases": [
+    "SLOB"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "memblock",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "genalloc",
+   "aliases": [
+    "gen_pool"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "vmalloc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "bootmem",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "first-fit allocator",
+   "aliases": [
+    "first fit"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "best-fit allocator",
+   "aliases": [
+    "best fit"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "next-fit allocator",
+   "aliases": [
+    "next fit"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "segregated free list allocator",
+   "aliases": [
+    "segregated fit"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "stack allocator",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "bitmap allocator",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DieHard",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DieHarder",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zend MM",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "pymalloc",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Electric Fence",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "half-fit",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

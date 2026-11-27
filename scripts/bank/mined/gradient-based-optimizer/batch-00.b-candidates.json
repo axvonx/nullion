@@ -1,0 +1,25 @@
+{
+  "gradient-based-optimizer": [
+    {"name": "SGD", "aliases": ["Stochastic Gradient Descent", "sgd"], "judge": "off-by-one", "evidence": "pytorch/pytorch/torch/optim (file names): sgd", "why": "classic stochastic gradient descent"},
+    {"name": "Adam", "aliases": [], "judge": "off-by-one", "evidence": "pytorch/pytorch/torch/optim (file names): adam", "why": "adaptive moment estimation"},
+    {"name": "AdamW", "aliases": [], "judge": "off-by-one", "evidence": "pytorch/pytorch/torch/optim (file names): adamw", "why": "Adam with decoupled weight decay"},
+    {"name": "RMSProp", "aliases": ["rmsprop"], "judge": "off-by-one", "evidence": "pytorch/pytorch/torch/optim (file names): rmsprop", "why": "root mean square propagation"},
+    {"name": "Adagrad", "aliases": [], "judge": "npe", "evidence": "pytorch/pytorch/torch/optim (file names): adagrad", "why": "adaptive gradient algorithm"},
+    {"name": "Adadelta", "aliases": [], "judge": "npe", "evidence": "pytorch/pytorch/torch/optim (file names): adadelta", "why": "adaptive learning rate extension of Adagrad"},
+    {"name": "L-BFGS", "aliases": ["LBFGS", "Limited-memory BFGS"], "judge": "npe", "evidence": "pytorch/pytorch/torch/optim (file names): lbfgs", "why": "limited-memory quasi-Newton optimizer"},
+    {"name": "Adamax", "aliases": [], "judge": "leak", "evidence": "pytorch/pytorch/torch/optim (file names): adamax", "why": "infinity-norm variant of Adam"},
+    {"name": "Nadam", "aliases": [], "judge": "leak", "evidence": "pytorch/pytorch/torch/optim (file names): nadam", "why": "Nesterov-accelerated Adam"},
+    {"name": "RAdam", "aliases": ["Rectified Adam", "radam"], "judge": "leak", "evidence": "pytorch/pytorch/torch/optim (file names): radam", "why": "variance-rectified Adam"},
+    {"name": "Adafactor", "aliases": ["_adafactor", "adafactor"], "judge": "leak", "evidence": "pytorch/pytorch/torch/optim (file names): _adafactor", "why": "memory-efficient factored second moments"},
+    {"name": "LAMB", "aliases": ["lamb"], "judge": "leak", "evidence": "keras-team/keras/keras/src/optimizers (file names): lamb", "why": "layer-wise adaptive moments for large batches"},
+    {"name": "Lion", "aliases": [], "judge": "leak", "evidence": "keras-team/keras/keras/src/optimizers (file names): lion", "why": "evolved sign momentum optimizer"},
+    {"name": "FTRL", "aliases": ["Follow The Regularized Leader", "ftrl"], "judge": "race", "evidence": "keras-team/keras/keras/src/optimizers (file names): ftrl", "why": "online convex optimization with L1/L2"},
+    {"name": "ASGD", "aliases": ["Averaged Stochastic Gradient Descent", "Averaged SGD", "asgd"], "judge": "race", "evidence": "pytorch/pytorch/torch/optim (file names): asgd", "why": "Polyak-Ruppert averaged SGD"},
+    {"name": "Rprop", "aliases": ["Resilient Backpropagation", "rprop"], "judge": "race", "evidence": "pytorch/pytorch/torch/optim (file names): rprop", "why": "sign-based resilient backpropagation"},
+    {"name": "Muon", "aliases": ["_muon", "muon"], "judge": "race", "evidence": "pytorch/pytorch/torch/optim (file names): _muon", "why": "momentUm orthogonalized by Newton-schulz"},
+    {"name": "SparseAdam", "aliases": ["sparse_adam"], "judge": "race", "evidence": "pytorch/pytorch/torch/optim (file names): sparse_adam", "why": "lazy Adam for sparse gradients"},
+    {"name": "Schedule-Free AdamW", "aliases": ["schedule_free_adamw"], "judge": "heisenbug", "evidence": "keras-team/keras/keras/src/optimizers (file names): schedule_free_adamw", "why": "primal-averaging schedule-free AdamW"}
+  ],
+  "womm_candidates": ["AdamW", "Lion", "L-BFGS"],
+  "bitflip_candidates": ["Schedule-Free AdamW", "Muon", "Rprop"]
+}

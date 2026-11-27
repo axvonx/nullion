@@ -1,0 +1,96 @@
+[
+ {
+  "name": "aesni-hash",
+  "a": null,
+  "b": {
+   "name": "aesni-hash",
+   "aliases": [
+    "aesnihash-peterrk"
+   ],
+   "judge": "heisenbug",
+   "evidence": "aesni-hash",
+   "why": "AES-NI hardware-accelerated non-cryptographic hash in SMHasher"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "beamsplitter",
+  "a": null,
+  "b": {
+   "name": "beamsplitter",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "beamsplitter",
+   "why": "non-cryptographic hash function in SMHasher"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CRC32C",
+  "a": null,
+  "b": {
+   "name": "CRC32C",
+   "aliases": [
+    "crc32c"
+   ],
+   "judge": "leak",
+   "evidence": "crc32c",
+   "why": "Castagnoli 32-bit CRC with hardware instruction support"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "HalfSipHash",
+  "a": null,
+  "b": {
+   "name": "HalfSipHash",
+   "aliases": [
+    "halfsiphash"
+   ],
+   "judge": "race",
+   "evidence": "halfsiphash",
+   "why": "32-bit reduced variant of SipHash"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "hassh64",
+  "a": null,
+  "b": {
+   "name": "hassh64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hassh64",
+   "why": "64-bit SSE-based hash function in SMHasher"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RIPEMD-160",
+  "a": null,
+  "b": {
+   "name": "RIPEMD-160",
+   "aliases": [
+    "rmd160"
+   ],
+   "judge": "npe",
+   "evidence": "rmd160",
+   "why": "160-bit cryptographic hash function used in Bitcoin addresses"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RIPEMD-256",
+  "a": null,
+  "b": {
+   "name": "RIPEMD-256",
+   "aliases": [
+    "rmd256"
+   ],
+   "judge": "race",
+   "evidence": "rmd256",
+   "why": "256-bit cryptographic hash function in the RIPEMD family"
+  },
+  "batch": "batch-00.txt"
+ }
+]

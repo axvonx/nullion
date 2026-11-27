@@ -1,0 +1,90 @@
+{
+  "post-quantum-signature-scheme": [
+    {
+      "name": "ML-DSA",
+      "aliases": ["Dilithium", "CRYSTALS-Dilithium", "ml_dsa"],
+      "judge": "off-by-one",
+      "evidence": "ml_dsa",
+      "why": "NIST FIPS 204 standardized lattice-based signature scheme"
+    },
+    {
+      "name": "Falcon",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "falcon",
+      "why": "NIST-selected compact NTRU-lattice signature scheme"
+    },
+    {
+      "name": "SLH-DSA",
+      "aliases": ["SPHINCS+", "slh_dsa"],
+      "judge": "npe",
+      "evidence": "slh_dsa",
+      "why": "NIST FIPS 205 standardized stateless hash-based signature scheme"
+    },
+    {
+      "name": "UOV",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "uov",
+      "why": "Unbalanced Oil and Vinegar multivariate signature scheme"
+    },
+    {
+      "name": "SQIsign",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "sqisign",
+      "why": "compact isogeny-based post-quantum signature scheme"
+    },
+    {
+      "name": "MAYO",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "mayo",
+      "why": "multivariate Oil-and-Vinegar-variant signature scheme"
+    },
+    {
+      "name": "CROSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "cross",
+      "why": "code-based signature scheme using restricted syndrome decoding"
+    },
+    {
+      "name": "FAEST",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "faest",
+      "why": "symmetric-primitive MPC-in-the-head signature scheme"
+    },
+    {
+      "name": "MQOM",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "mqom",
+      "why": "multivariate quadratic MPC-in-the-head signature scheme"
+    },
+    {
+      "name": "QR-UOV",
+      "aliases": ["qruov"],
+      "judge": "heisenbug",
+      "evidence": "qruov",
+      "why": "Quotient Ring Unbalanced Oil and Vinegar signature scheme"
+    },
+    {
+      "name": "SDitH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "sdith",
+      "why": "Syndrome Decoding in the Head post-quantum signature scheme"
+    },
+    {
+      "name": "SNOVA",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "snova",
+      "why": "non-commutative ring Oil and Vinegar signature scheme"
+    }
+  ],
+  "womm_candidates": ["ML-DSA", "Falcon", "SLH-DSA"],
+  "bitflip_candidates": ["SQIsign", "SDitH", "MQOM"]
+}

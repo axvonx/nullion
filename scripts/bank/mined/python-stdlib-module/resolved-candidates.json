@@ -1,0 +1,57 @@
+{
+ "python-stdlib-module": [
+  {
+   "name": "copyreg",
+   "aliases": [],
+   "judge": "leak",
+   "why": "pickle registration",
+   "evidence": "copyreg"
+  },
+  {
+   "name": "email.contentmanager",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "MIME content management",
+   "evidence": "email.contentmanager"
+  },
+  {
+   "name": "tkinter.dnd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "drag and drop",
+   "evidence": "tkinter.dnd"
+  },
+  {
+   "name": "concurrent",
+   "aliases": [],
+   "judge": "leak",
+   "confidence": "low",
+   "why": "namespace package, not documented as module",
+   "evidence": "concurrent"
+  },
+  {
+   "name": "math.integer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low",
+   "why": "new integer math module; unsure",
+   "evidence": "math.integer"
+  },
+  {
+   "name": "tkinter.fontchooser",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low",
+   "why": "unsure it is in docs",
+   "evidence": "tkinter.fontchooser"
+  },
+  {
+   "name": "tkinter.systray",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low",
+   "why": "unsure it is in docs",
+   "evidence": "tkinter.systray"
+  }
+ ]
+}

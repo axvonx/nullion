@@ -1,0 +1,500 @@
+[
+ {
+  "name": "coreutils",
+  "a": {
+   "name": "coreutils",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "coreutils",
+   "why": "GNU coreutils multicall binary"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "csplit",
+  "a": {
+   "name": "csplit",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "csplit",
+   "why": "POSIX/coreutils command splitting a file into sections by context"
+  },
+  "b": {
+   "name": "csplit",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "csplit",
+   "why": "POSIX command splitting a file into sections by context lines"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "factor",
+  "a": {
+   "name": "factor",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "factor",
+   "why": "coreutils/BSD command factoring numbers into primes"
+  },
+  "b": {
+   "name": "factor",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "factor",
+   "why": "coreutils/BSD command factoring integers into primes"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "logname",
+  "a": {
+   "name": "logname",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "logname",
+   "why": "POSIX/coreutils command printing user's login name"
+  },
+  "b": {
+   "name": "logname",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "logname",
+   "why": "POSIX command printing user's login name"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "pinky",
+  "a": {
+   "name": "pinky",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "pinky",
+   "why": "coreutils lightweight finger user information lookup program"
+  },
+  "b": {
+   "name": "pinky",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "pinky",
+   "why": "coreutils lightweight finger utility"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ptx",
+  "a": {
+   "name": "ptx",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ptx",
+   "why": "coreutils command producing a permuted index of file contents"
+  },
+  "b": {
+   "name": "ptx",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ptx",
+   "why": "coreutils command producing a permuted index of file contents"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "runcon",
+  "a": {
+   "name": "runcon",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "runcon",
+   "why": "coreutils command running a command with a specified SELinux security context"
+  },
+  "b": {
+   "name": "runcon",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "runcon",
+   "why": "coreutils command running a command with specified SELinux context"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "sum",
+  "a": {
+   "name": "sum",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "sum",
+   "why": "coreutils command checksumming and counting blocks in a file"
+  },
+  "b": {
+   "name": "sum",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "sum",
+   "why": "Unix command computing checksum and counting blocks in a file"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "tsort",
+  "a": {
+   "name": "tsort",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "tsort",
+   "why": "POSIX/coreutils command performing topological sort"
+  },
+  "b": {
+   "name": "tsort",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "tsort",
+   "why": "POSIX command performing topological sort"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ctrlaltdel",
+  "a": {
+   "name": "ctrlaltdel",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ctrlaltdel",
+   "why": "util-linux command setting the function of the Ctrl-Alt-Del combination"
+  },
+  "b": {
+   "name": "ctrlaltdel",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ctrlaltdel",
+   "why": "util-linux command setting the function of Ctrl-Alt-Del"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ldattach",
+  "a": {
+   "name": "ldattach",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ldattach",
+   "why": "util-linux command attaching a line discipline to a serial line"
+  },
+  "b": {
+   "name": "ldattach",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ldattach",
+   "why": "util-linux command attaching a line discipline to a serial line"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "lsns",
+  "a": {
+   "name": "lsns",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "lsns",
+   "why": "util-linux command listing namespaces"
+  },
+  "b": {
+   "name": "lsns",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "lsns",
+   "why": "util-linux command listing Linux namespaces"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "mcookie",
+  "a": {
+   "name": "mcookie",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "mcookie",
+   "why": "util-linux command generating magic cookies for xauth"
+  },
+  "b": {
+   "name": "mcookie",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "mcookie",
+   "why": "util-linux command generating magic cookies for xauth"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "uuidd",
+  "a": {
+   "name": "uuidd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "uuidd",
+   "why": "util-linux UUID generation daemon"
+  },
+  "b": {
+   "name": "uuidd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "uuidd",
+   "why": "util-linux UUID generation daemon"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "uuidparse",
+  "a": {
+   "name": "uuidparse",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "uuidparse",
+   "why": "util-linux utility parsing unique identifiers"
+  },
+  "b": {
+   "name": "uuidparse",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "uuidparse",
+   "why": "util-linux command parsing unique identifiers"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "wipefs",
+  "a": {
+   "name": "wipefs",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "wipefs",
+   "why": "util-linux command wiping a signature from a device"
+  },
+  "b": {
+   "name": "wipefs",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "wipefs",
+   "why": "util-linux command wiping filesystem, raid, or partition-table signatures"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "line",
+  "a": {
+   "name": "line",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "line",
+   "why": "util-linux command reading one line"
+  },
+  "b": {
+   "name": "line",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "line",
+   "why": "util-linux command reading one line"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "pg",
+  "a": {
+   "name": "pg",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "pg",
+   "why": "util-linux command browsing pagewise through text files"
+  },
+  "b": {
+   "name": "pg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "pg",
+   "why": "Unix/util-linux command browsing pagewise through text files"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ul",
+  "a": {
+   "name": "ul",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ul",
+   "why": "util-linux/BSD command doing underlining"
+  },
+  "b": {
+   "name": "ul",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ul",
+   "why": "Unix command doing underlining"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "beep",
+  "a": {
+   "name": "beep",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "beep",
+   "why": "FreeBSD utility playing a beep"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "bzip2recover",
+  "a": {
+   "name": "bzip2recover",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "bzip2recover",
+   "why": "utility recovering data from damaged bzip2 files"
+  },
+  "b": {
+   "name": "bzip2recover",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "bzip2recover",
+   "why": "utility recovering data from damaged bzip2 files"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "clang",
+  "a": {
+   "name": "clang",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "clang",
+   "why": "LLVM C/C++/Objective-C compiler in BSD userland"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "getaddrinfo",
+  "a": {
+   "name": "getaddrinfo",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "getaddrinfo",
+   "why": "FreeBSD utility resolving host and service names"
+  },
+  "b": {
+   "name": "getaddrinfo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "getaddrinfo",
+   "why": "FreeBSD command resolving host and service names"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "lzmainfo",
+  "a": {
+   "name": "lzmainfo",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "lzmainfo",
+   "why": "xz-utils command showing information stored in .lzma file header"
+  },
+  "b": {
+   "name": "lzmainfo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "lzmainfo",
+   "why": "XZ Utils command showing information stored in .lzma file header"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "perror",
+  "a": {
+   "name": "perror",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "perror",
+   "why": "FreeBSD command printing an error number's description"
+  },
+  "b": {
+   "name": "perror",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "perror",
+   "why": "FreeBSD command printing error text for an errno number"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "rpcinfo",
+  "a": {
+   "name": "rpcinfo",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "rpcinfo",
+   "why": "BSD/Unix command reporting RPC information"
+  },
+  "b": {
+   "name": "rpcinfo",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "rpcinfo",
+   "why": "Unix command reporting RPC information"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "showmount",
+  "a": {
+   "name": "showmount",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "showmount",
+   "why": "BSD/Linux command showing mount information for an NFS server"
+  },
+  "b": {
+   "name": "showmount",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "showmount",
+   "why": "Unix command showing remote NFS mounts on host"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "what",
+  "a": {
+   "name": "what",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "what",
+   "why": "POSIX/BSD command identifying SCCS version strings in files"
+  },
+  "b": {
+   "name": "what",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "what",
+   "why": "POSIX/SCCS command identifying SCCS version strings"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "xargs",
+  "a": {
+   "name": "xargs",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "xargs",
+   "why": "POSIX/BSD command constructing argument lists and executing utility"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ }
+]

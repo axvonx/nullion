@@ -1,0 +1,119 @@
+{
+ "block-cipher": [
+  {
+   "name": "AES",
+   "aliases": [
+    "Rijndael",
+    "Advanced Encryption Standard"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Anubis",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ARIA",
+   "aliases": [
+    "aria_generic"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Blowfish",
+   "aliases": [
+    "blowfish_common",
+    "blowfish_generic"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Camellia",
+   "aliases": [
+    "camellia_generic"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "CAST-128",
+   "aliases": [
+    "CAST5",
+    "cast5_generic"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "CAST-256",
+   "aliases": [
+    "CAST6",
+    "cast6_generic"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "DES",
+   "aliases": [
+    "Data Encryption Standard",
+    "des_generic"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "IDEA",
+   "aliases": [
+    "International Data Encryption Algorithm"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "KHAZAD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RC2",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "RC5",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "SEED",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Serpent",
+   "aliases": [
+    "serpent_generic"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "SM4",
+   "aliases": [
+    "sm4_generic"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "TEA",
+   "aliases": [
+    "Tiny Encryption Algorithm"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Twofish",
+   "aliases": [
+    "twofish_common",
+    "twofish_generic"
+   ],
+   "judge": "npe"
+  }
+ ]
+}

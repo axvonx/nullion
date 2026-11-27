@@ -1,0 +1,42 @@
+{
+ "memory-allocator": [
+  {
+   "name": "jemalloc",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "buddy allocator",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "slab allocator",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Scudo",
+   "aliases": [
+    "Scudo Hardened Allocator",
+    "ScudoHardenedAllocator",
+    "scudo hardened allocator"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Contiguous Memory Allocator",
+   "aliases": [
+    "CMA",
+    "cma allocator",
+    "cma"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "zsmalloc",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

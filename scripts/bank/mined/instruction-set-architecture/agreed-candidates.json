@@ -1,0 +1,346 @@
+{
+ "instruction-set-architecture": [
+  {
+   "name": "AArch64",
+   "aliases": [
+    "ARM64"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ARC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ARM",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "AVR",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "C-SKY",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Qualcomm Hexagon",
+   "aliases": [
+    "Hexagon",
+    "QDSP6",
+    "hexagon"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Lanai",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LoongArch",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Motorola 68000",
+   "aliases": [
+    "M68k",
+    "m68k",
+    "68k"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "MSP430",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MIPS",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "PowerPC",
+   "aliases": [
+    "ppc",
+    "POWER",
+    "rs6000"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "RISC-V",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SPARC",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "z/Architecture",
+   "aliases": [
+    "SystemZ",
+    "s390x",
+    "s390"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "x86",
+   "aliases": [
+    "i386",
+    "IA-32",
+    "x86-64"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "XMOS XCore",
+   "aliases": [
+    "XCore"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Xtensa",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "DEC Alpha",
+   "aliases": [
+    "Alpha",
+    "alpha"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Blackfin",
+   "aliases": [
+    "bfin"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "TI C6000",
+   "aliases": [
+    "C6x",
+    "c6x",
+    "TMS320C6x"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CRIS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Adapteva Epiphany",
+   "aliases": [
+    "Epiphany",
+    "epiphany"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Fujitsu FR30",
+   "aliases": [
+    "FR30",
+    "fr30"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Fujitsu FR-V",
+   "aliases": [
+    "FR-V",
+    "frv"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FT32",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AMD GCN",
+   "aliases": [
+    "GCN",
+    "AMDGPU",
+    "gcn"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Hitachi H8",
+   "aliases": [
+    "H8/300",
+    "h8300"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "IA-64",
+   "aliases": [
+    "Itanium"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Vitesse IQ2000",
+   "aliases": [
+    "IQ2000",
+    "iq2000"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LatticeMico32",
+   "aliases": [
+    "LM32",
+    "lm32"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Mitsubishi M32R",
+   "aliases": [
+    "M32R",
+    "m32r"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Motorola M·CORE",
+   "aliases": [
+    "MCore",
+    "mcore",
+    "M·CORE"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MicroBlaze",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MMIX",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Matsushita MN10300",
+   "aliases": [
+    "MN10300",
+    "mn10300"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Moxie",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Andes NDS32",
+   "aliases": [
+    "NDS32",
+    "nds32"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "OpenRISC",
+   "aliases": [
+    "or1k"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PA-RISC",
+   "aliases": [
+    "HPPA",
+    "hppa"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "PDP-11",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "TI PRU",
+   "aliases": [
+    "PRU",
+    "pru"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Renesas RL78",
+   "aliases": [
+    "RL78",
+    "rl78"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Renesas RX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SuperH",
+   "aliases": [
+    "sh4"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Sanyo Xstormy16",
+   "aliases": [
+    "Xstormy16",
+    "stormy16"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NEC V850",
+   "aliases": [
+    "V850",
+    "v850"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "VAX",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Visium",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Infineon TriCore",
+   "aliases": [
+    "TriCore",
+    "tricore"
+   ],
+   "judge": "race"
+  }
+ ]
+}

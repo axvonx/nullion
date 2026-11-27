@@ -1,0 +1,352 @@
+[
+ {
+  "name": "break",
+  "a": {
+   "name": "break",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "break",
+   "why": "unimplemented syscall slot in Linux kernel"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "exit",
+  "a": {
+   "name": "exit",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "exit",
+   "why": "terminates the calling thread"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "fattach",
+  "a": {
+   "name": "fattach",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "fattach",
+   "why": "unimplemented STREAMS syscall slot"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "fdetach",
+  "a": {
+   "name": "fdetach",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "fdetach",
+   "why": "unimplemented STREAMS syscall slot"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "getmsg",
+  "a": {
+   "name": "getmsg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "getmsg",
+   "why": "unimplemented STREAMS syscall slot"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "getpmsg",
+  "a": {
+   "name": "getpmsg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "getpmsg",
+   "why": "unimplemented STREAMS syscall slot"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "gtty",
+  "a": {
+   "name": "gtty",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "gtty",
+   "why": "unimplemented legacy tty syscall slot"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "mpx",
+  "a": {
+   "name": "mpx",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "mpx",
+   "why": "unimplemented syscall slot in Linux kernel"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "phys",
+  "a": {
+   "name": "phys",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "phys",
+   "why": "unimplemented syscall slot in Linux kernel"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "prof",
+  "a": {
+   "name": "prof",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "prof",
+   "why": "unimplemented syscall slot in Linux kernel"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "pselect6",
+  "a": {
+   "name": "pselect6",
+   "aliases": [
+    "pselect"
+   ],
+   "judge": "leak",
+   "evidence": "pselect6",
+   "why": "synchronous I/O multiplexing with signal mask"
+  },
+  "b": {
+   "name": "pselect6",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "pselect6",
+   "why": "Kernel syscall name for pselect"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "putmsg",
+  "a": {
+   "name": "putmsg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "putmsg",
+   "why": "unimplemented STREAMS syscall slot"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "putpmsg",
+  "a": {
+   "name": "putpmsg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "putpmsg",
+   "why": "unimplemented STREAMS syscall slot"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "readdir",
+  "a": {
+   "name": "readdir",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "readdir",
+   "why": "obsolete single-entry directory read syscall"
+  },
+  "b": {
+   "name": "readdir",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "readdir",
+   "why": "Legacy Linux system call to read one directory entry"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "stty",
+  "a": {
+   "name": "stty",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "stty",
+   "why": "unimplemented legacy tty syscall slot"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "exit",
+  "a": null,
+  "b": {
+   "name": "exit",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "exit",
+   "why": "Linux system call to terminate the calling process"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "getpagesize",
+  "a": null,
+  "b": {
+   "name": "getpagesize",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "getpagesize",
+   "why": "Legacy Linux system call on some architectures to get memory page size"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "madvise1",
+  "a": null,
+  "b": {
+   "name": "madvise1",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "madvise1",
+   "why": "Unimplemented legacy Linux system call slot"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "pread64",
+  "a": null,
+  "b": {
+   "name": "pread64",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "pread64",
+   "why": "Kernel syscall name for pread with 64-bit offset"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "prlimit",
+  "a": null,
+  "b": {
+   "name": "prlimit",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "prlimit",
+   "why": "Linux system call to get/set resource limits of an arbitrary process"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "pselect",
+  "a": null,
+  "b": {
+   "name": "pselect",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "pselect",
+   "why": "Linux system call for synchronous I/O multiplexing with signal mask"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "pwrite64",
+  "a": null,
+  "b": {
+   "name": "pwrite64",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "pwrite64",
+   "why": "Kernel syscall name for pwrite with 64-bit offset"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "sbrk",
+  "a": null,
+  "b": {
+   "name": "sbrk",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "sbrk",
+   "why": "Linux system call interface to increment the program data space"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "sync_file_range2",
+  "a": null,
+  "b": {
+   "name": "sync_file_range2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sync_file_range2",
+   "why": "PowerPC/ARM Linux system call variant of sync_file_range"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ugetrlimit",
+  "a": null,
+  "b": {
+   "name": "ugetrlimit",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ugetrlimit",
+   "why": "32-bit Linux system call for unsigned getrlimit"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "wait",
+  "a": null,
+  "b": {
+   "name": "wait",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "wait",
+   "why": "Linux system call interface to wait for a child process to change state"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "wait3",
+  "a": null,
+  "b": {
+   "name": "wait3",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "wait3",
+   "why": "BSD-style Linux system call to wait for process state change and get rusage"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "waitpid",
+  "a": null,
+  "b": {
+   "name": "waitpid",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "waitpid",
+   "why": "Linux system call to wait for a specific child process to change state"
+  },
+  "batch": "batch-00.txt"
+ }
+]

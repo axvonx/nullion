@@ -1,0 +1,214 @@
+{
+ "gradient-based-optimizer": [
+  {
+   "name": "momentum SGD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "heavy-ball"
+  },
+  {
+   "name": "Nesterov accelerated gradient",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "NAG"
+  },
+  {
+   "name": "AMSGrad",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Adam fix"
+  },
+  {
+   "name": "AdaBelief",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "belief in gradient"
+  },
+  {
+   "name": "AdaBound",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "dynamic bounds"
+  },
+  {
+   "name": "Yogi",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "adaptive method"
+  },
+  {
+   "name": "Lookahead",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "slow/fast weights"
+  },
+  {
+   "name": "Sophia",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "second-order clipped"
+  },
+  {
+   "name": "Shampoo",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "full-matrix preconditioning"
+  },
+  {
+   "name": "SOAP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Shampoo with Adam"
+  },
+  {
+   "name": "AdaHessian",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Hessian diagonal"
+  },
+  {
+   "name": "Adan",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Adaptive Nesterov"
+  },
+  {
+   "name": "Prodigy",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "learning-rate free"
+  },
+  {
+   "name": "D-Adaptation",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "learning-rate free"
+  },
+  {
+   "name": "LARS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "layer-wise adaptive rate scaling"
+  },
+  {
+   "name": "Ranger",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "RAdam plus Lookahead"
+  },
+  {
+   "name": "QHAdam",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "quasi-hyperbolic Adam"
+  },
+  {
+   "name": "K-FAC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Kronecker-factored curvature"
+  },
+  {
+   "name": "BFGS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "quasi-Newton"
+  },
+  {
+   "name": "nonlinear conjugate gradient",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Fletcher-Reeves etc"
+  },
+  {
+   "name": "Hessian-free optimization",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Martens"
+  },
+  {
+   "name": "natural gradient",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Fisher preconditioned"
+  },
+  {
+   "name": "Madgrad",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "momentumized dual averaging"
+  },
+  {
+   "name": "signSGD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "sign of gradient"
+  },
+  {
+   "name": "Novograd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "layer-wise second moment"
+  },
+  {
+   "name": "Adam-mini",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "reduced memory"
+  },
+  {
+   "name": "Fromage",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Frobenius matched gradient"
+  },
+  {
+   "name": "AdaGrad-Norm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "scalar Adagrad"
+  },
+  {
+   "name": "diffGrad",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "gradient difference"
+  },
+  {
+   "name": "Apollo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "diagonal quasi-Newton"
+  }
+ ]
+}

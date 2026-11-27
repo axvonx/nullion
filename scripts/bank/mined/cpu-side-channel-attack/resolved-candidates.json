@@ -1,0 +1,284 @@
+{
+ "cpu-side-channel-attack": [
+  {
+   "name": "Meltdown",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "Rogue Data Cache Load"
+  },
+  {
+   "name": "Foreshadow",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "SGX L1TF attack"
+  },
+  {
+   "name": "ZombieLoad",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "MDS fill buffer leak"
+  },
+  {
+   "name": "RIDL",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Rogue In-Flight Data Load"
+  },
+  {
+   "name": "Fallout",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "store buffer leak"
+  },
+  {
+   "name": "CacheOut",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "L1D eviction sampling"
+  },
+  {
+   "name": "SGAxe",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "CacheOut against SGX"
+  },
+  {
+   "name": "Load Value Injection",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "LVI"
+  },
+  {
+   "name": "Spectre v1",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "bounds check bypass"
+  },
+  {
+   "name": "Spectre v2",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "branch target injection"
+  },
+  {
+   "name": "Spectre v4",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "speculative store bypass"
+  },
+  {
+   "name": "Branch History Injection",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Spectre-BHB"
+  },
+  {
+   "name": "Retbleed",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "return instruction speculation"
+  },
+  {
+   "name": "SpectreRSB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "return stack buffer attack"
+  },
+  {
+   "name": "BranchScope",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "directional predictor attack"
+  },
+  {
+   "name": "Prime+Probe",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "cache timing attack"
+  },
+  {
+   "name": "Flush+Reload",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "cache timing attack"
+  },
+  {
+   "name": "Flush+Flush",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "cache timing attack without loads"
+  },
+  {
+   "name": "Evict+Reload",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "cache timing attack"
+  },
+  {
+   "name": "Evict+Time",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Osvik cache attack"
+  },
+  {
+   "name": "Hertzbleed",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "frequency scaling leak"
+  },
+  {
+   "name": "PLATYPUS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "RAPL power attack"
+  },
+  {
+   "name": "Zenbleed",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "AMD Zen 2 vzeroupper leak"
+  },
+  {
+   "name": "Collide+Power",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "power leak via cache collisions"
+  },
+  {
+   "name": "Augury",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Apple data memory-dependent prefetcher leak"
+  },
+  {
+   "name": "GoFetch",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Apple DMP key extraction"
+  },
+  {
+   "name": "NetSpectre",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "remote Spectre"
+  },
+  {
+   "name": "SWAPGS attack",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "speculative SWAPGS"
+  },
+  {
+   "name": "TLBleed",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "TLB timing across hyperthreads"
+  },
+  {
+   "name": "PortSmash",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "execution port contention"
+  },
+  {
+   "name": "SMoTherSpectre",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "port contention Spectre"
+  },
+  {
+   "name": "Spectre-PHT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "pattern history table variant"
+  },
+  {
+   "name": "PACMAN",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Apple pointer authentication bypass"
+  },
+  {
+   "name": "Branch Privilege Injection",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Intel BPI"
+  },
+  {
+   "name": "Training Solo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "self-training Spectre"
+  },
+  {
+   "name": "Phantom",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "AMD phantom speculation"
+  },
+  {
+   "name": "Prime+Abort",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "TSX-based cache attack"
+  },
+  {
+   "name": "ret2spec",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "return misprediction attack"
+  },
+  {
+   "name": "MeltdownPrime",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Meltdown via coherence"
+  },
+  {
+   "name": "SpectrePrime",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Spectre via coherence"
+  }
+ ]
+}

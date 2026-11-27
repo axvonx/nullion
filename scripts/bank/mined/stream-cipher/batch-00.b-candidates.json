@@ -1,0 +1,23 @@
+{
+  "stream-cipher": [
+    {
+      "name": "RC4",
+      "aliases": ["ARC4", "ARCFOUR"],
+      "judge": "off-by-one",
+      "evidence": "arc4",
+      "why": "classic byte-oriented stream cipher (also in OpenSSL as rc4)"
+    },
+    {
+      "name": "ChaCha20",
+      "aliases": ["ChaCha"],
+      "judge": "off-by-one",
+      "evidence": "chacha",
+      "why": "modern ARX-based stream cipher used in TLS, SSH, and WireGuard"
+    }
+  ],
+  "womm_candidates": [
+    "RC4",
+    "ChaCha20"
+  ],
+  "bitflip_candidates": []
+}

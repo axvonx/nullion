@@ -1,0 +1,58 @@
+[
+ {
+  "name": "NEC Vector Engine",
+  "a": {
+   "name": "NEC Vector Engine",
+   "aliases": [
+    "SX-Aurora"
+   ],
+   "judge": "heisenbug",
+   "evidence": "VE",
+   "why": "NEC SX-Aurora TSUBASA vector processor ISA"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "eBPF",
+  "a": null,
+  "b": {
+   "name": "eBPF",
+   "aliases": [
+    "BPF",
+    "bpf"
+   ],
+   "judge": "leak",
+   "evidence": "BPF",
+   "why": "Linux extended Berkeley Packet Filter virtual machine ISA"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PTX",
+  "a": null,
+  "b": {
+   "name": "PTX",
+   "aliases": [
+    "NVPTX",
+    "nvptx"
+   ],
+   "judge": "leak",
+   "evidence": "NVPTX",
+   "why": "NVIDIA Parallel Thread Execution virtual GPU ISA"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "NEC SX-Aurora VE",
+  "a": null,
+  "b": {
+   "name": "NEC SX-Aurora VE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VE",
+   "why": "NEC SX-Aurora TSUBASA Vector Engine instruction set architecture"
+  },
+  "batch": "batch-00.txt"
+ }
+]

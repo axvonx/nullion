@@ -1,0 +1,120 @@
+{
+ "compiler-optimization": [
+  {
+   "name": "CFG flattening",
+   "aliases": [],
+   "judge": "race",
+   "why": "LLVM FlattenCFG",
+   "evidence": "FlattenCFGPass"
+  },
+  {
+   "name": "code sinking",
+   "aliases": [],
+   "judge": "race",
+   "why": "LLVM Sink",
+   "evidence": "Sink"
+  },
+  {
+   "name": "DFA jump threading",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "LLVM DFAJumpThreading",
+   "evidence": "DFAJumpThreading"
+  },
+  {
+   "name": "guard widening",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "LLVM GuardWidening",
+   "evidence": "GuardWidening"
+  },
+  {
+   "name": "hot/cold splitting",
+   "aliases": [
+    "hot-cold splitting",
+    "HotColdSplitting"
+   ],
+   "judge": "race",
+   "why": "outlines cold blocks",
+   "evidence": "HotColdSplitting"
+  },
+  {
+   "name": "inductive range check elimination",
+   "aliases": [
+    "IRCE"
+   ],
+   "judge": "heisenbug",
+   "why": "bounds check removal via loop splitting",
+   "evidence": "InductiveRangeCheckElimination"
+  },
+  {
+   "name": "instruction simplification",
+   "aliases": [],
+   "judge": "race",
+   "why": "InstSimplify",
+   "evidence": "InstSimplifyPass"
+  },
+  {
+   "name": "library call simplification",
+   "aliases": [],
+   "judge": "race",
+   "why": "SimplifyLibCalls",
+   "evidence": "SimplifyLibCalls"
+  },
+  {
+   "name": "loop bound splitting",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "LoopBoundSplit",
+   "evidence": "LoopBoundSplit"
+  },
+  {
+   "name": "loop versioning",
+   "aliases": [],
+   "judge": "race",
+   "why": "runtime alias check loop clone",
+   "evidence": "LoopVersioningLICM"
+  },
+  {
+   "name": "n-ary reassociation",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "NaryReassociate",
+   "evidence": "NaryReassociate"
+  },
+  {
+   "name": "scalarization",
+   "aliases": [],
+   "judge": "race",
+   "why": "Scalarizer",
+   "evidence": "Scalarizer"
+  },
+  {
+   "name": "vector combining",
+   "aliases": [
+    "VectorCombine"
+   ],
+   "judge": "heisenbug",
+   "why": "vector shuffle/extract cleanup",
+   "evidence": "VectorCombine"
+  },
+  {
+   "name": "critical edge splitting",
+   "aliases": [
+    "BreakCriticalEdges"
+   ],
+   "judge": "race",
+   "why": "splits critical CFG edges",
+   "evidence": "BreakCriticalEdges"
+  },
+  {
+   "name": "loop-closed SSA",
+   "aliases": [
+    "LCSSA"
+   ],
+   "judge": "heisenbug",
+   "why": "phi nodes at loop exits",
+   "evidence": "LCSSA"
+  }
+ ]
+}

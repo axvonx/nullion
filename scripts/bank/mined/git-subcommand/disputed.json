@@ -1,0 +1,66 @@
+[
+ {
+  "name": "mergetool",
+  "a": {
+   "name": "mergetool",
+   "aliases": [
+    "git-mergetool"
+   ],
+   "judge": "npe",
+   "evidence": "git-mergetool",
+   "why": "launches external merge conflict resolution tools"
+  },
+  "b": {
+   "name": "mergetool",
+   "aliases": [
+    "git-mergetool"
+   ],
+   "judge": "race",
+   "evidence": "git/git/Documentation (file names): git-mergetool",
+   "why": "run merge conflict resolution tools"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "remote-ext",
+  "a": null,
+  "b": {
+   "name": "remote-ext",
+   "aliases": [
+    "git-remote-ext"
+   ],
+   "judge": "heisenbug",
+   "evidence": "git/git/Documentation (file names): git-remote-ext",
+   "why": "bridge smart transport to external command"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "remote-fd",
+  "a": null,
+  "b": {
+   "name": "remote-fd",
+   "aliases": [
+    "git-remote-fd"
+   ],
+   "judge": "heisenbug",
+   "evidence": "git/git/Documentation (file names): git-remote-fd",
+   "why": "reflect smart transport stream back to caller"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "shell",
+  "a": null,
+  "b": {
+   "name": "shell",
+   "aliases": [
+    "git-shell"
+   ],
+   "judge": "race",
+   "evidence": "git/git/Documentation (file names): git-shell",
+   "why": "restricted login shell for Git-only SSH access"
+  },
+  "batch": "batch-00.txt"
+ }
+]

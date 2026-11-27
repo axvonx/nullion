@@ -1,0 +1,146 @@
+{
+ "linux-system-call": [
+  {
+   "name": "break",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "unimplemented slot in syscall table",
+   "evidence": "break"
+  },
+  {
+   "name": "exit",
+   "aliases": [],
+   "judge": "off-by-one",
+   "why": "terminate calling thread",
+   "evidence": "exit"
+  },
+  {
+   "name": "fattach",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "unimplemented STREAMS slot",
+   "evidence": "fattach"
+  },
+  {
+   "name": "fdetach",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "unimplemented STREAMS slot",
+   "evidence": "fdetach"
+  },
+  {
+   "name": "getmsg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "unimplemented STREAMS slot",
+   "evidence": "getmsg"
+  },
+  {
+   "name": "getpmsg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "unimplemented STREAMS slot",
+   "evidence": "getpmsg"
+  },
+  {
+   "name": "gtty",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "legacy tty slot",
+   "evidence": "gtty"
+  },
+  {
+   "name": "mpx",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "unimplemented slot",
+   "evidence": "mpx"
+  },
+  {
+   "name": "phys",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "unimplemented slot",
+   "evidence": "phys"
+  },
+  {
+   "name": "prof",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "unimplemented slot",
+   "evidence": "prof"
+  },
+  {
+   "name": "pselect6",
+   "aliases": [
+    "pselect"
+   ],
+   "judge": "leak",
+   "why": "select with signal mask",
+   "evidence": "pselect6"
+  },
+  {
+   "name": "putmsg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "unimplemented STREAMS slot",
+   "evidence": "putmsg"
+  },
+  {
+   "name": "putpmsg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "unimplemented STREAMS slot",
+   "evidence": "putpmsg"
+  },
+  {
+   "name": "readdir",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "obsolete directory read",
+   "evidence": "readdir"
+  },
+  {
+   "name": "stty",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "legacy tty slot",
+   "evidence": "stty"
+  },
+  {
+   "name": "getpagesize",
+   "aliases": [],
+   "judge": "leak",
+   "why": "page size on some architectures",
+   "evidence": "getpagesize"
+  },
+  {
+   "name": "madvise1",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "legacy slot",
+   "evidence": "madvise1"
+  },
+  {
+   "name": "sync_file_range2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "arch variant of sync_file_range",
+   "evidence": "sync_file_range2"
+  },
+  {
+   "name": "ugetrlimit",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "32-bit getrlimit",
+   "evidence": "ugetrlimit"
+  },
+  {
+   "name": "waitpid",
+   "aliases": [],
+   "judge": "npe",
+   "why": "in i386 table",
+   "evidence": "waitpid"
+  }
+ ]
+}

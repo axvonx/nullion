@@ -1,0 +1,319 @@
+{
+ "memory-allocator": [
+  {
+   "name": "BumpPtrAllocator",
+   "aliases": [
+    "bump allocator",
+    "bump pointer allocator"
+   ],
+   "judge": "race",
+   "why": "LLVM bump allocator",
+   "evidence": "     9  BumpPtrAllocator"
+  },
+  {
+   "name": "Arena allocator",
+   "aliases": [
+    "region allocator"
+   ],
+   "judge": "npe",
+   "why": "region-based allocator",
+   "evidence": "     2  arena allocator"
+  },
+  {
+   "name": "Pool allocator",
+   "aliases": [],
+   "judge": "npe",
+   "why": "fixed-size block allocator",
+   "evidence": "     2  pool allocator"
+  },
+  {
+   "name": "ptmalloc",
+   "aliases": [
+    "ptmalloc2",
+    "glibc malloc"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "glibc's allocator"
+  },
+  {
+   "name": "dlmalloc",
+   "aliases": [
+    "Doug Lea's malloc"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Doug Lea allocator"
+  },
+  {
+   "name": "tcmalloc",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Google thread-caching malloc"
+  },
+  {
+   "name": "mimalloc",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Microsoft Research allocator"
+  },
+  {
+   "name": "Hoard",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "scalable multithreaded allocator"
+  },
+  {
+   "name": "snmalloc",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Microsoft message-passing allocator"
+  },
+  {
+   "name": "rpmalloc",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "lock-free allocator by Mattias Jansson"
+  },
+  {
+   "name": "SuperMalloc",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Kuszmaul allocator"
+  },
+  {
+   "name": "nedmalloc",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Niall Douglas allocator"
+  },
+  {
+   "name": "TLSF",
+   "aliases": [
+    "two-level segregated fit"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "real-time allocator"
+  },
+  {
+   "name": "omalloc",
+   "aliases": [
+    "OpenBSD malloc"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "OpenBSD allocator"
+  },
+  {
+   "name": "phkmalloc",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "FreeBSD former allocator"
+  },
+  {
+   "name": "mallocng",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "musl allocator"
+  },
+  {
+   "name": "Low Fragmentation Heap",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Windows heap front end"
+  },
+  {
+   "name": "Segment Heap",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Windows 10 heap"
+  },
+  {
+   "name": "hardened_malloc",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "GrapheneOS allocator"
+  },
+  {
+   "name": "Scalloc",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "scalable lock-free allocator"
+  },
+  {
+   "name": "Streamflow",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "scalable allocator"
+  },
+  {
+   "name": "LFMalloc",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lock-free allocator"
+  },
+  {
+   "name": "Mesh",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "compacting allocator"
+  },
+  {
+   "name": "SLUB allocator",
+   "aliases": [
+    "SLUB"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Linux slab implementation"
+  },
+  {
+   "name": "SLOB allocator",
+   "aliases": [
+    "SLOB"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Linux small-system allocator"
+  },
+  {
+   "name": "memblock",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Linux early boot allocator"
+  },
+  {
+   "name": "genalloc",
+   "aliases": [
+    "gen_pool"
+   ],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Linux generic pool allocator"
+  },
+  {
+   "name": "vmalloc",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Linux virtually contiguous allocator"
+  },
+  {
+   "name": "bootmem",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "old Linux boot allocator"
+  },
+  {
+   "name": "first-fit allocator",
+   "aliases": [
+    "first fit"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "allocation strategy"
+  },
+  {
+   "name": "best-fit allocator",
+   "aliases": [
+    "best fit"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "allocation strategy"
+  },
+  {
+   "name": "next-fit allocator",
+   "aliases": [
+    "next fit"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "allocation strategy"
+  },
+  {
+   "name": "segregated free list allocator",
+   "aliases": [
+    "segregated fit"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "size-class free lists"
+  },
+  {
+   "name": "stack allocator",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "LIFO allocator"
+  },
+  {
+   "name": "bitmap allocator",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "bitmap-tracked blocks"
+  },
+  {
+   "name": "DieHard",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "probabilistic memory safety allocator"
+  },
+  {
+   "name": "DieHarder",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "secure DieHard variant"
+  },
+  {
+   "name": "Zend MM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "PHP memory manager"
+  },
+  {
+   "name": "pymalloc",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "CPython small-object allocator"
+  },
+  {
+   "name": "Electric Fence",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "debugging allocator"
+  },
+  {
+   "name": "half-fit",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "real-time allocator"
+  }
+ ]
+}

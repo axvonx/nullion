@@ -1,0 +1,20 @@
+{
+  "stream-cipher": [
+    {
+      "name": "RC4",
+      "aliases": ["ARC4", "arc4", "rc4"],
+      "judge": "off-by-one",
+      "evidence": "arc4 (torvalds/linux/crypto), rc4 (openssl/openssl/crypto)",
+      "why": "classic byte-by-byte stream cipher"
+    },
+    {
+      "name": "ChaCha20",
+      "aliases": ["ChaCha", "chacha", "chacha20poly1305"],
+      "judge": "off-by-one",
+      "evidence": "chacha (torvalds/linux/crypto and openssl/openssl/crypto)",
+      "why": "widely used modern stream cipher by Daniel J. Bernstein"
+    }
+  ],
+  "womm_candidates": ["ChaCha20", "RC4"],
+  "bitflip_candidates": []
+}

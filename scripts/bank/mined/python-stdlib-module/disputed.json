@@ -1,0 +1,92 @@
+[
+ {
+  "name": "concurrent",
+  "a": {
+   "name": "concurrent",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "concurrent",
+   "why": "namespace package for concurrency"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "copyreg",
+  "a": {
+   "name": "copyreg",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "copyreg",
+   "why": "register pickle support functions"
+  },
+  "b": {
+   "name": "copyreg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "copyreg",
+   "why": "register pickle support functions"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "math.integer",
+  "a": {
+   "name": "math.integer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "math.integer",
+   "why": "integer math functions submodule"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "tkinter.fontchooser",
+  "a": {
+   "name": "tkinter.fontchooser",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "tkinter.fontchooser",
+   "why": "Tk font chooser dialog"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "tkinter.systray",
+  "a": {
+   "name": "tkinter.systray",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "tkinter.systray",
+   "why": "Tk system tray icon support"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "email.contentmanager",
+  "a": null,
+  "b": {
+   "name": "email.contentmanager",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "email.contentmanager",
+   "why": "MIME content management"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "tkinter.dnd",
+  "a": null,
+  "b": {
+   "name": "tkinter.dnd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "tkinter.dnd",
+   "why": "Tkinter drag-and-drop support"
+  },
+  "batch": "batch-00.txt"
+ }
+]

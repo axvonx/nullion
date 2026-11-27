@@ -1,0 +1,48 @@
+[
+ {
+  "name": "BumpPtrAllocator",
+  "a": {
+   "name": "BumpPtrAllocator",
+   "aliases": [
+    "bump pointer allocator"
+   ],
+   "judge": "race",
+   "evidence": "     9  BumpPtrAllocator",
+   "why": "LLVM's fast region/bump-pointer memory allocator"
+  },
+  "b": {
+   "name": "Bump allocator",
+   "aliases": [
+    "BumpPtrAllocator"
+   ],
+   "judge": "npe",
+   "evidence": "     9  BumpPtrAllocator",
+   "why": "pointer-incrementing linear memory allocator"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Arena allocator",
+  "a": null,
+  "b": {
+   "name": "Arena allocator",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "     2  arena allocator",
+   "why": "region-based allocator freeing all allocations together"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Pool allocator",
+  "a": null,
+  "b": {
+   "name": "Pool allocator",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "     2  pool allocator",
+   "why": "fixed-size block allocator for fast O(1) allocation"
+  },
+  "batch": "batch-00.txt"
+ }
+]

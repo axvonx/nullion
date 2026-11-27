@@ -1,0 +1,32 @@
+{
+ "instruction-set-architecture": [
+  {
+   "name": "NEC Vector Engine",
+   "aliases": [
+    "SX-Aurora",
+    "SX-Aurora VE"
+   ],
+   "judge": "heisenbug",
+   "why": "SX-Aurora TSUBASA vector ISA",
+   "evidence": "VE"
+  },
+  {
+   "name": "eBPF",
+   "aliases": [
+    "BPF"
+   ],
+   "judge": "leak",
+   "why": "Linux extended BPF VM ISA",
+   "evidence": "BPF"
+  },
+  {
+   "name": "PTX",
+   "aliases": [
+    "NVPTX"
+   ],
+   "judge": "leak",
+   "why": "NVIDIA virtual GPU ISA",
+   "evidence": "NVPTX"
+  }
+ ]
+}

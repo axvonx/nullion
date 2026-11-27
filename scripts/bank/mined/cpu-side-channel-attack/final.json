@@ -1,0 +1,278 @@
+{
+ "cpu-side-channel-attack": [
+  {
+   "name": "Spectre",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "L1 Terminal Fault",
+   "aliases": [
+    "L1TF",
+    "Foreshadow"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Microarchitectural Data Sampling",
+   "aliases": [
+    "MDS"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Gather Data Sampling",
+   "aliases": [
+    "Downfall",
+    "GDS"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "TSX Async Abort",
+   "aliases": [
+    "TAA",
+    "TSX Asynchronous Abort"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Special Register Buffer Data Sampling",
+   "aliases": [
+    "SRBDS",
+    "CrossTalk"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Speculative Return Stack Overflow",
+   "aliases": [
+    "SRSO",
+    "Inception"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Processor MMIO Stale Data",
+   "aliases": [
+    "MMIO Stale Data"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Register File Data Sampling",
+   "aliases": [
+    "RFDS",
+    "reg-file-data-sampling"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Indirect Target Selection",
+   "aliases": [
+    "ITS"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "VMSCAPE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Meltdown",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ZombieLoad",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "RIDL",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Fallout",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CacheOut",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SGAxe",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Load Value Injection",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Spectre v1",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Spectre v2",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Spectre v4",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Branch History Injection",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Retbleed",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SpectreRSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BranchScope",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Prime+Probe",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Flush+Reload",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Flush+Flush",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Evict+Reload",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Evict+Time",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Hertzbleed",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PLATYPUS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zenbleed",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Collide+Power",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Augury",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "GoFetch",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "NetSpectre",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SWAPGS attack",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TLBleed",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PortSmash",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SMoTherSpectre",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Spectre-PHT",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PACMAN",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Branch Privilege Injection",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Training Solo",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Phantom",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Prime+Abort",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ret2spec",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MeltdownPrime",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SpectrePrime",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

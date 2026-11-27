@@ -1,0 +1,18 @@
+{
+  "post-quantum-signature-scheme": [
+    {"name": "CROSS", "aliases": [], "judge": "heisenbug", "evidence": "cross", "why": "code-based NIST PQC Round 2 signature scheme"},
+    {"name": "FAEST", "aliases": [], "judge": "heisenbug", "evidence": "faest", "why": "symmetric-based NIST PQC Round 2 signature scheme"},
+    {"name": "Falcon", "aliases": ["FN-DSA"], "judge": "off-by-one", "evidence": "falcon", "why": "NTRU lattice-based NIST standardized signature scheme"},
+    {"name": "MAYO", "aliases": [], "judge": "race", "evidence": "mayo", "why": "multivariate NIST PQC Round 2 signature scheme"},
+    {"name": "ML-DSA", "aliases": ["ml_dsa", "Dilithium", "CRYSTALS-Dilithium"], "judge": "off-by-one", "evidence": "ml_dsa", "why": "FIPS 204 module-lattice NIST standardized signature scheme"},
+    {"name": "MQOM", "aliases": [], "judge": "heisenbug", "evidence": "mqom", "why": "multivariate quadratic MPC-in-the-head signature scheme"},
+    {"name": "QR-UOV", "aliases": ["qruov"], "judge": "heisenbug", "evidence": "qruov", "why": "quotient ring Unbalanced Oil and Vinegar signature scheme"},
+    {"name": "SDitH", "aliases": ["sdith"], "judge": "heisenbug", "evidence": "sdith", "why": "Syndrome Decoding in the Head signature scheme"},
+    {"name": "SLH-DSA", "aliases": ["slh_dsa", "SPHINCS+"], "judge": "off-by-one", "evidence": "slh_dsa", "why": "FIPS 205 stateless hash-based NIST standardized signature scheme"},
+    {"name": "SNOVA", "aliases": [], "judge": "heisenbug", "evidence": "snova", "why": "non-commutative Oil and Vinegar signature scheme"},
+    {"name": "SQIsign", "aliases": [], "judge": "race", "evidence": "sqisign", "why": "compact isogeny-based post-quantum signature scheme"},
+    {"name": "UOV", "aliases": [], "judge": "race", "evidence": "uov", "why": "Unbalanced Oil and Vinegar multivariate signature scheme"}
+  ],
+  "womm_candidates": ["Falcon", "SQIsign", "UOV"],
+  "bitflip_candidates": ["SDitH", "QR-UOV", "MQOM"]
+}

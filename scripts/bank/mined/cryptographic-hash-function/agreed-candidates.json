@@ -1,0 +1,82 @@
+{
+ "cryptographic-hash-function": [
+  {
+   "name": "MD5",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SHA-1",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SHA-256",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SHA-512",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "SHA-3",
+   "aliases": [
+    "Keccak"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "BLAKE2b",
+   "aliases": [
+    "BLAKE2"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "RIPEMD-160",
+   "aliases": [
+    "RIPEMD",
+    "rmd160"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "MD4",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MD2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Whirlpool",
+   "aliases": [
+    "wp512",
+    "whrlpool"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "SM3",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Streebog",
+   "aliases": [
+    "streebog_generic",
+    "GOST R 34.11-2012"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MDC-2",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

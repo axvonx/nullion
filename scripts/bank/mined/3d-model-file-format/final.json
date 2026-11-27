@@ -1,0 +1,362 @@
+{
+ "3d-model-file-format": [
+  {
+   "name": "3DS",
+   "aliases": [
+    "3D Studio"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "3MF",
+   "aliases": [
+    "3D Manufacturing Format"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "AC3D",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AMF",
+   "aliases": [
+    "Additive Manufacturing File Format"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ASE",
+   "aliases": [
+    "ASCII Scene Exporter"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Assbin",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Assjson",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Assxml",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "B3D",
+   "aliases": [
+    "Blitz3D"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "BVH",
+   "aliases": [
+    "Biovision Hierarchy"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "C4D",
+   "aliases": [
+    "Cinema 4D"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "COB",
+   "aliases": [
+    "Caligari trueSpace"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CSM",
+   "aliases": [
+    "Character Studio Marker"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "COLLADA",
+   "aliases": [
+    "DAE"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "DXF",
+   "aliases": [
+    "Drawing Exchange Format"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "FBX",
+   "aliases": [
+    "Filmbox"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "HMP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "IFC",
+   "aliases": [
+    "Industry Foundation Classes"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "IQM",
+   "aliases": [
+    "Inter-Quake Model"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "IrrMesh",
+   "aliases": [
+    "Irr",
+    "Irrlicht"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "LWO",
+   "aliases": [
+    "LightWave Object"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "LWS",
+   "aliases": [
+    "LightWave Scene"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "M3D",
+   "aliases": [
+    "Model 3D"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MD2",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MD3",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MD4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MD5",
+   "aliases": [
+    "MD5mesh"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "MDC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MDL",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MS3D",
+   "aliases": [
+    "MilkShape 3D"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "NDO",
+   "aliases": [
+    "Nendo"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NFF",
+   "aliases": [
+    "Neutral File Format"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "OFF",
+   "aliases": [
+    "Object File Format"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "OBJ",
+   "aliases": [
+    "Wavefront OBJ"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "OpenGEX",
+   "aliases": [
+    "OGEX",
+    "Open Game Engine Exchange"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PLY",
+   "aliases": [
+    "Stanford Triangle Format",
+    "Polygon File Format"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Q3BSP",
+   "aliases": [
+    "BSP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Q3D",
+   "aliases": [
+    "Quick3D"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SIB",
+   "aliases": [
+    "Silo"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SMD",
+   "aliases": [
+    "Studiomdl Data"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "STL",
+   "aliases": [
+    "Stereolithography"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "STEP",
+   "aliases": [
+    "ISO 10303"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "USD",
+   "aliases": [
+    "Universal Scene Description",
+    "USDZ"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "VRML",
+   "aliases": [
+    "Virtual Reality Modeling Language",
+    "WRL"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "DirectX X",
+   "aliases": [
+    "DirectX .x"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "X3D",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "XGL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "glTF",
+   "aliases": [
+    "glTF2",
+    "glTF 2.0",
+    "GLB",
+    "GL Transmission Format"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "BLEND",
+   "aliases": [
+    "Blender"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "PMX",
+   "aliases": [
+    "PMD",
+    "MikuMikuDance"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Ogre XML",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "TER",
+   "aliases": [
+    "Terragen"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Unreal 3D",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "RAW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  }
+ ]
+}

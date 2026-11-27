@@ -1,0 +1,66 @@
+{
+ "clustering-algorithm": [
+  {
+   "name": "Affinity Propagation",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "agglomerative clustering",
+   "aliases": [
+    "agglomerative hierarchical clustering",
+    "hierarchical agglomerative clustering"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "BIRCH",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "bisecting k-means",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DBSCAN",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Elkan's k-means",
+   "aliases": [
+    "Elkan k-means"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HDBSCAN",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "k-means",
+   "aliases": [
+    "Lloyd's algorithm"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Mean Shift",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "OPTICS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "spectral clustering",
+   "aliases": [],
+   "judge": "npe"
+  }
+ ]
+}

@@ -1,0 +1,100 @@
+{
+  "garbage-collection-algorithm": [
+    {
+      "name": "Epsilon GC",
+      "aliases": [
+        "Epsilon Garbage Collector"
+      ],
+      "judge": "race",
+      "evidence": "epsilon",
+      "why": "HotSpot's no-op garbage collector that allocates without reclaiming memory"
+    },
+    {
+      "name": "G1 GC",
+      "aliases": [
+        "Garbage-First",
+        "Garbage-First GC",
+        "G1GC"
+      ],
+      "judge": "npe",
+      "evidence": "g1",
+      "why": "HotSpot's Garbage-First regionalized, generational, mostly-concurrent collector"
+    },
+    {
+      "name": "Parallel GC",
+      "aliases": [
+        "Parallel Collector"
+      ],
+      "judge": "leak",
+      "evidence": "parallel",
+      "why": "HotSpot's multi-threaded stop-the-world throughput collector"
+    },
+    {
+      "name": "Serial GC",
+      "aliases": [
+        "Serial Collector"
+      ],
+      "judge": "leak",
+      "evidence": "serial",
+      "why": "HotSpot's single-threaded stop-the-world collector"
+    },
+    {
+      "name": "Shenandoah GC",
+      "aliases": [
+        "Shenandoah"
+      ],
+      "judge": "leak",
+      "evidence": "shenandoah",
+      "why": "HotSpot's ultra-low-pause-time concurrent compacting collector"
+    },
+    {
+      "name": "ZGC",
+      "aliases": [
+        "Z Garbage Collector"
+      ],
+      "judge": "leak",
+      "evidence": "z",
+      "why": "HotSpot's scalable low-latency concurrent collector using colored pointers"
+    },
+    {
+      "name": "accurate garbage collection",
+      "aliases": [
+        "precise garbage collection",
+        "exact garbage collection"
+      ],
+      "judge": "race",
+      "evidence": "     3  accurate garbage collection",
+      "why": "GC scheme with exact type/stack-map knowledge of all live references"
+    },
+    {
+      "name": "copying collector",
+      "aliases": [
+        "copying collection",
+        "copying GC"
+      ],
+      "judge": "npe",
+      "evidence": "     2  copying collector",
+      "why": "classic tracing GC that evacuates live objects between memory spaces"
+    },
+    {
+      "name": "conservative garbage collection",
+      "aliases": [
+        "conservative GC",
+        "conservative collector"
+      ],
+      "judge": "leak",
+      "evidence": "     2  conservative garbage collection",
+      "why": "GC scheme that treats any pointer-like bit pattern as a potential reference"
+    }
+  ],
+  "womm_candidates": [
+    "Epsilon GC",
+    "ZGC",
+    "Shenandoah GC"
+  ],
+  "bitflip_candidates": [
+    "accurate garbage collection",
+    "conservative garbage collection",
+    "Epsilon GC"
+  ]
+}

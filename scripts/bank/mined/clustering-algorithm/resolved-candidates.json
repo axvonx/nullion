@@ -1,0 +1,324 @@
+{
+ "clustering-algorithm": [
+  {
+   "name": "Lloyd's algorithm",
+   "aliases": [],
+   "judge": "npe",
+   "why": "standard k-means iteration",
+   "evidence": "_k_means_lloyd"
+  },
+  {
+   "name": "hierarchical clustering",
+   "aliases": [],
+   "judge": "npe",
+   "why": "nested cluster tree",
+   "evidence": "_hierarchical_fast"
+  },
+  {
+   "name": "mini-batch k-means",
+   "aliases": [
+    "minibatch k-means"
+   ],
+   "judge": "leak",
+   "why": "k-means with mini-batch updates",
+   "evidence": "_k_means_minibatch"
+  },
+  {
+   "name": "biclustering",
+   "aliases": [
+    "co-clustering"
+   ],
+   "judge": "race",
+   "why": "clusters rows and columns together",
+   "evidence": "_bicluster"
+  },
+  {
+   "name": "feature agglomeration",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low",
+   "why": "clusters features, not points",
+   "evidence": "_feature_agglomeration"
+  },
+  {
+   "name": "k-medoids",
+   "aliases": [
+    "PAM",
+    "partitioning around medoids"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "medoid-based k-means cousin"
+  },
+  {
+   "name": "CLARA",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "k-medoids on samples"
+  },
+  {
+   "name": "CLARANS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "randomized search k-medoids"
+  },
+  {
+   "name": "fuzzy c-means",
+   "aliases": [
+    "FCM"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "soft membership clustering"
+  },
+  {
+   "name": "Gaussian mixture model",
+   "aliases": [
+    "GMM",
+    "EM clustering"
+   ],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "EM-fitted mixture of Gaussians"
+  },
+  {
+   "name": "CURE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Clustering Using REpresentatives"
+  },
+  {
+   "name": "ROCK",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "robust clustering for categorical attributes"
+  },
+  {
+   "name": "CHAMELEON",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "dynamic modeling hierarchical clustering"
+  },
+  {
+   "name": "STING",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "grid-based statistical information clustering"
+  },
+  {
+   "name": "CLIQUE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "grid and density subspace clustering"
+  },
+  {
+   "name": "DENCLUE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "kernel density based clustering"
+  },
+  {
+   "name": "X-means",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "k-means that picks k via BIC"
+  },
+  {
+   "name": "G-means",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "k-means with Gaussianity test"
+  },
+  {
+   "name": "k-modes",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "k-means for categorical data"
+  },
+  {
+   "name": "k-prototypes",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "mixed categorical and numeric k-means"
+  },
+  {
+   "name": "self-organizing map",
+   "aliases": [
+    "SOM",
+    "Kohonen map"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Kohonen neural map"
+  },
+  {
+   "name": "single-linkage clustering",
+   "aliases": [
+    "single linkage"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "nearest-neighbour linkage"
+  },
+  {
+   "name": "complete-linkage clustering",
+   "aliases": [
+    "complete linkage"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "farthest-neighbour linkage"
+  },
+  {
+   "name": "Ward's method",
+   "aliases": [
+    "Ward linkage"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "minimum variance linkage"
+  },
+  {
+   "name": "UPGMA",
+   "aliases": [
+    "average linkage"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "unweighted pair group method with arithmetic mean"
+  },
+  {
+   "name": "SLINK",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "optimal single-linkage algorithm"
+  },
+  {
+   "name": "DIANA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "divisive analysis clustering"
+  },
+  {
+   "name": "COBWEB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "incremental conceptual clustering"
+  },
+  {
+   "name": "canopy clustering",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "cheap pre-clustering by McCallum"
+  },
+  {
+   "name": "Markov clustering",
+   "aliases": [
+    "MCL"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "flow simulation on graphs"
+  },
+  {
+   "name": "neural gas",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "competitive learning vector quantizer"
+  },
+  {
+   "name": "growing neural gas",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Fritzke incremental neural gas"
+  },
+  {
+   "name": "kernel k-means",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "k-means in kernel space"
+  },
+  {
+   "name": "spherical k-means",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "cosine-similarity k-means"
+  },
+  {
+   "name": "Jarvis-Patrick clustering",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "shared nearest neighbour clustering"
+  },
+  {
+   "name": "density peaks clustering",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Rodriguez and Laio 2014"
+  },
+  {
+   "name": "k-means++",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "seeding scheme for k-means"
+  },
+  {
+   "name": "PROCLUS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "projected clustering"
+  },
+  {
+   "name": "SUBCLU",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "density-connected subspace clustering"
+  },
+  {
+   "name": "Chinese whispering",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "graph label propagation clustering"
+  },
+  {
+   "name": "Leader algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "single-pass threshold clustering"
+  },
+  {
+   "name": "CLINK",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "complete-linkage algorithm by Defays"
+  }
+ ]
+}

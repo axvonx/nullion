@@ -1,0 +1,352 @@
+{
+ "stream-cipher": [
+  {
+   "name": "Salsa20",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Bernstein stream cipher"
+  },
+  {
+   "name": "XSalsa20",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "extended-nonce Salsa20"
+  },
+  {
+   "name": "XChaCha20",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "extended-nonce ChaCha"
+  },
+  {
+   "name": "ChaCha8",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "reduced-round ChaCha"
+  },
+  {
+   "name": "ChaCha12",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "reduced-round ChaCha"
+  },
+  {
+   "name": "Grain",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "eSTREAM hardware cipher"
+  },
+  {
+   "name": "Grain-128",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "128-bit key Grain"
+  },
+  {
+   "name": "Trivium",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "eSTREAM hardware cipher"
+  },
+  {
+   "name": "MICKEY",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "eSTREAM hardware cipher"
+  },
+  {
+   "name": "Rabbit",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "eSTREAM software cipher"
+  },
+  {
+   "name": "HC-128",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "eSTREAM software cipher"
+  },
+  {
+   "name": "HC-256",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Hongjun Wu cipher"
+  },
+  {
+   "name": "SOSEMANUK",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "eSTREAM software cipher"
+  },
+  {
+   "name": "ISAAC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Jenkins CSPRNG cipher"
+  },
+  {
+   "name": "A5/1",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "GSM cipher"
+  },
+  {
+   "name": "A5/2",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "export GSM cipher"
+  },
+  {
+   "name": "E0",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Bluetooth cipher"
+  },
+  {
+   "name": "Crypto1",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "MIFARE Classic cipher"
+  },
+  {
+   "name": "SNOW 3G",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "UMTS cipher"
+  },
+  {
+   "name": "SNOW 2.0",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SNOW predecessor"
+  },
+  {
+   "name": "ZUC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "LTE cipher"
+  },
+  {
+   "name": "SEAL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "IBM software-optimized cipher"
+  },
+  {
+   "name": "WAKE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Wheeler cipher"
+  },
+  {
+   "name": "Py",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Biham Seberry cipher"
+  },
+  {
+   "name": "Phelix",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Helix successor"
+  },
+  {
+   "name": "Helix",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Ferguson et al. cipher"
+  },
+  {
+   "name": "LEVIATHAN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Lucks stream cipher"
+  },
+  {
+   "name": "Scream",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Coppersmith et al. cipher"
+  },
+  {
+   "name": "VMPC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "variably modified permutation composition"
+  },
+  {
+   "name": "Spritz",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Rivest RC4 redesign"
+  },
+  {
+   "name": "Achterbahn",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "eSTREAM candidate"
+  },
+  {
+   "name": "F-FCSR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "feedback with carry shift register cipher"
+  },
+  {
+   "name": "DECIM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "eSTREAM candidate"
+  },
+  {
+   "name": "MUGI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Hitachi cipher"
+  },
+  {
+   "name": "Turing",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Qualcomm cipher"
+  },
+  {
+   "name": "Dragon",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "eSTREAM candidate"
+  },
+  {
+   "name": "LEX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "AES-based stream cipher"
+  },
+  {
+   "name": "Fruit",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lightweight cipher"
+  },
+  {
+   "name": "Plantlet",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lightweight cipher"
+  },
+  {
+   "name": "Lizard",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lightweight cipher"
+  },
+  {
+   "name": "Sprout",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lightweight cipher"
+  },
+  {
+   "name": "KCipher-2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Japanese standard cipher"
+  },
+  {
+   "name": "WG",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Welch-Gong cipher"
+  },
+  {
+   "name": "CryptMT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Mersenne Twister cipher"
+  },
+  {
+   "name": "Lorenz cipher",
+   "aliases": [
+    "SZ40",
+    "SZ42"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "WWII German teleprinter cipher"
+  },
+  {
+   "name": "Content Scramble System",
+   "aliases": [
+    "CSS cipher"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "DVD cipher"
+  },
+  {
+   "name": "Hitag2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "car key cipher"
+  },
+  {
+   "name": "SNOW-V",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "5G candidate cipher"
+  },
+  {
+   "name": "Panama",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Daemen Clapp cipher"
+  }
+ ]
+}

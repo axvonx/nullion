@@ -1,0 +1,836 @@
+{
+ "linux-tracing-tool": [
+  {
+   "name": "argdist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "bashreadline",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "bindsnoop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "biolatency",
+   "aliases": [
+    "biolatency-kp"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "biolatpcts",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "biopattern",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "biosnoop",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "biostacks",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "biotop",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "bitesize",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "bpflist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "btrfsdist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "btrfsslower",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "cachestat",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "cachetop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "capable",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "cobjnew",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "compactsnoop",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "cpudist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "cpuunclaimed",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "cpuwalk",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "criticalstat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "dbslower",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "dbstat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "dcsnoop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "dcstat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "deadlock",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "dirtop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "drsnoop",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "execsnoop",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "exitsnoop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ext4dist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ext4slower",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "f2fsslower",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "filegone",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "filelife",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "fileslower",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "filetop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "funccount",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "funcgraph",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "funcinterval",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "funclatency",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "funcslower",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "functrace",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "gethostlatency",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "hardirqs",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "iolatency",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "iosnoop",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "javacalls",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "javaflow",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "javagc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "javaobjnew",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "javastat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "javathreads",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "killsnoop",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "klockstat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "kprobe",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "kvmexit",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "llcstat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "loads",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mdflush",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "memleak",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "mountsnoop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "mysqld_qslower",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "naptime",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "netqtop",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "nfsdist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "nfsslower",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "nodegc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "nodestat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "numasched",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "offcputime",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "offwaketime",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "oomkill",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "opensnoop",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "perf-stat-hist",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "perlcalls",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "perlflow",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "perlstat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "phpcalls",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "phpflow",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "phpstat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "pidpersec",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ppchcalls",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "profile",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "pythoncalls",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "pythonflow",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "pythongc",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "pythonstat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rdmaucma",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "readahead",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rubycalls",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rubyflow",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rubygc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rubyobjnew",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rubystat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "runqlat",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "runqlen",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "runqslower",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "setuids",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "shmsnoop",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "slabratetop",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "sofdsnoop",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "softirqs",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "softirqslower",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "solisten",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ssllatency",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "sslsniff",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "sslsnoop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "stackcount",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "stacksnoop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "statsnoop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "swapin",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "syncsnoop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "syscount",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tclcalls",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tclflow",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tclobjnew",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tclstat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tcpaccept",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tcpcong",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tcpconnect",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tcpconnlat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "tcpdrop",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tcplife",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tcpretrans",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tcprtt",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "tcpstates",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "tcpsubnet",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tcpsynbl",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tcptop",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tcptracer",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "threadsnoop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "tplist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "tpoint",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "trace",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ttysnoop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "undump",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "uprobe",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "vfscount",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "vfsstat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "virtiostat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "wakeuptime",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "wqlat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "writeback",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "xfsdist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "xfsslower",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "zfsdist",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "zfsslower",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "strace",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ltrace",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "perf",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ftrace",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "LTTng",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SystemTap",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "bpftrace",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "BCC",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "trace-cmd",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "KernelShark",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "blktrace",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "kprobes",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "uprobes",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "sysdig",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "uftrace",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Perfetto",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Tracee",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

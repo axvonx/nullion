@@ -1,0 +1,1090 @@
+{
+ "software-license": [
+  {
+   "name": "0BSD",
+   "aliases": [
+    "BSD Zero Clause",
+    "Zero-Clause BSD"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Academic Free License",
+   "aliases": [
+    "AFL",
+    "AFL-1.1",
+    "AFL-1.2",
+    "AFL-2.0",
+    "AFL-2.1",
+    "AFL-3.0"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "AGPL",
+   "aliases": [
+    "GNU Affero General Public License",
+    "AGPL-1.0",
+    "AGPL-3.0",
+    "AGPL-3.0-only",
+    "AGPL-3.0-or-later"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Apple Public Source License",
+   "aliases": [
+    "APSL",
+    "APSL-1.0",
+    "APSL-1.1",
+    "APSL-1.2",
+    "APSL-2.0"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Aladdin Free Public License",
+   "aliases": [
+    "Aladdin"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Apache License",
+   "aliases": [
+    "Apache",
+    "Apache-1.0",
+    "Apache-1.1",
+    "Apache-2.0"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Artistic License",
+   "aliases": [
+    "Artistic",
+    "Artistic-1.0",
+    "Artistic-1.0-Perl",
+    "Artistic-1.0-cl8",
+    "Artistic-2.0",
+    "Artistic-dist"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "BSD 2-Clause",
+   "aliases": [
+    "Simplified BSD",
+    "FreeBSD License",
+    "BSD-2-Clause-FreeBSD",
+    "BSD-2-Clause-NetBSD",
+    "BSD-2-Clause-Patent",
+    "BSD-2-Clause-Darwin"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "BSD 3-Clause",
+   "aliases": [
+    "New BSD",
+    "Modified BSD",
+    "BSD-3-Clause-Clear",
+    "BSD-3-Clause-Attribution",
+    "BSD-3-Clause-LBNL",
+    "BSD-3-Clause-HP",
+    "BSD-3-Clause-Sun"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "BSD 4-Clause",
+   "aliases": [
+    "Original BSD",
+    "BSD-4-Clause-UC",
+    "BSD-4-Clause-Shortened",
+    "BSD-4.3RENO",
+    "BSD-4.3TAHOE"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Boost Software License",
+   "aliases": [
+    "BSL",
+    "BSL-1.0"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Business Source License",
+   "aliases": [
+    "BUSL",
+    "BUSL-1.1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Beerware",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "BitTorrent Open Source License",
+   "aliases": [
+    "BitTorrent-1.0",
+    "BitTorrent-1.1",
+    "BitTorrent"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Blue Oak Model License",
+   "aliases": [
+    "BlueOak-1.0.0"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Cryptographic Autonomy License",
+   "aliases": [
+    "CAL-1.0",
+    "CAL-1.0-Combined-Work-Exception"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CATOSL",
+   "aliases": [
+    "CATOSL-1.1",
+    "Computer Associates Trusted Open Source License"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CC BY",
+   "aliases": [
+    "CC-BY-1.0",
+    "CC-BY-2.0",
+    "CC-BY-2.5",
+    "CC-BY-3.0",
+    "CC-BY-4.0"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CC BY-NC",
+   "aliases": [
+    "CC-BY-NC-1.0",
+    "CC-BY-NC-2.0",
+    "CC-BY-NC-2.5",
+    "CC-BY-NC-3.0",
+    "CC-BY-NC-4.0"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CC BY-NC-ND",
+   "aliases": [
+    "CC-BY-NC-ND-1.0",
+    "CC-BY-NC-ND-2.0",
+    "CC-BY-NC-ND-2.5",
+    "CC-BY-NC-ND-3.0",
+    "CC-BY-NC-ND-4.0"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CC BY-NC-SA",
+   "aliases": [
+    "CC-BY-NC-SA-1.0",
+    "CC-BY-NC-SA-2.0",
+    "CC-BY-NC-SA-2.5",
+    "CC-BY-NC-SA-3.0",
+    "CC-BY-NC-SA-4.0"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CC BY-ND",
+   "aliases": [
+    "CC-BY-ND-1.0",
+    "CC-BY-ND-2.0",
+    "CC-BY-ND-2.5",
+    "CC-BY-ND-3.0",
+    "CC-BY-ND-4.0"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CC BY-SA",
+   "aliases": [
+    "CC-BY-SA-1.0",
+    "CC-BY-SA-2.0",
+    "CC-BY-SA-2.5",
+    "CC-BY-SA-3.0",
+    "CC-BY-SA-4.0"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CC0",
+   "aliases": [
+    "CC0-1.0",
+    "Creative Commons Zero"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CDDL",
+   "aliases": [
+    "Common Development and Distribution License",
+    "CDDL-1.0",
+    "CDDL-1.1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "CeCILL",
+   "aliases": [
+    "CECILL-1.0",
+    "CECILL-1.1",
+    "CECILL-2.0",
+    "CECILL-2.1",
+    "CECILL-B",
+    "CECILL-C"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CERN Open Hardware Licence",
+   "aliases": [
+    "CERN-OHL-1.1",
+    "CERN-OHL-1.2",
+    "CERN-OHL-P-2.0",
+    "CERN-OHL-S-2.0",
+    "CERN-OHL-W-2.0",
+    "CERN-OHL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CPAL-1.0",
+   "aliases": [
+    "CPAL",
+    "Common Public Attribution License"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CPL-1.0",
+   "aliases": [
+    "Common Public License",
+    "CPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Caldera",
+   "aliases": [
+    "Caldera-no-preamble"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Condor-1.1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Educational Community License",
+   "aliases": [
+    "ECL-1.0",
+    "ECL-2.0",
+    "ECL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Eiffel Forum License",
+   "aliases": [
+    "EFL-1.0",
+    "EFL-2.0",
+    "EFL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Eclipse Public License",
+   "aliases": [
+    "EPL",
+    "EPL-1.0",
+    "EPL-2.0"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "EUDatagrid",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "EUPL",
+   "aliases": [
+    "European Union Public Licence",
+    "EUPL-1.0",
+    "EUPL-1.1",
+    "EUPL-1.2"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Elastic License",
+   "aliases": [
+    "Elastic-2.0"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Entessa",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Erlang Public License",
+   "aliases": [
+    "ErlPL-1.1",
+    "ErlPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Functional Source License",
+   "aliases": [
+    "FSL-1.1-ALv2",
+    "FSL-1.1-MIT",
+    "FSL-1.1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "FreeType License",
+   "aliases": [
+    "FTL",
+    "FreeType Project License"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Fair",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Frameworx-1.0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FreeImage",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "GFDL",
+   "aliases": [
+    "GNU Free Documentation License",
+    "GFDL-1.1",
+    "GFDL-1.2",
+    "GFDL-1.3"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "GLWTPL",
+   "aliases": [
+    "Good Luck With That Public License"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "GPL",
+   "aliases": [
+    "GNU General Public License",
+    "GPL-1.0",
+    "GPL-2.0",
+    "GPL-3.0",
+    "GPL-2.0-only",
+    "GPL-2.0-or-later",
+    "GPL-3.0-only",
+    "GPL-3.0-or-later"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "HPND",
+   "aliases": [
+    "Historical Permission Notice and Disclaimer"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Hippocratic License",
+   "aliases": [
+    "Hippocratic-2.1",
+    "Hippocratic-3.0-core",
+    "Hippocratic"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "IPA",
+   "aliases": [
+    "IPA Font License"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "IBM Public License",
+   "aliases": [
+    "IPL-1.0",
+    "IPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ISC",
+   "aliases": [
+    "ISC License",
+    "ISC-Veillard"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Info-ZIP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Interbase-1.0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "JSON",
+   "aliases": [
+    "JSON License"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "JasPer-2.0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Licence Art Libre",
+   "aliases": [
+    "LAL-1.2",
+    "LAL-1.3",
+    "Free Art License",
+    "LAL"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LGPL",
+   "aliases": [
+    "GNU Lesser General Public License",
+    "LGPL-2.0",
+    "LGPL-2.1",
+    "LGPL-3.0",
+    "LGPL-2.1-only",
+    "LGPL-2.1-or-later",
+    "LGPL-3.0-only",
+    "LGPL-3.0-or-later"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Lucent Public License",
+   "aliases": [
+    "LPL-1.0",
+    "LPL-1.02",
+    "LPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "LaTeX Project Public License",
+   "aliases": [
+    "LPPL",
+    "LPPL-1.0",
+    "LPPL-1.1",
+    "LPPL-1.2",
+    "LPPL-1.3a",
+    "LPPL-1.3c"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "LiLiQ-P",
+   "aliases": [
+    "LiLiQ-P-1.1",
+    "LiLiQ",
+    "LiLiQ-R-1.1",
+    "LiLiQ-Rplus-1.1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Libpng",
+   "aliases": [
+    "libpng-1.6.35",
+    "libpng-2.0"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "MIT",
+   "aliases": [
+    "MIT License"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "MIT-0",
+   "aliases": [
+    "MIT No Attribution"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "MPL",
+   "aliases": [
+    "Mozilla Public License",
+    "MPL-1.0",
+    "MPL-1.1",
+    "MPL-2.0",
+    "MPL-2.0-no-copyleft-exception"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Microsoft Limited Public License",
+   "aliases": [
+    "MS-LPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Microsoft Public License",
+   "aliases": [
+    "MS-PL"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Microsoft Reciprocal License",
+   "aliases": [
+    "MS-RL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "MirOS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Motosoto",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MulanPSL",
+   "aliases": [
+    "Mulan Permissive Software License",
+    "MulanPSL-1.0",
+    "MulanPSL-2.0"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Multics",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NASA-1.3",
+   "aliases": [
+    "NASA Open Source Agreement"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "NCSA",
+   "aliases": [
+    "University of Illinois/NCSA Open Source License"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "NOSL",
+   "aliases": [
+    "Netizen Open Source License"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Netscape Public License",
+   "aliases": [
+    "NPL-1.0",
+    "NPL-1.1",
+    "NPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "NTP",
+   "aliases": [
+    "NTP-0",
+    "NTP License"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Naumen",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Nokia",
+   "aliases": [
+    "Nokia Open Source License"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "OCLC-2.0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ODC-By-1.0",
+   "aliases": [
+    "ODC-By"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ODbL-1.0",
+   "aliases": [
+    "ODbL",
+    "Open Database License"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "SIL Open Font License",
+   "aliases": [
+    "OFL",
+    "OFL-1.0",
+    "OFL-1.1",
+    "OFL-1.1-RFN",
+    "OFL-1.1-no-RFN"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "OGTSL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Open LDAP Public License",
+   "aliases": [
+    "OLDAP-1.1",
+    "OLDAP-2.0",
+    "OLDAP-2.8",
+    "OLDAP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "OPL-1.0",
+   "aliases": [
+    "Open Publication License"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "OSET-PL-2.1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Open Software License",
+   "aliases": [
+    "OSL",
+    "OSL-1.0",
+    "OSL-1.1",
+    "OSL-2.0",
+    "OSL-2.1",
+    "OSL-3.0"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "OpenPBS-2.3",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "OpenSSL License",
+   "aliases": [
+    "OpenSSL",
+    "OpenSSL-standalone"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "PDDL-1.0",
+   "aliases": [
+    "PDDL",
+    "Public Domain Dedication and License"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PHP License",
+   "aliases": [
+    "PHP-3.0",
+    "PHP-3.01"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Python Software Foundation License",
+   "aliases": [
+    "PSF",
+    "PSF-2.0",
+    "Python-2.0"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Parity Public License",
+   "aliases": [
+    "Parity-6.0.0",
+    "Parity-7.0.0",
+    "Parity"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PolyForm-Noncommercial-1.0.0",
+   "aliases": [
+    "PolyForm-Noncommercial"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PolyForm-Small-Business-1.0.0",
+   "aliases": [
+    "PolyForm-Small-Business"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PostgreSQL License",
+   "aliases": [
+    "PostgreSQL"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Q Public License",
+   "aliases": [
+    "QPL-1.0",
+    "QPL-1.0-INRIA-2004",
+    "QPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Reciprocal Public License",
+   "aliases": [
+    "RPL-1.1",
+    "RPL-1.5",
+    "RPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "RealNetworks Public Source License",
+   "aliases": [
+    "RPSL-1.0",
+    "RPSL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Ruby License",
+   "aliases": [
+    "Ruby",
+    "Ruby-pty"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "SGI Free Software License B",
+   "aliases": [
+    "SGI-B-1.0",
+    "SGI-B-1.1",
+    "SGI-B-2.0",
+    "SGI-B"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Sun Industry Standards Source License",
+   "aliases": [
+    "SISSL",
+    "SISSL-1.2"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "SML/NJ License",
+   "aliases": [
+    "SMLNJ",
+    "StandardML-NJ"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "SNIA",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Sun Public License",
+   "aliases": [
+    "SPL-1.0",
+    "SPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Server Side Public License",
+   "aliases": [
+    "SSPL",
+    "SSPL-1.0"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Sendmail",
+   "aliases": [
+    "Sendmail-8.23",
+    "Sendmail-Open-Source-1.1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Simple Public License",
+   "aliases": [
+    "SimPL-2.0"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Sleepycat",
+   "aliases": [
+    "Sleepycat License"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "SugarCRM-1.1.3",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TAPR Open Hardware License",
+   "aliases": [
+    "TAPR-OHL-1.0",
+    "TAPR-OHL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Tcl/Tk License",
+   "aliases": [
+    "TCL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "TMate",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TORQUE-1.1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "UCL-1.0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Universal Permissive License",
+   "aliases": [
+    "UPL",
+    "UPL-1.0"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "UnRAR",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Unlicense",
+   "aliases": [
+    "Unlicense-libtelnet",
+    "Unlicense-libwhirlpool",
+    "The Unlicense"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Vovida Software License",
+   "aliases": [
+    "VSL-1.0"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Vim License",
+   "aliases": [
+    "Vim"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "W3C Software Notice and License",
+   "aliases": [
+    "W3C",
+    "W3C-19980720",
+    "W3C-20150513",
+    "W3C Software License"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "WTFNMFPL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WTFPL",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Sybase Open Watcom Public License",
+   "aliases": [
+    "Watcom-1.0"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "X11 License",
+   "aliases": [
+    "X11",
+    "X11-distribute-modifications-variant",
+    "X11-no-permit-persons",
+    "X11-swapped"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "XFree86-1.1",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Yahoo! Public License",
+   "aliases": [
+    "YPL-1.0",
+    "YPL-1.1",
+    "YPL"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zope Public License",
+   "aliases": [
+    "ZPL-1.1",
+    "ZPL-2.0",
+    "ZPL-2.1",
+    "ZPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Zend-2.0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zimbra",
+   "aliases": [
+    "Zimbra-1.3",
+    "Zimbra-1.4"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zlib",
+   "aliases": [
+    "zlib License",
+    "zlib-acknowledgement"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "bzip2 License",
+   "aliases": [
+    "bzip2-1.0.5",
+    "bzip2-1.0.6"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "copyleft-next",
+   "aliases": [
+    "copyleft-next-0.3.0",
+    "copyleft-next-0.3.1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "curl License",
+   "aliases": [
+    "curl"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "eCos-2.0",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

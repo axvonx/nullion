@@ -1,0 +1,244 @@
+{
+ "garbage-collection-algorithm": [
+  {
+   "name": "copying collector",
+   "aliases": [
+    "copying collection",
+    "copying GC"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "G1",
+   "aliases": [
+    "G1GC",
+    "Garbage-First",
+    "Garbage-First GC"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "conservative garbage collection",
+   "aliases": [
+    "conservative GC",
+    "conservative collector"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "accurate garbage collection",
+   "aliases": [
+    "precise garbage collection",
+    "exact garbage collection"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ZGC",
+   "aliases": [
+    "Z Garbage Collector"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Parallel GC",
+   "aliases": [
+    "Parallel Scavenge",
+    "Parallel Old",
+    "Parallel Collector"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Serial GC",
+   "aliases": [
+    "Serial Collector"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Shenandoah",
+   "aliases": [
+    "Shenandoah GC"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Epsilon GC",
+   "aliases": [
+    "Epsilon",
+    "Epsilon Garbage Collector"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "mark-sweep",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "mark-compact",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "reference counting",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "generational garbage collection",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "incremental garbage collection",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "tri-color marking",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Cheney's algorithm",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "semispace collector",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Concurrent Mark Sweep",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Train algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Immix",
+   "aliases": [
+    "mark-region"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Baker's algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Lisp2 algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Compressor",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Morris algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Boehm GC",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "C4",
+   "aliases": [
+    "Pauseless GC"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Metronome",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Sapphire",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Deutsch-Schorr-Waite algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "weighted reference counting",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "deferred reference counting",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Bacon-Rajan cycle collection",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Appel collector",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Beltway",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Orinoco",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Generational ZGC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "snapshot-at-the-beginning",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Brooks forwarding pointer",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Mostly Parallel GC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LXR",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RC Immix",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Ulterior reference counting",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

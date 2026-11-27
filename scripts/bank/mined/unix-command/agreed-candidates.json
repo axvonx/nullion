@@ -1,0 +1,1940 @@
+{
+ "unix-command": [
+  {
+   "name": "arch",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "b2sum",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "base32",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "base64",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "basename",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "basenc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "cat",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "chcon",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "chgrp",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "chmod",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "chown",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "chroot",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "cksum",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "comm",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "cp",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "cut",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "date",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "dd",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "df",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "dir",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "dircolors",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "dirname",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "du",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "echo",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "env",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "expand",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "expr",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "false",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "fmt",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "fold",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "groups",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "head",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "hostid",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "hostname",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "id",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "install",
+   "aliases": [
+    "xinstall"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "join",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "kill",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "link",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ln",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ls",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "md5sum",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "mkdir",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "mkfifo",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "mknod",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "mktemp",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "mv",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "nice",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "nl",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "nohup",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "nproc",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "numfmt",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "od",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "paste",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "pathchk",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "pr",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "printenv",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "printf",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "pwd",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "readlink",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "realpath",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "rm",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "rmdir",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "seq",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "sha1sum",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "sha224sum",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "sha256sum",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "sha384sum",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "sha512sum",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "shred",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "shuf",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "sleep",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "sort",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "split",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "stat",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "stdbuf",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "stty",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "sync",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "tac",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "tail",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "tee",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "test",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "timeout",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "touch",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "tr",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "true",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "truncate",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "tty",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "uname",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "unexpand",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "uniq",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "unlink",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "uptime",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "users",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "vdir",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "wc",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "who",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "whoami",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "yes",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "blkdiscard",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "blkpr",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "blkzone",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "chcpu",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "chmem",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "choom",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "dmesg",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "eject",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "fallocate",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "flock",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "fsfreeze",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "fstrim",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "hwclock",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ipcmk",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ipcrm",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ipcs",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "irqtop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "losetup",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "lscpu",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "lsipc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "lsirq",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "lsmem",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "mount",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "mountpoint",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "nsenter",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "pivot_root",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "prlimit",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "readprofile",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "renice",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "rfkill",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "rtcwake",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "setarch",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "setpgid",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "setpriv",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "setsid",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "swapoff",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "swapon",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "switch_root",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tunelp",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "umount",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "unshare",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "wdctl",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "zramctl",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "blkid",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "cal",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "copyfilerange",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "enosys",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "exch",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "fadvise",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "fincore",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "findfs",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "findmnt",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "getino",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "getopt",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "hardlink",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "lastlog2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "logger",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "look",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "lsclocks",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "lslocks",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "namei",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "pipesz",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rename",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "uuidgen",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "waitpid",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "whereis",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "bits",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "col",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "colcrt",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "colrm",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "column",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "hexdump",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "more",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "rev",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "chflags",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "chio",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "cpuset",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "csh",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "domainname",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ed",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "freebsd-version",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "getfacl",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "kenv",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "pax",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "pkill",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ps",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "pwait",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rmail",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "setfacl",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "sh",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "addr2line",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "apply",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ar",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "asa",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "at",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "awk",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "backlight",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "banner",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "bc",
+   "aliases": [
+    "gh-bc"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "biff",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "bintrans",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "bmake",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "bomtool",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "brandelf",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "bsdcat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "bsddialog",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "bsdiff",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "bzip2",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "c++filt",
+   "aliases": [
+    "cxxfilt"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "c89",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "c99",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "caesar",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "calendar",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "cap_mkdb",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "chat",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "chpass",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "cmp",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "command",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "compile_et",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "compress",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "cpio",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ctags",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ctlstat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "dc",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "diff",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "diff3",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "drill",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "dtc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ee",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "elfcopy",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "elfctl",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "elfdump",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "enigma",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "etdump",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "fetch",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "file",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "file2c",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "find",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "finger",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "fortune",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "from",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "fstat",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "fsync",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ftp",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "gcore",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "gencat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "genl",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "getconf",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "getent",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "gprof",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "grdc",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "grep",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "gzip",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "hesinfo",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "host",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "iconv",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ident",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "indent",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "iscsictl",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "jot",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "kdump",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "killall",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ktrace",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ktrdump",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "kyua",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "lam",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "last",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "lastcomm",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ldd",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ldd32",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "leave",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "less",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "lessecho",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "lex",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "limits",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "locale",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "localedef",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "locate",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "lock",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "lockf",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "login",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "logins",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "lorder",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "lsvfs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "m4",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "mail",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "man",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "mandoc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "mdo",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mesg",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "mididump",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ministat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "mkcsmapper",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mkdep",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "mkesdb",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mkimg",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "mkstr",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mkuzip",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "morse",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "msgs",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "mt",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "nc",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ncal",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "netstat",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "newgrp",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "nfsstat",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "nm",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "number",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "pagesize",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "pamtest",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "passwd",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "patch",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "pkgconf",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "pom",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "posixmqcontrol",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "posixshmcontrol",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "primes",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "proccontrol",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "procstat",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "protect",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "quota",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "random",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "rctl",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "readelf",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "resizewin",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "revoke",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rpcgen",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "rs",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "runat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rup",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ruptime",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "rusers",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "rwall",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "rwho",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "script",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "sdiff",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "sdiotool",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "sed",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "size",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "smbutil",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "sockstat",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "soelim",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "spdxtool",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ssh-copy-id",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "strings",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "su",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "systat",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tabs",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "talk",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tar",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "tcopy",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "telnet",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "tftp",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "time",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "tip",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "top",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "truss",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ts",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "unifdef",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "units",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "unvis",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "unzip",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "usbhidaction",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "usbhidctl",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "vacation",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "vi",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "vis",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "vmstat",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "vtfontcvt",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "w",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "wall",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "wg",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "which",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "whois",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "write",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "xo",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "xohtml",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "xolint",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "xopo",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "xstr",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "xz",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "xzdec",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "yacc",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ypcat",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ypmatch",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ypwhich",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "zstd",
+   "aliases": [],
+   "judge": "off-by-one"
+  }
+ ]
+}

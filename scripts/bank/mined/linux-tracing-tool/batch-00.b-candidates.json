@@ -1,0 +1,1049 @@
+{
+  "linux-tracing-tool": [
+    {
+      "name": "argdist",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "argdist",
+      "why": "BCC tool for displaying function argument value histograms and frequency counts"
+    },
+    {
+      "name": "bashreadline",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "bashreadline",
+      "why": "BCC/bpftrace tool for tracing interactive bash commands via readline uprobes"
+    },
+    {
+      "name": "bindsnoop",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "bindsnoop",
+      "why": "BCC tool for tracing socket bind() system calls"
+    },
+    {
+      "name": "biolatency",
+      "aliases": ["biolatency-kp"],
+      "judge": "leak",
+      "evidence": "biolatency",
+      "why": "BCC/bpftrace tool for summarizing block device I/O latency as histograms"
+    },
+    {
+      "name": "biolatpcts",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "biolatpcts",
+      "why": "BCC tool for reporting block device I/O latency percentiles"
+    },
+    {
+      "name": "biopattern",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "biopattern",
+      "why": "BCC tool for identifying random vs sequential block I/O patterns"
+    },
+    {
+      "name": "biosnoop",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "biosnoop",
+      "why": "BCC/bpftrace tool for tracing block device I/O events with PID and latency"
+    },
+    {
+      "name": "biostacks",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "biostacks",
+      "why": "bpftrace tool for tracing block I/O initialization to completion with stack traces"
+    },
+    {
+      "name": "biotop",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "biotop",
+      "why": "BCC top-like tool for block device I/O by process"
+    },
+    {
+      "name": "bitesize",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "bitesize",
+      "why": "BCC/bpftrace/perf-tools histogram tool for block I/O request sizes"
+    },
+    {
+      "name": "bpflist",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "bpflist",
+      "why": "BCC tool for listing running BPF programs and maps"
+    },
+    {
+      "name": "btrfsdist",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "btrfsdist",
+      "why": "BCC tool for summarizing Btrfs operation latency distributions"
+    },
+    {
+      "name": "btrfsslower",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "btrfsslower",
+      "why": "BCC tool for tracing slow Btrfs file system operations"
+    },
+    {
+      "name": "cachestat",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "cachestat",
+      "why": "BCC/perf-tools tool for tracing Linux page cache hit/miss statistics"
+    },
+    {
+      "name": "cachetop",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "cachetop",
+      "why": "BCC top-like tool for Linux page cache hits and misses per process"
+    },
+    {
+      "name": "capable",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "capable",
+      "why": "BCC/bpftrace tool for tracing kernel security capability checks"
+    },
+    {
+      "name": "cobjnew",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "cobjnew",
+      "why": "BCC tool for tracing C/C++ object allocations via USDT probes"
+    },
+    {
+      "name": "compactsnoop",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "compactsnoop",
+      "why": "BCC tool for tracing kernel memory compaction events"
+    },
+    {
+      "name": "cpudist",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "cpudist",
+      "why": "BCC tool for summarizing on-CPU and off-CPU time distributions"
+    },
+    {
+      "name": "cpuunclaimed",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "cpuunclaimed",
+      "why": "BCC tool for measuring idle CPU capacity left unclaimed by runnable threads"
+    },
+    {
+      "name": "cpuwalk",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "cpuwalk",
+      "why": "bpftrace tool for sampling which CPUs processes execute on"
+    },
+    {
+      "name": "criticalstat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "criticalstat",
+      "why": "BCC tool for tracing long atomic critical sections with interrupts/preemption disabled"
+    },
+    {
+      "name": "dbslower",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "dbslower",
+      "why": "BCC tool for tracing slow MySQL and PostgreSQL queries via USDT"
+    },
+    {
+      "name": "dbstat",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "dbstat",
+      "why": "BCC tool for summarizing MySQL and PostgreSQL query latency histograms"
+    },
+    {
+      "name": "dcsnoop",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "dcsnoop",
+      "why": "BCC/bpftrace tool for tracing directory entry cache (dcache) lookups"
+    },
+    {
+      "name": "dcstat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "dcstat",
+      "why": "BCC tool for summarizing directory entry cache (dcache) hit statistics"
+    },
+    {
+      "name": "deadlock",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "deadlock",
+      "why": "BCC tool for detecting potential mutex deadlocks in running processes"
+    },
+    {
+      "name": "dirtop",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "dirtop",
+      "why": "BCC top-like tool for VFS reads and writes by directory"
+    },
+    {
+      "name": "drsnoop",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "drsnoop",
+      "why": "BCC tool for tracing direct memory reclaim events"
+    },
+    {
+      "name": "execsnoop",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "execsnoop",
+      "why": "BCC/bpftrace/perf-tools tool for tracing new process executions via execve"
+    },
+    {
+      "name": "exitsnoop",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "exitsnoop",
+      "why": "BCC tool for tracing process exits and exit reasons"
+    },
+    {
+      "name": "ext4dist",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "ext4dist",
+      "why": "BCC tool for summarizing ext4 file system operation latency distributions"
+    },
+    {
+      "name": "ext4slower",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "ext4slower",
+      "why": "BCC tool for tracing slow ext4 file system operations"
+    },
+    {
+      "name": "f2fsslower",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "f2fsslower",
+      "why": "BCC tool for tracing slow F2FS file system operations"
+    },
+    {
+      "name": "filegone",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "filegone",
+      "why": "BCC tool for tracing why files disappear (unlink, rmdir, rename)"
+    },
+    {
+      "name": "filelife",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "filelife",
+      "why": "BCC tool for tracing the lifespan of short-lived files"
+    },
+    {
+      "name": "fileslower",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "fileslower",
+      "why": "BCC tool for tracing slow synchronous VFS file reads and writes"
+    },
+    {
+      "name": "filetop",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "filetop",
+      "why": "BCC top-like tool for file reads and writes by filename and process"
+    },
+    {
+      "name": "funccount",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "funccount",
+      "why": "BCC/perf-tools tool for counting kernel or user-space function calls"
+    },
+    {
+      "name": "funcgraph",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "funcgraph",
+      "why": "perf-tools ftrace wrapper for tracing kernel function call graphs"
+    },
+    {
+      "name": "funcinterval",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "funcinterval",
+      "why": "BCC tool for timing intervals between calls to a function"
+    },
+    {
+      "name": "funclatency",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "funclatency",
+      "why": "BCC tool for measuring function execution latency distributions"
+    },
+    {
+      "name": "funcslower",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "funcslower",
+      "why": "BCC/perf-tools tool for tracing slow kernel or user-space function calls"
+    },
+    {
+      "name": "functrace",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "functrace",
+      "why": "perf-tools ftrace wrapper for tracing kernel function calls"
+    },
+    {
+      "name": "gethostlatency",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "gethostlatency",
+      "why": "BCC/bpftrace tool for tracing DNS resolution latency via getaddrinfo/gethostbyname"
+    },
+    {
+      "name": "hardirqs",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "hardirqs",
+      "why": "BCC tool for summarizing hardware interrupt handling time"
+    },
+    {
+      "name": "iolatency",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "iolatency",
+      "why": "perf-tools ftrace script for summarizing block I/O latency"
+    },
+    {
+      "name": "iosnoop",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "iosnoop",
+      "why": "perf-tools ftrace script for tracing block device I/O events"
+    },
+    {
+      "name": "javacalls",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "javacalls",
+      "why": "BCC tool for counting Java method calls via USDT"
+    },
+    {
+      "name": "javaflow",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "javaflow",
+      "why": "BCC tool for tracing Java method execution flow via USDT"
+    },
+    {
+      "name": "javagc",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "javagc",
+      "why": "BCC tool for tracing Java garbage collection events"
+    },
+    {
+      "name": "javaobjnew",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "javaobjnew",
+      "why": "BCC tool for tracing Java object allocations"
+    },
+    {
+      "name": "javastat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "javastat",
+      "why": "BCC tool for summarizing Java runtime activity"
+    },
+    {
+      "name": "javathreads",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "javathreads",
+      "why": "BCC tool for tracing Java thread creation and termination"
+    },
+    {
+      "name": "killsnoop",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "killsnoop",
+      "why": "BCC/bpftrace/perf-tools tool for tracing signals sent via kill()"
+    },
+    {
+      "name": "klockstat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "klockstat",
+      "why": "BCC tool for tracing kernel mutex/rwsem lock contention statistics"
+    },
+    {
+      "name": "kprobe",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "kprobe",
+      "why": "perf-tools ftrace script for dynamic kernel function tracing via kprobes"
+    },
+    {
+      "name": "kvmexit",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "kvmexit",
+      "why": "BCC tool for tracing KVM guest VM exits and their reasons"
+    },
+    {
+      "name": "llcstat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "llcstat",
+      "why": "BCC tool for summarizing last-level CPU cache hit and miss statistics"
+    },
+    {
+      "name": "loads",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "loads",
+      "why": "bpftrace tool for printing system load averages"
+    },
+    {
+      "name": "mdflush",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "mdflush",
+      "why": "BCC/bpftrace tool for tracing Linux md RAID flush events"
+    },
+    {
+      "name": "memleak",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "memleak",
+      "why": "BCC tool for tracing outstanding memory allocations to find leaks"
+    },
+    {
+      "name": "mountsnoop",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "mountsnoop",
+      "why": "BCC tool for tracing mount and umount system calls"
+    },
+    {
+      "name": "mysqld_qslower",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "mysqld_qslower",
+      "why": "BCC tool for tracing slow MySQL server queries"
+    },
+    {
+      "name": "naptime",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "naptime",
+      "why": "bpftrace tool for tracing nanosleep calls"
+    },
+    {
+      "name": "netqtop",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "netqtop",
+      "why": "BCC tool for monitoring per-queue network interface statistics"
+    },
+    {
+      "name": "nfsdist",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "nfsdist",
+      "why": "BCC tool for summarizing NFS operation latency distributions"
+    },
+    {
+      "name": "nfsslower",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "nfsslower",
+      "why": "BCC tool for tracing slow NFS operations"
+    },
+    {
+      "name": "nodegc",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "nodegc",
+      "why": "BCC tool for tracing Node.js garbage collection events"
+    },
+    {
+      "name": "nodestat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "nodestat",
+      "why": "BCC tool for summarizing Node.js runtime activity"
+    },
+    {
+      "name": "numasched",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "numasched",
+      "why": "BCC tool for tracing thread migrations across NUMA nodes"
+    },
+    {
+      "name": "offcputime",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "offcputime",
+      "why": "BCC tool for summarizing time spent blocked off-CPU with stack traces"
+    },
+    {
+      "name": "offwaketime",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "offwaketime",
+      "why": "BCC tool for tracing off-CPU time combined with waker stack traces"
+    },
+    {
+      "name": "oomkill",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "oomkill",
+      "why": "BCC/bpftrace tool for tracing Linux out-of-memory killer events"
+    },
+    {
+      "name": "opensnoop",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "opensnoop",
+      "why": "BCC/bpftrace/perf-tools tool for tracing open() system calls"
+    },
+    {
+      "name": "perf-stat-hist",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "perf-stat-hist",
+      "why": "perf-tools script for generating histograms from perf stat tracepoints"
+    },
+    {
+      "name": "perlcalls",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "perlcalls",
+      "why": "BCC tool for counting Perl subroutine calls via USDT"
+    },
+    {
+      "name": "perlflow",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "perlflow",
+      "why": "BCC tool for tracing Perl subroutine call flow"
+    },
+    {
+      "name": "perlstat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "perlstat",
+      "why": "BCC tool for summarizing Perl runtime activity"
+    },
+    {
+      "name": "phpcalls",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "phpcalls",
+      "why": "BCC tool for counting PHP function calls via USDT"
+    },
+    {
+      "name": "phpflow",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "phpflow",
+      "why": "BCC tool for tracing PHP function call flow"
+    },
+    {
+      "name": "phpstat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "phpstat",
+      "why": "BCC tool for summarizing PHP runtime activity"
+    },
+    {
+      "name": "pidpersec",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "pidpersec",
+      "why": "BCC/bpftrace tool for counting new processes created per second"
+    },
+    {
+      "name": "ppchcalls",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "ppchcalls",
+      "why": "BCC tool for counting PowerPC hypervisor calls (hcalls)"
+    },
+    {
+      "name": "profile",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "profile",
+      "why": "BCC CPU stack-sampling profiler using eBPF"
+    },
+    {
+      "name": "pythoncalls",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "pythoncalls",
+      "why": "BCC tool for counting Python function calls via USDT"
+    },
+    {
+      "name": "pythonflow",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "pythonflow",
+      "why": "BCC tool for tracing Python function call flow"
+    },
+    {
+      "name": "pythongc",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "pythongc",
+      "why": "BCC tool for tracing Python garbage collection events"
+    },
+    {
+      "name": "pythonstat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "pythonstat",
+      "why": "BCC tool for summarizing Python runtime activity"
+    },
+    {
+      "name": "rdmaucma",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "rdmaucma",
+      "why": "BCC tool for tracing RDMA connection manager events"
+    },
+    {
+      "name": "readahead",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "readahead",
+      "why": "BCC tool for tracing effectiveness of Linux page cache readahead"
+    },
+    {
+      "name": "rubycalls",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "rubycalls",
+      "why": "BCC tool for counting Ruby method calls via USDT"
+    },
+    {
+      "name": "rubyflow",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "rubyflow",
+      "why": "BCC tool for tracing Ruby method call flow"
+    },
+    {
+      "name": "rubygc",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "rubygc",
+      "why": "BCC tool for tracing Ruby garbage collection events"
+    },
+    {
+      "name": "rubyobjnew",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "rubyobjnew",
+      "why": "BCC tool for tracing Ruby object allocations"
+    },
+    {
+      "name": "rubystat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "rubystat",
+      "why": "BCC tool for summarizing Ruby runtime activity"
+    },
+    {
+      "name": "runqlat",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "runqlat",
+      "why": "BCC/bpftrace tool for measuring CPU scheduler run queue latency"
+    },
+    {
+      "name": "runqlen",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "runqlen",
+      "why": "BCC/bpftrace tool for sampling CPU scheduler run queue length"
+    },
+    {
+      "name": "runqslower",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "runqslower",
+      "why": "BCC tool for tracing threads waiting in the CPU run queue longer than a threshold"
+    },
+    {
+      "name": "setuids",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "setuids",
+      "why": "bpftrace tool for tracing setuid system calls"
+    },
+    {
+      "name": "shmsnoop",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "shmsnoop",
+      "why": "BCC tool for tracing System V shared memory system calls"
+    },
+    {
+      "name": "slabratetop",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "slabratetop",
+      "why": "BCC top-like tool for kernel slab cache allocation rates"
+    },
+    {
+      "name": "sofdsnoop",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "sofdsnoop",
+      "why": "BCC tool for tracing file descriptors passed over Unix domain sockets"
+    },
+    {
+      "name": "softirqs",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "softirqs",
+      "why": "BCC tool for summarizing software interrupt handling time"
+    },
+    {
+      "name": "softirqslower",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "softirqslower",
+      "why": "BCC tool for tracing slow software interrupt handlers"
+    },
+    {
+      "name": "solisten",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "solisten",
+      "why": "BCC tool for tracing kernel socket listen events"
+    },
+    {
+      "name": "ssllatency",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "ssllatency",
+      "why": "bpftrace tool for tracing OpenSSL handshake and read/write latency"
+    },
+    {
+      "name": "sslsniff",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "sslsniff",
+      "why": "BCC tool for tracing OpenSSL/GnuTLS/NSS plaintext calls via uprobes"
+    },
+    {
+      "name": "sslsnoop",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "sslsnoop",
+      "why": "bpftrace tool for tracing OpenSSL library calls"
+    },
+    {
+      "name": "stackcount",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "stackcount",
+      "why": "BCC tool for counting kernel and user stack traces leading to an event"
+    },
+    {
+      "name": "stacksnoop",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "stacksnoop",
+      "why": "BCC tool for printing kernel stack traces for a traced function"
+    },
+    {
+      "name": "statsnoop",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "statsnoop",
+      "why": "BCC/bpftrace tool for tracing stat() system calls"
+    },
+    {
+      "name": "swapin",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "swapin",
+      "why": "BCC/bpftrace tool for counting page swap-in events by process"
+    },
+    {
+      "name": "syncsnoop",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "syncsnoop",
+      "why": "BCC/bpftrace tool for tracing sync/fsync/fdatasync system calls"
+    },
+    {
+      "name": "syscount",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "syscount",
+      "why": "BCC/bpftrace/perf-tools tool for counting system calls by syscall or process"
+    },
+    {
+      "name": "tclcalls",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "tclcalls",
+      "why": "BCC tool for counting Tcl procedure calls via USDT"
+    },
+    {
+      "name": "tclflow",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "tclflow",
+      "why": "BCC tool for tracing Tcl procedure call flow"
+    },
+    {
+      "name": "tclobjnew",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "tclobjnew",
+      "why": "BCC tool for tracing Tcl object allocations"
+    },
+    {
+      "name": "tclstat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "tclstat",
+      "why": "BCC tool for summarizing Tcl runtime activity"
+    },
+    {
+      "name": "tcpaccept",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "tcpaccept",
+      "why": "BCC/bpftrace tool for tracing passive TCP connections accepted by the kernel"
+    },
+    {
+      "name": "tcpcong",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "tcpcong",
+      "why": "BCC tool for summarizing TCP congestion control state durations"
+    },
+    {
+      "name": "tcpconnect",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "tcpconnect",
+      "why": "BCC/bpftrace tool for tracing active outbound TCP connections"
+    },
+    {
+      "name": "tcpconnlat",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "tcpconnlat",
+      "why": "BCC tool for measuring active TCP connection setup latency"
+    },
+    {
+      "name": "tcpdrop",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "tcpdrop",
+      "why": "BCC/bpftrace tool for tracing kernel-dropped TCP packets with stack traces"
+    },
+    {
+      "name": "tcplife",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "tcplife",
+      "why": "BCC/bpftrace tool for tracing TCP session lifespan and throughput"
+    },
+    {
+      "name": "tcpretrans",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "tcpretrans",
+      "why": "BCC/bpftrace/perf-tools tool for tracing TCP retransmissions"
+    },
+    {
+      "name": "tcprtt",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "tcprtt",
+      "why": "BCC tool for summarizing TCP round-trip time histograms"
+    },
+    {
+      "name": "tcpstates",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "tcpstates",
+      "why": "BCC tool for tracing TCP state transitions and durations"
+    },
+    {
+      "name": "tcpsubnet",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "tcpsubnet",
+      "why": "BCC tool for aggregating TCP throughput by destination subnet"
+    },
+    {
+      "name": "tcpsynbl",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "tcpsynbl",
+      "why": "BCC/bpftrace tool for measuring TCP SYN backlog depth"
+    },
+    {
+      "name": "tcptop",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "tcptop",
+      "why": "BCC top-like tool for TCP throughput by host and process"
+    },
+    {
+      "name": "tcptracer",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "tcptracer",
+      "why": "BCC tool for tracing TCP connect, accept, and close events"
+    },
+    {
+      "name": "threadsnoop",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "threadsnoop",
+      "why": "BCC/bpftrace tool for tracing pthread thread creation"
+    },
+    {
+      "name": "tplist",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "tplist",
+      "why": "BCC tool for listing kernel tracepoints and USDT probes"
+    },
+    {
+      "name": "tpoint",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "tpoint",
+      "why": "perf-tools ftrace script for tracing a named kernel tracepoint"
+    },
+    {
+      "name": "trace",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "trace",
+      "why": "BCC tool for ad-hoc tracing of kernel/user functions and tracepoints"
+    },
+    {
+      "name": "ttysnoop",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "ttysnoop",
+      "why": "BCC tool for snooping output written to a tty or pts device"
+    },
+    {
+      "name": "undump",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "undump",
+      "why": "bpftrace tool for dumping packets sent over Unix domain sockets"
+    },
+    {
+      "name": "uprobe",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "uprobe",
+      "why": "perf-tools ftrace script for dynamic user-space function tracing via uprobes"
+    },
+    {
+      "name": "vfscount",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "vfscount",
+      "why": "BCC/bpftrace tool for counting VFS kernel calls"
+    },
+    {
+      "name": "vfsstat",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "vfsstat",
+      "why": "BCC/bpftrace tool for summarizing key VFS call rates"
+    },
+    {
+      "name": "virtiostat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "virtiostat",
+      "why": "BCC tool for tracing virtio device I/O statistics"
+    },
+    {
+      "name": "wakeuptime",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "wakeuptime",
+      "why": "BCC tool for summarizing thread wakeup latency with stack traces"
+    },
+    {
+      "name": "wqlat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "wqlat",
+      "why": "BCC tool for measuring kernel workqueue scheduling latency"
+    },
+    {
+      "name": "writeback",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "writeback",
+      "why": "bpftrace tool for tracing kernel page cache writeback events"
+    },
+    {
+      "name": "xfsdist",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "xfsdist",
+      "why": "BCC/bpftrace tool for summarizing XFS operation latency distributions"
+    },
+    {
+      "name": "xfsslower",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "xfsslower",
+      "why": "BCC tool for tracing slow XFS file system operations"
+    },
+    {
+      "name": "zfsdist",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "zfsdist",
+      "why": "BCC tool for summarizing ZFS operation latency distributions"
+    },
+    {
+      "name": "zfsslower",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "zfsslower",
+      "why": "BCC tool for tracing slow ZFS file system operations"
+    }
+  ],
+  "womm_candidates": ["execsnoop", "opensnoop", "offcputime"],
+  "bitflip_candidates": ["rdmaucma", "slabratetop", "ppchcalls"]
+}

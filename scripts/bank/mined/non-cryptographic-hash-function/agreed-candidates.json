@@ -1,0 +1,359 @@
+{
+ "non-cryptographic-hash-function": [
+  {
+   "name": "MurmurHash",
+   "aliases": [
+    "MurmurHash1",
+    "MurmurHash2",
+    "MurmurHash3",
+    "PMurHash"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "xxHash",
+   "aliases": [
+    "xxh3"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "MD5",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SHA-1",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SHA-3",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "CRC32",
+   "aliases": [
+    "crc32c",
+    "crc",
+    "crc32_hw"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "CRC64",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "SipHash",
+   "aliases": [
+    "halfsiphash"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CityHash",
+   "aliases": [
+    "City",
+    "CityCrc"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "FarmHash",
+   "aliases": [
+    "farmhash-c"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "BLAKE2",
+   "aliases": [
+    "blake2b",
+    "blake2s"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "RIPEMD",
+   "aliases": [
+    "rmd128",
+    "rmd160",
+    "rmd256",
+    "RIPEMD-128"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "HighwayHash",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SpookyHash",
+   "aliases": [
+    "Spooky",
+    "SpookyV2"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "lookup3",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "wyhash",
+   "aliases": [
+    "wyhash32",
+    "wyhash_condom"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "aHash",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SeaHash",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tabulation hashing",
+   "aliases": [
+    "tabulation"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "SuperFastHash",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MetroHash",
+   "aliases": [
+    "cmetrohash",
+    "cmetrohash64"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CLHash",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MeowHash",
+   "aliases": [
+    "meow_hash_x64_aesni"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "GxHash",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rapidhash",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "t1ha",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "komihash",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "UMASH",
+   "aliases": [
+    "umash_long"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "VMAC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Chaskey",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Edon-R",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "a5hash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Discohash",
+   "aliases": [
+    "discohash1",
+    "discohash2",
+    "discohash_512"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "falkhash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "fasthash",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FARSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "fhtw",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "floppsyhash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HalftimeHash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "hasshe2",
+   "aliases": [
+    "hassh64"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "jodyhash",
+   "aliases": [
+    "jody_hash32",
+    "jody_hash64"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "k-hashv",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "khash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LaneHash",
+   "aliases": [
+    "lanehash_aes"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mir-hash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MUM",
+   "aliases": [
+    "mum_v3",
+    "MUM-hash"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "mx3",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "o1hash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "pengyhash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Pippip",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMP_Multilinear",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "polymur-hash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "prvhash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Rainbow",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Rainstorm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "silicium_hash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tifuhash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tsip",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "w1hash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "xmsx",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

@@ -1,0 +1,394 @@
+{
+ "graph-algorithm": [
+  {
+   "name": "d-separation",
+   "aliases": [
+    "d_separation"
+   ],
+   "judge": "race",
+   "why": "directed separation on DAGs",
+   "evidence": "networkx/networkx/networkx/algorithms (file names): d_separation"
+  },
+  {
+   "name": "Dijkstra's algorithm",
+   "aliases": [
+    "Dijkstra"
+   ],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "single-source shortest paths"
+  },
+  {
+   "name": "Bellman-Ford algorithm",
+   "aliases": [
+    "Bellman-Ford"
+   ],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "shortest paths with negative edges"
+  },
+  {
+   "name": "Floyd-Warshall algorithm",
+   "aliases": [
+    "Floyd-Warshall"
+   ],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "all-pairs shortest paths"
+  },
+  {
+   "name": "A* search",
+   "aliases": [
+    "A star"
+   ],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "heuristic shortest path"
+  },
+  {
+   "name": "breadth-first search",
+   "aliases": [
+    "BFS"
+   ],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "level-order traversal"
+  },
+  {
+   "name": "depth-first search",
+   "aliases": [
+    "DFS"
+   ],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "recursive traversal"
+  },
+  {
+   "name": "Kruskal's algorithm",
+   "aliases": [
+    "Kruskal"
+   ],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "minimum spanning tree"
+  },
+  {
+   "name": "Prim's algorithm",
+   "aliases": [
+    "Prim"
+   ],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "minimum spanning tree"
+  },
+  {
+   "name": "Bor\u016fvka's algorithm",
+   "aliases": [
+    "Boruvka"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "minimum spanning tree"
+  },
+  {
+   "name": "Tarjan's strongly connected components algorithm",
+   "aliases": [
+    "Tarjan's algorithm"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "SCCs in one DFS"
+  },
+  {
+   "name": "Kosaraju's algorithm",
+   "aliases": [
+    "Kosaraju"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "SCCs by two passes"
+  },
+  {
+   "name": "Ford-Fulkerson algorithm",
+   "aliases": [
+    "Ford-Fulkerson"
+   ],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "max flow"
+  },
+  {
+   "name": "Edmonds-Karp algorithm",
+   "aliases": [
+    "Edmonds-Karp"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "BFS max flow"
+  },
+  {
+   "name": "Dinic's algorithm",
+   "aliases": [
+    "Dinic"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "blocking flow"
+  },
+  {
+   "name": "push-relabel algorithm",
+   "aliases": [
+    "Goldberg-Tarjan"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "max flow"
+  },
+  {
+   "name": "Hopcroft-Karp algorithm",
+   "aliases": [
+    "Hopcroft-Karp"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "bipartite matching"
+  },
+  {
+   "name": "Hungarian algorithm",
+   "aliases": [
+    "Kuhn-Munkres"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "assignment problem"
+  },
+  {
+   "name": "Edmonds' blossom algorithm",
+   "aliases": [
+    "blossom algorithm"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "general graph matching"
+  },
+  {
+   "name": "Johnson's algorithm",
+   "aliases": [
+    "Johnson"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "all-pairs sparse shortest paths"
+  },
+  {
+   "name": "Kahn's algorithm",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "topological sort"
+  },
+  {
+   "name": "Christofides algorithm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "metric TSP approximation"
+  },
+  {
+   "name": "Held-Karp algorithm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "TSP dynamic programming"
+  },
+  {
+   "name": "Stoer-Wagner algorithm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "global min cut"
+  },
+  {
+   "name": "Karger's algorithm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "randomized min cut"
+  },
+  {
+   "name": "Hierholzer's algorithm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Eulerian circuit"
+  },
+  {
+   "name": "Chu-Liu/Edmonds algorithm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "minimum arborescence"
+  },
+  {
+   "name": "Bron-Kerbosch algorithm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "maximal cliques"
+  },
+  {
+   "name": "Girvan-Newman algorithm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "community detection"
+  },
+  {
+   "name": "Louvain method",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "modularity communities"
+  },
+  {
+   "name": "PageRank",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "link analysis ranking"
+  },
+  {
+   "name": "HITS algorithm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "hubs and authorities"
+  },
+  {
+   "name": "Brandes' algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "betweenness centrality"
+  },
+  {
+   "name": "bidirectional search",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "meet in the middle search"
+  },
+  {
+   "name": "Yen's algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "k shortest paths"
+  },
+  {
+   "name": "Eppstein's algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "k shortest paths"
+  },
+  {
+   "name": "contraction hierarchies",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "road routing speedup"
+  },
+  {
+   "name": "Jump Point Search",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "grid pathfinding"
+  },
+  {
+   "name": "D* Lite",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "incremental replanning"
+  },
+  {
+   "name": "IDA*",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "iterative deepening A*"
+  },
+  {
+   "name": "Gomory-Hu tree",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "all-pairs min cuts"
+  },
+  {
+   "name": "Cuthill-McKee algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "bandwidth reduction"
+  },
+  {
+   "name": "Welsh-Powell algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "greedy coloring"
+  },
+  {
+   "name": "DSatur",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "saturation coloring"
+  },
+  {
+   "name": "Weisfeiler-Lehman algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "graph isomorphism test"
+  },
+  {
+   "name": "VF2 algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "subgraph isomorphism"
+  },
+  {
+   "name": "Boykov-Kolmogorov algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "max flow for vision"
+  },
+  {
+   "name": "Gabow's algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SCC path-based"
+  },
+  {
+   "name": "Lexicographic breadth-first search",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Rose Tarjan Lueker"
+  },
+  {
+   "name": "Dial's algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "bucketed Dijkstra"
+  }
+ ]
+}

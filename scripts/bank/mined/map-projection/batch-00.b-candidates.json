@@ -1,0 +1,741 @@
+{
+  "map-projection": [
+    {
+      "name": "Adams hemisphere-in-a-square projection",
+      "aliases": ["adams"],
+      "judge": "heisenbug",
+      "evidence": "adams",
+      "why": "conformal projection mapping a hemisphere into a square"
+    },
+    {
+      "name": "Albers equal-area conic projection",
+      "aliases": ["aea", "Albers equal-area conic"],
+      "judge": "npe",
+      "evidence": "aea",
+      "why": "standard equal-area conic projection with two standard parallels"
+    },
+    {
+      "name": "Azimuthal equidistant projection",
+      "aliases": ["aeqd"],
+      "judge": "npe",
+      "evidence": "aeqd",
+      "why": "azimuthal projection preserving true distances from the center"
+    },
+    {
+      "name": "Dymaxion map",
+      "aliases": ["airocean", "Airocean"],
+      "judge": "leak",
+      "evidence": "airocean",
+      "why": "Buckminster Fuller's icosahedral world map projection"
+    },
+    {
+      "name": "Airy projection",
+      "aliases": ["airy"],
+      "judge": "heisenbug",
+      "evidence": "airy",
+      "why": "minimum-error azimuthal projection by George Biddell Airy"
+    },
+    {
+      "name": "Aitoff projection",
+      "aliases": ["aitoff"],
+      "judge": "race",
+      "evidence": "aitoff",
+      "why": "modified azimuthal compromise world map projection"
+    },
+    {
+      "name": "August epicycloidal projection",
+      "aliases": ["august"],
+      "judge": "heisenbug",
+      "evidence": "august",
+      "why": "conformal map projection shaping the world inside an epicycloid"
+    },
+    {
+      "name": "Bacon globular projection",
+      "aliases": ["bacon"],
+      "judge": "heisenbug",
+      "evidence": "bacon",
+      "why": "17th-century globular projection with circular parallels"
+    },
+    {
+      "name": "Bertin 1953 projection",
+      "aliases": ["bertin1953"],
+      "judge": "heisenbug",
+      "evidence": "bertin1953",
+      "why": "Jacques Bertin's oblique compromise world projection"
+    },
+    {
+      "name": "Bipolar oblique conformal conic projection",
+      "aliases": ["bipc"],
+      "judge": "heisenbug",
+      "evidence": "bipc",
+      "why": "conformal projection tailored for the Americas using two conic poles"
+    },
+    {
+      "name": "Boggs eumorphic projection",
+      "aliases": ["boggs"],
+      "judge": "heisenbug",
+      "evidence": "boggs",
+      "why": "pseudocylindrical equal-area world projection"
+    },
+    {
+      "name": "Bonne projection",
+      "aliases": ["bonne"],
+      "judge": "leak",
+      "evidence": "bonne",
+      "why": "heart-shaped pseudoconical equal-area projection"
+    },
+    {
+      "name": "CalCOFI grid",
+      "aliases": ["calcofi"],
+      "judge": "heisenbug",
+      "evidence": "calcofi",
+      "why": "oceanographic sampling grid projection used off California"
+    },
+    {
+      "name": "Cassini projection",
+      "aliases": ["cass", "Cassini-Soldner projection"],
+      "judge": "race",
+      "evidence": "cass",
+      "why": "transverse cylindrical projection used for early national surveys"
+    },
+    {
+      "name": "Central cylindrical projection",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "cc",
+      "why": "perspective cylindrical projection from the Earth's center"
+    },
+    {
+      "name": "Central conic projection",
+      "aliases": ["ccon"],
+      "judge": "heisenbug",
+      "evidence": "ccon",
+      "why": "perspective conic projection from the Earth's center"
+    },
+    {
+      "name": "Cylindrical equal-area projection",
+      "aliases": ["cea"],
+      "judge": "npe",
+      "evidence": "cea",
+      "why": "Lambert's equal-area cylindrical projection family"
+    },
+    {
+      "name": "Chamberlin trimetric projection",
+      "aliases": ["chamb"],
+      "judge": "heisenbug",
+      "evidence": "chamb",
+      "why": "compromise projection minimizing distortion between three control points"
+    },
+    {
+      "name": "Colombia Urban projection",
+      "aliases": ["col_urban"],
+      "judge": "heisenbug",
+      "evidence": "col_urban",
+      "why": "planar elevation-adjusted projection used for Colombian cities"
+    },
+    {
+      "name": "Collignon projection",
+      "aliases": ["collg"],
+      "judge": "heisenbug",
+      "evidence": "collg",
+      "why": "pseudocylindrical equal-area projection with straight meridians"
+    },
+    {
+      "name": "Compact Miller projection",
+      "aliases": ["comill"],
+      "judge": "heisenbug",
+      "evidence": "comill",
+      "why": "modified Miller cylindrical projection with reduced polar exaggeration"
+    },
+    {
+      "name": "Craster parabolic projection",
+      "aliases": ["crast"],
+      "judge": "heisenbug",
+      "evidence": "crast",
+      "why": "pseudocylindrical equal-area projection using parabolic meridians"
+    },
+    {
+      "name": "Denoyer semi-elliptical projection",
+      "aliases": ["denoy"],
+      "judge": "heisenbug",
+      "evidence": "denoy",
+      "why": "compromise pseudocylindrical world map projection"
+    },
+    {
+      "name": "Eckert I projection",
+      "aliases": ["eck1"],
+      "judge": "heisenbug",
+      "evidence": "eck1",
+      "why": "pseudocylindrical projection with straight angled meridians"
+    },
+    {
+      "name": "Eckert II projection",
+      "aliases": ["eck2"],
+      "judge": "heisenbug",
+      "evidence": "eck2",
+      "why": "equal-area pseudocylindrical projection with straight meridians"
+    },
+    {
+      "name": "Eckert III projection",
+      "aliases": ["eck3"],
+      "judge": "heisenbug",
+      "evidence": "eck3",
+      "why": "pseudocylindrical projection with elliptical meridians"
+    },
+    {
+      "name": "Eckert IV projection",
+      "aliases": ["eck4"],
+      "judge": "race",
+      "evidence": "eck4",
+      "why": "popular equal-area pseudocylindrical world projection"
+    },
+    {
+      "name": "Eckert V projection",
+      "aliases": ["eck5"],
+      "judge": "heisenbug",
+      "evidence": "eck5",
+      "why": "compromise pseudocylindrical projection with sinusoidal meridians"
+    },
+    {
+      "name": "Equirectangular projection",
+      "aliases": ["eqc", "Plate carrée"],
+      "judge": "off-by-one",
+      "evidence": "eqc",
+      "why": "simple cylindrical projection mapping meridians and parallels to a grid"
+    },
+    {
+      "name": "Equidistant conic projection",
+      "aliases": ["eqdc"],
+      "judge": "leak",
+      "evidence": "eqdc",
+      "why": "conic projection preserving scale along all meridians"
+    },
+    {
+      "name": "Equal Earth projection",
+      "aliases": ["eqearth"],
+      "judge": "leak",
+      "evidence": "eqearth",
+      "why": "modern equal-area pseudocylindrical world map projection"
+    },
+    {
+      "name": "Fahey projection",
+      "aliases": ["fahey"],
+      "judge": "heisenbug",
+      "evidence": "fahey",
+      "why": "pseudocylindrical compromise world map projection"
+    },
+    {
+      "name": "Foucaut sinusoidal projection",
+      "aliases": ["fouc_s"],
+      "judge": "heisenbug",
+      "evidence": "fouc_s",
+      "why": "equal-area pseudocylindrical projection blending sinusoidal and stereographic"
+    },
+    {
+      "name": "Gall stereographic projection",
+      "aliases": ["gall"],
+      "judge": "leak",
+      "evidence": "gall",
+      "why": "cylindrical projection stereographically projecting from the opposite meridian"
+    },
+    {
+      "name": "Geostationary satellite view projection",
+      "aliases": ["geos"],
+      "judge": "race",
+      "evidence": "geos",
+      "why": "vertical perspective projection as seen from a geostationary orbit"
+    },
+    {
+      "name": "Ginsburg VIII projection",
+      "aliases": ["gins8"],
+      "judge": "heisenbug",
+      "evidence": "gins8",
+      "why": "Soviet compromise pseudocylindrical world projection"
+    },
+    {
+      "name": "Sinusoidal projection",
+      "aliases": ["gn_sinu"],
+      "judge": "npe",
+      "evidence": "gn_sinu",
+      "why": "pseudocylindrical equal-area projection using sine curves for meridians"
+    },
+    {
+      "name": "Gnomonic projection",
+      "aliases": ["gnom"],
+      "judge": "npe",
+      "evidence": "gnom",
+      "why": "azimuthal projection mapping all great circles to straight lines"
+    },
+    {
+      "name": "Goode homolosine projection",
+      "aliases": ["goode", "igh", "igh_o"],
+      "judge": "npe",
+      "evidence": "goode",
+      "why": "interrupted equal-area projection combining sinusoidal and Mollweide"
+    },
+    {
+      "name": "Gauss-Schreiber transverse Mercator projection",
+      "aliases": ["gstmerc"],
+      "judge": "heisenbug",
+      "evidence": "gstmerc",
+      "why": "conformal double-projection via an intermediate sphere"
+    },
+    {
+      "name": "Hammer projection",
+      "aliases": ["hammer"],
+      "judge": "leak",
+      "evidence": "hammer",
+      "why": "equal-area modified azimuthal world projection"
+    },
+    {
+      "name": "Hatano asymmetrical equal-area projection",
+      "aliases": ["hatano"],
+      "judge": "heisenbug",
+      "evidence": "hatano",
+      "why": "asymmetrical pseudocylindrical equal-area projection"
+    },
+    {
+      "name": "HEALPix",
+      "aliases": ["healpix"],
+      "judge": "race",
+      "evidence": "healpix",
+      "why": "equal-area spherical pixelation and projection used in astronomy"
+    },
+    {
+      "name": "International Map of the World polyconic projection",
+      "aliases": ["imw_p"],
+      "judge": "heisenbug",
+      "evidence": "imw_p",
+      "why": "modified polyconic projection designed for 1:1,000,000 world map sheets"
+    },
+    {
+      "name": "Krovak projection",
+      "aliases": ["krovak"],
+      "judge": "race",
+      "evidence": "krovak",
+      "why": "oblique conformal conic projection used in Czechia and Slovakia"
+    },
+    {
+      "name": "Laborde projection",
+      "aliases": ["labrd"],
+      "judge": "heisenbug",
+      "evidence": "labrd",
+      "why": "oblique conformal cylindrical projection developed for Madagascar"
+    },
+    {
+      "name": "Lambert azimuthal equal-area projection",
+      "aliases": ["laea"],
+      "judge": "npe",
+      "evidence": "laea",
+      "why": "standard equal-area azimuthal projection"
+    },
+    {
+      "name": "Lagrange projection",
+      "aliases": ["lagrng"],
+      "judge": "heisenbug",
+      "evidence": "lagrng",
+      "why": "conformal projection mapping the entire Earth inside a circle"
+    },
+    {
+      "name": "Larrivee projection",
+      "aliases": ["larr"],
+      "judge": "heisenbug",
+      "evidence": "larr",
+      "why": "compromise world map projection"
+    },
+    {
+      "name": "Laskowski tri-optimal projection",
+      "aliases": ["lask"],
+      "judge": "heisenbug",
+      "evidence": "lask",
+      "why": "compromise projection minimizing area, angular, and distance distortion"
+    },
+    {
+      "name": "Lambert conformal conic projection",
+      "aliases": ["lcc"],
+      "judge": "npe",
+      "evidence": "lcc",
+      "why": "widely used conformal conic projection for mid-latitude charts"
+    },
+    {
+      "name": "Lambert conformal conic alternative projection",
+      "aliases": ["lcca"],
+      "judge": "heisenbug",
+      "evidence": "lcca",
+      "why": "alternative series formulation of Lambert conformal conic"
+    },
+    {
+      "name": "Loximuthal projection",
+      "aliases": ["loxim"],
+      "judge": "heisenbug",
+      "evidence": "loxim",
+      "why": "pseudocylindrical projection showing rhumb lines from the center as straight"
+    },
+    {
+      "name": "McBryde-Thomas flat-polar sinusoidal projection",
+      "aliases": ["mbt_fps"],
+      "judge": "heisenbug",
+      "evidence": "mbt_fps",
+      "why": "equal-area pseudocylindrical projection with flat polar lines"
+    },
+    {
+      "name": "McBryde-Thomas flat-polar parabolic projection",
+      "aliases": ["mbtfpp"],
+      "judge": "heisenbug",
+      "evidence": "mbtfpp",
+      "why": "equal-area pseudocylindrical projection with parabolic meridians"
+    },
+    {
+      "name": "McBryde-Thomas flat-polar quartic projection",
+      "aliases": ["mbtfpq"],
+      "judge": "heisenbug",
+      "evidence": "mbtfpq",
+      "why": "equal-area pseudocylindrical projection with quartic meridians"
+    },
+    {
+      "name": "Mercator projection",
+      "aliases": ["merc"],
+      "judge": "off-by-one",
+      "evidence": "merc",
+      "why": "famous conformal cylindrical navigation projection"
+    },
+    {
+      "name": "Miller cylindrical projection",
+      "aliases": ["mill"],
+      "judge": "npe",
+      "evidence": "mill",
+      "why": "modified Mercator cylindrical projection reducing polar area inflation"
+    },
+    {
+      "name": "Modified stereographic conformal projection",
+      "aliases": ["mod_ster"],
+      "judge": "heisenbug",
+      "evidence": "mod_ster",
+      "why": "complex-polynomial conformal stereographic family for regions"
+    },
+    {
+      "name": "Mollweide projection",
+      "aliases": ["moll", "imoll", "imoll_o"],
+      "judge": "npe",
+      "evidence": "moll",
+      "why": "equal-area pseudocylindrical projection with an elliptical outline"
+    },
+    {
+      "name": "Natural Earth projection",
+      "aliases": ["natearth"],
+      "judge": "leak",
+      "evidence": "natearth",
+      "why": "Tom Patterson's pseudocylindrical compromise world projection"
+    },
+    {
+      "name": "Natural Earth II projection",
+      "aliases": ["natearth2"],
+      "judge": "heisenbug",
+      "evidence": "natearth2",
+      "why": "rounded-pole variant of the Natural Earth projection"
+    },
+    {
+      "name": "Nell projection",
+      "aliases": ["nell"],
+      "judge": "heisenbug",
+      "evidence": "nell",
+      "why": "equal-area pseudocylindrical projection averaging sinusoidal and cylindrical"
+    },
+    {
+      "name": "Nell-Hammer projection",
+      "aliases": ["nell_h"],
+      "judge": "heisenbug",
+      "evidence": "nell_h",
+      "why": "pseudocylindrical compromise projection by Nell and Hammer"
+    },
+    {
+      "name": "Nicolosi globular projection",
+      "aliases": ["nicol"],
+      "judge": "heisenbug",
+      "evidence": "nicol",
+      "why": "classic hemisphere projection with circular arcs"
+    },
+    {
+      "name": "Near-sided perspective projection",
+      "aliases": ["nsper"],
+      "judge": "race",
+      "evidence": "nsper",
+      "why": "perspective projection from a finite altitude above the Earth"
+    },
+    {
+      "name": "New Zealand Map Grid",
+      "aliases": ["nzmg"],
+      "judge": "race",
+      "evidence": "nzmg",
+      "why": "conformal complex-polynomial projection tailored to New Zealand"
+    },
+    {
+      "name": "Oblique cylindrical equal-area projection",
+      "aliases": ["ocea"],
+      "judge": "heisenbug",
+      "evidence": "ocea",
+      "why": "oblique orientation of the cylindrical equal-area projection"
+    },
+    {
+      "name": "Oblated equal area projection",
+      "aliases": ["oea"],
+      "judge": "heisenbug",
+      "evidence": "oea",
+      "why": "azimuthal equal-area variant transformed into an oval shape"
+    },
+    {
+      "name": "Oblique Mercator projection",
+      "aliases": ["omerc"],
+      "judge": "leak",
+      "evidence": "omerc",
+      "why": "conformal cylindrical projection tilted along an arbitrary great circle"
+    },
+    {
+      "name": "Orthographic projection",
+      "aliases": ["ortho"],
+      "judge": "off-by-one",
+      "evidence": "ortho",
+      "why": "perspective azimuthal projection from infinite distance"
+    },
+    {
+      "name": "Patterson cylindrical projection",
+      "aliases": ["patterson"],
+      "judge": "race",
+      "evidence": "patterson",
+      "why": "cylindrical compromise projection designed as a Miller alternative"
+    },
+    {
+      "name": "American polyconic projection",
+      "aliases": ["poly"],
+      "judge": "leak",
+      "evidence": "poly",
+      "why": "polyconic projection formerly standard for USGS topographic maps"
+    },
+    {
+      "name": "Putniņš P2 projection",
+      "aliases": ["putp2"],
+      "judge": "heisenbug",
+      "evidence": "putp2",
+      "why": "equal-area pseudocylindrical projection by Reinholds Putniņš"
+    },
+    {
+      "name": "Putniņš P3 projection",
+      "aliases": ["putp3"],
+      "judge": "heisenbug",
+      "evidence": "putp3",
+      "why": "pseudocylindrical compromise projection by Reinholds Putniņš"
+    },
+    {
+      "name": "Putniņš P4' projection",
+      "aliases": ["putp4p"],
+      "judge": "heisenbug",
+      "evidence": "putp4p",
+      "why": "equal-area pseudocylindrical projection by Reinholds Putniņš"
+    },
+    {
+      "name": "Putniņš P5 projection",
+      "aliases": ["putp5"],
+      "judge": "heisenbug",
+      "evidence": "putp5",
+      "why": "pseudocylindrical compromise projection by Reinholds Putniņš"
+    },
+    {
+      "name": "Putniņš P6 projection",
+      "aliases": ["putp6"],
+      "judge": "heisenbug",
+      "evidence": "putp6",
+      "why": "equal-area pseudocylindrical projection by Reinholds Putniņš"
+    },
+    {
+      "name": "Quadrilateralized spherical cube projection",
+      "aliases": ["qsc"],
+      "judge": "heisenbug",
+      "evidence": "qsc",
+      "why": "equal-area cube-face projection used for COBE sky maps"
+    },
+    {
+      "name": "Robinson projection",
+      "aliases": ["robin"],
+      "judge": "off-by-one",
+      "evidence": "robin",
+      "why": "widely used pseudocylindrical compromise world map projection"
+    },
+    {
+      "name": "Roussilhe stereographic projection",
+      "aliases": ["rouss"],
+      "judge": "heisenbug",
+      "evidence": "rouss",
+      "why": "oblique conformal projection used in French hydrographic surveys"
+    },
+    {
+      "name": "Rectangular polyconic projection",
+      "aliases": ["rpoly"],
+      "judge": "heisenbug",
+      "evidence": "rpoly",
+      "why": "polyconic projection with perpendicular meridians and parallels"
+    },
+    {
+      "name": "S2 projection",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "s2",
+      "why": "spherical cube-face projection used in Google's S2 geometry library"
+    },
+    {
+      "name": "Simple conic projection",
+      "aliases": ["sconics"],
+      "judge": "race",
+      "evidence": "sconics",
+      "why": "classical family of simple conic projections"
+    },
+    {
+      "name": "Space oblique Mercator projection",
+      "aliases": ["som"],
+      "judge": "heisenbug",
+      "evidence": "som",
+      "why": "dynamic projection accounting for satellite orbit and Earth rotation"
+    },
+    {
+      "name": "Swiss oblique cylindrical projection",
+      "aliases": ["somerc"],
+      "judge": "heisenbug",
+      "evidence": "somerc",
+      "why": "conformal oblique cylindrical projection used by Switzerland"
+    },
+    {
+      "name": "Spilhaus projection",
+      "aliases": ["spilhaus"],
+      "judge": "race",
+      "evidence": "spilhaus",
+      "why": "ocean-centered interrupted projection showcasing one connected world ocean"
+    },
+    {
+      "name": "Stereographic projection",
+      "aliases": ["stere"],
+      "judge": "off-by-one",
+      "evidence": "stere",
+      "why": "classical conformal azimuthal projection preserving circles"
+    },
+    {
+      "name": "Oblique stereographic alternative projection",
+      "aliases": ["sterea"],
+      "judge": "heisenbug",
+      "evidence": "sterea",
+      "why": "double stereographic conformal projection used in national grids"
+    },
+    {
+      "name": "Transverse central cylindrical projection",
+      "aliases": ["tcc"],
+      "judge": "heisenbug",
+      "evidence": "tcc",
+      "why": "transverse orientation of the central cylindrical projection"
+    },
+    {
+      "name": "Transverse cylindrical equal-area projection",
+      "aliases": ["tcea"],
+      "judge": "race",
+      "evidence": "tcea",
+      "why": "transverse orientation of the cylindrical equal-area projection"
+    },
+    {
+      "name": "Times projection",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "times",
+      "why": "modified Gall stereographic projection created for The Times Atlas"
+    },
+    {
+      "name": "Transverse Mercator projection",
+      "aliases": ["tmerc", "tmerczoned"],
+      "judge": "npe",
+      "evidence": "tmerc",
+      "why": "conformal projection underlying the UTM coordinate system"
+    },
+    {
+      "name": "Tobler-Mercator projection",
+      "aliases": ["tobmerc"],
+      "judge": "heisenbug",
+      "evidence": "tobmerc",
+      "why": "equal-area cylindrical projection variant by Waldo Tobler"
+    },
+    {
+      "name": "Two-point equidistant projection",
+      "aliases": ["tpeqd"],
+      "judge": "race",
+      "evidence": "tpeqd",
+      "why": "projection preserving true distances from two chosen reference points"
+    },
+    {
+      "name": "Urmaev V projection",
+      "aliases": ["urm5"],
+      "judge": "heisenbug",
+      "evidence": "urm5",
+      "why": "pseudocylindrical compromise projection by N. A. Urmaev"
+    },
+    {
+      "name": "Urmaev flat-polar sinusoidal projection",
+      "aliases": ["urmfps"],
+      "judge": "heisenbug",
+      "evidence": "urmfps",
+      "why": "flat-polar pseudocylindrical projection by N. A. Urmaev"
+    },
+    {
+      "name": "Van der Grinten projection",
+      "aliases": ["vandg"],
+      "judge": "leak",
+      "evidence": "vandg",
+      "why": "circular compromise projection formerly used by National Geographic"
+    },
+    {
+      "name": "Van der Grinten II projection",
+      "aliases": ["vandg2"],
+      "judge": "heisenbug",
+      "evidence": "vandg2",
+      "why": "second circular compromise projection by Alphons van der Grinten"
+    },
+    {
+      "name": "Van der Grinten IV projection",
+      "aliases": ["vandg4"],
+      "judge": "heisenbug",
+      "evidence": "vandg4",
+      "why": "fourth apple-shaped compromise projection by Van der Grinten"
+    },
+    {
+      "name": "Wagner II projection",
+      "aliases": ["wag2"],
+      "judge": "heisenbug",
+      "evidence": "wag2",
+      "why": "pseudocylindrical compromise projection by Karlheinz Wagner"
+    },
+    {
+      "name": "Wagner III projection",
+      "aliases": ["wag3"],
+      "judge": "heisenbug",
+      "evidence": "wag3",
+      "why": "pseudocylindrical compromise projection by Karlheinz Wagner"
+    },
+    {
+      "name": "Wagner VII projection",
+      "aliases": ["wag7"],
+      "judge": "heisenbug",
+      "evidence": "wag7",
+      "why": "equal-area modified azimuthal projection by Karlheinz Wagner"
+    },
+    {
+      "name": "Winkel I projection",
+      "aliases": ["wink1"],
+      "judge": "heisenbug",
+      "evidence": "wink1",
+      "why": "pseudocylindrical compromise projection by Oswald Winkel"
+    },
+    {
+      "name": "Winkel II projection",
+      "aliases": ["wink2"],
+      "judge": "heisenbug",
+      "evidence": "wink2",
+      "why": "pseudocylindrical compromise projection by Oswald Winkel"
+    }
+  ],
+  "womm_candidates": ["Dymaxion map", "Goode homolosine projection", "Equal Earth projection"],
+  "bitflip_candidates": ["Spilhaus projection", "Bertin 1953 projection", "Adams hemisphere-in-a-square projection"]
+}

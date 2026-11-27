@@ -1,0 +1,85 @@
+[
+ {
+  "name": "BLEND",
+  "a": null,
+  "b": {
+   "name": "BLEND",
+   "aliases": [
+    "Blender"
+   ],
+   "judge": "npe",
+   "evidence": "Blender",
+   "why": "native binary project and scene format of Blender"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PMX",
+  "a": null,
+  "b": {
+   "name": "PMX",
+   "aliases": [
+    "PMD",
+    "MMD"
+   ],
+   "judge": "race",
+   "evidence": "MMD",
+   "why": "MikuMikuDance rigged character model format"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Ogre XML",
+  "a": null,
+  "b": {
+   "name": "Ogre XML",
+   "aliases": [
+    "Ogre"
+   ],
+   "judge": "race",
+   "evidence": "Ogre",
+   "why": "OGRE 3D engine mesh and skeleton XML format"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "TER",
+  "a": null,
+  "b": {
+   "name": "TER",
+   "aliases": [
+    "Terragen"
+   ],
+   "judge": "race",
+   "evidence": "Terragen",
+   "why": "Terragen binary heightfield terrain geometry format"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Unreal 3D",
+  "a": null,
+  "b": {
+   "name": "Unreal 3D",
+   "aliases": [
+    "Unreal"
+   ],
+   "judge": "race",
+   "evidence": "Unreal",
+   "why": "legacy Unreal Engine vertex-animated .3d model format"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RAW",
+  "a": null,
+  "b": {
+   "name": "RAW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Raw",
+   "why": "plain ASCII triangle-list format used with POV-Ray"
+  },
+  "batch": "batch-00.txt"
+ }
+]

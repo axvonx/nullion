@@ -1,0 +1,22 @@
+{
+ "stream-cipher": [
+  {
+   "name": "RC4",
+   "aliases": [
+    "ARC4",
+    "arc4",
+    "ARCFOUR"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ChaCha20",
+   "aliases": [
+    "ChaCha",
+    "chacha",
+    "chacha20poly1305"
+   ],
+   "judge": "off-by-one"
+  }
+ ]
+}

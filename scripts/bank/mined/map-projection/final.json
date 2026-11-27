@@ -1,0 +1,760 @@
+{
+ "map-projection": [
+  {
+   "name": "Adams projection",
+   "aliases": [
+    "adams",
+    "Adams hemisphere-in-a-square projection"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Albers equal-area conic",
+   "aliases": [
+    "aea",
+    "Albers equal-area conic projection"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Azimuthal equidistant projection",
+   "aliases": [
+    "aeqd"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Dymaxion map",
+   "aliases": [
+    "airocean"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Airy projection",
+   "aliases": [
+    "airy"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Aitoff projection",
+   "aliases": [
+    "aitoff"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Bacon globular projection",
+   "aliases": [
+    "bacon"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Bertin 1953 projection",
+   "aliases": [
+    "bertin1953"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Bipolar oblique conic conformal projection",
+   "aliases": [
+    "bipc",
+    "Bipolar oblique conformal conic projection"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Boggs eumorphic projection",
+   "aliases": [
+    "boggs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Bonne projection",
+   "aliases": [
+    "bonne"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Cassini projection",
+   "aliases": [
+    "cass",
+    "Cassini-Soldner projection"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Central cylindrical projection",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Central conic projection",
+   "aliases": [
+    "ccon"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Cylindrical equal-area projection",
+   "aliases": [
+    "cea"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Chamberlin trimetric projection",
+   "aliases": [
+    "chamb"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Colombia Urban projection",
+   "aliases": [
+    "col_urban"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Collignon projection",
+   "aliases": [
+    "collg"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Compact Miller projection",
+   "aliases": [
+    "comill"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Craster parabolic projection",
+   "aliases": [
+    "crast"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Denoyer semi-elliptical projection",
+   "aliases": [
+    "denoy"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Eckert I projection",
+   "aliases": [
+    "eck1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Eckert II projection",
+   "aliases": [
+    "eck2"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Eckert III projection",
+   "aliases": [
+    "eck3"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Eckert IV projection",
+   "aliases": [
+    "eck4"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Eckert V projection",
+   "aliases": [
+    "eck5"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Equirectangular projection",
+   "aliases": [
+    "eqc",
+    "Plate carrée"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Equidistant conic projection",
+   "aliases": [
+    "eqdc"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Equal Earth projection",
+   "aliases": [
+    "eqearth"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Fahey projection",
+   "aliases": [
+    "fahey"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Foucaut sinusoidal projection",
+   "aliases": [
+    "fouc_s"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Gall stereographic projection",
+   "aliases": [
+    "gall"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Geostationary satellite view projection",
+   "aliases": [
+    "geos"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Ginsburg VIII projection",
+   "aliases": [
+    "gins8"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Sinusoidal projection",
+   "aliases": [
+    "gn_sinu"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Gnomonic projection",
+   "aliases": [
+    "gnom"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Goode homolosine projection",
+   "aliases": [
+    "goode",
+    "igh",
+    "igh_o"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Gauss-Schreiber transverse Mercator projection",
+   "aliases": [
+    "gstmerc"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Hammer projection",
+   "aliases": [
+    "hammer"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Hatano asymmetrical equal-area projection",
+   "aliases": [
+    "hatano"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HEALPix projection",
+   "aliases": [
+    "healpix"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "International Map of the World polyconic projection",
+   "aliases": [
+    "imw_p"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Krovak projection",
+   "aliases": [
+    "krovak"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Laborde projection",
+   "aliases": [
+    "labrd"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Lambert azimuthal equal-area projection",
+   "aliases": [
+    "laea"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Lagrange projection",
+   "aliases": [
+    "lagrng"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Larrivée projection",
+   "aliases": [
+    "larr",
+    "Larrivee projection"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Laskowski tri-optimal projection",
+   "aliases": [
+    "lask"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Lambert conformal conic projection",
+   "aliases": [
+    "lcc"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Lambert conformal conic alternative projection",
+   "aliases": [
+    "lcca"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Loximuthal projection",
+   "aliases": [
+    "loxim"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "McBryde-Thomas flat-polar sinusoidal projection",
+   "aliases": [
+    "mbt_fps"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "McBryde-Thomas flat-polar parabolic projection",
+   "aliases": [
+    "mbtfpp"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "McBryde-Thomas flat-polar quartic projection",
+   "aliases": [
+    "mbtfpq"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Mercator projection",
+   "aliases": [
+    "merc"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Miller cylindrical projection",
+   "aliases": [
+    "mill"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Modified-Stereographic conformal projection",
+   "aliases": [
+    "mod_ster"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Natural Earth projection",
+   "aliases": [
+    "natearth"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Natural Earth II projection",
+   "aliases": [
+    "natearth2"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Nell projection",
+   "aliases": [
+    "nell"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Nell-Hammer projection",
+   "aliases": [
+    "nell_h"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Nicolosi globular projection",
+   "aliases": [
+    "nicol"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Near-sided perspective projection",
+   "aliases": [
+    "nsper"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "New Zealand Map Grid projection",
+   "aliases": [
+    "nzmg",
+    "New Zealand Map Grid"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Oblique cylindrical equal-area projection",
+   "aliases": [
+    "ocea"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Oblated equal-area projection",
+   "aliases": [
+    "oea"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Oblique Mercator projection",
+   "aliases": [
+    "omerc"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Orthographic projection",
+   "aliases": [
+    "ortho"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Patterson cylindrical projection",
+   "aliases": [
+    "patterson"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Polyconic projection",
+   "aliases": [
+    "poly",
+    "American polyconic projection"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Putnins P2 projection",
+   "aliases": [
+    "putp2",
+    "Putniņš P2 projection"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Putnins P3 projection",
+   "aliases": [
+    "putp3",
+    "Putniņš P3 projection"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Putnins P4' projection",
+   "aliases": [
+    "putp4p",
+    "Putniņš P4' projection"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Putnins P5 projection",
+   "aliases": [
+    "putp5",
+    "Putniņš P5 projection"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Putnins P6 projection",
+   "aliases": [
+    "putp6",
+    "Putniņš P6 projection"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Quadrilateralized Spherical Cube projection",
+   "aliases": [
+    "qsc"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Robinson projection",
+   "aliases": [
+    "robin"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Roussilhe stereographic projection",
+   "aliases": [
+    "rouss"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Rectangular polyconic projection",
+   "aliases": [
+    "rpoly"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Space Oblique Mercator projection",
+   "aliases": [
+    "som"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Swiss Oblique Mercator projection",
+   "aliases": [
+    "somerc",
+    "Swiss oblique cylindrical projection"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Spilhaus world ocean projection",
+   "aliases": [
+    "spilhaus",
+    "Spilhaus projection"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Stereographic projection",
+   "aliases": [
+    "stere"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Oblique Stereographic Alternative projection",
+   "aliases": [
+    "sterea"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Transverse Central Cylindrical projection",
+   "aliases": [
+    "tcc"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Transverse Cylindrical Equal Area projection",
+   "aliases": [
+    "tcea"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Times projection",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Transverse Mercator projection",
+   "aliases": [
+    "tmerc",
+    "tmerczoned"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Tobler-Mercator projection",
+   "aliases": [
+    "tobmerc"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Two-Point Equidistant projection",
+   "aliases": [
+    "tpeqd"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Urmaev V projection",
+   "aliases": [
+    "urm5"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Urmaev Flat-Polar Sinusoidal projection",
+   "aliases": [
+    "urmfps"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Van der Grinten projection",
+   "aliases": [
+    "vandg"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Van der Grinten II projection",
+   "aliases": [
+    "vandg2"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Van der Grinten IV projection",
+   "aliases": [
+    "vandg4"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Wagner II projection",
+   "aliases": [
+    "wag2"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Wagner III projection",
+   "aliases": [
+    "wag3"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Wagner VII projection",
+   "aliases": [
+    "wag7"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Winkel I projection",
+   "aliases": [
+    "wink1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Winkel II projection",
+   "aliases": [
+    "wink2"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "August projection",
+   "aliases": [
+    "August epicycloidal projection"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Interrupted Mollweide projection",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Mollweide projection",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Simple conic projection",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Spherical Cross-track Height projection",
+   "aliases": [
+    "SCH"
+   ],
+   "judge": "heisenbug",
+   "confidence": "low"
+  },
+  {
+   "name": "CalCOFI grid",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  },
+  {
+   "name": "S2 projection",
+   "aliases": [],
+   "judge": "race",
+   "confidence": "low"
+  }
+ ]
+}

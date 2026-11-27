@@ -1,0 +1,125 @@
+{
+  "block-cipher": [
+    {
+      "name": "AES",
+      "aliases": ["Advanced Encryption Standard", "Rijndael"],
+      "judge": "off-by-one",
+      "evidence": "aes",
+      "why": "ubiquitous NIST-standardized 128-bit symmetric block cipher"
+    },
+    {
+      "name": "DES",
+      "aliases": ["Data Encryption Standard", "des_generic"],
+      "judge": "off-by-one",
+      "evidence": "des_generic",
+      "why": "classic 1970s NIST-standardized 64-bit Feistel block cipher"
+    },
+    {
+      "name": "Blowfish",
+      "aliases": ["blowfish_common", "blowfish_generic"],
+      "judge": "npe",
+      "evidence": "blowfish_generic",
+      "why": "widely known 64-bit Feistel block cipher designed by Bruce Schneier"
+    },
+    {
+      "name": "Twofish",
+      "aliases": ["twofish_common", "twofish_generic"],
+      "judge": "npe",
+      "evidence": "twofish_generic",
+      "why": "well-known 128-bit AES finalist block cipher by Bruce Schneier"
+    },
+    {
+      "name": "Serpent",
+      "aliases": ["serpent_generic"],
+      "judge": "leak",
+      "evidence": "serpent_generic",
+      "why": "128-bit AES finalist block cipher known for conservative security margin"
+    },
+    {
+      "name": "Camellia",
+      "aliases": ["camellia_generic"],
+      "judge": "leak",
+      "evidence": "camellia_generic",
+      "why": "128-bit block cipher jointly developed by Mitsubishi and NTT"
+    },
+    {
+      "name": "IDEA",
+      "aliases": ["International Data Encryption Algorithm"],
+      "judge": "leak",
+      "evidence": "idea",
+      "why": "64-bit block cipher originally used in PGP"
+    },
+    {
+      "name": "TEA",
+      "aliases": ["Tiny Encryption Algorithm"],
+      "judge": "leak",
+      "evidence": "tea",
+      "why": "compact 64-bit Feistel block cipher by Wheeler and Needham"
+    },
+    {
+      "name": "CAST-128",
+      "aliases": ["CAST5", "cast5_generic"],
+      "judge": "leak",
+      "evidence": "cast5_generic",
+      "why": "64-bit Feistel block cipher standardized in RFC 2144"
+    },
+    {
+      "name": "RC2",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "rc2",
+      "why": "legacy 64-bit block cipher designed by Ron Rivest"
+    },
+    {
+      "name": "RC5",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "rc5",
+      "why": "parameterized block cipher by Ron Rivest with data-dependent rotations"
+    },
+    {
+      "name": "CAST-256",
+      "aliases": ["CAST6", "cast6_generic"],
+      "judge": "race",
+      "evidence": "cast6_generic",
+      "why": "128-bit AES candidate block cipher standardized in RFC 2612"
+    },
+    {
+      "name": "ARIA",
+      "aliases": ["aria_generic"],
+      "judge": "race",
+      "evidence": "aria_generic",
+      "why": "South Korean national standard 128-bit block cipher"
+    },
+    {
+      "name": "SEED",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "seed",
+      "why": "128-bit Feistel block cipher developed by KISA"
+    },
+    {
+      "name": "SM4",
+      "aliases": ["sm4_generic"],
+      "judge": "race",
+      "evidence": "sm4",
+      "why": "Chinese national standard 128-bit block cipher"
+    },
+    {
+      "name": "Anubis",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "anubis",
+      "why": "128-bit NESSIE candidate block cipher by Rijmen and Barreto"
+    },
+    {
+      "name": "KHAZAD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "khazad",
+      "why": "64-bit NESSIE candidate block cipher by Barreto and Rijmen"
+    }
+  ],
+  "womm_candidates": ["Twofish", "Serpent", "TEA"],
+  "bitflip_candidates": ["Anubis", "KHAZAD", "CAST-256"]
+}

@@ -1,0 +1,91 @@
+{
+  "cpu-side-channel-attack": [
+    {
+      "name": "Spectre",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "spectre",
+      "why": "canonical speculative execution side-channel attack"
+    },
+    {
+      "name": "L1 Terminal Fault",
+      "aliases": ["L1TF", "Foreshadow", "l1tf"],
+      "judge": "leak",
+      "evidence": "l1tf",
+      "why": "speculative execution attack leaking L1 data cache via unmapped PTEs"
+    },
+    {
+      "name": "Microarchitectural Data Sampling",
+      "aliases": ["MDS", "mds"],
+      "judge": "leak",
+      "evidence": "mds",
+      "why": "class of speculative CPU buffer sampling side-channel attacks"
+    },
+    {
+      "name": "TSX Asynchronous Abort",
+      "aliases": ["TAA", "tsx_async_abort"],
+      "judge": "race",
+      "evidence": "tsx_async_abort",
+      "why": "MDS-style side-channel attack using Intel TSX asynchronous aborts"
+    },
+    {
+      "name": "Special Register Buffer Data Sampling",
+      "aliases": ["SRBDS", "CrossTalk", "special-register-buffer-data-sampling"],
+      "judge": "race",
+      "evidence": "special-register-buffer-data-sampling",
+      "why": "cross-core CPU side-channel leaking staging buffer via RDRAND/RDSEED"
+    },
+    {
+      "name": "Gather Data Sampling",
+      "aliases": ["GDS", "Downfall", "gather_data_sampling"],
+      "judge": "leak",
+      "evidence": "gather_data_sampling",
+      "why": "speculative side-channel leaking vector register file data via gather instructions"
+    },
+    {
+      "name": "Processor MMIO Stale Data",
+      "aliases": ["MMIO Stale Data", "processor_mmio_stale_data"],
+      "judge": "race",
+      "evidence": "processor_mmio_stale_data",
+      "why": "CPU microarchitectural side-channel leaking stale fill/store buffer data via MMIO"
+    },
+    {
+      "name": "Speculative Return Stack Overflow",
+      "aliases": ["SRSO", "Inception", "srso"],
+      "judge": "race",
+      "evidence": "srso",
+      "why": "AMD speculative execution attack poisoning return address predictions"
+    },
+    {
+      "name": "Register File Data Sampling",
+      "aliases": ["RFDS", "reg-file-data-sampling"],
+      "judge": "heisenbug",
+      "evidence": "reg-file-data-sampling",
+      "why": "Intel Atom side-channel leaking stale vector and integer register file values"
+    },
+    {
+      "name": "Indirect Target Selection",
+      "aliases": ["ITS", "indirect-target-selection"],
+      "judge": "heisenbug",
+      "evidence": "indirect-target-selection",
+      "why": "branch predictor side-channel exploiting indirect target selection on Intel CPUs"
+    },
+    {
+      "name": "VMSCAPE",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "vmscape",
+      "why": "cross-privilege Spectre-style branch target buffer side-channel from guest to hypervisor"
+    }
+  ],
+  "womm_candidates": [
+    "L1 Terminal Fault",
+    "Microarchitectural Data Sampling",
+    "Gather Data Sampling"
+  ],
+  "bitflip_candidates": [
+    "VMSCAPE",
+    "Register File Data Sampling",
+    "Indirect Target Selection"
+  ]
+}

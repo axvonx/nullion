@@ -1,0 +1,69 @@
+{
+  "memory-allocator": [
+    {
+      "name": "Buddy allocator",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "     9  buddy allocator",
+      "why": "classic power-of-two splitting and coalescing heap allocator"
+    },
+    {
+      "name": "Slab allocator",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "     6  slab allocator",
+      "why": "object-caching memory allocator introduced in Solaris and Linux"
+    },
+    {
+      "name": "Contiguous Memory Allocator",
+      "aliases": ["cma"],
+      "judge": "race",
+      "evidence": "     5  contiguous memory allocator",
+      "why": "Linux kernel allocator for large physically contiguous buffers"
+    },
+    {
+      "name": "zsmalloc",
+      "aliases": ["zs_malloc"],
+      "judge": "heisenbug",
+      "evidence": "     4  zs_malloc",
+      "why": "Linux kernel slab-based allocator for compressed zram pages"
+    },
+    {
+      "name": "Bump allocator",
+      "aliases": ["BumpPtrAllocator"],
+      "judge": "npe",
+      "evidence": "     9  BumpPtrAllocator",
+      "why": "pointer-incrementing linear memory allocator"
+    },
+    {
+      "name": "Scudo",
+      "aliases": ["ScudoHardenedAllocator", "scudo hardened allocator"],
+      "judge": "race",
+      "evidence": "     3  ScudoHardenedAllocator",
+      "why": "LLVM's user-mode hardened dynamic memory allocator"
+    },
+    {
+      "name": "jemalloc",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "     3  usingJEMalloc",
+      "why": "widely used concurrent general-purpose malloc implementation"
+    },
+    {
+      "name": "Arena allocator",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "     2  arena allocator",
+      "why": "region-based allocator freeing all allocations together"
+    },
+    {
+      "name": "Pool allocator",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "     2  pool allocator",
+      "why": "fixed-size block allocator for fast O(1) allocation"
+    }
+  ],
+  "womm_candidates": ["jemalloc", "Slab allocator", "Buddy allocator"],
+  "bitflip_candidates": ["zsmalloc", "Scudo", "Contiguous Memory Allocator"]
+}

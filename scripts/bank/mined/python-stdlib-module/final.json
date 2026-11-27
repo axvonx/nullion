@@ -1,0 +1,1343 @@
+{
+ "python-stdlib-module": [
+  {
+   "name": "os",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "sys",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "json",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "math",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "random",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "re",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "datetime",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "time",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "pathlib",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "collections",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "itertools",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "functools",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "typing",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "dataclasses",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "argparse",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "subprocess",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "logging",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "unittest",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "asyncio",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "threading",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "multiprocessing",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "csv",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "io",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "shutil",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "glob",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "tempfile",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "pickle",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "sqlite3",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "socket",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "http",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "urllib",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "hashlib",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "base64",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "copy",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "enum",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "os.path",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "__future__",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "abc",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "array",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ast",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "atexit",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "bisect",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "builtins",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "bz2",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "calendar",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "cmath",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "codecs",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "collections.abc",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "concurrent.futures",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "configparser",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "contextlib",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ctypes",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "decimal",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "difflib",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "dis",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "doctest",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "email",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "errno",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "fnmatch",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "fractions",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "gc",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "getopt",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "getpass",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "gettext",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "gzip",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "heapq",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "hmac",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "html",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "http.client",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "http.server",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "importlib",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "inspect",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ipaddress",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "keyword",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "locale",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "lzma",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "mimetypes",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "mmap",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "numbers",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "operator",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "optparse",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "pdb",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "platform",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "pprint",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "profile",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "pstats",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "pwd",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "queue",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "secrets",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "select",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "shlex",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "signal",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "smtplib",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "socketserver",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ssl",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "stat",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "statistics",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "string",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "struct",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "tarfile",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "textwrap",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "timeit",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "tkinter",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "tomllib",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "traceback",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "turtle",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "types",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "unittest.mock",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "urllib.parse",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "urllib.request",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "uuid",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "venv",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "warnings",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "weakref",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "webbrowser",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "xml",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "xml.etree.ElementTree",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "zipfile",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "zlib",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "zoneinfo",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "__main__",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "_thread",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "binascii",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "cgi",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "cmd",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "code",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "colorsys",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "compileall",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "contextvars",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "curses",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "dbm",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "distutils",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ensurepip",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "faulthandler",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "fcntl",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "filecmp",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "fileinput",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ftplib",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "graphlib",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "grp",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "html.parser",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "http.cookiejar",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "http.cookies",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "imaplib",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "importlib.metadata",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "importlib.resources",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "linecache",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "logging.config",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "logging.handlers",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "mailbox",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "marshal",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "msvcrt",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "multiprocessing.shared_memory",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "netrc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "pkgutil",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "plistlib",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "poplib",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "posix",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "pty",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "py_compile",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "pydoc",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "quopri",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "readline",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "reprlib",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "resource",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "runpy",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "sched",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "selectors",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "shelve",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "site",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "sysconfig",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "syslog",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "termios",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "test",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "this",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "tkinter.messagebox",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tkinter.ttk",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "token",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tokenize",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "trace",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tracemalloc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tty",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "unicodedata",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "urllib.error",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "urllib.robotparser",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "wave",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "winreg",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "wsgiref",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "xml.dom",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "xml.dom.minidom",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "xml.sax",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "xmlrpc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "xmlrpc.client",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "xmlrpc.server",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "zipapp",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "zipimport",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "aifc",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "asynchat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "asyncore",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "audioop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "bdb",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "cgitb",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "chunk",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "codeop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "crypt",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "curses.ascii",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "curses.panel",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.charset",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.encoders",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.errors",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.generator",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.header",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.headerregistry",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.iterators",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.message",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.mime",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.parser",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.policy",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "email.utils",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "html.entities",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "imghdr",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "imp",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "mailcap",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "modulefinder",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "msilib",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "nis",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "nntplib",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ossaudiodev",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "pickletools",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "pipes",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "pyclbr",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "pyexpat",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rlcompleter",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "smtpd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "sndhdr",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "spwd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "stringprep",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "sunau",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "symtable",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "tabnanny",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "telnetlib",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "tkinter.colorchooser",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "tkinter.font",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "tkinter.scrolledtext",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "uu",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "winsound",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "xdrlib",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "xml.dom.pulldom",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "xml.sax.handler",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "xml.sax.reader",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "xml.sax.utils",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "annotationlib",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "compression",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "compression.zstd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "concurrent.interpreters",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "importlib.resources.abc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "profiling.sampling",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "profiling.tracing",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "string.templatelib",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "sys.monitoring",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "copyreg",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "email.contentmanager",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tkinter.dnd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "concurrent",
+   "aliases": [],
+   "judge": "leak",
+   "confidence": "low"
+  },
+  {
+   "name": "math.integer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  },
+  {
+   "name": "tkinter.fontchooser",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  },
+  {
+   "name": "tkinter.systray",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  }
+ ]
+}

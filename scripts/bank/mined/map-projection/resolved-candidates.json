@@ -1,0 +1,60 @@
+{
+ "map-projection": [
+  {
+   "name": "August projection",
+   "aliases": [
+    "August epicycloidal projection"
+   ],
+   "judge": "heisenbug",
+   "why": "epicycloidal conformal projection",
+   "evidence": "august"
+  },
+  {
+   "name": "Interrupted Mollweide projection",
+   "aliases": [],
+   "judge": "race",
+   "why": "interrupted Mollweide",
+   "evidence": "imoll"
+  },
+  {
+   "name": "Mollweide projection",
+   "aliases": [],
+   "judge": "leak",
+   "why": "equal-area elliptical projection",
+   "evidence": "moll"
+  },
+  {
+   "name": "Simple conic projection",
+   "aliases": [],
+   "judge": "race",
+   "why": "classical simple conic family",
+   "evidence": "sconics"
+  },
+  {
+   "name": "Spherical Cross-track Height projection",
+   "aliases": [
+    "SCH"
+   ],
+   "judge": "heisenbug",
+   "confidence": "low",
+   "why": "radar swath coordinates; may not be a map projection",
+   "evidence": "sch"
+  },
+  {
+   "name": "CalCOFI grid",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low",
+   "why": "oceanographic sampling grid",
+   "evidence": "calcofi"
+  },
+  {
+   "name": "S2 projection",
+   "aliases": [],
+   "judge": "race",
+   "confidence": "low",
+   "why": "cube-face projection in S2 library",
+   "evidence": "s2"
+  }
+ ]
+}

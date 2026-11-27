@@ -1,0 +1,90 @@
+{
+  "clustering-algorithm": [
+    {
+      "name": "Affinity Propagation",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "_affinity_propagation",
+      "why": "exemplar-based clustering via message passing"
+    },
+    {
+      "name": "agglomerative clustering",
+      "aliases": ["agglomerative hierarchical clustering"],
+      "judge": "off-by-one",
+      "evidence": "_agglomerative",
+      "why": "bottom-up hierarchical clustering algorithm"
+    },
+    {
+      "name": "BIRCH",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "_birch",
+      "why": "tree-based incremental clustering for large datasets"
+    },
+    {
+      "name": "bisecting k-means",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "_bisect_k_means",
+      "why": "divisive hierarchical variant of k-means"
+    },
+    {
+      "name": "DBSCAN",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "_dbscan",
+      "why": "density-based spatial clustering with noise"
+    },
+    {
+      "name": "Elkan's k-means",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "_k_means_elkan",
+      "why": "triangle-inequality accelerated k-means algorithm"
+    },
+    {
+      "name": "HDBSCAN",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "_hdbscan",
+      "why": "hierarchical density-based clustering extension of DBSCAN"
+    },
+    {
+      "name": "k-means",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "_kmeans",
+      "why": "canonical centroid-based partitioning algorithm"
+    },
+    {
+      "name": "Lloyd's algorithm",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "_k_means_lloyd",
+      "why": "standard iterative assignment-update algorithm for k-means"
+    },
+    {
+      "name": "Mean Shift",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "_mean_shift",
+      "why": "mode-seeking kernel density clustering algorithm"
+    },
+    {
+      "name": "OPTICS",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "_optics",
+      "why": "density-based ordering algorithm generalizing DBSCAN"
+    },
+    {
+      "name": "spectral clustering",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "_spectral",
+      "why": "graph-Laplacian eigenvector clustering method"
+    }
+  ],
+  "womm_candidates": ["Mean Shift", "spectral clustering", "HDBSCAN"],
+  "bitflip_candidates": ["Elkan's k-means", "OPTICS", "BIRCH"]
+}

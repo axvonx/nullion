@@ -1,0 +1,515 @@
+{
+ "riscv-extension": [
+  {
+   "name": "M extension",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "integer multiply/divide"
+  },
+  {
+   "name": "A extension",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "atomics"
+  },
+  {
+   "name": "F extension",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "single-precision float"
+  },
+  {
+   "name": "D extension",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "double-precision float"
+  },
+  {
+   "name": "Q extension",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "quad-precision float"
+  },
+  {
+   "name": "C extension",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "compressed instructions"
+  },
+  {
+   "name": "V extension",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "vector"
+  },
+  {
+   "name": "B extension",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "bit manipulation bundle"
+  },
+  {
+   "name": "H extension",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "hypervisor"
+  },
+  {
+   "name": "P extension",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "packed SIMD"
+  },
+  {
+   "name": "Zicsr",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "CSR instructions"
+  },
+  {
+   "name": "Zifencei",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "instruction-fetch fence"
+  },
+  {
+   "name": "Zba",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "address generation bitmanip"
+  },
+  {
+   "name": "Zbb",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "basic bitmanip"
+  },
+  {
+   "name": "Zbc",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "carry-less multiply"
+  },
+  {
+   "name": "Zbs",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "single-bit instructions"
+  },
+  {
+   "name": "Zbkb",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "crypto bitmanip"
+  },
+  {
+   "name": "Zbkc",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "crypto carry-less multiply"
+  },
+  {
+   "name": "Zbkx",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "crossbar permutations"
+  },
+  {
+   "name": "Zknd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "AES decryption"
+  },
+  {
+   "name": "Zkne",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "AES encryption"
+  },
+  {
+   "name": "Zknh",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SHA-2 hash"
+  },
+  {
+   "name": "Zksed",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SM4"
+  },
+  {
+   "name": "Zksh",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SM3"
+  },
+  {
+   "name": "Zkr",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "entropy source"
+  },
+  {
+   "name": "Zkt",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "data-independent timing"
+  },
+  {
+   "name": "Zfh",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "half-precision float"
+  },
+  {
+   "name": "Zfhmin",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "minimal half-precision"
+  },
+  {
+   "name": "Zfinx",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "float in integer registers"
+  },
+  {
+   "name": "Zdinx",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "double in integer registers"
+  },
+  {
+   "name": "Zhinx",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "half in integer registers"
+  },
+  {
+   "name": "Zicbom",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "cache block management"
+  },
+  {
+   "name": "Zicboz",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "cache block zero"
+  },
+  {
+   "name": "Zicbop",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "cache block prefetch"
+  },
+  {
+   "name": "Zicntr",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "base counters"
+  },
+  {
+   "name": "Zihpm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "hardware performance counters"
+  },
+  {
+   "name": "Zihintpause",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "pause hint"
+  },
+  {
+   "name": "Zihintntl",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "non-temporal locality hints"
+  },
+  {
+   "name": "Zicond",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "conditional operations"
+  },
+  {
+   "name": "Zawrs",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "wait on reservation set"
+  },
+  {
+   "name": "Zacas",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "atomic compare and swap"
+  },
+  {
+   "name": "Zabha",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "byte and halfword atomics"
+  },
+  {
+   "name": "Ztso",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "total store ordering"
+  },
+  {
+   "name": "Zmmul",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "multiply only"
+  },
+  {
+   "name": "Zca",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "compressed subset"
+  },
+  {
+   "name": "Zcb",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "additional compressed"
+  },
+  {
+   "name": "Zcd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "compressed double loads"
+  },
+  {
+   "name": "Zcf",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "compressed float loads"
+  },
+  {
+   "name": "Zcmp",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "push/pop compressed"
+  },
+  {
+   "name": "Zcmt",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "table jump"
+  },
+  {
+   "name": "Zvl128b",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "minimum vector length"
+  },
+  {
+   "name": "Zve32x",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "embedded vector"
+  },
+  {
+   "name": "Zvfh",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "vector half-precision"
+  },
+  {
+   "name": "Zvbb",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "vector basic bitmanip"
+  },
+  {
+   "name": "Zvbc",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "vector carry-less multiply"
+  },
+  {
+   "name": "Zvkg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "vector GCM"
+  },
+  {
+   "name": "Zvkned",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "vector AES"
+  },
+  {
+   "name": "Zvknha",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "vector SHA-2"
+  },
+  {
+   "name": "Zvksed",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "vector SM4"
+  },
+  {
+   "name": "Zvksh",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "vector SM3"
+  },
+  {
+   "name": "Zimop",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "may-be-operations"
+  },
+  {
+   "name": "Zfa",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "additional float instructions"
+  },
+  {
+   "name": "Svnapot",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "NAPOT pages"
+  },
+  {
+   "name": "Svpbmt",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "page-based memory types"
+  },
+  {
+   "name": "Svinval",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "fine-grained TLB invalidation"
+  },
+  {
+   "name": "Sstc",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "supervisor timer compare"
+  },
+  {
+   "name": "Sscofpmf",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "counter overflow filtering"
+  },
+  {
+   "name": "Smepmp",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "enhanced PMP"
+  },
+  {
+   "name": "Smstateen",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "state enable"
+  },
+  {
+   "name": "Ssaia",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "advanced interrupt architecture"
+  },
+  {
+   "name": "Sdtrig",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "debug triggers"
+  },
+  {
+   "name": "Zicfilp",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "landing pads for CFI"
+  },
+  {
+   "name": "Zicfiss",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "shadow stack"
+  }
+ ]
+}

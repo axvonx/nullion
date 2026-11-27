@@ -1,0 +1,295 @@
+{
+ "clustering-algorithm": [
+  {
+   "name": "Affinity Propagation",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "agglomerative clustering",
+   "aliases": [
+    "agglomerative hierarchical clustering",
+    "hierarchical agglomerative clustering"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "BIRCH",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "bisecting k-means",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DBSCAN",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Elkan's k-means",
+   "aliases": [
+    "Elkan k-means"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HDBSCAN",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "k-means",
+   "aliases": [
+    "Lloyd's algorithm"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Mean Shift",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "OPTICS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "spectral clustering",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "hierarchical clustering",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "mini-batch k-means",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "biclustering",
+   "aliases": [
+    "co-clustering"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "feature agglomeration",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  },
+  {
+   "name": "k-medoids",
+   "aliases": [
+    "PAM",
+    "partitioning around medoids"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "CLARA",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CLARANS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "fuzzy c-means",
+   "aliases": [
+    "FCM"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Gaussian mixture model",
+   "aliases": [
+    "GMM",
+    "EM clustering"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CURE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ROCK",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CHAMELEON",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "STING",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CLIQUE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DENCLUE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "X-means",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "G-means",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "k-modes",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "k-prototypes",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "self-organizing map",
+   "aliases": [
+    "SOM",
+    "Kohonen map"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "single-linkage clustering",
+   "aliases": [
+    "single linkage"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "complete-linkage clustering",
+   "aliases": [
+    "complete linkage"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Ward's method",
+   "aliases": [
+    "Ward linkage"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "UPGMA",
+   "aliases": [
+    "average linkage"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "SLINK",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DIANA",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "COBWEB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "canopy clustering",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Markov clustering",
+   "aliases": [
+    "MCL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "neural gas",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "growing neural gas",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "kernel k-means",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "spherical k-means",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Jarvis-Patrick clustering",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "density peaks clustering",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "k-means++",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PROCLUS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SUBCLU",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Chinese whispering",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Leader algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CLINK",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

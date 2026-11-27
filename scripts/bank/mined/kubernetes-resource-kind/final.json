@@ -1,0 +1,478 @@
+{
+ "kubernetes-resource-kind": [
+  {
+   "name": "MutatingAdmissionPolicyBinding",
+   "aliases": [
+    "mutating-admission-policy-binding-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MutatingAdmissionPolicy",
+   "aliases": [
+    "mutating-admission-policy-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MutatingWebhookConfiguration",
+   "aliases": [
+    "mutating-webhook-configuration-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ValidatingAdmissionPolicyBinding",
+   "aliases": [
+    "validating-admission-policy-binding-v1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ValidatingAdmissionPolicy",
+   "aliases": [
+    "validating-admission-policy-v1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ValidatingWebhookConfiguration",
+   "aliases": [
+    "validating-webhook-configuration-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "CustomResourceDefinition",
+   "aliases": [
+    "CRD",
+    "custom-resource-definition-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "APIService",
+   "aliases": [
+    "api-service-v1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ControllerRevision",
+   "aliases": [
+    "controller-revision-v1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "DaemonSet",
+   "aliases": [
+    "daemon-set-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Deployment",
+   "aliases": [
+    "deployment-v1"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ReplicaSet",
+   "aliases": [
+    "replica-set-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "StatefulSet",
+   "aliases": [
+    "stateful-set-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "HorizontalPodAutoscaler",
+   "aliases": [
+    "HPA",
+    "horizontal-pod-autoscaler-v2"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CronJob",
+   "aliases": [
+    "cron-job-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Job",
+   "aliases": [
+    "job-v1"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "CertificateSigningRequest",
+   "aliases": [
+    "CSR",
+    "certificate-signing-request-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ClusterTrustBundle",
+   "aliases": [
+    "cluster-trust-bundle-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PodCertificateRequest",
+   "aliases": [
+    "pod-certificate-request-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LeaseCandidate",
+   "aliases": [
+    "lease-candidate-v1beta1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Lease",
+   "aliases": [
+    "lease-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ComponentStatus",
+   "aliases": [
+    "component-status-v1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ConfigMap",
+   "aliases": [
+    "config-map-v1"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Endpoints",
+   "aliases": [
+    "endpoints-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Event",
+   "aliases": [
+    "event-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "LimitRange",
+   "aliases": [
+    "limit-range-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Namespace",
+   "aliases": [
+    "namespace-v1"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Node",
+   "aliases": [
+    "node-v1"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "PersistentVolumeClaim",
+   "aliases": [
+    "PVC",
+    "persistent-volume-claim-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "PersistentVolume",
+   "aliases": [
+    "persistent-volume-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "PodTemplate",
+   "aliases": [
+    "pod-template-v1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Pod",
+   "aliases": [
+    "pod-v1"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ReplicationController",
+   "aliases": [
+    "replication-controller-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ResourceQuota",
+   "aliases": [
+    "resource-quota-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Secret",
+   "aliases": [
+    "secret-v1"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ServiceAccount",
+   "aliases": [
+    "service-account-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Service",
+   "aliases": [
+    "service-v1"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "EndpointSlice",
+   "aliases": [
+    "endpoint-slice-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "FlowSchema",
+   "aliases": [
+    "flow-schema-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PriorityLevelConfiguration",
+   "aliases": [
+    "priority-level-configuration-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "IngressClass",
+   "aliases": [
+    "ingress-class-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Ingress",
+   "aliases": [
+    "ingress-v1"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "IPAddress",
+   "aliases": [
+    "ip-address-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NetworkPolicy",
+   "aliases": [
+    "network-policy-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "ServiceCIDR",
+   "aliases": [
+    "service-cidr-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RuntimeClass",
+   "aliases": [
+    "runtime-class-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "PodDisruptionBudget",
+   "aliases": [
+    "PDB",
+    "pod-disruption-budget-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ClusterRoleBinding",
+   "aliases": [
+    "cluster-role-binding-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "ClusterRole",
+   "aliases": [
+    "cluster-role-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "RoleBinding",
+   "aliases": [
+    "role-binding-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Role",
+   "aliases": [
+    "role-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "DeviceClass",
+   "aliases": [
+    "device-class-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DeviceTaintRule",
+   "aliases": [
+    "device-taint-rule-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ResourceClaimTemplate",
+   "aliases": [
+    "resource-claim-template-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ResourceClaim",
+   "aliases": [
+    "resource-claim-v1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ResourcePoolStatusRequest",
+   "aliases": [
+    "resource-pool-status-request-v1alpha3"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ResourceSlice",
+   "aliases": [
+    "resource-slice-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CompositePodGroup",
+   "aliases": [
+    "composite-pod-group-v1alpha3"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PodGroup",
+   "aliases": [
+    "pod-group-v1beta1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PriorityClass",
+   "aliases": [
+    "priority-class-v1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Workload",
+   "aliases": [
+    "workload-v1beta1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CSIDriver",
+   "aliases": [
+    "csi-driver-v1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CSINode",
+   "aliases": [
+    "csi-node-v1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CSIStorageCapacity",
+   "aliases": [
+    "csi-storage-capacity-v1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "StorageClass",
+   "aliases": [
+    "storage-class-v1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "VolumeAttachment",
+   "aliases": [
+    "volume-attachment-v1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "VolumeAttributesClass",
+   "aliases": [
+    "volume-attributes-class-v1"
+   ],
+   "judge": "heisenbug"
+  }
+ ]
+}

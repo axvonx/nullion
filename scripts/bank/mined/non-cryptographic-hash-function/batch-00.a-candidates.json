@@ -1,0 +1,426 @@
+{
+  "non-cryptographic-hash-function": [
+    {
+      "name": "MurmurHash",
+      "aliases": ["MurmurHash1", "MurmurHash2", "MurmurHash3", "PMurHash"],
+      "judge": "off-by-one",
+      "evidence": "MurmurHash3",
+      "why": "ubiquitous non-cryptographic hash function family"
+    },
+    {
+      "name": "xxHash",
+      "aliases": ["xxh3"],
+      "judge": "off-by-one",
+      "evidence": "xxhash",
+      "why": "extremely fast non-cryptographic hash algorithm"
+    },
+    {
+      "name": "MD5",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "md5",
+      "why": "classic 128-bit cryptographic hash function accepted by category rule"
+    },
+    {
+      "name": "SHA-1",
+      "aliases": ["sha1"],
+      "judge": "off-by-one",
+      "evidence": "sha1",
+      "why": "classic 160-bit cryptographic hash function accepted by category rule"
+    },
+    {
+      "name": "SHA-3",
+      "aliases": ["sha3"],
+      "judge": "off-by-one",
+      "evidence": "sha3",
+      "why": "NIST Keccak-based cryptographic hash standard"
+    },
+    {
+      "name": "CRC32",
+      "aliases": ["crc32c", "crc"],
+      "judge": "off-by-one",
+      "evidence": "crc32c",
+      "why": "cyclic redundancy check widely used as a fast checksum/hash"
+    },
+    {
+      "name": "CRC64",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "crc64",
+      "why": "64-bit cyclic redundancy check hash"
+    },
+    {
+      "name": "SipHash",
+      "aliases": ["halfsiphash"],
+      "judge": "npe",
+      "evidence": "siphash",
+      "why": "keyed hash function designed to prevent hash-flooding DoS"
+    },
+    {
+      "name": "CityHash",
+      "aliases": ["City", "CityCrc"],
+      "judge": "npe",
+      "evidence": "City",
+      "why": "Google's fast non-cryptographic string hash"
+    },
+    {
+      "name": "FarmHash",
+      "aliases": ["farmhash-c"],
+      "judge": "npe",
+      "evidence": "farmhash",
+      "why": "Google's successor to CityHash"
+    },
+    {
+      "name": "BLAKE2",
+      "aliases": ["blake2b", "blake2s"],
+      "judge": "npe",
+      "evidence": "blake2b",
+      "why": "high-speed cryptographic hash function"
+    },
+    {
+      "name": "RIPEMD",
+      "aliases": ["rmd128", "rmd160", "rmd256"],
+      "judge": "leak",
+      "evidence": "rmd160",
+      "why": "cryptographic hash function family"
+    },
+    {
+      "name": "HighwayHash",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "HighwayHash",
+      "why": "SIMD-accelerated keyed hash function from Google"
+    },
+    {
+      "name": "SpookyHash",
+      "aliases": ["Spooky", "SpookyV2"],
+      "judge": "leak",
+      "evidence": "SpookyV2",
+      "why": "Bob Jenkins's fast 128-bit non-cryptographic hash"
+    },
+    {
+      "name": "lookup3",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "lookup3",
+      "why": "Bob Jenkins's classic 32-bit hash function"
+    },
+    {
+      "name": "wyhash",
+      "aliases": ["wyhash32", "wyhash_condom"],
+      "judge": "leak",
+      "evidence": "wyhash",
+      "why": "widely used fast 64-bit non-cryptographic hash"
+    },
+    {
+      "name": "aHash",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "ahash",
+      "why": "high-speed AES-NI-accelerated hash popular in Rust"
+    },
+    {
+      "name": "SeaHash",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "seahash",
+      "why": "portable non-cryptographic hash designed for Redox OS"
+    },
+    {
+      "name": "tabulation hashing",
+      "aliases": ["tabulation"],
+      "judge": "leak",
+      "evidence": "tabulation",
+      "why": "classic table-lookup hash construction"
+    },
+    {
+      "name": "SuperFastHash",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "SuperFastHash",
+      "why": "Paul Hsieh's 32-bit non-cryptographic hash"
+    },
+    {
+      "name": "MetroHash",
+      "aliases": ["cmetrohash", "cmetrohash64"],
+      "judge": "race",
+      "evidence": "cmetrohash",
+      "why": "fast non-cryptographic hash created via state-space search"
+    },
+    {
+      "name": "CLHash",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "clhash",
+      "why": "Daniel Lemire's carry-less multiplication hash"
+    },
+    {
+      "name": "MeowHash",
+      "aliases": ["meow_hash_x64_aesni"],
+      "judge": "race",
+      "evidence": "meow_hash_x64_aesni",
+      "why": "AES-NI-based high-throughput non-cryptographic hash"
+    },
+    {
+      "name": "GxHash",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "gxhash",
+      "why": "SIMD-based non-cryptographic hash function"
+    },
+    {
+      "name": "rapidhash",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "rapidhash",
+      "why": "wyhash-derived fast non-cryptographic hash"
+    },
+    {
+      "name": "t1ha",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "t1ha",
+      "why": "Fast Positive Hash family"
+    },
+    {
+      "name": "komihash",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "komihash",
+      "why": "fast 64-bit hash function by Aleksey Vaneev"
+    },
+    {
+      "name": "UMASH",
+      "aliases": ["umash_long"],
+      "judge": "race",
+      "evidence": "umash",
+      "why": "almost-universal hash function with provable collision bounds"
+    },
+    {
+      "name": "VMAC",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "vmac",
+      "why": "universal-hash-based message authentication code"
+    },
+    {
+      "name": "Chaskey",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "chaskey",
+      "why": "lightweight permutation-based MAC/hash"
+    },
+    {
+      "name": "Edon-R",
+      "aliases": ["edonr"],
+      "judge": "heisenbug",
+      "evidence": "edonr",
+      "why": "SHA-3 competition cryptographic hash candidate"
+    },
+    {
+      "name": "a5hash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "a5hash",
+      "why": "compact fast non-cryptographic hash by Aleksey Vaneev"
+    },
+    {
+      "name": "Discohash",
+      "aliases": ["discohash1", "discohash2", "discohash_512"],
+      "judge": "heisenbug",
+      "evidence": "discohash",
+      "why": "fast non-cryptographic hash function (BEBB4185)"
+    },
+    {
+      "name": "falkhash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "falkhash",
+      "why": "AES-NI-based 64-bit non-cryptographic hash"
+    },
+    {
+      "name": "fasthash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "fasthash",
+      "why": "Zilong Tan's fast 32/64-bit hash function"
+    },
+    {
+      "name": "FARSH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "farsh",
+      "why": "fast non-cryptographic hash in SMHasher"
+    },
+    {
+      "name": "fhtw",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "fhtw",
+      "why": "Fast Hash To Win non-cryptographic hash"
+    },
+    {
+      "name": "floppsyhash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "floppsyhash",
+      "why": "floating-point-based hash function in SMHasher"
+    },
+    {
+      "name": "HalftimeHash",
+      "aliases": ["halftime-hash"],
+      "judge": "heisenbug",
+      "evidence": "halftime-hash",
+      "why": "fast universal hash family using wide SIMD"
+    },
+    {
+      "name": "hasshe2",
+      "aliases": ["hassh64"],
+      "judge": "heisenbug",
+      "evidence": "hasshe2",
+      "why": "SSE2-accelerated hash function in SMHasher"
+    },
+    {
+      "name": "jodyhash",
+      "aliases": ["jody_hash32", "jody_hash64"],
+      "judge": "heisenbug",
+      "evidence": "jody_hash64",
+      "why": "Jody Bruchon's fast non-cryptographic hash"
+    },
+    {
+      "name": "k-hashv",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "k-hashv",
+      "why": "non-cryptographic hash function in SMHasher"
+    },
+    {
+      "name": "khash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "khash",
+      "why": "non-cryptographic hash function in SMHasher"
+    },
+    {
+      "name": "LaneHash",
+      "aliases": ["lanehash_aes"],
+      "judge": "heisenbug",
+      "evidence": "lanehash",
+      "why": "non-cryptographic hash function in SMHasher"
+    },
+    {
+      "name": "mir-hash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "mir-hash",
+      "why": "MUM-inspired non-cryptographic hash function"
+    },
+    {
+      "name": "MUM",
+      "aliases": ["mum_v3"],
+      "judge": "heisenbug",
+      "evidence": "mum",
+      "why": "multiply-and-mix non-cryptographic hash"
+    },
+    {
+      "name": "mx3",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "mx3",
+      "why": "compact bit-mixing hash function"
+    },
+    {
+      "name": "o1hash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "o1hash",
+      "why": "O(1) sampling non-cryptographic hash"
+    },
+    {
+      "name": "pengyhash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "pengyhash",
+      "why": "fast 64-bit non-cryptographic hash"
+    },
+    {
+      "name": "Pippip",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "Pippip",
+      "why": "Karl Malbrain's non-cryptographic hash"
+    },
+    {
+      "name": "PMP_Multilinear",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "PMP_Multilinear",
+      "why": "polynomial multilinear universal hash"
+    },
+    {
+      "name": "polymur-hash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "polymur-hash",
+      "why": "universal polynomial hash function"
+    },
+    {
+      "name": "prvhash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "prvhash",
+      "why": "pseudo-random value hash function"
+    },
+    {
+      "name": "Rainbow",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "rainbow",
+      "why": "non-cryptographic hash function in SMHasher"
+    },
+    {
+      "name": "Rainstorm",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "rainstorm",
+      "why": "non-cryptographic hash function in SMHasher"
+    },
+    {
+      "name": "silicium_hash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "silicium_hash",
+      "why": "non-cryptographic hash function in SMHasher"
+    },
+    {
+      "name": "tifuhash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "tifuhash",
+      "why": "non-cryptographic hash function in SMHasher"
+    },
+    {
+      "name": "tsip",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "tsip",
+      "why": "truncated SipHash variant"
+    },
+    {
+      "name": "w1hash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "w1hash",
+      "why": "wyhash-family non-cryptographic hash"
+    },
+    {
+      "name": "xmsx",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "xmsx",
+      "why": "xorshift-multiply non-cryptographic hash"
+    }
+  ],
+  "womm_candidates": ["MurmurHash", "xxHash", "SipHash"],
+  "bitflip_candidates": ["MeowHash", "komihash", "UMASH"]
+}

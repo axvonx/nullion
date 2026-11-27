@@ -1,0 +1,22 @@
+{
+ "http-status-code": [
+  {
+   "name": "102 Processing",
+   "aliases": [
+    "102"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "WebDAV interim response"
+  },
+  {
+   "name": "305 Use Proxy",
+   "aliases": [
+    "305"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "deprecated redirect"
+  }
+ ]
+}

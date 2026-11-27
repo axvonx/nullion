@@ -1,0 +1,258 @@
+{
+ "cryptographic-hash-function": [
+  {
+   "name": "SHA-224",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "SHA-2 truncated variant"
+  },
+  {
+   "name": "SHA-384",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "SHA-2 variant"
+  },
+  {
+   "name": "SHA-2",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "family name"
+  },
+  {
+   "name": "SHA-0",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "withdrawn original SHA"
+  },
+  {
+   "name": "MD6",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Rivest SHA-3 candidate"
+  },
+  {
+   "name": "Tiger",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Anderson and Biham hash"
+  },
+  {
+   "name": "HAVAL",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "variable-length hash"
+  },
+  {
+   "name": "Skein",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 finalist"
+  },
+  {
+   "name": "Groestl",
+   "aliases": [
+    "Gr\u00f8stl"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 finalist"
+  },
+  {
+   "name": "JH",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 finalist"
+  },
+  {
+   "name": "BLAKE",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 finalist"
+  },
+  {
+   "name": "BLAKE2s",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "32-bit BLAKE2"
+  },
+  {
+   "name": "BLAKE3",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "tree-based BLAKE"
+  },
+  {
+   "name": "GOST R 34.11-94",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Soviet/Russian hash"
+  },
+  {
+   "name": "Snefru",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Merkle hash"
+  },
+  {
+   "name": "N-Hash",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "NTT hash"
+  },
+  {
+   "name": "FORK-256",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "broken hash"
+  },
+  {
+   "name": "LSH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Korean hash standard"
+  },
+  {
+   "name": "Fugue",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 candidate"
+  },
+  {
+   "name": "Hamsi",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 candidate"
+  },
+  {
+   "name": "Luffa",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 candidate"
+  },
+  {
+   "name": "CubeHash",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Bernstein SHA-3 candidate"
+  },
+  {
+   "name": "ECHO",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 candidate"
+  },
+  {
+   "name": "Shabal",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 candidate"
+  },
+  {
+   "name": "SHAvite-3",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 candidate"
+  },
+  {
+   "name": "Blue Midnight Wish",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SHA-3 candidate"
+  },
+  {
+   "name": "Panama",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Daemen and Clapp hash"
+  },
+  {
+   "name": "RadioGatun",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Panama successor"
+  },
+  {
+   "name": "SWIFFT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lattice-based hash"
+  },
+  {
+   "name": "KangarooTwelve",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "reduced-round Keccak hash"
+  },
+  {
+   "name": "Gimli",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "permutation based hash"
+  },
+  {
+   "name": "Ascon-Hash",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lightweight hash"
+  },
+  {
+   "name": "Xoodyak",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lightweight hash"
+  },
+  {
+   "name": "RIPEMD-128",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "128-bit RIPEMD"
+  },
+  {
+   "name": "RIPEMD-320",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "extended RIPEMD"
+  },
+  {
+   "name": "SHA-512/256",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "truncated SHA-512"
+  }
+ ]
+}

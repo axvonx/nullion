@@ -1,0 +1,35 @@
+{
+ "static-site-generator": [
+  {
+   "name": "Remix",
+   "aliases": [
+    "remix"
+   ],
+   "judge": "npe",
+   "confidence": "low",
+   "why": "SSR framework, SPA mode only",
+   "evidence": "remix"
+  },
+  {
+   "name": "TanStack Start",
+   "aliases": [
+    "tanstack-start"
+   ],
+   "judge": "leak",
+   "confidence": "low",
+   "why": "full-stack framework with prerendering",
+   "evidence": "tanstack-start"
+  },
+  {
+   "name": "Umi",
+   "aliases": [
+    "umi",
+    "umijs"
+   ],
+   "judge": "leak",
+   "confidence": "low",
+   "why": "React framework with static export",
+   "evidence": "umi"
+  }
+ ]
+}

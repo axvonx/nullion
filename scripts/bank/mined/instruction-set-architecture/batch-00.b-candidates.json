@@ -1,0 +1,377 @@
+{
+  "instruction-set-architecture": [
+    {
+      "name": "AArch64",
+      "aliases": ["ARM64", "aarch64"],
+      "judge": "npe",
+      "evidence": "AArch64",
+      "why": "64-bit ARM instruction set architecture introduced with ARMv8-A"
+    },
+    {
+      "name": "AMD GCN",
+      "aliases": ["AMDGPU", "gcn"],
+      "judge": "race",
+      "evidence": "AMDGPU",
+      "why": "AMD Graphics Core Next GPU instruction set architecture"
+    },
+    {
+      "name": "ARC",
+      "aliases": ["arc"],
+      "judge": "race",
+      "evidence": "ARC",
+      "why": "Synopsys DesignWare ARC configurable 32/64-bit RISC ISA"
+    },
+    {
+      "name": "ARM",
+      "aliases": ["arm"],
+      "judge": "off-by-one",
+      "evidence": "ARM",
+      "why": "Acorn/ARM 32-bit RISC instruction set architecture"
+    },
+    {
+      "name": "AVR",
+      "aliases": ["avr"],
+      "judge": "npe",
+      "evidence": "AVR",
+      "why": "Atmel/Microchip 8-bit Harvard-architecture microcontroller ISA"
+    },
+    {
+      "name": "eBPF",
+      "aliases": ["BPF", "bpf"],
+      "judge": "leak",
+      "evidence": "BPF",
+      "why": "Linux extended Berkeley Packet Filter virtual machine ISA"
+    },
+    {
+      "name": "C-SKY",
+      "aliases": ["CSKY", "csky"],
+      "judge": "heisenbug",
+      "evidence": "CSKY",
+      "why": "T-Head/C-SKY 32-bit embedded RISC instruction set architecture"
+    },
+    {
+      "name": "Hexagon",
+      "aliases": ["hexagon"],
+      "judge": "race",
+      "evidence": "Hexagon",
+      "why": "Qualcomm Hexagon VLIW digital signal processor ISA"
+    },
+    {
+      "name": "Lanai",
+      "aliases": ["lanai"],
+      "judge": "heisenbug",
+      "evidence": "Lanai",
+      "why": "Google's 32-bit RISC processor ISA used in NICs"
+    },
+    {
+      "name": "LoongArch",
+      "aliases": ["loongarch"],
+      "judge": "race",
+      "evidence": "LoongArch",
+      "why": "Loongson 64-bit RISC instruction set architecture"
+    },
+    {
+      "name": "Motorola 68000",
+      "aliases": ["M68k", "m68k", "68k"],
+      "judge": "leak",
+      "evidence": "M68k",
+      "why": "Motorola 68k CISC microprocessor instruction set architecture"
+    },
+    {
+      "name": "MSP430",
+      "aliases": ["msp430"],
+      "judge": "leak",
+      "evidence": "MSP430",
+      "why": "Texas Instruments 16-bit ultra-low-power microcontroller ISA"
+    },
+    {
+      "name": "MIPS",
+      "aliases": ["Mips", "mips"],
+      "judge": "off-by-one",
+      "evidence": "Mips",
+      "why": "Classic 32/64-bit RISC instruction set architecture"
+    },
+    {
+      "name": "PTX",
+      "aliases": ["NVPTX", "nvptx"],
+      "judge": "leak",
+      "evidence": "NVPTX",
+      "why": "NVIDIA Parallel Thread Execution virtual GPU ISA"
+    },
+    {
+      "name": "PowerPC",
+      "aliases": ["ppc", "rs6000"],
+      "judge": "npe",
+      "evidence": "PowerPC",
+      "why": "Apple-IBM-Motorola RISC instruction set architecture"
+    },
+    {
+      "name": "RISC-V",
+      "aliases": ["RISCV", "riscv"],
+      "judge": "npe",
+      "evidence": "RISCV",
+      "why": "Open-standard modular RISC instruction set architecture"
+    },
+    {
+      "name": "SPARC",
+      "aliases": ["Sparc", "sparc"],
+      "judge": "leak",
+      "evidence": "Sparc",
+      "why": "Sun Microsystems Scalable Processor Architecture RISC ISA"
+    },
+    {
+      "name": "z/Architecture",
+      "aliases": ["SystemZ", "s390", "s390x"],
+      "judge": "leak",
+      "evidence": "SystemZ",
+      "why": "IBM mainframe 64-bit CISC instruction set architecture"
+    },
+    {
+      "name": "NEC SX-Aurora VE",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VE",
+      "why": "NEC SX-Aurora TSUBASA Vector Engine instruction set architecture"
+    },
+    {
+      "name": "x86",
+      "aliases": ["i386", "x86-64", "IA-32"],
+      "judge": "off-by-one",
+      "evidence": "X86",
+      "why": "Intel 8086-derived CISC instruction set architecture"
+    },
+    {
+      "name": "XCore",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XCore",
+      "why": "XMOS multi-threaded 32-bit microcontroller ISA"
+    },
+    {
+      "name": "Xtensa",
+      "aliases": ["xtensa"],
+      "judge": "race",
+      "evidence": "Xtensa",
+      "why": "Tensilica/Cadence configurable 32-bit RISC ISA used in ESP32"
+    },
+    {
+      "name": "DEC Alpha",
+      "aliases": ["alpha"],
+      "judge": "leak",
+      "evidence": "alpha",
+      "why": "Digital Equipment Corporation 64-bit RISC ISA"
+    },
+    {
+      "name": "Blackfin",
+      "aliases": ["bfin"],
+      "judge": "heisenbug",
+      "evidence": "bfin",
+      "why": "Analog Devices 16/32-bit embedded DSP/microcontroller ISA"
+    },
+    {
+      "name": "TMS320C6x",
+      "aliases": ["c6x"],
+      "judge": "heisenbug",
+      "evidence": "c6x",
+      "why": "Texas Instruments C6000 VLIW DSP instruction set architecture"
+    },
+    {
+      "name": "CRIS",
+      "aliases": ["cris"],
+      "judge": "heisenbug",
+      "evidence": "cris",
+      "why": "Axis Communications Code Reduced Instruction Set ISA"
+    },
+    {
+      "name": "Epiphany",
+      "aliases": ["epiphany"],
+      "judge": "heisenbug",
+      "evidence": "epiphany",
+      "why": "Adapteva Epiphany manycore 32-bit RISC ISA"
+    },
+    {
+      "name": "FR30",
+      "aliases": ["fr30"],
+      "judge": "heisenbug",
+      "evidence": "fr30",
+      "why": "Fujitsu 32-bit RISC microcontroller ISA"
+    },
+    {
+      "name": "FR-V",
+      "aliases": ["frv"],
+      "judge": "heisenbug",
+      "evidence": "frv",
+      "why": "Fujitsu 32-bit VLIW processor ISA"
+    },
+    {
+      "name": "FT32",
+      "aliases": ["ft32"],
+      "judge": "heisenbug",
+      "evidence": "ft32",
+      "why": "FTDI 32-bit RISC microcontroller ISA"
+    },
+    {
+      "name": "H8/300",
+      "aliases": ["h8300"],
+      "judge": "race",
+      "evidence": "h8300",
+      "why": "Hitachi/Renesas 8/16-bit microcontroller ISA"
+    },
+    {
+      "name": "IA-64",
+      "aliases": ["ia64", "Itanium"],
+      "judge": "leak",
+      "evidence": "ia64",
+      "why": "Intel/HP Itanium EPIC 64-bit instruction set architecture"
+    },
+    {
+      "name": "IQ2000",
+      "aliases": ["iq2000"],
+      "judge": "heisenbug",
+      "evidence": "iq2000",
+      "why": "Vitesse IQ2000 network processor RISC ISA"
+    },
+    {
+      "name": "LatticeMico32",
+      "aliases": ["lm32"],
+      "judge": "heisenbug",
+      "evidence": "lm32",
+      "why": "Lattice Semiconductor 32-bit FPGA soft-core RISC ISA"
+    },
+    {
+      "name": "M32R",
+      "aliases": ["m32r"],
+      "judge": "heisenbug",
+      "evidence": "m32r",
+      "why": "Mitsubishi/Renesas 32-bit RISC microprocessor ISA"
+    },
+    {
+      "name": "M·CORE",
+      "aliases": ["mcore"],
+      "judge": "heisenbug",
+      "evidence": "mcore",
+      "why": "Motorola 32-bit low-power embedded RISC ISA"
+    },
+    {
+      "name": "MicroBlaze",
+      "aliases": ["microblaze"],
+      "judge": "race",
+      "evidence": "microblaze",
+      "why": "Xilinx/AMD 32-bit FPGA soft-core RISC ISA"
+    },
+    {
+      "name": "MMIX",
+      "aliases": ["mmix"],
+      "judge": "race",
+      "evidence": "mmix",
+      "why": "Donald Knuth's 64-bit RISC educational ISA for TAOCP"
+    },
+    {
+      "name": "MN10300",
+      "aliases": ["mn10300"],
+      "judge": "heisenbug",
+      "evidence": "mn10300",
+      "why": "Matsushita/Panasonic 32-bit embedded microprocessor ISA"
+    },
+    {
+      "name": "Moxie",
+      "aliases": ["moxie"],
+      "judge": "heisenbug",
+      "evidence": "moxie",
+      "why": "Open-source 32-bit RISC soft-core processor ISA"
+    },
+    {
+      "name": "NDS32",
+      "aliases": ["nds32"],
+      "judge": "heisenbug",
+      "evidence": "nds32",
+      "why": "Andes Technology 32-bit embedded RISC ISA"
+    },
+    {
+      "name": "OpenRISC",
+      "aliases": ["or1k"],
+      "judge": "race",
+      "evidence": "or1k",
+      "why": "Open-source 32/64-bit RISC instruction set architecture"
+    },
+    {
+      "name": "PA-RISC",
+      "aliases": ["hppa"],
+      "judge": "leak",
+      "evidence": "pa",
+      "why": "Hewlett-Packard Precision Architecture RISC ISA"
+    },
+    {
+      "name": "PDP-11",
+      "aliases": ["pdp11"],
+      "judge": "leak",
+      "evidence": "pdp11",
+      "why": "DEC 16-bit minicomputer instruction set architecture"
+    },
+    {
+      "name": "PRU",
+      "aliases": ["pru"],
+      "judge": "heisenbug",
+      "evidence": "pru",
+      "why": "Texas Instruments Programmable Real-Time Unit 32-bit RISC ISA"
+    },
+    {
+      "name": "RL78",
+      "aliases": ["rl78"],
+      "judge": "heisenbug",
+      "evidence": "rl78",
+      "why": "Renesas 16-bit ultra-low-power microcontroller ISA"
+    },
+    {
+      "name": "Renesas RX",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "rx",
+      "why": "Renesas 32-bit CISC microcontroller ISA"
+    },
+    {
+      "name": "SuperH",
+      "aliases": ["sh4"],
+      "judge": "leak",
+      "evidence": "sh",
+      "why": "Hitachi 32-bit RISC ISA used in Sega Dreamcast and embedded systems"
+    },
+    {
+      "name": "Xstormy16",
+      "aliases": ["stormy16"],
+      "judge": "heisenbug",
+      "evidence": "stormy16",
+      "why": "Sanyo 16-bit microcontroller ISA"
+    },
+    {
+      "name": "V850",
+      "aliases": ["v850"],
+      "judge": "heisenbug",
+      "evidence": "v850",
+      "why": "NEC/Renesas 32-bit RISC microcontroller ISA"
+    },
+    {
+      "name": "VAX",
+      "aliases": ["vax"],
+      "judge": "leak",
+      "evidence": "vax",
+      "why": "DEC 32-bit CISC minicomputer instruction set architecture"
+    },
+    {
+      "name": "Visium",
+      "aliases": ["visium"],
+      "judge": "heisenbug",
+      "evidence": "visium",
+      "why": "NCC Group 32-bit high-integrity RISC ISA"
+    },
+    {
+      "name": "TriCore",
+      "aliases": ["tricore"],
+      "judge": "heisenbug",
+      "evidence": "tricore",
+      "why": "Infineon 32-bit automotive microcontroller/DSP ISA"
+    }
+  ],
+  "womm_candidates": ["RISC-V", "IA-64", "DEC Alpha"],
+  "bitflip_candidates": ["MMIX", "Xstormy16", "Lanai"]
+}

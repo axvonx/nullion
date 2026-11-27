@@ -1,0 +1,245 @@
+{
+ "post-quantum-signature-scheme": [
+  {
+   "name": "SPHINCS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "original hash-based signature"
+  },
+  {
+   "name": "Rainbow",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "multivariate scheme broken in 2022"
+  },
+  {
+   "name": "GeMSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "multivariate scheme"
+  },
+  {
+   "name": "LUOV",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "lifted UOV"
+  },
+  {
+   "name": "Picnic",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "MPC-in-the-head signature"
+  },
+  {
+   "name": "qTESLA",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "lattice signature"
+  },
+  {
+   "name": "XMSS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "stateful hash-based signature"
+  },
+  {
+   "name": "XMSS-MT",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "multi-tree XMSS"
+  },
+  {
+   "name": "LMS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Leighton-Micali signature"
+  },
+  {
+   "name": "HSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "hierarchical LMS"
+  },
+  {
+   "name": "MQDSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "multivariate Fiat-Shamir"
+  },
+  {
+   "name": "BLISS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "lattice signature"
+  },
+  {
+   "name": "GLP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Guneysu Lyubashevsky Poeppelmann"
+  },
+  {
+   "name": "HAWK",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "lattice signature"
+  },
+  {
+   "name": "LESS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "code equivalence signature"
+  },
+  {
+   "name": "MEDS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "matrix code equivalence"
+  },
+  {
+   "name": "PERK",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "permuted kernel signature"
+  },
+  {
+   "name": "RYDE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "rank syndrome decoding signature"
+  },
+  {
+   "name": "Mirath",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "MinRank signature"
+  },
+  {
+   "name": "Biscuit",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "MPC-in-the-head signature"
+  },
+  {
+   "name": "HuFu",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lattice hash-and-sign"
+  },
+  {
+   "name": "SQUIRRELS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lattice signature"
+  },
+  {
+   "name": "FuLeeca",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "code-based signature"
+  },
+  {
+   "name": "Wave",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "code-based signature"
+  },
+  {
+   "name": "Raccoon",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "masking-friendly lattice signature"
+  },
+  {
+   "name": "DME-Sign",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "multivariate signature"
+  },
+  {
+   "name": "ALTEQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "alternating trilinear form signature"
+  },
+  {
+   "name": "Lamport signature",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "one-time hash-based signature"
+  },
+  {
+   "name": "Winternitz one-time signature",
+   "aliases": [
+    "W-OTS",
+    "W-OTS+"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "hash-based OTS"
+  },
+  {
+   "name": "Merkle signature scheme",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "hash tree signature"
+  },
+  {
+   "name": "Gravity-SPHINCS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "SPHINCS variant"
+  },
+  {
+   "name": "pqsigRM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "code-based signature"
+  },
+  {
+   "name": "EagleSign",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "lattice signature"
+  },
+  {
+   "name": "SOFIA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "MQ signature"
+  }
+ ]
+}

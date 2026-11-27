@@ -1,0 +1,317 @@
+{
+ "lossless-compression-algorithm": [
+  {
+   "name": "Huffman coding",
+   "aliases": [
+    "Huffman"
+   ],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "prefix code by frequency"
+  },
+  {
+   "name": "arithmetic coding",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "fractional-bit entropy coder"
+  },
+  {
+   "name": "DEFLATE",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "zip and gzip algorithm"
+  },
+  {
+   "name": "LZ77",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "sliding window"
+  },
+  {
+   "name": "LZ78",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "dictionary growing"
+  },
+  {
+   "name": "LZW",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "GIF and TIFF"
+  },
+  {
+   "name": "LZSS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Storer-Szymanski"
+  },
+  {
+   "name": "LZMA",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "7-Zip"
+  },
+  {
+   "name": "LZ4",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "fast LZ"
+  },
+  {
+   "name": "Snappy",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Google"
+  },
+  {
+   "name": "Zstandard",
+   "aliases": [
+    "zstd"
+   ],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "Facebook"
+  },
+  {
+   "name": "Brotli",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "Google"
+  },
+  {
+   "name": "bzip2",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "BWT-based compressor"
+  },
+  {
+   "name": "PPM",
+   "aliases": [
+    "prediction by partial matching"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "context modelling"
+  },
+  {
+   "name": "PAQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "context mixing family"
+  },
+  {
+   "name": "range coding",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "integer arithmetic coder"
+  },
+  {
+   "name": "asymmetric numeral systems",
+   "aliases": [
+    "ANS",
+    "rANS",
+    "tANS"
+   ],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Duda entropy coder"
+  },
+  {
+   "name": "Shannon-Fano coding",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "predecessor of Huffman"
+  },
+  {
+   "name": "run-length encoding",
+   "aliases": [
+    "RLE"
+   ],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "runs of repeats"
+  },
+  {
+   "name": "Golomb coding",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Rice codes"
+  },
+  {
+   "name": "Elias gamma coding",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "universal code"
+  },
+  {
+   "name": "LZO",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Oberhumer"
+  },
+  {
+   "name": "LZF",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "liblzf"
+  },
+  {
+   "name": "LZFSE",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Apple"
+  },
+  {
+   "name": "LZX",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Microsoft CAB and CHM"
+  },
+  {
+   "name": "LZJB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "ZFS"
+  },
+  {
+   "name": "LZRW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Williams"
+  },
+  {
+   "name": "LZP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "LZ with prediction"
+  },
+  {
+   "name": "LZMA2",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "xz container codec"
+  },
+  {
+   "name": "PPMd",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Shkarin PPM"
+  },
+  {
+   "name": "QuickLZ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "fast compressor"
+  },
+  {
+   "name": "FastLZ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "small LZ"
+  },
+  {
+   "name": "LZHAM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Rich Geldreich"
+  },
+  {
+   "name": "Zopfli",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Deflate optimizer"
+  },
+  {
+   "name": "move-to-front transform",
+   "aliases": [
+    "MTF"
+   ],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "BWT companion"
+  },
+  {
+   "name": "Tunstall coding",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "variable-to-fixed code"
+  },
+  {
+   "name": "adaptive Huffman coding",
+   "aliases": [
+    "Vitter algorithm",
+    "FGK"
+   ],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "one-pass"
+  },
+  {
+   "name": "dynamic Markov compression",
+   "aliases": [
+    "DMC"
+   ],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Cormack Horspool"
+  },
+  {
+   "name": "ZPAQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "journaling PAQ format"
+  },
+  {
+   "name": "cmix",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Byron Knoll"
+  },
+  {
+   "name": "LZ4HC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "high compression LZ4"
+  },
+  {
+   "name": "Lizard",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "LZ5 successor"
+  }
+ ]
+}

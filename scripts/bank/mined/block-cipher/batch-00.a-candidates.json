@@ -1,0 +1,125 @@
+{
+  "block-cipher": [
+    {
+      "name": "AES",
+      "aliases": ["Rijndael"],
+      "judge": "off-by-one",
+      "evidence": "aes",
+      "why": "NIST Advanced Encryption Standard 128-bit block cipher"
+    },
+    {
+      "name": "Anubis",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "anubis",
+      "why": "128-bit block cipher by Rijmen and Barreto"
+    },
+    {
+      "name": "ARIA",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "aria",
+      "why": "South Korean national standard 128-bit block cipher"
+    },
+    {
+      "name": "Blowfish",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "blowfish_generic",
+      "why": "Bruce Schneier 64-bit Feistel block cipher"
+    },
+    {
+      "name": "Camellia",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "camellia",
+      "why": "128-bit block cipher by Mitsubishi and NTT"
+    },
+    {
+      "name": "CAST-128",
+      "aliases": ["CAST5"],
+      "judge": "leak",
+      "evidence": "cast5_generic",
+      "why": "64-bit Feistel block cipher used in PGP"
+    },
+    {
+      "name": "CAST-256",
+      "aliases": ["CAST6"],
+      "judge": "race",
+      "evidence": "cast6_generic",
+      "why": "128-bit AES candidate block cipher"
+    },
+    {
+      "name": "DES",
+      "aliases": ["Data Encryption Standard"],
+      "judge": "off-by-one",
+      "evidence": "des",
+      "why": "classic NIST 64-bit Feistel block cipher"
+    },
+    {
+      "name": "IDEA",
+      "aliases": ["International Data Encryption Algorithm"],
+      "judge": "npe",
+      "evidence": "idea",
+      "why": "64-bit block cipher used in early PGP"
+    },
+    {
+      "name": "KHAZAD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "khazad",
+      "why": "64-bit involutional SPN block cipher"
+    },
+    {
+      "name": "RC2",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "rc2",
+      "why": "Ron Rivest 64-bit variable-key-size block cipher"
+    },
+    {
+      "name": "RC5",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "rc5",
+      "why": "Ron Rivest parameterized Feistel-like block cipher"
+    },
+    {
+      "name": "SEED",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "seed",
+      "why": "Korean 128-bit Feistel block cipher standard"
+    },
+    {
+      "name": "Serpent",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "serpent_generic",
+      "why": "AES finalist 128-bit SPN block cipher"
+    },
+    {
+      "name": "SM4",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "sm4",
+      "why": "Chinese national standard 128-bit block cipher"
+    },
+    {
+      "name": "TEA",
+      "aliases": ["Tiny Encryption Algorithm"],
+      "judge": "npe",
+      "evidence": "tea",
+      "why": "minimal 64-bit Feistel block cipher"
+    },
+    {
+      "name": "Twofish",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "twofish_generic",
+      "why": "Bruce Schneier AES finalist 128-bit block cipher"
+    }
+  ],
+  "womm_candidates": ["Twofish", "Serpent", "TEA"],
+  "bitflip_candidates": ["Anubis", "KHAZAD", "CAST-256"]
+}

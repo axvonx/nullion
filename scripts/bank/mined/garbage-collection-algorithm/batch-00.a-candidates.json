@@ -1,0 +1,77 @@
+{
+  "garbage-collection-algorithm": [
+    {
+      "name": "copying collector",
+      "aliases": ["copying collection"],
+      "judge": "off-by-one",
+      "evidence": "     2  copying collector",
+      "why": "fundamental GC scheme that evacuates live objects to to-space"
+    },
+    {
+      "name": "G1",
+      "aliases": ["G1GC", "Garbage-First"],
+      "judge": "npe",
+      "evidence": "g1",
+      "why": "HotSpot region-based low-pause Garbage-First collector"
+    },
+    {
+      "name": "conservative garbage collection",
+      "aliases": ["conservative GC"],
+      "judge": "npe",
+      "evidence": "     2  conservative garbage collection",
+      "why": "GC scheme that treats ambiguous bit patterns as potential pointers"
+    },
+    {
+      "name": "accurate garbage collection",
+      "aliases": ["precise garbage collection"],
+      "judge": "leak",
+      "evidence": "     3  accurate garbage collection",
+      "why": "GC scheme using exact pointer maps rather than conservative scanning"
+    },
+    {
+      "name": "ZGC",
+      "aliases": ["Z Garbage Collector"],
+      "judge": "leak",
+      "evidence": "z",
+      "why": "HotSpot scalable low-latency concurrent collector using colored pointers"
+    },
+    {
+      "name": "Parallel GC",
+      "aliases": ["Parallel Scavenge", "Parallel Old"],
+      "judge": "leak",
+      "evidence": "parallel",
+      "why": "HotSpot multi-threaded throughput-oriented generational collector"
+    },
+    {
+      "name": "Serial GC",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "serial",
+      "why": "HotSpot single-threaded stop-the-world generational collector"
+    },
+    {
+      "name": "Shenandoah",
+      "aliases": ["Shenandoah GC"],
+      "judge": "race",
+      "evidence": "shenandoah",
+      "why": "HotSpot concurrent-compacting low-pause collector"
+    },
+    {
+      "name": "Epsilon GC",
+      "aliases": ["Epsilon"],
+      "judge": "heisenbug",
+      "evidence": "epsilon",
+      "why": "HotSpot no-op passive garbage collector for allocation testing"
+    }
+  ],
+  "womm_candidates": [
+    "Shenandoah",
+    "ZGC",
+    "G1"
+  ],
+  "bitflip_candidates": [
+    "Epsilon GC",
+    "accurate garbage collection",
+    "Shenandoah"
+  ]
+}

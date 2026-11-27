@@ -1,0 +1,140 @@
+{
+  "cryptographic-hash-function": [
+    {
+      "name": "BLAKE2b",
+      "aliases": [
+        "blake2b"
+      ],
+      "judge": "leak",
+      "evidence": "blake2b",
+      "why": "64-bit variant of the BLAKE2 cryptographic hash function"
+    },
+    {
+      "name": "MD2",
+      "aliases": [
+        "md2"
+      ],
+      "judge": "race",
+      "evidence": "md2",
+      "why": "Rivest's 128-bit cryptographic hash function designed for 8-bit machines"
+    },
+    {
+      "name": "MD4",
+      "aliases": [
+        "md4"
+      ],
+      "judge": "leak",
+      "evidence": "md4",
+      "why": "Rivest's 128-bit cryptographic hash function and predecessor to MD5"
+    },
+    {
+      "name": "MD5",
+      "aliases": [
+        "md5"
+      ],
+      "judge": "off-by-one",
+      "evidence": "md5",
+      "why": "widely known 128-bit cryptographic hash function"
+    },
+    {
+      "name": "MDC-2",
+      "aliases": [
+        "mdc2",
+        "MDC2"
+      ],
+      "judge": "heisenbug",
+      "evidence": "mdc2",
+      "why": "DES-based Modification Detection Code 2 cryptographic hash function"
+    },
+    {
+      "name": "RIPEMD-160",
+      "aliases": [
+        "RIPEMD",
+        "rmd160",
+        "ripemd160"
+      ],
+      "judge": "leak",
+      "evidence": "rmd160",
+      "why": "160-bit European cryptographic hash function used in Bitcoin addresses"
+    },
+    {
+      "name": "SHA-1",
+      "aliases": [
+        "sha1",
+        "SHA1"
+      ],
+      "judge": "off-by-one",
+      "evidence": "sha1",
+      "why": "ubiquitous 160-bit NIST cryptographic hash function"
+    },
+    {
+      "name": "SHA-256",
+      "aliases": [
+        "sha256",
+        "SHA256"
+      ],
+      "judge": "off-by-one",
+      "evidence": "sha256",
+      "why": "widely used 256-bit SHA-2 cryptographic hash function"
+    },
+    {
+      "name": "SHA-3",
+      "aliases": [
+        "sha3",
+        "Keccak"
+      ],
+      "judge": "npe",
+      "evidence": "sha3",
+      "why": "sponge-based NIST cryptographic hash standard"
+    },
+    {
+      "name": "SHA-512",
+      "aliases": [
+        "sha512",
+        "SHA512"
+      ],
+      "judge": "npe",
+      "evidence": "sha512",
+      "why": "512-bit SHA-2 cryptographic hash function"
+    },
+    {
+      "name": "SM3",
+      "aliases": [
+        "sm3"
+      ],
+      "judge": "race",
+      "evidence": "sm3",
+      "why": "256-bit Chinese national standard cryptographic hash function"
+    },
+    {
+      "name": "Streebog",
+      "aliases": [
+        "GOST R 34.11-2012",
+        "streebog_generic"
+      ],
+      "judge": "heisenbug",
+      "evidence": "streebog_generic",
+      "why": "Russian GOST R 34.11-2012 cryptographic hash function"
+    },
+    {
+      "name": "Whirlpool",
+      "aliases": [
+        "wp512",
+        "whrlpool"
+      ],
+      "judge": "race",
+      "evidence": "wp512",
+      "why": "512-bit cryptographic hash function designed by Rijmen and Barreto"
+    }
+  ],
+  "womm_candidates": [
+    "BLAKE2b",
+    "Whirlpool",
+    "RIPEMD-160"
+  ],
+  "bitflip_candidates": [
+    "MDC-2",
+    "Streebog",
+    "SM3"
+  ]
+}

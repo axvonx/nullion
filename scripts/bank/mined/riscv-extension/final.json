@@ -1,0 +1,369 @@
+{
+ "riscv-extension": [
+  {
+   "name": "M extension",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "A extension",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "F extension",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "D extension",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Q extension",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "C extension",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "V extension",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "B extension",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "H extension",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "P extension",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zicsr",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zifencei",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zba",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zbb",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zbc",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zbs",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zbkb",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zbkc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zbkx",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zknd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zkne",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zknh",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zksed",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zksh",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zkr",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zkt",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zfh",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zfhmin",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zfinx",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zdinx",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zhinx",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zicbom",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zicboz",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zicbop",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zicntr",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zihpm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zihintpause",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zihintntl",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zicond",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zawrs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zacas",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zabha",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Ztso",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zmmul",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Zca",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zcb",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zcd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zcf",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zcmp",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zcmt",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zvl128b",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zve32x",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zvfh",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zvbb",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zvbc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zvkg",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zvkned",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zvknha",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zvksed",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zvksh",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zimop",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zfa",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Svnapot",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Svpbmt",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Svinval",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Sstc",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Sscofpmf",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Smepmp",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Smstateen",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Ssaia",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Sdtrig",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zicfilp",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zicfiss",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

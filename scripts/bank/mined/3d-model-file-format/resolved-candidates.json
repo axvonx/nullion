@@ -1,0 +1,54 @@
+{
+ "3d-model-file-format": [
+  {
+   "name": "BLEND",
+   "aliases": [
+    "Blender"
+   ],
+   "judge": "npe",
+   "why": "Blender's native binary scene format",
+   "evidence": "Blender"
+  },
+  {
+   "name": "PMX",
+   "aliases": [
+    "PMD",
+    "MikuMikuDance"
+   ],
+   "judge": "race",
+   "why": "MikuMikuDance rigged model format",
+   "evidence": "MMD"
+  },
+  {
+   "name": "Ogre XML",
+   "aliases": [],
+   "judge": "race",
+   "why": "OGRE mesh and skeleton XML format",
+   "evidence": "Ogre"
+  },
+  {
+   "name": "TER",
+   "aliases": [
+    "Terragen"
+   ],
+   "judge": "race",
+   "why": "Terragen heightfield terrain format",
+   "evidence": "Terragen"
+  },
+  {
+   "name": "Unreal 3D",
+   "aliases": [],
+   "judge": "race",
+   "why": "legacy Unreal vertex-animated .3d format",
+   "evidence": "Unreal"
+  },
+  {
+   "name": "RAW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low",
+   "why": "plain triangle list for POV-Ray; name is generic",
+   "evidence": "Raw"
+  }
+ ]
+}

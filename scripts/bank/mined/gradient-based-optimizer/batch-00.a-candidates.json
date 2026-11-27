@@ -1,0 +1,147 @@
+{
+  "gradient-based-optimizer": [
+    {
+      "name": "SGD",
+      "aliases": ["Stochastic Gradient Descent"],
+      "judge": "off-by-one",
+      "evidence": "sgd",
+      "why": "foundational stochastic gradient descent optimizer"
+    },
+    {
+      "name": "Adam",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "adam",
+      "why": "ubiquitous adaptive moment estimation optimizer"
+    },
+    {
+      "name": "AdamW",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "adamw",
+      "why": "Adam with decoupled weight decay, standard for transformers"
+    },
+    {
+      "name": "RMSProp",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "rmsprop",
+      "why": "exponentially decaying squared-gradient adaptive optimizer"
+    },
+    {
+      "name": "Adagrad",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "adagrad",
+      "why": "accumulates all past squared gradients per parameter"
+    },
+    {
+      "name": "Adadelta",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "adadelta",
+      "why": "windowed adaptive learning rate extension of Adagrad"
+    },
+    {
+      "name": "NAdam",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "nadam",
+      "why": "Adam combined with Nesterov accelerated gradient momentum"
+    },
+    {
+      "name": "L-BFGS",
+      "aliases": ["lbfgs", "Limited-memory BFGS"],
+      "judge": "leak",
+      "evidence": "lbfgs",
+      "why": "limited-memory quasi-Newton gradient optimizer"
+    },
+    {
+      "name": "Adamax",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "adamax",
+      "why": "infinity-norm variant of Adam from the original Adam paper"
+    },
+    {
+      "name": "RAdam",
+      "aliases": ["Rectified Adam"],
+      "judge": "race",
+      "evidence": "radam",
+      "why": "rectifies variance of the adaptive learning rate in early steps"
+    },
+    {
+      "name": "Adafactor",
+      "aliases": ["_adafactor"],
+      "judge": "race",
+      "evidence": "_adafactor",
+      "why": "sublinear-memory factored second-moment optimizer for large models"
+    },
+    {
+      "name": "Lion",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "lion",
+      "why": "sign-momentum optimizer discovered via program search"
+    },
+    {
+      "name": "LAMB",
+      "aliases": ["Layer-wise Adaptive Moments"],
+      "judge": "race",
+      "evidence": "lamb",
+      "why": "layer-wise trust-ratio optimizer for large-batch BERT training"
+    },
+    {
+      "name": "FTRL",
+      "aliases": ["Follow-The-Regularized-Leader", "FTRL-Proximal"],
+      "judge": "race",
+      "evidence": "ftrl",
+      "why": "online convex optimizer widely used for sparse CTR models"
+    },
+    {
+      "name": "Rprop",
+      "aliases": ["Resilient Backpropagation"],
+      "judge": "race",
+      "evidence": "rprop",
+      "why": "sign-only adaptive step-size backpropagation optimizer"
+    },
+    {
+      "name": "ASGD",
+      "aliases": ["Averaged SGD", "Averaged Stochastic Gradient Descent"],
+      "judge": "race",
+      "evidence": "asgd",
+      "why": "Polyak-Ruppert averaged stochastic gradient descent"
+    },
+    {
+      "name": "Muon",
+      "aliases": ["_muon"],
+      "judge": "heisenbug",
+      "evidence": "_muon",
+      "why": "orthogonalized matrix-momentum optimizer for 2D hidden layers"
+    },
+    {
+      "name": "Schedule-Free AdamW",
+      "aliases": ["schedule_free_adamw"],
+      "judge": "heisenbug",
+      "evidence": "schedule_free_adamw",
+      "why": "iterate-averaging AdamW variant requiring no learning-rate schedule"
+    },
+    {
+      "name": "SparseAdam",
+      "aliases": ["sparse_adam"],
+      "judge": "heisenbug",
+      "evidence": "sparse_adam",
+      "why": "PyTorch lazy-update Adam variant for sparse gradient tensors"
+    }
+  ],
+  "womm_candidates": [
+    "Lion",
+    "Adafactor",
+    "LAMB"
+  ],
+  "bitflip_candidates": [
+    "Muon",
+    "Schedule-Free AdamW",
+    "Rprop"
+  ]
+}

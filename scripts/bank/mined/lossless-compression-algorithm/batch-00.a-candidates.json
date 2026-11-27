@@ -1,0 +1,8 @@
+{
+  "lossless-compression-algorithm": [
+    {"name": "Burrows-Wheeler transform", "aliases": ["bwt"], "judge": "leak", "evidence": "bwt", "why": "reversible block-sorting compression transform"},
+    {"name": "Lempel-Ziv", "aliases": [], "judge": "npe", "evidence": "lz", "why": "foundational dictionary-based lossless compression family"}
+  ],
+  "womm_candidates": ["Lempel-Ziv", "Burrows-Wheeler transform"],
+  "bitflip_candidates": ["Burrows-Wheeler transform"]
+}

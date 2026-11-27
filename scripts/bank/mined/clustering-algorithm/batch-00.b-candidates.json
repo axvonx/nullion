@@ -1,0 +1,140 @@
+{
+  "clustering-algorithm": [
+    {
+      "name": "k-means",
+      "aliases": [
+        "kmeans",
+        "Lloyd's algorithm"
+      ],
+      "judge": "off-by-one",
+      "evidence": "_kmeans",
+      "why": "classic centroid-based partitioning clustering algorithm"
+    },
+    {
+      "name": "DBSCAN",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "_dbscan",
+      "why": "widely known density-based spatial clustering algorithm"
+    },
+    {
+      "name": "hierarchical clustering",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "_hierarchical_fast",
+      "why": "classic clustering family building a nested tree of clusters"
+    },
+    {
+      "name": "agglomerative clustering",
+      "aliases": [
+        "hierarchical agglomerative clustering"
+      ],
+      "judge": "npe",
+      "evidence": "_agglomerative",
+      "why": "bottom-up hierarchical clustering merging closest pairs iteratively"
+    },
+    {
+      "name": "spectral clustering",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "_spectral",
+      "why": "clusters points using eigenvalues of a similarity matrix"
+    },
+    {
+      "name": "HDBSCAN",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "_hdbscan",
+      "why": "hierarchical extension of DBSCAN handling varying cluster densities"
+    },
+    {
+      "name": "mean shift",
+      "aliases": [
+        "mean-shift",
+        "mean_shift"
+      ],
+      "judge": "leak",
+      "evidence": "_mean_shift",
+      "why": "mode-seeking clustering algorithm using kernel density estimation"
+    },
+    {
+      "name": "affinity propagation",
+      "aliases": [
+        "affinity_propagation"
+      ],
+      "judge": "leak",
+      "evidence": "_affinity_propagation",
+      "why": "exemplar-based clustering via message passing between data points"
+    },
+    {
+      "name": "mini-batch k-means",
+      "aliases": [
+        "minibatch k-means",
+        "mini-batch kmeans"
+      ],
+      "judge": "leak",
+      "evidence": "_k_means_minibatch",
+      "why": "scalable k-means variant updating centroids with random mini-batches"
+    },
+    {
+      "name": "OPTICS",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "_optics",
+      "why": "density-based clustering ordering points by reachability distance"
+    },
+    {
+      "name": "BIRCH",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "_birch",
+      "why": "incremental clustering algorithm using a Clustering Feature tree"
+    },
+    {
+      "name": "bisecting k-means",
+      "aliases": [
+        "bisecting kmeans"
+      ],
+      "judge": "race",
+      "evidence": "_bisect_k_means",
+      "why": "divisive hierarchical variant of k-means splitting clusters recursively"
+    },
+    {
+      "name": "biclustering",
+      "aliases": [
+        "co-clustering"
+      ],
+      "judge": "race",
+      "evidence": "_bicluster",
+      "why": "simultaneously clusters rows and columns of a data matrix"
+    },
+    {
+      "name": "feature agglomeration",
+      "aliases": [
+        "feature_agglomeration"
+      ],
+      "judge": "heisenbug",
+      "evidence": "_feature_agglomeration",
+      "why": "agglomerative clustering applied to merge correlated features"
+    },
+    {
+      "name": "Elkan's k-means",
+      "aliases": [
+        "Elkan k-means"
+      ],
+      "judge": "heisenbug",
+      "evidence": "_k_means_elkan",
+      "why": "k-means accelerated using the triangle inequality to skip distance checks"
+    }
+  ],
+  "womm_candidates": [
+    "HDBSCAN",
+    "OPTICS",
+    "affinity propagation"
+  ],
+  "bitflip_candidates": [
+    "Elkan's k-means",
+    "feature agglomeration",
+    "BIRCH"
+  ]
+}

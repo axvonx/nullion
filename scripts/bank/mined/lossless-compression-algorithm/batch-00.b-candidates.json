@@ -1,0 +1,20 @@
+{
+  "lossless-compression-algorithm": [
+    {
+      "name": "Burrows-Wheeler transform",
+      "aliases": ["bwt"],
+      "judge": "npe",
+      "evidence": "bwt",
+      "why": "reversible block-sorting transform used in lossless compression"
+    },
+    {
+      "name": "Lempel-Ziv",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "lz",
+      "why": "foundational dictionary-based lossless compression family"
+    }
+  ],
+  "womm_candidates": ["Lempel-Ziv", "Burrows-Wheeler transform"],
+  "bitflip_candidates": []
+}

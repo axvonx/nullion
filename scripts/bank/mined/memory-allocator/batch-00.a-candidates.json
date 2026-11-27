@@ -1,0 +1,55 @@
+{
+  "memory-allocator": [
+    {
+      "name": "jemalloc",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "     3  usingJEMalloc",
+      "why": "widely used general-purpose scalable malloc implementation"
+    },
+    {
+      "name": "buddy allocator",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "     9  buddy allocator",
+      "why": "classic power-of-two block splitting/coalescing allocation algorithm"
+    },
+    {
+      "name": "slab allocator",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "     6  slab allocator",
+      "why": "object-caching kernel and heap allocation algorithm"
+    },
+    {
+      "name": "Scudo",
+      "aliases": ["Scudo Hardened Allocator", "ScudoHardenedAllocator"],
+      "judge": "race",
+      "evidence": "     3  ScudoHardenedAllocator",
+      "why": "LLVM's security-hardened dynamic memory allocator"
+    },
+    {
+      "name": "BumpPtrAllocator",
+      "aliases": ["bump pointer allocator"],
+      "judge": "race",
+      "evidence": "     9  BumpPtrAllocator",
+      "why": "LLVM's fast region/bump-pointer memory allocator"
+    },
+    {
+      "name": "Contiguous Memory Allocator",
+      "aliases": ["CMA", "cma allocator"],
+      "judge": "race",
+      "evidence": "     5  contiguous memory allocator",
+      "why": "Linux kernel allocator for physically contiguous memory regions"
+    },
+    {
+      "name": "zsmalloc",
+      "aliases": ["zs_malloc"],
+      "judge": "heisenbug",
+      "evidence": "     4  zs_malloc",
+      "why": "Linux kernel slab-based allocator for compressed pages"
+    }
+  ],
+  "womm_candidates": ["jemalloc", "slab allocator", "buddy allocator"],
+  "bitflip_candidates": ["zsmalloc", "Scudo", "BumpPtrAllocator"]
+}

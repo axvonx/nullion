@@ -1,0 +1,59 @@
+{
+ "non-cryptographic-hash-function": [
+  {
+   "name": "aesni-hash",
+   "aliases": [
+    "aesnihash-peterrk"
+   ],
+   "judge": "heisenbug",
+   "why": "AES-NI hash in SMHasher",
+   "evidence": "aesni-hash"
+  },
+  {
+   "name": "beamsplitter",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "SMHasher hash",
+   "evidence": "beamsplitter"
+  },
+  {
+   "name": "CRC32C",
+   "aliases": [],
+   "judge": "leak",
+   "why": "Castagnoli CRC",
+   "evidence": "crc32c"
+  },
+  {
+   "name": "HalfSipHash",
+   "aliases": [],
+   "judge": "race",
+   "why": "32-bit SipHash variant",
+   "evidence": "halfsiphash"
+  },
+  {
+   "name": "hassh64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "SSE-based 64-bit hash",
+   "evidence": "hassh64"
+  },
+  {
+   "name": "RIPEMD-160",
+   "aliases": [
+    "rmd160"
+   ],
+   "judge": "leak",
+   "why": "crypto hash",
+   "evidence": "rmd160"
+  },
+  {
+   "name": "RIPEMD-256",
+   "aliases": [
+    "rmd256"
+   ],
+   "judge": "race",
+   "why": "crypto hash",
+   "evidence": "rmd256"
+  }
+ ]
+}

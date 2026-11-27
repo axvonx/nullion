@@ -1,0 +1,265 @@
+{
+ "gradient-based-optimizer": [
+  {
+   "name": "SGD",
+   "aliases": [
+    "Stochastic Gradient Descent"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Adam",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "AdamW",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "RMSProp",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Adagrad",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Adadelta",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "NAdam",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "L-BFGS",
+   "aliases": [
+    "Limited-memory BFGS"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Adamax",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "RAdam",
+   "aliases": [
+    "Rectified Adam"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Adafactor",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Lion",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "LAMB",
+   "aliases": [
+    "Layer-wise Adaptive Moments"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "FTRL",
+   "aliases": [
+    "Follow-The-Regularized-Leader",
+    "FTRL-Proximal"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Rprop",
+   "aliases": [
+    "Resilient Backpropagation"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ASGD",
+   "aliases": [
+    "Averaged SGD",
+    "Averaged Stochastic Gradient Descent"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Muon",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Schedule-Free AdamW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SparseAdam",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "momentum SGD",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Nesterov accelerated gradient",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "AMSGrad",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "AdaBelief",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AdaBound",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Yogi",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Lookahead",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Sophia",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Shampoo",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SOAP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AdaHessian",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Adan",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Prodigy",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "D-Adaptation",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LARS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Ranger",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "QHAdam",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "K-FAC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BFGS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "nonlinear conjugate gradient",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Hessian-free optimization",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "natural gradient",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Madgrad",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "signSGD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Novograd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Adam-mini",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Fromage",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AdaGrad-Norm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "diffGrad",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Apollo",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

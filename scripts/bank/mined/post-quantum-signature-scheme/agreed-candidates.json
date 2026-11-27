@@ -1,0 +1,71 @@
+{
+ "post-quantum-signature-scheme": [
+  {
+   "name": "ML-DSA",
+   "aliases": [
+    "Dilithium",
+    "CRYSTALS-Dilithium"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Falcon",
+   "aliases": [
+    "FN-DSA"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SLH-DSA",
+   "aliases": [
+    "SPHINCS+"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "UOV",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SQIsign",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MAYO",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CROSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FAEST",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MQOM",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QR-UOV",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SDitH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SNOVA",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

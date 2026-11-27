@@ -1,0 +1,292 @@
+{
+ "graph-algorithm": [
+  {
+   "name": "d-separation",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Dijkstra's algorithm",
+   "aliases": [
+    "Dijkstra"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Bellman-Ford algorithm",
+   "aliases": [
+    "Bellman-Ford"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Floyd-Warshall algorithm",
+   "aliases": [
+    "Floyd-Warshall"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "A* search",
+   "aliases": [
+    "A star"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "breadth-first search",
+   "aliases": [
+    "BFS"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "depth-first search",
+   "aliases": [
+    "DFS"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Kruskal's algorithm",
+   "aliases": [
+    "Kruskal"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Prim's algorithm",
+   "aliases": [
+    "Prim"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Borůvka's algorithm",
+   "aliases": [
+    "Boruvka"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Tarjan's strongly connected components algorithm",
+   "aliases": [
+    "Tarjan's algorithm"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Kosaraju's algorithm",
+   "aliases": [
+    "Kosaraju"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Ford-Fulkerson algorithm",
+   "aliases": [
+    "Ford-Fulkerson"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Edmonds-Karp algorithm",
+   "aliases": [
+    "Edmonds-Karp"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Dinic's algorithm",
+   "aliases": [
+    "Dinic"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "push-relabel algorithm",
+   "aliases": [
+    "Goldberg-Tarjan"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Hopcroft-Karp algorithm",
+   "aliases": [
+    "Hopcroft-Karp"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Hungarian algorithm",
+   "aliases": [
+    "Kuhn-Munkres"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Edmonds' blossom algorithm",
+   "aliases": [
+    "blossom algorithm"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Johnson's algorithm",
+   "aliases": [
+    "Johnson"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Kahn's algorithm",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Christofides algorithm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Held-Karp algorithm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Stoer-Wagner algorithm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Karger's algorithm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Hierholzer's algorithm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Chu-Liu/Edmonds algorithm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Bron-Kerbosch algorithm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Girvan-Newman algorithm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Louvain method",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PageRank",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "HITS algorithm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Brandes' algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "bidirectional search",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Yen's algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Eppstein's algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "contraction hierarchies",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Jump Point Search",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "D* Lite",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "IDA*",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Gomory-Hu tree",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Cuthill-McKee algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Welsh-Powell algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DSatur",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Weisfeiler-Lehman algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VF2 algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Boykov-Kolmogorov algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Gabow's algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Lexicographic breadth-first search",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Dial's algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}
