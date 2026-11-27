@@ -1,0 +1,474 @@
+{
+ "layer": {
+  "id": "bus-fabric",
+  "name": "PCIe / DMA Fabric",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:bf-pcieswitch",
+   "kind": "anchor",
+   "entityId": "bf-pcieswitch",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    56,
+    40
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-pcieswitch-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-crossbar",
+   "kind": "prop",
+   "entityId": "bf-crossbar",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-crossbar-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dmaring",
+   "kind": "prop",
+   "entityId": "bf-dmaring",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    16
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dmaring-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-mmio",
+   "kind": "prop",
+   "entityId": "bf-mmio",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-mmio-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-chip",
+   "kind": "prop",
+   "entityId": "bf-dr-chip",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-chip-bus-fabric-v0.png",
+    "design/naming/sprites/e-bf-dr-chip-bus-fabric-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-ribbon",
+   "kind": "prop",
+   "entityId": "bf-dr-ribbon",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    26,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-ribbon-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-irq",
+   "kind": "prop",
+   "entityId": "bf-dr-irq",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    18
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-irq-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-connector",
+   "kind": "prop",
+   "entityId": "bf-dr-connector",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    6
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-connector-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-caps",
+   "kind": "prop",
+   "entityId": "bf-dr-caps",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-caps-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-usb",
+   "kind": "prop",
+   "entityId": "bf-dr-usb",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-usb-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-pcie",
+   "kind": "prop",
+   "entityId": "bf-dr-pcie",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    28,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-pcie-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-dma",
+   "kind": "prop",
+   "entityId": "bf-dr-dma",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-dma-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-nic",
+   "kind": "prop",
+   "entityId": "bf-dr-nic",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-nic-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-gpu",
+   "kind": "prop",
+   "entityId": "bf-dr-gpu",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-gpu-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-disk",
+   "kind": "prop",
+   "entityId": "bf-dr-disk",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-disk-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-keys",
+   "kind": "prop",
+   "entityId": "bf-dr-keys",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-keys-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-db9",
+   "kind": "prop",
+   "entityId": "bf-dr-db9",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-db9-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-jumpers",
+   "kind": "prop",
+   "entityId": "bf-dr-jumpers",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-jumpers-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-heatsink",
+   "kind": "prop",
+   "entityId": "bf-dr-heatsink",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-heatsink-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-rj45",
+   "kind": "prop",
+   "entityId": "bf-dr-rj45",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-rj45-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-dr-scope",
+   "kind": "prop",
+   "entityId": "bf-dr-scope",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bf-dr-scope-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-retimer",
+   "kind": "prop",
+   "entityId": "bf-retimer",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-retimer-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-msix",
+   "kind": "prop",
+   "entityId": "bf-msix",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-msix-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-lane",
+   "kind": "prop",
+   "entityId": "bf-lane",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    6
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-lane-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bf-iommu",
+   "kind": "prop",
+   "entityId": "bf-iommu",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bf-iommu-bus-fabric-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:bus-fabric:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "bus-fabric",
+   "motions": [
+    "scuttle",
+    "zip"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-bus-fabric-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:bus-fabric:alt",
+   "kind": "critter-alt",
+   "entityId": null,
+   "critterLayer": "bus-fabric",
+   "motions": [
+    "zip"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-bus-fabric-alt-v1.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

@@ -1,0 +1,559 @@
+{
+ "layer": {
+  "id": "application",
+  "name": "Application",
+  "daily": true
+ },
+ "items": [
+  {
+   "key": "e:app-cascade",
+   "kind": "anchor",
+   "entityId": "app-cascade",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    58,
+    44
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-cascade-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-launcher",
+   "kind": "anchor",
+   "entityId": "app-launcher",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    46,
+    36
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-launcher-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-browser",
+   "kind": "prop",
+   "entityId": "app-browser",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    16
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-browser-application-v0.png",
+    "design/naming/sprites/e-app-browser-application-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-dialog",
+   "kind": "prop",
+   "entityId": "app-dialog",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-dialog-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-toast",
+   "kind": "prop",
+   "entityId": "app-toast",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-toast-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-spinner",
+   "kind": "prop",
+   "entityId": "app-spinner",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    9,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-spinner-application-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Eternal Spinner",
+    "blurb": "Spins heroically while promising the app is definitely not frozen. Definitely."
+   }
+  },
+  {
+   "key": "e:app-progress",
+   "kind": "prop",
+   "entityId": "app-progress",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    6
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-progress-application-v0.png",
+    "design/naming/sprites/e-app-progress-application-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-icon",
+   "kind": "prop",
+   "entityId": "app-icon",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    8,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-icon-application-v0.png",
+    "design/naming/sprites/e-app-icon-application-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-bubble",
+   "kind": "prop",
+   "entityId": "app-bubble",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    8
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-bubble-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-cloudsync",
+   "kind": "prop",
+   "entityId": "app-cloudsync",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-cloudsync-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-folder",
+   "kind": "prop",
+   "entityId": "app-folder",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-folder-application-v0.png",
+    "design/naming/sprites/e-app-folder-application-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-trash",
+   "kind": "prop",
+   "entityId": "app-trash",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    9,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-trash-application-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Recycle Goblin",
+    "blurb": "Politely holds onto deleted files until you finally click Empty \u2014 and immediately regret it."
+   }
+  },
+  {
+   "key": "e:app-slider",
+   "kind": "prop",
+   "entityId": "app-slider",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    7
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-slider-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-toggle",
+   "kind": "prop",
+   "entityId": "app-toggle",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    7
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-toggle-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-checklist",
+   "kind": "prop",
+   "entityId": "app-checklist",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-checklist-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-calendar",
+   "kind": "prop",
+   "entityId": "app-calendar",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-calendar-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-status",
+   "kind": "prop",
+   "entityId": "app-status",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    6
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-status-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-search",
+   "kind": "prop",
+   "entityId": "app-search",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    8
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-search-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-dropdown",
+   "kind": "prop",
+   "entityId": "app-dropdown",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    16
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-dropdown-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-swatches",
+   "kind": "prop",
+   "entityId": "app-swatches",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-swatches-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-photo",
+   "kind": "prop",
+   "entityId": "app-photo",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-photo-application-v0.png",
+    "design/naming/sprites/e-app-photo-application-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-video",
+   "kind": "prop",
+   "entityId": "app-video",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-video-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-download",
+   "kind": "prop",
+   "entityId": "app-download",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-download-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-clock",
+   "kind": "prop",
+   "entityId": "app-clock",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-app-clock-application-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Small Ben",
+    "blurb": "A stubbornly punctual timepiece that follows you down the stack \u2014 until Ring \u22122 stops its hands cold."
+   }
+  },
+  {
+   "key": "e:app-avatar",
+   "kind": "prop",
+   "entityId": "app-avatar",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-avatar-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-music",
+   "kind": "prop",
+   "entityId": "app-music",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-music-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-pin",
+   "kind": "prop",
+   "entityId": "app-pin",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-pin-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-pill",
+   "kind": "prop",
+   "entityId": "app-pill",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-pill-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:app-bell",
+   "kind": "prop",
+   "entityId": "app-bell",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-app-bell-application-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:application:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "application",
+   "motions": [
+    "fly",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-application-core-v0.png",
+    "design/naming/sprites/c-application-core-v2.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Sky Sprite",
+    "blurb": "Glides lazily over sunlit app windows and perches on anything with a flat titlebar."
+   }
+  },
+  {
+   "key": "c:application:alt",
+   "kind": "critter-alt",
+   "entityId": null,
+   "critterLayer": "application",
+   "motions": [
+    "fly"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-application-alt-v1.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

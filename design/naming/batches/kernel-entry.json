@@ -1,0 +1,474 @@
+{
+ "layer": {
+  "id": "kernel-entry",
+  "name": "Kernel Entry & VFS Gate",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:ke-gatehouse",
+   "kind": "anchor",
+   "entityId": "ke-gatehouse",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    52,
+    42
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-gatehouse-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-seccomp",
+   "kind": "prop",
+   "entityId": "ke-seccomp",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-seccomp-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-uaccess",
+   "kind": "prop",
+   "entityId": "ke-uaccess",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-uaccess-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-sysgate",
+   "kind": "prop",
+   "entityId": "ke-sysgate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-sysgate-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-gears",
+   "kind": "prop",
+   "entityId": "ke-kr-gears",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    17
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-gears-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-dmesg",
+   "kind": "prop",
+   "entityId": "ke-kr-dmesg",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    46,
+    19
+   ],
+   "carriesText": true,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-dmesg-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-gauge",
+   "kind": "prop",
+   "entityId": "ke-kr-gauge",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-gauge-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-piston",
+   "kind": "prop",
+   "entityId": "ke-kr-piston",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    8,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-piston-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-leds",
+   "kind": "prop",
+   "entityId": "ke-kr-leds",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    7
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-leds-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-schedwheel",
+   "kind": "prop",
+   "entityId": "ke-kr-schedwheel",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    17
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-schedwheel-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-pagetable",
+   "kind": "prop",
+   "entityId": "ke-kr-pagetable",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    19
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-pagetable-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-irqbell",
+   "kind": "prop",
+   "entityId": "ke-kr-irqbell",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-irqbell-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-turnstile",
+   "kind": "prop",
+   "entityId": "ke-kr-turnstile",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-turnstile-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-slab",
+   "kind": "prop",
+   "entityId": "ke-kr-slab",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    23,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-slab-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-ticker",
+   "kind": "prop",
+   "entityId": "ke-kr-ticker",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-ticker-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-gate",
+   "kind": "prop",
+   "entityId": "ke-kr-gate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    17
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-gate-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-runqueue",
+   "kind": "prop",
+   "entityId": "ke-kr-runqueue",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    26,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-runqueue-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-mutex",
+   "kind": "prop",
+   "entityId": "ke-kr-mutex",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-mutex-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-irqmeter",
+   "kind": "prop",
+   "entityId": "ke-kr-irqmeter",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-irqmeter-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-tlb",
+   "kind": "prop",
+   "entityId": "ke-kr-tlb",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-tlb-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-kr-schedrack",
+   "kind": "prop",
+   "entityId": "ke-kr-schedrack",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ke-kr-schedrack-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-ptrace",
+   "kind": "prop",
+   "entityId": "ke-ptrace",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-ptrace-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-cred",
+   "kind": "prop",
+   "entityId": "ke-cred",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-cred-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-fdtable",
+   "kind": "prop",
+   "entityId": "ke-fdtable",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-fdtable-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ke-vdso",
+   "kind": "prop",
+   "entityId": "ke-vdso",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ke-vdso-kernel-entry-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:kernel-entry:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "kernel-entry",
+   "motions": [
+    "patrol",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-kernel-entry-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:kernel-entry:alt",
+   "kind": "critter-alt",
+   "entityId": null,
+   "critterLayer": "kernel-entry",
+   "motions": [
+    "hop",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-kernel-entry-alt-v1.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

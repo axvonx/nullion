@@ -1,0 +1,437 @@
+{
+ "layer": {
+  "id": "ept",
+  "name": "EPT & IOMMU",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:ept-matrix",
+   "kind": "anchor",
+   "entityId": "ept-matrix",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    50,
+    40
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-matrix-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-grid",
+   "kind": "prop",
+   "entityId": "ept-grid",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-grid-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-vtd",
+   "kind": "prop",
+   "entityId": "ept-vtd",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-vtd-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-mirror",
+   "kind": "prop",
+   "entityId": "ept-r1-mirror",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-mirror-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-tunnel",
+   "kind": "prop",
+   "entityId": "ept-r1-tunnel",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-tunnel-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-tag",
+   "kind": "prop",
+   "entityId": "ept-r1-tag",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    10
+   ],
+   "carriesText": true,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-tag-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-glass",
+   "kind": "prop",
+   "entityId": "ept-r1-glass",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    16
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-glass-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-bubble",
+   "kind": "prop",
+   "entityId": "ept-r1-bubble",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-bubble-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-ept",
+   "kind": "prop",
+   "entityId": "ept-r1-ept",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-ept-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-vcpu",
+   "kind": "prop",
+   "entityId": "ept-r1-vcpu",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-vcpu-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-vmcs",
+   "kind": "prop",
+   "entityId": "ept-r1-vmcs",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-vmcs-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-trapdoor",
+   "kind": "prop",
+   "entityId": "ept-r1-trapdoor",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-trapdoor-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-shadowpage",
+   "kind": "prop",
+   "entityId": "ept-r1-shadowpage",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-shadowpage-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-dolls",
+   "kind": "prop",
+   "entityId": "ept-r1-dolls",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-dolls-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-mempress",
+   "kind": "prop",
+   "entityId": "ept-r1-mempress",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-mempress-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-migrate",
+   "kind": "prop",
+   "entityId": "ept-r1-migrate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-migrate-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-snapshot",
+   "kind": "prop",
+   "entityId": "ept-r1-snapshot",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-snapshot-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-hypercall",
+   "kind": "prop",
+   "entityId": "ept-r1-hypercall",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-hypercall-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-vswitch",
+   "kind": "prop",
+   "entityId": "ept-r1-vswitch",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-vswitch-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-cage",
+   "kind": "prop",
+   "entityId": "ept-r1-cage",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-cage-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-r1-split",
+   "kind": "prop",
+   "entityId": "ept-r1-split",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-r1-split-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-pte",
+   "kind": "prop",
+   "entityId": "ept-pte",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-pte-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-dirty",
+   "kind": "prop",
+   "entityId": "ept-dirty",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    10,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-dirty-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ept-walker",
+   "kind": "prop",
+   "entityId": "ept-walker",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ept-walker-ept-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:ept:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "ept",
+   "motions": [
+    "grid",
+    "mirror"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-ept-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

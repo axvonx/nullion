@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Naming Desk</title>
+<style>
+:root {
+  --bg: #0c0b10; --panel: #131118; --bezel: #1d1a24; --rule: #34303f; --ink: #ebe6d6; --dim: #8b8598;
+  --signal: #ffb000; --ok: #7ee0a1; --fault: #ff5f7a; --pick: #8fb7ff;
+  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; --mono: ui-monospace, 'SF Mono', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 14px/1.4 var(--sans); }
+button, input, select, textarea { font: inherit; color: inherit; }
+header { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--rule); background: var(--bezel); position: sticky; top: 0; z-index: 3; }
+header h1 { font: 600 15px var(--mono); margin: 0; color: var(--signal); letter-spacing: .04em; }
+.progress { font-family: var(--mono); color: var(--dim); font-size: 12px; }
+.progress b { color: var(--ink); font-weight: 600; }
+header select, header input { background: var(--panel); border: 1px solid var(--rule); padding: 4px 6px; border-radius: 3px; }
+header input[type=search] { width: 200px; }
+.save { margin-left: auto; font-family: var(--mono); font-size: 12px; color: var(--dim); }
+.save.err { color: var(--fault); } .save.ok { color: var(--ok); }
+.warn { width: 100%; color: var(--fault); font-size: 12px; font-family: var(--mono); }
+main { display: grid; grid-template-columns: 230px minmax(0, 1fr) minmax(0, 1.1fr); height: calc(100vh - 52px); }
+main > * { min-width: 0; overflow: auto; }
+/* list */
+.list { border-right: 1px solid var(--rule); padding: 6px 0; }
+.list button { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 8px; align-items: center; width: 100%; text-align: left; padding: 4px 10px; border: 0; background: none; cursor: pointer; }
+.list button:hover { background: var(--panel); } .list button.cur { background: #24202d; box-shadow: inset 3px 0 0 var(--signal); }
+.list img { width: 36px; height: 28px; object-fit: contain; image-rendering: pixelated; background: #000; }
+.list .ln { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+.list .ln small { display: block; color: var(--dim); font-family: var(--mono); font-size: 10px; }
+.dots { display: flex; gap: 3px; } .dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--rule); } .dots i.on { background: var(--ok); }
+.list h4 { margin: 10px 10px 4px; font: 600 11px var(--mono); color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
+/* art */
+.art { padding: 16px 18px; border-right: 1px solid var(--rule); }
+.stage { display: grid; place-items: center; background: #000 repeating-conic-gradient(#0d0c12 0 25%, #000 0 50%) 0 0/16px 16px; border: 1px solid var(--rule); height: 300px; }
+.stage img { image-rendering: pixelated; }
+.app-row { display: flex; gap: 8px; align-items: center; margin: 10px 0; }
+.app-row select { flex: 1; background: var(--panel); border: 1px solid var(--rule); padding: 5px; border-radius: 3px; }
+.thumbs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.thumbs button { padding: 3px; border: 2px solid var(--rule); background: #000; cursor: pointer; border-radius: 2px; }
+.thumbs button.cur { border-color: var(--pick); }
+.thumbs img { width: 44px; height: 34px; object-fit: contain; image-rendering: pixelated; display: block; }
+.desc dt { font: 600 11px var(--mono); color: var(--dim); text-transform: uppercase; letter-spacing: .06em; margin-top: 10px; }
+.desc dd { margin: 2px 0 0; }
+.meta { font-family: var(--mono); font-size: 12px; color: var(--dim); margin-top: 12px; }
+.hint { display: inline-block; font: 600 11px var(--mono); padding: 1px 6px; border-radius: 3px; background: #2a2533; }
+.hint.keep { color: var(--ok); } .hint.variant, .hint.merge { color: var(--pick); } .hint.catalogue { color: var(--dim); } .hint.rework { color: var(--fault); }
+/* choices */
+.choices { padding: 16px 18px 40px; }
+.choices h2 { font: 600 12px var(--mono); color: var(--signal); text-transform: uppercase; letter-spacing: .08em; margin: 18px 0 8px; }
+.choices h2:first-child { margin-top: 0; }
+.opt { position: relative; display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; margin: 6px 0; border: 1px solid var(--rule); border-radius: 4px; background: var(--panel); cursor: pointer; }
+.opt:hover { border-color: #4a4458; } .opt.sel { border-color: var(--pick); background: #18202e; }
+.opt input[type=radio] { margin-top: 3px; accent-color: var(--pick); }
+.opt .nm { font-size: 16px; font-weight: 600; } .opt .sub { color: var(--dim); font-size: 12px; }
+.badge { font: 600 10px var(--mono); padding: 1px 5px; border-radius: 3px; margin-left: 6px; vertical-align: 2px; }
+.badge.rec { background: #3a3010; color: var(--signal); } .badge.sug { background: #1d2a3c; color: var(--pick); }
+/* reasoning on hover */
+.opt[data-why]:hover::after, .opt[data-why]:focus-within::after { content: attr(data-why); position: absolute; left: 30px; right: 10px; top: 100%; margin-top: 4px; z-index: 5;
+  background: #fffbe9; color: #221f2a; white-space: pre-line; padding: 8px 10px; border-radius: 4px; font-size: 13px; box-shadow: 0 6px 18px rgba(0,0,0,.45); pointer-events: none; }
+.opt input[type=text] { flex: 1; background: #0c0b10; border: 1px solid var(--rule); border-radius: 3px; padding: 5px 7px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 8px; }
+.target { margin: 6px 0 0 28px; display: flex; gap: 8px; align-items: center; }
+.target input { flex: 1; background: #0c0b10; border: 1px solid var(--rule); border-radius: 3px; padding: 5px 7px; }
+.target img { width: 40px; height: 30px; object-fit: contain; image-rendering: pixelated; background: #000; }
+textarea { width: 100%; min-height: 70px; background: #0c0b10; border: 1px solid var(--rule); border-radius: 4px; padding: 8px; resize: vertical; }
+.nav { display: flex; gap: 8px; margin-top: 18px; align-items: center; }
+.nav button { background: var(--bezel); border: 1px solid var(--rule); padding: 6px 12px; border-radius: 3px; cursor: pointer; }
+.nav .keys { color: var(--dim); font-size: 12px; font-family: var(--mono); margin-left: auto; }
+.pending { color: var(--dim); font-style: italic; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; height: auto; } .list { max-height: 30vh; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>NAMING DESK</h1>
+  <span class="progress" id="progress"></span>
+  <select id="fLayer" aria-label="Layer"></select>
+  <select id="fKind" aria-label="Kind">
+    <option value="">all kinds</option><option value="critter">critters</option><option value="critter-alt">alternate critters</option><option value="anchor">anchors</option><option value="prop">props</option>
+  </select>
+  <select id="fStatus" aria-label="Status">
+    <option value="">all</option><option value="name-open">name still open</option><option value="dec-open">decision still open</option><option value="done">named + decided</option><option value="notes">has design notes</option>
+  </select>
+  <input type="search" id="fSearch" placeholder="search id, name, concept…" />
+  <span class="save" id="save">loading…</span>
+  <div class="warn" id="warn" hidden></div>
+</header>
+<main>
+  <nav class="list" id="list" aria-label="Entities"></nav>
+  <section class="art" id="art"></section>
+  <section class="choices" id="choices"></section>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+const h = (tag, attrs = {}, ...kids) => {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (v === undefined || v === null || v === false) continue;
+    if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+    else if (k === 'class') e.className = v;
+    else if (v === true) e.setAttribute(k, '');
+    else e.setAttribute(k, v);
+  }
+  for (const c of kids.flat()) if (c !== null && c !== undefined && c !== false) e.append(c);
+  return e;
+};
+
+const DECISIONS = [
+  ['open', 'Leave open', 'undecided'],
+  ['keep', 'Keep', 'its own Field Manual page'],
+  ['variant', 'Variation of…', 'shown on another entry’s page as a variation (e.g. a recolour)'],
+  ['merge', 'Merge into…', 'the same thing as another entry'],
+  ['catalogue', 'Catalogue only', 'appendix specimen, no page'],
+  ['rework', 'Rework the art', 'unclear, a speck, or duplicate art'],
+  ['delete', 'Delete', 'remove from the world'],
+  ['other', 'Other…', 'explain in the note'],
+];
+const put = (el, ...kids) => el.replaceChildren(...kids.flat().filter((k) => k !== null && k !== undefined && k !== false));
+const blank = () => ({ name: { choice: 'open', proposal: null, writeIn: '' }, decision: { choice: 'open', target: null, note: '' }, description: '', updatedAt: null });
+
+let inv, props = {}, dec, items = [], view = [], at = 0, appAt = 0;
+
+async function load() {
+  inv = await (await fetch('inventory.json')).json();
+  items = inv.items;
+  await refreshProposals();
+  const saved = await (await fetch('api/decisions')).json();
+  dec = saved ?? { version: 1, note: 'Field Manual naming decisions (design/naming). Every entity is listed; "open" means explicitly undecided.', items: {} };
+  let added = 0;
+  for (const it of items) if (!dec.items[it.key]) { dec.items[it.key] = blank(); added++; }
+  if (!saved || added) save(true);
+  const layerSel = $('#fLayer');
+  layerSel.append(h('option', { value: '' }, 'all layers'), h('option', { value: 'daily' }, 'Daily layers'), h('option', { value: 'endless' }, 'Endless-only layers'));
+  for (const l of inv.layers) layerSel.append(h('option', { value: l.id }, `${l.name}${l.daily ? '' : ' (Endless)'}`));
+  for (const id of ['#fLayer', '#fKind', '#fStatus']) $(id).addEventListener('change', () => filter());
+  $('#fSearch').addEventListener('input', () => filter());
+  try { const last = localStorage.getItem('namingDesk.key'); filter(last); } catch { filter(); }
+  setInterval(refreshProposals, 20000); // proposals are generated in the background; pick them up as they land
+}
+
+async function refreshProposals() {
+  const r = await (await fetch('api/proposals')).json();
+  const before = Object.keys(props).length;
+  props = r.items;
+  const w = $('#warn');
+  w.hidden = !r.failed.length;
+  w.textContent = r.failed.length ? `Unreadable proposal files (still generating, or broken): ${r.failed.join('; ')}` : '';
+  if (Object.keys(props).length !== before && view.length) render();
+}
+
+const P = (it) => props[it.key];
+const rec = (it) => dec.items[it.key];
+function chosenName(it) {
+  const d = rec(it), p = P(it);
+  if (d.name.choice === 'proposal' && p) return p.proposals[d.name.proposal]?.name;
+  if (d.name.choice === 'write-in') return d.name.writeIn || null;
+  if (d.name.choice === 'keep-current') return it.manual?.name;
+  return null;
+}
+const label = (it) => chosenName(it) ?? (P(it) ? P(it).proposals[P(it).recommend]?.name + ' ?' : it.entityId ?? it.key);
+
+function filter(keepKey) {
+  const L = $('#fLayer').value, K = $('#fKind').value, S = $('#fStatus').value, q = $('#fSearch').value.trim().toLowerCase();
+  const cur = keepKey ?? view[at]?.key;
+  view = items.filter((it) => {
+    const layers = it.appearances.map((a) => a.layer);
+    if (L === 'daily' && !it.appearances.some((a) => a.daily)) return false;
+    if (L === 'endless' && it.appearances.some((a) => a.daily)) return false;
+    if (L && L !== 'daily' && L !== 'endless' && !layers.includes(L)) return false;
+    if (K && it.kind !== K) return false;
+    const d = rec(it);
+    if (S === 'name-open' && d.name.choice !== 'open') return false;
+    if (S === 'dec-open' && d.decision.choice !== 'open') return false;
+    if (S === 'done' && (d.name.choice === 'open' || d.decision.choice === 'open')) return false;
+    if (S === 'notes' && !d.description.trim()) return false;
+    if (q) {
+      const p = P(it);
+      const hay = [it.key, it.entityId, it.manual?.name, chosenName(it), p?.depicts, p?.concept, ...(p?.proposals ?? []).map((x) => x.name)].join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  at = Math.max(0, view.findIndex((it) => it.key === cur));
+  appAt = 0;
+  render();
+}
+
+function progress() {
+  const all = Object.values(dec.items);
+  const named = all.filter((d) => d.name.choice !== 'open').length;
+  const decided = all.filter((d) => d.decision.choice !== 'open').length;
+  $('#progress').innerHTML = `<b>${named}</b>/${items.length} named · <b>${decided}</b> decided · ${Object.keys(props).length}/${items.length} have proposals · showing ${view.length}`;
+}
+
+function renderList() {
+  const list = $('#list');
+  list.replaceChildren();
+  let lastLayer = null;
+  view.forEach((it, i) => {
+    const layer = it.appearances[0].layerName;
+    if (layer !== lastLayer) { list.append(h('h4', {}, layer)); lastLayer = layer; }
+    const d = rec(it);
+    const b = h('button', { class: i === at ? 'cur' : '', onclick: () => { at = i; appAt = 0; render(); } },
+      h('img', { src: `sprites/${it.appearances[0].img}`, alt: '' }),
+      h('span', { class: 'ln' }, label(it), h('small', {}, it.entityId ?? it.kind)),
+      h('span', { class: 'dots', title: 'name · decision · notes' }, h('i', { class: d.name.choice !== 'open' ? 'on' : '' }), h('i', { class: d.decision.choice !== 'open' ? 'on' : '' }), h('i', { class: d.description.trim() ? 'on' : '' })));
+    list.append(b);
+  });
+  list.querySelector('.cur')?.scrollIntoView({ block: 'nearest' });
+}
+
+function bigImg(app) {
+  const img = h('img', { src: `sprites/${app.img}`, alt: '' });
+  img.onload = () => { // integer upscale to fit the stage
+    const k = Math.max(1, Math.floor(Math.min(420 / img.naturalWidth, 280 / img.naturalHeight)));
+    img.style.width = `${img.naturalWidth * k}px`;
+  };
+  return img;
+}
+
+function appLabel(a) {
+  return `${a.layerName}${a.daily ? '' : ' (Endless)'} · ${a.colourVariant ? `colour ${a.variant + 1}` : `size ${a.size[0]}×${a.size[1]}${a.variant ? ` (variant ${a.variant + 1})` : ''}`}`;
+}
+
+function renderArt(it) {
+  const p = P(it);
+  const app = it.appearances[appAt] ?? it.appearances[0];
+  const sel = h('select', { 'aria-label': 'Appearance', onchange: (e) => { appAt = Number(e.target.value); renderArt(it); } },
+    it.appearances.map((a, i) => h('option', { value: i, selected: i === appAt }, appLabel(a))));
+  const desc = h('dl', { class: 'desc' },
+    h('dt', {}, 'Depicts'), h('dd', {}, p ? p.depicts : h('span', { class: 'pending' }, 'proposals still generating…')),
+    h('dt', {}, 'Computing concept'), h('dd', {}, p?.concept ?? '—'),
+    it.manual ? [h('dt', {}, 'Current placeholder'), h('dd', {}, h('b', {}, it.manual.name), ` (${it.manual.id}, ${it.manual.rarity}): ${it.manual.blurb}`)] : null,
+    p ? [h('dt', {}, 'Gemini’s verdict'), h('dd', {}, h('span', { class: `hint ${p.decisionHint}` }, p.decisionHint + (p.mergeWith ? ` → ${p.mergeWith}` : '')), ' ', p.decisionWhy)] : null);
+  const meta = h('div', { class: 'meta' },
+    `${it.key} · ${it.kind}`,
+    it.motions ? ` · moves: ${it.motions.join(', ')}` : '',
+    it.flags?.text ? ' · carries text' : '', it.flags?.anim ? ' · animated' : '',
+    ` · ${it.appearances.length} appearance${it.appearances.length === 1 ? '' : 's'}`);
+  put($('#art'),
+    h('div', { class: 'stage' }, bigImg(app)),
+    h('div', { class: 'app-row' }, h('span', { class: 'meta', style: 'margin:0' }, 'Appearance'), sel),
+    it.appearances.length > 1 ? h('div', { class: 'thumbs' }, it.appearances.map((a, i) => h('button', { class: i === appAt ? 'cur' : '', title: appLabel(a), onclick: () => { appAt = i; renderArt(it); } }, h('img', { src: `sprites/${a.img}`, alt: appLabel(a) })))) : null,
+    desc, meta);
+}
+
+function touch(it) { rec(it).updatedAt = new Date().toISOString(); save(); renderList(); progress(); }
+
+function renderChoices(it) {
+  const p = P(it), d = rec(it);
+  const radio = (group, checked, onpick) => h('input', { type: 'radio', name: group, checked, onchange: onpick });
+  const nameOpts = [];
+  if (p) p.proposals.forEach((x, i) => {
+    const checked = d.name.choice === 'proposal' && d.name.proposal === i;
+    nameOpts.push(h('label', { class: `opt${checked ? ' sel' : ''}`, 'data-why': x.why + (i === p.recommend ? `\n\nRecommended: ${p.recommendWhy}` : '') },
+      radio('name', checked, () => { d.name = { ...d.name, choice: 'proposal', proposal: i }; touch(it); renderChoices(it); }),
+      h('span', {}, h('span', { class: 'nm' }, x.name), i === p.recommend ? h('span', { class: 'badge rec' }, 'RECOMMENDED') : null, h('div', { class: 'sub' }, 'hover for the reasoning'))));
+  });
+  else nameOpts.push(h('p', { class: 'pending' }, 'Name proposals for this layer are still being generated; they appear here automatically.'));
+  if (it.manual) {
+    const checked = d.name.choice === 'keep-current';
+    nameOpts.push(h('label', { class: `opt${checked ? ' sel' : ''}`, 'data-why': 'The prototype name from src/game/manual.ts.' },
+      radio('name', checked, () => { d.name.choice = 'keep-current'; touch(it); renderChoices(it); }),
+      h('span', {}, h('span', { class: 'nm' }, it.manual.name), h('div', { class: 'sub' }, 'keep the current placeholder'))));
+  }
+  const wi = h('input', { type: 'text', placeholder: 'write in a name…', value: d.name.writeIn,
+    oninput: (e) => { d.name.writeIn = e.target.value; d.name.choice = 'write-in'; touch(it); wiLabel.classList.add('sel'); wiLabel.querySelector('input[type=radio]').checked = true; } });
+  const wiLabel = h('label', { class: `opt${d.name.choice === 'write-in' ? ' sel' : ''}` }, radio('name', d.name.choice === 'write-in', () => { d.name.choice = 'write-in'; touch(it); renderChoices(it); }), wi);
+  nameOpts.push(wiLabel);
+  nameOpts.push(h('label', { class: `opt${d.name.choice === 'open' ? ' sel' : ''}` }, radio('name', d.name.choice === 'open', () => { d.name.choice = 'open'; touch(it); renderChoices(it); }), h('span', {}, h('span', { class: 'nm', style: 'font-size:14px' }, 'Leave open'), h('div', { class: 'sub' }, 'decide later'))));
+
+  const decOpts = DECISIONS.map(([id, title, sub]) => {
+    const checked = d.decision.choice === id;
+    return h('label', { class: `opt${checked ? ' sel' : ''}`, 'data-why': p && p.decisionHint === id ? `Gemini suggests this: ${p.decisionWhy}` : null },
+      radio('decision', checked, () => {
+        d.decision.choice = id;
+        if ((id === 'variant' || id === 'merge') && !d.decision.target && p?.mergeWith) d.decision.target = p.mergeWith;
+        touch(it); renderChoices(it);
+      }),
+      h('span', {}, h('span', { class: 'nm', style: 'font-size:14px' }, title), p && p.decisionHint === id ? h('span', { class: 'badge sug' }, 'SUGGESTED') : null, h('div', { class: 'sub' }, sub)));
+  });
+  let target = null;
+  if (d.decision.choice === 'variant' || d.decision.choice === 'merge') {
+    const tItem = items.find((x) => x.key === d.decision.target);
+    const dl = h('datalist', { id: 'targets' }, items.filter((x) => x !== it).map((x) => h('option', { value: x.key }, `${label(x)} · ${x.appearances[0].layerName}`)));
+    target = h('div', { class: 'target' },
+      h('input', { list: 'targets', placeholder: 'which entity? (type an id or name)', value: d.decision.target ?? '',
+        onchange: (e) => { d.decision.target = e.target.value || null; touch(it); renderChoices(it); } }),
+      dl, tItem ? h('img', { src: `sprites/${tItem.appearances[0].img}`, alt: '', title: label(tItem) }) : null,
+      tItem ? h('button', { type: 'button', onclick: () => { const i = view.indexOf(tItem); if (i >= 0) { at = i; appAt = 0; render(); } } }, 'go') : null);
+  }
+  const note = h('textarea', { placeholder: 'decision note (why, what to merge, what to change)…', oninput: (e) => { d.decision.note = e.target.value; touch(it); } });
+  note.value = d.decision.note;
+  const notes = h('textarea', { placeholder: 'design notes for this character: look, personality, behaviour, lore, colours, what its page should say…', style: 'min-height:110px', oninput: (e) => { d.description = e.target.value; touch(it); } });
+  notes.value = d.description;
+
+  put($('#choices'),
+    h('h2', {}, 'Name'), ...nameOpts,
+    h('h2', {}, 'Other decision'), h('div', { class: 'grid2' }, decOpts), target, note,
+    h('h2', {}, 'Design notes'), notes,
+    h('div', { class: 'nav' },
+      h('button', { type: 'button', onclick: () => step(-1) }, '◀ prev'),
+      h('button', { type: 'button', onclick: () => step(1) }, 'next ▶'),
+      h('span', { class: 'keys' }, `${at + 1}/${view.length} · alt+←/→ to move · alt+1–3 pick a name`)));
+}
+
+function render() {
+  progress();
+  const it = view[at];
+  renderList();
+  if (!it) { $('#art').replaceChildren(h('p', { class: 'pending' }, 'Nothing matches the filters.')); $('#choices').replaceChildren(); return; }
+  try { localStorage.setItem('namingDesk.key', it.key); } catch {}
+  renderArt(it);
+  renderChoices(it);
+}
+
+function step(dir) { if (!view.length) return; at = (at + dir + view.length) % view.length; appAt = 0; render(); }
+window.addEventListener('keydown', (e) => {
+  if (!e.altKey) return;
+  if (e.key === 'ArrowRight') { step(1); e.preventDefault(); }
+  else if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); }
+  else if (/^Digit[123]$/.test(e.code)) {
+    const it = view[at]; if (!it || !P(it)) return;
+    rec(it).name = { ...rec(it).name, choice: 'proposal', proposal: Number(e.code.slice(5)) - 1 }; touch(it); renderChoices(it); e.preventDefault();
+  }
+});
+
+let timer = 0;
+function save(now) {
+  clearTimeout(timer);
+  $('#save').className = 'save'; $('#save').textContent = 'saving…';
+  timer = setTimeout(async () => {
+    try {
+      dec.savedAt = new Date().toISOString();
+      const r = await fetch('api/decisions', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(dec) });
+      if (!r.ok) throw new Error((await r.json()).error ?? r.status);
+      $('#save').className = 'save ok'; $('#save').textContent = `saved to design/naming/decisions.json · ${new Date().toLocaleTimeString()}`;
+    } catch (e) {
+      $('#save').className = 'save err'; $('#save').textContent = `NOT SAVED: ${e.message}. Is scripts/naming-desk.mjs running?`;
+    }
+  }, now ? 0 : 400);
+}
+window.addEventListener('beforeunload', (e) => { if ($('#save').textContent === 'saving…') e.preventDefault(); });
+
+load().catch((e) => { $('#save').className = 'save err'; $('#save').textContent = `failed to load: ${e.message}`; });
+</script>
+</body>
+</html>

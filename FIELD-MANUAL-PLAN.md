@@ -78,11 +78,39 @@ Decisions from the design session on 2026-11-26 (the working page was `.lavish/f
   rumour giving the habitat hint.
 - **Not included:** field marks, sighting counters, errata slips, dog-ears.
 
+## Variations (owner's idea, 2026-11-27)
+
+- **Many props and critters are the same character** in another colour or size: the critter colour variants, and
+  near-copies of a prop across layers.
+- **These can merge into one entry with variations.** In the binder's figure strip each thumbnail is outlined in its
+  layer's colour, so several variations from the same layer sit side by side with the same outline. This replaces
+  "one figure per layer".
+- **The naming desk records these as "Variation of…" decisions.**
+
+## Naming desk
+
+- **Purpose:** a local page for working through every entity: 769 of them (729 props and anchors, plus 40 critter
+  species with their colour variants).
+- **For each one:**
+  - images, with a dropdown of its appearances;
+  - three proposed names from Gemini, with the reasoning shown on hover;
+  - a write-in name;
+  - a decision: keep, variation of…, merge into…, catalogue only, rework the art, delete, or other, with a note;
+  - free design notes.
+- **Run it:** `node scripts/naming-desk.mjs` serves it at http://127.0.0.1:4870.
+- **Decisions** autosave to `design/naming/decisions.json`. Every entity is listed, explicitly "open" until decided.
+- **Regenerating its inputs:**
+  - `scripts/naming-inventory.mjs` rebuilds `inventory.json` and `sprites/` (it needs the dev server and a
+    debuggable Chrome);
+  - `design/naming/run-proposals.sh` fills `proposals/<layer>.json` through agy (Gemini);
+  - the proposal prompt is `design/naming/prompt.md`.
+
 ## Writing entries
 
 - Entries stay TypeScript in `src/game/manual.ts`.
-- A short style guide goes in its header: voice, and a length limit per section (NAME ≤ 60 chars, DESCRIPTION ≤ 2
-  sentences, BUGS one line).
+- **The style guide is `research/field-manual-style-guide.md`.** `styleProblems()` in `src/game/manual-style.ts`
+  checks its rules, with tests on synthetic entries. Once the entries are rewritten, add a test that runs it over
+  `MANUAL_ENTRIES`.
 - A test enforces those limits and the required sections.
 - The owner may hand-write the entries.
 

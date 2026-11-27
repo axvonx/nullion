@@ -1,0 +1,476 @@
+{
+ "layer": {
+  "id": "kernel-arch",
+  "name": "Arch & Interrupt Core",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:ka-apicbank",
+   "kind": "anchor",
+   "entityId": "ka-apicbank",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    50,
+    42
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-apicbank-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-apic",
+   "kind": "prop",
+   "entityId": "ka-apic",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-apic-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Interrupt Flag",
+    "blurb": "Crackles with raw white lightning whenever a peripheral demands the CPU drop everything right now."
+   }
+  },
+  {
+   "key": "e:ka-idt",
+   "kind": "prop",
+   "entityId": "ka-idt",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-idt-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-cr3",
+   "kind": "prop",
+   "entityId": "ka-cr3",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-cr3-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-gears",
+   "kind": "prop",
+   "entityId": "ka-kr-gears",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    17
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-gears-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-dmesg",
+   "kind": "prop",
+   "entityId": "ka-kr-dmesg",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    46,
+    19
+   ],
+   "carriesText": true,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-dmesg-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-gauge",
+   "kind": "prop",
+   "entityId": "ka-kr-gauge",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-gauge-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-piston",
+   "kind": "prop",
+   "entityId": "ka-kr-piston",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    8,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-piston-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-leds",
+   "kind": "prop",
+   "entityId": "ka-kr-leds",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    7
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-leds-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-schedwheel",
+   "kind": "prop",
+   "entityId": "ka-kr-schedwheel",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    17
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-schedwheel-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-pagetable",
+   "kind": "prop",
+   "entityId": "ka-kr-pagetable",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    19
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-pagetable-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-irqbell",
+   "kind": "prop",
+   "entityId": "ka-kr-irqbell",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-irqbell-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-turnstile",
+   "kind": "prop",
+   "entityId": "ka-kr-turnstile",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-turnstile-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-slab",
+   "kind": "prop",
+   "entityId": "ka-kr-slab",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    23,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-slab-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-ticker",
+   "kind": "prop",
+   "entityId": "ka-kr-ticker",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-ticker-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-gate",
+   "kind": "prop",
+   "entityId": "ka-kr-gate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    17
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-gate-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-runqueue",
+   "kind": "prop",
+   "entityId": "ka-kr-runqueue",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    26,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-runqueue-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-mutex",
+   "kind": "prop",
+   "entityId": "ka-kr-mutex",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-mutex-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-irqmeter",
+   "kind": "prop",
+   "entityId": "ka-kr-irqmeter",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-irqmeter-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-tlb",
+   "kind": "prop",
+   "entityId": "ka-kr-tlb",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-tlb-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-kr-schedrack",
+   "kind": "prop",
+   "entityId": "ka-kr-schedrack",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ka-kr-schedrack-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-nmi",
+   "kind": "prop",
+   "entityId": "ka-nmi",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-nmi-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-spinlock",
+   "kind": "prop",
+   "entityId": "ka-spinlock",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-spinlock-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-rcu",
+   "kind": "prop",
+   "entityId": "ka-rcu",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-rcu-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ka-tlb",
+   "kind": "prop",
+   "entityId": "ka-tlb",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ka-tlb-kernel-arch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:kernel-arch:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "kernel-arch",
+   "motions": [
+    "zip",
+    "scuttle"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-kernel-arch-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:kernel-arch:alt",
+   "kind": "critter-alt",
+   "entityId": null,
+   "critterLayer": "kernel-arch",
+   "motions": [
+    "zip"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-kernel-arch-alt-v1.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

@@ -1,0 +1,506 @@
+{
+ "layer": {
+  "id": "ring-3",
+  "name": "MEI / HECI Mailbox",
+  "daily": true
+ },
+ "items": [
+  {
+   "key": "e:r3-me",
+   "kind": "anchor",
+   "entityId": "r3-me",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    44,
+    34
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r3-me-ring-3-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Silicon Heart",
+    "blurb": "Starts as a humble bus chip, grows a quartz UV window in Firmware, and reveals the hidden Management Engine at the bottom."
+   }
+  },
+  {
+   "key": "e:r3-vias",
+   "kind": "prop",
+   "entityId": "r3-vias",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    10,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-vias-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-pad",
+   "kind": "prop",
+   "entityId": "r3-pad",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-pad-ring-3-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "The Master Key",
+    "blurb": "A skeleton key that unlocks boot ROMs in Firmware and reappears as bare 1-bit teeth in Ring \u22123."
+   }
+  },
+  {
+   "key": "e:r3-trace",
+   "kind": "prop",
+   "entityId": "r3-trace",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-trace-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-decap",
+   "kind": "prop",
+   "entityId": "r3-decap",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-decap-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-xtal",
+   "kind": "prop",
+   "entityId": "r3-xtal",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r3-xtal-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-testpads",
+   "kind": "prop",
+   "entityId": "r3-testpads",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-testpads-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-fuses",
+   "kind": "prop",
+   "entityId": "r3-fuses",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-fuses-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-resistor",
+   "kind": "prop",
+   "entityId": "r3-resistor",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    5
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-resistor-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-diode",
+   "kind": "prop",
+   "entityId": "r3-diode",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-diode-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-inductor",
+   "kind": "prop",
+   "entityId": "r3-inductor",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    6
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-inductor-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-sram",
+   "kind": "prop",
+   "entityId": "r3-sram",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-sram-ring-3-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Gatekeeper FET",
+    "blurb": "One tiny switch out of billions \u2014 open or closed, 0 or 1, holding up the entire world above."
+   }
+  },
+  {
+   "key": "e:r3-ringosc",
+   "kind": "prop",
+   "entityId": "r3-ringosc",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    16
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r3-ringosc-ring-3-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Lock Ness",
+    "blurb": "Keeps resurfacing deeper and deeper in the machine, shedding color until only pure 1-bit steel remains."
+   }
+  },
+  {
+   "key": "e:r3-thermal",
+   "kind": "prop",
+   "entityId": "r3-thermal",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    7,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-thermal-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-pll",
+   "kind": "prop",
+   "entityId": "r3-pll",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-pll-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-jtag",
+   "kind": "prop",
+   "entityId": "r3-jtag",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-jtag-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-rom",
+   "kind": "prop",
+   "entityId": "r3-rom",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    11
+   ],
+   "carriesText": true,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-rom-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-htree",
+   "kind": "prop",
+   "entityId": "r3-htree",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-htree-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-guard",
+   "kind": "prop",
+   "entityId": "r3-guard",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    17
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-guard-ring-3-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Hidden Beacon",
+    "blurb": "Broadcasts silent 1-bit pings from the bottom of the silicon die, even when the machine is asleep."
+   }
+  },
+  {
+   "key": "e:r3-gate",
+   "kind": "prop",
+   "entityId": "r3-gate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-gate-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-probe",
+   "kind": "prop",
+   "entityId": "r3-probe",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    7,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-probe-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-align",
+   "kind": "prop",
+   "entityId": "r3-align",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    9,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-align-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-bondwire",
+   "kind": "prop",
+   "entityId": "r3-bondwire",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-bondwire-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-capbank",
+   "kind": "prop",
+   "entityId": "r3-capbank",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-capbank-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-pulse",
+   "kind": "prop",
+   "entityId": "r3-pulse",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    7
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r3-pulse-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-fiducial",
+   "kind": "prop",
+   "entityId": "r3-fiducial",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-fiducial-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r3-fusebank",
+   "kind": "prop",
+   "entityId": "r3-fusebank",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r3-fusebank-ring-3-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:ring-3:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "ring-3",
+   "motions": [
+    "grid"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-ring-3-core-v0.png",
+    "design/naming/sprites/c-ring-3-core-v1.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Bit-Mote",
+    "blurb": "Steps strictly along invisible 4-pixel silicon rails, flickering between pure 0 and pure 1."
+   }
+  }
+ ]
+}

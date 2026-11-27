@@ -1,0 +1,407 @@
+{
+ "layer": {
+  "id": "jit",
+  "name": "JIT & Inline Caches",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:jit-forge",
+   "kind": "anchor",
+   "entityId": "jit-forge",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    48,
+    44
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-jit-forge-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-ic",
+   "kind": "prop",
+   "entityId": "jit-ic",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-jit-ic-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-deopt",
+   "kind": "prop",
+   "entityId": "jit-deopt",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-deopt-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-profile",
+   "kind": "prop",
+   "entityId": "jit-profile",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-profile-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-osr",
+   "kind": "prop",
+   "entityId": "jit-osr",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-osr-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-guard",
+   "kind": "prop",
+   "entityId": "jit-guard",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-guard-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-objects",
+   "kind": "prop",
+   "entityId": "jit-rt-objects",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-objects-jit-v0.png",
+    "design/naming/sprites/e-jit-rt-objects-jit-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-sweeper",
+   "kind": "prop",
+   "entityId": "jit-rt-sweeper",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    30,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-sweeper-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-marks",
+   "kind": "prop",
+   "entityId": "jit-rt-marks",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-marks-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-ref",
+   "kind": "prop",
+   "entityId": "jit-rt-ref",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-ref-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-heapcol",
+   "kind": "prop",
+   "entityId": "jit-rt-heapcol",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-heapcol-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-jit",
+   "kind": "prop",
+   "entityId": "jit-rt-jit",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-jit-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-tape",
+   "kind": "prop",
+   "entityId": "jit-rt-tape",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-tape-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-callstack",
+   "kind": "prop",
+   "entityId": "jit-rt-callstack",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    16
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-callstack-jit-v0.png",
+    "design/naming/sprites/e-jit-rt-callstack-jit-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-refcount",
+   "kind": "prop",
+   "entityId": "jit-rt-refcount",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-refcount-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-weakref",
+   "kind": "prop",
+   "entityId": "jit-rt-weakref",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-weakref-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-tricolor",
+   "kind": "prop",
+   "entityId": "jit-rt-tricolor",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    8
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-tricolor-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-bump",
+   "kind": "prop",
+   "entityId": "jit-rt-bump",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    8
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-bump-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-finalizer",
+   "kind": "prop",
+   "entityId": "jit-rt-finalizer",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-finalizer-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-interp",
+   "kind": "prop",
+   "entityId": "jit-rt-interp",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-interp-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:jit-rt-hashmap",
+   "kind": "prop",
+   "entityId": "jit-rt-hashmap",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-jit-rt-hashmap-jit-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:jit:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "jit",
+   "motions": [
+    "zip",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-jit-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:jit:alt",
+   "kind": "critter-alt",
+   "entityId": null,
+   "critterLayer": "jit",
+   "motions": [
+    "float"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-jit-alt-v1.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

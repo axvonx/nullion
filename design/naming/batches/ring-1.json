@@ -1,0 +1,516 @@
+{
+ "layer": {
+  "id": "ring-1",
+  "name": "VMX Root Core",
+  "daily": true
+ },
+ "items": [
+  {
+   "key": "e:r1-mirrorgate",
+   "kind": "anchor",
+   "entityId": "r1-mirrorgate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    62,
+    42
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-mirrorgate-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-portal",
+   "kind": "anchor",
+   "entityId": "r1-portal",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    46,
+    38
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-portal-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-mirror",
+   "kind": "prop",
+   "entityId": "r1-mirror",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-mirror-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-tunnel",
+   "kind": "prop",
+   "entityId": "r1-tunnel",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-tunnel-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-tag",
+   "kind": "prop",
+   "entityId": "r1-tag",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    10
+   ],
+   "carriesText": true,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-tag-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-glass",
+   "kind": "prop",
+   "entityId": "r1-glass",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    16
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-glass-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-bubble",
+   "kind": "prop",
+   "entityId": "r1-bubble",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-bubble-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-ept",
+   "kind": "prop",
+   "entityId": "r1-ept",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-ept-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-vcpu",
+   "kind": "prop",
+   "entityId": "r1-vcpu",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-vcpu-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-vmcs",
+   "kind": "prop",
+   "entityId": "r1-vmcs",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-vmcs-ring-1-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "The Twin Masks",
+    "blurb": "Host on the left, mirrored Guest on the right \u2014 swapping faces every VM exit."
+   }
+  },
+  {
+   "key": "e:r1-trapdoor",
+   "kind": "prop",
+   "entityId": "r1-trapdoor",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-trapdoor-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-shadowpage",
+   "kind": "prop",
+   "entityId": "r1-shadowpage",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-shadowpage-ring-1-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "All-Seeing Lens",
+    "blurb": "Glances left and right across virtual memory, catching every guest page fault before it lands."
+   }
+  },
+  {
+   "key": "e:r1-dolls",
+   "kind": "prop",
+   "entityId": "r1-dolls",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-dolls-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-mempress",
+   "kind": "prop",
+   "entityId": "r1-mempress",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-mempress-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-migrate",
+   "kind": "prop",
+   "entityId": "r1-migrate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-migrate-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-snapshot",
+   "kind": "prop",
+   "entityId": "r1-snapshot",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-snapshot-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-hypercall",
+   "kind": "prop",
+   "entityId": "r1-hypercall",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-hypercall-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-vswitch",
+   "kind": "prop",
+   "entityId": "r1-vswitch",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-vswitch-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-cage",
+   "kind": "prop",
+   "entityId": "r1-cage",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-cage-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-split",
+   "kind": "prop",
+   "entityId": "r1-split",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-split-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-iommu",
+   "kind": "prop",
+   "entityId": "r1-iommu",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-iommu-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-clone",
+   "kind": "prop",
+   "entityId": "r1-clone",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-clone-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-timeslice",
+   "kind": "prop",
+   "entityId": "r1-timeslice",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    9,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-r1-timeslice-ring-1-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "The Hourglass",
+    "blurb": "Measures quiet study in Libraries, guest CPU quotas in Ring \u22121, and frozen sand in Ring \u22122."
+   }
+  },
+  {
+   "key": "e:r1-nested",
+   "kind": "prop",
+   "entityId": "r1-nested",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-nested-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-paravirt",
+   "kind": "prop",
+   "entityId": "r1-paravirt",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-paravirt-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-vram",
+   "kind": "prop",
+   "entityId": "r1-vram",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-vram-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-vmexit",
+   "kind": "prop",
+   "entityId": "r1-vmexit",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-vmexit-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:r1-console",
+   "kind": "prop",
+   "entityId": "r1-console",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-r1-console-ring-1-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:ring-1:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "ring-1",
+   "motions": [
+    "mirror"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-ring-1-core-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Mirror-Wisp",
+    "blurb": "Always travels in exact horizontal symmetry \u2014 move left, and its twin mirrors right."
+   }
+  }
+ ]
+}

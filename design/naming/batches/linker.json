@@ -1,0 +1,476 @@
+{
+ "layer": {
+  "id": "linker",
+  "name": "Dynamic Linker / ABI",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:ld-switchboard",
+   "kind": "anchor",
+   "entityId": "ld-switchboard",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    50,
+    44
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-switchboard-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-elf",
+   "kind": "prop",
+   "entityId": "ld-elf",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-elf-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-plt",
+   "kind": "prop",
+   "entityId": "ld-plt",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-plt-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-reloc",
+   "kind": "prop",
+   "entityId": "ld-reloc",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-reloc-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-shelf",
+   "kind": "prop",
+   "entityId": "ld-lib-shelf",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-shelf-linker-v0.png",
+    "design/naming/sprites/e-ld-lib-shelf-linker-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-catalogue",
+   "kind": "prop",
+   "entityId": "ld-lib-catalogue",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    17
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-catalogue-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-ladder",
+   "kind": "prop",
+   "entityId": "ld-lib-ladder",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    9,
+    24
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-ladder-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-spool",
+   "kind": "prop",
+   "entityId": "ld-lib-spool",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-spool-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-cart",
+   "kind": "prop",
+   "entityId": "ld-lib-cart",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-cart-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-crates",
+   "kind": "prop",
+   "entityId": "ld-lib-crates",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    16
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-crates-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-loom",
+   "kind": "prop",
+   "entityId": "ld-lib-loom",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    16
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-loom-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-archive",
+   "kind": "prop",
+   "entityId": "ld-lib-archive",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-archive-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-lamp",
+   "kind": "prop",
+   "entityId": "ld-lib-lamp",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-lamp-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-tangle",
+   "kind": "prop",
+   "entityId": "ld-lib-tangle",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-tangle-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-thread",
+   "kind": "prop",
+   "entityId": "ld-lib-thread",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    26,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-thread-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-plaque",
+   "kind": "prop",
+   "entityId": "ld-lib-plaque",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    30,
+    9
+   ],
+   "carriesText": true,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-plaque-linker-v0.png",
+    "design/naming/sprites/e-ld-lib-plaque-linker-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-card",
+   "kind": "prop",
+   "entityId": "ld-lib-card",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    10,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-card-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-lectern",
+   "kind": "prop",
+   "entityId": "ld-lib-lectern",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-lectern-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-stamp",
+   "kind": "prop",
+   "entityId": "ld-lib-stamp",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-stamp-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-pile",
+   "kind": "prop",
+   "entityId": "ld-lib-pile",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-pile-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lib-scroll",
+   "kind": "prop",
+   "entityId": "ld-lib-scroll",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lib-scroll-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-got",
+   "kind": "prop",
+   "entityId": "ld-got",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-got-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-soname",
+   "kind": "prop",
+   "entityId": "ld-soname",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-soname-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-rpath",
+   "kind": "prop",
+   "entityId": "ld-rpath",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-rpath-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ld-lazy",
+   "kind": "prop",
+   "entityId": "ld-lazy",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ld-lazy-linker-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:linker:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "linker",
+   "motions": [
+    "patrol",
+    "hop"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-linker-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:linker:alt",
+   "kind": "critter-alt",
+   "entityId": null,
+   "critterLayer": "linker",
+   "motions": [
+    "hop",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-linker-alt-v1.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

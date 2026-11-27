@@ -1,0 +1,522 @@
+{
+ "layer": {
+  "id": "drivers",
+  "name": "Device Drivers",
+  "daily": true
+ },
+ "items": [
+  {
+   "key": "e:dr-backplane",
+   "kind": "anchor",
+   "entityId": "dr-backplane",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    66,
+    48
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-backplane-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-hdd",
+   "kind": "anchor",
+   "entityId": "dr-hdd",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    46,
+    38
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-hdd-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-chip",
+   "kind": "prop",
+   "entityId": "dr-chip",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-chip-drivers-v0.png",
+    "design/naming/sprites/e-dr-chip-drivers-v1.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Silicon Heart",
+    "blurb": "Starts as a humble bus chip, grows a quartz UV window in Firmware, and reveals the hidden Management Engine at the bottom."
+   }
+  },
+  {
+   "key": "e:dr-ribbon",
+   "kind": "prop",
+   "entityId": "dr-ribbon",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    26,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-ribbon-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-irq",
+   "kind": "prop",
+   "entityId": "dr-irq",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    18
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-irq-drivers-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Interrupt Flag",
+    "blurb": "Crackles with raw white lightning whenever a peripheral demands the CPU drop everything right now."
+   }
+  },
+  {
+   "key": "e:dr-connector",
+   "kind": "prop",
+   "entityId": "dr-connector",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    6
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-connector-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-caps",
+   "kind": "prop",
+   "entityId": "dr-caps",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-caps-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-usb",
+   "kind": "prop",
+   "entityId": "dr-usb",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-usb-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-pcie",
+   "kind": "prop",
+   "entityId": "dr-pcie",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    28,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-pcie-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-dma",
+   "kind": "prop",
+   "entityId": "dr-dma",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-dma-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-nic",
+   "kind": "prop",
+   "entityId": "dr-nic",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-nic-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-gpu",
+   "kind": "prop",
+   "entityId": "dr-gpu",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-gpu-drivers-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Whirlwind",
+    "blurb": "Twin high-RPM fans on the graphics bus, and a solitary green-phosphor guardian inside the BIOS vault."
+   }
+  },
+  {
+   "key": "e:dr-disk",
+   "kind": "prop",
+   "entityId": "dr-disk",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-disk-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-keys",
+   "kind": "prop",
+   "entityId": "dr-keys",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-keys-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-db9",
+   "kind": "prop",
+   "entityId": "dr-db9",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-db9-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-jumpers",
+   "kind": "prop",
+   "entityId": "dr-jumpers",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-jumpers-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-heatsink",
+   "kind": "prop",
+   "entityId": "dr-heatsink",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-heatsink-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-rj45",
+   "kind": "prop",
+   "entityId": "dr-rj45",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-rj45-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-scope",
+   "kind": "prop",
+   "entityId": "dr-scope",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-scope-drivers-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Wave Watcher",
+    "blurb": "Hums quietly on the workbench, drawing a crisp cyan sine wave that never misses a beat."
+   }
+  },
+  {
+   "key": "e:dr-dip",
+   "kind": "prop",
+   "entityId": "dr-dip",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-dip-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-fwload",
+   "kind": "prop",
+   "entityId": "dr-fwload",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-fwload-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-speaker",
+   "kind": "prop",
+   "entityId": "dr-speaker",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-dr-speaker-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-mouse",
+   "kind": "prop",
+   "entityId": "dr-mouse",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    9,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-mouse-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-crystal",
+   "kind": "prop",
+   "entityId": "dr-crystal",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-crystal-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-sata",
+   "kind": "prop",
+   "entityId": "dr-sata",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-sata-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-fanheader",
+   "kind": "prop",
+   "entityId": "dr-fanheader",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-fanheader-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-ledstrip",
+   "kind": "prop",
+   "entityId": "dr-ledstrip",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    6
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-ledstrip-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:dr-nvme",
+   "kind": "prop",
+   "entityId": "dr-nvme",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-dr-nvme-drivers-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:drivers:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "drivers",
+   "motions": [
+    "scuttle"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-drivers-core-v0.png",
+    "design/naming/sprites/c-drivers-core-v1.png",
+    "design/naming/sprites/c-drivers-core-v3.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Bus-Beetle",
+    "blurb": "Scuttles at ludicrous speed along cyan and magenta motherboard traces."
+   }
+  }
+ ]
+}

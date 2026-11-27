@@ -1,0 +1,437 @@
+{
+ "layer": {
+  "id": "vmm",
+  "name": "VMM & Virtual Devices",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:vmm-qemu",
+   "kind": "anchor",
+   "entityId": "vmm-qemu",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    50,
+    38
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-qemu-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-virtio",
+   "kind": "prop",
+   "entityId": "vmm-virtio",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-virtio-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-ghostcard",
+   "kind": "prop",
+   "entityId": "vmm-ghostcard",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-ghostcard-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-mirror",
+   "kind": "prop",
+   "entityId": "vmm-r1-mirror",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-mirror-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-tunnel",
+   "kind": "prop",
+   "entityId": "vmm-r1-tunnel",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-tunnel-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-tag",
+   "kind": "prop",
+   "entityId": "vmm-r1-tag",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    10
+   ],
+   "carriesText": true,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-tag-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-glass",
+   "kind": "prop",
+   "entityId": "vmm-r1-glass",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    16
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-glass-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-bubble",
+   "kind": "prop",
+   "entityId": "vmm-r1-bubble",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-bubble-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-ept",
+   "kind": "prop",
+   "entityId": "vmm-r1-ept",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-ept-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-vcpu",
+   "kind": "prop",
+   "entityId": "vmm-r1-vcpu",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-vcpu-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-vmcs",
+   "kind": "prop",
+   "entityId": "vmm-r1-vmcs",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-vmcs-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-trapdoor",
+   "kind": "prop",
+   "entityId": "vmm-r1-trapdoor",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-trapdoor-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-shadowpage",
+   "kind": "prop",
+   "entityId": "vmm-r1-shadowpage",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-shadowpage-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-dolls",
+   "kind": "prop",
+   "entityId": "vmm-r1-dolls",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-dolls-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-mempress",
+   "kind": "prop",
+   "entityId": "vmm-r1-mempress",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-mempress-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-migrate",
+   "kind": "prop",
+   "entityId": "vmm-r1-migrate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-migrate-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-snapshot",
+   "kind": "prop",
+   "entityId": "vmm-r1-snapshot",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-snapshot-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-hypercall",
+   "kind": "prop",
+   "entityId": "vmm-r1-hypercall",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-hypercall-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-vswitch",
+   "kind": "prop",
+   "entityId": "vmm-r1-vswitch",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-vswitch-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-cage",
+   "kind": "prop",
+   "entityId": "vmm-r1-cage",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-cage-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-r1-split",
+   "kind": "prop",
+   "entityId": "vmm-r1-split",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-r1-split-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-ghostnic",
+   "kind": "prop",
+   "entityId": "vmm-ghostnic",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-ghostnic-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-hpet",
+   "kind": "prop",
+   "entityId": "vmm-hpet",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-hpet-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:vmm-bios",
+   "kind": "prop",
+   "entityId": "vmm-bios",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-vmm-bios-vmm-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:vmm:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "vmm",
+   "motions": [
+    "mirror",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-vmm-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

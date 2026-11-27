@@ -1,0 +1,529 @@
+{
+ "layer": {
+  "id": "firmware",
+  "name": "Firmware / UEFI",
+  "daily": true
+ },
+ "items": [
+  {
+   "key": "e:fw-bigvault",
+   "kind": "anchor",
+   "entityId": "fw-bigvault",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    52,
+    52
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-fw-bigvault-firmware-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Vault Keeper",
+    "blurb": "A colossal circular bank door that sends out slow phosphor ripples as its dial turns."
+   }
+  },
+  {
+   "key": "e:fw-romcab",
+   "kind": "anchor",
+   "entityId": "fw-romcab",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    40,
+    56
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-fw-romcab-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-drawers",
+   "kind": "prop",
+   "entityId": "fw-drawers",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-drawers-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-vault",
+   "kind": "prop",
+   "entityId": "fw-vault",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    17
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-fw-vault-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-post",
+   "kind": "prop",
+   "entityId": "fw-post",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    10
+   ],
+   "carriesText": true,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-fw-post-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-flash",
+   "kind": "prop",
+   "entityId": "fw-flash",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-flash-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-plate",
+   "kind": "prop",
+   "entityId": "fw-plate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-plate-firmware-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Lock Ness",
+    "blurb": "Keeps resurfacing deeper and deeper in the machine, shedding color until only pure 1-bit steel remains."
+   }
+  },
+  {
+   "key": "e:fw-cmos",
+   "kind": "prop",
+   "entityId": "fw-cmos",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-cmos-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-setup",
+   "kind": "prop",
+   "entityId": "fw-setup",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    36,
+    15
+   ],
+   "carriesText": true,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-setup-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-bootorder",
+   "kind": "prop",
+   "entityId": "fw-bootorder",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-bootorder-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-dipsw",
+   "kind": "prop",
+   "entityId": "fw-dipsw",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-dipsw-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-fan",
+   "kind": "prop",
+   "entityId": "fw-fan",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-fw-fan-firmware-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Whirlwind",
+    "blurb": "Twin high-RPM fans on the graphics bus, and a solitary green-phosphor guardian inside the BIOS vault."
+   }
+  },
+  {
+   "key": "e:fw-capsule",
+   "kind": "prop",
+   "entityId": "fw-capsule",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-capsule-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-spiclip",
+   "kind": "prop",
+   "entityId": "fw-spiclip",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-spiclip-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-optrom",
+   "kind": "prop",
+   "entityId": "fw-optrom",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-optrom-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-beeper",
+   "kind": "prop",
+   "entityId": "fw-beeper",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-fw-beeper-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-reset",
+   "kind": "prop",
+   "entityId": "fw-reset",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-reset-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-postcard",
+   "kind": "prop",
+   "entityId": "fw-postcard",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-fw-postcard-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-acpi",
+   "kind": "prop",
+   "entityId": "fw-acpi",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-acpi-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-ucode",
+   "kind": "prop",
+   "entityId": "fw-ucode",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-fw-ucode-firmware-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Silicon Heart",
+    "blurb": "Starts as a humble bus chip, grows a quartz UV window in Firmware, and reveals the hidden Management Engine at the bottom."
+   }
+  },
+  {
+   "key": "e:fw-nvram",
+   "kind": "prop",
+   "entityId": "fw-nvram",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-nvram-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-floppy",
+   "kind": "prop",
+   "entityId": "fw-floppy",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-floppy-firmware-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Save Icon Relic",
+    "blurb": "Younger users swear someone 3D-printed the Save icon and hid it in the BIOS vault."
+   }
+  },
+  {
+   "key": "e:fw-key",
+   "kind": "prop",
+   "entityId": "fw-key",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-key-firmware-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "The Master Key",
+    "blurb": "A skeleton key that unlocks boot ROMs in Firmware and reappears as bare 1-bit teeth in Ring \u22123."
+   }
+  },
+  {
+   "key": "e:fw-tpm",
+   "kind": "prop",
+   "entityId": "fw-tpm",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-tpm-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-jtag",
+   "kind": "prop",
+   "entityId": "fw-jtag",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-jtag-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-secureboot",
+   "kind": "prop",
+   "entityId": "fw-secureboot",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-secureboot-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-uart",
+   "kind": "prop",
+   "entityId": "fw-uart",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-uart-firmware-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:fw-watchdog",
+   "kind": "prop",
+   "entityId": "fw-watchdog",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-fw-watchdog-firmware-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "The Watchdog",
+    "blurb": "Patiently counts down in the dark \u2014 if software forgets to pet it, it barks and resets the machine."
+   }
+  },
+  {
+   "key": "c:firmware:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "firmware",
+   "motions": [
+    "float"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-firmware-core-v0.png",
+    "design/naming/sprites/c-firmware-core-v1.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Sentinel Drone",
+    "blurb": "Drifts in rigid, metronomic sweeps \u2014 never jumps, never lands, never blinks out of rhythm."
+   }
+  }
+ ]
+}

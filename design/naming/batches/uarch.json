@@ -1,0 +1,456 @@
+{
+ "layer": {
+  "id": "uarch",
+  "name": "Microarchitecture",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:ua-pipeline",
+   "kind": "anchor",
+   "entityId": "ua-pipeline",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    56,
+    36
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-pipeline-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-rob",
+   "kind": "prop",
+   "entityId": "ua-rob",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-rob-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-bpred",
+   "kind": "prop",
+   "entityId": "ua-bpred",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-bpred-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-l1",
+   "kind": "prop",
+   "entityId": "ua-l1",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-l1-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-alu",
+   "kind": "prop",
+   "entityId": "ua-alu",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-alu-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-vias",
+   "kind": "prop",
+   "entityId": "ua-r3-vias",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    10,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-vias-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-pad",
+   "kind": "prop",
+   "entityId": "ua-r3-pad",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-pad-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-trace",
+   "kind": "prop",
+   "entityId": "ua-r3-trace",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-trace-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-decap",
+   "kind": "prop",
+   "entityId": "ua-r3-decap",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-decap-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-xtal",
+   "kind": "prop",
+   "entityId": "ua-r3-xtal",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-xtal-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-testpads",
+   "kind": "prop",
+   "entityId": "ua-r3-testpads",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-testpads-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-fuses",
+   "kind": "prop",
+   "entityId": "ua-r3-fuses",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-fuses-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-resistor",
+   "kind": "prop",
+   "entityId": "ua-r3-resistor",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    5
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-resistor-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-diode",
+   "kind": "prop",
+   "entityId": "ua-r3-diode",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-diode-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-inductor",
+   "kind": "prop",
+   "entityId": "ua-r3-inductor",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    6
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-inductor-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-sram",
+   "kind": "prop",
+   "entityId": "ua-r3-sram",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-sram-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-ringosc",
+   "kind": "prop",
+   "entityId": "ua-r3-ringosc",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    16
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-ringosc-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-thermal",
+   "kind": "prop",
+   "entityId": "ua-r3-thermal",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    7,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-thermal-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-pll",
+   "kind": "prop",
+   "entityId": "ua-r3-pll",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-pll-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-jtag",
+   "kind": "prop",
+   "entityId": "ua-r3-jtag",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-jtag-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-r3-rom",
+   "kind": "prop",
+   "entityId": "ua-r3-rom",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    11
+   ],
+   "carriesText": true,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-r3-rom-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-btb",
+   "kind": "prop",
+   "entityId": "ua-btb",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-btb-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-rs",
+   "kind": "prop",
+   "entityId": "ua-rs",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-rs-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:ua-prefetch",
+   "kind": "prop",
+   "entityId": "ua-prefetch",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-ua-prefetch-uarch-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:uarch:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "uarch",
+   "motions": [
+    "zip",
+    "mirror"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-uarch-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:uarch:alt",
+   "kind": "critter-alt",
+   "entityId": null,
+   "critterLayer": "uarch",
+   "motions": [
+    "mirror"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-uarch-alt-v1.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

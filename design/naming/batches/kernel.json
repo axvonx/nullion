@@ -1,0 +1,516 @@
+{
+ "layer": {
+  "id": "kernel",
+  "name": "Kernel Core",
+  "daily": true
+ },
+ "items": [
+  {
+   "key": "e:kr-furnace",
+   "kind": "anchor",
+   "entityId": "kr-furnace",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    60,
+    54
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-furnace-kernel-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Boiler Core",
+    "blurb": "Glows red-hot beneath the giant cogs, turning raw clock ticks into scheduled work."
+   }
+  },
+  {
+   "key": "e:kr-systable",
+   "kind": "anchor",
+   "entityId": "kr-systable",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    50,
+    42
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-systable-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-gears",
+   "kind": "prop",
+   "entityId": "kr-gears",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    17
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-gears-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-dmesg",
+   "kind": "prop",
+   "entityId": "kr-dmesg",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    46,
+    19
+   ],
+   "carriesText": true,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-dmesg-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-gauge",
+   "kind": "prop",
+   "entityId": "kr-gauge",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-gauge-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-piston",
+   "kind": "prop",
+   "entityId": "kr-piston",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    8,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-piston-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-leds",
+   "kind": "prop",
+   "entityId": "kr-leds",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    7
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-leds-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-schedwheel",
+   "kind": "prop",
+   "entityId": "kr-schedwheel",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    17
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-schedwheel-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-pagetable",
+   "kind": "prop",
+   "entityId": "kr-pagetable",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    19
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-kr-pagetable-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-irqbell",
+   "kind": "prop",
+   "entityId": "kr-irqbell",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-irqbell-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-turnstile",
+   "kind": "prop",
+   "entityId": "kr-turnstile",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-turnstile-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-slab",
+   "kind": "prop",
+   "entityId": "kr-slab",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    23,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-kr-slab-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-ticker",
+   "kind": "prop",
+   "entityId": "kr-ticker",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-ticker-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-gate",
+   "kind": "prop",
+   "entityId": "kr-gate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    17
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-kr-gate-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-runqueue",
+   "kind": "prop",
+   "entityId": "kr-runqueue",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    26,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-runqueue-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-mutex",
+   "kind": "prop",
+   "entityId": "kr-mutex",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-kr-mutex-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-irqmeter",
+   "kind": "prop",
+   "entityId": "kr-irqmeter",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-irqmeter-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-tlb",
+   "kind": "prop",
+   "entityId": "kr-tlb",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-tlb-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-schedrack",
+   "kind": "prop",
+   "entityId": "kr-schedrack",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-schedrack-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-semaphore",
+   "kind": "prop",
+   "entityId": "kr-semaphore",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    7,
+    16
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-semaphore-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-ringbuf",
+   "kind": "prop",
+   "entityId": "kr-ringbuf",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-ringbuf-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-wdtimer",
+   "kind": "prop",
+   "entityId": "kr-wdtimer",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    11
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-kr-wdtimer-kernel-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "The Watchdog",
+    "blurb": "Patiently counts down in the dark \u2014 if software forgets to pet it, it barks and resets the machine."
+   }
+  },
+  {
+   "key": "e:kr-vfs",
+   "kind": "prop",
+   "entityId": "kr-vfs",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-kr-vfs-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-futex",
+   "kind": "prop",
+   "entityId": "kr-futex",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-kr-futex-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-epoll",
+   "kind": "prop",
+   "entityId": "kr-epoll",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-kr-epoll-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-cgroups",
+   "kind": "prop",
+   "entityId": "kr-cgroups",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-kr-cgroups-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-workq",
+   "kind": "prop",
+   "entityId": "kr-workq",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-kr-workq-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:kr-buddy",
+   "kind": "prop",
+   "entityId": "kr-buddy",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-kr-buddy-kernel-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:kernel:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "kernel",
+   "motions": [
+    "zip",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-kernel-core-v0.png",
+    "design/naming/sprites/c-kernel-core-v1.png",
+    "design/naming/sprites/c-kernel-core-v2.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Thread-Bot",
+    "blurb": "Zips in short bursts, yields politely on a gear, then sprints off on its next time slice."
+   }
+  }
+ ]
+}

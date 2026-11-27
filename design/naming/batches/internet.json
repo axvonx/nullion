@@ -1,0 +1,409 @@
+{
+ "layer": {
+  "id": "internet",
+  "name": "Internet / BGP",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:net-ixp",
+   "kind": "anchor",
+   "entityId": "net-ixp",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    56,
+    42
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-net-ixp-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-bgp",
+   "kind": "prop",
+   "entityId": "net-bgp",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-net-bgp-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-cable",
+   "kind": "prop",
+   "entityId": "net-cable",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    26,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-cable-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-dns",
+   "kind": "prop",
+   "entityId": "net-dns",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-dns-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-asn",
+   "kind": "prop",
+   "entityId": "net-asn",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-asn-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-fiber",
+   "kind": "prop",
+   "entityId": "net-fiber",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    6
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-net-fiber-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-router",
+   "kind": "prop",
+   "entityId": "net-router",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-router-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-dish",
+   "kind": "prop",
+   "entityId": "net-dish",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-dish-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-packet",
+   "kind": "prop",
+   "entityId": "net-packet",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-packet-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-tls",
+   "kind": "prop",
+   "entityId": "net-tls",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-tls-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-browser",
+   "kind": "prop",
+   "entityId": "net-app-browser",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    16
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-app-browser-internet-v0.png",
+    "design/naming/sprites/e-net-app-browser-internet-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-dialog",
+   "kind": "prop",
+   "entityId": "net-app-dialog",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-app-dialog-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-toast",
+   "kind": "prop",
+   "entityId": "net-app-toast",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-app-toast-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-spinner",
+   "kind": "prop",
+   "entityId": "net-app-spinner",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    9,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-net-app-spinner-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-progress",
+   "kind": "prop",
+   "entityId": "net-app-progress",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    6
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-net-app-progress-internet-v0.png",
+    "design/naming/sprites/e-net-app-progress-internet-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-icon",
+   "kind": "prop",
+   "entityId": "net-app-icon",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    8,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-app-icon-internet-v0.png",
+    "design/naming/sprites/e-net-app-icon-internet-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-bubble",
+   "kind": "prop",
+   "entityId": "net-app-bubble",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    8
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-net-app-bubble-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-cloudsync",
+   "kind": "prop",
+   "entityId": "net-app-cloudsync",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-net-app-cloudsync-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-folder",
+   "kind": "prop",
+   "entityId": "net-app-folder",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-app-folder-internet-v0.png",
+    "design/naming/sprites/e-net-app-folder-internet-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-trash",
+   "kind": "prop",
+   "entityId": "net-app-trash",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    9,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-net-app-trash-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:net-app-slider",
+   "kind": "prop",
+   "entityId": "net-app-slider",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    7
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-net-app-slider-internet-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:internet:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "internet",
+   "motions": [
+    "fly",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-internet-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:internet:alt",
+   "kind": "critter-alt",
+   "entityId": null,
+   "critterLayer": "internet",
+   "motions": [
+    "float"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-internet-alt-v1.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

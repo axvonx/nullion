@@ -1,0 +1,411 @@
+{
+ "layer": {
+  "id": "browser",
+  "name": "Browser / Compositor",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:br-viewport",
+   "kind": "anchor",
+   "entityId": "br-viewport",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    54,
+    40
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-viewport-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-dom",
+   "kind": "prop",
+   "entityId": "br-dom",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-dom-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-css",
+   "kind": "prop",
+   "entityId": "br-css",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-css-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-layer",
+   "kind": "prop",
+   "entityId": "br-layer",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-layer-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-tab",
+   "kind": "prop",
+   "entityId": "br-tab",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-tab-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-paint",
+   "kind": "prop",
+   "entityId": "br-paint",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-br-paint-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-cookie",
+   "kind": "prop",
+   "entityId": "br-cookie",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-cookie-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-canvas",
+   "kind": "prop",
+   "entityId": "br-canvas",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-canvas-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-devtools",
+   "kind": "prop",
+   "entityId": "br-devtools",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-devtools-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-browser",
+   "kind": "prop",
+   "entityId": "br-app-browser",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    16
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-app-browser-browser-v0.png",
+    "design/naming/sprites/e-br-app-browser-browser-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-dialog",
+   "kind": "prop",
+   "entityId": "br-app-dialog",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-app-dialog-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-toast",
+   "kind": "prop",
+   "entityId": "br-app-toast",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-app-toast-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-spinner",
+   "kind": "prop",
+   "entityId": "br-app-spinner",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    9,
+    9
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-br-app-spinner-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-progress",
+   "kind": "prop",
+   "entityId": "br-app-progress",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    6
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-br-app-progress-browser-v0.png",
+    "design/naming/sprites/e-br-app-progress-browser-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-icon",
+   "kind": "prop",
+   "entityId": "br-app-icon",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    8,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-app-icon-browser-v0.png",
+    "design/naming/sprites/e-br-app-icon-browser-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-bubble",
+   "kind": "prop",
+   "entityId": "br-app-bubble",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    8
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-br-app-bubble-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-cloudsync",
+   "kind": "prop",
+   "entityId": "br-app-cloudsync",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-br-app-cloudsync-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-folder",
+   "kind": "prop",
+   "entityId": "br-app-folder",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-app-folder-browser-v0.png",
+    "design/naming/sprites/e-br-app-folder-browser-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-trash",
+   "kind": "prop",
+   "entityId": "br-app-trash",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    9,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-br-app-trash-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-slider",
+   "kind": "prop",
+   "entityId": "br-app-slider",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    7
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-br-app-slider-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:br-app-toggle",
+   "kind": "prop",
+   "entityId": "br-app-toggle",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    7
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-br-app-toggle-browser-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:browser:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "browser",
+   "motions": [
+    "fly",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-browser-core-v0.png",
+    "design/naming/sprites/c-browser-core-v2.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:browser:alt",
+   "kind": "critter-alt",
+   "entityId": null,
+   "critterLayer": "browser",
+   "motions": [
+    "zip",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-browser-alt-v1.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

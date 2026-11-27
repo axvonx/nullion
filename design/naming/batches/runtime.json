@@ -1,0 +1,535 @@
+{
+ "layer": {
+  "id": "runtime",
+  "name": "Heap & GC",
+  "daily": true
+ },
+ "items": [
+  {
+   "key": "e:rt-scaffold",
+   "kind": "anchor",
+   "entityId": "rt-scaffold",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    64,
+    52
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-scaffold-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-incinerator",
+   "kind": "anchor",
+   "entityId": "rt-incinerator",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    40,
+    44
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-incinerator-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-objects",
+   "kind": "prop",
+   "entityId": "rt-objects",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-objects-runtime-v0.png",
+    "design/naming/sprites/e-rt-objects-runtime-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-sweeper",
+   "kind": "prop",
+   "entityId": "rt-sweeper",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    30,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-sweeper-runtime-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "The Collector",
+    "blurb": "Patrols the runtime cavern sweeping up unreachable objects with ruthless tidiness."
+   }
+  },
+  {
+   "key": "e:rt-marks",
+   "kind": "prop",
+   "entityId": "rt-marks",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-marks-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-ref",
+   "kind": "prop",
+   "entityId": "rt-ref",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-ref-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-heapcol",
+   "kind": "prop",
+   "entityId": "rt-heapcol",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-heapcol-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-jit",
+   "kind": "prop",
+   "entityId": "rt-jit",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-jit-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-tape",
+   "kind": "prop",
+   "entityId": "rt-tape",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-tape-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-callstack",
+   "kind": "prop",
+   "entityId": "rt-callstack",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    16
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-callstack-runtime-v0.png",
+    "design/naming/sprites/e-rt-callstack-runtime-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-refcount",
+   "kind": "prop",
+   "entityId": "rt-refcount",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-refcount-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-weakref",
+   "kind": "prop",
+   "entityId": "rt-weakref",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-weakref-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-tricolor",
+   "kind": "prop",
+   "entityId": "rt-tricolor",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    8
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-tricolor-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-bump",
+   "kind": "prop",
+   "entityId": "rt-bump",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    8
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-bump-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-finalizer",
+   "kind": "prop",
+   "entityId": "rt-finalizer",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-finalizer-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-interp",
+   "kind": "prop",
+   "entityId": "rt-interp",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-interp-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-hashmap",
+   "kind": "prop",
+   "entityId": "rt-hashmap",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-hashmap-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-strpool",
+   "kind": "prop",
+   "entityId": "rt-strpool",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-strpool-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-closure",
+   "kind": "prop",
+   "entityId": "rt-closure",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-closure-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-eventloop",
+   "kind": "prop",
+   "entityId": "rt-eventloop",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-eventloop-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-promise",
+   "kind": "prop",
+   "entityId": "rt-promise",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-promise-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-compact",
+   "kind": "prop",
+   "entityId": "rt-compact",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    26,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-compact-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-vtable",
+   "kind": "prop",
+   "entityId": "rt-vtable",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-vtable-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-bytecode",
+   "kind": "prop",
+   "entityId": "rt-bytecode",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    34,
+    8
+   ],
+   "carriesText": true,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-bytecode-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-arena",
+   "kind": "prop",
+   "entityId": "rt-arena",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-arena-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-stackframe",
+   "kind": "prop",
+   "entityId": "rt-stackframe",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-stackframe-runtime-v0.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Frame Runner",
+    "blurb": "Piles neatly onto its neighbors every time a function calls another function."
+   }
+  },
+  {
+   "key": "e:rt-upvalue",
+   "kind": "prop",
+   "entityId": "rt-upvalue",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-upvalue-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-safepoint",
+   "kind": "prop",
+   "entityId": "rt-safepoint",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-rt-safepoint-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:rt-nursery",
+   "kind": "prop",
+   "entityId": "rt-nursery",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-rt-nursery-runtime-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:runtime:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "runtime",
+   "motions": [
+    "hop",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-runtime-core-v0.png",
+    "design/naming/sprites/c-runtime-core-v1.png",
+    "design/naming/sprites/c-runtime-core-v2.png"
+   ],
+   "currentPlaceholder": {
+    "name": "Heap Hopper",
+    "blurb": "Never flies \u2014 strictly hops from one allocated object top to the next."
+   }
+  }
+ ]
+}

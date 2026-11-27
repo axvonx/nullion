@@ -1,0 +1,407 @@
+{
+ "layer": {
+  "id": "bytecode",
+  "name": "AST & Bytecode",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:bc-parsetree",
+   "kind": "anchor",
+   "entityId": "bc-parsetree",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    52,
+    46
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-parsetree-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-ast",
+   "kind": "prop",
+   "entityId": "bc-ast",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-ast-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-token",
+   "kind": "prop",
+   "entityId": "bc-token",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-token-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-constpool",
+   "kind": "prop",
+   "entityId": "bc-constpool",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-constpool-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-lexer",
+   "kind": "prop",
+   "entityId": "bc-lexer",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    9
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-lexer-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-cfg",
+   "kind": "prop",
+   "entityId": "bc-cfg",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-cfg-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-objects",
+   "kind": "prop",
+   "entityId": "bc-rt-objects",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-objects-bytecode-v0.png",
+    "design/naming/sprites/e-bc-rt-objects-bytecode-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-sweeper",
+   "kind": "prop",
+   "entityId": "bc-rt-sweeper",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    30,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-sweeper-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-marks",
+   "kind": "prop",
+   "entityId": "bc-rt-marks",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-marks-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-ref",
+   "kind": "prop",
+   "entityId": "bc-rt-ref",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-ref-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-heapcol",
+   "kind": "prop",
+   "entityId": "bc-rt-heapcol",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-heapcol-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-jit",
+   "kind": "prop",
+   "entityId": "bc-rt-jit",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    14
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-jit-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-tape",
+   "kind": "prop",
+   "entityId": "bc-rt-tape",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-tape-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-callstack",
+   "kind": "prop",
+   "entityId": "bc-rt-callstack",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    16
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-callstack-bytecode-v0.png",
+    "design/naming/sprites/e-bc-rt-callstack-bytecode-v1.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-refcount",
+   "kind": "prop",
+   "entityId": "bc-rt-refcount",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-refcount-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-weakref",
+   "kind": "prop",
+   "entityId": "bc-rt-weakref",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    20,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-weakref-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-tricolor",
+   "kind": "prop",
+   "entityId": "bc-rt-tricolor",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    8
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-tricolor-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-bump",
+   "kind": "prop",
+   "entityId": "bc-rt-bump",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    8
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-bump-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-finalizer",
+   "kind": "prop",
+   "entityId": "bc-rt-finalizer",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    24,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-finalizer-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-interp",
+   "kind": "prop",
+   "entityId": "bc-rt-interp",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    15
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-interp-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:bc-rt-hashmap",
+   "kind": "prop",
+   "entityId": "bc-rt-hashmap",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-bc-rt-hashmap-bytecode-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:bytecode:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "bytecode",
+   "motions": [
+    "hop",
+    "perch"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-bytecode-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:bytecode:alt",
+   "kind": "critter-alt",
+   "entityId": null,
+   "critterLayer": "bytecode",
+   "motions": [
+    "grid"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-bytecode-alt-v1.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}

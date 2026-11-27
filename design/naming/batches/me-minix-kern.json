@@ -1,0 +1,436 @@
+{
+ "layer": {
+  "id": "me-minix-kern",
+  "name": "MINIX 3 Microkernel",
+  "daily": false
+ },
+ "items": [
+  {
+   "key": "e:mk-microkern",
+   "kind": "anchor",
+   "entityId": "mk-microkern",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    48,
+    38
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-microkern-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-ipc",
+   "kind": "prop",
+   "entityId": "mk-ipc",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-ipc-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-arc",
+   "kind": "prop",
+   "entityId": "mk-arc",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-arc-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-drawers",
+   "kind": "prop",
+   "entityId": "mk-fw-drawers",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    22,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-drawers-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-vault",
+   "kind": "prop",
+   "entityId": "mk-fw-vault",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    17
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-vault-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-post",
+   "kind": "prop",
+   "entityId": "mk-fw-post",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    18,
+    10
+   ],
+   "carriesText": true,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-post-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-flash",
+   "kind": "prop",
+   "entityId": "mk-fw-flash",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    8
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-flash-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-plate",
+   "kind": "prop",
+   "entityId": "mk-fw-plate",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-plate-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-cmos",
+   "kind": "prop",
+   "entityId": "mk-fw-cmos",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-cmos-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-setup",
+   "kind": "prop",
+   "entityId": "mk-fw-setup",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    36,
+    15
+   ],
+   "carriesText": true,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-setup-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-bootorder",
+   "kind": "prop",
+   "entityId": "mk-fw-bootorder",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    14
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-bootorder-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-dipsw",
+   "kind": "prop",
+   "entityId": "mk-fw-dipsw",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    12,
+    7
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-dipsw-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-fan",
+   "kind": "prop",
+   "entityId": "mk-fw-fan",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-fan-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-capsule",
+   "kind": "prop",
+   "entityId": "mk-fw-capsule",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-capsule-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-spiclip",
+   "kind": "prop",
+   "entityId": "mk-fw-spiclip",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    13
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-spiclip-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-optrom",
+   "kind": "prop",
+   "entityId": "mk-fw-optrom",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    19,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-optrom-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-beeper",
+   "kind": "prop",
+   "entityId": "mk-fw-beeper",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    13,
+    10
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-beeper-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-reset",
+   "kind": "prop",
+   "entityId": "mk-fw-reset",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    11,
+    11
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-reset-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-postcard",
+   "kind": "prop",
+   "entityId": "mk-fw-postcard",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    12
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-postcard-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-acpi",
+   "kind": "prop",
+   "entityId": "mk-fw-acpi",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    15,
+    15
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-acpi-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fw-ucode",
+   "kind": "prop",
+   "entityId": "mk-fw-ucode",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    17,
+    13
+   ],
+   "carriesText": false,
+   "animated": true,
+   "sprites": [
+    "design/naming/sprites/e-mk-fw-ucode-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-notify",
+   "kind": "prop",
+   "entityId": "mk-notify",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-notify-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-grant",
+   "kind": "prop",
+   "entityId": "mk-grant",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    16,
+    10
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-grant-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "e:mk-fused",
+   "kind": "prop",
+   "entityId": "mk-fused",
+   "critterLayer": null,
+   "motions": null,
+   "size": [
+    14,
+    12
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/e-mk-fused-me-minix-kern-v0.png"
+   ],
+   "currentPlaceholder": null
+  },
+  {
+   "key": "c:me-minix-kern:core",
+   "kind": "critter",
+   "entityId": null,
+   "critterLayer": "me-minix-kern",
+   "motions": [
+    "zip"
+   ],
+   "size": [
+    26,
+    22
+   ],
+   "carriesText": false,
+   "animated": false,
+   "sprites": [
+    "design/naming/sprites/c-me-minix-kern-core-v0.png"
+   ],
+   "currentPlaceholder": null
+  }
+ ]
+}
