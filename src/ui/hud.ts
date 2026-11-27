@@ -638,7 +638,7 @@ export class Hud {
         this.lastLowSec = -1;
         sound.roundOpen(layerAt(depthShown, g.mode).id);
         this.input.disabled = false;
-        this.input.focus();
+        this.input.focus({ preventScroll: true });
         this.els.feedback!.textContent = '';
       }
     } else if (p.kind === 'between') {

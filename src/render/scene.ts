@@ -316,10 +316,13 @@ export class Scene {
     window.addEventListener('resize', () => this.resize());
   }
 
+  private started = false;
   /** Full-bleed: internal resolution is the viewport at an integer pixel scale, so pixels stay square and crisp. */
   private resize() {
     const vw = window.innerWidth;
-    const vh = window.innerHeight;
+    // Use the full layout viewport height so opening/animating a mobile virtual keyboard doesn't shrink the canvas
+    // and expose black background underneath when the keyboard dismisses.
+    const vh = Math.max(window.innerHeight, document.documentElement.clientHeight || 0);
     // A hidden or not-yet-laid-out frame has no area: an expected state. Draw nothing until a resize gives it some.
     if (vw <= 0 || vh <= 0) {
       this.W = 0;
@@ -327,8 +330,13 @@ export class Scene {
       return;
     }
     const scale = pixelScale(vw);
-    this.W = Math.ceil(vw / scale);
-    this.H = Math.ceil(vh / scale);
+    const nextW = Math.ceil(vw / scale);
+    const nextH = Math.ceil(vh / scale);
+    // Never wipe the canvas buffers when the integer scene dimensions didn't actually change (common on mobile
+    // keyboard/URL-bar resize events, which otherwise flash the canvas solid black until the next rAF).
+    if (nextW === this.W && nextH === this.H) return;
+    this.W = nextW;
+    this.H = nextH;
     this.cursorY = Math.round(this.H * CURSOR_FRAC);
     for (const c of [this.canvas, this.prev, this.scratch, this.seam, this.freezeShot, this.leakShot]) {
       c.width = this.W;
@@ -340,6 +348,8 @@ export class Scene {
     this.seamMask = ditherFadeMask(this.W);
     const cols = Math.ceil(this.W / 14.5);
     this.rain = Array.from({ length: cols }, (_, i) => ({ y: hash(i) * this.H, speed: 20 + hash(i + 40) * 40 }));
+    // Repaint synchronously right after buffer reallocation so mobile browsers never composite a cleared black canvas.
+    if (this.started) this.frame(performance.now());
   }
 
   /** Switch between the 10-layer Daily stack and the 29-layer Endless stack. */
@@ -415,7 +425,7 @@ export class Scene {
     if (on === this.vignette.on) return;
     const now = performance.now();
     // Reversing mid-fade starts from where the fade got to.
-    const k = Math.min(1, (now - this.vignette.at) / VIGNETTE_MS);
+    const k = Math.max(0, Math.min(1, (now - this.vignette.at) / VIGNETTE_MS));
     this.vignette = { on, at: now - (1 - k) * VIGNETTE_MS };
   }
 
@@ -468,7 +478,7 @@ export class Scene {
    */
   private drawRevealBuffer(now: number, reduced: boolean, camY: number, stack: readonly Layer[]) {
     const v = this.vignette;
-    const k = reduced ? 1 : Math.min(1, (now - v.at) / VIGNETTE_MS);
+    const k = reduced ? 1 : Math.max(0, Math.min(1, (now - v.at) / VIGNETTE_MS));
     const a = v.on ? k : 1 - k;
     if (a <= 0) return;
     const { W, H } = this;
@@ -521,7 +531,7 @@ export class Scene {
 
   private drawVignette(now: number, reduced: boolean) {
     const v = this.vignette;
-    const k = reduced ? 1 : Math.min(1, (now - v.at) / VIGNETTE_MS);
+    const k = reduced ? 1 : Math.max(0, Math.min(1, (now - v.at) / VIGNETTE_MS));
     const a = v.on ? k : 1 - k;
     if (a <= 0) return;
 
@@ -823,9 +833,10 @@ export class Scene {
   }
 
   start() {
+    this.started = true;
     const loop = (now: number) => {
-      this.frame(now);
       requestAnimationFrame(loop);
+      this.frame(now);
     };
     requestAnimationFrame(loop);
   }
