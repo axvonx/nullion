@@ -1,4 +1,8 @@
+import { enforce } from '../core/enforce';
 import { DAILY_FALLBACK, ENDLESS_LAYERS, type LayerId } from '../core/layers';
+import { DEBUG } from '../keys';
+import { browserStorage, type SaveStorage } from './daily-save';
+import { fromV1, InvalidManualSave, MANUAL_V1_KEY, MANUAL_V2_KEY, parseV2, prune, type ManualSaveV2, type Stamp } from './manual-save';
 
 /**
  * Field Manual ("MAN(7) · Field Manual") — Volume I character & specimen registry + persistent discovery store.
@@ -520,63 +524,105 @@ export function entryForTopic(topicId: string): { entry: ManualEntry; layer: Lay
 }
 
 // -----------------------------------------------------------------------------
-// Persistent discovery store (localStorage) + debug "Unlock all" overlay.
-
-const STORAGE_KEY = 'nullion.manual.v1';
-
-interface SavedManual {
-  found: Record<string, LayerId[]>;
-  unread: string[];
-}
+// Persistent discovery store (save v2, src/game/manual-save.ts) + debug "Unlock all" overlay.
 
 export interface LogResult {
   isNewEntry: boolean;
   isNewLayer: boolean;
 }
 
+/** Where a sighting happens, supplied by the app (main.ts): today's puzzle and the prompt being answered, if any. */
+export interface SightingContext {
+  puzzle: number | null;
+  prompt?: string;
+}
+
+export interface ManualStoreOptions {
+  now: () => number;
+  /** Production migrates the shared v1 key once; debug builds leave it alone (they never own a real player's save). */
+  migrateV1: boolean;
+}
+
+const wetKey = (entryId: string, layer: LayerId) => `${entryId}|${layer}`;
+
 export class ManualStore {
-  private found = new Map<string, Set<LayerId>>();
-  private unread = new Set<string>();
+  private found = new Map<string, Map<LayerId, Stamp>>();
+  private wet = new Set<string>();
   private debugUnlockAll = false;
   private listeners = new Set<() => void>();
+  private context: () => SightingContext = () => ({ puzzle: null });
+  private loadNotice: string | undefined;
 
-  constructor(private persist = true) {
-    if (persist) this.load();
+  constructor(
+    private storage: SaveStorage | null,
+    private opts: ManualStoreOptions = { now: Date.now, migrateV1: false },
+  ) {
+    this.load();
   }
 
+  /** Read v2 (or migrate v1). A corrupt save is removed and reported once via takeLoadNotice(); storage trouble is "no save". */
   private load() {
-    if (typeof localStorage === 'undefined') return;
+    const s = this.storage;
+    if (!s) return;
+    let raw: string | null;
+    let v1: string | null = null;
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return;
-      const parsed = JSON.parse(raw) as Partial<SavedManual>;
-      if (parsed.found && typeof parsed.found === 'object') {
-        for (const [id, layers] of Object.entries(parsed.found)) {
-          if (!BY_ID.has(id) || !Array.isArray(layers)) continue;
-          const set = new Set<LayerId>();
-          for (const l of layers) if (typeof l === 'string') set.add(l as LayerId);
-          if (set.size) this.found.set(id, set);
-        }
-      }
-      if (Array.isArray(parsed.unread)) {
-        for (const id of parsed.unread) if (BY_ID.has(id) && this.found.has(id)) this.unread.add(id);
-      }
+      raw = s.getItem(MANUAL_V2_KEY);
+      if (raw === null && this.opts.migrateV1) v1 = s.getItem(MANUAL_V1_KEY);
     } catch {
-      // Ignore corrupt storage gracefully.
+      return;
+    }
+    if (raw === null && v1 === null) return;
+    let save: ManualSaveV2;
+    try {
+      save = raw !== null ? parseV2(raw) : fromV1(v1!);
+    } catch (e) {
+      if (!(e instanceof InvalidManualSave)) throw e; // a bug in the parser, not a bad save
+      this.loadNotice = `Your Field Manual could not be read (${e.message}), so it starts empty.`;
+      this.remove(raw !== null ? MANUAL_V2_KEY : MANUAL_V1_KEY);
+      return;
+    }
+    const { save: clean, dropped } = prune(save, (id, layer) => BY_ID.get(id)?.sightings.some((x) => x.layer === layer) ?? false);
+    if (dropped.length) this.loadNotice = `Some Field Manual pages no longer exist and were removed: ${dropped.join(', ')}.`;
+    for (const [id, layers] of Object.entries(clean.seen)) this.found.set(id, new Map(Object.entries(layers) as [LayerId, Stamp][]));
+    for (const w of clean.wet) this.wet.add(w);
+    if (v1 !== null || dropped.length) {
+      this.save();
+      if (v1 !== null) this.remove(MANUAL_V1_KEY);
+    }
+  }
+
+  private remove(key: string) {
+    try {
+      this.storage?.removeItem(key);
+    } catch {
+      /* unavailable storage */
     }
   }
 
   private save() {
-    if (!this.persist || typeof localStorage === 'undefined') return;
+    if (!this.storage) return;
+    const obj: ManualSaveV2 = {
+      v: 2,
+      seen: Object.fromEntries([...this.found].map(([id, layers]) => [id, Object.fromEntries(layers)])),
+      wet: [...this.wet],
+    };
     try {
-      const obj: SavedManual = {
-        found: Object.fromEntries([...this.found.entries()].map(([k, v]) => [k, [...v]])),
-        unread: [...this.unread],
-      };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+      this.storage.setItem(MANUAL_V2_KEY, JSON.stringify(obj));
     } catch {
-      // Ignore quota/private-mode errors.
+      /* quota or blocked storage is an expected condition */
     }
+  }
+
+  /** The load problem to show the player, once. */
+  takeLoadNotice(): string | undefined {
+    const n = this.loadNotice;
+    this.loadNotice = undefined;
+    return n;
+  }
+
+  setContext(fn: () => SightingContext) {
+    this.context = fn;
   }
 
   private emit() {
@@ -588,24 +634,36 @@ export class ManualStore {
     return () => this.listeners.delete(fn);
   }
 
-  /** Record a sighting of `entryId` at `layer`. Returns whether the entry or layer sighting was newly discovered. */
+  /** Record a sighting of `entryId` at `layer`. The first sighting of each appearance is stamped and starts wet. */
   log(entryId: string, layer: LayerId): LogResult {
     const entry = BY_ID.get(entryId);
-    if (!entry) return { isNewEntry: false, isNewLayer: false };
-    let set = this.found.get(entryId);
-    const isNewEntry = !set || set.size === 0;
-    if (!set) {
-      set = new Set<LayerId>();
-      this.found.set(entryId, set);
+    enforce(entry, `manual: log() of unknown entry ${entryId}`);
+    enforce(entry.sightings.some((s) => s.layer === layer), `manual: ${entryId} has no appearance in ${layer}`);
+    let layers = this.found.get(entryId);
+    const isNewEntry = !layers || layers.size === 0;
+    if (!layers) {
+      layers = new Map();
+      this.found.set(entryId, layers);
     }
-    const isNewLayer = !set.has(layer);
+    const isNewLayer = !layers.has(layer);
     if (isNewLayer) {
-      set.add(layer);
-      this.unread.add(entryId);
+      const c = this.context();
+      layers.set(layer, { at: this.opts.now(), puzzle: c.puzzle, ...(c.prompt ? { prompt: c.prompt } : {}) });
+      this.wet.add(wetKey(entryId, layer));
       this.save();
       this.emit();
     }
     return { isNewEntry, isNewLayer };
+  }
+
+  /** The stamp for an appearance's first sighting, if it has been seen. */
+  firstSeen(entryId: string, layer: LayerId): Stamp | undefined {
+    return this.found.get(entryId)?.get(layer);
+  }
+
+  /** A stamp logged but not yet viewed in the binder. */
+  isWet(entryId: string, layer: LayerId): boolean {
+    return this.wet.has(wetKey(entryId, layer));
   }
 
   isFound(entryId: string): boolean {
@@ -623,9 +681,9 @@ export class ManualStore {
     const entry = BY_ID.get(entryId);
     if (!entry) return [];
     if (this.debugUnlockAll) return entry.sightings.map((s) => s.layer);
-    const set = this.found.get(entryId);
-    if (!set) return [];
-    return entry.sightings.map((s) => s.layer).filter((l) => set.has(l));
+    const layers = this.found.get(entryId);
+    if (!layers) return [];
+    return entry.sightings.map((s) => s.layer).filter((l) => layers.has(l));
   }
 
   highestFoundLayer(entryId: string): LayerId | undefined {
@@ -634,24 +692,34 @@ export class ManualStore {
     return layers.slice().sort((a, b) => layerRank(a) - layerRank(b))[0];
   }
 
+  /** An entry with any wet stamp. */
   isUnread(entryId: string): boolean {
-    return this.unread.has(entryId);
+    for (const w of this.wet) if (w.startsWith(`${entryId}|`)) return true;
+    return false;
   }
 
+  /** Viewing an entry's page dries all of its stamps. */
   markRead(entryId: string) {
-    if (!this.unread.delete(entryId)) return;
+    let changed = false;
+    for (const w of [...this.wet])
+      if (w.startsWith(`${entryId}|`)) {
+        this.wet.delete(w);
+        changed = true;
+      }
+    if (!changed) return;
     this.save();
     this.emit();
   }
 
+  /** Entries with any wet stamp. */
   unreadCount(): number {
-    return this.unread.size;
+    return new Set([...this.wet].map((w) => w.slice(0, w.indexOf('|')))).size;
   }
 
   foundCount(): number {
     if (this.debugUnlockAll) return MANUAL_ENTRIES.length;
     let n = 0;
-    for (const set of this.found.values()) if (set.size > 0) n++;
+    for (const layers of this.found.values()) if (layers.size > 0) n++;
     return n;
   }
 
@@ -666,14 +734,14 @@ export class ManualStore {
     this.emit();
   }
 
-  /** Clear all saved discoveries and unread flags. */
+  /** Clear all saved discoveries and stamps. */
   reset() {
     this.found.clear();
-    this.unread.clear();
+    this.wet.clear();
     this.debugUnlockAll = false;
     this.save();
     this.emit();
   }
 }
 
-export const manualStore = new ManualStore();
+export const manualStore = new ManualStore(browserStorage(), { now: () => Date.now(), migrateV1: !DEBUG });

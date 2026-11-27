@@ -140,6 +140,11 @@ Decisions from the design session on 2026-11-26 (the working page was `.lavish/f
      - the four entries with an anchor appearance (small-ben, silicon-heart, kernel-furnace, vault-keeper) are
        common, because anchors are landmarks and never gated;
      - question-reactive anomalies show no %, since no honest day-share describes them.
-2. Save v2.
+2. **Save v2. Done 2026-11-26.**
+   - `src/game/manual-save.ts`: strict parse, the v1 migration, and pruning of entries or layers that no longer
+     exist.
+   - `ManualStore` stamps `{ at, puzzle, prompt? }` and tracks wet stamps.
+   - `main.ts` supplies the context and shows load notices.
+   - Tests: `src/game/manual-save.test.ts`.
 3. The binder UI, replacing `manual-modal.ts`, behind a `LOOK_SLOTS` switch until it's ready.
 4. Entry content: hand-written against the style guide.

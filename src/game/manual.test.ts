@@ -36,7 +36,7 @@ describe('Field Manual registry & store', () => {
   });
 
   it('tracks multi-layer sightings, defaults highest layer, manages unread glow, and supports debug unlock-all', () => {
-    const store = new ManualStore(false);
+    const store = new ManualStore(null);
     expect(store.foundCount()).toBe(0);
     expect(store.unreadCount()).toBe(0);
 

@@ -2,6 +2,7 @@ import '@fontsource/silkscreen/400.css';
 import '@fontsource/vt323/400.css';
 import './style.css';
 import { buildAnswerSet, type AnswerSetSource } from './core/answers';
+import { manualStore } from './game/manual';
 import { enforce } from './core/enforce';
 import { formatLocalDate, parseLocalDate, pickForDay, puzzleNumber } from './core/day';
 import { PROMPTS_PER_DAY, layerAt } from './core/layers';
@@ -129,6 +130,15 @@ async function boot() {
     });
     hud.setScrollMode(s.mode === 'scroll');
     if (notice) hud.notify(notice.text, notice.kind);
+    // Field Manual stamps record the day and the prompt being answered; a save it couldn't read is reported once.
+    const stampGame = game;
+    manualStore.setContext(() => {
+      const ph = stampGame.phase;
+      const round = 'round' in ph ? stampGame.rounds[ph.round] : undefined;
+      return { puzzle: daySeed, ...(round ? { prompt: round.question.prompt } : {}) };
+    });
+    const manualNotice = manualStore.takeLoadNotice();
+    if (manualNotice) hud.notify(manualNotice, 'error');
     scene.setTarget(game.depth, true);
     sound.setPuzzleSeed(daySeed);
     sound.setLayer(mode === 'endless' ? 'internet' : layerAt(game.depth).id);
