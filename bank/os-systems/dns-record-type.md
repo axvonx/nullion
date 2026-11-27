@@ -13,8 +13,11 @@ id: dns-record-type · domain: os-systems · status: approved
 
 ## Works on my machine
 - LOC | location | geo location
+  note: RFC 1876's record for a host's latitude, longitude and altitude.
 - HINFO | host info | host information
+  note: Names a host's CPU and OS; nearly unused until RFC 8482 recycled it for minimal ANY answers.
 - NAPTR | naming authority pointer | NAPTR record
+  note: Rewrites names with regular expressions; ENUM uses it to turn phone numbers into SIP addresses.
 
 ## Null pointer exception
 - SOA | start of authority | start of authority record (auto)
@@ -83,3 +86,4 @@ id: dns-record-type · domain: os-systems · status: approved
 
 ## Bit Flip
 - X25
+  note: RFC 1183's record mapping a name to an X.25 packet-switched network address.

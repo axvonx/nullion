@@ -7,8 +7,11 @@ id: database · domain: data-graphics-algorithms · status: approved
 
 ## Works on my machine
 - CockroachDB | Cockroach
+  note: A distributed SQL database modelled on Google Spanner, named for being hard to kill.
 - DuckDB
+  note: An in-process analytical SQL database, often called SQLite for analytics.
 - Firebird
+  note: The open-source relational database forked from Borland's InterBase in 2000.
 
 ## Null pointer exception
 - Amazon Aurora | Aurora (auto)
@@ -81,6 +84,7 @@ id: database · domain: data-graphics-algorithms · status: approved
 
 ## Bit Flip
 - Ocient
+  note: A hyperscale SQL data warehouse from the Chicago startup founded by Cleversafe's creator.
 
 ## Inbox
 - Umbra (suggested: heisenbug)

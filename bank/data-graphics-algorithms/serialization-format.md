@@ -4,16 +4,17 @@ id: serialization-format · domain: data-graphics-algorithms · status: approved
 
 ## Off-by-one
 - CSV | Comma-Separated Values
+- JSON | JavaScript Object Notation | json file
 - XML | eXtensible Markup Language | xml file (auto)
 - YAML | YAML Ain't Markup Language | yml (auto)
 
 ## Works on my machine
-- JSON | JavaScript Object Notation | json file
+- Protocol Buffers | protobuf | protocol buffer | Google Protocol Buffers
+  note: Google's schema-compiled binary format, the pick that says you've shipped gRPC.
 
 ## Null pointer exception
 - TSV | tab-separated values (auto)
 - JSON Lines | JSONL | NDJSON | newline-delimited JSON (auto)
-- Protocol Buffers | protobuf | protocol buffer | Google Protocol Buffers (auto)
 - Avro | Apache Avro (auto)
 - MessagePack | msgpack (auto)
 - Parquet | Apache Parquet (auto)

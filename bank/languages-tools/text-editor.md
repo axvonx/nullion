@@ -14,7 +14,9 @@ id: text-editor · domain: languages-tools · status: approved
 
 ## Works on my machine
 - Helix | helix editor
+  note: A modal terminal editor in Rust with tree-sitter and language servers built in.
 - Kakoune | kak
+  note: A modal editor that selects first and acts second, Vim's grammar inverted.
 
 ## Null pointer exception
 - nano | GNU nano (auto)
@@ -91,6 +93,7 @@ id: text-editor · domain: languages-tools · status: approved
 
 ## Bit Flip
 - SciTECO
+  note: A modern revival of TECO, the editor language Emacs began as macros for, built on Scintilla.
 
 ## Inbox
 - Acme (suggested: heisenbug)

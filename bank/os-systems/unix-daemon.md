@@ -12,8 +12,11 @@ id: unix-daemon · domain: os-systems · status: approved
 
 ## Works on my machine
 - inetd | internet daemon
+  note: The super-server that listens on many ports and starts the right daemon per connection.
 - fingerd
+  note: Answers finger queries; the 1988 Morris worm got in through its gets() overflow.
 - talkd
+  note: Brokers the split-screen talk chat between logged-in users.
 
 ## Null pointer exception
 - nfsd | nfs daemon | nfs server (auto)
@@ -94,6 +97,7 @@ id: unix-daemon · domain: os-systems · status: approved
 
 ## Bit Flip
 - rpc.sprayd
+  note: Answers the spray RPC, which floods a host with packets to measure network throughput.
 
 ## Inbox
 - dma (suggested: heisenbug)

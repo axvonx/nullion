@@ -11,9 +11,13 @@ id: linux-device-node · domain: os-systems · status: approved
 
 ## Works on my machine
 - /dev/ptmx | ptmx
+  note: The pseudo-terminal multiplexer: each open hands out a fresh pty pair.
 - /dev/kmem
+  note: Kernel virtual memory as a file, finally removed from Linux in 5.13.
 - /dev/full
+  note: Every write fails with ENOSPC, for testing how programs handle a full disk.
 - /dev/kmsg
+  note: The kernel log buffer: reads follow printk records, writes inject new ones.
 
 ## Null pointer exception
 - /dev/sda | /dev/sdb | /dev/sdc | sda | sdb (auto)
@@ -128,6 +132,7 @@ id: linux-device-node · domain: os-systems · status: approved
 
 ## Bit Flip
 - /dev/scanners/cuecat
+  note: devices.txt's misc minor 206, reserved for the CueCat, a free barcode wand from 2000.
 
 ## Inbox
 - /dev/userfaultfd (suggested: heisenbug)

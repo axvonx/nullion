@@ -12,9 +12,13 @@ id: compiler · domain: languages-tools · status: approved
 
 ## Works on my machine
 - GHC | Glasgow Haskell Compiler
+  note: The de facto Haskell compiler, written mostly in Haskell itself.
 - SBCL | Steel Bank Common Lisp
+  note: A native-code Common Lisp forked from CMUCL; Steel and Bank nod to Carnegie and Mellon.
 - CHICKEN | CHICKEN Scheme
+  note: A Scheme compiler that emits C and collects garbage by never returning, Cheney on the MTA.
 - FASM | Flat Assembler
+  note: Tomasz Grysztar's self-hosting x86 assembler, written in its own assembly language.
 
 ## Null pointer exception
 - Clang | LLVM Clang | clang compiler (auto)
@@ -81,6 +85,7 @@ id: compiler · domain: languages-tools · status: approved
 
 ## Bit Flip
 - mrustc
+  note: A Rust compiler written in C++ that emits C, used to bootstrap rustc without an existing Rust.
 
 ## Inbox
 - lcc (suggested: heisenbug)

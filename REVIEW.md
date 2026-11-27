@@ -9,13 +9,11 @@ re-running the pipeline).
 These were open when the categories were approved and the answers weren't recorded (`design/review/decisions.json`
 is empty). Each is a one-line answer:
 
-- **serialization-format:** the Bit Flip is now **Ion** (was PAX, an archive format). Still open: the Works on my
-  machine pick is **JSON**, the most common answer, so the most common guess plays the full Bit Flip fake-out and
-  scores 1. Move JSON to Off-by-one and pick an obscure-sounding WOMM (e.g. Protocol Buffers)?
 - **historical-cipher:** the Bit Flip **M-209** is on its own obvious list (`scripts/bank/obvious/historical-cipher.json`,
   as Null pointer). Drop it from the list, or pick another Bit Flip?
-- **Notes:** none of the 11 new Bit Flip / WOMM picks has a `note:` whisper (the first 34 all do; Ion now has one).
-  Write the other 21, or let Claude draft them for you to vet?
+- **Notes (drafted by Claude 2026-11-27, vet them):** every Bit Flip and Works on my machine pick in the 11 has a
+  `note:` whisper now (42; facts written from memory, so a skim for anything wrong is worth it). serialization-format
+  is settled: JSON is Off-by-one, Protocol Buffers is Works on my machine, Ion is the Bit Flip.
 - **compiler:** confirm the pipeline's edits: OpenJDK folded into `javac` as an alias, Reason removed, Mono → `mcs`.
 - **network-protocol:** HTTP and HTTPS are separate answers (separate tiers). Keep, or HTTPS as an alias of HTTP?
 

@@ -7,8 +7,11 @@ id: historical-cipher · domain: hardware-security-history · status: approved
 
 ## Works on my machine
 - ADFGVX | ADFGVX cipher
+  note: The German WWI field cipher of a Polybius square plus transposition, broken by Painvin in 1918.
 - Atbash | Atbash cipher | Atbash code
+  note: The Hebrew substitution that maps the alphabet onto itself reversed, found in the Book of Jeremiah.
 - Rail fence cipher | railfence | zigzag cipher
+  note: A transposition that writes the message in a zigzag across rows, then reads it off row by row.
 
 ## Null pointer exception
 - Affine cipher | affine | Affine code (auto)
@@ -51,3 +54,4 @@ id: historical-cipher · domain: hardware-security-history · status: approved
 
 ## Bit Flip
 - M-209 | Hagelin M-209 | Hagelin cipher machine
+  note: Hagelin's pin-and-lug cipher machine, a lunchbox-sized field unit of the US Army in WWII and Korea.

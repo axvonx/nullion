@@ -9,8 +9,11 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 
 ## Works on my machine
 - P/poly | P with advice | nonuniform polynomial time
+  note: Polynomial time with a polynomial-size advice string per input length; it contains BPP.
 - BQP | bounded-error quantum polynomial time
+  note: Bounded-error quantum polynomial time, where Shor's factoring algorithm lives.
 - MIP* | MIP with quantum provers
+  note: Multi-prover interactive proofs with entangled provers, shown in 2020 to equal RE.
 
 ## Null pointer exception
 - NP | non-deterministic polynomial time (auto)
@@ -116,6 +119,7 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 
 ## Bit Flip
 - A_0PP
+  note: A Complexity Zoo oddity from Vyalyi's work on QMA, later proved equal to PP by Kuperberg.
 
 ## Inbox
 - PPAD (suggested: heisenbug)

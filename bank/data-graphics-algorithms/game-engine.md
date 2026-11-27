@@ -16,8 +16,11 @@ id: game-engine · domain: data-graphics-algorithms · status: approved
 
 ## Works on my machine
 - SCUMM
+  note: LucasArts' adventure engine from Maniac Mansion, the namesake of ScummVM.
 - Adventure Game Studio | AGS | Adventure Game Studio Engine
+  note: Chris Jones's free engine for point-and-click adventures, still in use by indie studios.
 - Twine
+  note: Chris Klimas's open-source tool for branching hypertext fiction.
 
 ## Null pointer exception
 - AGI | Adventure Game Interpreter (auto)
@@ -75,6 +78,7 @@ id: game-engine · domain: data-graphics-algorithms · status: approved
 
 ## Bit Flip
 - Tinsel
+  note: Perfect Entertainment's engine behind the Discworld adventure games, now playable in ScummVM.
 
 ## Inbox
 - Tetraedge (suggested: heisenbug)

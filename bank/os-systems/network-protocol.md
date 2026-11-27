@@ -18,8 +18,11 @@ id: network-protocol · domain: os-systems · status: approved
 
 ## Works on my machine
 - SCTP
+  note: A message-oriented transport with multi-streaming and multi-homing, born for telephone signalling.
 - Gopher
+  note: The University of Minnesota's menu-driven document protocol from 1991, the early web's rival.
 - Chaosnet
+  note: MIT's network for Lisp machines; DNS still carries its CH class.
 
 ## Null pointer exception
 - DNS | Domain Name System (auto)
@@ -165,6 +168,7 @@ id: network-protocol · domain: os-systems · status: approved
 
 ## Bit Flip
 - EtherIP
+  note: RFC 3378's tunnel of whole Ethernet frames inside IP packets, as IP protocol 97.
 
 ## Inbox
 - I2C (suggested: leak)
