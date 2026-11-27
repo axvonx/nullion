@@ -417,11 +417,12 @@ describe('daily save and resume', () => {
   });
 
   it('Endless and debug modes do not touch the save', () => {
-    const base = { mode: 'daily', unlimited: false, timer: true, date: '', scroll: false } as const;
+    const base = { mode: 'daily', unlimited: false, timer: true, date: '', scroll: false, outside: false } as const;
     expect(canPersistDaily(base)).toBe(true);
     expect(canPersistDaily({ ...base, mode: 'endless' })).toBe(false);
     expect(canPersistDaily({ ...base, unlimited: true })).toBe(false);
     expect(canPersistDaily({ ...base, timer: false })).toBe(false);
+    expect(canPersistDaily({ ...base, outside: true })).toBe(false);
     expect(canPersistDaily({ ...base, date: '2026-12-01' })).toBe(false);
     expect(canPersistDaily({ ...base, scroll: true })).toBe(false);
     // And the save layer itself refuses to snapshot or write an Endless game.

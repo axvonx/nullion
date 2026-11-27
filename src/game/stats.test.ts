@@ -154,7 +154,7 @@ describe('stats', () => {
   });
 
   it('Endless and debug modes do not count (the same gate as the save)', () => {
-    const real = { mode: 'daily' as const, unlimited: false, timer: true, date: '', scroll: false };
+    const real = { mode: 'daily' as const, unlimited: false, timer: true, date: '', scroll: false, outside: false };
     expect(canPersistDaily(real)).toBe(true);
     expect(canPersistDaily({ ...real, mode: 'endless' })).toBe(false);
     expect(canPersistDaily({ ...real, unlimited: true })).toBe(false);

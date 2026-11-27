@@ -3,8 +3,9 @@ import { pickForDay, rng } from '../core/day';
 import { enforce } from '../core/enforce';
 import { PROMPTS_PER_DAY, type StackMode } from '../core/layers';
 import { rulesFor, type ModeRules } from '../core/modes';
-import type { CategoryEntry } from '../core/match';
-import { TIERS } from '../core/tiers';
+import { normalize, type CategoryEntry } from '../core/match';
+import { TIERS, type TierId } from '../core/tiers';
+import { text } from '../text';
 import type { Question } from '../data/sample';
 
 export const READ_MS = 3000;
@@ -258,6 +259,31 @@ export class Game {
     }
     r.extra.push(res.entry);
     return { kind: 'accepted', entry: res.entry, corrected: res.corrected, pushed: 0 };
+  }
+
+  /**
+   * Outside answers (debug prototype, src/game/outside-check.ts): the host found `title` on Wikipedia for `guess`,
+   * which the bank rejected. If the bank knows the title (the guess was a missing alias), that entry counts at its
+   * own tier; otherwise a made-up entry at `tier`, with a note saying it is unverified. Only while that round is
+   * still open and unanswered (the lookup is asynchronous; the player may have moved on): otherwise ignored.
+   */
+  acceptOutside(round: number, guess: string, title: string, tier: TierId, now: number): SubmitResult {
+    const p = this.phase;
+    if (p.kind !== 'answering' || p.round !== round) return { kind: 'ignored' };
+    const r = this.rounds[round]!;
+    if (r.locked) return { kind: 'ignored' };
+    const known = this.set.check(r.question.id, title);
+    const entry: CategoryEntry =
+      known.kind === 'accepted' && !known.corrected
+        ? known.entry
+        : // A redirect can land on a broader article (Sorenson Spark → Sorenson Media): then the player's word is the name.
+          { name: normalize(title) === normalize(guess) ? title : guess.trim(), tier, keys: [normalize(title), normalize(guess)], note: text('reveal.outside-note') };
+    const i = r.rejected.lastIndexOf(guess.trim());
+    if (i >= 0) r.rejected.splice(i, 1);
+    this.rev++;
+    r.locked = { entry, corrected: false, guess: guess.trim() };
+    if (!this.opts.unlimited) this.toBetween(round, now);
+    return { kind: 'accepted', entry, corrected: false, pushed: TIERS[entry.tier].frames };
   }
 
   /** The watchdog fired with text in the box: try it once, correction applied. A miss is logged as a rejected guess. */

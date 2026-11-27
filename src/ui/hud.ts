@@ -25,6 +25,7 @@ import { sound } from '../audio/sound';
 import { bankAcceptsFor } from '../data/bank';
 import { missedAnswerUrl } from './issues';
 import { mountVisualViewport } from './viewport';
+import { browserFetchJson, checkOutside } from '../game/outside-check';
 
 /** Below this share of the answer time left, the watchdog goes into its low-time state. */
 export const LOW_TIME = 0.25;
@@ -62,6 +63,9 @@ export class Hud {
   /** The game clock (wall-clock ms in production), set by bind(). Used wherever a deadline is read or set. */
   private clock: () => number = () => Date.now();
   private demo = false;
+  /** Outside answers (debug prototype, src/game/outside-check.ts): the tier a rejected guess scores if Wikipedia
+   *  backs it; null (always, in production) leaves rejected guesses rejected. Set by main.ts on every (re)start. */
+  outsideTier: TierId | null = null;
   private titleLogo: TitleLogo;
   private layerStack: LayerStack;
   private binder: FieldManualBinder;
@@ -826,6 +830,39 @@ ${REVEAL_HTML}`;
     });
   }
 
+  /**
+   * Outside answers (debug): look a rejected guess up on Wikipedia. A pass is accepted like a bank answer, if the
+   * round is still open; every verdict is logged to the console and kept in `window.nullionOutside` for counting.
+   * A failed lookup shows in the feedback line (never a silent reject).
+   */
+  private lookOutside(guess: string, tier: TierId, scene: Scene, g: Game) {
+    const p = g.phase;
+    const cur = g.current();
+    if (p.kind !== 'answering' || !cur) return;
+    const round = p.round;
+    const prompt = cur.question.prompt;
+    const fb = this.els.feedback!;
+    const pending = document.createElement('span');
+    pending.className = 'fb-hint';
+    pending.textContent = ' · checking Wikipedia…';
+    requestAnimationFrame(() => fb.append(pending));
+    const log = ((window as unknown as { nullionOutside?: object[] }).nullionOutside ??= []);
+    checkOutside(guess, prompt, browserFetchJson).then(
+      (v) => {
+        pending.remove();
+        log.push({ prompt, guess, ...v });
+        console.info(`[outside] ${prompt} | ${guess} → ${v.kind === 'accept' ? `ACCEPT "${v.title}" (${v.evidence})` : `reject: ${v.reason}`}`);
+        if (v.kind !== 'accept' || g !== this.game) return;
+        const res = g.acceptOutside(round, guess, v.title, tier, this.clock());
+        if (res.kind === 'accepted') this.onSubmit(res, scene, g);
+      },
+      (err: unknown) => {
+        pending.textContent = ` · Wikipedia check failed: ${err instanceof Error ? err.message : String(err)}`;
+        console.error('[outside]', err);
+      },
+    );
+  }
+
   private onSubmit(res: SubmitResult, scene: Scene, g: Game) {
     const fb = this.els.feedback!;
     this.input.classList.remove('corrected');
@@ -862,6 +899,7 @@ ${REVEAL_HTML}`;
         replay(this.els.console!, 'reject');
         scene.rejectNudge();
         sound.reject(layerAt(scene.displayDepth).id);
+        if (this.outsideTier) this.lookOutside(res.guess, this.outsideTier, scene, g);
         return;
       }
       case 'duplicate':

@@ -92,6 +92,15 @@ export function mountDebugMenu(h: DebugHooks) {
     row(play, 'Date (blank = today)', date);
     row(play, 'Watchdog timer', check(st.timer, (v) => settings.set({ timer: v })));
     row(play, 'Unlimited answers', check(st.unlimited, (v) => settings.set({ unlimited: v })));
+    row(
+      play,
+      'Outside answers (Wikipedia)',
+      select(
+        { off: 'Off', 'off-by-one': 'Accept at Off-by-one (1)', race: 'Accept at Race condition (5)', heisenbug: 'Accept at Heisenbug (8)' },
+        st.outsideTier,
+        (v) => settings.set({ outsideTier: v as 'off' | 'off-by-one' | 'race' | 'heisenbug' }),
+      ),
+    );
     row(play, 'Answer set', select(Object.fromEntries(Object.values(h.sets).map((s) => [s.id, s.label])), st.answerSet, (v) => settings.set({ answerSet: v })));
     const actions = document.createElement('div');
     actions.className = 'dbg-buttons';

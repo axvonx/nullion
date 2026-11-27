@@ -10,8 +10,11 @@ export interface Settings {
   /** Keep answering after the first accepted answer; only the first one pushes frames. */
   unlimited: boolean;
   answerSet: string;
+  /** Outside answers (prototype): a guess the bank rejects is looked up on Wikipedia and, if it checks out, scores
+   *  this tier. 'off' in production. Days played with it on are never saved. */
+  outsideTier: 'off' | 'off-by-one' | 'race' | 'heisenbug';
 }
 
-export const DEFAULT_SETTINGS: Settings = { mode: 'play', date: '', timer: true, unlimited: false, answerSet: 'bank' };
+export const DEFAULT_SETTINGS: Settings = { mode: 'play', date: '', timer: true, unlimited: false, answerSet: 'bank', outsideTier: 'off' };
 
 export const settings = persisted<Settings>('nullion.settings', DEFAULT_SETTINGS);

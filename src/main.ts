@@ -121,7 +121,8 @@ async function boot() {
     });
     // Resume today's game after a reload, unless this is Endless, a debug mode, or an explicit debug restart.
     const depthDeepLink = DEBUG && new URLSearchParams(location.search).has('depth');
-    persisting = canPersistDaily({ mode, unlimited: s.unlimited, timer: s.timer, date: s.date, scroll: s.mode === 'scroll' || depthDeepLink });
+    persisting = canPersistDaily({ mode, unlimited: s.unlimited, timer: s.timer, date: s.date, scroll: s.mode === 'scroll' || depthDeepLink, outside: s.outsideTier !== 'off' });
+    hud.outsideTier = s.outsideTier === 'off' ? null : s.outsideTier;
     persistTo = persisting ? storage : null;
     if (fresh) clearDaily(storage, daySeed);
     let notice: { text: string; kind: 'info' | 'error' } | undefined;

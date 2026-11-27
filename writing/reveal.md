@@ -96,3 +96,11 @@ max: 60
 status: draft
 
 No answer, so no frames this round.
+
+## reveal.outside-note
+where: the line under the answer in the reveal, for an answer found on Wikipedia but not in the answer list
+when: debug only (Outside answers on): the guess missed the bank and its Wikipedia article says it is the prompt's kind of thing
+max: 60
+status: draft
+
+Not on our list yet: found on Wikipedia, unverified.

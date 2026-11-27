@@ -11,11 +11,12 @@ const PREFIX = storageKey('daily.');
 export const dailyKey = (puzzle: number) => `${PREFIX}${puzzle}`;
 
 /**
- * Only the real daily game persists. Endless and every debug mode (unlimited, a chosen date, no timer, scroll-only)
+ * Only the real daily game persists. Endless and every debug mode (unlimited, a chosen date, no timer, scroll-only,
+ * outside answers, whose made-up entries a reload could not find again)
  * neither read nor write the save, so they can never clobber or be polluted by a real day.
  */
-export function canPersistDaily(o: { mode: StackMode; unlimited: boolean; timer: boolean; date: string; scroll: boolean }): boolean {
-  return rulesFor(o.mode).persistsDaily && !o.unlimited && o.timer && o.date === '' && !o.scroll;
+export function canPersistDaily(o: { mode: StackMode; unlimited: boolean; timer: boolean; date: string; scroll: boolean; outside: boolean }): boolean {
+  return rulesFor(o.mode).persistsDaily && !o.unlimited && o.timer && o.date === '' && !o.scroll && !o.outside;
 }
 
 export type DailyLoad =
