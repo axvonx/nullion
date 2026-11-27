@@ -1,12 +1,12 @@
 import { hash } from './art-common';
 import type { NullionBannerState } from './reaction-fx';
 import type { Surface } from './surface';
-import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from './v4/watermark';
+import { CELL_H, CELL_W, layoutWord, wordWidth } from '../ui/wordmark';
 
 /**
  * "ONE IN A / NULLION" dramatic pixel sequence shared by Bit Flip and Works on my machine:
  * dims the background so only the centered words command the stage, sparkles each row into existence
- * with rapid TitleLogo-style slice/chroma glitches, then either snaps crisp & inverted into Bit Flip's
+ * with rapid TitleLogo-style slice/chroma glitches (both rows in the title's 7×9 face: outline and drop shadow), then either snaps crisp & inverted into Bit Flip's
  * +13 dive or freezes dead still for Works on my machine's fake-out.
  */
 export function drawNullionBanner(s: Surface, now: number, b: NullionBannerState, reduced: boolean) {
@@ -17,11 +17,11 @@ export function drawNullionBanner(s: Surface, now: number, b: NullionBannerState
   }
 
   const row1 = 'ONE IN A';
-  const row2 = 'NULLION';
-  const s1 = Math.max(1, Math.min(4, Math.floor((W * 0.76) / lineWidth(row1))));
-  const s2 = Math.max(2, Math.min(6, Math.floor((W * 0.84) / lineWidth(row2))));
-  const h1 = GLYPH_H * s1;
-  const h2 = GLYPH_H * s2;
+  const row2 = 'nullion';
+  const s1 = Math.max(1, Math.min(4, Math.floor((W * 0.76) / wordWidth(row1))));
+  const s2 = Math.max(2, Math.min(6, Math.floor((W * 0.84) / wordWidth(row2))));
+  const h1 = CELL_H * s1;
+  const h2 = CELL_H * s2;
   const gap = Math.max(6, Math.round(s2 * 2.2));
   const totalH = h1 + gap + h2;
   const y1 = Math.round(H * 0.44 - totalH / 2);
@@ -33,12 +33,12 @@ export function drawNullionBanner(s: Surface, now: number, b: NullionBannerState
 
   const drawRow = (text: string, scale: number, y0: number, progress: number, seedBase: number, mainCol: string) => {
     if (progress <= 0) return;
-    const wPx = lineWidth(text) * scale;
-    const x0 = Math.round((W - wPx) / 2);
+    const { glyphs, width } = layoutWord(text);
+    const x0 = Math.round((W - width * scale) / 2);
 
     // Compute gentle per-row horizontal slice tear offsets so the words stay legible on first-time fake-outs.
     const rowShift: number[] = [];
-    for (let r = 0; r < GLYPH_H; r++) {
+    for (let r = 0; r < CELL_H; r++) {
       if (!glitching) {
         rowShift.push(0);
       } else {
@@ -49,60 +49,58 @@ export function drawNullionBanner(s: Surface, now: number, b: NullionBannerState
 
     const chromaOff = glitching && hash(tick * 13 + seedBase) > 0.58 ? 1 : 0;
 
-    let cx = x0;
-    for (let ci = 0; ci < text.length; ci++) {
-      const ch = text[ci]!;
-      if (ch === ' ') {
-        cx += SPACE_W * scale;
-        continue;
-      }
-      const rows = WATERMARK_GLYPHS[ch];
-      if (rows) {
-        for (let r = 0; r < GLYPH_H; r++) {
-          const row = rows[r]!;
-          const sx = rowShift[r]!;
-          for (let k = 0; k < GLYPH_W; k++) {
-            if (row[k] !== '1') continue;
-            const pixH = hash(seedBase + ci * 41 + r * 11 + k * 7);
-            if (pixH > progress) continue;
-            if (b.dissolve > 0 && pixH < b.dissolve) continue;
+    // Collect the lit pixels first: the title's look is shadow, then a 1 font-pixel outline, then ink on top.
+    interface Lit { px: number; py: number; fresh: boolean; pixH: number }
+    const lit: Lit[] = [];
+    glyphs.forEach((g, ci) => {
+      const cx = x0 + g.x * scale;
+      for (let r = 0; r < CELL_H; r++) {
+        const row = g.rows[r]!;
+        const sx = rowShift[r]!;
+        for (let k = 0; k < CELL_W; k++) {
+          if (row[k] !== '#') continue;
+          const pixH = hash(seedBase + ci * 41 + r * 11 + k * 7);
+          if (pixH > progress) continue;
+          if (b.dissolve > 0 && pixH < b.dissolve) continue;
 
-            let px = cx + k * scale + sx;
-            let py = y0 + r * scale;
-            if (b.dissolve > 0 && !reduced) {
-              const drift = b.dissolve * 14;
-              px += Math.round((hash(seedBase + ci * 13 + k) - 0.5) * drift);
-              py -= Math.round(hash(seedBase + r * 19 + k) * drift);
-            }
-
-            const fresh = progress < 1 && progress - pixH < 0.16;
-            // Crisp dark drop shadow
-            ctx.fillStyle = '#000';
-            ctx.fillRect(px + 1, py + 1, scale, scale);
-            // Chromatic aberration ghosts during rapid glitch
-            if (chromaOff > 0) {
-              ctx.globalAlpha = 0.5;
-              ctx.fillStyle = '#5fd3e0';
-              ctx.fillRect(px - chromaOff, py, scale, scale);
-              ctx.fillStyle = '#ff6ad5';
-              ctx.fillRect(px + chromaOff, py, scale, scale);
-              ctx.globalAlpha = 1;
-            }
-            // Main pixel (flashes bright white/cyan at birth sparkle)
-            ctx.fillStyle = fresh ? (pixH > 0.5 ? '#ffffff' : '#5fd3e0') : mainCol;
-            ctx.fillRect(px, py, scale, scale);
-            if (fresh && !reduced) {
-              // Tiny + sparkle glint on newly materialized pixels
-              ctx.fillStyle = '#ffffff';
-              ctx.fillRect(px - 1, py + Math.floor(scale / 2), 1, 1);
-              ctx.fillRect(px + scale, py + Math.floor(scale / 2), 1, 1);
-              ctx.fillRect(px + Math.floor(scale / 2), py - 1, 1, 1);
-              ctx.fillRect(px + Math.floor(scale / 2), py + scale, 1, 1);
-            }
+          let px = cx + k * scale + sx;
+          let py = y0 + r * scale;
+          if (b.dissolve > 0 && !reduced) {
+            const drift = b.dissolve * 14;
+            px += Math.round((hash(seedBase + ci * 13 + k) - 0.5) * drift);
+            py -= Math.round(hash(seedBase + r * 19 + k) * drift);
           }
+          lit.push({ px, py, fresh: progress < 1 && progress - pixH < 0.16, pixH });
         }
       }
-      cx += (GLYPH_W + 1) * scale;
+    });
+    ctx.fillStyle = 'rgba(0,0,0,0.68)';
+    for (const p of lit) ctx.fillRect(p.px + 2 * scale, p.py + 2 * scale, scale, scale);
+    ctx.fillStyle = '#0d0b12';
+    for (const p of lit) {
+      for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) if (dx || dy) ctx.fillRect(p.px + dx * scale, p.py + dy * scale, scale, scale);
+    }
+    for (const { px, py, fresh, pixH } of lit) {
+      // Chromatic aberration ghosts during rapid glitch
+      if (chromaOff > 0) {
+        ctx.globalAlpha = 0.5;
+        ctx.fillStyle = '#5fd3e0';
+        ctx.fillRect(px - chromaOff, py, scale, scale);
+        ctx.fillStyle = '#ff6ad5';
+        ctx.fillRect(px + chromaOff, py, scale, scale);
+        ctx.globalAlpha = 1;
+      }
+      // Main pixel (flashes bright white/cyan at birth sparkle)
+      ctx.fillStyle = fresh ? (pixH > 0.5 ? '#ffffff' : '#5fd3e0') : mainCol;
+      ctx.fillRect(px, py, scale, scale);
+      if (fresh && !reduced) {
+        // Tiny + sparkle glint on newly materialized pixels
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(px - 1, py + Math.floor(scale / 2), 1, 1);
+        ctx.fillRect(px + scale, py + Math.floor(scale / 2), 1, 1);
+        ctx.fillRect(px + Math.floor(scale / 2), py - 1, 1, 1);
+        ctx.fillRect(px + Math.floor(scale / 2), py + scale, 1, 1);
+      }
     }
   };
 

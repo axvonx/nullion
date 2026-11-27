@@ -4,7 +4,7 @@ import { layerAt, rulesFor } from '../core/modes';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS } from '../core/modes';
 import { READ_MS, type Game, type SubmitResult } from '../game/game';
-import type { StatsOutcome } from '../game/stats';
+import type { Stats, StatsOutcome } from '../game/stats';
 import { look, reducedMotion } from '../looks';
 import type { Scene } from '../render/scene';
 import { FORMS, type FormId } from './forms';
@@ -860,6 +860,13 @@ ${REVEAL_HTML}`;
 
   // ---------------------------------------------------------------------------------------------
   // Debug demos (driven by the debug rail; these only show content, they never touch game state).
+
+  /** The end card with made-up lifetime stats, for any game (even one that has not started). */
+  demoEndOfDay(rows: RecordRow[], depth: number, puzzle: number, stats: Stats) {
+    if (!this.game) throw new Error('Hud.demoEndOfDay before setGame()');
+    this.card.reset(this.game, () => ({ kind: 'ok', stats }));
+    this.endOfDay(rows, depth, puzzle);
+  }
 
   private demoPrompt = '';
 

@@ -287,7 +287,8 @@ body {
 .tier-bitflip, [data-tier='bitflip'] { color: var(--t-bitflip); }
 
 .result { margin-top: 8px; }
-.wordmark { font-family: var(--display); font-size: 13px; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 4px; }
+.wordmark { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.wordmark .wm-no { font-family: var(--display); font-size: 13px; letter-spacing: 0.06em; color: var(--ink); }
 .headline { color: var(--signal); font-size: 24px; }
 /* With the result card up, the card is the whole console: the prompt and answer line step aside. */
 .console:has(.result:not([hidden])) :is(.plain, .prompt-line, .feedback, .bios-footer) { display: none; }
@@ -472,7 +473,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .console[data-form='gui'] .bt-tier { background: #16141c; padding: 1px 4px; }
 .console[data-form='gui'] :is(.bt-n, .next-day, .bt-row.timeout .bt-sum, .bt-row.timeout .bt-detail) { color: #4a4656; }
 .console[data-form='gui'] .bt-row:is(:hover, :focus-visible, [aria-expanded='true']) { background: #fff; border-color: #808080; }
-.console[data-form='gui'] .wordmark { color: #16141c; }
+.console[data-form='gui'] .wordmark .wm-no { color: #16141c; }
 
 /* Runtime, Libraries: a REPL. */
 .console[data-form='repl'] .plain { color: #f5d76e; }
@@ -1496,6 +1497,11 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 }
 
 /* The build's version at the foot of the end card: small, quiet, there to quote in a bug report. */
-.build-tag { margin-top: 10px; text-align: center; font-family: var(--mono, monospace); font-size: 10px; letter-spacing: 0.06em; color: var(--dim); opacity: 0.7; }
+.build-tag { margin-top: 10px; text-align: center; font-family: var(--mono, monospace); font-size: 10px; letter-spacing: 0.06em; color: var(--dim); }
+.build-tag .build-wm { margin-right: 4px; }
+.build-tag .wordmark-cv { opacity: 0.85; }
 .title-build { margin-top: 14px; }
 .prefs-build { margin-top: 8px; text-align: left; }
+
+/* The title's pixel face wherever the word "nullion" (or a number beside it) shows up: crisp, never smoothed. */
+.wordmark-cv { image-rendering: pixelated; display: inline-block; vertical-align: middle; }

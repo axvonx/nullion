@@ -53,7 +53,9 @@ describe('EndCard', () => {
   it('a daily card says its puzzle number and plain headline', () => {
     const t = setup();
     t.card.show(ROWS, 18, 7);
-    expect(t.q('[data-el="puzzleNo"]').textContent).toBe('#7');
+    expect(t.q('[data-el="puzzleNo"]').dataset.chip).toBe('#7');
+    expect(t.q('[data-el="puzzleNo"]').querySelector('canvas')?.getAttribute('aria-label')).toBe('#7');
+    expect(t.q('.wordmark').querySelector('.wm-word canvas')?.getAttribute('aria-label')).toBe('nullion');
     expect(t.q('.headline').textContent).toBe('18 stack frames · Kernel');
   });
 
@@ -62,6 +64,7 @@ describe('EndCard', () => {
     const t = setup(game);
     t.card.show(ROWS, 18, 7);
     expect(t.q('[data-el="puzzleNo"]').textContent).toBe('ENDLESS');
+    expect(t.q('[data-el="puzzleNo"]').dataset.chip).toBe('ENDLESS');
     expect(t.q('.headline').textContent).toMatch(/^KERNEL PANIC · 18 stack frames · /);
   });
 
@@ -125,6 +128,7 @@ describe('build tag', () => {
   it('the end card names the build: package.json version and stage', async () => {
     const { readFileSync } = await import('node:fs');
     const pkg = JSON.parse(readFileSync('package.json', 'utf8')) as { version: string }; // vitest runs from the repo root
-    expect(END_CARD_HTML).toContain(`nullion v${pkg.version}`);
+    // The word itself is drawn in the title's pixel face (wordmark.ts); the version number stays text.
+    expect(END_CARD_HTML).toContain(`data-wm="nullion">nullion</span> v${pkg.version}`);
   });
 });

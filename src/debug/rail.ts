@@ -1,3 +1,4 @@
+import { enforce } from '../core/enforce';
 import { LAYERS } from '../core/layers';
 import { TIERS, TIER_IDS, type TierId } from '../core/tiers';
 import { diveLeadMs, diveMs } from '../render/scene';
@@ -7,6 +8,7 @@ import { REVEAL_MS } from '../ui/reveal';
 import { tierIcon } from '../ui/tier-icons';
 import { manualBookIcon } from '../ui/manual-icon';
 import { manualStore } from '../game/manual';
+import { computeStats } from '../game/stats';
 import type { DebugHooks } from './menu';
 
 /**
@@ -206,16 +208,33 @@ export function mountRail(h: DebugHooks) {
       });
       t += diveLeadMs(tier) + diveMs(f) + REVEAL_MS + 600;
     }
-    // Rows carry the live game's prompts (and one of its answers in the right tier, where it has one) so the answer-sheet dropdown works.
-    later(t, () => {
-      const g = h.game();
-      const rows = SAMPLE_DAY.map((d, i) => {
-        const question = g.rounds[i]!.question.id;
-        return { question, tier: d.tier, name: g.set.entries(question).find((e) => e.tier === d.tier)?.name ?? d.name };
-      });
-      h.hud.endOfDay(rows, depth, 0);
-    });
+    later(t, () => showSampleEndCard(depth));
   });
+
+  // Rows carry the live game's prompts (and one of its answers in the right tier, where it has one) so the answer-sheet dropdown works.
+  function showSampleEndCard(depth: number) {
+    const g = h.game();
+    const rows = SAMPLE_DAY.map((d, i) => {
+      // A game that has not started has no rounds yet: borrow the set's first prompts so the dropdowns still work.
+      const question = (g.rounds[i]?.question ?? g.set.questions[i])?.id;
+      enforce(question, `rail: no prompt for sample row ${i}`);
+      return { question, tier: d.tier, name: g.set.entries(question).find((e) => e.tier === d.tier)?.name ?? d.name };
+    });
+    // Made-up lifetime stats so the card's stats block has something to show.
+    const days = { 1: { d: 31, t: ['race', 'npe', null, 'womm', 'leak', 'off-by-one', 'npe'] }, 2: { d: 56, t: ['bitflip', 'race', 'heisenbug', 'womm', 'npe', 'leak', 'off-by-one'] } } as const;
+    const stats = computeStats(JSON.parse(JSON.stringify(days)), 3);
+    h.hud.demoEndOfDay(rows, depth, 0, stats);
+  }
+  // `?endcard=1` goes straight to the sample day's end card (for looking at it without the three-minute demo).
+  if (new URLSearchParams(location.search).has('endcard')) {
+    const total = SAMPLE_DAY.reduce((n, d) => n + TIERS[d.tier].frames, 0);
+    // After the first frame has picked a console form.
+    window.setTimeout(() => {
+      h.hud.demoBegin('Name a type of lock');
+      h.scene.setTarget(total, true);
+      window.setTimeout(() => showSampleEndCard(total), 600);
+    }, 800);
+  }
 
   // v4's world is seeded once (by the day). Reroll it to see other arrangements; ?seed=N brings one back.
   const rerollBtn = add('reroll', `Reroll the v4 world (seed ${h.scene.seed}; reload with ?seed=N to keep one)`, 'var(--signal)', () => {

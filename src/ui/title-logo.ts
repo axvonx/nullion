@@ -1,4 +1,5 @@
 import { reducedMotion } from '../looks';
+import { CELL_H, CELL_W, GLYPHS, drawGlyph } from './wordmark';
 
 /**
  * Stylized monospace pixel-art "nullion" wordmark for the title screen.
@@ -11,148 +12,9 @@ import { reducedMotion } from '../looks';
  * Under reduced motion: completely static, crisp pixel art.
  */
 
-const CELL_W = 7;
-const CELL_H = 9;
 const GAP = 2;
 const PAD_X = 7;
 const PAD_Y = 8;
-
-/** Uniform 7×9 monospace pixel glyphs ('#' = ink). */
-const GLYPHS: Record<string, readonly string[]> = {
-  n: [
-    '       ',
-    '       ',
-    '## ### ',
-    '###  ##',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-  ],
-  u: [
-    '       ',
-    '       ',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-    '##  ###',
-    ' ### ##',
-  ],
-  l: [
-    '  ###  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    '  #### ',
-  ],
-  i: [
-    '   ##  ',
-    '       ',
-    '  ###  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    '  #### ',
-  ],
-  o: [
-    '       ',
-    '       ',
-    ' ##### ',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-    ' ##### ',
-  ],
-  /** Bit-flip & hex-corrupt alternates. */
-  '0': [
-    ' ##### ',
-    '##   ##',
-    '##  ###',
-    '## # ##',
-    '###  ##',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-    ' ##### ',
-  ],
-  '1': [
-    '   ##  ',
-    '  ###  ',
-    ' ####  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    '   ##  ',
-    ' ######',
-  ],
-  x: [
-    '       ',
-    '       ',
-    '##   ##',
-    ' ## ## ',
-    '  ###  ',
-    '  ###  ',
-    ' ## ## ',
-    '##   ##',
-    '##   ##',
-  ],
-  F: [
-    '#######',
-    '##     ',
-    '##     ',
-    '#####  ',
-    '##     ',
-    '##     ',
-    '##     ',
-    '##     ',
-    '##     ',
-  ],
-  A: [
-    '  ###  ',
-    ' ## ## ',
-    '##   ##',
-    '##   ##',
-    '#######',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-    '##   ##',
-  ],
-  E: [
-    '#######',
-    '##     ',
-    '##     ',
-    '#####  ',
-    '##     ',
-    '##     ',
-    '##     ',
-    '##     ',
-    '#######',
-  ],
-  '3': [
-    ' ##### ',
-    '##   ##',
-    '     ##',
-    '  #### ',
-    '     ##',
-    '     ##',
-    '     ##',
-    '##   ##',
-    ' ##### ',
-  ],
-};
 
 /** Compact 3×5 pixel glyphs for tiny background "nullion" ghost stamps in the Scene world. */
 const MINI_GLYPHS: Record<string, readonly string[]> = {
@@ -288,60 +150,6 @@ export function drawMiniNullion(
     }
   }
   ctx.restore();
-}
-
-/** Draw one 7×9 glyph at pixel position (ox, oy) with a 1px black outline and optional shadow. */
-function drawGlyph(
-  ctx: CanvasRenderingContext2D,
-  glyph: readonly string[],
-  ox: number,
-  oy: number,
-  fill: string,
-  outline: string,
-  shadow?: string,
-  highlight?: string,
-) {
-  const px = Math.round(ox);
-  const py = Math.round(oy);
-  const ink = (r: number, c: number) => r >= 0 && r < CELL_H && c >= 0 && c < CELL_W && glyph[r]![c] === '#';
-
-  if (shadow) {
-    ctx.fillStyle = shadow;
-    for (let r = 0; r < CELL_H; r++) {
-      for (let c = 0; c < CELL_W; c++) {
-        if (ink(r, c)) ctx.fillRect(px + c + 2, py + r + 2, 1, 1);
-      }
-    }
-  }
-
-  if (outline !== 'none') {
-    ctx.fillStyle = outline;
-    for (let r = -1; r <= CELL_H; r++) {
-      for (let c = -1; c <= CELL_W; c++) {
-        if (ink(r, c)) continue;
-        let near = false;
-        for (let dr = -1; dr <= 1; dr++) {
-          for (let dc = -1; dc <= 1; dc++) {
-            if (ink(r + dr, c + dc)) {
-              near = true;
-              break;
-            }
-          }
-          if (near) break;
-        }
-        if (near) ctx.fillRect(px + c, py + r, 1, 1);
-      }
-    }
-  }
-
-  for (let r = 0; r < CELL_H; r++) {
-    for (let c = 0; c < CELL_W; c++) {
-      if (!ink(r, c)) continue;
-      const topEdge = !ink(r - 1, c);
-      ctx.fillStyle = topEdge && highlight ? highlight : fill;
-      ctx.fillRect(px + c, py + r, 1, 1);
-    }
-  }
 }
 
 export class TitleLogo {

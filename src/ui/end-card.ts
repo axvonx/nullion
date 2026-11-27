@@ -1,4 +1,4 @@
-import { VERSION_LABEL } from '../version';
+import { VERSION } from '../version';
 import { text } from '../text';
 import { enforce } from '../core/enforce';
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
@@ -15,6 +15,7 @@ import { bankLink } from '../data/bank';
 import { missedAnswerUrl, suggestQuestionUrl } from './issues';
 import { manualBookIcon } from './manual-icon';
 import { tierIcon } from './tier-icons';
+import { wordmarkCanvas } from './wordmark';
 
 /** One line of the day's record: an accepted answer, or a round that pushed nothing. */
 export interface RecordRow {
@@ -38,14 +39,14 @@ function shareLabel(): string {
 /** The end card's markup: it sits inside the console panel and replaces the prompt when the game is done. */
 export const END_CARD_HTML = `
         <div class="result" data-el="result" hidden>
-          <div class="wordmark">nullion <span data-el="puzzleNo"></span></div>
+          <div class="wordmark" data-el="wordmark"><span class="wm-word" data-wm="nullion">nullion</span> <span class="wm-no" data-el="puzzleNo"></span></div>
           <div class="headline" data-el="headline"></div>
           <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
           <div class="stats" data-el="stats" hidden></div>
           <div class="result-foot"><span class="next-day" data-el="nextDay"></span><button type="button" data-el="copy">Copy result</button></div>
           <div class="result-manual"><button type="button" class="fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
           <div class="result-links" data-el="resultLinks"></div>
-          <div class="build-tag" data-el="buildTag">${VERSION_LABEL}</div>
+          <div class="build-tag" data-el="buildTag"><span class="build-wm" data-wm="nullion">nullion</span> v${VERSION}</div>
         </div>`;
 
 /** What the end card reads from the HUD around it. */
@@ -80,6 +81,8 @@ export class EndCard {
   ) {
     this.els = { result: el, ...elementsOf(el) };
     this.els.nextDay!.textContent = text('end-card.next.waiting');
+    // The word "nullion" is always the title's pixel face; the puzzle number joins it in build().
+    for (const w of el.querySelectorAll<HTMLElement>('[data-wm]')) w.replaceChildren(wordmarkCanvas(w.dataset.wm!, w.classList.contains('build-wm') ? 1 : 3));
     this.els.manualEndBtn!.prepend(manualBookIcon(22));
     this.els.manualEndBtn!.addEventListener('click', () => host.openManual());
     const syncManualBadges = () => {
@@ -203,7 +206,7 @@ export class EndCard {
     const glyphs = rows.map((r) => (r.tier ? TIERS[r.tier].glyph : '⬛')).join('');
     const rules = rulesFor(mode);
     const headline = rules.headline(framesLabel(depth), layerName);
-    setText(this.els.puzzleNo!, rules.puzzleChip(puzzle));
+    this.setPuzzleNo(rules.puzzleChip(puzzle));
     setText(this.els.headline!, headline);
     this.shareText = buildShareText({
       mode,
@@ -228,6 +231,15 @@ export class EndCard {
     ideaLink.rel = 'noopener noreferrer';
     ideaLink.textContent = text('end-card.link.suggest');
     this.els.resultLinks!.replaceChildren(missLink, ' · ', ideaLink);
+  }
+
+  /** "#7" is set in the same pixel face as "nullion"; a word chip ("ENDLESS") stays plain text, the face having no such letters. */
+  private setPuzzleNo(chip: string) {
+    const el = this.els.puzzleNo!;
+    el.dataset.chip = chip;
+    if (/^#\d+$/.test(chip)) el.replaceChildren(wordmarkCanvas(chip, 3));
+    else setText(el, chip);
+    this.els.wordmark!.setAttribute('aria-label', `nullion ${chip}`);
   }
 
   /**
