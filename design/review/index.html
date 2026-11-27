@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Review Desk · nullion</title>
+<style>
+:root {
+  --bg: #0c0b10; --panel: #131118; --bezel: #1d1a24; --rule: #34303f; --ink: #ebe6d6; --dim: #8b8598;
+  --signal: #ffb000; --ok: #7ee0a1; --fault: #ff5f7a; --pick: #8fb7ff; --warn: #ff9f43;
+  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 14px/1.45 var(--sans); }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: var(--pick); }
+
+header {
+  display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center;
+  padding: 10px 14px; border-bottom: 1px solid var(--rule); background: var(--bezel);
+  position: sticky; top: 0; z-index: 5;
+}
+header h1 { font: 700 14px var(--mono); margin: 0; color: var(--signal); letter-spacing: .06em; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; }
+.tabs button {
+  background: var(--panel); border: 1px solid var(--rule); border-radius: 3px;
+  padding: 5px 10px; cursor: pointer; font-size: 13px; display: inline-flex; gap: 6px; align-items: center;
+}
+.tabs button:hover { border-color: #524c63; }
+.tabs button.cur { border-color: var(--signal); background: #262018; color: #fff; }
+.tabs .cnt { font-family: var(--mono); font-size: 11px; color: var(--dim); }
+.tabs button.cur .cnt { color: var(--signal); }
+.hdr-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+.save { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+.save.ok { color: var(--ok); } .save.err { color: var(--fault); }
+.btn { background: var(--panel); border: 1px solid var(--rule); border-radius: 3px; padding: 5px 10px; cursor: pointer; font-size: 13px; }
+.btn:hover { border-color: #524c63; }
+.btn.ok { border-color: #2f6b48; background: #162a1f; color: var(--ok); }
+.btn.warn { border-color: #6b4e1e; background: #2a2112; color: var(--signal); }
+.btn.fault { border-color: #6b2434; background: #2a141b; color: var(--fault); }
+.btn.pick { border-color: #2c4a75; background: #152133; color: var(--pick); }
+.btn.active { box-shadow: inset 0 0 0 1px currentColor; font-weight: 600; }
+
+/* Drafts split layout */
+.split { display: grid; grid-template-columns: 260px minmax(0, 1fr); height: calc(100vh - 54px); }
+.split > * { min-width: 0; overflow: auto; }
+.sidebar { border-right: 1px solid var(--rule); padding: 8px 0; background: #0f0d14; }
+.sidebar button {
+  display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; gap: 8px; align-items: center;
+  width: 100%; text-align: left; padding: 7px 12px; border: 0; background: none; cursor: pointer;
+}
+.sidebar button:hover { background: var(--panel); }
+.sidebar button.cur { background: #24202d; box-shadow: inset 3px 0 0 var(--signal); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--rule); }
+.dot.approve { background: var(--ok); }
+.dot.edits, .dot.rerun { background: var(--signal); }
+.dot.cut { background: var(--fault); }
+.side-name { font-family: var(--mono); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.side-sub { display: block; font-family: var(--sans); font-size: 11px; color: var(--dim); }
+.pill { font: 600 10px var(--mono); padding: 2px 5px; border-radius: 3px; background: #262230; color: var(--dim); }
+.pill.pass { color: var(--ok); background: #14281d; }
+.pill.fail { color: var(--fault); background: #2c141c; }
+.pill.warn { color: var(--signal); background: #2c2210; }
+
+.pane { padding: 18px 22px 60px; max-width: 1040px; }
+.pane h2 { margin: 0 0 4px; font: 600 20px var(--sans); color: #fff; }
+.submeta { font-family: var(--mono); font-size: 12px; color: var(--dim); margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 10px; }
+.sec { margin: 16px 0; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 4px; background: var(--panel); }
+.sec h3 { margin: 0 0 8px; font: 600 11px var(--mono); color: var(--signal); text-transform: uppercase; letter-spacing: .08em; }
+.look-list { margin: 0; padding-left: 18px; color: #ffd79a; }
+.look-list li { margin: 4px 0; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid #23202d; vertical-align: top; }
+th { font: 600 11px var(--mono); color: var(--dim); text-transform: uppercase; letter-spacing: .05em; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.chip {
+  padding: 4px 9px; border: 1px solid var(--rule); border-radius: 3px; background: var(--bg);
+  cursor: pointer; font-size: 13px; display: inline-flex; gap: 5px; align-items: center;
+}
+.chip:hover { border-color: #5b5570; }
+.chip.on { border-color: var(--pick); background: #172336; color: #fff; }
+.chip.dropped { border-color: var(--fault); background: #2a141b; color: var(--fault); text-decoration: line-through; opacity: .8; }
+.chip small { font-family: var(--mono); font-size: 10px; color: var(--dim); }
+
+.inline-input { background: var(--bg); border: 1px solid var(--rule); border-radius: 3px; padding: 5px 8px; min-width: 220px; }
+textarea { width: 100%; min-height: 64px; background: var(--bg); border: 1px solid var(--rule); border-radius: 3px; padding: 7px 9px; resize: vertical; }
+.decision-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+.decision-bar select { background: var(--bg); border: 1px solid var(--rule); border-radius: 3px; padding: 5px 8px; }
+
+/* Single-column tabs (Triage, Dupes, Links, Misc) */
+.page { max-width: 1180px; margin: 0 auto; padding: 16px 20px 60px; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.toolbar input[type=search], .toolbar select { background: var(--panel); border: 1px solid var(--rule); border-radius: 3px; padding: 5px 8px; }
+.toolbar input[type=search] { width: 240px; }
+.card { border: 1px solid var(--rule); border-radius: 4px; background: var(--panel); padding: 10px 14px; margin-bottom: 8px; }
+.card-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+.card-title { font-weight: 600; font-size: 14px; }
+.card-sub { font-size: 12px; color: var(--dim); }
+.mono { font-family: var(--mono); }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+details summary { cursor: pointer; color: var(--dim); font-size: 12px; font-family: var(--mono); }
+.url-list { margin: 8px 0 0; padding-left: 18px; font-size: 12px; }
+.url-list li { margin: 3px 0; }
+.tiers-strip { display: flex; flex-wrap: wrap; gap: 6px; }
+.tiers-strip span { font-family: var(--mono); font-size: 11px; padding: 3px 7px; border: 1px solid var(--rule); border-radius: 3px; background: var(--bg); }
+.muted { color: var(--dim); }
+@media (max-width: 820px) {
+  .split { grid-template-columns: 1fr; height: auto; }
+  .sidebar { max-height: 32vh; border-right: 0; border-bottom: 1px solid var(--rule); }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>REVIEW DESK</h1>
+  <nav class="tabs" id="tabs"></nav>
+  <div class="hdr-right">
+    <a class="btn" href="http://127.0.0.1:4870" target="_blank" rel="noopener">Naming Desk ↗</a>
+    <button type="button" class="btn" id="copySummary" title="Copy a concise summary of all saved decisions">Copy summary</button>
+    <span class="save" id="saveStatus">loading…</span>
+  </div>
+</header>
+<div id="view"></div>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const el = (tag, props = {}, ...kids) => {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (k === 'class') n.className = v;
+    else if (k.startsWith('on')) n.addEventListener(k.slice(2).toLowerCase(), v);
+    else if (v !== undefined && v !== null && v !== false) n.setAttribute(k, v === true ? '' : String(v));
+  }
+  for (const c of kids.flat()) if (c !== null && c !== undefined && c !== false) n.append(c);
+  return n;
+};
+
+const state = {
+  tab: 'drafts',
+  draftId: null,
+  triageFilter: 'all',
+  triageSearch: '',
+  dupesFilter: 'all',
+  linksFilter: 'all',
+  data: null,
+  decisions: { drafts: {}, triage: {}, dupes: {}, linkHosts: {}, misc: {} },
+};
+
+let saveTimer = null;
+function setSave(msg, cls = '') {
+  const s = $('#saveStatus');
+  s.textContent = msg;
+  s.className = `save ${cls}`;
+}
+
+function save() {
+  state.decisions.updatedAt = new Date().toISOString();
+  setSave('saving…');
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async () => {
+    try {
+      const r = await fetch('/api/decisions', {
+        method: 'PUT',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(state.decisions, null, 2),
+      });
+      if (!r.ok) throw new Error(await r.text());
+      setSave('saved ✓', 'ok');
+    } catch (e) {
+      setSave(`save failed: ${e.message}`, 'err');
+    }
+  }, 150);
+}
+
+function renderTabs() {
+  const d = state.data;
+  const dec = state.decisions;
+  const counts = {
+    drafts: [Object.values(dec.drafts).filter((x) => x.verdict).length, d.drafts.length],
+    triage: [Object.values(dec.triage).filter((x) => x.verdict).length, d.triage.length],
+    dupes: [Object.values(dec.dupes).filter((x) => x.action).length, d.dupes.pairs.length],
+    links: [Object.values(dec.linkHosts).filter((x) => x.action).length, d.linkHosts.length],
+    misc: [Object.values(dec.misc).filter((x) => x.choice).length, d.misc.length],
+  };
+  const defs = [
+    ['drafts', 'Drafts'],
+    ['triage', 'Triage'],
+    ['dupes', 'Dupes'],
+    ['links', 'Link Hosts'],
+    ['misc', 'Misc & Feel'],
+  ];
+  const nav = $('#tabs');
+  nav.replaceChildren(
+    ...defs.map(([id, label]) =>
+      el(
+        'button',
+        {
+          type: 'button',
+          class: state.tab === id ? 'cur' : '',
+          onclick: () => {
+            state.tab = id;
+            render();
+          },
+        },
+        label,
+        el('span', { class: 'cnt' }, `${counts[id][0]}/${counts[id][1]}`),
+      ),
+    ),
+  );
+}
+
+function getDraftDec(id) {
+  if (!state.decisions.drafts[id]) state.decisions.drafts[id] = {};
+  return state.decisions.drafts[id];
+}
+
+function renderDrafts() {
+  const drafts = state.data.drafts;
+  if (!drafts.length) return el('div', { class: 'page' }, 'No drafted categories with reports found.');
+  if (!state.draftId || !drafts.some((x) => x.id === state.draftId)) state.draftId = drafts[0].id;
+  const cur = drafts.find((x) => x.id === state.draftId);
+  const dec = getDraftDec(cur.id);
+
+  const sidebar = el(
+    'aside',
+    { class: 'sidebar' },
+    ...drafts.map((item) => {
+      const idDec = state.decisions.drafts[item.id] ?? {};
+      const hasFail = item.report?.gates.some((g) => g.result !== 'PASS');
+      return el(
+        'button',
+        {
+          type: 'button',
+          class: item.id === cur.id ? 'cur' : '',
+          onclick: () => {
+            state.draftId = item.id;
+            render();
+          },
+        },
+        el('span', { class: `dot ${idDec.verdict ?? ''}` }),
+        el('span', { class: 'side-name' }, item.id, el('span', { class: 'side-sub' }, `${item.totalAnswers} answers · ${item.domain}`)),
+        el('span', { class: `pill ${hasFail ? 'fail' : 'pass'}` }, hasFail ? 'CHECK' : 'PASS'),
+      );
+    }),
+  );
+
+  // Bit Flip & WOMM current values
+  const curBf = dec.bitflip ?? cur.bitflip[0]?.name ?? '';
+  const curWomm = new Set(dec.womm ?? cur.womm.map((x) => x.name));
+  const droppedObvious = new Set(dec.dropObvious ?? []);
+
+  const bfChoices = [...new Set([...cur.bitflip.map((x) => x.name), ...(cur.report?.shortlists.bitflip ?? [])])];
+  const wommChoices = [...new Set([...cur.womm.map((x) => x.name), ...(cur.report?.shortlists.womm ?? [])])];
+
+  const bfInput = el('input', {
+    type: 'text',
+    class: 'inline-input',
+    placeholder: 'custom Bit Flip answer…',
+    value: curBf,
+    oninput: (e) => {
+      dec.bitflip = e.target.value.trim();
+      save();
+    },
+  });
+
+  const wommCustom = el('input', {
+    type: 'text',
+    class: 'inline-input',
+    placeholder: 'add custom WOMM (comma-sep)…',
+    value: dec.wommExtra ?? '',
+    oninput: (e) => {
+      dec.wommExtra = e.target.value;
+      save();
+    },
+  });
+
+  const stageSel = el(
+    'select',
+    {
+      onchange: (e) => {
+        dec.rerunFrom = e.target.value;
+        save();
+      },
+    },
+    ...['plan', 'harvest', 'filter', 'merge', 'obvious', 'links', 'precision'].map((st) =>
+      el('option', { value: st, selected: (dec.rerunFrom ?? 'harvest') === st }, `--from ${st}`),
+    ),
+  );
+
+  const pane = el(
+    'main',
+    { class: 'pane' },
+    el('h2', {}, `${cur.id} — ${cur.prompt}`),
+    el(
+      'div',
+      { class: 'submeta' },
+      el('span', {}, cur.bankPath),
+      el('span', {}, `${cur.totalAnswers} tiered answers`),
+      cur.accepts ? el('span', {}, `Accepts: ${cur.accepts}`) : null,
+      cur.report?.generated ? el('span', {}, cur.report.generated) : null,
+    ),
+
+    // Decision bar
+    el(
+      'section',
+      { class: 'sec' },
+      el('h3', {}, 'Decision'),
+      el(
+        'div',
+        { class: 'decision-bar' },
+        ...[
+          ['approve', 'Approve', 'ok'],
+          ['edits', 'Approve with edits', 'warn'],
+          ['rerun', 'Re-run pipeline', 'pick'],
+          ['cut', 'Cut / widen', 'fault'],
+        ].map(([v, label, tone]) =>
+          el(
+            'button',
+            {
+              type: 'button',
+              class: `btn ${tone} ${dec.verdict === v ? 'active' : ''}`,
+              onclick: () => {
+                dec.verdict = dec.verdict === v ? undefined : v;
+                save();
+                render();
+              },
+            },
+            label,
+          ),
+        ),
+        dec.verdict === 'rerun' ? stageSel : null,
+      ),
+      el('textarea', {
+        placeholder: 'Notes for applying edits (e.g. remove OpenJDK, widen sources, fix note…) ',
+        oninput: (e) => {
+          dec.note = e.target.value;
+          save();
+        },
+      }, dec.note ?? ''),
+    ),
+
+    // Needs a human look
+    cur.report?.needsLook.length
+      ? el(
+          'section',
+          { class: 'sec' },
+          el('h3', {}, 'Needs a human look'),
+          el('ul', { class: 'look-list' }, ...cur.report.needsLook.map((x) => el('li', {}, x))),
+        )
+      : null,
+
+    // Gates + Tiers
+    cur.report
+      ? el(
+          'section',
+          { class: 'sec' },
+          el('h3', {}, 'Gates & Tier Distribution'),
+          el(
+            'table',
+            {},
+            el('thead', {}, el('tr', {}, el('th', {}, 'Gate'), el('th', {}, 'Result'), el('th', {}, 'Detail'))),
+            el(
+              'tbody',
+              {},
+              ...cur.report.gates.map((g) =>
+                el(
+                  'tr',
+                  {},
+                  el('td', { class: 'mono' }, g.gate),
+                  el('td', {}, el('span', { class: `pill ${g.result === 'PASS' ? 'pass' : 'fail'}` }, g.result)),
+                  el('td', {}, g.detail),
+                ),
+              ),
+            ),
+          ),
+          el(
+            'div',
+            { class: 'tiers-strip', style: 'margin-top:10px' },
+            ...cur.report.tiers.map((t) => el('span', {}, `${t.tier}: ${t.answers}`)),
+            el('span', {}, `Inbox: ${cur.report.inboxCount}`),
+          ),
+        )
+      : null,
+
+    // Bit Flip & WOMM pickers
+    el(
+      'section',
+      { class: 'sec' },
+      el('h3', {}, 'Bit Flip (pick 1) & Works on my machine (pick ≥ 1)'),
+      el('div', { class: 'card-sub' }, `Current Bit Flip in file: ${cur.bitflip.map((x) => x.name).join(', ') || 'none'}`),
+      el(
+        'div',
+        { class: 'chips' },
+        ...bfChoices.map((name) =>
+          el(
+            'button',
+            {
+              type: 'button',
+              class: `chip ${curBf === name ? 'on' : ''}`,
+              onclick: () => {
+                dec.bitflip = name;
+                save();
+                render();
+              },
+            },
+            name,
+          ),
+        ),
+        bfInput,
+      ),
+      el('div', { class: 'card-sub', style: 'margin-top:10px' }, `Current WOMM in file: ${cur.womm.map((x) => x.name).join(', ') || 'none'}`),
+      el(
+        'div',
+        { class: 'chips' },
+        ...wommChoices.map((name) =>
+          el(
+            'button',
+            {
+              type: 'button',
+              class: `chip ${curWomm.has(name) ? 'on' : ''}`,
+              onclick: () => {
+                if (curWomm.has(name)) curWomm.delete(name);
+                else curWomm.add(name);
+                dec.womm = [...curWomm];
+                save();
+                render();
+              },
+            },
+            name,
+          ),
+        ),
+        wommCustom,
+      ),
+    ),
+
+    // Obvious list review
+    cur.obvious?.length
+      ? el(
+          'section',
+          { class: 'sec' },
+          el('h3', {}, `Obvious draft list (${cur.obvious.length} — click any entry to mark DROP)`),
+          el(
+            'div',
+            { class: 'chips' },
+            ...cur.obvious.map((o) =>
+              el(
+                'button',
+                {
+                  type: 'button',
+                  class: `chip ${droppedObvious.has(o.name) ? 'dropped' : ''}`,
+                  title: o.aliases?.length ? `Aliases: ${o.aliases.join(', ')}` : '',
+                  onclick: () => {
+                    if (droppedObvious.has(o.name)) droppedObvious.delete(o.name);
+                    else droppedObvious.add(o.name);
+                    dec.dropObvious = [...droppedObvious];
+                    save();
+                    render();
+                  },
+                },
+                o.name,
+                el('small', {}, o.tier ?? ''),
+              ),
+            ),
+          ),
+        )
+      : null,
+
+    // Full answers preview
+    el(
+      'section',
+      { class: 'sec' },
+      el('h3', {}, 'Bank file answers'),
+      el(
+        'details',
+        {},
+        el('summary', {}, `Show all ${cur.totalAnswers} tiered answers + Inbox`),
+        ...Object.entries(cur.sections).map(([secName, list]) =>
+          el(
+            'div',
+            { style: 'margin-top:10px' },
+            el('div', { class: 'mono', style: 'font-size:12px;color:var(--signal)' }, `${secName} (${list.length})`),
+            el(
+              'div',
+              { class: 'card-sub', style: 'margin-top:4px;line-height:1.6' },
+              list.map((a) => `${a.name}${a.aliases.length ? ` (${a.aliases.join(', ')})` : ''}${a.note ? ` — ${a.note}` : ''}`).join(' · ') || '—',
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+
+  return el('div', { class: 'split' }, sidebar, pane);
+}
+
+function renderTriage() {
+  const rows = state.data.triage.filter((r) => {
+    const q = state.triageSearch.toLowerCase();
+    if (q && !`${r.id} ${r.domain} ${r.note}`.toLowerCase().includes(q)) return false;
+    const dec = state.decisions.triage[r.id]?.verdict;
+    if (state.triageFilter === 'low') return r.verdict === 'keep' && r.obvious <= 3;
+    if (state.triageFilter === 'undecided') return !dec;
+    if (state.triageFilter !== 'all') return r.verdict === state.triageFilter;
+    return true;
+  });
+
+  const toolbar = el(
+    'div',
+    { class: 'toolbar' },
+    el('input', {
+      type: 'search',
+      placeholder: 'Filter categories…',
+      value: state.triageSearch,
+      oninput: (e) => {
+        state.triageSearch = e.target.value;
+        render();
+      },
+    }),
+    el(
+      'select',
+      {
+        onchange: (e) => {
+          state.triageFilter = e.target.value;
+          render();
+        },
+      },
+      ...[
+        ['all', 'All (159)'],
+        ['low', 'Bottom of keep (obvious ≤ 3)'],
+        ['keep', 'Verdict: keep'],
+        ['fix', 'Verdict: fix'],
+        ['merge', 'Verdict: merge'],
+        ['cut', 'Verdict: cut'],
+        ['undecided', 'Undecided only'],
+      ].map(([v, l]) => el('option', { value: v, selected: state.triageFilter === v }, l)),
+    ),
+    el('span', { class: 'muted mono' }, `${rows.length} shown`),
+  );
+
+  const tbl = el(
+    'table',
+    {},
+    el(
+      'thead',
+      {},
+      el('tr', {}, el('th', {}, '#'), el('th', {}, 'Category'), el('th', {}, 'LLM'), el('th', {}, 'Obv/Dep/Fun'), el('th', {}, 'Your call'), el('th', {}, 'Note')),
+    ),
+    el(
+      'tbody',
+      {},
+      ...rows.map((r) => {
+        const dec = state.decisions.triage[r.id] ?? {};
+        const setV = (v) => {
+          state.decisions.triage[r.id] = { ...dec, verdict: dec.verdict === v ? undefined : v };
+          save();
+          render();
+        };
+        return el(
+          'tr',
+          {},
+          el('td', { class: 'mono muted' }, r.rank),
+          el('td', {}, el('b', { class: 'mono' }, r.id), el('div', { class: 'card-sub' }, `${r.domain} · ~${r.approx}${r.wildcard ? ' · wildcard' : ''}`)),
+          el('td', {}, el('span', { class: `pill ${r.verdict === 'keep' ? 'pass' : r.verdict === 'cut' ? 'fail' : 'warn'}` }, r.verdict)),
+          el('td', { class: 'mono' }, `${r.obvious}/${r.depth}/${r.fun}`),
+          el(
+            'td',
+            {},
+            el(
+              'div',
+              { class: 'actions' },
+              ...[
+                ['keep', 'Keep', 'ok'],
+                ['cut', 'Cut', 'fault'],
+                ['merge', 'Merge', 'warn'],
+              ].map(([v, label, tone]) =>
+                el('button', { type: 'button', class: `btn ${tone} ${dec.verdict === v ? 'active' : ''}`, onclick: () => setV(v) }, label),
+              ),
+            ),
+          ),
+          el('td', { class: 'card-sub' }, r.note),
+        );
+      }),
+    ),
+  );
+
+  return el('div', { class: 'page' }, toolbar, tbl);
+}
+
+function renderDupes() {
+  const { pairs, error } = state.data.dupes;
+  if (error) return el('div', { class: 'page' }, `Could not run bank-dupes.py: ${error}`);
+  const filtered = pairs.filter((p) => {
+    const act = state.decisions.dupes[p.id]?.action;
+    if (state.dupesFilter === 'undecided') return !act;
+    return true;
+  });
+
+  const toolbar = el(
+    'div',
+    { class: 'toolbar' },
+    el(
+      'select',
+      {
+        onchange: (e) => {
+          state.dupesFilter = e.target.value;
+          render();
+        },
+      },
+      el('option', { value: 'all', selected: state.dupesFilter === 'all' }, `All pairs (${pairs.length})`),
+      el('option', { value: 'undecided', selected: state.dupesFilter === 'undecided' }, 'Undecided only'),
+    ),
+    el('span', { class: 'muted mono' }, `${filtered.length} shown`),
+  );
+
+  return el(
+    'div',
+    { class: 'page' },
+    toolbar,
+    ...filtered.map((p) => {
+      const dec = state.decisions.dupes[p.id] ?? {};
+      const setA = (action) => {
+        state.decisions.dupes[p.id] = { category: p.category, a: p.a, b: p.b, action: dec.action === action ? undefined : action };
+        save();
+        render();
+      };
+      return el(
+        'div',
+        { class: 'card' },
+        el(
+          'div',
+          { class: 'card-row' },
+          el('div', {}, el('span', { class: 'pill', style: 'margin-right:8px' }, p.category), el('b', {}, p.a), '  ↔  ', el('b', {}, p.b)),
+          el(
+            'div',
+            { class: 'actions' },
+            el('button', { type: 'button', class: `btn ok ${dec.action === 'keep-a' ? 'active' : ''}`, onclick: () => setA('keep-a') }, `Keep "${p.a}" (alias B)`),
+            el('button', { type: 'button', class: `btn pick ${dec.action === 'keep-b' ? 'active' : ''}`, onclick: () => setA('keep-b') }, `Keep "${p.b}" (alias A)`),
+            el('button', { type: 'button', class: `btn warn ${dec.action === 'keep-both' ? 'active' : ''}`, onclick: () => setA('keep-both') }, 'Keep both'),
+          ),
+        ),
+      );
+    }),
+  );
+}
+
+function renderLinks() {
+  const hosts = state.data.linkHosts.filter((h) => {
+    const act = state.decisions.linkHosts[h.host]?.action;
+    if (state.linksFilter === 'undecided') return !act;
+    return true;
+  });
+
+  const toolbar = el(
+    'div',
+    { class: 'toolbar' },
+    el(
+      'select',
+      {
+        onchange: (e) => {
+          state.linksFilter = e.target.value;
+          render();
+        },
+      },
+      el('option', { value: 'all', selected: state.linksFilter === 'all' }, `All hosts (${state.data.linkHosts.length})`),
+      el('option', { value: 'undecided', selected: state.linksFilter === 'undecided' }, 'Undecided only'),
+    ),
+    el('span', { class: 'muted mono' }, `${hosts.length} hosts shown`),
+  );
+
+  return el(
+    'div',
+    { class: 'page' },
+    toolbar,
+    ...hosts.map((h) => {
+      const dec = state.decisions.linkHosts[h.host] ?? {};
+      const setA = (action) => {
+        state.decisions.linkHosts[h.host] = { action: dec.action === action ? undefined : action, count: h.items.length };
+        save();
+        render();
+      };
+      return el(
+        'div',
+        { class: 'card' },
+        el(
+          'div',
+          { class: 'card-row' },
+          el('div', {}, el('b', { class: 'mono' }, h.host), ' ', el('span', { class: 'pill' }, `${h.items.length} link${h.items.length === 1 ? '' : 's'}`)),
+          el(
+            'div',
+            { class: 'actions' },
+            el('button', { type: 'button', class: `btn ok ${dec.action === 'allow' ? 'active' : ''}`, onclick: () => setA('allow') }, 'Allow host'),
+            el('button', { type: 'button', class: `btn fault ${dec.action === 'skip' ? 'active' : ''}`, onclick: () => setA('skip') }, 'Skip'),
+          ),
+        ),
+        el(
+          'details',
+          { style: 'margin-top:6px' },
+          el('summary', {}, `Sample links (${h.items.slice(0, 3).map((x) => x.answer).join(', ')}${h.items.length > 3 ? '…' : ''})`),
+          el(
+            'ul',
+            { class: 'url-list' },
+            ...h.items.map((it) =>
+              el('li', {}, el('span', { class: 'mono muted' }, `${it.category} · `), el('b', {}, it.answer), ' — ', el('a', { href: it.url, target: '_blank', rel: 'noopener' }, it.url)),
+            ),
+          ),
+        ),
+      );
+    }),
+  );
+}
+
+function renderMisc() {
+  return el(
+    'div',
+    { class: 'page' },
+    ...state.data.misc.map((item) => {
+      const dec = state.decisions.misc[item.id] ?? {};
+      const update = (patch) => {
+        state.decisions.misc[item.id] = { ...dec, ...patch };
+        save();
+        render();
+      };
+      return el(
+        'div',
+        { class: 'card' },
+        el('div', { class: 'card-sub mono', style: 'color:var(--signal)' }, item.group),
+        el('div', { class: 'card-title' }, item.title),
+        el('div', { class: 'card-sub', style: 'margin:4px 0 10px' }, item.desc),
+        el(
+          'div',
+          { class: 'actions', style: 'margin-bottom:8px' },
+          ...item.options.map((opt) =>
+            el(
+              'button',
+              {
+                type: 'button',
+                class: `btn pick ${dec.choice === opt ? 'active' : ''}`,
+                onclick: () => update({ choice: dec.choice === opt ? undefined : opt }),
+              },
+              opt,
+            ),
+          ),
+        ),
+        item.hasUrl
+          ? el('input', {
+              type: 'url',
+              class: 'inline-input',
+              style: 'width:100%;margin-bottom:6px',
+              placeholder: 'https://…',
+              value: dec.url ?? '',
+              oninput: (e) => {
+                state.decisions.misc[item.id] = { ...dec, url: e.target.value };
+                save();
+              },
+            })
+          : null,
+        el('textarea', {
+          placeholder: 'Notes…',
+          style: 'min-height:44px',
+          oninput: (e) => {
+            state.decisions.misc[item.id] = { ...dec, note: e.target.value };
+            save();
+          },
+        }, dec.note ?? ''),
+      );
+    }),
+  );
+}
+
+function render() {
+  renderTabs();
+  const view = $('#view');
+  const body =
+    state.tab === 'drafts'
+      ? renderDrafts()
+      : state.tab === 'triage'
+        ? renderTriage()
+        : state.tab === 'dupes'
+          ? renderDupes()
+          : state.tab === 'links'
+            ? renderLinks()
+            : renderMisc();
+  view.replaceChildren(body);
+}
+
+$('#copySummary').addEventListener('click', async () => {
+  const dec = state.decisions;
+  const lines = ['# Review decisions'];
+  const drafts = Object.entries(dec.drafts).filter(([, v]) => v.verdict);
+  if (drafts.length) {
+    lines.push('\n## Drafts');
+    for (const [id, v] of drafts) {
+      const extras = [
+        v.bitflip ? `bitflip=${v.bitflip}` : '',
+        v.womm?.length ? `womm=[${v.womm.join(', ')}]` : '',
+        v.dropObvious?.length ? `dropObvious=[${v.dropObvious.join(', ')}]` : '',
+        v.verdict === 'rerun' ? `from=${v.rerunFrom ?? 'harvest'}` : '',
+        v.note ? `note="${v.note.trim()}"` : '',
+      ].filter(Boolean);
+      lines.push(`- ${id}: ${v.verdict}${extras.length ? ` (${extras.join('; ')})` : ''}`);
+    }
+  }
+  const triage = Object.entries(dec.triage).filter(([, v]) => v.verdict);
+  if (triage.length) {
+    lines.push('\n## Triage');
+    for (const [id, v] of triage) lines.push(`- ${id}: ${v.verdict}`);
+  }
+  const dupes = Object.entries(dec.dupes).filter(([, v]) => v.action);
+  if (dupes.length) {
+    lines.push('\n## Dupes');
+    for (const [, v] of dupes) lines.push(`- ${v.category}: "${v.a}" / "${v.b}" -> ${v.action}`);
+  }
+  const hosts = Object.entries(dec.linkHosts).filter(([, v]) => v.action === 'allow');
+  if (hosts.length) {
+    lines.push('\n## Allow link hosts');
+    lines.push(hosts.map(([h]) => `- ${h}`).join('\n'));
+  }
+  const misc = Object.entries(dec.misc).filter(([, v]) => v.choice || v.note);
+  if (misc.length) {
+    lines.push('\n## Misc & Feel');
+    for (const [id, v] of misc) lines.push(`- ${id}: ${v.choice ?? 'note'}${v.url ? ` (${v.url})` : ''}${v.note ? ` — ${v.note.trim()}` : ''}`);
+  }
+  await navigator.clipboard.writeText(lines.join('\n'));
+  setSave('summary copied ✓', 'ok');
+});
+
+window.addEventListener('keydown', (e) => {
+  if (state.tab !== 'drafts' || e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement || e.target instanceof HTMLSelectElement) return;
+  const list = state.data?.drafts ?? [];
+  const i = list.findIndex((x) => x.id === state.draftId);
+  if (i < 0) return;
+  if (e.key === 'j' || e.key === 'ArrowDown') {
+    state.draftId = list[Math.min(list.length - 1, i + 1)].id;
+    render();
+  } else if (e.key === 'k' || e.key === 'ArrowUp') {
+    state.draftId = list[Math.max(0, i - 1)].id;
+    render();
+  }
+});
+
+(async () => {
+  try {
+    const [dataRes, decRes] = await Promise.all([fetch('/api/data'), fetch('/api/decisions')]);
+    state.data = await dataRes.json();
+    const saved = await decRes.json();
+    if (saved && typeof saved === 'object') {
+      state.decisions = {
+        drafts: saved.drafts ?? {},
+        triage: saved.triage ?? {},
+        dupes: saved.dupes ?? {},
+        linkHosts: saved.linkHosts ?? {},
+        misc: saved.misc ?? {},
+      };
+    }
+    setSave('ready', 'ok');
+    render();
+  } catch (e) {
+    setSave(`load failed: ${e.message}`, 'err');
+  }
+})();
+</script>
+</body>
+</html>
