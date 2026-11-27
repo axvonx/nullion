@@ -1092,10 +1092,11 @@ export class Scene {
       ctx.globalAlpha = 1;
     } else this.prevCtx.drawImage(this.canvas, 0, 0);
 
-    // 7. Scanlines.
+    // 7. Scanlines (softened/skipped in 1-bit Ring −3 so crisp white verticals don't zebra-stripe).
     const sl = look('scanlines');
-    if (sl === 'always' || (sl === 'auto' && layerIdx >= kernelIdx)) {
-      ctx.fillStyle = 'rgba(0,0,0,0.3)';
+    const isOneBit = layer.id === 'ring-3';
+    if (sl === 'always' || (sl === 'auto' && layerIdx >= kernelIdx && !isOneBit)) {
+      ctx.fillStyle = isOneBit ? 'rgba(0,0,0,0.08)' : 'rgba(0,0,0,0.3)';
       for (let y = 1; y < H; y += 2) ctx.fillRect(0, y, W, 1);
     }
 

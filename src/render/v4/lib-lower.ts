@@ -451,15 +451,16 @@ export const FIRMWARE: EntityDef[] = [
     p.r(0, 1, 11, 1, G2);
     p.p(1, 2, G3);
   }),
-  ent('fw-plate', [[14, 9]], (p) => {
-    // Stamped BIOS access plate with corner bolts, vent louvers, and probe pads.
-    p.r(0, 0, 14, 9, G2);
-    p.r(1, 1, 12, 7, G0);
-    for (const [dx, dy] of [[1, 1], [12, 1], [1, 7], [12, 7]] as const) p.p(dx, dy, G3);
-    p.r(3, 2, 8, 1, G1);
-    p.r(3, 4, 8, 1, G2);
-    p.r(3, 6, 5, 1, G1);
-    p.p(10, 6, G3);
+  ent('fw-plate', [[14, 15]], (p) => {
+    // Unmistakable BIOS hardware padlock silhouette (thick U-shackle + solid body + bold keyhole).
+    p.r(4, 0, 6, 2, G2);
+    p.r(3, 1, 2, 5, G2);
+    p.r(9, 1, 2, 5, G2);
+    p.r(1, 6, 12, 9, G2);
+    p.r(2, 7, 10, 7, G1);
+    p.r(1, 6, 12, 1, G3);
+    p.disc(7, 9, 1, G0);
+    p.r(6, 10, 2, 3, G0);
   }),
   ent('fw-cmos', [[11, 11]], (p) => {
     p.disc(5, 5, 5, G2);
@@ -481,15 +482,16 @@ export const FIRMWARE: EntityDef[] = [
     { text: true, cap: 1, weight: 0.5 },
   ),
   ent('fw-bootorder', [[16, 14]], (p) => {
-    p.r(0, 0, 16, 14, G1);
-    p.r(1, 1, 14, 12, G0);
-    // Highlight active first boot entry BEFORE drawing its icon & label bar
-    p.r(1, 1, 14, 4, G1);
-    for (let k = 0; k < 3; k++) {
-      const y = 2 + k * 4;
-      p.r(2, y, 2, 3, k === 0 ? G3 : G2);
-      p.r(5, y + 1, 4 + R(p.h(k) * 5), 1, k === 0 ? G3 : G1);
-    }
+    // Chunky boot-drive bay with disk slot, eject button, and platter hub.
+    p.r(0, 2, 16, 10, G2);
+    p.r(1, 3, 14, 8, G1);
+    p.r(0, 2, 16, 1, G3);
+    p.r(2, 5, 10, 2, G0);
+    p.r(13, 5, 2, 2, G3);
+    p.r(3, 8, 5, 2, G0);
+    p.r(10, 8, 3, 2, G2);
+    p.r(2, 12, 3, 2, G2);
+    p.r(11, 12, 3, 2, G2);
   }),
   ent('fw-dipsw', [[12, 7]], (p) => {
     p.r(0, 0, 12, 7, G2);
@@ -588,28 +590,33 @@ export const FIRMWARE: EntityDef[] = [
       noFlip: true,
     },
   ),
-  ent('fw-acpi', [[13, 15]], (p) => {
-    p.r(0, 0, 13, 15, G2);
-    p.r(1, 1, 11, 13, G0);
-    p.r(2, 2, 9, 2, G2);
-    for (let y = 5; y < 13; y += 2) p.r(2, y, 3 + R(p.h(y) * 6), 1, G1);
-    p.r(9, 12, 3, 2, G2);
+  ent('fw-acpi', [[15, 15]], (p) => {
+    // Iconic circular ACPI power/standby medallion with IEC power glyph.
+    p.disc(7, 7, 7, G2);
+    p.disc(7, 7, 6, G0);
+    p.ring(7, 7, 4, G3);
+    p.r(5, 2, 5, 3, G0);
+    p.r(7, 2, 1, 5, G3);
   }),
   ent(
     'fw-ucode',
-    [[15, 13]],
+    [[17, 13]],
     (p) => {
-      // Framed microcode ROM-patch matrix.
-      p.r(0, 0, 15, 13, G2);
-      p.r(1, 1, 13, 11, G0);
-      for (let r = 0; r < 4; r++)
-        for (let c = 0; c < 4; c++) p.r(2 + c * 3, 2 + r * 2.5, 2, 1, (r + c) % 2 ? G1 : G2);
+      // Ceramic DIP EPROM chip with protruding legs and circular quartz UV-erase window.
+      for (let x = 2; x <= 14; x += 3) {
+        p.r(x, 0, 2, 2, G2);
+        p.r(x, 11, 2, 2, G2);
+      }
+      p.r(0, 2, 17, 9, G1);
+      p.r(0, 2, 17, 1, G2);
+      p.r(0, 5, 2, 3, G0); // pin-1 notch
+      p.disc(9, 6, 3, G2);
+      p.disc(9, 6, 2, G0);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const row = Math.floor(t * 2.5) % 4;
-        const y = R(2 + row * 2.5);
-        p.r(2, y, 11, 1, G3);
+        const on = Math.floor(t * 2.5) % 2 === 0;
+        p.r(8, 5, 2, 2, on ? G3 : G1);
       },
       noFlip: true,
     },
@@ -770,20 +777,25 @@ export const RING1: EntityDef[] = [
   ),
   ent(
     'r1-glass',
-    [[10, 14]],
+    [[14, 16]],
     (p) => {
-      p.r(0, 0, 10, 14, G2);
-      p.r(1, 1, 8, 12, G0);
-      // Baked diagonal mirror-glass reflection streaks & faint reflected silhouette
-      p.l(2, 3, 4, 1, G1);
-      p.l(5, 11, 8, 8, G1);
-      p.r(3, 6, 4, 4, G1);
-      p.r(4, 5, 2, 1, G1);
+      // Jagged floating mirror shard silhouette (breaks rectangular monotony in green phosphor).
+      p.l(6, 0, 13, 5, G3);
+      p.l(13, 5, 9, 15, G2);
+      p.l(9, 15, 1, 10, G2);
+      p.l(1, 10, 6, 0, G3);
+      for (let y = 2; y <= 13; y++) {
+        const x0 = y < 10 ? 6 - R(((y - 1) * 5) / 9) : 1 + R(((y - 10) * 8) / 5);
+        const x1 = y < 5 ? 6 + R((y * 7) / 5) : 13 - R(((y - 5) * 4) / 10);
+        if (x1 > x0 + 1) p.r(x0 + 1, y, x1 - x0 - 1, 1, G1);
+      }
+      p.l(5, 3, 9, 6, G3);
+      p.l(4, 7, 8, 10, G2);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const g = Math.floor(mod(t * 3, 14));
-        for (let k = 0; k < 4; k++) if (g - k >= 0 && g - k < 8) p.r(1 + g - k, 2 + k * 3, 1, 2, G3);
+        const k = Math.floor(mod(t * 2.4, 8));
+        if (k < 4) p.r(5 + k, 4 + k * 2, 2, 1, G3);
       },
     },
   ),
@@ -820,13 +832,17 @@ export const RING1: EntityDef[] = [
     p.l(3, 3, 5, 7, G3);
     p.l(7, 3, 5, 7, G3);
   }),
-  ent('r1-vmcs', [[15, 11]], (p) => {
-    p.r(0, 0, 15, 11, G2);
-    p.r(1, 1, 13, 9, G0);
-    for (let r = 0; r < 4; r++) {
-      p.r(2, 2 + r * 2, 3, 1, G1);
-      p.r(6, 2 + r * 2, 2 + R(p.h(r) * 6), 1, p.h(r + 4) > 0.7 ? G3 : G2);
-    }
+  ent('r1-vmcs', [[18, 13]], (p) => {
+    // Twin hypervisor masks (Host bright left, Guest mirrored right) — unmistakable silhouette.
+    p.disc(5, 6, 5, G2);
+    p.r(3, 4, 2, 2, G0);
+    p.r(6, 4, 2, 2, G0);
+    p.r(3, 8, 5, 1, G0);
+    p.disc(12, 6, 5, G1);
+    p.ring(12, 6, 5, G3);
+    p.r(10, 4, 2, 2, G3);
+    p.r(13, 4, 2, 2, G3);
+    p.r(10, 8, 5, 1, G3);
   }),
   ent(
     'r1-trapdoor',
@@ -847,22 +863,39 @@ export const RING1: EntityDef[] = [
       noFlip: true,
     },
   ),
-  ent('r1-shadowpage', [[13, 13]], (p) => {
-    for (let y = 3; y < 13; y += 2) p.p(3, y, G1);
-    for (let x = 3; x < 13; x += 2) p.p(x, 12, G1);
-    p.r(0, 0, 10, 10, G2);
-    p.r(1, 1, 8, 8, G0);
-    for (let y = 2; y < 8; y += 2) p.r(2, y, 4 + R(p.h(y) * 2), 1, G2);
-  }),
-  ent('r1-dolls', [[19, 13]], (p) => {
-    // Three nested cutaway VM bezels (L0 -> L1 -> L2).
-    p.r(0, 0, 19, 13, G2);
-    p.r(1, 1, 17, 11, G0);
-    p.r(3, 2, 13, 9, G1);
-    p.r(4, 3, 11, 7, G0);
-    p.r(6, 4, 7, 5, G3);
-    p.r(7, 5, 5, 3, G0);
-    p.r(8, 6, 3, 1, G2);
+  ent(
+    'r1-shadowpage',
+    [[17, 11]],
+    (p) => {
+      // Unmistakable Hypervisor Eye / Surveillance Lens silhouette.
+      p.l(0, 5, 5, 1, G3);
+      p.l(5, 1, 11, 1, G3);
+      p.l(11, 1, 16, 5, G3);
+      p.l(0, 5, 5, 9, G2);
+      p.l(5, 9, 11, 9, G2);
+      p.l(11, 9, 16, 5, G2);
+      p.disc(8, 5, 3, G1);
+      p.ring(8, 5, 3, G2);
+    },
+    {
+      anim: (p, _w, _h, _v, t) => {
+        const dx = R(Math.sin(t * 1.1) * 2);
+        p.r(7 + dx, 4, 2, 2, G3);
+      },
+      noFlip: true,
+    },
+  ),
+  ent('r1-dolls', [[19, 14]], (p) => {
+    // Three nested arched Matryoshka / hypervisor portal domes.
+    p.r(0, 13, 19, 1, G3);
+    for (const [rad, col] of [[9, G2], [6, G1], [3, G3]] as const) {
+      for (let dy = -rad; dy <= 0; dy++) {
+        const half = Math.floor(Math.sqrt(rad * rad - dy * dy));
+        p.p(9 - half, 12 + dy, col);
+        p.p(9 + half, 12 + dy, col);
+      }
+    }
+    p.r(8, 10, 3, 3, G3);
   }),
   ent(
     'r1-mempress',
@@ -1199,16 +1232,17 @@ export const RING2: EntityDef[] = [
     p.l(5, 11, 9, 3, K4);
     p.r(7, 4, 2, 2, K3);
   }),
-  ent('r2-cracks', [[15, 13]], (p) => {
-    p.r(0, 0, 15, 13, K1);
-    p.r(1, 1, 13, 11, K0);
-    const cx = 5 + R(p.h(0) * 5);
-    const cy = 4 + R(p.h(1) * 5);
-    for (let k = 0; k < 5; k++) {
-      const a = p.h(k + 2) * TAU;
-      p.l(cx, cy, cx + Math.cos(a) * 7, cy + Math.sin(a) * 6, k % 2 ? K3 : K2);
-    }
-    p.p(cx, cy, K4);
+  ent('r2-cracks', [[15, 17]], (p) => {
+    // Cracked frozen pocket-watch silhouette with crown ring, fracture wedge, and stopped hands.
+    p.ring(7, 2, 2, K3);
+    p.r(6, 4, 3, 1, K2);
+    p.disc(7, 10, 6, K3);
+    p.disc(7, 10, 5, K0);
+    // Cracked glass wedge missing on upper right
+    p.l(7, 10, 12, 6, K2);
+    p.l(7, 10, 11, 14, K1);
+    p.r(7, 6, 1, 4, K4);
+    p.r(7, 10, 4, 1, K3);
   }),
   ent('r2-ripple', [[15, 11]], (p) => {
     // Frozen concentric ripple rings suspended in stillness.
@@ -1271,13 +1305,20 @@ export const RING2: EntityDef[] = [
     p.r(3, 6, 3, 8, K3);
     p.r(4, 7, 1, 6, K4);
   }),
-  ent('r2-pause', [[15, 11]], (p) => {
-    // Clean recessed || transport bezel (no colliding reels).
-    p.r(0, 0, 15, 11, K2);
-    p.r(1, 1, 13, 9, K0);
-    p.frame(2, 2, 11, 7, K1);
-    p.r(4, 3, 2, 5, K4);
-    p.r(9, 3, 2, 5, K4);
+  ent('r2-pause', [[15, 15]], (p) => {
+    // Suspended teardrop hanging mid-air above a frozen crown splash.
+    p.p(7, 1, K4);
+    p.r(6, 2, 3, 2, K3);
+    p.r(5, 4, 5, 3, K3);
+    p.r(6, 7, 3, 1, K2);
+    p.p(6, 4, K4);
+    // Frozen splash crown below
+    p.r(2, 13, 11, 2, K2);
+    p.l(4, 13, 2, 9, K3);
+    p.l(10, 13, 12, 9, K3);
+    p.p(2, 8, K4);
+    p.p(12, 8, K4);
+    p.p(7, 10, K3);
   }),
 ];
 
@@ -1325,10 +1366,13 @@ export const RING3: EntityDef[] = [
   ent('r3-vias', [[10, 10]], (p) => {
     for (let r = 0; r < 3; r++) for (let k = 0; k < 3; k++) p.r(k * 4, r * 4, 2, 2, ON);
   }),
-  ent('r3-pad', [[8, 13]], (p) => {
-    p.r(0, 0, 8, 8, ON);
-    p.r(2, 2, 4, 4, OFF);
-    p.r(3, 8, 2, 5, ON);
+  ent('r3-pad', [[16, 10]], (p) => {
+    // Crisp 1-bit hardware key silhouette (round bow + shaft + 2 bold bit teeth).
+    p.disc(4, 4, 4, ON);
+    p.disc(4, 4, 2, OFF);
+    p.r(8, 3, 8, 2, ON);
+    p.r(11, 5, 2, 3, ON);
+    p.r(14, 5, 2, 4, ON);
   }),
   ent('r3-trace', [[24, 12]], (p) => {
     const w = 12 + R(p.h(0) * 9);
@@ -1421,33 +1465,32 @@ export const RING3: EntityDef[] = [
       if (k === 0) p.p(x, 4, ON);
     }
   }),
-  ent('r3-sram', [[15, 11]], (p) => {
-    p.frame(0, 0, 15, 11, ON);
-    for (let r = 0; r < 3; r++)
-      for (let k = 0; k < 4; k++) {
-        p.r(2 + k * 3, 2 + r * 3, 2, 2, ON);
-        if (p.h(r * 4 + k) > 0.5) p.p(2 + k * 3, 2 + r * 3, OFF);
-      }
+  ent('r3-sram', [[17, 15]], (p) => {
+    // Unmistakable 1-bit Transistor schematic symbol (circle + vertical base bar + collector/emitter legs + arrow).
+    p.ring(9, 7, 6, ON);
+    p.r(0, 7, 6, 1, ON); // base lead
+    p.r(6, 3, 2, 9, ON); // vertical base bar
+    p.l(8, 5, 12, 2, ON);
+    p.r(12, 0, 1, 3, ON); // collector lead
+    p.l(8, 9, 12, 12, ON);
+    p.r(12, 12, 1, 3, ON); // emitter lead
+    p.r(10, 10, 3, 2, ON); // emitter arrow head
   }),
   ent(
     'r3-ringosc',
-    [[15, 11]],
+    [[15, 16]],
     (p) => {
-      p.frame(0, 0, 15, 11, ON);
-      for (let k = 0; k < 3; k++) {
-        const x = 2 + k * 4;
-        p.l(x, 3, x, 7, ON);
-        p.l(x, 3, x + 2, 5, ON);
-        p.l(x, 7, x + 2, 5, ON);
-      }
+      // Bold 1-bit Hardware Padlock / Fuse-Lock silhouette (thick U-shackle + solid white lock body + bold black keyhole).
+      p.r(4, 0, 7, 2, ON);
+      p.r(3, 1, 2, 6, ON);
+      p.r(10, 1, 2, 6, ON);
+      p.r(1, 7, 13, 9, ON);
+      p.disc(7, 10, 2, OFF);
+      p.r(6, 11, 3, 3, OFF);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const n = 2 * (14 + 10);
-        const k = Math.floor(t * 14) % n;
-        const pos: [number, number] = k < 14 ? [k, 0] : k < 24 ? [14, k - 14] : k < 38 ? [14 - (k - 24), 10] : [0, 10 - (k - 38)];
-        p.r(pos[0] - 1, pos[1] - 1, 3, 3, ON);
-        p.p(pos[0], pos[1], OFF);
+        if (Math.floor(t * 2) % 2 === 0) p.p(7, 10, ON);
       },
       noFlip: true,
     },
@@ -1460,18 +1503,24 @@ export const RING3: EntityDef[] = [
     p.r(5, 2, 2, 1, ON);
     p.r(5, 5, 2, 1, ON);
   }),
-  ent('r3-pll', [[15, 9]], (p) => {
-    p.frame(0, 0, 15, 9, ON);
-    for (let x = 2; x < 13; x++) p.p(x, 4 + R(Math.sin((x - 2) * 0.9) * 2), ON);
+  ent('r3-pll', [[15, 13]], (p) => {
+    // Crisp 1-bit Capacitor + Earth Ground schematic symbol.
+    p.r(7, 0, 1, 4, ON);
+    p.r(2, 4, 11, 2, ON);
+    p.r(2, 8, 11, 2, ON);
+    p.r(7, 10, 1, 3, ON);
+    p.r(3, 12, 9, 1, ON);
   }),
-  ent('r3-jtag', [[13, 6]], (p) => {
-    p.frame(0, 0, 13, 6, ON);
-    for (let k = 0; k < 5; k++) {
-      p.p(2 + k * 2, 2, ON);
-      p.p(2 + k * 2, 3, ON);
+  ent('r3-jtag', [[18, 12]], (p) => {
+    // Unmistakable 1-bit DIP-8 IC Chip silhouette with chunky protruding legs and pin-1 notch.
+    for (let x = 2; x <= 14; x += 4) {
+      p.r(x, 0, 2, 3, ON);
+      p.r(x, 9, 2, 3, ON);
     }
-    p.p(0, 2, OFF);
-    p.p(0, 3, OFF);
+    p.r(0, 3, 18, 6, ON);
+    p.r(0, 5, 2, 2, OFF); // pin-1 notch
+    p.r(4, 4, 10, 4, OFF); // die window
+    p.r(6, 5, 6, 2, ON);
   }),
   ent(
     'r3-rom',
@@ -1493,14 +1542,19 @@ export const RING3: EntityDef[] = [
     }
     p.r(6, 6, 3, 3, ON);
   }),
-  ent('r3-guard', [[13, 13]], (p) => {
-    p.frame(0, 0, 13, 13, ON);
-    p.frame(2, 2, 9, 9, ON);
-    for (let k = 1; k < 12; k += 2) {
-      p.p(k, 1, ON);
-      p.p(k, 11, ON);
-    }
-    p.r(5, 5, 3, 3, ON);
+  ent('r3-guard', [[15, 17]], (p) => {
+    // Crisp 1-bit Radio / RF Management-Engine Antenna Tower silhouette with broadcast arcs.
+    p.disc(7, 4, 1, ON);
+    p.l(7, 5, 3, 16, ON);
+    p.l(7, 5, 11, 16, ON);
+    p.r(5, 10, 5, 1, ON);
+    p.r(4, 13, 7, 1, ON);
+    p.r(2, 16, 11, 1, ON);
+    // Broadcast arcs left & right of beacon
+    p.r(3, 2, 1, 5, ON);
+    p.r(11, 2, 1, 5, ON);
+    p.r(1, 1, 1, 7, ON);
+    p.r(13, 1, 1, 7, ON);
   }),
   ent('r3-gate', [[14, 9]], (p) => {
     p.r(0, 2, 3, 1, ON);
@@ -1533,29 +1587,33 @@ export const RING3: EntityDef[] = [
 export const RING3_ANCHORS: EntityDef[] = [
   ent(
     'r3-me',
-    [[42, 32]],
+    [[44, 34]],
     (p) => {
-      // The management engine: a small processor of its own, with its ROM and a heartbeat LED.
-      p.frame(0, 0, 42, 32, ON);
-      p.frame(2, 2, 38, 28, ON);
-      for (let x = 5; x < 38; x += 3) {
-        p.p(x, 1, ON);
-        p.p(x, 30, ON);
+      // Unmistakable 1-bit QFP Management Engine chip with protruding perimeter leads, corner pin-1 bevel, silicon die core, and heartbeat.
+      for (let x = 7; x <= 35; x += 4) {
+        p.r(x, 0, 2, 4, ON);
+        p.r(x, 30, 2, 4, ON);
       }
-      p.frame(5, 5, 16, 16, ON);
-      for (let r = 0; r < 3; r++) for (let k = 0; k < 3; k++) p.r(8 + k * 4, 8 + r * 4, 2, 2, ON);
-      p.frame(24, 5, 13, 10, ON);
-      p.r(26, 7, 9, 1, ON);
-      p.r(26, 9, 6, 1, ON);
-      p.r(26, 11, 8, 1, ON);
-      p.r(5, 24, 32, 1, ON);
-      p.r(24, 17, 1, 7, ON);
+      for (let y = 7; y <= 25; y += 4) {
+        p.r(0, y, 4, 2, ON);
+        p.r(40, y, 4, 2, ON);
+      }
+      p.r(4, 4, 36, 26, ON);
+      p.r(6, 6, 32, 22, OFF);
+      // Pin-1 corner orientation dot
+      p.disc(9, 9, 1, ON);
+      // Central die-cavity square + diagonal bond wires
+      p.frame(14, 10, 16, 14, ON);
+      p.l(8, 12, 14, 13, ON);
+      p.l(8, 22, 14, 21, ON);
+      p.l(35, 12, 30, 13, ON);
+      p.l(35, 22, 30, 21, ON);
     },
     {
       anim: (p, _w, _h, _v, t) => {
         const beat = Math.max(0, Math.sin(t * 3.2)) ** 6;
-        p.r(30, 18, 3, 3, beat > 0.3 ? ON : OFF);
-        p.frame(29, 17, 5, 5, ON);
+        p.r(19, 14, 6, 6, beat > 0.3 ? ON : OFF);
+        p.frame(18, 13, 8, 8, ON);
       },
       noFlip: true,
     },

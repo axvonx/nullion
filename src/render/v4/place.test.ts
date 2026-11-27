@@ -170,7 +170,7 @@ describe('v4 world', () => {
       } as unknown as CanvasRenderingContext2D;
       setPaint(LAYER_PALETTE[id], undefined);
       drawSetpiece(ctx, band, id, 3.5);
-      if (id !== 'ring-3') expect(rects).toBeGreaterThan(0);
+      expect(rects).toBeGreaterThan(0);
     }
   });
 });

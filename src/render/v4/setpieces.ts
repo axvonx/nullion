@@ -187,11 +187,20 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
         const pxY = y0 + (y1 - y0) * pq - Math.sin(pq * Math.PI) * lift;
         rect(ctx, pxX - 2, pxY - 1, 5, 2, '#ffffff');
       });
+      // Thick undersea fiber-optic trunk plunging from the curved horizon down into the Browser seam
+      rect(ctx, cx - 7, base - 26, 14, 34, '#2a4f96');
+      rect(ctx, cx - 5, base - 26, 10, 34, '#3d6cc4');
+      rect(ctx, cx - 2, base - 26, 4, 34, '#8fc4f0');
+      for (let fy = base - 22; fy < base + 6; fy += 8) {
+        rect(ctx, cx - 8, fy, 16, 2, '#dfe6f6');
+      }
+      const trunkPulse = base - 24 + Math.floor(mod(t * 28, 30));
+      rect(ctx, cx - 2, trunkPulse, 4, 5, '#ffffff');
       break;
     }
 
     case 'browser': {
-      // Full-bleed Giant Browser & DevTools Inspector Diorama!
+      // Full-bleed Giant Browser & DevTools Inspector Diorama + pixel scrollbar + magnifying glass!
       frame(ctx, 6, top + 6, W - 12, H - 12, '#6c9cd4');
       rect(ctx, 6, top + 6, W - 12, 14, '#8fb8e8');
       rect(ctx, 11, top + 10, 3, 3, '#d0605e');
@@ -202,19 +211,41 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
       rect(ctx, 100, top + 9, Math.max(40, W - 116), 5, '#c8e4fb');
       const splitX = R(W * 0.64);
       rect(ctx, splitX, top + 20, 1, H - 26, '#6c9cd4');
-      const pageW = splitX - 20;
+      const pageW = splitX - 28;
+      // Chunky pixel scrollbar along the right margin of the viewport pane
+      const sbX = splitX - 9;
+      rect(ctx, sbX, top + 21, 8, H - 28, '#9cc2ee');
+      frame(ctx, sbX, top + 21, 8, H - 28, '#6c9cd4');
+      const thumbY = top + 24 + Math.floor((Math.sin(t * 0.6) * 0.5 + 0.5) * Math.max(10, H - 56));
+      rect(ctx, sbX + 1, thumbY, 6, 18, '#5b8ee6');
+      rect(ctx, sbX + 2, thumbY + 7, 4, 1, '#d8ecfc');
+      rect(ctx, sbX + 2, thumbY + 10, 4, 1, '#d8ecfc');
       rect(ctx, 14, top + 26, pageW, 28, '#9cc2ee');
       frame(ctx, 14, top + 26, pageW, 28, '#7ea8dc');
       const shimX = 16 + Math.floor(mod(t * 42, Math.max(20, pageW - 18)));
       rect(ctx, shimX, top + 28, 14, 24, '#cfe6fc');
       const cardW = Math.max(16, Math.floor((pageW - 12) / 3));
+      const focusCard = Math.floor(t * 0.5) % 3;
       for (let k = 0; k < 3; k++) {
         const kx = 14 + k * (cardW + 6);
         const ky = top + 62;
-        frame(ctx, kx, ky, cardW, Math.max(30, H - 82), '#8fb8e8');
+        const ch = Math.max(30, H - 82);
+        frame(ctx, kx, ky, cardW, ch, k === focusCard ? '#59c08a' : '#8fb8e8');
+        if (k === focusCard) frame(ctx, kx - 1, ky - 1, cardW + 2, ch + 2, '#59c08a');
         rect(ctx, kx + 3, ky + 4, Math.max(8, cardW - 6), 12, '#a8cef4');
         rect(ctx, kx + 3, ky + 20, Math.max(6, cardW - 10), 2, '#7ea8dc');
         rect(ctx, kx + 3, ky + 25, Math.max(4, cardW - 14), 2, '#9cc2ee');
+      }
+      // Giant pixel DevTools magnifying glass inspecting the focused card
+      const mgX = 14 + focusCard * (cardW + 6) + R(cardW * 0.55);
+      const mgY = top + 78;
+      disc(ctx, mgX, mgY, 13, '#d8ecfc');
+      ring(ctx, mgX, mgY, 14, '#3d6cc4');
+      ring(ctx, mgX, mgY, 13, '#5b8ee6');
+      rect(ctx, mgX - 6, mgY - 6, 4, 2, '#ffffff');
+      for (let d = 0; d < 14; d++) {
+        rect(ctx, mgX + 9 + d, mgY + 9 + d, 4, 3, '#3d6cc4');
+        px(ctx, mgX + 10 + d, mgY + 9 + d, '#8fb8e8');
       }
       const hiRow = Math.floor(t * 1.6) % 7;
       for (let r = 0; r < 7; r++) {
@@ -225,7 +256,7 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
         rect(ctx, splitX + 8 + indent, ry, Math.max(12, W - splitX - 24 - indent), 3, r === hiRow ? '#ffffff' : '#8fb8e8');
       }
       const sy = top + 22 + Math.floor(mod(t * 28, Math.max(20, H - 34)));
-      rect(ctx, 10, sy, splitX - 14, 2, '#59c08a');
+      rect(ctx, 10, sy, splitX - 22, 2, '#59c08a');
       break;
     }
 
@@ -275,14 +306,16 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
     // -----------------------------------------------------------------------------------------
     // Zone B — Expanded Runtime & Libraries
     case 'bytecode': {
-      // Full-bleed World-Tree Abstract Syntax Canopy + flanking token columns + cascading amber evaluation pulses!
-      // Flanking vertical bytecode tape columns on far left & right
-      for (const sx of [10, W - 22]) {
-        rect(ctx, sx, top + 6, 12, H - 12, '#1a1a44');
-        frame(ctx, sx, top + 6, 12, H - 12, '#333366');
+      // Full-bleed World-Tree Abstract Syntax Canopy + sprocketed tape columns + diamond branches vs rounded leaf pills!
+      for (const sx of [10, W - 26]) {
+        rect(ctx, sx, top + 6, 16, H - 12, '#1a1a44');
+        frame(ctx, sx, top + 6, 16, H - 12, '#333366');
         const off = Math.floor(t * 6) % 6;
         for (let y = top + 10 + off; y < bot - 10; y += 6) {
-          rect(ctx, sx + 2, y, 8, 2, y % 12 === 0 ? '#ffcc33' : '#666699');
+          // Film-style sprocket holes on both edges of the bytecode tape
+          rect(ctx, sx + 1, y, 2, 2, '#000033');
+          rect(ctx, sx + 13, y, 2, 2, '#000033');
+          rect(ctx, sx + 4, y, 8, 2, y % 12 === 0 ? '#ffcc33' : '#666699');
         }
       }
       // Central colossal AST trunk & multi-tier boughs spanning the whole band
@@ -293,16 +326,28 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
       for (let r = 0; r < tiers; r++) {
         const y0 = top + 24 + r * Math.floor((H - 44) / tiers);
         const y1 = y0 + 26;
-        const spread = Math.min(W * 0.38, 48 + r * 30);
+        const spread = Math.min(W * 0.36, 46 + r * 28);
         for (const side of [-1, 1]) {
           const bx = cx + side * spread;
           line(ctx, cx, y0, bx, y1, '#333366');
           line(ctx, cx, y0 + 1, bx, y1 + 1, '#666699');
-          rect(ctx, bx - 9, y1 - 4, 18, 8, '#333366');
-          frame(ctx, bx - 9, y1 - 4, 18, 8, '#9999cc');
-          // Sub-leaves
-          line(ctx, bx, y1 + 4, bx + side * 14, y1 + 16, '#333366');
-          rect(ctx, bx + side * 14 - 3, y1 + 14, 6, 4, '#66cc99');
+          // Diamond-shaped branch operator node
+          for (let d = 0; d <= 7; d++) {
+            rect(ctx, bx - d, y1 - 7 + d, d * 2 + 1, 1, '#333366');
+            rect(ctx, bx - d, y1 + 7 - d, d * 2 + 1, 1, '#333366');
+          }
+          line(ctx, bx, y1 - 7, bx + 7, y1, '#9999cc');
+          line(ctx, bx + 7, y1, bx, y1 + 7, '#9999cc');
+          line(ctx, bx, y1 + 7, bx - 7, y1, '#9999cc');
+          line(ctx, bx - 7, y1, bx, y1 - 7, '#9999cc');
+          rect(ctx, bx - 1, y1 - 1, 3, 3, '#ffcc33');
+          // Rounded pill leaf literal node
+          line(ctx, bx, y1 + 7, bx + side * 14, y1 + 17, '#333366');
+          const lx = bx + side * 14;
+          const ly = y1 + 15;
+          rect(ctx, lx - 5, ly, 10, 6, '#336666');
+          rect(ctx, lx - 6, ly + 1, 12, 4, '#66cc99');
+          rect(ctx, lx - 4, ly + 2, 8, 2, '#99ffcc');
           // Cascading token pulse
           const q = mod(t * 0.5 + r * 0.21 + (side > 0 ? 0.35 : 0), 1);
           rect(ctx, cx + side * spread * q - 2, y0 + (y1 - y0) * q - 1, 4, 3, '#ffcc33');
@@ -312,8 +357,7 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
     }
 
     case 'jit': {
-      // Full-bleed Molten Hot-Loop Crucible + twin side induction coils + rising sparks & pulsing native bus!
-      // Flanking induction-coil pylons left & right
+      // Full-bleed Molten Hot-Loop Crucible + twin side induction coils + giant forge anvil & glowing ingot molds!
       for (const sx of [14, W - 30]) {
         rect(ctx, sx, top + 10, 16, H - 20, '#330033');
         frame(ctx, sx, top + 10, 16, H - 20, '#663366');
@@ -329,34 +373,48 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
       const pulseX = 32 + Math.floor(mod(t * 48, Math.max(20, W - 68)));
       rect(ctx, pulseX, cy - 2, 10, 4, '#ffff66');
       // Colossal central crucible ring
-      disc(ctx, cx, cy, 58, '#330033');
-      ring(ctx, cx, cy, 58, '#993333');
-      ring(ctx, cx, cy, 52, '#cc6633');
-      ring(ctx, cx, cy, 42, '#663366');
+      disc(ctx, cx, cy, 56, '#330033');
+      ring(ctx, cx, cy, 56, '#993333');
+      ring(ctx, cx, cy, 50, '#cc6633');
+      ring(ctx, cx, cy, 40, '#663366');
       disc(ctx, cx, cy, 24, '#330033');
       ring(ctx, cx, cy, 24, '#ff9933');
       // 6 orbiting hot-loop sparks
       for (let k = 0; k < 6; k++) {
         const a = t * 1.2 + (k * TAU) / 6;
-        rect(ctx, cx + Math.cos(a) * 48 - 2, cy + Math.sin(a) * 48 - 2, 4, 4, k % 2 ? '#ffff66' : '#ff6633');
+        rect(ctx, cx + Math.cos(a) * 46 - 2, cy + Math.sin(a) * 46 - 2, 4, 4, k % 2 ? '#ffff66' : '#ff6633');
       }
       // Vertical ingot chute top & native-code molten pour bottom
-      rect(ctx, cx - 8, top, 16, Math.max(10, cy - 58 - top), '#333366');
-      rect(ctx, cx - 8, cy + 58, 16, Math.max(10, bot - (cy + 58)), '#993333');
-      rect(ctx, cx - 3, cy + 58, 6, Math.max(10, bot - (cy + 58)), '#ff9933');
+      rect(ctx, cx - 8, top, 16, Math.max(10, cy - 56 - top), '#333366');
+      rect(ctx, cx - 8, cy + 56, 16, Math.max(10, bot - (cy + 56)), '#993333');
+      rect(ctx, cx - 3, cy + 56, 6, Math.max(10, bot - (cy + 56)), '#ff9933');
+      // Giant forge anvil on the lower-left wing + glowing ingot molds on the lower-right wing
+      const ax = Math.max(38, cx - 102);
+      const ay = bot - 34;
+      rect(ctx, ax - 14, ay, 34, 8, '#663366');
+      rect(ctx, ax - 22, ay + 1, 10, 5, '#993366');
+      rect(ctx, ax - 14, ay, 34, 2, '#cc6699');
+      rect(ctx, ax - 6, ay + 8, 18, 10, '#330033');
+      frame(ctx, ax - 6, ay + 8, 18, 10, '#663366');
+      rect(ctx, ax - 12, ay + 18, 30, 6, '#663366');
+      // Glowing native-code ingot molds on lower-right
+      const mx = Math.min(W - 72, cx + 68);
+      for (let k = 0; k < 2; k++) {
+        const ix = mx + k * 20;
+        rect(ctx, ix, ay + 10, 16, 12, '#663333');
+        rect(ctx, ix + 2, ay + 12, 12, 6, k === Math.floor(t * 2) % 2 ? '#ffff66' : '#ff9933');
+      }
       break;
     }
 
     case 'runtime': {
-      // Full-bleed Colossal Steel Heap Cavern: upper & lower truss bridges, vertical support towers, sweeping GC crane + moving conveyor!
-      // Vertical steel support towers on left & right edges
+      // Full-bleed Colossal Steel Heap Cavern: upper & lower truss bridges, sweeping GC crane carrying a glowing block, & lower compactor bin!
       for (const sx of [8, W - 22]) {
         rect(ctx, sx, top, 14, H, '#1e1a3a');
         rect(ctx, sx, top, 2, H, '#333366');
         rect(ctx, sx + 12, top, 2, H, '#333366');
         for (let y = top; y < bot; y += 16) line(ctx, sx + 2, y, sx + 12, y + 14, '#333366');
       }
-      // Upper full-width steel truss bridge
       const beamY = top + 20;
       rect(ctx, 0, beamY, W, 6, '#333366');
       rect(ctx, 0, beamY, W, 1, '#666699');
@@ -374,7 +432,15 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
         rect(ctx, bx, lowY - 8, 12, 8, k % 2 ? '#333366' : '#336666');
         rect(ctx, bx, lowY - 8, 12, 1, '#666699');
       }
-      // Slow-sweeping overhead GC electromagnet crane with swinging cable & pulsing amber magnet!
+      // Recognizable GC compactor / incinerator hopper on the lower-right catwalk
+      const binX = W - 62;
+      rect(ctx, binX, lowY - 22, 30, 22, '#333366');
+      frame(ctx, binX, lowY - 22, 30, 22, '#666699');
+      rect(ctx, binX - 4, lowY - 25, 38, 4, '#666699');
+      // Hazard stripes + furnace glow slot inside compactor
+      for (let sx = binX + 3; sx < binX + 26; sx += 6) rect(ctx, sx, lowY - 19, 3, 3, '#ffcc33');
+      rect(ctx, binX + 5, lowY - 11, 20, 7, Math.floor(t * 5) % 2 ? '#ff9933' : '#cc3333');
+      // Slow-sweeping overhead GC electromagnet crane visibly carrying a glowing memory block!
       const tx = R(W * 0.14 + (Math.sin(t * 0.28) * 0.5 + 0.5) * W * 0.72);
       const drop = 34 + R(Math.sin(t * 0.7) * 14);
       rect(ctx, tx - 10, beamY + 4, 20, 9, '#666699');
@@ -382,6 +448,11 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
       rect(ctx, tx - 1, beamY + 13, 2, drop, '#666699');
       rect(ctx, tx - 9, beamY + 13 + drop, 18, 6, '#9999cc');
       rect(ctx, tx - 7, beamY + 19 + drop, 14, 2, Math.floor(t * 4) % 2 ? '#ffff99' : '#ffcc33');
+      // Glowing suspended heap block clamped under the electromagnet
+      rect(ctx, tx - 7, beamY + 21 + drop, 14, 10, '#336699');
+      frame(ctx, tx - 7, beamY + 21 + drop, 14, 10, '#66cccc');
+      rect(ctx, tx - 4, beamY + 24 + drop, 8, 2, '#ffff99');
+      rect(ctx, tx - 4, beamY + 27 + drop, 5, 2, '#99ffff');
       break;
     }
 
@@ -441,20 +512,33 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
         const y1 = top + 20 + ((k * 2 + 1) % 6) * Math.floor((H - 36) / 6);
         rect(ctx, leftX + 4, y0 - 2, 12, 4, '#000000');
         rect(ctx, rightX + 6, y1 - 2, 12, 4, '#000000');
+        // Chunky plug barrels protruding from the switchboard jack bays
+        rect(ctx, leftX + 16, y0 - 2, 7, 5, '#aaaaaa');
+        rect(ctx, leftX + 21, y0 - 1, 3, 3, k === activeCable ? '#ffff55' : '#aa5500');
+        rect(ctx, rightX - 1, y1 - 2, 7, 5, '#aaaaaa');
+        rect(ctx, rightX - 2, y1 - 1, 3, 3, k === activeCable ? '#ffff55' : '#aa5500');
         rect(ctx, cx - 6, y0 - 1, 12, 3, k === activeCable ? '#ffff55' : '#000000');
         for (let s = 0; s <= 32; s++) {
           const q = s / 32;
-          const x = leftX + 22 + (rightX - (leftX + 22)) * q;
+          const x = leftX + 24 + (rightX - 2 - (leftX + 24)) * q;
           const y = y0 + (y1 - y0) * q + Math.sin(q * Math.PI) * (14 + (k % 3) * 6);
           px(ctx, x, y, k === activeCable ? '#ffff55' : k % 2 ? '#aa5500' : '#555555');
         }
         // Signal pulse traveling along active cable
         if (k === activeCable) {
           const pq = mod(t * 1.4, 1);
-          const x = leftX + 22 + (rightX - (leftX + 22)) * pq;
+          const x = leftX + 24 + (rightX - 2 - (leftX + 24)) * pq;
           const y = y0 + (y1 - y0) * pq + Math.sin(pq * Math.PI) * (14 + (k % 3) * 6);
           rect(ctx, x - 2, y - 1, 4, 3, '#ffffff');
         }
+      }
+      // Two dangling unplugged switchboard patch cords hanging from the bottom rack
+      for (const [ux, drop] of [[leftX + 24, 34], [rightX - 6, 28]] as const) {
+        const uy = bot - 42;
+        const sway = R(Math.sin(t * 1.1 + ux) * 3);
+        line(ctx, ux, uy, ux + sway, uy + drop, '#aa5500');
+        rect(ctx, ux + sway - 2, uy + drop, 4, 6, '#aaaaaa');
+        rect(ctx, ux + sway - 1, uy + drop + 6, 2, 3, '#ffff55');
       }
       break;
     }
@@ -516,10 +600,18 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
         rect(ctx, x, top, 1, H, '#aaaaaa');
         for (let ry = top + 8; ry < bot - 8; ry += 14) px(ctx, x + 4, ry, '#000000');
       }
-      // Central glowing syscall sluice gate
+      // Central glowing syscall sluice gate with chunky striped blast-gate portcullis teeth
       rect(ctx, cx - 34, wallY + 4, 68, 64, '#000000');
       frame(ctx, cx - 34, wallY + 4, 68, 64, '#55ffff');
       for (let y = wallY + 10; y < wallY + 64; y += 6) rect(ctx, cx - 30, y, 60, 1, '#00aaaa');
+      // Partially raised heavy portcullis teeth + hazard header beam inside the sluice
+      const gateLift = 18 + R(Math.sin(t * 0.7) * 4);
+      rect(ctx, cx - 32, wallY + 6, 64, gateLift, '#555555');
+      for (let sx = cx - 30; sx < cx + 28; sx += 8) {
+        rect(ctx, sx, wallY + 6, 4, 4, '#ffff55');
+        rect(ctx, sx + 1, wallY + 6 + gateLift, 3, 7, '#aaaaaa');
+        rect(ctx, sx + 2, wallY + 13 + gateLift, 1, 3, '#ffffff');
+      }
       // Animated cyan clearance scanner bar inside the sluice gate
       const scanY = wallY + 8 + Math.floor(mod(t * 22, 54));
       rect(ctx, cx - 30, scanY, 60, 2, '#55ffff');
@@ -551,25 +643,35 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
     }
 
     case 'kernel-arch': {
-      // Full-bleed Great APIC Interrupt Monolith: towering central controller + 12 full-width radiating copper IRQ bus lines + side relay towers!
-      // Flanking side relay racks
+      // Full-bleed Colossal Interrupt / Tesla Relay Spire: stepped tapered spire + crown coil + thick copper busbars & bold IRQ pin collars!
       for (const sx of [6, W - 20]) {
         rect(ctx, sx, top + 8, 14, H - 16, '#555555');
         for (let y = top + 14; y < bot - 14; y += 10) rect(ctx, sx + 3, y, 8, 4, '#000000');
       }
-      rect(ctx, cx - 22, top + 8, 44, H - 16, '#555555');
-      frame(ctx, cx - 22, top + 8, 44, H - 16, '#ff5555');
-      const activeLine = Math.floor(t * 5) % 10;
-      for (let k = 0; k < 10; k++) {
-        const ly = top + 18 + k * Math.floor((H - 32) / 10);
+      // Stepped Tesla relay spire silhouette (wide base, terraced middle, crown insulator rings)
+      rect(ctx, cx - 28, bot - 44, 56, 36, '#555555');
+      frame(ctx, cx - 28, bot - 44, 56, 36, '#ff5555');
+      rect(ctx, cx - 18, top + 28, 36, H - 72, '#555555');
+      frame(ctx, cx - 18, top + 28, 36, H - 72, '#ff5555');
+      rect(ctx, cx - 9, top + 14, 18, 16, '#aaaaaa');
+      rect(ctx, cx - 15, top + 18, 30, 3, '#ff5555');
+      rect(ctx, cx - 15, top + 24, 30, 3, '#ff5555');
+      disc(ctx, cx, top + 11, 6, Math.floor(t * 6) % 2 ? '#ffff55' : '#ff5555');
+      const activeLine = Math.floor(t * 5) % 8;
+      for (let k = 0; k < 8; k++) {
+        const ly = top + 34 + k * Math.floor((H - 50) / 8);
         const hot = k === activeLine;
-        rect(ctx, 20, ly, cx - 42, 1, hot ? '#ffff55' : '#aa0000');
-        rect(ctx, cx + 22, ly, W - 20 - (cx + 22), 1, hot ? '#ffff55' : '#aa0000');
-        rect(ctx, cx - 14, ly - 1, 28, 3, hot ? '#ff5555' : '#000000');
+        const halfW = ly > bot - 44 ? 28 : 18;
+        // Thick 2px copper busbars + bold IRQ pin collars
+        rect(ctx, 20, ly, cx - halfW - 20, 2, hot ? '#ffff55' : '#aa0000');
+        rect(ctx, cx + halfW, ly, W - 20 - (cx + halfW), 2, hot ? '#ffff55' : '#aa0000');
+        rect(ctx, cx - halfW - 6, ly - 2, 6, 6, hot ? '#ffffff' : '#aaaaaa');
+        rect(ctx, cx + halfW, ly - 2, 6, 6, hot ? '#ffffff' : '#aaaaaa');
+        rect(ctx, cx - 10, ly - 1, 20, 4, hot ? '#ff5555' : '#000000');
         if (hot) {
-          const d = mod(t * 90, cx - 44);
-          rect(ctx, cx - 24 - d, ly - 1, 6, 3, '#ffffff');
-          rect(ctx, cx + 22 + d, ly - 1, 6, 3, '#ffffff');
+          const d = mod(t * 90, Math.max(12, cx - halfW - 26));
+          rect(ctx, cx - halfW - 8 - d, ly - 1, 7, 4, '#ffffff');
+          rect(ctx, cx + halfW + 6 + d, ly - 1, 7, 4, '#ffffff');
         }
       }
       break;
@@ -578,68 +680,116 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
     // -----------------------------------------------------------------------------------------
     // Zone D — Drivers, Bus & Firmware
     case 'drivers': {
-      // Full-bleed Motherboard Silkscreen: edge-to-edge 45° copper trace highways, flanking RAM/PCIe slot silhouettes, & central BGA Northbridge!
-      const bw = 74;
-      const bx = cx - 37;
-      const by = cy - 37;
+      // Full-bleed Motherboard Silkscreen: extruded heatsink-finned Northbridge + diagonal copper heatpipes + flanking PCIe & DIMM slots!
+      const bw = 78;
+      const bx = cx - 39;
+      const by = cy - 39;
       // Top & bottom parallel bus rails across the entire board
       for (let k = 0; k < 4; k++) {
         rect(ctx, 0, top + 10 + k * 5, W, 1, k % 2 ? '#55ffff' : '#ff55ff');
         rect(ctx, 0, bot - 10 - k * 5, W, 1, k % 2 ? '#ff55ff' : '#55ffff');
       }
+      // Flanking chunky vertical DIMM & PCIe connector slots on left and right wings
+      for (const sx of [16, W - 30]) {
+        rect(ctx, sx, cy - 42, 14, 84, '#000000');
+        frame(ctx, sx, cy - 42, 14, 84, '#55ffff');
+        rect(ctx, sx + 5, cy - 38, 4, 76, '#ff55ff');
+        rect(ctx, sx + 4, cy + 4, 6, 4, '#000000'); // key notch
+        for (let py = cy - 36; py < cy + 36; py += 6) {
+          rect(ctx, sx + 2, py, 2, 2, '#ffffff');
+          rect(ctx, sx + 10, py, 2, 2, '#ffffff');
+        }
+        // Retention latches at top & bottom of slot
+        rect(ctx, sx - 2, cy - 46, 18, 4, '#ffffff');
+        rect(ctx, sx - 2, cy + 42, 18, 4, '#ffffff');
+      }
       // 45° trace highways fanning out to both screen edges
       for (let k = -4; k <= 4; k++) {
         const y = cy + k * 9;
         const col = k % 2 ? '#55ffff' : '#ff55ff';
-        rect(ctx, 0, y, bx - 18, 1, col);
+        rect(ctx, 30, y, Math.max(4, bx - 48), 1, col);
         line(ctx, bx - 18, y, bx, y + k * 2, col);
-        rect(ctx, bx + bw + 18, y, W - (bx + bw + 18), 1, col);
+        rect(ctx, bx + bw + 18, y, Math.max(4, W - 30 - (bx + bw + 18)), 1, col);
         line(ctx, bx + bw, y + k * 2, bx + bw + 18, y, col);
       }
       // Traveling data pulses along two trace lanes
-      const pxL = mod(t * 50, Math.max(20, bx - 18));
+      const pxL = 32 + mod(t * 50, Math.max(20, bx - 52));
       rect(ctx, pxL, cy - 9, 5, 2, '#ffffff');
       rect(ctx, W - pxL, cy + 9, 5, 2, '#ffffff');
-      // Central Northbridge BGA package
+      // Central Northbridge with bold extruded heatsink fin array & diagonal heatpipes
       rect(ctx, bx, by, bw, bw, '#000000');
       frame(ctx, bx, by, bw, bw, '#55ffff');
-      frame(ctx, bx + 6, by + 6, bw - 12, bw - 12, '#ff55ff');
-      for (let p = 8; p < bw - 8; p += 8) {
-        px(ctx, bx + p, by - 2, '#ffffff');
-        px(ctx, bx + p, by + bw + 1, '#ffffff');
+      frame(ctx, bx + 2, by + 2, bw - 4, bw - 4, '#ff55ff');
+      // Vertical extruded heatsink cooling fins
+      for (let fx = bx + 6; fx <= bx + bw - 8; fx += 6) {
+        rect(ctx, fx, by + 6, 3, bw - 12, '#55ffff');
+        rect(ctx, fx, by + 6, 1, bw - 12, '#ffffff');
       }
-      rect(ctx, bx + 10, by + 10, 6, 6, '#ffffff');
+      // Diagonal copper-colored (magenta/white) heatpipes crossing the fin stack
+      for (let d = -2; d <= 2; d++) {
+        line(ctx, bx + 6, by + 12 + d, bx + bw - 12, by + bw - 6 + d, d === 0 ? '#ffffff' : '#ff55ff');
+        line(ctx, bx + 12, by + 6 + d, bx + bw - 6, by + bw - 12 + d, d === 0 ? '#ffffff' : '#ff55ff');
+      }
+      // Center die badge & perimeter BGA pins
+      rect(ctx, cx - 10, cy - 10, 20, 20, '#000000');
+      frame(ctx, cx - 10, cy - 10, 20, 20, '#ffffff');
+      rect(ctx, cx - 6, cy - 6, 12, 12, '#ff55ff');
+      for (let p = 8; p < bw - 8; p += 6) {
+        rect(ctx, bx + p, by - 3, 2, 3, '#ffffff');
+        rect(ctx, bx + p, by + bw, 2, 3, '#ffffff');
+      }
       break;
     }
 
     case 'bus-fabric': {
-      // Full-bleed 16-Lane Diagonal PCIe Superhighway + left/right switch ports + synchronized white packet trains!
-      for (let k = 0; k < 10; k++) {
-        const y0 = top + 10 + k * Math.floor((H - 24) / 10);
-        line(ctx, 0, y0, W, y0 + 24, k % 2 ? '#ff55ff' : '#55ffff');
-        const q = mod(t * (0.4 + (k % 3) * 0.12) + k * 0.11, 1);
-        rect(ctx, q * W - 3, y0 + q * 24 - 1, 7, 2, '#ffffff');
+      // Full-bleed Chunky 4-Lane PCIe Ribbon Highways + 2× scaled PCIe Arbiter Crossbar with internal switch matrix!
+      for (let g = 0; g < 4; g++) {
+        const y0 = top + 14 + g * Math.floor((H - 36) / 4);
+        const col = g % 2 ? '#ff55ff' : '#55ffff';
+        // 4-lane bundled ribbon highway
+        for (let lane = 0; lane < 4; lane++) {
+          line(ctx, 0, y0 + lane * 3, W, y0 + 22 + lane * 3, lane === 0 ? '#ffffff' : col);
+        }
+        // Directional chevron & synchronized packet train
+        const q = mod(t * (0.38 + (g % 3) * 0.12) + g * 0.17, 1);
+        const pxX = R(q * W);
+        const pxY = R(y0 + q * 22 + 4);
+        rect(ctx, pxX - 4, pxY - 2, 9, 5, '#ffffff');
+        px(ctx, pxX + 6, pxY, '#ffffff');
       }
-      // Central PCIe arbiter crossbar diamond
-      for (let d = 0; d < 24; d++) {
-        rect(ctx, cx - d, cy - 24 + d, d * 2, 1, '#000000');
-        rect(ctx, cx - d, cy + 24 - d, d * 2, 1, '#000000');
+      // 2× Scaled Central PCIe Arbiter Crossbar Diamond (radius 44) with internal switch matrix
+      const rad = 44;
+      for (let d = 0; d < rad; d++) {
+        rect(ctx, cx - d, cy - rad + d, d * 2, 1, '#000000');
+        rect(ctx, cx - d, cy + rad - d, d * 2, 1, '#000000');
       }
-      line(ctx, cx, cy - 24, cx + 24, cy, '#ffffff');
-      line(ctx, cx + 24, cy, cx, cy + 24, '#ffffff');
-      line(ctx, cx, cy + 24, cx - 24, cy, '#ffffff');
-      line(ctx, cx - 24, cy, cx, cy - 24, '#ffffff');
+      for (let t0 = 0; t0 < 2; t0++) {
+        line(ctx, cx, cy - rad + t0, cx + rad - t0, cy, '#ffffff');
+        line(ctx, cx + rad - t0, cy, cx, cy + rad - t0, '#ffffff');
+        line(ctx, cx, cy + rad - t0, cx - rad + t0, cy, '#ffffff');
+        line(ctx, cx - rad + t0, cy, cx, cy - rad + t0, '#ffffff');
+      }
+      // Internal 4×4 crossbar switch matrix inside the diamond
+      for (let r = -1; r <= 1; r++) {
+        rect(ctx, cx - 18, cy + r * 8, 36, 1, '#55ffff');
+        rect(ctx, cx + r * 8, cy - 18, 1, 36, '#ff55ff');
+      }
+      const hotNode = Math.floor(t * 4) % 9;
+      for (let r = 0; r < 3; r++) {
+        for (let k = 0; k < 3; k++) {
+          const on = r * 3 + k === hotNode;
+          rect(ctx, cx - 10 + k * 8, cy - 10 + r * 8, 4, 4, on ? '#ffffff' : '#55ffff');
+        }
+      }
       break;
     }
 
     case 'firmware': {
-      // Full-bleed Riveted Steel BIOS Vault Wall + colossal 132px circular bank-vault door + flanking locking-bar pistons!
-      // Heavy riveted vault bulkhead seams spanning full width & height
+      // Full-bleed Riveted Steel BIOS Vault Wall + colossal 132px circular bank-vault door + heavy hinge block & keyway!
       for (let y = top + 20; y < bot - 10; y += 36) {
         rect(ctx, 0, y, W, 2, '#555555');
         for (let x = 10; x < W; x += 24) px(ctx, x, y + 4, '#aaaaaa');
       }
-      // Horizontal hydraulic locking bars extending from the vault door to both edges
       const lockShift = R(Math.sin(t * 0.5) * 4);
       for (const dy of [-22, 22]) {
         rect(ctx, 0, cy + dy - 3, W, 6, '#555555');
@@ -657,6 +807,15 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
         const a = (k * TAU) / 12;
         rect(ctx, cx + Math.cos(a) * 60 - 2, cy + Math.sin(a) * 60 - 2, 5, 5, '#aaaaaa');
       }
+      // Chunky heavy vault hinge block on the right rim & armored keyway on the left rim
+      rect(ctx, cx + 58, cy - 28, 16, 56, '#555555');
+      frame(ctx, cx + 58, cy - 28, 16, 56, '#aaaaaa');
+      rect(ctx, cx + 62, cy - 22, 8, 12, '#aaaaaa');
+      rect(ctx, cx + 62, cy + 10, 8, 12, '#aaaaaa');
+      rect(ctx, cx - 50, cy - 7, 12, 14, '#555555');
+      frame(ctx, cx - 50, cy - 7, 12, 14, '#aaaaaa');
+      disc(ctx, cx - 44, cy - 2, 2, '#000000');
+      rect(ctx, cx - 45, cy, 3, 5, '#000000');
       // Slowly rotating 4-spoke combination wheel
       const wa = t * 0.25;
       for (let k = 0; k < 4; k++) {
@@ -670,88 +829,160 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
     // -----------------------------------------------------------------------------------------
     // Zone E — Expanded Hidden Rings & MINIX-Inside-ME
     case 'vmm': {
-      // Full-bleed Wireframe Puppet-Stage Rig spanning width + twin floating translucent virtual chassis + moving control strings!
-      rect(ctx, 0, top + 8, W, 4, '#555555');
-      for (let x = 16; x < W; x += 28) rect(ctx, x, top + 12, 2, 6, '#aaaaaa');
-      const sway = R(Math.sin(t * 0.8) * 4);
-      for (const [ox, cw, ch] of [
-        [cx - 56 + sway, 112, 74],
-        [18 - sway, 52, 42],
-        [W - 70 - sway, 52, 42],
-      ] as const) {
-        const ry = cy - R(ch / 2);
-        line(ctx, ox + 6, top + 12, ox + 6, ry, '#555555');
-        line(ctx, ox + cw - 6, top + 12, ox + cw - 6, ry, '#555555');
-        frame(ctx, ox, ry, cw, ch, '#aaaaaa');
-        frame(ctx, ox + 6, ry + 6, cw - 12, ch - 18, '#555555');
-        rect(ctx, ox + 10, ry + ch - 8, R(cw * 0.4), 2, '#aaaaaa');
-      }
+      // Full-bleed Giant Marionette Crossbar suspending recognizable miniature computer silhouettes (CRT + tower + floppy slot)!
+      rect(ctx, 0, top + 8, W, 5, '#555555');
+      rect(ctx, 0, top + 8, W, 1, '#aaaaaa');
+      // Giant central marionette control-cross
+      const sway = R(Math.sin(t * 0.8) * 5);
+      rect(ctx, cx - 54 + sway, top + 16, 108, 4, '#aaaaaa');
+      rect(ctx, cx - 2 + sway, top + 8, 4, 16, '#ffffff');
+      const drawMiniPC = (ox: number, oy: number, w: number, h: number, hi: string, mid: string) => {
+        // Angled marionette control strings from top crossbar
+        line(ctx, cx - 44 + sway, top + 20, ox + 5, oy, '#555555');
+        line(ctx, cx + 44 + sway, top + 20, ox + w - 5, oy, '#555555');
+        // CRT Monitor silhouette
+        const mw = R(w * 0.62);
+        const mh = R(h * 0.66);
+        rect(ctx, ox, oy, mw, mh, '#000000');
+        frame(ctx, ox, oy, mw, mh, hi);
+        frame(ctx, ox + 3, oy + 3, mw - 6, mh - 8, mid);
+        rect(ctx, ox + 6, oy + 6, Math.max(4, mw - 14), 2, hi);
+        rect(ctx, ox + 6, oy + 10, Math.max(4, mw - 18), 2, mid);
+        // Monitor neck & keyboard deck
+        rect(ctx, ox + R(mw * 0.35), oy + mh, R(mw * 0.3), 4, mid);
+        rect(ctx, ox + 2, oy + mh + 4, mw - 4, 5, hi);
+        rect(ctx, ox + 4, oy + mh + 6, mw - 8, 1, '#000000');
+        // Adjacent mini-tower chassis with floppy slot & power LED
+        const tx = ox + mw + 4;
+        const tw = Math.max(12, w - mw - 4);
+        rect(ctx, tx, oy + 2, tw, h - 2, '#000000');
+        frame(ctx, tx, oy + 2, tw, h - 2, hi);
+        rect(ctx, tx + 3, oy + 6, tw - 6, 2, hi); // floppy bay
+        rect(ctx, tx + 3, oy + 11, tw - 6, 2, mid); // CD bay
+        rect(ctx, tx + 3, oy + h - 8, 3, 3, Math.floor(t * 3 + ox) % 2 ? '#ffffff' : mid);
+      };
+      drawMiniPC(cx - 46 + sway, cy - 22, 92, 52, '#ffffff', '#aaaaaa');
+      drawMiniPC(16 - sway, cy - 12, 56, 36, '#aaaaaa', '#555555');
+      drawMiniPC(W - 72 - sway, cy - 12, 56, 36, '#aaaaaa', '#555555');
       break;
     }
 
     case 'ring-1': {
-      // Full-bleed Infinite Hall of Mirrors: 7 nested 1-point perspective frames + breathing reflection pulse + twin mirrored silhouettes!
+      // Full-bleed Infinite Hall of Mirrors + two large mirrored guest-OS silhouettes + bold hypervisor visor/lens at vanishing point!
       const shades = ['#aaaaaa', '#555555', '#aaaaaa', '#555555', '#aaaaaa', '#555555', '#ffffff'];
       const pulseIdx = Math.floor(t * 2.5) % 7;
       for (let k = 0; k < 7; k++) {
         const frac = 1 - k * 0.13;
-        const fw = Math.max(22, R((W - 16) * frac));
-        const fh = Math.max(18, R((H - 20) * frac));
+        const fw = Math.max(24, R((W - 16) * frac));
+        const fh = Math.max(20, R((H - 20) * frac));
         frame(ctx, cx - R(fw / 2), cy - R(fh / 2), fw, fh, k === pulseIdx ? '#ffffff' : shades[k]!);
       }
-      // Corner perspective rays from screen corners into the vanishing mirror
-      line(ctx, 8, top + 10, cx - 11, cy - 9, '#555555');
-      line(ctx, W - 8, top + 10, cx + 11, cy - 9, '#555555');
-      line(ctx, 8, bot - 10, cx - 11, cy + 9, '#555555');
-      line(ctx, W - 8, bot - 10, cx + 11, cy + 9, '#555555');
+      line(ctx, 8, top + 10, cx - 14, cy - 10, '#555555');
+      line(ctx, W - 8, top + 10, cx + 14, cy - 10, '#555555');
+      line(ctx, 8, bot - 10, cx - 14, cy + 10, '#555555');
+      line(ctx, W - 8, bot - 10, cx + 14, cy + 10, '#555555');
+      // Two large mirrored Guest-OS window/city silhouettes facing each other across the central mirror axis
+      const gw = Math.min(64, R(W * 0.19));
+      const gh = Math.min(82, R(H * 0.44));
+      for (const side of [-1, 1] as const) {
+        const gx = side < 0 ? cx - 24 - gw : cx + 24;
+        const gy = cy - R(gh / 2);
+        rect(ctx, gx, gy, gw, gh, '#000000');
+        frame(ctx, gx, gy, gw, gh, '#aaaaaa');
+        rect(ctx, gx + 1, gy + 1, gw - 2, 7, '#555555');
+        // Mirrored titlebar buttons & miniature guest skyline inside each pane
+        for (let b0 = 0; b0 < 3; b0++) {
+          const bx = side < 0 ? gx + 4 + b0 * 5 : gx + gw - 7 - b0 * 5;
+          rect(ctx, bx, gy + 3, 3, 3, '#ffffff');
+        }
+        const cols = Math.max(4, Math.floor((gw - 8) / 8));
+        for (let c0 = 0; c0 < cols; c0++) {
+          const mc = side < 0 ? c0 : cols - 1 - c0;
+          const bh = 14 + Math.floor(hash(mc * 17 + 9) * (gh - 28));
+          const bx = gx + 4 + c0 * 8;
+          rect(ctx, bx, gy + gh - 3 - bh, 6, bh, '#555555');
+          rect(ctx, bx, gy + gh - 3 - bh, 6, 1, '#aaaaaa');
+          if (hash(mc * 23) > 0.4) rect(ctx, bx + 2, gy + gh - bh + 2, 2, 2, '#ffffff');
+        }
+      }
+      // Bold Hypervisor Visor / Eye Lens at the vanishing point
+      disc(ctx, cx, cy, 14, '#000000');
+      ring(ctx, cx, cy, 14, '#ffffff');
+      ring(ctx, cx, cy, 11, '#aaaaaa');
+      const irisX = cx + R(Math.sin(t * 0.9) * 3);
+      disc(ctx, irisX, cy, 5, '#aaaaaa');
+      disc(ctx, irisX, cy, 2, '#ffffff');
       // Center vertical mirror-axis seam
-      for (let y = top + 10; y < bot - 10; y += 6) rect(ctx, cx, y, 1, 3, '#555555');
+      for (let y = top + 10; y < bot - 10; y += 6) {
+        if (Math.abs(y - cy) > 16) rect(ctx, cx, y, 1, 3, '#aaaaaa');
+      }
       break;
     }
 
     case 'ept': {
-      // Full-bleed 2D Perspective Translation Grid: Guest Physical plane top, Host Physical plane bottom, 3 sweeping laser address lookups!
-      const topP = top + 18;
-      const botP = bot - 42;
-      for (let k = 0; k < 5; k++) {
-        rect(ctx, 8, topP + k * 6, W - 16, 1, '#555555');
-        rect(ctx, 8, botP + k * 6, W - 16, 1, '#555555');
-      }
-      for (let x = 16; x < W - 16; x += 24) {
-        line(ctx, x, topP, x, topP + 24, '#555555');
-        line(ctx, x, botP, x, botP + 24, '#555555');
-      }
-      // 3 sweeping vertical translation lasers
+      // Full-bleed Isometric Checkerboard Page-Table Slabs (Guest Physical above, Host Physical below) + padlocked IOMMU quarantine rings!
+      const drawIsoSlab = (sy: number, hi: string, mid: string) => {
+        const rows = 5;
+        const cols = 8;
+        const slabW = Math.min(W - 44, 240);
+        const cellW = Math.max(12, Math.floor(slabW / cols));
+        const xStart = cx - R((cols * cellW) / 2);
+        for (let r = 0; r < rows; r++) {
+          const skew = (r - 2) * 5;
+          const ry = sy + r * 6;
+          for (let col = 0; col < cols; col++) {
+            const x = xStart + col * cellW + skew;
+            const light = (r + col) % 2 === 0;
+            rect(ctx, x, ry, cellW - 1, 5, light ? mid : '#000000');
+            frame(ctx, x, ry, cellW, 6, hi);
+          }
+        }
+      };
+      const topP = top + 16;
+      const botP = bot - 48;
+      drawIsoSlab(topP, '#aaaaaa', '#555555');
+      drawIsoSlab(botP, '#ffffff', '#555555');
+      // 3 bold address-translation beams passing through padlocked IOMMU quarantine rings
       for (let k = 0; k < 3; k++) {
-        const lx = R(W * (0.15 + k * 0.35) + Math.sin(t * (0.4 + k * 0.15) + k) * 28);
-        line(ctx, lx, topP + 12, lx, botP + 12, k === 1 ? '#ffffff' : '#aaaaaa');
-        rect(ctx, lx - 3, topP + 10, 6, 4, '#aaaaaa');
-        rect(ctx, lx - 3, botP + 10, 6, 4, '#ffffff');
+        const lx = R(W * (0.22 + k * 0.28) + Math.sin(t * (0.45 + k * 0.14) + k) * 20);
+        rect(ctx, lx - 1, topP + 26, 3, Math.max(12, botP - (topP + 26)), k === 1 ? '#ffffff' : '#aaaaaa');
+        // Quarantine ring + mini padlock clamp mid-beam
+        ring(ctx, lx, cy, 11, '#ffffff');
+        ring(ctx, lx, cy, 9, '#aaaaaa');
+        rect(ctx, lx - 5, cy - 2, 11, 8, '#000000');
+        frame(ctx, lx - 5, cy - 2, 11, 8, '#ffffff');
+        rect(ctx, lx - 3, cy - 6, 7, 4, '#aaaaaa');
+        rect(ctx, lx - 1, cy - 4, 3, 2, '#000000');
+        rect(ctx, lx, cy + 1, 1, 3, '#ffffff');
       }
       break;
     }
 
     case 'ring-2': {
-      // Full-bleed Shattered Colossal Pendulum Clockface + radiating glass fracture webs + frozen mid-air debris shards across entire width!
-      // Radiating fracture lines stretching edge-to-edge
+      // Full-bleed Shattered Colossal Pendulum Clockface with bold 2–3px frozen hands & pendulum rod + fracture webs!
       line(ctx, 0, top + 24, cx, cy - 6, '#404040');
       line(ctx, W, top + 40, cx, cy - 6, '#404040');
       line(ctx, 0, bot - 28, cx, cy - 6, '#404040');
       line(ctx, W, bot - 20, cx, cy - 6, '#404040');
       // Colossal frozen clockface (136px diameter)
       ring(ctx, cx, cy - 6, 68, '#808080');
+      ring(ctx, cx, cy - 6, 67, '#c0c0c0');
       ring(ctx, cx, cy - 6, 62, '#404040');
       ring(ctx, cx, cy - 6, 44, '#404040');
       for (let k = 0; k < 12; k++) {
         const a = (k * TAU) / 12;
-        rect(ctx, cx + Math.cos(a) * 56 - 2, cy - 6 + Math.sin(a) * 56 - 2, 4, 4, k % 3 === 0 ? '#c0c0c0' : '#808080');
+        const sz = k % 3 === 0 ? 5 : 3;
+        rect(ctx, cx + Math.cos(a) * 56 - R(sz / 2), cy - 6 + Math.sin(a) * 56 - R(sz / 2), sz, sz, k % 3 === 0 ? '#ffffff' : '#808080');
       }
-      // Frozen clock hands & angled frozen pendulum
-      line(ctx, cx, cy - 6, cx + 30, cy - 30, '#c0c0c0');
-      line(ctx, cx, cy - 6, cx - 18, cy - 48, '#ffffff');
-      line(ctx, cx, cy - 6, cx + 40, cy + 68, '#808080');
-      disc(ctx, cx + 40, cy + 68, 9, '#c0c0c0');
-      // Suspended monochrome shards across left & right margins
+      // Thickened 2–3px frozen clock hands & bold angled frozen pendulum rod
+      for (const d of [-1, 0, 1]) {
+        line(ctx, cx + d, cy - 6, cx + 32 + d, cy - 30, d === 0 ? '#ffffff' : '#c0c0c0');
+        line(ctx, cx + d, cy - 6, cx - 20 + d, cy - 50, '#ffffff');
+        line(ctx, cx + d, cy - 6, cx + 40 + d, cy + 68, d === 0 ? '#c0c0c0' : '#808080');
+      }
+      disc(ctx, cx, cy - 6, 5, '#ffffff');
+      disc(ctx, cx + 40, cy + 68, 10, '#c0c0c0');
+      ring(ctx, cx + 40, cy + 68, 10, '#ffffff');
       for (let k = 0; k < 12; k++) {
         const sx = R(hash(k * 37 + 1) * (W - 20) + 10);
         const sy = R(top + 16 + hash(k * 53 + 2) * (H - 32));
@@ -761,34 +992,139 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
     }
 
     case 'smram': {
-      // Full-bleed Silent Monolithic Tomb Corridors: repeating brutalist pillars across the width + central sealed D_LCK monolith!
-      for (let x = 10; x < W - 10; x += 44) {
-        if (Math.abs(x - cx) < 42) continue;
+      // Full-bleed Colossal Armored Padlock Vault: giant U-shackle, riveted lock body with huge keyhole, deadbolt bars, & heavy pixel chains!
+      for (let x = 10; x < W - 10; x += 48) {
+        if (Math.abs(x - cx) < 62) continue;
         rect(ctx, x, top, 14, H, '#404040');
         rect(ctx, x, top, 2, H, '#808080');
         rect(ctx, x + 12, top, 2, H, '#000000');
       }
       rect(ctx, 0, top + 6, W, 4, '#404040');
       rect(ctx, 0, bot - 10, W, 4, '#404040');
-      rect(ctx, cx - 32, cy - 52, 64, 104, '#404040');
-      frame(ctx, cx - 32, cy - 52, 64, 104, '#c0c0c0');
-      frame(ctx, cx - 24, cy - 44, 48, 88, '#808080');
-      // Unblinking stark silver status slit
-      rect(ctx, cx - 16, cy - 2, 32, 3, '#ffffff');
+
+      // Heavy pixel chains bolting the colossal padlock to the flanking pillars
+      for (const chainY of [cy - 6, cy + 22]) {
+        for (let x = 8; x < cx - 44; x += 10) {
+          frame(ctx, x, chainY - 3, 12, 7, '#808080');
+          rect(ctx, x + 2, chainY - 1, 8, 3, '#000000');
+          rect(ctx, x + 6, chainY, 4, 1, '#c0c0c0');
+        }
+        for (let x = cx + 44; x < W - 16; x += 10) {
+          frame(ctx, x, chainY - 3, 12, 7, '#808080');
+          rect(ctx, x + 2, chainY - 1, 8, 3, '#000000');
+          rect(ctx, x + 2, chainY, 4, 1, '#c0c0c0');
+        }
+      }
+
+      // Colossal U-shaped armored padlock shackle arching across the upper band
+      const shY = cy - 22;
+      const outerR = 36;
+      const innerR = 22;
+      for (let dy = -outerR; dy <= 10; dy++) {
+        const y = shY + dy;
+        const ox = dy <= 0 ? Math.floor(Math.sqrt(outerR * outerR - dy * dy)) : outerR;
+        const ix = dy <= 0 ? Math.floor(Math.sqrt(Math.max(0, innerR * innerR - dy * dy))) : innerR;
+        rect(ctx, cx - ox, y, ox - ix, 1, '#c0c0c0');
+        rect(ctx, cx + ix, y, ox - ix, 1, '#c0c0c0');
+        // Shackle rim highlight & inner bevel
+        rect(ctx, cx - ox, y, 2, 1, '#ffffff');
+        rect(ctx, cx + ox - 2, y, 2, 1, '#808080');
+        rect(ctx, cx - ix - 2, y, 2, 1, '#404040');
+        rect(ctx, cx + ix, y, 2, 1, '#404040');
+      }
+
+      // Massive riveted armored padlock body
+      const bx = cx - 46;
+      const by = cy - 16;
+      const bw = 92;
+      const bh = 74;
+      rect(ctx, bx, by, bw, bh, '#404040');
+      frame(ctx, bx, by, bw, bh, '#ffffff');
+      frame(ctx, bx + 2, by + 2, bw - 4, bh - 4, '#c0c0c0');
+      frame(ctx, bx + 6, by + 6, bw - 12, bh - 12, '#808080');
+      // Corner & mid-edge armor rivets
+      for (const [rx, ry] of [
+        [bx + 4, by + 4],
+        [bx + bw - 7, by + 4],
+        [bx + 4, by + bh - 7],
+        [bx + bw - 7, by + bh - 7],
+        [bx + 4, cy + 18],
+        [bx + bw - 7, cy + 18],
+      ] as const) {
+        rect(ctx, rx, ry, 3, 3, '#ffffff');
+      }
+      // Horizontal deadbolt bars locked across the body
+      rect(ctx, bx - 6, by + 12, 8, 8, '#c0c0c0');
+      rect(ctx, bx + bw - 2, by + 12, 8, 8, '#c0c0c0');
+      rect(ctx, bx - 6, by + bh - 20, 8, 8, '#c0c0c0');
+      rect(ctx, bx + bw - 2, by + bh - 20, 8, 8, '#c0c0c0');
+      // Oversized stark keyhole in the center of the lock body
+      disc(ctx, cx, by + 28, 11, '#000000');
+      ring(ctx, cx, by + 28, 12, '#ffffff');
+      for (let ky = 0; ky < 22; ky++) {
+        const hw = 5 + Math.floor(ky * 0.25);
+        rect(ctx, cx - hw, by + 35 + ky, hw * 2 + 1, 1, '#000000');
+        px(ctx, cx - hw - 1, by + 35 + ky, '#c0c0c0');
+        px(ctx, cx + hw + 1, by + 35 + ky, '#c0c0c0');
+      }
+      rect(ctx, cx - 11, by + 57, 23, 2, '#c0c0c0');
       break;
     }
 
-    case 'ring-3':
-      // Ring −3 already draws its iconic always-on core + full-width heartbeat traces & power rails in art-v4.ts!
+    case 'ring-3': {
+      // Full-bleed 1-Bit Microscope Silicon-Die Floorplan behind the always-on core: angled bond-wire fanouts, macro SRAM/ROM arrays, & bold 1-bit bus trunks!
+      const coreY = R(b.top + 132);
+      // Giant perimeter leadframe fingers along left & right die edges + angled bond wires fanning toward the die interior
+      const leadCount = 7;
+      for (let k = 0; k < leadCount; k++) {
+        const ly = top + 28 + k * Math.floor((H - 52) / leadCount);
+        const padY = coreY - 60 + k * 20;
+        // Left leadframe finger + angled bond wire
+        rect(ctx, 0, ly - 2, 16, 5, '#ffffff');
+        rect(ctx, 2, ly - 1, 10, 3, '#000000');
+        line(ctx, 16, ly, 42, padY, '#ffffff');
+        rect(ctx, 40, padY - 2, 5, 5, '#ffffff');
+        rect(ctx, 41, padY - 1, 3, 3, '#000000');
+        // Right leadframe finger + angled bond wire
+        rect(ctx, W - 16, ly - 2, 16, 5, '#ffffff');
+        rect(ctx, W - 12, ly - 1, 10, 3, '#000000');
+        line(ctx, W - 16, ly, W - 42, padY, '#ffffff');
+        rect(ctx, W - 45, padY - 2, 5, 5, '#ffffff');
+        rect(ctx, W - 44, padY - 1, 3, 3, '#000000');
+      }
+      // Massive flanking Macro SRAM & Mask-ROM array blocks left & right of the always-on core
+      const mW = Math.min(68, Math.max(36, R(W * 0.17)));
+      const mH = 74;
+      for (const mx of [50, W - 50 - mW]) {
+        const my = coreY - R(mH / 2);
+        frame(ctx, mx, my, mW, mH, '#ffffff');
+        frame(ctx, mx + 2, my + 2, mW - 4, mH - 4, '#ffffff');
+        // Crisp 1-bit memory subarray banks inside each macro block
+        for (let row = 0; row < 4; row++) {
+          const ry = my + 8 + row * 16;
+          rect(ctx, mx + 6, ry, mW - 12, 10, '#ffffff');
+          rect(ctx, mx + 8, ry + 2, mW - 16, 6, '#000000');
+          for (let sx = mx + 12; sx < mx + mW - 12; sx += 8) {
+            rect(ctx, sx, ry + 2, 2, 6, '#ffffff');
+          }
+        }
+      }
+      // Bold 1-bit vertical die-bus trunks framing the central core corridor
+      for (const bx of [cx - 46, cx + 44]) {
+        rect(ctx, bx, top + 22, 2, H - 36, '#ffffff');
+        for (let y = top + 34; y < bot - 20; y += 22) {
+          rect(ctx, bx - 2, y, 6, 2, '#ffffff');
+        }
+      }
       break;
+    }
 
     case 'me-minix-user': {
-      // Full-bleed Miniature City-in-a-Chip: huge amber QFP silicon package with full-width PCB lead traces enclosing a glowing miniature city skyline!
+      // Full-bleed Miniature City-in-a-Chip + tiny amber antenna spire & miniature monorail inside the chip cavity!
       const cw = Math.min(220, W - 44);
       const ch = Math.min(120, H - 36);
       const rx = cx - R(cw / 2);
       const ry = cy - R(ch / 2);
-      // Full-width PCB lead traces extending from left & right package pins to screen edges
       for (let y = ry + 10; y < ry + ch - 8; y += 10) {
         rect(ctx, 0, y, rx, 2, '#555555');
         rect(ctx, rx + cw, y, W - (rx + cw), 2, '#555555');
@@ -800,7 +1136,6 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
       rect(ctx, rx, ry, cw, ch, '#000000');
       frame(ctx, rx, ry, cw, ch, '#aaaaaa');
       frame(ctx, rx + 4, ry + 4, cw - 8, ch - 8, '#555555');
-      // Miniature glowing midnight city skyline living inside the chip die cavity!
       const base = ry + ch - 8;
       for (let x = rx + 10; x < rx + cw - 14; x += 9) {
         const th = 16 + Math.floor(hash(x * 19 + 5) * (ch - 36));
@@ -809,27 +1144,63 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
         if (hash(x * 7) > 0.35) rect(ctx, x + 2, base - th + 4, 2, 2, '#ffffff');
         if (hash(x * 13) > 0.5) rect(ctx, x + 2, base - th + 10, 2, 2, '#aaaaaa');
       }
-      // Tiny amber beacon blinking inside the miniature city
-      if (Math.floor(t * 2) % 2 === 0) rect(ctx, cx - 1, ry + 14, 3, 3, '#ffffff');
+      // Central miniature PID-1 amber antenna spire inside the chip cavity
+      rect(ctx, cx - 6, base - (ch - 26), 12, ch - 26, '#555555');
+      rect(ctx, cx - 6, base - (ch - 26), 12, 2, '#aaaaaa');
+      rect(ctx, cx - 1, ry + 10, 2, 16, '#aaaaaa');
+      if (Math.floor(t * 2) % 2 === 0) rect(ctx, cx - 2, ry + 8, 4, 3, '#ffffff');
+      // Miniature elevated monorail zipping across the chip's tiny skyline
+      const mRailY = base - 14;
+      rect(ctx, rx + 8, mRailY, cw - 16, 1, '#aaaaaa');
+      const mTrainX = rx + 10 + Math.floor(mod(t * 26, Math.max(20, cw - 34)));
+      rect(ctx, mTrainX, mRailY - 3, 12, 3, '#ffffff');
       break;
     }
 
     case 'me-minix-kern': {
-      // Full-bleed Radial IPC Star-Hub: central amber microkernel ring + 12 pneumatic message tubes reaching edge-to-edge satellite servers!
-      ring(ctx, cx, cy, 28, '#aaaaaa');
-      ring(ctx, cx, cy, 18, '#ffffff');
-      disc(ctx, cx, cy, 6, '#aaaaaa');
+      // Full-bleed Radial IPC Star-Hub: chunky pneumatic ring-switch hub + 12 satellite servers with distinct tiny server icons (disk, clock, net, tty)!
+      disc(ctx, cx, cy, 32, '#000000');
+      ring(ctx, cx, cy, 32, '#aaaaaa');
+      ring(ctx, cx, cy, 30, '#555555');
+      ring(ctx, cx, cy, 24, '#ffffff');
+      ring(ctx, cx, cy, 22, '#aaaaaa');
+      disc(ctx, cx, cy, 10, '#555555');
+      ring(ctx, cx, cy, 10, '#ffffff');
+      disc(ctx, cx, cy, 4, '#ffffff');
       const rx = Math.min(W * 0.44, 145);
       const ry = Math.min(H * 0.42, 74);
       for (let k = 0; k < 12; k++) {
         const a = (k * TAU) / 12;
-        const ex = cx + Math.cos(a) * rx;
-        const ey = cy + Math.sin(a) * ry;
-        line(ctx, cx + Math.cos(a) * 28, cy + Math.sin(a) * 28, ex, ey, '#555555');
-        rect(ctx, ex - 5, ey - 5, 10, 10, '#555555');
-        frame(ctx, ex - 5, ey - 5, 10, 10, '#aaaaaa');
+        const ex = R(cx + Math.cos(a) * rx);
+        const ey = R(cy + Math.sin(a) * ry);
+        line(ctx, cx + Math.cos(a) * 32, cy + Math.sin(a) * 32, ex, ey, '#555555');
+        rect(ctx, ex - 7, ey - 7, 14, 14, '#000000');
+        frame(ctx, ex - 7, ey - 7, 14, 14, '#aaaaaa');
+        // Distinct tiny server glyph per satellite: disk (0), clock (1), net (2), tty (3)
+        const kind = k % 4;
+        if (kind === 0) {
+          // Disk platter
+          disc(ctx, ex, ey, 4, '#555555');
+          ring(ctx, ex, ey, 4, '#ffffff');
+          px(ctx, ex, ey, '#ffffff');
+        } else if (kind === 1) {
+          // Clock face + hands
+          ring(ctx, ex, ey, 4, '#aaaaaa');
+          rect(ctx, ex, ey - 3, 1, 3, '#ffffff');
+          rect(ctx, ex, ey, 3, 1, '#ffffff');
+        } else if (kind === 2) {
+          // Net packet diamonds
+          rect(ctx, ex - 4, ey, 9, 1, '#aaaaaa');
+          rect(ctx, ex - 2, ey - 2, 5, 5, '#ffffff');
+          rect(ctx, ex - 1, ey - 1, 3, 3, '#000000');
+        } else {
+          // TTY prompt `>_`
+          line(ctx, ex - 4, ey - 2, ex - 1, ey, '#ffffff');
+          line(ctx, ex - 4, ey + 2, ex - 1, ey, '#ffffff');
+          rect(ctx, ex + 1, ey + 2, 3, 1, '#aaaaaa');
+        }
         const q = mod(t * (0.45 + (k % 3) * 0.12) + k * 0.09, 1);
-        rect(ctx, cx + Math.cos(a) * (28 + q * (rx - 30)) - 1, cy + Math.sin(a) * (28 + q * (ry - 30)) - 1, 3, 3, '#ffffff');
+        rect(ctx, cx + Math.cos(a) * (32 + q * (rx - 36)) - 1, cy + Math.sin(a) * (32 + q * (ry - 36)) - 1, 3, 3, '#ffffff');
       }
       break;
     }
@@ -837,78 +1208,128 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
     // -----------------------------------------------------------------------------------------
     // Zone F — Deep Silicon, Lithography & Physics Abyss
     case 'uarch': {
-      // Full-bleed Giant Speculative Execution Pipeline: Fetch/Decode/ROB boxes + huge branching Taken vs flickering Not-Taken ghost path!
-      const forkX = cx - 28;
-      // Pipeline stage boxes along the left half
-      for (let s = 0; s < 3; s++) {
-        const sx = 10 + s * R((forkX - 24) / 3);
-        rect(ctx, sx, cy - 12, 22, 24, '#000000');
-        frame(ctx, sx, cy - 12, 22, 24, '#aaaaaa');
-        rect(ctx, sx + 4, cy - 4, 14, 2, '#555555');
-        rect(ctx, sx + 4, cy + 2, 10, 2, '#555555');
+      // Full-bleed Giant Iconic ALU Chevron (V-notched trapezoid) centerpiece + bold parallel pipeline lanes + flickering mispredict branch!
+      const aluX = cx - 24;
+      // Bold parallel operand pipeline lanes feeding into the ALU's upper and lower jaws
+      for (const dy of [-22, -16, 16, 22]) {
+        rect(ctx, 8, cy + dy, Math.max(12, aluX - 8), 2, Math.abs(dy) === 22 ? '#aaaaaa' : '#555555');
       }
-      rect(ctx, 10, cy - 1, forkX - 10, 2, '#aaaaaa');
-      // Taken branch (upper, bright solid with moving μop pulses)
-      line(ctx, forkX, cy, W - 14, cy - 48, '#aaaaaa');
-      line(ctx, forkX, cy + 2, W - 14, cy - 46, '#555555');
+      // Giant iconic V-notched ALU trapezoid silhouette
+      const aluW = 54;
+      const aluH = 44;
+      for (let i = 0; i < aluW; i++) {
+        const yTop = cy - aluH + Math.floor((i * 18) / aluW);
+        const yBot = cy + aluH - Math.floor((i * 18) / aluW);
+        rect(ctx, aluX + i, yTop, 1, yBot - yTop, '#000000');
+      }
+      // Cut the iconic V-notch on the left edge of the ALU
+      for (let d = 0; d < 14; d++) {
+        rect(ctx, aluX, cy - 14 + d, d, 1, '#000000');
+        rect(ctx, aluX, cy + 14 - d, d, 1, '#000000');
+      }
+      // Bold 2px ALU outline
+      for (let t0 = 0; t0 < 2; t0++) {
+        line(ctx, aluX, cy - aluH + t0, aluX + aluW, cy - 26 + t0, '#ffffff');
+        line(ctx, aluX, cy + aluH - t0, aluX + aluW, cy + 26 - t0, '#ffffff');
+        rect(ctx, aluX + aluW - t0, cy - 26, 1, 52, '#ffffff');
+        rect(ctx, aluX + t0, cy - aluH, 1, 30, '#ffffff');
+        rect(ctx, aluX + t0, cy + 14, 1, 30, '#ffffff');
+        line(ctx, aluX, cy - 14 + t0, aluX + 14, cy + t0, '#aaaaaa');
+        line(ctx, aluX, cy + 14 - t0, aluX + 14, cy - t0, '#aaaaaa');
+      }
+      // Taken branch (upper right, bright solid with moving μop pulses)
+      const outX = aluX + aluW;
+      for (let d = 0; d < 2; d++) line(ctx, outX, cy - 10 + d, W - 18, cy - 48 + d, '#ffffff');
       const uq = mod(t * 0.7, 1);
-      rect(ctx, forkX + (W - 14 - forkX) * uq - 2, cy - 48 * uq - 2, 4, 4, '#ffffff');
-      // Speculative ghost branch (lower, flickers and flushes on mispredict!)
-      const alive = mod(t * 0.42, 1) < 0.7;
+      rect(ctx, outX + (W - 18 - outX) * uq - 2, cy - 10 - 38 * uq - 2, 5, 5, '#ffffff');
+      frame(ctx, W - 44, cy - 58, 30, 20, '#ffffff');
+      rect(ctx, W - 38, cy - 50, 18, 3, '#aaaaaa');
+      // Larger, clearer flickering mispredict ghost branch (lower right)
+      const alive = mod(t * 0.42, 1) < 0.72;
       if (alive) {
-        line(ctx, forkX, cy, W - 14, cy + 48, '#555555');
-        frame(ctx, W - 44, cy + 36, 30, 18, '#555555');
+        for (let s = 0; s < 14; s++) {
+          if (s % 2 === 0) {
+            const q = s / 14;
+            rect(ctx, outX + (W - 44 - outX) * q, cy + 10 + 34 * q, 5, 2, '#aaaaaa');
+          }
+        }
+        frame(ctx, W - 44, cy + 36, 30, 20, '#aaaaaa');
+        line(ctx, W - 40, cy + 40, W - 18, cy + 52, '#555555');
+        line(ctx, W - 18, cy + 40, W - 40, cy + 52, '#555555');
       }
-      frame(ctx, W - 44, cy - 58, 30, 18, '#aaaaaa');
       break;
     }
 
     case 'rtl': {
-      // Full-bleed Screen-Spanning Fractal Clock H-Tree with cascading clock-edge wave pulses!
+      // Full-bleed Thickened Fractal Clock H-Tree + 4 large unmistakable logic gate silhouettes (AND, OR, XOR, NOT) at the major branch junctions!
       const phase = Math.floor(t * 4) % 3;
       const c0 = phase === 0 ? '#ffffff' : '#aaaaaa';
       const c1 = phase === 1 ? '#ffffff' : '#555555';
       const c2 = phase === 2 ? '#ffffff' : '#555555';
-      const sw = W - 44;
-      const sh = Math.max(80, H - 56);
-      // Level 0 central H
-      rect(ctx, cx - R(sw / 2), cy, sw, 2, c0);
-      rect(ctx, cx - R(sw / 2), cy - R(sh / 2), 2, sh, c1);
-      rect(ctx, cx + R(sw / 2) - 2, cy - R(sh / 2), 2, sh, c1);
-      // Level 1 & 2 leaf H's spanning full width
-      for (const [lx, ly] of [
-        [cx - R(sw / 2), cy - R(sh / 2)],
-        [cx + R(sw / 2) - 2, cy - R(sh / 2)],
-        [cx - R(sw / 2), cy + R(sh / 2)],
-        [cx + R(sw / 2) - 2, cy + R(sh / 2)],
-      ] as const) {
-        rect(ctx, lx - 22, ly, 44, 1, c1);
-        rect(ctx, lx - 22, ly - 14, 1, 28, c2);
-        rect(ctx, lx + 22, ly - 14, 1, 28, c2);
-        rect(ctx, lx - 24, ly - 16, 4, 4, c2);
-        rect(ctx, lx + 20, ly - 16, 4, 4, c2);
-        rect(ctx, lx - 24, ly + 12, 4, 4, c2);
-        rect(ctx, lx + 20, ly + 12, 4, 4, c2);
+      const sw = W - 52;
+      const sh = Math.max(82, H - 56);
+      // Thickened Level 0 & 1 central H trunks
+      rect(ctx, cx - R(sw / 2), cy - 1, sw, 3, c0);
+      rect(ctx, cx - R(sw / 2) - 1, cy - R(sh / 2), 3, sh, c1);
+      rect(ctx, cx + R(sw / 2) - 2, cy - R(sh / 2), 3, sh, c1);
+      const drawGate = (gx: number, gy: number, kind: 'and' | 'or' | 'xor' | 'not', col: string) => {
+        rect(ctx, gx - 12, gy - 10, 24, 20, '#000000');
+        if (kind === 'and') {
+          rect(ctx, gx - 10, gy - 9, 2, 18, col);
+          rect(ctx, gx - 10, gy - 9, 10, 2, col);
+          rect(ctx, gx - 10, gy + 7, 10, 2, col);
+          for (let dy = -8; dy <= 8; dy++) {
+            const dx = Math.floor(Math.sqrt(Math.max(0, 64 - dy * dy)));
+            rect(ctx, gx + dx - 1, gy + dy, 2, 1, col);
+          }
+        } else if (kind === 'or' || kind === 'xor') {
+          for (let dy = -8; dy <= 8; dy++) {
+            const curve = Math.floor((dy * dy) / 16);
+            rect(ctx, gx - 10 + curve, gy + dy, 2, 1, col);
+            if (kind === 'xor') rect(ctx, gx - 14 + curve, gy + dy, 2, 1, '#ffffff');
+          }
+          line(ctx, gx - 6, gy - 8, gx + 10, gy, col);
+          line(ctx, gx - 6, gy - 7, gx + 10, gy, col);
+          line(ctx, gx - 6, gy + 8, gx + 10, gy, col);
+          line(ctx, gx - 6, gy + 7, gx + 10, gy, col);
+        } else {
+          // NOT triangle + inversion bubble
+          rect(ctx, gx - 10, gy - 9, 2, 18, col);
+          line(ctx, gx - 8, gy - 8, gx + 6, gy, col);
+          line(ctx, gx - 8, gy - 7, gx + 6, gy, col);
+          line(ctx, gx - 8, gy + 8, gx + 6, gy, col);
+          line(ctx, gx - 8, gy + 7, gx + 6, gy, col);
+          ring(ctx, gx + 10, gy, 3, '#ffffff');
+        }
+      };
+      const corners: [number, number, 'and' | 'or' | 'xor' | 'not'][] = [
+        [cx - R(sw / 2), cy - R(sh / 2), 'and'],
+        [cx + R(sw / 2), cy - R(sh / 2), 'or'],
+        [cx - R(sw / 2), cy + R(sh / 2), 'xor'],
+        [cx + R(sw / 2), cy + R(sh / 2), 'not'],
+      ];
+      for (const [lx, ly, kind] of corners) {
+        rect(ctx, lx - 22, ly - 1, 44, 2, c1);
+        rect(ctx, lx - 22, ly - 14, 2, 28, c2);
+        rect(ctx, lx + 21, ly - 14, 2, 28, c2);
+        drawGate(lx, ly, kind, c0);
       }
-      rect(ctx, cx - 4, cy - 4, 8, 8, '#ffffff');
+      rect(ctx, cx - 5, cy - 5, 10, 10, '#ffffff');
+      rect(ctx, cx - 2, cy - 2, 4, 4, '#000000');
       break;
     }
 
     case 'cmos': {
       // Full-bleed 4-Color Semiconductor Lithography Wafer Mask Cross-Section covering the entire band!
-      // Horizontal teal diffusion wells across full width
       for (let y = top + 16; y < bot - 20; y += 44) {
         rect(ctx, 10, y, W - 20, 20, '#24989c');
       }
-      // Vertical violet polysilicon gate stripes spanning full height
       for (let x = 24; x < W - 20; x += 32) {
         rect(ctx, x, top + 4, 8, H - 8, '#9448d4');
-        // Crisp white contact vias at every well intersection
         for (let y = top + 24; y < bot - 20; y += 44) {
           rect(ctx, x + 2, y, 4, 4, '#ffffff');
         }
       }
-      // Sweeping copper Metal-1 & Metal-2 power/signal buses with live charge pulses
       for (const my of [cy - 18, cy + 16]) {
         rect(ctx, 0, my, W, 10, '#e88438');
         const cxP = mod(t * 44 + my, W);
@@ -918,61 +1339,106 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
     }
 
     case 'litho': {
-      // Full-bleed 13.5nm EUV Fresnel Diffraction Target + silicon diamond crystal lattice + pulsing wavefront ring!
-      // Subtle crystal lattice covering full band
+      // Full-bleed 13.5nm EUV Fresnel Diffraction Target + giant curved EUV condenser mirror arcs focusing beams onto the central reticle!
       for (let y = top + 12; y < bot - 12; y += 20) {
         for (let x = 12 + ((y / 20) % 2) * 10; x < W - 12; x += 20) {
           rect(ctx, x, y, 2, 2, '#555555');
         }
       }
-      // Expanding animated EUV wavefront + static Fresnel interference rings
-      for (const rad of [96, 74, 54, 36, 20]) {
-        ring(ctx, cx, cy, rad, rad <= 36 ? '#aaaaaa' : '#555555');
+      // Giant curved EUV condenser mirror arcs framing left & right edges + focused beam rays
+      const arcR = Math.min(82, R(H * 0.42));
+      for (let dy = -arcR; dy <= arcR; dy += 2) {
+        const bend = Math.floor((dy * dy) / (arcR * 2.2));
+        rect(ctx, 10 + bend, cy + dy, 5, 2, '#aaaaaa');
+        rect(ctx, 15 + bend, cy + dy, 2, 2, '#ffffff');
+        rect(ctx, W - 15 - bend, cy + dy, 5, 2, '#aaaaaa');
+        rect(ctx, W - 17 - bend, cy + dy, 2, 2, '#ffffff');
       }
-      const waveR = 12 + Math.floor(mod(t * 28, 92));
+      for (const dy of [-arcR + 12, 0, arcR - 12]) {
+        line(ctx, 20, cy + dy, cx, cy, '#555555');
+        line(ctx, W - 20, cy + dy, cx, cy, '#555555');
+      }
+      // Expanding animated EUV wavefront + static Fresnel interference rings
+      for (const rad of [92, 70, 50, 34, 18]) {
+        ring(ctx, cx, cy, rad, rad <= 34 ? '#aaaaaa' : '#555555');
+      }
+      const waveR = 12 + Math.floor(mod(t * 28, 88));
       ring(ctx, cx, cy, waveR, '#ffffff');
       disc(ctx, cx, cy, 4, '#ffffff');
-      // Full-width & full-height EUV reticle alignment crosshairs
       rect(ctx, cx, top + 4, 1, H - 8, '#555555');
       rect(ctx, 8, cy, W - 16, 1, '#555555');
       break;
     }
 
     case 'bandgap': {
-      // Full-bleed Twin Energy-Band Horizon (Conduction top, Valence bottom) + central quantum barrier wall + multiple tunneling wave packets!
-      // Conduction band strata (top)
+      // Full-bleed Twin Energy-Band Horizon + tall bold quantum potential barrier + evanescent exponential decay wave tunneling into bright electron orbs!
       rect(ctx, 0, top + 8, W, 24, '#555555');
       rect(ctx, 0, top + 32, W, 2, '#aaaaaa');
-      // Valence band strata (bottom)
       rect(ctx, 0, bot - 32, W, 24, '#555555');
       rect(ctx, 0, bot - 34, W, 2, '#aaaaaa');
-      // Faint probability wave curves spanning full width
-      for (let x = 0; x < W; x += 3) {
-        const wy = cy + R(Math.sin(x * 0.08 - t * 2.2) * 16);
-        px(ctx, x, wy, '#555555');
+      // Tall, bold central quantum potential barrier wall spanning the forbidden gap
+      const bw = 22;
+      const bTop = top + 28;
+      const bH = Math.max(30, bot - 56 - top);
+      rect(ctx, cx - R(bw / 2), bTop, bw, bH, '#555555');
+      frame(ctx, cx - R(bw / 2), bTop, bw, bH, '#ffffff');
+      for (let hy = bTop + 6; hy < bTop + bH - 4; hy += 8) {
+        rect(ctx, cx - R(bw / 2) + 3, hy, bw - 6, 1, '#aaaaaa');
       }
-      // Central translucent potential barrier wall spanning the forbidden gap
-      rect(ctx, cx - 5, top + 34, 10, Math.max(20, bot - 68 - top), '#555555');
-      frame(ctx, cx - 5, top + 34, 10, Math.max(20, bot - 68 - top), '#aaaaaa');
-      // Two wave packets tunneling straight through the barrier
+      // Incident wave (left, large amplitude) -> evanescent exponential decay inside barrier -> transmitted wave (right, smaller amplitude)
+      for (let x = 4; x < W - 4; x += 2) {
+        let amp = 18;
+        if (x >= cx - R(bw / 2) && x <= cx + R(bw / 2)) {
+          const frac = (x - (cx - R(bw / 2))) / bw;
+          amp = 18 * Math.exp(-frac * 1.9);
+        } else if (x > cx + R(bw / 2)) {
+          amp = 5;
+        }
+        const wy = cy + R(Math.sin(x * 0.1 - t * 2.8) * amp);
+        rect(ctx, x, wy, 2, 2, x > cx + R(bw / 2) ? '#ffffff' : '#aaaaaa');
+      }
+      // Bright tunneled electron orbs emerging on the far right side of the barrier
       for (let k = 0; k < 2; k++) {
-        const q = mod(t * (0.32 + k * 0.14) + k * 0.5, 1);
-        const wx = R(q * W);
-        const wy = cy + (k === 0 ? -14 : 14);
-        rect(ctx, wx - 5, wy - 1, 10, 2, wx > cx ? '#ffffff' : '#aaaaaa');
+        const q = mod(t * (0.34 + k * 0.12) + k * 0.5, 1);
+        const ex = cx + R(bw / 2) + 8 + R(q * (W - (cx + R(bw / 2) + 20)));
+        const ey = cy + (k === 0 ? -12 : 12);
+        disc(ctx, ex, ey, 3, '#ffffff');
+        ring(ctx, ex, ey, 5, '#aaaaaa');
       }
       break;
     }
 
     case 'landauer': {
-      // Full-bleed Thermodynamic Event Horizon: vast void + enormous multi-ring entropy horizon + rare full-screen diagonal cosmic-ray bit flips!
+      // Full-bleed Thermodynamic Event Horizon + lone glowing bit (0/1) dissolving into expanding kT ln 2 heat-dissipation ripples!
       const base = bot - 10;
       for (const rad of [150, 118, 86, 56]) {
         ring(ctx, cx, base + 56, rad, rad <= 86 ? '#aaaaaa' : '#555555');
       }
-      // Slow breathing entropy pulse ring expanding from horizon
       const er = 48 + Math.floor(mod(t * 16, 110));
       ring(ctx, cx, base + 56, er, '#555555');
+      // Lone glowing bit (0 or 1) hovering above the event horizon, periodically dissolving into expanding heat ripples
+      const cycle = mod(t * 0.28, 1);
+      const bitY = cy - 18;
+      if (cycle < 0.65) {
+        const isOne = Math.floor(t * 0.28) % 2 === 1;
+        if (isOne) {
+          rect(ctx, cx - 2, bitY - 9, 4, 18, '#ffffff');
+          rect(ctx, cx - 5, bitY - 6, 3, 2, '#ffffff');
+          rect(ctx, cx - 6, bitY + 7, 12, 2, '#ffffff');
+        } else {
+          frame(ctx, cx - 6, bitY - 9, 12, 18, '#ffffff');
+          frame(ctx, cx - 5, bitY - 8, 10, 16, '#ffffff');
+        }
+      } else {
+        // Erasing bit -> expanding kT ln 2 thermal dissipation ripples
+        const q = (cycle - 0.65) / 0.35;
+        ring(ctx, cx, bitY, 6 + R(q * 36), '#ffffff');
+        ring(ctx, cx, bitY, 3 + R(q * 22), '#aaaaaa');
+        for (let k = 0; k < 8; k++) {
+          const a = (k * TAU) / 8 + q * 0.4;
+          rect(ctx, cx + Math.cos(a) * (8 + q * 32), bitY + Math.sin(a) * (8 + q * 32), 2, 2, '#ffffff');
+        }
+      }
       // Rare dramatic diagonal cosmic-ray track slicing across the abyss
       const slot = Math.floor(t * 0.55);
       if (t > 0 && hash(slot * 47 + 3) > 0.58) {
