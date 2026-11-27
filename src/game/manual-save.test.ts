@@ -106,4 +106,17 @@ describe('Field Manual save v2', () => {
     expect(store.log('lock-ness', 'userspace').isNewEntry).toBe(true);
     expect(store.isFound('lock-ness')).toBe(true);
   });
+
+  it('remembers reached layers (sealed chapters), and logging something in a layer counts as reaching it', () => {
+    const s = mem();
+    const a = new ManualStore(s, { now: () => NOW, migrateV1: false });
+    expect(a.hasReached('application')).toBe(true);
+    expect(a.hasReached('kernel')).toBe(false);
+    a.noteReached('kernel');
+    a.log('lock-ness', 'firmware');
+    const b = new ManualStore(s, { now: () => NOW, migrateV1: false });
+    expect(b.hasReached('kernel')).toBe(true);
+    expect(b.hasReached('firmware')).toBe(true);
+    expect(b.hasReached('ring-2')).toBe(false);
+  });
 });

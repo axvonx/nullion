@@ -24,6 +24,8 @@ export interface ManualSaveV2 {
   seen: Record<string, Record<string, Stamp>>;
   /** `${entryId}|${layer}` of each stamp not yet viewed. */
   wet: string[];
+  /** Layers the player's cursor has reached, ever: their chapters are unsealed. Absent in saves before 2026-11-27. */
+  reached?: string[];
 }
 
 export class InvalidManualSave extends Error {}
@@ -54,7 +56,9 @@ export function parseV2(raw: string): ManualSaveV2 {
       seen[id]![layer] = { at: st.at as number | null, puzzle: st.puzzle as number | null, ...(st.prompt !== undefined ? { prompt: st.prompt as string } : {}) };
     }
   }
-  return { v: 2, seen, wet: o.wet as string[] };
+  if (o.reached !== undefined && (!Array.isArray(o.reached) || !o.reached.every((w) => typeof w === 'string')))
+    throw new InvalidManualSave(`"reached" is not a list of strings`);
+  return { v: 2, seen, wet: o.wet as string[], ...(o.reached ? { reached: o.reached as string[] } : {}) };
 }
 
 /** v1 kept only which layers were found and which entries were unread. Unread entries' stamps all start wet. */
@@ -93,5 +97,5 @@ export function prune(save: ManualSaveV2, valid: (entryId: string, layer: string
     const [id, layer] = w.split('|') as [string, string | undefined];
     return layer !== undefined && seen[id]?.[layer] !== undefined;
   });
-  return { save: { v: 2, seen, wet }, dropped };
+  return { save: { v: 2, seen, wet, ...(save.reached ? { reached: save.reached } : {}) }, dropped };
 }

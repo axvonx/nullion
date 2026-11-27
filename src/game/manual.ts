@@ -54,6 +54,10 @@ export interface ManualEntry {
   note: string;
   /** Ordered highest (shallowest) layer first. */
   sightings: readonly ManualSighting[];
+  /** The BUGS section: one dry line. */
+  bugs?: string;
+  /** SEE ALSO: other entry ids. */
+  seeAlso?: readonly string[];
 }
 
 export const MANUAL_ENTRIES: readonly ManualEntry[] = [
@@ -548,6 +552,7 @@ const wetKey = (entryId: string, layer: LayerId) => `${entryId}|${layer}`;
 export class ManualStore {
   private found = new Map<string, Map<LayerId, Stamp>>();
   private wet = new Set<string>();
+  private reached = new Set<LayerId>();
   private debugUnlockAll = false;
   private listeners = new Set<() => void>();
   private context: () => SightingContext = () => ({ puzzle: null });
@@ -586,6 +591,7 @@ export class ManualStore {
     if (dropped.length) this.loadNotice = `Some Field Manual pages no longer exist and were removed: ${dropped.join(', ')}.`;
     for (const [id, layers] of Object.entries(clean.seen)) this.found.set(id, new Map(Object.entries(layers) as [LayerId, Stamp][]));
     for (const w of clean.wet) this.wet.add(w);
+    for (const l of clean.reached ?? []) if (LAYER_ORDER.has(l as LayerId)) this.reached.add(l as LayerId);
     if (v1 !== null || dropped.length) {
       this.save();
       if (v1 !== null) this.remove(MANUAL_V1_KEY);
@@ -606,6 +612,7 @@ export class ManualStore {
       v: 2,
       seen: Object.fromEntries([...this.found].map(([id, layers]) => [id, Object.fromEntries(layers)])),
       wet: [...this.wet],
+      reached: [...this.reached],
     };
     try {
       this.storage.setItem(MANUAL_V2_KEY, JSON.stringify(obj));
@@ -646,6 +653,7 @@ export class ManualStore {
       this.found.set(entryId, layers);
     }
     const isNewLayer = !layers.has(layer);
+    this.noteReached(layer);
     if (isNewLayer) {
       const c = this.context();
       layers.set(layer, { at: this.opts.now(), puzzle: c.puzzle, ...(c.prompt ? { prompt: c.prompt } : {}) });
@@ -654,6 +662,19 @@ export class ManualStore {
       this.emit();
     }
     return { isNewEntry, isNewLayer };
+  }
+
+  /** The cursor reached `layer` (or something there was logged): its chapter unseals for good. */
+  noteReached(layer: LayerId) {
+    if (this.reached.has(layer)) return;
+    this.reached.add(layer);
+    this.save();
+    this.emit();
+  }
+
+  /** Whether `layer`'s chapter is unsealed. The first layer of every stack is where play starts. */
+  hasReached(layer: LayerId): boolean {
+    return this.debugUnlockAll || layer === 'application' || layer === 'internet' || this.reached.has(layer);
   }
 
   /** The stamp for an appearance's first sighting, if it has been seen. */
@@ -738,6 +759,7 @@ export class ManualStore {
   reset() {
     this.found.clear();
     this.wet.clear();
+    this.reached.clear();
     this.debugUnlockAll = false;
     this.save();
     this.emit();

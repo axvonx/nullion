@@ -273,6 +273,20 @@ export class CritterSystem {
   private lastGlobalCall = -Infinity;
   private nextCallGap = 1.4;
 
+  /**
+   * Draw one critter, standing still, with its feet near (x, y): the Field Manual's plates. `alt` picks the layer's
+   * alternate species (a layer without one throws). Leaves CRITTER_SPOTS (the scene's click targets) untouched.
+   */
+  portrait(ctx: CanvasRenderingContext2D, layerId: LayerId, alt: boolean, x: number, y: number, t = 0) {
+    enforce(!alt || ALT_SPECIES_MOTIONS[layerId], `critter portrait: ${layerId} has no alternate species`);
+    this.ensureSeed(this.seed < 0 ? 1 : this.seed);
+    const c = this.byLayer.get(layerId)?.find((s) => isAltSpecies(layerId, s.variant) === alt);
+    enforce(c, `critter portrait: no ${alt ? 'alternate' : 'core'} critter state for ${layerId}`);
+    const spots = CRITTER_SPOTS.length;
+    this.drawCritter(ctx, layerId, c, x, y, 1, t, (h) => h, false, ctx.canvas.width, 0, false);
+    CRITTER_SPOTS.length = spots;
+  }
+
   ensureSeed(seed: number) {
     if (seed === this.seed && this.byLayer.size > 0) return;
     this.seed = seed;

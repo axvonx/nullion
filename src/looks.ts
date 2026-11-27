@@ -1,4 +1,5 @@
 import { persisted } from './store';
+import { DEBUG } from './keys';
 import { prefs } from './prefs';
 
 /**
@@ -16,6 +17,12 @@ export const LOOK_SLOTS = {
     label: 'Layer names',
     options: { watermark: 'Watermark in the world', card: 'Entrance card (old)' },
     default: 'watermark',
+  },
+  manual: {
+    label: 'Field Manual',
+    options: { binder: 'Archive binder (new)', modal: 'Card grid (v1)' },
+    // The binder is being built in debug builds first (FIELD-MANUAL-PLAN.md); production keeps the card grid until it's done.
+    default: (DEBUG ? 'binder' : 'modal') as 'binder' | 'modal',
   },
   layerStack: {
     label: 'RHS layer stack',

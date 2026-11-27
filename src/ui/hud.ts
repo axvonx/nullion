@@ -15,6 +15,7 @@ import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
 import { LayerStack, createLayerBadge } from './layer-stack';
 import { FieldManualModal, manualBookIcon } from './manual-modal';
+import { FieldManualBinder } from './binder/binder';
 import { manualStore } from '../game/manual';
 import { sound } from '../audio/sound';
 import { bankAcceptsFor } from '../data/bank';
@@ -149,6 +150,7 @@ export class Hud {
   private titleLogo: TitleLogo;
   private layerStack: LayerStack;
   private manual: FieldManualModal;
+  private binder: FieldManualBinder;
   private titleOpen = false;
   private titleTimer = 0;
   private topicKey = '';
@@ -236,10 +238,11 @@ export class Hud {
     this.layerStack = new LayerStack((id) => sound.stackCrunch(id), LAYER_BLURBS);
     mount.append(this.layerStack.el);
     this.manual = new FieldManualModal(mount);
+    this.binder = new FieldManualBinder(document.body, LAYER_BLURBS); // above the HUD's stacking context (and the debug rail)
     this.els.titleManualBtn!.prepend(manualBookIcon(13));
     this.els.manualEndBtn!.prepend(manualBookIcon(22));
-    this.els.titleManualBtn!.addEventListener('click', () => this.manual.open());
-    this.els.manualEndBtn!.addEventListener('click', () => this.manual.open());
+    this.els.titleManualBtn!.addEventListener('click', () => this.openManual());
+    this.els.manualEndBtn!.addEventListener('click', () => this.openManual());
     const syncManualBadges = () => {
       const unread = manualStore.unreadCount();
       const found = manualStore.foundCount();
@@ -943,6 +946,7 @@ export class Hud {
     const stack = layersFor(mode);
     const crossed = stack.slice(this.committedLayerIdx + 1, targetIdx + 1);
     this.committedLayerIdx = targetIdx;
+    for (const l of crossed) manualStore.noteReached(l.id); // unseals their Field Manual chapters
 
     const list = this.els.rvReachedList!;
     list.replaceChildren();
@@ -1415,7 +1419,8 @@ export class Hud {
 
   /** Open the Field Manual modal (used by the title/end-of-day buttons and the debug rail). */
   openManual(entryId?: string) {
-    this.manual.open(entryId);
+    if (look('manual') === 'binder') this.binder.open(entryId);
+    else this.manual.open(entryId);
   }
 
   /** Show a prompt in the console without a running round, even in scroll mode. */

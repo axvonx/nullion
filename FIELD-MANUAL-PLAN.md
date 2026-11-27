@@ -146,5 +146,25 @@ Decisions from the design session on 2026-11-26 (the working page was `.lavish/f
    - `ManualStore` stamps `{ at, puzzle, prompt? }` and tracks wet stamps.
    - `main.ts` supplies the context and shows load notices.
    - Tests: `src/game/manual-save.test.ts`.
-3. The binder UI, replacing `manual-modal.ts`, behind a `LOOK_SLOTS` switch until it's ready.
+3. **The binder UI. First cut done 2026-11-27.**
+   - `src/ui/binder/` (binder.ts and binder.css), laid out by the pure book model in `src/game/manual-book.ts`
+     (tested in `manual-book.test.ts`).
+   - It sits behind `LOOK_SLOTS.manual`, which defaults to the binder in debug builds and to the card grid in
+     production.
+   - Done:
+     - front matter, contents and chapter dividers (sealed by reached layers: `ManualStore.noteReached` is called
+       from the HUD's REACHED badges and from logging);
+     - chapter lists with cross-listed stubs;
+     - entry spreads with animated real-sprite plates (critters via `CritterSystem.portrait`), the figure strip and
+       pencilled rarity under the figures;
+     - man-page text, the HABITAT bar and BEHAVIOR;
+     - date stamps that stay wet until viewed and thunk on first view;
+     - locked and sealed pages;
+     - the permuted index with search;
+     - stepped open, turn and riffle motion; remembering the last page; one leaf at a time on phones.
+   - Still to do:
+     - BUGS and SEE ALSO content (the fields exist and are rendered when set);
+     - the flight of a logged sprite into the book icon;
+     - the Endless toggle;
+     - retiring `manual-modal.ts` once the binder becomes the production default.
 4. Entry content: hand-written against the style guide.
