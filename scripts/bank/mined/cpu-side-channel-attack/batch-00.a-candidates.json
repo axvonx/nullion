@@ -1,0 +1,119 @@
+{
+  "cpu-side-channel-attack": [
+    {
+      "name": "Spectre",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "spectre",
+      "why": "canonical speculative execution side-channel attack"
+    },
+    {
+      "name": "L1 Terminal Fault",
+      "aliases": [
+        "L1TF",
+        "Foreshadow"
+      ],
+      "judge": "leak",
+      "evidence": "l1tf",
+      "why": "named Intel L1 cache speculative side-channel attack"
+    },
+    {
+      "name": "Microarchitectural Data Sampling",
+      "aliases": [
+        "MDS"
+      ],
+      "judge": "leak",
+      "evidence": "mds",
+      "why": "named CPU microarchitectural buffer side-channel class"
+    },
+    {
+      "name": "Gather Data Sampling",
+      "aliases": [
+        "Downfall",
+        "GDS",
+        "gather_data_sampling"
+      ],
+      "judge": "race",
+      "evidence": "gather_data_sampling",
+      "why": "named Intel vector gather transient execution attack"
+    },
+    {
+      "name": "TSX Async Abort",
+      "aliases": [
+        "TAA",
+        "tsx_async_abort"
+      ],
+      "judge": "race",
+      "evidence": "tsx_async_abort",
+      "why": "named Intel TSX asynchronous abort side-channel attack"
+    },
+    {
+      "name": "Special Register Buffer Data Sampling",
+      "aliases": [
+        "SRBDS",
+        "CrossTalk",
+        "special-register-buffer-data-sampling"
+      ],
+      "judge": "race",
+      "evidence": "special-register-buffer-data-sampling",
+      "why": "named cross-core staging buffer side-channel attack"
+    },
+    {
+      "name": "Speculative Return Stack Overflow",
+      "aliases": [
+        "SRSO",
+        "Inception"
+      ],
+      "judge": "race",
+      "evidence": "srso",
+      "why": "named AMD return stack speculative execution attack"
+    },
+    {
+      "name": "Processor MMIO Stale Data",
+      "aliases": [
+        "MMIO Stale Data",
+        "processor_mmio_stale_data"
+      ],
+      "judge": "race",
+      "evidence": "processor_mmio_stale_data",
+      "why": "named MMIO fill buffer stale data side-channel disclosure"
+    },
+    {
+      "name": "Register File Data Sampling",
+      "aliases": [
+        "RFDS",
+        "reg-file-data-sampling"
+      ],
+      "judge": "race",
+      "evidence": "reg-file-data-sampling",
+      "why": "named Intel Atom register file transient execution attack"
+    },
+    {
+      "name": "Indirect Target Selection",
+      "aliases": [
+        "ITS",
+        "indirect-target-selection"
+      ],
+      "judge": "race",
+      "evidence": "indirect-target-selection",
+      "why": "named branch predictor indirect target side-channel attack"
+    },
+    {
+      "name": "VMSCAPE",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "vmscape",
+      "why": "named cross-VM branch predictor speculative side-channel attack"
+    }
+  ],
+  "womm_candidates": [
+    "L1 Terminal Fault",
+    "Microarchitectural Data Sampling",
+    "Gather Data Sampling"
+  ],
+  "bitflip_candidates": [
+    "VMSCAPE",
+    "Indirect Target Selection",
+    "Register File Data Sampling"
+  ]
+}

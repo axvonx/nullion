@@ -1,0 +1,421 @@
+## source: llvm/llvm-project/llvm/lib/Transforms/Scalar (file names)
+ADCE
+AlignmentFromAssumptions
+AnnotationRemarks
+BDCE
+CMakeLists
+CallSiteSplitting
+ConstantHoisting
+ConstraintElimination
+CorrelatedValuePropagation
+DCE
+DFAJumpThreading
+DeadStoreElimination
+DivRemPairs
+DropUnnecessaryAssumes
+EarlyCSE
+ExpandMemCmp
+FlattenCFGPass
+Float2Int
+GVN
+GVNHoist
+GVNSink
+GuardWidening
+IVUsersPrinter
+IndVarSimplify
+InductiveRangeCheckElimination
+InferAddressSpaces
+InferAlignment
+InstSimplifyPass
+JumpTableToSwitch
+JumpThreading
+LICM
+LogicalSROA
+LoopAccessAnalysisPrinter
+LoopBoundSplit
+LoopDataPrefetch
+LoopDeletion
+LoopDistribute
+LoopFlatten
+LoopFuse
+LoopIdiomRecognize
+LoopInstSimplify
+LoopInterchange
+LoopLoadElimination
+LoopPassManager
+LoopPredication
+LoopRotation
+LoopSimplifyCFG
+LoopSink
+LoopStrengthReduce
+LoopTermFold
+LoopUnrollAndJamPass
+LoopUnrollPass
+LoopVersioningLICM
+LowerAtomicPass
+LowerConstantIntrinsics
+LowerExpectIntrinsic
+LowerGuardIntrinsic
+LowerMatrixIntrinsics
+LowerWidenableCondition
+MakeGuardsExplicit
+MemCpyOptimizer
+MergeICmps
+MergedLoadStoreMotion
+NaryReassociate
+NewGVN
+PartiallyInlineLibCalls
+PlaceSafepoints
+Reassociate
+Reg2Mem
+RewriteStatepointsForGC
+SCCP
+SROA
+Scalar
+ScalarOptions
+ScalarizeMaskedMemIntrin
+Scalarizer
+SeparateConstOffsetFromGEP
+SimpleLoopUnswitch
+SimplifyCFGPass
+Sink
+SpeculativeExecution
+StraightLineStrengthReduce
+StructurizeCFG
+TailRecursionElimination
+WarnMissedTransforms
+## source: llvm/llvm-project/llvm/lib/Transforms/IPO (file names)
+AlwaysInliner
+Annotation2Metadata
+ArgumentPromotion
+Attributor
+AttributorAttributes
+BarrierNoopPass
+BlockExtractor
+CMakeLists
+CalledValuePropagation
+ConstantMerge
+CrossDSOCFI
+DeadArgumentElimination
+ElimAvailExtern
+EmbedBitcodePass
+ExpandVariadics
+ExtractGV
+FatLTOCleanup
+ForceFunctionAttrs
+FunctionAttrs
+FunctionImport
+FunctionSpecialization
+GlobalDCE
+GlobalOpt
+GlobalSplit
+HotColdSplitting
+IPO
+IPOOptions
+InferFunctionAttrs
+Inliner
+Instrumentor
+InstrumentorConfigFile
+InstrumentorStubPrinter
+InstrumentorUtils
+Internalize
+LowerTypeTests
+MemProfContextDisambiguation
+MergeFunctions
+ModuleInliner
+OpenMPOpt
+PartialInlining
+SCCP
+SampleContextTracker
+SampleProfile
+SampleProfileMatcher
+SampleProfileProbe
+StripDeadPrototypes
+StripSymbols
+ThinLTOBitcodeWriter
+WholeProgramDevirt
+## source: llvm/llvm-project/llvm/lib/Transforms/Vectorize (file names)
+CMakeLists
+LoadStoreVectorizer
+LoopIdiomVectorize
+LoopVectorizationLegality
+LoopVectorizationPlanner
+LoopVectorize
+SLPVectorizer
+VPRecipeBuilder
+VPlan
+VPlanAnalysis
+VPlanCFG
+VPlanConstruction
+VPlanDominatorTree
+VPlanEVLTailFolding
+VPlanHelpers
+VPlanLowering
+VPlanPatternMatch
+VPlanPredicator
+VPlanRecipes
+VPlanTransforms
+VPlanUnroll
+VPlanUtils
+VPlanValue
+VPlanVerifier
+VectorCombine
+Vectorize
+VectorizeOptions
+## source: llvm/llvm-project/llvm/lib/Transforms/Utils (file names)
+AMDGPUEmitPrintf
+ASanStackFrameLayout
+AddDiscriminators
+AssignGUID
+AssumeBundleBuilder
+BasicBlockUtils
+BreakCriticalEdges
+BuildLibCalls
+BypassSlowDivision
+CMakeLists
+CallGraphUpdater
+CallPromotionUtils
+CanonicalizeAliases
+CanonicalizeFreezeInLoops
+CloneFunction
+CloneModule
+CodeExtractor
+CodeLayout
+CodeMoverUtils
+ControlFlowUtils
+CountVisits
+CtorUtils
+DXILUpgrade
+DebugSSAUpdater
+Debugify
+DeclareRuntimeLibcalls
+DemoteRegToStack
+DynamicDebugging
+EntryExitInstrumenter
+EscapeEnumerator
+Evaluator
+FixIrreducible
+FlattenCFG
+FunctionComparator
+FunctionImportUtils
+GlobalStatus
+GuardUtils
+HelloWorld
+IRNormalizer
+InjectTLIMappings
+InlineFunction
+InstructionNamer
+Instrumentation
+IntegerDivision
+KCFIHash
+LCSSA
+LibCallsShrinkWrap
+Local
+LoopConstrainer
+LoopPeel
+LoopRotationUtils
+LoopSimplify
+LoopUnroll
+LoopUnrollAndJam
+LoopUnrollRuntime
+LoopUtils
+LoopVersioning
+LowerAtomic
+LowerCommentStringPass
+LowerGlobalDtors
+LowerIFunc
+LowerInvoke
+LowerMemIntrinsics
+LowerSwitch
+LowerVectorIntrinsics
+MatrixUtils
+Mem2Reg
+MemoryOpRemark
+MemoryTaggingSupport
+MetaRenamer
+MisExpect
+ModuleUtils
+MoveAutoInit
+NameAnonGlobals
+PredicateInfo
+ProfileVerify
+PromoteMemoryToRegister
+RelLookupTableConverter
+SCCPSolver
+SSAUpdater
+SSAUpdaterBulk
+SampleProfileInference
+SampleProfileLoaderBaseUtil
+SanitizerStats
+ScalarEvolutionExpander
+SimplifyCFG
+SimplifyIndVar
+SimplifyLibCalls
+SizeOpts
+SplitModule
+SplitModuleByCategory
+StripConvergenceIntrinsics
+StripGCRelocates
+StripNonLineTableDebugInfo
+SymbolRewriter
+UnifyLoopExits
+Utils
+VNCoercion
+ValueMapper
+## source: llvm/llvm-project/llvm/lib/Transforms/InstCombine (file names)
+CMakeLists
+InstCombineAddSub
+InstCombineAndOrXor
+InstCombineAtomicRMW
+InstCombineCLOptions
+InstCombineCalls
+InstCombineCasts
+InstCombineCompares
+InstCombineInternal
+InstCombineLoadStoreAlloca
+InstCombineMulDivRem
+InstCombineNegator
+InstCombinePHI
+InstCombineSelect
+InstCombineShifts
+InstCombineSimplifyDemanded
+InstCombineSimplifyDemandedFP
+InstCombineVectorOps
+InstructionCombining
+## source: src/llvm (head nouns: elimination, propagation, inlining, unrolling, hoisting, vectorization, optimization)
+     9  loop unrolling
+     9  interprocedural optimization
+     9  compiler optimization
+     8  constant propagation
+     8  code elimination
+     8  default optimization
+     7  time optimization
+     7  perform optimization
+     6  link-time optimization
+     6  profile-guided optimization
+     6  loop optimization
+     6  link time optimization
+     5  tail call optimization
+     5  call optimization
+     5  llvm optimization
+     5  loop vectorization
+     5  guided optimization
+     5  code optimization
+     5  ir optimization
+     5  enable optimization
+     5  disable optimization
+     4  important optimization
+     4  set optimization
+     4  profile guided optimization
+     4  conditional constant propagation
+     4  store elimination
+     4  dead store elimination
+     4  aggressive optimization
+     4  through optimization
+     4  memory optimization
+     4  missed optimization
+     4  various optimization
+     4  many optimization
+     3  program optimization
+     3  peephole optimization
+     3  better optimization
+     3  partial unrolling
+     3  epilogue vectorization
+     3  subsequent optimization
+     3  generation optimization
+     3  inter-procedural optimization
+     3  result optimization
+     3  during optimization
+     3  transformations optimization
+     3  significant optimization
+     3  standard optimization
+     3  prevent optimization
+     3  profile-guided memory optimization
+     3  support optimization
+     3  useful optimization
+     3  make optimization
+     3  function inlining
+     3  how optimization
+     3  enables optimization
+     3  stop propagation
+     3  what optimization
+     3  full unrolling
+     3  higher optimization
+     3  analysis optimization
+     3  based optimization
+     3  linker optimization
+     2  scalable vectorization
+     2  global optimization
+     2  allow inlining
+     2  class optimization
+     2  unsafe optimization
+     2  allowing optimization
+     2  inhibits optimization
+     2  build optimization
+     2  different optimization
+     2  modular vectorization
+     2  enables vectorization
+     2  slp vectorization
+     2  building modular vectorization
+     2  during vectorization
+     2  implicitly enables vectorization
+     2  copy propagation
+     2  due inlining
+     2  common subexpression elimination
+     2  subexpression elimination
+     2  direct optimization
+     2  likely optimization
+     2  architectures optimization
+     2  due optimization
+     2  certain optimization
+     2  memcpy optimization
+     2  LinkTimeOptimization
+     2  tail call elimination
+     2  call elimination
+     2  instruction elimination
+     2  argument elimination
+     2  global elimination
+     2  dead argument elimination
+     2  dead global elimination
+     2  guide optimization
+     2  information optimization
+     2  list optimization
+     2  analyses optimization
+     2  high-level optimization
+     2  allow optimization
+     2  machine code optimization
+     2  ssa-based optimization
+     2  affect optimization
+     2  just optimization
+     2  debug optimization
+     2  scalar optimization
+     2  variety optimization
+     2  future optimization
+     2  late optimization
+     2  mid-level optimization
+     2  during epilogue vectorization
+     2  runtime unrolling
+     2  precise optimization
+     2  enabling optimization
+     2  trivial optimization
+     2  four optimization
+     2  add four optimization
+     2  value propagation
+     2  most optimization
+     2  runtime loop unrolling
+     2  inhibit optimization
+     2  like inlining
+     2  additional optimization
+     2  level optimization
+     2  fast-math optimization
+     2  performing optimization
+     2  ssa based optimization
+     2  jump optimization
+     2  runtime optimization
+     2  machine-independent optimization
+     2  run optimization
+     2  add optimization
+     2  generated optimization
+     2  enable-no-nans-fp-math enable optimization
+     2  enable-no-infs-fp-math enable optimization
+     2  disable-excess-fp-precision disable optimization

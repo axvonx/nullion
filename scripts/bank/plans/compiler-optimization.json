@@ -1,0 +1,45 @@
+{
+ "listings": [
+  {
+   "repo": "llvm/llvm-project",
+   "path": "llvm/lib/Transforms/Scalar",
+   "type": "file"
+  },
+  {
+   "repo": "llvm/llvm-project",
+   "path": "llvm/lib/Transforms/IPO",
+   "type": "file"
+  },
+  {
+   "repo": "llvm/llvm-project",
+   "path": "llvm/lib/Transforms/Vectorize",
+   "type": "file"
+  },
+  {
+   "repo": "llvm/llvm-project",
+   "path": "llvm/lib/Transforms/Utils",
+   "type": "file"
+  },
+  {
+   "repo": "llvm/llvm-project",
+   "path": "llvm/lib/Transforms/InstCombine",
+   "type": "file"
+  }
+ ],
+ "heads": [
+  "elimination",
+  "propagation",
+  "inlining",
+  "unrolling",
+  "hoisting",
+  "vectorization",
+  "optimization"
+ ],
+ "trees": [
+  "src/llvm"
+ ],
+ "context": [
+  "compiler",
+  "optimization"
+ ]
+}

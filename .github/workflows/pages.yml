@@ -1,6 +1,7 @@
-# Deploys the DEBUG build (🐞 menu, debug rail) to GitHub Pages on every push to master,
-# so progress can be checked on other devices. Typecheck and tests gate the deploy.
-name: Deploy demo to Pages
+# Deploys to GitHub Pages on every push to master: the production build at the site root, and the
+# debug build (🐞 menu, debug rail) under /debug/ for testing on other devices. Typecheck, tests and a
+# check that no debug code leaked into the production build gate the deploy.
+name: Deploy to Pages
 
 on:
   push:
@@ -28,10 +29,17 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
-      - run: npm run build:debug
+      - run: npm run build
+      - name: Production build carries no debug code
+        run: |
+          if grep -rqE "dbg-rail|Play a sample day" dist/; then
+            echo "::error::debug code leaked into the production build"; exit 1
+          fi
+      - name: Debug build under /debug/
+        run: VITE_DEBUG=1 npx vite build --outDir dist/debug
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist-debug
+          path: dist
 
   deploy:
     needs: build
