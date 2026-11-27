@@ -350,8 +350,8 @@ export class FieldManualBinder {
       }
     }
     this.live.clear();
-    this.leaves[0].replaceChildren(...this.leaf(s.left, s.folios[0]));
-    this.leaves[1].replaceChildren(...this.leaf(s.right, s.folios[1]));
+    this.leaves[0].replaceChildren(...this.leaf(s.left, s.folios[0], 'l'));
+    this.leaves[1].replaceChildren(...this.leaf(s.right, s.folios[1], 'r'));
     this.renderTabs(s);
     this.el.querySelector<HTMLButtonElement>('[data-bd="prev"]')!.disabled = this.at === 0;
     this.el.querySelector<HTMLButtonElement>('[data-bd="next"]')!.disabled = this.at === this.book.length - 1;
@@ -377,16 +377,19 @@ export class FieldManualBinder {
   // ---------------------------------------------------------------------------------------------------------------
   // Leaves
 
-  private frame(headL: string, headR: string, folio: string, body: Node[]): Node[] {
+  /** Running head with the folio on the outer edge and the section tag on the inner (spine) edge; no footer. */
+  private frame(tag: string, folio: string, side: 'l' | 'r', body: Node[]): Node[] {
     const head = el('div', 'bd-mhead');
-    head.append(el('span', '', headL), el('span', '', 'Field Manual'), el('span', '', headR));
-    const foot = el('div', 'bd-mfoot');
-    foot.append(el('span', '', 'Field Distribution'), el('span', '', 'Volume I'), el('span', '', folio));
+    const folioEl = el('span', 'bd-mh-folio', folio);
+    const midEl = el('span', 'bd-mh-mid', 'Field Manual');
+    const tagEl = el('span', 'bd-mh-tag', tag);
+    if (side === 'l') head.append(folioEl, midEl, tagEl);
+    else head.append(tagEl, midEl, folioEl);
     const holes = el('div', 'bd-holes');
     holes.innerHTML = '<i></i><i></i><i></i>';
     const main = el('div', 'bd-body');
     main.append(...body);
-    return [holes, head, main, foot];
+    return [holes, head, main];
   }
 
   private sec(title: string, ...body: (Node | string)[]): Node[] {
@@ -395,12 +398,12 @@ export class FieldManualBinder {
     return [el('div', 'bd-ms', title), b];
   }
 
-  private leaf(l: Leaf, folio: string): Node[] {
+  private leaf(l: Leaf, folio: string, side: 'l' | 'r'): Node[] {
     switch (l.kind) {
       case 'title':
-        return this.titleLeaf(folio);
+        return this.titleLeaf(folio, side);
       case 'intro':
-        return this.frame('INTRO(7)', 'INTRO(7)', folio, [
+        return this.frame('INTRO(7)', folio, side, [
           ...this.sec('NAME', 'intro — how to read this manual'),
           ...this.sec('DESCRIPTION', 'Each chapter is one layer of the stack. A chapter stays sealed until your cursor has reached its layer.'),
           ...this.sec('', 'Log what you see by clicking it while you dive. Each page is stamped with the day you first saw it.'),
@@ -408,28 +411,28 @@ export class FieldManualBinder {
           ...this.sec('SEE ALSO', 'The permuted index, at the back.'),
         ]);
       case 'contents':
-        return this.contentsLeaf(folio);
+        return this.contentsLeaf(folio, side);
       case 'notes':
-        return this.frame('NOTES', 'NOTES', folio, [el('p', 'bd-pencil bd-pencil-block', 'the deeper it goes, the stranger the wildlife.')]);
+        return this.frame('NOTES', folio, side, [el('p', 'bd-pencil bd-pencil-block', 'the deeper it goes, the stranger the wildlife.')]);
       case 'divider':
         return this.dividerLeaf(l.chapter, folio);
       case 'chapter-list':
-        return this.chapterListLeaf(l.chapter, folio);
+        return this.chapterListLeaf(l.chapter, folio, side);
       case 'sealed':
-        return this.frame(`CHAPTER ${l.chapter.no}`, `CHAPTER ${l.chapter.no}`, folio, [
+        return this.frame(`CHAPTER ${l.chapter.no}`, folio, side, [
           el('p', 'bd-blank', 'The pages of this chapter are sealed.'),
           el('p', 'bd-blank-sub', `Reach ${l.chapter.name} to open them.`),
         ]);
       case 'plate':
-        return this.plateLeaf(l.entry, folio);
+        return this.plateLeaf(l.entry, folio, side);
       case 'text':
-        return this.textLeaf(l.entry, folio);
+        return this.textLeaf(l.entry, folio, side);
       case 'index':
-        return this.indexLeaf(l.half, folio);
+        return this.indexLeaf(l.half, folio, side);
     }
   }
 
-  private titleLeaf(folio: string): Node[] {
+  private titleLeaf(folio: string, side: 'l' | 'r'): Node[] {
     const t = el('div', 'bd-titlepage');
     t.append(
       el('div', 'bd-t-big', 'nullion Field Manual'),
@@ -440,10 +443,10 @@ export class FieldManualBinder {
     );
     const n = manualStore.foundCount();
     if (n) t.append(el('div', 'bd-pencil bd-pencil-block', `${n} logged so far`));
-    return this.frame('', '', folio, [t]);
+    return this.frame('', folio, side, [t]);
   }
 
-  private contentsLeaf(folio: string): Node[] {
+  private contentsLeaf(folio: string, side: 'l' | 'r'): Node[] {
     const table = el('div', 'bd-ct');
     for (const c of bookChapters()) {
       const open = manualStore.hasReached(c.layer);
@@ -465,7 +468,7 @@ export class FieldManualBinder {
     idx.append(el('span', 'bd-ct-n', ''), el('span', 'bd-ct-name bd-it', 'Permuted index'), el('span', 'bd-ct-p', 'I-1'));
     idx.addEventListener('click', () => this.go(this.book.length - 1));
     table.append(idx);
-    return this.frame('CONTENTS', 'CONTENTS', folio, [table, el('div', 'bd-gloss', 'Boxes are the entries filed in each chapter; filled ones are logged.')]);
+    return this.frame('CONTENTS', folio, side, [table, el('div', 'bd-gloss', 'Boxes are the entries filed in each chapter; filled ones are logged.')]);
   }
 
   private dividerLeaf(c: Chapter, folio: string): Node[] {
@@ -477,7 +480,7 @@ export class FieldManualBinder {
     return [d];
   }
 
-  private chapterListLeaf(c: Chapter, folio: string): Node[] {
+  private chapterListLeaf(c: Chapter, folio: string, side: 'l' | 'r'): Node[] {
     const list = el('div', 'bd-ct');
     c.entries.forEach((e, k) => {
       const found = manualStore.isFound(e.id);
@@ -501,7 +504,7 @@ export class FieldManualBinder {
       list.append(row);
     }
     if (!c.entries.length && !c.stubs.length) list.append(el('p', 'bd-blank-sub', 'Nothing is filed here yet.'));
-    return this.frame(`CHAPTER ${c.no}`, c.name.toUpperCase(), folio, [el('div', 'bd-ms', 'IN THIS CHAPTER'), list]);
+    return this.frame(`CHAPTER ${c.no}`, folio, side, [el('div', 'bd-ms', 'IN THIS CHAPTER'), list]);
   }
 
   private dailySightings(e: ManualEntry): ManualSighting[] {
@@ -516,13 +519,13 @@ export class FieldManualBinder {
     return found.find((s) => s.layer === pick) ?? found[0] ?? ds[0]!;
   }
 
-  private plateLeaf(e: ManualEntry, folio: string): Node[] {
+  private plateLeaf(e: ManualEntry, folio: string, side: 'l' | 'r'): Node[] {
     const tag = manTag(e);
     const ds = this.dailySightings(e);
     if (!manualStore.isFound(e.id)) {
       const ghost = el('div', 'bd-ghost');
       ghost.append(plateCanvas(ds[0]!, 300, 220, 'silhouette', this.live));
-      return this.frame('???', '???', folio, [ghost]);
+      return this.frame('???', folio, side, [ghost]);
     }
     const s = this.shown(e);
     const letter = (i: number) => String.fromCharCode(97 + i);
@@ -551,14 +554,14 @@ export class FieldManualBinder {
     const rate = formatRate(shownRate(e, s));
     const rar = el('div', 'bd-pencil bd-rarity');
     rar.append(el('span', `bd-hl hl-${e.rarity}`, meta.label.toLowerCase()), rate ? ` · ${rate} of days` : ' · comes with its questions');
-    return this.frame(tag, tag, folio, [mount, cap, strip, rar]);
+    return this.frame(tag, folio, side, [mount, cap, strip, rar]);
   }
 
-  private textLeaf(e: ManualEntry, folio: string): Node[] {
+  private textLeaf(e: ManualEntry, folio: string, side: 'l' | 'r'): Node[] {
     const tag = manTag(e);
     if (!manualStore.isFound(e.id)) {
       // The rumour is hand-written per entry (FIELD-MANUAL-PLAN.md); an entry without one just shows the blank page.
-      return this.frame('???', '???', folio, [
+      return this.frame('???', folio, side, [
         el('p', 'bd-blank', 'This page intentionally left blank.'),
         e.rumour ? el('p', 'bd-pencil bd-pencil-block', e.rumour) : null,
       ].filter((n): n is HTMLParagraphElement => n !== null));
@@ -603,13 +606,15 @@ export class FieldManualBinder {
         if (!reducedMotion()) stamp.classList.add('thunk');
         sound.stackCrunch(s.layer);
       }
-      body.push(stamp);
-      if (st.prompt) body.push(el('div', 'bd-pencil bd-found', `found during “${st.prompt.toLowerCase()}” ✓`));
+      const foot = el('div', 'bd-sighting-foot');
+      foot.append(stamp);
+      if (st.prompt) foot.append(el('div', 'bd-pencil bd-found', `found during “${st.prompt.toLowerCase()}” ✓`));
+      body.push(foot);
     }
-    return this.frame(tag, tag, folio, body);
+    return this.frame(tag, folio, side, body);
   }
 
-  private indexLeaf(half: 0 | 1, folio: string): Node[] {
+  private indexLeaf(half: 0 | 1, folio: string, side: 'l' | 'r'): Node[] {
     const lines = bookChapters()
       .flatMap((c) => c.entries)
       .filter((e) => manualStore.isFound(e.id))
@@ -652,6 +657,6 @@ export class FieldManualBinder {
     body.push(table);
     if (half === 0 && !rows.length) body.push(el('p', 'bd-blank-sub', lines.length ? 'No entry matches.' : 'Nothing logged yet. Click what you see while you dive.'));
     if (half === 1) body.push(el('div', 'bd-gloss', 'Every word of every logged entry’s NAME line, rotated into the middle column and alphabetised.'));
-    return this.frame('PERMUTED INDEX', 'PERMUTED INDEX', folio, body);
+    return this.frame('PERMUTED INDEX', folio, side, body);
   }
 }
