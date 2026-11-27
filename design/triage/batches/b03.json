@@ -1,0 +1,304 @@
+{
+ "drafts": [
+  {
+   "id": "gpu-microarchitecture",
+   "prompt": "Name a GPU microarchitecture",
+   "domain": "hardware-security-history",
+   "accepts": "a named GPU architecture (codename or family) from any vendor, past or present.",
+   "examples": [
+    "Ampere",
+    "Turing",
+    "RDNA",
+    "Fermi",
+    "Polaris",
+    "Xe-HPG",
+    "Maxwell"
+   ]
+  },
+  {
+   "id": "hardware-description-language",
+   "prompt": "Name a hardware description language",
+   "domain": "hardware-security-history",
+   "accepts": "a named language for describing digital hardware, including HDLs embedded in other languages.",
+   "examples": [
+    "Verilog",
+    "VHDL",
+    "SystemVerilog",
+    "Lava",
+    "Clash",
+    "Chisel",
+    "SpinalHDL"
+   ]
+  },
+  {
+   "id": "historical-cipher",
+   "prompt": "Name a historical cipher",
+   "domain": "hardware-security-history",
+   "accepts": "a named classical or mechanical cipher system used before modern computing.",
+   "examples": [
+    "Caesar",
+    "Vigen\u00e8re",
+    "Enigma",
+    "ADFGVX",
+    "Playfair",
+    "Bifid",
+    "Fractionated Morse"
+   ]
+  },
+  {
+   "id": "home-computer-1980s",
+   "prompt": "Name a home computer from the 1980s",
+   "domain": "hardware-security-history",
+   "accepts": "a microcomputer marketed for home use and first released between 1980 and 1989.",
+   "examples": [
+    "Commodore 64",
+    "ZX Spectrum",
+    "Apple II",
+    "Dragon 32",
+    "Oric-1",
+    "Enterprise 64",
+    "Jupiter Ace"
+   ]
+  },
+  {
+   "id": "hypervisor",
+   "prompt": "Name a hypervisor",
+   "domain": "hardware-security-history",
+   "accepts": "a named hypervisor or virtual machine monitor software.",
+   "examples": [
+    "VMware ESXi",
+    "VirtualBox",
+    "KVM",
+    "Jailhouse",
+    "ACRN",
+    "Lguest",
+    "NOVA"
+   ]
+  },
+  {
+   "id": "intel-microarchitecture",
+   "prompt": "Name an Intel microarchitecture",
+   "domain": "hardware-security-history",
+   "accepts": "a named Intel CPU core microarchitecture (codename or family), past or present.",
+   "examples": [
+    "Skylake",
+    "Haswell",
+    "Sandy Bridge",
+    "Bonnell",
+    "Netburst",
+    "Yonah",
+    "Silvermont"
+   ]
+  },
+  {
+   "id": "interconnect-topology",
+   "prompt": "Name an interconnect topology",
+   "domain": "hardware-security-history",
+   "accepts": "a named network topology used to connect processors, memory or switches.",
+   "examples": [
+    "mesh",
+    "torus",
+    "hypercube",
+    "dragonfly",
+    "Clos",
+    "Benes",
+    "Kautz"
+   ]
+  },
+  {
+   "id": "key-derivation-function",
+   "prompt": "Name a key derivation function",
+   "domain": "hardware-security-history",
+   "accepts": "a named algorithm that derives cryptographic keys from a secret or password.",
+   "examples": [
+    "PBKDF2",
+    "scrypt",
+    "Argon2",
+    "HKDF",
+    "Balloon hashing",
+    "yescrypt",
+    "Catena"
+   ]
+  },
+  {
+   "id": "logic-gate",
+   "prompt": "Name a logic gate",
+   "domain": "hardware-security-history",
+   "accepts": "a named Boolean logic gate or gate-like switching primitive, including reversible and asynchronous types.",
+   "examples": [
+    "AND",
+    "OR",
+    "NOT",
+    "Peres gate",
+    "Fredkin gate",
+    "Muller C-element",
+    "Transmission gate"
+   ]
+  },
+  {
+   "id": "malware-family",
+   "prompt": "Name a malware family",
+   "domain": "hardware-security-history",
+   "accepts": "a named malware family or campaign documented by security researchers.",
+   "examples": [
+    "Stuxnet",
+    "WannaCry",
+    "Emotet",
+    "Regin",
+    "Duqu",
+    "Gh0st RAT",
+    "Carbanak"
+   ]
+  },
+  {
+   "id": "memory-technology",
+   "prompt": "Name a computer memory technology",
+   "domain": "hardware-security-history",
+   "accepts": "a named technology used to store data in a computer, historical or current.",
+   "examples": [
+    "DRAM",
+    "SRAM",
+    "flash",
+    "Williams tube",
+    "mercury delay line",
+    "twistor",
+    "core rope"
+   ]
+  },
+  {
+   "id": "microprocessor",
+   "prompt": "Name a microprocessor",
+   "domain": "hardware-security-history",
+   "accepts": "a named single-chip central processing unit sold as a commercial product.",
+   "examples": [
+    "8086",
+    "6502",
+    "Z80",
+    "RCA 1802",
+    "TMS9900",
+    "Signetics 2650",
+    "National SC/MP"
+   ]
+  },
+  {
+   "id": "penetration-testing-tool",
+   "prompt": "Name a penetration testing tool",
+   "domain": "hardware-security-history",
+   "accepts": "a named software tool used in security testing or red teaming.",
+   "examples": [
+    "Nmap",
+    "Metasploit",
+    "Burp Suite",
+    "BloodHound",
+    "Responder",
+    "Impacket",
+    "Mimikatz"
+   ]
+  },
+  {
+   "id": "public-key-encryption-scheme",
+   "prompt": "Name a public-key encryption scheme",
+   "domain": "hardware-security-history",
+   "accepts": "a named public-key encryption scheme (asymmetric encryption, not signatures or key exchange).",
+   "examples": [
+    "RSA",
+    "ElGamal",
+    "ECIES",
+    "Rabin",
+    "Goldwasser-Micali",
+    "Okamoto-Uchiyama",
+    "Benaloh"
+   ]
+  },
+  {
+   "id": "simd-extension",
+   "prompt": "Name a SIMD extension",
+   "domain": "hardware-security-history",
+   "accepts": "a named SIMD instruction set extension for a processor architecture.",
+   "examples": [
+    "SSE",
+    "AVX",
+    "NEON",
+    "3DNow!",
+    "AltiVec",
+    "MIPS MSA",
+    "Helium"
+   ]
+  },
+  {
+   "id": "supercomputer-pre-2000",
+   "prompt": "Name a supercomputer built before 2000",
+   "domain": "hardware-security-history",
+   "accepts": "a named high-performance computer system manufactured before the year 2000.",
+   "examples": [
+    "Cray-1",
+    "CDC 6600",
+    "Connection Machine CM-2",
+    "ILLIAC IV",
+    "Goodyear MPP",
+    "Burroughs BSP",
+    "Fujitsu VP-200"
+   ]
+  },
+  {
+   "id": "tpm2-command",
+   "prompt": "Name a TPM 2.0 command",
+   "domain": "hardware-security-history",
+   "accepts": "a command defined in the TPM 2.0 Library Specification (TPM2_ prefix).",
+   "examples": [
+    "TPM2_Startup",
+    "TPM2_PCR_Extend",
+    "TPM2_GetRandom",
+    "TPM2_ActivateCredential",
+    "TPM2_Certify",
+    "TPM2_ZGen_2Phase",
+    "TPM2_NV_DefineSpace"
+   ]
+  },
+  {
+   "id": "turing-award-winner",
+   "prompt": "Name a Turing Award winner",
+   "domain": "hardware-security-history",
+   "accepts": "a person who has received the ACM A.M. Turing Award, per ACM's published list of laureates.",
+   "examples": [
+    "Edsger Dijkstra",
+    "Donald Knuth",
+    "Alan Kay",
+    "Fernando Corbat\u00f3",
+    "Juris Hartmanis",
+    "Edgar Codd",
+    "Ole-Johan Dahl"
+   ]
+  },
+  {
+   "id": "uefi-protocol",
+   "prompt": "Name a UEFI protocol",
+   "domain": "hardware-security-history",
+   "accepts": "a protocol interface defined in the UEFI specification (EFI_*_PROTOCOL).",
+   "examples": [
+    "Graphics Output Protocol",
+    "Simple Text Input Protocol",
+    "Block I/O Protocol",
+    "Random Number Generator Protocol",
+    "Driver Health Protocol",
+    "HII Font Protocol",
+    "IP6 Configuration Protocol"
+   ]
+  },
+  {
+   "id": "video-game-console-1990s",
+   "prompt": "Name a video game console from the 1990s",
+   "domain": "hardware-security-history",
+   "accepts": "a home or handheld video game console first released between 1990 and 1999.",
+   "examples": [
+    "PlayStation",
+    "Nintendo 64",
+    "Sega Saturn",
+    "3DO",
+    "Atari Jaguar",
+    "Amiga CD32",
+    "Pioneer LaserActive"
+   ]
+  }
+ ]
+}

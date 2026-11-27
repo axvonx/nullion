@@ -1,0 +1,304 @@
+{
+ "drafts": [
+  {
+   "id": "approximate-nearest-neighbor-index",
+   "prompt": "Name an approximate nearest neighbor index",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named index or algorithm for approximate nearest neighbor search over vectors, from papers or libraries.",
+   "examples": [
+    "HNSW",
+    "IVF",
+    "locality-sensitive hashing",
+    "ScaNN",
+    "DiskANN",
+    "SPANN",
+    "NSG"
+   ]
+  },
+  {
+   "id": "collision-detection-algorithm",
+   "prompt": "Name a collision detection algorithm",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named algorithm for testing or computing intersection or distance between two convex or polygonal shapes or meshes.",
+   "examples": [
+    "separating axis theorem",
+    "sweep and prune",
+    "GJK",
+    "Lin-Canny",
+    "V-Clip",
+    "MPR",
+    "RAPID"
+   ]
+  },
+  {
+   "id": "color-space",
+   "prompt": "Name a color space",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named color space or encoding defining how color values map to perceived or displayed color.",
+   "examples": [
+    "sRGB",
+    "CIELAB",
+    "HSV",
+    "Jzazbz",
+    "ICtCp",
+    "ACEScg",
+    "IPT"
+   ]
+  },
+  {
+   "id": "column-encoding-scheme",
+   "prompt": "Name a column encoding scheme",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named encoding scheme for column-store data, excluding general-purpose byte compressors.",
+   "examples": [
+    "dictionary encoding",
+    "run-length encoding",
+    "bit-packing",
+    "FSST",
+    "ALP",
+    "pseudodecimal encoding",
+    "frame of reference"
+   ]
+  },
+  {
+   "id": "combinatorial-optimization-heuristic",
+   "prompt": "Name a combinatorial optimization heuristic",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named metaheuristic or local-search heuristic for NP-hard combinatorial optimization problems.",
+   "examples": [
+    "simulated annealing",
+    "tabu search",
+    "genetic algorithm",
+    "GRASP",
+    "LKH",
+    "Kernighan-Lin",
+    "iterated local search"
+   ]
+  },
+  {
+   "id": "complexity-class",
+   "prompt": "Name a complexity class",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named class of decision problems defined by a resource bound or model in the Complexity Zoo or the literature.",
+   "examples": [
+    "P",
+    "NP",
+    "PSPACE",
+    "SZK",
+    "PPAD",
+    "MA",
+    "QMA"
+   ]
+  },
+  {
+   "id": "computational-geometry-algorithm",
+   "prompt": "Name a computational geometry algorithm",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named algorithm for geometric problems on points, segments, polygons or planar subdivisions, such as hulls, triangulations or intersections.",
+   "examples": [
+    "Graham scan",
+    "QuickHull",
+    "Bowyer-Watson",
+    "Kirkpatrick-Seidel",
+    "Shamos-Hoey",
+    "Bentley-Ottmann",
+    "Chazelle's triangulation"
+   ]
+  },
+  {
+   "id": "computational-model",
+   "prompt": "Name a computational model",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named formal model of computation, such as an automaton, machine, rewriting system or calculus, from theory literature.",
+   "examples": [
+    "Turing machine",
+    "finite automaton",
+    "lambda calculus",
+    "pointer machine",
+    "Post tag system",
+    "queue automaton",
+    "Thue system"
+   ]
+  },
+  {
+   "id": "concurrency-control-protocol",
+   "prompt": "Name a concurrency control protocol",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named protocol from the database or transaction literature for serializing concurrent transactions.",
+   "examples": [
+    "two-phase locking",
+    "optimistic concurrency control",
+    "multiversion concurrency control",
+    "TicToc",
+    "Silo",
+    "Calvin",
+    "ERMIA"
+   ]
+  },
+  {
+   "id": "conflict-free-replicated-data-type",
+   "prompt": "Name a conflict-free replicated data type",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named CRDT design, counter, register, set or sequence, from the literature or a published implementation.",
+   "examples": [
+    "G-Counter",
+    "OR-Set",
+    "LWW-Register",
+    "Treedoc",
+    "Logoot",
+    "YATA",
+    "LSEQ"
+   ]
+  },
+  {
+   "id": "consensus-protocol",
+   "prompt": "Name a consensus protocol",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named protocol from the literature or a system that lets distributed processes agree on a value or log.",
+   "examples": [
+    "Paxos",
+    "Raft",
+    "Zab",
+    "Mencius",
+    "EPaxos",
+    "Flexible Paxos",
+    "Ben-Or consensus"
+   ]
+  },
+  {
+   "id": "cryptographic-hardness-assumption",
+   "prompt": "Name a cryptographic hardness assumption",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named computational or decisional problem assumed hard and used as the basis of a cryptographic security proof.",
+   "examples": [
+    "discrete logarithm assumption",
+    "decisional Diffie-Hellman",
+    "learning with errors",
+    "Ring-LWE",
+    "learning parity with noise",
+    "subgroup decision assumption",
+    "k-Linear assumption"
+   ]
+  },
+  {
+   "id": "database",
+   "prompt": "Name a database",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named database management system, open-source or commercial, relational or not.",
+   "examples": [
+    "MySQL",
+    "PostgreSQL",
+    "Oracle Database",
+    "Umbra",
+    "FoundationDB",
+    "Datomic",
+    "Vertica"
+   ]
+  },
+  {
+   "id": "distributed-hash-table",
+   "prompt": "Name a distributed hash table",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named DHT protocol or overlay design from peer-to-peer research or deployed systems.",
+   "examples": [
+    "Chord",
+    "Kademlia",
+    "Pastry",
+    "Koorde",
+    "Kelips",
+    "Viceroy",
+    "Symphony"
+   ]
+  },
+  {
+   "id": "dynamic-programming-problem",
+   "prompt": "Name a dynamic programming problem",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named optimization or counting problem with a standard dynamic programming solution.",
+   "examples": [
+    "longest common subsequence",
+    "0/1 knapsack",
+    "edit distance",
+    "matrix chain multiplication",
+    "optimal binary search tree",
+    "optimal polygon triangulation",
+    "rod cutting"
+   ]
+  },
+  {
+   "id": "fft-algorithm",
+   "prompt": "Name an FFT algorithm",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named algorithm for computing the discrete Fourier transform fast, including radix, prime-factor and convolution-based variants.",
+   "examples": [
+    "Cooley-Tukey",
+    "radix-2 FFT",
+    "split-radix FFT",
+    "Bluestein's algorithm",
+    "Rader's algorithm",
+    "Stockham algorithm",
+    "Good-Thomas algorithm"
+   ]
+  },
+  {
+   "id": "game-ai-technique",
+   "prompt": "Name a game AI technique",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named technique for controlling non-player characters or game decision-making, from papers or engines.",
+   "examples": [
+    "finite state machine",
+    "behavior tree",
+    "utility AI",
+    "GOAP",
+    "HTN planning",
+    "Boids flocking",
+    "Monte Carlo tree search"
+   ]
+  },
+  {
+   "id": "game-engine",
+   "prompt": "Name a game engine",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named real-time game engine or proprietary studio engine with a public name.",
+   "examples": [
+    "Unreal Engine",
+    "Unity",
+    "Godot",
+    "id Tech",
+    "Dunia",
+    "Snowdrop",
+    "Stingray"
+   ]
+  },
+  {
+   "id": "graphics-api",
+   "prompt": "Name a graphics API",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named programming interface for issuing GPU rendering or compute commands, historical or current, including console-specific APIs.",
+   "examples": [
+    "OpenGL",
+    "Vulkan",
+    "DirectX",
+    "Mantle",
+    "Glide",
+    "NVN",
+    "GNM"
+   ]
+  },
+  {
+   "id": "image-filter",
+   "prompt": "Name an image filter",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named convolution, edge-preserving or edge-detecting image filter from image processing literature.",
+   "examples": [
+    "Gaussian blur",
+    "median filter",
+    "Sobel operator",
+    "guided filter",
+    "non-local means",
+    "anisotropic diffusion",
+    "domain transform filter"
+   ]
+  }
+ ]
+}

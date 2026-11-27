@@ -1,0 +1,304 @@
+{
+ "drafts": [
+  {
+   "id": "join-algorithm",
+   "prompt": "Name a join algorithm",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named algorithm for computing a relational join, including variants and worst-case-optimal joins.",
+   "examples": [
+    "hash join",
+    "nested loop join",
+    "sort-merge join",
+    "Grace hash join",
+    "symmetric hash join",
+    "Leapfrog triejoin",
+    "Yannakakis algorithm"
+   ]
+  },
+  {
+   "id": "matrix-factorization",
+   "prompt": "Name a matrix factorization",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named decomposition that writes a matrix as a product of structured matrices, from numerical linear algebra.",
+   "examples": [
+    "LU decomposition",
+    "QR decomposition",
+    "singular value decomposition",
+    "Bunch-Kaufman factorization",
+    "rank-revealing QR",
+    "LDL^T factorization",
+    "Hessenberg reduction"
+   ]
+  },
+  {
+   "id": "mcmc-sampling-algorithm",
+   "prompt": "Name an MCMC sampling algorithm",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named Markov chain Monte Carlo algorithm or transition kernel for sampling from a target distribution.",
+   "examples": [
+    "Metropolis-Hastings",
+    "Gibbs sampling",
+    "Hamiltonian Monte Carlo",
+    "No-U-Turn Sampler",
+    "slice sampling",
+    "reversible-jump MCMC",
+    "elliptical slice sampling"
+   ]
+  },
+  {
+   "id": "mesh-simplification-algorithm",
+   "prompt": "Name a mesh simplification algorithm",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named algorithm or method that reduces the triangle count of a polygon mesh while preserving shape.",
+   "examples": [
+    "quadric error metrics",
+    "edge collapse",
+    "vertex clustering",
+    "progressive meshes",
+    "QSlim",
+    "Lindstrom-Turk simplification",
+    "Garland-Heckbert"
+   ]
+  },
+  {
+   "id": "multiplication-algorithm",
+   "prompt": "Name a multiplication algorithm",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named algorithm for multiplying integers, polynomials or matrices, including asymptotic and practical variants.",
+   "examples": [
+    "Karatsuba algorithm",
+    "Toom-Cook multiplication",
+    "Sch\u00f6nhage-Strassen algorithm",
+    "Comba multiplication",
+    "F\u00fcrer's algorithm",
+    "Harvey-van der Hoeven algorithm",
+    "Winograd's inner-product trick"
+   ]
+  },
+  {
+   "id": "numerical-quadrature-rule",
+   "prompt": "Name a numerical quadrature rule",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named rule or method for approximating a definite integral numerically from function samples.",
+   "examples": [
+    "trapezoidal rule",
+    "Simpson's rule",
+    "Gauss-Legendre quadrature",
+    "Gauss-Kronrod",
+    "tanh-sinh quadrature",
+    "Filon quadrature",
+    "Clenshaw-Curtis"
+   ]
+  },
+  {
+   "id": "numerical-root-finding-method",
+   "prompt": "Name a numerical root-finding method",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named iterative method for finding roots of scalar equations or polynomials.",
+   "examples": [
+    "Newton's method",
+    "bisection method",
+    "secant method",
+    "Jenkins-Traub",
+    "Aberth method",
+    "Ridders' method",
+    "Muller's method"
+   ]
+  },
+  {
+   "id": "ode-solver",
+   "prompt": "Name an ODE solver",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named numerical method for integrating ordinary differential equations, one-step, multistep or extrapolation.",
+   "examples": [
+    "Euler's method",
+    "Runge-Kutta 4",
+    "Adams-Bashforth",
+    "Dormand-Prince",
+    "Cash-Karp",
+    "Bulirsch-Stoer",
+    "Rosenbrock method"
+   ]
+  },
+  {
+   "id": "parsing-algorithm",
+   "prompt": "Name a parsing algorithm",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named algorithm that turns a token stream or string into a syntax tree or recognizes a grammar.",
+   "examples": [
+    "recursive descent",
+    "LR parsing",
+    "Earley parser",
+    "GLL parsing",
+    "Marpa",
+    "packrat parsing",
+    "Pratt parsing"
+   ]
+  },
+  {
+   "id": "physics-engine",
+   "prompt": "Name a physics engine",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named rigid-body or soft-body simulation library or engine, current or historical.",
+   "examples": [
+    "Box2D",
+    "Bullet",
+    "PhysX",
+    "Chipmunk",
+    "Newton Game Dynamics",
+    "Jolt Physics",
+    "ODE"
+   ]
+  },
+  {
+   "id": "procedural-noise-function",
+   "prompt": "Name a procedural noise function",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named gradient, cellular, spectral or other coherent noise function used to generate procedural content.",
+   "examples": [
+    "Perlin noise",
+    "simplex noise",
+    "Worley noise",
+    "Gabor noise",
+    "wavelet noise",
+    "curl noise",
+    "OpenSimplex"
+   ]
+  },
+  {
+   "id": "proof-system",
+   "prompt": "Name a proof system",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named interactive or succinct argument or zero-knowledge proof system from the literature or a published implementation.",
+   "examples": [
+    "zk-SNARK",
+    "STARK",
+    "Bulletproofs",
+    "Spartan",
+    "Ligero",
+    "Aurora",
+    "Sonic"
+   ]
+  },
+  {
+   "id": "pseudorandom-number-generator",
+   "prompt": "Name a pseudorandom number generator",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named deterministic generator of pseudorandom numbers, from papers, standards or library implementations.",
+   "examples": [
+    "Mersenne Twister",
+    "PCG",
+    "xorshift",
+    "Philox",
+    "SplitMix",
+    "Threefry",
+    "RANLUX"
+   ]
+  },
+  {
+   "id": "quantum-algorithm",
+   "prompt": "Name a quantum algorithm",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named algorithm designed to run on a quantum computer, from the literature.",
+   "examples": [
+    "Shor's algorithm",
+    "Grover's algorithm",
+    "Deutsch-Jozsa algorithm",
+    "HHL",
+    "Bernstein-Vazirani algorithm",
+    "Simon's algorithm",
+    "QAOA"
+   ]
+  },
+  {
+   "id": "query-optimization-technique",
+   "prompt": "Name a query optimization technique",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named rewrite or planning technique a database query optimizer applies to produce or choose a query plan.",
+   "examples": [
+    "predicate pushdown",
+    "join reordering",
+    "constant folding",
+    "magic sets",
+    "sideways information passing",
+    "subquery unnesting",
+    "semijoin reduction"
+   ]
+  },
+  {
+   "id": "serialization-format",
+   "prompt": "Name a data serialization format",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named format for encoding structured data as bytes or text for storage or transport.",
+   "examples": [
+    "JSON",
+    "Protocol Buffers",
+    "XML",
+    "Bencode",
+    "Cap'n Proto",
+    "Smile",
+    "Ion"
+   ]
+  },
+  {
+   "id": "storage-engine",
+   "prompt": "Name a storage engine",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named storage engine or embedded key-value storage backend, as a standalone project or a database's pluggable engine.",
+   "examples": [
+    "InnoDB",
+    "RocksDB",
+    "LevelDB",
+    "WiredTiger",
+    "Bitcask",
+    "LMDB",
+    "Badger"
+   ]
+  },
+  {
+   "id": "stream-processing-system",
+   "prompt": "Name a stream processing system",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named system or framework for continuous processing of unbounded data streams, research or production.",
+   "examples": [
+    "Apache Flink",
+    "Apache Storm",
+    "Kafka Streams",
+    "Naiad",
+    "MillWheel",
+    "Trill",
+    "Timely Dataflow"
+   ]
+  },
+  {
+   "id": "string-matching-algorithm",
+   "prompt": "Name a string matching algorithm",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named algorithm for finding occurrences of a pattern string in a text.",
+   "examples": [
+    "Knuth-Morris-Pratt",
+    "Boyer-Moore",
+    "Rabin-Karp",
+    "Two-Way algorithm",
+    "BNDM",
+    "Galil-Seiferas algorithm",
+    "Backward DAWG Matching"
+   ]
+  },
+  {
+   "id": "string-similarity-measure",
+   "prompt": "Name a string similarity measure",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named measure of similarity or distance between two strings, including alignment scores.",
+   "examples": [
+    "Levenshtein distance",
+    "Jaro-Winkler",
+    "Hamming distance",
+    "Ratcliff/Obershelp",
+    "Smith-Waterman",
+    "Needleman-Wunsch",
+    "Gotoh's affine-gap alignment"
+   ]
+  }
+ ]
+}

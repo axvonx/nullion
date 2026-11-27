@@ -1,0 +1,309 @@
+{
+ "drafts": [
+  {
+   "id": "git-hosting-service",
+   "prompt": "Name a git hosting service",
+   "domain": "languages-tools",
+   "accepts": "Any named service or self-hosted platform that hosts git repositories, current or historical, such as SourceForge.",
+   "examples": [
+    "GitHub",
+    "GitLab",
+    "Bitbucket",
+    "SourceHut",
+    "Gitea",
+    "Codeberg",
+    "Savannah"
+   ]
+  },
+  {
+   "id": "ide",
+   "prompt": "Name an IDE",
+   "domain": "languages-tools",
+   "accepts": "Any named integrated development environment that bundles editing, building, and debugging for programming, current or historical.",
+   "examples": [
+    "IntelliJ IDEA",
+    "Visual Studio",
+    "Eclipse",
+    "KDevelop",
+    "Lazarus",
+    "Anjuta",
+    "Code::Blocks"
+   ]
+  },
+  {
+   "id": "javascript-engine",
+   "prompt": "Name a JavaScript engine",
+   "domain": "languages-tools",
+   "accepts": "Any named implementation of ECMAScript or JavaScript, current or historical, that executes JavaScript code.",
+   "examples": [
+    "V8",
+    "SpiderMonkey",
+    "JavaScriptCore",
+    "Duktape",
+    "JerryScript",
+    "Rhino",
+    "QuickJS"
+   ]
+  },
+  {
+   "id": "language-feature",
+   "prompt": "Name a programming language feature",
+   "domain": "languages-tools",
+   "accepts": "Any named construct or capability of a programming language, described in a language manual, specification, or research paper.",
+   "examples": [
+    "closures",
+    "generics",
+    "lambdas",
+    "algebraic effects",
+    "delimited continuations",
+    "multiple dispatch",
+    "macro hygiene"
+   ]
+  },
+  {
+   "id": "logging-library",
+   "prompt": "Name a logging library",
+   "domain": "languages-tools",
+   "accepts": "Any named published library for writing diagnostic log messages from a program, in any programming language.",
+   "examples": [
+    "log4j",
+    "SLF4J",
+    "Winston",
+    "spdlog",
+    "loguru",
+    "glog",
+    "Bunyan"
+   ]
+  },
+  {
+   "id": "markup-language",
+   "prompt": "Name a markup language",
+   "domain": "languages-tools",
+   "accepts": "Any named language that embeds structure or formatting in plain text through markup tags or syntax, with a published specification or documentation.",
+   "examples": [
+    "HTML",
+    "Markdown",
+    "XML",
+    "AsciiDoc",
+    "Texinfo",
+    "Textile",
+    "Creole"
+   ]
+  },
+  {
+   "id": "orm",
+   "prompt": "Name an ORM",
+   "domain": "languages-tools",
+   "accepts": "Any named object-relational mapping library or framework that maps database rows to objects in a programming language.",
+   "examples": [
+    "Hibernate",
+    "ActiveRecord",
+    "SQLAlchemy",
+    "Ecto",
+    "Peewee",
+    "Doctrine",
+    "Diesel"
+   ]
+  },
+  {
+   "id": "package-manager",
+   "prompt": "Name a package manager",
+   "domain": "languages-tools",
+   "accepts": "Any named software that installs, updates, or removes software packages and their dependencies, for any language or operating system.",
+   "examples": [
+    "npm",
+    "pip",
+    "cargo",
+    "Spack",
+    "opam",
+    "Portage",
+    "Guix"
+   ]
+  },
+  {
+   "id": "parser-generator",
+   "prompt": "Name a parser generator",
+   "domain": "languages-tools",
+   "accepts": "Any named tool that produces a parser from a grammar specification, in any language, current or historical.",
+   "examples": [
+    "yacc",
+    "bison",
+    "ANTLR",
+    "Menhir",
+    "Coco/R",
+    "Ragel",
+    "Lemon"
+   ]
+  },
+  {
+   "id": "profiler",
+   "prompt": "Name a profiler",
+   "domain": "languages-tools",
+   "accepts": "Any named tool that measures where a running program spends time or memory, current or historical.",
+   "examples": [
+    "perf",
+    "gprof",
+    "VTune",
+    "Callgrind",
+    "Massif",
+    "py-spy",
+    "async-profiler"
+   ]
+  },
+  {
+   "id": "programming-paradigm",
+   "prompt": "Name a programming paradigm",
+   "domain": "languages-tools",
+   "accepts": "Any named style or model of computation used to classify programming languages, with a recognised name in the literature.",
+   "examples": [
+    "functional",
+    "object-oriented",
+    "imperative",
+    "Concatenative",
+    "Term rewriting",
+    "Aspect-oriented",
+    "Array-oriented"
+   ]
+  },
+  {
+   "id": "refactoring",
+   "prompt": "Name a refactoring",
+   "domain": "languages-tools",
+   "accepts": "Any named behaviour-preserving code transformation from Martin Fowler's refactoring catalogue or an equivalent published catalogue.",
+   "examples": [
+    "Extract Method",
+    "Rename Method",
+    "Inline Variable",
+    "Introduce Parameter Object",
+    "Separate Query from Modifier",
+    "Encapsulate Collection",
+    "Replace Conditional with Polymorphism"
+   ]
+  },
+  {
+   "id": "rust-crate",
+   "prompt": "Name a Rust crate",
+   "domain": "languages-tools",
+   "accepts": "Any library package published on crates.io, which a judge can look up by name.",
+   "examples": [
+    "serde",
+    "tokio",
+    "rand",
+    "crossbeam",
+    "bumpalo",
+    "smallvec",
+    "parking_lot"
+   ]
+  },
+  {
+   "id": "software-metric",
+   "prompt": "Name a software metric",
+   "domain": "languages-tools",
+   "accepts": "Any named quantitative measure of a software artefact or process that has a published definition in the software engineering literature.",
+   "examples": [
+    "lines of code",
+    "cyclomatic complexity",
+    "code coverage",
+    "LCOM",
+    "Halstead volume",
+    "Henry-Kafura information flow",
+    "Martin's instability"
+   ]
+  },
+  {
+   "id": "state-management-library",
+   "prompt": "Name a state management library",
+   "domain": "languages-tools",
+   "accepts": "Any named published library for holding and updating application state in a front-end framework, current or historical.",
+   "examples": [
+    "Redux",
+    "MobX",
+    "Vuex",
+    "Recoil",
+    "Jotai",
+    "XState",
+    "Nanostores"
+   ]
+  },
+  {
+   "id": "static-analysis-tool",
+   "prompt": "Name a static analysis tool",
+   "domain": "languages-tools",
+   "accepts": "Any named program that analyses source or binary code without running it to find bugs, style problems, or vulnerabilities.",
+   "examples": [
+    "SonarQube",
+    "Coverity",
+    "ESLint",
+    "Astree",
+    "Infer",
+    "Frama-C",
+    "Semgrep"
+   ]
+  },
+  {
+   "id": "static-site-generator",
+   "prompt": "Name a static site generator",
+   "domain": "languages-tools",
+   "accepts": "Any named tool that builds a website of static HTML files from source content and templates.",
+   "examples": [
+    "Astro (auto)",
+    "Docusaurus (auto)",
+    "Gatsby (auto)",
+    "Hugo (auto)",
+    "Jekyll (auto)",
+    "MkDocs (auto)",
+    "Next.js",
+    "Nuxt",
+    "Sphinx (auto)",
+    "Eleventy",
+    "Docsify (auto)",
+    "GitBook (auto)"
+   ]
+  },
+  {
+   "id": "template-engine",
+   "prompt": "Name a template engine",
+   "domain": "languages-tools",
+   "accepts": "Any named library that renders text or HTML by filling a template with data, in any programming language.",
+   "examples": [
+    "Jinja",
+    "Handlebars",
+    "Mustache",
+    "Tera",
+    "Smarty",
+    "Genshi",
+    "Mako"
+   ]
+  },
+  {
+   "id": "terminal-emulator",
+   "prompt": "Name a terminal emulator",
+   "domain": "languages-tools",
+   "accepts": "Any named program that emulates a text terminal inside a graphical desktop, current or historical.",
+   "examples": [
+    "xterm",
+    "iTerm2",
+    "GNOME Terminal",
+    "rxvt",
+    "mintty",
+    "st",
+    "Eterm"
+   ]
+  },
+  {
+   "id": "test-framework",
+   "prompt": "Name a test framework",
+   "domain": "languages-tools",
+   "accepts": "Any named library or tool for writing and running automated tests in a programming language, current or historical.",
+   "examples": [
+    "JUnit",
+    "pytest",
+    "Jest",
+    "Hspec",
+    "Busted",
+    "ExUnit",
+    "Catch2"
+   ]
+  }
+ ]
+}

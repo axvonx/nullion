@@ -1,0 +1,304 @@
+{
+ "drafts": [
+  {
+   "id": "texture-compression-format",
+   "prompt": "Name a texture compression format",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named block or transcodable texture compression format used by GPUs or game engines.",
+   "examples": [
+    "DXT1",
+    "ETC2",
+    "ASTC",
+    "Basis Universal",
+    "FXT1",
+    "3Dc",
+    "ATC"
+   ]
+  },
+  {
+   "id": "time-series-database",
+   "prompt": "Name a time-series database",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named database or storage system designed primarily for timestamped measurements.",
+   "examples": [
+    "InfluxDB",
+    "Prometheus",
+    "TimescaleDB",
+    "Beringei",
+    "Gorilla",
+    "OpenTSDB",
+    "Atlas"
+   ]
+  },
+  {
+   "id": "video-codec",
+   "prompt": "Name a video codec",
+   "domain": "data-graphics-algorithms",
+   "accepts": "Any named video compression codec, standardized, open-source, proprietary or historical.",
+   "examples": [
+    "H.264",
+    "HEVC",
+    "AV1",
+    "Dirac",
+    "Daala",
+    "Theora",
+    "Cinepak"
+   ]
+  },
+  {
+   "id": "acpi-table",
+   "prompt": "Name an ACPI table",
+   "domain": "hardware-security-history",
+   "accepts": "a table defined by the ACPI specification, identified by its four-character signature.",
+   "examples": [
+    "DSDT",
+    "FADT",
+    "MADT",
+    "SRAT",
+    "BERT",
+    "EINJ",
+    "IORT"
+   ]
+  },
+  {
+   "id": "apple-macintosh-model",
+   "prompt": "Name an Apple Macintosh model",
+   "domain": "hardware-security-history",
+   "accepts": "a specific named Apple Macintosh computer model (a product name, not a chip or OS).",
+   "examples": [
+    "Macintosh 128K",
+    "iMac",
+    "MacBook Air",
+    "Macintosh Portable",
+    "Power Mac G4 Cube",
+    "Performa 6400",
+    "Color Classic"
+   ]
+  },
+  {
+   "id": "arm-core",
+   "prompt": "Name an ARM core",
+   "domain": "hardware-security-history",
+   "accepts": "a named ARM processor core design, first-party or licensed, past or present.",
+   "examples": [
+    "Cortex-A53",
+    "Cortex-A72",
+    "Cortex-M4",
+    "ARM7TDMI",
+    "StrongARM",
+    "ARM1176JZF-S",
+    "Cortex-R52"
+   ]
+  },
+  {
+   "id": "bluetooth-profile",
+   "prompt": "Name a Bluetooth profile",
+   "domain": "hardware-security-history",
+   "accepts": "a profile defined in the Bluetooth SIG profile specifications, identified by its name or abbreviation.",
+   "examples": [
+    "A2DP",
+    "HFP",
+    "HID",
+    "BIP",
+    "SAP",
+    "HCRP",
+    "DUN"
+   ]
+  },
+  {
+   "id": "bootloader",
+   "prompt": "Name a bootloader",
+   "domain": "hardware-security-history",
+   "accepts": "a named program that loads an operating system or kernel at boot.",
+   "examples": [
+    "GRUB",
+    "LILO",
+    "systemd-boot",
+    "syslinux",
+    "Petitboot",
+    "Barebox",
+    "Limine"
+   ]
+  },
+  {
+   "id": "bus-standard",
+   "prompt": "Name a computer bus or peripheral interface standard",
+   "domain": "hardware-security-history",
+   "accepts": "a named standard for a computer system bus, expansion bus or peripheral interface.",
+   "examples": [
+    "USB",
+    "PCI",
+    "SCSI",
+    "VME",
+    "Multibus",
+    "NuBus",
+    "Zorro"
+   ]
+  },
+  {
+   "id": "computing-benchmark",
+   "prompt": "Name a computing benchmark",
+   "domain": "hardware-security-history",
+   "accepts": "a named benchmark program or suite used to measure computer performance.",
+   "examples": [
+    "LINPACK",
+    "SPEC CPU",
+    "Dhrystone",
+    "Whetstone",
+    "CoreMark",
+    "STREAM",
+    "Graph500"
+   ]
+  },
+  {
+   "id": "cpu-socket",
+   "prompt": "Name a CPU socket",
+   "domain": "hardware-security-history",
+   "accepts": "a named processor socket or slot standard used to mount a CPU.",
+   "examples": [
+    "LGA 1700",
+    "AM4",
+    "LGA 1200",
+    "Socket 370",
+    "Slot A",
+    "Socket 423",
+    "sTRX4"
+   ]
+  },
+  {
+   "id": "cryptographic-attack",
+   "prompt": "Name a cryptographic attack",
+   "domain": "hardware-security-history",
+   "accepts": "a named attack that breaks or weakens a cryptographic algorithm, protocol or implementation.",
+   "examples": [
+    "brute force",
+    "birthday attack",
+    "man-in-the-middle",
+    "Bleichenbacher's attack",
+    "Lucky Thirteen",
+    "length extension attack",
+    "padding oracle attack"
+   ]
+  },
+  {
+   "id": "dec-computer",
+   "prompt": "Name a Digital Equipment Corporation computer",
+   "domain": "hardware-security-history",
+   "accepts": "a computer model made by Digital Equipment Corporation (DEC).",
+   "examples": [
+    "PDP-11",
+    "VAX",
+    "PDP-8",
+    "PDP-1",
+    "PDP-12",
+    "Rainbow 100",
+    "Professional 350"
+   ]
+  },
+  {
+   "id": "defunct-computer-company",
+   "prompt": "Name a computer hardware company that no longer exists",
+   "domain": "hardware-security-history",
+   "accepts": "a computer hardware maker that went bankrupt, dissolved, or was absorbed into another company and no longer operates independently.",
+   "examples": [
+    "Commodore",
+    "Osborne Computer",
+    "Wang Laboratories",
+    "Kendall Square Research",
+    "Thinking Machines",
+    "Sequent Computer Systems",
+    "MITS"
+   ]
+  },
+  {
+   "id": "disassembler",
+   "prompt": "Name a disassembler or decompiler",
+   "domain": "hardware-security-history",
+   "accepts": "a named program that disassembles or decompiles machine code.",
+   "examples": [
+    "objdump",
+    "IDA",
+    "Ghidra",
+    "Radare2",
+    "Hopper",
+    "Binary Ninja",
+    "Boomerang"
+   ]
+  },
+  {
+   "id": "elliptic-curve",
+   "prompt": "Name an elliptic curve",
+   "domain": "hardware-security-history",
+   "accepts": "a named elliptic curve used in cryptography, defined in a standard or paper.",
+   "examples": [
+    "secp256k1",
+    "P-256",
+    "Curve25519",
+    "Curve41417",
+    "FRP256v1",
+    "SM2",
+    "Ed448"
+   ]
+  },
+  {
+   "id": "error-code",
+   "prompt": "Name an error-detecting or error-correcting code",
+   "domain": "hardware-security-history",
+   "accepts": "a named code or check scheme for detecting or correcting errors in data.",
+   "examples": [
+    "parity",
+    "Hamming code",
+    "Reed-Solomon",
+    "Hsiao code",
+    "Berger code",
+    "Golay code",
+    "Verhoeff check"
+   ]
+  },
+  {
+   "id": "exploit-mitigation",
+   "prompt": "Name an exploit mitigation",
+   "domain": "hardware-security-history",
+   "accepts": "a named hardware or software technique that hinders exploitation of memory-safety or control-flow bugs.",
+   "examples": [
+    "ASLR",
+    "DEP",
+    "stack canary",
+    "SafeStack",
+    "Control-Flow Integrity",
+    "Pointer Authentication",
+    "Memory Tagging Extension"
+   ]
+  },
+  {
+   "id": "floating-point-format",
+   "prompt": "Name a floating-point format",
+   "domain": "hardware-security-history",
+   "accepts": "a named binary or decimal floating-point number format, standard or vendor-specific.",
+   "examples": [
+    "binary32",
+    "binary64",
+    "bfloat16",
+    "posit",
+    "TF32",
+    "DLFloat",
+    "VAX F_floating"
+   ]
+  },
+  {
+   "id": "fuzzer",
+   "prompt": "Name a fuzzer",
+   "domain": "hardware-security-history",
+   "accepts": "a named software tool that generates random or mutated inputs to find bugs.",
+   "examples": [
+    "AFL",
+    "libFuzzer",
+    "Peach",
+    "Radamsa",
+    "syzkaller",
+    "honggfuzz",
+    "Csmith"
+   ]
+  }
+ ]
+}

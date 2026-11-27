@@ -1,0 +1,304 @@
+{
+ "drafts": [
+  {
+   "id": "testing-technique",
+   "prompt": "Name a software testing technique",
+   "domain": "languages-tools",
+   "accepts": "Any named method for designing or running software tests that is described in the testing literature or a standards document.",
+   "examples": [
+    "unit testing",
+    "regression testing",
+    "fuzzing",
+    "metamorphic testing",
+    "concolic testing",
+    "combinatorial testing",
+    "differential testing"
+   ]
+  },
+  {
+   "id": "text-editor",
+   "prompt": "Name a text editor",
+   "domain": "languages-tools",
+   "accepts": "Any named program whose main purpose is editing plain text files, whether terminal, GUI, or historical, such as Notepad or ed.",
+   "examples": [
+    "vim",
+    "emacs",
+    "nano",
+    "Kakoune",
+    "Helix",
+    "Acme",
+    "sam"
+   ]
+  },
+  {
+   "id": "version-control-system",
+   "prompt": "Name a version control system",
+   "domain": "languages-tools",
+   "accepts": "Any named software that records and manages revisions of a file tree, centralized or distributed, current or historical, such as RCS or Perforce.",
+   "examples": [
+    "git",
+    "svn",
+    "mercurial",
+    "Darcs",
+    "Fossil",
+    "Pijul",
+    "Monotone"
+   ]
+  },
+  {
+   "id": "vim-plugin",
+   "prompt": "Name a Vim plugin",
+   "domain": "languages-tools",
+   "accepts": "Any named plugin for Vim or Neovim published on GitHub or a plugin manager index, which a judge can look up by name.",
+   "examples": [
+    "NERDTree",
+    "vim-fugitive",
+    "fzf.vim",
+    "vim-surround",
+    "vim-unimpaired",
+    "vim-abolish",
+    "undotree"
+   ]
+  },
+  {
+   "id": "web-framework",
+   "prompt": "Name a web framework",
+   "domain": "languages-tools",
+   "accepts": "Any named software framework for building web applications or HTTP services, in any language, that is documented or published.",
+   "examples": [
+    "Django",
+    "Rails",
+    "Express",
+    "Mojolicious",
+    "Yesod",
+    "Kemal",
+    "Seaside"
+   ]
+  },
+  {
+   "id": "web-server",
+   "prompt": "Name a web server",
+   "domain": "languages-tools",
+   "accepts": "Any named software that accepts and answers HTTP requests, current or historical.",
+   "examples": [
+    "nginx",
+    "Apache httpd",
+    "IIS",
+    "lighttpd",
+    "Hiawatha",
+    "Cherokee",
+    "thttpd"
+   ]
+  },
+  {
+   "id": "bgp-path-attribute",
+   "prompt": "Name a BGP path attribute",
+   "domain": "os-systems",
+   "accepts": "Any attribute type name in the IANA BGP Path Attributes registry.",
+   "examples": [
+    "AS_PATH",
+    "NEXT_HOP",
+    "LOCAL_PREF",
+    "PMSI_TUNNEL",
+    "TUNNEL_ENCAPSULATION",
+    "AIGP",
+    "CLUSTER_LIST"
+   ]
+  },
+  {
+   "id": "cache-replacement-policy",
+   "prompt": "Name a cache replacement policy",
+   "domain": "os-systems",
+   "accepts": "Any named policy that decides which cached item to evict, whether in OS page caches, hardware caches or software caches.",
+   "examples": [
+    "LRU",
+    "FIFO",
+    "Clock",
+    "ARC",
+    "LIRS",
+    "TinyLFU",
+    "LeCaR"
+   ]
+  },
+  {
+   "id": "cpu-scheduling-algorithm",
+   "prompt": "Name a CPU scheduling algorithm",
+   "domain": "os-systems",
+   "accepts": "Any named algorithm or policy that selects which runnable task gets the CPU next, from textbooks, research papers or OS source code.",
+   "examples": [
+    "Round robin",
+    "First come first served",
+    "Shortest job first",
+    "Stride scheduling",
+    "Lottery scheduling",
+    "EEVDF",
+    "Borrowed virtual time"
+   ]
+  },
+  {
+   "id": "dhcp-option",
+   "prompt": "Name a DHCP option",
+   "domain": "os-systems",
+   "accepts": "Any option name in the IANA BOOTP and DHCP parameters registry or the DHCP option lists in RFC 2132 and its successors.",
+   "examples": [
+    "Subnet Mask",
+    "Router",
+    "Domain Name Server",
+    "Relay Agent Information",
+    "Classless Static Route",
+    "Domain Search",
+    "Vendor-Specific Information"
+   ]
+  },
+  {
+   "id": "dns-record-type",
+   "prompt": "Name a DNS record type",
+   "domain": "os-systems",
+   "accepts": "Any resource record type with a registered TYPE number in the IANA DNS parameters registry.",
+   "examples": [
+    "A",
+    "AAAA",
+    "MX",
+    "SSHFP",
+    "TLSA",
+    "NAPTR",
+    "LOC"
+   ]
+  },
+  {
+   "id": "eap-method",
+   "prompt": "Name an EAP method",
+   "domain": "os-systems",
+   "accepts": "Any authentication method registered with IANA for the Extensible Authentication Protocol or defined in an RFC for EAP.",
+   "examples": [
+    "EAP-TLS",
+    "EAP-PEAP",
+    "EAP-TTLS",
+    "EAP-IKEv2",
+    "EAP-NOOB",
+    "EAP-pwd",
+    "EAP-PSK"
+   ]
+  },
+  {
+   "id": "elf-section",
+   "prompt": "Name an ELF section",
+   "domain": "os-systems",
+   "accepts": "Any section name defined in the ELF specification, the System V gABI, or a toolchain or ABI extension for ELF object files.",
+   "examples": [
+    ".text",
+    ".data",
+    ".bss",
+    ".gnu.hash",
+    ".note.stapsdt",
+    ".stapsdt.base",
+    ".gnu_debugaltlink"
+   ]
+  },
+  {
+   "id": "erasure-code",
+   "prompt": "Name an erasure code",
+   "domain": "os-systems",
+   "accepts": "Any named erasure or RAID-style coding scheme from coding theory or storage literature that adds redundancy to recover lost blocks.",
+   "examples": [
+    "Reed-Solomon",
+    "LDPC",
+    "XOR parity",
+    "EVENODD",
+    "X-Code",
+    "STAR code",
+    "Liberation codes"
+   ]
+  },
+  {
+   "id": "ieee-802-standard",
+   "prompt": "Name an IEEE 802 standard",
+   "domain": "os-systems",
+   "accepts": "Any published IEEE 802 standard or amendment, identified by its 802.x number.",
+   "examples": [
+    "802.3",
+    "802.11",
+    "802.1Q",
+    "802.1CB",
+    "802.1AE",
+    "802.21",
+    "802.15.4"
+   ]
+  },
+  {
+   "id": "linux-boot-parameter",
+   "prompt": "Name a Linux kernel boot parameter",
+   "domain": "os-systems",
+   "accepts": "Any option documented in the kernel's admin-guide kernel-parameters list that can be passed on the kernel command line.",
+   "examples": [
+    "quiet",
+    "root",
+    "console",
+    "rcu_nocbs",
+    "nohz_full",
+    "isolcpus",
+    "nokaslr"
+   ]
+  },
+  {
+   "id": "linux-capability",
+   "prompt": "Name a Linux capability",
+   "domain": "os-systems",
+   "accepts": "Any CAP_ name defined in capabilities(7) for the current Linux kernel.",
+   "examples": [
+    "CAP_NET_ADMIN",
+    "CAP_SYS_ADMIN",
+    "CAP_CHOWN",
+    "CAP_LEASE",
+    "CAP_IPC_OWNER",
+    "CAP_CHECKPOINT_RESTORE",
+    "CAP_WAKE_ALARM"
+   ]
+  },
+  {
+   "id": "linux-device-node",
+   "prompt": "Name a Linux device node",
+   "domain": "os-systems",
+   "accepts": "Any path under /dev that the Linux kernel or a driver creates as a character or block device node, such as the names documented in the kernel or devices.txt.",
+   "examples": [
+    "/dev/null",
+    "/dev/zero",
+    "/dev/random",
+    "/dev/kmsg",
+    "/dev/hwrng",
+    "/dev/userfaultfd",
+    "/dev/vhost-net"
+   ]
+  },
+  {
+   "id": "linux-errno",
+   "prompt": "Name a Linux errno value",
+   "domain": "os-systems",
+   "accepts": "Any E-prefixed error constant defined in the Linux errno-base or errno headers.",
+   "examples": [
+    "ENOENT",
+    "EACCES",
+    "EAGAIN",
+    "EHWPOISON",
+    "ENOTUNIQ",
+    "EUCLEAN",
+    "ESTRPIPE"
+   ]
+  },
+  {
+   "id": "linux-ioctl-request",
+   "prompt": "Name a Linux ioctl request",
+   "domain": "os-systems",
+   "accepts": "Any ioctl request constant defined in Linux uapi headers, such as those under linux/fs.h, linux/fd.h or asm-generic/ioctls.h.",
+   "examples": [
+    "TCGETS",
+    "FIONREAD",
+    "BLKGETSIZE",
+    "FS_IOC_FIEMAP",
+    "FIFREEZE",
+    "BLKDISCARD",
+    "TIOCSTI"
+   ]
+  }
+ ]
+}

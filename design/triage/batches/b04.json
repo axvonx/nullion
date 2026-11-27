@@ -1,0 +1,304 @@
+{
+ "drafts": [
+  {
+   "id": "web-attack",
+   "prompt": "Name a web attack",
+   "domain": "hardware-security-history",
+   "accepts": "a named class or technique of attack against web applications or HTTP services.",
+   "examples": [
+    "SQL injection",
+    "cross-site scripting",
+    "CSRF",
+    "HTTP request smuggling",
+    "XS-Leaks",
+    "dangling markup injection",
+    "Slowloris"
+   ]
+  },
+  {
+   "id": "win32-api-function",
+   "prompt": "Name a Windows API function",
+   "domain": "hardware-security-history",
+   "accepts": "an exported function of the Windows API (Win32 or native), as documented by Microsoft or exported by its system DLLs.",
+   "examples": [
+    "CreateFile",
+    "MessageBox",
+    "GetProcAddress",
+    "NtQueryInformationProcess",
+    "RtlCopyMemory",
+    "CryptProtectData",
+    "WSAIoctl"
+   ]
+  },
+  {
+   "id": "x86-cpu-feature-flag",
+   "prompt": "Name an x86 CPU feature flag",
+   "domain": "hardware-security-history",
+   "accepts": "a CPU feature flag reported by CPUID or listed in Linux /proc/cpuinfo for x86 processors.",
+   "examples": [
+    "sse",
+    "avx",
+    "aes",
+    "sha_ni",
+    "movdiri",
+    "cldemote",
+    "waitpkg"
+   ]
+  },
+  {
+   "id": "x86-instruction",
+   "prompt": "Name an x86 instruction",
+   "domain": "hardware-security-history",
+   "accepts": "a mnemonic for an x86 or x86-64 machine instruction, including SSE, AVX and system instructions, as listed in Intel's SDM.",
+   "examples": [
+    "MOV",
+    "ADD",
+    "JMP",
+    "PCMPESTRI",
+    "VPGATHERDD",
+    "CLFLUSHOPT",
+    "RDRAND"
+   ]
+  },
+  {
+   "id": "architectural-pattern",
+   "prompt": "Name an architectural pattern",
+   "domain": "languages-tools",
+   "accepts": "Any named high-level structure for organising a software system, described in a published architecture catalogue or in the literature.",
+   "examples": [
+    "MVC",
+    "microservices",
+    "layered architecture",
+    "Blackboard",
+    "Pipe and filter",
+    "Space-based architecture",
+    "Hexagonal architecture"
+   ]
+  },
+  {
+   "id": "benchmarking-tool",
+   "prompt": "Name a benchmarking tool",
+   "domain": "languages-tools",
+   "accepts": "Any named tool that measures the speed or load capacity of code or a command, with a published project or documentation.",
+   "examples": [
+    "JMH",
+    "BenchmarkDotNet",
+    "pytest-benchmark",
+    "hyperfine",
+    "vegeta",
+    "wrk2",
+    "oha"
+   ]
+  },
+  {
+   "id": "bug-tracker",
+   "prompt": "Name a bug tracker",
+   "domain": "languages-tools",
+   "accepts": "Any named software system for recording, assigning, and tracking defect reports or issues, hosted or self-hosted, current or historical.",
+   "examples": [
+    "Jira",
+    "Bugzilla",
+    "GitHub Issues",
+    "Debbugs",
+    "Flyspray",
+    "Request Tracker",
+    "Mantis"
+   ]
+  },
+  {
+   "id": "build-tool",
+   "prompt": "Name a build tool",
+   "domain": "languages-tools",
+   "accepts": "Any named program that drives compiling, linking, or other build steps from a dependency description, such as Ninja or Bazel.",
+   "examples": [
+    "make",
+    "cmake",
+    "gradle",
+    "Tup",
+    "redo",
+    "Shake",
+    "Jam"
+   ]
+  },
+  {
+   "id": "ci-service",
+   "prompt": "Name a continuous integration service",
+   "domain": "languages-tools",
+   "accepts": "Any named hosted or self-hosted system that automatically builds and tests code on each change.",
+   "examples": [
+    "Jenkins",
+    "GitHub Actions",
+    "CircleCI",
+    "Buildkite",
+    "Concourse",
+    "Drone",
+    "Cirrus CI"
+   ]
+  },
+  {
+   "id": "code-formatter",
+   "prompt": "Name a code formatter",
+   "domain": "languages-tools",
+   "accepts": "Any named tool that rewrites source code into a canonical layout without changing its meaning, for any language.",
+   "examples": [
+    "gofmt",
+    "Black",
+    "Prettier",
+    "ormolu",
+    "scalafmt",
+    "ocamlformat",
+    "stylua"
+   ]
+  },
+  {
+   "id": "code-smell",
+   "prompt": "Name a code smell",
+   "domain": "languages-tools",
+   "accepts": "Any named symptom of poor code structure from Fowler and Beck's catalogue or a published anti-pattern or smell list.",
+   "examples": [
+    "God class",
+    "long method",
+    "duplicate code",
+    "Yo-yo problem",
+    "Boat anchor",
+    "Lava flow",
+    "Refused bequest"
+   ]
+  },
+  {
+   "id": "compiler",
+   "prompt": "Name a compiler",
+   "domain": "languages-tools",
+   "accepts": "Any named program that translates source code in a programming language into another form, current or historical.",
+   "examples": [
+    "GCC",
+    "Clang",
+    "MSVC",
+    "lcc",
+    "cproc",
+    "chibicc",
+    "Open64"
+   ]
+  },
+  {
+   "id": "css-framework",
+   "prompt": "Name a CSS framework",
+   "domain": "languages-tools",
+   "accepts": "Any named published stylesheet library or utility system for styling web pages with predefined components or classes.",
+   "examples": [
+    "Bootstrap",
+    "Tailwind",
+    "Bulma",
+    "Milligram",
+    "Water.css",
+    "Spectre.css",
+    "Skeleton"
+   ]
+  },
+  {
+   "id": "debugger",
+   "prompt": "Name a debugger",
+   "domain": "languages-tools",
+   "accepts": "Any named program that runs or inspects another program with breakpoints, stepping, or variable inspection, current or historical.",
+   "examples": [
+    "gdb",
+    "lldb",
+    "pdb",
+    "rr",
+    "WinDbg",
+    "OllyDbg",
+    "DDD"
+   ]
+  },
+  {
+   "id": "dependency-injection-framework",
+   "prompt": "Name a dependency injection framework",
+   "domain": "languages-tools",
+   "accepts": "Any named library or framework that wires object dependencies by injection for a programming language, current or historical.",
+   "examples": [
+    "Spring",
+    "Guice",
+    "Dagger",
+    "Pico Container",
+    "Autofac",
+    "Koin",
+    "Ninject"
+   ]
+  },
+  {
+   "id": "design-pattern",
+   "prompt": "Name a design pattern",
+   "domain": "languages-tools",
+   "accepts": "Any named reusable object-oriented design solution from the Gang of Four catalogue or a published pattern language, such as Adapter or Decorator.",
+   "examples": [
+    "singleton",
+    "observer",
+    "factory method",
+    "Acyclic Visitor",
+    "Extension Object",
+    "Null Object",
+    "Memento"
+   ]
+  },
+  {
+   "id": "design-principle",
+   "prompt": "Name a software design principle",
+   "domain": "languages-tools",
+   "accepts": "Any named guideline for structuring software, with a recognised name and source, such as Separation of Concerns.",
+   "examples": [
+    "DRY",
+    "KISS",
+    "YAGNI",
+    "Law of Demeter",
+    "Postel's law",
+    "Hollywood principle",
+    "Tell, don't ask"
+   ]
+  },
+  {
+   "id": "documentation-generator",
+   "prompt": "Name a documentation generator",
+   "domain": "languages-tools",
+   "accepts": "Any named tool that builds API or project reference documentation from source code comments or annotations.",
+   "examples": [
+    "Javadoc",
+    "Doxygen",
+    "Sphinx",
+    "Haddock",
+    "Natural Docs",
+    "DocFX",
+    "pdoc"
+   ]
+  },
+  {
+   "id": "domain-specific-language",
+   "prompt": "Name a domain-specific language",
+   "domain": "languages-tools",
+   "accepts": "Any named language designed for one application area rather than general programming, with a published specification or documentation.",
+   "examples": [
+    "SQL",
+    "regular expressions",
+    "Gherkin",
+    "Halide",
+    "Starlark",
+    "Dhall",
+    "Stan"
+   ]
+  },
+  {
+   "id": "frontend-ui-library",
+   "prompt": "Name a front-end UI library",
+   "domain": "languages-tools",
+   "accepts": "Any named JavaScript library or framework for building user interfaces in the browser, current or historical.",
+   "examples": [
+    "React",
+    "Vue",
+    "Svelte",
+    "Mithril",
+    "Hyperapp",
+    "Riot",
+    "Inferno"
+   ]
+  }
+ ]
+}

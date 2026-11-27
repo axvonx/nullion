@@ -1,0 +1,289 @@
+{
+ "drafts": [
+  {
+   "id": "linux-kernel-config-option",
+   "prompt": "Name a Linux kernel config option",
+   "domain": "os-systems",
+   "accepts": "Any CONFIG_ symbol that is defined in a Kconfig file in the Linux kernel source tree.",
+   "examples": [
+    "CONFIG_SMP",
+    "CONFIG_MODULES",
+    "CONFIG_PRINTK",
+    "CONFIG_PREEMPT_RT",
+    "CONFIG_KASAN",
+    "CONFIG_LOCKDEP",
+    "CONFIG_TRANSPARENT_HUGEPAGE"
+   ]
+  },
+  {
+   "id": "linux-kernel-thread",
+   "prompt": "Name a Linux kernel thread",
+   "domain": "os-systems",
+   "accepts": "Any named kernel thread that appears as a kernel process in the Linux kernel source or in ps output.",
+   "examples": [
+    "kswapd",
+    "ksoftirqd",
+    "kthreadd",
+    "khungtaskd",
+    "kcompactd",
+    "oom_reaper",
+    "ksmd"
+   ]
+  },
+  {
+   "id": "linux-network-interface-type",
+   "prompt": "Name a Linux network interface type",
+   "domain": "os-systems",
+   "accepts": "Any link type accepted by iproute2's ip link add command or listed in its link-type documentation.",
+   "examples": [
+    "bridge",
+    "veth",
+    "tun",
+    "ifb",
+    "nlmon",
+    "vcan",
+    "geneve"
+   ]
+  },
+  {
+   "id": "linux-perf-event",
+   "prompt": "Name a Linux perf event",
+   "domain": "os-systems",
+   "accepts": "Any event name listed by perf list, including generic hardware, cache, software and tracepoint events.",
+   "examples": [
+    "cache-misses",
+    "branch-misses",
+    "page-faults",
+    "dTLB-load-misses",
+    "stalled-cycles-backend",
+    "L1-dcache-load-misses",
+    "cache-references"
+   ]
+  },
+  {
+   "id": "linux-sysctl-key",
+   "prompt": "Name a Linux sysctl key",
+   "domain": "os-systems",
+   "accepts": "Any dotted tunable name that appears under /proc/sys and is documented in the kernel Documentation/admin-guide or sysctl.conf references.",
+   "examples": [
+    "vm.swappiness",
+    "net.ipv4.ip_forward",
+    "kernel.panic",
+    "kernel.yama.ptrace_scope",
+    "fs.inotify.max_user_watches",
+    "net.ipv4.tcp_syncookies",
+    "kernel.perf_event_paranoid"
+   ]
+  },
+  {
+   "id": "macho-load-command",
+   "prompt": "Name a Mach-O load command",
+   "domain": "os-systems",
+   "accepts": "Any LC_ constant defined in Apple's mach-o/loader.h for Mach-O binaries.",
+   "examples": [
+    "LC_SEGMENT_64",
+    "LC_UUID",
+    "LC_MAIN",
+    "LC_DYLD_CHAINED_FIXUPS",
+    "LC_FUNCTION_STARTS",
+    "LC_ATOM_INFO",
+    "LC_NOTE"
+   ]
+  },
+  {
+   "id": "memory-consistency-model",
+   "prompt": "Name a memory consistency model",
+   "domain": "os-systems",
+   "accepts": "Any named model that specifies the allowed orderings of memory reads and writes across processors or replicas, from hardware, language or distributed-systems literature.",
+   "examples": [
+    "Sequential consistency",
+    "Total store order",
+    "Linearizability",
+    "RCpc",
+    "Processor consistency",
+    "Slow memory",
+    "Pipelined RAM consistency"
+   ]
+  },
+  {
+   "id": "monitoring-system",
+   "prompt": "Name a monitoring system",
+   "domain": "os-systems",
+   "accepts": "Any named software that collects metrics or checks the health of hosts or services and alerts on them, open-source or commercial.",
+   "examples": [
+    "Nagios",
+    "Prometheus",
+    "Zabbix",
+    "Ganglia",
+    "Riemann",
+    "Munin",
+    "Shinken"
+   ]
+  },
+  {
+   "id": "network-protocol",
+   "prompt": "Name a network protocol",
+   "domain": "os-systems",
+   "accepts": "Any named communication protocol specified in an RFC, IEEE, ITU or vendor standard, or a documented historic protocol.",
+   "examples": [
+    "TCP",
+    "UDP",
+    "HTTP",
+    "ZMODEM",
+    "XTP",
+    "Chaosnet",
+    "DCCP"
+   ]
+  },
+  {
+   "id": "nvme-command",
+   "prompt": "Name an NVMe command",
+   "domain": "os-systems",
+   "accepts": "Any admin or I/O command opcode defined in the NVMe base specification or its command-set specifications, such as the NVM or Zoned Namespace command sets.",
+   "examples": [
+    "Read",
+    "Write",
+    "Identify",
+    "Zone Append",
+    "Dataset Management",
+    "Copy",
+    "Sanitize"
+   ]
+  },
+  {
+   "id": "routing-protocol",
+   "prompt": "Name a routing protocol",
+   "domain": "os-systems",
+   "accepts": "Any named protocol that exchanges routing information to build forwarding tables, wired, wireless, mesh or historic.",
+   "examples": [
+    "RIP",
+    "OSPF",
+    "BGP",
+    "OLSR",
+    "AODV",
+    "Babel",
+    "HWMP"
+   ]
+  },
+  {
+   "id": "socket-address-family",
+   "prompt": "Name a socket address family",
+   "domain": "os-systems",
+   "accepts": "Any AF_ constant defined in the Linux or BSD socket headers for a socket domain.",
+   "examples": [
+    "AF_INET",
+    "AF_UNIX",
+    "AF_INET6",
+    "AF_ALG",
+    "AF_KEY",
+    "AF_NETROM",
+    "AF_TIPC"
+   ]
+  },
+  {
+   "id": "systemd-directive",
+   "prompt": "Name a systemd unit directive",
+   "domain": "os-systems",
+   "accepts": "Any setting name documented in systemd.exec, systemd.service, systemd.unit or related systemd.* manual pages for unit files.",
+   "examples": [
+    "ExecStart",
+    "Restart",
+    "User",
+    "ProtectProc",
+    "RestrictNamespaces",
+    "MemoryDenyWriteExecute",
+    "LockPersonality"
+   ]
+  },
+  {
+   "id": "tls-extension",
+   "prompt": "Name a TLS extension",
+   "domain": "os-systems",
+   "accepts": "Any extension name in the IANA TLS ExtensionType registry.",
+   "examples": [
+    "server_name",
+    "application_layer_protocol_negotiation",
+    "supported_versions",
+    "trusted_ca_keys",
+    "cached_info",
+    "oid_filters",
+    "record_size_limit"
+   ]
+  },
+  {
+   "id": "unix-daemon",
+   "prompt": "Name a Unix daemon",
+   "domain": "os-systems",
+   "accepts": "Any named background service program on a Unix-like system, as named in its man page or the system's standard service list.",
+   "examples": [
+    "sshd",
+    "crond",
+    "syslogd",
+    "chronyd",
+    "nscd",
+    "rpcbind",
+    "xinetd"
+   ]
+  },
+  {
+   "id": "unix-shell",
+   "prompt": "Name a Unix shell",
+   "domain": "os-systems",
+   "accepts": "Any named command interpreter that runs scripts or interactive sessions on a Unix-like system, including historic and niche shells.",
+   "examples": [
+    "bash",
+    "zsh",
+    "fish",
+    "rc",
+    "es",
+    "yash",
+    "elvish"
+   ]
+  },
+  {
+   "id": "unix-signal",
+   "prompt": "Name a Unix signal",
+   "domain": "os-systems",
+   "accepts": "Any signal name defined in signal.h or signal(7) on a Unix-like system, including platform-specific and real-time signals.",
+   "examples": [
+    "SIGKILL",
+    "SIGINT",
+    "SIGTERM",
+    "SIGSTKFLT",
+    "SIGPWR",
+    "SIGEMT",
+    "SIGINFO"
+   ]
+  },
+  {
+   "id": "window-manager",
+   "prompt": "Name a window manager",
+   "domain": "os-systems",
+   "accepts": "Any named X11 or Wayland program that manages window placement and decoration, tiling or floating, including historic ones.",
+   "examples": [
+    "i3",
+    "dwm",
+    "Mutter",
+    "ratpoison",
+    "herbstluftwm",
+    "calmwm",
+    "stumpwm"
+   ]
+  },
+  {
+   "id": "windows-kernel-object-type",
+   "prompt": "Name a Windows kernel object type",
+   "domain": "os-systems",
+   "accepts": "Any named object type registered with the Windows NT Object Manager, as listed by tools such as WinObj or documented in Windows internals references.",
+   "examples": [
+    "Process",
+    "Thread",
+    "Event",
+    "Mutant",
+    "EventPair",
+    "Partition",
+    "WaitCompletionPacket"
+   ]
+  }
+ ]
+}
