@@ -118,3 +118,14 @@ export function reactionFrame(tier: TierId, rel: number, sustained: boolean, red
   if (reduced) f.jiggle = 0;
   return f;
 }
+
+/**
+ * The reveal's frame-buffer degrade: block size, in scene pixels, by how far in (0..1) the reveal is. It steps
+ * 1 → 2 → 4 → 8 on the way in and 8 → 4 → 2 → 1 on the way out (the scene eases `a` both ways).
+ */
+const BUFFER_STEPS: readonly [number, number][] = [[0.2, 1], [0.45, 2], [0.7, 4], [1.01, 8]];
+export function bufferBlock(a: number): number {
+  const step = BUFFER_STEPS.find(([upTo]) => a < upTo);
+  if (!step) throw new Error(`bufferBlock: progress ${a} out of range`);
+  return step[1];
+}

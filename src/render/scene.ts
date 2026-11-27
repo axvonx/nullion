@@ -10,7 +10,7 @@ import { FAR_F } from './v4/place';
 import type { WorldSpecV4 } from './v4/world';
 import { LAYER_PALETTE, quantizeRow, snapColor, type PaletteMode } from './palettes';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
-import { CASCADE, LEAD_MS, NO_REACTION, NPE_MS, REACTION_MS, WOMM, reactionFrame, type ReactionFrame } from './reaction-fx';
+import { CASCADE, LEAD_MS, bufferBlock, NO_REACTION, NPE_MS, REACTION_MS, WOMM, reactionFrame, type ReactionFrame } from './reaction-fx';
 import { CURSOR_FRAC, FORM_BY_LAYER, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
 import { drawMiniNullion, type TitleGlitchEvent } from '../ui/title-logo';
 import { sound } from '../audio/sound';
@@ -164,7 +164,8 @@ function easeOutBack(p: number): number {
 }
 const easeOutCubic = (p: number) => 1 - (1 - p) ** 3;
 
-const VIGNETTE_MS = 220;
+const VIGNETTE_MS = 260;
+const BAYER16 = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
 /** The reveal's blocky dim bands, outermost to innermost: cumulative darkness. */
 const VIGNETTE_STEPS = [0.54, 0.74, 0.88];
 
@@ -245,6 +246,7 @@ export class Scene {
   private swayPhase = 0;
   private bubbles: { x: number; y: number; age: number }[] = [];
   private vignette = { on: false, at: -Infinity };
+  private bufCopy = new Uint8ClampedArray(0);
   private rain: { y: number; speed: number }[] = [];
   /** Living System Biosphere critters (unique per layer, animated on artTime, spatial SFX). */
   private critters = new CritterSystem();
@@ -451,6 +453,66 @@ export class Scene {
     const scale = pixelScale(window.innerWidth);
     const m = markExtentY(this.formFor(layersFor(this.stackMode)[layerIndexAt(this.depth, this.stackMode)]!.id), this.cursorY);
     return { top: m.top * scale, bottom: m.bottom * scale };
+  }
+
+  /**
+   * The reveal's backdrop as the frame buffer degrading on purpose: the picture behind the cursor drops to coarser
+   * and coarser blocks (1 → 2 → 4 → 8 over VIGNETTE_MS, and back on release), is quantised to the layer's own palette
+   * (the final colour-depth pass does this for the layers that have one; full-colour rows get a coarse 3-level
+   * palette), and is dimmed by ordered dither (black pixels at a density that deepens toward the middle) instead of
+   * flat bands. The cursor, tier name and answer are drawn after and stay crisp. Reduced motion jumps to the end state.
+   */
+  private drawRevealBuffer(now: number, reduced: boolean, camY: number, stack: readonly Layer[]) {
+    const v = this.vignette;
+    const k = reduced ? 1 : Math.min(1, (now - v.at) / VIGNETTE_MS);
+    const a = v.on ? k : 1 - k;
+    if (a <= 0) return;
+    const { W, H } = this;
+    const ctx = this.ctx;
+    const bs = bufferBlock(a);
+    const img = ctx.getImageData(0, 0, W, H);
+    const d = img.data;
+    // Blocks sample the untouched frame, so read from a copy while the buffer is rewritten in place.
+    if (this.bufCopy.length !== d.length) this.bufCopy = new Uint8ClampedArray(d.length);
+    this.bufCopy.set(d);
+    const src = this.bufCopy;
+    const snap = (n: number) => Math.round(n / 8) * 8;
+    const cx = snap(W / 2);
+    const cy = snap(this.cursorY);
+    const rx = snap(Math.min(Math.round(W * 0.56), 204));
+    const ry = snap(Math.round(H * 0.29));
+    // Cumulative darkness of the base dim and the nested rectangles, outermost to innermost.
+    const levels = [0.26, ...VIGNETTE_STEPS];
+    const rects = VIGNETTE_STEPS.map((_, idx) => {
+      const frac = 1 - idx * (0.22 / Math.max(1, VIGNETTE_STEPS.length - 1));
+      return { hw: snap(rx * frac), hh: snap(ry * frac) };
+    });
+    const quantised = look('palette') === 'per-layer';
+    for (let y = 0; y < H; y++) {
+      const sy = Math.min(H - 1, y - (y % bs) + (bs >> 1));
+      const inY = rects.map((r) => Math.abs(y - cy) < r.hh);
+      for (let x = 0; x < W; x++) {
+        const sx = Math.min(W - 1, x - (x % bs) + (bs >> 1));
+        const si = (sy * W + sx) * 4;
+        const i = (y * W + x) * 4;
+        let depth = 0;
+        for (let r = 0; r < rects.length; r++) if (inY[r] && Math.abs(x - cx) < rects[r]!.hw) depth = r + 1;
+        const dark = levels[depth]! * a;
+        if (BAYER16[(y & 3) * 4 + (x & 3)]! < dark * 16) {
+          d[i] = 0;
+          d[i + 1] = 0;
+          d[i + 2] = 0;
+        } else {
+          d[i] = src[si]!;
+          d[i + 1] = src[si + 1]!;
+          d[i + 2] = src[si + 2]!;
+        }
+      }
+      // Full-colour rows have no palette to fall to: give them a coarse one so the degrade still reads.
+      const li = layerIndexAtWorldY(camY + y, this.stackMode);
+      if (!quantised || LAYER_PALETTE[stack[li]!.id] === 'full') quantizeRow(d, y * W * 4, W, y, 'rgb4', true);
+    }
+    ctx.putImageData(img, 0, 0);
   }
 
   private drawVignette(now: number, reduced: boolean) {
@@ -982,7 +1044,8 @@ export class Scene {
     const swayDt = worldFrozen ? 0 : dt;
     this.swayPhase += swayDt * 3.1;
     // The reveal's vignette dims the middle beneath the cursor pass, so the cursor and its reaction play in front of it.
-    this.drawVignette(now, reduced);
+    if (look('reveal') === 'mosaic') this.drawVignette(now, reduced);
+    else this.drawRevealBuffer(now, reduced, camY, stack);
     this.drawBubbles(swayDt, speed, reduced, layer.id);
     this.drawCursor(now, layer.id, reduced, detailed);
     this.drawPops(now, layer.id, reduced);

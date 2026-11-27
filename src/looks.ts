@@ -17,6 +17,11 @@ export const LOOK_SLOTS = {
     options: { watermark: 'Watermark in the world', card: 'Entrance card (old)' },
     default: 'watermark',
   },
+  reveal: {
+    label: 'Reveal backdrop',
+    options: { framebuffer: 'Degrading frame buffer', mosaic: 'Grayscale mosaic (old)' },
+    default: 'framebuffer',
+  },
   cursor: {
     label: 'Cursor',
     options: { evolving: 'Changes with layer', arrow: 'Always arrow', block: 'Always block', bit: 'Always bit' },

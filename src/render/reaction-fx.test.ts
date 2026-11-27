@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { TIER_IDS } from '../core/tiers';
-import { CASCADE, LEAD_MS, WOMM, reactionFrame } from './reaction-fx';
+import { bufferBlock, CASCADE, LEAD_MS, WOMM, reactionFrame } from './reaction-fx';
 
 const timeline = (tier: (typeof TIER_IDS)[number], sustained: boolean, reduced: boolean, until = 6000) => {
   const out = [];
@@ -77,5 +77,15 @@ describe('reaction timelines', () => {
     expect(reactionFrame('heisenbug', 60_000, true, false).jiggle).toBeGreaterThan(0);
     expect(reactionFrame('npe', 60_000, true, false).blackout).toBe(true);
     expect(reactionFrame('npe', 60_000, false, false).blackout).toBe(false);
+  });
+
+  it('the reveal backdrop steps its block size 1 → 2 → 4 → 8 and never skips or reverses', () => {
+    const seen: number[] = [];
+    for (let a = 0; a <= 1; a += 0.01) {
+      const b = bufferBlock(a);
+      if (seen.at(-1) !== b) seen.push(b);
+    }
+    expect(seen).toEqual([1, 2, 4, 8]);
+    expect(bufferBlock(1)).toBe(8);
   });
 });
