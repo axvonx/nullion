@@ -121,6 +121,7 @@ const ANCHORS: EntityDef[] = [
 
 export const rtl: LayerArt = {
   family: 'ring-3',
+  wiki: 'https://en.wikipedia.org/wiki/Register-transfer_level',
   blurb: text('layers.rtl.blurb'),
   palette: 'blueprint',
   form: 'raw',

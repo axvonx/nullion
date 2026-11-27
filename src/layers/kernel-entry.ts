@@ -133,6 +133,7 @@ const ANCHORS: EntityDef[] = [
 
 export const kernelEntry: LayerArt = {
   family: 'kernel',
+  wiki: 'https://en.wikipedia.org/wiki/System_call',
   blurb: text('layers.kernel-entry.blurb'),
   palette: 'cga16',
   form: 'serial',

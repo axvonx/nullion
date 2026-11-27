@@ -122,6 +122,7 @@ const ANCHORS: EntityDef[] = [
 
 export const kernelArch: LayerArt = {
   family: 'kernel',
+  wiki: 'https://en.wikipedia.org/wiki/Interrupt_descriptor_table',
   blurb: text('layers.kernel-arch.blurb'),
   palette: 'cga16',
   form: 'serial',

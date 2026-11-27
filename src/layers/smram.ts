@@ -97,6 +97,7 @@ const ANCHORS: EntityDef[] = [
 
 export const smram: LayerArt = {
   family: 'ring-2',
+  wiki: 'https://en.wikipedia.org/wiki/System_Management_Mode',
   blurb: text('layers.smram.blurb'),
   palette: 'gray',
   form: 'smm',

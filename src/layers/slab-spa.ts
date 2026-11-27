@@ -265,6 +265,7 @@ const ANCHORS: EntityDef[] = [
 
 export const slabSpa: LayerArt = {
   family: 'libraries',
+  wiki: 'https://en.wikipedia.org/wiki/Slab_allocation',
   blurb: text('layers.slab-spa.blurb'),
   palette: 'full',
   form: 'repl',

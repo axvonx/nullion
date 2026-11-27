@@ -121,6 +121,7 @@ const ANCHORS: EntityDef[] = [
 
 export const jit: LayerArt = {
   family: 'runtime',
+  wiki: 'https://en.wikipedia.org/wiki/Just-in-time_compilation',
   blurb: text('layers.jit.blurb'),
   palette: 'rgb6',
   form: 'repl',

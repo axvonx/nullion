@@ -389,6 +389,7 @@ const ANCHORS: EntityDef[] = [
 
 export const application: LayerArt = {
   family: 'application',
+  wiki: 'https://en.wikipedia.org/wiki/Application_software',
   blurb: text('layers.application.blurb'),
   palette: 'full',
   form: 'gui',

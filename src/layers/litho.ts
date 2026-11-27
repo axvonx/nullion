@@ -88,6 +88,7 @@ const ANCHORS: EntityDef[] = [
 
 export const litho: LayerArt = {
   family: 'ring-3',
+  wiki: 'https://en.wikipedia.org/wiki/Photolithography',
   blurb: text('layers.litho.blurb'),
   palette: 'euv',
   form: 'raw',

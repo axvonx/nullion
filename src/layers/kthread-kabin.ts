@@ -138,6 +138,7 @@ const ANCHORS: EntityDef[] = [
 
 export const kthreadKabin: LayerArt = {
   family: 'kernel',
+  wiki: 'https://en.wikipedia.org/wiki/Thread_(computing)',
   blurb: text('layers.kthread-kabin.blurb'),
   palette: 'rgb4',
   form: 'serial',

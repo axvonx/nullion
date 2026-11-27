@@ -135,6 +135,7 @@ const ANCHORS: EntityDef[] = [
 
 export const bytecode: LayerArt = {
   family: 'runtime',
+  wiki: 'https://en.wikipedia.org/wiki/Bytecode',
   blurb: text('layers.bytecode.blurb'),
   palette: 'rgb6',
   form: 'repl',

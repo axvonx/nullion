@@ -123,6 +123,8 @@ export interface LayerArt {
   family: DailyLayerId;
   /** One line a non-systems player can read, shown as you enter the layer. */
   blurb: string;
+  /** The Wikipedia article that explains this layer (checked to exist, never a disambiguation page): the end card's stack links to it. */
+  wiki: string;
   palette: PaletteMode;
   /** The console card's idiom. */
   form: FormId;

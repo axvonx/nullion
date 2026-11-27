@@ -420,6 +420,7 @@ const ANCHORS: EntityDef[] = [
 
 export const ringMinus1: LayerArt = {
   family: 'ring-1',
+  wiki: 'https://en.wikipedia.org/wiki/Hypervisor',
   blurb: text('layers.ring-1.blurb'),
   palette: 'green',
   form: 'hyper',

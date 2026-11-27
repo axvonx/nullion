@@ -95,6 +95,7 @@ const ANCHORS: EntityDef[] = [
 
 export const cmos: LayerArt = {
   family: 'drivers',
+  wiki: 'https://en.wikipedia.org/wiki/CMOS',
   blurb: text('layers.cmos.blurb'),
   palette: 'wafer',
   form: 'raw',

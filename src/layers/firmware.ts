@@ -349,6 +349,7 @@ const ANCHORS: EntityDef[] = [
 
 export const firmware: LayerArt = {
   family: 'firmware',
+  wiki: 'https://en.wikipedia.org/wiki/Firmware',
   blurb: text('layers.firmware.blurb'),
   palette: 'green',
   form: 'bios',

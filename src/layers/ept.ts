@@ -92,6 +92,7 @@ const ANCHORS: EntityDef[] = [
 
 export const ept: LayerArt = {
   family: 'ring-1',
+  wiki: 'https://en.wikipedia.org/wiki/Second_Level_Address_Translation',
   blurb: text('layers.ept.blurb'),
   palette: 'green',
   form: 'hyper',

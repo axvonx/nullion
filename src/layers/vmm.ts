@@ -116,6 +116,7 @@ const ANCHORS: EntityDef[] = [
 
 export const vmm: LayerArt = {
   family: 'ring-1',
+  wiki: 'https://en.wikipedia.org/wiki/Virtual_machine',
   blurb: text('layers.vmm.blurb'),
   palette: 'green',
   form: 'hyper',

@@ -144,6 +144,7 @@ const ANCHORS: EntityDef[] = [
 
 export const browser: LayerArt = {
   family: 'application',
+  wiki: 'https://en.wikipedia.org/wiki/Web_browser',
   blurb: text('layers.browser.blurb'),
   palette: 'full',
   form: 'gui',

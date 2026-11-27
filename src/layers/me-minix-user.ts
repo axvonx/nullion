@@ -111,6 +111,7 @@ const ANCHORS: EntityDef[] = [
 
 export const meMinixUser: LayerArt = {
   family: 'userspace',
+  wiki: 'https://en.wikipedia.org/wiki/Minix_3',
   blurb: text('layers.me-minix-user.blurb'),
   palette: 'amber',
   form: 'shell',

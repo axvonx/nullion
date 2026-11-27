@@ -385,6 +385,7 @@ const ANCHORS: EntityDef[] = [
 
 export const libraries: LayerArt = {
   family: 'libraries',
+  wiki: 'https://en.wikipedia.org/wiki/Library_(computing)',
   blurb: text('layers.libraries.blurb'),
   palette: 'rgb4',
   form: 'repl',

@@ -294,6 +294,7 @@ const ANCHORS: EntityDef[] = [
 
 export const ringMinus3: LayerArt = {
   family: 'ring-3',
+  wiki: 'https://en.wikipedia.org/wiki/Intel_Management_Engine',
   blurb: text('layers.ring-3.blurb'),
   palette: 'onebit',
   form: 'raw',

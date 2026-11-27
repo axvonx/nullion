@@ -384,6 +384,7 @@ const ANCHORS: EntityDef[] = [
 
 export const runtime: LayerArt = {
   family: 'runtime',
+  wiki: 'https://en.wikipedia.org/wiki/Runtime_system',
   blurb: text('layers.runtime.blurb'),
   palette: 'rgb6',
   form: 'repl',

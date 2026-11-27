@@ -128,6 +128,7 @@ const ANCHORS: EntityDef[] = [
 
 export const linker: LayerArt = {
   family: 'libraries',
+  wiki: 'https://en.wikipedia.org/wiki/Linker_(computing)',
   blurb: text('layers.linker.blurb'),
   palette: 'rgb4',
   form: 'repl',

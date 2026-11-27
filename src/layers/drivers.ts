@@ -416,6 +416,7 @@ const ANCHORS: EntityDef[] = [
 
 export const drivers: LayerArt = {
   family: 'drivers',
+  wiki: 'https://en.wikipedia.org/wiki/Device_driver',
   blurb: text('layers.drivers.blurb'),
   palette: 'cga4',
   form: 'serial',

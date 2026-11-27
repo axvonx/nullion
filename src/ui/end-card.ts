@@ -12,7 +12,8 @@ import { manualStore } from '../game/manual';
 import { buildShareText, deliverShare, siteUrl } from '../game/share';
 import type { StatsOutcome } from '../game/stats';
 import { answerSheet, answerUrl, questionUrl, type SheetGroup } from './answer-sheet';
-import { elementsOf, framesLabel, replay, setText } from './dom';
+import { elementsOf, framesLabel, refLink, replay, setLineWithStackFrames } from './dom';
+import { LAYER_ART } from '../layers';
 import { bankLink } from '../data/bank';
 import { missedAnswerUrl, suggestQuestionUrl } from './issues';
 import { manualBookIcon } from './manual-icon';
@@ -279,11 +280,10 @@ export class EndCard {
         const ans = document.createElement('span');
         ans.className = 'bt-ans';
         ans.textContent = r.name ?? '—';
-        const name = document.createElement('span');
-        name.className = 'bt-tier';
+        const name = refLink(t.name, t.wiki, t.name);
+        name.classList.add('bt-tier');
         name.dataset.tier = t.id;
-        name.textContent = t.name;
-        name.title = `${t.name}: +${framesLabel(t.frames)}${t.id === 'womm' ? ' (the cliché “clever” pick)' : ''}`;
+        if (!t.wiki) name.title = `${t.name}: +${framesLabel(t.frames)} (the cliché “clever” pick)`;
         det.append(ans, ' · ', name, ` · +${n} · ${span}`);
         row.setAttribute('aria-label', `#${i}: ${prompt ? `${prompt}: ` : ''}${r.name ?? 'answer'}, ${t.name}, ${span}`);
       } else {
@@ -315,7 +315,7 @@ export class EndCard {
     const rules = rulesFor(mode);
     const headline = rules.headline(framesLabel(depth), layerName);
     this.setPuzzleNo(rules.puzzleChip(puzzle));
-    setText(this.els.headline!, rules.cardLine(framesLabel(depth)));
+    setLineWithStackFrames(this.els.headline!, rules.cardLine(framesLabel(depth)));
     this.shareText = buildShareText({
       mode,
       puzzle,
@@ -355,7 +355,12 @@ export class EndCard {
       const li = document.createElement('li');
       const badge = createLayerBadge(stack[i]!);
       badge.classList.add(i === last ? 'is-current' : 'is-passed');
-      li.append(badge);
+      // The badge is a bitmap, so the link carries the layer's name in words, for hover and for screen readers.
+      const link = refLink('', LAYER_ART[stack[i]!.id].wiki, stack[i]!.name);
+      link.classList.add('eod-layer-link');
+      link.setAttribute('aria-label', `${stack[i]!.name}: read about it on Wikipedia`);
+      link.append(badge);
+      li.append(link);
       ol.append(li);
       this.reachedBadges.push({ layer: stack[i]!, el: badge });
     }
@@ -428,10 +433,9 @@ export class EndCard {
       box.className = 'sheet-group';
       const head = document.createElement('div');
       head.className = 'sheet-head';
-      const name = document.createElement('span');
-      name.className = 'bt-tier';
+      const name = refLink(TIERS[g.tier].name, TIERS[g.tier].wiki, TIERS[g.tier].name);
+      name.classList.add('bt-tier');
       name.dataset.tier = g.tier;
-      name.textContent = TIERS[g.tier].name;
       head.append(name, ` · ${g.total}`);
       const list = document.createElement('ul');
       list.className = 'sheet-list';
@@ -524,9 +528,8 @@ export class EndCard {
     for (const id of TIER_IDS) {
       const li = document.createElement('li');
       li.className = `tier-${id}`;
-      const name = document.createElement('span');
-      name.className = 'sd-name';
-      name.textContent = TIERS[id].name;
+      const name = refLink(TIERS[id].name, TIERS[id].wiki, TIERS[id].name);
+      name.classList.add('sd-name');
       const bar = document.createElement('span');
       bar.className = 'sd-bar';
       const fill = document.createElement('i');

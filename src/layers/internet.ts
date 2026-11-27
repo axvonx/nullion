@@ -139,6 +139,7 @@ const ANCHORS: EntityDef[] = [
 
 export const internet: LayerArt = {
   family: 'application',
+  wiki: 'https://en.wikipedia.org/wiki/Border_Gateway_Protocol',
   blurb: text('layers.internet.blurb'),
   palette: 'full',
   form: 'gui',

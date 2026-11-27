@@ -105,6 +105,7 @@ const ANCHORS: EntityDef[] = [
 
 export const landauer: LayerArt = {
   family: 'ring-3',
+  wiki: 'https://en.wikipedia.org/wiki/Landauer%27s_principle',
   blurb: text('layers.landauer.blurb'),
   palette: 'abyss',
   form: 'raw',

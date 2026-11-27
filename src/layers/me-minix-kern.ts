@@ -119,6 +119,7 @@ const ANCHORS: EntityDef[] = [
 
 export const meMinixKern: LayerArt = {
   family: 'kernel',
+  wiki: 'https://en.wikipedia.org/wiki/Minix',
   blurb: text('layers.me-minix-kern.blurb'),
   palette: 'amber',
   form: 'serial',

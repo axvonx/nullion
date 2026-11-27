@@ -109,6 +109,7 @@ const ANCHORS: EntityDef[] = [
 
 export const bandgap: LayerArt = {
   family: 'ring-3',
+  wiki: 'https://en.wikipedia.org/wiki/Band_gap',
   blurb: text('layers.bandgap.blurb'),
   palette: 'abyss',
   form: 'raw',

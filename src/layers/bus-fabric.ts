@@ -117,6 +117,7 @@ const ANCHORS: EntityDef[] = [
 
 export const busFabric: LayerArt = {
   family: 'drivers',
+  wiki: 'https://en.wikipedia.org/wiki/PCI_Express',
   blurb: text('layers.bus-fabric.blurb'),
   palette: 'cga4',
   form: 'serial',

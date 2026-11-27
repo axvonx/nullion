@@ -398,6 +398,7 @@ const ANCHORS: EntityDef[] = [
 
 export const userspace: LayerArt = {
   family: 'userspace',
+  wiki: 'https://en.wikipedia.org/wiki/User_space_and_kernel_space',
   blurb: text('layers.userspace.blurb'),
   palette: 'cga16',
   form: 'shell',

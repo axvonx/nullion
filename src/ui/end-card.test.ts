@@ -216,3 +216,20 @@ describe('build tag', () => {
     expect(END_CARD_HTML).toContain(`data-wm="nullion">nullion</span> v${pkg.version}`);
   });
 });
+
+describe('reference links on the end card', () => {
+  it('"stack frames", every stack layer and every tier name with an article link out; Works on my machine has none', async () => {
+    const { TIERS, TIER_IDS } = await import('../core/tiers');
+    const { LAYER_ART } = await import('../layers');
+    const { ALL_LAYER_IDS } = await import('../core/layers');
+    const { refLink, setLineWithStackFrames, STACK_FRAME_WIKI } = await import('./dom');
+    for (const id of ALL_LAYER_IDS) expect(LAYER_ART[id].wiki).toMatch(/^https:\/\/en\.wikipedia\.org\/wiki\/[^?#\s]+$/);
+    for (const id of TIER_IDS) expect(TIERS[id].wiki === null ? id : 'linked').toBe(id === 'womm' ? 'womm' : 'linked');
+    const el = document.createElement('div');
+    setLineWithStackFrames(el, 'KERNEL PANIC · 18 stack frames');
+    expect(el.textContent).toBe('KERNEL PANIC · 18 stack frames');
+    expect(el.querySelector('a')!.getAttribute('href')).toBe(STACK_FRAME_WIKI);
+    expect(el.querySelector('a')!.textContent).toBe('stack frames');
+    expect(refLink('Works on my machine', null, 'x').tagName).toBe('SPAN');
+  });
+});

@@ -447,6 +447,7 @@ const HAZARD = () =>
 
 export const kernel: LayerArt = {
   family: 'kernel',
+  wiki: 'https://en.wikipedia.org/wiki/Kernel_(operating_system)',
   blurb: text('layers.kernel.blurb'),
   palette: 'cga16',
   form: 'serial',

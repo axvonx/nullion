@@ -124,6 +124,7 @@ const ANCHORS: EntityDef[] = [
 
 export const uarch: LayerArt = {
   family: 'ring-3',
+  wiki: 'https://en.wikipedia.org/wiki/Microarchitecture',
   blurb: text('layers.uarch.blurb'),
   palette: 'blueprint',
   form: 'raw',
