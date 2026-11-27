@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { ALL_LAYER_IDS, ENDLESS_LAYERS, ENDLESS_MAX_DEPTH, LAYERS, MAX_DEPTH, layerAt } from './layers';
+import { ALL_LAYER_IDS, ENDLESS_LAYERS, ENDLESS_MAX_DEPTH, LAYERS, MAX_DEPTH } from './layers';
+import { layerAt } from './modes';
 import { LAYER_PALETTE, snapColor } from '../render/palettes';
 import { TIERS } from './tiers';
 import { CategoryIndex, normalize } from './match';

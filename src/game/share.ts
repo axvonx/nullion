@@ -1,4 +1,5 @@
 import type { StackMode } from '../core/layers';
+import { rulesFor } from '../core/modes';
 
 export interface ShareInput {
   mode: StackMode;
@@ -13,7 +14,7 @@ export interface ShareInput {
 
 /** The share text: `nullion #N`, the depth and layer line, the glyph row, then the site URL. */
 export function buildShareText(i: ShareInput): string {
-  const title = i.mode !== 'daily' ? 'nullion endless' : `nullion #${i.puzzle}`;
+  const title = rulesFor(i.mode).shareTitle(i.puzzle);
   return `${title}\n${i.headline}\n${i.glyphs}\n${i.url}`;
 }
 

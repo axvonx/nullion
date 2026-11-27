@@ -5,7 +5,8 @@ import { buildAnswerSet, type AnswerSetSource } from './core/answers';
 import { manualStore } from './game/manual';
 import { enforce } from './core/enforce';
 import { formatLocalDate, parseLocalDate, pickForDay, puzzleNumber } from './core/day';
-import { PROMPTS_PER_DAY, layerAt } from './core/layers';
+import { PROMPTS_PER_DAY } from './core/layers';
+import { layerAt, rulesFor } from './core/modes';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from './data/sample';
 import { BANK_QUESTIONS, loadBankTerms, scheduledQuestions } from './data/bank';
 import { browserStorage, canPersistDaily, clearDaily, loadDaily, saveDaily, type SaveStorage } from './game/daily-save';
@@ -88,6 +89,7 @@ async function boot() {
       savedRev = game.rev;
     }
   };
+  // The `?endless=` URL param and the debug dropdown name a mode by string: identity, not a rule, so compared here.
   const endlessParam = DEBUG ? new URLSearchParams(location.search).get('endless') : null;
   let endlessDebugMode: 'off' | 'endless' | 'true-endless' =
     endlessParam === 'true' ? 'true-endless' : endlessParam === '1' ? 'endless' : 'off';
@@ -103,7 +105,8 @@ async function boot() {
     const daySeed = puzzleNumber(date);
     const mode = endlessDebugMode === 'off' ? 'daily' : endlessDebugMode;
     // Load only what this game asks: the day's prompts, or the whole pool for Endless.
-    const questions = mode === 'daily' ? source.daily(daySeed) : source.pool;
+    const rules = rulesFor(mode);
+    const questions = rules.promptSource === 'day' ? source.daily(daySeed) : source.pool;
     const set = await source.load(questions);
     if (gen !== restartGen) return;
     game = new Game(set, daySeed, {
@@ -135,7 +138,7 @@ async function boot() {
       endlessDebugMode = next;
       restart();
     });
-    hud.setScrollMode(s.mode === 'scroll' || endlessDebugMode === 'true-endless');
+    hud.setScrollMode(s.mode === 'scroll' || rules.forcesScrollMode);
     if (notice) hud.notify(notice.text, notice.kind);
     // Field Manual stamps record the day and the prompt being answered; a save it couldn't read is reported once.
     const stampGame = game;
@@ -148,7 +151,7 @@ async function boot() {
     if (manualNotice) hud.notify(manualNotice, 'error');
     scene.setTarget(game.depth, true);
     sound.setPuzzleSeed(daySeed);
-    sound.setLayer(endlessDebugMode === 'true-endless' ? 'slab-spa' : mode === 'endless' ? 'internet' : layerAt(game.depth).id);
+    sound.setLayer(rules.soundLayerId ?? layerAt(game.depth, mode).id);
   };
 
   // A preference change applies to the game in progress; it never restarts the day.

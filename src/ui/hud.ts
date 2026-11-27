@@ -1,9 +1,11 @@
 import { enforce } from '../core/enforce';
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
-import { PROMPTS_PER_DAY, TRUE_ENDLESS_LAYERS, layerAt, layerIndexAt, layersFor, maxDepthFor, type Layer, type LayerId } from '../core/layers';
+import { PROMPTS_PER_DAY, TRUE_ENDLESS_LAYERS, type Layer, type LayerId } from '../core/layers';
+import { layerAt, layerIndexAt, layersFor, rulesFor } from '../core/modes';
 import type { CategoryEntry } from '../core/match';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
-import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
+import { ANSWER_MS } from '../core/modes';
+import { READ_MS, type Game, type SubmitResult } from '../game/game';
 import { buildShareText, deliverShare, siteUrl } from '../game/share';
 import type { StatsOutcome } from '../game/stats';
 import { look, reducedMotion } from '../looks';
@@ -382,10 +384,10 @@ export class Hud {
     // Scroll-only mode: fast, responsive free movement through the entire Daily or Endless stack.
     let scrollTarget = 0;
     const nudge = (d: number) => {
-      const mode = this.game?.mode ?? 'daily';
-      const cap = maxDepthFor(mode) + (mode === 'endless' ? 60 : mode === 'true-endless' ? 30 : 4);
+      const rules = rulesFor(this.game?.mode ?? 'daily');
+      const cap = rules.maxDepth + rules.scroll.capExtra;
       // Accumulate on scrollTarget so rapid wheel/trackpad flicks aren't swallowed by camera smoothing
-      if (Math.abs(scrollTarget - scene.displayDepth) > (mode === 'endless' ? 220 : 24)) {
+      if (Math.abs(scrollTarget - scene.displayDepth) > rules.scroll.snapGap) {
         scrollTarget = scene.displayDepth;
       }
       scrollTarget = Math.min(cap, Math.max(0, scrollTarget + d));
@@ -398,16 +400,14 @@ export class Hud {
         // Panels (and the debug menu) scroll themselves.
         if (ev.target instanceof Element && ev.target.closest('.panel, .dbg-panel')) return;
         ev.preventDefault();
-        const mode = this.game?.mode ?? 'daily';
         const mult = ev.shiftKey ? 3 : 1;
-        nudge((ev.deltaY / (mode === 'endless' ? 10 : mode === 'true-endless' ? 18 : 26)) * mult);
+        nudge((ev.deltaY / rulesFor(this.game?.mode ?? 'daily').scroll.wheelDivisor) * mult);
       },
       { passive: false },
     );
     window.addEventListener('keydown', (ev) => {
       if (!this.scrollMode || ev.target instanceof HTMLInputElement || ev.target instanceof HTMLSelectElement) return;
-      const mode = this.game?.mode ?? 'daily';
-      const endless = mode !== 'daily';
+      const rules = rulesFor(this.game?.mode ?? 'daily');
       if (ev.key === 'Home') {
         ev.preventDefault();
         scrollTarget = 0;
@@ -416,15 +416,15 @@ export class Hud {
       }
       if (ev.key === 'End') {
         ev.preventDefault();
-        scrollTarget = maxDepthFor(mode);
+        scrollTarget = rules.maxDepth;
         scene.setTarget(scrollTarget);
         return;
       }
       const step = {
-        ArrowDown: endless ? 12 : 2,
-        ArrowUp: endless ? -12 : -2,
-        PageDown: endless ? 80 : 12,
-        PageUp: endless ? -80 : -12,
+        ArrowDown: rules.scroll.arrowStep,
+        ArrowUp: -rules.scroll.arrowStep,
+        PageDown: rules.scroll.pageStep,
+        PageUp: -rules.scroll.pageStep,
       }[ev.key];
       if (step === undefined) return;
       ev.preventDefault();
@@ -437,7 +437,7 @@ export class Hud {
     // The watchdog submits whatever is typed when it fires (Game.tick).
     g.draft = () => (this.input.disabled ? '' : this.input.value);
     this.statsSource = statsSource;
-    this.liveDaily = g.mode === 'daily' && g.puzzle === puzzleNumber(new Date(this.clock()));
+    this.liveDaily = g.rules.persistsDaily && g.puzzle === puzzleNumber(new Date(this.clock()));
     this.nextDaySig = '';
     this.els.nextDay!.textContent = 'A new stack opens at local midnight.';
     this.els.notice!.hidden = true;
@@ -467,7 +467,7 @@ export class Hud {
     this.committedLayerIdx = layerIndexAt(g.depth, g.mode);
     this.layerStack.flushTo(g.depth, g.mode);
     this.syncSlots(g);
-    this.syncTrueEndlessNav(g.mode === 'true-endless');
+    this.syncTrueEndlessNav(g.rules.realmNav);
     this.syncTitle();
   }
 
@@ -498,7 +498,10 @@ export class Hud {
     }
   }
 
-  /** Wire the debug-build top-right Endless mode dropdown (off / endless / true-endless). */
+  /**
+   * Wire the debug-build top-right Endless mode dropdown (off / endless / true-endless). Mode strings are compared
+   * here only as the dropdown's option identity (the `<select>` values and its CSS class), not as game rules.
+   */
   setEndlessMode(show: boolean, mode: 'off' | 'endless' | 'true-endless', onChange: (next: 'off' | 'endless' | 'true-endless') => void) {
     const sel = this.els.endlessSelect as HTMLSelectElement | undefined;
     if (!sel) return;
@@ -511,7 +514,7 @@ export class Hud {
 
   /** Render the 7 round score slots (Daily) or 3 watchdog strike fuses + round counter (Endless). */
   private syncSlots(g: Game) {
-    if (g.mode !== 'daily') {
+    if (g.rules.roundCounter === 'fuses') {
       const sig = `endless|${g.strikes}|${g.rounds.length}`;
       if (sig === this.slotsSig) return;
       this.slotsSig = sig;
@@ -668,8 +671,8 @@ export class Hud {
     if (this.scrollMode || this.demo || !this.game || this.game.phase.kind === 'ready') {
       this.layerStack.sync(depthShown, activeMode, { animate: !this.scrollMode, reduced: reducedMotion() });
     }
-    if (activeMode === 'true-endless' && this.els.teNav && !this.els.teNav.hidden) {
-      const curId = layerAt(Math.max(0, depthShown), 'true-endless').id;
+    if (rulesFor(activeMode).realmNav && this.els.teNav && !this.els.teNav.hidden) {
+      const curId = layerAt(Math.max(0, depthShown), activeMode).id;
       for (const btn of this.els.teNav.querySelectorAll<HTMLElement>('.te-nav-btn')) {
         btn.classList.toggle('active', btn.dataset.layer === curId);
       }
@@ -1277,14 +1280,15 @@ export class Hud {
     const mode = this.game?.mode ?? 'daily';
     const layerName = layerAt(depth, mode).name;
     const glyphs = rows.map((r) => (r.tier ? TIERS[r.tier].glyph : '⬛')).join('');
-    const headline = mode !== 'daily' ? `KERNEL PANIC · ${framesLabel(depth)} · ${layerName}` : `${framesLabel(depth)} · ${layerName}`;
-    setText(this.els.puzzleNo!, mode !== 'daily' ? 'ENDLESS' : `#${puzzle}`);
+    const rules = rulesFor(mode);
+    const headline = rules.headline(framesLabel(depth), layerName);
+    setText(this.els.puzzleNo!, rules.puzzleChip(puzzle));
     setText(this.els.headline!, headline);
     this.shareText = buildShareText({
       mode,
       puzzle,
       headline,
-      glyphs: mode !== 'daily' ? glyphs.slice(0, 42) : glyphs,
+      glyphs: glyphs.slice(0, rules.shareGlyphLimit),
       url: siteUrl(location),
     });
     this.buildStats();

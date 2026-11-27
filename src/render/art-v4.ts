@@ -1,5 +1,6 @@
 import { enforce } from '../core/enforce';
-import { ALL_LAYER_IDS, layersFor, type LayerId } from '../core/layers';
+import { ALL_LAYER_IDS, type LayerId } from '../core/layers';
+import { layersFor } from '../core/modes';
 import { look } from '../looks';
 import { SEAM_H, glow, hash, offscreen, prows, tiled, vgrad, vis, type Art, type Band } from './art-common';
 import { LAYER_PALETTE, type PaletteMode } from './palettes';

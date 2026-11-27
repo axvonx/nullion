@@ -1,4 +1,5 @@
-import { ENDLESS_LAYERS, layersFor, layerIndexAt, maxDepthFor, type Layer, type LayerId, type StackMode } from '../core/layers';
+import { ENDLESS_LAYERS, type Layer, type LayerId, type StackMode } from '../core/layers';
+import { MODE_RULES, layersFor, layerIndexAt, maxDepthFor, rulesFor } from '../core/modes';
 import type { TierId } from '../core/tiers';
 import { look, reducedMotion } from '../looks';
 import { enforce } from '../core/enforce';
@@ -19,8 +20,6 @@ import { sound } from '../audio/sound';
 
 export { pixelScale } from './cursor-geom';
 
-/** World pixels per stack frame of depth. */
-const PX = 24;
 const TOP_PAD = 40;
 /** The cursor sits in clear air this far down the screen, above the floating console. */
 
@@ -30,11 +29,10 @@ const TOP_PAD = 40;
  * layer still reads as a place and a 105-frame Endless layer doesn't drag on.
  */
 const LAYER_BASE_H = 160;
-const LAYER_PER_FRAME_H: Record<StackMode, number> = { daily: 8, endless: 2.2, 'true-endless': 3.5 };
 
 function buildLayerY(mode: StackMode): number[] {
   const stack = layersFor(mode);
-  const perFrame = LAYER_PER_FRAME_H[mode];
+  const perFrame = rulesFor(mode).layerPerFrameH;
   const ys = [TOP_PAD];
   for (let i = 1; i < stack.length; i++) {
     const span = stack[i]!.from - stack[i - 1]!.from;
@@ -44,17 +42,16 @@ function buildLayerY(mode: StackMode): number[] {
   return ys;
 }
 
-const LAYER_Y_BY_MODE: Record<StackMode, number[]> = {
-  daily: buildLayerY('daily'),
-  endless: buildLayerY('endless'),
-  'true-endless': buildLayerY('true-endless'),
-};
-const KERNEL_INDEX_BY_MODE: Record<StackMode, number> = {
-  daily: layersFor('daily').findIndex((l) => l.id === 'kernel'),
-  endless: layersFor('endless').findIndex((l) => l.id === 'kernel-entry'),
-  // Cozy pocket universes: no kernel rain or auto scanlines.
-  'true-endless': Infinity,
-};
+const LAYER_Y_BY_MODE = Object.fromEntries(
+  (Object.keys(MODE_RULES) as StackMode[]).map((m) => [m, buildLayerY(m)]),
+) as Record<StackMode, number[]>;
+/** Index of the layer where kernel rain and auto scanlines start; Infinity for a mode without them. */
+const KERNEL_INDEX_BY_MODE = Object.fromEntries(
+  (Object.keys(MODE_RULES) as StackMode[]).map((m) => {
+    const id = MODE_RULES[m].kernelLayerId;
+    return [m, id === null ? Infinity : layersFor(m).findIndex((l) => l.id === id)];
+  }),
+) as Record<StackMode, number>;
 
 /** World y of a depth in frames: piecewise linear through the layer thresholds. Dives, camera and deep links all use it. */
 export function worldY(depth: number, mode: StackMode = 'daily'): number {
@@ -62,7 +59,7 @@ export function worldY(depth: number, mode: StackMode = 'daily'): number {
   const ys = LAYER_Y_BY_MODE[mode];
   const i = layerIndexAt(Math.max(0, depth), mode);
   const l = stack[i]!;
-  if (i === stack.length - 1) return ys[i]! + (depth - l.from) * (mode === 'daily' ? PX : 6);
+  if (i === stack.length - 1) return ys[i]! + (depth - l.from) * rulesFor(mode).lastLayerPxPerFrame;
   const span = stack[i + 1]!.from - l.from;
   return ys[i]! + ((depth - l.from) / span) * (ys[i + 1]! - ys[i]!);
 }
@@ -900,7 +897,7 @@ export class Scene {
       // SMI, the drop into 1-bit at ME. Every boundary label must have an entry in CROSS_FX.
       const crossed = stack[Math.max(layerIdx, this.lastLayer)]!;
       const fx: CrossFx | undefined = crossed.boundary
-        ? (CROSS_FX[crossed.boundary] ?? (this.stackMode === 'true-endless' ? 'tear' : undefined))
+        ? (CROSS_FX[crossed.boundary] ?? rulesFor(this.stackMode).unlistedCrossFx)
         : undefined;
       if (crossed.boundary) enforce(fx, `no crossing effect for boundary '${crossed.boundary}'`);
       if (!reduced && look('tearing') === 'on') {

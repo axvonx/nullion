@@ -1,5 +1,6 @@
 import { enforce } from '../../core/enforce';
-import { layersFor, type LayerId, type StackMode } from '../../core/layers';
+import { type LayerId, type StackMode } from '../../core/layers';
+import { layersFor } from '../../core/modes';
 import { gateFor } from '../../game/rarity';
 import { V4_LIBRARIES } from './libraries';
 import { placeBand, type FloorShape, type LayerPlacement, type PlaceGeom, type Rect } from './place';

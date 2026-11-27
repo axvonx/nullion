@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { buildAnswerSet } from '../core/answers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
-import { ANSWER_MS, ENDLESS_MAX_STRIKES, Game, InvalidSaveError, READ_MS, endlessAnswerMs } from './game';
+import { ANSWER_MS, ENDLESS_MAX_STRIKES, endlessAnswerMs } from '../core/modes';
+import { Game, InvalidSaveError, READ_MS } from './game';
 import { browserStorage, canPersistDaily, dailyKey, loadDaily, saveDaily, type SaveStorage } from './daily-save';
 
 const set = buildAnswerSet('sample', 'Sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);

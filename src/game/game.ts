@@ -2,22 +2,12 @@ import type { AnswerSet } from '../core/answers';
 import { pickForDay, rng } from '../core/day';
 import { enforce } from '../core/enforce';
 import { PROMPTS_PER_DAY, type StackMode } from '../core/layers';
+import { rulesFor, type ModeRules } from '../core/modes';
 import type { CategoryEntry } from '../core/match';
 import { TIERS } from '../core/tiers';
 import type { Question } from '../data/sample';
 
 export const READ_MS = 3000;
-export const ANSWER_MS = 25000;
-/** Endless mode strike budget: 3 watchdog fails (or skips) end the run in a Kernel Panic. */
-export const ENDLESS_MAX_STRIKES = 3;
-
-/** Endless per-prompt watchdog tightens as you descend deeper into the stack. */
-export function endlessAnswerMs(depth: number): number {
-  if (depth < 605) return 30000;
-  if (depth < 1325) return 25000;
-  if (depth < 2030) return 20000;
-  return 16000;
-}
 
 export interface Round {
   question: Question;
@@ -93,6 +83,7 @@ export interface GameOptions {
 
 export class Game {
   readonly mode: StackMode;
+  readonly rules: ModeRules;
   readonly maxStrikes: number;
   readonly rounds: Round[];
   phase: Phase = { kind: 'ready' };
@@ -114,9 +105,10 @@ export class Game {
     readonly opts: GameOptions,
   ) {
     this.mode = opts.mode ?? 'daily';
-    this.maxStrikes = this.mode !== 'daily' ? ENDLESS_MAX_STRIKES : 0;
+    this.rules = rulesFor(this.mode);
+    this.maxStrikes = this.rules.maxStrikes;
     this.endlessRand = rng((Math.imul(puzzle | 0, 2654435761) ^ 0x517cc1b7) >>> 0);
-    if (this.mode !== 'daily') {
+    if (this.rules.promptSource === 'pool') {
       enforce(set.questions.length > 0, 'endless mode requires at least one question');
       this.rounds = [this.makeRound(this.drawEndlessQuestion())];
     } else {
@@ -186,7 +178,7 @@ export class Game {
 
   /** Active per-prompt watchdog duration in ms. */
   get answerMs(): number {
-    return this.mode !== 'daily' ? endlessAnswerMs(this.depth) : ANSWER_MS;
+    return this.rules.answerMs(this.depth);
   }
 
   current(): Round | undefined {
@@ -286,7 +278,7 @@ export class Game {
   }
 
   private next(round: number, now: number) {
-    if (this.mode !== 'daily') {
+    if (this.rules.promptSource === 'pool') {
       if (this.strikes >= this.maxStrikes) {
         this.phase = { kind: 'done' };
         return;
@@ -301,7 +293,7 @@ export class Game {
 
   /** The daily game's persistable state. Daily only: Endless is never saved. */
   snapshot(): GameSnapshot {
-    enforce(this.mode === 'daily', 'only a daily game can be saved');
+    enforce(this.rules.persistsDaily, 'only a daily game can be saved');
     const p = this.phase;
     enforce(p.kind !== 'ready', 'a game that has not started has nothing to save');
     return {
@@ -325,7 +317,7 @@ export class Game {
    */
   restore(raw: unknown): void {
     enforce(this.phase.kind === 'ready', `restore() from ${this.phase.kind}`);
-    enforce(this.mode === 'daily', 'only a daily game can be restored');
+    enforce(this.rules.persistsDaily, 'only a daily game can be restored');
     const bad = (why: string): never => {
       throw new InvalidSaveError(why);
     };

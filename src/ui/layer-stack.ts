@@ -1,14 +1,5 @@
-import {
-  expandLayerMap,
-  layerIndexAt,
-  layersFor,
-  type DailyLayerId,
-  type EndlessOnlyLayerId,
-  type Layer,
-  type LayerId,
-  type StackMode,
-  type TrueEndlessLayerId,
-} from '../core/layers';
+import { expandLayerMap, type DailyLayerId, type EndlessOnlyLayerId, type Layer, type LayerId, type StackMode, type TrueEndlessLayerId } from '../core/layers';
+import { layerIndexAt, layersFor } from '../core/modes';
 import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from '../render/v4/watermark';
 
 /**

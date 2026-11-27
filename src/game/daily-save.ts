@@ -1,5 +1,6 @@
 import { enforce } from '../core/enforce';
 import type { StackMode } from '../core/layers';
+import { rulesFor } from '../core/modes';
 import { storageKey } from '../keys';
 import { Game, InvalidSaveError } from './game';
 
@@ -14,7 +15,7 @@ export const dailyKey = (puzzle: number) => `${PREFIX}${puzzle}`;
  * neither read nor write the save, so they can never clobber or be polluted by a real day.
  */
 export function canPersistDaily(o: { mode: StackMode; unlimited: boolean; timer: boolean; date: string; scroll: boolean }): boolean {
-  return o.mode === 'daily' && !o.unlimited && o.timer && o.date === '' && !o.scroll;
+  return rulesFor(o.mode).persistsDaily && !o.unlimited && o.timer && o.date === '' && !o.scroll;
 }
 
 export type DailyLoad =
@@ -54,7 +55,7 @@ export function loadDaily(storage: SaveStorage | null, game: Game): DailyLoad {
 /** Write today's state and drop saves from earlier days. A full or blocked store just means no persistence. */
 export function saveDaily(storage: SaveStorage | null, game: Game): void {
   if (!storage) return;
-  enforce(game.mode === 'daily', 'saveDaily on a non-daily game');
+  enforce(game.rules.persistsDaily, 'saveDaily on a non-daily game');
   if (game.phase.kind === 'ready') return;
   try {
     const mine = dailyKey(game.puzzle);

@@ -184,32 +184,3 @@ for (const stack of [DAILY_LAYERS, ENDLESS_LAYERS, TRUE_ENDLESS_LAYERS]) {
     enforce(stack[i]!.from > stack[i - 1]!.from, 'layer thresholds must strictly increase');
   }
 }
-
-export function layersFor(mode: StackMode): readonly Layer[] {
-  if (mode === 'true-endless') return TRUE_ENDLESS_LAYERS;
-  return mode === 'endless' ? ENDLESS_LAYERS : DAILY_LAYERS;
-}
-
-export function maxDepthFor(mode: StackMode): number {
-  if (mode === 'true-endless') return TRUE_ENDLESS_MAX_DEPTH;
-  return mode === 'endless' ? ENDLESS_MAX_DEPTH : MAX_DEPTH;
-}
-
-export function layerIndexAt(depth: number, mode: StackMode = 'daily'): number {
-  enforce(Number.isFinite(depth) && depth >= 0, `bad depth ${depth}`);
-  const stack = layersFor(mode);
-  let idx = 0;
-  for (let i = 0; i < stack.length; i++) if (depth >= stack[i]!.from) idx = i;
-  return idx;
-}
-
-export function layerAt(depth: number, mode: StackMode = 'daily'): Layer {
-  const stack = layersFor(mode);
-  return stack[layerIndexAt(depth, mode)]!;
-}
-
-export function layerById(id: LayerId, mode: StackMode = 'daily'): Layer {
-  const l = layersFor(mode).find((x) => x.id === id);
-  enforce(l, `unknown layer ${id}`);
-  return l;
-}

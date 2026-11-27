@@ -117,7 +117,7 @@ export function computeStats(days: Record<string, DayResult>, today: number): St
  */
 export function finishDaily(storage: SaveStorage | null, game: Game, key: string = statsKey()): StatsOutcome {
   if (!storage) return { kind: 'none' };
-  enforce(game.mode === 'daily', 'finishDaily on a non-daily game');
+  enforce(game.rules.persistsDaily, 'finishDaily on a non-daily game');
   enforce(game.phase.kind === 'done', `finishDaily while ${game.phase.kind}`);
   let file: StatsFile = { v: 1, days: {} };
   let reset: string | undefined;

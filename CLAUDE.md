@@ -126,9 +126,13 @@ In-play animation, for orientation:
 - Keep game rules in `src/core` and `src/game`, free of DOM code, and test them.
 - `src/data/sample.ts` holds hand-written placeholder tiers, not the output of a rarity signal.
 
+## Stack modes (`src/core/modes.ts`)
+
+`MODE_RULES: Record<StackMode, ModeRules>` (`rulesFor(mode)`) holds everything a mode decides: layer stack and max depth, prompt source (the day's 7 vs an anti-repeat pool), strikes and watchdog, whether it persists the daily save / counts stats / shows the next-day countdown, round slots vs fuses, end-card headline and chip, share title and glyph cap, world geometry (per-frame height, last-layer px), kernel-rain layer, unlisted crossing effect, sound-bed layer, realm nav, forced scroll mode, and scroll steps. `layersFor`, `maxDepthFor`, `layerIndexAt`, `layerAt`, `layerById` and `ANSWER_MS` also live there (`layers.ts` is layer data only). Never compare mode strings in callers: add a rule. Strings are compared only where they are identity (the `?endless=` param and debug dropdown in `main.ts` / `Hud.setEndlessMode`).
+
 ## Endless mode
 
-Debug-only for now (`?endless=1` or the header chip). A 29-layer stack to about 2,500 frames (`ENDLESS_LAYERS` in `src/core/layers.ts`), a per-prompt watchdog that tightens with depth (`endlessAnswerMs`), 3 strikes and a `KERNEL PANIC` card, and an anti-repeat prompt bag. It draws from the same question bank as the daily game, so it only plays well once the bank is large.
+Debug-only for now (`?endless=1` or the header chip). A 29-layer stack to about 2,500 frames (`ENDLESS_LAYERS` in `src/core/layers.ts`), a per-prompt watchdog that tightens with depth (`endlessAnswerMs`, in `src/core/modes.ts`), 3 strikes and a `KERNEL PANIC` card, and an anti-repeat prompt bag. It draws from the same question bank as the daily game, so it only plays well once the bank is large.
 
 ## Answer bank
 

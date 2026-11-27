@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { layersFor } from '../../core/layers';
+import { layersFor } from '../../core/modes';
 import { layoutName, lineWidth } from './watermark';
 
 describe('layer-name watermark', () => {
