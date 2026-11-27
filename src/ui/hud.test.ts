@@ -458,7 +458,8 @@ describe('end card', () => {
   it('tracks 7 round slots from "-" to tier-colored frame counts after the dive lands and 0 on timeout', () => {
     const h = setup();
     h.toAnswering();
-    const slotTexts = () => [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')].map((s) => s.textContent);
+    // A played slot is its tier's icon with an expansion label; a pending one is '-'.
+    const slotTexts = () => [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')].map((s) => s.querySelector('.slot-x')?.textContent ?? s.textContent);
     expect(slotTexts()).toEqual(['-', '-', '-', '-', '-', '-', '-']);
     expect(h.mount.querySelectorAll('.slots .slot')[0]!.classList.contains('active')).toBe(true);
 
@@ -473,15 +474,17 @@ describe('end card', () => {
     h.scene.diving = false;
     h.step();
     const slotsAfter0 = [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')];
-    expect(slotsAfter0[0]!.textContent).toBe('5');
+    expect(slotsAfter0[0]!.querySelector('.tier-icon')).not.toBeNull();
+    expect(slotsAfter0[0]!.querySelector('.slot-x')!.textContent).toMatch(/^#1 .+ · Race condition · \+5$/);
     expect(slotsAfter0[0]!.dataset.tier).toBe('race');
+    expect(slotsAfter0[0]!.tabIndex).toBe(0); // focusable, so the expansion opens from the keyboard and on tap
 
     // Round 1: time out → 0
     h.unwind();
     h.toAnswering();
     h.timeOut();
     const slotsAfter1 = [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')];
-    expect(slotsAfter1[1]!.textContent).toBe('0');
+    expect(slotsAfter1[1]!.querySelector('.slot-x')!.textContent).toBe('#2 timed out · +0');
     expect(slotsAfter1[1]!.classList.contains('miss')).toBe(true);
   });
 

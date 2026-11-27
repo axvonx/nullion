@@ -124,10 +124,38 @@ body {
 .led { width: 4px; height: 4px; background: var(--ok); box-shadow: 0 0 0 1px #000; animation: led 2.4s steps(1) infinite; }
 @keyframes led { 0%, 70% { opacity: 1; } 75% { opacity: 0.25; } 85% { opacity: 1; } 90% { opacity: 0.3; } }
 .bar-right { display: inline-flex; gap: 6px; align-items: flex-start; flex-wrap: wrap; justify-content: flex-end; }
-.slots { display: inline-flex; align-items: center; gap: 6px; font-size: 17px; white-space: nowrap; }
-.slot { display: inline-block; min-width: 1.2ch; text-align: center; color: var(--dim); }
+/* The round score slots sit in the middle of the header: each played round is its tier's cursor icon. */
+.bar-mid { position: absolute; left: 50%; top: 0; transform: translateX(-50%); display: flex; pointer-events: none; }
+.slots { display: inline-flex; align-items: center; gap: 6px; font-size: 17px; white-space: nowrap; min-height: 22px; }
+.slot { position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 1.2ch; color: var(--dim); outline: none; }
+.slot .tier-icon { display: block; width: 24px; height: 18px; image-rendering: pixelated; }
 .slot.active { color: var(--signal); border-bottom: 2px solid var(--signal); line-height: 1; padding-bottom: 1px; }
-.slot.miss { color: var(--fault); opacity: 0.7; }
+.slot.miss .tier-icon { opacity: 0.6; }
+.slot[tabindex] { cursor: default; }
+.slot[tabindex]:hover .tier-icon, .slot[tabindex]:focus-visible .tier-icon { filter: brightness(1.25); }
+/* The expansion: the round's answer, tier and frames, dropping out under its icon on hover, focus or tap. */
+.slot-x {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) scaleY(0.6);
+  transform-origin: 50% 0;
+  opacity: 0;
+  pointer-events: none;
+  padding: 3px 8px 4px;
+  font-size: 13px;
+  white-space: nowrap;
+  color: #fff;
+  background: #16141c;
+  border: 1px solid currentColor;
+  box-shadow: 3px 3px 0 #000;
+  transition: opacity 120ms steps(3, end), transform 120ms steps(3, end);
+  z-index: 3;
+}
+.slot[data-tier] .slot-x { color: inherit; }
+.slot.miss .slot-x { color: var(--fault); }
+.slot:hover .slot-x, .slot:focus .slot-x { opacity: 1; transform: translateX(-50%) scaleY(1); }
+.still .slot-x { transition: none; }
 .slot.fuse { color: var(--ok); font-size: 15px; }
 .slot.fuse.burned { color: var(--fault); opacity: 0.75; }
 .slot.endless-round { color: var(--dim); margin-left: 4px; font-size: 15px; }
@@ -530,6 +558,9 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   .bar .chip { padding: 2px 6px 3px; }
   .meta { font-size: 14px; gap: 4px; }
   .slots { font-size: 15px; gap: 4px; }
+  .slot .tier-icon { width: 16px; height: 12px; }
+  /* Phones: the header is full, so the slots take their own row under it, still centred. */
+  .bar-mid { top: 34px; }
   .depth { font-size: 15px; }
   .console { bottom: 10px; width: calc(100vw - 20px); padding: 0 10px 8px; }
 }

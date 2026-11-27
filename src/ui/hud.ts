@@ -81,7 +81,8 @@ export class Hud {
       <canvas class="scene" aria-label="Your cursor descending through the software stack"></canvas>
       <header class="bar" data-el="bar">
         <span class="bar-left" data-el="barLeft"><span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span></span>
-        <span class="bar-right"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span><span class="chip depth float" data-el="depth"></span><select class="chip endless-select float" data-el="endlessSelect" hidden aria-label="Endless mode" title="Switch Daily / Endless / True Endless (debug)"><option value="off">Endless: Off</option><option value="endless">Endless: On</option><option value="true-endless">True Endless</option></select></span>
+        <span class="bar-mid"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span></span>
+        <span class="bar-right"><span class="chip depth float" data-el="depth"></span><select class="chip endless-select float" data-el="endlessSelect" hidden aria-label="Endless mode" title="Switch Daily / Endless / True Endless (debug)"><option value="off">Endless: Off</option><option value="endless">Endless: On</option><option value="true-endless">True Endless</option></select></span>
       </header>
       <div class="notice" data-el="notice" role="alert" hidden><span data-el="noticeText"></span><button type="button" data-el="noticeClose" aria-label="Dismiss">×</button></div>
       <nav class="chip te-nav float" data-el="teNav" hidden aria-label="True Endless realms"></nav>
@@ -430,19 +431,30 @@ ${REVEAL_HTML}`;
     this.slotsSig = sig;
     const wrap = this.els.slots!;
     wrap.replaceChildren();
+    // Each played round shows the cursor in its tier's pose; hover, focus or tap expands it to the answer, the tier
+    // and the frames it pushed. Rounds still to come are a dim dash.
     g.rounds.forEach((r, i) => {
       const s = document.createElement('span');
       s.className = 'slot';
+      const expand = (label: string) => {
+        s.tabIndex = 0;
+        s.setAttribute('aria-label', label);
+        const x = document.createElement('span');
+        x.className = 'slot-x';
+        x.textContent = label;
+        s.append(x);
+      };
       if (i !== pendingSink && r.locked) {
         const t = TIERS[r.locked.entry.tier];
         s.dataset.tier = t.id;
-        s.textContent = String(t.frames);
-        s.title = `Round ${i + 1}: ${t.name} (+${t.frames})`;
+        s.append(tierIcon(t.id));
+        expand(`#${i + 1} ${r.locked.entry.name} · ${t.name} · +${t.frames}`);
       } else if (i !== pendingSink && (r.timedOut || g.phase.kind === 'done' || (active > i && !r.locked))) {
         s.classList.add('miss');
-        s.textContent = '0';
-        s.title = `Round ${i + 1}: no frames`;
+        s.append(tierIcon('timeout'));
+        expand(`#${i + 1} ${r.timedOut ? 'timed out' : 'skipped'} · +0`);
       } else {
+        s.classList.add('pending');
         s.textContent = '-';
         if (i === active) s.classList.add('active');
         s.title = `Round ${i + 1}`;
