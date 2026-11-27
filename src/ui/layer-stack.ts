@@ -471,6 +471,23 @@ function makeBitmapLabel(name: string): SVGSVGElement {
   return svg;
 }
 
+/** Build a standalone layer badge (same icon + crude 5×7 bitmap label + color theme as the RHS stack) for the reveal's "Reached" row. */
+export function createLayerBadge(layer: Layer): HTMLElement {
+  const theme = LAYER_THEMES[layer.id];
+  const el = document.createElement('div');
+  el.className = 'ls-badge';
+  el.dataset.layer = layer.id;
+  el.style.setProperty('--ls-accent', theme.accent);
+  el.style.setProperty('--ls-tint', theme.tint);
+  el.style.setProperty('--ls-border', theme.border);
+  const inner = document.createElement('div');
+  inner.className = 'ls-inner';
+  inner.append(makeIcon(theme));
+  inner.append(makeBitmapLabel(layer.name));
+  el.append(inner);
+  return el;
+}
+
 function makeBlock(layer: Layer, blurb?: string): HTMLLIElement {
   const theme = LAYER_THEMES[layer.id];
   const li = document.createElement('li');
@@ -531,6 +548,7 @@ export class LayerStack {
   private mode: StackMode | undefined;
   private currentIdx = -1;
   private timers: number[] = [];
+  private flyers: HTMLElement[] = [];
   private tipTimer = 0;
   private onCrunch: ((id: LayerId) => void) | undefined;
   private blurbs: Partial<Record<LayerId, string>>;
@@ -689,6 +707,96 @@ export class LayerStack {
     });
   }
 
+  /**
+   * Append a single newly reached layer by flying a visual clone from `sourceEl` (in the reveal's "Reached" section)
+   * directly into its exact destination slot at the bottom of the RHS stack, then triggering the crunch impact + tooltip.
+   */
+  flyIntoStack(sourceEl: HTMLElement, layer: Layer, mode: StackMode, opts: { reduced: boolean; showTip: boolean }) {
+    const stack = layersFor(mode);
+    const targetIdx = stack.findIndex((l) => l.id === layer.id);
+    if (targetIdx < 0) return;
+    if (mode !== this.mode) {
+      this.clearTimers();
+      this.mode = mode;
+      this.currentIdx = -1;
+      this.list.replaceChildren();
+    }
+    if (targetIdx <= this.currentIdx) return;
+
+    // Ensure any intermediate layers exist (normally called strictly in order).
+    for (let i = this.currentIdx + 1; i < targetIdx; i++) {
+      this.list.append(makeBlock(stack[i]!, this.blurbs[stack[i]!.id]));
+    }
+
+    const block = makeBlock(layer, this.blurbs[layer.id]);
+    this.list.append(block);
+    this.currentIdx = targetIdx;
+    this.refreshStates(targetIdx);
+
+    const srcRect = sourceEl.getBoundingClientRect();
+    const dstRect = block.getBoundingClientRect();
+    const canFly = !opts.reduced && srcRect.width > 0 && dstRect.width > 0 && typeof document !== 'undefined';
+
+    if (!canFly) {
+      sourceEl.classList.add('ls-badge-gone');
+      if (opts.showTip && this.blurbs[layer.id]) this.scheduleAutoTip(block, TIP_SHOW_DELAY_MS);
+      return;
+    }
+
+    // Hide both the source badge and destination slot while the flying clone travels between them.
+    sourceEl.classList.add('ls-badge-gone');
+    block.style.opacity = '0';
+
+    const flyer = createLayerBadge(layer);
+    flyer.classList.add('ls-flyer');
+    flyer.style.left = `${Math.round(srcRect.left)}px`;
+    flyer.style.top = `${Math.round(srcRect.top)}px`;
+    flyer.style.width = `${Math.round(srcRect.width)}px`;
+    document.body.append(flyer);
+    this.flyers.push(flyer);
+
+    const dx = Math.round(dstRect.left - srcRect.left);
+    const dy = Math.round(dstRect.top - srcRect.top);
+    const flightMs = 420;
+    // Trigger smooth flight on next frame.
+    requestAnimationFrame(() => {
+      flyer.style.transform = `translate(${dx}px, ${dy}px)`;
+      flyer.style.width = `${Math.round(dstRect.width)}px`;
+    });
+
+    const tLand = window.setTimeout(() => {
+      flyer.remove();
+      this.flyers = this.flyers.filter((f) => f !== flyer);
+      block.style.opacity = '';
+      block.classList.add('ls-crunch');
+      spawnSparks(block);
+      this.bumpAbove(block);
+      this.onCrunch?.(layer.id);
+      const tClean = window.setTimeout(() => block.classList.remove('ls-crunch'), 260);
+      this.timers.push(tClean);
+      if (opts.showTip && this.blurbs[layer.id]) this.scheduleAutoTip(block, TIP_SHOW_DELAY_MS);
+    }, flightMs);
+    this.timers.push(tLand);
+  }
+
+  /** Cancel any in-flight badges and snap the stack cleanly to `depth`. */
+  flushTo(depth: number, mode: StackMode) {
+    this.clearTimers();
+    for (const child of this.list.children) (child as HTMLElement).style.opacity = '';
+    this.sync(depth, mode, { animate: false, reduced: true });
+  }
+
+  private scheduleAutoTip(targetBlock: HTMLElement, showAt: number) {
+    this.clearAutoTips();
+    const tShow = window.setTimeout(() => {
+      targetBlock.classList.add('is-tip-auto');
+      this.tipTimer = window.setTimeout(() => {
+        targetBlock.classList.remove('is-tip-auto');
+      }, TIP_HOLD_MS);
+    }, showAt);
+    this.timers.push(tShow);
+  }
+
   private clearAutoTips() {
     clearTimeout(this.tipTimer);
     for (const child of this.list.children) child.classList.remove('is-tip-auto');
@@ -702,5 +810,7 @@ export class LayerStack {
     clearTimeout(this.tipTimer);
     for (const id of this.timers) clearTimeout(id);
     this.timers.length = 0;
+    for (const f of this.flyers) f.remove();
+    this.flyers.length = 0;
   }
 }

@@ -1,7 +1,7 @@
 // @vitest-environment happy-dom
 import { describe, expect, it, vi } from 'vitest';
 import { ALL_LAYER_IDS, DAILY_LAYERS } from '../core/layers';
-import { LAYER_THEMES, LayerStack } from './layer-stack';
+import { LAYER_THEMES, LayerStack, createLayerBadge } from './layer-stack';
 
 describe('LayerStack', () => {
   it('defines a valid 9x9 theme and icon for every daily and endless layer', () => {
@@ -110,6 +110,52 @@ describe('LayerStack', () => {
       expect(runtime.classList.contains('is-tip-pinned')).toBe(true);
       runtime.click();
       expect(runtime.classList.contains('is-tip-pinned')).toBe(false);
+      stack.el.remove();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('creates standalone badges, flies newly reached layers into the stack in order, and flushes cleanly', () => {
+    vi.useFakeTimers();
+    try {
+      const stack = new LayerStack(undefined, {
+        runtime: 'The engine that runs your code and tidies up its memory',
+        libraries: 'Shared code every program leans on',
+      });
+      document.body.append(stack.el);
+      stack.sync(0, 'daily', { animate: false, reduced: false });
+
+      const runtimeLayer = DAILY_LAYERS[1]!;
+      const librariesLayer = DAILY_LAYERS[2]!;
+      const b1 = createLayerBadge(runtimeLayer);
+      const b2 = createLayerBadge(librariesLayer);
+      expect(b1.classList.contains('ls-badge')).toBe(true);
+      expect(b1.dataset.layer).toBe('runtime');
+      expect(b1.querySelector('.ls-icon')).toBeTruthy();
+      expect(b1.querySelector('.ls-bitmap rect')).toBeTruthy();
+
+      stack.flyIntoStack(b1, runtimeLayer, 'daily', { reduced: true, showTip: false });
+      expect(b1.classList.contains('ls-badge-gone')).toBe(true);
+      expect([...stack.el.querySelectorAll('.ls-block')].map((el) => el.getAttribute('data-layer'))).toEqual([
+        'application',
+        'runtime',
+      ]);
+
+      stack.flyIntoStack(b2, librariesLayer, 'daily', { reduced: true, showTip: true });
+      expect(b2.classList.contains('ls-badge-gone')).toBe(true);
+      const blocks = [...stack.el.querySelectorAll('.ls-block')];
+      expect(blocks.map((el) => el.getAttribute('data-layer'))).toEqual(['application', 'runtime', 'libraries']);
+      expect(blocks[2]!.classList.contains('is-current')).toBe(true);
+
+      // flushTo snaps cleanly to any target depth and clears pending timers.
+      stack.flushTo(10, 'daily');
+      expect([...stack.el.querySelectorAll('.ls-block')].map((el) => el.getAttribute('data-layer'))).toEqual([
+        'application',
+        'runtime',
+        'libraries',
+        'userspace',
+      ]);
       stack.el.remove();
     } finally {
       vi.useRealTimers();

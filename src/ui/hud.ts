@@ -1,5 +1,5 @@
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
-import { PROMPTS_PER_DAY, layerAt, maxDepthFor, type Layer, type LayerId } from '../core/layers';
+import { PROMPTS_PER_DAY, layerAt, layerIndexAt, layersFor, maxDepthFor, type Layer, type LayerId } from '../core/layers';
 import type { CategoryEntry } from '../core/match';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
@@ -13,7 +13,7 @@ import { answerSheet, type SheetGroup } from './answer-sheet';
 import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
-import { LayerStack } from './layer-stack';
+import { LayerStack, createLayerBadge } from './layer-stack';
 import { sound } from '../audio/sound';
 import { bankAcceptsFor } from '../data/bank';
 import { missedAnswerUrl, suggestQuestionUrl } from './issues';
@@ -149,6 +149,9 @@ export class Hud {
   private titleOpen = false;
   private titleTimer = 0;
   private topicKey = '';
+  /** Highest layer index already committed to the RHS stack in play mode (advances on reveal via "Reached" → fly-to-stack). */
+  private committedLayerIdx = 0;
+  private reachTimers: number[] = [];
 
   /**
    * Debug hooks. `watchdogOverride` shows this share of time left instead of the game's (the rail's timer demo);
@@ -210,7 +213,7 @@ export class Hud {
       </section>
       <div class="reveal" data-el="reveal" hidden role="status" aria-live="polite">
         <div class="rv-name" data-el="rvName"></div>
-        <div class="rv-body"><div class="rv-pips" data-el="rvPips" aria-hidden="true"></div><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div></div>
+        <div class="rv-body"><div class="rv-pips" data-el="rvPips" aria-hidden="true"></div><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div><div class="rv-reached" data-el="rvReached" hidden><span class="rv-reached-label">Reached</span><div class="rv-reached-list" data-el="rvReachedList"></div></div></div>
       </div>
       <div class="entrance" data-el="entrance" hidden role="status" aria-live="polite">
         <div class="en-name" data-el="enName"></div>
@@ -428,6 +431,9 @@ export class Hud {
     this.els.titleHowBtn!.setAttribute('aria-expanded', 'false');
     this.els.titleHowBtn!.textContent = 'How to play';
     this.entranceBooted = false;
+    this.clearReachTimers();
+    this.committedLayerIdx = layerIndexAt(g.depth, g.mode);
+    this.layerStack.flushTo(g.depth, g.mode);
     this.syncSlots(g);
     this.syncTitle();
   }
@@ -603,7 +609,10 @@ export class Hud {
     const barBottom = Math.ceil(this.els.bar!.getBoundingClientRect().bottom);
     this.layerStack.setTopOffset(barBottom > 0 ? Math.max(50, barBottom + 6) : 52);
     this.layerStack.setVisible(!this.titleOpen && look('layerStack') === 'on');
-    this.layerStack.sync(depthShown, activeMode, { animate: !this.scrollMode, reduced: reducedMotion() });
+    // In active play, hold the RHS stack during dives so newly reached layers appear in the reveal first, then fly over.
+    if (this.scrollMode || this.demo || !this.game || this.game.phase.kind === 'ready') {
+      this.layerStack.sync(depthShown, activeMode, { animate: !this.scrollMode, reduced: reducedMotion() });
+    }
     const frames = Math.round(depthShown);
     if (frames !== this.shownFrames) {
       this.shownFrames = frames;
@@ -895,6 +904,46 @@ export class Hud {
     // itself in play.
     this.root.classList.add('unwinding');
     this.els.rvNext!.focus({ preventScroll: true });
+    this.showReachedLayers(kind);
+  }
+
+  /** Show any newly crossed layer badge(s) under the reveal, hold briefly, then fly each into the RHS stack in order. */
+  private showReachedLayers(kind: TierId | 'timeout') {
+    this.clearReachTimers();
+    if (kind === 'timeout' || !this.game || this.demo || this.scrollMode) return;
+    const mode = this.game.mode;
+    const targetIdx = layerIndexAt(this.game.depth, mode);
+    if (targetIdx <= this.committedLayerIdx) return;
+
+    const stack = layersFor(mode);
+    const crossed = stack.slice(this.committedLayerIdx + 1, targetIdx + 1);
+    this.committedLayerIdx = targetIdx;
+
+    const list = this.els.rvReachedList!;
+    list.replaceChildren();
+    const badges = crossed.map((layer) => {
+      const badge = createLayerBadge(layer);
+      list.append(badge);
+      return { badge, layer };
+    });
+    this.els.rvReached!.hidden = false;
+
+    const reduced = reducedMotion();
+    const holdMs = reduced ? 200 : 650;
+    const gapMs = reduced ? 120 : 550;
+    badges.forEach(({ badge, layer }, i) => {
+      const t = window.setTimeout(() => {
+        this.layerStack.flyIntoStack(badge, layer, mode, { reduced, showTip: i === badges.length - 1 });
+      }, holdMs + i * gapMs);
+      this.reachTimers.push(t);
+    });
+  }
+
+  private clearReachTimers() {
+    for (const id of this.reachTimers) clearTimeout(id);
+    this.reachTimers.length = 0;
+    this.els.rvReached!.hidden = true;
+    this.els.rvReachedList!.replaceChildren();
   }
 
   /** Tiny 7-pip pixel rarity ladder on the reveal (hidden on timeout; distinct orange glitch pip for WOMM). */
@@ -940,6 +989,10 @@ export class Hud {
     if (!this.revealOpen) return;
     this.revealOpen = false;
     clearTimeout(this.revealTimer);
+    this.clearReachTimers();
+    if (this.game && !this.scrollMode && !this.demo) {
+      this.layerStack.flushTo(this.game.depth, this.game.mode);
+    }
     this.root.classList.remove('unwinding');
     this.scene?.setVignette(false);
     this.scene?.setHold(false, unstickZLayers);
