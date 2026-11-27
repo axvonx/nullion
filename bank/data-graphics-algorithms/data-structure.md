@@ -3,11 +3,15 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 > Any data structure for storing or organizing data.
 
 ## Off-by-one
-- array | dynamic array | FBVector | ArrayList | std::vector | Vec | growable array | resizable array
-- hash table | hash map | hashmap | dictionary | associative array | StringMap | unordered_map | concurrent_hash_map | HashSet
+- array | dynamic array | vector | FBVector | ArrayList | std::vector | Vec | growable array | resizable array
+- list
+- hash table | hash map | hashmap | map | dictionary | dict | associative array | StringMap | unordered_map | concurrent_hash_map | HashSet
+- set
+- tree
 - stack | call stack | LifoQueue
 - queue | fifo queue | ConcurrentLinkedQueue | LinkedBlockingQueue | ArrayBlockingQueue | SimpleQueue
 - graph | DirectedGraph
+- tuple
 
 ## Works on my machine
 - bloom filter
