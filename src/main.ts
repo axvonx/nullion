@@ -9,6 +9,7 @@ import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from './data/sample';
 import { BANK_QUESTIONS, loadBankTerms, scheduledQuestions } from './data/bank';
 import { browserStorage, canPersistDaily, loadDaily, saveDaily, type SaveStorage } from './game/daily-save';
 import { Game } from './game/game';
+import { finishDaily } from './game/stats';
 import { LOOK_SLOTS, looks, type LookSlot } from './looks';
 import { Scene } from './render/scene';
 import { DEFAULT_SETTINGS, settings, type Settings } from './settings';
@@ -17,7 +18,10 @@ import { sound } from './audio/sound';
 import { startFavicon } from './ui/favicon';
 import { Hud } from './ui/hud';
 
-/** Dev server and `npm run build:debug` include the 🐞 menu; `npm run build` strips it. */
+/**
+ * Dev server and `npm run build:debug` include the 🐞 menu; `npm run build` strips it. Kept as a local constant
+ * (not imported from keys.ts): the bundler only drops the dynamic import of ./debug/menu when it sees the literal.
+ */
 const DEBUG = import.meta.env.DEV || import.meta.env.VITE_DEBUG === '1';
 
 const SETS: Record<string, AnswerSetSource> = {
@@ -115,7 +119,9 @@ async function boot() {
     scene.setStackMode(mode);
     // Everyone sees the same world on a given day: landmarks and scatter are both seeded by the puzzle (or ?seed=N).
     scene.setWorldSeed(seedOverride ?? daySeed, seedOverride ?? daySeed * 997);
-    hud.setGame(game, formatLocalDate(date));
+    // Only a real daily game counts toward stats: the same rule as the save (Endless and every debug mode never do).
+    const counted = game;
+    hud.setGame(game, formatLocalDate(date), persisting ? () => finishDaily(storage, counted) : undefined);
     hud.setEndlessToggle(DEBUG, endlessMode, (next) => {
       endlessMode = next;
       restart();

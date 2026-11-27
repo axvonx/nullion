@@ -1,7 +1,9 @@
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
-import { layerAt, maxDepthFor, type Layer, type LayerId } from '../core/layers';
+import { PROMPTS_PER_DAY, layerAt, maxDepthFor, type Layer, type LayerId } from '../core/layers';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
+import { buildShareText, deliverShare, siteUrl } from '../game/share';
+import type { StatsOutcome } from '../game/stats';
 import { look, reducedMotion } from '../looks';
 import type { Scene } from '../render/scene';
 import { FORMS, FORM_BY_LAYER, type FormId } from './forms';
@@ -97,6 +99,11 @@ function replay(el: HTMLElement, cls: string) {
   el.classList.add(cls);
 }
 
+/** The share button says what it will do: native share where the device has it, else copy. */
+function shareLabel(): string {
+  return typeof navigator.share === 'function' ? 'Share result' : 'Copy result';
+}
+
 function setText(el: HTMLElement, s: string) {
   if (el.textContent !== s) el.textContent = s;
 }
@@ -123,6 +130,8 @@ export class Hud {
   private slotsSig = '';
   private ended = false;
   private shareText = '';
+  /** Records the finished day and returns the lifetime stats; undefined when this game does not count (Endless, debug). */
+  private statsSource: (() => StatsOutcome) | undefined;
   /** The game clock (wall-clock ms in production), set by bind(). Used wherever a deadline is read or set. */
   private clock: () => number = () => Date.now();
   private nextDaySig = '';
@@ -154,13 +163,15 @@ export class Hud {
         <div class="title-foot">
           <p class="title-tag">Seven prompts a day. Rarer answers descend deeper into the stack.</p>
           <button type="button" class="title-start" data-el="titleStart"><span>Unwind the stack</span><span class="title-arrow" aria-hidden="true">▾</span></button>
-          <button type="button" class="title-how-btn" data-el="titleHowBtn" aria-expanded="false" aria-controls="title-how">How tiers work</button>
+          <button type="button" class="title-how-btn" data-el="titleHowBtn" aria-expanded="false" aria-controls="title-how">How to play</button>
         </div>
-        <div id="title-how" class="title-how" data-el="titleHow" role="dialog" aria-label="How tiers work" hidden>
+        <div id="title-how" class="title-how" data-el="titleHow" role="dialog" aria-label="How to play" hidden>
           <div class="title-how-bar">
-            <span class="title-how-title">Tiers · stack frames</span>
+            <span class="title-how-title">How to play</span>
             <button type="button" class="title-how-close" data-el="titleHowClose" aria-label="Close">×</button>
           </div>
+          <ul class="title-rules" data-el="titleRules"></ul>
+          <div class="title-how-title title-how-sub">Tiers · stack frames</div>
           <p class="title-how-note">Wrong guesses cost nothing but time. Harder-to-reproduce answers descend deeper:</p>
           <ol class="title-tiers" data-el="titleTiers"></ol>
         </div>
@@ -183,6 +194,7 @@ export class Hud {
           <div class="wordmark">nullion <span data-el="puzzleNo"></span></div>
           <div class="headline" data-el="headline"></div>
           <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
+          <div class="stats" data-el="stats" hidden></div>
           <div class="result-foot"><span class="next-day" data-el="nextDay">A new stack opens at local midnight.</span><button type="button" data-el="copy">Copy result</button></div>
           <div class="result-links" data-el="resultLinks"></div>
         </div>
@@ -202,8 +214,28 @@ export class Hud {
     this.els = Object.fromEntries([...mount.querySelectorAll<HTMLElement>('[data-el]')].map((e) => [e.dataset.el!, e]));
     this.titleLogo = new TitleLogo();
     this.els.titleHead!.append(this.titleLogo.canvas);
+    this.buildTitleRules();
     this.buildTitleTiers();
     mountPrefsMenu(mount, this.els.barLeft!);
+  }
+
+  /** The rules, with every number read from the game's own constants. */
+  private buildTitleRules() {
+    const frames = TIER_IDS.map((id) => TIERS[id].frames);
+    const lines = [
+      `${PROMPTS_PER_DAY} prompts a day, ${ANSWER_MS / 1000} seconds each.`,
+      'One answer per prompt: the first one accepted is locked in.',
+      `Rarer answers push more stack frames (${Math.min(...frames)} to ${Math.max(...frames)}), so you descend deeper.`,
+      'Everyone gets the same puzzle.',
+      'A new one opens at your local midnight.',
+    ];
+    this.els.titleRules!.replaceChildren(
+      ...lines.map((t) => {
+        const li = document.createElement('li');
+        li.textContent = t;
+        return li;
+      }),
+    );
   }
 
   private buildTitleTiers() {
@@ -262,22 +294,15 @@ export class Hud {
     });
 
     this.els.copy!.addEventListener('click', () => {
-      // No Clipboard API (insecure context, old browser) is an expected condition: say so rather than do nothing.
-      if (!navigator.clipboard) {
-        this.els.copy!.textContent = 'Copy failed';
-        return;
-      }
-      void navigator.clipboard.writeText(this.shareText).then(
-        () => {
-          this.els.copy!.textContent = 'Copied ✓';
-          window.setTimeout(() => {
-            if (this.els.copy) this.els.copy.textContent = 'Copy result';
-          }, 2000);
-        },
-        () => {
-          this.els.copy!.textContent = 'Copy failed';
-        },
-      );
+      // Native share where it exists, the clipboard otherwise. No way to do either is an expected condition: say so.
+      void deliverShare(this.shareText, navigator).then((res) => {
+        if (res === 'cancelled') return;
+        this.els.copy!.textContent = res === 'copied' ? 'Copied ✓' : res === 'shared' ? 'Shared ✓' : 'Copy failed';
+        if (res === 'failed') return;
+        window.setTimeout(() => {
+          if (this.els.copy) this.els.copy.textContent = shareLabel();
+        }, 2000);
+      });
     });
 
     // "Unwind further": close the reveal and move the game on (the next prompt, or the end-of-day card).
@@ -295,7 +320,7 @@ export class Hud {
     const setHowOpen = (open: boolean) => {
       this.els.titleHow!.hidden = !open;
       this.els.titleHowBtn!.setAttribute('aria-expanded', String(open));
-      this.els.titleHowBtn!.textContent = open ? 'Hide tiers' : 'How tiers work';
+      this.els.titleHowBtn!.textContent = open ? 'Hide rules' : 'How to play';
     };
     this.els.titleHowBtn!.addEventListener('click', () => setHowOpen(this.els.titleHow!.hidden !== false));
     this.els.titleHowClose!.addEventListener('click', () => {
@@ -362,8 +387,9 @@ export class Hud {
     });
   }
 
-  setGame(g: Game, dateLabel: string) {
+  setGame(g: Game, dateLabel: string, statsSource?: () => StatsOutcome) {
     this.game = g;
+    this.statsSource = statsSource;
     this.liveDaily = g.mode === 'daily' && g.puzzle === puzzleNumber(new Date(this.clock()));
     this.nextDaySig = '';
     this.els.nextDay!.textContent = 'A new stack opens at local midnight.';
@@ -380,13 +406,13 @@ export class Hud {
     this.hideReveal();
     this.promptKey = '';
     this.els.result!.hidden = true;
-    this.els.copy!.textContent = 'Copy result';
+    this.els.copy!.textContent = shareLabel();
     this.els.feedback!.textContent = '';
     this.els.metaText!.textContent = `#${g.puzzle}`;
     this.els.meta!.title = `Puzzle #${g.puzzle} · ${dateLabel}`;
     this.els.titleHow!.hidden = true;
     this.els.titleHowBtn!.setAttribute('aria-expanded', 'false');
-    this.els.titleHowBtn!.textContent = 'How tiers work';
+    this.els.titleHowBtn!.textContent = 'How to play';
     this.entranceBooted = false;
     this.syncSlots(g);
     this.syncTitle();
@@ -1041,10 +1067,14 @@ export class Hud {
     const headline = mode === 'endless' ? `KERNEL PANIC · ${framesLabel(depth)} · ${layerName}` : `${framesLabel(depth)} · ${layerName}`;
     setText(this.els.puzzleNo!, mode === 'endless' ? 'ENDLESS' : `#${puzzle}`);
     setText(this.els.headline!, headline);
-    this.shareText =
-      mode === 'endless'
-        ? `nullion endless · ${framesLabel(depth)} · ${layerName} (${rows.length} rounds)\n${glyphs.slice(0, 42)}`
-        : `nullion #${puzzle} · ${headline}\n${glyphs}`;
+    this.shareText = buildShareText({
+      mode,
+      puzzle,
+      headline,
+      glyphs: mode === 'endless' ? glyphs.slice(0, 42) : glyphs,
+      url: siteUrl(location),
+    });
+    this.buildStats();
     // Prefilled GitHub Issue links for missed answers and question ideas.
     const rejected = this.game ? this.game.rounds.flatMap((r) => r.rejected) : [];
     const missLink = document.createElement('a');
@@ -1060,6 +1090,67 @@ export class Hud {
     ideaLink.rel = 'noopener noreferrer';
     ideaLink.textContent = 'Suggest a question';
     this.els.resultLinks!.replaceChildren(missLink, ' · ', ideaLink);
+  }
+
+  /** "Your stats" on the end card. Hidden when this game doesn't count or storage is unavailable. */
+  private buildStats() {
+    const box = this.els.stats!;
+    const out = this.statsSource?.();
+    if (!out || out.kind === 'none') {
+      box.hidden = true;
+      box.replaceChildren();
+      return;
+    }
+    const { stats } = out;
+    const head = document.createElement('div');
+    head.className = 'stats-head';
+    head.textContent = 'Your stats';
+    const grid = document.createElement('dl');
+    grid.className = 'stats-grid';
+    const cell = (label: string, value: string) => {
+      const d = document.createElement('div');
+      const dt = document.createElement('dt');
+      dt.textContent = label;
+      const dd = document.createElement('dd');
+      dd.textContent = value;
+      d.append(dd, dt);
+      grid.append(d);
+    };
+    cell('played', String(stats.played));
+    cell('streak', String(stats.streak));
+    cell('best streak', String(stats.bestStreak));
+    cell('avg frames', String(stats.avgDepth));
+    cell('best frames', String(stats.bestDepth));
+    const dist = document.createElement('ul');
+    dist.className = 'stats-dist';
+    dist.setAttribute('aria-label', 'Every answer you have given, by tier');
+    const max = Math.max(1, ...TIER_IDS.map((id) => stats.tiers[id]));
+    for (const id of TIER_IDS) {
+      const li = document.createElement('li');
+      li.className = `tier-${id}`;
+      const name = document.createElement('span');
+      name.className = 'sd-name';
+      name.textContent = TIERS[id].name;
+      const bar = document.createElement('span');
+      bar.className = 'sd-bar';
+      const fill = document.createElement('i');
+      fill.style.width = `${(stats.tiers[id] / max) * 100}%`;
+      bar.append(fill);
+      const n = document.createElement('span');
+      n.className = 'sd-n';
+      n.textContent = String(stats.tiers[id]);
+      li.append(name, bar, n);
+      dist.append(li);
+    }
+    box.replaceChildren(head, grid, dist);
+    if (out.reset !== undefined) {
+      const warn = document.createElement('p');
+      warn.className = 'stats-warn';
+      warn.textContent = `Your saved stats could not be read (${out.reset}) and were reset.`;
+      box.append(warn);
+      this.notify(warn.textContent, 'error');
+    }
+    box.hidden = false;
   }
 
   private showCard() {

@@ -1,7 +1,8 @@
 // @vitest-environment happy-dom
 import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import { buildAnswerSet } from '../core/answers';
-import { TIERS } from '../core/tiers';
+import { PROMPTS_PER_DAY } from '../core/layers';
+import { TIERS, TIER_IDS } from '../core/tiers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
 import { ANSWER_MS, Game, READ_MS } from '../game/game';
 import { looks } from '../looks';
@@ -343,6 +344,39 @@ describe('end card', () => {
     expect(issueLinks[1]!.href).toContain('question-idea');
   });
 
+  it('shows "Your stats" from the stats source, and hides it with none, for Endless or without storage', () => {
+    const h = setup();
+    const stats = { played: 4, streak: 3, bestStreak: 5, avgDepth: 33, bestDepth: 61, tiers: Object.fromEntries(TIER_IDS.map((t, i) => [t, i])) } as never;
+    const game = new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
+    h.hud.setGame(game, '2026-11-26', () => ({ kind: 'ok', stats }));
+    h.hud.endOfDay([{ tier: 'race', name: 'mutex' }], 5, 1);
+    const box = h.mount.querySelector<HTMLElement>('[data-el="stats"]')!;
+    expect(box.hidden).toBe(false);
+    expect(box.textContent).toContain('Your stats');
+    expect(box.textContent).toMatch(/4played/);
+    expect(box.textContent).toMatch(/3streak/);
+    expect(box.querySelectorAll('.stats-dist li')).toHaveLength(TIER_IDS.length);
+    expect(h.mount.querySelector('.stats-warn')).toBeNull();
+
+    h.hud.setGame(game, '2026-11-26', () => ({ kind: 'ok', stats, reset: 'not valid JSON' }));
+    h.hud.endOfDay([{ tier: 'race', name: 'mutex' }], 5, 1);
+    expect(h.mount.querySelector('.stats-warn')!.textContent).toContain('not valid JSON');
+
+    h.hud.setGame(game, '2026-11-26', () => ({ kind: 'none' }));
+    h.hud.endOfDay([{ tier: 'race', name: 'mutex' }], 5, 1);
+    expect(box.hidden).toBe(true);
+    h.hud.setGame(game, '2026-11-26');
+    h.hud.endOfDay([{ tier: 'race', name: 'mutex' }], 5, 1);
+    expect(box.hidden).toBe(true);
+  });
+
+  it('the title rules quote the game constants', () => {
+    const h = setup();
+    const text = h.mount.querySelector('[data-el="titleRules"]')!.textContent!;
+    expect(text).toContain(`${PROMPTS_PER_DAY} prompts a day, ${ANSWER_MS / 1000} seconds each`);
+    expect(text).toContain('local midnight');
+  });
+
   it('the share text carries tier glyphs but never the frame scores', async () => {
     const h = setup();
     let copied = '';
@@ -355,8 +389,12 @@ describe('end card', () => {
     await Promise.resolve();
     expect(copied).toContain(TIERS.race.glyph);
     expect(copied).toContain(TIERS.bitflip.glyph);
-    const strip = copied.split('\n')[1]!;
-    expect(strip).not.toMatch(/\d/);
+    const lines = copied.split('\n');
+    expect(lines[0]).toBe('nullion #1');
+    expect(lines[1]).toBe('18 stack frames · Kernel');
+    expect(lines[2]).not.toMatch(/\d/);
+    expect(lines[3]).toBe(location.origin + location.pathname);
+    expect(lines).toHaveLength(4);
   });
 
   it('tracks 7 round slots from "-" to tier-colored frame counts after the dive lands and 0 on timeout', () => {

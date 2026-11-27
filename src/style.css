@@ -250,6 +250,20 @@ body {
 .bt-row.timeout .bt-sum, .bt-row.timeout .bt-detail { color: var(--dim); }
 .bt-tier { font-family: var(--display); font-size: 12px; letter-spacing: 0.04em; }
 .still .bt-icon .tier-icon { transition: none; }
+/* Lifetime stats on the end card. */
+.stats { margin: 8px 0 4px; padding-top: 6px; border-top: 1px solid var(--rule); }
+.stats[hidden] { display: none; }
+.stats-head { font-family: var(--display); font-size: 11px; letter-spacing: 0.06em; color: var(--signal); margin-bottom: 4px; }
+.stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 0 0 6px; text-align: center; }
+.stats-grid dd { margin: 0; font-size: 24px; color: var(--ink); line-height: 1; }
+.stats-grid dt { font-size: 14px; color: var(--dim); line-height: 1.1; }
+.stats-dist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.stats-dist li { display: grid; grid-template-columns: 9.5em 1fr 2em; align-items: center; gap: 6px; }
+.sd-name { font-family: var(--display); font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sd-bar { height: 6px; background: rgba(255, 255, 255, 0.07); }
+.sd-bar i { display: block; height: 100%; background: currentColor; }
+.sd-n { text-align: right; font-size: 16px; color: var(--dim); }
+.stats-warn { margin: 6px 0 0; font-size: 16px; color: var(--fault, #ff5f7a); }
 .result-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
 .next-day { color: var(--dim); font-size: 17px; }
 .result-links { margin-top: 6px; font-size: 16px; color: var(--dim); }
@@ -787,6 +801,9 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 }
 .title-how-close:hover { color: var(--signal); border-color: var(--signal); }
 .title-how-note { margin: 0 0 8px; font-size: 18px; color: var(--dim); line-height: 1.15; }
+.title-rules { margin: 0 0 10px; padding-left: 18px; font-size: 19px; line-height: 1.15; }
+.title-rules li { margin-bottom: 3px; }
+.title-how-sub { margin: 0 0 4px; }
 .title-tiers { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 .title-tiers li {
   display: grid;
