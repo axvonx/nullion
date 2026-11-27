@@ -162,15 +162,15 @@
 .bd-hab-pop-det { margin-top: 4px; font-style: italic; color: #b9c7d6; }
 .bd-hab-pop-mini { width: auto; padding: 3px 8px; font-family: var(--mono); font-size: 11px; white-space: nowrap; }
 .bd-idx-pop {
-  position: absolute; z-index: 10; display: flex; gap: 10px; align-items: flex-start;
-  width: min(300px, calc(100% - 20px)); padding: 9px 10px;
+  position: absolute; z-index: 10; display: flex; flex-direction: column; gap: 8px;
+  width: min(220px, calc(100% - 20px)); padding: 10px;
   background: var(--bond); color: var(--toner);
   border: 1.5px solid var(--slate); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.42);
   font-family: var(--serif); font-size: 13px; line-height: 1.3; pointer-events: none;
 }
 .bd-idx-pop[hidden] { display: none; }
-.bd-idx-thumb { flex: none; width: 88px; height: 66px; display: grid; place-items: center; background: #121116; outline: 1px solid var(--rule2); outline-offset: 2px; }
-.bd-idx-desc { flex: 1; min-width: 0; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.bd-idx-thumb { width: 100%; height: 96px; display: grid; place-items: center; background: #121116; outline: 1px solid var(--rule2); outline-offset: 2px; }
+.bd-idx-desc { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .bd-behav { display: inline-flex; gap: 6px; flex-wrap: wrap; } .bd-behav span { border: 1px solid var(--toner); padding: 0 6px; font-size: 14px; }
 /* Sighting stamp & found-during note: centered at the foot of the entry text with subtle bounded hand-stamped jitter. */
 .bd-sighting-foot { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 26px auto 8px; padding: 0 12px; max-width: 100%; }

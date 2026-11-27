@@ -689,7 +689,7 @@ export class FieldManualBinder {
     const s = this.shown(e);
     const thumb = el('div', 'bd-idx-thumb');
     const dummyLive = new Set<() => void>();
-    thumb.append(plateCanvas(s, 84, 62, 'sprite', dummyLive));
+    thumb.append(plateCanvas(s, 140, 88, 'sprite', dummyLive));
     const desc = el('div', 'bd-idx-desc', `${e.blurb} ${e.note}`.trim());
     pop.replaceChildren(thumb, desc);
     pop.hidden = false;
