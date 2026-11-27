@@ -7,7 +7,6 @@ import { CHIPS_BOTTOM, overlaps, revealLayout } from './reveal-layout';
 // Mirror the HUD's copy without importing it (it builds DOM): the longest lines it can show.
 const LONG_ANSWER = 'Mellor-Crummey Scott lock · +13 stack frames';
 const LONG_LINE = 'Everyone thinks they’re the only one who knows this.';
-const BLURB = 'The Intel Management Engine, a hidden computer inside your computer';
 
 const VIEWPORTS = [
   [1280, 800],
@@ -28,19 +27,17 @@ describe('reveal layout', () => {
             ...TIER_IDS.map((id) => ({ name: TIERS[id].name, answer: LONG_ANSWER, line: LONG_LINE })),
             { name: 'Time’s up', answer: '', line: 'No answer, so no frames this round.', lowKey: true },
           ];
-          for (const [t, card] of reveals.flatMap((r) => [[r, true] as const, [r, false] as const])) {
-            // The entrance card is the old look; by default layer names live in the world and no band is reserved.
-            const L = revealLayout(vw, vh, mark, t, card ? { name: layer.name, desc: BLURB } : undefined, railed);
-            const where = `${layer.id} / ${t.name}${card ? ' + card' : ''}`;
-            const boxes = { entrance: L.entrance, name: L.name, mark: L.mark, body: L.body, console: L.console };
+          for (const t of reveals) {
+            const L = revealLayout(vw, vh, mark, t, railed);
+            const where = `${layer.id} / ${t.name}`;
+            const boxes = { name: L.name, mark: L.mark, body: L.body, console: L.console };
             const keys = Object.keys(boxes) as (keyof typeof boxes)[];
             for (let a = 0; a < keys.length; a++)
               for (let b = a + 1; b < keys.length; b++)
                 if (overlaps(boxes[keys[a]!], boxes[keys[b]!])) bad.push(`${where}: ${keys[a]} overlaps ${keys[b]}`);
-            // Order top to bottom: entrance, name, cursor mark, details, console.
-            if (!(L.entrance.bottom <= L.name.top && L.name.bottom <= L.mark.top && L.mark.bottom <= L.body.top && L.body.bottom <= L.console.top))
+            // Order top to bottom: name, cursor mark, details, console.
+            if (!(L.name.top >= CHIPS_BOTTOM && L.name.bottom <= L.mark.top && L.mark.bottom <= L.body.top && L.body.bottom <= L.console.top))
               bad.push(`${where}: out of order`);
-            if (L.entrance.top < CHIPS_BOTTOM) bad.push(`${where}: entrance under the header chips`);
             if (L.namePx < 16 || L.answerPx < 16) bad.push(`${where}: text shrank below 16px`);
           }
         }

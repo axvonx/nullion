@@ -15,7 +15,7 @@ import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
 import { LAYER_THEMES, LayerStack, createLayerBadge, makeLayerIcon } from './layer-stack';
-import { FieldManualModal, manualBookIcon } from './manual-modal';
+import { manualBookIcon } from './manual-icon';
 import { FieldManualBinder } from './binder/binder';
 import { manualStore } from '../game/manual';
 import { sound } from '../audio/sound';
@@ -41,8 +41,6 @@ const REVEAL_FADE_MS = 200;
 /** The reveal's hide button appears this long after the reveal is drawn: after its 260 ms pop-in has finished. */
 const REVEAL_SETTLE_MS = 700;
 
-/** Layer entrances: how long the name card shows at the top of the screen. */
-const ENTRANCE_MS = 2600;
 
 /** What each layer is, in a line a non-systems player can read. Shown under the layer's name as you enter it. */
 export const LAYER_BLURBS: Record<LayerId, string> = {
@@ -156,7 +154,6 @@ export class Hud {
   private demo = false;
   private titleLogo: TitleLogo;
   private layerStack: LayerStack;
-  private manual: FieldManualModal;
   private binder: FieldManualBinder;
   private titleOpen = false;
   private titleTimer = 0;
@@ -233,10 +230,6 @@ export class Hud {
       <div class="reveal" data-el="reveal" hidden role="status" aria-live="polite">
         <div class="rv-name" data-el="rvName"></div>
         <div class="rv-body"><div class="rv-pips" data-el="rvPips" aria-hidden="true"></div><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div><div class="rv-reached" data-el="rvReached" hidden><span class="rv-reached-label">Reached</span><div class="rv-reached-list" data-el="rvReachedList"></div></div><button type="button" class="rv-hide" data-el="rvHide" hidden aria-label="Hide the reveal to look around and collect props">hide ▾</button></div>
-      </div>
-      <div class="entrance" data-el="entrance" hidden role="status" aria-live="polite">
-        <div class="en-name" data-el="enName"></div>
-        <div class="en-desc" data-el="enDesc"></div>
       </div>`;
     this.root = mount;
     this.canvas = $(mount, 'canvas');
@@ -246,7 +239,6 @@ export class Hud {
     this.els.titleHead!.append(this.titleLogo.canvas);
     this.layerStack = new LayerStack((id) => sound.stackCrunch(id), LAYER_BLURBS);
     mount.append(this.layerStack.el);
-    this.manual = new FieldManualModal(mount);
     this.binder = new FieldManualBinder(document.body, LAYER_BLURBS); // above the HUD's stacking context (and the debug rail)
     this.els.titleManualBtn!.prepend(manualBookIcon(13));
     this.els.manualEndBtn!.prepend(manualBookIcon(22));
@@ -320,7 +312,6 @@ export class Hud {
     this.scene = scene;
     this.clock = now;
     // Entering a layer (on a dive, in the replay, at boot) shows its name card.
-    scene.onLayerChange = (layer) => this.enterLayer(layer);
     this.els.form!.addEventListener('submit', (ev) => {
       ev.preventDefault();
       // Enter while the reveal is up means "Unwind further", once; never a submit behind the reveal.
@@ -472,7 +463,6 @@ export class Hud {
     this.els.titleHow!.hidden = true;
     this.els.titleHowBtn!.setAttribute('aria-expanded', 'false');
     this.els.titleHowBtn!.textContent = 'How to play';
-    this.entranceBooted = false;
     this.clearReached();
     this.committedLayerIdx = layerIndexAt(g.depth, g.mode);
     this.layerStack.flushTo(g.depth, g.mode);
@@ -600,8 +590,6 @@ export class Hud {
     this.scene?.introDive();
     g.start(now);
     this.onPhaseChange();
-    this.entranceBooted = true;
-    this.enterLayer(layerAt(0));
   }
 
   private syncTitle() {
@@ -669,10 +657,6 @@ export class Hud {
     this.syncTitle();
     if (this.titleOpen) this.positionTitle();
     const activeMode = this.game?.mode ?? 'daily';
-    if (!this.entranceBooted && !this.titleOpen) {
-      this.entranceBooted = true;
-      this.enterLayer(layerAt(depthShown, activeMode));
-    }
     this.updateMotion(now, depthShown);
     this.mirrorReaction(now);
     this.settleReveal(now);
@@ -966,17 +950,15 @@ export class Hud {
     const el = this.els.reveal!;
     this.renderRevealPips(kind);
     // The tier's name sits just above the cursor's bracket mark and the details just below it, so the mascot,
-    // mid-reaction, is framed between them; sizes step down where they'd meet the entrance band or the console.
+    // mid-reaction, is framed between them; sizes step down where they'd meet the header chips or the console.
     // The maths is pure and unit-tested (reveal-layout.ts).
     const scene = this.scene;
     if (scene) {
-      const layer = layerAt(scene.displayDepth);
       const lay = revealLayout(
         window.innerWidth,
         window.innerHeight,
         scene.markCss(),
         { name: this.els.rvName!.textContent ?? '', answer: this.els.rvAnswer!.textContent ?? '', line: this.els.rvLine!.textContent ?? '', lowKey: kind === 'timeout' },
-        look('layerName') === 'card' ? { name: layer.name, desc: LAYER_BLURBS[layer.id] } : undefined,
         scene.uiReserveRightCss > 0,
       );
       const st = el.style;
@@ -1145,46 +1127,6 @@ export class Hud {
       el.hidden = true;
       el.classList.remove('out');
     }, REVEAL_FADE_MS);
-  }
-
-  // ---------------------------------------------------------------------------------------------
-  // Layer entrances (old look 'card'): the layer's name and what it is, in one plain line, at the top of the screen (clear of the
-  // reveal in the middle). Fades in, holds, fades.
-
-  private entranceUp = false;
-  private entranceTimer = 0;
-  private entranceBooted = false;
-
-  private enterLayer(layer: Layer) {
-    // Layer names are painted into the world (v4 art); the card is the old look, kept switchable. v1 keeps its plain
-    // boundary labels for comparison.
-    if (look('layerName') !== 'card' || look('artStyle') === 'v1') return;
-    this.showEntrance(layer);
-  }
-
-  private showEntrance(layer: Layer) {
-    const el = this.els.entrance!;
-    setText(this.els.enName!, layer.name);
-    setText(this.els.enDesc!, LAYER_BLURBS[layer.id]);
-    el.dataset.layer = layer.id;
-    el.classList.remove('out');
-    el.hidden = false;
-    replay(el, 'in');
-    this.entranceUp = true;
-    clearTimeout(this.entranceTimer);
-    this.entranceTimer = window.setTimeout(() => this.hideEntrance(), ENTRANCE_MS);
-  }
-
-  private hideEntrance() {
-    if (!this.entranceUp) return;
-    this.entranceUp = false;
-    clearTimeout(this.entranceTimer);
-    const el = this.els.entrance!;
-    el.classList.add('out');
-    this.entranceTimer = window.setTimeout(() => {
-      el.hidden = true;
-      el.classList.remove('out');
-    }, 400);
   }
 
   private onSubmit(res: SubmitResult, scene: Scene, g: Game) {
@@ -1542,10 +1484,9 @@ export class Hud {
 
   private demoPrompt = '';
 
-  /** Open the Field Manual modal (used by the title/end-of-day buttons and the debug rail). */
+  /** Open the Field Manual binder (used by the title/end-of-day buttons and the debug rail). */
   openManual(entryId?: string) {
-    if (look('manual') === 'binder') this.binder.open(entryId);
-    else this.manual.open(entryId);
+    this.binder.open(entryId);
   }
 
   /** Show a prompt in the console without a running round, even in scroll mode. */

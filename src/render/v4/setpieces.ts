@@ -1,5 +1,5 @@
 import type { LayerId } from '../../core/layers';
-import { hash, type Band } from '../art';
+import { hash, type Band } from '../art-common';
 import { c } from './kit';
 
 /**

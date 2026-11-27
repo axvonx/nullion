@@ -177,7 +177,7 @@ async function boot() {
     hud.setScrollMode(true);
     scene.setTarget(d, true);
   }
-  // Debug deep link: ?look.<slot>=<value> sets a look (and saves it, like the menu does), e.g. ?look.artStyle=v1.
+  // Debug deep link: ?look.<slot>=<value> sets a look (and saves it, like the menu does), e.g. ?look.rain=hex.
   if (DEBUG) {
     for (const [k, v] of new URLSearchParams(location.search)) {
       if (!k.startsWith('look.')) continue;

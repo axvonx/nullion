@@ -104,7 +104,7 @@ export const SPRITES = {
   bioscell: sprite(['XXXXXXXX', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'X......X', 'XXXXXXXX', 'X......X', 'XXXXXXXX'], 4, 6),
   bit0: outlined(BIT_ZERO, 4, 5),
   bit1: outlined(BIT_ONE, 4, 5),
-  /** v1 art style's round bit, kept so the old look stays comparable. */
+  /** A round bit; cursor-geom measures it with bit0/bit1 for the bit form's extent. */
   bit: sprite(['  XXXX  ', ' X....X ', 'X......X', 'X......X', 'X......X', 'X......X', ' X....X ', '  XXXX  '], 4, 4),
   hourglass: sprite(
     [

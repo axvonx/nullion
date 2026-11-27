@@ -4,7 +4,7 @@ import { diveLeadMs, diveMs } from '../render/scene';
 import { FORM_BY_LAYER, FORM_IDS, FORM_NAMES } from '../ui/forms';
 import { REVEAL_MS } from '../ui/hud';
 import { tierIcon } from '../ui/tier-icons';
-import { manualBookIcon } from '../ui/manual-modal';
+import { manualBookIcon } from '../ui/manual-icon';
 import { manualStore } from '../game/manual';
 import type { DebugHooks } from './menu';
 

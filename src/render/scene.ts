@@ -2,9 +2,7 @@ import { ENDLESS_LAYERS, layersFor, layerIndexAt, maxDepthFor, type Layer, type 
 import type { TierId } from '../core/tiers';
 import { look, reducedMotion } from '../looks';
 import { enforce } from '../core/enforce';
-import { FONT, LAYER_ART, hash, type Art, type Band } from './art';
-import { LAYER_ART_DETAILED, SEAM_ART, SEAM_H } from './art-detailed';
-import { LAYER_ART_V3, PROP_SPOTS } from './art-v3';
+import { FONT, SEAM_ART, SEAM_H, hash, type Art, type Band } from './art-common';
 import { ENTITY_SPOTS, LAYER_ART_V4, MANUAL_TARGETS, ensureWorldV4, setActiveTopicV4, type ManualTarget } from './art-v4';
 import { CRITTER_SPOTS, CritterSystem } from './critters';
 import { MANUAL_RARITIES, entryForCritter, manualEntryById, manualStore } from '../game/manual';
@@ -177,8 +175,6 @@ const VIGNETTE_MS = 260;
 const PAGE_W = 64;
 const PAGE_H = 36;
 const BAYER16 = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
-/** The reveal's blocky dim bands, outermost to innermost: cumulative darkness (innermost core dims all the way to black). */
-const VIGNETTE_STEPS = [0.68, 0.88, 1.0];
 
 
 
@@ -296,8 +292,6 @@ export class Scene {
   }[] = [];
   private titleDrips: { x: number; y: number; vy: number; color: string; start: number; dur: number }[] = [];
   private titleHex: { x: number; y: number; text: string; start: number; dur: number }[] = [];
-
-  onLayerChange: ((layer: Layer) => void) | undefined;
 
   /**
    * v4's world seed: the puzzle number by default (main.ts), so everyone sees the same world on a given day.
@@ -617,71 +611,6 @@ export class Scene {
     ctx.putImageData(img, 0, 0);
   }
 
-  private drawVignette(now: number, reduced: boolean) {
-    const v = this.vignette;
-    const k = reduced ? 1 : Math.max(0, Math.min(1, (now - v.at) / VIGNETTE_MS));
-    const a = v.on ? k : 1 - k;
-    if (a <= 0) return;
-
-    const ctx = this.ctx;
-    const { W, H } = this;
-
-    // 1. Grayscale + blocky mosaic pixelation on the entire background behind the cursor and reveal text.
-    const bs = reduced ? 4 : a < 0.35 ? 2 : a < 0.7 ? 3 : 4;
-    const img = ctx.getImageData(0, 0, W, H);
-    const d = img.data;
-    for (let by = 0; by < H; by += bs) {
-      const sy = Math.min(H - 1, by + (bs >> 1));
-      const yEnd = Math.min(H, by + bs);
-      for (let bx = 0; bx < W; bx += bs) {
-        const sx = Math.min(W - 1, bx + (bs >> 1));
-        const si = (sy * W + sx) * 4;
-        const r = d[si]!;
-        const g = d[si + 1]!;
-        const b = d[si + 2]!;
-        const lum = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
-        const nr = Math.round(r + (lum - r) * a);
-        const ng = Math.round(g + (lum - g) * a);
-        const nb = Math.round(b + (lum - b) * a);
-        const xEnd = Math.min(W, bx + bs);
-        for (let y = by; y < yEnd; y++) {
-          let idx = (y * W + bx) * 4;
-          for (let x = bx; x < xEnd; x++, idx += 4) {
-            d[idx] = nr;
-            d[idx + 1] = ng;
-            d[idx + 2] = nb;
-          }
-        }
-      }
-    }
-    ctx.putImageData(img, 0, 0);
-
-    // 2. Crisp blocked-out rectangular vignette (zero round corners), aligned to the 4px mosaic grid.
-    const snap = (n: number) => Math.round(n / 4) * 4;
-    const cx = snap(W / 2);
-    const cy = snap(this.cursorY);
-    const rx = snap(Math.min(Math.round(W * 0.56), 204));
-    const ry = snap(Math.round(H * 0.29));
-
-    // Light full-screen dim so the pixelated grayscale world recedes cleanly.
-    const baseDim = 0.26 * a;
-    ctx.fillStyle = `rgba(0,0,0,${baseDim.toFixed(3)})`;
-    ctx.fillRect(0, 0, W, H);
-
-    let below = baseDim;
-    const steps = VIGNETTE_STEPS.length;
-    VIGNETTE_STEPS.forEach((target, idx) => {
-      const want = target * a;
-      const add = below >= 1 ? 0 : Math.max(0, 1 - (1 - want) / (1 - below));
-      below = want;
-      const frac = 1 - idx * (0.22 / Math.max(1, steps - 1));
-      const hw = snap(rx * frac);
-      const hh = snap(ry * frac);
-      ctx.fillStyle = `rgba(0,0,0,${add.toFixed(3)})`;
-      ctx.fillRect(cx - hw, cy - hh, hw * 2, hh * 2);
-    });
-  }
-
   get displayDepth() {
     return this.depth;
   }
@@ -935,10 +864,8 @@ export class Scene {
     const dt = Math.min(0.1, this.lastNow ? (now - this.lastNow) / 1000 : 0);
     this.lastNow = now;
     const reduced = reducedMotion();
-    const style = look('artStyle');
-    const detailed = style !== 'v1';
-    const art = style === 'v4' ? LAYER_ART_V4 : style === 'v3' ? LAYER_ART_V3 : style === 'v2' ? LAYER_ART_DETAILED : LAYER_ART;
-    if (style === 'v4') ensureWorldV4(this.worldSpec());
+    const art = LAYER_ART_V4;
+    ensureWorldV4(this.worldSpec());
     this.critters.ensureSeed(this.scatterSeed);
 
     // Move the cursor: a dive (eased, with a small overshoot), or a glide toward the target.
@@ -987,7 +914,6 @@ export class Scene {
       }
       this.lastLayer = layerIdx;
       sound.playLayerCross(layer.id);
-      this.onLayerChange?.(layer);
     }
 
     const frozen = layer.id === 'ring-2' && look('freeze') === 'on';
@@ -1014,7 +940,6 @@ export class Scene {
     const worldFrozen = frozen || this.fx.freeze || this.fx.hang;
     sound.setAmbienceFrozen(worldFrozen);
     if (!worldFrozen) this.artTime += dt;
-    PROP_SPOTS.length = 0;
     ENTITY_SPOTS.length = 0;
     MANUAL_TARGETS.length = 0;
     CRITTER_SPOTS.length = 0;
@@ -1052,7 +977,7 @@ export class Scene {
       farShift: this.farShift,
     });
 
-    // 1. Layer bands (+ living biosphere critters in v2–v4).
+    // 1. Layer bands (+ living biosphere critters).
     for (let i = 0; i < stack.length; i++) {
       const b = band(i);
       if (b.bottom < 0 || b.top > H) continue;
@@ -1062,46 +987,25 @@ export class Scene {
       ctx.clip();
       const spotStart = ENTITY_SPOTS.length;
       art[stack[i]!.id](ctx, b);
-      if (detailed) {
-        this.critters.drawBand(
-          ctx,
-          stack[i]!.id,
-          b,
-          i === layerIdx && !worldFrozen,
-          (ev) => (ev.kind === 'exit' ? sound.playCritterExit(ev.layer, ev.pan) : sound.playCritter(ev.layer, ev.pan)),
-          ENTITY_SPOTS,
-          spotStart,
-        );
-      }
+      this.critters.drawBand(
+        ctx,
+        stack[i]!.id,
+        b,
+        i === layerIdx && !worldFrozen,
+        (ev) => (ev.kind === 'exit' ? sound.playCritterExit(ev.layer, ev.pan) : sound.playCritter(ev.layer, ev.pan)),
+        ENTITY_SPOTS,
+        spotStart,
+      );
       ctx.restore();
     }
 
-    // 2. Boundaries. Detailed: the upper layer frays down into the lower one, and hard boundaries get a structure.
+    // 2. Boundaries: the upper layer frays down into the lower one, and hard boundaries get a structure.
     for (let i = 1; i < stack.length; i++) {
       const y = Math.round(bandTop(i, this.stackMode) - camY);
       if (y < -SEAM_H || y > H + 10) continue;
       const l = stack[i]!;
-      if (detailed) {
-        this.drawSeam(art[stack[i - 1]!.id], band(i - 1), y);
-        SEAM_ART[l.id]?.(ctx, y, band(i));
-      } else {
-        ctx.strokeStyle = 'rgba(255,255,255,0.7)';
-        ctx.setLineDash([4, 3]);
-        ctx.beginPath();
-        ctx.moveTo(0, y + 0.5);
-        ctx.lineTo(W, y + 0.5);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      }
-      // v1 keeps its plain seam labels for comparison; detailed styles name a layer only as you arrive in it.
-      if (detailed) continue;
-      const label = l.boundary ? `${l.boundary} → ${l.name}` : l.name;
-      ctx.font = FONT;
-      const tw = Math.ceil(ctx.measureText(label).width);
-      ctx.fillStyle = '#000';
-      ctx.fillRect(8, y - 5, tw + 6, 10);
-      ctx.fillStyle = '#fff';
-      ctx.fillText(label, 11, y + 3);
+      this.drawSeam(art[stack[i - 1]!.id], band(i - 1), y);
+      SEAM_ART[l.id]?.(ctx, y, band(i));
     }
 
     // 3. Rain (kernel and below).
@@ -1146,10 +1050,9 @@ export class Scene {
     const swayDt = worldFrozen ? 0 : dt;
     this.swayPhase += swayDt * 3.1;
     // The reveal's vignette dims the middle beneath the cursor pass, so the cursor and its reaction play in front of it.
-    if (look('reveal') === 'mosaic') this.drawVignette(now, reduced);
-    else this.drawRevealBuffer(now, reduced, camY, stack);
+    this.drawRevealBuffer(now, reduced, camY, stack);
     this.drawBubbles(swayDt, speed, reduced, layer.id);
-    this.drawCursor(now, layer.id, reduced, detailed);
+    this.drawCursor(now, layer.id, reduced);
     this.drawPops(now, layer.id, reduced);
 
     // 5. Color depth: quantize each row by the layer it shows, so the next layer's palette visibly approaches.
@@ -1235,8 +1138,8 @@ export class Scene {
   }
 
   /**
-   * On-screen "entities" for reactions: v4 reports the exact boxes of the props it drew, v3 where it drew its near
-   * props; other art styles fall back to a seeded scatter of cells.
+   * On-screen "entities" for reactions: v4 reports the exact boxes of the props it drew; with none on screen, a
+   * seeded scatter of cells stands in.
    */
   private entities(seed: number, n: number): [number, number, number, number][] {
     const out: [number, number, number, number][] = [];
@@ -1251,18 +1154,9 @@ export class Scene {
       }
       return out;
     }
-    const spots = PROP_SPOTS.length / 2;
     for (let k = 0; out.length < n && k < n * 4; k++) {
-      let x: number;
-      let y: number;
-      if (spots > 0) {
-        const j = Math.floor(hash(seed + k * 7) * spots);
-        x = PROP_SPOTS[j * 2]! - 2;
-        y = PROP_SPOTS[j * 2 + 1]! - 3;
-      } else {
-        x = Math.floor(hash(seed + k * 7) * (this.W - 24));
-        y = Math.floor(hash(seed + k * 7 + 1) * (this.H - 20));
-      }
+      const x = Math.floor(hash(seed + k * 7) * (this.W - 24));
+      const y = Math.floor(hash(seed + k * 7 + 1) * (this.H - 20));
       if (x < 0 || y < 0 || x + 24 > this.W || y + 20 > this.H) continue;
       out.push([x, y, 24, 20]);
     }
@@ -1775,7 +1669,7 @@ export class Scene {
     this.ctx.drawImage(this.seam, 0, top, this.W, h, 0, top, this.W, h);
   }
 
-  private drawCursor(now: number, layerId: LayerId, reduced: boolean, detailed: boolean) {
+  private drawCursor(now: number, layerId: LayerId, reduced: boolean) {
     const form = this.formFor(layerId);
     if (form !== this.lastForm) {
       if (this.lastForm !== undefined) {
@@ -1787,7 +1681,7 @@ export class Scene {
     const style = FORM_STYLE[form];
     // The bit is a 0/1 glyph that can't hold its value. It flickers on art time, so Ring −2's frozen time holds it too.
     let bit = reduced ? 1 : bitAt(this.artTime);
-    const bitGlyph = form === 'bit' && detailed;
+    const bitGlyph = form === 'bit';
     let spr: Sprite = bitGlyph ? (bit ? SPRITES.bit1 : SPRITES.bit0) : SPRITES[form];
     let fill = style.fill;
     let outline = style.outline;

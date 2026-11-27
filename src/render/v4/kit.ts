@@ -1,5 +1,5 @@
 import { enforce } from '../../core/enforce';
-import { FONT, hash } from '../art';
+import { FONT, hash } from '../art-common';
 import { darkestInk, snapColor, type PaletteMode } from '../palettes';
 
 /**

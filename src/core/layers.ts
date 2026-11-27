@@ -132,7 +132,7 @@ export const ALL_LAYER_IDS: readonly LayerId[] = [
   ...TRUE_ENDLESS_LAYERS.map((l) => l.id),
 ];
 
-/** Canonical daily layer fallback for legacy v1/v2/v3 renderers or default audio/art inheritance. */
+/** Canonical daily layer fallback for default audio/art inheritance. */
 export const DAILY_FALLBACK: Record<LayerId, DailyLayerId> = {
   internet: 'application',
   browser: 'application',

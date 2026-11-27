@@ -1,8 +1,7 @@
 import { enforce } from '../core/enforce';
 import { ALL_LAYER_IDS, DAILY_FALLBACK, type LayerId } from '../core/layers';
 import { look } from '../looks';
-import { FONT, hash, type Band } from './art';
-import { SEAM_H } from './art-detailed';
+import { FONT, SEAM_H, hash, type Band } from './art-common';
 import { LAYER_PALETTE, darkestInk, snapColor } from './palettes';
 
 /**
@@ -586,7 +585,7 @@ export class CritterSystem {
     return { x: pick.cx, worldY: pick.worldY - 6 };
   }
 
-  /** Fallback local hop destination when no props are available (e.g. v2/v3 styles). */
+  /** Fallback local hop destination when no props are available (e.g. every prop is off screen). */
   private pickFallbackHop(
     c: CritterState,
     W: number,

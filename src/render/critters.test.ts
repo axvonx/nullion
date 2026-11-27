@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS, LAYERS } from '../core/layers';
-import type { Band } from './art';
+import type { Band } from './art-common';
 import { ALT_SPECIES_MOTIONS, CritterSystem, MotionType, SPECIES_MOTIONS, isAltSpecies, type CritterCall } from './critters';
 
 function fakeCtx() {

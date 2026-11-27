@@ -1,5 +1,4 @@
 import { persisted } from './store';
-import { DEBUG } from './keys';
 import { prefs } from './prefs';
 
 /**
@@ -8,31 +7,10 @@ import { prefs } from './prefs';
  * The debug menu builds its controls from this table, so nothing else needs wiring.
  */
 export const LOOK_SLOTS = {
-  artStyle: {
-    label: 'Layer art',
-    options: { v4: 'Seeded entity world (v4)', v3: 'Mixed small props (v3)', v2: 'Detailed places (v2)', v1: 'Flat components (v1)' },
-    default: 'v4',
-  },
-  layerName: {
-    label: 'Layer names',
-    options: { watermark: 'Watermark in the world', card: 'Entrance card (old)' },
-    default: 'watermark',
-  },
-  manual: {
-    label: 'Field Manual',
-    options: { binder: 'Archive binder (new)', modal: 'Card grid (v1)' },
-    // The binder is being built in debug builds first (FIELD-MANUAL-PLAN.md); production keeps the card grid until it's done.
-    default: (DEBUG ? 'binder' : 'modal') as 'binder' | 'modal',
-  },
   layerStack: {
     label: 'RHS layer stack',
     options: { on: 'On (top-down stack)', off: 'Off' },
     default: 'on',
-  },
-  reveal: {
-    label: 'Reveal backdrop',
-    options: { framebuffer: 'Degrading frame buffer', mosaic: 'Grayscale mosaic (old)' },
-    default: 'framebuffer',
   },
   cursor: {
     label: 'Cursor',
@@ -88,10 +66,10 @@ type LookState = { [S in LookSlot]: LookValue<S> };
 const defaults = Object.fromEntries(Object.entries(LOOK_SLOTS).map(([k, v]) => [k, v.default])) as LookState;
 
 /**
- * Bumped when look defaults change meaningfully (v3 art, rain off; v4 art), so saved choices from older builds don't
+ * Bumped when look defaults change meaningfully (v3 art, rain off; v4 art; the v1–v3 art, card manual, mosaic reveal and entrance card looks retired), so saved choices from older builds don't
  * mask the new defaults. Old choices are dropped: they are debug preferences, not player data.
  */
-export const looks = persisted<LookState>('nullion.looks.3', defaults);
+export const looks = persisted<LookState>('nullion.looks.4', defaults);
 
 // A saved value an older build allowed but this one doesn't (an option was renamed or removed) is expected
 // stale storage: replace it with the slot's default, and say so.

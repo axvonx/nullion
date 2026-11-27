@@ -4,7 +4,7 @@ import { gateFor } from '../../game/rarity';
 import { V4_LIBRARIES } from './libraries';
 import { placeBand, type FloorShape, type LayerPlacement, type PlaceGeom, type Rect } from './place';
 
-/** Rows the upper layer frays down over the lower one (same as art-detailed's SEAM_H; kept here so this stays DOM-free). */
+/** Rows the upper layer frays down over the lower one (same as art-common's SEAM_H; kept here so this stays DOM-free). */
 const SEAM_ROWS = 14;
 
 export interface WorldSpecV4 {

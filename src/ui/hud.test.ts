@@ -36,7 +36,6 @@ class FakeScene {
   introDives = 0;
   rejectNudges = 0;
   lowTimes: boolean[] = [];
-  onLayerChange: unknown;
   introDive() {
     this.introDives++;
   }

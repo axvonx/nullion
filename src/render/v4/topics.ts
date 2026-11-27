@@ -1,5 +1,4 @@
-import { hash } from '../art';
-import { offscreen } from '../art-detailed';
+import { hash, offscreen } from '../art-common';
 import { Pen, paintKey, type Ctx } from './kit';
 import type { Placed } from './place';
 

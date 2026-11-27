@@ -1,8 +1,7 @@
 import { enforce } from '../core/enforce';
 import { ALL_LAYER_IDS, layersFor, type LayerId } from '../core/layers';
 import { look } from '../looks';
-import { hash, type Art, type Band } from './art';
-import { SEAM_H, glow, offscreen, prows, tiled, vgrad, vis } from './art-detailed';
+import { SEAM_H, glow, hash, offscreen, prows, tiled, vgrad, vis, type Art, type Band } from './art-common';
 import { LAYER_PALETTE, type PaletteMode } from './palettes';
 import { c, checkLibrary, drawEntity, setPaint, type RGB } from './v4/kit';
 import { V4_LIBRARIES } from './v4/libraries';
@@ -14,14 +13,14 @@ import { CORE_DY, RAIL_START, RAIL_STEP, placeBandForSpec, specKey, type WorldSp
 import { entryForEntity, entryForTopic } from '../game/manual';
 
 /**
- * Layer art v4 (look `artStyle: v4`): a seeded world of hand-drawn entities, placed once.
+ * Layer art (v4): a seeded world of hand-drawn entities, placed once.
  *
  * - Each layer has its own library of ~20 entity types plus one or two anchor structures (src/render/v4/lib-*.ts).
  * - The scene calls ensureWorldV4() with the world seed (the puzzle number by default) and the viewport geometry;
  *   placement (src/render/v4/place.ts) runs only when that changes, so nothing reshuffles while you play.
  * - Entity bodies are baked into cached sprites per palette; only their small animation overlays draw per frame,
  *   on art time (b.t, frozen in Ring −2; 0 under reduced motion).
- * - Backgrounds follow v3: calm fills, a little texture, light as dithered gradients.
+ * - Backgrounds: calm fills, a little texture, light as dithered gradients.
  */
 
 type Ctx = CanvasRenderingContext2D;
@@ -189,7 +188,6 @@ const NAME_TOP_OFFSET: Partial<Record<LayerId, number>> = {
  * position, so it scrolls with the world; the final palette dither leaves it alone and props may cover it.
  */
 function layerName(ctx: Ctx, b: Band, idx: number, id: LayerId) {
-  if (look('layerName') !== 'watermark') return;
   enforce(worldSpec, 'v4: drawing before ensureWorldV4()');
   const name = layersFor(worldSpec.mode ?? 'daily')[idx]!.name;
   const blockW = Math.round(b.w * 0.9);
