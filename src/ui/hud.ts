@@ -559,7 +559,7 @@ ${REVEAL_HTML}`;
 
     const override = this.watchdogOverride?.(now);
     this.root.classList.toggle('wd-demo', override !== undefined);
-    if (override !== undefined) this.setWatchdog(override);
+    if (override !== undefined) this.setWatchdog(override, ANSWER_MS);
 
     const g = this.game;
     if (!g || this.demo || this.scrollMode) {
@@ -641,7 +641,7 @@ ${REVEAL_HTML}`;
       left = 1;
     }
     this.syncSlots(g);
-    if (override === undefined) this.setWatchdog(left, p.kind === 'answering' && p.until !== null);
+    if (override === undefined) this.setWatchdog(left, g.answerMs, p.kind === 'answering' && p.until !== null);
   }
 
   /** A visible message for things the player should know (a save that could not be restored, a resume). */
@@ -676,14 +676,17 @@ ${REVEAL_HTML}`;
     if (this.demo) this.showPrompt(this.demoPrompt, Infinity);
   }
 
-  /** Bar fill, low-time state and the seconds readout that only appears when time is short. */
-  private setWatchdog(left: number, timed = true) {
+  /**
+   * Bar fill, low-time state and the seconds readout that only appears when time is short. `left` is the share of
+   * the round's time left and `durationMs` the round's whole answer time (Endless rounds shrink with depth).
+   */
+  private setWatchdog(left: number, durationMs: number, timed = true) {
     this.els.watchdog!.style.transform = `scaleX(${left})`;
     const low = timed && left > 0 && left < LOW_TIME;
     this.els.watchdog!.classList.toggle('low', low);
     this.els.console!.classList.toggle('low', low);
     this.scene?.setLowTime(low);
-    const lowSecs = low ? Math.ceil((left * ANSWER_MS) / 1000) : -1;
+    const lowSecs = low ? Math.ceil((left * durationMs) / 1000) : -1;
     if (lowSecs > 0 && lowSecs !== this.lastLowSec) {
       this.lastLowSec = lowSecs;
       sound.lowTimeTick(layerAt(this.scene?.displayDepth ?? 0).id);

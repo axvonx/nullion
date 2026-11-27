@@ -485,6 +485,24 @@ describe('end card', () => {
     expect(slotsAfter1[1]!.classList.contains('miss')).toBe(true);
   });
 
+  it('the low-time seconds count down from the round’s own answer time (Endless rounds are not 25 s)', () => {
+    const h = setup();
+    const endless = new Game(SET, 7, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });
+    h.hud.setGame(endless, '2026-11-26');
+    const ms = endless.answerMs;
+    expect(ms).not.toBe(ANSWER_MS); // otherwise this test proves nothing
+    let now = 0;
+    endless.start(now);
+    now += READ_MS + 1;
+    endless.tick(now);
+    h.hud.update(now, 0);
+    expect(endless.phase.kind).toBe('answering');
+    now += ms - 7000; // 7 s left (the old Daily-time maths said 6 s)
+    endless.tick(now);
+    h.hud.update(now, 0);
+    expect(h.$('[data-el=secs]').textContent).toBe('7s');
+  });
+
   it('shows 3 watchdog fuses in Endless mode and KERNEL PANIC on the 3rd strike', () => {
     const h = setup();
     const endless = new Game(SET, 7, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });

@@ -107,8 +107,9 @@ The approved `manual/**/*.md` entries (names, blurbs, notes) are scaffolding. Ev
 - **Triage.** `design/naming/run-priority.sh` gives every entity a priority from 1 (green) to 5 (red). Gemini's
   recommendations are pre-selected as `by: "llm"`; anything the owner touches becomes `by: "owner"`.
 - **Deduplication.**
-  - `scripts/naming-dedup.py` writes `design/naming/dedup.json`. It proves duplicates from the code (Endless donor
-    reuse through a layer's `borrow` in `libraries.ts`, `library.ts`) and checks them against the pixels.
+  - `design/naming/dedup.json` is a 2026-11-27 snapshot of duplicates proven from the code (Endless donor reuse) and
+    the pixels. Its generator was retired with the library builder: borrowed copies keep the `<prefix>-<donor id>`
+    scheme, and the art-pass inventory rebuild folds new pixel-identical copies the same way.
   - `scripts/naming-apply-dedup.py` folds the proven ones into their donor as `by: "verified"` merges (308 on
     2026-11-27). It never touches owner decisions, and `--undo` reverses them.
   - Unproven pairs show as red, with the evidence.

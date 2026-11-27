@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Apply the provable merges from design/naming/dedup.json (scripts/naming-dedup.py) to design/naming/decisions.json.
+"""Apply the provable merges from design/naming/dedup.json (a 2026-11-27 snapshot; its generator was retired once
+mix() donor reuse was replaced by the library builder) to design/naming/decisions.json.
 
 Usage: python3 -I scripts/naming-apply-dedup.py [--undo]
 
@@ -40,7 +41,7 @@ def main() -> None:
     for key, r in same.items():
         target = r["target"]
         if key not in inv or target not in inv:
-            raise SystemExit(f"dedup.json: {key} → {target}: unknown key (re-run scripts/naming-dedup.py)")
+            raise SystemExit(f"dedup.json: {key} → {target}: unknown key (dedup.json is stale for this inventory)")
         if target == key or target in same:
             raise SystemExit(f"dedup.json: {key} → {target} is a self-merge or an unresolved chain")
         rec = dec["items"][key]
