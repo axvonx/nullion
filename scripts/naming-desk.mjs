@@ -39,8 +39,9 @@ http
     const url = new URL(req.url, 'http://x');
     if (url.pathname === '/api/proposals') return send(res, 200, JSON.stringify(merged('proposals')));
     if (url.pathname === '/api/priorities') return send(res, 200, JSON.stringify(merged('priority')));
-    if (url.pathname === '/api/decisions' && req.method === 'GET')
+    if (url.pathname === '/api/decisions' && req.method === 'GET') {
       return send(res, 200, fs.existsSync(DECISIONS) ? fs.readFileSync(DECISIONS) : 'null');
+    }
     if (url.pathname === '/api/decisions' && req.method === 'PUT') {
       let body = '';
       req.on('data', (c) => (body += c));
@@ -52,10 +53,20 @@ http
           return send(res, 400, JSON.stringify({ error: `not JSON: ${e.message}` }));
         }
         if (!parsed || typeof parsed !== 'object' || !parsed.items) return send(res, 400, JSON.stringify({ error: 'expected { items: {...} }' }));
+        // Merge entity by entity with what's on disk: the newer updatedAt wins, so a script that edited the file
+        // (scripts/naming-apply-dedup.py) and an open page never overwrite each other's records.
+        const disk = fs.existsSync(DECISIONS) ? JSON.parse(fs.readFileSync(DECISIONS, 'utf8')) : { items: {} };
+        const merged = { ...disk, ...parsed, items: { ...disk.items } };
+        let keptDisk = 0;
+        for (const [k, r] of Object.entries(parsed.items)) {
+          const d = disk.items[k];
+          if (d && (d.updatedAt ?? '') > (r.updatedAt ?? '')) keptDisk++;
+          else merged.items[k] = r;
+        }
         const tmp = `${DECISIONS}.tmp`;
-        fs.writeFileSync(tmp, JSON.stringify(parsed, null, 2) + '\n');
+        fs.writeFileSync(tmp, JSON.stringify(merged, null, 2) + '\n');
         fs.renameSync(tmp, DECISIONS);
-        send(res, 200, JSON.stringify({ ok: true, savedAt: new Date().toISOString() }));
+        send(res, 200, JSON.stringify({ ok: true, savedAt: new Date().toISOString(), keptDisk, doc: merged }));
       });
       return;
     }

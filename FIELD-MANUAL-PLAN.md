@@ -104,6 +104,16 @@ Decisions from the design session on 2026-11-26 (the working page was `.lavish/f
     debuggable Chrome);
   - `design/naming/run-proposals.sh` fills `proposals/<layer>.json` through agy (Gemini);
   - the proposal prompt is `design/naming/prompt.md`.
+- **Triage.** `design/naming/run-priority.sh` gives every entity a priority from 1 (green) to 5 (red). Gemini's
+  recommendations are pre-selected as `by: "llm"`; anything the owner touches becomes `by: "owner"`.
+- **Deduplication.**
+  - `scripts/naming-dedup.py` writes `design/naming/dedup.json`. It proves duplicates from the code (Endless donor
+    reuse via `mix()` in `lib-endless.ts`) and checks them against the pixels.
+  - `scripts/naming-apply-dedup.py` folds the proven ones into their donor as `by: "verified"` merges (308 on
+    2026-11-27). It never touches owner decisions, and `--undo` reverses them.
+  - Unproven pairs show as red, with the evidence.
+- **Concurrent edits.** The server merges saves entity by entity, and the newer `updatedAt` wins, so a script and an
+  open page never overwrite each other.
 
 ## Writing entries
 

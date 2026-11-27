@@ -94,7 +94,7 @@ textarea { width: 100%; min-height: 70px; background: #0c0b10; border: 1px solid
   </select>
   <select id="fSort" aria-label="Sort"><option value="priority">red first</option><option value="layer">by layer</option></select>
   <select id="fStatus" aria-label="Status">
-    <option value="">all</option><option value="needs-you">needs you (red/orange, not yet yours)</option><option value="llm">LLM defaults (unconfirmed)</option><option value="owner">decided by you</option><option value="name-open">name still open</option><option value="dec-open">decision still open</option><option value="done">named + decided</option><option value="notes">has design notes</option>
+    <option value="">all</option><option value="needs-you">needs you (red/orange, not yet yours)</option><option value="llm">LLM defaults (unconfirmed)</option><option value="owner">decided by you</option><option value="merged">verified merges (folded away)</option><option value="name-open">name still open</option><option value="dec-open">decision still open</option><option value="done">named + decided</option><option value="notes">has design notes</option>
   </select>
   <input type="search" id="fSearch" placeholder="search id, name, concept…" />
   <span class="save" id="save">loading…</span>
@@ -133,10 +133,14 @@ const DECISIONS = [
 const put = (el, ...kids) => el.replaceChildren(...kids.flat().filter((k) => k !== null && k !== undefined && k !== false));
 const blank = () => ({ name: { choice: 'open', proposal: null, writeIn: '' }, decision: { choice: 'open', target: null, note: '' }, description: '', updatedAt: null });
 
+let dedup = {};
 let inv, props = {}, prio = {}, dec, items = [], view = [], at = 0, appAt = 0;
 
 async function load() {
   inv = await (await fetch('inventory.json')).json();
+  // Verified duplicate check (scripts/naming-dedup.py): unproven pairs go to the top of the queue with the evidence.
+  const dd = await fetch('dedup.json');
+  if (dd.ok) for (const r of (await dd.json()).items) dedup[r.key] = r;
   items = inv.items;
   await refreshProposals();
   const saved = await (await fetch('api/decisions')).json();
@@ -180,8 +184,16 @@ function applyDefaults() {
   }
   return changed;
 }
-const PR = (it) => prio[it.key]?.priority ?? 0;
-const PRIO_NAME = { 5: 'red: needs you', 4: 'orange: should be you', 3: 'yellow: worth a look', 2: 'yellow-green: light check', 1: 'green: hand-wave', 0: 'not triaged yet' };
+const PR = (it) => (isMerged(it) ? -1 : dedup[it.key]?.verdict === 'needs-owner' ? 5 : prio[it.key]?.priority ?? 0);
+/** A verified merge (scripts/naming-dedup.py → naming-apply-dedup.py): the same drawing as its target, so it folds
+ * into the target's appearances and leaves the queue. */
+const isMerged = (it) => rec(it).decision.by === 'verified' && rec(it).decision.choice === 'merge';
+function foldedInto(it) { return items.filter((x) => x !== it && isMerged(x) && rec(x).decision.target === it.key); }
+/** The item's own appearances plus those of everything merged into it, each tagged with where it came from. */
+function allAppearances(it) {
+  return [...it.appearances, ...foldedInto(it).flatMap((x) => x.appearances.map((a) => ({ ...a, from: x.entityId ?? x.key })))];
+}
+const PRIO_NAME = { [-1]: 'verified merges', 5: 'red: needs you', 4: 'orange: should be you', 3: 'yellow: worth a look', 2: 'yellow-green: light check', 1: 'green: hand-wave', 0: 'not triaged yet' };
 
 const P = (it) => props[it.key];
 const rec = (it) => dec.items[it.key];
@@ -204,6 +216,7 @@ function filter(keepKey) {
     if (L && L !== 'daily' && L !== 'endless' && !layers.includes(L)) return false;
     if (K && it.kind !== K) return false;
     const d = rec(it);
+    if (S === 'merged' ? !isMerged(it) : isMerged(it)) return false;
     if (S === 'name-open' && d.name.choice !== 'open') return false;
     if (S === 'dec-open' && d.decision.choice !== 'open') return false;
     if (S === 'done' && (d.name.choice === 'open' || d.decision.choice === 'open')) return false;
@@ -232,7 +245,8 @@ function progress() {
   const mine = all.filter((d) => d.name.by === 'owner' && d.decision.by === 'owner').length;
   const llm = all.filter((d) => d.name.by === 'llm' || d.decision.by === 'llm').length;
   const urgent = items.filter((it) => PR(it) >= 4 && !(rec(it).name.by === 'owner' && rec(it).decision.by === 'owner')).length;
-  $('#progress').innerHTML = `<b>${mine}</b> yours · <b>${llm}</b> LLM defaults · <b style="color:#ff6b5b">${urgent}</b> red/orange left · ${Object.keys(props).length}/${items.length} proposed · ${Object.keys(prio).length} triaged · showing ${view.length}`;
+  const merged = items.filter(isMerged).length;
+  $('#progress').innerHTML = `<b>${mine}</b> yours · <b>${llm}</b> LLM defaults · <b style="color:#ff6b5b">${urgent}</b> red/orange left · <b>${merged}</b> verified merges folded away · ${Object.keys(props).length}/${items.length} proposed · ${Object.keys(prio).length} triaged · showing ${view.length}`;
 }
 
 function renderList() {
@@ -263,30 +277,34 @@ function bigImg(app) {
 }
 
 function appLabel(a) {
-  return `${a.layerName}${a.daily ? '' : ' (Endless)'} · ${a.colourVariant ? `colour ${a.variant + 1}` : `size ${a.size[0]}×${a.size[1]}${a.variant ? ` (variant ${a.variant + 1})` : ''}`}`;
+  return `${a.layerName}${a.daily ? '' : ' (Endless)'}${a.from ? ` · merged: ${a.from}` : ''} · ${a.colourVariant ? `colour ${a.variant + 1}` : `size ${a.size[0]}×${a.size[1]}${a.variant ? ` (variant ${a.variant + 1})` : ''}`}`;
 }
 
 function renderArt(it) {
   const p = P(it);
-  const app = it.appearances[appAt] ?? it.appearances[0];
+  const apps = allAppearances(it);
+  const app = apps[appAt] ?? apps[0];
   const sel = h('select', { 'aria-label': 'Appearance', onchange: (e) => { appAt = Number(e.target.value); renderArt(it); } },
-    it.appearances.map((a, i) => h('option', { value: i, selected: i === appAt }, appLabel(a))));
+    apps.map((a, i) => h('option', { value: i, selected: i === appAt }, appLabel(a))));
   const desc = h('dl', { class: 'desc' },
     h('dt', {}, 'Depicts'), h('dd', {}, p ? p.depicts : h('span', { class: 'pending' }, 'proposals still generating…')),
     h('dt', {}, 'Computing concept'), h('dd', {}, p?.concept ?? '—'),
     it.manual ? [h('dt', {}, 'Current placeholder'), h('dd', {}, h('b', {}, it.manual.name), ` (${it.manual.id}, ${it.manual.rarity}): ${it.manual.blurb}`)] : null,
+    dedup[it.key] && dedup[it.key].verdict !== 'same-entity' ? [h('dt', {}, 'Duplicate check'), h('dd', {}, h('span', { class: `hint ${dedup[it.key].verdict === 'not-duplicate' ? 'keep' : 'rework'}` }, dedup[it.key].verdict + (dedup[it.key].geminiTarget ? ` vs ${dedup[it.key].geminiTarget}` : '')), ' ', dedup[it.key].evidence)] : null,
     p ? [h('dt', {}, 'Gemini’s verdict'), h('dd', {}, h('span', { class: `hint ${p.decisionHint}` }, p.decisionHint + (p.mergeWith ? ` → ${p.mergeWith}` : '')), ' ', p.decisionWhy)] : null);
   const meta = h('div', { class: 'meta' },
     `${it.key} · ${it.kind}`,
     it.motions ? ` · moves: ${it.motions.join(', ')}` : '',
     it.flags?.text ? ' · carries text' : '', it.flags?.anim ? ' · animated' : '',
-    ` · ${it.appearances.length} appearance${it.appearances.length === 1 ? '' : 's'}`);
+    ` · ${apps.length} appearance${apps.length === 1 ? '' : 's'}`,
+    foldedInto(it).length ? ` (${foldedInto(it).length} merged in)` : '');
   const pr = prio[it.key];
+  const mergedNote = isMerged(it) ? h('div', { class: 'pbadge p0' }, h('b', {}, 'MERGED'), `verified the same drawing as ${rec(it).decision.target}: ${rec(it).decision.note}`) : null;
   put($('#art'),
-    h('div', { class: `pbadge p${PR(it)}` }, h('b', {}, pr ? `P${pr.priority}` : 'P?'), pr ? `${PRIO_NAME[pr.priority]} · ${pr.why}` : 'not triaged yet'),
+    mergedNote ?? h('div', { class: `pbadge p${PR(it)}` }, h('b', {}, pr ? `P${pr.priority}` : 'P?'), pr ? `${PRIO_NAME[pr.priority]} · ${pr.why}` : 'not triaged yet'),
     h('div', { class: 'stage' }, bigImg(app)),
     h('div', { class: 'app-row' }, h('span', { class: 'meta', style: 'margin:0' }, 'Appearance'), sel),
-    it.appearances.length > 1 ? h('div', { class: 'thumbs' }, it.appearances.map((a, i) => h('button', { class: i === appAt ? 'cur' : '', title: appLabel(a), onclick: () => { appAt = i; renderArt(it); } }, h('img', { src: `sprites/${a.img}`, alt: appLabel(a) })))) : null,
+    apps.length > 1 ? h('div', { class: 'thumbs' }, apps.map((a, i) => h('button', { class: i === appAt ? 'cur' : '', title: appLabel(a), onclick: () => { appAt = i; renderArt(it); } }, h('img', { src: `sprites/${a.img}`, alt: appLabel(a) })))) : null,
     desc, meta);
 }
 
@@ -341,8 +359,8 @@ function renderChoices(it) {
   notes.value = d.description;
 
   put($('#choices'),
-    h('h2', {}, 'Name', h('span', { class: `by ${d.name.by ?? ''}` }, d.name.by === 'llm' ? 'LLM default' : d.name.by === 'owner' ? 'yours' : 'open')), ...nameOpts,
-    h('h2', {}, 'Other decision', h('span', { class: `by ${d.decision.by ?? ''}` }, d.decision.by === 'llm' ? 'LLM default' : d.decision.by === 'owner' ? 'yours' : 'open')), h('div', { class: 'grid2' }, decOpts), target, note,
+    h('h2', {}, 'Name', h('span', { class: `by ${d.name.by ?? ''}` }, d.name.by === 'llm' ? 'LLM default' : d.name.by === 'owner' ? 'yours' : d.name.by === 'verified' ? 'takes the target’s name' : 'open')), ...nameOpts,
+    h('h2', {}, 'Other decision', h('span', { class: `by ${d.decision.by ?? ''}` }, d.decision.by === 'llm' ? 'LLM default' : d.decision.by === 'owner' ? 'yours' : d.decision.by === 'verified' ? 'verified merge' : 'open')), h('div', { class: 'grid2' }, decOpts), target, note,
     h('h2', {}, 'Design notes'), notes,
     h('div', { class: 'nav' },
       h('button', { type: 'button', onclick: () => step(-1) }, '◀ prev'),
@@ -389,7 +407,10 @@ function save(now) {
     try {
       dec.savedAt = new Date().toISOString();
       const r = await fetch('api/decisions', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(dec) });
-      if (!r.ok) throw new Error((await r.json()).error ?? r.status);
+      const body = await r.json();
+      if (!r.ok) throw new Error(body.error ?? r.status);
+      // The server merged with the file on disk; adopt records that changed there (e.g. verified merges).
+      if (body.keptDisk) { dec = body.doc; render(); }
       $('#save').className = 'save ok'; $('#save').textContent = `saved to design/naming/decisions.json · ${new Date().toLocaleTimeString()}`;
     } catch (e) {
       $('#save').className = 'save err'; $('#save').textContent = `NOT SAVED: ${e.message}. Is scripts/naming-desk.mjs running?`;
