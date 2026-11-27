@@ -139,6 +139,8 @@ export class Hud {
   /** The prompt line's identity (text + form); a new one restarts typing. */
   private promptKey = '';
   private barked = -1;
+  /** The round whose watchdog buzzer submit has been handled (play). */
+  private buzzed = -1;
   private lastReadSec = -1;
   private lastLowSec = -1;
   private slotsSig = '';
@@ -441,6 +443,8 @@ export class Hud {
 
   setGame(g: Game, dateLabel: string, statsSource?: () => StatsOutcome) {
     this.game = g;
+    // The watchdog submits whatever is typed when it fires (Game.tick).
+    g.draft = () => (this.input.disabled ? '' : this.input.value);
     this.statsSource = statsSource;
     this.liveDaily = g.mode === 'daily' && g.puzzle === puzzleNumber(new Date(this.clock()));
     this.nextDaySig = '';
@@ -449,6 +453,7 @@ export class Hud {
     this.endDemo();
     this.ended = false;
     this.barked = -1;
+    this.buzzed = -1;
     this.lastReadSec = -1;
     this.lastLowSec = -1;
     this.slotsSig = '';
@@ -746,6 +751,19 @@ export class Hud {
       if (this.input.placeholder !== ph) this.input.placeholder = ph;
       this.input.disabled = true;
       left = 0;
+      // The watchdog fired with an answer in the box and it was accepted: it dives like a normal submit.
+      if (r!.buzzer && this.buzzed !== p.round) {
+        this.buzzed = p.round;
+        this.input.value = '';
+        this.input.classList.remove('corrected');
+        const lk = r!.locked;
+        if (r!.buzzer.accepted && lk && this.scene) {
+          const t = TIERS[lk.entry.tier];
+          this.els.feedback!.className = 'feedback ok';
+          this.els.feedback!.textContent = lk.corrected ? `read as '${lk.entry.name}'` : '';
+          this.scene.diveTo(g.depth, t.id, t.frames);
+        }
+      }
       if (r!.timedOut && this.barked !== p.round) {
         this.barked = p.round;
         this.bark();
@@ -939,7 +957,8 @@ export class Hud {
     setText(this.els.rvName!, 'Time’s up');
     delete this.els.rvName!.dataset.text;
     setText(this.els.rvAnswer!, '');
-    setText(this.els.rvLine!, 'No answer, so no frames this round.');
+    const bz = this.game?.current()?.buzzer;
+    setText(this.els.rvLine!, bz && !bz.accepted ? `${bz.guess}: Not accepted` : 'No answer, so no frames this round.');
     this.openReveal('timeout');
   }
 

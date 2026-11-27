@@ -29,6 +29,11 @@ export interface Round {
   timedOut: boolean;
   /** True when the round ended without an accepted answer (timeout or skip). */
   missed?: boolean;
+  /**
+   * What was in the box when the watchdog fired: it is submitted (typo correction applied) before the round times
+   * out. Live only, never saved: a restored round just shows the plain timeout.
+   */
+  buzzer?: { guess: string; accepted: boolean };
 }
 
 export type Phase =
@@ -200,6 +205,12 @@ export class Game {
    * `now`, so being away (hidden tab, closed page) never grants extra time: a tick long after the fact replays
    * reading, answering and the timeout in one call.
    */
+  /**
+   * What the player has typed but not submitted (the HUD's input). When the watchdog fires it is submitted first,
+   * with typo correction applied whatever the preference, and the round times out only if that misses.
+   */
+  draft: () => string = () => '';
+
   tick(now: number): boolean {
     let changed = false;
     for (;;) {
@@ -208,6 +219,7 @@ export class Game {
         this.phase = { kind: 'answering', round: p.round, until: this.opts.timer ? p.until + this.answerMs : null };
       } else if (p.kind === 'answering' && p.until !== null && now >= p.until) {
         const r = this.rounds[p.round]!;
+        if (!r.locked) this.buzzer(r);
         if (!r.locked) {
           r.timedOut = true;
           r.missed = true;
@@ -253,6 +265,20 @@ export class Game {
     }
     r.extra.push(res.entry);
     return { kind: 'accepted', entry: res.entry, corrected: res.corrected, pushed: 0 };
+  }
+
+  /** The watchdog fired with text in the box: try it once, correction applied. A miss is logged as a rejected guess. */
+  private buzzer(r: Round) {
+    const guess = this.draft().trim();
+    if (!guess) return;
+    const res = this.set.check(r.question.id, guess);
+    if (res.kind === 'accepted') {
+      r.locked = { entry: res.entry, corrected: res.corrected, guess };
+      r.buzzer = { guess, accepted: true };
+    } else {
+      r.rejected.push(guess);
+      r.buzzer = { guess, accepted: false };
+    }
   }
 
   private toBetween(round: number, _now: number) {

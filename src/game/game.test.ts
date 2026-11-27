@@ -34,6 +34,59 @@ describe('game loop', () => {
     expect(g.depth).toBe(0);
   });
 
+  describe('the watchdog submits what is in the box', () => {
+    /** A timed game parked in the answering phase of the "lock" round (Bit Flip: "fissile lock"). */
+    function atLock(draft: string) {
+      const g = new Game(set, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
+      const target = g.rounds.findIndex((r) => r.question.id === 'lock');
+      expect(target).toBeGreaterThanOrEqual(0);
+      let now = 0;
+      g.start(now);
+      for (let i = 0; i < target; i++) {
+        now += READ_MS;
+        g.tick(now);
+        g.advance(now);
+        g.advance(now);
+      }
+      now += READ_MS;
+      g.tick(now);
+      g.draft = () => draft;
+      g.tick(now + ANSWER_MS);
+      return { g, r: g.rounds[target]! };
+    }
+
+    it('an accepted draft locks the round instead of timing out', () => {
+      const { g, r } = atLock('  fissile lock ');
+      expect(r.locked).toMatchObject({ corrected: false, guess: 'fissile lock' });
+      expect(r.locked!.entry.name).toBe('fissile lock');
+      expect(r.timedOut).toBe(false);
+      expect(r.buzzer).toEqual({ guess: 'fissile lock', accepted: true });
+      expect(g.depth).toBe(13);
+    });
+
+    it('a typo is corrected even in confirm mode (there is no time left to confirm)', () => {
+      const { r } = atLock('fisile lock');
+      expect(r.locked).toMatchObject({ corrected: true, guess: 'fisile lock' });
+      expect(r.timedOut).toBe(false);
+    });
+
+    it('a miss is logged as a rejected guess and the round times out', () => {
+      const { g, r } = atLock('not a lock at all');
+      expect(r.locked).toBeUndefined();
+      expect(r.timedOut).toBe(true);
+      expect(r.rejected).toEqual(['not a lock at all']);
+      expect(r.buzzer).toEqual({ guess: 'not a lock at all', accepted: false });
+      expect(g.depth).toBe(0);
+    });
+
+    it('an empty box just times out', () => {
+      const { r } = atLock('   ');
+      expect(r.timedOut).toBe(true);
+      expect(r.rejected).toEqual([]);
+      expect(r.buzzer).toBeUndefined();
+    });
+  });
+
   it('rejected guesses are recorded and retries are unlimited', () => {
     const g = new Game(set, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
     g.start(0);

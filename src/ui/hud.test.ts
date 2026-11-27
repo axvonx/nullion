@@ -168,6 +168,28 @@ describe('HUD flow', () => {
     expect(h.round()).toBe(1);
   });
 
+  it('when the watchdog fires, what is typed is submitted: a hit dives and reveals, a miss says "<guess>: Not accepted"', () => {
+    const h = setup();
+    h.toAnswering();
+    h.$<HTMLInputElement>('#guess').value = h.answerFor();
+    h.timeOut();
+    expect(h.game.current()!.locked).toBeDefined();
+    expect(h.scene.dives.length).toBe(1);
+    expect(h.$<HTMLInputElement>('#guess').value).toBe('');
+    expect(h.revealUp()).toBe(true);
+    expect(h.$('.rv-name').textContent).not.toBe('Time’s up');
+
+    h.unwind();
+    h.step(READ_MS + 1);
+    h.step();
+    h.$<HTMLInputElement>('#guess').value = 'definitely not an answer';
+    h.timeOut();
+    expect(h.game.current()!.timedOut).toBe(true);
+    expect(h.scene.dives.length).toBe(1);
+    expect(h.$('.rv-name').textContent).toBe('Time’s up');
+    expect(h.$('.rv-line').textContent).toBe('definitely not an answer: Not accepted');
+  });
+
   it('waits for the dive to land before revealing', () => {
     const h = setup();
     h.toAnswering();
