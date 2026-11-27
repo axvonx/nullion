@@ -855,7 +855,12 @@ ${REVEAL_HTML}`;
   endOfDay(rows: RecordRow[], depth: number, puzzle: number) {
     if (!this.scene) throw new Error('Hud.endOfDay before bind()');
     sound.endOfDay();
+    // The right-hand stack folds into the summary card: note where its blocks are before the card hides it.
+    const mode = this.game?.mode ?? 'daily';
+    this.layerStack.flushTo(depth, mode);
+    const from = this.layerStack.blockRects();
     this.card.show(rows, depth, puzzle);
+    this.card.flyStackIn(from, reducedMotion());
   }
 
   // ---------------------------------------------------------------------------------------------

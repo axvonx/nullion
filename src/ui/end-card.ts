@@ -3,7 +3,8 @@ import { text } from '../text';
 import { enforce } from '../core/enforce';
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
 import type { CategoryEntry } from '../core/match';
-import { layerAt, rulesFor } from '../core/modes';
+import type { LayerId } from '../core/layers';
+import { layerAt, layerIndexAt, layersFor, rulesFor } from '../core/modes';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import type { Game } from '../game/game';
 import { manualStore } from '../game/manual';
@@ -15,6 +16,8 @@ import { bankLink } from '../data/bank';
 import { missedAnswerUrl, suggestQuestionUrl } from './issues';
 import { manualBookIcon } from './manual-icon';
 import { tierIcon } from './tier-icons';
+import { createLayerBadge, flyBadges, type BadgeFlight } from './layer-stack';
+import { sound } from '../audio/sound';
 import { wordmarkCanvas } from './wordmark';
 
 /** One line of the day's record: an accepted answer, or a round that pushed nothing. */
@@ -39,8 +42,11 @@ function shareLabel(): string {
 /** The end card's markup: it sits inside the console panel and replaces the prompt when the game is done. */
 export const END_CARD_HTML = `
         <div class="result" data-el="result" hidden>
-          <div class="wordmark" data-el="wordmark"><span class="wm-word" data-wm="nullion">nullion</span> <span class="wm-no" data-el="puzzleNo"></span></div>
-          <div class="headline" data-el="headline"></div>
+          <section class="eod-summary" aria-label="Your stack">
+            <div class="wordmark" data-el="wordmark"><span class="wm-word" data-wm="nullion">nullion</span> <span class="wm-no" data-el="puzzleNo"></span></div>
+            <div class="headline" data-el="headline"></div>
+            <ol class="eod-stack" data-el="eodStack" aria-label="The stack you reached, top-down"></ol>
+          </section>
           <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
           <div class="stats" data-el="stats" hidden></div>
           <div class="result-foot"><span class="next-day" data-el="nextDay"></span><button type="button" data-el="copy">Copy result</button></div>
@@ -74,6 +80,8 @@ export class EndCard {
   private nextDaySig = '';
   /** A daily game for the real current day (not a debug date), so the card counts down to the next one. */
   private liveDaily = false;
+  private cancelFlight: (() => void) | undefined;
+  private reachedBadges: { layer: ReturnType<typeof layersFor>[number]; el: HTMLElement }[] = [];
 
   constructor(
     el: HTMLElement,
@@ -125,6 +133,8 @@ export class EndCard {
 
   /** Put the card away (a new game, or a rail demo taking over the console). */
   hide() {
+    this.cancelFlight?.();
+    this.cancelFlight = undefined;
     this.shownNow = false;
     this.els.result!.hidden = true;
   }
@@ -136,6 +146,27 @@ export class EndCard {
     this.els.result!.hidden = false;
     replay(this.els.result!, 'settle-in');
     this.els.copy!.focus({ preventScroll: true });
+  }
+
+  /**
+   * The summary card's stack flies in: each RHS block (`from`, where it was on screen when the day ended) travels to
+   * its badge in the card, top-down, with a crunch where it lands. Reduced motion, or a stack that was not on
+   * screen, just shows the badges. Call right after `show`.
+   */
+  flyStackIn(from: ReadonlyMap<LayerId, DOMRect>, reduced: boolean) {
+    this.cancelFlight?.();
+    const flights: BadgeFlight[] = [];
+    for (const b of this.reachedBadges) {
+      const rect = from.get(b.layer.id);
+      enforce(rect, `end card: no right-hand block for ${b.layer.id} to fly from`);
+      flights.push({ layer: b.layer, from: rect, to: b.el });
+    }
+    this.cancelFlight = flyBadges(flights, {
+      reduced,
+      delayMs: 320,
+      staggerMs: Math.min(110, Math.floor(1200 / Math.max(1, flights.length))),
+      onLand: (l) => sound.stackCrunch(l.id),
+    });
   }
 
   /**
@@ -215,6 +246,7 @@ export class EndCard {
       glyphs: glyphs.slice(0, rules.shareGlyphLimit),
       url: siteUrl(location),
     });
+    this.buildReached(depth, mode);
     this.buildStats();
     // Prefilled GitHub Issue links for missed answers and question ideas.
     const rejected = this.host.game() ? this.host.game()!.rounds.flatMap((r) => r.rejected) : [];
@@ -231,6 +263,25 @@ export class EndCard {
     ideaLink.rel = 'noopener noreferrer';
     ideaLink.textContent = text('end-card.link.suggest');
     this.els.resultLinks!.replaceChildren(missLink, ' · ', ideaLink);
+  }
+
+  /** The stack as it stood on the right-hand side at the end of the day: the same badges, top-down, the deepest one lit. */
+  private buildReached(depth: number, mode: Parameters<typeof layerIndexAt>[1]) {
+    const ol = this.els.eodStack!;
+    const stack = layersFor(mode ?? 'daily');
+    const last = layerIndexAt(Math.max(0, depth), mode);
+    this.reachedBadges = [];
+    ol.replaceChildren();
+    ol.style.setProperty('--eod-rows', String(Math.ceil((last + 1) / (last >= 12 ? 2 : 1))));
+    ol.classList.toggle('wide', last >= 12);
+    for (let i = 0; i <= last; i++) {
+      const li = document.createElement('li');
+      const badge = createLayerBadge(stack[i]!);
+      badge.classList.add(i === last ? 'is-current' : 'is-passed');
+      li.append(badge);
+      ol.append(li);
+      this.reachedBadges.push({ layer: stack[i]!, el: badge });
+    }
   }
 
   /** "#7" is set in the same pixel face as "nullion"; a word chip ("ENDLESS") stays plain text, the face having no such letters. */

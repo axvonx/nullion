@@ -392,8 +392,8 @@ export function wordmarkCanvas(text: string, scale: number, look: WordLook = {})
   c.width = w;
   c.height = h;
   c.className = 'wordmark-cv';
+  // Width only: with `height: auto` (style.css) a narrow screen can shrink it and keep the proportions.
   c.style.width = `${w * scale}px`;
-  c.style.height = `${h * scale}px`;
   c.setAttribute('role', 'img');
   c.setAttribute('aria-label', text);
   const ctx = c.getContext('2d');

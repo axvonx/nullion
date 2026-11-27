@@ -128,6 +128,72 @@ export function createLayerBadge(layer: Layer): HTMLElement {
   return el;
 }
 
+/** One badge's flight: from where its RHS block was to the standing badge `to`. */
+export interface BadgeFlight {
+  layer: Layer;
+  from: DOMRect;
+  to: HTMLElement;
+}
+
+export interface BadgeFlightOptions {
+  reduced: boolean;
+  /** Before the first badge leaves. */
+  delayMs: number;
+  /** Between one badge leaving and the next (top-down). */
+  staggerMs: number;
+  /** A badge has landed (the crunch sound). */
+  onLand?: (layer: Layer) => void;
+}
+
+const FLIGHT_MS = 760;
+
+/**
+ * Fly the stack's badges (clones of the RHS blocks, sitting exactly where those blocks were) to standing badges
+ * elsewhere, top-down, each landing with a crunch squash and seam sparks. The standing badges stay invisible until
+ * their flyer lands. Under reduced motion (or when the source was not on screen) nothing flies: the badges are just
+ * there. Returns a cancel function that drops every flyer and shows every badge.
+ */
+export function flyBadges(flights: readonly BadgeFlight[], opts: BadgeFlightOptions): () => void {
+  const flying = opts.reduced ? [] : flights.filter((f) => f.from.width > 0 && f.from.height > 0);
+  const timers: number[] = [];
+  const flyers: HTMLElement[] = [];
+  const cancel = () => {
+    for (const t of timers) clearTimeout(t);
+    timers.length = 0;
+    for (const f of flyers) f.remove();
+    flyers.length = 0;
+    for (const f of flights) f.to.classList.remove('ls-badge-gone');
+  };
+  flying.forEach((f, i) => {
+    f.to.classList.add('ls-badge-gone');
+    const flyer = createLayerBadge(f.layer);
+    flyer.classList.add('ls-flyer');
+    flyer.style.left = `${Math.round(f.from.left)}px`;
+    flyer.style.top = `${Math.round(f.from.top)}px`;
+    flyer.style.width = `${Math.round(f.from.width)}px`;
+    document.body.append(flyer);
+    flyers.push(flyer);
+    const go = opts.delayMs + i * opts.staggerMs;
+    timers.push(
+      window.setTimeout(() => {
+        // The destination is measured as the flyer leaves, so a scrolled or still-settling card is still hit exactly.
+        const dst = f.to.getBoundingClientRect();
+        flyer.style.transform = `translate(${Math.round(dst.left - f.from.left)}px, ${Math.round(dst.top - f.from.top)}px)`;
+        flyer.style.width = `${Math.round(dst.width)}px`;
+      }, go),
+      window.setTimeout(() => {
+        flyer.remove();
+        f.to.classList.remove('ls-badge-gone');
+        f.to.classList.add('ls-crunch');
+        spawnSparks(f.to);
+        opts.onLand?.(f.layer);
+        timers.push(window.setTimeout(() => f.to.classList.remove('ls-crunch'), 260));
+      }, go + FLIGHT_MS),
+    );
+  });
+  return cancel;
+}
+
 function makeBlock(layer: Layer, blurb?: string): HTMLLIElement {
   const theme = LAYER_ART[layer.id].stackTheme;
   const li = document.createElement('li');
@@ -162,7 +228,7 @@ function makeBlock(layer: Layer, blurb?: string): HTMLLIElement {
   return li;
 }
 
-function spawnSparks(li: HTMLLIElement) {
+function spawnSparks(li: HTMLElement) {
   const wrap = document.createElement('span');
   wrap.className = 'ls-sparks';
   wrap.setAttribute('aria-hidden', 'true');
@@ -303,6 +369,13 @@ export class LayerStack {
 
     this.currentIdx = idx;
     this.refreshStates(idx);
+  }
+
+  /** Where each layer's block is on screen right now (empty widths when the stack is hidden or off). */
+  blockRects(): Map<LayerId, DOMRect> {
+    const out = new Map<LayerId, DOMRect>();
+    for (const b of this.list.children) out.set((b as HTMLElement).dataset.layer as LayerId, b.getBoundingClientRect());
+    return out;
   }
 
   /** Toggle visibility (hidden on title screen or when look('layerStack') === 'off'). */

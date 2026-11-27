@@ -287,9 +287,10 @@ body {
 .tier-bitflip, [data-tier='bitflip'] { color: var(--t-bitflip); }
 
 .result { margin-top: 8px; }
-.wordmark { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
-.wordmark .wm-no { font-family: var(--display); font-size: 13px; letter-spacing: 0.06em; color: var(--ink); }
-.headline { color: var(--signal); font-size: 24px; }
+.wordmark { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.wordmark > * { min-width: 0; }
+.wordmark .wm-no { font-family: var(--display); font-size: 22px; letter-spacing: 0.06em; color: var(--ink); }
+.headline { color: var(--signal); font-size: 26px; line-height: 1.1; margin: 8px 0 12px; text-align: center; }
 /* With the result card up, the card is the whole console: the prompt and answer line step aside. */
 .console:has(.result:not([hidden])) :is(.plain, .prompt-line, .feedback, .bios-footer) { display: none; }
 .console:has(.result:not([hidden])) { max-height: calc(100dvh - 72px); overflow-y: auto; }
@@ -1504,4 +1505,15 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .prefs-build { margin-top: 8px; text-align: left; }
 
 /* The title's pixel face wherever the word "nullion" (or a number beside it) shows up: crisp, never smoothed. */
-.wordmark-cv { image-rendering: pixelated; display: inline-block; vertical-align: middle; }
+.wordmark-cv { image-rendering: pixelated; display: inline-block; vertical-align: middle; max-width: 100%; height: auto; }
+
+/* The end card's summary card: the wordmark, the frame count and the stack as it stood on the right, in its own box. */
+.eod-summary { margin: 0 0 16px; padding: 16px 14px 14px; border: 1px solid var(--rule); background: rgba(255, 255, 255, 0.045); box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4); text-align: center; }
+.eod-stack { list-style: none; margin: 0 auto; padding: 0; width: min(250px, 100%); display: flex; flex-direction: column; gap: 3px; text-align: left; }
+.eod-stack.wide { width: 100%; display: grid; grid-auto-flow: column; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(var(--eod-rows), auto); gap: 3px 6px; }
+.eod-stack .ls-badge { display: flex; width: 100%; }
+.eod-stack .ls-badge .ls-inner { padding: 5px 8px; min-height: 26px; }
+.eod-stack .ls-badge.is-passed .ls-inner { opacity: 0.66; }
+.eod-stack .ls-badge.is-current { box-shadow: inset 0 0 0 1px var(--ls-accent), inset 0 0 14px var(--ls-tint), 0 0 8px var(--ls-tint), 2px 2px 0 rgba(0, 0, 0, 0.55); }
+.ls-badge.ls-crunch { animation: ls-crunch 240ms steps(4) 1; }
+.still .ls-badge.ls-crunch { animation: none; }
