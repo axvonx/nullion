@@ -103,14 +103,9 @@ export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = {
 export const ALT_SPECIES_MOTIONS: Partial<Record<LayerId, readonly MotionType[]>> = {
   application: [MotionType.Fly], // butterfly: only flutters, never lands
   internet: [MotionType.Float], // drone: hovers in place
-  browser: [MotionType.Zip, MotionType.Perch], // arrow cursor: darts, then rests
   bytecode: [MotionType.Grid], // opcode byte: discrete steps
-  jit: [MotionType.Float], // flame wisp: drifts
   linker: [MotionType.Hop, MotionType.Perch], // brass plug: socket to socket
   'kernel-entry': [MotionType.Hop, MotionType.Perch], // padlock: mostly sits on props
-  'kernel-arch': [MotionType.Zip], // lightning bolt: bursts
-  'bus-fabric': [MotionType.Zip], // data packet: dashes along the bus
-  uarch: [MotionType.Mirror], // speculative dot pair: both paths at once
   cmos: [MotionType.Float], // electron-hole pair: drifts
 };
 
@@ -923,10 +918,12 @@ export class CritterSystem {
       if (!isAltSpecies(layerId, variant)) return false;
       const tick = Math.floor(t * 8 + c.phase) % 2;
       switch (layerId) {
-        case 'application': // butterfly (6x6+ body/wings)
-          px(0, tick ? 0 : 1, 3, 4, '#ff9fd0');
-          px(4, tick ? 0 : 1, 3, 4, '#ffd166');
-          px(3, 0, 1, 6, ink);
+        case 'application': // butterfly: two joined wings round a pale body with eyes (8x6)
+          px(0, tick ? 0 : 1, 3, 5, '#ff9fd0');
+          px(5, tick ? 0 : 1, 3, 5, '#ffd166');
+          px(3, 0, 2, 6, '#fff6e0');
+          px(3, 1, 1, 1, ink);
+          px(4, 1, 1, 1, ink);
           return true;
         case 'internet': // tiny drone with blinking light (6x6)
           px(0, 2, 6, 4, '#ffffff');
@@ -934,50 +931,40 @@ export class CritterSystem {
           px(4, 0, 2, 2, '#5b8ee6');
           px(2, 4, 2, 1, tick ? '#e6a23c' : '#59c08a');
           return true;
-        case 'browser': // arrow cursor (6x6)
-          px(0, 0, 2, 6, '#ffffff');
-          px(2, 1, 2, 4, '#ffffff');
-          px(4, 2, 2, 2, '#ffffff');
-          px(1, 5, 1, 1, '#dfe6f6');
-          return true;
         case 'bytecode': // opcode byte (6x6)
           px(0, 0, 6, 6, '#333366');
           px(1, 2, 1, 2, '#ffcc33');
           px(3, 2, 2, 2, '#66cc99');
-          return true;
-        case 'jit': // flame wisp (6x6)
-          px(1, 2, 4, 4, '#ff6633');
-          px(2, 1, 2, 4, '#ffff66');
-          px(tick ? 1 : 3, 0, 2, 2, '#ffcc33');
           return true;
         case 'linker': // brass plug (6x6)
           px(0, 0, 4, 6, '#aa5500');
           px(4, 2, 3, 2, '#ffff55');
           px(1, 1, 2, 1, '#ffffaa');
           return true;
-        case 'kernel-entry': // padlock (6x6)
-          px(1, 0, 4, 2, '#aaaaaa');
-          px(0, 2, 6, 4, '#55ffff');
-          px(2, 3, 2, 2, ink);
+        case 'kernel-entry': {
+          // Hooded courier: a robed 6x6 with a pale face window and a tiny wax-sealed scroll under one arm.
+          px(2, 0, 2, 1, '#ff55ff');
+          px(1, 1, 4, 1, '#ff55ff');
+          px(0, 2, 6, 4, '#aa00aa');
+          px(1, 2, 4, 2, '#ffffaa');
+          px(2, 3, 1, 1, ink);
+          px(4, 3, 1, 1, ink);
+          px(dir > 0 ? 6 : -3, 3, 3, 2, '#ffffff');
+          px(dir > 0 ? 8 : -3, 3, 1, 2, '#ff5555');
+          px(tick ? 1 : 3, 6, 1, 1, '#555555');
           return true;
-        case 'kernel-arch': // lightning bolt (6x6)
-          px(2, 0, 3, 2, '#ffff55');
-          px(1, 2, 3, 2, '#ffff55');
-          px(2, 4, 3, 2, '#ff5555');
+        }
+        case 'cmos': {
+          // Teal silicon mite: a rounded body, two eyes and a short attached tail.
+          px(1, 0, 4, 1, '#24989c');
+          px(0, 1, 6, 5, '#24989c');
+          px(1, 1, 2, 1, '#8ff0ee');
+          px(1, 3, 1, 1, ink);
+          px(4, 3, 1, 1, ink);
+          px(dir > 0 ? -3 : 6, 4, 3, 1, '#24989c');
+          px(dir > 0 ? -4 : 9, tick ? 3 : 4, 1, 1, '#24989c');
           return true;
-        case 'bus-fabric': // data packet (6x6)
-          px(0, 0, 6, 6, '#ffffff');
-          px(1, 2, 4, 2, '#ff55ff');
-          return true;
-        case 'uarch': // speculative dot pair (6x6)
-          px(0, 1, 3, 5, '#aaaaaa');
-          px(3, tick ? 0 : 1, 3, 5, '#555555');
-          return true;
-        case 'cmos': // electron-hole pair (6x6)
-          px(0, 0, 3, 6, '#ffffff');
-          px(3, 0, 3, 6, '#24989c');
-          px(1, 2, 1, 1, ink);
-          return true;
+        }
         default:
           throw new Error(`critters: ${layerId} is in ALT_SPECIES_MOTIONS but has no alternate sprite`);
       }
@@ -996,11 +983,17 @@ export class CritterSystem {
         break;
       }
       case 'browser': {
-        // Glowing DOM firefly / mini pointer sprite
-        const glow = Math.floor(t * 6 + c.phase) % 2 === 0;
-        px(0, 0, 6, 6, glow ? '#59c08a' : '#5b8ee6');
-        px(2, 2, 2, 2, '#ffffff');
-        px(dir > 0 ? 5 : 0, 0, 1, 2, '#e6a23c');
+        // Tab-bug: a scuttling 6x6 beetle with an orange browser-tab ear and two dark eyes.
+        const leg = perched ? 0 : Math.floor(t * 10 + c.phase) % 2;
+        const glow = Math.floor(t * 3 + c.phase) % 2 === 0;
+        px(1, 0, 4, 1, glow ? '#59c08a' : '#5b8ee6');
+        px(0, 1, 6, 5, glow ? '#59c08a' : '#5b8ee6');
+        px(dir > 0 ? 3 : 0, -2, 3, 2, '#e6a23c');
+        px(1, 2, 1, 1, ink);
+        px(4, 2, 1, 1, ink);
+        px(2, 4, 2, 1, '#dff5e8');
+        px(leg, 6, 1, 1, ink);
+        px(5 - leg, 6, 1, 1, ink);
         break;
       }
       case 'bytecode': {
@@ -1030,34 +1023,67 @@ export class CritterSystem {
         break;
       }
       case 'kernel-entry': {
-        // Shielded cyan gate-bot
-        px(0, 0, 6, 5, '#55ffff');
-        px(dir > 0 ? 3 : 1, 2, 1, 1, ink);
-        px(1, 5, 4, 1, '#aaaaaa');
+        // Gatekeeper beetle: a cyan shell with a brass key-crest, a grey head with two dark eyes.
+        const leg = perched ? 0 : Math.floor(t * 9 + c.phase) % 2;
+        px(1, 0, 5, 2, '#aaaaaa');
+        px(2, 1, 1, 1, ink);
+        px(4, 1, 1, 1, ink);
+        px(0, 2, 7, 4, '#55ffff');
+        px(3, 3, 1, 3, '#ffff55');
+        px(2, 3, 3, 1, '#ffff55');
+        px(leg, 6, 1, 1, '#555555');
+        px(6 - leg, 6, 1, 1, '#555555');
         break;
       }
       case 'kernel-arch': {
-        // Winged red/yellow IRQ-spark
-        const wing = Math.floor(t * 14 + c.phase) % 2 === 0;
-        px(1, 0, 4, 6, '#ff5555');
-        px(2, 2, 2, 2, '#ffff55');
-        px(-1, wing ? 0 : 2, 2, 2, '#ffff55');
-        px(5, wing ? 0 : 2, 2, 2, '#ffff55');
+        // Armoured interrupt spark-mite: a red body under a grey helmet, two stubby yellow side fins.
+        const fin = Math.floor(t * 14 + c.phase) % 2 === 0;
+        px(1, 0, 4, 1, '#aaaaaa');
+        px(0, 1, 6, 5, '#ff5555');
+        px(1, 2, 1, 1, ink);
+        px(4, 2, 1, 1, ink);
+        px(2, 4, 2, 1, '#ffff55');
+        px(-1, fin ? 2 : 3, 1, 2, '#ffff55');
+        px(6, fin ? 2 : 3, 1, 2, '#ffff55');
         break;
       }
       case 'bus-fabric': {
-        // High-speed magenta/white PCIe lane-runner
+        // Packet-mote: a magenta body with a white leading face, two eyes and a short trailing fin.
+        const fx = dir > 0 ? 3 : 0;
         px(0, 0, 6, 6, '#ff55ff');
-        px(dir > 0 ? 4 : 0, 1, 2, 4, '#ffffff');
+        px(fx, 0, 3, 6, '#ffffff');
+        px(fx, 2, 1, 1, ink);
+        px(fx + 2, 2, 1, 1, ink);
+        px(dir > 0 ? -2 : 6, 2, 2, 2, '#ff55ff');
         break;
       }
-      case 'vmm':
-      case 'ept': {
-        // Hollow wireframe ghost-wisp (mirrored pair)
+      case 'vmm': {
+        // Winged visor-beetle: a rounded carapace with a bright visor band, wings flicking at its sides.
         mirrorPair = true;
-        px(0, 0, 6, 6, '#aaaaaa');
-        px(1, 1, 4, 4, '#000000');
-        px(2, 2, 2, 2, '#ffffff');
+        const wing = Math.floor(t * 10 + c.phase) % 2 === 0;
+        px(2, 0, 2, 1, '#8cff9c');
+        px(1, 1, 4, 5, '#1ea046');
+        px(0, 2, 6, 3, '#1ea046');
+        px(1, 2, 4, 1, '#8cff9c');
+        px(1, 2, 1, 1, ink);
+        px(4, 2, 1, 1, ink);
+        px(-2, wing ? 0 : 2, 2, 3, '#8cff9c');
+        px(6, wing ? 0 : 2, 2, 3, '#8cff9c');
+        break;
+      }
+      case 'ept': {
+        // Squat hexagonal translation bug: a notched mint carapace, two eyes, stubby feet.
+        mirrorPair = true;
+        const step = perched ? 0 : Math.floor(t * 6 + c.phase) % 2;
+        px(1, 0, 2, 1, '#8cff9c');
+        px(4, 0, 2, 1, '#8cff9c');
+        px(0, 1, 7, 4, '#8cff9c');
+        px(1, 5, 5, 1, '#8cff9c');
+        px(2, 2, 1, 1, ink);
+        px(4, 2, 1, 1, ink);
+        px(3, 3, 1, 2, '#1ea046');
+        px(1 + step, 6, 1, 1, '#1ea046');
+        px(5 - step, 6, 1, 1, '#1ea046');
         break;
       }
       case 'smram': {
@@ -1080,10 +1106,16 @@ export class CritterSystem {
         break;
       }
       case 'me-minix-kern': {
-        // Crisp tiny IPC courier packet
-        px(0, 1, 6, 5, '#aaaaaa');
+        // Mechanical courier bug: a plated body, two dark eyes, a small message pouch strapped on.
+        const leg = perched ? 0 : Math.floor(t * 8 + c.phase) % 2;
         px(1, 0, 4, 1, '#ffffff');
-        px(dir > 0 ? 4 : 1, 2, 1, 2, '#ffffff');
+        px(0, 1, 6, 5, '#aaaaaa');
+        px(1, 2, 1, 1, ink);
+        px(4, 2, 1, 1, ink);
+        px(dir > 0 ? -2 : 6, 3, 2, 3, '#ffffff');
+        px(dir > 0 ? -1 : 6, 2, 1, 1, '#555555');
+        px(leg, 6, 1, 1, '#555555');
+        px(5 - leg, 6, 1, 1, '#555555');
         break;
       }
       case 'uarch': {
@@ -1102,20 +1134,29 @@ export class CritterSystem {
         break;
       }
       case 'cmos': {
-        // Charge carrier orb moving across wafer masks
-        const body = variant % 2 === 0 ? '#e88438' : '#24989c';
-        px(1, 0, 4, 6, body);
-        px(0, 1, 6, 4, body);
-        px(2, 2, 2, 2, '#ffffff');
+        // Copper-clad beetle: a rounded orange shell, two eyes, short side legs.
+        const leg = perched ? 0 : Math.floor(t * 9 + c.phase) % 2;
+        px(1, 0, 4, 1, '#e88438');
+        px(0, 1, 6, 5, '#e88438');
+        px(1, 1, 2, 1, '#ffd0a0');
+        px(1, 2, 1, 1, ink);
+        px(4, 2, 1, 1, ink);
+        px(-1, 2 + leg, 1, 1, '#b85a1c');
+        px(-1, 4 - leg, 1, 1, '#b85a1c');
+        px(6, 2 + leg, 1, 1, '#b85a1c');
+        px(6, 4 - leg, 1, 1, '#b85a1c');
         break;
       }
       case 'litho': {
-        // Shimmering EUV photon
+        // Stray EUV photon: a solid violet body with a bright crown and two rays, eyes dark.
         const pulse = Math.floor(t * 7 + c.phase) % 2 === 0;
-        px(1, 1, 4, 4, pulse ? '#aaaaaa' : '#555555');
-        px(2, 0, 2, 6, pulse ? '#ffffff' : '#aaaaaa');
-        px(0, 2, 6, 2, pulse ? '#ffffff' : '#aaaaaa');
-        px(2, 2, 2, 2, '#ffffff');
+        px(1, 0, 4, 1, '#ffffff');
+        px(0, 1, 6, 5, pulse ? '#aaaaaa' : '#555555');
+        px(1, 2, 1, 1, ink);
+        px(4, 2, 1, 1, ink);
+        px(2, 4, 2, 1, '#ffffff');
+        px(-1, pulse ? 2 : 3, 1, 2, '#ffffff');
+        px(6, pulse ? 2 : 3, 1, 2, '#ffffff');
         break;
       }
       case 'bandgap': {
@@ -1195,13 +1236,18 @@ export class CritterSystem {
         break;
       }
       case 'libraries': {
+        // Bookworm: a square 6x6 body with two dark eyes and a hardcover book lying flat on its head
+        // (coloured cover above and below, cream page block between).
         const bodies = ['#e6c785', '#7ec8e3', '#d990a8', '#8fd694', '#c5a3ff'];
+        const covers = ['#c0392b', '#2e6fb7', '#2f8f5b', '#8e44ad', '#d68910'];
         const body = bodies[variant % bodies.length]!;
-        const squish = perched;
-        px(1, squish ? 1 : 0, 4, squish ? 5 : 6, body);
-        px(0, squish ? 2 : 1, 6, 4, body);
-        px(1, squish ? 0 : -1, 4, 2, variant % 2 === 0 ? '#fff5d6' : '#ff6f7d');
-        px(2, squish ? 0 : -1, 2, 2, '#ffb000');
+        const cover = covers[variant % covers.length]!;
+        const dy = perched ? 1 : 0;
+        px(-1, -3 + dy, 8, 1, cover);
+        px(0, -2 + dy, 7, 2, '#fff5d6');
+        px(0, -2 + dy, 7, 1, '#e6dcc0');
+        px(-1, dy, 8, 1, cover);
+        px(0, 1, 6, 5, body);
         px(dir > 0 ? 2 : 1, 3, 1, 1, ink);
         px(dir > 0 ? 4 : 3, 3, 1, 1, ink);
         break;
@@ -1236,12 +1282,15 @@ export class CritterSystem {
         break;
       }
       case 'drivers': {
+        // Bus-beetle: a 7x6 shell with a white crest, two dark eyes and scuttling legs.
         const leg = Math.floor(t * 14 + c.phase) % 2;
         const body = variant % 2 === 0 ? '#55ffff' : '#ff55ff';
-        px(0, 1, 6, 4, body);
-        px(1, 0, 4, 1, '#ffffff');
-        px(0 + leg, 5, 1, 1, '#ffffff');
-        px(4 - leg, 5, 1, 1, '#ffffff');
+        px(1, 0, 5, 1, '#ffffff');
+        px(0, 1, 7, 5, body);
+        px(1, 2, 1, 1, ink);
+        px(5, 2, 1, 1, ink);
+        px(leg, 6, 1, 1, '#ffffff');
+        px(6 - leg, 6, 1, 1, '#ffffff');
         break;
       }
       case 'firmware': {

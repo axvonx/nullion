@@ -20,8 +20,8 @@ describe('Field Manual book structure', () => {
       const stubs = chapters.filter((c) => c.stubs.some((s) => s.entry === e)).map((c) => c.layer);
       expect(stubs, e.id).toEqual(daily.slice(1).map((s) => s.layer));
     }
-    // Lock Ness: home in OS userspace (chapter 4), stubs in Firmware, Ring −2 and Ring −3.
-    expect(manTag(MANUAL_ENTRIES.find((e) => e.id === 'lock-ness')!)).toBe('LOCK-NESS(4)');
+    // Lock Ness: home in the Kernel (chapter 5), stubs in Firmware, Ring −2 and Ring −3.
+    expect(manTag(MANUAL_ENTRIES.find((e) => e.id === 'lock-ness')!)).toBe('LOCK-NESS(5)');
   });
 
   it('lays out front matter, chapters and the index as spreads with unique section-style folios', () => {
@@ -31,7 +31,7 @@ describe('Field Manual book structure', () => {
     const folios = book.flatMap((s) => s.folios);
     expect(new Set(folios).size).toBe(folios.length);
     const lock = book.find((s) => s.left.kind === 'plate' && s.left.entry.id === 'lock-ness')!;
-    expect(lock.folios[0]).toMatch(/^4-\d+$/);
+    expect(lock.folios[0]).toMatch(/^5-\d+$/);
   });
 
   it('a sealed chapter keeps its divider but none of its entry pages', () => {

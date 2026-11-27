@@ -66,7 +66,7 @@ const BASE_LIBRARIES: Record<LayerId, Library> = {
     density: 4.4,
     anchorCount: 2,
     far: 0.4,
-    floor: { offset: 4, ids: new Set(['lib-shelf', 'lib-cart', 'lib-ladder', 'lib-desk', 'lib-catalogue', 'lib-lectern', 'lib-globe', 'lib-crates', 'lib-lamp']) },
+    floor: { offset: 4, ids: new Set(['lib-cart', 'lib-catalogue', 'lib-lectern', 'lib-globe', 'lib-crates', 'lib-abi-seal', 'lib-ar-binder', 'lib-dlopen-lift', 'lib-bookdrop']) },
   },
   linker: { near: LINKER, anchors: LINKER_ANCHORS, density: 4.2, anchorCount: 2, far: 0.35 },
   // Zone C — Userspace & Expanded OS Kernel
@@ -76,7 +76,7 @@ const BASE_LIBRARIES: Record<LayerId, Library> = {
     density: 4.4,
     anchorCount: 2,
     far: 0.45,
-    floor: { offset: 6, ids: new Set(['us-tower', 'us-mailbox', 'us-crontower', 'us-shm', 'us-signal', 'us-fork', 'us-callbox', 'us-container', 'us-hydrant', 'us-meter']) },
+    floor: { offset: 6, ids: new Set(['us-logdrum', 'us-mailbox', 'us-crontower', 'us-shm', 'us-signal', 'us-fork', 'us-callbox', 'us-container', 'us-hydrant', 'us-meter']) },
   },
   'kernel-entry': { near: KERNEL_ENTRY, anchors: KERNEL_ENTRY_ANCHORS, density: 4.2, anchorCount: 2, far: 0.4 },
   kernel: { near: [...KERNEL, ...EXTRA_DAILY_TRINKETS.kernel], anchors: KERNEL_ANCHORS, density: 4.4, anchorCount: 2, far: 0.4 },

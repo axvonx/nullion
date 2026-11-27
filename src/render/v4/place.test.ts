@@ -178,9 +178,11 @@ describe('v4 world', () => {
     }
   });
 
-  it('draws monumental deep-background setpieces across all 29 layers and carries 25+ trinkets per daily layer', () => {
+  it('draws monumental deep-background setpieces across all 29 layers and every daily layer keeps the 20-type minimum', () => {
+    // The world cull (CLAUDE.md) shrank the Daily libraries to the 20-type floor that checkLibrary enforces; the old
+    // 25+ aspiration is gone with the culled props.
     for (const l of LAYERS) {
-      expect(V4_LIBRARIES[l.id].near.length).toBeGreaterThanOrEqual(25);
+      expect(V4_LIBRARIES[l.id].near.length).toBeGreaterThanOrEqual(20);
     }
     const band = { top: 0, bottom: 260, worldTop: 0, camY: 0, w: 360, h: 240, t: 3.5, reduced: false };
     for (const id of ALL_LAYER_IDS) {

@@ -26,7 +26,7 @@ const OTHER: ManualEntry = {
   kind: 'prop',
   blurb: 'A brass padlock hangs on the permissions door.',
   note: 'File permissions decide which users may read or write a file.',
-  sightings: [{ layer: 'userspace', entityId: 'us-padlock' }],
+  sightings: [{ layer: 'kernel', entityId: 'kr-mutex' }],
   bugs: 'Opens for anyone who asks politely.',
 };
 
@@ -209,7 +209,7 @@ describe('styleProblems', () => {
       expectFlags(
         entry({
           sightings: [
-            { layer: 'userspace', entityId: 'us-padlock' },
+            { layer: 'kernel', entityId: 'kr-mutex' },
             { layer: 'application', entityId: 'app-clock' },
           ],
         }),
