@@ -177,12 +177,23 @@ describe('a reaction survives its landing until the reveal holds it', () => {
   });
 });
 
-describe('the held jiggle is calm (the reveal background drifts, never flickers)', () => {
-  it('slows, shrinks and thins once it settles to the held level; the live reaction keeps its full energy', async () => {
+describe('the held jiggle flickers less under the reveal', () => {
+  it('held, it flickers 30% less often, same props and reach; the live reaction keeps its pace', async () => {
     const { HELD_JIGGLE, jiggleSlow, jiggleProps, jiggleReach } = await import('./reaction-fx');
-    expect(jiggleSlow(HELD_JIGGLE)).toBeGreaterThan(jiggleSlow(1));
-    expect(jiggleProps(HELD_JIGGLE)).toBeLessThan(jiggleProps(1));
-    expect(jiggleReach(HELD_JIGGLE)).toBeLessThan(HELD_JIGGLE);
-    expect(jiggleReach(1)).toBe(1);
+    expect(1 / jiggleSlow(HELD_JIGGLE)).toBeCloseTo(0.7);
+    expect(jiggleSlow(1)).toBe(1);
+    expect(jiggleProps(HELD_JIGGLE)).toBe(jiggleProps(1));
+    expect(jiggleReach(HELD_JIGGLE)).toBe(HELD_JIGGLE);
+  });
+});
+
+describe('flicker floor', () => {
+  it('a held jiggle changes at most every FLICKER_FLOOR_MS; a live one samples the real clock', async () => {
+    const { HELD_JIGGLE, FLICKER_FLOOR_MS, jiggleClock } = await import('./reaction-fx');
+    expect(FLICKER_FLOOR_MS).toBeGreaterThanOrEqual(250);
+    const seen = new Set<number>();
+    for (let now = 10_000; now < 10_000 + FLICKER_FLOOR_MS; now += 16) seen.add(jiggleClock(now, HELD_JIGGLE));
+    expect(seen.size).toBeLessThanOrEqual(2); // within one floor window, at most one step
+    expect(jiggleClock(10_017, 1)).toBe(10_017);
   });
 });

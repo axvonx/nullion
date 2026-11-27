@@ -14,7 +14,7 @@ import type { WorldSpecV4 } from './v4/world';
 import { quantizeRow, snapColor } from './palettes';
 import { LAYER_ART } from '../layers';
 import { SPRITES, drawSprite, type Sprite } from './sprites';
-import { LEAD_MS, bufferBlock, NO_REACTION, REACTION_MS, WOMM, LANDING_GRACE_MS, reactionAlive, reactionFrame, type ReactionFrame } from './reaction-fx';
+import { LEAD_MS, bufferBlock, NO_REACTION, REACTION_MS, WOMM, FLICKER_FLOOR_MS, LANDING_GRACE_MS, reactionAlive, reactionFrame, type ReactionFrame } from './reaction-fx';
 import { drawNullionBanner } from './nullion-banner';
 import { ReactionPaint } from './reaction-paint';
 import { BAYER16, get2d, type Surface } from './surface';
@@ -273,7 +273,15 @@ export class Scene {
   private swayPhase = 0;
   private bubbles: { x: number; y: number; age: number }[] = [];
   private vignette = { on: false, at: -Infinity };
-  private bufCopy = new Uint8ClampedArray(0);
+  /**
+   * The frame as the reveal opened. The black region (the core and the darker half of its feather) samples this,
+   * not the live frame, so nothing moving behind the reveal (a held jiggle, critters, ambience) flickers through it.
+   * Cleared when the reveal closes, retaken on the next one.
+   */
+  private revealStill: Uint8ClampedArray | undefined;
+  /** Outside the black region the reveal shows the world refreshed at most every FLICKER_FLOOR_MS, never per frame. */
+  private revealLive: Uint8ClampedArray | undefined;
+  private revealLiveAt = -Infinity;
   private rain: { y: number; speed: number }[] = [];
   /** Living System Biosphere critters (unique per layer, animated on artTime, spatial SFX). */
   private critters = new CritterSystem();
@@ -499,6 +507,10 @@ export class Scene {
    */
   setVignette(on: boolean) {
     if (on === this.vignette.on) return;
+    if (on) {
+      this.revealStill = undefined; // retaken on the reveal's first frame
+      this.revealLive = undefined;
+    }
     const now = performance.now();
     // Reversing mid-fade starts from where the fade got to.
     const k = Math.max(0, Math.min(1, (now - this.vignette.at) / VIGNETTE_MS));
@@ -563,10 +575,15 @@ export class Scene {
     const bs = bufferBlock(a);
     const img = ctx.getImageData(0, 0, W, H);
     const d = img.data;
-    // Blocks sample the untouched frame, so read from a copy while the buffer is rewritten in place.
-    if (this.bufCopy.length !== d.length) this.bufCopy = new Uint8ClampedArray(d.length);
-    this.bufCopy.set(d);
-    const src = this.bufCopy;
+    // Blocks sample copies (the still and the floored live frame) while the buffer is rewritten in place.
+    if (!this.revealStill || this.revealStill.length !== d.length) this.revealStill = new Uint8ClampedArray(d);
+    const still = this.revealStill;
+    // The world behind the reveal updates at most 4 times a second (none under reduced motion: it stays still).
+    if (!this.revealLive || this.revealLive.length !== d.length || (!reduced && now - this.revealLiveAt >= FLICKER_FLOOR_MS)) {
+      this.revealLive = new Uint8ClampedArray(d);
+      this.revealLiveAt = now;
+    }
+    const live = this.revealLive;
     const cx = Math.round(W / 2);
     const cy = Math.round(this.cursorY);
     // Compact solid-black core hugs the tier name & answer text; outside it, darkness feathers quickly across
@@ -589,14 +606,17 @@ export class Scene {
         const t = Math.min(1, Math.hypot(dx, dy));
         const smooth = t * t * (3 - 2 * t);
         const dark = (1 - smooth * (1 - outerDim)) * a;
+        // The black region (core and the darker half of the feather) shows the still frame; the world flickers on
+        // only outside it.
+        const from = smooth < 0.5 ? still : live;
         if (BAYER16[bRow + (x & 3)]! < dark * 16) {
           d[i] = 0;
           d[i + 1] = 0;
           d[i + 2] = 0;
         } else {
-          d[i] = src[si]!;
-          d[i + 1] = src[si + 1]!;
-          d[i + 2] = src[si + 2]!;
+          d[i] = from[si]!;
+          d[i + 1] = from[si + 1]!;
+          d[i + 2] = from[si + 2]!;
         }
       }
       // Full-colour rows have no palette to fall to: give them a coarse one so the degrade still reads.

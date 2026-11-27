@@ -1,4 +1,4 @@
-import { jiggleReach, jiggleSlow } from '../render/reaction-fx';
+import { jiggleClock, jiggleReach, jiggleSlow } from '../render/reaction-fx';
 import { VERSION_LABEL } from '../version';
 import { ALL_LAYER_IDS, PROMPTS_PER_DAY, TRUE_ENDLESS_LAYERS, type LayerId } from '../core/layers';
 import { layerAt, rulesFor } from '../core/modes';
@@ -776,8 +776,9 @@ ${REVEAL_HTML}`;
       }
       const slow = jiggleSlow(fx.jiggle);
       const reach = jiggleReach(fx.jiggle);
-      const dx = Math.round(Math.sin(now / (41 * slow) + i * 2.1) * 3 * reach);
-      const dy = Math.round(Math.cos(now / (49 * slow) + i * 1.3) * 2 * reach);
+      const t = jiggleClock(now, fx.jiggle);
+      const dx = Math.round(Math.sin(t / (41 * slow) + i * 2.1) * 3 * reach);
+      const dy = Math.round(Math.cos(t / (49 * slow) + i * 1.3) * 2 * reach);
       el.style.translate = `${dx}px calc(var(--lag) + ${dy}px)`;
     });
   }

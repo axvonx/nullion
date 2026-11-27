@@ -58,8 +58,10 @@ export interface ModeRules {
   readonly roundCounter: 'slots' | 'fuses';
   /** The end card (and its share text) is a plain backtrace for 'daily', a KERNEL PANIC for the strike modes: the chip text. */
   puzzleChip(puzzle: number): string;
-  /** The end card headline and share headline for a final depth label and layer name. */
+  /** The share text's headline for a final depth label and layer name (the share has no stack picture, so it names the layer). */
   headline(framesLabel: string, layerName: string): string;
+  /** The end card's summary line under "nullion #n": no layer name, since the card draws the stack right under it. */
+  cardLine(framesLabel: string): string;
   /** First line of the share text. */
   shareTitle(puzzle: number): string;
   /** Most glyphs the share text carries. */
@@ -84,6 +86,7 @@ export interface ModeRules {
 const ENDLESS_SCROLL: ScrollRules = { capExtra: 60, snapGap: 220, wheelDivisor: 10, arrowStep: 12, pageStep: 80 };
 
 const endlessHeadline = (framesLabel: string, layerName: string) => text('end-card.headline.endless', { frames: framesLabel, layer: layerName });
+const endlessCardLine = (framesLabel: string) => text('end-card.summary.endless', { frames: framesLabel });
 
 export const MODE_RULES: Record<StackMode, ModeRules> = {
   daily: {
@@ -97,6 +100,7 @@ export const MODE_RULES: Record<StackMode, ModeRules> = {
     roundCounter: 'slots',
     puzzleChip: (puzzle) => `#${puzzle}`,
     headline: (framesLabel, layerName) => text('end-card.headline.daily', { frames: framesLabel, layer: layerName }),
+    cardLine: (framesLabel) => text('end-card.summary.daily', { frames: framesLabel }),
     shareTitle: (puzzle) => `nullion #${puzzle}`,
     shareGlyphLimit: Infinity,
     layerPerFrameH: 8,
@@ -119,6 +123,7 @@ export const MODE_RULES: Record<StackMode, ModeRules> = {
     roundCounter: 'fuses',
     puzzleChip: () => 'ENDLESS',
     headline: endlessHeadline,
+    cardLine: endlessCardLine,
     shareTitle: () => 'nullion endless',
     shareGlyphLimit: 42,
     layerPerFrameH: 2.2,
@@ -141,6 +146,7 @@ export const MODE_RULES: Record<StackMode, ModeRules> = {
     roundCounter: 'fuses',
     puzzleChip: () => 'ENDLESS',
     headline: endlessHeadline,
+    cardLine: endlessCardLine,
     shareTitle: () => 'nullion endless',
     shareGlyphLimit: 42,
     layerPerFrameH: 3.5,

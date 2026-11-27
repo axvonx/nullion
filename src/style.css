@@ -1535,8 +1535,36 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .eod-stack.wide { width: 100%; display: grid; grid-auto-flow: column; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(var(--eod-rows), auto); gap: 3px 6px; }
 .eod-stack .ls-badge { display: flex; width: 100%; }
 .eod-stack .ls-badge .ls-inner { padding: 5px 8px; min-height: 26px; }
-.eod-stack .ls-badge.is-passed .ls-inner { opacity: 0.66; }
-.eod-stack .ls-badge.is-current { box-shadow: inset 0 0 0 1px var(--ls-accent), inset 0 0 14px var(--ls-tint), 0 0 8px var(--ls-tint), 2px 2px 0 rgba(0, 0, 0, 0.55); }
+.eod-stack .ls-badge.is-passed .ls-inner { opacity: 0.5; }
+/* The layer reached: lifted, outlined and breathing a soft glow, with a pointer at its right edge. Slow and smooth
+   (never a blink); still under reduced motion. */
+.eod-stack .ls-badge.is-current {
+  position: relative;
+  z-index: 1;
+  transform: scale(1.04);
+  box-shadow: inset 0 0 0 2px var(--ls-accent), inset 0 0 14px var(--ls-tint), 0 0 12px var(--ls-tint), 2px 2px 0 rgba(0, 0, 0, 0.55);
+  animation: eod-reached 2.6s ease-in-out infinite;
+}
+.eod-stack .ls-badge.is-current::after {
+  content: '◀';
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: var(--ls-accent);
+  text-shadow: 0 0 6px var(--ls-tint);
+  animation: eod-pointer 2.6s ease-in-out infinite;
+}
+@keyframes eod-reached {
+  0%, 100% { box-shadow: inset 0 0 0 2px var(--ls-accent), inset 0 0 12px var(--ls-tint), 0 0 8px var(--ls-tint), 2px 2px 0 rgba(0, 0, 0, 0.55); }
+  50% { box-shadow: inset 0 0 0 2px var(--ls-accent), inset 0 0 20px var(--ls-tint), 0 0 22px var(--ls-tint), 2px 2px 0 rgba(0, 0, 0, 0.55); }
+}
+@keyframes eod-pointer {
+  0%, 100% { transform: translate(0, -50%); }
+  50% { transform: translate(-3px, -50%); }
+}
+.still .eod-stack .ls-badge.is-current, .still .eod-stack .ls-badge.is-current::after { animation: none; }
 .ls-badge.ls-crunch { animation: ls-crunch 240ms steps(4) 1; }
 .still .ls-badge.ls-crunch { animation: none; }
 
@@ -1567,3 +1595,4 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .eod-body.back { animation: reveal-back 280ms steps(6, end); }
 .still .result.folding .eod-body { animation: none; opacity: 0; }
 .still .eod-body.back { animation: fade-in 200ms linear; }
+.eod-stack.wide .ls-badge.is-current::after { right: 4px; }

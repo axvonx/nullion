@@ -92,7 +92,8 @@ describe('EndCard', () => {
     expect(t.q('[data-el="puzzleNo"]').dataset.chip).toBe('#7');
     expect(t.q('[data-el="puzzleNo"]').querySelector('canvas')?.getAttribute('aria-label')).toBe('#7');
     expect(t.q('.wordmark').querySelector('.wm-word canvas')?.getAttribute('aria-label')).toBe('nullion');
-    expect(t.q('.headline').textContent).toBe('18 stack frames · Kernel');
+    // The layer name is left off the card: the stack is drawn right under the line.
+    expect(t.q('.headline').textContent).toBe('18 stack frames');
   });
 
   it('an endless card is a KERNEL PANIC with the ENDLESS chip', () => {
@@ -101,7 +102,7 @@ describe('EndCard', () => {
     t.card.show(ROWS, 18, 7);
     expect(t.q('[data-el="puzzleNo"]').querySelector('canvas')?.getAttribute('aria-label')).toBe('ENDLESS');
     expect(t.q('[data-el="puzzleNo"]').dataset.chip).toBe('ENDLESS');
-    expect(t.q('.headline').textContent).toMatch(/^KERNEL PANIC · 18 stack frames · /);
+    expect(t.q('.headline').textContent).toBe('KERNEL PANIC · 18 stack frames');
   });
 
   it('shows stats from the source, warns about a reset file, and hides them with none', () => {

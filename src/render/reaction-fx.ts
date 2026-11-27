@@ -68,21 +68,32 @@ const cascadePages = (rel: number, reduced: boolean) => (within(rel, CASCADE.bla
 export const HELD_JIGGLE = 0.4;
 
 /**
- * How fast a jiggle wobbles: 1 is the reaction's own pace; once it settles to the held level it slows to a third, so
- * the reveal's degraded background drifts instead of flickering (owner: "a little intrusive", 2026-11-27).
+ * How fast a jiggle wobbles: 1 is the reaction's own pace; held under the reveal it flickers 30% less often (owner,
+ * 2026-11-27), with the same props and reach. The reveal's black region never shows it (Scene.revealStill).
  */
 export function jiggleSlow(jiggle: number): number {
-  return jiggle <= HELD_JIGGLE ? 3 : 1;
+  return jiggle <= HELD_JIGGLE ? 1 / 0.7 : 1;
 }
 
-/** How many props a jiggle moves: all 26 while it plays, a few once it settles to the held level. */
-export function jiggleProps(jiggle: number): number {
-  return jiggle <= HELD_JIGGLE ? 8 : 26;
+/**
+ * The floor under how often a held jiggle may change: at most one new position per FLICKER_FLOOR_MS (4 a second),
+ * whatever its wobble speed (owner, 2026-11-27: "some absolute floor to frequency"). The live reaction is exempt.
+ */
+export const FLICKER_FLOOR_MS = 250;
+
+/** The clock a jiggle samples: the real one while it plays, stepped to FLICKER_FLOOR_MS once held. */
+export function jiggleClock(now: number, jiggle: number): number {
+  return jiggle <= HELD_JIGGLE ? Math.floor(now / FLICKER_FLOOR_MS) * FLICKER_FLOOR_MS : now;
 }
 
-/** How far a jiggle moves: full while it plays, half once held. */
+/** How many props a jiggle moves. */
+export function jiggleProps(_jiggle: number): number {
+  return 26;
+}
+
+/** How far a jiggle moves. */
 export function jiggleReach(jiggle: number): number {
-  return jiggle <= HELD_JIGGLE ? jiggle * 0.5 : jiggle;
+  return jiggle;
 }
 
 /** How long each reaction plays on its own, unsustained. */

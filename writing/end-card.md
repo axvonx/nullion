@@ -3,7 +3,7 @@
 The end-of-day card: headlines, the next-day footer, the Field Manual button and row details.
 
 ## end-card.headline.daily
-where: the end card headline and the share text’s headline, in the daily game
+where: the share text’s headline, in the daily game
 when: the day is over
 max: 60
 vars: {frames}, {layer}
@@ -12,13 +12,31 @@ status: draft
 {frames} · {layer}
 
 ## end-card.headline.endless
-where: the end card headline and the share text’s headline, in the strike modes (Endless)
+where: the share text’s headline, in the strike modes (Endless)
 when: the third strike ended the run
 max: 60
 vars: {frames}, {layer}
 status: draft
 
 KERNEL PANIC · {frames} · {layer}
+
+## end-card.summary.daily
+where: the end card's summary line, under "nullion #n" and above the drawn stack
+when: the day is over
+max: 40
+vars: {frames}
+status: draft
+
+{frames}
+
+## end-card.summary.endless
+where: the end card's summary line, under the ENDLESS chip and above the drawn stack
+when: the third strike ended the run
+max: 40
+vars: {frames}
+status: draft
+
+KERNEL PANIC · {frames}
 
 ## end-card.next.waiting
 where: the footer of the end card, until the countdown starts, and in games that do not count down

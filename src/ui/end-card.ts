@@ -315,7 +315,7 @@ export class EndCard {
     const rules = rulesFor(mode);
     const headline = rules.headline(framesLabel(depth), layerName);
     this.setPuzzleNo(rules.puzzleChip(puzzle));
-    setText(this.els.headline!, headline);
+    setText(this.els.headline!, rules.cardLine(framesLabel(depth)));
     this.shareText = buildShareText({
       mode,
       puzzle,
