@@ -349,7 +349,7 @@
   {
    "name": "peephole optimization",
    "aliases": [],
-   "judge": "npe"
+   "pin": "womm"
   },
   {
    "name": "profile-guided optimization",
@@ -440,7 +440,7 @@
   {
    "name": "DFA jump threading",
    "aliases": [],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "guard widening",
@@ -512,5 +512,11 @@
    ],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "compiler-optimization": [
+   "compiler",
+   "optimization"
+  ]
+ }
 }

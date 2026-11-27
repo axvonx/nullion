@@ -2,11 +2,62 @@
 id: post-quantum-signature-scheme · domain: hardware-security-history · status: draft
 > a named digital signature scheme designed to resist quantum attacks.
 
-## Inbox
-- Dilithium (suggested: off-by-one)
-- Falcon (suggested: off-by-one)
-- SPHINCS+ (suggested: off-by-one)
-- XMSS (suggested: heisenbug)
-- Rainbow (suggested: heisenbug)
-- Picnic (suggested: heisenbug)
-- SQIsign (suggested: heisenbug)
+## Off-by-one
+- ML-DSA | Dilithium | CRYSTALS-Dilithium (auto)
+
+## Works on my machine
+- Falcon | FN-DSA
+
+## Null pointer exception
+- SLH-DSA | SPHINCS+ (auto)
+
+## Memory leak
+- UOV (auto)
+- MAYO (auto)
+- Rainbow (auto)
+- Picnic (auto)
+- XMSS (auto)
+- LMS (auto)
+- Lamport signature (auto)
+- Winternitz one-time signature | W-OTS | W-OTS+ (auto)
+
+## Race condition
+- SPHINCS (auto)
+- GeMSS (auto)
+- LUOV (auto)
+- qTESLA (auto)
+- XMSS-MT (auto)
+- HSS (auto)
+- MQDSS (auto)
+- BLISS (auto)
+- HAWK (auto)
+- LESS (auto)
+- MEDS (auto)
+- Wave (auto)
+- Merkle signature scheme (auto)
+
+## Heisenbug
+- CROSS (auto)
+- FAEST (auto)
+- MQOM (auto)
+- QR-UOV (auto)
+- SDitH (auto)
+- SNOVA (auto)
+- GLP (auto)
+- PERK (auto)
+- RYDE (auto)
+- Mirath (auto)
+- Biscuit (auto)
+- HuFu (auto)
+- SQUIRRELS (auto)
+- FuLeeca (auto)
+- Raccoon (auto)
+- DME-Sign (auto)
+- ALTEQ (auto)
+- Gravity-SPHINCS (auto)
+- pqsigRM (auto)
+- EagleSign (auto)
+- SOFIA (auto)
+
+## Bit Flip
+- SQIsign

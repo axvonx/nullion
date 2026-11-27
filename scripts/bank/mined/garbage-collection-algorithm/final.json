@@ -38,7 +38,7 @@
    "aliases": [
     "Z Garbage Collector"
    ],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "Parallel GC",
@@ -119,7 +119,7 @@
   {
    "name": "Train algorithm",
    "aliases": [],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "Immix",
@@ -240,5 +240,11 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "garbage-collection-algorithm": [
+   "garbage collection",
+   "garbage collector"
+  ]
+ }
 }

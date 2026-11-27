@@ -64,7 +64,7 @@
   {
    "name": "Lion",
    "aliases": [],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "LAMB",
@@ -154,7 +154,7 @@
   {
    "name": "Shampoo",
    "aliases": [],
-   "judge": "race"
+   "pin": "bitflip"
   },
   {
    "name": "SOAP",
@@ -261,5 +261,11 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "gradient-based-optimizer": [
+   "optimizer",
+   "gradient"
+  ]
+ }
 }

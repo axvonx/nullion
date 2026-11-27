@@ -1,0 +1,119 @@
+[
+ {
+  "name": "copying collector",
+  "aliases": [
+   "copying collection",
+   "copying GC"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "Baker's algorithm",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Immix",
+  "aliases": [
+   "mark-region"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "G1",
+  "aliases": [
+   "G1GC",
+   "Garbage-First",
+   "Garbage-First GC"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "Deutsch-Schorr-Waite algorithm",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Cheney's algorithm",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "tri-color marking",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "Shenandoah",
+  "aliases": [
+   "Shenandoah GC"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "semispace collector",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "Metronome",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "deferred reference counting",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Brooks forwarding pointer",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "LXR",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Beltway",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Parallel GC",
+  "aliases": [
+   "Parallel Scavenge",
+   "Parallel Old",
+   "Parallel Collector"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "Concurrent Mark Sweep",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "mark-sweep",
+  "aliases": [],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "Sapphire",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Serial GC",
+  "aliases": [
+   "Serial Collector"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "RC Immix",
+  "aliases": [],
+  "tier": "Heisenbug"
+ }
+]

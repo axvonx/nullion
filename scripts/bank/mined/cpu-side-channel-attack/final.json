@@ -11,7 +11,7 @@
     "L1TF",
     "Foreshadow"
    ],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "Microarchitectural Data Sampling",
@@ -192,7 +192,7 @@
   {
    "name": "Collide+Power",
    "aliases": [],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "Augury",
@@ -274,5 +274,12 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "cpu-side-channel-attack": [
+   "side-channel",
+   "side channel",
+   "speculative"
+  ]
+ }
 }

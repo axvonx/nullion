@@ -58,7 +58,7 @@
     "wp512",
     "whrlpool"
    ],
-   "judge": "race"
+   "pin": "womm"
   },
   {
    "name": "SM3",
@@ -218,7 +218,7 @@
   {
    "name": "RadioGatun",
    "aliases": [],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "SWIFFT",
@@ -260,5 +260,10 @@
    "aliases": [],
    "judge": "race"
   }
- ]
+ ],
+ "_context": {
+  "cryptographic-hash-function": [
+   "hash"
+  ]
+ }
 }

@@ -275,7 +275,7 @@
    "aliases": [
     "flow-schema-v1"
    ],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "PriorityLevelConfiguration",
@@ -332,7 +332,7 @@
     "PDB",
     "pod-disruption-budget-v1"
    ],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "ClusterRoleBinding",
@@ -474,5 +474,10 @@
    ],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "kubernetes-resource-kind": [
+   "kubernetes"
+  ]
+ }
 }

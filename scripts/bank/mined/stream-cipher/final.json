@@ -19,7 +19,7 @@
   {
    "name": "Salsa20",
    "aliases": [],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "XSalsa20",
@@ -242,7 +242,7 @@
     "SZ40",
     "SZ42"
    ],
-   "judge": "race"
+   "pin": "bitflip"
   },
   {
    "name": "Content Scramble System",
@@ -266,5 +266,11 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "stream-cipher": [
+   "stream cipher",
+   "cipher"
+  ]
+ }
 }

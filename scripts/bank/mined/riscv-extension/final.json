@@ -33,7 +33,7 @@
   {
    "name": "V extension",
    "aliases": [],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "B extension",
@@ -303,7 +303,7 @@
   {
    "name": "Zimop",
    "aliases": [],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "Zfa",
@@ -365,5 +365,10 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "riscv-extension": [
+   "RISC-V"
+  ]
+ }
 }

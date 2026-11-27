@@ -459,7 +459,7 @@
   {
    "name": "futex",
    "aliases": [],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "futimesat",
@@ -1882,7 +1882,7 @@
   {
    "name": "subpage_prot",
    "aliases": [],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "swapoff",
@@ -2218,5 +2218,11 @@
    "aliases": [],
    "judge": "npe"
   }
- ]
+ ],
+ "_context": {
+  "linux-system-call": [
+   "system call",
+   "syscall"
+  ]
+ }
 }

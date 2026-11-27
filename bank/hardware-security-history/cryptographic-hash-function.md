@@ -2,11 +2,65 @@
 id: cryptographic-hash-function · domain: hardware-security-history · status: draft
 > a named cryptographic hash function standard or published design.
 
-## Inbox
-- SHA-256 (suggested: off-by-one)
-- MD5 (suggested: off-by-one)
-- BLAKE2 (suggested: off-by-one)
-- Whirlpool (suggested: heisenbug)
-- Skein (suggested: heisenbug)
-- Streebog (suggested: heisenbug)
-- Tiger (suggested: heisenbug)
+## Off-by-one
+- MD5 (auto)
+- SHA-1 (auto)
+- SHA-256 (auto)
+
+## Works on my machine
+- Whirlpool | wp512 | whrlpool
+
+## Null pointer exception
+- SHA-512 (auto)
+- SHA-3 | Keccak (auto)
+- SHA-2 (auto)
+- BLAKE3 (auto)
+
+## Memory leak
+- BLAKE2b | BLAKE2 (auto)
+- RIPEMD-160 | RIPEMD | rmd160 (auto)
+- MD4 (auto)
+- SHA-224 (auto)
+- SHA-384 (auto)
+- BLAKE (auto)
+- BLAKE2s (auto)
+
+## Race condition
+- MD2 (auto)
+- SM3 (auto)
+- SHA-0 (auto)
+- MD6 (auto)
+- Tiger (auto)
+- HAVAL (auto)
+- Skein (auto)
+- Groestl | Grøstl (auto)
+- JH (auto)
+- GOST R 34.11-94 (auto)
+- RIPEMD-128 (auto)
+- SHA-512/256 (auto)
+
+## Heisenbug
+- Streebog | streebog_generic | GOST R 34.11-2012 (auto)
+- MDC-2 (auto)
+- Snefru (auto)
+- N-Hash (auto)
+- FORK-256 (auto)
+- LSH (auto)
+- Fugue (auto)
+- Hamsi (auto)
+- Luffa (auto)
+- CubeHash (auto)
+- ECHO (auto)
+- Shabal (auto)
+- SHAvite-3 (auto)
+- Blue Midnight Wish (auto)
+- Panama (auto)
+- SWIFFT (auto)
+- KangarooTwelve (auto)
+- Gimli (auto)
+- Ascon-Hash (auto)
+- Xoodyak (auto)
+- RIPEMD-320 (auto)
+
+## Bit Flip
+- RadioGatun

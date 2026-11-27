@@ -1,0 +1,139 @@
+[
+ {
+  "name": "full unrolling",
+  "aliases": [
+   "full loop unrolling"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "loop sinking",
+  "aliases": [
+   "LoopSink"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "instruction combining",
+  "aliases": [
+   "InstCombine"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "whole-program devirtualization",
+  "aliases": [
+   "devirtualization",
+   "WholeProgramDevirt"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "load-store vectorization",
+  "aliases": [
+   "LoadStoreVectorizer"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "straight-line strength reduction",
+  "aliases": [
+   "StraightLineStrengthReduce"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "expression reassociation",
+  "aliases": [
+   "reassociation"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "strength reduction",
+  "aliases": [
+   "loop strength reduction",
+   "LoopStrengthReduce"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "jump threading",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "function merging",
+  "aliases": [
+   "MergeFunctions"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "sparse conditional constant propagation",
+  "aliases": [
+   "SCCP",
+   "conditional constant propagation"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "library call simplification",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "memcpy optimization",
+  "aliases": [
+   "MemCpyOptimizer"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "loop rotation",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "induction variable simplification",
+  "aliases": [
+   "IndVarSimplify"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "loop unswitching",
+  "aliases": [
+   "SimpleLoopUnswitch"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "dead code elimination",
+  "aliases": [
+   "DCE"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "merged load-store motion",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "loop fusion",
+  "aliases": [
+   "loop jamming",
+   "LoopFuse"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "unroll-and-jam",
+  "aliases": [
+   "loop unroll and jam",
+   "LoopUnrollAndJamPass"
+  ],
+  "tier": "Race condition"
+ }
+]

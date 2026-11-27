@@ -1,0 +1,142 @@
+[
+ {
+  "name": "verify-commit",
+  "aliases": [
+   "git-verify-commit"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "show",
+  "aliases": [
+   "git-show"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "revert",
+  "aliases": [
+   "git-revert"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "diff-pairs",
+  "aliases": [
+   "git-diff-pairs"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "mailsplit",
+  "aliases": [
+   "git-mailsplit"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "reset",
+  "aliases": [
+   "git-reset"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "cat-file",
+  "aliases": [
+   "git-cat-file"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "whatchanged",
+  "aliases": [
+   "git-whatchanged"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "p4",
+  "aliases": [
+   "git-p4"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "remote",
+  "aliases": [
+   "git-remote"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "merge-index",
+  "aliases": [
+   "git-merge-index"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "name-rev",
+  "aliases": [
+   "git-name-rev"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "unpack-objects",
+  "aliases": [
+   "git-unpack-objects"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "filter-branch",
+  "aliases": [
+   "git-filter-branch"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "bugreport",
+  "aliases": [
+   "git-bugreport"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "commit",
+  "aliases": [
+   "git-commit"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "check-attr",
+  "aliases": [
+   "git-check-attr"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "maintenance",
+  "aliases": [
+   "git-maintenance"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "prune-packed",
+  "aliases": [
+   "git-prune-packed"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "cvsexportcommit",
+  "aliases": [
+   "git-cvsexportcommit"
+  ],
+  "tier": "Heisenbug"
+ }
+]

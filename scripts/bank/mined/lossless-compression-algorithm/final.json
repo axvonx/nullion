@@ -42,7 +42,7 @@
   {
    "name": "LZW",
    "aliases": [],
-   "judge": "npe"
+   "pin": "womm"
   },
   {
    "name": "LZSS",
@@ -204,7 +204,7 @@
   {
    "name": "Tunstall coding",
    "aliases": [],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "adaptive Huffman coding",
@@ -241,5 +241,10 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "lossless-compression-algorithm": [
+   "compression"
+  ]
+ }
 }

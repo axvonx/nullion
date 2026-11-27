@@ -13,7 +13,7 @@
    "aliases": [
     "FN-DSA"
    ],
-   "judge": "off-by-one"
+   "pin": "womm"
   },
   {
    "name": "SLH-DSA",
@@ -30,7 +30,7 @@
   {
    "name": "SQIsign",
    "aliases": [],
-   "judge": "race"
+   "pin": "bitflip"
   },
   {
    "name": "MAYO",
@@ -240,5 +240,11 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "post-quantum-signature-scheme": [
+   "signature",
+   "post-quantum"
+  ]
+ }
 }

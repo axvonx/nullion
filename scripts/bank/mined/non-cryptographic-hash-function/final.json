@@ -8,7 +8,7 @@
     "MurmurHash3",
     "PMurHash"
    ],
-   "judge": "off-by-one"
+   "pin": "womm"
   },
   {
    "name": "xxHash",
@@ -154,7 +154,7 @@
    "aliases": [
     "meow_hash_x64_aesni"
    ],
-   "judge": "leak"
+   "pin": "bitflip"
   },
   {
    "name": "GxHash",
@@ -369,5 +369,10 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "non-cryptographic-hash-function": [
+   "hash"
+  ]
+ }
 }

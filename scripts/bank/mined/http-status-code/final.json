@@ -98,7 +98,7 @@
     "226",
     "IM Used"
    ],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "300 Multiple Choices",
@@ -302,7 +302,7 @@
     "418",
     "I'm a teapot"
    ],
-   "judge": "npe"
+   "pin": "womm"
   },
   {
    "name": "421 Misdirected Request",
@@ -486,5 +486,10 @@
    ],
    "judge": "race"
   }
- ]
+ ],
+ "_context": {
+  "http-status-code": [
+   "http"
+  ]
+ }
 }

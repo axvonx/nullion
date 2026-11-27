@@ -3,7 +3,7 @@
   {
    "name": "jemalloc",
    "aliases": [],
-   "judge": "off-by-one"
+   "pin": "womm"
   },
   {
    "name": "buddy allocator",
@@ -20,7 +20,7 @@
    "aliases": [
     "Scudo Hardened Allocator"
    ],
-   "judge": "race"
+   "pin": "bitflip"
   },
   {
    "name": "Contiguous Memory Allocator",

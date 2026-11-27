@@ -824,7 +824,7 @@
    "aliases": [
     "git-rerere"
    ],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "reset",
@@ -950,7 +950,7 @@
    "aliases": [
     "git-stripspace"
    ],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "submodule",
@@ -1127,5 +1127,10 @@
    ],
    "judge": "race"
   }
- ]
+ ],
+ "_context": {
+  "git-subcommand": [
+   "git"
+  ]
+ }
 }

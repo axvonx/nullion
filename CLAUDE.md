@@ -52,6 +52,8 @@ What's next lives in `ROADMAP.md`; the next milestone is question and answer gen
 
 ## Deferred decisions (don't lose these)
 
+- **Hosting (decided 2026-11-26): the site stays static on GitHub Pages.** Anything that needs shared state goes to a small separate API that the static site calls, for example a Cloudflare Worker with KV or D1. The site itself never moves to a server platform. That shared state means cross-player averages and percentiles, the rejected-guess counter, leaderboards, and account or Gist sync. Not built yet; `ROADMAP.md` has the player-data plan.
+
 - **Other players' answers:** each row of the end-of-day backtrace will get a dropdown arrow that reveals what other players answered for that question (requested 2026-11-26). It needs server-side answer counts, so it waits for a backend. The row layout already leaves room for it.
 
 ## Sound & favicon

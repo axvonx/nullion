@@ -113,7 +113,7 @@
     "twofish_common",
     "twofish_generic"
    ],
-   "judge": "npe"
+   "pin": "womm"
   },
   {
    "name": "Triple DES",
@@ -278,7 +278,7 @@
   {
    "name": "Khufu",
    "aliases": [],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "Khafre",
@@ -315,5 +315,10 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "block-cipher": [
+   "cipher"
+  ]
+ }
 }

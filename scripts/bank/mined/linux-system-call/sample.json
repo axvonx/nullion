@@ -1,0 +1,102 @@
+[
+ {
+  "name": "setrlimit",
+  "aliases": [],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "setresuid32",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "gettid",
+  "aliases": [],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "inotify_rm_watch",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "fork",
+  "aliases": [],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "rt_sigaction",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "setsockopt",
+  "aliases": [],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "mq_timedreceive",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "kill",
+  "aliases": [],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "setuid32",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "mkdirat",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "accept",
+  "aliases": [],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "times",
+  "aliases": [],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "close",
+  "aliases": [],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "process_madvise",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "pkey_alloc",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "vfork",
+  "aliases": [],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "arch_prctl",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "getmsg",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "setsid",
+  "aliases": [],
+  "tier": "Memory leak"
+ }
+]

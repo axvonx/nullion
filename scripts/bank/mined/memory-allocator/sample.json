@@ -1,0 +1,120 @@
+[
+ {
+  "name": "first-fit allocator",
+  "aliases": [
+   "first fit"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "buddy allocator",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "LFMalloc",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Contiguous Memory Allocator",
+  "aliases": [
+   "CMA",
+   "cma allocator"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "ptmalloc",
+  "aliases": [
+   "ptmalloc2",
+   "glibc malloc"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "segregated free list allocator",
+  "aliases": [
+   "segregated fit"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "mallocng",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Zend MM",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "tcmalloc",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "phkmalloc",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "genalloc",
+  "aliases": [
+   "gen_pool"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Arena allocator",
+  "aliases": [
+   "region allocator"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "nedmalloc",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "Mesh",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "stack allocator",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "half-fit",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "next-fit allocator",
+  "aliases": [
+   "next fit"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "Low Fragmentation Heap",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "SLOB allocator",
+  "aliases": [
+   "SLOB"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "vmalloc",
+  "aliases": [],
+  "tier": "Race condition"
+ }
+]

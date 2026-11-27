@@ -1,0 +1,145 @@
+[
+ {
+  "name": "ResourceQuota",
+  "aliases": [
+   "resource-quota-v1"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "ResourceClaim",
+  "aliases": [
+   "resource-claim-v1"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "HorizontalPodAutoscaler",
+  "aliases": [
+   "HPA",
+   "horizontal-pod-autoscaler-v2"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "PodGroup",
+  "aliases": [
+   "pod-group-v1beta1"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "RuntimeClass",
+  "aliases": [
+   "runtime-class-v1"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "ValidatingAdmissionPolicyBinding",
+  "aliases": [
+   "validating-admission-policy-binding-v1"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "Workload",
+  "aliases": [
+   "workload-v1beta1"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "PersistentVolumeClaim",
+  "aliases": [
+   "PVC",
+   "persistent-volume-claim-v1"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "ResourceClaimTemplate",
+  "aliases": [
+   "resource-claim-template-v1"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "ComponentStatus",
+  "aliases": [
+   "component-status-v1"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "Event",
+  "aliases": [
+   "event-v1"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "ClusterRole",
+  "aliases": [
+   "cluster-role-v1"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "DaemonSet",
+  "aliases": [
+   "daemon-set-v1"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "EndpointSlice",
+  "aliases": [
+   "endpoint-slice-v1"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "Pod",
+  "aliases": [
+   "pod-v1"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "PriorityClass",
+  "aliases": [
+   "priority-class-v1"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "ReplicationController",
+  "aliases": [
+   "replication-controller-v1"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "VolumeAttributesClass",
+  "aliases": [
+   "volume-attributes-class-v1"
+  ],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "LimitRange",
+  "aliases": [
+   "limit-range-v1"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "CertificateSigningRequest",
+  "aliases": [
+   "CSR",
+   "certificate-signing-request-v1"
+  ],
+  "tier": "Memory leak"
+ }
+]

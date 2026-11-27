@@ -495,7 +495,7 @@
   {
    "name": "yes",
    "aliases": [],
-   "judge": "npe"
+   "pin": "womm"
   },
   {
    "name": "blkdiscard",
@@ -1569,7 +1569,7 @@
   {
    "name": "pom",
    "aliases": [],
-   "judge": "race"
+   "pin": "bitflip"
   },
   {
    "name": "posixmqcontrol",
@@ -2084,5 +2084,12 @@
    "judge": "leak",
    "confidence": "low"
   }
- ]
+ ],
+ "_context": {
+  "unix-command": [
+   "command",
+   "unix",
+   "shell"
+  ]
+ }
 }

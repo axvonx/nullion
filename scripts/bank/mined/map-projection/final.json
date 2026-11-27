@@ -28,7 +28,7 @@
    "aliases": [
     "airocean"
    ],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "Airy projection",
@@ -587,7 +587,7 @@
     "spilhaus",
     "Spilhaus projection"
    ],
-   "judge": "race"
+   "pin": "bitflip"
   },
   {
    "name": "Stereographic projection",
@@ -756,5 +756,10 @@
    "judge": "race",
    "confidence": "low"
   }
- ]
+ ],
+ "_context": {
+  "map-projection": [
+   "projection"
+  ]
+ }
 }

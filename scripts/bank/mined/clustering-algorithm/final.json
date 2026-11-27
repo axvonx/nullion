@@ -16,7 +16,7 @@
   {
    "name": "BIRCH",
    "aliases": [],
-   "judge": "race"
+   "pin": "bitflip"
   },
   {
    "name": "bisecting k-means",
@@ -50,7 +50,7 @@
   {
    "name": "Mean Shift",
    "aliases": [],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "OPTICS",
@@ -291,5 +291,10 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "clustering-algorithm": [
+   "clustering"
+  ]
+ }
 }

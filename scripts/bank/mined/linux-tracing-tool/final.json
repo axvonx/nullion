@@ -110,7 +110,7 @@
   {
    "name": "criticalstat",
    "aliases": [],
-   "judge": "heisenbug"
+   "pin": "bitflip"
   },
   {
    "name": "dbslower",
@@ -775,7 +775,7 @@
   {
    "name": "SystemTap",
    "aliases": [],
-   "judge": "leak"
+   "pin": "womm"
   },
   {
    "name": "bpftrace",
@@ -832,5 +832,11 @@
    "aliases": [],
    "judge": "heisenbug"
   }
- ]
+ ],
+ "_context": {
+  "linux-tracing-tool": [
+   "trace",
+   "tracing"
+  ]
+ }
 }

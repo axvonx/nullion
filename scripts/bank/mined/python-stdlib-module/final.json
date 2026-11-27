@@ -873,7 +873,7 @@
   {
    "name": "this",
    "aliases": [],
-   "judge": "npe"
+   "pin": "womm"
   },
   {
    "name": "tkinter.messagebox",
@@ -1198,7 +1198,7 @@
   {
    "name": "tabnanny",
    "aliases": [],
-   "judge": "race"
+   "pin": "bitflip"
   },
   {
    "name": "telnetlib",
@@ -1339,5 +1339,10 @@
    "judge": "heisenbug",
    "confidence": "low"
   }
- ]
+ ],
+ "_context": {
+  "python-stdlib-module": [
+   "python"
+  ]
+ }
 }
