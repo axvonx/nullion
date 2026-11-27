@@ -555,9 +555,9 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 }
 .rv-reached-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 .reveal[data-tier='off-by-one'] .rv-name { color: var(--t-offbyone); }
 .reveal[data-tier='womm'] .rv-name { color: var(--t-womm); }
@@ -1241,8 +1241,8 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   margin: 0;
   pointer-events: none;
   transition:
-    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
-    width 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 760ms cubic-bezier(0.22, 1, 0.36, 1),
+    width 760ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
 .still .ls-flyer { transition: none; }

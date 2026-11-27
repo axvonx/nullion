@@ -711,7 +711,12 @@ export class LayerStack {
    * Append a single newly reached layer by flying a visual clone from `sourceEl` (in the reveal's "Reached" section)
    * directly into its exact destination slot at the bottom of the RHS stack, then triggering the crunch impact + tooltip.
    */
-  flyIntoStack(sourceEl: HTMLElement, layer: Layer, mode: StackMode, opts: { reduced: boolean; showTip: boolean }) {
+  flyIntoStack(
+    sourceEl: HTMLElement,
+    layer: Layer,
+    mode: StackMode,
+    opts: { reduced: boolean; showTip: boolean; delayMs?: number },
+  ) {
     const stack = layersFor(mode);
     const targetIdx = stack.findIndex((l) => l.id === layer.id);
     if (targetIdx < 0) return;
@@ -757,12 +762,21 @@ export class LayerStack {
 
     const dx = Math.round(dstRect.left - srcRect.left);
     const dy = Math.round(dstRect.top - srcRect.top);
-    const flightMs = 420;
-    // Trigger smooth flight on next frame.
-    requestAnimationFrame(() => {
-      flyer.style.transform = `translate(${dx}px, ${dy}px)`;
-      flyer.style.width = `${Math.round(dstRect.width)}px`;
-    });
+    const delayMs = Math.max(0, opts.delayMs ?? 0);
+    const flightMs = 760;
+
+    const launch = () => {
+      requestAnimationFrame(() => {
+        flyer.style.transform = `translate(${dx}px, ${dy}px)`;
+        flyer.style.width = `${Math.round(dstRect.width)}px`;
+      });
+    };
+    if (delayMs > 0) {
+      const tGo = window.setTimeout(launch, delayMs);
+      this.timers.push(tGo);
+    } else {
+      launch();
+    }
 
     const tLand = window.setTimeout(() => {
       flyer.remove();
@@ -775,7 +789,7 @@ export class LayerStack {
       const tClean = window.setTimeout(() => block.classList.remove('ls-crunch'), 260);
       this.timers.push(tClean);
       if (opts.showTip && this.blurbs[layer.id]) this.scheduleAutoTip(block, TIP_SHOW_DELAY_MS);
-    }, flightMs);
+    }, delayMs + flightMs);
     this.timers.push(tLand);
   }
 

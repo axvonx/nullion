@@ -151,7 +151,8 @@ export class Hud {
   private topicKey = '';
   /** Highest layer index already committed to the RHS stack in play mode (advances on reveal via "Reached" → fly-to-stack). */
   private committedLayerIdx = 0;
-  private reachTimers: number[] = [];
+  /** Newly reached layer badges waiting in the reveal to fly into the RHS stack when "Unwind further" is pressed. */
+  private pendingReached: { badge: HTMLElement; layer: Layer }[] = [];
 
   /**
    * Debug hooks. `watchdogOverride` shows this share of time left instead of the game's (the rail's timer demo);
@@ -431,7 +432,7 @@ export class Hud {
     this.els.titleHowBtn!.setAttribute('aria-expanded', 'false');
     this.els.titleHowBtn!.textContent = 'How to play';
     this.entranceBooted = false;
-    this.clearReachTimers();
+    this.clearReached();
     this.committedLayerIdx = layerIndexAt(g.depth, g.mode);
     this.layerStack.flushTo(g.depth, g.mode);
     this.syncSlots(g);
@@ -907,9 +908,9 @@ export class Hud {
     this.showReachedLayers(kind);
   }
 
-  /** Show any newly crossed layer badge(s) under the reveal, hold briefly, then fly each into the RHS stack in order. */
+  /** Show any newly crossed layer badge(s) stacked vertically under the reveal; they fly into the RHS stack when "Unwind further" is pressed. */
   private showReachedLayers(kind: TierId | 'timeout') {
-    this.clearReachTimers();
+    this.clearReached();
     if (kind === 'timeout' || !this.game || this.demo || this.scrollMode) return;
     const mode = this.game.mode;
     const targetIdx = layerIndexAt(this.game.depth, mode);
@@ -921,27 +922,37 @@ export class Hud {
 
     const list = this.els.rvReachedList!;
     list.replaceChildren();
-    const badges = crossed.map((layer) => {
+    this.pendingReached = crossed.map((layer) => {
       const badge = createLayerBadge(layer);
       list.append(badge);
       return { badge, layer };
     });
     this.els.rvReached!.hidden = false;
+  }
 
+  /** Fly any pending "Reached" badges from their reveal positions into the RHS stack in order. */
+  private launchReachedFlight(isLastRound: boolean) {
+    const items = this.pendingReached;
+    this.pendingReached = [];
+    if (!items.length || !this.game || this.demo || this.scrollMode) return;
+    const mode = this.game.mode;
+    if (isLastRound) {
+      this.layerStack.flushTo(this.game.depth, mode);
+      return;
+    }
     const reduced = reducedMotion();
-    const holdMs = reduced ? 200 : 650;
-    const gapMs = reduced ? 120 : 550;
-    badges.forEach(({ badge, layer }, i) => {
-      const t = window.setTimeout(() => {
-        this.layerStack.flyIntoStack(badge, layer, mode, { reduced, showTip: i === badges.length - 1 });
-      }, holdMs + i * gapMs);
-      this.reachTimers.push(t);
+    const gapMs = reduced ? 0 : 260;
+    items.forEach(({ badge, layer }, i) => {
+      this.layerStack.flyIntoStack(badge, layer, mode, {
+        reduced,
+        showTip: i === items.length - 1,
+        delayMs: i * gapMs,
+      });
     });
   }
 
-  private clearReachTimers() {
-    for (const id of this.reachTimers) clearTimeout(id);
-    this.reachTimers.length = 0;
+  private clearReached() {
+    this.pendingReached = [];
     this.els.rvReached!.hidden = true;
     this.els.rvReachedList!.replaceChildren();
   }
@@ -973,11 +984,12 @@ export class Hud {
     }
   }
 
-  /** "Unwind further": close the reveal, then move on. */
+  /** "Unwind further": launch any reached layer badges to the RHS stack, close the reveal, then move on. */
   private unwind(now: number) {
     if (!this.revealOpen) return;
     const g = this.game;
     const isLastRound = g?.phase.kind === 'between' && g.phase.round + 1 >= g.rounds.length;
+    this.launchReachedFlight(Boolean(isLastRound));
     sound.stopReactions();
     sound.unwind(layerAt(this.scene?.displayDepth ?? 0).id);
     this.hideReveal(!isLastRound);
@@ -989,10 +1001,7 @@ export class Hud {
     if (!this.revealOpen) return;
     this.revealOpen = false;
     clearTimeout(this.revealTimer);
-    this.clearReachTimers();
-    if (this.game && !this.scrollMode && !this.demo) {
-      this.layerStack.flushTo(this.game.depth, this.game.mode);
-    }
+    this.clearReached();
     this.root.classList.remove('unwinding');
     this.scene?.setVignette(false);
     this.scene?.setHold(false, unstickZLayers);
