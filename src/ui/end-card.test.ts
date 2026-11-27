@@ -90,7 +90,7 @@ describe('EndCard', () => {
     const t = setup();
     t.card.show(ROWS, 18, 7);
     expect(t.q('[data-el="puzzleNo"]').dataset.chip).toBe('#7');
-    expect(t.q('[data-el="puzzleNo"]').textContent).toBe('#7');
+    expect(t.q('[data-el="puzzleNo"]').querySelector('canvas')?.getAttribute('aria-label')).toBe('#7');
     expect(t.q('.wordmark').querySelector('.wm-word canvas')?.getAttribute('aria-label')).toBe('nullion');
     expect(t.q('.headline').textContent).toBe('18 stack frames · Kernel');
   });
