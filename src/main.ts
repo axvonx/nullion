@@ -88,7 +88,9 @@ async function boot() {
       savedRev = game.rev;
     }
   };
-  let endlessMode = DEBUG && new URLSearchParams(location.search).get('endless') === '1';
+  const endlessParam = DEBUG ? new URLSearchParams(location.search).get('endless') : null;
+  let endlessDebugMode: 'off' | 'endless' | 'true-endless' =
+    endlessParam === 'true' ? 'true-endless' : endlessParam === '1' ? 'endless' : 'off';
 
 
   // Restarts load their categories asynchronously; a newer restart supersedes an older one still loading.
@@ -99,12 +101,17 @@ async function boot() {
     const source = SETS[s.answerSet] ?? SETS.bank!;
     const date = s.date ? parseLocalDate(s.date) : new Date();
     const daySeed = puzzleNumber(date);
-    const mode = endlessMode ? 'endless' : 'daily';
+    const mode = endlessDebugMode === 'off' ? 'daily' : endlessDebugMode;
     // Load only what this game asks: the day's prompts, or the whole pool for Endless.
     const questions = mode === 'daily' ? source.daily(daySeed) : source.pool;
     const set = await source.load(questions);
     if (gen !== restartGen) return;
-    game = new Game(set, daySeed, { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect, mode });
+    game = new Game(set, daySeed, {
+      timer: s.timer,
+      unlimited: s.unlimited,
+      autocorrect: prefs.get().autocorrect,
+      mode,
+    });
     // Resume today's game after a reload, unless this is Endless, a debug mode, or an explicit debug restart.
     const depthDeepLink = DEBUG && new URLSearchParams(location.search).has('depth');
     persisting = canPersistDaily({ mode, unlimited: s.unlimited, timer: s.timer, date: s.date, scroll: s.mode === 'scroll' || depthDeepLink });
@@ -124,11 +131,11 @@ async function boot() {
     // Only a real daily game counts toward stats: the same rule as the save (Endless and every debug mode never do).
     const counted = game;
     hud.setGame(game, formatLocalDate(date), persisting ? () => finishDaily(storage, counted) : undefined);
-    hud.setEndlessToggle(DEBUG, endlessMode, (next) => {
-      endlessMode = next;
+    hud.setEndlessMode(DEBUG, endlessDebugMode, (next) => {
+      endlessDebugMode = next;
       restart();
     });
-    hud.setScrollMode(s.mode === 'scroll');
+    hud.setScrollMode(s.mode === 'scroll' || endlessDebugMode === 'true-endless');
     if (notice) hud.notify(notice.text, notice.kind);
     // Field Manual stamps record the day and the prompt being answered; a save it couldn't read is reported once.
     const stampGame = game;
@@ -141,7 +148,7 @@ async function boot() {
     if (manualNotice) hud.notify(manualNotice, 'error');
     scene.setTarget(game.depth, true);
     sound.setPuzzleSeed(daySeed);
-    sound.setLayer(mode === 'endless' ? 'internet' : layerAt(game.depth).id);
+    sound.setLayer(endlessDebugMode === 'true-endless' ? 'slab-spa' : mode === 'endless' ? 'internet' : layerAt(game.depth).id);
   };
 
   // A preference change applies to the game in progress; it never restarts the day.

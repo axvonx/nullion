@@ -2,7 +2,7 @@ import { enforce } from '../../core/enforce';
 import { layersFor, type LayerId, type StackMode } from '../../core/layers';
 import { gateFor } from '../../game/rarity';
 import { V4_LIBRARIES } from './libraries';
-import { placeBand, type LayerPlacement, type PlaceGeom, type Rect } from './place';
+import { placeBand, type FloorShape, type LayerPlacement, type PlaceGeom, type Rect } from './place';
 
 /** Rows the upper layer frays down over the lower one (same as art-detailed's SEAM_H; kept here so this stays DOM-free). */
 const SEAM_ROWS = 14;
@@ -65,6 +65,35 @@ function artKeepOut(id: LayerId, top: number, bottom: number, W: number): Rect[]
   }
 }
 
+/** Bounded floor shapes for interior/room layers so props & anchors sit on floors instead of floating. */
+function artFloors(id: LayerId, top: number, bottom: number, W: number): FloorShape[] | undefined {
+  if (id === 'slab-spa') {
+    const sTop = Math.max(top, bottom - 260);
+    const sBot = bottom - 6;
+    const H = Math.max(120, sBot - sTop);
+    const vy = R(sTop + H * 0.44);
+    const fov = Math.min(W * 0.72, 260);
+    const winL = Math.max(18, R(W * 0.08));
+    const winR = Math.min(W - 18, R(W * 0.92));
+    const winB = sBot - 14;
+    const roomHalfW = ((winR - winL) * 0.5) / fov;
+    const floorY = (winB - vy) / fov;
+    const zBack = 2.75;
+    const bx0 = R(W / 2 - (roomHalfW * fov) / zBack);
+    const bx1 = R(W / 2 + (roomHalfW * fov) / zBack);
+    const by1 = R(vy + (floorY * fov) / zBack);
+    return [
+      { kind: 'trapezoid', yTop: by1 + 4, yBottom: winB - 2, xTopLeft: bx0 + 4, xTopRight: bx1 - 4, xBottomLeft: winL + 4, xBottomRight: winR - 4 },
+      { kind: 'ledge', y: winB, xLeft: 4, xRight: W - 4 },
+    ];
+  }
+  if (id === 'kthread-kabin') {
+    const sBot = Math.min(bottom, top + 340) - 6;
+    return [{ kind: 'ledge', y: sBot - 16, xLeft: 8, xRight: W - 8 }];
+  }
+  return undefined;
+}
+
 /**
  * Uniform density by width. On a phone the reveal spans nearly the whole width, so the
  * scene behind them must be calmer everywhere (not just carved out behind the text): half density at phone
@@ -102,7 +131,13 @@ function buildGeom(spec: WorldSpecV4): PlaceGeom {
       const id = stack[i]!.id;
       // Below the top boundary the upper layer frays down over this one: entities start under the fray.
       const top = i > 0 ? b.top + SEAM_ROWS + 2 : b.top;
-      return { id, top, bottom: b.bottom, keepOut: [...b.keepOut, ...artKeepOut(id, b.top, b.bottom, spec.W)] };
+      return {
+        id,
+        top,
+        bottom: b.bottom,
+        keepOut: [...b.keepOut, ...artKeepOut(id, b.top, b.bottom, spec.W)],
+        floors: artFloors(id, b.top, b.bottom, spec.W),
+      };
     }),
   };
 }

@@ -69,6 +69,29 @@ describe('v4 world', () => {
     }
   });
 
+  it('places a valid true-endless world (Slab Spa + Kthread Kabin)', () => {
+    const W = 427;
+    const cx = Math.round(W / 2);
+    const s: WorldSpecV4 = {
+      mode: 'true-endless',
+      seed: 13,
+      scatterSeed: 77,
+      W,
+      bands: [
+        { top: -140, bottom: 370, keepOut: [] },
+        { top: 370, bottom: 740, keepOut: [] },
+      ],
+      cursorLane: [cx - 16, cx + 16],
+      panelLanes: [[cx - 88, cx + 88]],
+    };
+    const placed = placeForSpec(s);
+    expect(placed).toHaveLength(2);
+    for (let i = 0; i < placed.length; i++) {
+      expect(placed[i]!.near.some((e) => e.anchor)).toBe(true);
+      expect(placed[i]!.near.length).toBeGreaterThanOrEqual(4);
+    }
+  });
+
   it('every layer has a library of at least 20 entity types and an anchor', () => {
     for (const l of LAYERS) {
       expect(V4_LIBRARIES[l.id].near.length).toBeGreaterThanOrEqual(20);

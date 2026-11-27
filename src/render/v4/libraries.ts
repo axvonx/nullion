@@ -40,6 +40,7 @@ import {
   VMM,
   VMM_ANCHORS,
 } from './lib-endless';
+import { KTHREAD_KABIN, KTHREAD_KABIN_ANCHORS, SLAB_SPA, SLAB_SPA_ANCHORS } from './lib-true-endless';
 import { DRIVERS, DRIVERS_ANCHORS, FIRMWARE, FIRMWARE_ANCHORS, RING1, RING1_ANCHORS, RING2, RING2_ANCHORS, RING3, RING3_ANCHORS } from './lib-lower';
 import { KERNEL, KERNEL_ANCHORS, LIBRARIES, LIBRARIES_ANCHORS, USERSPACE, USERSPACE_ANCHORS } from './lib-mid';
 import { EXTRA_DAILY_TRINKETS } from './lib-trinkets';
@@ -100,6 +101,9 @@ const BASE_LIBRARIES: Record<LayerId, Library> = {
   litho: { near: LITHO, anchors: LITHO_ANCHORS, density: 2.8, anchorCount: 1, far: 0.2 },
   bandgap: { near: BANDGAP, anchors: BANDGAP_ANCHORS, density: 2.4, anchorCount: 1, far: 0.15 },
   landauer: { near: LANDAUER, anchors: LANDAUER_ANCHORS, density: 1.8, anchorCount: 1, far: 0 },
+  // True Endless — Worldbuilt Pocket-Universes
+  'slab-spa': { near: SLAB_SPA, anchors: SLAB_SPA_ANCHORS, density: 2.8, anchorCount: 1, far: 0 },
+  'kthread-kabin': { near: KTHREAD_KABIN, anchors: KTHREAD_KABIN_ANCHORS, density: 2.8, anchorCount: 1, far: 0 },
 };
 
 /** The final libraries: base props plus the Endless-only extras, so adjacent bands stop repeating donor props. */

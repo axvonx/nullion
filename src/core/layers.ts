@@ -6,8 +6,10 @@ export const PROMPTS_PER_DAY = 7;
 export const MAX_DEPTH = PROMPTS_PER_DAY * MAX_TIER_FRAMES; // 91
 /** The true physical bottom of Endless Mode (Landauer Limit: kT ln 2). */
 export const ENDLESS_MAX_DEPTH = 2500;
+/** Debug preview depth for the True Endless realms beyond the Landauer Limit. */
+export const TRUE_ENDLESS_MAX_DEPTH = 120;
 
-export type StackMode = 'daily' | 'endless';
+export type StackMode = 'daily' | 'endless' | 'true-endless';
 
 export type DailyLayerId =
   | 'application'
@@ -42,7 +44,9 @@ export type EndlessOnlyLayerId =
   | 'bandgap'
   | 'landauer';
 
-export type LayerId = DailyLayerId | EndlessOnlyLayerId;
+export type TrueEndlessLayerId = 'slab-spa' | 'kthread-kabin';
+
+export type LayerId = DailyLayerId | EndlessOnlyLayerId | TrueEndlessLayerId;
 
 export interface Layer {
   id: LayerId;
@@ -116,8 +120,17 @@ export const ENDLESS_LAYERS: readonly Layer[] = [
   { id: 'landauer', name: 'Landauer Limit', from: ENDLESS_MAX_DEPTH, boundary: 'kT ln 2' },
 ];
 
-/** All 29 unique layer IDs across Daily and Endless modes. */
-export const ALL_LAYER_IDS: readonly LayerId[] = ENDLESS_LAYERS.map((l) => l.id);
+/** True Endless realms (worldbuilt pocket-universes beyond the Landauer Limit). */
+export const TRUE_ENDLESS_LAYERS: readonly Layer[] = [
+  { id: 'slab-spa', name: '1994 · The Slab Spa', from: 0, boundary: '1994' },
+  { id: 'kthread-kabin', name: '1978 · The Kthread Kabin', from: 60, boundary: '1978' },
+];
+
+/** All unique layer IDs across Daily, Endless, and True Endless modes. */
+export const ALL_LAYER_IDS: readonly LayerId[] = [
+  ...ENDLESS_LAYERS.map((l) => l.id),
+  ...TRUE_ENDLESS_LAYERS.map((l) => l.id),
+];
 
 /** Canonical daily layer fallback for legacy v1/v2/v3 renderers or default audio/art inheritance. */
 export const DAILY_FALLBACK: Record<LayerId, DailyLayerId> = {
@@ -150,12 +163,14 @@ export const DAILY_FALLBACK: Record<LayerId, DailyLayerId> = {
   litho: 'ring-3',
   bandgap: 'ring-3',
   landauer: 'ring-3',
+  'slab-spa': 'libraries',
+  'kthread-kabin': 'kernel',
 };
 
-/** Expand a 10-entry Daily map into a complete 29-entry LayerId map using `DAILY_FALLBACK` + optional overrides. */
+/** Expand a 10-entry Daily map into a complete LayerId map using `DAILY_FALLBACK` + optional overrides. */
 export function expandLayerMap<T>(
   base: Record<DailyLayerId, T>,
-  overrides: Partial<Record<EndlessOnlyLayerId, T>> = {},
+  overrides: Partial<Record<EndlessOnlyLayerId | TrueEndlessLayerId, T>> = {},
 ): Record<LayerId, T> {
   const out = {} as Record<LayerId, T>;
   for (const id of ALL_LAYER_IDS) {
@@ -164,17 +179,19 @@ export function expandLayerMap<T>(
   return out;
 }
 
-for (const stack of [DAILY_LAYERS, ENDLESS_LAYERS]) {
+for (const stack of [DAILY_LAYERS, ENDLESS_LAYERS, TRUE_ENDLESS_LAYERS]) {
   for (let i = 1; i < stack.length; i++) {
     enforce(stack[i]!.from > stack[i - 1]!.from, 'layer thresholds must strictly increase');
   }
 }
 
 export function layersFor(mode: StackMode): readonly Layer[] {
+  if (mode === 'true-endless') return TRUE_ENDLESS_LAYERS;
   return mode === 'endless' ? ENDLESS_LAYERS : DAILY_LAYERS;
 }
 
 export function maxDepthFor(mode: StackMode): number {
+  if (mode === 'true-endless') return TRUE_ENDLESS_MAX_DEPTH;
   return mode === 'endless' ? ENDLESS_MAX_DEPTH : MAX_DEPTH;
 }
 

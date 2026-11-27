@@ -1,5 +1,7 @@
+import type { StackMode } from '../core/layers';
+
 export interface ShareInput {
-  mode: 'daily' | 'endless';
+  mode: StackMode;
   puzzle: number;
   /** "N frames · Layer" (Endless prefixes its own banner). */
   headline: string;
@@ -11,7 +13,7 @@ export interface ShareInput {
 
 /** The share text: `nullion #N`, the depth and layer line, the glyph row, then the site URL. */
 export function buildShareText(i: ShareInput): string {
-  const title = i.mode === 'endless' ? 'nullion endless' : `nullion #${i.puzzle}`;
+  const title = i.mode !== 'daily' ? 'nullion endless' : `nullion #${i.puzzle}`;
   return `${title}\n${i.headline}\n${i.glyphs}\n${i.url}`;
 }
 

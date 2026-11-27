@@ -1,6 +1,6 @@
 import { enforce } from '../core/enforce';
 import { formatCountdown, msUntilNextDay, puzzleNumber } from '../core/day';
-import { PROMPTS_PER_DAY, layerAt, layerIndexAt, layersFor, maxDepthFor, type Layer, type LayerId } from '../core/layers';
+import { PROMPTS_PER_DAY, TRUE_ENDLESS_LAYERS, layerAt, layerIndexAt, layersFor, maxDepthFor, type Layer, type LayerId } from '../core/layers';
 import type { CategoryEntry } from '../core/match';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS, READ_MS, type Game, type SubmitResult } from '../game/game';
@@ -14,7 +14,7 @@ import { answerSheet, answerUrl, questionUrl, type SheetGroup } from './answer-s
 import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
-import { LayerStack, createLayerBadge } from './layer-stack';
+import { LAYER_THEMES, LayerStack, createLayerBadge, makeLayerIcon } from './layer-stack';
 import { FieldManualModal, manualBookIcon } from './manual-modal';
 import { FieldManualBinder } from './binder/binder';
 import { manualStore } from '../game/manual';
@@ -73,6 +73,8 @@ export const LAYER_BLURBS: Record<LayerId, string> = {
   litho: '13.5nm EUV interference fringes etched into crystalline silicon',
   bandgap: 'Valence and conduction bands where electrons tunnel through barriers',
   landauer: 'The thermodynamic floor of computation: kT ln 2 per erased bit',
+  'slab-spa': '1994 · Misty cedar bathhouse of kmalloc caches, freelist pools & OOM steam vents',
+  'kthread-kabin': '1978 · Cozy timber cabin where off-duty kworkers chop workqueue logs by a softirq hearth',
 };
 
 /**
@@ -173,9 +175,10 @@ export class Hud {
       <canvas class="scene" aria-label="Your cursor descending through the software stack"></canvas>
       <header class="bar" data-el="bar">
         <span class="bar-left" data-el="barLeft"><span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span></span>
-        <span class="bar-right"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span><span class="chip depth float" data-el="depth"></span><button type="button" class="chip endless-btn float" data-el="endlessBtn" hidden aria-pressed="false" title="Toggle Endless Mode (3-strike watchdog descent)">Endless</button></span>
+        <span class="bar-right"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span><span class="chip depth float" data-el="depth"></span><select class="chip endless-select float" data-el="endlessSelect" hidden aria-label="Endless mode" title="Switch Daily / Endless / True Endless (debug)"><option value="off">Endless: Off</option><option value="endless">Endless: On</option><option value="true-endless">True Endless</option></select></span>
       </header>
       <div class="notice" data-el="notice" role="alert" hidden><span data-el="noticeText"></span><button type="button" data-el="noticeClose" aria-label="Dismiss">×</button></div>
+      <nav class="chip te-nav float" data-el="teNav" hidden aria-label="True Endless realms"></nav>
       <section class="title-screen" data-el="titleScreen" aria-label="Nullion" hidden>
         <div class="title-head" data-el="titleHead"></div>
         <div class="title-foot">
@@ -382,7 +385,7 @@ export class Hud {
     let scrollTarget = 0;
     const nudge = (d: number) => {
       const mode = this.game?.mode ?? 'daily';
-      const cap = maxDepthFor(mode) + (mode === 'endless' ? 60 : 4);
+      const cap = maxDepthFor(mode) + (mode === 'endless' ? 60 : mode === 'true-endless' ? 30 : 4);
       // Accumulate on scrollTarget so rapid wheel/trackpad flicks aren't swallowed by camera smoothing
       if (Math.abs(scrollTarget - scene.displayDepth) > (mode === 'endless' ? 220 : 24)) {
         scrollTarget = scene.displayDepth;
@@ -399,14 +402,14 @@ export class Hud {
         ev.preventDefault();
         const mode = this.game?.mode ?? 'daily';
         const mult = ev.shiftKey ? 3 : 1;
-        nudge((ev.deltaY / (mode === 'endless' ? 10 : 26)) * mult);
+        nudge((ev.deltaY / (mode === 'endless' ? 10 : mode === 'true-endless' ? 18 : 26)) * mult);
       },
       { passive: false },
     );
     window.addEventListener('keydown', (ev) => {
       if (!this.scrollMode || ev.target instanceof HTMLInputElement || ev.target instanceof HTMLSelectElement) return;
       const mode = this.game?.mode ?? 'daily';
-      const endless = mode === 'endless';
+      const endless = mode !== 'daily';
       if (ev.key === 'Home') {
         ev.preventDefault();
         scrollTarget = 0;
@@ -464,23 +467,51 @@ export class Hud {
     this.committedLayerIdx = layerIndexAt(g.depth, g.mode);
     this.layerStack.flushTo(g.depth, g.mode);
     this.syncSlots(g);
+    this.syncTrueEndlessNav(g.mode === 'true-endless');
     this.syncTitle();
   }
 
-  /** Wire the debug-build top-right "Endless" mode toggle button. */
-  setEndlessToggle(show: boolean, active: boolean, onToggle: (next: boolean) => void) {
-    const btn = this.els.endlessBtn as HTMLButtonElement | undefined;
-    if (!btn) return;
-    btn.hidden = !show;
-    btn.classList.toggle('active', active);
-    btn.setAttribute('aria-pressed', String(active));
-    btn.textContent = active ? 'Endless: ON' : 'Endless';
-    btn.onclick = () => onToggle(!active);
+  /** Populate the LHS True Endless realm navigator (small icons + on-hover names + click-to-scroll). */
+  private syncTrueEndlessNav(show: boolean) {
+    const nav = this.els.teNav as HTMLElement | undefined;
+    if (!nav) return;
+    nav.hidden = !show;
+    if (!show) return;
+    if (nav.childElementCount === 0) {
+      for (const l of TRUE_ENDLESS_LAYERS) {
+        const theme = LAYER_THEMES[l.id];
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'te-nav-btn';
+        btn.dataset.layer = l.id;
+        btn.setAttribute('aria-label', l.name);
+        btn.title = l.name;
+        btn.style.setProperty('--te-accent', theme.accent);
+        const icon = makeLayerIcon(theme);
+        const tip = document.createElement('span');
+        tip.className = 'te-nav-tip';
+        tip.textContent = l.name;
+        btn.append(icon, tip);
+        btn.onclick = () => this.scene?.setTarget(l.from + 2);
+        nav.append(btn);
+      }
+    }
+  }
+
+  /** Wire the debug-build top-right Endless mode dropdown (off / endless / true-endless). */
+  setEndlessMode(show: boolean, mode: 'off' | 'endless' | 'true-endless', onChange: (next: 'off' | 'endless' | 'true-endless') => void) {
+    const sel = this.els.endlessSelect as HTMLSelectElement | undefined;
+    if (!sel) return;
+    sel.hidden = !show;
+    sel.value = mode;
+    sel.classList.toggle('active', mode !== 'off');
+    sel.classList.toggle('true-endless', mode === 'true-endless');
+    sel.onchange = () => onChange(sel.value as 'off' | 'endless' | 'true-endless');
   }
 
   /** Render the 7 round score slots (Daily) or 3 watchdog strike fuses + round counter (Endless). */
   private syncSlots(g: Game) {
-    if (g.mode === 'endless') {
+    if (g.mode !== 'daily') {
       const sig = `endless|${g.strikes}|${g.rounds.length}`;
       if (sig === this.slotsSig) return;
       this.slotsSig = sig;
@@ -641,6 +672,12 @@ export class Hud {
     // In active play, hold the RHS stack during dives so newly reached layers appear in the reveal first, then fly over.
     if (this.scrollMode || this.demo || !this.game || this.game.phase.kind === 'ready') {
       this.layerStack.sync(depthShown, activeMode, { animate: !this.scrollMode, reduced: reducedMotion() });
+    }
+    if (activeMode === 'true-endless' && this.els.teNav && !this.els.teNav.hidden) {
+      const curId = layerAt(Math.max(0, depthShown), 'true-endless').id;
+      for (const btn of this.els.teNav.querySelectorAll<HTMLElement>('.te-nav-btn')) {
+        btn.classList.toggle('active', btn.dataset.layer === curId);
+      }
     }
     const frames = Math.round(depthShown);
     if (frames !== this.shownFrames) {
@@ -1230,14 +1267,14 @@ export class Hud {
     const mode = this.game?.mode ?? 'daily';
     const layerName = layerAt(depth, mode).name;
     const glyphs = rows.map((r) => (r.tier ? TIERS[r.tier].glyph : '⬛')).join('');
-    const headline = mode === 'endless' ? `KERNEL PANIC · ${framesLabel(depth)} · ${layerName}` : `${framesLabel(depth)} · ${layerName}`;
-    setText(this.els.puzzleNo!, mode === 'endless' ? 'ENDLESS' : `#${puzzle}`);
+    const headline = mode !== 'daily' ? `KERNEL PANIC · ${framesLabel(depth)} · ${layerName}` : `${framesLabel(depth)} · ${layerName}`;
+    setText(this.els.puzzleNo!, mode !== 'daily' ? 'ENDLESS' : `#${puzzle}`);
     setText(this.els.headline!, headline);
     this.shareText = buildShareText({
       mode,
       puzzle,
       headline,
-      glyphs: mode === 'endless' ? glyphs.slice(0, 42) : glyphs,
+      glyphs: mode !== 'daily' ? glyphs.slice(0, 42) : glyphs,
       url: siteUrl(location),
     });
     this.buildStats();

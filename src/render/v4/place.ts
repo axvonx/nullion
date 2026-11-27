@@ -27,6 +27,41 @@ export interface Rect {
   h: number;
 }
 
+/** A bounded floor shape that entities can be sampled onto (bottom edge sits on the floor). */
+export type FloorShape =
+  | { kind: 'ledge'; y: number; xLeft: number; xRight: number }
+  | { kind: 'trapezoid'; yTop: number; yBottom: number; xTopLeft: number; xTopRight: number; xBottomLeft: number; xBottomRight: number };
+
+function sampleOnFloors(
+  floors: readonly FloorShape[],
+  w: number,
+  h: number,
+  r1: number,
+  r2: number,
+  r3: number,
+): { x: number; y: number } | undefined {
+  const f = floors[Math.floor(r1 * floors.length)]!;
+  if (f.kind === 'ledge') {
+    const span = f.xRight - f.xLeft - w;
+    if (span < 0) return undefined;
+    return { x: Math.round(f.xLeft + r2 * span), y: Math.round(f.y - h) };
+  }
+  const fy = f.yTop + r2 * (f.yBottom - f.yTop);
+  const xl = f.xTopLeft + r2 * (f.xBottomLeft - f.xTopLeft);
+  const xr = f.xTopRight + r2 * (f.xBottomRight - f.xTopRight);
+  const span = xr - xl - w;
+  if (span < 0) return undefined;
+  return { x: Math.round(xl + r3 * span), y: Math.round(fy - h) };
+}
+
+function floorSpanWidth(floors: readonly FloorShape[]): number {
+  let sum = 0;
+  for (const f of floors) {
+    sum += f.kind === 'ledge' ? Math.max(0, f.xRight - f.xLeft) : Math.max(0, f.xBottomRight - f.xBottomLeft);
+  }
+  return sum;
+}
+
 export interface Placed {
   def: EntityDef;
   v: number;
@@ -62,6 +97,8 @@ export interface BandGeom {
   bottom: number;
   /** Hard keep-outs for this band (world rects): focal structures and floors (layer names are a faint watermark that props may cover, so they need none). */
   keepOut: Rect[];
+  /** Optional bounded floor shapes: when present, all near-plane anchors & scatter sit on these floors. */
+  floors?: readonly FloorShape[];
 }
 
 export interface PlaceGeom {
@@ -231,9 +268,18 @@ export function placeBand(
     const side = pool.filter((iv) => (lastSide < 0 ? iv[0] >= centre - 1 : iv[1] <= centre + 1));
     const ivs = side.length ? side : pool;
     for (let a = 0; a < 80; a++) {
-      const iv = ivs[Math.floor(anchorRand() * ivs.length)]!;
-      const x = Math.round(iv[0] + 1 + anchorRand() * (iv[1] - iv[0] - w - 2));
-      const y = Math.round(top + 6 + anchorRand() * (bandH - h - 12));
+      let x: number;
+      let y: number;
+      if (band.floors?.length) {
+        const pt = sampleOnFloors(band.floors, w, h, anchorRand(), anchorRand(), anchorRand());
+        if (!pt) continue;
+        x = pt.x;
+        y = pt.y;
+      } else {
+        const iv = ivs[Math.floor(anchorRand() * ivs.length)]!;
+        x = Math.round(iv[0] + 1 + anchorRand() * (iv[1] - iv[0] - w - 2));
+        y = Math.round(top + 6 + anchorRand() * (bandH - h - 12));
+      }
       const r = { x, y, w, h };
       if (!clear(r)) continue;
       add({
@@ -262,7 +308,8 @@ export function placeBand(
   const ownNear = present(band.id, lib.near);
   const up = upId ? { lib: libs[upId], near: present(upId, libs[upId].near) } : undefined;
   const down = downId ? { lib: libs[downId], near: present(downId, libs[downId].near) } : undefined;
-  const target = Math.max(4, Math.round((W * bandH * lib.density * (geom.densityScale ?? 1)) / 10000));
+  const rawTarget = Math.max(4, Math.round((W * bandH * lib.density * (geom.densityScale ?? 1)) / 10000));
+  const target = band.floors?.length ? Math.min(rawTarget, Math.max(4, Math.round(floorSpanWidth(band.floors) / 36))) : rawTarget;
   const used = new Map<string, number>();
   const blocked = new Set<string>();
   let scattered = 0;
@@ -273,17 +320,28 @@ export function placeBand(
     const dBot = bottom - yc;
     let src = lib;
     let pool = ownNear;
-    if (up && rand() < 0.5 * Math.max(0, 1 - dTop / BLEED)) ({ lib: src, near: pool } = up);
-    else if (down && rand() < 0.5 * Math.max(0, 1 - dBot / BLEED)) ({ lib: src, near: pool } = down);
+    if (!band.floors?.length) {
+      if (up && rand() < 0.5 * Math.max(0, 1 - dTop / BLEED)) ({ lib: src, near: pool } = up);
+      else if (down && rand() < 0.5 * Math.max(0, 1 - dBot / BLEED)) ({ lib: src, near: pool } = down);
+    }
     // A type that failed to fit repeatedly sits out for a while; the block clears every few hundred attempts.
     if (attempt % 300 === 299) blocked.clear();
     const def = pickType(rand, pool, used, blocked);
     if (!def) continue;
     const v = Math.floor(rand() * def.sizes.length);
     const [w, h] = def.sizes[v]!;
-    const x = Math.round(rand() * (W - w));
-    let y = Math.round(yc - h / 2);
-    if (src === lib && lib.floor?.ids.has(def.id)) y = bottom - lib.floor.offset - h;
+    let x: number;
+    let y: number;
+    if (band.floors?.length) {
+      const pt = sampleOnFloors(band.floors, w, h, rand(), rand(), rand());
+      if (!pt) continue;
+      x = pt.x;
+      y = pt.y;
+    } else {
+      x = Math.round(rand() * (W - w));
+      y = Math.round(yc - h / 2);
+      if (src === lib && lib.floor?.ids.has(def.id)) y = bottom - lib.floor.offset - h;
+    }
     const r = { x, y, w, h };
     let ok = clear(r);
     if (ok && geom.panelLanes.some((l) => inLane(x, w, l))) ok = !def.text && w * h <= SMALL_AREA;

@@ -65,6 +65,8 @@ const FOG: Record<LayerId, RGB> = {
   litho: [8, 4, 18],
   bandgap: [3, 4, 10],
   landauer: [3, 4, 10],
+  'slab-spa': [24, 52, 54],
+  'kthread-kabin': [26, 16, 12],
 };
 
 let mode: PaletteMode = 'full';
@@ -684,6 +686,30 @@ function landauer(ctx: Ctx, b: Band) {
   entities(ctx, b, 'landauer');
 }
 
+function slabSpa(ctx: Ctx, b: Band) {
+  use('slab-spa', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#1e3c3e');
+  vgrad(ctx, b, b.top, b.bottom + SEAM_H, [
+    [0, 'rgba(168,240,234,0.2)'],
+    [0.55, 'rgba(42,92,94,0.12)'],
+    [1, 'rgba(120,66,38,0.22)'],
+  ]);
+  entities(ctx, b, 'slab-spa');
+}
+
+function kthreadKabin(ctx: Ctx, b: Band) {
+  use('kthread-kabin', b);
+  const [y0, y1] = vis(b);
+  rect(ctx, 0, y0, b.w, y1 - y0, '#1c100a');
+  vgrad(ctx, b, b.top, b.bottom + SEAM_H, [
+    [0, 'rgba(42,68,94,0.25)'],
+    [0.5, 'rgba(120,66,34,0.16)'],
+    [1, 'rgba(232,104,32,0.2)'],
+  ]);
+  entities(ctx, b, 'kthread-kabin');
+}
+
 export const LAYER_ART_V4: Record<LayerId, Art> = {
   internet,
   browser,
@@ -714,4 +740,6 @@ export const LAYER_ART_V4: Record<LayerId, Art> = {
   litho,
   bandgap,
   landauer,
+  'slab-spa': slabSpa,
+  'kthread-kabin': kthreadKabin,
 };

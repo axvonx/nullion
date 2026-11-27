@@ -7,6 +7,7 @@ import {
   type Layer,
   type LayerId,
   type StackMode,
+  type TrueEndlessLayerId,
 } from '../core/layers';
 import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from '../render/v4/watermark';
 
@@ -221,7 +222,7 @@ const DAILY_THEMES: Record<DailyLayerId, LayerTheme> = {
   },
 };
 
-const ENDLESS_OVERRIDES: Partial<Record<EndlessOnlyLayerId, LayerTheme>> = {
+const ENDLESS_OVERRIDES: Partial<Record<EndlessOnlyLayerId | TrueEndlessLayerId, LayerTheme>> = {
   internet: {
     accent: '#7cd4ff',
     hi: '#ffffff',
@@ -386,6 +387,42 @@ const ENDLESS_OVERRIDES: Partial<Record<EndlessOnlyLayerId, LayerTheme>> = {
     anim: 'beat',
     icon: DAILY_THEMES['ring-3'].icon,
   },
+  'slab-spa': {
+    accent: '#5cc8c0',
+    hi: '#d4f5f0',
+    tint: 'rgba(92, 200, 192, 0.16)',
+    border: 'rgba(92, 200, 192, 0.44)',
+    anim: 'pulse',
+    icon: [
+      '  +   +  ',
+      '   +   + ',
+      '         ',
+      '#########',
+      '#+++++++#',
+      '#+#+++#+#',
+      '#########',
+      ' #     # ',
+      '#########',
+    ],
+  },
+  'kthread-kabin': {
+    accent: '#e88438',
+    hi: '#fff4b8',
+    tint: 'rgba(232, 132, 56, 0.16)',
+    border: 'rgba(232, 132, 56, 0.44)',
+    anim: 'blink',
+    icon: [
+      '    #    ',
+      '   ###   ',
+      '  #####  ',
+      ' ####### ',
+      '#########',
+      ' #     # ',
+      ' # +++ # ',
+      ' # +#+ # ',
+      ' ####### ',
+    ],
+  },
 };
 
 export const LAYER_THEMES: Record<LayerId, LayerTheme> = expandLayerMap(DAILY_THEMES, ENDLESS_OVERRIDES);
@@ -400,7 +437,7 @@ const IMPACT_MS = 230;
 const TIP_SHOW_DELAY_MS = 320;
 const TIP_HOLD_MS = 3400;
 
-function makeIcon(theme: LayerTheme): SVGSVGElement {
+export function makeLayerIcon(theme: LayerTheme): SVGSVGElement {
   const ns = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(ns, 'svg');
   svg.setAttribute('viewBox', '0 0 9 9');
@@ -482,7 +519,7 @@ export function createLayerBadge(layer: Layer): HTMLElement {
   el.style.setProperty('--ls-border', theme.border);
   const inner = document.createElement('div');
   inner.className = 'ls-inner';
-  inner.append(makeIcon(theme));
+  inner.append(makeLayerIcon(theme));
   inner.append(makeBitmapLabel(layer.name));
   el.append(inner);
   return el;
@@ -502,7 +539,7 @@ function makeBlock(layer: Layer, blurb?: string): HTMLLIElement {
 
   const inner = document.createElement('div');
   inner.className = 'ls-inner';
-  inner.append(makeIcon(theme));
+  inner.append(makeLayerIcon(theme));
   inner.append(makeBitmapLabel(layer.name));
   li.append(inner);
 

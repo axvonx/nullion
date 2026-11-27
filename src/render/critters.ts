@@ -91,6 +91,8 @@ export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = {
   litho: [MotionType.Fly, MotionType.Float],
   bandgap: [MotionType.Float, MotionType.Grid],
   landauer: [MotionType.Float],
+  'slab-spa': [MotionType.Float, MotionType.Hop],
+  'kthread-kabin': [MotionType.Hop, MotionType.Perch],
 };
 
 /**
@@ -202,6 +204,8 @@ const COUNT_BY_LAYER: Record<LayerId, number> = {
   litho: 3,
   bandgap: 3,
   landauer: 2,
+  'slab-spa': 3,
+  'kthread-kabin': 3,
 };
 
 const EXIT_LABELS: Record<LayerId, readonly string[]> = {
@@ -234,6 +238,8 @@ const EXIT_LABELS: Record<LayerId, readonly string[]> = {
   litho: ['diffracted', 'etched'],
   bandgap: ['tunneled!', 'recombined'],
   landauer: ['kT ln 2', 'erased'],
+  'slab-spa': ['kmalloc', 'steamed'],
+  'kthread-kabin': ['kworker', 'wake!'],
 };
 
 const R = Math.round;
@@ -244,8 +250,8 @@ const R = Math.round;
  */
 function bandWorldRange(layerId: LayerId, b: Band): { minY: number; maxY: number } {
   const rawBottom = b.worldTop + (b.bottom - b.top);
-  const isTopOpen = layerId === 'application' || layerId === 'internet';
-  const isBotOpen = layerId === 'ring-3' || layerId === 'landauer';
+  const isTopOpen = layerId === 'application' || layerId === 'internet' || layerId === 'slab-spa';
+  const isBotOpen = layerId === 'ring-3' || layerId === 'landauer' || layerId === 'kthread-kabin';
   const minY = isTopOpen ? Math.max(b.worldTop + 26, -60) : b.worldTop + SEAM_H + 16;
   const maxY = isBotOpen ? Math.min(rawBottom - 16, b.worldTop + 340) : rawBottom - 16;
   return { minY, maxY: Math.max(minY + 40, maxY) };
@@ -1126,6 +1132,27 @@ export class CritterSystem {
         px(0, 0, 6, 6, '#aaaaaa');
         px(2, 1, bit ? 2 : 3, 4, '#ffffff');
         if (!bit) px(3, 2, 1, 2, ink);
+        break;
+      }
+      case 'slab-spa': {
+        // Steamy turquoise Bubble Slime
+        const bob = Math.floor(t * 4 + c.phase) % 2;
+        px(1, 0 + bob, 4, 1, '#d4f5f0');
+        px(0, 1, 6, 5, '#5cc8c0');
+        px(1, 1, 4, 2, '#a8f0ea');
+        px(1, 3, 1, 1, ink);
+        px(4, 3, 1, 1, ink);
+        break;
+      }
+      case 'kthread-kabin': {
+        // Cozy hooded Cabin Sprite
+        const hop = perched ? 0 : Math.floor(t * 6 + c.phase) % 2;
+        px(1, 0 - hop, 4, 2, '#e86820');
+        px(0, 2 - hop, 6, 4, '#c87e4b');
+        px(1, 3 - hop, 1, 1, ink);
+        px(4, 3 - hop, 1, 1, ink);
+        px(1, 5, 1, 1, '#784222');
+        px(4, 5, 1, 1, '#784222');
         break;
       }
       default:

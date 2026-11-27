@@ -5,7 +5,7 @@ import { layoutName, lineWidth } from './watermark';
 describe('layer-name watermark', () => {
   // The narrowest real scene is a 320px phone at 2 px per scene pixel: 160 wide.
   it('has a glyph for every layer name and fits it at phone and desktop widths', () => {
-    for (const mode of ['daily', 'endless'] as const)
+    for (const mode of ['daily', 'endless', 'true-endless'] as const)
       for (const l of layersFor(mode))
         for (const maxW of [160, 195, 330, 640]) {
           const lay = layoutName(l.name, Math.round(maxW * 0.9));

@@ -106,8 +106,8 @@ function giantCog(ctx: Ctx, cx: number, cy: number, rad: number, ang: number, bo
 
 /** Safe visible vertical bounds inside a band (clamped for open-ended top/bottom bands). */
 function bandSpan(b: Band, id: LayerId): { top: number; bot: number; mid: number; h: number } {
-  const isTop = id === 'application' || id === 'internet';
-  const isBot = id === 'ring-3' || id === 'landauer';
+  const isTop = id === 'application' || id === 'internet' || id === 'slab-spa';
+  const isBot = id === 'ring-3' || id === 'landauer' || id === 'kthread-kabin';
   const top = isTop ? Math.max(b.top, b.bottom - 260) : b.top + 14;
   const bot = isBot ? Math.min(b.bottom, b.top + 340) : b.bottom - 6;
   const h = Math.max(120, bot - top);
@@ -1449,6 +1449,240 @@ function drawSetpieceBase(ctx: Ctx, b: Band, id: LayerId, t: number) {
       }
       break;
     }
+    case 'slab-spa': {
+      // Looking straight in through a wide cedar-and-stone window into a 1-point perspective 3D spa room:
+      // stone fireplace in the center back, recessed steaming pool in the middle, lounge chairs off to the sides,
+      // and a flat foreground sill/floor so props & critters still sit/bounce straight-on.
+      const vy = R(top + H * 0.44);
+      const fov = Math.min(W * 0.72, 260);
+      const proj = (x3: number, y3: number, z3: number): [number, number] => [
+        R(cx + (x3 * fov) / z3),
+        R(vy + (y3 * fov) / z3),
+      ];
+      // Outer misty stone wall with staggered ashlar courses around the window
+      rect(ctx, 0, top, W, H, '#182b2e');
+      for (let sy = top; sy < bot; sy += 10) {
+        rect(ctx, 0, sy, W, 1, '#101d20');
+        const off = ((sy - top) / 10) % 2 === 0 ? 0 : 12;
+        for (let sx = off; sx < W; sx += 24) {
+          rect(ctx, sx, sy + 1, 1, 9, '#101d20');
+          rect(ctx, sx + 1, sy + 1, 22, 1, '#233b3f');
+        }
+      }
+      const winL = Math.max(18, R(W * 0.08));
+      const winR = Math.min(W - 18, R(W * 0.92));
+      const winT = top + 12;
+      const winB = bot - 14;
+      const winW = winR - winL;
+      const winH = winB - winT;
+
+      // 3D room bounds in world units at z=1 (window plane) -> z=2.75 (back wall)
+      const roomHalfW = (winW * 0.5) / fov;
+      const ceilY = (winT - vy) / fov;
+      const floorY = (winB - vy) / fov;
+      const zBack = 2.75;
+      const [bx0, by0] = proj(-roomHalfW, ceilY, zBack);
+      const [bx1, by1] = proj(roomHalfW, floorY, zBack);
+
+      // Side walls (warm cedar), ceiling (deep timber), floor (slate/terracotta)
+      rect(ctx, winL, winT, winW, winH, '#5c341c');
+      // Perspective ceiling rafters & floor slate courses (clamped to window opening)
+      for (let y = winT; y < by0; y++) {
+        const z = (ceilY * fov) / Math.min(-1, y - vy);
+        const xl = Math.max(winL, R(cx - roomHalfW * (fov / z)));
+        const xr = Math.min(winR, R(cx + roomHalfW * (fov / z)));
+        const beam = Math.floor(z * 4) % 2 === 0;
+        rect(ctx, xl, y, xr - xl, 1, beam ? '#4a2612' : '#351a0c');
+      }
+      for (const rx of [-0.65, -0.32, 0, 0.32, 0.65]) {
+        const [x0, y0] = proj(rx * roomHalfW, ceilY, 1.0);
+        const [x1, y1] = proj(rx * roomHalfW, ceilY, zBack);
+        line(ctx, x0, y0, x1, y1, '#683619');
+      }
+      for (let y = by1; y < winB; y++) {
+        const z = (floorY * fov) / Math.max(1, y - vy);
+        const xl = Math.max(winL, R(cx - roomHalfW * (fov / z)));
+        const xr = Math.min(winR, R(cx + roomHalfW * (fov / z)));
+        const band = Math.floor(z * 5) % 2 === 0;
+        rect(ctx, xl, y, xr - xl, 1, band ? '#4d5b60' : '#3e4a4f');
+        if (Math.abs((z * 5) % 1) < 0.08) rect(ctx, xl, y, xr - xl, 1, '#2a3336');
+      }
+      // Perspective floor tile seams + subtle top-left tile highlights
+      for (let gx = -3; gx <= 3; gx++) {
+        const [x0, y0] = proj((gx * roomHalfW) / 3, floorY, 1.0);
+        const [x1, y1] = proj((gx * roomHalfW) / 3, floorY, zBack);
+        line(ctx, x0, y0, x1, y1, '#2a3336');
+        line(ctx, x0 + 1, y0, x1 + 1, y1, '#5b6b70');
+      }
+      // Side wall tongue-and-groove cedar slats & wainscoting rail
+      for (const s of [-1, 1]) {
+        const [wx0, wy0] = proj(s * roomHalfW, floorY * 0.35, 1.0);
+        const [wx1, wy1] = proj(s * roomHalfW, floorY * 0.35, zBack);
+        line(ctx, wx0, wy0, wx1, wy1, '#8f502a');
+        line(ctx, wx0, wy0 + 1, wx1, wy1 + 1, '#3b2112');
+        for (const z of [1.25, 1.55, 1.9, 2.3]) {
+          const [sx, syTop] = proj(s * roomHalfW, ceilY, z);
+          const [, syBot] = proj(s * roomHalfW, floorY, z);
+          line(ctx, sx, syTop, sx, syBot, '#432412');
+        }
+      }
+
+      // Back wall (warm plaster + timber framing, sauna door on left, towel alcove on right)
+      rect(ctx, bx0, by0, bx1 - bx0, by1 - by0, '#7a4a2b');
+      rect(ctx, bx0, by0, bx1 - bx0, 3, '#a86234');
+      rect(ctx, bx0, by0 + 3, bx1 - bx0, 1, '#58321b');
+      rect(ctx, bx0, by1 - 3, bx1 - bx0, 3, '#3b2112');
+      // Subtle plaster texture flecks on back wall
+      for (let py = by0 + 8; py < by1 - 6; py += 6) {
+        for (let pxPos = bx0 + 8; pxPos < bx1 - 8; pxPos += 14) {
+          if (hash(pxPos * 7 + py * 13) > 0.5) px(ctx, pxPos, py, '#6a3e22');
+        }
+      }
+      // Cedar sauna door on the left side of the back wall
+      const doorW = Math.max(12, R((bx1 - bx0) * 0.14));
+      const doorH = Math.max(18, R((by1 - by0) * 0.68));
+      const doorX = bx0 + Math.max(6, R((bx1 - bx0) * 0.08));
+      const doorY = by1 - doorH;
+      if (doorX + doorW < cx - R((bx1 - bx0) * 0.18)) {
+        rect(ctx, doorX - 1, doorY - 1, doorW + 2, doorH + 1, '#3b2112');
+        rect(ctx, doorX, doorY, doorW, doorH, '#9c5a30');
+        rect(ctx, doorX + 1, doorY + 1, doorW - 2, 1, '#c87e4b');
+        rect(ctx, doorX + 3, doorY + 3, doorW - 6, Math.max(5, R(doorH * 0.3)), '#ffd080'); // frosted sauna window
+        rect(ctx, doorX + doorW - 3, doorY + R(doorH * 0.55), 2, 2, '#f0d8a0'); // brass handle
+      }
+      // Recessed towel & sconce niche on the right side of the back wall
+      const nicheX = bx1 - Math.max(6, R((bx1 - bx0) * 0.08)) - doorW;
+      if (nicheX > cx + R((bx1 - bx0) * 0.18)) {
+        rect(ctx, nicheX, doorY + 4, doorW, Math.max(10, R(doorH * 0.48)), '#3b2112');
+        rect(ctx, nicheX + 1, doorY + 5, doorW - 2, Math.max(8, R(doorH * 0.48) - 2), '#58321b');
+        rect(ctx, nicheX + 2, doorY + 8, doorW - 4, 2, '#e8f4f2');
+        rect(ctx, nicheX + 2, doorY + 12, doorW - 4, 2, '#9ad9d4');
+      }
+
+      // Center fireplace on the back wall: detailed ashlar stone, mantle, iron grate, logs & hearth apron
+      const fw = Math.max(26, R((bx1 - bx0) * 0.28));
+      const fh = Math.max(26, R((by1 - by0) * 0.64));
+      const fx = R(cx - fw / 2);
+      const fy = by1 - fh;
+      const chimW = R(fw * 0.56);
+      rect(ctx, cx - R(chimW / 2), by0, chimW, fy - by0 + 2, '#585e66');
+      rect(ctx, cx - R(chimW / 2), by0, 2, fy - by0 + 2, '#727a82');
+      rect(ctx, fx, fy, fw, fh, '#636b73'); // stone surround
+      // Ashlar stone course lines & top-left stone highlights
+      for (let sy = fy; sy < by1; sy += 5) {
+        rect(ctx, fx, sy, fw, 1, '#444a50');
+        rect(ctx, fx + 1, sy + 1, fw - 2, 1, '#828b94');
+      }
+      rect(ctx, fx - 2, fy + 6, fw + 4, 3, '#a86234'); // cedar mantle
+      rect(ctx, fx - 2, fy + 6, fw + 4, 1, '#d8945e'); // mantle highlight
+      rect(ctx, fx + 4, fy + 10, fw - 8, fh - 10, '#2b3036'); // inner stone arch
+      rect(ctx, fx + 5, fy + 11, fw - 10, fh - 11, '#140c08'); // firebox
+      rect(ctx, fx + 7, by1 - 6, fw - 14, 2, '#585258'); // iron grate bar
+      rect(ctx, fx + 8, by1 - 4, fw - 16, 3, '#784222'); // cedar logs
+      rect(ctx, fx + 7, by1 - 3, fw - 14, 2, '#e86820'); // glowing coals
+      // Raised hearthstone apron & warm reflected light on the back floor
+      rect(ctx, fx - 2, by1, fw + 4, 3, '#8f98a0');
+      rect(ctx, fx - 2, by1, fw + 4, 1, '#cfd6dc');
+      rect(ctx, fx + 1, by1 + 3, fw - 2, 4, '#6e4c36');
+
+      // Recessed steaming spa pool in the middle of the 3D floor (z = 1.48 -> 2.32)
+      for (let z = 1.48; z <= 2.32; z += 0.03) {
+        const [pl, py] = proj(-roomHalfW * 0.42, floorY, z);
+        const [pr] = proj(roomHalfW * 0.42, floorY, z);
+        const rim = z < 1.56 || z > 2.24;
+        rect(ctx, pl, py, pr - pl, 2, rim ? '#8f98a0' : '#3baea8');
+        if (rim) {
+          rect(ctx, pl, py, 3, 2, '#cfd6dc');
+          rect(ctx, pr - 3, py, 3, 2, '#585e66');
+        } else {
+          rect(ctx, pl + 4, py, Math.max(2, pr - pl - 8), 1, '#5cc8c0');
+          if (R(z * 20) % 3 === 0) rect(ctx, pl + 8, py, Math.max(2, R((pr - pl) * 0.3)), 1, '#a8f0ea');
+        }
+      }
+      // Front vertical stone coping of the pool with block joints
+      const [lipL, lipY] = proj(-roomHalfW * 0.42, floorY, 1.48);
+      const [lipR] = proj(roomHalfW * 0.42, floorY, 1.48);
+      rect(ctx, lipL, lipY, lipR - lipL, 4, '#cfd6dc');
+      rect(ctx, lipL, lipY + 4, lipR - lipL, 3, '#585e66');
+      for (let bx = lipL + 10; bx < lipR - 6; bx += 14) rect(ctx, bx, lipY, 1, 7, '#444a50');
+
+      // Lounge chairs off to the left and right sides in 3D perspective (z = 1.55 -> 2.15)
+      for (const side of [-1, 1]) {
+        for (let step = 0; step < 5; step++) {
+          const z = 1.55 + step * 0.13;
+          const xIn = side * roomHalfW * 0.54;
+          const xOut = side * roomHalfW * 0.86;
+          const [c0, cy0] = proj(Math.min(xIn, xOut), floorY, z);
+          const [c1] = proj(Math.max(xIn, xOut), floorY, z);
+          const seatY = cy0 - 5;
+          rect(ctx, c0 + 1, cy0 - 1, Math.max(2, c1 - c0 - 2), 2, '#222a2e'); // floor shadow
+          rect(ctx, c0, seatY, c1 - c0, 3, '#c87e4b'); // cedar slat
+          rect(ctx, c0, seatY, c1 - c0, 1, '#e6a670'); // top-left slat bevel
+          rect(ctx, c0 + 2, seatY - 1, Math.max(2, c1 - c0 - 4), 1, '#e8f4f2'); // spa towel
+          if (step === 0 || step === 4) {
+            rect(ctx, c0 + 1, seatY + 3, 2, 3, '#683619');
+            rect(ctx, c1 - 3, seatY + 3, 2, 3, '#683619');
+          }
+          if (step >= 3) {
+            // Slatted backrest + rolled towel cushion
+            rect(ctx, c0, seatY - 7, c1 - c0, 6, '#a86234');
+            rect(ctx, c0 + 1, seatY - 6, Math.max(2, c1 - c0 - 2), 4, '#d4f5f0');
+            if (step === 4) rect(ctx, c0 + 2, seatY - 8, Math.max(2, c1 - c0 - 4), 2, '#ffffff');
+          }
+        }
+      }
+
+      // Cedar window frame, corner brackets, mullions & flat foreground sill (for bouncing blobs & props)
+      frame(ctx, winL - 2, winT - 2, winW + 4, winH + 4, '#2d1c14');
+      rect(ctx, winL - 4, winT - 5, winW + 8, 5, '#8f502a');
+      rect(ctx, winL - 4, winT - 5, winW + 8, 1, '#c87e4b');
+      // Corner mortise brackets & wood grain ticks
+      for (const [bx, by] of [[winL - 2, winT - 2], [winR - 4, winT - 2], [winL - 2, winB - 4], [winR - 4, winB - 4]] as const) {
+        rect(ctx, bx, by, 6, 6, '#683619');
+        rect(ctx, bx + 1, by + 1, 2, 2, '#c87e4b');
+      }
+      // Subtle vertical mullions near edges so center stays open
+      rect(ctx, winL + R(winW * 0.22), winT, 3, winH, '#4a2612');
+      rect(ctx, winL + R(winW * 0.22), winT, 1, winH, '#8f502a');
+      rect(ctx, winR - R(winW * 0.22) - 3, winT, 3, winH, '#4a2612');
+      rect(ctx, winR - R(winW * 0.22) - 3, winT, 1, winH, '#8f502a');
+      // Subtle misty condensation glints in upper window corners
+      rect(ctx, winL + 4, winT + 4, 6, 1, '#a8f0ea');
+      rect(ctx, winL + 4, winT + 6, 3, 1, '#a8f0ea');
+      rect(ctx, winR - 10, winT + 4, 6, 1, '#a8f0ea');
+      // Flat foreground window sill / floor ledge
+      rect(ctx, 0, winB, W, bot - winB + 6, '#7a4221');
+      rect(ctx, 0, winB, W, 2, '#c87e4b');
+      rect(ctx, 0, winB + 2, W, 1, '#4a2612');
+      break;
+    }
+    case 'kthread-kabin': {
+      // Full-bleed timber-frame cabin interior with pitched rafters, frosted forest window & stone hearth
+      rect(ctx, 0, top, W, H, '#24140c');
+      for (let y = top + 10; y < bot - 18; y += 12) {
+        rect(ctx, 0, y, W, 10, '#683619');
+        rect(ctx, 0, y, W, 2, '#8f502a');
+      }
+      // Timber beams
+      for (const bx of [18, cx - 84, cx + 74, W - 28]) {
+        rect(ctx, bx, top + 4, 10, H - 14, '#4a2410');
+        rect(ctx, bx, top + 4, 2, H - 14, '#a86234');
+      }
+      // Frosted pine-woods window on left
+      rect(ctx, cx - 64, top + 34, 42, 34, '#24140c');
+      rect(ctx, cx - 60, top + 38, 34, 26, '#2a4a68');
+      rect(ctx, cx - 44, top + 38, 2, 26, '#8f502a');
+      rect(ctx, cx - 60, top + 50, 34, 2, '#8f502a');
+      // Stone chimney & hearth on right
+      rect(ctx, cx + 22, top + 12, 40, H - 22, '#585e66');
+      rect(ctx, cx + 24, top + 12, 36, H - 22, '#727a82');
+      rect(ctx, cx + 30, bot - 44, 24, 34, '#140c08');
+      rect(ctx, cx + 34, bot - 22, 16, 10, '#e86820');
+      // Plank floor
+      rect(ctx, 0, bot - 16, W, 16, '#4a2410');
+      rect(ctx, 0, bot - 16, W, 2, '#a86234');
+      break;
+    }
   }
 }
 
@@ -1685,6 +1919,40 @@ function drawSetpieceDetail(ctx: Ctx, b: Band, id: LayerId, t: number) {
         if (Math.floor(t * 0.8 + k * 2.1) % 4 === 0) {
           rect(ctx, hash(k * 41 + 1) * W, top + hash(k * 43 + 2) * H, 2, 2, '#aaaaaa');
         }
+      }
+      break;
+    case 'slab-spa': {
+      // Animated hearth fire in the center back + multi-layered curling steam puffs over the 3D pool
+      const vy = R(top + H * 0.44);
+      const fov = Math.min(W * 0.72, 260);
+      const winT = top + 12;
+      const winB = bot - 14;
+      const winW = Math.min(W - 18, R(W * 0.92)) - Math.max(18, R(W * 0.08));
+      const floorY = (winB - vy) / fov;
+      const by1 = R(vy + (floorY * fov) / 2.75);
+      const flicker = Math.floor(t * 7) % 3;
+      rect(ctx, cx - 5 + flicker, by1 - 12, 8, 7, '#ffb84d');
+      rect(ctx, cx - 3 + (flicker % 2), by1 - 10, 4, 4, '#fff4b8');
+      if (winW > 80) {
+        const poolBaseY = R(vy + (floorY * fov) / 1.85);
+        for (let k = 0; k < 10; k++) {
+          const life = mod(t * 0.45 + k * 0.37, 1);
+          const sy = poolBaseY - 2 - R(life * 28);
+          if (sy <= winT + 6) continue;
+          const sway = R(Math.sin(t * 2.2 + k * 1.7 + life * 4) * 3);
+          const sx = cx - 42 + ((k * 19) % 84) + sway;
+          const w = life < 0.3 ? 4 : life < 0.7 ? 3 : 1;
+          const col = life < 0.45 ? '#d4f5f0' : '#9ad9d4';
+          rect(ctx, sx, sy, w, 1, col);
+          if (life < 0.6) rect(ctx, sx + 1, sy - 1, Math.max(1, w - 1), 1, '#a8f0ea');
+        }
+      }
+      break;
+    }
+    case 'kthread-kabin':
+      for (let k = 0; k < 5; k++) {
+        const ey = bot - 22 - Math.floor(mod(t * 9 + k * 4, 16));
+        rect(ctx, cx + 36 + ((k * 5 + Math.floor(t * 3)) % 12), ey, 2, 2, k % 2 ? '#fff4b8' : '#ffb84d');
       }
       break;
     default:

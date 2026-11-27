@@ -32,7 +32,7 @@ const TOP_PAD = 40;
  * layer still reads as a place and a 105-frame Endless layer doesn't drag on.
  */
 const LAYER_BASE_H = 160;
-const LAYER_PER_FRAME_H: Record<StackMode, number> = { daily: 8, endless: 2.2 };
+const LAYER_PER_FRAME_H: Record<StackMode, number> = { daily: 8, endless: 2.2, 'true-endless': 3.5 };
 
 function buildLayerY(mode: StackMode): number[] {
   const stack = layersFor(mode);
@@ -49,10 +49,13 @@ function buildLayerY(mode: StackMode): number[] {
 const LAYER_Y_BY_MODE: Record<StackMode, number[]> = {
   daily: buildLayerY('daily'),
   endless: buildLayerY('endless'),
+  'true-endless': buildLayerY('true-endless'),
 };
 const KERNEL_INDEX_BY_MODE: Record<StackMode, number> = {
   daily: layersFor('daily').findIndex((l) => l.id === 'kernel'),
   endless: layersFor('endless').findIndex((l) => l.id === 'kernel-entry'),
+  // Cozy pocket universes: no kernel rain or auto scanlines.
+  'true-endless': Infinity,
 };
 
 /** World y of a depth in frames: piecewise linear through the layer thresholds. Dives, camera and deep links all use it. */
@@ -61,7 +64,7 @@ export function worldY(depth: number, mode: StackMode = 'daily'): number {
   const ys = LAYER_Y_BY_MODE[mode];
   const i = layerIndexAt(Math.max(0, depth), mode);
   const l = stack[i]!;
-  if (i === stack.length - 1) return ys[i]! + (depth - l.from) * (mode === 'endless' ? 6 : PX);
+  if (i === stack.length - 1) return ys[i]! + (depth - l.from) * (mode === 'daily' ? PX : 6);
   const span = stack[i + 1]!.from - l.from;
   return ys[i]! + ((depth - l.from) / span) * (ys[i + 1]! - ys[i]!);
 }
@@ -156,6 +159,8 @@ const CROSS_FX: Record<string, CrossFx> = {
   'μop': 'onebit',
   posedge: 'onebit',
   'kT ln 2': 'onebit',
+  '1994': 'tear',
+  '1978': 'tear',
 };
 for (const l of ENDLESS_LAYERS) if (l.boundary) enforce(CROSS_FX[l.boundary], `no crossing effect for boundary '${l.boundary}'`);
 const CROSS_MS: Record<CrossFx, number> = { tear: 380, mirror: 650, freeze: 420, onebit: 520 };
@@ -964,7 +969,9 @@ export class Scene {
       // Crossing a boundary plays its effect: tearing at syscall, a mirror shimmer at VM exit, a freeze-frame at
       // SMI, the drop into 1-bit at ME. Every boundary label must have an entry in CROSS_FX.
       const crossed = stack[Math.max(layerIdx, this.lastLayer)]!;
-      const fx: CrossFx | undefined = crossed.boundary ? CROSS_FX[crossed.boundary] : undefined;
+      const fx: CrossFx | undefined = crossed.boundary
+        ? (CROSS_FX[crossed.boundary] ?? (this.stackMode === 'true-endless' ? 'tear' : undefined))
+        : undefined;
       if (crossed.boundary) enforce(fx, `no crossing effect for boundary '${crossed.boundary}'`);
       if (!reduced && look('tearing') === 'on') {
         if (fx === 'tear' || fx === undefined) {

@@ -98,10 +98,10 @@ export class Game {
    */
   rev = 0;
 
-  /** Rolling shuffle-bag for Endless mode so prompts never repeat back-to-back. */
+  /** Cooldown-aware shuffle bag for Endless mode so prompts avoid repeating across bag boundaries. */
   private endlessRand: () => number;
   private endlessBag: Question[] = [];
-  private lastQuestionId = '';
+  private recentQuestionIds: string[] = [];
 
   constructor(
     readonly set: AnswerSet,
@@ -109,9 +109,9 @@ export class Game {
     readonly opts: GameOptions,
   ) {
     this.mode = opts.mode ?? 'daily';
-    this.maxStrikes = this.mode === 'endless' ? ENDLESS_MAX_STRIKES : 0;
+    this.maxStrikes = this.mode !== 'daily' ? ENDLESS_MAX_STRIKES : 0;
     this.endlessRand = rng((Math.imul(puzzle | 0, 2654435761) ^ 0x517cc1b7) >>> 0);
-    if (this.mode === 'endless') {
+    if (this.mode !== 'daily') {
       enforce(set.questions.length > 0, 'endless mode requires at least one question');
       this.rounds = [this.makeRound(this.drawEndlessQuestion())];
     } else {
@@ -130,13 +130,36 @@ export class Game {
         const j = Math.floor(this.endlessRand() * (i + 1));
         [this.endlessBag[i], this.endlessBag[j]] = [this.endlessBag[j]!, this.endlessBag[i]!];
       }
-      if (this.endlessBag.length > 1 && this.endlessBag[this.endlessBag.length - 1]!.id === this.lastQuestionId) {
-        const last = this.endlessBag.length - 1;
-        [this.endlessBag[0], this.endlessBag[last]] = [this.endlessBag[last]!, this.endlessBag[0]!];
+    }
+    const cooldown = Math.min(this.set.questions.length - 1, Math.max(1, Math.floor(this.set.questions.length * 0.6)));
+    let pickIdx = this.endlessBag.length - 1;
+    if (cooldown > 0 && this.recentQuestionIds.length > 0) {
+      const recent = new Set(this.recentQuestionIds);
+      let foundFresh = false;
+      for (let i = this.endlessBag.length - 1; i >= 0; i--) {
+        if (!recent.has(this.endlessBag[i]!.id)) {
+          pickIdx = i;
+          foundFresh = true;
+          break;
+        }
+      }
+      if (!foundFresh) {
+        // Every remaining item is in the cooldown window: pick the one seen longest ago.
+        let oldestRank = Infinity;
+        for (let i = this.endlessBag.length - 1; i >= 0; i--) {
+          const rank = this.recentQuestionIds.indexOf(this.endlessBag[i]!.id);
+          if (rank < oldestRank) {
+            oldestRank = rank;
+            pickIdx = i;
+          }
+        }
       }
     }
-    const q = this.endlessBag.pop()!;
-    this.lastQuestionId = q.id;
+    const q = this.endlessBag.splice(pickIdx, 1)[0]!;
+    if (cooldown > 0) {
+      this.recentQuestionIds.push(q.id);
+      if (this.recentQuestionIds.length > cooldown) this.recentQuestionIds.shift();
+    }
     return q;
   }
 
@@ -158,7 +181,7 @@ export class Game {
 
   /** Active per-prompt watchdog duration in ms. */
   get answerMs(): number {
-    return this.mode === 'endless' ? endlessAnswerMs(this.depth) : ANSWER_MS;
+    return this.mode !== 'daily' ? endlessAnswerMs(this.depth) : ANSWER_MS;
   }
 
   current(): Round | undefined {
@@ -237,7 +260,7 @@ export class Game {
   }
 
   private next(round: number, now: number) {
-    if (this.mode === 'endless') {
+    if (this.mode !== 'daily') {
       if (this.strikes >= this.maxStrikes) {
         this.phase = { kind: 'done' };
         return;

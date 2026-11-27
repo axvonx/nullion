@@ -431,15 +431,16 @@ describe('end card', () => {
     const h = setup();
     const endless = new Game(SET, 7, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });
     h.hud.setGame(endless, '2026-11-26');
-    let toggled = false;
-    h.hud.setEndlessToggle(true, true, () => {
-      toggled = true;
+    let nextMode: string | undefined;
+    h.hud.setEndlessMode(true, 'endless', (next) => {
+      nextMode = next;
     });
-    const btn = h.$<HTMLButtonElement>('.endless-btn');
-    expect(btn.hidden).toBe(false);
-    expect(btn.textContent).toBe('Endless: ON');
-    btn.click();
-    expect(toggled).toBe(true);
+    const sel = h.$<HTMLSelectElement>('.endless-select');
+    expect(sel.hidden).toBe(false);
+    expect(sel.value).toBe('endless');
+    sel.value = 'true-endless';
+    sel.dispatchEvent(new Event('change'));
+    expect(nextMode).toBe('true-endless');
 
     let now = 0;
     endless.start(now);

@@ -131,9 +131,58 @@ body {
 .slot.fuse { color: var(--ok); font-size: 15px; }
 .slot.fuse.burned { color: var(--fault); opacity: 0.75; }
 .slot.endless-round { color: var(--dim); margin-left: 4px; font-size: 15px; }
-.endless-btn { color: var(--dim); font: inherit; font-size: 15px; cursor: pointer; white-space: nowrap; }
-.endless-btn:hover { color: var(--ink); }
-.endless-btn.active { color: var(--signal); box-shadow: inset 0 0 0 1px var(--signal), 4px 4px 0 rgba(0, 0, 0, 0.55); }
+.endless-select { color: var(--dim); font: inherit; font-size: 15px; cursor: pointer; white-space: nowrap; background: rgba(16, 14, 22, 0.95); }
+.endless-select:hover { color: var(--ink); }
+.endless-select.active { color: var(--signal); box-shadow: inset 0 0 0 1px var(--signal), 4px 4px 0 rgba(0, 0, 0, 0.55); }
+.endless-select.true-endless { color: var(--t-heisenbug); box-shadow: inset 0 0 0 1px var(--t-heisenbug), 4px 4px 0 rgba(0, 0, 0, 0.55); }
+
+.te-nav {
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px;
+}
+.te-nav[hidden] { display: none; }
+.te-nav-btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  background: rgba(16, 14, 22, 0.9);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  cursor: pointer;
+}
+.te-nav-btn:hover,
+.te-nav-btn.active {
+  border-color: var(--te-accent, var(--signal));
+  box-shadow: 0 0 0 1px var(--te-accent, var(--signal));
+}
+.te-nav-tip {
+  position: absolute;
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 3px 8px;
+  background: rgba(16, 14, 22, 0.96);
+  border: 2px solid #000;
+  box-shadow: inset 0 0 0 1px var(--te-accent, var(--rule)), 3px 3px 0 rgba(0, 0, 0, 0.55);
+  color: var(--ink);
+  font-size: 14px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.te-nav-btn:hover .te-nav-tip,
+.te-nav-btn:focus-visible .te-nav-tip {
+  opacity: 1;
+}
 .depth { color: var(--signal); font-size: 17px; white-space: nowrap; }
 .scroll-mode .slots { display: none; }
 

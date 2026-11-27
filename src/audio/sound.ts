@@ -70,6 +70,10 @@ export function timbreFor(layer: LayerId): Timbre {
     case 'bandgap':
     case 'landauer':
       return { wave: 'sine', filterHz: 2600, q: 1.2, gainScale: 0.76, reverbWet: 0.38 };
+    case 'slab-spa':
+      return { wave: 'sine', filterHz: 1800, q: 1.0, gainScale: 0.78, reverbWet: 0.45 };
+    case 'kthread-kabin':
+      return { wave: 'triangle', filterHz: 2000, q: 1.4, gainScale: 0.8, reverbWet: 0.28 };
     case 'ring-3':
       return { wave: 'square', filterHz: 6000, q: 0.7, gainScale: 0.88, reverbWet: 0, short: true };
   }

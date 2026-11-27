@@ -61,6 +61,10 @@ What's next lives in `ROADMAP.md`; the next milestone is question and answer gen
 - **Hosting (decided 2026-11-26): the site stays static on GitHub Pages.** Anything that needs shared state goes to a small separate API that the static site calls, for example a Cloudflare Worker with KV or D1. The site itself never moves to a server platform. That shared state means cross-player averages and percentiles, the rejected-guess counter, leaderboards, and account or Gist sync. Not built yet; `ROADMAP.md` has the player-data plan.
 
 - **Other players' answers:** each row of the end-of-day backtrace will get a dropdown arrow that reveals what other players answered for that question (requested 2026-11-26). It needs server-side answer counts, so it waits for a backend. The row layout already leaves room for it.
+- **Achievements, progress & True Endless (pinned 2026-11-27):** reaching the Landauer limit (`2,500` frames) in Endless triggers a milestone ("You have reached the end of endless." → "But, there is a *true endless* beyond" — not real computing, fantasy/procedural layers + critters beyond). Stopping / claiming the milestone awards an achievement (part of a broader achievements/progress system to design); achievement holders unlock a sparkly rainbow fast-dive button at the start of Endless to blast straight down to the Landauer limit and continue into True Endless to collect entities and creatures.
+- **Designated art / character-bibles directory (pinned 2026-11-27):** create a dedicated art directory later for cataloguing character bibles and settled designs (not yet; focusing on True Endless worldbuilding first).
+- **Hearts / lives system (pinned 2026-11-27):** explore a hearts/lives mechanic for future implementation (to be designed and picked up later).
+- **Real-cursor dive-cursor nudge (pinned 2026-11-27):** subtly nudge the on-screen dive cursor slightly based on the player's real mouse cursor position as a small tactile detail.
 
 ## Sound & favicon
 

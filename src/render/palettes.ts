@@ -46,6 +46,8 @@ export const LAYER_PALETTE: Record<LayerId, PaletteMode> = {
   litho: 'euv',
   bandgap: 'abyss',
   landauer: 'abyss',
+  'slab-spa': 'full',
+  'kthread-kabin': 'rgb4',
 };
 
 type RGB = readonly [number, number, number];
