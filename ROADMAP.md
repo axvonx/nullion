@@ -141,6 +141,4 @@ The user's time is the scarce resource, so per category the only manual work sho
 
 - **Done:** alternate critters now have their own motion sets (`critters.alt` in each layer's module, `src/layers/`). For example, butterflies only fly, padlocks hop between props and rest, and drones hover.
 - **Decided:** the world is the same for everyone on a given day, so the per-visit scatter is reverted. The share text shows tier glyphs only, with no frame scores.
-- **Still open from earlier:**
-  - Heisenbug: keep the held tint, or hold a one-way inversion like Bit Flip?
-  - The settings popover overlaps the layer-entrance card.
+- **Decided 2026-11-27:** Heisenbug keeps its held tint (no one-way inversion; that stays Bit Flip's). The settings-popover overlap is moot: the entrance card was retired.

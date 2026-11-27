@@ -53,3 +53,20 @@ export function markExtentY(form: CursorForm, row: number): { top: number; botto
   }
   return { top, bottom };
 }
+
+/** How far (scene px) the cursor leans toward the player's real mouse at most: a tactile hint, not a follow. */
+export const NUDGE_MAX_X = 3;
+export const NUDGE_MAX_Y = 2;
+
+/**
+ * Where the cursor leans toward the real mouse pointer: (dx, dy) is the pointer minus the cursor, in scene px, and
+ * `reach` the distance (scene px) at which the lean is full. The lean grows smoothly with distance and never passes
+ * NUDGE_MAX_X / NUDGE_MAX_Y, so the cursor stays in its lane.
+ */
+export function cursorNudge(dx: number, dy: number, reach: number): { x: number; y: number } {
+  const d = Math.hypot(dx, dy);
+  if (d === 0 || reach <= 0) return { x: 0, y: 0 };
+  const k = Math.min(1, d / reach);
+  const ease = k * (2 - k); // eases out: near the cursor it barely moves
+  return { x: (dx / d) * ease * NUDGE_MAX_X, y: (dy / d) * ease * NUDGE_MAX_Y };
+}

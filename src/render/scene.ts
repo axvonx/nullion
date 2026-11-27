@@ -19,7 +19,7 @@ import { drawNullionBanner } from './nullion-banner';
 import { ReactionPaint } from './reaction-paint';
 import { BAYER16, get2d, type Surface } from './surface';
 import { TitleGlitches } from './title-glitches';
-import { CURSOR_FRAC, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
+import { CURSOR_FRAC, MARK_RX, MARK_RY, cursorNudge, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
 import type { TitleGlitchEvent } from '../ui/title-logo';
 import { sound } from '../audio/sound';
 
@@ -307,6 +307,10 @@ export class Scene {
   uiReserveRightCss = 0;
   /** Pointer position in scene pixels for Field Manual hover & click discovery. */
   private hoverScene: { x: number; y: number } | undefined;
+  /** The player's real mouse, in scene px (mouse pointers only; touch never nudges), for the cursor's lean. */
+  private realPointer: { x: number; y: number } | undefined;
+  /** The cursor's current lean toward the real mouse (scene px, eased; see cursorNudge). */
+  private nudge = { x: 0, y: 0 };
   /** Floating in-world toasts when a player clicks & logs a Field Manual character. */
   private manualToasts: { x: number; y: number; text: string; color: string; at: number }[] = [];
 
@@ -335,6 +339,13 @@ export class Scene {
         y: ((ev.clientY - rect.top) / rect.height) * this.H,
       };
     };
+    // The cursor leans slightly toward the real mouse wherever it is on the page (panels over the canvas included).
+    window.addEventListener('pointermove', (ev) => {
+      this.realPointer = ev.pointerType === 'mouse' ? toScene(ev) : undefined;
+    });
+    document.documentElement.addEventListener('pointerleave', () => {
+      this.realPointer = undefined;
+    });
     this.canvas.addEventListener('pointermove', (ev) => {
       const pt = toScene(ev);
       this.hoverScene = pt;
@@ -994,6 +1005,14 @@ export class Scene {
     if (reduced) this.swayAmp = 0;
     const swayDt = worldFrozen ? 0 : dt;
     this.swayPhase += swayDt * 3.1;
+    // Lean toward the real mouse: none under reduced motion, held still while time is frozen, eased so it drifts.
+    const p = this.realPointer;
+    const lean = reduced || !p ? { x: 0, y: 0 } : cursorNudge(p.x - this.W / 2, p.y - this.cursorY, this.W / 2);
+    if (reduced) this.nudge = { x: 0, y: 0 };
+    else if (!worldFrozen) {
+      const e = 1 - Math.exp(-dt * 4);
+      this.nudge = { x: this.nudge.x + (lean.x - this.nudge.x) * e, y: this.nudge.y + (lean.y - this.nudge.y) * e };
+    }
     // The reveal's vignette dims the middle beneath the cursor pass, so the cursor and its reaction play in front of it.
     this.drawRevealBuffer(now, reduced, camY, stack);
     this.drawBubbles(swayDt, speed, reduced, layer.id);
@@ -1198,8 +1217,8 @@ export class Scene {
     let fill = style.fill;
     let outline = style.outline;
     let alpha = style.alpha;
-    let x = Math.round(this.W / 2 + this.swayAmp * 6 * Math.sin(this.swayPhase));
-    let y = Math.round(this.cursorY + this.cursorLead + this.swayAmp * 2 * Math.sin(this.swayPhase * 2));
+    let x = Math.round(this.W / 2 + this.swayAmp * 6 * Math.sin(this.swayPhase) + this.nudge.x);
+    let y = Math.round(this.cursorY + this.cursorLead + this.swayAmp * 2 * Math.sin(this.swayPhase * 2) + this.nudge.y);
     // Landing impact thud after a big dive (>= 5 frames).
     if (!reduced && now - this.landThudStart < 180) {
       const tp = (now - this.landThudStart) / 180;
@@ -1388,7 +1407,7 @@ export class Scene {
       this.bubbles.length = 0;
       return;
     }
-    const cx = this.W / 2 + this.swayAmp * 6 * Math.sin(this.swayPhase);
+    const cx = this.W / 2 + this.swayAmp * 6 * Math.sin(this.swayPhase) + this.nudge.x;
     if (speed > 0.25 && this.bubbles.length < 24 && Math.random() < dt * (4 + speed * 2)) {
       this.bubbles.push({ x: cx + (Math.random() - 0.5) * 10, y: this.cursorY + this.cursorLead + 4, age: 0 });
     }
