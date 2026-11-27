@@ -21,35 +21,32 @@ const ACC: [string, string][] = [
   ['#4cb8c8', '#2e8f9e'],
 ];
 const acc = (p: Pen, k = 0) => p.pick(ACC, 50 + k);
-const SHADOW = '#3a4a8a';
 const EDGE = '#2a3358';
 const PAPER = '#f3efe6';
 const INK = '#55607a';
 const FAINT = '#a8acb8';
 const WHITE = '#ffffff';
 
-/** A window body with a shadow and a title bar; returns the content box. */
+/** A window body with a 1px dark outline and a title bar; returns the content box. */
 function win(p: Pen, w: number, h: number, bar: string): [number, number, number, number] {
-  p.r(1, 1, w - 1, h - 1, SHADOW);
-  p.r(0, 0, w - 1, h - 1, EDGE);
-  p.r(1, 1, w - 3, 2, bar);
-  p.p(w - 4, 1, '#ff6159');
-  p.r(1, 3, w - 3, h - 5, PAPER);
-  return [1, 3, w - 3, h - 5];
+  p.r(0, 0, w, h, EDGE);
+  p.r(1, 1, w - 2, 2, bar);
+  p.p(w - 3, 1, '#ff6159');
+  p.r(1, 3, w - 2, h - 4, PAPER);
+  return [1, 3, w - 2, h - 4];
 }
 
 export const APPLICATION: EntityDef[] = [
   ent('app-browser', [[22, 16], [28, 19]], (p, w, h) => {
     const [a] = acc(p);
-    p.r(1, 1, w - 1, h - 1, SHADOW);
-    p.r(0, 0, w - 1, h - 1, EDGE);
-    p.r(1, 1, w - 3, 2, '#c8d0e6');
+    p.r(0, 0, w, h, EDGE);
+    p.r(1, 1, w - 2, 2, '#c8d0e6');
     p.r(2, 1, 7, 2, PAPER);
-    p.r(1, 3, w - 3, 2, '#e2e6f0');
-    p.r(3, 4, w - 10, 1, FAINT);
-    p.r(1, 5, w - 3, h - 7, WHITE);
-    p.r(3, 7, w - 7, 3, a);
-    for (let y = 11, k = 0; y < h - 3; y += 2, k++) p.r(3, y, (w - 7) * (0.45 + p.h(k) * 0.55), 1, FAINT);
+    p.r(1, 3, w - 2, 2, '#e2e6f0');
+    p.r(3, 4, w - 9, 1, FAINT);
+    p.r(1, 5, w - 2, h - 6, WHITE);
+    p.r(3, 7, w - 6, 3, a);
+    for (let y = 11, k = 0; y < h - 2; y += 2, k++) p.r(3, y, (w - 6) * (0.45 + p.h(k) * 0.55), 1, FAINT);
   }),
   ent('app-dialog', [[20, 13]], (p, w, h) => {
     const [a, a2] = acc(p);
@@ -58,17 +55,17 @@ export const APPLICATION: EntityDef[] = [
     p.p(4, 5, WHITE);
     p.r(8, 5, 8, 1, INK);
     p.r(8, 7, 6, 1, FAINT);
-    p.r(w - 13, h - 5, 5, 2, a);
-    p.r(w - 7, h - 5, 4, 2, '#d8d2c4');
+    p.r(w - 13, h - 4, 5, 2, a);
+    p.r(w - 7, h - 4, 4, 2, '#d8d2c4');
   }),
-  ent('app-toast', [[16, 7]], (p) => {
+  ent('app-toast', [[16, 8]], (p) => {
     const [a] = acc(p);
-    p.r(1, 1, 15, 6, SHADOW);
-    p.r(0, 0, 15, 6, WHITE);
-    p.r(0, 5, 15, 1, '#dfe6f6');
-    p.r(1, 1, 3, 3, a);
-    p.r(5, 1, 8, 1, INK);
-    p.r(5, 3, 5, 1, FAINT);
+    p.r(0, 0, 16, 8, EDGE);
+    p.r(1, 1, 14, 6, WHITE);
+    p.r(1, 6, 14, 1, '#dfe6f6');
+    p.r(2, 2, 3, 3, a);
+    p.r(6, 2, 7, 1, INK);
+    p.r(6, 4, 5, 1, FAINT);
   }),
   ent(
     'app-spinner',
@@ -93,16 +90,16 @@ export const APPLICATION: EntityDef[] = [
   ),
   ent(
     'app-progress',
-    [[18, 6], [24, 6]],
+    [[18, 8], [24, 8]],
     (p, w) => {
-      p.r(0, 0, w, 6, EDGE);
-      p.r(1, 1, w - 2, 4, PAPER);
+      p.r(0, 0, w, 8, EDGE);
+      p.r(1, 1, w - 2, 6, PAPER);
     },
     {
       anim: (p, w, _h, _v, t) => {
         const [a] = acc(p);
         const q = Math.min(1, (t * 0.12) % 1.25);
-        p.r(2, 2, (w - 4) * q, 2, a);
+        p.r(2, 2, (w - 4) * q, 4, a);
       },
       noFlip: true,
     },
@@ -175,69 +172,68 @@ export const APPLICATION: EntityDef[] = [
   }),
   ent(
     'app-slider',
-    [[20, 7]],
+    [[20, 8]],
     (p, w) => {
-      p.r(0, 3, w, 1, FAINT);
-      p.r(0, 4, w, 1, '#8a93a8');
+      p.r(1, 2, w - 2, 4, EDGE);
+      p.r(2, 3, w - 4, 2, FAINT);
     },
     {
       anim: (p, w, _h, _v, t) => {
         const [a, a2] = acc(p);
-        const x = R((Math.sin(t * 0.9) * 0.5 + 0.5) * (w - 5));
-        p.r(0, 3, x, 2, a);
-        p.r(x, 0, 5, 7, a2);
-        p.r(x + 1, 1, 3, 5, WHITE);
+        const x = 1 + R((Math.sin(t * 0.9) * 0.5 + 0.5) * (w - 7));
+        p.r(2, 3, x - 1, 2, a);
+        p.r(x, 1, 5, 6, a2);
+        p.r(x + 1, 2, 3, 4, WHITE);
       },
     },
   ),
   ent(
     'app-toggle',
-    [[12, 7]],
-    () => {},
+    [[14, 8]],
+    (p) => {
+      p.r(1, 1, 12, 6, '#c8cfdc');
+    },
     {
       anim: (p, _w, _h, _v, t) => {
         const on = Math.floor(t * 0.5) % 2 === 0;
         const body = on ? '#34c759' : '#c8cfdc';
-        p.r(1, 0, 10, 7, body);
-        p.r(0, 1, 12, 5, body);
-        const x = on ? 6 : 1;
-        p.r(x, 1, 5, 5, WHITE);
+        p.r(1, 1, 12, 6, body);
+        const x = on ? 7 : 2;
+        p.r(x, 2, 5, 4, WHITE);
       },
       noFlip: true,
     },
   ),
   ent('app-checklist', [[16, 12]], (p) => {
-    p.r(1, 1, 15, 11, SHADOW);
-    p.r(0, 0, 15, 11, WHITE);
+    p.r(0, 0, 16, 12, EDGE);
+    p.r(1, 1, 14, 10, WHITE);
     for (let k = 0; k < 3; k++) {
-      const y = 1 + k * 3;
+      const y = 2 + k * 3;
       const done = p.h(k) > 0.4;
-      p.r(1, y, 2, 2, done ? '#34c759' : '#c8cfdc');
-      p.r(4, y, 6 + R(p.h(k + 5) * 4), 1, done ? FAINT : INK);
+      p.r(2, y, 2, 2, done ? '#34c759' : '#c8cfdc');
+      p.r(5, y, 5 + R(p.h(k + 5) * 4), 1, done ? FAINT : INK);
     }
   }),
   ent('app-calendar', [[13, 13]], (p) => {
     const [a] = acc(p, 2);
-    p.r(1, 1, 12, 12, SHADOW);
-    p.r(0, 0, 12, 12, WHITE);
-    p.r(0, 0, 12, 3, a);
-    p.r(2, -0, 1, 1, EDGE);
-    p.r(9, -0, 1, 1, EDGE);
-    const today = Math.floor(p.h(1) * 12);
-    for (let k = 0; k < 12; k++) p.r(1 + (k % 4) * 3, 4 + Math.floor(k / 4) * 3, 2, 2, k === today ? a : '#dfe3ea');
+    p.r(0, 0, 13, 13, EDGE);
+    p.r(1, 1, 11, 11, WHITE);
+    p.r(1, 1, 11, 3, a);
+    const today = Math.floor(p.h(1) * 9);
+    for (let k = 0; k < 9; k++) p.r(2 + (k % 3) * 3, 5 + Math.floor(k / 3) * 2, 2, 1, k === today ? a : '#dfe3ea');
   }),
   ent(
     'app-status',
-    [[16, 6]],
+    [[16, 8]],
     (p) => {
-      p.r(0, 1, 7, 5, INK);
-      p.r(7, 2, 1, 3, INK);
-      for (let k = 0; k < 4; k++) p.r(10 + k * 2, 5 - k - 1, 1, k + 1, INK);
+      p.r(1, 1, 7, 6, INK);
+      p.r(8, 2, 1, 4, INK);
+      for (let k = 0; k < 4; k++) p.r(10 + k * 2, 6 - k - 1, 1, k + 2, INK);
     },
     {
       anim: (p, _w, _h, _v, t) => {
         const lvl = 1 + (Math.floor(t * 0.3) % 5);
-        p.r(1, 2, lvl, 3, lvl < 2 ? '#ff3b30' : '#34c759');
+        p.r(2, 2, lvl, 4, lvl < 2 ? '#ff3b30' : '#34c759');
       },
       noFlip: true,
     },
@@ -246,9 +242,8 @@ export const APPLICATION: EntityDef[] = [
     'app-search',
     [[20, 8]],
     (p, w) => {
-      p.r(1, 1, w - 1, 7, SHADOW);
-      p.r(0, 0, w - 1, 7, EDGE);
-      p.r(1, 1, w - 3, 5, WHITE);
+      p.r(0, 0, w, 8, EDGE);
+      p.r(1, 1, w - 2, 6, WHITE);
       // Magnifying glass icon
       p.frame(2, 2, 3, 3, INK);
       p.p(5, 5, INK);
@@ -256,53 +251,52 @@ export const APPLICATION: EntityDef[] = [
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        if (Math.floor(t * 2.2) % 2 === 0) p.r(14, 2, 1, 3, '#5b8ee6');
+        if (Math.floor(t * 2.2) % 2 === 0) p.r(14, 2, 1, 4, '#5b8ee6');
       },
       noFlip: true,
     },
   ),
   ent('app-dropdown', [[16, 16]], (p) => {
     const [a] = acc(p, 3);
-    p.r(0, 0, 15, 4, EDGE);
-    p.r(1, 1, 13, 2, WHITE);
+    p.r(0, 0, 16, 4, EDGE);
+    p.r(1, 1, 14, 2, WHITE);
     p.r(2, 2, 6, 1, INK);
-    p.r(11, 2, 2, 1, INK);
-    p.r(1, 4, 15, 12, SHADOW);
-    p.r(0, 4, 15, 11, WHITE);
+    p.r(12, 2, 2, 1, INK);
+    p.r(0, 4, 16, 12, EDGE);
+    p.r(1, 5, 14, 10, WHITE);
     const sel = 1 + Math.floor(p.h(1) * 3);
     for (let k = 0; k < 4; k++) {
-      if (k === sel) p.r(0, 5 + k * 2.5, 15, 2, a);
+      if (k === sel) p.r(1, 5 + k * 2.5, 14, 2, a);
       p.r(2, 5 + k * 2.5 + 0.5, 5 + R(p.h(k + 3) * 6), 1, k === sel ? WHITE : FAINT);
     }
   }),
   ent('app-swatches', [[14, 10]], (p) => {
-    p.r(1, 1, 13, 9, SHADOW);
-    p.r(0, 0, 13, 9, WHITE);
+    p.r(0, 0, 14, 10, EDGE);
+    p.r(1, 1, 12, 8, WHITE);
     const cols = ['#ff3b30', '#ff9500', '#ffcc00', '#34c759', '#5ac8fa', '#007aff', '#5856d6', '#af52de'];
     cols.forEach((col, k) => p.r(1 + (k % 4) * 3, 1 + Math.floor(k / 4) * 4, 2, 3, col));
     const s = Math.floor(p.h(0) * 8);
     p.frame((s % 4) * 3, Math.floor(s / 4) * 4, 4, 5, EDGE);
   }),
   ent('app-photo', [[14, 11], [18, 13]], (p, w, h) => {
-    p.r(1, 1, w - 1, h - 1, SHADOW);
-    p.r(0, 0, w - 1, h - 1, WHITE);
-    p.r(1, 1, w - 3, h - 3, '#9fd2f5');
-    p.r(w - 6, 2, 2, 2, '#ffe25a');
-    for (let x = 1; x < w - 2; x++) {
+    p.r(0, 0, w, h, EDGE);
+    p.r(1, 1, w - 2, h - 2, '#9fd2f5');
+    p.r(w - 5, 2, 2, 2, '#ffe25a');
+    for (let x = 1; x < w - 1; x++) {
       const m = Math.abs(((x * 2) % 10) - 5) + (x > w / 2 ? 1 : 3);
-      p.r(x, h - 2 - Math.min(h - 4, m), 1, Math.min(h - 4, m), x % 7 < 4 ? '#3f9a5a' : '#2f7a46');
+      p.r(x, h - 1 - Math.min(h - 3, m), 1, Math.min(h - 3, m), x % 7 < 4 ? '#3f9a5a' : '#2f7a46');
     }
   }),
   ent(
     'app-video',
     [[20, 14]],
     (p, w, h) => {
-      p.r(1, 1, w - 1, h - 1, SHADOW);
-      p.r(0, 0, w - 1, h - 1, '#1b1b26');
+      p.r(0, 0, w, h, EDGE);
+      p.r(1, 1, w - 2, h - 2, '#1b1b26');
       p.r(8, 3, 1, 6, WHITE);
       p.r(9, 4, 1, 4, WHITE);
       p.r(10, 5, 1, 2, WHITE);
-      p.r(2, h - 3, w - 5, 1, '#4a4a58');
+      p.r(2, h - 3, w - 4, 1, '#4a4a58');
     },
     {
       anim: (p, w, h, _v, t) => {
@@ -362,7 +356,6 @@ export const APPLICATION_ANCHORS: EntityDef[] = [
       const [a, a2] = ACC[(k * 2 + Math.floor(p.h(0) * 6)) % ACC.length]!;
       const w = 40;
       const h = 28;
-      p.r(ox + 2, oy + 2, w, h, SHADOW);
       p.r(ox, oy, w, h, EDGE);
       p.r(ox + 1, oy + 1, w - 2, 3, a2);
       p.r(ox + 1, oy + 1, w - 2, 1, a);
@@ -381,15 +374,15 @@ export const APPLICATION_ANCHORS: EntityDef[] = [
     });
   }),
   ent('app-launcher', [[46, 36]], (p) => {
-    p.r(2, 2, 44, 34, SHADOW);
-    p.r(0, 0, 44, 34, '#e8ecf6');
-    p.r(0, 0, 44, 1, WHITE);
-    p.r(3, 3, 38, 4, WHITE);
-    p.r(4, 4, 2, 2, FAINT);
+    p.r(0, 0, 46, 36, EDGE);
+    p.r(1, 1, 44, 34, '#e8ecf6');
+    p.r(1, 1, 44, 1, WHITE);
+    p.r(4, 4, 38, 4, WHITE);
+    p.r(5, 5, 2, 2, FAINT);
     for (let k = 0; k < 12; k++) {
       const [a, a2] = ACC[(k + Math.floor(p.h(1) * 6)) % ACC.length]!;
-      const x = 4 + (k % 4) * 10;
-      const y = 10 + Math.floor(k / 4) * 8;
+      const x = 5 + (k % 4) * 10;
+      const y = 11 + Math.floor(k / 4) * 8;
       p.r(x + 1, y, 5, 6, a2);
       p.r(x, y + 1, 7, 4, a2);
       p.r(x + 1, y + 1, 5, 2, a);
@@ -728,10 +721,11 @@ export const RUNTIME: EntityDef[] = [
   }),
   ent(
     'rt-bytecode',
-    [[34, 8]],
+    [[26, 10]],
     (p) => {
-      const ops = ['aload_0', 'iadd', 'dup', 'areturn', 'new #7', 'ifnull'];
-      p.t(p.pick(ops, 0), 0, 7, '#6666cc');
+      const ops = ['ld_0', 'iadd', 'dup', 'ret', 'new', 'ifeq'];
+      p.box(0, 0, 26, 10, '#000033', '#000000');
+      p.t(p.pick(ops, 0), 2, 8, '#9999ff');
     },
     { text: true, cap: 1, weight: 0.5 },
   ),

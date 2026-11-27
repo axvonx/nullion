@@ -17,10 +17,10 @@ export const EXTRA_DAILY_TRINKETS: Record<DailyLayerId, readonly EntityDef[]> = 
       p.r(3, 8, 6, 2, '#ffffff');
     }),
     ent('app-music', [[16, 10]], (p) => {
-      p.r(1, 1, 15, 9, '#3a4a8a');
-      p.r(0, 0, 15, 9, '#ffffff');
-      p.r(1, 1, 5, 7, '#a070e0');
-      p.r(8, 2, 5, 1, '#55607a');
+      p.r(0, 0, 16, 10, '#2a3358');
+      p.r(1, 1, 14, 8, '#ffffff');
+      p.r(2, 2, 5, 6, '#a070e0');
+      p.r(8, 3, 5, 1, '#55607a');
       p.r(8, 5, 4, 2, '#59c08a');
     }),
     ent('app-pin', [[11, 14]], (p) => {
@@ -28,10 +28,10 @@ export const EXTRA_DAILY_TRINKETS: Record<DailyLayerId, readonly EntityDef[]> = 
       p.disc(5, 4, 2, '#ffffff');
       p.l(5, 8, 5, 13, '#a83f3d');
     }),
-    ent('app-pill', [[18, 7]], (p) => {
-      p.r(1, 0, 16, 7, '#59c08a');
-      p.r(0, 1, 18, 5, '#59c08a');
-      p.r(3, 3, 12, 1, '#ffffff');
+    ent('app-pill', [[18, 8]], (p) => {
+      p.r(2, 1, 14, 6, '#59c08a');
+      p.r(1, 2, 16, 4, '#59c08a');
+      p.r(4, 3, 10, 2, '#ffffff');
     }),
     ent('app-bell', [[11, 12]], (p) => {
       p.r(4, 0, 3, 2, '#e6a23c');
@@ -193,9 +193,9 @@ export const EXTRA_DAILY_TRINKETS: Record<DailyLayerId, readonly EntityDef[]> = 
       p.box(0, 0, 12, 8, '#000000', '#ffffff');
       for (let k = 0; k < 4; k++) p.r(2 + k * 2, 3, 1, 2, '#55ffff');
     }),
-    ent('dr-ledstrip', [[18, 6]], (p) => {
-      p.r(0, 2, 18, 2, '#ff55ff');
-      for (let k = 0; k < 4; k++) p.r(2 + k * 4, 1, 2, 4, k % 2 ? '#ffffff' : '#55ffff');
+    ent('dr-ledstrip', [[18, 8]], (p) => {
+      p.r(1, 2, 16, 4, '#ff55ff');
+      for (let k = 0; k < 4; k++) p.r(2 + k * 4, 2, 2, 4, k % 2 ? '#ffffff' : '#55ffff');
     }),
     ent('dr-nvme', [[22, 8]], (p) => {
       p.box(0, 0, 22, 8, '#000000', '#55ffff');
@@ -313,14 +313,14 @@ export const EXTRA_DAILY_TRINKETS: Record<DailyLayerId, readonly EntityDef[]> = 
     }),
     ent(
       'r3-pulse',
-      [[16, 7]],
+      [[16, 8]],
       (p) => {
-        p.r(0, 3, 16, 1, '#ffffff');
+        p.r(1, 3, 14, 2, '#ffffff');
       },
       {
         anim: (p, _w, _h, _v, t) => {
-          const x = Math.floor(mod(t * 10, 14));
-          p.r(x, 1, 2, 5, '#ffffff');
+          const x = 1 + Math.floor(mod(t * 10, 12));
+          p.r(x, 2, 2, 4, '#ffffff');
         },
         noFlip: true,
       },

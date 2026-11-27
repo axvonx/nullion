@@ -76,11 +76,12 @@ export const DRIVERS: EntityDef[] = [
       },
     },
   ),
-  ent('dr-connector', [[14, 6]], (p) => {
-    p.r(0, 0, 14, 6, W);
-    p.r(1, 1, 12, 4, K);
-    for (let k = 0; k < 5; k++) p.p(2 + k * 2, 2, CY);
+  ent('dr-connector', [[14, 8]], (p) => {
+    p.r(0, 0, 14, 8, K);
+    p.r(1, 1, 12, 6, W);
+    p.r(2, 2, 10, 4, K);
     for (let k = 0; k < 4; k++) p.p(3 + k * 2, 3, CY);
+    for (let k = 0; k < 3; k++) p.p(4 + k * 2, 4, CY);
   }),
   ent('dr-caps', [[13, 10]], (p) => {
     const n = 2 + Math.floor(p.h(0) * 2);
@@ -493,11 +494,11 @@ export const FIRMWARE: EntityDef[] = [
     p.r(2, 12, 3, 2, G2);
     p.r(11, 12, 3, 2, G2);
   }),
-  ent('fw-dipsw', [[12, 7]], (p) => {
-    p.r(0, 0, 12, 7, G2);
+  ent('fw-dipsw', [[12, 8]], (p) => {
+    p.r(1, 1, 10, 6, G2);
     for (let k = 0; k < 4; k++) {
-      p.r(1 + k * 3, 1, 2, 5, G0);
-      p.r(1 + k * 3, p.h(k) > 0.5 ? 1 : 4, 2, 2, G3);
+      p.r(2 + k * 2, 2, 1, 4, G0);
+      p.r(2 + k * 2, p.h(k) > 0.5 ? 2 : 4, 1, 2, G3);
     }
   }),
   ent(
@@ -639,13 +640,13 @@ export const FIRMWARE: EntityDef[] = [
     p.r(3, 7, 5, 1, G1);
     p.p(0, 10, G0);
   }),
-  ent('fw-key', [[15, 7]], (p) => {
-    p.disc(3, 3, 3, G2);
-    p.disc(3, 3, 1, G0);
-    p.r(6, 3, 9, 1, G2);
-    p.r(11, 4, 1, 2, G2);
-    p.r(13, 4, 1, 3, G2);
-    p.p(1, 1, G3);
+  ent('fw-key', [[15, 8]], (p) => {
+    p.disc(3, 3, 2, G2);
+    p.p(3, 3, G0);
+    p.r(5, 3, 9, 1, G2);
+    p.r(10, 4, 1, 2, G2);
+    p.r(12, 4, 1, 3, G2);
+    p.p(2, 2, G3);
   }),
 ];
 
@@ -768,10 +769,10 @@ export const RING1: EntityDef[] = [
   ),
   ent(
     'r1-tag',
-    [[20, 10]],
+    [[22, 10]],
     (p) => {
-      p.t(`vm${Math.floor(p.h(0) * 4)}`, 1, 7, G2);
-      p.r(0, 9, 18, 1, G1);
+      p.box(0, 0, 22, 10, G0, G1);
+      p.t(`vm${Math.floor(p.h(0) * 4)}`, 2, 8, G2);
     },
     { text: true, cap: 1, weight: 0.5 },
   ),
@@ -1132,12 +1133,12 @@ function streak(p: Pen, x: number, y0: number, len: number) {
 export const RING2: EntityDef[] = [
   ent(
     'r2-debris',
-    [[7, 16]],
+    [[8, 16]],
     (p) => {
       const rows = p.pick(DEBRIS, 0);
       streak(p, 3, 0, 8);
       rows.forEach((row, y) => {
-        for (let x = 0; x < row.length; x++) if (row[x] !== ' ') p.p(x, 9 + y, DEBRIS_PAL[row[x]!]!);
+        for (let x = 0; x < row.length; x++) if (row[x] !== ' ') p.p(x + 1, 9 + y, DEBRIS_PAL[row[x]!]!);
       });
     },
     { cap: 3 },
@@ -1161,9 +1162,10 @@ export const RING2: EntityDef[] = [
   }),
   ent(
     'r2-tag',
-    [[30, 9]],
+    [[28, 10]],
     (p) => {
-      p.t(`SMI#${Math.floor(p.h(0) * 9)}`, 1, 7, K2);
+      p.box(0, 0, 28, 10, K0, K2);
+      p.t(`SMI${Math.floor(p.h(0) * 9)}`, 2, 8, K3);
     },
     { text: true, cap: 1, weight: 0.4 },
   ),
@@ -1265,13 +1267,13 @@ export const RING2: EntityDef[] = [
     p.ring(3, 12, 2, K2);
     p.p(3, 2, K4);
   }),
-  ent('r2-hook', [[7, 17]], (p) => {
-    for (let y = 0; y < 10; y += 2) p.r(3, y, 1, 1, K2);
-    for (let y = 1; y < 10; y += 2) p.r(2, y, 3, 1, K1);
-    p.r(3, 10, 1, 4, K3);
-    p.r(1, 14, 5, 1, K3);
-    p.r(1, 12, 1, 2, K3);
-    p.p(0, 12, K3);
+  ent('r2-hook', [[8, 17]], (p) => {
+    for (let y = 1; y < 10; y += 2) p.r(4, y, 1, 1, K2);
+    for (let y = 2; y < 10; y += 2) p.r(3, y, 3, 1, K1);
+    p.r(4, 10, 1, 4, K3);
+    p.r(2, 14, 5, 1, K3);
+    p.r(2, 12, 1, 2, K3);
+    p.p(1, 12, K3);
   }),
   ent('r2-stopwatch', [[11, 13]], (p) => {
     p.r(4, 0, 3, 1, K3);
@@ -1382,14 +1384,14 @@ export const RING3: EntityDef[] = [
     p.p(w + 1, 10, OFF);
     p.r(0, 1, 3, 3, ON);
   }),
-  ent('r3-decap', [[13, 7]], (p) => {
-    for (const x of [0, 7]) {
-      p.r(x, 1, 6, 5, ON);
-      p.r(x + 1, 2, 4, 3, OFF);
-      p.r(x + 1, 2, 1, 3, ON);
-      p.r(x + 4, 2, 1, 3, ON);
+  ent('r3-decap', [[13, 8]], (p) => {
+    for (const x of [1, 7]) {
+      p.r(x, 1, 5, 6, ON);
+      p.r(x + 1, 2, 3, 4, OFF);
+      p.r(x + 1, 2, 1, 4, ON);
+      p.r(x + 3, 2, 1, 4, ON);
     }
-    p.r(2, 0, 9, 1, ON);
+    p.r(2, 1, 9, 1, ON);
     p.r(2, 6, 9, 1, ON);
   }),
   ent(
@@ -1415,10 +1417,10 @@ export const RING3: EntityDef[] = [
       noFlip: true,
     },
   ),
-  ent('r3-testpads', [[17, 7]], (p) => {
+  ent('r3-testpads', [[17, 8]], (p) => {
     for (let k = 0; k < 4; k++) {
-      p.disc(2 + k * 4, 3, 2, ON);
-      if (p.h(k) > 0.6) p.p(2 + k * 4, 3, OFF);
+      p.disc(2 + k * 4, 4, 2, ON);
+      if (p.h(k) > 0.6) p.p(2 + k * 4, 4, OFF);
     }
   }),
   ent('r3-fuses', [[19, 9]], (p) => {
@@ -1433,36 +1435,28 @@ export const RING3: EntityDef[] = [
       else p.p(x + 1, 4, ON);
     }
   }),
-  ent('r3-resistor', [[15, 5]], (p) => {
-    // True connected diagonal zigzag resistor symbol.
-    p.r(0, 2, 3, 1, ON);
-    p.l(2, 2, 4, 0, ON);
-    p.l(4, 0, 6, 4, ON);
-    p.l(6, 4, 8, 0, ON);
-    p.l(8, 0, 10, 4, ON);
-    p.l(10, 4, 12, 2, ON);
-    p.r(12, 2, 3, 1, ON);
+  ent('r3-resistor', [[15, 8]], (p) => {
+    // Physical axial resistor component with leads and ceramic body.
+    p.r(1, 3, 3, 2, ON);
+    p.r(11, 3, 3, 2, ON);
+    p.r(4, 1, 7, 6, ON);
+    p.r(5, 2, 1, 4, OFF);
+    p.r(7, 2, 1, 4, OFF);
+    p.r(9, 2, 1, 4, OFF);
   }),
-  ent('r3-diode', [[11, 7]], (p) => {
-    p.r(0, 3, 3, 1, ON);
-    p.r(8, 3, 3, 1, ON);
-    p.r(3, 0, 1, 7, ON);
-    p.l(3, 0, 7, 3, ON);
-    p.l(3, 6, 7, 3, ON);
-    p.r(7, 0, 1, 7, ON);
+  ent('r3-diode', [[11, 8]], (p) => {
+    p.r(1, 3, 2, 2, ON);
+    p.r(8, 3, 2, 2, ON);
+    p.r(3, 1, 5, 6, ON);
+    p.r(6, 2, 1, 4, OFF);
   }),
-  ent('r3-inductor', [[15, 6]], (p) => {
-    // Four open coil humps (no bottom bar closing them into boxes).
-    p.r(0, 4, 2, 1, ON);
-    p.r(13, 4, 2, 1, ON);
+  ent('r3-inductor', [[15, 8]], (p) => {
+    // Four coil humps on a core.
+    p.r(1, 5, 2, 1, ON);
+    p.r(12, 5, 2, 1, ON);
     for (let k = 0; k < 4; k++) {
       const x = 2 + k * 3;
-      p.r(x + 1, 1, 1, 1, ON);
-      p.p(x, 2, ON);
-      p.p(x + 2, 2, ON);
-      p.p(x, 3, ON);
-      p.p(x + 2, 3, ON);
-      if (k === 0) p.p(x, 4, ON);
+      p.r(x, 2, 2, 4, ON);
     }
   }),
   ent('r3-sram', [[17, 15]], (p) => {
@@ -1495,9 +1489,9 @@ export const RING3: EntityDef[] = [
       noFlip: true,
     },
   ),
-  ent('r3-thermal', [[7, 13]], (p) => {
-    p.r(2, 0, 3, 9, ON);
-    p.r(3, 1, 1, 7, OFF);
+  ent('r3-thermal', [[8, 13]], (p) => {
+    p.r(2, 1, 3, 8, ON);
+    p.r(3, 2, 1, 6, OFF);
     p.disc(3, 10, 2, ON);
     p.r(3, 4, 1, 4, ON);
     p.r(5, 2, 2, 1, ON);
@@ -1569,12 +1563,12 @@ export const RING3: EntityDef[] = [
     p.p(7, 8, ON);
     p.r(10, 4, 4, 1, ON);
   }),
-  ent('r3-probe', [[7, 15]], (p) => {
-    p.r(1, 0, 5, 6, ON);
-    p.r(2, 1, 3, 4, OFF);
-    p.r(3, 6, 1, 6, ON);
+  ent('r3-probe', [[8, 15]], (p) => {
+    p.r(1, 1, 6, 5, ON);
+    p.r(2, 2, 4, 3, OFF);
+    p.r(3, 6, 2, 6, ON);
     p.p(3, 12, ON);
-    p.r(1, 14, 5, 1, ON);
+    p.r(1, 13, 6, 1, ON);
   }),
   ent('r3-align', [[9, 9]], (p) => {
     p.r(4, 0, 1, 9, ON);

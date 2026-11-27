@@ -82,9 +82,10 @@ export const ENDLESS_EXTRA: Partial<Record<LayerId, readonly EntityDef[]>> = {
       p.box(0, 0, 16, 12, '#000000', '#55ffff');
       for (let k = 0; k < 4; k++) p.r(2 + k * 3, 2, 2, 8, k % 2 ? '#ff55ff' : '#ffffff');
     }),
-    ent('bf-lane', [[24, 6]], (p) => {
-      p.r(0, 1, 24, 1, '#55ffff');
-      p.r(0, 4, 24, 1, '#ff55ff');
+    ent('bf-lane', [[24, 8]], (p) => {
+      p.r(1, 1, 22, 6, '#000000');
+      p.r(2, 2, 20, 1, '#55ffff');
+      p.r(2, 5, 20, 1, '#ff55ff');
     }),
     ent('bf-iommu', [[14, 13]], (p) => {
       p.frame(0, 0, 14, 13, '#ffffff');
@@ -197,14 +198,15 @@ export const ENDLESS_EXTRA: Partial<Record<LayerId, readonly EntityDef[]>> = {
     }),
     ent(
       'rtl-clk',
-      [[18, 7]],
+      [[18, 8]],
       (p) => {
-        p.r(0, 3, 18, 1, '#555555');
+        p.r(1, 1, 16, 6, '#000000');
+        p.r(1, 3, 16, 2, '#555555');
       },
       {
         anim: (p, _w, _h, _v, t) => {
           const hi = Math.floor(t * 4) % 2 === 0;
-          for (let x = 0; x < 16; x += 4) p.r(x, hi ? 1 : 4, 4, 1, '#ffffff');
+          for (let x = 1; x < 17; x += 4) p.r(x, hi ? 1 : 5, 4, 1, '#ffffff');
         },
         noFlip: true,
       },
@@ -240,7 +242,8 @@ export const ENDLESS_EXTRA: Partial<Record<LayerId, readonly EntityDef[]>> = {
   ],
   bandgap: [
     ent('bg-hole', [[10, 10]], (p) => {
-      p.ring(5, 5, 4, '#aaaaaa');
+      p.disc(5, 5, 4, '#aaaaaa');
+      p.disc(5, 5, 2, '#000000');
     }),
     ent('bg-photonabs', [[16, 12]], (p) => {
       p.r(0, 8, 16, 2, '#555555');

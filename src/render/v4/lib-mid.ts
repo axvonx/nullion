@@ -200,22 +200,22 @@ export const LIBRARIES: EntityDef[] = [
   ),
   ent(
     'lib-plaque',
-    [[30, 9], [24, 9]],
+    [[26, 10], [22, 10]],
     (p, w, _h, v) => {
-      const names = v === 0 ? ['libssl', 'libstd', 'libdl', 'libuv'] : ['libc', 'libm', 'libz', 'ld.so'];
-      p.r(0, 0, w, 9, WOOD);
-      p.r(0, 0, w, 1, WOOD_HI);
-      p.r(0, 8, w, 1, WOOD_DK);
-      p.t(p.pick(names, 0), 2, 7, BRASS);
+      const names = v === 0 ? ['ssl', 'std', 'dl', 'uv'] : ['libc', 'libm', 'libz', 'ld'];
+      p.r(0, 0, w, 10, WOOD);
+      p.r(1, 1, w - 2, 1, WOOD_HI);
+      p.r(1, 8, w - 2, 1, WOOD_DK);
+      p.t(p.pick(names, 0), 3, 8, BRASS);
     },
     { text: true, cap: 1, weight: 0.5 },
   ),
   ent('lib-card', [[10, 8]], (p) => {
-    p.r(1, 1, 9, 7, WOOD_DK);
-    p.r(0, 0, 9, 7, PAPER);
-    p.r(0, 0, 9, 1, '#ff5555');
-    p.r(1, 3, 6, 1, '#aaaa55');
-    p.r(1, 5, 3 + R(p.h(0) * 4), 1, '#aaaa55');
+    p.r(0, 0, 10, 8, WOOD_DK);
+    p.r(1, 1, 8, 6, PAPER);
+    p.r(1, 1, 8, 1, '#ff5555');
+    p.r(2, 3, 6, 1, '#aaaa55');
+    p.r(2, 5, 3 + R(p.h(0) * 3), 1, '#aaaa55');
   }),
   ent('lib-lectern', [[15, 15]], (p) => {
     p.r(6, 6, 3, 8, WOOD);
@@ -443,12 +443,12 @@ export const USERSPACE: EntityDef[] = [
   ),
   ent(
     'us-sign',
-    [[40, 10]],
+    [[30, 10]],
     (p) => {
-      const name = p.pick(['systemd', 'sshd', 'cron', 'journald', 'udevd', 'Xorg', 'bash'], 0);
-      p.r(0, 0, 40, 10, C.k);
-      p.r(0, 0, 40, 1, C.M);
-      p.r(0, 9, 40, 1, C.M);
+      const name = p.pick(['init', 'sshd', 'cron', 'udev', 'Xorg', 'bash'], 0);
+      p.r(0, 0, 30, 10, C.k);
+      p.r(1, 1, 28, 1, C.M);
+      p.r(1, 8, 28, 1, C.M);
       p.t(name, 3, 7, C.M);
     },
     {
@@ -819,7 +819,7 @@ export const KERNEL: EntityDef[] = [
       anim: (p, _w, _h, _v, t) => {
         // A new line scrolls in every couple of seconds; the newest is bright.
         const first = Math.floor(t * 0.45);
-        for (let k = 0; k < 2; k++) p.t(DMESG[mod(first + k + Math.floor(p.h(0) * 7), DMESG.length)]!.slice(0, 8), 3, 9 + k * 6, k === 1 ? C.G : C.g);
+        for (let k = 0; k < 2; k++) p.t(DMESG[mod(first + k + Math.floor(p.h(0) * 7), DMESG.length)]!.slice(0, 4), 3, 9 + k * 6, k === 1 ? C.G : C.g);
       },
     },
   ),
@@ -859,10 +859,10 @@ export const KERNEL: EntityDef[] = [
   ),
   ent(
     'kr-leds',
-    [[11, 7]],
+    [[11, 8]],
     (p) => {
-      p.r(0, 0, 11, 7, C.d);
-      p.r(1, 1, 9, 5, C.k);
+      p.r(0, 0, 11, 8, C.d);
+      p.r(1, 1, 9, 6, C.k);
     },
     {
       anim: (p, _w, _h, _v, t) => {
@@ -870,7 +870,7 @@ export const KERNEL: EntityDef[] = [
         for (let k = 0; k < 6; k++) {
           const on = (k * 5 + slot * 3 + k * slot) % 7 > 2;
           const red = k === 5;
-          p.p(2 + (k % 3) * 3, 2 + Math.floor(k / 3) * 2, on ? (red ? C.R : C.G) : red ? C.r : C.g);
+          p.p(2 + (k % 3) * 3, 2 + Math.floor(k / 3) * 3, on ? (red ? C.R : C.G) : red ? C.r : C.g);
         }
       },
     },
@@ -1078,16 +1078,16 @@ export const KERNEL: EntityDef[] = [
   ),
   ent(
     'kr-semaphore',
-    [[7, 16]],
+    [[8, 16]],
     (p) => {
-      p.r(0, 0, 7, 12, C.d);
-      p.r(3, 12, 1, 4, C.d);
-      for (let k = 0; k < 3; k++) p.r(2, 1 + k * 4, 3, 3, C.k);
+      p.r(0, 0, 8, 12, C.d);
+      p.r(3, 12, 2, 4, C.d);
+      for (let k = 0; k < 3; k++) p.r(2, 1 + k * 4, 4, 3, C.k);
     },
     {
       anim: (p, _w, _h, _v, t) => {
         const s = Math.floor(t * 0.7) % 3;
-        p.r(2, 1 + s * 4, 3, 3, [C.R, C.Y, C.G][s]!);
+        p.r(2, 1 + s * 4, 4, 3, [C.R, C.Y, C.G][s]!);
       },
       noFlip: true,
     },
@@ -1096,9 +1096,11 @@ export const KERNEL: EntityDef[] = [
     'kr-ringbuf',
     [[15, 15]],
     (p) => {
+      p.disc(7, 7, 6, C.d);
+      p.disc(7, 7, 4, C.k);
       for (let k = 0; k < 12; k++) {
         const a = (k * TAU) / 12;
-        p.r(7 + R(Math.cos(a) * 6) - 0, 7 + R(Math.sin(a) * 6), 1, 1, C.d);
+        p.r(7 + R(Math.cos(a) * 5), 7 + R(Math.sin(a) * 5), 1, 1, C.l);
       }
     },
     {

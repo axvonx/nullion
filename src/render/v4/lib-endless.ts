@@ -33,9 +33,8 @@ export const INTERNET_BESPOKE: EntityDef[] = [
     'net-bgp',
     [[22, 12]],
     (p) => {
-      p.r(1, 1, 21, 11, '#3a4a8a');
-      p.r(0, 0, 21, 11, '#2a3358');
-      p.r(1, 1, 19, 9, '#f3efe6');
+      p.r(0, 0, 22, 12, '#2a3358');
+      p.r(1, 1, 20, 10, '#f3efe6');
       p.r(2, 2, 6, 2, '#5b8ee6');
       p.r(10, 2, 8, 1, '#55607a');
       p.r(2, 5, 16, 1, '#a8acb8');
@@ -50,14 +49,14 @@ export const INTERNET_BESPOKE: EntityDef[] = [
     },
   ),
   ent('net-cable', [[26, 8]], (p) => {
-    p.r(0, 3, 26, 2, '#2a3358');
-    p.r(0, 3, 26, 1, '#5b8ee6');
+    p.r(0, 2, 26, 4, '#2a3358');
+    p.r(1, 3, 24, 2, '#5b8ee6');
     for (let x = 2; x < 24; x += 6) p.r(x, 2, 2, 4, '#e6a23c');
   }),
   ent('net-dns', [[14, 15]], (p) => {
-    p.r(1, 1, 13, 14, '#3a4a8a');
-    p.r(0, 0, 13, 14, '#ffffff');
-    p.r(0, 0, 13, 3, '#59c08a');
+    p.r(0, 0, 14, 15, '#2a3358');
+    p.r(1, 1, 12, 13, '#ffffff');
+    p.r(1, 1, 12, 3, '#59c08a');
     p.r(2, 5, 9, 2, '#55607a');
     p.r(2, 8, 6, 2, '#a8acb8');
     p.r(2, 11, 8, 1, '#5b8ee6');
@@ -71,14 +70,14 @@ export const INTERNET_BESPOKE: EntityDef[] = [
   }),
   ent(
     'net-fiber',
-    [[24, 6]],
+    [[24, 8]],
     (p) => {
-      p.r(0, 2, 24, 2, '#4cb8c8');
+      p.r(1, 2, 22, 4, '#4cb8c8');
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const x = Math.floor(mod(t * 18, 22));
-        p.r(x, 2, 3, 2, '#ffffff');
+        const x = 1 + Math.floor(mod(t * 18, 20));
+        p.r(x, 3, 3, 2, '#ffffff');
       },
     },
   ),
@@ -96,9 +95,9 @@ export const INTERNET_BESPOKE: EntityDef[] = [
     p.l(6, 4, 10, 8, '#5b8ee6');
   }),
   ent('net-packet', [[14, 9]], (p) => {
-    p.r(1, 1, 13, 8, '#3a4a8a');
-    p.r(0, 0, 13, 8, '#ffffff');
-    p.r(0, 0, 13, 2, '#4cb8c8');
+    p.r(0, 0, 14, 9, '#2a3358');
+    p.r(1, 1, 12, 7, '#ffffff');
+    p.r(1, 1, 12, 2, '#4cb8c8');
     p.r(2, 4, 5, 1, '#55607a');
     p.r(8, 4, 3, 2, '#e6a23c');
   }),
@@ -115,9 +114,8 @@ export const INTERNET_ANCHORS: EntityDef[] = [
     'net-ixp',
     [[56, 42]],
     (p) => {
-      p.r(2, 2, 54, 40, '#3a4a8a');
-      p.r(0, 0, 54, 40, '#2a3358');
-      p.r(1, 1, 52, 5, '#5b8ee6');
+      p.r(0, 0, 56, 42, '#2a3358');
+      p.r(1, 1, 54, 5, '#5b8ee6');
       p.r(1, 6, 52, 33, '#f3efe6');
       for (let k = 0; k < 4; k++) {
         p.r(4 + k * 12, 10, 9, 24, '#e2e6f0');
@@ -202,14 +200,13 @@ export const BROWSER_BESPOKE: EntityDef[] = [
 export const BROWSER = mix('br', BROWSER_BESPOKE, APPLICATION);
 export const BROWSER_ANCHORS: EntityDef[] = [
   ent('br-viewport', [[54, 40]], (p) => {
-    p.r(2, 2, 52, 38, '#3a4a8a');
-    p.r(0, 0, 52, 38, '#2a3358');
-    p.r(1, 1, 50, 4, '#c8d0e6');
+    p.r(0, 0, 54, 40, '#2a3358');
+    p.r(1, 1, 52, 4, '#c8d0e6');
     p.r(2, 1, 14, 4, '#ffffff');
-    p.r(1, 5, 50, 32, '#ffffff');
+    p.r(1, 5, 52, 34, '#ffffff');
     p.r(3, 7, 28, 12, '#5b8ee6');
-    p.r(33, 7, 16, 28, '#e9e6dc');
-    for (let y = 21; y < 35; y += 3) p.r(3, y, 26, 2, '#dfe6f6');
+    p.r(33, 7, 18, 30, '#e9e6dc');
+    for (let y = 21; y < 37; y += 3) p.r(3, y, 26, 2, '#dfe6f6');
   }),
 ];
 
@@ -700,29 +697,31 @@ export const CMOS_ANCHORS: EntityDef[] = [
 
 export const LITHO_BESPOKE: EntityDef[] = [
   ent('li-fringe', [[17, 17]], (p) => {
-    p.ring(8, 8, 7, '#555555');
-    p.ring(8, 8, 4, '#aaaaaa');
+    p.disc(8, 8, 7, '#555555');
+    p.disc(8, 8, 4, '#aaaaaa');
     p.disc(8, 8, 1, '#ffffff');
   }),
   ent('li-lattice', [[18, 14]], (p) => {
+    p.r(1, 1, 16, 12, '#000000');
     for (let r = 0; r < 3; r++)
       for (let c = 0; c < 4; c++) {
-        const x = 2 + c * 4 + (r % 2 ? 2 : 0);
-        const y = 2 + r * 5;
+        const x = 2 + c * 4 + (r % 2 ? 1 : 0);
+        const y = 2 + r * 4;
         p.r(x, y, 2, 2, r === 1 && c === 2 ? '#ffffff' : '#aaaaaa');
       }
   }),
   ent('li-dopant', [[13, 13]], (p) => {
-    p.ring(6, 6, 5, '#555555');
+    p.disc(6, 6, 5, '#555555');
     p.disc(6, 6, 2, '#ffffff');
   }),
 ];
 export const LITHO = mix('li', LITHO_BESPOKE, RING3);
 export const LITHO_ANCHORS: EntityDef[] = [
   ent('li-reticle', [[48, 48]], (p) => {
-    p.ring(24, 24, 21, '#555555');
-    p.ring(24, 24, 15, '#aaaaaa');
-    p.ring(24, 24, 9, '#ffffff');
+    p.disc(24, 24, 22, '#555555');
+    p.disc(24, 24, 16, '#aaaaaa');
+    p.disc(24, 24, 10, '#000000');
+    p.disc(24, 24, 7, '#ffffff');
     p.r(23, 2, 2, 44, '#555555');
     p.r(2, 23, 44, 2, '#555555');
   }),
@@ -730,8 +729,9 @@ export const LITHO_ANCHORS: EntityDef[] = [
 
 export const BANDGAP_BESPOKE: EntityDef[] = [
   ent('bg-band', [[24, 12]], (p) => {
-    p.r(0, 1, 24, 3, '#aaaaaa');
-    p.r(0, 8, 24, 3, '#555555');
+    p.r(1, 1, 22, 10, '#000000');
+    p.r(1, 1, 22, 3, '#aaaaaa');
+    p.r(1, 8, 22, 3, '#555555');
     p.p(10, 5, '#ffffff');
     p.p(14, 6, '#ffffff');
   }),
@@ -739,27 +739,30 @@ export const BANDGAP_BESPOKE: EntityDef[] = [
     'bg-tunnel',
     [[20, 12]],
     (p) => {
-      p.r(9, 0, 2, 12, '#aaaaaa');
+      p.r(1, 1, 18, 10, '#000000');
+      p.r(9, 1, 2, 10, '#aaaaaa');
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const x = Math.floor(mod(t * 7, 18));
+        const x = 1 + Math.floor(mod(t * 7, 16));
         p.r(x, 5, 2, 2, x > 10 ? '#ffffff' : '#aaaaaa');
       },
       noFlip: true,
     },
   ),
   ent('bg-wave', [[20, 10]], (p) => {
-    for (let x = 0; x < 20; x++) p.p(x, 5 + R(Math.sin(x * 0.6) * 3), '#ffffff');
+    p.r(1, 1, 18, 8, '#000000');
+    for (let x = 2; x < 18; x++) p.r(x, 4 + R(Math.sin(x * 0.6) * 2), 1, 2, '#ffffff');
   }),
 ];
 export const BANDGAP = mix('bg', BANDGAP_BESPOKE, RING3);
 export const BANDGAP_ANCHORS: EntityDef[] = [
   ent('bg-diagram', [[52, 40]], (p) => {
-    p.r(0, 4, 52, 8, '#555555');
-    p.r(0, 28, 52, 8, '#aaaaaa');
+    p.r(1, 1, 50, 38, '#000000');
+    p.r(1, 4, 50, 8, '#555555');
+    p.r(1, 28, 50, 8, '#aaaaaa');
     for (let x = 6; x < 48; x += 10) {
-      p.l(x, 12, x, 28, '#555555');
+      p.r(x, 12, 2, 16, '#555555');
       p.r(x - 1, 18, 3, 3, '#ffffff');
     }
   }),
@@ -770,27 +773,30 @@ export const LANDAUER_BESPOKE: EntityDef[] = [
     'la-ray',
     [[18, 18]],
     (p) => {
-      p.p(9, 9, '#555555');
+      p.disc(9, 9, 7, '#000000');
+      p.r(8, 8, 2, 2, '#555555');
     },
     {
       anim: (p, _w, _h, _v, t) => {
         if (mod(t * 0.5, 1) < 0.25) {
-          p.l(1, 1, 16, 16, '#ffffff');
+          p.l(3, 3, 14, 14, '#ffffff');
           p.r(8, 8, 3, 3, '#ffffff');
         }
       },
     },
   ),
   ent('la-entropy', [[15, 15]], (p) => {
-    p.ring(7, 7, 6, '#555555');
-    p.p(7, 7, '#ffffff');
+    p.disc(7, 7, 6, '#555555');
+    p.disc(7, 7, 4, '#000000');
+    p.r(6, 6, 3, 3, '#ffffff');
   }),
   ent('la-spark', [[11, 11]], (p) => {
-    p.p(5, 5, '#ffffff');
-    p.p(5, 3, '#555555');
-    p.p(5, 7, '#555555');
-    p.p(3, 5, '#555555');
-    p.p(7, 5, '#555555');
+    p.disc(5, 5, 4, '#000000');
+    p.r(4, 4, 3, 3, '#ffffff');
+    p.p(5, 2, '#aaaaaa');
+    p.p(5, 8, '#aaaaaa');
+    p.p(2, 5, '#aaaaaa');
+    p.p(8, 5, '#aaaaaa');
   }),
 ];
 export const LANDAUER = mix('la', LANDAUER_BESPOKE, RING3);
@@ -799,9 +805,11 @@ export const LANDAUER_ANCHORS: EntityDef[] = [
     'la-horizon',
     [[48, 36]],
     (p) => {
-      p.r(0, 18, 48, 1, '#555555');
-      p.ring(24, 18, 12, '#555555');
-      p.ring(24, 18, 6, '#aaaaaa');
+      p.disc(24, 18, 14, '#555555');
+      p.disc(24, 18, 10, '#000000');
+      p.disc(24, 18, 6, '#aaaaaa');
+      p.disc(24, 18, 4, '#000000');
+      p.r(2, 17, 44, 2, '#555555');
     },
     {
       anim: (p, _w, _h, _v, t) => {

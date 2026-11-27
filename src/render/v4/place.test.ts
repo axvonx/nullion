@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS, ENDLESS_LAYERS, LAYERS } from '../../core/layers';
-import { LAYER_PALETTE } from '../palettes';
-import { checkLibrary, setPaint } from './kit';
+import { LAYER_PALETTE, darkestInk } from '../palettes';
+import { Pen, c, checkLibrary, outlineSilhouette, setPaint } from './kit';
 import { V4_LIBRARIES } from './libraries';
 import { VIEW_WINDOW, type Placed } from './place';
 import { drawSetpiece } from './setpieces';
@@ -172,5 +172,92 @@ describe('v4 world', () => {
       drawSetpiece(ctx, band, id, 3.5);
       expect(rects).toBeGreaterThan(0);
     }
+  });
+
+  it('ART-STYLE.md: every entity is >= 8x8 px, text is <= 4 glyphs, and silhouette edge is darkest ink', () => {
+    const texts: string[] = [];
+    const makeCtx = (w: number, h: number) => {
+      const data = new Uint8ClampedArray(w * h * 4);
+      const parseHex = (hex: string): [number, number, number] => {
+        const n = parseInt(hex.slice(1), 16);
+        return [n >> 16, (n >> 8) & 255, n & 255];
+      };
+      const cxObj = {
+        data,
+        fillStyle: '#000000',
+        font: '',
+        fillRect(x: number, y: number, rw: number, rh: number) {
+          const [r, g, b] = parseHex(cxObj.fillStyle);
+          const x0 = Math.max(0, Math.round(x));
+          const y0 = Math.max(0, Math.round(y));
+          const x1 = Math.min(w, Math.round(x + rw));
+          const y1 = Math.min(h, Math.round(y + rh));
+          for (let yy = y0; yy < y1; yy++) {
+            for (let xx = x0; xx < x1; xx++) {
+              const p = (yy * w + xx) * 4;
+              data[p] = r;
+              data[p + 1] = g;
+              data[p + 2] = b;
+              data[p + 3] = 255;
+            }
+          }
+        },
+        fillText(s: string, x: number, y: number) {
+          texts.push(s);
+          cxObj.fillRect(x, y - 5, Math.max(1, s.length * 4), 5);
+        },
+        getImageData: () => ({ data, width: w, height: h }),
+        putImageData(img: { data: Uint8ClampedArray }) {
+          data.set(img.data);
+        },
+      };
+      return cxObj as unknown as CanvasRenderingContext2D;
+    };
+
+    const pen = new Pen();
+    const badSizes: string[] = [];
+    const badText: string[] = [];
+    const badOutline: string[] = [];
+
+    for (const id of ALL_LAYER_IDS) {
+      const mode = LAYER_PALETTE[id];
+      setPaint(mode, undefined);
+      const inkHex = c(darkestInk(mode));
+      const inkN = parseInt(inkHex.slice(1), 16);
+      const [ir, ig, ib] = [inkN >> 16, (inkN >> 8) & 255, inkN & 255];
+      const lib = V4_LIBRARIES[id];
+      for (const def of [...lib.anchors, ...lib.near]) {
+        def.sizes.forEach(([w, h], v) => {
+          if (w < 8 || h < 8) badSizes.push(`${id}/${def.id} v${v}: ${w}x${h}`);
+          const cx = makeCtx(w, h);
+          texts.length = 0;
+          def.draw(pen.at(cx, 0, 0, w, false, 1), w, h, v);
+          for (const s of texts) if (s.length > 4) badText.push(`${id}/${def.id}: "${s}"`);
+          outlineSilhouette(cx, w, h, inkHex);
+          const d = (cx as unknown as { data: Uint8ClampedArray }).data;
+          for (let y = 0; y < h; y++) {
+            for (let x = 0; x < w; x++) {
+              const p = (y * w + x) * 4;
+              if (d[p + 3]! < 128) continue;
+              const edge =
+                x === 0 ||
+                x === w - 1 ||
+                y === 0 ||
+                y === h - 1 ||
+                d[(y * w + x - 1) * 4 + 3]! < 128 ||
+                d[(y * w + x + 1) * 4 + 3]! < 128 ||
+                d[((y - 1) * w + x) * 4 + 3]! < 128 ||
+                d[((y + 1) * w + x) * 4 + 3]! < 128;
+              if (edge && (d[p] !== ir || d[p + 1] !== ig || d[p + 2] !== ib)) {
+                badOutline.push(`${id}/${def.id} v${v} (${x},${y})`);
+              }
+            }
+          }
+        });
+      }
+    }
+    expect(badSizes).toEqual([]);
+    expect(badText).toEqual([]);
+    expect(badOutline).toEqual([]);
   });
 });

@@ -3,7 +3,7 @@ import { ALL_LAYER_IDS, DAILY_FALLBACK, type LayerId } from '../core/layers';
 import { look } from '../looks';
 import { FONT, hash, type Band } from './art';
 import { SEAM_H } from './art-detailed';
-import { LAYER_PALETTE, snapColor } from './palettes';
+import { LAYER_PALETTE, darkestInk, snapColor } from './palettes';
 
 /**
  * The System Biosphere: living pixel-art critters unique to each of the 10 layers of the software stack.
@@ -874,9 +874,41 @@ export class CritterSystem {
     const y = R(rawY);
     CRITTER_SPOTS.push({ x: x - 2, y: y - 3, w: 12, h: 11, layer: layerId });
     const variant = c.variant;
+    const ink = col(darkestInk(LAYER_PALETTE[layerId]));
+    const grid = new Map<number, string>();
+    const gkey = (dx: number, dy: number) => ((dy + 32) << 8) | (dx + 32);
     const px = (dx: number, dy: number, w: number, h: number, hex: string) => {
-      ctx.fillStyle = col(hex);
-      ctx.fillRect(x + dx, y + dy, w, h);
+      const cHex = col(hex);
+      const x0 = R(dx);
+      const y0 = R(dy);
+      const ww = R(w);
+      const hh = R(h);
+      for (let yy = 0; yy < hh; yy++) {
+        for (let xx = 0; xx < ww; xx++) {
+          grid.set(gkey(x0 + xx, y0 + yy), cHex);
+        }
+      }
+    };
+    const flushGrid = (ox: number, oy: number) => {
+      ctx.fillStyle = ink;
+      for (const k of grid.keys()) {
+        const gx = (k & 0xff) - 32;
+        const gy = (k >> 8) - 32;
+        for (const [nx, ny] of [
+          [gx - 1, gy],
+          [gx + 1, gy],
+          [gx, gy - 1],
+          [gx, gy + 1],
+        ] as const) {
+          if (!grid.has(gkey(nx, ny))) ctx.fillRect(ox + nx, oy + ny, 1, 1);
+        }
+      }
+      for (const [k, cHex] of grid) {
+        const gx = (k & 0xff) - 32;
+        const gy = (k >> 8) - 32;
+        ctx.fillStyle = cHex;
+        ctx.fillRect(ox + gx, oy + gy, 1, 1);
+      }
     };
 
     // Second species per layer: odd variants draw an alternate creature so each layer's fauna isn't uniform.
@@ -885,219 +917,215 @@ export class CritterSystem {
       if (!isAltSpecies(layerId, variant)) return false;
       const tick = Math.floor(t * 8 + c.phase) % 2;
       switch (layerId) {
-        case 'application': // butterfly
-          px(0, tick ? 0 : 1, 3, 3, '#ff9fd0');
-          px(4, tick ? 0 : 1, 3, 3, '#ffd166');
-          px(3, 1, 1, 4, '#131118');
+        case 'application': // butterfly (6x6+ body/wings)
+          px(0, tick ? 0 : 1, 3, 4, '#ff9fd0');
+          px(4, tick ? 0 : 1, 3, 4, '#ffd166');
+          px(3, 0, 1, 6, ink);
           return true;
-        case 'internet': // tiny drone with blinking light
-          px(1, 1, 5, 2, '#ffffff');
-          px(0, 0, 2, 1, '#5b8ee6');
-          px(5, 0, 2, 1, '#5b8ee6');
-          px(3, 3, 1, 1, tick ? '#e6a23c' : '#59c08a');
+        case 'internet': // tiny drone with blinking light (6x6)
+          px(0, 2, 6, 4, '#ffffff');
+          px(0, 0, 2, 2, '#5b8ee6');
+          px(4, 0, 2, 2, '#5b8ee6');
+          px(2, 4, 2, 1, tick ? '#e6a23c' : '#59c08a');
           return true;
-        case 'browser': // arrow cursor
-          px(0, 0, 1, 6, '#ffffff');
-          px(1, 1, 1, 4, '#ffffff');
-          px(2, 2, 1, 2, '#ffffff');
-          px(3, 3, 1, 1, '#ffffff');
-          px(-1, -1, 1, 8, '#2a3358');
+        case 'browser': // arrow cursor (6x6)
+          px(0, 0, 2, 6, '#ffffff');
+          px(2, 1, 2, 4, '#ffffff');
+          px(4, 2, 2, 2, '#ffffff');
+          px(1, 5, 1, 1, '#dfe6f6');
           return true;
-        case 'bytecode': // opcode byte
-          px(0, 0, 6, 4, '#333366');
-          px(1, 1, 1, 2, '#ffcc33');
-          px(3, 1, 2, 2, '#66cc99');
+        case 'bytecode': // opcode byte (6x6)
+          px(0, 0, 6, 6, '#333366');
+          px(1, 2, 1, 2, '#ffcc33');
+          px(3, 2, 2, 2, '#66cc99');
           return true;
-        case 'jit': // flame wisp
-          px(2, 3, 3, 3, '#ff6633');
-          px(3, 1, 1, 3, '#ffff66');
-          px(tick ? 2 : 4, 0, 1, 2, '#ffcc33');
+        case 'jit': // flame wisp (6x6)
+          px(1, 2, 4, 4, '#ff6633');
+          px(2, 1, 2, 4, '#ffff66');
+          px(tick ? 1 : 3, 0, 2, 2, '#ffcc33');
           return true;
-        case 'linker': // brass plug
-          px(0, 1, 4, 3, '#aa5500');
-          px(4, 2, 3, 1, '#ffff55');
-          px(0, 0, 2, 1, '#ffffaa');
+        case 'linker': // brass plug (6x6)
+          px(0, 0, 4, 6, '#aa5500');
+          px(4, 2, 3, 2, '#ffff55');
+          px(1, 1, 2, 1, '#ffffaa');
           return true;
-        case 'kernel-entry': // padlock
+        case 'kernel-entry': // padlock (6x6)
           px(1, 0, 4, 2, '#aaaaaa');
           px(0, 2, 6, 4, '#55ffff');
-          px(2, 3, 2, 2, '#000000');
+          px(2, 3, 2, 2, ink);
           return true;
-        case 'kernel-arch': // lightning bolt
-          px(3, 0, 2, 2, '#ffff55');
-          px(2, 2, 2, 2, '#ffff55');
-          px(3, 4, 2, 2, '#ff5555');
+        case 'kernel-arch': // lightning bolt (6x6)
+          px(2, 0, 3, 2, '#ffff55');
+          px(1, 2, 3, 2, '#ffff55');
+          px(2, 4, 3, 2, '#ff5555');
           return true;
-        case 'bus-fabric': // data packet
-          px(0, 1, 6, 3, '#ffffff');
-          px(1, 2, 4, 1, '#ff55ff');
+        case 'bus-fabric': // data packet (6x6)
+          px(0, 0, 6, 6, '#ffffff');
+          px(1, 2, 4, 2, '#ff55ff');
           return true;
-        case 'uarch': // speculative dot pair
-          px(0, 1, 3, 3, '#aaaaaa');
-          px(4, tick ? 0 : 2, 3, 3, '#555555');
+        case 'uarch': // speculative dot pair (6x6)
+          px(0, 1, 3, 5, '#aaaaaa');
+          px(3, tick ? 0 : 1, 3, 5, '#555555');
           return true;
-        case 'cmos': // electron-hole pair
-          px(0, 1, 3, 3, '#ffffff');
-          px(4, 1, 3, 3, '#24989c');
-          px(1, 2, 1, 1, '#000000');
+        case 'cmos': // electron-hole pair (6x6)
+          px(0, 0, 3, 6, '#ffffff');
+          px(3, 0, 3, 6, '#24989c');
+          px(1, 2, 1, 1, ink);
           return true;
         default:
           throw new Error(`critters: ${layerId} is in ALT_SPECIES_MOTIONS but has no alternate sprite`);
       }
     })();
 
+    let mirrorPair = false;
     if (!altDone) switch (layerId) {
       // Bespoke Endless sprites for Zones A–F (distinct silhouettes instead of reusing Daily sprites!)
       case 'internet': {
         // Crisp white paper-plane packet swallow with trailing cyan packet dot
-        px(dir > 0 ? 0 : 2, 2, 6, 2, '#ffffff');
-        px(dir > 0 ? 2 : 1, 1, 4, 1, '#dfe6f6');
-        px(dir > 0 ? 5 : 0, 2, 2, 1, '#5b8ee6');
-        if (!perched) px(dir > 0 ? -3 : 9, 3, 2, 1, '#5fd3e0');
+        px(0, 1, 6, 4, '#ffffff');
+        px(dir > 0 ? 1 : 0, 0, 4, 2, '#dfe6f6');
+        px(dir > 0 ? 4 : 0, 2, 2, 2, '#5b8ee6');
+        px(dir > 0 ? 1 : 4, 5, 2, 1, '#c8d6f0');
+        if (!perched) px(dir > 0 ? -3 : 8, 3, 2, 1, '#5fd3e0');
         break;
       }
       case 'browser': {
         // Glowing DOM firefly / mini pointer sprite
         const glow = Math.floor(t * 6 + c.phase) % 2 === 0;
-        px(1, 1, 4, 4, glow ? '#59c08a' : '#5b8ee6');
+        px(0, 0, 6, 6, glow ? '#59c08a' : '#5b8ee6');
         px(2, 2, 2, 2, '#ffffff');
         px(dir > 0 ? 5 : 0, 0, 1, 2, '#e6a23c');
         break;
       }
       case 'bytecode': {
         // Floating curly-brace / syntax token sprite
-        px(1, 0, 4, 5, '#333366');
-        px(2, 1, 2, 3, '#ffcc33');
-        px(0, 2, 1, 1, '#ffff99');
-        px(5, 2, 1, 1, '#ffff99');
+        px(1, 0, 4, 6, '#333366');
+        px(2, 1, 2, 4, '#ffcc33');
+        px(0, 2, 1, 2, '#ffff99');
+        px(5, 2, 1, 2, '#ffff99');
         break;
       }
       case 'jit': {
         // Fiery orange-gold spark mite with trailing ember pixel
-        px(1, 1, 4, 4, '#ff6633');
+        px(0, 1, 6, 5, '#ff6633');
+        px(1, 0, 4, 2, '#ff6633');
         px(2, 1, 2, 2, '#ffff66');
-        px(dir > 0 ? -2 : 6, 2, 1, 1, '#ffcc33');
+        px(dir > 0 ? -2 : 7, 3, 1, 1, '#ffcc33');
         break;
       }
       case 'linker': {
         // Brass plug-beetle carrying a gold symbol pin
         const leg = Math.floor(t * 10 + c.phase) % 2;
-        px(0, 1, 6, 3, '#aa5500');
+        px(0, 1, 6, 4, '#aa5500');
         px(1, 0, 4, 1, '#ffff55');
-        px(dir > 0 ? 6 : -2, 2, 2, 1, '#ffffaa');
-        px(1 + leg, 4, 1, 1, '#aaaaaa');
-        px(4 - leg, 4, 1, 1, '#aaaaaa');
+        px(dir > 0 ? 6 : -2, 2, 2, 2, '#ffffaa');
+        px(1 + leg, 5, 1, 1, '#aaaaaa');
+        px(4 - leg, 5, 1, 1, '#aaaaaa');
         break;
       }
       case 'kernel-entry': {
         // Shielded cyan gate-bot
-        px(0, 0, 7, 5, '#000000');
-        px(1, 1, 5, 3, '#55ffff');
-        px(dir > 0 ? 4 : 1, 2, 2, 1, '#000000');
-        px(2, 5, 3, 1, '#aaaaaa');
+        px(0, 0, 6, 5, '#55ffff');
+        px(dir > 0 ? 3 : 1, 2, 1, 1, ink);
+        px(1, 5, 4, 1, '#aaaaaa');
         break;
       }
       case 'kernel-arch': {
         // Winged red/yellow IRQ-spark
         const wing = Math.floor(t * 14 + c.phase) % 2 === 0;
-        px(2, 1, 3, 3, '#ff5555');
-        px(3, 2, 1, 1, '#ffff55');
-        px(0, wing ? 0 : 2, 2, 1, '#ffff55');
-        px(5, wing ? 0 : 2, 2, 1, '#ffff55');
+        px(1, 0, 4, 6, '#ff5555');
+        px(2, 2, 2, 2, '#ffff55');
+        px(-1, wing ? 0 : 2, 2, 2, '#ffff55');
+        px(5, wing ? 0 : 2, 2, 2, '#ffff55');
         break;
       }
       case 'bus-fabric': {
         // High-speed magenta/white PCIe lane-runner
-        px(0, 1, 7, 2, '#ff55ff');
-        px(dir > 0 ? 5 : 0, 1, 2, 2, '#ffffff');
+        px(0, 0, 6, 6, '#ff55ff');
+        px(dir > 0 ? 4 : 0, 1, 2, 4, '#ffffff');
         break;
       }
       case 'vmm':
       case 'ept': {
         // Hollow wireframe ghost-wisp (mirrored pair)
-        const drawGhost = (wx: number) => {
-          ctx.fillStyle = col('#aaaaaa');
-          ctx.fillRect(wx, y, 6, 1);
-          ctx.fillRect(wx, y + 4, 6, 1);
-          ctx.fillRect(wx, y, 1, 5);
-          ctx.fillRect(wx + 5, y, 1, 5);
-          ctx.fillStyle = col('#ffffff');
-          ctx.fillRect(wx + 2, y + 2, 2, 1);
-        };
-        drawGhost(x);
-        drawGhost(W - x - 6);
+        mirrorPair = true;
+        px(0, 0, 6, 6, '#aaaaaa');
+        px(1, 1, 4, 4, '#000000');
+        px(2, 2, 2, 2, '#ffffff');
         break;
       }
       case 'smram': {
         // Silent silver vault sentinel
-        px(1, 0, 4, 5, '#808080');
-        px(2, 1, 2, 3, '#c0c0c0');
-        px(2, 2, 2, 1, '#ffffff');
+        px(0, 0, 6, 6, '#808080');
+        px(1, 1, 4, 4, '#c0c0c0');
+        px(2, 2, 2, 2, '#ffffff');
         break;
       }
       case 'me-minix-user': {
-        // Miniature 4×4 uncanny amber micro-daemon
+        // Miniature uncanny amber micro-daemon
         const step = perched ? 0 : Math.floor(t * 8 + c.phase) % 2;
-        px(0, 0, 1, 1, '#ffffff');
-        px(3, 0, 1, 1, '#ffffff');
-        px(0, 1, 4, 3, '#aaaaaa');
-        px(1, 2, 1, 1, '#000000');
-        px(2, 2, 1, 1, '#000000');
-        px(0 + step, 4, 1, 1, '#555555');
-        px(3 - step, 4, 1, 1, '#555555');
+        px(0, -1, 1, 2, '#ffffff');
+        px(5, -1, 1, 2, '#ffffff');
+        px(0, 0, 6, 5, '#aaaaaa');
+        px(1, 2, 1, 1, ink);
+        px(4, 2, 1, 1, ink);
+        px(1 + step, 5, 1, 1, '#555555');
+        px(4 - step, 5, 1, 1, '#555555');
         break;
       }
       case 'me-minix-kern': {
         // Crisp tiny IPC courier packet
-        px(0, 1, 6, 3, '#aaaaaa');
+        px(0, 1, 6, 5, '#aaaaaa');
         px(1, 0, 4, 1, '#ffffff');
-        px(dir > 0 ? 5 : 0, 2, 1, 1, '#ffffff');
+        px(dir > 0 ? 4 : 1, 2, 1, 2, '#ffffff');
         break;
       }
       case 'uarch': {
-        // Speculative phantom: hollow flickering μop glider
+        // Speculative phantom: flickering μop glider
         const ghost = Math.floor(t * 6 + c.phase) % 2 === 0;
-        px(0, 1, 6, 4, ghost ? '#ffffff' : '#aaaaaa');
-        px(1, 2, 4, 2, '#000000');
-        px(dir > 0 ? 6 : -1, 2, 1, 2, '#ffffff');
+        px(0, 0, 6, 6, ghost ? '#ffffff' : '#aaaaaa');
+        px(1, 2, 4, 2, ink);
+        px(dir > 0 ? 5 : 0, 2, 1, 2, '#ffffff');
         break;
       }
       case 'rtl': {
         // Logic pulse glider
-        px(0, 2, 7, 1, '#aaaaaa');
-        px(dir > 0 ? 3 : 1, 0, 3, 3, '#ffffff');
-        px(dir > 0 ? 4 : 2, 1, 1, 1, '#000000');
+        px(0, 1, 6, 4, '#aaaaaa');
+        px(dir > 0 ? 3 : 1, 0, 3, 6, '#ffffff');
+        px(dir > 0 ? 4 : 2, 2, 1, 1, ink);
         break;
       }
       case 'cmos': {
         // Charge carrier orb moving across wafer masks
         const body = variant % 2 === 0 ? '#e88438' : '#24989c';
-        px(1, 0, 4, 4, body);
-        px(0, 1, 6, 2, body);
-        px(2, 1, 2, 2, '#ffffff');
+        px(1, 0, 4, 6, body);
+        px(0, 1, 6, 4, body);
+        px(2, 2, 2, 2, '#ffffff');
         break;
       }
       case 'litho': {
         // Shimmering EUV photon
         const pulse = Math.floor(t * 7 + c.phase) % 2 === 0;
-        px(2, 0, 1, 5, pulse ? '#ffffff' : '#aaaaaa');
-        px(0, 2, 5, 1, pulse ? '#ffffff' : '#aaaaaa');
-        px(2, 2, 1, 1, '#ffffff');
+        px(1, 1, 4, 4, pulse ? '#aaaaaa' : '#555555');
+        px(2, 0, 2, 6, pulse ? '#ffffff' : '#aaaaaa');
+        px(0, 2, 6, 2, pulse ? '#ffffff' : '#aaaaaa');
+        px(2, 2, 2, 2, '#ffffff');
         break;
       }
       case 'bandgap': {
         // Tunneling electron cloud
-        px(1, 1, 4, 4, '#555555');
+        px(0, 0, 6, 6, '#555555');
         px(2, 2, 2, 2, '#ffffff');
-        px(0, 2, 1, 1, '#aaaaaa');
-        px(5, 3, 1, 1, '#aaaaaa');
+        px(0, 2, 1, 2, '#aaaaaa');
+        px(5, 2, 1, 2, '#aaaaaa');
         break;
       }
       case 'landauer': {
         // Lone stray bit in the void
         const bit = Math.floor(t * 2 + c.phase) % 2 === 0;
-        px(1, 1, bit ? 2 : 3, 3, '#ffffff');
-        if (!bit) px(2, 2, 1, 1, '#000000');
+        px(0, 0, 6, 6, '#aaaaaa');
+        px(2, 1, bit ? 2 : 3, 4, '#ffffff');
+        if (!bit) px(3, 2, 1, 2, ink);
         break;
       }
       default:
@@ -1109,19 +1137,17 @@ export class CritterSystem {
         const body = bodies[variant % bodies.length]!;
         const belly = bellies[variant % bellies.length]!;
         const flap = !perched && Math.floor(t * 9 + c.phase) % 2 === 0;
-        px(0, 1, 7, 5, '#131118');
-        px(1, 1, 5, 4, body);
-        px(2, 3, 3, 2, belly);
+        px(0, 1, 6, 5, body);
+        px(2, 3, 3, 3, belly);
         if (variant === 0 || variant === 2) px(dir > 0 ? 4 : 1, -1, 2, 1, body);
         // Wings fold neatly against the body when perched, flap smoothly when flying
         px(2, perched ? 2 : flap ? -1 : 2, 3, perched ? 1 : 2, '#ffffff');
-        const hx = dir > 0 ? 5 : -1;
+        const hx = dir > 0 ? 4 : -1;
         px(hx, 0, 3, 3, body);
-        px(dir > 0 ? 6 : 0, 0, 1, 1, '#131118');
-        px(dir > 0 ? 8 : -2, 1, 2, 1, '#ffb000');
-        px(dir > 0 ? -2 : 7, 2, 2, 1, body);
+        px(dir > 0 ? 5 : 0, 1, 1, 1, ink);
+        px(dir > 0 ? 7 : -2, 1, 2, 1, '#ffb000');
+        px(dir > 0 ? -2 : 6, 2, 2, 2, body);
         if (perched) {
-          // Tiny feet gripping the prop top
           px(2, 6, 1, 1, '#ffb000');
           px(4, 6, 1, 1, '#ffb000');
         }
@@ -1131,47 +1157,26 @@ export class CritterSystem {
         const bodies = ['#5fd3e0', '#7ee0a1', '#f5d76e', '#ff9f43', '#c58bff'];
         const body = bodies[variant % bodies.length]!;
         const squish = perched || hopFrac < 0.1 || hopFrac > 0.9;
-        const tall = !squish && variant === 1 ? 1 : 0;
-        const topY = squish ? 1 : -tall;
-        if (squish) {
-          // Rounded squished dome (never a flat box)
-          px(0, 1, 7, 5, '#0b0b14');
-          px(-1, 2, 9, 4, '#0b0b14');
-          px(1, 1, 5, 1, body);
-          px(0, 2, 7, 3, body);
-          px(2, 1, 2, 1, '#ffffff');
-        } else {
-          // Rounded hopping dome
-          px(1, topY, 5, 6 + tall, '#0b0b14');
-          px(0, 1, 7, 5, '#0b0b14');
-          px(1, topY, 5, 5 + tall, body);
-          px(0, 1, 7, 4, body);
-          px(2, topY, 2, 1, '#ffffff');
-        }
-        // Attach ears / antenna directly to the dome crown (`topY`) so they never float detached
-        if (variant === 3) {
-          px(1, topY - 2, 1, 2, body);
-          px(5, topY - 2, 1, 2, body);
-        } else if (variant === 4) {
-          px(3, topY - 2, 1, 2, '#ffe25a');
-        }
+        const topY = squish ? 1 : 0;
+        px(1, topY, 4, 6 - topY, body);
+        px(0, topY + 1, 6, 5 - topY, body);
+        px(2, topY, 2, 1, '#ffffff');
         const ex = dir > 0 ? 2 : 1;
         const ey = squish ? 3 : 2;
-        px(ex, ey, 1, 1, '#131118');
-        px(ex + 3, ey, 1, 1, '#131118');
+        px(ex, ey, 1, 1, ink);
+        px(ex + 2, ey, 1, 1, ink);
         break;
       }
       case 'libraries': {
         const bodies = ['#e6c785', '#7ec8e3', '#d990a8', '#8fd694', '#c5a3ff'];
         const body = bodies[variant % bodies.length]!;
         const squish = perched;
-        px(0, squish ? 2 : 1, 6, squish ? 4 : 5, '#0b0b14');
-        px(1, squish ? 2 : 1, 4, squish ? 3 : 4, body);
-        px(0, squish ? 3 : 2, 6, 3, body);
+        px(1, squish ? 1 : 0, 4, squish ? 5 : 6, body);
+        px(0, squish ? 2 : 1, 6, 4, body);
         px(1, squish ? 0 : -1, 4, 2, variant % 2 === 0 ? '#fff5d6' : '#ff6f7d');
         px(2, squish ? 0 : -1, 2, 2, '#ffb000');
-        px(dir > 0 ? 2 : 1, 3, 1, 1, '#131118');
-        px(dir > 0 ? 4 : 3, 3, 1, 1, '#131118');
+        px(dir > 0 ? 2 : 1, 3, 1, 1, ink);
+        px(dir > 0 ? 4 : 3, 3, 1, 1, ink);
         break;
       }
       case 'userspace': {
@@ -1182,14 +1187,13 @@ export class CritterSystem {
         const step = perched ? 0 : Math.floor(t * 7 + c.phase) % 2;
         px(0, -1, 1, 2, body);
         px(5, -1, 1, 2, body);
-        px(0, 1, 6, 5, '#000000');
-        px(1, 1, 4, 4, dark);
+        px(0, 0, 6, 6, dark);
         px(0, 2, 6, 2, body);
-        px(1, 2, 1, 1, '#ffff55');
-        px(4, 2, 1, 1, '#ffff55');
-        px(1, 5, 1, 1 + step, dark);
-        px(4, 5, 1, 2 - step, dark);
-        px(dir > 0 ? 7 : -2, 2 + step, 2, 2, '#ffff55');
+        px(1, 2, 1, 1, ink);
+        px(4, 2, 1, 1, ink);
+        px(1, 6, 1, 1 + step, dark);
+        px(4, 6, 1, 2 - step, dark);
+        px(dir > 0 ? 6 : -2, 2 + step, 2, 2, '#ffff55');
         break;
       }
       case 'kernel': {
@@ -1198,66 +1202,60 @@ export class CritterSystem {
         const blink = Math.floor(t * 5 + c.phase) % 2 === 0;
         px(3, -2, 1, 2, '#aaaaaa');
         px(3, -3, 1, 1, blink ? '#ff5555' : '#ffff55');
-        px(0, 0, 8, 6, '#000000');
-        px(1, 0, 6, 5, '#aaaaaa');
-        px(dir > 0 ? 3 : 1, 1, 4, 2, visor);
+        px(0, 0, 7, 6, '#aaaaaa');
+        px(dir > 0 ? 2 : 1, 2, 4, 2, visor);
         px(1, 6, 2, 1, '#555555');
-        px(5, 6, 2, 1, '#555555');
+        px(4, 6, 2, 1, '#555555');
         break;
       }
       case 'drivers': {
         const leg = Math.floor(t * 14 + c.phase) % 2;
         const body = variant % 2 === 0 ? '#55ffff' : '#ff55ff';
-        px(0, 1, 6, 3, body);
+        px(0, 1, 6, 4, body);
         px(1, 0, 4, 1, '#ffffff');
-        px(0 + leg, 4, 1, 1, '#ffffff');
-        px(4 - leg, 4, 1, 1, '#ffffff');
+        px(0 + leg, 5, 1, 1, '#ffffff');
+        px(4 - leg, 5, 1, 1, '#ffffff');
         break;
       }
       case 'firmware': {
         const pulse = Math.floor(t * 2 + c.phase) % 2 === 0;
-        px(1, 0, 6, 1, '#8cff9c');
-        px(0, 1, 8, 4, '#1ea046');
-        px(2, 2, 4, 2, pulse ? '#ffffff' : '#0a461e');
-        px(1, 5, 6, 1, '#8cff9c');
+        px(1, 0, 5, 1, '#8cff9c');
+        px(0, 1, 7, 4, '#1ea046');
+        px(2, 2, 3, 2, pulse ? '#ffffff' : '#0a461e');
+        px(1, 5, 5, 1, '#8cff9c');
         break;
       }
       case 'ring-1': {
-        const drawWisp = (wx: number) => {
-          ctx.fillStyle = col('#1ea046');
-          ctx.fillRect(wx, y + 1, 6, 3);
-          ctx.fillStyle = col('#8cff9c');
-          ctx.fillRect(wx + 1, y, 4, 5);
-          ctx.fillStyle = col('#ffffff');
-          ctx.fillRect(wx + 2, y + 2, 2, 1);
-        };
-        drawWisp(x);
-        drawWisp(W - x - 6);
+        mirrorPair = true;
+        px(0, 1, 6, 4, '#1ea046');
+        px(1, 0, 4, 6, '#8cff9c');
+        px(2, 2, 2, 1, '#ffffff');
         break;
       }
       case 'ring-2': {
         if (variant % 3 === 0) {
-          px(1, 1, 5, 3, '#bebebe');
-          px(2, -1, 3, 2, '#f0f0f0');
-          px(6, 0, 2, 2, '#bebebe');
+          px(0, 0, 6, 6, '#bebebe');
+          px(2, 0, 2, 2, '#f0f0f0');
+          px(5, 1, 2, 2, '#bebebe');
         } else if (variant % 3 === 1) {
-          px(0, 0, 7, 5, '#bebebe');
-          px(2, 2, 1, 1, '#0c0c0c');
-          px(5, 2, 1, 1, '#0c0c0c');
+          px(0, 0, 6, 6, '#bebebe');
+          px(1, 2, 1, 1, ink);
+          px(4, 2, 1, 1, ink);
         } else {
-          px(1, 0, 6, 5, '#bebebe');
-          px(3, -2, 1, 2, '#f0f0f0');
-          px(2, 1, 4, 2, '#0c0c0c');
+          px(0, 0, 6, 6, '#bebebe');
+          px(2, -1, 1, 1, '#f0f0f0');
+          px(1, 2, 4, 2, ink);
         }
         break;
       }
       case 'ring-3': {
         const bit = Math.floor(t * 3 + c.phase) % 2 === 0;
+        px(0, 0, 6, 6, '#e8eeff');
         if (bit) {
-          px(1, 0, 2, 5, '#e8eeff');
+          px(2, 1, 2, 4, ink);
         } else {
-          px(0, 0, 4, 5, '#e8eeff');
-          px(1, 1, 2, 3, '#040406');
+          px(1, 1, 4, 4, ink);
+          px(2, 2, 2, 2, '#e8eeff');
         }
         break;
       }
@@ -1265,17 +1263,23 @@ export class CritterSystem {
         break;
     }
 
+    flushGrid(x, y);
+    if (mirrorPair) flushGrid(W - x - 6, y);
+
     if (chirping) {
-      px(2, -5, 2, 1, '#ffe25a');
-      px(3, -6, 1, 1, '#ffffff');
+      ctx.fillStyle = col('#ffe25a');
+      ctx.fillRect(x + 2, y - 5, 2, 1);
+      ctx.fillStyle = col('#ffffff');
+      ctx.fillRect(x + 3, y - 6, 1, 1);
     }
 
     // Subtle 2-pixel landing dust puff right at the feet when a critter touches down on a prop top
     const landAge = t - c.landedAtT;
     if (landAge >= 0 && landAge < 0.22) {
       const spread = Math.round((landAge / 0.22) * 3);
-      px(-2 - spread, 5, 1, 1, '#ebe6d6');
-      px(8 + spread, 5, 1, 1, '#ebe6d6');
+      ctx.fillStyle = col('#ebe6d6');
+      ctx.fillRect(x - 2 - spread, y + 5, 1, 1);
+      ctx.fillRect(x + 8 + spread, y + 5, 1, 1);
     }
   }
 }

@@ -1,6 +1,6 @@
 import { enforce } from '../../core/enforce';
 import { FONT, hash } from '../art';
-import { snapColor, type PaletteMode } from '../palettes';
+import { darkestInk, snapColor, type PaletteMode } from '../palettes';
 
 /**
  * The v4 entity kit: a palette-snapped pen, the entity definition type, and the sprite bake cache.
@@ -210,6 +210,47 @@ export const MAX_BAKE_CACHE = 600;
 const bakeCache = new Map<string, HTMLCanvasElement>();
 const pen = new Pen();
 
+/** Add a 1 px silhouette outline in the current palette's darkest ink (ART-STYLE.md rule 3). */
+export function outlineSilhouette(ctx: Ctx, w: number, h: number, inkHex: string) {
+  const n = parseInt(inkHex.slice(1), 16);
+  const ir = n >> 16;
+  const ig = (n >> 8) & 255;
+  const ib = n & 255;
+  const img = ctx.getImageData(0, 0, w, h);
+  const d = img.data;
+  const solid = new Uint8Array(w * h);
+  for (let i = 0; i < w * h; i++) {
+    if (d[i * 4 + 3]! >= 128) solid[i] = 1;
+  }
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const i = y * w + x;
+      const p = i * 4;
+      if (solid[i]) {
+        if (x === 0 || x === w - 1 || y === 0 || y === h - 1) {
+          d[p] = ir;
+          d[p + 1] = ig;
+          d[p + 2] = ib;
+          d[p + 3] = 255;
+        }
+      } else {
+        const adj =
+          (x > 0 && solid[i - 1]) ||
+          (x + 1 < w && solid[i + 1]) ||
+          (y > 0 && solid[i - w]) ||
+          (y + 1 < h && solid[i + w]);
+        if (adj) {
+          d[p] = ir;
+          d[p + 1] = ig;
+          d[p + 2] = ib;
+          d[p + 3] = 255;
+        }
+      }
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+}
+
 /** The entity's static body for the current paint, baked on first use (LRU-cached). */
 export function baked(def: EntityDef, v: number, look: number): HTMLCanvasElement {
   const key = `${def.id}|${v}|${look}|${paintKey()}`;
@@ -228,6 +269,7 @@ export function baked(def: EntityDef, v: number, look: number): HTMLCanvasElemen
   enforce(cx, `v4 bake: no 2D context for ${def.id}`);
   cx.imageSmoothingEnabled = false;
   def.draw(pen.at(cx, 0, 0, w, false, look), w, h, v);
+  outlineSilhouette(cx, w, h, c(darkestInk(mode)));
   if (bakeCache.size >= MAX_BAKE_CACHE) {
     const oldest = bakeCache.keys().next().value;
     if (oldest !== undefined) bakeCache.delete(oldest);
