@@ -1700,51 +1700,99 @@
     },
     "e:bc-rt-objects": {
       "name": {
-        "choice": "proposal",
-        "proposal": 1,
+        "choice": "open",
+        "proposal": null,
         "writeIn": "",
-        "by": "owner"
+        "by": "verified"
       },
       "decision": {
         "choice": "merge",
         "target": "e:rt-objects",
-        "note": "",
-        "by": "owner"
+        "note": "donor-reuse: lib-endless.ts mix('bc', BYTECODE_BESPOKE, RUNTIME) reuses RUNTIME[0] 'rt-objects' as 'bc-rt-objects' (same draw function, palette only). Gemini hint: merge. (overrode your merge on request)",
+        "by": "verified"
       },
       "description": "",
-      "updatedAt": "2026-11-27T06:43:50.658Z"
+      "updatedAt": "2026-11-27T06:52:17.668891Z",
+      "beforeMerge": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "owner"
+        },
+        "decision": {
+          "choice": "merge",
+          "target": "e:rt-objects",
+          "note": "",
+          "by": "owner"
+        },
+        "description": "",
+        "updatedAt": "2026-11-27T06:43:50.658Z"
+      }
     },
     "e:bc-rt-sweeper": {
       "name": {
-        "choice": "proposal",
-        "proposal": 1,
+        "choice": "open",
+        "proposal": null,
         "writeIn": "",
-        "by": "owner"
+        "by": "verified"
       },
       "decision": {
         "choice": "merge",
         "target": "e:rt-sweeper",
-        "note": "",
-        "by": "owner"
+        "note": "donor-reuse: lib-endless.ts mix('bc', BYTECODE_BESPOKE, RUNTIME) reuses RUNTIME[1] 'rt-sweeper' as 'bc-rt-sweeper' (same draw function, palette only). Gemini hint: merge. (overrode your merge on request)",
+        "by": "verified"
       },
       "description": "",
-      "updatedAt": "2026-11-27T06:44:04.008Z"
+      "updatedAt": "2026-11-27T06:52:17.668891Z",
+      "beforeMerge": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 1,
+          "writeIn": "",
+          "by": "owner"
+        },
+        "decision": {
+          "choice": "merge",
+          "target": "e:rt-sweeper",
+          "note": "",
+          "by": "owner"
+        },
+        "description": "",
+        "updatedAt": "2026-11-27T06:44:04.008Z"
+      }
     },
     "e:bc-rt-marks": {
       "name": {
-        "choice": "proposal",
-        "proposal": 0,
+        "choice": "open",
+        "proposal": null,
         "writeIn": "",
-        "by": "owner"
+        "by": "verified"
       },
       "decision": {
         "choice": "merge",
         "target": "e:rt-marks",
-        "note": "",
-        "by": "owner"
+        "note": "donor-reuse: lib-endless.ts mix('bc', BYTECODE_BESPOKE, RUNTIME) reuses RUNTIME[2] 'rt-marks' as 'bc-rt-marks' (same draw function, palette only). Gemini hint: merge. (overrode your merge on request)",
+        "by": "verified"
       },
       "description": "",
-      "updatedAt": "2026-11-27T06:44:36.940Z"
+      "updatedAt": "2026-11-27T06:52:17.668891Z",
+      "beforeMerge": {
+        "name": {
+          "choice": "proposal",
+          "proposal": 0,
+          "writeIn": "",
+          "by": "owner"
+        },
+        "decision": {
+          "choice": "merge",
+          "target": "e:rt-marks",
+          "note": "",
+          "by": "owner"
+        },
+        "description": "",
+        "updatedAt": "2026-11-27T06:44:36.940Z"
+      }
     },
     "e:bc-rt-ref": {
       "name": {
