@@ -37,13 +37,6 @@ function books(p: Pen, x: number, base: number, w: number, maxH: number, k0: num
 }
 
 export const LIBRARIES: EntityDef[] = [
-  ent('lib-shelf', [[16, 13], [22, 13]], (p, w) => {
-    p.r(0, 0, w, 13, WOOD_DK);
-    p.r(1, 1, w - 2, 10, BLACK);
-    books(p, 1, 11, w - 2, 9, 0);
-    p.r(0, 11, w, 2, WOOD);
-    p.r(0, 11, w, 1, WOOD_HI);
-  }),
   ent('lib-catalogue', [[16, 17]], (p) => {
     p.r(0, 0, 16, 13, WOOD);
     p.r(0, 0, 16, 1, WOOD_HI);
@@ -55,19 +48,6 @@ export const LIBRARIES: EntityDef[] = [
       }
     p.r(1, 13, 1, 4, WOOD_DK);
     p.r(14, 13, 1, 4, WOOD_DK);
-  }),
-  ent('lib-ladder', [[9, 24]], (p) => {
-    p.l(1, 23, 5, 0, WOOD);
-    p.l(5, 23, 8, 2, WOOD);
-    for (let k = 0; k < 6; k++) {
-      const y = R(3 + k * 3.6);
-      const x0 = R(1 + ((23 - y) / 23) * 4);
-      const x1 = R(5 + ((23 - y) / 21) * 3);
-      p.r(x0, y, x1 - x0 + 1, 1, WOOD_HI);
-    }
-    p.r(4, 0, 3, 1, SILVER);
-    p.p(1, 23, SILVER);
-    p.p(6, 23, SILVER);
   }),
   ent(
     'lib-spool',
@@ -142,24 +122,6 @@ export const LIBRARIES: EntityDef[] = [
     for (let k = 0; k < 5; k++) p.r(7 + k * 2, 4 + R(p.h(k) * 2), 1, 3, k % 2 ? PAPER : WHITE);
     p.r(15, 8, 2, 1, BRASS);
   }),
-  ent(
-    'lib-lamp',
-    [[12, 15]],
-    (p) => {
-      p.r(5, 3, 1, 10, '#555500');
-      p.r(2, 13, 7, 2, WOOD_DK);
-      p.r(1, 0, 9, 3, '#005500');
-      p.r(2, 0, 7, 1, '#55aa55');
-      p.r(2, 3, 7, 1, PAPER);
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        p.glow(6, 7, 13, 'rgba(255,200,100,0.22)');
-        const d = mod(t * 0.5, 1);
-        p.p(3 + R(p.h(1) * 6), 5 + R(d * 7), PAPER);
-      },
-    },
-  ),
   ent('lib-tangle', [[20, 14]], (p) => {
     // Framed wooden dependency pinboard with neat brass pins and taut linking threads.
     p.box(0, 0, 20, 14, WOOD_DK, WOOD);
@@ -179,43 +141,6 @@ export const LIBRARIES: EntityDef[] = [
       p.r(x - 1, y - 1, 2, 2, PAPER);
       p.p(x, y, BRASS);
     }
-  }),
-  ent(
-    'lib-thread',
-    [[26, 12]],
-    (p) => {
-      for (let k = 0; k <= 20; k++) {
-        const q = k / 20;
-        p.p(1 + q * 23, 2 + 6 * q + 7 * q * (1 - q) * 4 * 0.5, WOOD);
-      }
-      p.r(0, 1, 3, 3, WOOD_HI);
-      p.r(23, 7, 3, 3, WOOD_HI);
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        const q = mod(t * 0.3, 1);
-        p.r(R(1 + q * 23) - 1, R(2 + 6 * q + 7 * q * (1 - q) * 2) - 1, 2, 2, BRASS);
-      },
-    },
-  ),
-  ent(
-    'lib-plaque',
-    [[26, 10], [22, 10]],
-    (p, w, _h, v) => {
-      const names = v === 0 ? ['ssl', 'std', 'dl', 'uv'] : ['libc', 'libm', 'libz', 'ld'];
-      p.r(0, 0, w, 10, WOOD);
-      p.r(1, 1, w - 2, 1, WOOD_HI);
-      p.r(1, 8, w - 2, 1, WOOD_DK);
-      p.t(p.pick(names, 0), 3, 8, BRASS);
-    },
-    { text: true, cap: 1, weight: 0.5 },
-  ),
-  ent('lib-card', [[10, 8]], (p) => {
-    p.r(0, 0, 10, 8, WOOD_DK);
-    p.r(1, 1, 8, 6, PAPER);
-    p.r(1, 1, 8, 1, '#ff5555');
-    p.r(2, 3, 6, 1, '#aaaa55');
-    p.r(2, 5, 3 + R(p.h(0) * 3), 1, '#aaaa55');
   }),
   ent('lib-lectern', [[15, 15]], (p) => {
     p.r(6, 6, 3, 8, WOOD);
@@ -249,50 +174,6 @@ export const LIBRARIES: EntityDef[] = [
       },
     },
   ),
-  ent('lib-pile', [[13, 11]], (p) => {
-    for (let k = 0; k < 4; k++) {
-      const w = 9 + R(p.h(k) * 3);
-      const x = R(p.h(k + 4) * (13 - w));
-      const col = p.pick(SPINES, k + 9);
-      p.r(x, 9 - k * 2.5, w, 2, col);
-      p.r(x + w - 1, 9 - k * 2.5, 1, 2, PAPER);
-    }
-  }),
-  ent('lib-scroll', [[15, 10]], (p) => {
-    p.r(2, 1, 11, 8, PAPER);
-    p.r(0, 0, 2, 10, WOOD);
-    p.r(13, 0, 2, 10, WOOD);
-    p.r(0, 0, 2, 1, WOOD_HI);
-    p.r(13, 0, 2, 1, WOOD_HI);
-    for (let y = 2; y < 8; y += 2) p.r(3, y, 4 + R(p.h(y) * 6), 1, '#aaaa55');
-    p.p(4, 2, '#aa0000');
-  }),
-  ent(
-    'lib-magnifier',
-    [[15, 13]],
-    (p) => {
-      p.r(0, 2, 12, 10, PAPER);
-      for (let y = 4; y < 11; y += 2) p.r(1, y, 6 + R(p.h(y) * 4), 1, '#aaaa55');
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        const x = 2 + R((Math.sin(t * 0.7) * 0.5 + 0.5) * 6);
-        const y = 3 + R((Math.cos(t * 0.5) * 0.5 + 0.5) * 3);
-        p.ring(x + 2, y + 2, 3, SILVER);
-        p.p(x + 1, y + 1, WHITE);
-        p.l(x + 5, y + 5, x + 7, y + 7, WOOD);
-      },
-    },
-  ),
-  ent('lib-pigeon', [[18, 14]], (p) => {
-    p.r(0, 0, 18, 14, WOOD_DK);
-    for (let r = 0; r < 3; r++)
-      for (let k = 0; k < 4; k++) {
-        p.r(1 + k * 4, 1 + r * 4, 3, 3, BLACK);
-        if (p.h(r * 4 + k) > 0.45) p.r(1 + k * 4, 2 + r * 4, 3, 2, p.h(k + r) > 0.5 ? PAPER : WHITE);
-      }
-    p.r(0, 13, 18, 1, WOOD);
-  }),
   ent('lib-globe', [[13, 15]], (p) => {
     // Brass reading-room globe on a turned wooden stand.
     p.disc(6, 5, 4, '#0055aa');
@@ -309,16 +190,95 @@ export const LIBRARIES: EntityDef[] = [
     p.r(3, 13, 7, 2, WOOD_DK);
     p.r(3, 13, 7, 1, WOOD_HI);
   }),
-  ent('lib-desk', [[21, 13]], (p) => {
-    p.r(0, 5, 15, 2, WOOD);
-    p.r(0, 5, 15, 1, WOOD_HI);
-    p.r(1, 7, 1, 6, WOOD_DK);
-    p.r(13, 7, 1, 6, WOOD_DK);
-    p.r(3, 3, 5, 2, PAPER);
-    p.r(9, 2, 3, 3, p.pick(SPINES, 1));
-    p.r(16, 0, 1, 13, WOOD_DK);
-    p.r(16, 7, 5, 1, WOOD);
-    p.r(20, 8, 1, 5, WOOD_DK);
+  ent('lib-cache-wheel', [[15, 13]], (p) => {
+    // Rotary card index on a dark wooden base: a wheel of cream cards around a brass knob.
+    p.disc(7, 5, 5, PAPER);
+    p.ring(7, 5, 5, '#aaaa55');
+    for (let k = 0; k < 8; k++) {
+      const a = (k * TAU) / 8;
+      p.l(7, 5, 7 + R(Math.cos(a) * 4), 5 + R(Math.sin(a) * 4), '#aaaa55');
+    }
+    p.p(4, 2, WHITE);
+    p.p(3, 3, WHITE);
+    p.r(6, 4, 3, 3, BRASS);
+    p.p(6, 4, WHITE);
+    p.r(6, 10, 3, 1, WOOD_DK);
+    p.r(1, 11, 13, 2, WOOD_DK);
+    p.r(1, 11, 13, 1, WOOD);
+  }),
+  ent('lib-pkg-tag', [[10, 14]], (p) => {
+    // Chamfered manila shipping tag hung on a wall peg by a red cord through a brass eyelet.
+    p.r(2, 0, 6, 1, WOOD);
+    p.l(3, 1, 4, 5, '#aa0000');
+    p.l(7, 1, 5, 5, '#aa0000');
+    p.r(3, 3, 4, 1, PAPER);
+    p.r(2, 4, 6, 1, PAPER);
+    p.r(1, 5, 8, 8, PAPER);
+    p.r(1, 12, 8, 1, '#aaaa55');
+    p.r(8, 5, 1, 8, '#aaaa55');
+    p.r(4, 5, 2, 1, BRASS);
+    p.r(2, 8, 6, 1, GREY);
+    p.r(2, 10, 4, 1, GREY);
+  }),
+  ent('lib-abi-seal', [[14, 10]], (p) => {
+    // A folded parchment strip lying on the floor under a round crimson wax seal.
+    p.r(1, 5, 12, 4, PAPER);
+    p.r(1, 8, 12, 1, '#aaaa55');
+    p.r(3, 5, 1, 3, '#aaaa55');
+    p.r(10, 5, 1, 3, '#aaaa55');
+    p.disc(7, 5, 3, '#aa0000');
+    p.ring(7, 5, 2, '#ff5555');
+    p.p(5, 3, '#ff5555');
+    p.p(8, 7, '#550000');
+  }),
+  ent('lib-ar-binder', [[16, 22]], (p) => {
+    // An upright bundle of thin object-file pamphlets cinched by two buckled leather straps.
+    p.r(2, 1, 12, 20, PAPER);
+    p.r(2, 1, 1, 20, WHITE);
+    p.r(13, 1, 1, 20, '#aaaa55');
+    for (const [y, len] of [[1, 5], [9, 5], [17, 4]] as const) for (let x = 4; x <= 11; x += 2) p.r(x, y, 1, len, '#aaaa55');
+    for (const y of [6, 14]) {
+      p.r(1, y, 14, 3, WOOD_DK);
+      p.r(1, y, 14, 1, WOOD);
+      p.r(10, y, 3, 3, BRASS);
+      p.p(11, y + 1, BLACK);
+    }
+  }),
+  ent('lib-dlopen-lift', [[22, 36]], (p) => {
+    // Wooden dumbwaiter: a brass pulley hauls an open service box carrying one gold-banded volume.
+    for (const x of [2, 18]) {
+      p.r(x, 3, 2, 31, WOOD);
+      p.r(x, 3, 1, 31, WOOD_HI);
+    }
+    p.r(1, 1, 20, 3, WOOD);
+    p.r(1, 1, 20, 1, WOOD_HI);
+    p.disc(11, 7, 3, BRASS);
+    p.disc(11, 7, 1, WOOD_DK);
+    p.l(11, 10, 7, 21, SILVER);
+    p.l(11, 10, 15, 21, SILVER);
+    p.r(8, 17, 6, 8, '#aa0000');
+    p.r(8, 19, 6, 1, BRASS);
+    p.r(8, 23, 6, 1, BRASS);
+    p.r(6, 21, 10, 8, WOOD);
+    p.r(6, 21, 10, 1, WOOD_HI);
+    p.r(15, 21, 1, 8, WOOD_DK);
+    p.r(6, 28, 10, 1, WOOD_DK);
+    p.r(0, 34, 22, 2, WOOD_DK);
+    p.r(0, 34, 22, 1, WOOD);
+  }),
+  ent('lib-bookdrop', [[16, 17]], (p) => {
+    // Book-return chute on a post: a hinged brass flap with a red volume half pushed through.
+    p.r(1, 1, 14, 11, WOOD);
+    p.r(1, 1, 14, 1, WOOD_HI);
+    p.r(1, 1, 1, 11, WOOD_HI);
+    p.r(14, 2, 1, 10, WOOD_DK);
+    p.r(3, 4, 10, 4, BLACK);
+    p.r(5, 3, 6, 5, '#aa0000');
+    p.r(5, 3, 1, 5, '#ff5555');
+    p.r(3, 7, 10, 2, BRASS);
+    p.r(3, 7, 10, 1, WHITE);
+    p.r(6, 12, 4, 3, WOOD_DK);
+    p.r(3, 15, 10, 1, WOOD_DK);
   }),
 ];
 
@@ -402,22 +362,6 @@ const C = {
 } as const;
 
 export const USERSPACE: EntityDef[] = [
-  ent(
-    'us-tower',
-    [[8, 20], [11, 26], [9, 32]],
-    (p, w, h) => {
-      p.r(0, 1, w, h - 1, C.b);
-      p.r(0, 1, 1, h - 1, C.B);
-      p.r(0, 0, w, 1, C.B);
-      for (let r = 0; r * 3 + 4 < h; r++)
-        for (let k = 0; k * 2 + 2 < w; k++) {
-          const n = r * 17 + k;
-          if (p.h(n) > 0.35) continue;
-          p.p(2 + k * 2, 3 + r * 3, p.h(n + 3) > 0.75 ? C.C : C.Y);
-        }
-    },
-    { noFlip: true },
-  ),
   // Replaced static us-daemon (daemons now roam as living critters) with a clean service pipe manifold.
   ent(
     'us-manifold',
@@ -442,54 +386,49 @@ export const USERSPACE: EntityDef[] = [
     },
   ),
   ent(
-    'us-sign',
-    [[30, 10]],
-    (p) => {
-      const name = p.pick(['init', 'sshd', 'cron', 'udev', 'Xorg', 'bash'], 0);
-      p.r(0, 0, 30, 10, C.k);
-      p.r(1, 1, 28, 1, C.M);
-      p.r(1, 8, 28, 1, C.M);
-      p.t(name, 3, 7, C.M);
-    },
-    {
-      text: true,
-      cap: 1,
-      weight: 0.5,
-      anim: (p, _w, _h, _v, t) => {
-        if (mod(t * 0.7, 1) > 0.08) p.glow(20, 5, 16, 'rgba(255,85,255,0.18)');
-      },
-    },
-  ),
-  ent(
     'us-pipe',
-    [[26, 8]],
+    [[26, 13]],
     (p, w) => {
-      p.r(0, 3, w, 2, C.d);
-      p.r(0, 3, w, 1, C.l);
-      p.r(0, 2, 2, 4, C.l);
-      p.r(w - 2, 2, 2, 4, C.l);
-      p.r(5, 5, 1, 3, C.d);
-      p.r(w - 6, 5, 1, 3, C.d);
+      // Horizontal conduit carried on two bolted floor stanchions.
+      p.r(0, 2, w, 3, C.d);
+      p.r(0, 2, w, 1, C.l);
+      p.r(0, 1, 2, 5, C.l);
+      p.r(w - 2, 1, 2, 5, C.l);
+      for (const x of [5, w - 7]) {
+        p.r(x, 5, 2, 6, C.d);
+        p.r(x, 5, 1, 6, C.l);
+        p.r(x - 2, 11, 6, 1, C.l);
+        p.p(x - 2, 11, C.W);
+      }
     },
     {
       anim: (p, w, _h, _v, t) => {
-        for (let k = 0; k < 2; k++) p.r(2 + mod(t * (10 + k * 5) + k * 9, w - 5), 4, 2, 1, C.C);
+        for (let k = 0; k < 2; k++) p.r(2 + mod(t * (10 + k * 5) + k * 9, w - 5), 3, 2, 1, C.C);
       },
     },
   ),
   ent(
     'us-tty',
-    [[14, 11]],
+    [[18, 17]],
     (p) => {
-      p.r(0, 0, 14, 10, C.d);
-      p.r(1, 1, 12, 8, C.k);
-      p.r(2, 2, 4 + R(p.h(0) * 5), 1, C.g);
-      p.r(2, 4, 2 + R(p.h(1) * 6), 1, C.g);
-      p.r(5, 10, 4, 1, C.d);
+      // CRT on a sloped keyboard desk and pedestal.
+      p.r(3, 0, 12, 9, C.l);
+      p.r(3, 0, 12, 1, C.W);
+      p.r(3, 0, 1, 9, C.W);
+      p.r(4, 1, 10, 7, C.k);
+      p.r(5, 2, 4 + R(p.h(0) * 4), 1, C.g);
+      p.r(5, 4, 2 + R(p.h(1) * 5), 1, C.g);
+      p.r(7, 9, 4, 1, C.d);
+      p.r(1, 10, 16, 2, C.l);
+      p.r(1, 10, 16, 1, C.W);
+      for (let k = 0; k < 7; k++) p.p(3 + k * 2, 11, C.d);
+      p.r(4, 12, 10, 3, C.d);
+      p.r(4, 12, 1, 3, C.l);
+      p.r(2, 15, 14, 1, C.l);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        if (Math.floor(t * 1.9) % 2 === 0) p.r(2, 6, 2, 2, C.G);
+        if (Math.floor(t * 1.9) % 2 === 0) p.r(5, 6, 2, 1, C.G);
       },
       noFlip: true,
     },
@@ -549,25 +488,6 @@ export const USERSPACE: EntityDef[] = [
       },
     },
   ),
-  ent(
-    'us-pidplate',
-    [[22, 9]],
-    (p) => {
-      p.r(0, 0, 22, 9, C.b);
-      p.frame(0, 0, 22, 9, C.W);
-      p.t(String(100 + Math.floor(p.h(0) * 899)), 3, 7, C.W);
-    },
-    { text: true, cap: 1, weight: 0.5 },
-  ),
-  ent('us-cabinet', [[10, 15]], (p) => {
-    p.r(0, 0, 10, 15, C.l);
-    p.r(0, 0, 10, 1, C.W);
-    for (let k = 0; k < 3; k++) {
-      p.r(1, 1 + k * 5, 8, 4, C.d);
-      p.r(4, 2 + k * 5, 2, 1, C.l);
-      p.r(2, 4 + k * 5, 6, 1, C.Y);
-    }
-  }),
   ent('us-mailbox', [[11, 15]], (p) => {
     p.r(5, 7, 1, 8, C.d);
     p.r(1, 1, 8, 6, C.b);
@@ -576,13 +496,6 @@ export const USERSPACE: EntityDef[] = [
     p.r(9, 1, 1, 4, C.l);
     if (p.h(0) > 0.4) p.r(9, 1, 2, 2, C.R);
     p.r(3, 5, 4, 1, C.k);
-  }),
-  ent('us-crate', [[13, 10]], (p) => {
-    p.r(0, 0, 13, 10, C.n);
-    p.frame(0, 0, 13, 10, '#552200');
-    p.r(0, 3, 13, 1, C.Y);
-    p.r(3, 5, 7, 3, C.W);
-    p.r(4, 6, 5, 1, C.d);
   }),
   ent('us-fork', [[13, 17]], (p) => {
     p.r(6, 8, 1, 9, C.l);
@@ -617,64 +530,30 @@ export const USERSPACE: EntityDef[] = [
     },
   ),
   ent(
-    'us-busbar',
-    [[24, 9]],
-    (p, w) => {
-      // Rooftop IPC busbar / dispatch conduit with color-coded signal lanes.
-      p.r(0, 1, w, 7, C.d);
-      p.r(1, 2, w - 2, 5, C.k);
-      p.r(2, 3, w - 4, 1, C.b);
-      p.r(2, 5, w - 4, 1, C.c);
-      p.r(0, 0, 2, 9, C.l);
-      p.r(w - 2, 0, 2, 9, C.l);
-    },
-    {
-      anim: (p, w, _h, _v, t) => {
-        const x1 = 2 + Math.floor(mod(t * 14, w - 6));
-        const x2 = w - 5 - Math.floor(mod(t * 10, w - 6));
-        p.r(x1, 3, 3, 1, C.Y);
-        p.r(x2, 5, 3, 1, C.C);
-      },
-    },
-  ),
-  ent(
-    'us-journal',
-    [[15, 12]],
-    (p) => {
-      p.r(0, 0, 4, 4, C.l);
-      p.r(1, 1, 2, 2, C.d);
-      p.r(3, 2, 10, 10, C.W);
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        const off = Math.floor(t * 2) % 2;
-        for (let y = 4 - off; y < 12; y += 2) if (y >= 3) p.r(4, y, 3 + ((y * 7) % 6), 1, y % 4 ? C.d : C.r);
-      },
-    },
-  ),
-  ent('us-padlock', [[9, 11]], (p) => {
-    p.r(2, 0, 5, 1, C.l);
-    p.r(1, 1, 1, 4, C.l);
-    p.r(7, 1, 1, 4, C.l);
-    p.r(0, 4, 9, 7, C.Y);
-    p.r(0, 4, 9, 1, C.W);
-    p.r(4, 6, 1, 3, C.k);
-  }),
-  ent(
     'us-firewall',
-    [[18, 13]],
-    (p) => {
-      for (let r = 0; r < 3; r++)
-        for (let k = -1; k < 4; k++) {
-          const x = k * 5 + (r % 2 ? 2 : 0);
-          p.r(x, 6 + r * 2.4, 4, 2, C.r);
-        }
+    [[18, 16]],
+    (p, w) => {
+      // A solid brick wall with fixed flame tongues on top (the anim only flickers them).
+      for (let k = 0; k < 4; k++) {
+        const x = 1 + k * 4;
+        p.r(x, 3 - (k % 2), 3, 4 + (k % 2), C.R);
+        p.r(x + 1, 4 - (k % 2), 1, 2, C.Y);
+      }
+      p.r(0, 6, w, 10, C.r);
+      p.r(0, 6, w, 1, C.R);
+      p.r(0, 9, w, 1, C.k);
+      p.r(0, 12, w, 1, C.k);
+      for (const x of [5, 11, 17]) {
+        p.r(x, 7, 1, 2, C.k);
+        p.r(x, 13, 1, 3, C.k);
+      }
+      for (const x of [2, 8, 14]) p.r(x, 10, 1, 2, C.k);
     },
     {
       anim: (p, _w, _h, _v, t) => {
         for (let k = 0; k < 4; k++) {
-          const fh = 2 + R((Math.sin(t * 7 + k * 2.1) * 0.5 + 0.5) * 4);
-          p.r(2 + k * 4, 6 - fh, 2, fh, k % 2 ? C.R : C.Y);
+          const fh = 1 + R((Math.sin(t * 7 + k * 2.1) * 0.5 + 0.5) * 3);
+          p.r(2 + k * 4, 4 - fh, 1, fh, k % 2 ? C.R : C.Y);
         }
       },
     },
@@ -686,24 +565,115 @@ export const USERSPACE: EntityDef[] = [
     p.frame(0, 0, 22, 10, C.d);
     p.r(17, 3, 2, 4, C.l);
   }),
+  ent('us-pidpunch', [[12, 14]], (p) => {
+    // Cast-iron ticket dispenser on a curb post; a curled paper stub hangs from its slot.
+    p.r(2, 1, 8, 8, C.r);
+    p.r(2, 1, 8, 1, C.R);
+    p.r(2, 1, 1, 8, C.R);
+    p.r(9, 2, 1, 7, C.d);
+    p.r(3, 6, 6, 1, C.k);
+    p.r(3, 7, 2, 3, C.W);
+    p.p(2, 10, C.W);
+    p.r(5, 9, 2, 3, C.l);
+    p.r(3, 12, 6, 1, C.d);
+  }),
+  ent('us-envrack', [[22, 22]], (p) => {
+    // Pegboard A-frame hung with the environment's key tags.
+    p.r(2, 1, 18, 13, C.d);
+    p.r(2, 1, 18, 1, C.l);
+    p.r(2, 1, 1, 13, C.l);
+    for (let k = 0; k < 4; k++)
+      for (let r = 0; r < 2; r++) {
+        const x = 4 + k * 4;
+        const y = 3 + r * 5;
+        p.p(x + 1, y, C.l);
+        p.r(x, y + 1, 3, 3, (k + r) % 2 ? C.C : C.Y);
+        p.p(x + 1, y + 1, C.k);
+      }
+    p.l(5, 14, 2, 20, C.l);
+    p.l(16, 14, 19, 20, C.l);
+    p.r(1, 20, 4, 1, C.d);
+    p.r(17, 20, 4, 1, C.d);
+  }),
   ent(
-    'us-antenna',
-    [[11, 17]],
+    'us-logdrum',
+    [[24, 30]],
     (p) => {
-      p.r(5, 3, 1, 14, C.l);
-      p.l(0, 16, 5, 6, C.d);
-      p.l(10, 16, 5, 6, C.d);
-      p.r(2, 8, 7, 1, C.d);
+      // Teleprinter pedestal: glass-domed paper reel on top, a strip spilling into a wire basket.
+      p.disc(8, 7, 5, C.c);
+      p.disc(8, 7, 3, C.W);
+      p.disc(8, 7, 1, C.d);
+      p.r(4, 5, 1, 2, C.W);
+      p.r(2, 11, 13, 1, C.l);
+      p.r(1, 12, 15, 15, C.d);
+      p.r(1, 12, 15, 1, C.l);
+      p.r(1, 12, 1, 15, C.l);
+      p.r(3, 16, 11, 2, C.k);
+      for (let k = 0; k < 5; k++) {
+        p.p(3 + k * 2, 21, C.l);
+        p.p(4 + k * 2, 23, C.l);
+      }
+      p.r(14, 16, 4, 1, C.W);
+      p.r(17, 16, 1, 7, C.W);
+      p.frame(16, 22, 7, 7, C.l);
+      p.r(17, 24, 5, 4, C.k);
+      p.r(18, 25, 3, 1, C.W);
+      p.r(2, 27, 3, 2, C.d);
+      p.r(12, 27, 3, 2, C.d);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const on = Math.floor(t * 1.1) % 2 === 0;
-        p.r(4, 1, 3, 2, on ? C.R : C.r);
-        if (on) p.glow(5, 2, 5, 'rgba(255,85,85,0.4)');
+        const a = t * 2;
+        p.p(8 + R(Math.cos(a) * 2), 7 + R(Math.sin(a) * 2), C.d);
       },
       noFlip: true,
     },
   ),
+  ent('us-swaptrunk', [[22, 16]], (p) => {
+    // Steamer trunk whose seam spills pages: swap space.
+    p.r(3, 1, 16, 1, C.Y);
+    p.r(1, 2, 20, 4, C.n);
+    p.r(1, 2, 20, 1, C.Y);
+    p.r(1, 6, 20, 8, C.n);
+    p.r(1, 2, 1, 12, C.Y);
+    p.r(4, 2, 2, 12, C.k);
+    p.r(16, 2, 2, 12, C.k);
+    p.r(10, 6, 2, 3, C.Y);
+    p.p(10, 7, C.k);
+    p.r(19, 5, 3, 2, C.W);
+    p.r(20, 7, 2, 1, C.l);
+    p.r(2, 14, 3, 1, C.d);
+    p.r(17, 14, 3, 1, C.d);
+  }),
+  ent('us-ulimit', [[24, 20]], (p) => {
+    // Height-limit barrier: a hazard-striped bar across two posts.
+    for (const x of [2, 19]) {
+      p.r(x, 3, 3, 14, C.d);
+      p.r(x, 3, 1, 14, C.l);
+      p.r(x - 1, 2, 5, 1, C.l);
+      p.r(x - 1, 17, 5, 1, C.l);
+    }
+    for (let k = 0; k < 10; k++) {
+      const x = 4 + k * 2;
+      p.r(x, 5, 2, 2, k % 2 ? C.k : C.Y);
+      p.r(x, 7, 2, 2, k % 2 ? C.Y : C.k);
+    }
+  }),
+  ent('us-velvet', [[14, 14]], (p) => {
+    // Two brass stanchions and a red rope: the sudo line.
+    for (const x of [2, 10]) {
+      p.r(x - 1, 1, 4, 3, C.Y);
+      p.r(x, 4, 2, 8, C.Y);
+      p.r(x + 1, 4, 1, 8, C.n);
+      p.r(x - 1, 12, 4, 1, C.Y);
+    }
+    p.l(3, 4, 5, 6, C.R);
+    p.r(5, 6, 4, 1, C.R);
+    p.l(9, 6, 10, 5, C.R);
+    p.l(3, 5, 5, 7, C.r);
+    p.r(5, 7, 4, 1, C.r);
+    p.l(9, 7, 10, 6, C.r);
+  }),
 ];
 
 export const USERSPACE_ANCHORS: EntityDef[] = [
@@ -770,15 +740,6 @@ export const USERSPACE_ANCHORS: EntityDef[] = [
 // ---------------------------------------------------------------------------------------------
 // Kernel (CGA 16): the machine room. Gears, wheels, cabinets, bells and logs.
 
-const DMESG = [
-  'Linux version 6.12.0',
-  'rcu: Hierarchical RCU',
-  'smp: Bringing up CPUs',
-  'futex hash entries',
-  'EXT4-fs: mounted',
-  'NET: PF_INET',
-  'Memory: 16318204K',
-];
 
 function cog(p: Pen, cx: number, cy: number, r: number, a: number, body: string, hi: string) {
   p.disc(cx, cy, r - 1, body);
@@ -793,108 +754,53 @@ function cog(p: Pen, cx: number, cy: number, r: number, a: number, body: string,
 
 export const KERNEL: EntityDef[] = [
   ent(
-    'kr-gears',
-    [[24, 17]],
-    () => {},
-    {
-      anim: (p, _w, _h, _v, t) => {
-        cog(p, 7, 8, 7, t * 0.9, C.l, C.W);
-        cog(p, 18, 11, 5, -t * 1.3, C.n, C.Y);
-      },
-    },
-  ),
-  ent(
-    'kr-dmesg',
-    [[46, 19]],
-    (p) => {
-      p.r(0, 0, 46, 19, C.d);
-      p.r(0, 0, 46, 1, C.l);
-      p.r(2, 2, 42, 15, C.k);
-      p.r(41, 17, 2, 1, C.G);
-    },
-    {
-      text: true,
-      cap: 1,
-      weight: 0.6,
-      anim: (p, _w, _h, _v, t) => {
-        // A new line scrolls in every couple of seconds; the newest is bright.
-        const first = Math.floor(t * 0.45);
-        for (let k = 0; k < 2; k++) p.t(DMESG[mod(first + k + Math.floor(p.h(0) * 7), DMESG.length)]!.slice(0, 4), 3, 9 + k * 6, k === 1 ? C.G : C.g);
-      },
-    },
-  ),
-  ent(
     'kr-gauge',
-    [[22, 11]],
+    [[20, 15]],
     (p) => {
-      p.r(0, 6, 22, 3, C.r);
-      p.r(0, 6, 22, 1, C.R);
-      p.r(3, 5, 2, 5, C.d);
-      p.r(17, 5, 2, 5, C.d);
-      p.disc(11, 4, 3, C.W);
-      p.p(11, 7, C.d);
+      // Bolted pressure-gauge housing on a stand; the needle pivots at the hub.
+      p.r(0, 0, 20, 10, C.d);
+      p.r(0, 0, 20, 1, C.l);
+      p.r(0, 0, 1, 10, C.l);
+      for (const [x, y] of [[2, 1], [17, 1], [2, 8], [17, 8]] as const) p.p(x, y, C.W);
+      p.r(3, 2, 14, 6, C.W);
+      p.r(4, 6, 12, 1, C.r);
+      for (let x = 4; x <= 15; x += 3) p.p(x, 5, C.k);
+      p.disc(10, 7, 1, C.d);
+      p.r(8, 10, 4, 3, C.d);
+      p.r(8, 10, 1, 3, C.l);
+      p.r(5, 13, 10, 1, C.l);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const na = -2.2 + Math.sin(t) * 0.5;
-        p.l(11, 4, 11 + Math.cos(na) * 2.4, 4 + Math.sin(na) * 2.4, C.r);
+        const na = -1.6 + Math.sin(t) * 0.7;
+        p.l(10, 7, 10 + Math.cos(na) * 4, 7 + Math.sin(na) * 4, C.r);
       },
       noFlip: true,
     },
   ),
   ent(
-    'kr-piston',
-    [[8, 15]],
-    (p) => {
-      p.r(1, 0, 6, 8, C.d);
-      p.r(1, 0, 1, 8, C.l);
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        const s = R(Math.sin(t * 2.4) * 2);
-        p.r(3, 8, 2, 3 + s, C.W);
-        p.r(0, 11 + s, 8, 2, C.l);
-      },
-    },
-  ),
-  ent(
-    'kr-leds',
-    [[11, 8]],
-    (p) => {
-      p.r(0, 0, 11, 8, C.d);
-      p.r(1, 1, 9, 6, C.k);
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        const slot = Math.floor(t * 2.5);
-        for (let k = 0; k < 6; k++) {
-          const on = (k * 5 + slot * 3 + k * slot) % 7 > 2;
-          const red = k === 5;
-          p.p(2 + (k % 3) * 3, 2 + Math.floor(k / 3) * 3, on ? (red ? C.R : C.G) : red ? C.r : C.g);
-        }
-      },
-    },
-  ),
-  ent(
     'kr-schedwheel',
-    [[17, 17]],
+    [[17, 18]],
     (p) => {
-      p.r(7, 8, 3, 9, C.d);
-      p.r(4, 16, 9, 1, C.d);
+      // Spoked wheel on a dark post; the live overlay turns the coloured run-queue pegs.
+      p.disc(8, 8, 7, C.l);
+      p.disc(8, 8, 6, C.k);
+      p.r(1, 6, 1, 3, C.W);
+      p.r(7, 8, 3, 10, C.d);
+      p.r(7, 8, 1, 10, C.l);
+      p.r(4, 17, 9, 1, C.d);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        p.ring(8, 8, 7, C.l);
         const cols = [C.R, C.G, C.Y, C.C, C.M, C.B];
         for (let k = 0; k < 6; k++) {
           const a = t * 0.8 + (k * TAU) / 6;
-          const x = 8 + R(Math.cos(a) * 6);
-          const y = 8 + R(Math.sin(a) * 6);
+          const x = 8 + R(Math.cos(a) * 5);
+          const y = 8 + R(Math.sin(a) * 5);
           p.l(8, 8, x, y, C.d);
           p.r(x - 1, y - 1, 2, 2, cols[k]!);
         }
         p.r(7, 7, 3, 3, C.W);
-        p.r(7, 0, 3, 1, C.W);
       },
       noFlip: true,
     },
@@ -912,103 +818,32 @@ export const KERNEL: EntityDef[] = [
   }),
   ent(
     'kr-irqbell',
-    [[13, 13]],
+    [[14, 14]],
     (p) => {
-      p.r(5, 0, 3, 1, C.d);
-      p.r(6, 1, 1, 1, C.d);
+      // A brass bell hung by its loop from a wall-bolted bracket arm.
+      p.r(2, 0, 10, 2, C.d);
+      p.r(2, 0, 10, 1, C.l);
+      p.r(0, 0, 3, 5, C.d);
+      p.r(0, 0, 1, 5, C.l);
+      p.r(7, 2, 1, 2, C.l);
+      p.r(5, 4, 5, 2, C.Y);
+      p.r(4, 6, 7, 3, C.Y);
+      p.r(3, 9, 9, 2, C.Y);
+      p.r(5, 5, 1, 5, C.W);
+      p.r(10, 6, 1, 4, C.n);
+      p.r(7, 11, 2, 2, C.n);
     },
     {
       anim: (p, _w, _h, _v, t) => {
         const q = mod(t * 0.7, 1);
-        const swing = q < 0.25 ? R(Math.sin(q * 50) * 1.6) : 0;
-        p.r(4 + swing, 2, 5, 2, C.Y);
-        p.r(3 + swing, 4, 7, 4, C.Y);
-        p.r(2 + swing, 8, 9, 2, C.Y);
-        p.r(4 + swing, 3, 1, 5, C.W);
-        p.r(6 - swing, 10, 1, 2, C.n);
-        if (swing) {
-          p.p(0, 4, C.W);
-          p.p(12, 4, C.W);
-          p.p(0, 7, C.W);
-          p.p(12, 7, C.W);
-        }
+        if (q >= 0.25) return;
+        const swing = R(Math.sin(q * 50) * 1.4);
+        if (swing === 0) return;
+        p.r(5 + swing, 11, 2, 2, C.n);
+        p.p(13, 5, C.W);
+        p.p(13, 8, C.W);
       },
       noFlip: true,
-    },
-  ),
-  ent(
-    'kr-turnstile',
-    [[15, 15]],
-    (p) => {
-      p.r(6, 5, 3, 10, C.d);
-      p.r(3, 14, 9, 1, C.d);
-      p.r(6, 5, 3, 1, C.l);
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        for (let k = 0; k < 3; k++) {
-          const a = t * 2.5 + (k * TAU) / 3;
-          p.l(7, 6, 7 + Math.cos(a) * 6, 6 + Math.sin(a) * 2.5, C.l);
-        }
-        p.r(6, 5, 3, 2, C.W);
-      },
-      noFlip: true,
-    },
-  ),
-  ent('kr-slab', [[23, 11]], (p) => {
-    for (let k = 0; k < 4; k++) {
-      const x = k * 6;
-      p.r(x, 2, 5, 9, C.d);
-      p.r(x + 1, 3, 3, 7, C.k);
-      const fill = Math.floor(p.h(k) * 4);
-      for (let j = 0; j < fill; j++) p.r(x + 1, 8 - j * 2, 3, 1, k % 2 ? C.C : C.G);
-      p.r(x, 2, 5, 1, C.l);
-    }
-    p.r(0, 0, 23, 1, C.n);
-  }),
-  ent(
-    'kr-ticker',
-    [[24, 10]],
-    (p) => {
-      p.r(0, 2, 5, 8, C.d);
-      p.r(1, 3, 3, 3, C.l);
-      p.r(5, 4, 19, 4, C.W);
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        const off = R(mod(t * 6, 4));
-        for (let x = 6 + off; x < 23; x += 4) p.r(x, 5, 2, 1, (x * 7) % 3 ? C.d : C.r);
-        p.r(5, 4, 1, 4, C.d);
-      },
-      noFlip: true,
-    },
-  ),
-  ent('kr-gate', [[17, 17]], (p) => {
-    p.r(0, 0, 3, 17, C.d);
-    p.r(14, 0, 3, 17, C.d);
-    p.r(0, 0, 17, 3, C.l);
-    for (let x = 4; x < 14; x += 3) p.r(x, 3, 1, 10, C.l);
-    for (let y = 5; y < 13; y += 3) p.r(3, y, 11, 1, C.d);
-    for (let x = 4; x < 14; x += 3) p.p(x, 13, C.W);
-  }),
-  ent(
-    'kr-runqueue',
-    [[26, 9]],
-    (p, w) => {
-      p.r(0, 7, w, 1, C.l);
-      p.r(0, 8, w, 1, C.d);
-    },
-    {
-      anim: (p, w, _h, _v, t) => {
-        const cols = [C.R, C.G, C.Y, C.C, C.M];
-        const s = mod(t * 3, 6);
-        for (let k = 0; k < 5; k++) {
-          const x = R(w - 6 - k * 6 + s * 0) - (k === 0 ? R(s) : 0);
-          if (x < 0) continue;
-          p.r(x, 2, 4, 5, cols[(k + Math.floor(t * 0.5)) % 5]!);
-          p.r(x, 2, 4, 1, C.W);
-        }
-      },
     },
   ),
   ent('kr-mutex', [[13, 13]], (p) => {
@@ -1022,60 +857,7 @@ export const KERNEL: EntityDef[] = [
     p.r(11, 10, 1, 2, C.Y);
   }),
   // Replaced kr-oom skull sign with a clean machine-room IRQ load meter.
-  ent(
-    'kr-irqmeter',
-    [[14, 13]],
-    (p) => {
-      p.r(0, 0, 14, 13, C.d);
-      p.r(1, 1, 12, 11, C.k);
-      p.r(2, 10, 10, 1, C.l);
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        for (let k = 0; k < 4; k++) {
-          const h = 2 + Math.floor((Math.sin(t * 3.1 + k * 1.4) * 0.5 + 0.5) * 6);
-          p.r(2 + k * 3, 10 - h, 2, h, h > 6 ? C.Y : C.C);
-        }
-      },
-    },
-  ),
-  ent(
-    'kr-tlb',
-    [[15, 10]],
-    (p) => {
-      p.r(0, 0, 15, 10, C.d);
-      p.r(1, 1, 13, 8, C.k);
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        const hit = Math.floor(t * 3);
-        for (let r = 0; r < 3; r++)
-          for (let k = 0; k < 4; k++) {
-            const n = r * 4 + k;
-            p.r(2 + k * 3, 2 + r * 2.4, 2, 1, n === hit % 12 ? C.W : (n * 5 + Math.floor(hit / 12)) % 3 ? C.c : C.b);
-          }
-      },
-    },
-  ),
   // Replaced static kr-kthread robot (thread-bots now zip as living critters) with a scheduler slot rack.
-  ent(
-    'kr-schedrack',
-    [[13, 13]],
-    (p) => {
-      p.r(0, 0, 13, 13, C.d);
-      p.r(1, 1, 11, 11, C.k);
-      for (let r = 0; r < 3; r++) p.r(2, 2 + r * 3, 9, 2, C.b);
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        const s = Math.floor(t * 2.5);
-        for (let r = 0; r < 3; r++) {
-          const w = 2 + ((s + r * 2) % 7);
-          p.r(2, 2 + r * 3, w, 2, r === s % 3 ? C.G : C.C);
-        }
-      },
-    },
-  ),
   ent(
     'kr-semaphore',
     [[8, 16]],
@@ -1092,60 +874,240 @@ export const KERNEL: EntityDef[] = [
       noFlip: true,
     },
   ),
-  ent(
-    'kr-ringbuf',
-    [[15, 15]],
-    (p) => {
-      p.disc(7, 7, 6, C.d);
-      p.disc(7, 7, 4, C.k);
-      for (let k = 0; k < 12; k++) {
-        const a = (k * TAU) / 12;
-        p.r(7 + R(Math.cos(a) * 5), 7 + R(Math.sin(a) * 5), 1, 1, C.l);
-      }
-    },
-    {
-      anim: (p, _w, _h, _v, t) => {
-        const head = Math.floor(t * 4);
-        const len = 4 + (Math.floor(t * 0.5) % 4);
-        for (let j = 0; j < len; j++) {
-          const a = ((head - j) * TAU) / 12;
-          p.r(7 + R(Math.cos(a) * 6), 7 + R(Math.sin(a) * 6), 1, 1, j === 0 ? C.W : C.C);
-        }
-      },
-    },
-  ),
   // Replaced literal dog kr-watchdog with a readable hardware watchdog timer rack (ticking bar + reset LED).
+  ent('kr-numabridge', [[14, 10]], (p) => {
+    // Two socketed pedestals joined by a twin-arch braided cable.
+    for (const x of [1, 9]) {
+      p.r(x, 4, 4, 5, C.d);
+      p.r(x, 4, 4, 1, C.l);
+      p.p(x + 1, 6, C.k);
+    }
+    ([[4, 4], [5, 3], [6, 3], [7, 4], [8, 3], [9, 3], [10, 4]] as const).forEach(([x, y], i) => p.p(x, y, i % 2 ? C.n : C.Y));
+  }),
+  ent('kr-teletype', [[18, 16]], (p) => {
+    // Cast-iron tape puncher on stubby feet, curling paper tape out of its front slot.
+    p.r(1, 1, 15, 2, C.l);
+    p.r(1, 1, 15, 1, C.W);
+    p.r(1, 3, 15, 9, C.d);
+    p.r(1, 3, 1, 9, C.l);
+    p.r(4, 6, 8, 2, C.k);
+    for (let k = 0; k < 5; k++) p.p(4 + k * 2, 10, C.l);
+    p.r(5, 8, 3, 4, C.W);
+    p.r(8, 11, 4, 1, C.W);
+    p.p(11, 10, C.W);
+    p.r(2, 12, 2, 2, C.d);
+    p.r(13, 12, 2, 2, C.d);
+  }),
+  ent('kr-oops', [[12, 12]], (p) => {
+    // A cracked headstone on a stone plinth: the oops marker.
+    p.r(3, 0, 6, 1, C.l);
+    p.r(2, 1, 8, 8, C.l);
+    p.r(2, 1, 1, 8, C.W);
+    p.r(9, 2, 1, 7, C.d);
+    for (const [x, y] of [[7, 2], [6, 3], [6, 4], [5, 5], [6, 6], [5, 7]] as const) p.p(x, y, C.k);
+    p.r(1, 9, 10, 2, C.d);
+    p.r(1, 9, 10, 1, C.l);
+  }),
+  ent('kr-slabtray', [[19, 11]], (p) => {
+    // Steel parts tray with four equal bays, one identical cylinder seated in each.
+    p.r(1, 3, 17, 6, C.l);
+    p.r(1, 3, 17, 1, C.W);
+    p.r(2, 4, 15, 4, C.d);
+    for (const x of [5, 9, 13]) p.r(x, 4, 1, 4, C.l);
+    for (const bx of [2, 6, 10, 14]) {
+      p.r(bx, 4, 1, 4, C.W);
+      p.r(bx + 1, 4, 1, 4, C.Y);
+      p.r(bx + 2, 4, 1, 4, C.n);
+    }
+    p.r(2, 9, 2, 1, C.d);
+    p.r(15, 9, 2, 1, C.d);
+  }),
   ent(
-    'kr-wdtimer',
-    [[16, 11]],
+    'kr-metronome',
+    [[10, 14]],
     (p) => {
-      p.r(0, 0, 16, 11, C.d);
-      p.r(1, 1, 14, 9, C.k);
-      p.r(2, 6, 12, 2, C.d);
+      // Tapered iron metronome on a weighted base; a brass weight rides the pendulum arm.
+      for (let y = 2; y <= 10; y++) {
+        const g = Math.floor((y - 2) / 3);
+        p.r(3 - g, y, 4 + 2 * g, 1, C.d);
+        p.p(3 - g, y, C.l);
+      }
+      p.r(4, 5, 2, 4, C.Y);
+      p.l(5, 10, 7, 0, C.W);
+      p.r(6, 3, 2, 2, C.Y);
+      p.r(0, 11, 10, 2, C.d);
+      p.r(0, 11, 10, 1, C.l);
     },
     {
       anim: (p, _w, _h, _v, t) => {
-        const rem = 12 - (Math.floor(t * 4) % 12);
-        p.r(2, 6, rem, 2, rem <= 3 ? C.R : C.Y);
-        p.r(2, 2, 2, 2, rem <= 3 ? C.R : C.G);
-        p.r(12, 2, 2, 2, rem === 12 ? C.W : C.d);
+        if (Math.floor(t * 2) % 2 === 0) p.p(5, 6, C.G);
       },
+      noFlip: true,
     },
   ),
-  ent('kr-vfs', [[17, 13]], (p) => {
-    // 4-way flanged pipe manifold with colored mount branches and a central valve wheel.
-    p.r(0, 5, 5, 3, C.Y);
-    p.r(4, 4, 1, 5, C.l);
-    p.r(12, 5, 5, 3, C.C);
-    p.r(12, 4, 1, 5, C.l);
-    p.r(7, 0, 3, 3, C.G);
-    p.r(6, 2, 5, 1, C.l);
-    p.r(7, 10, 3, 3, C.M);
-    p.r(6, 10, 5, 1, C.l);
-    p.r(5, 3, 7, 7, C.d);
-    p.frame(5, 3, 7, 7, C.l);
-    p.ring(8, 6, 2, C.R);
-    p.p(8, 6, C.W);
+  ent('kr-rolodex', [[12, 13]], (p) => {
+    // Rotary card file: one bright tabbed card flipped out to the front.
+    p.disc(6, 5, 4, C.l);
+    p.disc(6, 5, 1, C.d);
+    for (let k = 0; k < 8; k++) {
+      const a = (k * TAU) / 8;
+      p.p(6 + R(Math.cos(a) * 3), 5 + R(Math.sin(a) * 3), C.W);
+    }
+    p.r(1, 7, 5, 3, C.Y);
+    p.r(1, 6, 2, 1, C.R);
+    p.r(10, 4, 2, 3, C.d);
+    p.r(5, 9, 2, 2, C.d);
+    p.r(2, 11, 8, 1, C.d);
+  }),
+  ent('kr-watchdog', [[12, 16]], (p) => {
+    // Brass hourglass in a wall bracket; sand runs toward the trip lever below.
+    p.r(0, 0, 2, 14, C.d);
+    p.r(0, 0, 1, 14, C.l);
+    p.r(2, 1, 9, 1, C.Y);
+    p.r(2, 12, 9, 1, C.Y);
+    const widths = [7, 5, 3, 1, 1, 1, 1, 3, 5, 7];
+    widths.forEach((wd, i) => p.r(6 - (wd >> 1), 2 + i, wd, 1, C.c));
+    p.r(5, 3, 3, 1, C.Y);
+    p.r(6, 5, 1, 4, C.Y);
+    p.r(4, 10, 5, 2, C.Y);
+    p.r(3, 14, 7, 1, C.R);
+    p.p(2, 14, C.l);
+  }),
+  ent('kr-vfsmanifold', [[26, 29]], (p) => {
+    // Cast-iron junction: a red handwheel over four coloured branch pipes.
+    const pipe = (x: number, y: number, w: number, hi: string, lo: string) => {
+      p.r(x, y, w, 1, hi);
+      p.r(x, y + 1, w, 2, lo);
+    };
+    pipe(2, 12, 7, C.C, C.c);
+    pipe(2, 18, 7, C.G, C.g);
+    pipe(17, 12, 7, C.Y, C.n);
+    pipe(17, 18, 7, C.M, C.m);
+    for (const [x, y] of [[1, 11], [1, 17], [24, 11], [24, 17]] as const) p.r(x, y, 1, 5, C.l);
+    p.r(9, 11, 8, 10, C.l);
+    p.r(9, 11, 1, 10, C.W);
+    p.r(16, 11, 1, 10, C.d);
+    p.r(11, 21, 4, 5, C.d);
+    p.r(11, 21, 1, 5, C.l);
+    p.r(5, 26, 16, 2, C.d);
+    p.r(5, 26, 16, 1, C.l);
+    p.p(6, 27, C.W);
+    p.p(19, 27, C.W);
+    p.r(12, 8, 2, 3, C.d);
+    p.ring(13, 5, 4, C.R);
+    p.l(13, 1, 13, 9, C.R);
+    p.l(9, 5, 17, 5, C.R);
+    p.disc(13, 5, 1, C.W);
+  }),
+  ent('kr-callboard', [[20, 16]], (p) => {
+    // Wooden annunciator with four shutters; the dropped one shows a lit green flag.
+    p.r(9, 0, 2, 1, C.l);
+    p.r(1, 1, 18, 13, C.n);
+    p.r(1, 1, 18, 1, C.Y);
+    p.r(1, 1, 1, 13, C.Y);
+    for (let k = 0; k < 4; k++) {
+      const x = 3 + k * 4;
+      if (k === 2) {
+        p.r(x, 4, 3, 5, C.k);
+        p.r(x, 4, 3, 3, C.G);
+        p.p(x, 4, C.W);
+        p.r(x, 7, 3, 2, C.Y);
+      } else {
+        p.r(x, 4, 3, 5, C.Y);
+        p.p(x + 1, 6, C.k);
+      }
+    }
+    p.r(3, 11, 14, 2, C.d);
+  }),
+  ent('kr-rationbox', [[26, 30]], (p) => {
+    // Riveted steel locker split by bolted baffles into three unequal metered bays.
+    p.r(1, 1, 24, 25, C.d);
+    p.r(1, 1, 24, 1, C.l);
+    p.r(1, 1, 1, 25, C.l);
+    const bays: [number, number, number, string][] = [
+      [3, 9, 18, C.Y],
+      [14, 5, 12, C.C],
+      [21, 3, 7, C.R],
+    ];
+    for (const [x, w, fill, col] of bays) {
+      p.r(x, 3, w, 21, C.k);
+      p.r(x, 24 - fill, w, fill, col);
+    }
+    p.r(12, 3, 2, 21, C.l);
+    p.r(19, 3, 2, 21, C.l);
+    for (const [x, y] of [[2, 2], [23, 2], [2, 24], [23, 24]] as const) p.p(x, y, C.W);
+    p.r(3, 26, 3, 3, C.d);
+    p.r(20, 26, 3, 3, C.d);
+  }),
+  ent('kr-buddyblocks', [[24, 20]], (p) => {
+    // Tiered rack: one full block, one half block, two quarter blocks.
+    for (const x of [0, 22]) {
+      p.r(x, 0, 2, 19, C.d);
+      p.r(x, 0, 1, 19, C.l);
+    }
+    for (const y of [6, 12, 18]) p.r(2, y, 20, 1, C.l);
+    const blk = (x: number, y: number, w: number, hi: string, lo: string) => {
+      p.r(x, y, w, 5, hi);
+      p.r(x, y + 4, w, 1, lo);
+      p.r(x, y, w, 1, C.W);
+    };
+    blk(3, 1, 18, C.B, C.b);
+    blk(3, 7, 9, C.G, C.g);
+    blk(3, 13, 4, C.Y, C.n);
+    blk(8, 13, 4, C.R, C.r);
+  }),
+  ent('kr-dentry', [[20, 18]], (p) => {
+    // Pigeonhole rack: the dentry cache, a few holes holding letters.
+    p.r(1, 1, 18, 14, C.n);
+    p.r(1, 1, 18, 1, C.Y);
+    p.r(1, 1, 1, 14, C.Y);
+    for (let r = 0; r < 3; r++)
+      for (let k = 0; k < 4; k++) {
+        const x = 2 + k * 4;
+        const y = 3 + r * 4;
+        p.r(x, y, 3, 3, C.k);
+        if (p.h(r * 4 + k) > 0.45) p.r(x, y + 1, 3, 2, C.W);
+      }
+    p.r(2, 15, 2, 2, C.d);
+    p.r(16, 15, 2, 2, C.d);
+  }),
+  ent(
+    'kr-elevator',
+    [[18, 24]],
+    (p) => {
+      // Elevator car doors ajar over a floor-lamp row: the I/O scheduler's lift.
+      p.r(1, 1, 16, 22, C.d);
+      p.r(1, 1, 1, 22, C.l);
+      p.r(5, 2, 8, 2, C.k);
+      p.r(3, 5, 12, 17, C.k);
+      p.r(3, 5, 4, 17, C.Y);
+      p.r(3, 5, 1, 17, C.W);
+      p.r(5, 5, 1, 17, C.n);
+      p.r(11, 5, 4, 17, C.Y);
+      p.r(13, 5, 1, 17, C.n);
+      p.r(8, 12, 2, 4, C.n);
+      p.r(1, 22, 16, 1, C.l);
+    },
+    {
+      anim: (p, _w, _h, _v, t) => {
+        const on = Math.floor(t * 1.2) % 5;
+        for (let k = 0; k < 5; k++) p.p(6 + k, 3, k === on ? C.G : C.d);
+      },
+      noFlip: true,
+    },
+  ),
+  ent('kr-sysrq', [[12, 13]], (p) => {
+    // Emergency-stop button on a yellow pedestal: the magic SysRq key.
+    p.r(4, 1, 4, 1, C.R);
+    p.r(3, 2, 6, 4, C.R);
+    p.r(4, 2, 2, 1, C.W);
+    p.r(3, 5, 6, 1, C.r);
+    p.r(5, 6, 2, 1, C.d);
+    p.r(1, 7, 10, 4, C.Y);
+    p.r(1, 7, 10, 1, C.W);
+    p.r(1, 10, 10, 1, C.n);
+    p.p(2, 8, C.k);
+    p.p(9, 8, C.k);
   }),
 ];
 

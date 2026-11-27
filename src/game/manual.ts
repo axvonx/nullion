@@ -191,8 +191,8 @@ export const MANUAL_ENTRIES: readonly ManualEntry[] = [
     blurb: 'Keeps resurfacing deeper and deeper in the machine, shedding color until only pure 1-bit steel remains.',
     note: 'From file locks to hardware-sealed SMRAM, computing is locks all the way down.',
     sightings: [
-      { layer: 'userspace', entityId: 'us-padlock', detailNote: 'Sturdy userspace permission padlock.' },
-      { layer: 'firmware', entityId: 'fw-plate', detailNote: 'Green-phosphor BIOS hardware padlock guarding flash memory.' },
+      { layer: 'kernel', entityId: 'kr-mutex', detailNote: 'Iron kernel mutex padlock guarding a shared structure.' },
+      { layer: 'firmware', entityId: 'fw-tpm', detailNote: 'Green-phosphor TPM lock-chip guarding the platform secrets.' },
       { layer: 'ring-2', entityId: 'r2-safe', detailNote: 'Heavy monochrome dial safe frozen in System Management Mode.' },
       { layer: 'ring-3', entityId: 'r3-ringosc', detailNote: 'Stark 1-bit hardware fuse-lock with a pulsing keyhole bit.' },
     ],
@@ -207,7 +207,7 @@ export const MANUAL_ENTRIES: readonly ManualEntry[] = [
     note: 'Schedulers and hypervisors slice time into tiny grains so no single program hogs the CPU.',
     sightings: [
       { layer: 'libraries', entityId: 'lib-hourglass', detailNote: 'Brass-framed reading-room timer.' },
-      { layer: 'ring-1', entityId: 'r1-timeslice', detailNote: 'Phosphor green VM CPU-quantum hourglass.' },
+      { layer: 'ring-1', entityId: 'r1-stealmeter', detailNote: 'Phosphor green steal-time gauge counting a guest\u2019s lost CPU slices.' },
       { layer: 'ring-2', entityId: 'r2-hourglass', detailNote: 'Sand grains frozen mid-fall in monochrome stillness.' },
     ],
   },
@@ -231,10 +231,10 @@ export const MANUAL_ENTRIES: readonly ManualEntry[] = [
     manTag: 'KEYRING(−3)',
     kind: 'prop',
     rarity: 'rare',
-    blurb: 'A skeleton key that unlocks boot ROMs in Firmware and reappears as bare 1-bit teeth in Ring −3.',
+    blurb: 'A key-lock that only opens for signed firmware in Firmware and reappears as bare 1-bit teeth in Ring −3.',
     note: 'Cryptographic root keys burned into hardware fuses verify that firmware hasn’t been tampered with.',
     sightings: [
-      { layer: 'firmware', entityId: 'fw-key', detailNote: 'Green-phosphor skeleton key.' },
+      { layer: 'firmware', entityId: 'fw-secureboot', detailNote: 'Green-phosphor secure-boot key-lock that only opens for signed firmware.' },
       { layer: 'ring-3', entityId: 'r3-pad', detailNote: 'Razor-sharp 1-bit hardware key silhouette.' },
     ],
   },
@@ -260,8 +260,8 @@ export const MANUAL_ENTRIES: readonly ManualEntry[] = [
     blurb: 'Patiently counts down in the dark — if software forgets to pet it, it barks and resets the machine.',
     note: 'Hardware watchdog timers recover frozen systems automatically by triggering a hard reset on timeout.',
     sightings: [
-      { layer: 'kernel', entityId: 'kr-wdtimer', detailNote: 'Industrial kernel countdown gauge.' },
-      { layer: 'firmware', entityId: 'fw-watchdog', detailNote: 'Low-level firmware reset watchdog.' },
+      { layer: 'kernel', entityId: 'kr-watchdog', detailNote: 'Wall-mounted brass hourglass counting down to the kernel watchdog trip.' },
+      { layer: 'drivers', entityId: 'dr-watchdog', detailNote: 'Spring-wound driver watchdog timer with its hammer cocked over the bell.' },
     ],
   },
   {
@@ -318,7 +318,7 @@ export const MANUAL_ENTRIES: readonly ManualEntry[] = [
     rarity: 'common',
     blurb: 'Piles neatly onto its neighbors every time a function calls another function.',
     note: 'Each stack frame stores a function’s local variables and where to return when it finishes.',
-    sightings: [{ layer: 'runtime', entityId: 'rt-stackframe' }],
+    sightings: [{ layer: 'runtime', entityId: 'rt-callstack' }],
   },
   {
     id: 'quill-ink',
