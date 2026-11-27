@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py database /Users/axvon/nullion/scripts/bank/mined/database/final.json /Users/axvon/nullion/scripts/bank/mined/database/agreed /Users/axvon/nullion/scripts/bank/mined/database/resolved  [0s, exit 0]
+database: 56 new candidates -> /Users/axvon/nullion/scripts/bank/mined/database/final.json; 0 aliases added to bank/data-graphics-algorithms/database.md
+
+--- haiku call, 6s, exit 0, prompt 1640 chars, stdout 80 chars
+[12:55:21] {"bitflip": "Ocient", "womm": ["DuckDB", "CockroachDB", "Firebird"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/database/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+database: filled 56 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [1s, exit 0]
+
+> nullion@0.1.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  12:55:22
+   Duration  224ms (transform 68%, import 17%, tests 14%, worker 2%)
+
+

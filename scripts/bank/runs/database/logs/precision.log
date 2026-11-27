@@ -1,0 +1,10 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py database sample  [0s, exit 0]
+database: sampled 20 of 62 unconfirmed answers -> scripts/bank/mined/database/sample.json
+
+--- haiku call, 28s, exit 0, prompt 3700 chars, stdout 3859 chars
+urce). It is one of the first names anyone gives, so it belongs at off-by-one, not null pointer exception. Alias 'Postgres' is fine."}, "CouchDB": {"member": true, "tier_ok": true, "why": "Apache's document-oriented database; memory (no source). Developers know it moderately well, so null pointer exception fits."}, "Microsoft SQL Server": {"member": true, "tier_ok": true, "why": "Microsoft's commercial relational DBMS; memory (no source). Widely known, so null pointer exception fits. Aliases 'SQL Server' and 'MSSQL' are fine."}, "MariaDB": {"member": true, "tier_ok": true, "why": "Community fork of MySQL; memory (no source). Known to database people, so leak fits. Alias 'Maria' is a bare first name rather than a product alias, so it is weak."}, "MySQL": {"member": true, "tier_ok": false, "why": "Real and correct; memory (no source). It is one of the first names anyone gives, so it belongs at off-by-one, not null pointer exception."}, "Apache Phoenix": {"member": true, "tier_ok": true, "why": "SQL layer over HBase; memory (no source). Specialist knowledge, so race condition fits. Alias 'Phoenix' is a common English word and should be dropped."}, "MonetDB": {"member": true, "tier_ok": true, "why": "Open-source columnar DBMS from CWI; memory (no source). Known to database people, so leak fits."}, "SAP HANA": {"member": true, "tier_ok": true, "why": "SAP's in-memory relational DBMS; memory (no source). Known to enterprise and domain people, so leak fits. Alias 'HANA' is fine."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py database score  [0s, exit 0]
+database: precision 100% (20/20), tier ok 17/20
+

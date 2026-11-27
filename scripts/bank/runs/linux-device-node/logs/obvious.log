@@ -1,0 +1,28 @@
+--- haiku call, 22s, exit 0, prompt 2064 chars, stdout 2654 chars
+,
+  {"name": "/dev/tty1", "aliases": ["dev/tty1", "tty1"], "tier": "npe"},
+  {"name": "/dev/ttyS0", "aliases": ["dev/ttyS0", "ttyS0"], "tier": "npe"},
+  {"name": "/dev/ttyUSB0", "aliases": ["dev/ttyUSB0", "ttyUSB0"], "tier": "npe"},
+  {"name": "/dev/ttyACM0", "aliases": ["dev/ttyACM0", "ttyACM0"], "tier": "npe"},
+  {"name": "/dev/hda", "aliases": ["dev/hda", "hda"], "tier": "npe"},
+  {"name": "/dev/loop0", "aliases": ["dev/loop0", "loop0"], "tier": "npe"},
+  {"name": "/dev/mem", "aliases": ["dev/mem"], "tier": "npe"},
+  {"name": "/dev/pts/0", "aliases": ["dev/pts/0", "pts/0"], "tier": "npe"},
+  {"name": "/dev/fb0", "aliases": ["dev/fb0", "fb0"], "tier": "npe"},
+  {"name": "/dev/fd0", "aliases": ["dev/fd0", "fd0"], "tier": "npe"},
+  {"name": "/dev/sr0", "aliases": ["dev/sr0", "sr0"], "tier": "npe"},
+  {"name": "/dev/input/mice", "aliases": ["dev/input/mice", "input/mice"], "tier": "npe"},
+  {"name": "/dev/kvm", "aliases": ["dev/kvm"], "tier": "npe"},
+  {"name": "/dev/video0", "aliases": ["dev/video0", "video0"], "tier": "npe"},
+  {"name": "/dev/dri/card0", "aliases": ["dev/dri/card0", "card0"], "tier": "npe"},
+  {"name": "/dev/rtc0", "aliases": ["dev/rtc0", "rtc0"], "tier": "npe"},
+  {"name": "/dev/watchdog", "aliases": ["dev/watchdog"], "tier": "npe"},
+  {"name": "/dev/uinput", "aliases": ["dev/uinput", "uinput"], "tier": "npe"},
+  {"name": "/dev/fuse", "aliases": ["dev/fuse"], "tier": "npe"},
+  {"name": "/dev/net/tun", "aliases": ["dev/net/tun", "net/tun"], "tier": "npe"}
+]
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py linux-device-node  [0s, exit 0]
+linux-device-node: 23 aliases, 4 new answers, 0 promoted from the Inbox
+

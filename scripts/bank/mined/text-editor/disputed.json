@@ -1,0 +1,422 @@
+[
+ {
+  "name": "vi",
+  "a": {
+   "name": "vi",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "2bsd-vi",
+   "why": "classic POSIX and BSD visual editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Helix",
+  "a": {
+   "name": "Helix",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "helix",
+   "why": "popular Rust-based modal text editor"
+  },
+  "b": {
+   "name": "helix",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "NixOS and FreeBSD dirs: helix",
+   "why": "Modal editor, specialist familiarity"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Zed",
+  "a": {
+   "name": "Zed",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "zed",
+   "why": "modern GPU-accelerated collaborative text editor"
+  },
+  "b": {
+   "name": "zed",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "FreeBSD editors dir: zed",
+   "why": "Modern GPU-accelerated editor"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Kakoune",
+  "a": {
+   "name": "Kakoune",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "kakoune",
+   "why": "selection-first modal terminal editor"
+  },
+  "b": {
+   "name": "kakoune",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "NixOS and FreeBSD dirs: kakoune",
+   "why": "Modal editor, niche"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "jed",
+  "a": {
+   "name": "jed",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "jed",
+   "why": "S-Lang extensible terminal text editor"
+  },
+  "b": {
+   "name": "jed",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: jed",
+   "why": "Small Emacs-like editor"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "TECO",
+  "a": {
+   "name": "TECO",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "teco",
+   "why": "historic tape editor and corrector"
+  },
+  "b": {
+   "name": "teco",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: teco",
+   "why": "Historical Text Editor and Corrector"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Mousepad",
+  "a": {
+   "name": "Mousepad",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "mousepad",
+   "why": "Xfce lightweight GUI text editor"
+  },
+  "b": {
+   "name": "mousepad",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: mousepad",
+   "why": "Xfce's text editor"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Leafpad",
+  "a": {
+   "name": "Leafpad",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "leafpad",
+   "why": "lightweight GTK+ text editor"
+  },
+  "b": {
+   "name": "leafpad",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: leafpad",
+   "why": "Lightweight GTK editor"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Pluma",
+  "a": {
+   "name": "Pluma",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "pluma",
+   "why": "MATE desktop text editor"
+  },
+  "b": {
+   "name": "pluma",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: pluma",
+   "why": "MATE's text editor"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Xed",
+  "a": {
+   "name": "Xed",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "xed",
+   "why": "Linux Mint default text editor"
+  },
+  "b": {
+   "name": "xed",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: xed",
+   "why": "Linux Mint's editor"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "jEdit",
+  "a": {
+   "name": "jEdit",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "jedit",
+   "why": "Java-based programmer's text editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SciTE",
+  "a": {
+   "name": "SciTE",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "scite",
+   "why": "Scintilla-based lightweight text editor"
+  },
+  "b": {
+   "name": "scite",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: scite",
+   "why": "Scintilla-based GUI editor"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Lapce",
+  "a": {
+   "name": "Lapce",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "lapce",
+   "why": "Rust-based GUI code and text editor"
+  },
+  "b": {
+   "name": "lapce",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: lapce",
+   "why": "Rust code editor, niche"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Komodo Edit",
+  "a": {
+   "name": "Komodo Edit",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "komodo-edit",
+   "why": "open-source ActiveState text editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "nvi",
+  "a": {
+   "name": "nvi",
+   "aliases": [
+    "nvi2"
+   ],
+   "judge": "leak",
+   "evidence": "nvi2",
+   "why": "BSD bug-for-bug compatible vi implementation"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "amp",
+  "a": {
+   "name": "amp",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "amp",
+   "why": "Rust terminal text editor inspired by vim"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Vigor",
+  "a": {
+   "name": "Vigor",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "vigor",
+   "why": "parody vi clone featuring Clippy"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "mle",
+  "a": {
+   "name": "mle",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "mle",
+   "why": "flexible terminal text editor in C"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ox",
+  "a": {
+   "name": "ox",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ox",
+   "why": "independent Rust terminal text editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "e3",
+  "a": {
+   "name": "e3",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "e3",
+   "why": "tiny assembly-language multi-mode text editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "le",
+  "a": {
+   "name": "le",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "le",
+   "why": "Norton-Editor-inspired Unix text editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "THE",
+  "a": {
+   "name": "THE",
+   "aliases": [
+    "The Hessling Editor"
+   ],
+   "judge": "heisenbug",
+   "evidence": "the",
+   "why": "XEDIT/KEDIT-style full-screen text editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Cooledit",
+  "a": {
+   "name": "Cooledit",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cooledit",
+   "why": "full-featured X11 plain-text editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "xcoral",
+  "a": {
+   "name": "xcoral",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "xcoral",
+   "why": "multi-window X11 mouse-based text editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ved",
+  "a": {
+   "name": "ved",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ved",
+   "why": "Schily fast screen-oriented text editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "se",
+  "a": {
+   "name": "se",
+   "aliases": [
+    "screen editor"
+   ],
+   "judge": "heisenbug",
+   "evidence": "se",
+   "why": "Software Tools screen-oriented text editor"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "retext",
+  "a": null,
+  "b": {
+   "name": "retext",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: retext",
+   "why": "Markdown editor"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ghostwriter",
+  "a": null,
+  "b": {
+   "name": "ghostwriter",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: ghostwriter",
+   "why": "Markdown editor"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "orbiton",
+  "a": null,
+  "b": {
+   "name": "orbiton",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: orbiton",
+   "why": "Small terminal editor"
+  },
+  "batch": "batch-00.txt"
+ }
+]

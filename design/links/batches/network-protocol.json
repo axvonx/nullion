@@ -1,0 +1,908 @@
+{
+ "id": "network-protocol",
+ "prompt": "Name a network protocol",
+ "accepts": "Any named communication protocol specified in an RFC, IEEE, ITU or vendor standard, or a documented historic protocol.",
+ "answers": [
+  {
+   "name": "TCP",
+   "aliases": [
+    "Transmission Control Protocol"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "IP",
+   "aliases": [
+    "Internet Protocol",
+    "IPv4"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "HTTP",
+   "aliases": [
+    "Hypertext Transfer Protocol"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "DHCP",
+   "aliases": [
+    "Dynamic Host Configuration Protocol"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "FTP",
+   "aliases": [
+    "File Transfer Protocol"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "SSH",
+   "aliases": [
+    "Secure Shell"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "HTTPS",
+   "aliases": [
+    "HTTP over TLS",
+    "Hypertext Transfer Protocol Secure"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "SMTP",
+   "aliases": [
+    "Simple Mail Transfer Protocol"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "IMAP",
+   "aliases": [
+    "Internet Message Access Protocol"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "POP3",
+   "aliases": [
+    "Post Office Protocol",
+    "POP"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Telnet",
+   "aliases": [
+    "telnet protocol"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "TLS",
+   "aliases": [
+    "Transport Layer Security"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "SCTP",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Gopher",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Chaosnet",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "DNS",
+   "aliases": [
+    "Domain Name System"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BGP",
+   "aliases": [
+    "Border Gateway Protocol"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "gRPC",
+   "aliases": [
+    "Google RPC"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "IPv6",
+   "aliases": [
+    "Internet Protocol version 6",
+    "IP version 6"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NFS",
+   "aliases": [
+    "Network File System"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "IEEE 802.11",
+   "aliases": [
+    "802.11",
+    "Wi-Fi"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PTP",
+   "aliases": [
+    "Precision Time Protocol",
+    "IEEE 1588"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "HTTP/3",
+   "aliases": [
+    "HTTP3",
+    "HTTP version 3"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Finger",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "UDP",
+   "aliases": [
+    "User Datagram Protocol"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Ethernet",
+   "aliases": [
+    "IEEE 802.3"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ATM",
+   "aliases": [
+    "Asynchronous Transfer Mode"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SNMP",
+   "aliases": [
+    "Simple Network Management Protocol"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NTP",
+   "aliases": [
+    "Network Time Protocol"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RDP",
+   "aliases": [
+    "Remote Desktop Protocol"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "LDAP",
+   "aliases": [
+    "Lightweight Directory Access Protocol"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "IRC",
+   "aliases": [
+    "Internet Relay Chat"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "XMPP",
+   "aliases": [
+    "Extensible Messaging and Presence Protocol",
+    "Jabber"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SIP",
+   "aliases": [
+    "Session Initiation Protocol"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MQTT",
+   "aliases": [
+    "MQ Telemetry Transport"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "QUIC",
+   "aliases": [
+    "Quick UDP Internet Connections",
+    "QUIC protocol"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "IPsec",
+   "aliases": [
+    "IP Security"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "OSPF",
+   "aliases": [
+    "Open Shortest Path First"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ARP",
+   "aliases": [
+    "Address Resolution Protocol"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ICMP",
+   "aliases": [
+    "Internet Control Message Protocol"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SMB",
+   "aliases": [
+    "CIFS",
+    "SMB3",
+    "Server Message Block"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "BitTorrent",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CoAP",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "IGMP",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "GRE",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DTLS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "EAP",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FIX",
+   "aliases": [
+    "FIX Protocol"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DCCP",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "HSRP",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Babel",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "COPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "HIP",
+   "aliases": [
+    "Host Identity Protocol"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PRP",
+   "aliases": [
+    "Parallel Redundancy Protocol"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MRP",
+   "aliases": [
+    "Media Redundancy Protocol"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "HTTP/2",
+   "aliases": [
+    "HTTP2"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "6LoWPAN",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FDDI",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "GTP",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Daytime",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AppleTalk",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Bitcoin protocol",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "eDonkey",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Gnutella",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ZMODEM",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "GOOSE",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Banana",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AMQP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CDP",
+   "aliases": [
+    "Cisco Discovery Protocol"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "EIGRP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Netlink",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BFD",
+   "aliases": [
+    "Bidirectional Forwarding Detection"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GLBP",
+   "aliases": [
+    "Gateway Load Balancing Protocol"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DVMRP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Geneve",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "9P",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AX.25",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BACnet",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CAPWAP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DNP3",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FCoE",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GIOP",
+   "aliases": [
+    "General Inter-ORB Protocol"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IAX2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ICAP",
+   "aliases": [
+    "Internet Content Adaptation Protocol"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RFB",
+   "aliases": [
+    "Remote Framebuffer Protocol"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CMIP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "H.323",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CARP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AODV",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ARCNET",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Diameter",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "EAPOL",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CHARGEN",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Discard",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HL7",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XTP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "USB/IP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "NC-SI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "L2CAP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AFP",
+   "aliases": [
+    "Apple Filing Protocol"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AJP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ATA over Ethernet",
+   "aliases": [
+    "AoE"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Art-Net",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ASTERIX",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AgentX",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BMP",
+   "aliases": [
+    "BGP Monitoring Protocol"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BJNP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BIER",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BPSec",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Bundle Protocol version 7",
+   "aliases": [
+    "BPv7"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Common Industrial Protocol",
+   "aliases": [
+    "CIP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DoIP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DOCSIS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Dynamic Trunking Protocol",
+   "aliases": [
+    "DTP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "eCPRI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Ethernet POWERLINK",
+   "aliases": [
+    "EPL"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "EtherNet/IP",
+   "aliases": [
+    "ENIP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Fibre Channel Protocol",
+   "aliases": [
+    "FCP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FCIP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FMTP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FTAM",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GELF",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Generic Framing Procedure",
+   "aliases": [
+    "GFP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GARP Multicast Registration Protocol",
+   "aliases": [
+    "GMRP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GARP VLAN Registration Protocol",
+   "aliases": [
+    "GVRP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HART-IP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HiSLIP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "High-Speed SECS Message Service",
+   "aliases": [
+    "HSMS"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "hpfeeds",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Internet Cache Protocol",
+   "aliases": [
+    "ICP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Inter-Domain Routing Protocol",
+   "aliases": [
+    "IDRP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IEC 60870-5-104",
+   "aliases": [
+    "IEC 104"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IEEE 802.15.4",
+   "aliases": [
+    "802.15.4"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "iFCP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "High-availability Seamless Redundancy",
+   "aliases": [
+    "HSR"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Data Center Bridging Exchange",
+   "aliases": [
+    "DCBX"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Witness protocol",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ES-IS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RxRPC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BEEP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CLNP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "B.A.T.M.A.N.",
+   "aliases": [
+    "BATMAN"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CCSDS File Delivery Protocol",
+   "aliases": [
+    "CFDP"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Totem Single Ring Protocol",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FLIP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "gQUIC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Inter-Access Point Protocol",
+   "aliases": [
+    "IAPP"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AYIYA",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HyperSCSI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EtherIP",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

@@ -1,0 +1,154 @@
+{
+  "historical-cipher": [
+    {
+      "name": "ADFGVX",
+      "aliases": ["ADFGVX cipher"],
+      "judge": "race",
+      "evidence": "adfgvx",
+      "why": "WWI German army field cipher"
+    },
+    {
+      "name": "ADFGX",
+      "aliases": ["ADFGX cipher"],
+      "judge": "race",
+      "evidence": "adfgx",
+      "why": "WWI German cipher preceding ADFGVX"
+    },
+    {
+      "name": "Affine cipher",
+      "aliases": ["affine"],
+      "judge": "leak",
+      "evidence": "affine",
+      "why": "classical monoalphabetic substitution cipher"
+    },
+    {
+      "name": "Atbash",
+      "aliases": ["Atbash cipher"],
+      "judge": "leak",
+      "evidence": "atbash",
+      "why": "ancient Hebrew monoalphabetic substitution cipher"
+    },
+    {
+      "name": "Autokey cipher",
+      "aliases": ["autokey"],
+      "judge": "race",
+      "evidence": "autokey",
+      "why": "classical polyalphabetic cipher using plaintext as key"
+    },
+    {
+      "name": "Beaufort cipher",
+      "aliases": ["beaufort"],
+      "judge": "race",
+      "evidence": "beaufort",
+      "why": "classical polyalphabetic substitution cipher"
+    },
+    {
+      "name": "Bifid cipher",
+      "aliases": ["bifid"],
+      "judge": "race",
+      "evidence": "bifid",
+      "why": "Delastelle classical fractionating cipher"
+    },
+    {
+      "name": "Caesar cipher",
+      "aliases": ["caesar", "Caesar shift"],
+      "judge": "off-by-one",
+      "evidence": "caesar",
+      "why": "iconic classical shift cipher"
+    },
+    {
+      "name": "Columnar transposition",
+      "aliases": ["columnartransposition", "columnar transposition cipher"],
+      "judge": "leak",
+      "evidence": "columnartransposition",
+      "why": "classical transposition cipher using a key grid"
+    },
+    {
+      "name": "Enigma",
+      "aliases": ["Enigma machine", "Enigma cipher"],
+      "judge": "off-by-one",
+      "evidence": "enigma",
+      "why": "famous WWII electromechanical rotor cipher"
+    },
+    {
+      "name": "Four-square cipher",
+      "aliases": ["foursquare"],
+      "judge": "race",
+      "evidence": "foursquare",
+      "why": "classical digraphic substitution cipher"
+    },
+    {
+      "name": "Fractionated Morse",
+      "aliases": ["fracmorse", "Fractionated Morse cipher"],
+      "judge": "heisenbug",
+      "evidence": "fracmorse",
+      "why": "classical cipher combining Morse code and trigraphic substitution"
+    },
+    {
+      "name": "Gronsfeld cipher",
+      "aliases": ["gronsfeld"],
+      "judge": "heisenbug",
+      "evidence": "gronsfeld",
+      "why": "numeric-key variant of the Vigenere cipher"
+    },
+    {
+      "name": "M-209",
+      "aliases": ["m209", "Hagelin M-209"],
+      "judge": "heisenbug",
+      "evidence": "m209",
+      "why": "WWII US Army mechanical cipher machine"
+    },
+    {
+      "name": "Playfair cipher",
+      "aliases": ["playfair"],
+      "judge": "npe",
+      "evidence": "playfair",
+      "why": "well-known classical digraphic substitution cipher"
+    },
+    {
+      "name": "Polybius square",
+      "aliases": ["polybius", "Polybius checkerboard"],
+      "judge": "leak",
+      "evidence": "polybius",
+      "why": "ancient Greek fractionating cipher system"
+    },
+    {
+      "name": "Porta cipher",
+      "aliases": ["porta"],
+      "judge": "heisenbug",
+      "evidence": "porta",
+      "why": "Renaissance polyalphabetic substitution cipher"
+    },
+    {
+      "name": "Rail fence cipher",
+      "aliases": ["railfence", "zigzag cipher"],
+      "judge": "npe",
+      "evidence": "railfence",
+      "why": "common classical transposition cipher"
+    },
+    {
+      "name": "Simple substitution",
+      "aliases": ["simplesubstitution", "simple substitution cipher"],
+      "judge": "npe",
+      "evidence": "simplesubstitution",
+      "why": "basic monoalphabetic substitution cipher"
+    },
+    {
+      "name": "Vigenère cipher",
+      "aliases": ["vigenere", "Vigenere cipher"],
+      "judge": "off-by-one",
+      "evidence": "vigenere",
+      "why": "classic polyalphabetic substitution cipher"
+    }
+  ],
+  "womm_candidates": [
+    "Playfair cipher",
+    "Atbash",
+    "ADFGVX"
+  ],
+  "bitflip_candidates": [
+    "M-209",
+    "Gronsfeld cipher",
+    "Porta cipher"
+  ]
+}

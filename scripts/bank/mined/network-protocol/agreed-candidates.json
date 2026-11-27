@@ -1,0 +1,299 @@
+{
+ "network-protocol": [
+  {
+   "name": "TCP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "IP",
+   "aliases": [
+    "Internet Protocol"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "HTTP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "DNS",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "DHCP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "FTP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SSH",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ARP",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ICMP",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "BGP",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "gRPC",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "IPv6",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "NFS",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "SMB",
+   "aliases": [
+    "CIFS",
+    "SMB3",
+    "Server Message Block"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "BitTorrent",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "IEEE 802.11",
+   "aliases": [
+    "802.11"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "SCTP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "AMQP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "CoAP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "IGMP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "GRE",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "DTLS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "EAP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "CDP",
+   "aliases": [
+    "Cisco Discovery Protocol"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "EIGRP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "FIX",
+   "aliases": [
+    "FIX Protocol"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Gopher",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PTP",
+   "aliases": [
+    "Precision Time Protocol"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Netlink",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "DCCP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BFD",
+   "aliases": [
+    "Bidirectional Forwarding Detection"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "HSRP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "GLBP",
+   "aliases": [
+    "Gateway Load Balancing Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "DVMRP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Geneve",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "9P",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AX.25",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Babel",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BACnet",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CAPWAP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DNP3",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FCoE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "GIOP",
+   "aliases": [
+    "General Inter-ORB Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "IAX2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ICAP",
+   "aliases": [
+    "Internet Content Adaptation Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "RFB",
+   "aliases": [
+    "Remote Framebuffer Protocol"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "CMIP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "COPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ES-IS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "HIP",
+   "aliases": [
+    "Host Identity Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PRP",
+   "aliases": [
+    "Parallel Redundancy Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "MRP",
+   "aliases": [
+    "Media Redundancy Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "RxRPC",
+   "aliases": [],
+   "judge": "race"
+  }
+ ]
+}

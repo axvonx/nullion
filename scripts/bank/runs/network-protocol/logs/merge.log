@@ -1,0 +1,27 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py network-protocol /Users/axvon/nullion/scripts/bank/mined/network-protocol/final.json /Users/axvon/nullion/scripts/bank/mined/network-protocol/agreed /Users/axvon/nullion/scripts/bank/mined/network-protocol/resolved  [0s, exit 0]
+note: SMB: batches disagree (npe vs leak); keeping the shallower
+network-protocol: 140 new candidates -> /Users/axvon/nullion/scripts/bank/mined/network-protocol/final.json; 0 aliases added to bank/os-systems/network-protocol.md
+
+--- haiku call, 10s, exit 0, prompt 2520 chars, stdout 74 chars
+[13:02:07] {"bitflip": "EtherIP", "womm": ["Gopher", "Chaosnet", "SCTP"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/network-protocol/final.json /Users/axvon/nullion-corpora  [1s, exit 0]
+network-protocol: filled 140 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.1.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  13:02:09
+   Duration  210ms (transform 68%, import 16%, tests 14%, worker 2%)
+
+

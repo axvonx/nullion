@@ -1,0 +1,10 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py linux-device-node sample  [0s, exit 0]
+linux-device-node: sampled 20 of 109 unconfirmed answers -> scripts/bank/mined/linux-device-node/sample.json
+
+--- haiku call, 31s, exit 0, prompt 3803 chars, stdout 3850 chars
+ce condition is plausible."}, "/dev/apm_bios": {"member": true, "tier_ok": true, "why": "Misc node created by the APM BIOS driver; legacy power-management specialists know it, so Heisenbug fits."}, "/dev/vda": {"member": true, "tier_ok": true, "why": "Block node created by virtio_blk for a virtio disk. Many sysadmins know it, so Null pointer exception fits. Specific instance, widened by the Accepts line."}, "/dev/btrfs-control": {"member": true, "tier_ok": true, "why": "Misc control node created by the btrfs module, used by device scan; filesystem specialists know it, so Race condition fits."}, "/dev/input/uinput": {"member": false, "tier_ok": true, "why": "The kernel's uinput misc node is /dev/uinput. /dev/input/uinput is at most a udev-made path or alias of it, and I cannot confirm a kernel or driver creates it, so I am not sure it exists as a separate node. Tier would be plausible if it counted."}, "/dev/cpu/0/msr": {"member": true, "tier_ok": true, "why": "Per-CPU MSR node created by the msr driver; tuning and kernel people know it, so Race condition is plausible. Specific instance, widened by the Accepts line."}, "/dev/drbd0": {"member": true, "tier_ok": true, "why": "Block node created by the drbd driver; DRBD specialists know it, so Race condition fits."}, "/dev/video0": {"member": true, "tier_ok": false, "why": "V4L2 node created by videodev, and a common webcam path that many Linux users know. Memory leak is too deep; Null pointer exception is the plausible tier."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py linux-device-node score  [0s, exit 0]
+linux-device-node: precision 95% (19/20), tier ok 17/20
+

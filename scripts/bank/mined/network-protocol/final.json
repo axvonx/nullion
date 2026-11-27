@@ -1,0 +1,801 @@
+{
+ "network-protocol": [
+  {
+   "name": "TCP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "IP",
+   "aliases": [
+    "Internet Protocol"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "HTTP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "DNS",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "DHCP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "FTP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SSH",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ARP",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ICMP",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "BGP",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "gRPC",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "IPv6",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "NFS",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "SMB",
+   "aliases": [
+    "CIFS",
+    "SMB3",
+    "Server Message Block"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "BitTorrent",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "IEEE 802.11",
+   "aliases": [
+    "802.11"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "SCTP",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "AMQP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "CoAP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "IGMP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "GRE",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "DTLS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "EAP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "CDP",
+   "aliases": [
+    "Cisco Discovery Protocol"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "EIGRP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "FIX",
+   "aliases": [
+    "FIX Protocol"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Gopher",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "PTP",
+   "aliases": [
+    "Precision Time Protocol"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Netlink",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "DCCP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BFD",
+   "aliases": [
+    "Bidirectional Forwarding Detection"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "HSRP",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "GLBP",
+   "aliases": [
+    "Gateway Load Balancing Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "DVMRP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Geneve",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "9P",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AX.25",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Babel",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BACnet",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CAPWAP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DNP3",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FCoE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "GIOP",
+   "aliases": [
+    "General Inter-ORB Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "IAX2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ICAP",
+   "aliases": [
+    "Internet Content Adaptation Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "RFB",
+   "aliases": [
+    "Remote Framebuffer Protocol"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "CMIP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "COPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ES-IS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "HIP",
+   "aliases": [
+    "Host Identity Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PRP",
+   "aliases": [
+    "Parallel Redundancy Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "MRP",
+   "aliases": [
+    "Media Redundancy Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "RxRPC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "HTTP/2",
+   "aliases": [
+    "HTTP2"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "HTTP/3",
+   "aliases": [
+    "HTTP3"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "I2C",
+   "aliases": [],
+   "judge": "npe",
+   "confidence": "low"
+  },
+  {
+   "name": "SPI",
+   "aliases": [],
+   "judge": "npe",
+   "confidence": "low"
+  },
+  {
+   "name": "H.323",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Finger",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SMBus",
+   "aliases": [],
+   "judge": "leak",
+   "confidence": "low"
+  },
+  {
+   "name": "CARP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "6LoWPAN",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AODV",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ARCNET",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Diameter",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "EAPOL",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FDDI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "GTP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CHARGEN",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Daytime",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Discard",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BEEP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CLNP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "EtherIP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "bitflip"
+  },
+  {
+   "name": "UDP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Ethernet",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "AppleTalk",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Bitcoin protocol",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "eDonkey",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Gnutella",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ATM",
+   "aliases": [
+    "Asynchronous Transfer Mode"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "HL7",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "XTP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ZMODEM",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Chaosnet",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "womm"
+  },
+  {
+   "name": "USB/IP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "NC-SI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ISOBUS",
+   "aliases": [],
+   "judge": "race",
+   "confidence": "low"
+  },
+  {
+   "name": "L2CAP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AFP",
+   "aliases": [
+    "Apple Filing Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "AJP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ATA over Ethernet",
+   "aliases": [
+    "AoE"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Art-Net",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ASTERIX",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AgentX",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BMP",
+   "aliases": [
+    "BGP Monitoring Protocol"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "BJNP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BIER",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BPSec",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Bundle Protocol version 7",
+   "aliases": [
+    "BPv7"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "B.A.T.M.A.N.",
+   "aliases": [
+    "BATMAN"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CANopen",
+   "aliases": [],
+   "judge": "race",
+   "confidence": "low"
+  },
+  {
+   "name": "CCSDS File Delivery Protocol",
+   "aliases": [
+    "CFDP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Common Industrial Protocol",
+   "aliases": [
+    "CIP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Totem Single Ring Protocol",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DoIP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DOCSIS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Dynamic Trunking Protocol",
+   "aliases": [
+    "DTP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "eCPRI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Ethernet POWERLINK",
+   "aliases": [
+    "EPL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "EtherNet/IP",
+   "aliases": [
+    "ENIP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Fibre Channel Protocol",
+   "aliases": [
+    "FCP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "FCIP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FMTP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FTAM",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FlexRay",
+   "aliases": [],
+   "judge": "race",
+   "confidence": "low"
+  },
+  {
+   "name": "FLIP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "GELF",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Generic Framing Procedure",
+   "aliases": [
+    "GFP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "GARP Multicast Registration Protocol",
+   "aliases": [
+    "GMRP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "GARP VLAN Registration Protocol",
+   "aliases": [
+    "GVRP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "GOOSE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "gQUIC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HART-IP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "HiSLIP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "High-Speed SECS Message Service",
+   "aliases": [
+    "HSMS"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "hpfeeds",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Inter-Access Point Protocol",
+   "aliases": [
+    "IAPP"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Internet Cache Protocol",
+   "aliases": [
+    "ICP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Inter-Domain Routing Protocol",
+   "aliases": [
+    "IDRP"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "IEC 60870-5-104",
+   "aliases": [
+    "IEC 104"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "IEEE 802.15.4",
+   "aliases": [
+    "802.15.4"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "iFCP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "High-availability Seamless Redundancy",
+   "aliases": [
+    "HSR"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Data Center Bridging Exchange",
+   "aliases": [
+    "DCBX"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Witness protocol",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FUSE protocol",
+   "aliases": [],
+   "judge": "race",
+   "confidence": "low"
+  },
+  {
+   "name": "Banana",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AYIYA",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HyperSCSI",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ],
+ "_context": {
+  "network-protocol": [
+   "network",
+   "protocol"
+  ]
+ }
+}

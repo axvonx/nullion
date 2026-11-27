@@ -1,0 +1,359 @@
+{
+ "text-editor": [
+  {
+   "name": "vim",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "NixOS editors dir: vim",
+   "why": "Classic terminal editor, universally known"
+  },
+  {
+   "name": "emacs",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "NixOS editors dir: emacs",
+   "why": "Classic editor, universally known"
+  },
+  {
+   "name": "nano",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "FreeBSD editors dir: nano",
+   "why": "Default terminal editor for many"
+  },
+  {
+   "name": "vscode",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "NixOS editors dir: vscode",
+   "why": "Dominant modern code editor"
+  },
+  {
+   "name": "neovim",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "NixOS editors dir: neovim",
+   "why": "Widely used vim successor"
+  },
+  {
+   "name": "sublime text",
+   "aliases": [
+    "sublime"
+   ],
+   "judge": "npe",
+   "evidence": "FreeBSD: linux-sublime-text4; NixOS: sublime",
+   "why": "Popular GUI editor"
+  },
+  {
+   "name": "micro",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "FreeBSD editors dir: micro",
+   "why": "Modern terminal editor, less known"
+  },
+  {
+   "name": "gedit",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "FreeBSD editors dir: gedit",
+   "why": "GNOME's classic GUI editor"
+  },
+  {
+   "name": "kate",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "FreeBSD editors dir: kate",
+   "why": "KDE editor, known to Linux users"
+  },
+  {
+   "name": "nedit",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "FreeBSD editors dir: nedit",
+   "why": "Classic X11 editor"
+  },
+  {
+   "name": "gnome-text-editor",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "FreeBSD editors dir: gnome-text-editor",
+   "why": "Modern GNOME default editor"
+  },
+  {
+   "name": "microsoft-edit",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "FreeBSD editors dir: microsoft-edit",
+   "why": "DOS EDIT's modern successor"
+  },
+  {
+   "name": "pico",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "FreeBSD editors dir: pico-alpine",
+   "why": "Pine's built-in composer editor"
+  },
+  {
+   "name": "helix",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "NixOS and FreeBSD dirs: helix",
+   "why": "Modal editor, specialist familiarity"
+  },
+  {
+   "name": "kakoune",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "NixOS and FreeBSD dirs: kakoune",
+   "why": "Modal editor, niche"
+  },
+  {
+   "name": "zed",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "FreeBSD editors dir: zed",
+   "why": "Modern GPU-accelerated editor"
+  },
+  {
+   "name": "lapce",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: lapce",
+   "why": "Rust code editor, niche"
+  },
+  {
+   "name": "lite-xl",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: lite-xl",
+   "why": "Lightweight Lua-based editor"
+  },
+  {
+   "name": "pragtical",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: pragtical",
+   "why": "Lite XL fork, niche"
+  },
+  {
+   "name": "sam",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: sam",
+   "why": "Rob Pike's editor, deep cut"
+  },
+  {
+   "name": "teco",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: teco",
+   "why": "Historical Text Editor and Corrector"
+  },
+  {
+   "name": "jove",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: jove",
+   "why": "Historic Emacs-like editor"
+  },
+  {
+   "name": "joe",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "FreeBSD editors dir: joe",
+   "why": "Joe's Own Editor, classic"
+  },
+  {
+   "name": "jed",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: jed",
+   "why": "Small Emacs-like editor"
+  },
+  {
+   "name": "mg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: mg",
+   "why": "Micro GNU Emacs, OpenBSD default"
+  },
+  {
+   "name": "mined",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: mined",
+   "why": "Tiny ncurses editor"
+  },
+  {
+   "name": "ne",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: ne",
+   "why": "Nice Editor, niche"
+  },
+  {
+   "name": "vis",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: vis",
+   "why": "Vi-like modal editor"
+  },
+  {
+   "name": "vile",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: vile",
+   "why": "Vi-like Emacs-like editor"
+  },
+  {
+   "name": "zile",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: zile",
+   "why": "Small GNU Emacs clone"
+  },
+  {
+   "name": "scite",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: scite",
+   "why": "Scintilla-based GUI editor"
+  },
+  {
+   "name": "textadept",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: textadept",
+   "why": "Lua-scripted GUI editor"
+  },
+  {
+   "name": "cudatext",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: cudatext",
+   "why": "Cross-platform editor, niche"
+  },
+  {
+   "name": "kibi",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: kibi",
+   "why": "Small Rust terminal editor"
+  },
+  {
+   "name": "featherpad",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: featherpad",
+   "why": "Lightweight Qt editor"
+  },
+  {
+   "name": "leafpad",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: leafpad",
+   "why": "Lightweight GTK editor"
+  },
+  {
+   "name": "mousepad",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: mousepad",
+   "why": "Xfce's text editor"
+  },
+  {
+   "name": "xed",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: xed",
+   "why": "Linux Mint's editor"
+  },
+  {
+   "name": "pluma",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: pluma",
+   "why": "MATE's text editor"
+  },
+  {
+   "name": "gobby",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: gobby",
+   "why": "Collaborative text editor"
+  },
+  {
+   "name": "retext",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: retext",
+   "why": "Markdown editor"
+  },
+  {
+   "name": "ghostwriter",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: ghostwriter",
+   "why": "Markdown editor"
+  },
+  {
+   "name": "yudit",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: yudit",
+   "why": "Unicode text editor"
+  },
+  {
+   "name": "orbiton",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: orbiton",
+   "why": "Small terminal editor"
+  },
+  {
+   "name": "uemacs",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: uemacs",
+   "why": "MicroEMACS, historical"
+  },
+  {
+   "name": "sciteco",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: sciteco",
+   "why": "TECO inside SciTE"
+  },
+  {
+   "name": "dte",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: dte",
+   "why": "Console Joe-like editor"
+  },
+  {
+   "name": "diakonos",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: diakonos",
+   "why": "Scriptable console editor"
+  },
+  {
+   "name": "notepadnext",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FreeBSD editors dir: notepadnext",
+   "why": "Notepad++-style editor"
+  }
+ ],
+ "womm_candidates": [
+  "kakoune",
+  "helix",
+  "sam"
+ ],
+ "bitflip_candidates": [
+  "teco",
+  "jove",
+  "yudit"
+ ]
+}

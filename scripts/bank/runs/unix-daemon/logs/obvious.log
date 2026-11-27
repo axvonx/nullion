@@ -1,0 +1,30 @@
+--- haiku call, 25s, exit 0, prompt 1846 chars, stdout 2318 chars
+},
+  {"name": "xinetd", "aliases": ["extended inetd"], "tier": "npe"},
+  {"name": "atd", "aliases": ["at daemon"], "tier": "npe"},
+  {"name": "lpd", "aliases": ["line printer daemon"], "tier": "npe"},
+  {"name": "cupsd", "aliases": ["cups", "cups daemon"], "tier": "npe"},
+  {"name": "rpcbind", "aliases": ["portmap", "portmapper"], "tier": "npe"},
+  {"name": "ntpd", "aliases": ["ntp", "ntp daemon"], "tier": "npe"},
+  {"name": "chronyd", "aliases": ["chrony"], "tier": "npe"},
+  {"name": "dhcpd", "aliases": ["dhcp daemon", "isc dhcp"], "tier": "npe"},
+  {"name": "smbd", "aliases": ["samba"], "tier": "npe"},
+  {"name": "mysqld", "aliases": ["mysql", "mysql daemon"], "tier": "npe"},
+  {"name": "postgres", "aliases": ["postgresql", "postgres daemon"], "tier": "npe"},
+  {"name": "redis-server", "aliases": ["redis"], "tier": "npe"},
+  {"name": "memcached", "aliases": ["memcache"], "tier": "npe"},
+  {"name": "dockerd", "aliases": ["docker daemon", "docker"], "tier": "npe"},
+  {"name": "rsyslogd", "aliases": ["rsyslog"], "tier": "npe"},
+  {"name": "dovecot", "aliases": ["dovecot daemon"], "tier": "npe"},
+  {"name": "exim", "aliases": ["exim4"], "tier": "npe"},
+  {"name": "vsftpd", "aliases": ["very secure ftpd"], "tier": "npe"},
+  {"name": "telnetd", "aliases": ["telnet daemon"], "tier": "npe"},
+  {"name": "avahi-daemon", "aliases": ["avahi"], "tier": "npe"},
+  {"name": "dbus-daemon", "aliases": ["dbus"], "tier": "npe"},
+  {"name": "acpid", "aliases": ["acpi daemon"], "tier": "npe"}
+]
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py unix-daemon  [0s, exit 0]
+unix-daemon: 10 aliases, 25 new answers, 3 promoted from the Inbox
+

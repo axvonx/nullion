@@ -1,0 +1,598 @@
+[
+ {
+  "name": "/dev/tty0",
+  "a": {
+   "name": "/dev/tty0",
+   "aliases": [
+    "/dev/tty1"
+   ],
+   "judge": "npe",
+   "evidence": "/dev/tty0",
+   "why": "virtual console terminal device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/ttyACM0",
+  "a": {
+   "name": "/dev/ttyACM0",
+   "aliases": [
+    "/dev/ttyACM1"
+   ],
+   "judge": "npe",
+   "evidence": "/dev/ttyACM0",
+   "why": "USB CDC ACM serial device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/full",
+  "a": {
+   "name": "/dev/full",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "/dev/full",
+   "why": "always-returns-ENOSPC character device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/input/mouse0",
+  "a": {
+   "name": "/dev/input/mouse0",
+   "aliases": [
+    "/dev/input/mouse1"
+   ],
+   "judge": "leak",
+   "evidence": "/dev/input/mouse0",
+   "why": "individual mouse input device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/input/js0",
+  "a": {
+   "name": "/dev/input/js0",
+   "aliases": [
+    "/dev/input/js1"
+   ],
+   "judge": "leak",
+   "evidence": "/dev/input/js0",
+   "why": "joystick input device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/mixer",
+  "a": {
+   "name": "/dev/mixer",
+   "aliases": [
+    "/dev/mixer1"
+   ],
+   "judge": "leak",
+   "evidence": "/dev/mixer",
+   "why": "legacy OSS audio mixer device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/audio",
+  "a": {
+   "name": "/dev/audio",
+   "aliases": [
+    "/dev/audio1"
+   ],
+   "judge": "leak",
+   "evidence": "/dev/audio",
+   "why": "legacy OSS Sun-compatible audio device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/nvidia0",
+  "a": {
+   "name": "/dev/nvidia0",
+   "aliases": [
+    "/dev/nvidia1"
+   ],
+   "judge": "leak",
+   "evidence": "/dev/nvidia0",
+   "why": "NVIDIA GPU character device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/ppp",
+  "a": {
+   "name": "/dev/ppp",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "/dev/ppp",
+   "why": "Point-to-Point Protocol character device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/autofs",
+  "a": {
+   "name": "/dev/autofs",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "/dev/autofs",
+   "why": "kernel automounter control device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/uhid",
+  "a": {
+   "name": "/dev/uhid",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "/dev/uhid",
+   "why": "userspace HID driver interface"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/port",
+  "a": {
+   "name": "/dev/port",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "/dev/port",
+   "why": "I/O port access character device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/nvram",
+  "a": {
+   "name": "/dev/nvram",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "/dev/nvram",
+   "why": "non-volatile CMOS/NVRAM memory device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/sg0",
+  "a": {
+   "name": "/dev/sg0",
+   "aliases": [
+    "/dev/sg1"
+   ],
+   "judge": "race",
+   "evidence": "/dev/sg0",
+   "why": "SCSI generic passthrough character device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/st0",
+  "a": {
+   "name": "/dev/st0",
+   "aliases": [
+    "/dev/st1"
+   ],
+   "judge": "race",
+   "evidence": "/dev/st0",
+   "why": "SCSI tape drive (rewind-on-close)"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/nst0",
+  "a": {
+   "name": "/dev/nst0",
+   "aliases": [
+    "/dev/nst1"
+   ],
+   "judge": "race",
+   "evidence": "/dev/nst0",
+   "why": "SCSI tape drive (no-rewind)"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/nb0",
+  "a": {
+   "name": "/dev/nb0",
+   "aliases": [
+    "/dev/nb1"
+   ],
+   "judge": "race",
+   "evidence": "/dev/nb0",
+   "why": "Network Block Device node"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/mtd0",
+  "a": {
+   "name": "/dev/mtd0",
+   "aliases": [
+    "/dev/mtd15"
+   ],
+   "judge": "race",
+   "evidence": "/dev/mtd0",
+   "why": "Memory Technology Device flash node"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/cpu/0/cpuid",
+  "a": {
+   "name": "/dev/cpu/0/cpuid",
+   "aliases": [
+    "/dev/cpu/1/cpuid"
+   ],
+   "judge": "race",
+   "evidence": "/dev/cpu/0/cpuid",
+   "why": "x86 CPUID instruction device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/vcs",
+  "a": {
+   "name": "/dev/vcs",
+   "aliases": [
+    "/dev/vcs1"
+   ],
+   "judge": "race",
+   "evidence": "/dev/vcs",
+   "why": "virtual console screen memory device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/vcsa",
+  "a": {
+   "name": "/dev/vcsa",
+   "aliases": [
+    "/dev/vcsa1"
+   ],
+   "judge": "race",
+   "evidence": "/dev/vcsa",
+   "why": "virtual console screen with attributes"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/tap0",
+  "a": {
+   "name": "/dev/tap0",
+   "aliases": [
+    "/dev/tap15"
+   ],
+   "judge": "race",
+   "evidence": "/dev/tap0",
+   "why": "Ethernet TAP virtual network device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/rfcomm0",
+  "a": {
+   "name": "/dev/rfcomm0",
+   "aliases": [
+    "/dev/rfcomm1"
+   ],
+   "judge": "race",
+   "evidence": "/dev/rfcomm0",
+   "why": "Bluetooth RFCOMM serial device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/can0",
+  "a": {
+   "name": "/dev/can0",
+   "aliases": [
+    "/dev/can1"
+   ],
+   "judge": "race",
+   "evidence": "/dev/can0",
+   "why": "Controller Area Network interface node"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/spi0",
+  "a": {
+   "name": "/dev/spi0",
+   "aliases": [
+    "/dev/spi1"
+   ],
+   "judge": "race",
+   "evidence": "/dev/spi0",
+   "why": "SPI bus character device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/scanners/cuecat",
+  "a": {
+   "name": "/dev/scanners/cuecat",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "/dev/scanners/cuecat",
+   "why": "CueCat barcode scanner device node"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/usb/legousbtower0",
+  "a": {
+   "name": "/dev/usb/legousbtower0",
+   "aliases": [
+    "/dev/usb/legousbtower15"
+   ],
+   "judge": "heisenbug",
+   "evidence": "/dev/usb/legousbtower0",
+   "why": "Lego Mindstorms USB IR tower device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/dasda",
+  "a": {
+   "name": "/dev/dasda",
+   "aliases": [
+    "/dev/dasdb"
+   ],
+   "judge": "heisenbug",
+   "evidence": "/dev/dasda",
+   "why": "IBM s390x DASD mainframe disk"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/cciss/c0d0",
+  "a": {
+   "name": "/dev/cciss/c0d0",
+   "aliases": [
+    "/dev/cciss/c0d1"
+   ],
+   "judge": "heisenbug",
+   "evidence": "/dev/cciss/c0d0",
+   "why": "Compaq Smart Array RAID block device"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/dvb/adapter0/frontend0",
+  "a": {
+   "name": "/dev/dvb/adapter0/frontend0",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "/dev/dvb/adapter0/frontend0",
+   "why": "Digital Video Broadcasting tuner frontend"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/apm_bios",
+  "a": {
+   "name": "/dev/apm_bios",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "/dev/apm_bios",
+   "why": "legacy Advanced Power Management BIOS node"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/3dfx",
+  "a": {
+   "name": "/dev/3dfx",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "/dev/3dfx",
+   "why": "3dfx Voodoo graphics accelerator node"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/vmmon",
+  "a": {
+   "name": "/dev/vmmon",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "/dev/vmmon",
+   "why": "VMware Workstation hypervisor monitor node"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/perfctr",
+  "a": null,
+  "b": {
+   "name": "/dev/perfctr",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/perfctr (devices.txt)",
+   "why": "perfctr performance counter interface"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/systrace",
+  "a": null,
+  "b": {
+   "name": "/dev/systrace",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/systrace (devices.txt)",
+   "why": "system call policy tracing node"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/sexec",
+  "a": null,
+  "b": {
+   "name": "/dev/sexec",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/sexec (devices.txt)",
+   "why": "secure exec device node"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/zkshim",
+  "a": null,
+  "b": {
+   "name": "/dev/zkshim",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/zkshim (devices.txt)",
+   "why": "obscure legacy shim node"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/kchuid",
+  "a": null,
+  "b": {
+   "name": "/dev/kchuid",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/kchuid (devices.txt)",
+   "why": "kernel credential change node"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/kmview",
+  "a": null,
+  "b": {
+   "name": "/dev/kmview",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/kmview (devices.txt)",
+   "why": "kernel memory view interface"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/shmiq",
+  "a": null,
+  "b": {
+   "name": "/dev/shmiq",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/shmiq (devices.txt)",
+   "why": "shared memory input queue"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/mergemem",
+  "a": null,
+  "b": {
+   "name": "/dev/mergemem",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/mergemem (devices.txt)",
+   "why": "page merging control node"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/nnpfs0",
+  "a": null,
+  "b": {
+   "name": "/dev/nnpfs0",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/nnpfs0 (devices.txt)",
+   "why": "AFS cache manager device"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/intermezzo0",
+  "a": null,
+  "b": {
+   "name": "/dev/intermezzo0",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/intermezzo0 (devices.txt)",
+   "why": "Intermezzo filesystem upcall node"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/ipath_diag",
+  "a": null,
+  "b": {
+   "name": "/dev/ipath_diag",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/ipath_diag (devices.txt)",
+   "why": "InfiniPath diagnostics node"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/bus/vme/ctl",
+  "a": null,
+  "b": {
+   "name": "/dev/bus/vme/ctl",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/bus/vme/ctl (devices.txt)",
+   "why": "VME bus control node"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "/dev/ussp_ctl",
+  "a": null,
+  "b": {
+   "name": "/dev/ussp_ctl",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/ussp_ctl (devices.txt)",
+   "why": "IrDA SIR control node"
+  },
+  "batch": "batch-00.txt"
+ }
+]

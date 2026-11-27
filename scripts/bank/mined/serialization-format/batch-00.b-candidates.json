@@ -1,0 +1,79 @@
+{
+ "serialization-format": [
+  {
+   "name": "JSON",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "src/cpython: json format; src/cpython: json serialization",
+   "why": "universal default text format"
+  },
+  {
+   "name": "CSV",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "src/postgres: csv format",
+   "why": "common tabular text format"
+  },
+  {
+   "name": "Base64",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "src/cpython: base64 encoding",
+   "why": "standard binary-to-text transport encoding"
+  },
+  {
+   "name": "ZIP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "src/cpython: zip file format",
+   "why": "common archive container format"
+  },
+  {
+   "name": "tar",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "src/postgres: tar format",
+   "why": "common archive format, pg_dump option"
+  },
+  {
+   "name": "PAX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "src/cpython: pax format",
+   "why": "POSIX tar variant, deep internals"
+  },
+  {
+   "name": "mbox",
+   "aliases": [
+    "unix mbox"
+   ],
+   "judge": "leak",
+   "evidence": "src/cpython: mbox format; unix mbox format",
+   "why": "mail storage format, systems people know"
+  },
+  {
+   "name": "Ascii85",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "src/cpython: ascii85 encoding",
+   "why": "obscure binary-to-text encoding"
+  },
+  {
+   "name": "Quoted-Printable",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "src/cpython: quoted-printable encoding",
+   "why": "MIME text transfer encoding"
+  }
+ ],
+ "womm_candidates": [
+  "Quoted-Printable",
+  "Ascii85",
+  "mbox"
+ ],
+ "bitflip_candidates": [
+  "PAX",
+  "Ascii85",
+  "Quoted-Printable"
+ ]
+}

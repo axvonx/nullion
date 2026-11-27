@@ -1,0 +1,137 @@
+{
+ "id": "dns-record-type",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T18:53:28+00:00",
+   "seconds": 14,
+   "finished": "2026-11-27T18:53:42+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T18:53:42+00:00",
+   "seconds": 1,
+   "finished": "2026-11-27T18:53:43+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T18:53:43+00:00",
+   "seconds": 41,
+   "finished": "2026-11-27T18:54:24+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T18:54:24+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:54:24+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T18:54:24+00:00",
+   "seconds": 13,
+   "finished": "2026-11-27T18:54:37+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T18:54:37+00:00",
+   "seconds": 7,
+   "finished": "2026-11-27T18:54:44+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T18:54:44+00:00",
+   "seconds": 22,
+   "finished": "2026-11-27T18:55:06+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T18:55:06+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:55:06+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T18:55:06+00:00",
+   "seconds": 24,
+   "finished": "2026-11-27T18:55:31+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T18:55:31+00:00",
+   "seconds": 25,
+   "finished": "2026-11-27T18:55:55+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T18:55:55+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:55:55+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "31/31 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "62/68 answers have a verified link (91%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "19/20 sampled answers are members (95%), 18/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/dns-record-type.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (X25; HINFO, NAPTR, LOC): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/dns-record-type.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 72,
+  "summary": "dns-record-type: 70 mined lines from 2 sources -> 1 batches in scripts/bank/mined/dns-record-type"
+ },
+ "filter": [
+  "batch-00.a: 68 kept",
+  "batch-00.b: 68 kept"
+ ],
+ "compare": "dns-record-type: 61 agreed, 7 disputed (10%) across 1 batches",
+ "escalate": "7 disputes -> 7 kept (0 low-confidence -> Inbox), 0 dropped",
+ "pins": {
+  "bitflip": "X25",
+  "womm": [
+   "HINFO",
+   "NAPTR",
+   "LOC"
+  ]
+ },
+ "merge": "68 tiered answers, 0 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "dns-record-type: 64 aliases, 0 new answers, 0 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "62/68 answers linked across 1 categories",
+  "dropped as broken: {}",
+  "0 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/dns-record-type.md"
+}

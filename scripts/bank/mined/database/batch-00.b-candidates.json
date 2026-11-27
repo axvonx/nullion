@@ -1,0 +1,458 @@
+{
+ "database": [
+  {
+   "name": "MySQL",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "mysql (db_engine_specs file)",
+   "why": "widely known named DBMS"
+  },
+  {
+   "name": "PostgreSQL",
+   "aliases": [
+    "postgres"
+   ],
+   "judge": "off-by-one",
+   "evidence": "postgres (db_engine_specs file)",
+   "why": "named DBMS; abbreviation aliased"
+  },
+  {
+   "name": "Oracle Database",
+   "aliases": [
+    "Oracle"
+   ],
+   "judge": "off-by-one",
+   "evidence": "oracle (db_engine_specs file)",
+   "why": "named commercial DBMS"
+  },
+  {
+   "name": "Vertica",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "vertica (db_engine_specs file)",
+   "why": "analytic DBMS, specialist knowledge"
+  },
+  {
+   "name": "SQLite",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "sqlite (db_engine_specs file)",
+   "why": "embedded named DBMS"
+  },
+  {
+   "name": "MongoDB",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "mongodb (db_engine_specs file)",
+   "why": "named document DBMS"
+  },
+  {
+   "name": "Redis",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "trino-redis; src/redis 'redis database'",
+   "why": "named in-memory data store"
+  },
+  {
+   "name": "Microsoft SQL Server",
+   "aliases": [
+    "mssql"
+   ],
+   "judge": "npe",
+   "evidence": "mssql (db_engine_specs file)",
+   "why": "named commercial DBMS"
+  },
+  {
+   "name": "MariaDB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "mariadb (db_engine_specs file)",
+   "why": "MySQL fork, named DBMS"
+  },
+  {
+   "name": "Cassandra",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "trino-cassandra (plugin dir)",
+   "why": "named wide-column DBMS"
+  },
+  {
+   "name": "ClickHouse",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "clickhouse (db_engine_specs file)",
+   "why": "named column-store DBMS"
+  },
+  {
+   "name": "CockroachDB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "cockroachdb (db_engine_specs file)",
+   "why": "named distributed SQL DBMS"
+  },
+  {
+   "name": "Couchbase",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "couchbase (db_engine_specs file)",
+   "why": "named document DBMS"
+  },
+  {
+   "name": "CrateDB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "crate (db_engine_specs file)",
+   "why": "named DBMS; bare word too generic"
+  },
+  {
+   "name": "Amazon Aurora",
+   "aliases": [
+    "Aurora"
+   ],
+   "judge": "leak",
+   "evidence": "aurora (db_engine_specs file)",
+   "why": "named cloud DBMS"
+  },
+  {
+   "name": "BigQuery",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "bigquery (db_engine_specs file)",
+   "why": "named cloud data warehouse"
+  },
+  {
+   "name": "DynamoDB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "dynamodb (db_engine_specs file)",
+   "why": "named cloud key-value DBMS"
+  },
+  {
+   "name": "Snowflake",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "snowflake (db_engine_specs file)",
+   "why": "named cloud data warehouse"
+  },
+  {
+   "name": "Redshift",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "redshift (db_engine_specs file)",
+   "why": "named cloud data warehouse"
+  },
+  {
+   "name": "Db2",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "db2 (db_engine_specs file)",
+   "why": "named IBM DBMS"
+  },
+  {
+   "name": "Teradata",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "teradata (db_engine_specs file)",
+   "why": "named analytic DBMS"
+  },
+  {
+   "name": "Sybase",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "sybase (db_engine_specs file)",
+   "why": "named commercial DBMS"
+  },
+  {
+   "name": "Firebird",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "firebird (db_engine_specs file)",
+   "why": "named open-source DBMS"
+  },
+  {
+   "name": "MonetDB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "monetdb (db_engine_specs file)",
+   "why": "named column-store DBMS"
+  },
+  {
+   "name": "DuckDB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "duckdb (db_engine_specs file)",
+   "why": "named embedded analytic DBMS"
+  },
+  {
+   "name": "Databend",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "databend (db_engine_specs file)",
+   "why": "named cloud warehouse DBMS"
+  },
+  {
+   "name": "D1",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "d1 (db_engine_specs file)",
+   "why": "named serverless SQL DBMS"
+  },
+  {
+   "name": "Cloud Datastore",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "datastore (db_engine_specs file)",
+   "why": "named cloud document DBMS"
+  },
+  {
+   "name": "Apache Doris",
+   "aliases": [
+    "Doris"
+   ],
+   "judge": "race",
+   "evidence": "doris (db_engine_specs file)",
+   "why": "named analytic DBMS"
+  },
+  {
+   "name": "Apache Druid",
+   "aliases": [
+    "Druid"
+   ],
+   "judge": "race",
+   "evidence": "druid (db_engine_specs file)",
+   "why": "named real-time analytic DBMS"
+  },
+  {
+   "name": "Elasticsearch",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "elasticsearch (db_engine_specs file)",
+   "why": "named search and document store"
+  },
+  {
+   "name": "OpenSearch",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "trino-opensearch (plugin dir)",
+   "why": "named Elasticsearch fork; own entry"
+  },
+  {
+   "name": "Exasol",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "exasol (db_engine_specs file)",
+   "why": "named in-memory analytic DBMS"
+  },
+  {
+   "name": "Firebolt",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "firebolt (db_engine_specs file)",
+   "why": "named cloud analytic DBMS"
+  },
+  {
+   "name": "Greenplum",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "greenplum (db_engine_specs file)",
+   "why": "named MPP PostgreSQL DBMS"
+  },
+  {
+   "name": "SAP HANA",
+   "aliases": [
+    "HANA"
+   ],
+   "judge": "leak",
+   "evidence": "hana (db_engine_specs file)",
+   "why": "named in-memory DBMS"
+  },
+  {
+   "name": "Hologres",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hologres (db_engine_specs file)",
+   "why": "named Alibaba realtime DBMS"
+  },
+  {
+   "name": "Apache Ignite",
+   "aliases": [
+    "Ignite"
+   ],
+   "judge": "race",
+   "evidence": "trino-ignite (plugin dir)",
+   "why": "named in-memory data grid DBMS"
+  },
+  {
+   "name": "Apache IoTDB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iotdb (db_engine_specs file)",
+   "why": "named time-series DBMS"
+  },
+  {
+   "name": "Azure Data Explorer",
+   "aliases": [
+    "Kusto"
+   ],
+   "judge": "race",
+   "evidence": "kusto (db_engine_specs file)",
+   "why": "named Microsoft analytics DBMS"
+  },
+  {
+   "name": "Apache Kylin",
+   "aliases": [
+    "Kylin"
+   ],
+   "judge": "heisenbug",
+   "evidence": "kylin (db_engine_specs file)",
+   "why": "named OLAP engine with storage"
+  },
+  {
+   "name": "MaxCompute",
+   "aliases": [
+    "ODPS"
+   ],
+   "judge": "heisenbug",
+   "evidence": "odps (db_engine_specs file)",
+   "why": "named Alibaba warehouse; ODPS older name"
+  },
+  {
+   "name": "Netezza",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "netezza (db_engine_specs file)",
+   "why": "named appliance DBMS"
+  },
+  {
+   "name": "OceanBase",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "oceanbase (db_engine_specs file)",
+   "why": "named distributed SQL DBMS"
+  },
+  {
+   "name": "Ocient",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ocient (db_engine_specs file)",
+   "why": "named hyperscale analytic DBMS"
+  },
+  {
+   "name": "Apache Phoenix",
+   "aliases": [
+    "Phoenix"
+   ],
+   "judge": "race",
+   "evidence": "phoenix (db_engine_specs file)",
+   "why": "named SQL layer over HBase"
+  },
+  {
+   "name": "Apache Pinot",
+   "aliases": [
+    "Pinot"
+   ],
+   "judge": "race",
+   "evidence": "pinot (db_engine_specs file)",
+   "why": "named real-time OLAP DBMS"
+  },
+  {
+   "name": "RisingWave",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "risingwave (db_engine_specs file)",
+   "why": "named streaming database"
+  },
+  {
+   "name": "SingleStore",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "singlestore (db_engine_specs file)",
+   "why": "named distributed SQL DBMS"
+  },
+  {
+   "name": "StarRocks",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "starrocks (db_engine_specs file)",
+   "why": "named analytic DBMS"
+  },
+  {
+   "name": "TDengine",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "tdengine (db_engine_specs file)",
+   "why": "named time-series DBMS"
+  },
+  {
+   "name": "TimescaleDB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "timescaledb (db_engine_specs file)",
+   "why": "named PostgreSQL time-series DBMS"
+  },
+  {
+   "name": "YDB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ydb (db_engine_specs file)",
+   "why": "named distributed SQL DBMS"
+  },
+  {
+   "name": "YugabyteDB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "yugabytedb (db_engine_specs file)",
+   "why": "named distributed SQL DBMS"
+  }
+ ],
+ "womm_candidates": [
+  {
+   "name": "DuckDB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "duckdb (db_engine_specs file)",
+   "why": "clever-sounding embedded DBMS pick"
+  },
+  {
+   "name": "Firebird",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "firebird (db_engine_specs file)",
+   "why": "feels obscure, widely used"
+  },
+  {
+   "name": "MonetDB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "monetdb (db_engine_specs file)",
+   "why": "feels obscure, known to specialists"
+  }
+ ],
+ "bitflip_candidates": [
+  {
+   "name": "Apache Kylin",
+   "aliases": [
+    "Kylin"
+   ],
+   "judge": "heisenbug",
+   "evidence": "kylin (db_engine_specs file)",
+   "why": "deep OLAP cut, delightful to name"
+  },
+  {
+   "name": "Ocient",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ocient (db_engine_specs file)",
+   "why": "rare hyperscale analytic DBMS"
+  },
+  {
+   "name": "Apache Phoenix",
+   "aliases": [
+    "Phoenix"
+   ],
+   "judge": "race",
+   "evidence": "phoenix (db_engine_specs file)",
+   "why": "unexpected SQL layer over HBase"
+  }
+ ]
+}

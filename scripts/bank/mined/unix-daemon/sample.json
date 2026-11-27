@@ -1,0 +1,128 @@
+[
+ {
+  "name": "ypbind",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "nscd",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "sendmail",
+  "aliases": [
+   "sendmail daemon"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "ypserv",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "dovecot",
+  "aliases": [
+   "dovecot daemon"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "nginx",
+  "aliases": [
+   "nginx server"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "rpc.ypxfrd",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "rwhod",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "bsnmpd",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "dockerd",
+  "aliases": [
+   "docker daemon",
+   "docker"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "nfscbd",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "comsat",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "dhcpd",
+  "aliases": [
+   "dhcp daemon",
+   "isc dhcp"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "tcpd",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "mysqld",
+  "aliases": [
+   "mysql",
+   "mysql daemon"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "cupsd",
+  "aliases": [
+   "cups",
+   "cups daemon"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "rtadvd",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "xinetd",
+  "aliases": [
+   "extended inetd"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "postgres",
+  "aliases": [
+   "postgresql",
+   "postgres daemon"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "sshd",
+  "aliases": [
+   "openssh",
+   "ssh daemon"
+  ],
+  "tier": "Off-by-one"
+ }
+]

@@ -1,0 +1,27 @@
+--- haiku call, 23s, exit 0, prompt 1941 chars, stdout 2462 chars
+ Db2", "aliases": ["Db2", "DB2"], "tier": "npe"},
+  {"name": "Amazon Redshift", "aliases": ["Redshift"], "tier": "npe"},
+  {"name": "Prometheus", "aliases": ["Prometheus TSDB"], "tier": "npe"},
+  {"name": "Firestore", "aliases": ["Cloud Firestore", "Firebase Firestore"], "tier": "npe"},
+  {"name": "Neo4j", "aliases": ["Neo4J", "Neo 4j"], "tier": "npe"},
+  {"name": "Couchbase", "aliases": ["Couchbase Server"], "tier": "npe"},
+  {"name": "CouchDB", "aliases": ["Apache CouchDB", "Couch DB"], "tier": "npe"},
+  {"name": "Snowflake", "aliases": ["Snowflake DB", "Snowflake Data Cloud"], "tier": "npe"},
+  {"name": "BigQuery", "aliases": ["Big Query", "Google BigQuery"], "tier": "npe"},
+  {"name": "Cloud Spanner", "aliases": ["Spanner", "Google Cloud Spanner"], "tier": "npe"},
+  {"name": "Azure Cosmos DB", "aliases": ["Cosmos DB", "CosmosDB"], "tier": "npe"},
+  {"name": "Microsoft Access", "aliases": ["MS Access", "Access"], "tier": "npe"},
+  {"name": "CockroachDB", "aliases": ["Cockroach DB", "Cockroach"], "tier": "npe"},
+  {"name": "InfluxDB", "aliases": ["Influx DB", "Influx"], "tier": "npe"},
+  {"name": "Apache HBase", "aliases": ["HBase"], "tier": "npe"},
+  {"name": "ClickHouse", "aliases": ["Click House"], "tier": "npe"},
+  {"name": "TiDB", "aliases": ["Ti DB"], "tier": "npe"},
+  {"name": "Apache Derby", "aliases": ["Derby"], "tier": "npe"},
+  {"name": "RocksDB", "aliases": ["Rocks DB"], "tier": "npe"},
+  {"name": "Sybase ASE", "aliases": ["Sybase", "SAP ASE"], "tier": "npe"}
+]
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py database  [0s, exit 0]
+database: 13 aliases, 11 new answers, 0 promoted from the Inbox
+

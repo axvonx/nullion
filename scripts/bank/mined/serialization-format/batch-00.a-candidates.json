@@ -1,0 +1,24 @@
+{
+  "serialization-format": [
+    {
+      "name": "JSON",
+      "aliases": [
+        "JavaScript Object Notation"
+      ],
+      "judge": "off-by-one",
+      "evidence": "3  json format",
+      "why": "text-based structured data interchange format"
+    },
+    {
+      "name": "CSV",
+      "aliases": [
+        "Comma-Separated Values"
+      ],
+      "judge": "off-by-one",
+      "evidence": "2  csv format",
+      "why": "tabular text format for structured data storage and transport"
+    }
+  ],
+  "womm_candidates": [],
+  "bitflip_candidates": []
+}

@@ -1,0 +1,102 @@
+{
+ "/dev/mixer": {
+  "member": true,
+  "tier_ok": true,
+  "why": "OSS mixer node, created by the sound drivers; known mainly to audio and driver people, so Memory leak is plausible."
+ },
+ "/dev/fb0": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Framebuffer node created by fbdev drivers; known to console and display people, so Null pointer exception is plausible."
+ },
+ "/dev/oldmem": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Old-memory node in devices.txt for kdump; only crash-dump specialists know it, so Heisenbug fits."
+ },
+ "/dev/mtd0": {
+  "member": true,
+  "tier_ok": true,
+  "why": "MTD character node from the mtd subsystem; embedded and flash specialists know it, so Race condition is plausible."
+ },
+ "/dev/bus/vme/ctl": {
+  "member": true,
+  "tier_ok": true,
+  "why": "VME bus control node created by the VME drivers; deep-internals territory, so Heisenbug fits."
+ },
+ "/dev/vfio/vfio": {
+  "member": true,
+  "tier_ok": true,
+  "why": "VFIO container node created by the vfio driver; passthrough specialists know it, so Race condition fits."
+ },
+ "/dev/nvme0n1": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Block node created by the nvme driver. It is a specific instance, but the Accepts line widens the rule to any kernel- or driver-created /dev path. Null pointer exception fits, since many sysadmins know it."
+ },
+ "/dev/vmmon": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Node created by the out-of-tree VMware vmmon kernel module, which the Accepts line covers as a driver. Only VMware internals people know it, so Heisenbug fits."
+ },
+ "/dev/userio": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Node created by the serio userio driver; deep-internals territory, so Heisenbug fits."
+ },
+ "/dev/ipath_diag": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Diagnostic node created by the ipath InfiniBand driver; deep-internals territory, so Heisenbug fits."
+ },
+ "/dev/loop-control": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Misc node created by the loop driver; known to storage and loop-device specialists, so Race condition fits."
+ },
+ "/dev/input/event0": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real evdev node created by the input core, but far more widely known than Memory leak allows. Null pointer exception is the plausible tier."
+ },
+ "/dev/agpgart": {
+  "member": true,
+  "tier_ok": true,
+  "why": "AGP GART misc node created by the agpgart driver; legacy graphics specialists know it, so Race condition is plausible."
+ },
+ "/dev/apm_bios": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Misc node created by the APM BIOS driver; legacy power-management specialists know it, so Heisenbug fits."
+ },
+ "/dev/vda": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Block node created by virtio_blk for a virtio disk. Many sysadmins know it, so Null pointer exception fits. Specific instance, widened by the Accepts line."
+ },
+ "/dev/btrfs-control": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Misc control node created by the btrfs module, used by device scan; filesystem specialists know it, so Race condition fits."
+ },
+ "/dev/input/uinput": {
+  "member": false,
+  "tier_ok": true,
+  "why": "The kernel's uinput misc node is /dev/uinput. /dev/input/uinput is at most a udev-made path or alias of it, and I cannot confirm a kernel or driver creates it, so I am not sure it exists as a separate node. Tier would be plausible if it counted."
+ },
+ "/dev/cpu/0/msr": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Per-CPU MSR node created by the msr driver; tuning and kernel people know it, so Race condition is plausible. Specific instance, widened by the Accepts line."
+ },
+ "/dev/drbd0": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Block node created by the drbd driver; DRBD specialists know it, so Race condition fits."
+ },
+ "/dev/video0": {
+  "member": true,
+  "tier_ok": false,
+  "why": "V4L2 node created by videodev, and a common webcam path that many Linux users know. Memory leak is too deep; Null pointer exception is the plausible tier."
+ }
+}

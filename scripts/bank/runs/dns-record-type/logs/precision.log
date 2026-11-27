@@ -1,0 +1,10 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py dns-record-type sample  [0s, exit 0]
+dns-record-type: sampled 20 of 64 unconfirmed answers -> scripts/bank/mined/dns-record-type/sample.json
+
+--- haiku call, 25s, exit 0, prompt 3601 chars, stdout 2974 chars
+s."}, "L32": {"member": true, "tier_ok": true, "why": "RR type 105 (RFC 6742). Deep internals, so Heisenbug fits."}, "WALLET": {"member": false, "tier_ok": true, "why": "I cannot confirm from the sample that WALLET is a registered TYPE number in the IANA registry. Under the strict rule, unsure means false."}, "PX": {"member": true, "tier_ok": true, "why": "RR type 26 (X.400 mapping, RFC 2163). Deep internals, so Heisenbug fits."}, "CDNSKEY": {"member": true, "tier_ok": true, "why": "RR type 60 (RFC 7344). DNSSEC specialists know it, so Race condition fits."}, "TXT": {"member": true, "tier_ok": true, "why": "RR type 16, very widely known, so Off-by-one fits. Alias 'text' is a common English word and should be dropped."}, "DNSKEY": {"member": true, "tier_ok": true, "why": "RR type 48 (RFC 4034). Known to DNS and DNSSEC operators, so Memory leak fits."}, "PTR": {"member": true, "tier_ok": true, "why": "RR type 12, very widely known, so Off-by-one fits. Aliases 'pointer' and 'reverse' are common English words and should be dropped."}, "SPF": {"member": true, "tier_ok": true, "why": "RR type 99 (RFC 7208), deprecated in favour of TXT. Mail and sysadmin folks know it, so Memory leak fits."}, "SIG": {"member": true, "tier_ok": false, "why": "RR type 24 (RFC 2535), obsolete DNSSEC predecessor of RRSIG, same class as KEY. Memory leak is too shallow; Heisenbug fits better."}, "EUI64": {"member": true, "tier_ok": true, "why": "RR type 109 (RFC 7043). Very obscure, so Heisenbug fits."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py dns-record-type score  [0s, exit 0]
+dns-record-type: precision 95% (19/20), tier ok 18/20
+

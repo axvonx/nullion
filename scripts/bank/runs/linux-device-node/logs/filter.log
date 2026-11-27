@@ -1,0 +1,8 @@
+--- gemini call, 41s, exit 0, prompt 4143 chars, stdout 3 chars
+96
+
+
+--- haiku call, 63s, exit 0, prompt 23549 chars, stdout 12478 chars
+)", "why": "Intermezzo filesystem upcall node"}, {"name": "/dev/ipath_diag", "aliases": [], "judge": "heisenbug", "evidence": "batch line: /dev/ipath_diag (devices.txt)", "why": "InfiniPath diagnostics node"}, {"name": "/dev/bus/vme/ctl", "aliases": [], "judge": "heisenbug", "evidence": "batch line: /dev/bus/vme/ctl (devices.txt)", "why": "VME bus control node"}, {"name": "/dev/ussp_ctl", "aliases": [], "judge": "heisenbug", "evidence": "batch line: /dev/ussp_ctl (devices.txt)", "why": "IrDA SIR control node"}], "womm_candidates": [{"name": "/dev/kmem", "aliases": [], "judge": "leak", "evidence": "batch line: /dev/kmem (devices.txt)", "why": "feels clever, widely known"}, {"name": "/dev/kmsg", "aliases": [], "judge": "leak", "evidence": "batch line: /dev/kmsg (devices.txt)", "why": "feels obscure, kernel log favourite"}, {"name": "/dev/vhost-net", "aliases": [], "judge": "race", "evidence": "batch line: /dev/vhost-net (devices.txt)", "why": "sounds deep, picked to look clever"}], "bitflip_candidates": [{"name": "/dev/mergemem", "aliases": [], "judge": "heisenbug", "evidence": "batch line: /dev/mergemem (devices.txt)", "why": "rare page-merging control node"}, {"name": "/dev/userio", "aliases": [], "judge": "heisenbug", "evidence": "batch line: /dev/userio (devices.txt)", "why": "rare userspace serio driver"}, {"name": "/dev/cuse", "aliases": [], "judge": "heisenbug", "evidence": "batch line: /dev/cuse (devices.txt)", "why": "character devices in userspace"}]}, "aliases": {}}
+
+

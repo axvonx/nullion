@@ -1,0 +1,482 @@
+{
+ "id": "unix-daemon",
+ "prompt": "Name a Unix daemon",
+ "accepts": "Any named background service program on a Unix-like system, as named in its man page or the system's standard service list.",
+ "answers": [
+  {
+   "name": "cron",
+   "aliases": [
+    "crond",
+    "vixie cron"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "sendmail",
+   "aliases": [
+    "sendmail daemon"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "syslogd",
+   "aliases": [
+    "syslog daemon"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "sshd",
+   "aliases": [
+    "openssh",
+    "ssh daemon"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "httpd",
+   "aliases": [
+    "apache",
+    "apache httpd"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "nginx",
+   "aliases": [
+    "nginx server"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "inetd",
+   "aliases": [
+    "internet daemon"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "fingerd",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "talkd",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "nfsd",
+   "aliases": [
+    "nfs daemon",
+    "nfs server"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "tftpd",
+   "aliases": [
+    "tftp daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "unbound",
+   "aliases": [
+    "unbound daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "named",
+   "aliases": [
+    "bind",
+    "bind9"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "xinetd",
+   "aliases": [
+    "extended inetd"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "atd",
+   "aliases": [
+    "at daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "lpd",
+   "aliases": [
+    "line printer daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "cupsd",
+   "aliases": [
+    "cups",
+    "cups daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ntpd",
+   "aliases": [
+    "ntp",
+    "ntp daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "chronyd",
+   "aliases": [
+    "chrony"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "dhcpd",
+   "aliases": [
+    "dhcp daemon",
+    "isc dhcp"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "smbd",
+   "aliases": [
+    "samba"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mysqld",
+   "aliases": [
+    "mysql",
+    "mysql daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "postgres",
+   "aliases": [
+    "postgresql",
+    "postgres daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "redis-server",
+   "aliases": [
+    "redis"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "memcached",
+   "aliases": [
+    "memcache"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "dockerd",
+   "aliases": [
+    "docker daemon",
+    "docker"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "rsyslogd",
+   "aliases": [
+    "rsyslog"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "dovecot",
+   "aliases": [
+    "dovecot daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "exim",
+   "aliases": [
+    "exim4"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "vsftpd",
+   "aliases": [
+    "very secure ftpd"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "telnetd",
+   "aliases": [
+    "telnet daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "avahi-daemon",
+   "aliases": [
+    "avahi"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "dbus-daemon",
+   "aliases": [
+    "dbus"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "acpid",
+   "aliases": [
+    "acpi daemon"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "klogd",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "mountd",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "nscd",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "rpcbind",
+   "aliases": [
+    "portmap",
+    "portmapper"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ypbind",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ypserv",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "tcpd",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "auditd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "blacklistd",
+   "aliases": [
+    "blocklistd"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "bootpd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ftp-proxy",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "gssd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "powerd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rarpd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rpc.lockd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rpc.statd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rtadvd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rtsold",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "rwhod",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "iscsid",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "watchdogd",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "moused",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "auditdistd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bootparamd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "bsnmpd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "comsat",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ctld",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "nfscbd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "nfsuserd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pppoed",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rbootd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "route6d",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rpc.rquotad",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rpc.rstatd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rpc.rusersd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rpc.rwalld",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rpc.tlsclntd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rpc.tlsservd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rpc.yppasswdd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rpc.ypupdated",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rpc.ypxfrd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rrenumd",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tftp-proxy",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ypldap",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "rpc.sprayd",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

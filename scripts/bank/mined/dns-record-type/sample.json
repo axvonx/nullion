@@ -1,0 +1,123 @@
+[
+ {
+  "name": "CNAME",
+  "aliases": [
+   "canonical name",
+   "alias",
+   "alias record"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "NSAP",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "HIP",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "NID",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "KX",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "URI",
+  "aliases": [
+   "uniform resource identifier",
+   "URI record"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "RT",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "OPENPGPKEY",
+  "aliases": [
+   "OpenPGP public key"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "KEY",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "NINFO",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "L32",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "WALLET",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "PX",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "CDNSKEY",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "TXT",
+  "aliases": [
+   "text",
+   "text record"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "DNSKEY",
+  "aliases": [
+   "DNS public key"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "PTR",
+  "aliases": [
+   "pointer",
+   "reverse",
+   "reverse pointer"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "SPF",
+  "aliases": [
+   "sender policy framework",
+   "SPF record"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "SIG",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "EUI64",
+  "aliases": [],
+  "tier": "Heisenbug"
+ }
+]

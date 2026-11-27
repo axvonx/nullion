@@ -1,0 +1,184 @@
+{
+ "historical-cipher": [
+  {
+   "name": "Caesar",
+   "aliases": [
+    "ROT13"
+   ],
+   "judge": "off-by-one",
+   "evidence": "\"caesar\" pycipher module; \"rot13\" line",
+   "why": "Shift cipher most people name first"
+  },
+  {
+   "name": "Vigenère",
+   "aliases": [
+    "Vigenere"
+   ],
+   "judge": "npe",
+   "evidence": "\"vigenere\" pycipher module",
+   "why": "Classic polyalphabetic cipher, widely known"
+  },
+  {
+   "name": "Enigma",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "\"enigma\" pycipher module",
+   "why": "Famous WWII rotor machine"
+  },
+  {
+   "name": "Playfair",
+   "aliases": [
+    "Playfair cipher"
+   ],
+   "judge": "leak",
+   "evidence": "\"playfair\" pycipher module",
+   "why": "Digraph cipher, Victorian-era classic"
+  },
+  {
+   "name": "Atbash",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "\"atbash\" pycipher module",
+   "why": "Ancient Hebrew alphabet reversal"
+  },
+  {
+   "name": "Affine",
+   "aliases": [
+    "Affine cipher"
+   ],
+   "judge": "race",
+   "evidence": "\"affine\" pycipher module",
+   "why": "Linear modular substitution cipher"
+  },
+  {
+   "name": "Beaufort",
+   "aliases": [
+    "Beaufort cipher"
+   ],
+   "judge": "race",
+   "evidence": "\"beaufort\" pycipher module",
+   "why": "Reciprocal Vigenère-family cipher"
+  },
+  {
+   "name": "Autokey",
+   "aliases": [
+    "Autokey cipher"
+   ],
+   "judge": "race",
+   "evidence": "\"autokey\" pycipher module",
+   "why": "Plaintext-keyed Vigenère variant"
+  },
+  {
+   "name": "Bifid",
+   "aliases": [
+    "Bifid cipher"
+   ],
+   "judge": "race",
+   "evidence": "\"bifid\" pycipher module",
+   "why": "Delastelle fractionating square cipher"
+  },
+  {
+   "name": "Four-square",
+   "aliases": [
+    "Foursquare"
+   ],
+   "judge": "race",
+   "evidence": "\"foursquare\" pycipher module",
+   "why": "Digraph cipher using four 5×5 squares"
+  },
+  {
+   "name": "ADFGVX",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "\"adfgvx\" pycipher module",
+   "why": "WWI German field cipher"
+  },
+  {
+   "name": "ADFGX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "\"adfgx\" pycipher module",
+   "why": "Precursor to ADFGVX"
+  },
+  {
+   "name": "Fractionated Morse",
+   "aliases": [
+    "Fracmorse"
+   ],
+   "judge": "heisenbug",
+   "evidence": "\"fracmorse\" pycipher module",
+   "why": "Morse code fractionated into a cipher"
+  },
+  {
+   "name": "Gronsfeld",
+   "aliases": [
+    "Gronsfeld cipher"
+   ],
+   "judge": "heisenbug",
+   "evidence": "\"gronsfeld\" pycipher module",
+   "why": "Vigenère variant with numeric key"
+  },
+  {
+   "name": "M-209",
+   "aliases": [
+    "M209"
+   ],
+   "judge": "race",
+   "evidence": "\"m209\" pycipher module",
+   "why": "US WWII portable cipher machine"
+  },
+  {
+   "name": "Porta",
+   "aliases": [
+    "Porta cipher"
+   ],
+   "judge": "heisenbug",
+   "evidence": "\"porta\" pycipher module",
+   "why": "Early polyalphabetic digraph cipher"
+  },
+  {
+   "name": "Polybius square",
+   "aliases": [
+    "Polybius"
+   ],
+   "judge": "leak",
+   "evidence": "\"polybius\" pycipher module",
+   "why": "Ancient 5×5 coordinate grid cipher"
+  },
+  {
+   "name": "Rail fence cipher",
+   "aliases": [
+    "Railfence"
+   ],
+   "judge": "race",
+   "evidence": "\"railfence\" pycipher module",
+   "why": "Zigzag transposition cipher"
+  },
+  {
+   "name": "Columnar transposition",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "\"columnartransposition\" pycipher module",
+   "why": "Classic keyed transposition cipher"
+  },
+  {
+   "name": "Simple substitution",
+   "aliases": [
+    "Monoalphabetic substitution"
+   ],
+   "judge": "npe",
+   "evidence": "\"simplesubstitution\" pycipher module",
+   "why": "Generic monoalphabetic substitution kind"
+  }
+ ],
+ "womm_candidates": [
+  "Atbash",
+  "Rail fence cipher",
+  "Polybius square"
+ ],
+ "bitflip_candidates": [
+  "M-209",
+  "Fractionated Morse",
+  "Porta"
+ ]
+}

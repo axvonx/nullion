@@ -1,0 +1,137 @@
+{
+ "id": "linux-device-node",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T18:59:04+00:00",
+   "seconds": 13,
+   "finished": "2026-11-27T18:59:17+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T18:59:17+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:59:17+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T18:59:17+00:00",
+   "seconds": 63,
+   "finished": "2026-11-27T19:00:20+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T19:00:20+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:00:20+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T19:00:20+00:00",
+   "seconds": 18,
+   "finished": "2026-11-27T19:00:38+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T19:00:38+00:00",
+   "seconds": 8,
+   "finished": "2026-11-27T19:00:46+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T19:00:46+00:00",
+   "seconds": 22,
+   "finished": "2026-11-27T19:01:08+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T19:01:08+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:01:08+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T19:01:08+00:00",
+   "seconds": 34,
+   "finished": "2026-11-27T19:01:42+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T19:01:42+00:00",
+   "seconds": 31,
+   "finished": "2026-11-27T19:02:13+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T19:02:13+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:02:13+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "35/35 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "85/113 answers have a verified link (75%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "19/20 sampled answers are members (95%), 17/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/linux-device-node.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (/dev/scanners/cuecat; /dev/kmem, /dev/ptmx, /dev/full): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/linux-device-node.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 1374,
+  "summary": "linux-device-node: 1373 mined lines from 1 sources -> 1 batches in scripts/bank/mined/linux-device-node"
+ },
+ "filter": [
+  "batch-00.a: 96 kept",
+  "batch-00.b: 76 kept"
+ ],
+ "compare": "linux-device-node: 63 agreed, 46 disputed (42%) across 1 batches",
+ "escalate": "46 disputes -> 46 kept (0 low-confidence -> Inbox), 0 dropped",
+ "pins": {
+  "bitflip": "/dev/scanners/cuecat",
+  "womm": [
+   "/dev/kmem",
+   "/dev/ptmx",
+   "/dev/full"
+  ]
+ },
+ "merge": "109 tiered answers, 1 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "linux-device-node: 23 aliases, 4 new answers, 0 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "85/113 answers linked across 1 categories",
+  "dropped as broken: {'http 404': 4, 'wikipedia missing': 1}",
+  "0 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/linux-device-node.md"
+}

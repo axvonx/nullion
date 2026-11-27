@@ -1,0 +1,10 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py unix-daemon sample  [0s, exit 0]
+unix-daemon: sampled 20 of 75 unconfirmed answers -> scripts/bank/mined/unix-daemon/sample.json
+
+--- haiku call, 23s, exit 0, prompt 3730 chars, stdout 3060 chars
+on, named in its man page. Deep-internals tier fits."}, "comsat": {"member": true, "tier_ok": false, "why": "BSD mail-notification daemon (biff's backend), named in its man page and a real service. Membership holds, but it's a legacy name, not a deep-internals one, so heisenbug is too deep. Race or leak fits better."}, "dhcpd": {"member": true, "tier_ok": true, "why": "DHCP server daemon; a real, widely known service. Null pointer exception fits."}, "tcpd": {"member": false, "tier_ok": true, "why": "TCP wrapper: inetd runs it per connection as an access-control shim that then execs the service. It is not a background service in its own right."}, "mysqld": {"member": true, "tier_ok": true, "why": "MySQL server daemon; a real, widely known service. Null pointer exception fits."}, "cupsd": {"member": true, "tier_ok": true, "why": "CUPS print scheduler daemon; a real named service. Null pointer exception fits."}, "rtadvd": {"member": true, "tier_ok": true, "why": "IPv6 router advertisement daemon, named in its man page. Race condition suits specialists."}, "xinetd": {"member": true, "tier_ok": true, "why": "Extended inetd super-server daemon; a real, named service. Null pointer exception fits."}, "postgres": {"member": true, "tier_ok": true, "why": "PostgreSQL server process, the postgres daemon; a real named service. Null pointer exception fits."}, "sshd": {"member": true, "tier_ok": true, "why": "SSH server daemon; one of the best-known Unix daemons, so off-by-one is right."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py unix-daemon score  [0s, exit 0]
+unix-daemon: precision 95% (19/20), tier ok 18/20
+

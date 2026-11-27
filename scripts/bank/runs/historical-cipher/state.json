@@ -1,0 +1,137 @@
+{
+ "id": "historical-cipher",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T18:56:33+00:00",
+   "seconds": 20,
+   "finished": "2026-11-27T18:56:53+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T18:56:53+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:56:53+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T18:56:53+00:00",
+   "seconds": 35,
+   "finished": "2026-11-27T18:57:29+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T18:57:29+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:57:29+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T18:57:29+00:00",
+   "seconds": 11,
+   "finished": "2026-11-27T18:57:40+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T18:57:40+00:00",
+   "seconds": 8,
+   "finished": "2026-11-27T18:57:48+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T18:57:48+00:00",
+   "seconds": 23,
+   "finished": "2026-11-27T18:58:11+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T18:58:11+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:58:11+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T18:58:11+00:00",
+   "seconds": 15,
+   "finished": "2026-11-27T18:58:26+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T18:58:26+00:00",
+   "seconds": 40,
+   "finished": "2026-11-27T18:59:05+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T18:59:05+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:59:05+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "31/31 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "34/36 answers have a verified link (94%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "20/20 sampled answers are members (100%), 12/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/historical-cipher.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (M-209; Atbash, Rail fence cipher, ADFGVX): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/historical-cipher.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 26,
+  "summary": "historical-cipher: 25 mined lines from 1 sources -> 1 batches in scripts/bank/mined/historical-cipher"
+ },
+ "filter": [
+  "batch-00.a: 20 kept",
+  "batch-00.b: 20 kept"
+ ],
+ "compare": "historical-cipher: 19 agreed, 1 disputed (5%) across 1 batches",
+ "escalate": "1 disputes -> 1 kept (0 low-confidence -> Inbox), 0 dropped",
+ "pins": {
+  "bitflip": "M-209",
+  "womm": [
+   "Atbash",
+   "Rail fence cipher",
+   "ADFGVX"
+  ]
+ },
+ "merge": "20 tiered answers, 0 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "historical-cipher: 9 aliases, 16 new answers, 0 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "34/36 answers linked across 1 categories",
+  "dropped as broken: {'wikipedia missing': 2}",
+  "0 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/historical-cipher.md"
+}

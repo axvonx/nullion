@@ -1,0 +1,231 @@
+{
+ "id": "serialization-format",
+ "prompt": "Name a data serialization format",
+ "accepts": "Any named format for encoding structured data as bytes or text for storage or transport.",
+ "answers": [
+  {
+   "name": "XML",
+   "aliases": [
+    "eXtensible Markup Language",
+    "xml file"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "YAML",
+   "aliases": [
+    "YAML Ain't Markup Language",
+    "yml"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "JSON",
+   "aliases": [
+    "JavaScript Object Notation",
+    "json file"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "TSV",
+   "aliases": [
+    "tab-separated values"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "JSON Lines",
+   "aliases": [
+    "JSONL",
+    "NDJSON",
+    "newline-delimited JSON"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Protocol Buffers",
+   "aliases": [
+    "protobuf",
+    "protocol buffer",
+    "Google Protocol Buffers"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Avro",
+   "aliases": [
+    "Apache Avro"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MessagePack",
+   "aliases": [
+    "msgpack"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Parquet",
+   "aliases": [
+    "Apache Parquet"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "TOML",
+   "aliases": [
+    "Tom's Obvious Minimal Language"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BSON",
+   "aliases": [
+    "Binary JSON"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Thrift",
+   "aliases": [
+    "Apache Thrift"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Pickle",
+   "aliases": [
+    "Python pickle",
+    "pickle format"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Java serialization",
+   "aliases": [
+    "Java object serialization",
+    "Java serialisation"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "INI",
+   "aliases": [
+    "INI file"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Java properties",
+   "aliases": [
+    "properties file",
+    ".properties"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Plist",
+   "aliases": [
+    "property list",
+    "Apple property list"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Cap'n Proto",
+   "aliases": [
+    "Capnp"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FlatBuffers",
+   "aliases": [
+    "flatbuffer"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CBOR",
+   "aliases": [
+    "Concise Binary Object Representation"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Bencode",
+   "aliases": [
+    "BitTorrent bencode"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "EDN",
+   "aliases": [
+    "Extensible Data Notation"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "S-expressions",
+   "aliases": [
+    "S-expression",
+    "sexp",
+    "Lisp s-expression"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ASN.1",
+   "aliases": [
+    "Abstract Syntax Notation One"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "XDR",
+   "aliases": [
+    "External Data Representation"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Gob",
+   "aliases": [
+    "Go gob",
+    "encoding/gob"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Hessian",
+   "aliases": [
+    "Hessian binary protocol"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "UBJSON",
+   "aliases": [
+    "Universal Binary JSON"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Smile",
+   "aliases": [
+    "Smile binary JSON"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CSV",
+   "aliases": [
+    "Comma-Separated Values"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

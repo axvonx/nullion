@@ -1,0 +1,102 @@
+{
+ "CNAME": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 5 in the IANA registry, universally known. Alias 'alias' is a common English word and should be dropped."
+ },
+ "NSAP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 22 in the IANA registry (obsolete, RFC 1348). Obscure enough for Heisenbug."
+ },
+ "HIP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 55 (Host Identity Protocol, RFC 8005). Known mainly to systems and networking people, so Memory leak fits."
+ },
+ "NID": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 104 (ILNP, RFC 6742). Deep internals, so Heisenbug fits."
+ },
+ "KX": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 36 (Key Exchanger, RFC 2230). Deep DNSSEC-adjacent detail, so Heisenbug fits."
+ },
+ "URI": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 256 (RFC 7553). The expansion 'uniform resource identifier' is the same answer; 'URI record' is a variant. Specialist tier fits."
+ },
+ "RT": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 21 (Route Through, RFC 1183). Deep internals, so Heisenbug fits."
+ },
+ "OPENPGPKEY": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 61 (RFC 7929). The alias is the expansion of the same name. Specialist tier fits."
+ },
+ "KEY": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 25 (RFC 2535), obsolete DNSSEC predecessor of DNSKEY. Heisenbug is defensible for an obsolete type."
+ },
+ "NINFO": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 56 (Zone Status, draft-era). Very deep, so Heisenbug fits."
+ },
+ "L32": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 105 (RFC 6742). Deep internals, so Heisenbug fits."
+ },
+ "WALLET": {
+  "member": false,
+  "tier_ok": true,
+  "why": "I cannot confirm from the sample that WALLET is a registered TYPE number in the IANA registry. Under the strict rule, unsure means false."
+ },
+ "PX": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 26 (X.400 mapping, RFC 2163). Deep internals, so Heisenbug fits."
+ },
+ "CDNSKEY": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 60 (RFC 7344). DNSSEC specialists know it, so Race condition fits."
+ },
+ "TXT": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 16, very widely known, so Off-by-one fits. Alias 'text' is a common English word and should be dropped."
+ },
+ "DNSKEY": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 48 (RFC 4034). Known to DNS and DNSSEC operators, so Memory leak fits."
+ },
+ "PTR": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 12, very widely known, so Off-by-one fits. Aliases 'pointer' and 'reverse' are common English words and should be dropped."
+ },
+ "SPF": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 99 (RFC 7208), deprecated in favour of TXT. Mail and sysadmin folks know it, so Memory leak fits."
+ },
+ "SIG": {
+  "member": true,
+  "tier_ok": false,
+  "why": "RR type 24 (RFC 2535), obsolete DNSSEC predecessor of RRSIG, same class as KEY. Memory leak is too shallow; Heisenbug fits better."
+ },
+ "EUI64": {
+  "member": true,
+  "tier_ok": true,
+  "why": "RR type 109 (RFC 7043). Very obscure, so Heisenbug fits."
+ }
+}

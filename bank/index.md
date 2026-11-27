@@ -21,12 +21,12 @@
 | consensus-protocol | Name a consensus protocol | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | cryptographic-hardness-assumption | Name a cryptographic hardness assumption | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | data-structure | Name a data structure | data-graphics-algorithms | approved | 181 | 2 | 0 |
-| database | Name a database | data-graphics-algorithms | draft | 0 | 0 | 7 |
+| database | Name a database | data-graphics-algorithms | draft | 66 | 62 | 4 |
 | distributed-hash-table | Name a distributed hash table | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | dynamic-programming-problem | Name a dynamic programming problem | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | fft-algorithm | Name an FFT algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | game-ai-technique | Name a game AI technique | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| game-engine | Name a game engine | data-graphics-algorithms | draft | 0 | 0 | 7 |
+| game-engine | Name a game engine | data-graphics-algorithms | draft | 62 | 58 | 2 |
 | gradient-based-optimizer | Name a gradient-based optimizer | data-graphics-algorithms | approved | 58 | 56 | 0 |
 | graph-algorithm | Name a graph algorithm | data-graphics-algorithms | approved | 54 | 52 | 2 |
 | graphics-api | Name a graphics API | data-graphics-algorithms | draft | 0 | 0 | 7 |
@@ -49,7 +49,7 @@
 | pseudorandom-number-generator | Name a pseudorandom number generator | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | quantum-algorithm | Name a quantum algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | query-optimization-technique | Name a query optimization technique | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| serialization-format | Name a data serialization format | data-graphics-algorithms | draft | 0 | 0 | 7 |
+| serialization-format | Name a data serialization format | data-graphics-algorithms | draft | 30 | 28 | 1 |
 | shading-technique | Name a shading technique | data-graphics-algorithms | approved | 81 | 61 | 0 |
 | sorting-algorithm | Name a sorting algorithm | data-graphics-algorithms | approved | 51 | 30 | 0 |
 | storage-engine | Name a storage engine | data-graphics-algorithms | draft | 0 | 0 | 7 |
@@ -81,7 +81,7 @@
 | fuzzer | Name a fuzzer | hardware-security-history | draft | 0 | 0 | 7 |
 | gpu-microarchitecture | Name a GPU microarchitecture | hardware-security-history | draft | 0 | 0 | 7 |
 | hardware-description-language | Name a hardware description language | hardware-security-history | draft | 0 | 0 | 7 |
-| historical-cipher | Name a historical cipher | hardware-security-history | draft | 0 | 0 | 7 |
+| historical-cipher | Name a historical cipher | hardware-security-history | draft | 36 | 32 | 0 |
 | home-computer-1980s | Name a home computer from the 1980s | hardware-security-history | draft | 0 | 0 | 7 |
 | hypervisor | Name a hypervisor | hardware-security-history | draft | 0 | 0 | 7 |
 | instruction-set-architecture | Name an instruction set architecture | hardware-security-history | approved | 61 | 59 | 0 |
@@ -151,7 +151,7 @@
 | terminal-emulator | Name a terminal emulator | languages-tools | draft | 0 | 0 | 7 |
 | test-framework | Name a test framework | languages-tools | draft | 0 | 0 | 7 |
 | testing-technique | Name a software testing technique | languages-tools | draft | 0 | 0 | 7 |
-| text-editor | Name a text editor | languages-tools | draft | 0 | 0 | 7 |
+| text-editor | Name a text editor | languages-tools | draft | 76 | 73 | 1 |
 | version-control-system | Name a version control system | languages-tools | draft | 0 | 0 | 7 |
 | vim-plugin | Name a Vim plugin | languages-tools | draft | 0 | 0 | 7 |
 | web-framework | Name a web framework | languages-tools | draft | 0 | 0 | 7 |
@@ -160,7 +160,7 @@
 | cache-replacement-policy | Name a cache replacement policy | os-systems | draft | 0 | 0 | 7 |
 | cpu-scheduling-algorithm | Name a CPU scheduling algorithm | os-systems | draft | 0 | 0 | 7 |
 | dhcp-option | Name a DHCP option | os-systems | draft | 0 | 0 | 7 |
-| dns-record-type | Name a DNS record type | os-systems | draft | 0 | 0 | 7 |
+| dns-record-type | Name a DNS record type | os-systems | draft | 68 | 64 | 0 |
 | eap-method | Name an EAP method | os-systems | draft | 0 | 0 | 7 |
 | elf-section | Name an ELF section | os-systems | draft | 0 | 0 | 7 |
 | erasure-code | Name an erasure code | os-systems | draft | 0 | 0 | 7 |
@@ -170,7 +170,7 @@
 | kubernetes-resource-kind | Name a Kubernetes resource kind | os-systems | approved | 67 | 65 | 0 |
 | linux-boot-parameter | Name a Linux kernel boot parameter | os-systems | draft | 0 | 0 | 7 |
 | linux-capability | Name a Linux capability | os-systems | draft | 0 | 0 | 7 |
-| linux-device-node | Name a Linux device node | os-systems | draft | 0 | 0 | 7 |
+| linux-device-node | Name a Linux device node | os-systems | draft | 113 | 109 | 1 |
 | linux-errno | Name a Linux errno value | os-systems | draft | 0 | 0 | 7 |
 | linux-ioctl-request | Name a Linux ioctl request | os-systems | draft | 0 | 0 | 7 |
 | linux-kernel-config-option | Name a Linux kernel config option | os-systems | draft | 0 | 0 | 7 |
@@ -185,7 +185,7 @@
 | memory-allocator | Name a memory allocator | os-systems | approved | 52 | 50 | 0 |
 | memory-consistency-model | Name a memory consistency model | os-systems | draft | 0 | 0 | 7 |
 | monitoring-system | Name a monitoring system | os-systems | draft | 0 | 0 | 7 |
-| network-protocol | Name a network protocol | os-systems | draft | 0 | 0 | 7 |
+| network-protocol | Name a network protocol | os-systems | draft | 150 | 146 | 7 |
 | nvme-command | Name an NVMe command | os-systems | draft | 0 | 0 | 7 |
 | operating-system | Name an operating system | os-systems | approved | 2260 | 2239 | 0 |
 | routing-protocol | Name a routing protocol | os-systems | draft | 0 | 0 | 7 |
@@ -194,7 +194,7 @@
 | tcp-congestion-control-algorithm | Name a TCP congestion control algorithm | os-systems | approved | 31 | 29 | 0 |
 | tls-extension | Name a TLS extension | os-systems | draft | 0 | 0 | 7 |
 | unix-command | Name a Unix command | os-systems | approved | 415 | 413 | 4 |
-| unix-daemon | Name a Unix daemon | os-systems | draft | 0 | 0 | 7 |
+| unix-daemon | Name a Unix daemon | os-systems | draft | 79 | 75 | 1 |
 | unix-shell | Name a Unix shell | os-systems | draft | 0 | 0 | 7 |
 | unix-signal | Name a Unix signal | os-systems | draft | 0 | 0 | 7 |
 | window-manager | Name a window manager | os-systems | draft | 0 | 0 | 7 |

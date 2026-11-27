@@ -1,0 +1,46 @@
+{
+  "dns-record-type": [
+    {
+      "name": "HTTPS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "HTTPS service binding record (RFC 9460)"
+    },
+    {
+      "name": "TLSA",
+      "aliases": [],
+      "judge": "race",
+      "why": "DANE TLS certificate association record"
+    },
+    {
+      "name": "SSHFP",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSH public key fingerprint record"
+    },
+    {
+      "name": "NAPTR",
+      "aliases": [],
+      "judge": "race",
+      "why": "naming authority pointer record"
+    },
+    {
+      "name": "OPT",
+      "aliases": [],
+      "judge": "race",
+      "why": "EDNS0 pseudo-record"
+    },
+    {
+      "name": "AFSDB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "obsolete AFS database location record"
+    },
+    {
+      "name": "KEY",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "obsolete original DNSSEC public key record"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+[
+ {
+  "name": "HTTPS",
+  "a": {
+   "name": "HTTPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "HTTPS",
+   "why": "HTTPS service binding record"
+  },
+  "b": {
+   "name": "HTTPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "IN file list: HTTPS",
+   "why": "HTTPS service binding record"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "TLSA",
+  "a": {
+   "name": "TLSA",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TLSA",
+   "why": "DANE TLS certificate association record"
+  },
+  "b": {
+   "name": "TLSA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: TLSA",
+   "why": "DANE TLS certificate association"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SSHFP",
+  "a": {
+   "name": "SSHFP",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "SSHFP",
+   "why": "SSH public key fingerprint record"
+  },
+  "b": {
+   "name": "SSHFP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: SSHFP",
+   "why": "SSH host key fingerprint"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "NAPTR",
+  "a": {
+   "name": "NAPTR",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "NAPTR",
+   "why": "naming authority pointer record"
+  },
+  "b": {
+   "name": "NAPTR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: NAPTR",
+   "why": "regex-based naming rewrite record"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "OPT",
+  "a": {
+   "name": "OPT",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "OPT",
+   "why": "EDNS0 pseudo-record"
+  },
+  "b": {
+   "name": "OPT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: OPT",
+   "why": "EDNS pseudo-record"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AFSDB",
+  "a": {
+   "name": "AFSDB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "AFSDB",
+   "why": "AFS database location record"
+  },
+  "b": {
+   "name": "AFSDB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ANY file list: AFSDB",
+   "why": "AFS database location, DNS specialists"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "KEY",
+  "a": {
+   "name": "KEY",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "KEY",
+   "why": "obsolete DNSSEC public key record"
+  },
+  "b": {
+   "name": "KEY",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ANY file list: KEY",
+   "why": "original DNSSEC key record"
+  },
+  "batch": "batch-00.txt"
+ }
+]

@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py text-editor /Users/axvon/nullion/scripts/bank/mined/text-editor/final.json /Users/axvon/nullion/scripts/bank/mined/text-editor/agreed /Users/axvon/nullion/scripts/bank/mined/text-editor/resolved  [0s, exit 0]
+text-editor: 64 new candidates -> /Users/axvon/nullion/scripts/bank/mined/text-editor/final.json; 0 aliases added to bank/languages-tools/text-editor.md
+
+--- haiku call, 7s, exit 0, prompt 1460 chars, stdout 64 chars
+[13:05:30] {"bitflip": "SciTECO", "womm": ["Kakoune", "Helix"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/text-editor/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+text-editor: filled 64 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [1s, exit 0]
+
+> nullion@0.1.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  13:05:31
+   Duration  250ms (transform 68%, import 17%, tests 14%, worker 1%)
+
+

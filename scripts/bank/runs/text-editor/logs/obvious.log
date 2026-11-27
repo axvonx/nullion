@@ -1,0 +1,29 @@
+--- haiku call, 19s, exit 0, prompt 1920 chars, stdout 2437 chars
+ases": ["Pine composer", "pico editor"], "tier": "npe"},
+  {"name": "gedit", "aliases": ["gedit text editor", "GNOME gedit"], "tier": "npe"},
+  {"name": "Kate", "aliases": ["KDE Advanced Text Editor"], "tier": "npe"},
+  {"name": "GNOME Text Editor", "aliases": ["gnome-text-editor"], "tier": "npe"},
+  {"name": "MS-DOS Editor", "aliases": ["MS DOS Editor", "DOS Editor"], "tier": "npe"},
+  {"name": "Zed", "aliases": ["Zed editor"], "tier": "npe"},
+  {"name": "Atom", "aliases": ["Atom editor", "GitHub Atom"], "tier": "npe"},
+  {"name": "Geany", "aliases": ["Geany editor"], "tier": "npe"},
+  {"name": "Mousepad", "aliases": ["Xfce Mousepad"], "tier": "npe"},
+  {"name": "Helix", "aliases": ["helix editor", "Helix editor"], "tier": "npe"},
+  {"name": "Kakoune", "aliases": ["kak"], "tier": "npe"},
+  {"name": "BBEdit", "aliases": ["Bare Bones BBEdit"], "tier": "npe"},
+  {"name": "TextMate", "aliases": ["Text Mate"], "tier": "npe"},
+  {"name": "Edlin", "aliases": ["MS-DOS Edlin", "DOS Edlin"], "tier": "npe"},
+  {"name": "ed", "aliases": ["GNU ed"], "tier": "npe"},
+  {"name": "SciTE", "aliases": ["Scintilla Text Editor"], "tier": "npe"},
+  {"name": "Joe", "aliases": ["Joe's Own Editor"], "tier": "npe"},
+  {"name": "Leafpad", "aliases": ["leafpad editor"], "tier": "npe"},
+  {"name": "Bluefish", "aliases": ["Bluefish editor"], "tier": "npe"},
+  {"name": "Brackets", "aliases": ["Adobe Brackets"], "tier": "npe"},
+  {"name": "Textpad", "aliases": ["TextPad", "Text Pad"], "tier": "npe"}
+]
+```
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py text-editor  [0s, exit 0]
+text-editor: 18 aliases, 12 new answers, 0 promoted from the Inbox
+

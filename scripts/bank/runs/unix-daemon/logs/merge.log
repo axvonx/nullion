@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py unix-daemon /Users/axvon/nullion/scripts/bank/mined/unix-daemon/final.json /Users/axvon/nullion/scripts/bank/mined/unix-daemon/agreed /Users/axvon/nullion/scripts/bank/mined/unix-daemon/resolved  [0s, exit 0]
+unix-daemon: 55 new candidates -> /Users/axvon/nullion/scripts/bank/mined/unix-daemon/final.json; 0 aliases added to bank/os-systems/unix-daemon.md
+
+--- haiku call, 6s, exit 0, prompt 1485 chars, stdout 76 chars
+[13:06:21] {"bitflip": "rpc.sprayd", "womm": ["inetd", "fingerd", "talkd"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/unix-daemon/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+unix-daemon: filled 55 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [1s, exit 0]
+
+> nullion@0.1.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  13:06:22
+   Duration  197ms (transform 61%, import 20%, tests 18%, worker 2%)
+
+

@@ -1,0 +1,13 @@
+{
+ "extract": [
+  {
+   "tree": "kernel",
+   "file": "linux/Documentation/admin-guide/devices.txt",
+   "regex": "^\\s*[0-9]+\\s+=\\s+(/dev/\\S+)"
+  }
+ ],
+ "context": [
+  "Linux",
+  "device"
+ ]
+}

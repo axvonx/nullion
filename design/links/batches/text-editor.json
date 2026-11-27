@@ -1,0 +1,469 @@
+{
+ "id": "text-editor",
+ "prompt": "Name a text editor",
+ "accepts": "Any named program whose main purpose is editing plain text files, whether terminal, GUI, or historical, such as Notepad or ed.",
+ "answers": [
+  {
+   "name": "vim",
+   "aliases": [
+    "Vi IMproved"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "emacs",
+   "aliases": [
+    "GNU Emacs"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "neovim",
+   "aliases": [
+    "nvim"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "VS Code",
+   "aliases": [
+    "Visual Studio Code"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Sublime Text",
+   "aliases": [
+    "sublime",
+    "subl"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Notepad",
+   "aliases": [
+    "Windows Notepad",
+    "notepad app"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "TextEdit",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Notepad++",
+   "aliases": [
+    "npp"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Helix",
+   "aliases": [
+    "helix editor"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Kakoune",
+   "aliases": [
+    "kak"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "nano",
+   "aliases": [
+    "GNU nano"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "micro",
+   "aliases": [
+    "micro editor"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "gedit",
+   "aliases": [
+    "gedit text editor",
+    "GNOME gedit"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Kate",
+   "aliases": [
+    "KDE Advanced Text Editor"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "pico",
+   "aliases": [
+    "Pine composer",
+    "pico editor"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "GNOME Text Editor",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MS-DOS Editor",
+   "aliases": [
+    "microsoft-edit",
+    "DOS Editor"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "vi",
+   "aliases": [
+    "Visual editor",
+    "vi editor"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Zed",
+   "aliases": [
+    "Zed editor"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Atom",
+   "aliases": [
+    "Atom editor",
+    "GitHub Atom"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Geany",
+   "aliases": [
+    "Geany editor"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BBEdit",
+   "aliases": [
+    "Bare Bones BBEdit"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "TextMate",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Edlin",
+   "aliases": [
+    "MS-DOS Edlin",
+    "DOS Edlin"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ed",
+   "aliases": [
+    "GNU ed"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Bluefish",
+   "aliases": [
+    "Bluefish editor"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Brackets",
+   "aliases": [
+    "Adobe Brackets"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Textpad",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "JOE",
+   "aliases": [
+    "Joe's Own Editor"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "NEdit",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "jed",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "TECO",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Mousepad",
+   "aliases": [
+    "Xfce Mousepad"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Leafpad",
+   "aliases": [
+    "leafpad editor"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Pluma",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Xed",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "jEdit",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SciTE",
+   "aliases": [
+    "Scintilla Text Editor"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Lapce",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Komodo Edit",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "nvi",
+   "aliases": [
+    "nvi2"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "JOVE",
+   "aliases": [
+    "Jonathan's Own Version of Emacs"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "sam",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FeatherPad",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Textadept",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Lite XL",
+   "aliases": [
+    "lite"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CudaText",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "NotepadNext",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "vis",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "vile",
+   "aliases": [
+    "xvile"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "mg",
+   "aliases": [
+    "MicroGnuEmacs"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MicroEMACS",
+   "aliases": [
+    "uemacs"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Zile",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ne",
+   "aliases": [
+    "nice editor"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Gobby",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "amp",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Vigor",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Pragtical",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "dte",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "kibi",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mined",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Yudit",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Diakonos",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mle",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ox",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "e3",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "le",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "THE",
+   "aliases": [
+    "The Hessling Editor"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Cooledit",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "xcoral",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ved",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "se",
+   "aliases": [
+    "screen editor"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "retext",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ghostwriter",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "orbiton",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SciTECO",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

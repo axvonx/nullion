@@ -1,0 +1,9 @@
+$ bash /Users/axvon/nullion/design/links/run.sh serialization-format  [14s, exit 0]
+serialization-format: 30 / 30 linked
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/verify-links.py serialization-format  [8s, exit 0]
+wikipedia 26/26
+29/30 answers linked across 1 categories
+dropped as broken: {}
+1 links on other hosts left out → design/links/review.txt
+

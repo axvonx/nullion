@@ -1,0 +1,41 @@
+{
+  "unix-daemon": [
+    {
+      "name": "iscsid",
+      "aliases": [],
+      "judge": "race",
+      "why": "iSCSI initiator daemon"
+    },
+    {
+      "name": "talkd",
+      "aliases": [],
+      "judge": "race",
+      "why": "classic Unix talk protocol daemon"
+    },
+    {
+      "name": "watchdogd",
+      "aliases": [],
+      "judge": "race",
+      "why": "system/hardware watchdog daemon"
+    },
+    {
+      "name": "moused",
+      "aliases": [],
+      "judge": "race",
+      "why": "BSD console mouse daemon"
+    },
+    {
+      "name": "tcpd",
+      "aliases": [],
+      "judge": "leak",
+      "why": "TCP wrapper daemon"
+    },
+    {
+      "name": "dma",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "DragonFly Mail Agent in libexec; may not be considered a persistent daemon"
+    }
+  ]
+}

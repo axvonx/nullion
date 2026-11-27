@@ -1,0 +1,137 @@
+{
+ "id": "database",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T18:53:28+00:00",
+   "seconds": 18,
+   "finished": "2026-11-27T18:53:47+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T18:53:47+00:00",
+   "seconds": 5,
+   "finished": "2026-11-27T18:53:52+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T18:53:52+00:00",
+   "seconds": 60,
+   "finished": "2026-11-27T18:54:52+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T18:54:52+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:54:52+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T18:54:52+00:00",
+   "seconds": 24,
+   "finished": "2026-11-27T18:55:16+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T18:55:16+00:00",
+   "seconds": 6,
+   "finished": "2026-11-27T18:55:22+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T18:55:22+00:00",
+   "seconds": 23,
+   "finished": "2026-11-27T18:55:45+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T18:55:45+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:55:45+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T18:55:45+00:00",
+   "seconds": 19,
+   "finished": "2026-11-27T18:56:05+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T18:56:05+00:00",
+   "seconds": 28,
+   "finished": "2026-11-27T18:56:33+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T18:56:33+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:56:33+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "32/32 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "56/66 answers have a verified link (85%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "20/20 sampled answers are members (100%), 17/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/database.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (Ocient; DuckDB, CockroachDB, Firebird): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/database.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 352,
+  "summary": "database: 347 mined lines from 6 sources -> 1 batches in scripts/bank/mined/database"
+ },
+ "filter": [
+  "batch-00.a: 60 kept",
+  "batch-00.b: 54 kept"
+ ],
+ "compare": "database: 51 agreed, 11 disputed (18%) across 1 batches",
+ "escalate": "11 disputes -> 5 kept (1 low-confidence -> Inbox), 6 dropped",
+ "pins": {
+  "bitflip": "Ocient",
+  "womm": [
+   "DuckDB",
+   "CockroachDB",
+   "Firebird"
+  ]
+ },
+ "merge": "55 tiered answers, 4 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "database: 13 aliases, 11 new answers, 0 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "56/66 answers linked across 1 categories",
+  "dropped as broken: {}",
+  "10 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/database.md"
+}

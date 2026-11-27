@@ -1,0 +1,102 @@
+{
+ "One-time pad": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Vernam's 1917 cipher, a classic named system; Vernam and OTP are valid aliases."
+ },
+ "Affine cipher": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named classical monoalphabetic cipher; 'affine' is a short form of the same name, not a generic word."
+ },
+ "Book cipher": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named classical cipher using a shared book; 'book code' is a loose alias that can be confused with codebooks."
+ },
+ "Nihilist cipher": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real 19th-century Russian revolutionary cipher, but known mainly to crypto-history specialists, so it sits closer to race than NPE."
+ },
+ "Hill cipher": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real 1929 polygraphic cipher. The alias 'Hill' is a common English word and should be dropped as too generic."
+ },
+ "Purple cipher": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real WWII Japanese diplomatic cipher machine; 'Angooki Taipu B' is its actual Japanese designation."
+ },
+ "Pigpen cipher": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real symbol substitution cipher; 'pigpen' drops only the word 'cipher', so it is an alias of the same entry."
+ },
+ "ADFGX": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real WWI German field cipher; specialist knowledge fits race."
+ },
+ "Hebern machine": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real 1920s rotor machine, but its name is mostly known to crypto historians, so race fits better than NPE."
+ },
+ "Columnar transposition": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real classical transposition cipher, widely taught in intro crypto; memory leak is too deep for it, NPE fits."
+ },
+ "Bazeries cylinder": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real 1891 cylinder cipher device; it is specialist knowledge, so race fits better than NPE."
+ },
+ "Cardan grille": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real 16th-century grille cipher; 'Cardano grille' is a real spelling of the same name, and 'grille cipher' is a broad but acceptable alias."
+ },
+ "Lorenz cipher": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real WWII German teleprinter cipher; 'Tunny' is the real British codename, and NPE fits."
+ },
+ "Baconian cipher": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real 1605 cipher by Francis Bacon, widely known in puzzles and classical crypto texts."
+ },
+ "Jefferson wheel cipher": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real device described in Jefferson's papers, but specialist-only, so race fits better than NPE."
+ },
+ "Running key cipher": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named classical method using a book text as key; common in intro crypto. 'running key' drops only 'cipher', so it is an alias."
+ },
+ "Gronsfeld cipher": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real numeric-key Vigenère variant; specialist-level, so race fits and heisenbug is too deep."
+ },
+ "Playfair cipher": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real 1854 digraph cipher, widely taught in crypto courses; NPE fits better than memory leak."
+ },
+ "Enigma": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real and the most iconic historical cipher machine, so most people name it first. Off-by-one fits better than NPE."
+ },
+ "Four-square cipher": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real 1902 Delastelle cipher; 'foursquare' is the same name without the hyphen, so it is an alias. Race fits."
+ }
+}

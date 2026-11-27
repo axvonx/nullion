@@ -1,0 +1,25 @@
+[
+ {
+  "name": "Rail fence cipher",
+  "a": {
+   "name": "Rail fence cipher",
+   "aliases": [
+    "railfence",
+    "zigzag cipher"
+   ],
+   "judge": "npe",
+   "evidence": "railfence",
+   "why": "common classical transposition cipher"
+  },
+  "b": {
+   "name": "Rail fence cipher",
+   "aliases": [
+    "Railfence"
+   ],
+   "judge": "race",
+   "evidence": "\"railfence\" pycipher module",
+   "why": "Zigzag transposition cipher"
+  },
+  "batch": "batch-00.txt"
+ }
+]

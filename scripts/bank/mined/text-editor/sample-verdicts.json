@@ -1,0 +1,102 @@
+{
+ "Bluefish": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real GTK text/HTML editor; memory (no source). Tier is plausible for a Linux-known editor. Alias 'Bluefish editor' is a generic-noun phrase, so consider dropping it."
+ },
+ "ox": {
+  "member": false,
+  "tier_ok": true,
+  "why": "Unsure a Unix editor named 'ox' exists in any source; too uncertain to keep. Tier would fit an obscure entry if it were real."
+ },
+ "mg": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real OpenBSD micro editor; MicroGnuEmacs is its original name, so the alias is valid. Tier fits BSD and specialist knowledge."
+ },
+ "vi": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real and universal editor. Nearly everyone names it first, so it should be Off-by-one, not Null pointer exception."
+ },
+ "dte": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real small console editor; memory (no source). Heisenbug fits an obscure terminal editor."
+ },
+ "ghostwriter": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real Linux Markdown editor (wereturtle/ghostwriter); memory (no source). It is known to Markdown users, so Heisenbug is too deep. Race condition fits better."
+ },
+ "Lapce": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real Rust code editor; it edits plain text files. Memory leak fits a developer-tool audience."
+ },
+ "Notepad++": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real and very well-known Windows editor. Off-by-one is plausible. Alias 'npp' is an abbreviation of a kept entry."
+ },
+ "retext": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real Markdown editor (ReText); memory (no source). Too niche for Heisenbug. Race condition fits better."
+ },
+ "TECO": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real historical editor (Text Editor and Corrector), explicitly named by the category's historical scope. Memory leak fits for systems and history people."
+ },
+ "Pluma": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real MATE desktop text editor, a gedit fork; memory (no source). Memory leak fits a desktop-specialist audience."
+ },
+ "Brackets": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real web-focused code editor (Adobe Brackets); memory (no source). Null pointer exception fits a known developer tool."
+ },
+ "BBEdit": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real and well-known macOS text editor; memory (no source). Null pointer exception fits for Mac users."
+ },
+ "nano": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real and widely known GNU terminal editor. Null pointer exception fits: many know it, but it is not the first name most people give."
+ },
+ "e3": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real tiny Linux editor ('Easiest Editor Ever'); memory (no source). Heisenbug fits an obscure editor."
+ },
+ "Sublime Text": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real, popular editor. Off-by-one is too high for something that is not near-universal; Null pointer exception fits better. Alias 'sublime' is a common English word and should be dropped; 'subl' is a valid abbreviation."
+ },
+ "FeatherPad": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real lightweight Qt text editor for Linux; memory (no source). Race condition fits a specialist audience."
+ },
+ "ved": {
+  "member": false,
+  "tier_ok": true,
+  "why": "Unsure a text editor named 'ved' exists in any source; too uncertain to keep."
+ },
+ "xcoral": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real X11 text editor (Coral family); memory (no source). Heisenbug fits an obscure editor."
+ },
+ "Komodo Edit": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real free editor from ActiveState; memory (no source). Memory leak fits a developer-tool niche."
+ }
+}

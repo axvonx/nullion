@@ -1,0 +1,137 @@
+{
+ "id": "game-engine",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T18:55:55+00:00",
+   "seconds": 12,
+   "finished": "2026-11-27T18:56:07+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T18:56:07+00:00",
+   "seconds": 1,
+   "finished": "2026-11-27T18:56:08+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T18:56:08+00:00",
+   "seconds": 46,
+   "finished": "2026-11-27T18:56:54+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T18:56:54+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:56:54+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T18:56:54+00:00",
+   "seconds": 26,
+   "finished": "2026-11-27T18:57:19+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T18:57:19+00:00",
+   "seconds": 9,
+   "finished": "2026-11-27T18:57:29+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T18:57:29+00:00",
+   "seconds": 23,
+   "finished": "2026-11-27T18:57:51+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T18:57:51+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:57:51+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T18:57:51+00:00",
+   "seconds": 19,
+   "finished": "2026-11-27T18:58:11+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T18:58:11+00:00",
+   "seconds": 53,
+   "finished": "2026-11-27T18:59:04+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T18:59:04+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T18:59:04+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "35/35 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "43/62 answers have a verified link (69%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "19/20 sampled answers are members (95%), 18/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/game-engine.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (Tinsel; SCUMM, Adventure Game Studio, Twine): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/game-engine.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 132,
+  "summary": "game-engine: 131 mined lines from 1 sources -> 1 batches in scripts/bank/mined/game-engine"
+ },
+ "filter": [
+  "batch-00.a: 21 kept",
+  "batch-00.b: 22 kept"
+ ],
+ "compare": "game-engine: 10 agreed, 23 disputed (70%) across 1 batches",
+ "escalate": "23 disputes -> 20 kept (2 low-confidence -> Inbox), 3 dropped",
+ "pins": {
+  "bitflip": "Tinsel",
+  "womm": [
+   "SCUMM",
+   "Adventure Game Studio",
+   "Twine"
+  ]
+ },
+ "merge": "28 tiered answers, 9 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "game-engine: 1 aliases, 34 new answers, 7 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "43/62 answers linked across 1 categories",
+  "dropped as broken: {}",
+  "2 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/game-engine.md"
+}

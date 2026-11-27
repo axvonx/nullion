@@ -1,0 +1,40 @@
+{
+  "database": [
+    {
+      "name": "Cloudflare D1",
+      "aliases": [],
+      "judge": "race",
+      "why": "Cloudflare serverless SQLite database"
+    },
+    {
+      "name": "Google Cloud Datastore",
+      "aliases": [
+        "Cloud Datastore",
+        "Datastore"
+      ],
+      "judge": "leak",
+      "why": "Google Cloud NoSQL document database"
+    },
+    {
+      "name": "MariaDB",
+      "aliases": [],
+      "judge": "npe",
+      "why": "open-source relational DBMS (MySQL fork)"
+    },
+    {
+      "name": "Apache Solr",
+      "aliases": [
+        "Solr"
+      ],
+      "judge": "leak",
+      "confidence": "low",
+      "why": "enterprise search platform and document store; borderline DBMS"
+    },
+    {
+      "name": "Prometheus",
+      "aliases": [],
+      "judge": "npe",
+      "why": "time-series database and monitoring system"
+    }
+  ]
+}

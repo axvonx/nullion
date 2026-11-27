@@ -1,0 +1,526 @@
+{
+ "dns-record-type": [
+  {
+   "name": "A",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "IN file list: A",
+   "why": "universal first answer"
+  },
+  {
+   "name": "AAAA",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "IN file list: AAAA",
+   "why": "well-known IPv6 address record"
+  },
+  {
+   "name": "MX",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "ANY file list: MX",
+   "why": "mail exchanger, widely known"
+  },
+  {
+   "name": "NS",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "ANY file list: NS",
+   "why": "nameserver delegation, widely known"
+  },
+  {
+   "name": "CNAME",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ANY file list: CNAME",
+   "why": "canonical name alias, common"
+  },
+  {
+   "name": "TXT",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ANY file list: TXT",
+   "why": "free-text record, common"
+  },
+  {
+   "name": "SOA",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ANY file list: SOA",
+   "why": "zone authority record, common"
+  },
+  {
+   "name": "PTR",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ANY file list: PTR",
+   "why": "reverse-lookup pointer, common"
+  },
+  {
+   "name": "SRV",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "IN file list: SRV",
+   "why": "service locator, known to ops"
+  },
+  {
+   "name": "SPF",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ANY file list: SPF",
+   "why": "mail sender policy, known to ops"
+  },
+  {
+   "name": "CAA",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ANY file list: CAA",
+   "why": "certificate authority authorization, known to web"
+  },
+  {
+   "name": "DNSKEY",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ANY file list: DNSKEY",
+   "why": "DNSSEC public key, known to ops"
+  },
+  {
+   "name": "DS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ANY file list: DS",
+   "why": "DNSSEC delegation signer, known to ops"
+  },
+  {
+   "name": "KEY",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ANY file list: KEY",
+   "why": "original DNSSEC key record"
+  },
+  {
+   "name": "AFSDB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ANY file list: AFSDB",
+   "why": "AFS database location, DNS specialists"
+  },
+  {
+   "name": "DNAME",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ANY file list: DNAME",
+   "why": "subtree alias, DNS specialists"
+  },
+  {
+   "name": "HINFO",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ANY file list: HINFO",
+   "why": "host hardware and OS info, specialists"
+  },
+  {
+   "name": "HIP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ANY file list: HIP",
+   "why": "Host Identity Protocol record"
+  },
+  {
+   "name": "NSEC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ANY file list: NSEC",
+   "why": "DNSSEC authenticated denial record"
+  },
+  {
+   "name": "NSEC3",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ANY file list: NSEC3",
+   "why": "hashed DNSSEC denial record"
+  },
+  {
+   "name": "RRSIG",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ANY file list: RRSIG",
+   "why": "DNSSEC signature record"
+  },
+  {
+   "name": "SIG",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ANY file list: SIG",
+   "why": "original DNSSEC signature record"
+  },
+  {
+   "name": "TSIG",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ANY file list: TSIG",
+   "why": "transaction signature, DNS specialists"
+  },
+  {
+   "name": "HTTPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "IN file list: HTTPS",
+   "why": "HTTPS service binding record"
+  },
+  {
+   "name": "SVCB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "IN file list: SVCB",
+   "why": "general service binding record"
+  },
+  {
+   "name": "CDNSKEY",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: CDNSKEY",
+   "why": "child DNSKEY for DNSSEC"
+  },
+  {
+   "name": "CDS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: CDS",
+   "why": "child DS for DNSSEC"
+  },
+  {
+   "name": "CERT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: CERT",
+   "why": "stored certificate record"
+  },
+  {
+   "name": "CSYNC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: CSYNC",
+   "why": "child-to-parent sync record"
+  },
+  {
+   "name": "DLV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: DLV",
+   "why": "DNSSEC lookaside validation record"
+  },
+  {
+   "name": "DSYNC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: DSYNC",
+   "why": "DNS-based service sync record"
+  },
+  {
+   "name": "NSEC3PARAM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: NSEC3PARAM",
+   "why": "NSEC3 zone parameters record"
+  },
+  {
+   "name": "OPENPGPKEY",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: OPENPGPKEY",
+   "why": "OpenPGP key in DNS"
+  },
+  {
+   "name": "OPT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: OPT",
+   "why": "EDNS pseudo-record"
+  },
+  {
+   "name": "SMIMEA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: SMIMEA",
+   "why": "S/MIME certificate association"
+  },
+  {
+   "name": "SSHFP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: SSHFP",
+   "why": "SSH host key fingerprint"
+  },
+  {
+   "name": "TKEY",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: TKEY",
+   "why": "transaction key establishment record"
+  },
+  {
+   "name": "TLSA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: TLSA",
+   "why": "DANE TLS certificate association"
+  },
+  {
+   "name": "URI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: URI",
+   "why": "URI mapping record"
+  },
+  {
+   "name": "ZONEMD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: ZONEMD",
+   "why": "zone message digest record"
+  },
+  {
+   "name": "NAPTR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: NAPTR",
+   "why": "regex-based naming rewrite record"
+  },
+  {
+   "name": "LOC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: LOC",
+   "why": "geographic location record"
+  },
+  {
+   "name": "AMTRELAY",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: AMTRELAY",
+   "why": "AMT relay discovery record"
+  },
+  {
+   "name": "AVC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: AVC",
+   "why": "application visibility record"
+  },
+  {
+   "name": "BRID",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: BRID",
+   "why": "bridge identifier record"
+  },
+  {
+   "name": "EUI48",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: EUI48",
+   "why": "48-bit MAC address record"
+  },
+  {
+   "name": "EUI64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: EUI64",
+   "why": "64-bit identifier record"
+  },
+  {
+   "name": "GPOS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: GPOS",
+   "why": "geographic position record, obsolete"
+  },
+  {
+   "name": "HHIT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: HHIT",
+   "why": "HIP hash identity record"
+  },
+  {
+   "name": "ISDN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: ISDN",
+   "why": "ISDN address record, obsolete"
+  },
+  {
+   "name": "L32",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: L32",
+   "why": "ILNP 32-bit locator record"
+  },
+  {
+   "name": "L64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: L64",
+   "why": "ILNP 64-bit locator record"
+  },
+  {
+   "name": "LP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: LP",
+   "why": "ILNP locator pointer record"
+  },
+  {
+   "name": "NID",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: NID",
+   "why": "ILNP node identifier record"
+  },
+  {
+   "name": "NINFO",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: NINFO",
+   "why": "zone status info record"
+  },
+  {
+   "name": "RESINFO",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: RESINFO",
+   "why": "resolver information record"
+  },
+  {
+   "name": "RP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: RP",
+   "why": "responsible person record"
+  },
+  {
+   "name": "RT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: RT",
+   "why": "route-through record, obsolete"
+  },
+  {
+   "name": "WALLET",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: WALLET",
+   "why": "cryptocurrency wallet address record"
+  },
+  {
+   "name": "X25",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: X25",
+   "why": "X.25 PSDN address record"
+  },
+  {
+   "name": "APL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: APL",
+   "why": "address prefix list record"
+  },
+  {
+   "name": "DHCID",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: DHCID",
+   "why": "DHCP client identifier record"
+  },
+  {
+   "name": "IPSECKEY",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: IPSECKEY",
+   "why": "IPsec gateway key record"
+  },
+  {
+   "name": "KX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: KX",
+   "why": "key exchanger record"
+  },
+  {
+   "name": "NSAP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: NSAP",
+   "why": "OSI NSAP address record"
+  },
+  {
+   "name": "NSAP-PTR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: NSAP_PTR",
+   "why": "OSI NSAP reverse pointer record"
+  },
+  {
+   "name": "PX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: PX",
+   "why": "X.400 mail mapping record"
+  },
+  {
+   "name": "WKS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: WKS",
+   "why": "well-known services record, obsolete"
+  }
+ ],
+ "womm_candidates": [
+  {
+   "name": "NAPTR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "IN file list: NAPTR",
+   "why": "famous-looking clever pick"
+  },
+  {
+   "name": "HINFO",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ANY file list: HINFO",
+   "why": "ancient host-info record players reach for"
+  },
+  {
+   "name": "LOC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: LOC",
+   "why": "fun-sounding location record"
+  }
+ ],
+ "bitflip_candidates": [
+  {
+   "name": "WALLET",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: WALLET",
+   "why": "delightfully absurd deep cut"
+  },
+  {
+   "name": "X25",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: X25",
+   "why": "ancient telecom record, very obscure"
+  },
+  {
+   "name": "L32",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ANY file list: L32",
+   "why": "ILNP locator, rarely met"
+  }
+ ]
+}

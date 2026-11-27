@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py dns-record-type /Users/axvon/nullion/scripts/bank/mined/dns-record-type/final.json /Users/axvon/nullion/scripts/bank/mined/dns-record-type/agreed /Users/axvon/nullion/scripts/bank/mined/dns-record-type/resolved  [0s, exit 0]
+dns-record-type: 68 new candidates -> /Users/axvon/nullion/scripts/bank/mined/dns-record-type/final.json; 0 aliases added to bank/os-systems/dns-record-type.md
+
+--- haiku call, 6s, exit 0, prompt 1347 chars, stdout 65 chars
+[12:54:43] {"bitflip": "X25", "womm": ["HINFO", "NAPTR", "LOC"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/dns-record-type/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+dns-record-type: filled 68 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.1.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  12:54:44
+   Duration  215ms (transform 69%, import 16%, tests 14%, worker 1%)
+
+

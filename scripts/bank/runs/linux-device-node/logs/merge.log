@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py linux-device-node /Users/axvon/nullion/scripts/bank/mined/linux-device-node/final.json /Users/axvon/nullion/scripts/bank/mined/linux-device-node/agreed /Users/axvon/nullion/scripts/bank/mined/linux-device-node/resolved  [0s, exit 0]
+linux-device-node: 109 new candidates -> /Users/axvon/nullion/scripts/bank/mined/linux-device-node/final.json; 0 aliases added to bank/os-systems/linux-device-node.md
+
+--- haiku call, 7s, exit 0, prompt 2666 chars, stdout 96 chars
+[13:00:45] {"bitflip": "/dev/scanners/cuecat", "womm": ["/dev/kmem", "/dev/ptmx", "/dev/full"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/linux-device-node/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+linux-device-node: filled 109 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.1.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  13:00:46
+   Duration  210ms (transform 67%, import 17%, tests 15%, worker 2%)
+
+

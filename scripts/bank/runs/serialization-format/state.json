@@ -1,0 +1,135 @@
+{
+ "id": "serialization-format",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T19:02:13+00:00",
+   "seconds": 11,
+   "finished": "2026-11-27T19:02:24+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T19:02:24+00:00",
+   "seconds": 2,
+   "finished": "2026-11-27T19:02:25+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T19:02:25+00:00",
+   "seconds": 34,
+   "finished": "2026-11-27T19:03:00+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T19:03:00+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:03:00+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T19:03:00+00:00",
+   "seconds": 14,
+   "finished": "2026-11-27T19:03:13+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T19:03:13+00:00",
+   "seconds": 7,
+   "finished": "2026-11-27T19:03:20+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T19:03:20+00:00",
+   "seconds": 20,
+   "finished": "2026-11-27T19:03:40+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T19:03:40+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:03:40+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T19:03:40+00:00",
+   "seconds": 22,
+   "finished": "2026-11-27T19:04:01+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T19:04:01+00:00",
+   "seconds": 28,
+   "finished": "2026-11-27T19:04:29+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T19:04:30+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:04:30+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "30/30 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "29/30 answers have a verified link (97%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "20/20 sampled answers are members (100%), 15/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/serialization-format.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (CSV; JSON): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/serialization-format.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 208,
+  "summary": "serialization-format: 204 mined lines from 5 sources -> 1 batches in scripts/bank/mined/serialization-format"
+ },
+ "filter": [
+  "batch-00.a: 2 kept",
+  "batch-00.b: 9 kept"
+ ],
+ "compare": "serialization-format: 2 agreed, 7 disputed (78%) across 1 batches",
+ "escalate": "7 disputes -> 0 kept (0 low-confidence -> Inbox), 7 dropped",
+ "pins": {
+  "bitflip": "CSV",
+  "womm": [
+   "JSON"
+  ]
+ },
+ "merge": "2 tiered answers, 6 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "serialization-format: 1 aliases, 28 new answers, 5 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "29/30 answers linked across 1 categories",
+  "dropped as broken: {}",
+  "1 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/serialization-format.md"
+}

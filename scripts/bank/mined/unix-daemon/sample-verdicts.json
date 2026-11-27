@@ -1,0 +1,102 @@
+{
+ "ypbind": {
+  "member": true,
+  "tier_ok": true,
+  "why": "NIS client binding daemon; a real, named Unix service program with a man page."
+ },
+ "nscd": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Name Service Cache Daemon; a real, widely documented system daemon. Memory leak suits systems people."
+ },
+ "sendmail": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Mail transfer daemon; one of the best-known Unix daemons, so off-by-one fits."
+ },
+ "ypserv": {
+  "member": true,
+  "tier_ok": true,
+  "why": "NIS server daemon; a real named service. Systems-specialist tier is plausible."
+ },
+ "dovecot": {
+  "member": true,
+  "tier_ok": true,
+  "why": "IMAP/POP3 server daemon; a real, widely deployed service. Null pointer exception fits many sysadmins."
+ },
+ "nginx": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Web server daemon; very common, so off-by-one is right."
+ },
+ "rpc.ypxfrd": {
+  "member": true,
+  "tier_ok": true,
+  "why": "NIS map transfer daemon, named as rpc.ypxfrd in its man page. Niche, but a real service and only NIS-literate people know it, so the heisenbug tier is acceptable."
+ },
+ "rwhod": {
+  "member": true,
+  "tier_ok": true,
+  "why": "rwho status daemon from BSD; a real, named legacy service. Race condition suits specialists."
+ },
+ "bsnmpd": {
+  "member": true,
+  "tier_ok": true,
+  "why": "FreeBSD SNMP daemon, named in its man page. Deep-internals tier fits."
+ },
+ "dockerd": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Docker engine daemon; a real, widely known service. Null pointer exception fits many people."
+ },
+ "nfscbd": {
+  "member": true,
+  "tier_ok": true,
+  "why": "FreeBSD NFSv4 callback daemon, named in its man page. Deep-internals tier fits."
+ },
+ "comsat": {
+  "member": true,
+  "tier_ok": false,
+  "why": "BSD mail-notification daemon (biff's backend), named in its man page and a real service. Membership holds, but it's a legacy name, not a deep-internals one, so heisenbug is too deep. Race or leak fits better."
+ },
+ "dhcpd": {
+  "member": true,
+  "tier_ok": true,
+  "why": "DHCP server daemon; a real, widely known service. Null pointer exception fits."
+ },
+ "tcpd": {
+  "member": false,
+  "tier_ok": true,
+  "why": "TCP wrapper: inetd runs it per connection as an access-control shim that then execs the service. It is not a background service in its own right."
+ },
+ "mysqld": {
+  "member": true,
+  "tier_ok": true,
+  "why": "MySQL server daemon; a real, widely known service. Null pointer exception fits."
+ },
+ "cupsd": {
+  "member": true,
+  "tier_ok": true,
+  "why": "CUPS print scheduler daemon; a real named service. Null pointer exception fits."
+ },
+ "rtadvd": {
+  "member": true,
+  "tier_ok": true,
+  "why": "IPv6 router advertisement daemon, named in its man page. Race condition suits specialists."
+ },
+ "xinetd": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Extended inetd super-server daemon; a real, named service. Null pointer exception fits."
+ },
+ "postgres": {
+  "member": true,
+  "tier_ok": true,
+  "why": "PostgreSQL server process, the postgres daemon; a real named service. Null pointer exception fits."
+ },
+ "sshd": {
+  "member": true,
+  "tier_ok": true,
+  "why": "SSH server daemon; one of the best-known Unix daemons, so off-by-one is right."
+ }
+}

@@ -1,0 +1,980 @@
+{
+ "network-protocol": [
+  {
+   "name": "TCP",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "tcp protocol (kernel)",
+   "why": "core transport protocol"
+  },
+  {
+   "name": "UDP",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "core transport protocol"
+  },
+  {
+   "name": "HTTP",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "packet-http",
+   "why": "web protocol everyone names"
+  },
+  {
+   "name": "IP",
+   "aliases": [
+    "Internet Protocol"
+   ],
+   "judge": "off-by-one",
+   "evidence": "ip protocol (kernel)",
+   "why": "core network protocol"
+  },
+  {
+   "name": "Ethernet",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "packet-eth",
+   "why": "link-layer protocol everyone knows"
+  },
+  {
+   "name": "DNS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "packet-dns",
+   "why": "name resolution protocol"
+  },
+  {
+   "name": "ICMP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "packet-icmp",
+   "why": "ping and error messages"
+  },
+  {
+   "name": "ARP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "packet-arp",
+   "why": "address resolution protocol"
+  },
+  {
+   "name": "DHCP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "packet-dhcp",
+   "why": "address assignment protocol"
+  },
+  {
+   "name": "FTP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "packet-ftp",
+   "why": "file transfer protocol"
+  },
+  {
+   "name": "SSH",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ssh protocol (kernel)",
+   "why": "secure shell protocol"
+  },
+  {
+   "name": "BGP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "packet-bgp",
+   "why": "internet routing protocol"
+  },
+  {
+   "name": "IPv6",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ipv6 protocol (kernel)",
+   "why": "next-generation IP"
+  },
+  {
+   "name": "NFS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "nfs protocol (kernel)",
+   "why": "network file system protocol"
+  },
+  {
+   "name": "IGMP",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-igmp",
+   "why": "multicast group management"
+  },
+  {
+   "name": "GRE",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-gre",
+   "why": "generic routing encapsulation"
+  },
+  {
+   "name": "AppleTalk",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-atalk",
+   "why": "Apple network stack"
+  },
+  {
+   "name": "Netlink",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "netlink protocol (kernel)",
+   "why": "Linux kernel-userspace IPC"
+  },
+  {
+   "name": "Precision Time Protocol",
+   "aliases": [
+    "PTP"
+   ],
+   "judge": "leak",
+   "evidence": "precision time protocol (kernel)",
+   "why": "IEEE 1588 clock sync"
+  },
+  {
+   "name": "CIFS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "cifs protocol (kernel)",
+   "why": "SMB dialect, Windows file sharing"
+  },
+  {
+   "name": "SMB",
+   "aliases": [
+    "Server Message Block"
+   ],
+   "judge": "leak",
+   "evidence": "smb3 protocol (kernel)",
+   "why": "Windows file sharing protocol"
+  },
+  {
+   "name": "Remote Framebuffer Protocol",
+   "aliases": [
+    "RFB"
+   ],
+   "judge": "leak",
+   "evidence": "remote framebuffer protocol (kernel)",
+   "why": "VNC wire protocol"
+  },
+  {
+   "name": "AMQP",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-amqp",
+   "why": "message queue protocol"
+  },
+  {
+   "name": "BitTorrent",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-bittorrent",
+   "why": "peer-to-peer file sharing protocol"
+  },
+  {
+   "name": "Bitcoin protocol",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-bitcoin",
+   "why": "peer-to-peer node protocol"
+  },
+  {
+   "name": "CoAP",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-coap",
+   "why": "constrained application protocol"
+  },
+  {
+   "name": "DTLS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-dtls",
+   "why": "datagram TLS"
+  },
+  {
+   "name": "EAP",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-eap",
+   "why": "extensible authentication protocol"
+  },
+  {
+   "name": "eDonkey",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-edonkey",
+   "why": "P2P file sharing network"
+  },
+  {
+   "name": "gRPC",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-grpc",
+   "why": "RPC framework protocol"
+  },
+  {
+   "name": "Gnutella",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-gnutella",
+   "why": "early P2P protocol"
+  },
+  {
+   "name": "HSRP",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-hsrp",
+   "why": "Cisco first-hop redundancy"
+  },
+  {
+   "name": "EIGRP",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "packet-eigrp",
+   "why": "Cisco routing protocol"
+  },
+  {
+   "name": "ATM",
+   "aliases": [
+    "Asynchronous Transfer Mode"
+   ],
+   "judge": "leak",
+   "evidence": "packet-atm",
+   "why": "cell-switched network protocol"
+  },
+  {
+   "name": "IEEE 802.11",
+   "aliases": [
+    "802.11"
+   ],
+   "judge": "leak",
+   "evidence": "packet-ieee80211",
+   "why": "Wi-Fi standard"
+  },
+  {
+   "name": "FIX Protocol",
+   "aliases": [
+    "FIX"
+   ],
+   "judge": "leak",
+   "evidence": "packet-fix",
+   "why": "financial trading protocol"
+  },
+  {
+   "name": "HL7",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-hl7",
+   "why": "healthcare messaging standard"
+  },
+  {
+   "name": "Gopher",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-gopher",
+   "why": "pre-web document protocol"
+  },
+  {
+   "name": "DCCP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-dccp",
+   "why": "datagram congestion control protocol"
+  },
+  {
+   "name": "XTP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "Xpress Transfer Protocol"
+  },
+  {
+   "name": "ZMODEM",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "BBS-era file transfer protocol"
+  },
+  {
+   "name": "Chaosnet",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "MIT Chaos network protocol"
+  },
+  {
+   "name": "SCTP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "sctp protocol (kernel)",
+   "why": "stream control transmission protocol"
+  },
+  {
+   "name": "RxRPC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "rxrpc protocol (kernel)",
+   "why": "AFS-era RPC transport"
+  },
+  {
+   "name": "USB/IP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "usbip_protocol (kernel)",
+   "why": "USB over network protocol"
+  },
+  {
+   "name": "NC-SI",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "data-ncsi",
+   "why": "DMTF sideband management protocol"
+  },
+  {
+   "name": "ISOBUS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "data-isobus",
+   "why": "ISO 11783 vehicle bus protocol"
+  },
+  {
+   "name": "9P",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-9p",
+   "why": "Plan 9 file protocol"
+  },
+  {
+   "name": "L2CAP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-btl2cap",
+   "why": "Bluetooth logical link protocol"
+  },
+  {
+   "name": "AFP",
+   "aliases": [
+    "Apple Filing Protocol"
+   ],
+   "judge": "race",
+   "evidence": "packet-afp",
+   "why": "Apple network file protocol"
+  },
+  {
+   "name": "AJP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-ajp13",
+   "why": "Apache JServ wire protocol"
+  },
+  {
+   "name": "ATA over Ethernet",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-aoe",
+   "why": "AoE block storage protocol"
+  },
+  {
+   "name": "AX.25",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-ax25",
+   "why": "amateur radio link protocol"
+  },
+  {
+   "name": "Art-Net",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-artnet",
+   "why": "lighting control over Ethernet"
+  },
+  {
+   "name": "ASTERIX",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-asterix",
+   "why": "air traffic surveillance format"
+  },
+  {
+   "name": "AgentX",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-agentx",
+   "why": "SNMP subagent protocol"
+  },
+  {
+   "name": "BACnet",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-bacnet",
+   "why": "building automation protocol"
+  },
+  {
+   "name": "Bidirectional Forwarding Detection",
+   "aliases": [
+    "BFD"
+   ],
+   "judge": "race",
+   "evidence": "packet-bfd",
+   "why": "fast link failure detection"
+  },
+  {
+   "name": "BMP",
+   "aliases": [
+    "BGP Monitoring Protocol"
+   ],
+   "judge": "race",
+   "evidence": "packet-bmp",
+   "why": "BGP route monitoring protocol"
+  },
+  {
+   "name": "BJNP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-bjnp",
+   "why": "Canon printer network protocol"
+  },
+  {
+   "name": "BIER",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-bier",
+   "why": "bit-indexed multicast forwarding"
+  },
+  {
+   "name": "BPSec",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-bpsec",
+   "why": "bundle protocol security"
+  },
+  {
+   "name": "Bundle Protocol version 7",
+   "aliases": [
+    "BPv7"
+   ],
+   "judge": "race",
+   "evidence": "packet-bpv7",
+   "why": "delay-tolerant networking protocol"
+  },
+  {
+   "name": "Babel",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-babel",
+   "why": "distance-vector routing protocol"
+  },
+  {
+   "name": "B.A.T.M.A.N.",
+   "aliases": [
+    "BATMAN"
+   ],
+   "judge": "heisenbug",
+   "evidence": "packet-batadv",
+   "why": "mesh routing protocol"
+  },
+  {
+   "name": "CANopen",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-canopen",
+   "why": "CAN-based industrial protocol"
+  },
+  {
+   "name": "CAPWAP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-capwap",
+   "why": "wireless access point control"
+  },
+  {
+   "name": "Cisco Discovery Protocol",
+   "aliases": [
+    "CDP"
+   ],
+   "judge": "race",
+   "evidence": "packet-cdp",
+   "why": "Cisco neighbour discovery"
+  },
+  {
+   "name": "CCSDS File Delivery Protocol",
+   "aliases": [
+    "CFDP"
+   ],
+   "judge": "race",
+   "evidence": "packet-cfdp",
+   "why": "space file transfer protocol"
+  },
+  {
+   "name": "Common Industrial Protocol",
+   "aliases": [
+    "CIP"
+   ],
+   "judge": "race",
+   "evidence": "packet-cip",
+   "why": "industrial automation protocol"
+  },
+  {
+   "name": "CMIP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-cmip",
+   "why": "OSI network management protocol"
+  },
+  {
+   "name": "COPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-cops",
+   "why": "policy control protocol"
+  },
+  {
+   "name": "Totem Single Ring Protocol",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "packet-corosync-totemsrp",
+   "why": "cluster membership protocol"
+  },
+  {
+   "name": "DNP3",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-dnp",
+   "why": "SCADA telemetry protocol"
+  },
+  {
+   "name": "DoIP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-doip",
+   "why": "automotive diagnostics over IP"
+  },
+  {
+   "name": "DOCSIS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-docsis",
+   "why": "cable modem protocol"
+  },
+  {
+   "name": "Dynamic Trunking Protocol",
+   "aliases": [
+    "DTP"
+   ],
+   "judge": "race",
+   "evidence": "packet-dtp",
+   "why": "Cisco switch trunk negotiation"
+  },
+  {
+   "name": "DVMRP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-dvmrp",
+   "why": "early multicast routing protocol"
+  },
+  {
+   "name": "eCPRI",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-ecpri",
+   "why": "radio fronthaul protocol"
+  },
+  {
+   "name": "Ethernet POWERLINK",
+   "aliases": [
+    "EPL"
+   ],
+   "judge": "race",
+   "evidence": "packet-epl",
+   "why": "real-time industrial Ethernet"
+  },
+  {
+   "name": "EtherNet/IP",
+   "aliases": [
+    "ENIP"
+   ],
+   "judge": "race",
+   "evidence": "packet-enip",
+   "why": "industrial Ethernet protocol"
+  },
+  {
+   "name": "ES-IS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-esis",
+   "why": "OSI end-system to router protocol"
+  },
+  {
+   "name": "Fibre Channel Protocol",
+   "aliases": [
+    "FCP"
+   ],
+   "judge": "race",
+   "evidence": "packet-fcp",
+   "why": "SCSI over Fibre Channel"
+  },
+  {
+   "name": "FCoE",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-fcoe",
+   "why": "Fibre Channel over Ethernet"
+  },
+  {
+   "name": "FCIP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-fcip",
+   "why": "Fibre Channel over IP"
+  },
+  {
+   "name": "FMTP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-fmtp",
+   "why": "flight message transfer protocol"
+  },
+  {
+   "name": "FTAM",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-ftam",
+   "why": "OSI file transfer protocol"
+  },
+  {
+   "name": "FlexRay",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-flexray",
+   "why": "automotive deterministic bus protocol"
+  },
+  {
+   "name": "FLIP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "packet-flip",
+   "why": "Amoeba distributed OS protocol"
+  },
+  {
+   "name": "GELF",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-gelf",
+   "why": "Graylog log transport format"
+  },
+  {
+   "name": "Geneve",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-geneve",
+   "why": "generic network virtualization encapsulation"
+  },
+  {
+   "name": "Generic Framing Procedure",
+   "aliases": [
+    "GFP"
+   ],
+   "judge": "race",
+   "evidence": "packet-gfp",
+   "why": "ITU transport framing protocol"
+  },
+  {
+   "name": "General Inter-ORB Protocol",
+   "aliases": [
+    "GIOP"
+   ],
+   "judge": "race",
+   "evidence": "packet-giop",
+   "why": "CORBA wire protocol"
+  },
+  {
+   "name": "Gateway Load Balancing Protocol",
+   "aliases": [
+    "GLBP"
+   ],
+   "judge": "race",
+   "evidence": "packet-glbp",
+   "why": "Cisco gateway redundancy protocol"
+  },
+  {
+   "name": "GARP Multicast Registration Protocol",
+   "aliases": [
+    "GMRP"
+   ],
+   "judge": "race",
+   "evidence": "packet-gmrp",
+   "why": "multicast registration over GARP"
+  },
+  {
+   "name": "GARP VLAN Registration Protocol",
+   "aliases": [
+    "GVRP"
+   ],
+   "judge": "race",
+   "evidence": "packet-gvrp",
+   "why": "VLAN registration over GARP"
+  },
+  {
+   "name": "GOOSE",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-goose",
+   "why": "IEC 61850 substation messaging"
+  },
+  {
+   "name": "gQUIC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "packet-gquic",
+   "why": "Google's original QUIC"
+  },
+  {
+   "name": "HART-IP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-hartip",
+   "why": "HART industrial protocol over IP"
+  },
+  {
+   "name": "Host Identity Protocol",
+   "aliases": [
+    "HIP"
+   ],
+   "judge": "race",
+   "evidence": "packet-hip",
+   "why": "identity-based networking protocol"
+  },
+  {
+   "name": "HiSLIP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-hislip",
+   "why": "instrument control over TCP"
+  },
+  {
+   "name": "High-Speed SECS Message Service",
+   "aliases": [
+    "HSMS"
+   ],
+   "judge": "race",
+   "evidence": "packet-hsms",
+   "why": "semiconductor equipment messaging"
+  },
+  {
+   "name": "HTTP/2",
+   "aliases": [
+    "HTTP2"
+   ],
+   "judge": "race",
+   "evidence": "packet-http2",
+   "why": "binary HTTP successor"
+  },
+  {
+   "name": "HTTP/3",
+   "aliases": [
+    "HTTP3"
+   ],
+   "judge": "race",
+   "evidence": "packet-http3",
+   "why": "HTTP over QUIC"
+  },
+  {
+   "name": "hpfeeds",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-hpfeeds",
+   "why": "honeypot feed protocol"
+  },
+  {
+   "name": "Inter-Access Point Protocol",
+   "aliases": [
+    "IAPP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "packet-iapp",
+   "why": "802.11 access point handover protocol"
+  },
+  {
+   "name": "IAX2",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-iax2",
+   "why": "Asterisk VoIP trunking protocol"
+  },
+  {
+   "name": "Internet Content Adaptation Protocol",
+   "aliases": [
+    "ICAP"
+   ],
+   "judge": "race",
+   "evidence": "packet-icap",
+   "why": "web content adaptation protocol"
+  },
+  {
+   "name": "Internet Cache Protocol",
+   "aliases": [
+    "ICP"
+   ],
+   "judge": "race",
+   "evidence": "packet-icp",
+   "why": "inter-cache query protocol"
+  },
+  {
+   "name": "Inter-Domain Routing Protocol",
+   "aliases": [
+    "IDRP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "packet-idrp",
+   "why": "OSI inter-domain routing protocol"
+  },
+  {
+   "name": "IEC 60870-5-104",
+   "aliases": [
+    "IEC 104"
+   ],
+   "judge": "race",
+   "evidence": "packet-iec104",
+   "why": "SCADA telecontrol protocol"
+  },
+  {
+   "name": "IEEE 802.15.4",
+   "aliases": [
+    "802.15.4"
+   ],
+   "judge": "race",
+   "evidence": "packet-ieee802154",
+   "why": "low-power wireless standard"
+  },
+  {
+   "name": "iFCP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-ifcp",
+   "why": "Fibre Channel over IP gateway protocol"
+  },
+  {
+   "name": "High-availability Seamless Redundancy",
+   "aliases": [
+    "HSR"
+   ],
+   "judge": "race",
+   "evidence": "packet-hsr",
+   "why": "IEC 62439-3 redundancy protocol"
+  },
+  {
+   "name": "Media Redundancy Protocol",
+   "aliases": [
+    "MRP"
+   ],
+   "judge": "race",
+   "evidence": "media redundancy protocol (kernel)",
+   "why": "IEC 62439 ring redundancy"
+  },
+  {
+   "name": "Parallel Redundancy Protocol",
+   "aliases": [
+    "PRP"
+   ],
+   "judge": "race",
+   "evidence": "parallel redundancy protocol (kernel)",
+   "why": "IEC 62439-3 redundancy protocol"
+  },
+  {
+   "name": "Data Center Bridging Exchange",
+   "aliases": [
+    "DCBX"
+   ],
+   "judge": "race",
+   "evidence": "dcbx protocol (kernel)",
+   "why": "data center Ethernet negotiation"
+  },
+  {
+   "name": "Witness protocol",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "witness protocol (kernel)",
+   "why": "Windows cluster witness protocol"
+  },
+  {
+   "name": "FUSE protocol",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "fuse protocol (kernel)",
+   "why": "userspace filesystem request protocol"
+  },
+  {
+   "name": "Banana",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-banana",
+   "why": "Twisted serialization protocol"
+  },
+  {
+   "name": "AYIYA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "packet-ayiya",
+   "why": "anything-in-anything tunnel protocol"
+  },
+  {
+   "name": "HyperSCSI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "packet-hyperscsi",
+   "why": "SCSI over Ethernet protocol"
+  }
+ ],
+ "womm_candidates": [
+  {
+   "name": "Gopher",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-gopher",
+   "why": "pre-web protocol players reach for"
+  },
+  {
+   "name": "Chaosnet",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "obscure 1970s MIT network"
+  },
+  {
+   "name": "Banana",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "packet-banana",
+   "why": "funny-sounding serialization protocol"
+  }
+ ],
+ "bitflip_candidates": [
+  {
+   "name": "FLIP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "packet-flip",
+   "why": "Amoeba OS protocol nobody remembers"
+  },
+  {
+   "name": "AYIYA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "packet-ayiya",
+   "why": "tunnel protocol with a delightful name"
+  },
+  {
+   "name": "HyperSCSI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "packet-hyperscsi",
+   "why": "obscure SCSI-over-Ethernet protocol"
+  }
+ ]
+}

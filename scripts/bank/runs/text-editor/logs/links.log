@@ -1,0 +1,9 @@
+$ bash /Users/axvon/nullion/design/links/run.sh text-editor  [21s, exit 0]
+text-editor: 73 / 76 linked
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/verify-links.py text-editor  [14s, exit 0]
+wikipedia 46/46
+54/76 answers linked across 1 categories
+dropped as broken: {'wikipedia disambiguation': 1, 'wikipedia missing': 3}
+15 links on other hosts left out → design/links/review.txt
+

@@ -1,0 +1,88 @@
+[
+ {
+  "name": "Base64",
+  "a": null,
+  "b": {
+   "name": "Base64",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "src/cpython: base64 encoding",
+   "why": "standard binary-to-text transport encoding"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ZIP",
+  "a": null,
+  "b": {
+   "name": "ZIP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "src/cpython: zip file format",
+   "why": "common archive container format"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "tar",
+  "a": null,
+  "b": {
+   "name": "tar",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "src/postgres: tar format",
+   "why": "common archive format, pg_dump option"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PAX",
+  "a": null,
+  "b": {
+   "name": "PAX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "src/cpython: pax format",
+   "why": "POSIX tar variant, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "mbox",
+  "a": null,
+  "b": {
+   "name": "mbox",
+   "aliases": [
+    "unix mbox"
+   ],
+   "judge": "leak",
+   "evidence": "src/cpython: mbox format; unix mbox format",
+   "why": "mail storage format, systems people know"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Ascii85",
+  "a": null,
+  "b": {
+   "name": "Ascii85",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "src/cpython: ascii85 encoding",
+   "why": "obscure binary-to-text encoding"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Quoted-Printable",
+  "a": null,
+  "b": {
+   "name": "Quoted-Printable",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "src/cpython: quoted-printable encoding",
+   "why": "MIME text transfer encoding"
+  },
+  "batch": "batch-00.txt"
+ }
+]

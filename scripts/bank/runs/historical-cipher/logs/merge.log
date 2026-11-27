@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py historical-cipher /Users/axvon/nullion/scripts/bank/mined/historical-cipher/final.json /Users/axvon/nullion/scripts/bank/mined/historical-cipher/agreed /Users/axvon/nullion/scripts/bank/mined/historical-cipher/resolved  [0s, exit 0]
+historical-cipher: 20 new candidates -> /Users/axvon/nullion/scripts/bank/mined/historical-cipher/final.json; 0 aliases added to bank/hardware-security-history/historical-cipher.md
+
+--- haiku call, 7s, exit 0, prompt 1204 chars, stdout 83 chars
+[12:57:46] {"bitflip": "M-209", "womm": ["Atbash", "Rail fence cipher", "ADFGVX"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/historical-cipher/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+historical-cipher: filled 20 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.1.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  12:57:47
+   Duration  182ms (transform 61%, import 20%, tests 18%, worker 1%)
+
+

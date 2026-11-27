@@ -1,0 +1,11 @@
+$ bash /Users/axvon/nullion/design/links/run.sh network-protocol  [35s, exit 0]
+network-protocol: 142 / 150 linked
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/verify-links.py network-protocol  [2s, exit 0]
+wikipedia 50/126
+wikipedia 100/126
+wikipedia 126/126
+135/150 answers linked across 1 categories
+dropped as broken: {'wikipedia missing': 7}
+0 links on other hosts left out → design/links/review.txt
+

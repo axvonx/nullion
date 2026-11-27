@@ -1,0 +1,344 @@
+{
+ "database": [
+  {
+   "name": "Amazon Aurora",
+   "aliases": [
+    "Aurora"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Google BigQuery",
+   "aliases": [
+    "BigQuery"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "ClickHouse",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "CockroachDB",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "Couchbase",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "CrateDB",
+   "aliases": [
+    "Crate"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Databend",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "IBM Db2",
+   "aliases": [
+    "Db2"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Apache Doris",
+   "aliases": [
+    "Doris"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Apache Druid",
+   "aliases": [
+    "Druid"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "DuckDB",
+   "aliases": [],
+   "judge": "npe",
+   "pin": "womm"
+  },
+  {
+   "name": "Amazon DynamoDB",
+   "aliases": [
+    "DynamoDB"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Elasticsearch",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Exasol",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Firebird",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "Firebolt",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Greenplum",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SAP HANA",
+   "aliases": [
+    "HANA"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Hologres",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Apache IoTDB",
+   "aliases": [
+    "IoTDB"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Azure Data Explorer",
+   "aliases": [
+    "Kusto"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Apache Kylin",
+   "aliases": [
+    "Kylin"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "MonetDB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MongoDB",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Microsoft SQL Server",
+   "aliases": [
+    "SQL Server",
+    "MSSQL"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "MySQL",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "IBM Netezza",
+   "aliases": [
+    "Netezza"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "OceanBase",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Ocient",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "bitflip"
+  },
+  {
+   "name": "MaxCompute",
+   "aliases": [
+    "ODPS"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Oracle Database",
+   "aliases": [
+    "Oracle"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Apache Phoenix",
+   "aliases": [
+    "Phoenix"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Apache Pinot",
+   "aliases": [
+    "Pinot"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "PostgreSQL",
+   "aliases": [
+    "Postgres"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Amazon Redshift",
+   "aliases": [
+    "Redshift"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "RisingWave",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SingleStore",
+   "aliases": [
+    "MemSQL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Snowflake",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "SQLite",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "StarRocks",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Sybase",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "TDengine",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Teradata",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "TimescaleDB",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Vertica",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "YDB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "YugabyteDB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Apache Cassandra",
+   "aliases": [
+    "Cassandra"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Apache Ignite",
+   "aliases": [
+    "Ignite"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "OpenSearch",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Redis",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Cloudflare D1",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Google Cloud Datastore",
+   "aliases": [
+    "Cloud Datastore",
+    "Datastore"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "MariaDB",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Apache Solr",
+   "aliases": [
+    "Solr"
+   ],
+   "judge": "leak",
+   "confidence": "low"
+  },
+  {
+   "name": "Prometheus",
+   "aliases": [],
+   "judge": "npe"
+  }
+ ],
+ "_context": {
+  "database": [
+   "database"
+  ]
+ }
+}

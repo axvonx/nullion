@@ -1,0 +1,26 @@
+--- haiku call, 22s, exit 0, prompt 1820 chars, stdout 2835 chars
+, "aliases": ["DNS key", "DNS public key"], "tier": "npe"},
+  {"name": "RRSIG", "aliases": ["resource record signature", "RR signature"], "tier": "npe"},
+  {"name": "NSEC", "aliases": ["next secure", "NextSECure"], "tier": "npe"},
+  {"name": "NSEC3", "aliases": ["NSEC version 3", "hashed NSEC"], "tier": "npe"},
+  {"name": "NSEC3PARAM", "aliases": ["NSEC3 parameters", "NSEC3 params"], "tier": "npe"},
+  {"name": "TLSA", "aliases": ["TLS association", "DANE"], "tier": "npe"},
+  {"name": "SSHFP", "aliases": ["SSH fingerprint", "SSH host key fingerprint"], "tier": "npe"},
+  {"name": "NAPTR", "aliases": ["naming authority pointer", "NAPTR record"], "tier": "npe"},
+  {"name": "HINFO", "aliases": ["host info", "host information"], "tier": "npe"},
+  {"name": "DNAME", "aliases": ["delegation name", "DNAME record"], "tier": "npe"},
+  {"name": "LOC", "aliases": ["location", "geo location"], "tier": "npe"},
+  {"name": "SPF", "aliases": ["sender policy framework", "SPF record"], "tier": "npe"},
+  {"name": "URI", "aliases": ["uniform resource identifier", "URI record"], "tier": "npe"},
+  {"name": "CERT", "aliases": ["certificate", "CERT record"], "tier": "npe"},
+  {"name": "OPENPGPKEY", "aliases": ["OpenPGP key", "OpenPGP public key"], "tier": "npe"},
+  {"name": "IPSECKEY", "aliases": ["IPsec key", "IPSEC key"], "tier": "npe"},
+  {"name": "CDS", "aliases": ["child DS", "child delegation signer"], "tier": "npe"},
+  {"name": "EUI48", "aliases": ["EUI-48", "MAC address"], "tier": "npe"}
+]
+```
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py dns-record-type  [0s, exit 0]
+dns-record-type: 64 aliases, 0 new answers, 0 promoted from the Inbox
+

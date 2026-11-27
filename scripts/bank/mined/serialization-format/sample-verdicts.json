@@ -1,0 +1,102 @@
+{
+ "Thrift": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Apache Thrift has its own named binary and compact wire protocols; known to backend engineers."
+ },
+ "TOML": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named config and data format with a spec; widely used in Rust and Python tooling."
+ },
+ "ASN.1": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named notation with standard encodings (BER, DER, PER); well known through X.509 and telecom."
+ },
+ "TSV": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named text format (IANA text/tab-separated-values); familiar to most developers, though less than CSV."
+ },
+ "Gob": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Go's own named binary format (encoding/gob). Known mainly to Go developers, so NPE is too shallow; leak fits better."
+ },
+ "MessagePack": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named binary serialization format with a public spec; widely known among developers."
+ },
+ "INI": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named key-value text format; familiar to most developers."
+ },
+ "Pickle": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Python's named serialization format (pickle protocol); well known to Python developers."
+ },
+ "Plist": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Apple's named property list format (XML and binary). Known mainly to Apple platform developers, so NPE is too shallow; leak fits better."
+ },
+ "Java serialization": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Java Object Serialization Stream Protocol; widely known to Java developers. Spelling variants are aliases."
+ },
+ "Parquet": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named columnar file format (Apache Parquet); known to data engineers and widely used through pandas and Spark."
+ },
+ "JSON Lines": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Named line-delimited format (jsonlines.org). Mainly known to data and log people, so leak fits better than NPE. JSONL and NDJSON are aliases."
+ },
+ "CBOR": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Named binary format (RFC 8949). Known mainly to IoT and web-auth specialists, so leak fits better than NPE."
+ },
+ "XML": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named markup format for structured data; one of the first names most people give for this prompt."
+ },
+ "XDR": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Named External Data Representation (RFC 4506) from Sun RPC. Systems and RPC specialists know it, so leak or race fits better than NPE."
+ },
+ "Avro": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Apache serialization format with a schema; known to data engineers and Kafka users."
+ },
+ "YAML": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named data format with a spec; very common in configuration and widely known, so off-by-one is plausible."
+ },
+ "Java properties": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named key-value text format (.properties file format); familiar to Java developers. Membership is marginal because it is also a config format."
+ },
+ "BSON": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named binary JSON format used by MongoDB; widely known to backend developers."
+ },
+ "Protocol Buffers": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named serialization format with a public spec; widely known across backend engineering."
+ }
+}

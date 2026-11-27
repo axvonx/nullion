@@ -1,0 +1,363 @@
+{
+ "text-editor": [
+  {
+   "name": "vim",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "emacs",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "neovim",
+   "aliases": [
+    "nvim"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "VS Code",
+   "aliases": [
+    "Visual Studio Code"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Sublime Text",
+   "aliases": [
+    "sublime"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "nano",
+   "aliases": [
+    "GNU nano"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "micro",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "gedit",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Kate",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "pico",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "GNOME Text Editor",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "MS-DOS Editor",
+   "aliases": [
+    "microsoft-edit"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "JOE",
+   "aliases": [
+    "Joe's Own Editor"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "NEdit",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "JOVE",
+   "aliases": [
+    "Jonathan's Own Version of Emacs"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "sam",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FeatherPad",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Textadept",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Lite XL",
+   "aliases": [
+    "lite"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CudaText",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "NotepadNext",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "vis",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "vile",
+   "aliases": [
+    "xvile"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "mg",
+   "aliases": [
+    "MicroGnuEmacs"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "MicroEMACS",
+   "aliases": [
+    "uemacs"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Zile",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ne",
+   "aliases": [
+    "nice editor"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Gobby",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Pragtical",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "dte",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "kibi",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mined",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Yudit",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Diakonos",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SciTECO",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "bitflip"
+  },
+  {
+   "name": "vi",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Helix",
+   "aliases": [],
+   "judge": "npe",
+   "pin": "womm"
+  },
+  {
+   "name": "Zed",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Kakoune",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "jed",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "TECO",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Mousepad",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Leafpad",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Pluma",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Xed",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "jEdit",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SciTE",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Lapce",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Komodo Edit",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "nvi",
+   "aliases": [
+    "nvi2"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "amp",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Vigor",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "mle",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ox",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "e3",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "le",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "THE",
+   "aliases": [
+    "The Hessling Editor"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Cooledit",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "xcoral",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ved",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "se",
+   "aliases": [
+    "screen editor"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "retext",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ghostwriter",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "orbiton",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ],
+ "_context": {
+  "text-editor": [
+   "text editor",
+   "editor"
+  ]
+ }
+}

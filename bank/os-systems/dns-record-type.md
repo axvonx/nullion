@@ -2,11 +2,84 @@
 id: dns-record-type · domain: os-systems · status: draft
 > Any resource record type with a registered TYPE number in the IANA DNS parameters registry.
 
-## Inbox
-- A (suggested: off-by-one)
-- AAAA (suggested: off-by-one)
-- MX (suggested: off-by-one)
-- SSHFP (suggested: heisenbug)
-- TLSA (suggested: heisenbug)
-- NAPTR (suggested: heisenbug)
-- LOC (suggested: heisenbug)
+## Off-by-one
+- A | address | IPv4 address | IPv4 address record | address record (auto)
+- AAAA | IPv6 address | quad A | IPv6 address record (auto)
+- CNAME | canonical name | alias | alias record (auto)
+- MX | mail exchange | mail exchanger | mail exchange record (auto)
+- NS | name server | name server record (auto)
+- PTR | pointer | reverse | reverse pointer (auto)
+- TXT | text | text record (auto)
+
+## Works on my machine
+- LOC | location | geo location
+- HINFO | host info | host information
+- NAPTR | naming authority pointer | NAPTR record
+
+## Null pointer exception
+- SOA | start of authority | start of authority record (auto)
+- SRV | service | service locator | service record (auto)
+- CAA | certification authority authorization | CA authorization (auto)
+
+## Memory leak
+- DNSKEY | DNS public key (auto)
+- DS | delegation signer | delegation signer record (auto)
+- RRSIG | resource record signature | RR signature (auto)
+- NSEC | next secure (auto)
+- NSEC3 | NSEC version 3 | hashed NSEC (auto)
+- SPF | sender policy framework | SPF record (auto)
+- DNAME | delegation name | DNAME record (auto)
+- SVCB | service binding | generic service binding (auto)
+- CDS | child DS | child delegation signer (auto)
+- HIP (auto)
+- SIG (auto)
+- HTTPS | HTTPS binding | HTTPS RR | HTTPS record (auto)
+- OPT (auto)
+
+## Race condition
+- CERT | certificate | CERT record (auto)
+- TSIG (auto)
+- TKEY (auto)
+- CDNSKEY (auto)
+- NSEC3PARAM | NSEC3 parameters | NSEC3 params (auto)
+- OPENPGPKEY | OpenPGP public key (auto)
+- SMIMEA (auto)
+- URI | uniform resource identifier | URI record (auto)
+- DLV (auto)
+- IPSECKEY (auto)
+- DHCID (auto)
+- ZONEMD (auto)
+- CSYNC (auto)
+- APL (auto)
+- RP (auto)
+- TLSA | TLS association | DANE (auto)
+- SSHFP | SSH fingerprint | SSH host key fingerprint (auto)
+
+## Heisenbug
+- AMTRELAY (auto)
+- AVC (auto)
+- BRID (auto)
+- DSYNC (auto)
+- EUI48 | MAC address (auto)
+- EUI64 (auto)
+- GPOS (auto)
+- HHIT (auto)
+- ISDN (auto)
+- L32 (auto)
+- L64 (auto)
+- LP (auto)
+- NID (auto)
+- NINFO (auto)
+- RESINFO (auto)
+- RT (auto)
+- WALLET (auto)
+- KX (auto)
+- NSAP (auto)
+- NSAP-PTR (auto)
+- PX (auto)
+- WKS (auto)
+- AFSDB (auto)
+- KEY (auto)
+
+## Bit Flip
+- X25

@@ -1,0 +1,20 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py text-editor sample  [0s, exit 0]
+text-editor: sampled 20 of 73 unconfirmed answers -> scripts/bank/mined/text-editor/sample.json
+
+--- haiku call, 21s, exit 0, prompt 3641 chars, stdout 3577 chars
+ode editor (Adobe Brackets); memory (no source). Null pointer exception fits a known developer tool."},
+  "BBEdit": {"member": true, "tier_ok": true, "why": "Real and well-known macOS text editor; memory (no source). Null pointer exception fits for Mac users."},
+  "nano": {"member": true, "tier_ok": true, "why": "Real and widely known GNU terminal editor. Null pointer exception fits: many know it, but it is not the first name most people give."},
+  "e3": {"member": true, "tier_ok": true, "why": "Real tiny Linux editor ('Easiest Editor Ever'); memory (no source). Heisenbug fits an obscure editor."},
+  "Sublime Text": {"member": true, "tier_ok": false, "why": "Real, popular editor. Off-by-one is too high for something that is not near-universal; Null pointer exception fits better. Alias 'sublime' is a common English word and should be dropped; 'subl' is a valid abbreviation."},
+  "FeatherPad": {"member": true, "tier_ok": true, "why": "Real lightweight Qt text editor for Linux; memory (no source). Race condition fits a specialist audience."},
+  "ved": {"member": false, "tier_ok": true, "why": "Unsure a text editor named 'ved' exists in any source; too uncertain to keep."},
+  "xcoral": {"member": true, "tier_ok": true, "why": "Real X11 text editor (Coral family); memory (no source). Heisenbug fits an obscure editor."},
+  "Komodo Edit": {"member": true, "tier_ok": true, "why": "Real free editor from ActiveState; memory (no source). Memory leak fits a developer-tool niche."}
+}
+```
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py text-editor score  [0s, exit 0]
+text-editor: precision 90% (18/20), tier ok 14/20
+

@@ -1,0 +1,27 @@
+--- haiku call, 20s, exit 0, prompt 1790 chars, stdout 2580 chars
+ier": "npe"},
+  {"name": "Thrift", "aliases": ["Apache Thrift"], "tier": "npe"},
+  {"name": "Pickle", "aliases": ["Python pickle", "pickle format"], "tier": "npe"},
+  {"name": "Java serialization", "aliases": ["Java object serialization", "Java serialisation"], "tier": "npe"},
+  {"name": "INI", "aliases": ["INI file", "ini file"], "tier": "npe"},
+  {"name": "Java properties", "aliases": ["properties file", ".properties"], "tier": "npe"},
+  {"name": "Plist", "aliases": ["property list", "Apple property list"], "tier": "npe"},
+  {"name": "Cap'n Proto", "aliases": ["Capnp", "capnproto"], "tier": "npe"},
+  {"name": "FlatBuffers", "aliases": ["flatbuffer", "Flat Buffers"], "tier": "npe"},
+  {"name": "CBOR", "aliases": ["Concise Binary Object Representation"], "tier": "npe"},
+  {"name": "Bencode", "aliases": ["BitTorrent bencode"], "tier": "npe"},
+  {"name": "EDN", "aliases": ["Extensible Data Notation"], "tier": "npe"},
+  {"name": "S-expressions", "aliases": ["S-expression", "sexp", "Lisp s-expression"], "tier": "npe"},
+  {"name": "ASN.1", "aliases": ["Abstract Syntax Notation One", "ASN1"], "tier": "npe"},
+  {"name": "XDR", "aliases": ["External Data Representation"], "tier": "npe"},
+  {"name": "Gob", "aliases": ["Go gob", "encoding/gob"], "tier": "npe"},
+  {"name": "Hessian", "aliases": ["Hessian binary protocol"], "tier": "npe"},
+  {"name": "UBJSON", "aliases": ["Universal Binary JSON"], "tier": "npe"},
+  {"name": "Smile", "aliases": ["Smile binary JSON"], "tier": "npe"}
+]
+```
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py serialization-format  [0s, exit 0]
+serialization-format: 1 aliases, 28 new answers, 5 promoted from the Inbox
+

@@ -1,0 +1,139 @@
+{
+ "id": "network-protocol",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T18:59:05+00:00",
+   "seconds": 17,
+   "finished": "2026-11-27T18:59:23+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T18:59:23+00:00",
+   "seconds": 3,
+   "finished": "2026-11-27T18:59:26+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T18:59:26+00:00",
+   "seconds": 123,
+   "finished": "2026-11-27T19:01:28+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T19:01:28+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:01:28+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T19:01:28+00:00",
+   "seconds": 30,
+   "finished": "2026-11-27T19:01:58+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T19:01:58+00:00",
+   "seconds": 11,
+   "finished": "2026-11-27T19:02:09+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T19:02:09+00:00",
+   "seconds": 21,
+   "finished": "2026-11-27T19:02:31+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T19:02:31+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:02:31+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T19:02:31+00:00",
+   "seconds": 37,
+   "finished": "2026-11-27T19:03:08+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T19:03:08+00:00",
+   "seconds": 26,
+   "finished": "2026-11-27T19:03:34+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T19:03:34+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:03:34+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "36/36 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "warn",
+   "detail": "1 likely duplicate pairs: 'HTTPS' duplicates 'HTTP'"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "135/150 answers have a verified link (90%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "20/20 sampled answers are members (100%), 20/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/network-protocol.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (EtherIP; Gopher, Chaosnet, SCTP): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/network-protocol.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 930,
+  "summary": "network-protocol: 928 mined lines from 3 sources -> 1 batches in scripts/bank/mined/network-protocol"
+ },
+ "filter": [
+  "batch-00.a: 75 kept",
+  "batch-00.b: 122 kept"
+ ],
+ "compare": "network-protocol: 53 agreed, 89 disputed (63%) across 1 batches",
+ "escalate": "89 disputes -> 88 kept (7 low-confidence -> Inbox), 1 dropped",
+ "pins": {
+  "bitflip": "EtherIP",
+  "womm": [
+   "Gopher",
+   "Chaosnet",
+   "SCTP"
+  ]
+ },
+ "merge": "133 tiered answers, 7 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "network-protocol: 19 aliases, 17 new answers, 0 promoted from the Inbox",
+ "dupes": [
+  "network-protocol: 'HTTPS' duplicates 'HTTP'"
+ ],
+ "links": [
+  "135/150 answers linked across 1 categories",
+  "dropped as broken: {'wikipedia missing': 7}",
+  "0 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/network-protocol.md"
+}

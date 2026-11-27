@@ -1,0 +1,441 @@
+{
+ "id": "dns-record-type",
+ "prompt": "Name a DNS record type",
+ "accepts": "Any resource record type with a registered TYPE number in the IANA DNS parameters registry.",
+ "answers": [
+  {
+   "name": "A",
+   "aliases": [
+    "address",
+    "IPv4 address",
+    "IPv4 address record",
+    "address record"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "AAAA",
+   "aliases": [
+    "IPv6 address",
+    "quad A",
+    "IPv6 address record"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "CNAME",
+   "aliases": [
+    "canonical name",
+    "alias",
+    "alias record"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "MX",
+   "aliases": [
+    "mail exchange",
+    "mail exchanger",
+    "mail exchange record"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "NS",
+   "aliases": [
+    "name server",
+    "name server record"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "PTR",
+   "aliases": [
+    "pointer",
+    "reverse",
+    "reverse pointer"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "TXT",
+   "aliases": [
+    "text",
+    "text record"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "LOC",
+   "aliases": [
+    "location",
+    "geo location"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "HINFO",
+   "aliases": [
+    "host info",
+    "host information"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "NAPTR",
+   "aliases": [
+    "naming authority pointer",
+    "NAPTR record"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "SOA",
+   "aliases": [
+    "start of authority",
+    "start of authority record"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SRV",
+   "aliases": [
+    "service",
+    "service locator",
+    "service record"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CAA",
+   "aliases": [
+    "certification authority authorization",
+    "CA authorization"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DNSKEY",
+   "aliases": [
+    "DNS public key"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DS",
+   "aliases": [
+    "delegation signer",
+    "delegation signer record"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "RRSIG",
+   "aliases": [
+    "resource record signature",
+    "RR signature"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "NSEC",
+   "aliases": [
+    "next secure"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "NSEC3",
+   "aliases": [
+    "NSEC version 3",
+    "hashed NSEC"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SPF",
+   "aliases": [
+    "sender policy framework",
+    "SPF record"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DNAME",
+   "aliases": [
+    "delegation name",
+    "DNAME record"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SVCB",
+   "aliases": [
+    "service binding",
+    "generic service binding"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CDS",
+   "aliases": [
+    "child DS",
+    "child delegation signer"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "HIP",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SIG",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "HTTPS",
+   "aliases": [
+    "HTTPS binding",
+    "HTTPS RR",
+    "HTTPS record"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "OPT",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CERT",
+   "aliases": [
+    "certificate",
+    "CERT record"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TSIG",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TKEY",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CDNSKEY",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "NSEC3PARAM",
+   "aliases": [
+    "NSEC3 parameters",
+    "NSEC3 params"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "OPENPGPKEY",
+   "aliases": [
+    "OpenPGP public key"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SMIMEA",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "URI",
+   "aliases": [
+    "uniform resource identifier",
+    "URI record"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DLV",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IPSECKEY",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DHCID",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ZONEMD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CSYNC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "APL",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TLSA",
+   "aliases": [
+    "TLS association",
+    "DANE"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SSHFP",
+   "aliases": [
+    "SSH fingerprint",
+    "SSH host key fingerprint"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AMTRELAY",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AVC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BRID",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DSYNC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EUI48",
+   "aliases": [
+    "MAC address"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EUI64",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GPOS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HHIT",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ISDN",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "L32",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "L64",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NID",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NINFO",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RESINFO",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RT",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WALLET",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "KX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NSAP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NSAP-PTR",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WKS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AFSDB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "KEY",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "X25",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

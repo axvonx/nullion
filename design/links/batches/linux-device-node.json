@@ -1,0 +1,706 @@
+{
+ "id": "linux-device-node",
+ "prompt": "Name a Linux device node",
+ "accepts": "Any path under /dev that the Linux kernel or a driver creates as a character or block device node, such as the names documented in the kernel or devices.txt.",
+ "answers": [
+  {
+   "name": "/dev/null",
+   "aliases": [
+    "null"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "/dev/zero",
+   "aliases": [
+    "zero"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "/dev/random",
+   "aliases": [
+    "random"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "/dev/urandom",
+   "aliases": [
+    "urandom"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "/dev/tty",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "/dev/ptmx",
+   "aliases": [
+    "ptmx"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "/dev/kmem",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "/dev/full",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "/dev/sda",
+   "aliases": [
+    "/dev/sdb",
+    "/dev/sdc",
+    "sda",
+    "sdb"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/console",
+   "aliases": [
+    "console"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/ttyS0",
+   "aliases": [
+    "ttyS0"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/ttyUSB0",
+   "aliases": [
+    "/dev/ttyUSB1",
+    "ttyUSB0"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/hda",
+   "aliases": [
+    "/dev/hdb",
+    "/dev/hdc",
+    "hda"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/loop0",
+   "aliases": [
+    "/dev/loop1",
+    "loop0"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/mem",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/pts/0",
+   "aliases": [
+    "/dev/pts/1",
+    "pts/0"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/fb0",
+   "aliases": [
+    "/dev/fb1",
+    "fb0"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/fd0",
+   "aliases": [
+    "/dev/fd1",
+    "fd0"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/sr0",
+   "aliases": [
+    "/dev/sr1",
+    "sr0"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/input/mice",
+   "aliases": [
+    "input/mice"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/tty0",
+   "aliases": [
+    "/dev/tty1",
+    "tty1"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/ttyACM0",
+   "aliases": [
+    "/dev/ttyACM1",
+    "ttyACM0"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/nvme0n1",
+   "aliases": [
+    "nvme0n1"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/vda",
+   "aliases": [
+    "vda"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/rtc0",
+   "aliases": [
+    "rtc0"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/uinput",
+   "aliases": [
+    "uinput"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "/dev/kmsg",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/lp0",
+   "aliases": [
+    "/dev/lp1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/kvm",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/fuse",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/net/tun",
+   "aliases": [
+    "net/tun"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/mmcblk0",
+   "aliases": [
+    "/dev/mmcblk0p1",
+    "/dev/mmcblk1",
+    "mmcblk0"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/mapper/control",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/dri/card0",
+   "aliases": [
+    "/dev/dri/card1",
+    "card0"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/video0",
+   "aliases": [
+    "/dev/video63",
+    "video0"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/input/event0",
+   "aliases": [
+    "/dev/input/event1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/i2c-0",
+   "aliases": [
+    "/dev/i2c-1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/watchdog",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/rtc",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/dsp",
+   "aliases": [
+    "/dev/dsp1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/md0",
+   "aliases": [
+    "/dev/md1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/ram0",
+   "aliases": [
+    "/dev/ram1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/nvidiactl",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/xvda",
+   "aliases": [
+    "/dev/xvdb",
+    "/dev/xvdc"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/hwrng",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/input/uinput",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/tpm",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/rfkill",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/parport0",
+   "aliases": [
+    "/dev/parport1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/psaux",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/input/mouse0",
+   "aliases": [
+    "/dev/input/mouse1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/input/js0",
+   "aliases": [
+    "/dev/input/js1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/mixer",
+   "aliases": [
+    "/dev/mixer1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/audio",
+   "aliases": [
+    "/dev/audio1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/nvidia0",
+   "aliases": [
+    "/dev/nvidia1"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/ppp",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "/dev/vhost-net",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/vhost-vsock",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/vfio/vfio",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/loop-control",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/btrfs-control",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/cuse",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/hpet",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/mcelog",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/snapshot",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/drbd0",
+   "aliases": [
+    "/dev/drbd1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/cpu/0/msr",
+   "aliases": [
+    "/dev/cpu/1/msr"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/cpu/microcode",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/hvc0",
+   "aliases": [
+    "/dev/hvc1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/ttyprintk",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/infiniband/uverbs0",
+   "aliases": [
+    "/dev/infiniband/uverbs1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/agpgart",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/autofs",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/uhid",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/port",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/nvram",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/sg0",
+   "aliases": [
+    "/dev/sg1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/st0",
+   "aliases": [
+    "/dev/st1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/nst0",
+   "aliases": [
+    "/dev/nst1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/nb0",
+   "aliases": [
+    "/dev/nb1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/mtd0",
+   "aliases": [
+    "/dev/mtd15"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/cpu/0/cpuid",
+   "aliases": [
+    "/dev/cpu/1/cpuid"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/vcs",
+   "aliases": [
+    "/dev/vcs1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/vcsa",
+   "aliases": [
+    "/dev/vcsa1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/tap0",
+   "aliases": [
+    "/dev/tap15"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/rfcomm0",
+   "aliases": [
+    "/dev/rfcomm1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/can0",
+   "aliases": [
+    "/dev/can1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/spi0",
+   "aliases": [
+    "/dev/spi1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/perfctr",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "/dev/crash",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/oldmem",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/userio",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/userdma",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/usb/legousbtower0",
+   "aliases": [
+    "/dev/usb/legousbtower15"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/dasda",
+   "aliases": [
+    "/dev/dasdb"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/cciss/c0d0",
+   "aliases": [
+    "/dev/cciss/c0d1"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/dvb/adapter0/frontend0",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/apm_bios",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/3dfx",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/vmmon",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/systrace",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/sexec",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/zkshim",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/kchuid",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/kmview",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/shmiq",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/mergemem",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/nnpfs0",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/intermezzo0",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/ipath_diag",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/bus/vme/ctl",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/ussp_ctl",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "/dev/scanners/cuecat",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

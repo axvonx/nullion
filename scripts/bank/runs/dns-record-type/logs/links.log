@@ -1,0 +1,9 @@
+$ bash /Users/axvon/nullion/design/links/run.sh dns-record-type  [21s, exit 0]
+dns-record-type: 62 / 68 linked
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/verify-links.py dns-record-type  [3s, exit 0]
+wikipedia 24/24
+62/68 answers linked across 1 categories
+dropped as broken: {}
+0 links on other hosts left out → design/links/review.txt
+

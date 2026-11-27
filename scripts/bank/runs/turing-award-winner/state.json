@@ -1,0 +1,25 @@
+{
+ "id": "turing-award-winner",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T19:04:30+00:00",
+   "seconds": 15,
+   "finished": "2026-11-27T19:04:44+00:00"
+  },
+  "harvest": {
+   "status": "failed",
+   "started": "2026-11-27T19:04:44+00:00",
+   "seconds": 3,
+   "error": "harvest produced 3 lines in 1 batches: the plan's sources are too thin"
+  }
+ },
+ "gates": {},
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/turing-award-winner.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  }
+ ],
+ "plan_origin": "llm-drafted"
+}

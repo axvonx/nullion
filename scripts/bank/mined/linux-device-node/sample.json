@@ -1,0 +1,122 @@
+[
+ {
+  "name": "/dev/mixer",
+  "aliases": [
+   "/dev/mixer1"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "/dev/fb0",
+  "aliases": [
+   "/dev/fb1",
+   "fb0"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "/dev/oldmem",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "/dev/mtd0",
+  "aliases": [
+   "/dev/mtd15"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "/dev/bus/vme/ctl",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "/dev/vfio/vfio",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "/dev/nvme0n1",
+  "aliases": [
+   "nvme0n1"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "/dev/vmmon",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "/dev/userio",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "/dev/ipath_diag",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "/dev/loop-control",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "/dev/input/event0",
+  "aliases": [
+   "/dev/input/event1"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "/dev/agpgart",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "/dev/apm_bios",
+  "aliases": [],
+  "tier": "Heisenbug"
+ },
+ {
+  "name": "/dev/vda",
+  "aliases": [
+   "vda"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "/dev/btrfs-control",
+  "aliases": [],
+  "tier": "Race condition"
+ },
+ {
+  "name": "/dev/input/uinput",
+  "aliases": [],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "/dev/cpu/0/msr",
+  "aliases": [
+   "/dev/cpu/1/msr"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "/dev/drbd0",
+  "aliases": [
+   "/dev/drbd1"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "/dev/video0",
+  "aliases": [
+   "/dev/video63",
+   "video0"
+  ],
+  "tier": "Memory leak"
+ }
+]

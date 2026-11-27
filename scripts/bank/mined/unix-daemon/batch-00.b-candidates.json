@@ -1,0 +1,432 @@
+{
+ "unix-daemon": [
+  {
+   "name": "cron",
+   "aliases": [
+    "crond"
+   ],
+   "judge": "off-by-one",
+   "evidence": "usr.sbin dir: cron",
+   "why": "classic scheduling daemon"
+  },
+  {
+   "name": "sendmail",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "usr.sbin dir: sendmail",
+   "why": "classic mail transfer daemon"
+  },
+  {
+   "name": "syslogd",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "usr.sbin dir: syslogd",
+   "why": "system logging daemon"
+  },
+  {
+   "name": "inetd",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "usr.sbin dir: inetd",
+   "why": "superserver for network services"
+  },
+  {
+   "name": "nfsd",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "usr.sbin dir: nfsd",
+   "why": "NFS server daemon"
+  },
+  {
+   "name": "tftpd",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "libexec dir: tftpd",
+   "why": "trivial file transfer server"
+  },
+  {
+   "name": "mountd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "usr.sbin dir: mountd",
+   "why": "NFS mount protocol daemon"
+  },
+  {
+   "name": "ypserv",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "usr.sbin dir: ypserv",
+   "why": "NIS server daemon"
+  },
+  {
+   "name": "ypbind",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "usr.sbin dir: ypbind",
+   "why": "NIS client binding daemon"
+  },
+  {
+   "name": "rpcbind",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "usr.sbin dir: rpcbind",
+   "why": "RPC port mapper daemon"
+  },
+  {
+   "name": "nscd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "usr.sbin dir: nscd",
+   "why": "name service cache daemon"
+  },
+  {
+   "name": "fingerd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "libexec dir: fingerd",
+   "why": "finger protocol server"
+  },
+  {
+   "name": "tcpd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "libexec dir: tcpd",
+   "why": "TCP wrapper daemon"
+  },
+  {
+   "name": "unbound",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "usr.sbin dir: unbound",
+   "why": "DNS resolver daemon"
+  },
+  {
+   "name": "klogd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "kernel source: klogd daemon",
+   "why": "kernel message logging daemon"
+  },
+  {
+   "name": "comsat",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: comsat",
+   "why": "biff mail notification daemon"
+  },
+  {
+   "name": "talkd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: talkd",
+   "why": "talk protocol daemon"
+  },
+  {
+   "name": "rwhod",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rwhod",
+   "why": "rwho status broadcast daemon"
+  },
+  {
+   "name": "rarpd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rarpd",
+   "why": "reverse ARP server daemon"
+  },
+  {
+   "name": "bootpd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: bootpd",
+   "why": "BOOTP server daemon"
+  },
+  {
+   "name": "rbootd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: rbootd",
+   "why": "remote boot daemon"
+  },
+  {
+   "name": "rrenumd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rrenumd",
+   "why": "router renumbering daemon"
+  },
+  {
+   "name": "rtsold",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rtsold",
+   "why": "IPv6 router solicitation daemon"
+  },
+  {
+   "name": "rtadvd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rtadvd",
+   "why": "IPv6 router advertisement daemon"
+  },
+  {
+   "name": "route6d",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: route6d",
+   "why": "IPv6 routing daemon"
+  },
+  {
+   "name": "powerd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: powerd",
+   "why": "CPU frequency power daemon"
+  },
+  {
+   "name": "watchdogd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: watchdogd",
+   "why": "hardware watchdog daemon"
+  },
+  {
+   "name": "bootparamd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: bootparamd",
+   "why": "boot parameter server daemon"
+  },
+  {
+   "name": "ctld",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: ctld",
+   "why": "iSCSI target daemon"
+  },
+  {
+   "name": "iscsid",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: iscsid",
+   "why": "iSCSI initiator daemon"
+  },
+  {
+   "name": "gssd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: gssd",
+   "why": "GSS-API credential daemon"
+  },
+  {
+   "name": "bsnmpd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: bsnmpd",
+   "why": "SNMP agent daemon"
+  },
+  {
+   "name": "auditd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: auditd",
+   "why": "audit trail daemon"
+  },
+  {
+   "name": "auditdistd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: auditdistd",
+   "why": "audit log distribution daemon"
+  },
+  {
+   "name": "blocklistd",
+   "aliases": [
+    "blacklistd"
+   ],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: blocklistd",
+   "why": "firewall block-list daemon"
+  },
+  {
+   "name": "ftp-proxy",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: ftp-proxy",
+   "why": "FTP firewall proxy daemon"
+  },
+  {
+   "name": "rpc.statd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rpc.statd",
+   "why": "NFS lock status daemon"
+  },
+  {
+   "name": "rpc.lockd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rpc.lockd",
+   "why": "NFS lock manager daemon"
+  },
+  {
+   "name": "ypldap",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: ypldap",
+   "why": "LDAP-to-NIS bridge daemon"
+  },
+  {
+   "name": "rpc.yppasswdd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rpc.yppasswdd",
+   "why": "NIS password update daemon"
+  },
+  {
+   "name": "rpc.ypupdated",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rpc.ypupdated",
+   "why": "NIS map update daemon"
+  },
+  {
+   "name": "rpc.ypxfrd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rpc.ypxfrd",
+   "why": "NIS map transfer daemon"
+  },
+  {
+   "name": "rpc.tlsclntd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rpc.tlsclntd",
+   "why": "RPC-over-TLS client daemon"
+  },
+  {
+   "name": "rpc.tlsservd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rpc.tlsservd",
+   "why": "RPC-over-TLS server daemon"
+  },
+  {
+   "name": "rpc.rquotad",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: rpc.rquotad",
+   "why": "remote quota daemon"
+  },
+  {
+   "name": "rpc.rstatd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: rpc.rstatd",
+   "why": "remote statistics daemon"
+  },
+  {
+   "name": "rpc.rusersd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: rpc.rusersd",
+   "why": "remote users daemon"
+  },
+  {
+   "name": "rpc.rwalld",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: rpc.rwalld",
+   "why": "remote wall message daemon"
+  },
+  {
+   "name": "rpc.sprayd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: rpc.sprayd",
+   "why": "packet spray test daemon"
+  },
+  {
+   "name": "nfscbd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: nfscbd",
+   "why": "NFSv4 callback daemon"
+  },
+  {
+   "name": "nfsuserd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: nfsuserd",
+   "why": "NFSv4 user mapping daemon"
+  },
+  {
+   "name": "pppoed",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: pppoed",
+   "why": "PPPoE server daemon"
+  },
+  {
+   "name": "tftp-proxy",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: tftp-proxy",
+   "why": "TFTP firewall proxy daemon"
+  },
+  {
+   "name": "dma",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: dma",
+   "why": "minimal mail transfer daemon"
+  }
+ ],
+ "womm_candidates": [
+  {
+   "name": "comsat",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: comsat",
+   "why": "famous biff mail notifier, clever pick"
+  },
+  {
+   "name": "fingerd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "libexec dir: fingerd",
+   "why": "Morris worm target, clever pick"
+  },
+  {
+   "name": "rwhod",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rwhod",
+   "why": "obscure-sounding status broadcaster"
+  }
+ ],
+ "bitflip_candidates": [
+  {
+   "name": "rrenumd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: rrenumd",
+   "why": "router renumbering daemon, delightfully obscure"
+  },
+  {
+   "name": "bootparamd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: bootparamd",
+   "why": "diskless boot parameter server"
+  },
+  {
+   "name": "pppoed",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: pppoed",
+   "why": "PPPoE server, deep and specific"
+  }
+ ]
+}

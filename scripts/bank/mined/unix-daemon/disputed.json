@@ -1,0 +1,92 @@
+[
+ {
+  "name": "iscsid",
+  "a": {
+   "name": "iscsid",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iscsid",
+   "why": "iSCSI initiator daemon"
+  },
+  "b": {
+   "name": "iscsid",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: iscsid",
+   "why": "iSCSI initiator daemon"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "talkd",
+  "a": {
+   "name": "talkd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "talkd",
+   "why": "Remote user communication server daemon"
+  },
+  "b": {
+   "name": "talkd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: talkd",
+   "why": "talk protocol daemon"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "watchdogd",
+  "a": {
+   "name": "watchdogd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "watchdogd",
+   "why": "System watchdog daemon"
+  },
+  "b": {
+   "name": "watchdogd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "usr.sbin dir: watchdogd",
+   "why": "hardware watchdog daemon"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "moused",
+  "a": {
+   "name": "moused",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "moused",
+   "why": "BSD console mouse daemon"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "tcpd",
+  "a": null,
+  "b": {
+   "name": "tcpd",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "libexec dir: tcpd",
+   "why": "TCP wrapper daemon"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "dma",
+  "a": null,
+  "b": {
+   "name": "dma",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "libexec dir: dma",
+   "why": "minimal mail transfer daemon"
+  },
+  "batch": "batch-00.txt"
+ }
+]

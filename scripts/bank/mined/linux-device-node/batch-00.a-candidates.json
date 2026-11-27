@@ -1,0 +1,686 @@
+{
+  "linux-device-node": [
+    {
+      "name": "/dev/null",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "/dev/null",
+      "why": "canonical bit-bucket character device"
+    },
+    {
+      "name": "/dev/zero",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "/dev/zero",
+      "why": "infinite zero-byte source device"
+    },
+    {
+      "name": "/dev/random",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "/dev/random",
+      "why": "blocking kernel entropy device"
+    },
+    {
+      "name": "/dev/urandom",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "/dev/urandom",
+      "why": "non-blocking kernel CSPRNG device"
+    },
+    {
+      "name": "/dev/tty",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "/dev/tty",
+      "why": "controlling terminal device"
+    },
+    {
+      "name": "/dev/sda",
+      "aliases": ["/dev/sdb", "/dev/sdc"],
+      "judge": "off-by-one",
+      "evidence": "/dev/sda",
+      "why": "primary SCSI/SATA/USB block disk"
+    },
+    {
+      "name": "/dev/console",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "/dev/console",
+      "why": "system console character device"
+    },
+    {
+      "name": "/dev/tty0",
+      "aliases": ["/dev/tty1"],
+      "judge": "npe",
+      "evidence": "/dev/tty0",
+      "why": "virtual console terminal device"
+    },
+    {
+      "name": "/dev/ttyS0",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "/dev/ttyS0",
+      "why": "standard serial port device"
+    },
+    {
+      "name": "/dev/ttyUSB0",
+      "aliases": ["/dev/ttyUSB1"],
+      "judge": "npe",
+      "evidence": "/dev/ttyUSB0",
+      "why": "USB-to-serial adapter device"
+    },
+    {
+      "name": "/dev/ttyACM0",
+      "aliases": ["/dev/ttyACM1"],
+      "judge": "npe",
+      "evidence": "/dev/ttyACM0",
+      "why": "USB CDC ACM serial device"
+    },
+    {
+      "name": "/dev/hda",
+      "aliases": ["/dev/hdb", "/dev/hdc"],
+      "judge": "npe",
+      "evidence": "/dev/hda",
+      "why": "legacy IDE/ATA block disk"
+    },
+    {
+      "name": "/dev/loop0",
+      "aliases": ["/dev/loop1"],
+      "judge": "npe",
+      "evidence": "/dev/loop0",
+      "why": "loopback block device"
+    },
+    {
+      "name": "/dev/mem",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "/dev/mem",
+      "why": "physical memory character device"
+    },
+    {
+      "name": "/dev/full",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "/dev/full",
+      "why": "always-returns-ENOSPC character device"
+    },
+    {
+      "name": "/dev/pts/0",
+      "aliases": ["/dev/pts/1"],
+      "judge": "npe",
+      "evidence": "/dev/pts/0",
+      "why": "pseudo-terminal slave device"
+    },
+    {
+      "name": "/dev/ptmx",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/ptmx",
+      "why": "pseudo-terminal master multiplexer"
+    },
+    {
+      "name": "/dev/kmsg",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/kmsg",
+      "why": "kernel printk ring buffer device"
+    },
+    {
+      "name": "/dev/kmem",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/kmem",
+      "why": "kernel virtual memory device"
+    },
+    {
+      "name": "/dev/fb0",
+      "aliases": ["/dev/fb1"],
+      "judge": "leak",
+      "evidence": "/dev/fb0",
+      "why": "framebuffer graphics device"
+    },
+    {
+      "name": "/dev/fd0",
+      "aliases": ["/dev/fd1"],
+      "judge": "leak",
+      "evidence": "/dev/fd0",
+      "why": "floppy disk block device"
+    },
+    {
+      "name": "/dev/sr0",
+      "aliases": ["/dev/sr1"],
+      "judge": "leak",
+      "evidence": "/dev/sr0",
+      "why": "SCSI CD-ROM/optical block device"
+    },
+    {
+      "name": "/dev/lp0",
+      "aliases": ["/dev/lp1"],
+      "judge": "leak",
+      "evidence": "/dev/lp0",
+      "why": "parallel port printer device"
+    },
+    {
+      "name": "/dev/kvm",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/kvm",
+      "why": "Kernel-based Virtual Machine hypervisor device"
+    },
+    {
+      "name": "/dev/fuse",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/fuse",
+      "why": "Filesystem in Userspace control device"
+    },
+    {
+      "name": "/dev/net/tun",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/net/tun",
+      "why": "TUN/TAP virtual network tunnel device"
+    },
+    {
+      "name": "/dev/mmcblk0",
+      "aliases": ["/dev/mmcblk0p1", "/dev/mmcblk1"],
+      "judge": "leak",
+      "evidence": "/dev/mmcblk0",
+      "why": "MMC/SD card block device"
+    },
+    {
+      "name": "/dev/mapper/control",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/mapper/control",
+      "why": "device-mapper ioctl control node"
+    },
+    {
+      "name": "/dev/dri/card0",
+      "aliases": ["/dev/dri/card1"],
+      "judge": "leak",
+      "evidence": "/dev/dri/card0",
+      "why": "Direct Rendering Infrastructure GPU device"
+    },
+    {
+      "name": "/dev/video0",
+      "aliases": ["/dev/video63"],
+      "judge": "leak",
+      "evidence": "/dev/video0",
+      "why": "Video4Linux capture device"
+    },
+    {
+      "name": "/dev/input/event0",
+      "aliases": ["/dev/input/event1"],
+      "judge": "leak",
+      "evidence": "/dev/input/event0",
+      "why": "evdev input event interface"
+    },
+    {
+      "name": "/dev/input/mice",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/input/mice",
+      "why": "unified mouse input multiplexer"
+    },
+    {
+      "name": "/dev/input/mouse0",
+      "aliases": ["/dev/input/mouse1"],
+      "judge": "leak",
+      "evidence": "/dev/input/mouse0",
+      "why": "individual mouse input device"
+    },
+    {
+      "name": "/dev/input/js0",
+      "aliases": ["/dev/input/js1"],
+      "judge": "leak",
+      "evidence": "/dev/input/js0",
+      "why": "joystick input device"
+    },
+    {
+      "name": "/dev/i2c-0",
+      "aliases": ["/dev/i2c-1"],
+      "judge": "leak",
+      "evidence": "/dev/i2c-0",
+      "why": "I2C bus adapter character device"
+    },
+    {
+      "name": "/dev/watchdog",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/watchdog",
+      "why": "hardware/software watchdog timer device"
+    },
+    {
+      "name": "/dev/rtc",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/rtc",
+      "why": "real-time clock device"
+    },
+    {
+      "name": "/dev/dsp",
+      "aliases": ["/dev/dsp1"],
+      "judge": "leak",
+      "evidence": "/dev/dsp",
+      "why": "legacy OSS digital audio device"
+    },
+    {
+      "name": "/dev/mixer",
+      "aliases": ["/dev/mixer1"],
+      "judge": "leak",
+      "evidence": "/dev/mixer",
+      "why": "legacy OSS audio mixer device"
+    },
+    {
+      "name": "/dev/audio",
+      "aliases": ["/dev/audio1"],
+      "judge": "leak",
+      "evidence": "/dev/audio",
+      "why": "legacy OSS Sun-compatible audio device"
+    },
+    {
+      "name": "/dev/md0",
+      "aliases": ["/dev/md1"],
+      "judge": "leak",
+      "evidence": "/dev/md0",
+      "why": "Linux software RAID block device"
+    },
+    {
+      "name": "/dev/ram0",
+      "aliases": ["/dev/ram1"],
+      "judge": "leak",
+      "evidence": "/dev/ram0",
+      "why": "RAM disk block device"
+    },
+    {
+      "name": "/dev/nvidia0",
+      "aliases": ["/dev/nvidia1"],
+      "judge": "leak",
+      "evidence": "/dev/nvidia0",
+      "why": "NVIDIA GPU character device"
+    },
+    {
+      "name": "/dev/nvidiactl",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/nvidiactl",
+      "why": "NVIDIA driver control device"
+    },
+    {
+      "name": "/dev/xvda",
+      "aliases": ["/dev/xvdb", "/dev/xvdc"],
+      "judge": "leak",
+      "evidence": "/dev/xvda",
+      "why": "Xen virtual block disk device"
+    },
+    {
+      "name": "/dev/ppp",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "/dev/ppp",
+      "why": "Point-to-Point Protocol character device"
+    },
+    {
+      "name": "/dev/hwrng",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/hwrng",
+      "why": "hardware random number generator device"
+    },
+    {
+      "name": "/dev/vhost-net",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/vhost-net",
+      "why": "in-kernel virtio-net accelerator device"
+    },
+    {
+      "name": "/dev/vhost-vsock",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/vhost-vsock",
+      "why": "in-kernel virtio-vsock accelerator device"
+    },
+    {
+      "name": "/dev/vfio/vfio",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/vfio/vfio",
+      "why": "VFIO userspace device assignment container"
+    },
+    {
+      "name": "/dev/loop-control",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/loop-control",
+      "why": "loopback device allocation control node"
+    },
+    {
+      "name": "/dev/btrfs-control",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/btrfs-control",
+      "why": "Btrfs filesystem control device"
+    },
+    {
+      "name": "/dev/autofs",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/autofs",
+      "why": "kernel automounter control device"
+    },
+    {
+      "name": "/dev/cuse",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/cuse",
+      "why": "Character Device in Userspace control node"
+    },
+    {
+      "name": "/dev/uhid",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/uhid",
+      "why": "userspace HID driver interface"
+    },
+    {
+      "name": "/dev/input/uinput",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/input/uinput",
+      "why": "userspace input device injection node"
+    },
+    {
+      "name": "/dev/tpm",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/tpm",
+      "why": "Trusted Platform Module character device"
+    },
+    {
+      "name": "/dev/rfkill",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/rfkill",
+      "why": "radio frequency kill switch interface"
+    },
+    {
+      "name": "/dev/hpet",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/hpet",
+      "why": "High Precision Event Timer device"
+    },
+    {
+      "name": "/dev/port",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/port",
+      "why": "I/O port access character device"
+    },
+    {
+      "name": "/dev/nvram",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/nvram",
+      "why": "non-volatile CMOS/NVRAM memory device"
+    },
+    {
+      "name": "/dev/mcelog",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/mcelog",
+      "why": "Machine Check Exception log device"
+    },
+    {
+      "name": "/dev/snapshot",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/snapshot",
+      "why": "kernel hibernation snapshot device"
+    },
+    {
+      "name": "/dev/sg0",
+      "aliases": ["/dev/sg1"],
+      "judge": "race",
+      "evidence": "/dev/sg0",
+      "why": "SCSI generic passthrough character device"
+    },
+    {
+      "name": "/dev/st0",
+      "aliases": ["/dev/st1"],
+      "judge": "race",
+      "evidence": "/dev/st0",
+      "why": "SCSI tape drive (rewind-on-close)"
+    },
+    {
+      "name": "/dev/nst0",
+      "aliases": ["/dev/nst1"],
+      "judge": "race",
+      "evidence": "/dev/nst0",
+      "why": "SCSI tape drive (no-rewind)"
+    },
+    {
+      "name": "/dev/nb0",
+      "aliases": ["/dev/nb1"],
+      "judge": "race",
+      "evidence": "/dev/nb0",
+      "why": "Network Block Device node"
+    },
+    {
+      "name": "/dev/drbd0",
+      "aliases": ["/dev/drbd1"],
+      "judge": "race",
+      "evidence": "/dev/drbd0",
+      "why": "Distributed Replicated Block Device"
+    },
+    {
+      "name": "/dev/mtd0",
+      "aliases": ["/dev/mtd15"],
+      "judge": "race",
+      "evidence": "/dev/mtd0",
+      "why": "Memory Technology Device flash node"
+    },
+    {
+      "name": "/dev/cpu/0/msr",
+      "aliases": ["/dev/cpu/1/msr"],
+      "judge": "race",
+      "evidence": "/dev/cpu/0/msr",
+      "why": "x86 Model-Specific Register device"
+    },
+    {
+      "name": "/dev/cpu/0/cpuid",
+      "aliases": ["/dev/cpu/1/cpuid"],
+      "judge": "race",
+      "evidence": "/dev/cpu/0/cpuid",
+      "why": "x86 CPUID instruction device"
+    },
+    {
+      "name": "/dev/cpu/microcode",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/cpu/microcode",
+      "why": "CPU microcode update device"
+    },
+    {
+      "name": "/dev/vcs",
+      "aliases": ["/dev/vcs1"],
+      "judge": "race",
+      "evidence": "/dev/vcs",
+      "why": "virtual console screen memory device"
+    },
+    {
+      "name": "/dev/vcsa",
+      "aliases": ["/dev/vcsa1"],
+      "judge": "race",
+      "evidence": "/dev/vcsa",
+      "why": "virtual console screen with attributes"
+    },
+    {
+      "name": "/dev/parport0",
+      "aliases": ["/dev/parport1"],
+      "judge": "race",
+      "evidence": "/dev/parport0",
+      "why": "raw parallel port character device"
+    },
+    {
+      "name": "/dev/tap0",
+      "aliases": ["/dev/tap15"],
+      "judge": "race",
+      "evidence": "/dev/tap0",
+      "why": "Ethernet TAP virtual network device"
+    },
+    {
+      "name": "/dev/rfcomm0",
+      "aliases": ["/dev/rfcomm1"],
+      "judge": "race",
+      "evidence": "/dev/rfcomm0",
+      "why": "Bluetooth RFCOMM serial device"
+    },
+    {
+      "name": "/dev/hvc0",
+      "aliases": ["/dev/hvc1"],
+      "judge": "race",
+      "evidence": "/dev/hvc0",
+      "why": "hypervisor virtual console device"
+    },
+    {
+      "name": "/dev/can0",
+      "aliases": ["/dev/can1"],
+      "judge": "race",
+      "evidence": "/dev/can0",
+      "why": "Controller Area Network interface node"
+    },
+    {
+      "name": "/dev/spi0",
+      "aliases": ["/dev/spi1"],
+      "judge": "race",
+      "evidence": "/dev/spi0",
+      "why": "SPI bus character device"
+    },
+    {
+      "name": "/dev/psaux",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "/dev/psaux",
+      "why": "PS/2 auxiliary mouse port device"
+    },
+    {
+      "name": "/dev/crash",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/crash",
+      "why": "kernel crash dump memory access device"
+    },
+    {
+      "name": "/dev/oldmem",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/oldmem",
+      "why": "kdump previous-kernel memory device"
+    },
+    {
+      "name": "/dev/ttyprintk",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/ttyprintk",
+      "why": "TTY driver forwarding writes to printk"
+    },
+    {
+      "name": "/dev/userio",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/userio",
+      "why": "userspace serio bus driver device"
+    },
+    {
+      "name": "/dev/userdma",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/userdma",
+      "why": "userspace DMA buffer character device"
+    },
+    {
+      "name": "/dev/scanners/cuecat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/scanners/cuecat",
+      "why": "CueCat barcode scanner device node"
+    },
+    {
+      "name": "/dev/usb/legousbtower0",
+      "aliases": ["/dev/usb/legousbtower15"],
+      "judge": "heisenbug",
+      "evidence": "/dev/usb/legousbtower0",
+      "why": "Lego Mindstorms USB IR tower device"
+    },
+    {
+      "name": "/dev/dasda",
+      "aliases": ["/dev/dasdb"],
+      "judge": "heisenbug",
+      "evidence": "/dev/dasda",
+      "why": "IBM s390x DASD mainframe disk"
+    },
+    {
+      "name": "/dev/cciss/c0d0",
+      "aliases": ["/dev/cciss/c0d1"],
+      "judge": "heisenbug",
+      "evidence": "/dev/cciss/c0d0",
+      "why": "Compaq Smart Array RAID block device"
+    },
+    {
+      "name": "/dev/infiniband/uverbs0",
+      "aliases": ["/dev/infiniband/uverbs1"],
+      "judge": "heisenbug",
+      "evidence": "/dev/infiniband/uverbs0",
+      "why": "InfiniBand userspace verbs device"
+    },
+    {
+      "name": "/dev/dvb/adapter0/frontend0",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/dvb/adapter0/frontend0",
+      "why": "Digital Video Broadcasting tuner frontend"
+    },
+    {
+      "name": "/dev/agpgart",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/agpgart",
+      "why": "AGP Graphics Address Remapping Table"
+    },
+    {
+      "name": "/dev/apm_bios",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/apm_bios",
+      "why": "legacy Advanced Power Management BIOS node"
+    },
+    {
+      "name": "/dev/3dfx",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/3dfx",
+      "why": "3dfx Voodoo graphics accelerator node"
+    },
+    {
+      "name": "/dev/vmmon",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "/dev/vmmon",
+      "why": "VMware Workstation hypervisor monitor node"
+    }
+  ],
+  "womm_candidates": [
+    "/dev/full",
+    "/dev/ptmx",
+    "/dev/kmsg"
+  ],
+  "bitflip_candidates": [
+    "/dev/scanners/cuecat",
+    "/dev/usb/legousbtower0",
+    "/dev/ttyprintk"
+  ]
+}

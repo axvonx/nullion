@@ -1,0 +1,8 @@
+--- gemini call, 36s, exit 0, prompt 4107 chars, stdout 3 chars
+53
+
+
+--- haiku call, 53s, exit 0, prompt 8080 chars, stdout 7923 chars
+ "heisenbug", "evidence": "usr.sbin dir: nfscbd", "why": "NFSv4 callback daemon"}, {"name": "nfsuserd", "aliases": [], "judge": "heisenbug", "evidence": "usr.sbin dir: nfsuserd", "why": "NFSv4 user mapping daemon"}, {"name": "pppoed", "aliases": [], "judge": "heisenbug", "evidence": "libexec dir: pppoed", "why": "PPPoE server daemon"}, {"name": "tftp-proxy", "aliases": [], "judge": "heisenbug", "evidence": "libexec dir: tftp-proxy", "why": "TFTP firewall proxy daemon"}, {"name": "dma", "aliases": [], "judge": "heisenbug", "evidence": "libexec dir: dma", "why": "minimal mail transfer daemon"}], "womm_candidates": [{"name": "comsat", "aliases": [], "judge": "heisenbug", "evidence": "libexec dir: comsat", "why": "famous biff mail notifier, clever pick"}, {"name": "fingerd", "aliases": [], "judge": "leak", "evidence": "libexec dir: fingerd", "why": "Morris worm target, clever pick"}, {"name": "rwhod", "aliases": [], "judge": "heisenbug", "evidence": "usr.sbin dir: rwhod", "why": "obscure-sounding status broadcaster"}], "bitflip_candidates": [{"name": "rrenumd", "aliases": [], "judge": "heisenbug", "evidence": "usr.sbin dir: rrenumd", "why": "router renumbering daemon, delightfully obscure"}, {"name": "bootparamd", "aliases": [], "judge": "heisenbug", "evidence": "usr.sbin dir: bootparamd", "why": "diskless boot parameter server"}, {"name": "pppoed", "aliases": [], "judge": "heisenbug", "evidence": "libexec dir: pppoed", "why": "PPPoE server, deep and specific"}]}, "aliases": {}}
+
+

@@ -1,0 +1,161 @@
+{
+  "game-engine": [
+    {
+      "name": "SCUMM",
+      "aliases": ["scumm"],
+      "judge": "leak",
+      "evidence": "scumm",
+      "why": "LucasArts' Script Creation Utility for Maniac Mansion engine"
+    },
+    {
+      "name": "Twine",
+      "aliases": ["twine"],
+      "judge": "leak",
+      "evidence": "twine",
+      "why": "Open-source interactive fiction and hypertext game engine"
+    },
+    {
+      "name": "Adventure Game Studio",
+      "aliases": ["AGS"],
+      "judge": "leak",
+      "evidence": "ags",
+      "why": "Open-source point-and-click adventure game engine"
+    },
+    {
+      "name": "Macromedia Director",
+      "aliases": ["Director", "Adobe Director"],
+      "judge": "leak",
+      "evidence": "director",
+      "why": "Multimedia and 2D game authoring engine"
+    },
+    {
+      "name": "SCI",
+      "aliases": ["Sierra's Creative Interpreter", "Sierra Creative Interpreter"],
+      "judge": "race",
+      "evidence": "sci",
+      "why": "Sierra On-Line's adventure game interpreter engine"
+    },
+    {
+      "name": "AGI",
+      "aliases": ["Adventure Game Interpreter"],
+      "judge": "race",
+      "evidence": "agi",
+      "why": "Sierra On-Line's early adventure game engine"
+    },
+    {
+      "name": "Wintermute Engine",
+      "aliases": ["Wintermute"],
+      "judge": "race",
+      "evidence": "wintermute",
+      "why": "Open-source 2D/2.5D adventure game engine"
+    },
+    {
+      "name": "Freescape",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "freescape",
+      "why": "Incentive Software's early real-time 3D game engine"
+    },
+    {
+      "name": "HPL1 Engine",
+      "aliases": ["HPL1", "HPL Engine"],
+      "judge": "race",
+      "evidence": "hpl1",
+      "why": "Frictional Games' real-time 3D horror game engine"
+    },
+    {
+      "name": "SLUDGE",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "sludge",
+      "why": "Open-source adventure game engine"
+    },
+    {
+      "name": "GrimE",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "grim",
+      "why": "LucasArts' 3D adventure game engine"
+    },
+    {
+      "name": "Groovie",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "groovie",
+      "why": "Trilobyte's FMV adventure game engine"
+    },
+    {
+      "name": "Mohawk",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "mohawk",
+      "why": "Broderbund's multimedia and adventure game engine"
+    },
+    {
+      "name": "Z-Vision",
+      "aliases": ["zvision"],
+      "judge": "heisenbug",
+      "evidence": "zvision",
+      "why": "Activision's 360-degree adventure game engine"
+    },
+    {
+      "name": "MADE",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "made",
+      "why": "Activision's Multimedia Application Development Environment"
+    },
+    {
+      "name": "MADS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "mads",
+      "why": "MicroProse Adventure Development System engine"
+    },
+    {
+      "name": "SAGA",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "saga",
+      "why": "Scripts for Animated Graphic Adventures engine"
+    },
+    {
+      "name": "WAGE",
+      "aliases": ["World Adventure Game Engine"],
+      "judge": "heisenbug",
+      "evidence": "wage",
+      "why": "Classic Macintosh adventure game engine"
+    },
+    {
+      "name": "mTropolis",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "mtropolis",
+      "why": "mFactory's multimedia and game authoring engine"
+    },
+    {
+      "name": "Cryo Omni3D",
+      "aliases": ["Omni3D", "cryomni3d"],
+      "judge": "heisenbug",
+      "evidence": "cryomni3d",
+      "why": "Cryo Interactive's pre-rendered 3D adventure engine"
+    },
+    {
+      "name": "qdEngine",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "qdengine",
+      "why": "K-D Lab's quest adventure game engine"
+    }
+  ],
+  "womm_candidates": [
+    "SCUMM",
+    "Adventure Game Studio",
+    "Twine"
+  ],
+  "bitflip_candidates": [
+    "Freescape",
+    "Groovie",
+    "mTropolis"
+  ]
+}

@@ -1,0 +1,582 @@
+{
+ "linux-device-node": [
+  {
+   "name": "/dev/null",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "batch line: /dev/null (devices.txt)",
+   "why": "discard sink everyone names"
+  },
+  {
+   "name": "/dev/zero",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "batch line: /dev/zero (devices.txt)",
+   "why": "zero-byte source, universally known"
+  },
+  {
+   "name": "/dev/random",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "batch line: /dev/random (devices.txt)",
+   "why": "entropy device, universally known"
+  },
+  {
+   "name": "/dev/urandom",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "batch line: /dev/urandom (devices.txt)",
+   "why": "non-blocking entropy device"
+  },
+  {
+   "name": "/dev/tty",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "batch line: /dev/tty (devices.txt)",
+   "why": "controlling terminal of process"
+  },
+  {
+   "name": "/dev/sda",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/sda (devices.txt)",
+   "why": "first SCSI/SATA disk"
+  },
+  {
+   "name": "/dev/console",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/console (devices.txt)",
+   "why": "system console device"
+  },
+  {
+   "name": "/dev/mem",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/mem (devices.txt)",
+   "why": "physical memory access node"
+  },
+  {
+   "name": "/dev/ptmx",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/ptmx (devices.txt)",
+   "why": "pseudo-terminal master multiplexer"
+  },
+  {
+   "name": "/dev/fd0",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/fd0 (devices.txt)",
+   "why": "first floppy drive"
+  },
+  {
+   "name": "/dev/hda",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/hda (devices.txt)",
+   "why": "legacy IDE first disk"
+  },
+  {
+   "name": "/dev/sr0",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/sr0 (devices.txt)",
+   "why": "first optical drive"
+  },
+  {
+   "name": "/dev/loop0",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/loop0 (devices.txt)",
+   "why": "first loop block device"
+  },
+  {
+   "name": "/dev/ttyS0",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/ttyS0 (devices.txt)",
+   "why": "first serial port"
+  },
+  {
+   "name": "/dev/ttyUSB0",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/ttyUSB0 (devices.txt)",
+   "why": "first USB serial adapter"
+  },
+  {
+   "name": "/dev/pts/0",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/pts/0 (devices.txt)",
+   "why": "first devpts pseudo-terminal slave"
+  },
+  {
+   "name": "/dev/fb0",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/fb0 (devices.txt)",
+   "why": "first framebuffer"
+  },
+  {
+   "name": "/dev/input/mice",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "batch line: /dev/input/mice (devices.txt)",
+   "why": "merged mouse input stream"
+  },
+  {
+   "name": "/dev/kmsg",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/kmsg (devices.txt)",
+   "why": "kernel log ring buffer"
+  },
+  {
+   "name": "/dev/kvm",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/kvm (devices.txt)",
+   "why": "KVM hypervisor control node"
+  },
+  {
+   "name": "/dev/kmem",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/kmem (devices.txt)",
+   "why": "kernel virtual memory access"
+  },
+  {
+   "name": "/dev/fuse",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/fuse (devices.txt)",
+   "why": "FUSE userspace filesystem channel"
+  },
+  {
+   "name": "/dev/rtc",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/rtc (devices.txt)",
+   "why": "real-time clock interface"
+  },
+  {
+   "name": "/dev/watchdog",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/watchdog (devices.txt)",
+   "why": "hardware watchdog timer"
+  },
+  {
+   "name": "/dev/net/tun",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/net/tun (devices.txt)",
+   "why": "TUN/TAP virtual network device"
+  },
+  {
+   "name": "/dev/input/uinput",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/input/uinput (devices.txt)",
+   "why": "userspace input device creation"
+  },
+  {
+   "name": "/dev/tpm",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/tpm (devices.txt)",
+   "why": "trusted platform module interface"
+  },
+  {
+   "name": "/dev/hwrng",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/hwrng (devices.txt)",
+   "why": "hardware random number generator"
+  },
+  {
+   "name": "/dev/video0",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/video0 (devices.txt)",
+   "why": "first Video4Linux capture device"
+  },
+  {
+   "name": "/dev/input/event0",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/input/event0 (devices.txt)",
+   "why": "first evdev input event node"
+  },
+  {
+   "name": "/dev/mmcblk0",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/mmcblk0 (devices.txt)",
+   "why": "first MMC/SD block device"
+  },
+  {
+   "name": "/dev/ram0",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/ram0 (devices.txt)",
+   "why": "first RAM disk"
+  },
+  {
+   "name": "/dev/md0",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/md0 (devices.txt)",
+   "why": "first software RAID array"
+  },
+  {
+   "name": "/dev/lp0",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/lp0 (devices.txt)",
+   "why": "first parallel printer port"
+  },
+  {
+   "name": "/dev/parport0",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/parport0 (devices.txt)",
+   "why": "first parallel port device"
+  },
+  {
+   "name": "/dev/psaux",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/psaux (devices.txt)",
+   "why": "PS/2 auxiliary mouse port"
+  },
+  {
+   "name": "/dev/rfkill",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/rfkill (devices.txt)",
+   "why": "radio kill-switch control"
+  },
+  {
+   "name": "/dev/dsp",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/dsp (devices.txt)",
+   "why": "OSS digital audio output"
+  },
+  {
+   "name": "/dev/xvda",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/xvda (devices.txt)",
+   "why": "Xen virtual block disk"
+  },
+  {
+   "name": "/dev/vhost-net",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/vhost-net (devices.txt)",
+   "why": "in-kernel virtio-net backend"
+  },
+  {
+   "name": "/dev/cpu/0/msr",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/cpu/0/msr (devices.txt)",
+   "why": "x86 model-specific register access"
+  },
+  {
+   "name": "/dev/cpu/microcode",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/cpu/microcode (devices.txt)",
+   "why": "CPU microcode update interface"
+  },
+  {
+   "name": "/dev/vfio/vfio",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/vfio/vfio (devices.txt)",
+   "why": "VFIO container for device passthrough"
+  },
+  {
+   "name": "/dev/infiniband/uverbs0",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/infiniband/uverbs0 (devices.txt)",
+   "why": "RDMA verbs userspace interface"
+  },
+  {
+   "name": "/dev/mapper/control",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/mapper/control (devices.txt)",
+   "why": "device-mapper control node"
+  },
+  {
+   "name": "/dev/btrfs-control",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/btrfs-control (devices.txt)",
+   "why": "Btrfs device scan control node"
+  },
+  {
+   "name": "/dev/loop-control",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/loop-control (devices.txt)",
+   "why": "loop device allocation control node"
+  },
+  {
+   "name": "/dev/nvidiactl",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/nvidiactl (devices.txt)",
+   "why": "NVIDIA driver control node"
+  },
+  {
+   "name": "/dev/dri/card0",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/dri/card0 (devices.txt)",
+   "why": "first DRM graphics card node"
+  },
+  {
+   "name": "/dev/hpet",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/hpet (devices.txt)",
+   "why": "high precision event timer"
+  },
+  {
+   "name": "/dev/ttyprintk",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/ttyprintk (devices.txt)",
+   "why": "kernel printk to tty sink"
+  },
+  {
+   "name": "/dev/mcelog",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/mcelog (devices.txt)",
+   "why": "machine check error log"
+  },
+  {
+   "name": "/dev/perfctr",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/perfctr (devices.txt)",
+   "why": "perfctr performance counter interface"
+  },
+  {
+   "name": "/dev/agpgart",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/agpgart (devices.txt)",
+   "why": "AGP graphics aperture interface"
+  },
+  {
+   "name": "/dev/drbd0",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/drbd0 (devices.txt)",
+   "why": "DRBD replicated block device"
+  },
+  {
+   "name": "/dev/hvc0",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/hvc0 (devices.txt)",
+   "why": "hypervisor virtual console"
+  },
+  {
+   "name": "/dev/vhost-vsock",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/vhost-vsock (devices.txt)",
+   "why": "in-kernel virtio-vsock backend"
+  },
+  {
+   "name": "/dev/i2c-0",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/i2c-0 (devices.txt)",
+   "why": "first I2C bus adapter node"
+  },
+  {
+   "name": "/dev/userdma",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/userdma (devices.txt)",
+   "why": "userspace DMA buffer interface"
+  },
+  {
+   "name": "/dev/userio",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/userio (devices.txt)",
+   "why": "userspace serio port driver"
+  },
+  {
+   "name": "/dev/snapshot",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/snapshot (devices.txt)",
+   "why": "hibernation image snapshot interface"
+  },
+  {
+   "name": "/dev/systrace",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/systrace (devices.txt)",
+   "why": "system call policy tracing node"
+  },
+  {
+   "name": "/dev/sexec",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/sexec (devices.txt)",
+   "why": "secure exec device node"
+  },
+  {
+   "name": "/dev/zkshim",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/zkshim (devices.txt)",
+   "why": "obscure legacy shim node"
+  },
+  {
+   "name": "/dev/kchuid",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/kchuid (devices.txt)",
+   "why": "kernel credential change node"
+  },
+  {
+   "name": "/dev/kmview",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/kmview (devices.txt)",
+   "why": "kernel memory view interface"
+  },
+  {
+   "name": "/dev/shmiq",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/shmiq (devices.txt)",
+   "why": "shared memory input queue"
+  },
+  {
+   "name": "/dev/mergemem",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/mergemem (devices.txt)",
+   "why": "page merging control node"
+  },
+  {
+   "name": "/dev/oldmem",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/oldmem (devices.txt)",
+   "why": "previous-kernel memory for crash dumps"
+  },
+  {
+   "name": "/dev/cuse",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/cuse (devices.txt)",
+   "why": "character devices in userspace"
+  },
+  {
+   "name": "/dev/crash",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/crash (devices.txt)",
+   "why": "crash dump access node"
+  },
+  {
+   "name": "/dev/nnpfs0",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/nnpfs0 (devices.txt)",
+   "why": "AFS cache manager device"
+  },
+  {
+   "name": "/dev/intermezzo0",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/intermezzo0 (devices.txt)",
+   "why": "Intermezzo filesystem upcall node"
+  },
+  {
+   "name": "/dev/ipath_diag",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/ipath_diag (devices.txt)",
+   "why": "InfiniPath diagnostics node"
+  },
+  {
+   "name": "/dev/bus/vme/ctl",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/bus/vme/ctl (devices.txt)",
+   "why": "VME bus control node"
+  },
+  {
+   "name": "/dev/ussp_ctl",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/ussp_ctl (devices.txt)",
+   "why": "IrDA SIR control node"
+  }
+ ],
+ "womm_candidates": [
+  {
+   "name": "/dev/kmem",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/kmem (devices.txt)",
+   "why": "feels clever, widely known"
+  },
+  {
+   "name": "/dev/kmsg",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "batch line: /dev/kmsg (devices.txt)",
+   "why": "feels obscure, kernel log favourite"
+  },
+  {
+   "name": "/dev/vhost-net",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "batch line: /dev/vhost-net (devices.txt)",
+   "why": "sounds deep, picked to look clever"
+  }
+ ],
+ "bitflip_candidates": [
+  {
+   "name": "/dev/mergemem",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/mergemem (devices.txt)",
+   "why": "rare page-merging control node"
+  },
+  {
+   "name": "/dev/userio",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/userio (devices.txt)",
+   "why": "rare userspace serio driver"
+  },
+  {
+   "name": "/dev/cuse",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "batch line: /dev/cuse (devices.txt)",
+   "why": "character devices in userspace"
+  }
+ ]
+}

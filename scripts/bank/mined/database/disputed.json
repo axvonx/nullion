@@ -1,0 +1,148 @@
+[
+ {
+  "name": "Cloudflare D1",
+  "a": {
+   "name": "Cloudflare D1",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "d1",
+   "why": "Cloudflare serverless SQLite database"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Google Cloud Datastore",
+  "a": {
+   "name": "Google Cloud Datastore",
+   "aliases": [
+    "Datastore"
+   ],
+   "judge": "leak",
+   "evidence": "datastore",
+   "why": "Google Cloud NoSQL document database"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Apache Hive",
+  "a": {
+   "name": "Apache Hive",
+   "aliases": [
+    "Hive"
+   ],
+   "judge": "leak",
+   "evidence": "hive",
+   "why": "Hadoop data warehouse system"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Apache Impala",
+  "a": {
+   "name": "Apache Impala",
+   "aliases": [
+    "Impala"
+   ],
+   "judge": "leak",
+   "evidence": "impala",
+   "why": "MPP SQL query engine for Hadoop"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MariaDB",
+  "a": {
+   "name": "MariaDB",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "mariadb",
+   "why": "open-source relational DBMS"
+  },
+  "b": {
+   "name": "MariaDB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "mariadb (db_engine_specs file)",
+   "why": "MySQL fork, named DBMS"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Presto",
+  "a": {
+   "name": "Presto",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "presto",
+   "why": "distributed SQL query engine"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Apache Solr",
+  "a": {
+   "name": "Apache Solr",
+   "aliases": [
+    "Solr"
+   ],
+   "judge": "leak",
+   "evidence": "solr",
+   "why": "enterprise search and document store"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Trino",
+  "a": {
+   "name": "Trino",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "trino",
+   "why": "distributed SQL query engine"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Prometheus",
+  "a": {
+   "name": "Prometheus",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "trino-prometheus",
+   "why": "time-series database and monitoring system"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "D1",
+  "a": null,
+  "b": {
+   "name": "D1",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "d1 (db_engine_specs file)",
+   "why": "named serverless SQL DBMS"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Cloud Datastore",
+  "a": null,
+  "b": {
+   "name": "Cloud Datastore",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "datastore (db_engine_specs file)",
+   "why": "named cloud document DBMS"
+  },
+  "batch": "batch-00.txt"
+ }
+]

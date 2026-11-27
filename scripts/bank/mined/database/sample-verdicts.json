@@ -1,0 +1,102 @@
+{
+ "Google BigQuery": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Google's commercial cloud data warehouse; memory (no source). Data and domain people know it, which fits leak."
+ },
+ "TiDB": {
+  "member": true,
+  "tier_ok": false,
+  "why": "PingCAP's distributed NewSQL database; memory (no source). Outside NewSQL circles it is niche, so null pointer exception overstates how widely it is known."
+ },
+ "Azure Cosmos DB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Microsoft's multi-model cloud database; memory (no source). Well known to cloud developers, so null pointer exception fits. Alias 'Cosmos DB' is a fair shortening."
+ },
+ "IBM Db2": {
+  "member": true,
+  "tier_ok": true,
+  "why": "IBM's commercial relational DBMS; memory (no source). Widely known in enterprise, so null pointer exception fits."
+ },
+ "Apache Doris": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Apache-licensed MPP analytical database; memory (no source). Specialist knowledge, so race condition fits."
+ },
+ "Firebolt": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Commercial cloud data warehouse; memory (no source). Specialist knowledge, so race condition fits."
+ },
+ "Teradata": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Long-established commercial data warehouse DBMS; memory (no source). Known to database and domain people, so leak fits."
+ },
+ "Oracle Database": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Oracle's commercial relational DBMS; memory (no source). Very well known, so null pointer exception is a reasonable tier. Aliases 'Oracle' and 'Oracle DB' are fine."
+ },
+ "Hologres": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Alibaba Cloud's real-time data warehouse service; memory (no source). Obscure, so heisenbug fits."
+ },
+ "OpenSearch": {
+  "member": true,
+  "tier_ok": true,
+  "why": "AWS's open-source search and analytics engine, a Elasticsearch fork; memory (no source). Its database status is arguable but document-store style storage counts under the accepts line. Domain people know it, so leak fits."
+ },
+ "Vertica": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Commercial columnar analytic DBMS; memory (no source). Known to domain people, so leak fits."
+ },
+ "Exasol": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Commercial in-memory analytic database; memory (no source). Specialist knowledge, so race condition fits."
+ },
+ "PostgreSQL": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real and correct; memory (no source). It is one of the first names anyone gives, so it belongs at off-by-one, not null pointer exception. Alias 'Postgres' is fine."
+ },
+ "CouchDB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Apache's document-oriented database; memory (no source). Developers know it moderately well, so null pointer exception fits."
+ },
+ "Microsoft SQL Server": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Microsoft's commercial relational DBMS; memory (no source). Widely known, so null pointer exception fits. Aliases 'SQL Server' and 'MSSQL' are fine."
+ },
+ "MariaDB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Community fork of MySQL; memory (no source). Known to database people, so leak fits. Alias 'Maria' is a bare first name rather than a product alias, so it is weak."
+ },
+ "MySQL": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real and correct; memory (no source). It is one of the first names anyone gives, so it belongs at off-by-one, not null pointer exception."
+ },
+ "Apache Phoenix": {
+  "member": true,
+  "tier_ok": true,
+  "why": "SQL layer over HBase; memory (no source). Specialist knowledge, so race condition fits. Alias 'Phoenix' is a common English word and should be dropped."
+ },
+ "MonetDB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Open-source columnar DBMS from CWI; memory (no source). Known to database people, so leak fits."
+ },
+ "SAP HANA": {
+  "member": true,
+  "tier_ok": true,
+  "why": "SAP's in-memory relational DBMS; memory (no source). Known to enterprise and domain people, so leak fits. Alias 'HANA' is fine."
+ }
+}

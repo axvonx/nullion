@@ -1,0 +1,8 @@
+--- gemini call, 31s, exit 0, prompt 4103 chars, stdout 3 chars
+60
+
+
+--- haiku call, 60s, exit 0, prompt 12305 chars, stdout 7940 chars
+liases":[],"judge":"race","evidence":"starrocks (db_engine_specs file)","why":"named analytic DBMS"},{"name":"TDengine","aliases":[],"judge":"race","evidence":"tdengine (db_engine_specs file)","why":"named time-series DBMS"},{"name":"TimescaleDB","aliases":[],"judge":"leak","evidence":"timescaledb (db_engine_specs file)","why":"named PostgreSQL time-series DBMS"},{"name":"YDB","aliases":[],"judge":"race","evidence":"ydb (db_engine_specs file)","why":"named distributed SQL DBMS"},{"name":"YugabyteDB","aliases":[],"judge":"race","evidence":"yugabytedb (db_engine_specs file)","why":"named distributed SQL DBMS"}],"womm_candidates": [{"name":"DuckDB","aliases":[],"judge":"leak","evidence":"duckdb (db_engine_specs file)","why":"clever-sounding embedded DBMS pick"},{"name":"Firebird","aliases":[],"judge":"race","evidence":"firebird (db_engine_specs file)","why":"feels obscure, widely used"},{"name":"MonetDB","aliases":[],"judge":"race","evidence":"monetdb (db_engine_specs file)","why":"feels obscure, known to specialists"}],"bitflip_candidates": [{"name":"Apache Kylin","aliases":["Kylin"],"judge":"heisenbug","evidence":"kylin (db_engine_specs file)","why":"deep OLAP cut, delightful to name"},{"name":"Ocient","aliases":[],"judge":"heisenbug","evidence":"ocient (db_engine_specs file)","why":"rare hyperscale analytic DBMS"},{"name":"Apache Phoenix","aliases":["Phoenix"],"judge":"race","evidence":"phoenix (db_engine_specs file)","why":"unexpected SQL layer over HBase"}]},"aliases": {}}
+
+

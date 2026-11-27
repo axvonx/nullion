@@ -1,0 +1,136 @@
+{
+ "id": "text-editor",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T19:03:34+00:00",
+   "seconds": 9,
+   "finished": "2026-11-27T19:03:43+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T19:03:43+00:00",
+   "seconds": 4,
+   "finished": "2026-11-27T19:03:46+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T19:03:46+00:00",
+   "seconds": 63,
+   "finished": "2026-11-27T19:04:50+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T19:04:50+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:04:50+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T19:04:50+00:00",
+   "seconds": 34,
+   "finished": "2026-11-27T19:05:24+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T19:05:24+00:00",
+   "seconds": 8,
+   "finished": "2026-11-27T19:05:32+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T19:05:32+00:00",
+   "seconds": 19,
+   "finished": "2026-11-27T19:05:51+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T19:05:51+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:05:51+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T19:05:51+00:00",
+   "seconds": 35,
+   "finished": "2026-11-27T19:06:26+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T19:06:26+00:00",
+   "seconds": 21,
+   "finished": "2026-11-27T19:06:47+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T19:06:47+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T19:06:47+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "32/32 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "54/76 answers have a verified link (71%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "18/20 sampled answers are members (90%), 14/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/text-editor.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (SciTECO; Kakoune, Helix): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/text-editor.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 352,
+  "summary": "text-editor: 349 mined lines from 4 sources -> 1 batches in scripts/bank/mined/text-editor"
+ },
+ "filter": [
+  "batch-00.a: 61 kept",
+  "batch-00.b: 49 kept"
+ ],
+ "compare": "text-editor: 35 agreed, 29 disputed (45%) across 1 batches",
+ "escalate": "29 disputes -> 29 kept (0 low-confidence -> Inbox), 0 dropped",
+ "pins": {
+  "bitflip": "SciTECO",
+  "womm": [
+   "Kakoune",
+   "Helix"
+  ]
+ },
+ "merge": "64 tiered answers, 1 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "text-editor: 18 aliases, 12 new answers, 0 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "54/76 answers linked across 1 categories",
+  "dropped as broken: {'wikipedia disambiguation': 1, 'wikipedia missing': 3}",
+  "15 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/text-editor.md"
+}

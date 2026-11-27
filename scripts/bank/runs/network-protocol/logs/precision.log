@@ -1,0 +1,10 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py network-protocol sample  [0s, exit 0]
+network-protocol: sampled 20 of 146 unconfirmed answers -> scripts/bank/mined/network-protocol/sample.json
+
+--- haiku call, 26s, exit 0, prompt 3708 chars, stdout 3901 chars
+r fits. evidence: memory (no source)"}, "EIGRP": {"member": true, "tier_ok": true, "why": "Cisco routing protocol, documented in vendor docs and RFC 7868. Networking specialists know it, so race tier fits. evidence: memory (no source)"}, "AFP": {"member": true, "tier_ok": true, "why": "Apple Filing Protocol, documented by Apple as a vendor protocol. Alias is the expansion. Specialist tier fits. evidence: memory (no source)"}, "Diameter": {"member": true, "tier_ok": true, "why": "RFC 6733, the AAA protocol. Telecom specialists know it, so race tier fits. evidence: memory (no source)"}, "9P": {"member": true, "tier_ok": true, "why": "Plan 9 file protocol, documented in Plan 9 manuals. Specialist tier fits. evidence: memory (no source)"}, "AYIYA": {"member": true, "tier_ok": true, "why": "Anything In Anything IPv6 tunnelling protocol with a published spec and implementations. Very obscure, so heisenbug tier fits. evidence: memory (no source)"}, "GIOP": {"member": true, "tier_ok": true, "why": "OMG CORBA General Inter-ORB Protocol. Alias is the expansion. Specialist tier fits. evidence: memory (no source)"}, "EtherNet/IP": {"member": true, "tier_ok": true, "why": "ODVA industrial protocol. ENIP is the standard abbreviation. Specialist tier fits. evidence: memory (no source)"}, "eDonkey": {"member": true, "tier_ok": true, "why": "Documented (reverse-engineered) historic P2P protocol, the eDonkey2000 network. Memory-leak tier for domain people fits. evidence: memory (no source)"}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py network-protocol score  [0s, exit 0]
+network-protocol: precision 100% (20/20), tier ok 20/20
+

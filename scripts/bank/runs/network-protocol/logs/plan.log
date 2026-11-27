@@ -1,0 +1,9 @@
+--- gemini call, 7s, exit 0, prompt 5100 chars, stdout 5 chars
+done
+
+
+!!! attempt 1 rejected: ValueError: listing {'repo': 'torvalds/linux', 'path': 'net', 'type': 'dir'} does not resolve on GitHub: gh api repos/torvalds/linux/contents/net --jq .[] | select(.type=="dir") | .name failed (1): gh: haproxy queue timeout For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service). (HTTP 429)
+--- gemini call, 7s, exit 0, prompt 5602 chars, stdout 5 chars
+done
+
+

@@ -1,0 +1,653 @@
+{
+ "linux-device-node": [
+  {
+   "name": "/dev/null",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "/dev/zero",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "/dev/random",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "/dev/urandom",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "/dev/tty",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "/dev/sda",
+   "aliases": [
+    "/dev/sdb",
+    "/dev/sdc"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "/dev/console",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/ttyS0",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/ttyUSB0",
+   "aliases": [
+    "/dev/ttyUSB1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/hda",
+   "aliases": [
+    "/dev/hdb",
+    "/dev/hdc"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/loop0",
+   "aliases": [
+    "/dev/loop1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/mem",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/pts/0",
+   "aliases": [
+    "/dev/pts/1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/ptmx",
+   "aliases": [],
+   "judge": "npe",
+   "pin": "womm"
+  },
+  {
+   "name": "/dev/kmsg",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/kmem",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "/dev/fb0",
+   "aliases": [
+    "/dev/fb1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/fd0",
+   "aliases": [
+    "/dev/fd1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/sr0",
+   "aliases": [
+    "/dev/sr1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/lp0",
+   "aliases": [
+    "/dev/lp1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/kvm",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/fuse",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/net/tun",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/mmcblk0",
+   "aliases": [
+    "/dev/mmcblk0p1",
+    "/dev/mmcblk1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/mapper/control",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/dri/card0",
+   "aliases": [
+    "/dev/dri/card1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/video0",
+   "aliases": [
+    "/dev/video63"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/input/event0",
+   "aliases": [
+    "/dev/input/event1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/input/mice",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/i2c-0",
+   "aliases": [
+    "/dev/i2c-1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/watchdog",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/rtc",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/dsp",
+   "aliases": [
+    "/dev/dsp1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/md0",
+   "aliases": [
+    "/dev/md1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/ram0",
+   "aliases": [
+    "/dev/ram1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/nvidiactl",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/xvda",
+   "aliases": [
+    "/dev/xvdb",
+    "/dev/xvdc"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/hwrng",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/vhost-net",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/vhost-vsock",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/vfio/vfio",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/loop-control",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/btrfs-control",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/cuse",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/input/uinput",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/tpm",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/rfkill",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/hpet",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/mcelog",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/snapshot",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/drbd0",
+   "aliases": [
+    "/dev/drbd1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/cpu/0/msr",
+   "aliases": [
+    "/dev/cpu/1/msr"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/cpu/microcode",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/parport0",
+   "aliases": [
+    "/dev/parport1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/hvc0",
+   "aliases": [
+    "/dev/hvc1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/psaux",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/crash",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/oldmem",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/ttyprintk",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/userio",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/userdma",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/infiniband/uverbs0",
+   "aliases": [
+    "/dev/infiniband/uverbs1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/agpgart",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/tty0",
+   "aliases": [
+    "/dev/tty1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/ttyACM0",
+   "aliases": [
+    "/dev/ttyACM1"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "/dev/full",
+   "aliases": [],
+   "judge": "npe",
+   "pin": "womm"
+  },
+  {
+   "name": "/dev/input/mouse0",
+   "aliases": [
+    "/dev/input/mouse1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/input/js0",
+   "aliases": [
+    "/dev/input/js1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/mixer",
+   "aliases": [
+    "/dev/mixer1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/audio",
+   "aliases": [
+    "/dev/audio1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/nvidia0",
+   "aliases": [
+    "/dev/nvidia1"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/ppp",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "/dev/autofs",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/uhid",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/port",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/nvram",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/sg0",
+   "aliases": [
+    "/dev/sg1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/st0",
+   "aliases": [
+    "/dev/st1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/nst0",
+   "aliases": [
+    "/dev/nst1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/nb0",
+   "aliases": [
+    "/dev/nb1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/mtd0",
+   "aliases": [
+    "/dev/mtd15"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/cpu/0/cpuid",
+   "aliases": [
+    "/dev/cpu/1/cpuid"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/vcs",
+   "aliases": [
+    "/dev/vcs1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/vcsa",
+   "aliases": [
+    "/dev/vcsa1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/tap0",
+   "aliases": [
+    "/dev/tap15"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/rfcomm0",
+   "aliases": [
+    "/dev/rfcomm1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/can0",
+   "aliases": [
+    "/dev/can1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/spi0",
+   "aliases": [
+    "/dev/spi1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/scanners/cuecat",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "bitflip"
+  },
+  {
+   "name": "/dev/usb/legousbtower0",
+   "aliases": [
+    "/dev/usb/legousbtower15"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/dasda",
+   "aliases": [
+    "/dev/dasdb"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/cciss/c0d0",
+   "aliases": [
+    "/dev/cciss/c0d1"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/dvb/adapter0/frontend0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/apm_bios",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/3dfx",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/vmmon",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/perfctr",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "/dev/systrace",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/sexec",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/zkshim",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/kchuid",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/kmview",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/shmiq",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/mergemem",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/nnpfs0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/intermezzo0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/ipath_diag",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/bus/vme/ctl",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "/dev/ussp_ctl",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ],
+ "_context": {
+  "linux-device-node": [
+   "Linux",
+   "device"
+  ]
+ }
+}

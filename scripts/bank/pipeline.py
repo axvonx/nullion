@@ -556,6 +556,13 @@ Reply with ONLY the JSON list."""
     missing = [g["name"] for g in groups if not any(wm.key(n) in owned for n in [g["name"], *g.get("aliases", [])])]
     if missing:
         run.gate("obvious", "obvious coverage", "fail", f"{len(missing)}/{len(groups)} obvious answers still rejected: {missing[:8]}")
+    # The Bit Flip is the one deep cut nobody reaches for; an obvious answer there (CSV for serialization formats) is
+    # a bad pin, whoever chose it.
+    obvious_keys = {wm.key(n) for g in groups for n in [g["name"], *g.get("aliases", [])]}
+    flips = [a for a in b["tiers"].get("Bit Flip", []) if any(wm.key(n) in obvious_keys for n in [a["name"], *a["aliases"]])]
+    if flips:
+        run.gate("obvious", "Bit Flip pin", "fail", f"the Bit Flip '{flips[0]['name']}' is an obvious answer: pick a deep cut "
+                 f"(edit the bank file's ## Bit Flip, then rerun with --from merge)")
     run.gate("obvious", "obvious coverage", "pass", f"{len(groups) - len(missing)}/{len(groups)} obvious answers accepted"
              + (f"; {run.state['obvious'].split('; ', 1)[1]}" if "; skipped" in run.state["obvious"] else ""))
 

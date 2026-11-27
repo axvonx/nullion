@@ -1,0 +1,434 @@
+{
+  "database": [
+    {
+      "name": "Amazon Aurora",
+      "aliases": ["Aurora"],
+      "judge": "npe",
+      "evidence": "aurora",
+      "why": "AWS managed relational database"
+    },
+    {
+      "name": "Google BigQuery",
+      "aliases": ["BigQuery"],
+      "judge": "npe",
+      "evidence": "bigquery",
+      "why": "Google Cloud serverless data warehouse"
+    },
+    {
+      "name": "ClickHouse",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "clickhouse",
+      "why": "columnar analytical DBMS"
+    },
+    {
+      "name": "CockroachDB",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "cockroachdb",
+      "why": "distributed SQL DBMS"
+    },
+    {
+      "name": "Couchbase",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "couchbase",
+      "why": "distributed NoSQL document database"
+    },
+    {
+      "name": "CrateDB",
+      "aliases": ["Crate"],
+      "judge": "race",
+      "evidence": "crate",
+      "why": "distributed SQL DBMS"
+    },
+    {
+      "name": "Cloudflare D1",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "d1",
+      "why": "Cloudflare serverless SQLite database"
+    },
+    {
+      "name": "Databend",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "databend",
+      "why": "Rust-based cloud data warehouse"
+    },
+    {
+      "name": "Google Cloud Datastore",
+      "aliases": ["Datastore"],
+      "judge": "leak",
+      "evidence": "datastore",
+      "why": "Google Cloud NoSQL document database"
+    },
+    {
+      "name": "IBM Db2",
+      "aliases": ["Db2"],
+      "judge": "npe",
+      "evidence": "db2",
+      "why": "IBM relational DBMS"
+    },
+    {
+      "name": "Apache Doris",
+      "aliases": ["Doris"],
+      "judge": "race",
+      "evidence": "doris",
+      "why": "MPP analytical DBMS"
+    },
+    {
+      "name": "Apache Druid",
+      "aliases": ["Druid"],
+      "judge": "leak",
+      "evidence": "druid",
+      "why": "real-time analytical DBMS"
+    },
+    {
+      "name": "DuckDB",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "duckdb",
+      "why": "in-process analytical DBMS"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "aliases": ["DynamoDB"],
+      "judge": "npe",
+      "evidence": "dynamodb",
+      "why": "AWS managed NoSQL key-value database"
+    },
+    {
+      "name": "Elasticsearch",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "elasticsearch",
+      "why": "distributed search and document store"
+    },
+    {
+      "name": "Exasol",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "exasol",
+      "why": "in-memory analytical DBMS"
+    },
+    {
+      "name": "Firebird",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "firebird",
+      "why": "open-source relational DBMS"
+    },
+    {
+      "name": "Firebolt",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "firebolt",
+      "why": "cloud data warehouse DBMS"
+    },
+    {
+      "name": "Greenplum",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "greenplum",
+      "why": "MPP analytical DBMS"
+    },
+    {
+      "name": "SAP HANA",
+      "aliases": ["HANA"],
+      "judge": "leak",
+      "evidence": "hana",
+      "why": "in-memory relational DBMS"
+    },
+    {
+      "name": "Apache Hive",
+      "aliases": ["Hive"],
+      "judge": "leak",
+      "evidence": "hive",
+      "why": "Hadoop data warehouse system"
+    },
+    {
+      "name": "Hologres",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "hologres",
+      "why": "Alibaba Cloud real-time analytical DBMS"
+    },
+    {
+      "name": "Apache Impala",
+      "aliases": ["Impala"],
+      "judge": "leak",
+      "evidence": "impala",
+      "why": "MPP SQL query engine for Hadoop"
+    },
+    {
+      "name": "Apache IoTDB",
+      "aliases": ["IoTDB"],
+      "judge": "heisenbug",
+      "evidence": "iotdb",
+      "why": "time-series DBMS for IoT"
+    },
+    {
+      "name": "Azure Data Explorer",
+      "aliases": ["Kusto"],
+      "judge": "race",
+      "evidence": "kusto",
+      "why": "Microsoft analytical DBMS"
+    },
+    {
+      "name": "Apache Kylin",
+      "aliases": ["Kylin"],
+      "judge": "race",
+      "evidence": "kylin",
+      "why": "distributed analytical data warehouse"
+    },
+    {
+      "name": "MariaDB",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "mariadb",
+      "why": "open-source relational DBMS"
+    },
+    {
+      "name": "MonetDB",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "monetdb",
+      "why": "column-store relational DBMS"
+    },
+    {
+      "name": "MongoDB",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "mongodb",
+      "why": "document-oriented NoSQL DBMS"
+    },
+    {
+      "name": "Microsoft SQL Server",
+      "aliases": ["SQL Server", "MSSQL"],
+      "judge": "off-by-one",
+      "evidence": "mssql",
+      "why": "Microsoft relational DBMS"
+    },
+    {
+      "name": "MySQL",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "mysql",
+      "why": "open-source relational DBMS"
+    },
+    {
+      "name": "IBM Netezza",
+      "aliases": ["Netezza"],
+      "judge": "race",
+      "evidence": "netezza",
+      "why": "data warehouse appliance DBMS"
+    },
+    {
+      "name": "OceanBase",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "oceanbase",
+      "why": "distributed relational DBMS"
+    },
+    {
+      "name": "Ocient",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "ocient",
+      "why": "hyperscale data warehouse DBMS"
+    },
+    {
+      "name": "MaxCompute",
+      "aliases": ["ODPS"],
+      "judge": "heisenbug",
+      "evidence": "odps",
+      "why": "Alibaba Cloud data warehouse"
+    },
+    {
+      "name": "Oracle Database",
+      "aliases": ["Oracle"],
+      "judge": "off-by-one",
+      "evidence": "oracle",
+      "why": "enterprise relational DBMS"
+    },
+    {
+      "name": "Apache Phoenix",
+      "aliases": ["Phoenix"],
+      "judge": "race",
+      "evidence": "phoenix",
+      "why": "SQL layer over Apache HBase"
+    },
+    {
+      "name": "Apache Pinot",
+      "aliases": ["Pinot"],
+      "judge": "race",
+      "evidence": "pinot",
+      "why": "real-time distributed OLAP datastore"
+    },
+    {
+      "name": "PostgreSQL",
+      "aliases": ["Postgres"],
+      "judge": "off-by-one",
+      "evidence": "postgres",
+      "why": "open-source object-relational DBMS"
+    },
+    {
+      "name": "Presto",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "presto",
+      "why": "distributed SQL query engine"
+    },
+    {
+      "name": "Amazon Redshift",
+      "aliases": ["Redshift"],
+      "judge": "npe",
+      "evidence": "redshift",
+      "why": "AWS cloud data warehouse"
+    },
+    {
+      "name": "RisingWave",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "risingwave",
+      "why": "distributed SQL streaming database"
+    },
+    {
+      "name": "SingleStore",
+      "aliases": ["MemSQL"],
+      "judge": "race",
+      "evidence": "singlestore",
+      "why": "distributed SQL DBMS"
+    },
+    {
+      "name": "Snowflake",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "snowflake",
+      "why": "cloud data warehouse DBMS"
+    },
+    {
+      "name": "Apache Solr",
+      "aliases": ["Solr"],
+      "judge": "leak",
+      "evidence": "solr",
+      "why": "enterprise search and document store"
+    },
+    {
+      "name": "SQLite",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "sqlite",
+      "why": "embedded relational DBMS"
+    },
+    {
+      "name": "StarRocks",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "starrocks",
+      "why": "MPP analytical DBMS"
+    },
+    {
+      "name": "Sybase",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "sybase",
+      "why": "relational DBMS"
+    },
+    {
+      "name": "TDengine",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "tdengine",
+      "why": "time-series DBMS"
+    },
+    {
+      "name": "Teradata",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "teradata",
+      "why": "enterprise data warehouse DBMS"
+    },
+    {
+      "name": "TimescaleDB",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "timescaledb",
+      "why": "PostgreSQL-based time-series DBMS"
+    },
+    {
+      "name": "Trino",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "trino",
+      "why": "distributed SQL query engine"
+    },
+    {
+      "name": "Vertica",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "vertica",
+      "why": "columnar analytical DBMS"
+    },
+    {
+      "name": "YDB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "ydb",
+      "why": "distributed SQL DBMS"
+    },
+    {
+      "name": "YugabyteDB",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "yugabytedb",
+      "why": "distributed SQL DBMS"
+    },
+    {
+      "name": "Apache Cassandra",
+      "aliases": ["Cassandra"],
+      "judge": "npe",
+      "evidence": "trino-cassandra",
+      "why": "distributed wide-column NoSQL DBMS"
+    },
+    {
+      "name": "Apache Ignite",
+      "aliases": ["Ignite"],
+      "judge": "race",
+      "evidence": "trino-ignite",
+      "why": "distributed in-memory database"
+    },
+    {
+      "name": "OpenSearch",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "trino-opensearch",
+      "why": "distributed search and analytics engine"
+    },
+    {
+      "name": "Prometheus",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "trino-prometheus",
+      "why": "time-series database and monitoring system"
+    },
+    {
+      "name": "Redis",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "trino-redis",
+      "why": "in-memory key-value database"
+    }
+  ],
+  "womm_candidates": [
+    "DuckDB",
+    "CockroachDB",
+    "ClickHouse"
+  ],
+  "bitflip_candidates": [
+    "MonetDB",
+    "TDengine",
+    "YDB"
+  ]
+}

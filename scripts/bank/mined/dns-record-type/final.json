@@ -1,0 +1,354 @@
+{
+ "dns-record-type": [
+  {
+   "name": "A",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "AAAA",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "CNAME",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "MX",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "NS",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "PTR",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "TXT",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SOA",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "SRV",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "CAA",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "DNSKEY",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "DS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "RRSIG",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "NSEC",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "NSEC3",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SPF",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "DNAME",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SVCB",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "LOC",
+   "aliases": [],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "HINFO",
+   "aliases": [],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "CERT",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "TSIG",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "TKEY",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CDNSKEY",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CDS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "NSEC3PARAM",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "OPENPGPKEY",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SMIMEA",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "URI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DLV",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "IPSECKEY",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DHCID",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ZONEMD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CSYNC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "APL",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AMTRELAY",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AVC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BRID",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DSYNC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "EUI48",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "EUI64",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "GPOS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HHIT",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HIP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ISDN",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "L32",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "L64",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "LP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NID",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NINFO",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RESINFO",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RT",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SIG",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "WALLET",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "X25",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "bitflip"
+  },
+  {
+   "name": "KX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NSAP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NSAP-PTR",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WKS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HTTPS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "TLSA",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SSHFP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "NAPTR",
+   "aliases": [],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "OPT",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AFSDB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "KEY",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ],
+ "_context": {
+  "dns-record-type": [
+   "DNS",
+   "record"
+  ]
+ }
+}

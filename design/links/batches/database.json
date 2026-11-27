@@ -1,0 +1,426 @@
+{
+ "id": "database",
+ "prompt": "Name a database",
+ "accepts": "Any named database management system, open-source or commercial, relational or not.",
+ "answers": [
+  {
+   "name": "Redis",
+   "aliases": [
+    "Remote Dictionary Server"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "CockroachDB",
+   "aliases": [
+    "Cockroach"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "DuckDB",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Firebird",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Amazon Aurora",
+   "aliases": [
+    "Aurora"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "IBM Db2",
+   "aliases": [
+    "Db2"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Amazon DynamoDB",
+   "aliases": [
+    "DynamoDB",
+    "Dynamo"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Elasticsearch",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MongoDB",
+   "aliases": [
+    "Mongo"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Microsoft SQL Server",
+   "aliases": [
+    "SQL Server",
+    "MSSQL"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MySQL",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Oracle Database",
+   "aliases": [
+    "Oracle",
+    "Oracle DB"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PostgreSQL",
+   "aliases": [
+    "Postgres"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Amazon Redshift",
+   "aliases": [
+    "Redshift"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SQLite",
+   "aliases": [
+    "sqlite3"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Apache Cassandra",
+   "aliases": [
+    "Cassandra"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Prometheus",
+   "aliases": [
+    "Prometheus TSDB"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Firestore",
+   "aliases": [
+    "Cloud Firestore",
+    "Firebase Firestore"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Neo4j",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CouchDB",
+   "aliases": [
+    "Apache CouchDB"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Cloud Spanner",
+   "aliases": [
+    "Spanner",
+    "Google Cloud Spanner"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Azure Cosmos DB",
+   "aliases": [
+    "Cosmos DB"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Microsoft Access",
+   "aliases": [
+    "MS Access",
+    "Access"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "InfluxDB",
+   "aliases": [
+    "Influx"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Apache HBase",
+   "aliases": [
+    "HBase"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "TiDB",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Apache Derby",
+   "aliases": [
+    "Derby"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RocksDB",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Google BigQuery",
+   "aliases": [
+    "BigQuery"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Couchbase",
+   "aliases": [
+    "Couchbase Server"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Apache Druid",
+   "aliases": [
+    "Druid"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Greenplum",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SAP HANA",
+   "aliases": [
+    "HANA"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MonetDB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Snowflake",
+   "aliases": [
+    "Snowflake DB",
+    "Snowflake Data Cloud"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Sybase",
+   "aliases": [
+    "Sybase ASE",
+    "SAP ASE"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Teradata",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "TimescaleDB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Vertica",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "OpenSearch",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MariaDB",
+   "aliases": [
+    "Maria"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ClickHouse",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CrateDB",
+   "aliases": [
+    "Crate"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Databend",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Apache Doris",
+   "aliases": [
+    "Doris"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Exasol",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Firebolt",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Apache IoTDB",
+   "aliases": [
+    "IoTDB"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Azure Data Explorer",
+   "aliases": [
+    "Kusto"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Apache Kylin",
+   "aliases": [
+    "Kylin"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IBM Netezza",
+   "aliases": [
+    "Netezza"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "OceanBase",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Apache Phoenix",
+   "aliases": [
+    "Phoenix"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Apache Pinot",
+   "aliases": [
+    "Pinot"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RisingWave",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SingleStore",
+   "aliases": [
+    "MemSQL"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "StarRocks",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TDengine",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "YDB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "YugabyteDB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Apache Ignite",
+   "aliases": [
+    "Ignite"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Cloudflare D1",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Google Cloud Datastore",
+   "aliases": [
+    "Cloud Datastore",
+    "Datastore"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Hologres",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MaxCompute",
+   "aliases": [
+    "ODPS"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Ocient",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

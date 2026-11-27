@@ -1,0 +1,324 @@
+{
+  "linux-device-node": [
+    {
+      "name": "/dev/tty0",
+      "aliases": [
+        "/dev/tty1"
+      ],
+      "judge": "npe",
+      "why": "virtual console terminal device"
+    },
+    {
+      "name": "/dev/ttyACM0",
+      "aliases": [
+        "/dev/ttyACM1"
+      ],
+      "judge": "npe",
+      "why": "USB CDC ACM serial device"
+    },
+    {
+      "name": "/dev/full",
+      "aliases": [],
+      "judge": "npe",
+      "why": "always-returns-ENOSPC character device"
+    },
+    {
+      "name": "/dev/input/mouse0",
+      "aliases": [
+        "/dev/input/mouse1"
+      ],
+      "judge": "leak",
+      "why": "individual mouse input device"
+    },
+    {
+      "name": "/dev/input/js0",
+      "aliases": [
+        "/dev/input/js1"
+      ],
+      "judge": "leak",
+      "why": "joystick input device"
+    },
+    {
+      "name": "/dev/mixer",
+      "aliases": [
+        "/dev/mixer1"
+      ],
+      "judge": "leak",
+      "why": "legacy OSS audio mixer device"
+    },
+    {
+      "name": "/dev/audio",
+      "aliases": [
+        "/dev/audio1"
+      ],
+      "judge": "leak",
+      "why": "legacy OSS Sun-compatible audio device"
+    },
+    {
+      "name": "/dev/nvidia0",
+      "aliases": [
+        "/dev/nvidia1"
+      ],
+      "judge": "leak",
+      "why": "NVIDIA GPU character device"
+    },
+    {
+      "name": "/dev/ppp",
+      "aliases": [],
+      "judge": "leak",
+      "why": "Point-to-Point Protocol character device"
+    },
+    {
+      "name": "/dev/autofs",
+      "aliases": [],
+      "judge": "race",
+      "why": "kernel automounter control device"
+    },
+    {
+      "name": "/dev/uhid",
+      "aliases": [],
+      "judge": "race",
+      "why": "userspace HID driver interface"
+    },
+    {
+      "name": "/dev/port",
+      "aliases": [],
+      "judge": "race",
+      "why": "I/O port access character device"
+    },
+    {
+      "name": "/dev/nvram",
+      "aliases": [],
+      "judge": "race",
+      "why": "non-volatile CMOS/NVRAM memory device"
+    },
+    {
+      "name": "/dev/sg0",
+      "aliases": [
+        "/dev/sg1"
+      ],
+      "judge": "race",
+      "why": "SCSI generic passthrough character device"
+    },
+    {
+      "name": "/dev/st0",
+      "aliases": [
+        "/dev/st1"
+      ],
+      "judge": "race",
+      "why": "SCSI tape drive (rewind-on-close)"
+    },
+    {
+      "name": "/dev/nst0",
+      "aliases": [
+        "/dev/nst1"
+      ],
+      "judge": "race",
+      "why": "SCSI tape drive (no-rewind)"
+    },
+    {
+      "name": "/dev/nb0",
+      "aliases": [
+        "/dev/nb1"
+      ],
+      "judge": "race",
+      "why": "Network Block Device node"
+    },
+    {
+      "name": "/dev/mtd0",
+      "aliases": [
+        "/dev/mtd15"
+      ],
+      "judge": "race",
+      "why": "Memory Technology Device flash node"
+    },
+    {
+      "name": "/dev/cpu/0/cpuid",
+      "aliases": [
+        "/dev/cpu/1/cpuid"
+      ],
+      "judge": "race",
+      "why": "x86 CPUID instruction device"
+    },
+    {
+      "name": "/dev/vcs",
+      "aliases": [
+        "/dev/vcs1"
+      ],
+      "judge": "race",
+      "why": "virtual console screen memory device"
+    },
+    {
+      "name": "/dev/vcsa",
+      "aliases": [
+        "/dev/vcsa1"
+      ],
+      "judge": "race",
+      "why": "virtual console screen with attributes"
+    },
+    {
+      "name": "/dev/tap0",
+      "aliases": [
+        "/dev/tap15"
+      ],
+      "judge": "race",
+      "why": "Ethernet TAP virtual network device"
+    },
+    {
+      "name": "/dev/rfcomm0",
+      "aliases": [
+        "/dev/rfcomm1"
+      ],
+      "judge": "race",
+      "why": "Bluetooth RFCOMM serial device"
+    },
+    {
+      "name": "/dev/can0",
+      "aliases": [
+        "/dev/can1"
+      ],
+      "judge": "race",
+      "why": "Controller Area Network interface node"
+    },
+    {
+      "name": "/dev/spi0",
+      "aliases": [
+        "/dev/spi1"
+      ],
+      "judge": "race",
+      "why": "SPI bus character device"
+    },
+    {
+      "name": "/dev/scanners/cuecat",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "CueCat barcode scanner device node"
+    },
+    {
+      "name": "/dev/usb/legousbtower0",
+      "aliases": [
+        "/dev/usb/legousbtower15"
+      ],
+      "judge": "heisenbug",
+      "why": "Lego Mindstorms USB IR tower device"
+    },
+    {
+      "name": "/dev/dasda",
+      "aliases": [
+        "/dev/dasdb"
+      ],
+      "judge": "heisenbug",
+      "why": "IBM s390x DASD mainframe disk"
+    },
+    {
+      "name": "/dev/cciss/c0d0",
+      "aliases": [
+        "/dev/cciss/c0d1"
+      ],
+      "judge": "heisenbug",
+      "why": "Compaq Smart Array RAID block device"
+    },
+    {
+      "name": "/dev/dvb/adapter0/frontend0",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "Digital Video Broadcasting tuner frontend"
+    },
+    {
+      "name": "/dev/apm_bios",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "legacy Advanced Power Management BIOS node"
+    },
+    {
+      "name": "/dev/3dfx",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "3dfx Voodoo graphics accelerator node"
+    },
+    {
+      "name": "/dev/vmmon",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "VMware Workstation hypervisor monitor node"
+    },
+    {
+      "name": "/dev/perfctr",
+      "aliases": [],
+      "judge": "race",
+      "why": "perfctr performance counter interface"
+    },
+    {
+      "name": "/dev/systrace",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "system call policy tracing node"
+    },
+    {
+      "name": "/dev/sexec",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "secure exec device node"
+    },
+    {
+      "name": "/dev/zkshim",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "obscure legacy shim node"
+    },
+    {
+      "name": "/dev/kchuid",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "kernel credential change node"
+    },
+    {
+      "name": "/dev/kmview",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "kernel memory view interface"
+    },
+    {
+      "name": "/dev/shmiq",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "shared memory input queue"
+    },
+    {
+      "name": "/dev/mergemem",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "page merging control node"
+    },
+    {
+      "name": "/dev/nnpfs0",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "AFS cache manager device"
+    },
+    {
+      "name": "/dev/intermezzo0",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "Intermezzo filesystem upcall node"
+    },
+    {
+      "name": "/dev/ipath_diag",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "InfiniPath diagnostics node"
+    },
+    {
+      "name": "/dev/bus/vme/ctl",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "VME bus control node"
+    },
+    {
+      "name": "/dev/ussp_ctl",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "IrDA SIR control node"
+    }
+  ]
+}

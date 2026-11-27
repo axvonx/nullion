@@ -1,0 +1,930 @@
+## source: wireshark/wireshark/epan/dissectors (file names)
+CMakeLists
+CMakeListsCustom.txt
+README
+cond_ace_token_enum
+data-bacnet
+data-bluetooth
+data-dmx-manfid
+data-errno
+data-isobus
+data-midi-sysex-id
+data-ncsi
+data-usb
+dissectors
+event-dissectors
+file-blf
+file-btsnoop
+file-dlt
+file-elf
+file-file
+file-gif
+file-jpeg
+file-mdf
+file-mmodule
+file-mp4
+file-ogg
+file-pcap
+file-pcapng
+file-pcapng-darwin
+file-png
+file-rbm
+file-rfc7468
+file-riff
+file-rtpdump
+file-tiff
+file-ttl
+file-zip
+json-dictionary
+packet-2dparityfec
+packet-3com-njack
+packet-3com-xns
+packet-3g-a11
+packet-5co-legacy
+packet-5co-rap
+packet-6lowpan
+packet-9p
+packet-HI2Operations
+packet-a21
+packet-a2a
+packet-aarp
+packet-aastra-aasp
+packet-acap
+packet-acdr
+packet-acn
+packet-acp133
+packet-acr122
+packet-acse
+packet-actrace
+packet-adb
+packet-adb_cs
+packet-adb_service
+packet-adwin
+packet-adwin-config
+packet-aeron
+packet-afp
+packet-afs
+packet-agentx
+packet-aim
+packet-ain
+packet-ajp13
+packet-akp
+packet-alcap
+packet-alljoyn
+packet-alp
+packet-amp
+packet-amqp
+packet-amr
+packet-amt
+packet-ancp
+packet-ans
+packet-ansi_637
+packet-ansi_683
+packet-ansi_801
+packet-ansi_a
+packet-ansi_map
+packet-ansi_tcap
+packet-aodv
+packet-aoe
+packet-aol
+packet-ap1394
+packet-app-pkix-cert
+packet-applemidi
+packet-aprs
+packet-ar_drone
+packet-arcnet
+packet-arinc615a
+packet-armagetronad
+packet-arp
+packet-artemis
+packet-artnet
+packet-aruba-adp
+packet-aruba-erm
+packet-aruba-iap
+packet-aruba-papi
+packet-aruba-ubt
+packet-asam-cmp
+packet-asap
+packet-asap+enrp-common
+packet-ascend
+packet-asf
+packet-asphodel
+packet-assa_r3
+packet-asterix
+packet-asterix-generated
+packet-at
+packet-at-ldf
+packet-at-rl
+packet-atalk
+packet-ath
+packet-atm
+packet-atmtcp
+packet-atn-cm
+packet-atn-cpdlc
+packet-atn-sl
+packet-atn-ulcs
+packet-auto_rp
+packet-autosar-ipdu-multiplexer
+packet-autosar-nm
+packet-avsp
+packet-awdl
+packet-ax25
+packet-ax25-kiss
+packet-ax25-nol3
+packet-ax4000
+packet-ayiya
+packet-babel
+packet-bacapp
+packet-bacnet
+packet-banana
+packet-bat
+packet-batadv
+packet-bblog
+packet-bctp
+packet-beep
+packet-bencode
+packet-ber
+packet-bfcp
+packet-bfd
+packet-bgp
+packet-bhttp
+packet-bicc_mst
+packet-bier
+packet-bist-itch
+packet-bist-ouch
+packet-bitcoin
+packet-bittorrent
+packet-bjnp
+packet-blip
+packet-bluecom
+packet-bluetooth
+packet-bmc
+packet-bmp
+packet-bofl
+packet-bootparams
+packet-bpdu
+packet-bpq
+packet-bpsec
+packet-bpsec-cose
+packet-bpsec-defaultsc
+packet-bpv6
+packet-bpv7
+packet-brcm-tag
+packet-brdwlk
+packet-brp
+packet-bssap
+packet-bssgp
+packet-bt-dht
+packet-bt-tracker
+packet-bt-utp
+packet-bt3ds
+packet-btamp
+packet-btatt
+packet-btavctp
+packet-btavdtp
+packet-btavrcp
+packet-btbnep
+packet-btbredr_rf
+packet-bthci_acl
+packet-bthci_cmd
+packet-bthci_evt
+packet-bthci_iso
+packet-bthci_sco
+packet-bthci_vendor_android
+packet-bthci_vendor_broadcom
+packet-bthci_vendor_intel
+packet-bthcrp
+packet-bthfp
+packet-bthid
+packet-bthsp
+packet-btl2cap
+packet-btle
+packet-btle_rf
+packet-btlmp
+packet-btmcap
+packet-btmesh
+packet-btmesh-beacon
+packet-btmesh-pbadv
+packet-btmesh-provisioning
+packet-btmesh-proxy
+packet-btp-matter
+packet-btrfcomm
+packet-btsap
+packet-btsdp
+packet-btsmp
+packet-busmirroring
+packet-bvlc
+packet-bzr
+packet-c1222
+packet-c15ch
+packet-c2p
+packet-calcappprotocol
+packet-camel
+packet-caneth
+packet-canopen
+packet-capwap
+packet-carp
+packet-cast
+packet-catapult-dct2000
+packet-cattp
+packet-cbor
+packet-cbrs-oids
+packet-ccsds-sp
+packet-cdma2k
+packet-cdp
+packet-cdt
+packet-celestron-aux
+packet-cell_broadcast
+packet-cemi
+packet-ceph
+packet-cesoeth
+packet-cfdp
+packet-cfm
+packet-cgmp
+packet-chargen
+packet-charging_ase
+packet-chdlc
+packet-cigi
+packet-cimd
+packet-cimetrics
+packet-cip
+packet-cipmotion
+packet-cipsafety
+packet-cisco-erspan
+packet-cisco-fp-mim
+packet-cisco-marker
+packet-cisco-mcp
+packet-cisco-metadata
+packet-cisco-oui
+packet-cisco-pid
+packet-cisco-sm
+packet-cisco-ttag
+packet-cisco-wids
+packet-citp
+packet-cl3
+packet-cl3dcw
+packet-classicstun
+packet-clearcase
+packet-clip
+packet-clique-rm
+packet-clnp
+packet-cmip
+packet-cmp
+packet-cmpp
+packet-cms
+packet-cnip
+packet-coap
+packet-coap-eap
+packet-cola
+packet-collectd
+packet-communityid
+packet-componentstatus
+packet-cops
+packet-corosync-totemnet
+packet-corosync-totemsrp
+packet-cose
+packet-cosem
+packet-coseventcomm
+packet-cosine
+packet-cosnaming
+packet-couchbase
+packet-cp2179
+packet-cpfi
+packet-cpha
+packet-cql
+packet-credssp
+packet-crmf
+packet-csm-encaps
+packet-csn1
+packet-ctdb
+packet-cups
+packet-cvspserver
+packet-daap
+packet-dap
+packet-darwin
+packet-darwin-droptap-msg
+packet-data
+packet-daytime
+packet-db-lsp
+packet-dbus
+packet-dcc
+packet-dccp
+packet-dcerpc
+packet-dcerpc-atsvc
+packet-dcerpc-bossvr
+packet-dcerpc-browser
+packet-dcerpc-budb
+packet-dcerpc-butc
+packet-dcerpc-cds_clerkserver
+packet-dcerpc-cds_solicit
+packet-dcerpc-clusapi
+packet-dcerpc-conv
+packet-dcerpc-cprpc_server
+packet-dcerpc-dce122
+packet-dcerpc-dfs
+packet-dcerpc-dnsserver
+packet-dcerpc-drsuapi
+packet-dcerpc-dssetup
+packet-dcerpc-dtsprovider
+packet-dcerpc-dtsstime_req
+packet-dcerpc-efs
+packet-dcerpc-epm
+packet-dcerpc-eventlog
+packet-dcerpc-fileexp
+packet-dcerpc-fldb
+packet-dcerpc-frsapi
+packet-dcerpc-frsrpc
+packet-dcerpc-frstrans
+packet-dcerpc-fsrvp
+packet-dcerpc-ftserver
+packet-dcerpc-icl_rpc
+packet-dcerpc-initshutdown
+packet-dcerpc-iwbemlevel1login
+packet-dcerpc-iwbemloginclientid
+packet-dcerpc-iwbemloginclientidex
+packet-dcerpc-iwbemservices
+packet-dcerpc-krb5rpc
+packet-dcerpc-llb
+packet-dcerpc-lsa
+packet-dcerpc-mapi
+packet-dcerpc-mdssvc
+packet-dcerpc-messenger
+packet-dcerpc-mgmt
+packet-dcerpc-misc
+packet-dcerpc-ndr
+packet-dcerpc-netlogon
+packet-dcerpc-nspi
+packet-dcerpc-nt
+packet-dcerpc-pnp
+packet-dcerpc-rcg
+packet-dcerpc-rdaclif
+packet-dcerpc-rdpdr_smartcard
+packet-dcerpc-rep_proc
+packet-dcerpc-rfr
+packet-dcerpc-roverride
+packet-dcerpc-rpriv
+packet-dcerpc-rras
+packet-dcerpc-rs_acct
+packet-dcerpc-rs_attr
+packet-dcerpc-rs_attr_schema
+packet-dcerpc-rs_bind
+packet-dcerpc-rs_misc
+packet-dcerpc-rs_pgo
+packet-dcerpc-rs_plcy
+packet-dcerpc-rs_prop_acct
+packet-dcerpc-rs_prop_acl
+packet-dcerpc-rs_prop_attr
+packet-dcerpc-rs_prop_pgo
+packet-dcerpc-rs_prop_plcy
+packet-dcerpc-rs_pwd_mgmt
+packet-dcerpc-rs_repadm
+packet-dcerpc-rs_replist
+packet-dcerpc-rs_repmgr
+packet-dcerpc-rs_unix
+packet-dcerpc-rsec_login
+packet-dcerpc-samr
+packet-dcerpc-secidmap
+packet-dcerpc-spoolss
+packet-dcerpc-srvsvc
+packet-dcerpc-svcctl
+packet-dcerpc-tapi
+packet-dcerpc-taskschedulerservice
+packet-dcerpc-tkn4int
+packet-dcerpc-trksvr
+packet-dcerpc-ubikdisk
+packet-dcerpc-ubikvote
+packet-dcerpc-update
+packet-dcerpc-winreg
+packet-dcerpc-winspool
+packet-dcerpc-witness
+packet-dcerpc-wkssvc
+packet-dcerpc-wzcsvc
+packet-dcm
+packet-dcom
+packet-dcom-dispatch
+packet-dcom-oxid
+packet-dcom-provideclassinfo
+packet-dcom-remact
+packet-dcom-remunkn
+packet-dcom-sysact
+packet-dcom-typeinfo
+packet-dcp-etsi
+packet-ddtp
+packet-dec-bpdu
+packet-dec-dnart
+packet-dect
+packet-dect-dlc
+packet-dect-mitel-eth
+packet-dect-mitel-rfp
+packet-dect-nr
+packet-dect-nr-tap
+packet-dect-nwk
+packet-dektec-sdi
+packet-devicenet
+packet-dhcp
+packet-dhcp-failover
+packet-dhcpv6
+packet-diameter
+packet-diameter_3gpp
+packet-diffserv-mpls-common
+packet-dis
+packet-discard
+packet-disp
+packet-distcc
+packet-dji-uav
+packet-dlep
+packet-dlm3
+packet-dlsw
+packet-dlt
+packet-dmp
+packet-dmx
+packet-dnp
+packet-dns
+packet-do-irp
+packet-docsis
+packet-docsis-macmgmt
+packet-docsis-tlv
+packet-docsis-vendor
+packet-dof
+packet-doip
+packet-dop
+packet-dpaux
+packet-dpauxmon
+packet-dplay
+packet-dpnet
+packet-dpnss
+packet-dpnss-link
+packet-drb
+packet-drbd
+packet-drda
+packet-dsa
+packet-dsi
+packet-dsp
+packet-dsr
+packet-dtcp-ip
+packet-dtls
+packet-dtp
+packet-dtpt
+packet-dua
+packet-dvb-ait
+packet-dvb-bat
+packet-dvb-data-mpe
+packet-dvb-eit
+packet-dvb-ipdc
+packet-dvb-nit
+packet-dvb-s2-bb
+packet-dvb-s2-table
+packet-dvb-sdt
+packet-dvb-sit
+packet-dvb-tdt
+packet-dvb-tot
+packet-dvbci
+packet-dvmrp
+packet-dxl
+packet-e100
+packet-e164
+packet-e1ap
+packet-e212
+packet-e2ap
+packet-eap
+packet-eapol
+packet-ebhscr
+packet-echo
+packet-ecmp
+packet-ecp
+packet-ecp-oui
+packet-ecpri
+packet-edhoc
+packet-edonkey
+packet-eero
+packet-egd
+packet-egnos-ems
+packet-ehdlc
+packet-ehs
+packet-eigrp
+packet-eiss
+packet-elasticsearch
+packet-elcom
+packet-elmi
+packet-enc
+packet-enip
+packet-enrp
+packet-enttec
+packet-eobi
+packet-epl
+packet-epl-profile-parser
+packet-epl_v1
+packet-epmd
+packet-epon
+packet-erf
+packet-erldp
+packet-esio
+packet-esis
+packet-ess
+packet-esun
+packet-etag
+packet-etch
+packet-eth
+packet-etherip
+packet-ethertype
+packet-eti
+packet-etsi_card_app_toolkit
+packet-etv
+packet-etw
+packet-evrc
+packet-evs
+packet-exablaze
+packet-exec
+packet-exported_pdu
+packet-extreme
+packet-extreme-exeh
+packet-extrememesh
+packet-f1ap
+packet-f5ethtrailer
+packet-fbzero
+packet-fc
+packet-fc00
+packet-fcbls
+packet-fcct
+packet-fcdns
+packet-fcels
+packet-fcfcs
+packet-fcfzs
+packet-fcgi
+packet-fcip
+packet-fclctl
+packet-fcoe
+packet-fcoib
+packet-fcp
+packet-fcsb3
+packet-fcsp
+packet-fcswils
+packet-fddi
+packet-fefd
+packet-ff
+packet-finger
+packet-fip
+packet-fix
+packet-flexnet
+packet-flexray
+packet-flip
+packet-fmp
+packet-fmp_notify
+packet-fmtp
+packet-force10-oui
+packet-forces
+packet-fortinet-fgcp
+packet-fortinet-sso
+packet-foundry
+packet-fp_hint
+packet-fp_mux
+packet-fpp
+packet-fr
+packet-fractalgeneratorprotocol
+packet-frame
+packet-ftam
+packet-ftdi-ft
+packet-ftdi-mpsse
+packet-ftp
+packet-fw1
+packet-g723
+packet-gadu-gadu
+packet-gbcs
+packet-gcsna
+packet-gdb
+packet-gdsdb
+packet-gdt
+packet-gearman
+packet-ged125
+packet-gelf
+packet-geneve
+packet-geonw
+packet-gfp
+packet-gias
+packet-gift
+packet-giop
+packet-git
+packet-glbp
+packet-glow
+packet-gluster
+packet-gluster_cli
+packet-gluster_pmap
+packet-glusterd
+packet-glusterfs
+packet-glusterfs_hndsk
+packet-gmhdr
+packet-gmr1_bcch
+packet-gmr1_common
+packet-gmr1_dtap
+packet-gmr1_rach
+packet-gmr1_rr
+packet-gmrp
+packet-gnutella
+packet-goose
+packet-gopher
+packet-gpef
+packet-gprs-llc
+packet-gprscdr
+packet-gquic
+packet-gre
+packet-grebonding
+packet-grpc
+packet-gsm_a_bssmap
+packet-gsm_a_common
+packet-gsm_a_dtap
+packet-gsm_a_gm
+packet-gsm_a_rp
+packet-gsm_a_rr
+packet-gsm_abis_om2000
+packet-gsm_abis_oml
+packet-gsm_abis_pgsl
+packet-gsm_abis_tfp
+packet-gsm_bsslap
+packet-gsm_bssmap_le
+packet-gsm_cbch
+packet-gsm_cbsp
+packet-gsm_gsup
+packet-gsm_ipa
+packet-gsm_l2rcop
+packet-gsm_map
+packet-gsm_osmux
+packet-gsm_r_uus1
+packet-gsm_rlcmac
+packet-gsm_rlp
+packet-gsm_sim
+packet-gsm_sms
+packet-gsm_sms_ud
+packet-gsm_um
+packet-gsmtap
+packet-gsmtap_log
+packet-gssapi
+packet-gtp
+packet-gtpv2
+packet-gue
+packet-gvcp
+packet-gvrp
+packet-gvsp
+packet-h1
+packet-h221_nonstd
+packet-h223
+packet-h224
+packet-h225
+packet-h235
+packet-h245
+packet-h248
+packet-h248_10
+packet-h248_2
+packet-h248_3gpp
+packet-h248_7
+packet-h248_annex_c
+packet-h248_annex_e
+packet-h248_q1950
+packet-h261
+packet-h263
+packet-h263p
+packet-h264
+packet-h265
+packet-h282
+packet-h283
+packet-h323
+packet-h450
+packet-h450-ros
+packet-h460
+packet-h501
+packet-hartip
+packet-hazelcast
+packet-hci_h1
+packet-hci_h4
+packet-hci_mon
+packet-hci_usb
+packet-hclnfsd
+packet-hcrt
+packet-hdcp
+packet-hdcp2
+packet-hdfs
+packet-hdfsdata
+packet-hdmi
+packet-hicp
+packet-hip
+packet-hipercontracer
+packet-hiqnet
+packet-hislip
+packet-hl7
+packet-hnbap
+packet-homeplug
+packet-homeplug-av
+packet-homeplug-av-vendor-vertexcom
+packet-homepna
+packet-hp-erm
+packet-hpext
+packet-hpfeeds
+packet-hpsw
+packet-hpteam
+packet-hsfz
+packet-hsms
+packet-hsr
+packet-hsr-prp-supervision
+packet-hsrp
+packet-http
+packet-http-urlencoded
+packet-http2
+packet-http3
+packet-hyperdht
+packet-hyperscsi
+packet-i2c
+packet-iana-oui
+packet-iapp
+packet-iax2
+packet-icap
+packet-icep
+packet-icmp
+packet-icmpv6
+packet-icp
+packet-icq
+packet-id3v2
+packet-idmp
+packet-idn
+packet-idp
+packet-idrp
+packet-iec104
+packet-ieee1609dot2
+packet-ieee1722
+packet-ieee17221
+packet-ieee1905
+packet-ieee80211
+packet-ieee80211-netmon
+packet-ieee80211-prism
+packet-ieee80211-radio
+packet-ieee80211-radiotap
+packet-ieee80211-radiotap-defs
+packet-ieee80211-radiotap-iter
+packet-ieee80211-wlancap
+packet-ieee802154
+packet-ieee8021ah
+packet-ieee8021cb
+packet-ieee8023
+packet-ieee802a
+packet-ifcp
+packet-igap
+packet-igmp
+## source: kernel (head nouns: protocol)
+    17  i2c protocol
+    16  transport protocol
+    16  network protocol
+    14  layer protocol
+    10  ip protocol
+     8  communication protocol
+     8  upper layer protocol
+     8  boot protocol
+     7  scsi protocol
+     7  control protocol
+     6  following protocol
+     6  based protocol
+     6  serial protocol
+     6  device protocol
+     6  smbus protocol
+     5  are protocol
+     5  time protocol
+     5  spi protocol
+     5  ir protocol
+     5  netlink protocol
+     4  level protocol
+     4  different protocol
+     4  tcp protocol
+     4  hid protocol
+     4  management protocol
+     4  socket protocol
+     4  current protocol
+     4  precision time protocol
+     4  mem protocol
+     4  usb protocol
+     3  rpc protocol
+     3  legacy protocol
+     3  interface protocol
+     3  networking protocol
+     3  touchpad protocol
+     3  standard protocol
+     3  encapsulation protocol
+     3  higher layer protocol
+     3  additional protocol
+     3  implements protocol
+     3  redundancy protocol
+     3  l3 protocol
+     3  packet protocol
+     3  ingress protocol
+     3  dcbx protocol
+     3  implement protocol
+     3  nec protocol
+     3  wire protocol
+     3  kernel protocol
+     3  test anything protocol
+     3  anything protocol
+     3  nfs protocol
+     2  message protocol
+     2  register protocol
+     2  certain protocol
+     2  controlled protocol
+     2  key-agreement protocol
+     2  upper-layer protocol
+     2  many protocol
+     2  display protocol
+     2  compression protocol
+     2  component transport protocol
+     2  select protocol
+     2  include protocol
+     2  system trace protocol
+     2  trace protocol
+     2  public-standard network protocol
+     2  uefi protocol
+     2  special protocol
+     2  nfsv4 protocol
+     2  witness protocol
+     2  cifs protocol
+     2  smb3 protocol
+     2  sdram protocol
+     2  cxl protocol
+     2  storage protocol
+     2  handle protocol
+     2  switch protocol
+     2  EFI_TCG2_PROTOCOL
+     2  follow protocol
+     2  mt protocol
+     2  input protocol
+     2  type protocol
+     2  synchronous serial protocol
+     2  describing protocol
+     2  alert protocol
+     2  smbus alert protocol
+     2  custom protocol
+     2  supported protocol
+     2  can_ucan_protocol
+     2  reliable transport protocol
+     2  sctp protocol
+     2  core protocol
+     2  transmission protocol
+     2  perform protocol
+     2  reliable protocol
+     2  independent protocol
+     2  security protocol
+     2  routing protocol
+     2  set protocol
+     2  indicates protocol
+     2  existing protocol
+     2  raw protocol
+     2  provide protocol
+     2  parallel redundancy protocol
+     2  contains protocol
+     2  message based protocol
+     2  application layer protocol
+     2  link layer protocol
+     2  tree protocol
+     2  media redundancy protocol
+     2  nfc protocol
+     2  internet protocol
+     2  transfer protocol
+     2  l4 protocol
+     2  underlying protocol
+     2  multi-frame protocol
+     2  ipv6 protocol
+     2  tunnel protocol
+     2  programs protocol
+     2  than protocol
+     2  available protocol
+     2  rxrpc protocol
+     2  linux network protocol
+     2  authentication protocol
+     2  coalesce protocol
+     2  mbim protocol
+     2  bus protocol
+     2  command protocol
+     2  soundwire protocol
+     2  addition protocol
+     2  ssh protocol
+     2  wakeup protocol
+     2  through protocol
+     2  related protocol
+     2  low level protocol
+     2  vmbus protocol
+     2  link protocol
+     2  usbip_protocol
+     2  midi protocol
+     2  default midi protocol
+     2  bDeviceProtocol
+     2  nnc protocol
+     2  controller protocol
+     2  bit boot protocol
+     2  handover protocol
+     2  RISCV_EFI_BOOT_PROTOCOL
+     2  remote framebuffer protocol
+     2  framebuffer protocol
+     2  high-level protocol
+     2  hardware protocol
+     2  fuse protocol
+     2  filesystem protocol
+     2  remote filesystem protocol
+## source: src/freebsd (head nouns: protocol)
+     2  int protocol
+     2  restrict protocol
+     2  network protocol
+     2  layer protocol
+     2  ss protocol

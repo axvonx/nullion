@@ -1,0 +1,162 @@
+{
+ "historical-cipher": [
+  {
+   "name": "ADFGVX",
+   "aliases": [
+    "ADFGVX cipher"
+   ],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "ADFGX",
+   "aliases": [
+    "ADFGX cipher"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Affine cipher",
+   "aliases": [
+    "affine"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Atbash",
+   "aliases": [
+    "Atbash cipher"
+   ],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "Autokey cipher",
+   "aliases": [
+    "autokey"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Beaufort cipher",
+   "aliases": [
+    "beaufort"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Bifid cipher",
+   "aliases": [
+    "bifid"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Caesar cipher",
+   "aliases": [
+    "caesar",
+    "Caesar shift",
+    "ROT13"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Columnar transposition",
+   "aliases": [
+    "columnar transposition cipher"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Enigma",
+   "aliases": [
+    "Enigma machine",
+    "Enigma cipher"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Four-square cipher",
+   "aliases": [
+    "foursquare"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Fractionated Morse",
+   "aliases": [
+    "fracmorse",
+    "Fractionated Morse cipher"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Gronsfeld cipher",
+   "aliases": [
+    "gronsfeld"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "M-209",
+   "aliases": [
+    "Hagelin M-209"
+   ],
+   "judge": "race",
+   "pin": "bitflip"
+  },
+  {
+   "name": "Playfair cipher",
+   "aliases": [
+    "playfair"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Polybius square",
+   "aliases": [
+    "polybius",
+    "Polybius checkerboard"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Porta cipher",
+   "aliases": [
+    "porta"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Simple substitution",
+   "aliases": [
+    "simple substitution cipher",
+    "Monoalphabetic substitution"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Vigenère cipher",
+   "aliases": [
+    "vigenere",
+    "Vigenere cipher",
+    "Vigenère"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Rail fence cipher",
+   "aliases": [
+    "railfence",
+    "zigzag cipher"
+   ],
+   "judge": "npe",
+   "pin": "womm"
+  }
+ ],
+ "_context": {
+  "historical-cipher": [
+   "cipher"
+  ]
+ }
+}

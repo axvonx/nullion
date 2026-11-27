@@ -1,0 +1,294 @@
+{
+ "unix-daemon": [
+  {
+   "name": "cron",
+   "aliases": [
+    "crond"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "sendmail",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "syslogd",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "inetd",
+   "aliases": [],
+   "judge": "npe",
+   "pin": "womm"
+  },
+  {
+   "name": "nfsd",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "tftpd",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "unbound",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "fingerd",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "klogd",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "mountd",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "nscd",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "rpcbind",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "auditd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "blacklistd",
+   "aliases": [
+    "blocklistd"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "bootpd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ftp-proxy",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "gssd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "powerd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rarpd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rpc.lockd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rpc.statd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rtadvd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rtsold",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "rwhod",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ypbind",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ypserv",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "auditdistd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "bootparamd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "bsnmpd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "comsat",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ctld",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "nfscbd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "nfsuserd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "pppoed",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rbootd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "route6d",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rpc.rquotad",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rpc.rstatd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rpc.rusersd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rpc.rwalld",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rpc.sprayd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "bitflip"
+  },
+  {
+   "name": "rpc.tlsclntd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rpc.tlsservd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rpc.yppasswdd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rpc.ypupdated",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rpc.ypxfrd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "rrenumd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "tftp-proxy",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ypldap",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "iscsid",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "talkd",
+   "aliases": [],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "watchdogd",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "moused",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "tcpd",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "dma",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  }
+ ],
+ "_context": {
+  "unix-daemon": [
+   "daemon",
+   "service"
+  ]
+ }
+}
