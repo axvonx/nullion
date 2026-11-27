@@ -1,0 +1,86 @@
+{
+ "tcp-congestion-control-algorithm": [
+  {
+   "name": "NewReno",
+   "aliases": [
+    "cc_newreno"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "TCP BIC",
+   "aliases": [
+    "BIC"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CDG",
+   "aliases": [
+    "tcp_cdg",
+    "cc_cdg"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DCTCP",
+   "aliases": [
+    "tcp_dctcp",
+    "cc_dctcp"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "HighSpeed TCP",
+   "aliases": [
+    "tcp_highspeed"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "H-TCP",
+   "aliases": [
+    "tcp_htcp",
+    "cc_htcp"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Scalable TCP",
+   "aliases": [
+    "tcp_scalable"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "TCP-NV",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCP-LP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCP Vegas",
+   "aliases": [
+    "cc_vegas",
+    "Vegas"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "TCP Westwood",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CHD",
+   "aliases": [
+    "cc_chd"
+   ],
+   "judge": "race"
+  }
+ ]
+}

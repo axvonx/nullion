@@ -12,7 +12,11 @@ Inputs:
 - BATCH_FILE {BATCH_FILE}: names, phrases and identifiers mined from real source trees and listings, grouped
   under `## source:` headers. Lines are `<files> <phrase>` or bare names. They are noisy: most lines are not answers.
 - BANK_FILE {BANK_FILE}: the category's current answers, and its `> Accepts:` line, which states what this
-  category accepts. Skip anything already there as a name or alias (ignore case, spaces, hyphens and underscores).
+  category accepts. Skip anything already in a tier section there as a name or alias (ignore case, spaces,
+  hyphens and underscores). Lines under `## Inbox` are NOT answers yet. When a batch line supports one, emit it
+  as a candidate like any other.
+- Never emit two entries for one thing under different names (H-TCP and Hamilton TCP are one algorithm). Make
+  the other name an alias.
 
 MEMBERSHIP RULE (decided by the project owner; apply it exactly):
 - COUNTS: a *named kind* that experts call by that name in a real codebase, its docs or a paper. That covers

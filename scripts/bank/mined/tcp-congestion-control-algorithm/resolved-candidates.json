@@ -1,0 +1,10 @@
+{"tcp-congestion-control-algorithm": [
+ {"name": "H-TCP", "aliases": ["Hamilton TCP", "tcp_htcp", "cc_htcp"], "judge": "race", "why": "Hamilton TCP is H-TCP; the passes split it"},
+ {"name": "Reno", "aliases": ["TCP Reno"], "judge": "off-by-one", "why": "draft example; tcp_reno lives in tcp_cong.c"},
+ {"name": "CUBIC", "aliases": ["TCP CUBIC", "tcp_cubic", "cc_cubic"], "judge": "off-by-one", "why": "draft example and tcp_cubic"},
+ {"name": "BBR", "aliases": ["TCP BBR", "tcp_bbr"], "judge": "npe", "why": "draft example and tcp_bbr"},
+ {"name": "Veno", "aliases": ["TCP Veno", "tcp_veno"], "judge": "heisenbug", "why": "draft example and tcp_veno"},
+ {"name": "Hybla", "aliases": ["TCP Hybla", "tcp_hybla"], "judge": "race", "why": "draft example and tcp_hybla"},
+ {"name": "YeAH", "aliases": ["YeAH-TCP", "tcp_yeah"], "judge": "heisenbug", "why": "draft example and tcp_yeah"},
+ {"name": "Illinois", "aliases": ["TCP-Illinois", "tcp_illinois"], "judge": "heisenbug", "why": "draft example and tcp_illinois"}
+]}

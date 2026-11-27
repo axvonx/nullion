@@ -20,6 +20,7 @@ import sys
 REPO = pathlib.Path(__file__).resolve().parent.parent
 LADDER = ["off-by-one", "npe", "leak", "race", "heisenbug"]
 SUGGESTED = re.compile(r"\s+\(suggested: [a-z-]+\)$")
+AUTO = re.compile(r"\s+\(auto\)$")
 
 
 def key(s: str) -> str:
@@ -36,10 +37,15 @@ def main() -> None:
     path = hits[0]
     lines = path.read_text().split("\n")
 
-    line_of: dict[str, int] = {}  # loose key of every existing name/alias -> line index
+    # Loose key of every tiered name/alias -> its line. Inbox lines are not answers yet: a candidate that
+    # matches one stays a candidate (the scorer drops the Inbox line once it is scored).
+    line_of: dict[str, int] = {}
+    section = None
     for i, l in enumerate(lines):
-        if l.startswith("- "):
-            for n in SUGGESTED.sub("", l[2:].strip()).split(" | "):
+        if l.startswith("## "):
+            section = l[3:].strip()
+        elif l.startswith("- ") and section != "Inbox":
+            for n in AUTO.sub("", l[2:].strip()).split(" | "):
                 line_of[key(n)] = i
 
     merged: dict[str, dict] = {}
@@ -56,7 +62,7 @@ def main() -> None:
         if cands is None:
             raise RuntimeError(f"{p}-candidates.json has no {tag!r} key")
         for c in cands:
-            if c.get("judge") not in LADDER[1:]:
+            if c.get("judge") not in LADDER:
                 raise RuntimeError(f"{p}: {c.get('name')!r} has judge {c.get('judge')!r}")
             names = [c["name"], *c.get("aliases", [])]
             existing = next((line_of[key(n)] for n in names if key(n) in line_of), None)
@@ -89,8 +95,8 @@ def main() -> None:
                 add_alias(i, a)
 
     for i, als in alias_adds.items():
-        # Inbox lines end in "(suggested: tier)"; aliases go before that suffix.
-        m = SUGGESTED.search(lines[i])
+        # Tiered lines may end in "(auto)"; aliases go before that suffix.
+        m = AUTO.search(lines[i])
         head, tail = (lines[i][: m.start()], lines[i][m.start():]) if m else (lines[i], "")
         lines[i] = head + " | " + " | ".join(als) + tail
     path.write_text("\n".join(lines))

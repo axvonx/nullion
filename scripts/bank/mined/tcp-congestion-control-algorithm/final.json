@@ -1,0 +1,143 @@
+{
+ "tcp-congestion-control-algorithm": [
+  {
+   "name": "NewReno",
+   "aliases": [
+    "cc_newreno"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "TCP BIC",
+   "aliases": [
+    "BIC"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CDG",
+   "aliases": [
+    "tcp_cdg",
+    "cc_cdg"
+   ],
+   "pin": "bitflip"
+  },
+  {
+   "name": "DCTCP",
+   "aliases": [
+    "tcp_dctcp",
+    "cc_dctcp"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "HighSpeed TCP",
+   "aliases": [
+    "tcp_highspeed"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "H-TCP",
+   "aliases": [
+    "tcp_htcp",
+    "cc_htcp",
+    "Hamilton TCP"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Scalable TCP",
+   "aliases": [
+    "tcp_scalable"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "TCP-NV",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCP-LP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCP Vegas",
+   "aliases": [
+    "cc_vegas",
+    "Vegas"
+   ],
+   "pin": "womm"
+  },
+  {
+   "name": "TCP Westwood",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CHD",
+   "aliases": [
+    "cc_chd"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Reno",
+   "aliases": [
+    "TCP Reno"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "CUBIC",
+   "aliases": [
+    "TCP CUBIC",
+    "cc_cubic"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "BBR",
+   "aliases": [
+    "TCP BBR"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Veno",
+   "aliases": [
+    "TCP Veno"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Hybla",
+   "aliases": [
+    "TCP Hybla"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "YeAH",
+   "aliases": [
+    "YeAH-TCP",
+    "tcp_yeah"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Illinois",
+   "aliases": [
+    "TCP-Illinois"
+   ],
+   "judge": "heisenbug"
+  }
+ ],
+ "_context": {
+  "tcp-congestion-control-algorithm": [
+   "congestion"
+  ]
+ }
+}

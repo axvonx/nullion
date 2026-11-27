@@ -1,0 +1,19 @@
+{
+  "tcp-congestion-control-algorithm": [
+    {"name": "NewReno", "aliases": ["cc_newreno"], "judge": "leak", "evidence": "freebsd/freebsd-src/sys/netinet/cc: cc_newreno", "why": "named RFC 6582 variant of Reno, known to systems people"},
+    {"name": "TCP BIC", "aliases": ["tcp_bic"], "judge": "heisenbug", "evidence": "torvalds/linux/net/ipv4: tcp_bic", "why": "BIC-TCP, a named pre-CUBIC Linux algorithm"},
+    {"name": "CDG", "aliases": ["tcp_cdg", "cc_cdg"], "judge": "heisenbug", "evidence": "torvalds/linux/net/ipv4: tcp_cdg; freebsd cc_cdg", "why": "CAIA delay-gradient congestion control"},
+    {"name": "DCTCP", "aliases": ["tcp_dctcp", "cc_dctcp"], "judge": "race", "evidence": "torvalds/linux/net/ipv4: tcp_dctcp; freebsd cc_dctcp", "why": "datacenter ECN-based algorithm that specialists know"},
+    {"name": "HighSpeed TCP", "aliases": ["tcp_highspeed"], "judge": "heisenbug", "evidence": "torvalds/linux/net/ipv4: tcp_highspeed", "why": "RFC 3649 high-BDP algorithm"},
+    {"name": "H-TCP", "aliases": ["tcp_htcp", "cc_htcp"], "judge": "heisenbug", "evidence": "torvalds/linux/net/ipv4: tcp_htcp; freebsd cc_htcp", "why": "Hamilton-era H-TCP, a named high-speed algorithm"},
+    {"name": "Scalable TCP", "aliases": ["tcp_scalable"], "judge": "heisenbug", "evidence": "torvalds/linux/net/ipv4: tcp_scalable", "why": "Kelly's named high-speed algorithm"},
+    {"name": "TCP-NV", "aliases": ["tcp_nv"], "judge": "heisenbug", "evidence": "torvalds/linux/net/ipv4: tcp_nv", "why": "New Vegas, a delay-based algorithm"},
+    {"name": "TCP-LP", "aliases": ["tcp_lp"], "judge": "heisenbug", "evidence": "torvalds/linux/net/ipv4: tcp_lp", "why": "low-priority background-transfer algorithm"},
+    {"name": "TCP Vegas", "aliases": ["tcp_vegas", "cc_vegas"], "judge": "leak", "evidence": "torvalds/linux/net/ipv4: tcp_vegas; freebsd cc_vegas", "why": "classic delay-based algorithm"},
+    {"name": "TCP Westwood", "aliases": ["tcp_westwood"], "judge": "heisenbug", "evidence": "torvalds/linux/net/ipv4: tcp_westwood", "why": "bandwidth-estimating algorithm"},
+    {"name": "CHD", "aliases": ["cc_chd"], "judge": "heisenbug", "evidence": "freebsd/freebsd-src/sys/netinet/cc: cc_chd", "why": "FreeBSD delay-based module"},
+    {"name": "Hamilton TCP", "aliases": ["cc_hd"], "judge": "heisenbug", "evidence": "freebsd/freebsd-src/sys/netinet/cc: cc_hd", "why": "FreeBSD HD module, named after Hamilton TCP"}
+  ],
+  "womm_candidates": ["TCP Vegas", "Scalable TCP", "TCP Westwood"],
+  "bitflip_candidates": ["Hamilton TCP", "CHD", "TCP-NV"]
+}

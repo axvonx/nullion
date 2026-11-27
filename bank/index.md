@@ -191,7 +191,7 @@
 | routing-protocol | Name a routing protocol | os-systems | draft | 0 | 0 | 7 |
 | socket-address-family | Name a socket address family | os-systems | draft | 0 | 0 | 7 |
 | systemd-directive | Name a systemd unit directive | os-systems | draft | 0 | 0 | 7 |
-| tcp-congestion-control-algorithm | Name a TCP congestion control algorithm | os-systems | draft | 0 | 0 | 7 |
+| tcp-congestion-control-algorithm | Name a TCP congestion control algorithm | os-systems | draft | 19 | 17 | 0 |
 | tls-extension | Name a TLS extension | os-systems | draft | 0 | 0 | 7 |
 | unix-command | Name a Unix command | os-systems | draft | 0 | 0 | 7 |
 | unix-daemon | Name a Unix daemon | os-systems | draft | 0 | 0 | 7 |

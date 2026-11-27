@@ -76,7 +76,12 @@ def main() -> None:
             raw = json.loads(pathlib.Path(f"{stem}.{side}-candidates.json").read_text())
             for kind in ("womm_candidates", "bitflip_candidates"):
                 picks.setdefault(kind, [])
-                picks[kind] += [x for x in raw.get(kind, []) if x not in picks[kind]]
+                for x in raw.get(kind, []):
+                    name = x["name"] if isinstance(x, dict) else x  # passes sometimes return full entries
+                    if not isinstance(name, str):
+                        raise RuntimeError(f"{stem}.{side}: {kind} entry {x!r} has no name")
+                    if name not in picks[kind]:
+                        picks[kind].append(name)
         for p in ("a", "b"):
             ap = pathlib.Path(f"{stem}.{p}-aliases.json")
             if ap.exists():
