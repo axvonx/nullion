@@ -15,6 +15,7 @@ import { drawEntity, setPaint } from '../../render/v4/kit';
 import { V4_LIBRARIES } from '../../render/v4/libraries';
 import { drawTopicProp, TOPIC_PROPS } from '../../render/v4/topics';
 import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from '../../render/v4/watermark';
+import { CELL_H, drawGlyph, layoutWord } from '../wordmark';
 
 /**
  * The Field Manual as an archive ring binder of manual pages (FIELD-MANUAL-PLAN.md). Layout comes from the pure
@@ -505,7 +506,7 @@ export class FieldManualBinder {
           ...this.sec('DESCRIPTION', 'Each chapter is one layer of the stack. A chapter stays sealed until your cursor has reached its layer.'),
           ...this.sec('', 'Log what you see by clicking it while you dive. Each page is stamped with the day you first saw it.'),
           ...this.sec('RARITY', 'Common things are there every day. Uncommon: about one day in two. Rare: one in five. Mythic: one in fourteen. Everyone’s stack holds the same things on a given day.'),
-          ...this.sec('SEE ALSO', 'The permuted index, at the back.'),
+          ...this.sec('SEE ALSO', 'The index, at the back.'),
         ]);
       case 'contents':
         return this.contentsLeaf(folio, side);
@@ -529,15 +530,82 @@ export class FieldManualBinder {
     }
   }
 
+  /** Paper-inked "nullion" title wordmark with an occasional, restrained photocopier/glitch homage. */
+  private titleWordmark(): HTMLCanvasElement {
+    const { glyphs, width } = layoutWord('nullion');
+    const padX = 3;
+    const padY = 3;
+    const w = width + padX * 2;
+    const h = CELL_H + padY * 2;
+    const c = el('canvas', 'bd-t-wm');
+    c.width = w;
+    c.height = h;
+    c.style.width = `${w * 4}px`;
+    c.setAttribute('role', 'img');
+    c.setAttribute('aria-label', 'nullion');
+    const ctx = c.getContext('2d');
+    if (!ctx) return c;
+    ctx.imageSmoothingEnabled = false;
+
+    const INK = '#19191d';
+    const SHADOW = 'rgba(25, 25, 29, 0.14)';
+    const GHOST = 'rgba(62, 90, 154, 0.38)';
+    const FAINT = '#8e8c92';
+
+    let nextAt = performance.now() + 2600 + Math.random() * 2400;
+    let until = 0;
+    let kind = 0;
+    let pick = 0;
+    let dir = 1;
+    let bandY = 0;
+    let lastDrawn = -1;
+
+    const paint = (now: number) => {
+      const glitching = !reducedMotion() && now >= nextAt && now < until;
+      if (!reducedMotion() && now >= nextAt && until < nextAt) {
+        until = nextAt + 120 + Math.random() * 70;
+        kind = Math.floor(Math.random() * 3);
+        pick = Math.floor(Math.random() * glyphs.length);
+        dir = Math.random() < 0.5 ? -1 : 1;
+        bandY = padY + 2 + Math.floor(Math.random() * (CELL_H - 4));
+      } else if (!reducedMotion() && until >= nextAt && now >= until) {
+        nextAt = now + 4500 + Math.random() * 3500;
+      }
+      const stateKey = glitching ? 1 : 0;
+      if (stateKey === lastDrawn) return;
+      lastDrawn = stateKey;
+
+      ctx.clearRect(0, 0, w, h);
+      glyphs.forEach((g, i) => {
+        const isHit = glitching && i === pick;
+        if (isHit && kind === 0) {
+          // Subtle blue-pencil misregistration + 1px shift on a single letter.
+          drawGlyph(ctx, g.rows, padX + g.x - dir, padY, GHOST, 'transparent', 'transparent', '');
+          drawGlyph(ctx, g.rows, padX + g.x + dir, padY, INK, 'transparent', SHADOW, '');
+        } else if (isHit && kind === 1) {
+          // Brief toner skip on one letter.
+          drawGlyph(ctx, g.rows, padX + g.x, padY + 1, FAINT, 'transparent', 'transparent', '');
+        } else {
+          drawGlyph(ctx, g.rows, padX + g.x, padY, INK, 'transparent', SHADOW, '');
+        }
+      });
+
+      if (glitching && kind === 2) {
+        // Tiny 2px horizontal plate-shear slice.
+        const slice = ctx.getImageData(0, bandY, w, 2);
+        ctx.clearRect(0, bandY, w, 2);
+        ctx.putImageData(slice, dir, bandY);
+      }
+    };
+
+    paint(0);
+    if (!reducedMotion()) this.live.add(() => paint(performance.now()));
+    return c;
+  }
+
   private titleLeaf(folio: string, side: 'l' | 'r'): Node[] {
     const t = el('div', 'bd-titlepage');
-    t.append(
-      el('div', 'bd-t-big', 'nullion Field Manual'),
-      el('div', 'bd-t-mid', 'Volume I: The Stack and Its Inhabitants'),
-      el('div', 'bd-t-small', 'Ten chapters, from Application to Ring −3'),
-      el('div', 'bd-t-small', 'Field Distribution · First Edition'),
-      el('div', 'bd-t-small', 'Compiled by the reader'),
-    );
+    t.append(this.titleWordmark(), el('div', 'bd-t-sub', 'Field Manual'));
     const n = manualStore.foundCount();
     if (n) t.append(el('div', 'bd-pencil bd-pencil-block', `${n} logged so far`));
     return this.frame('', folio, side, [t]);

@@ -62,9 +62,9 @@
 .bd-link { font: inherit; font-weight: 700; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-thickness: 1px; }
 
 /* front matter */
-.bd-titlepage { text-align: center; padding-top: 48px; }
-.bd-t-big { font-size: 28px; font-weight: 700; } .bd-t-mid { font-size: 19px; font-style: italic; margin: 4px 0 32px; }
-.bd-t-small { font-size: 14px; line-height: 1.6; }
+.bd-titlepage { text-align: center; padding-top: 84px; display: flex; flex-direction: column; align-items: center; }
+.bd-t-wm { display: block; max-width: 100%; height: auto; image-rendering: pixelated; }
+.bd-t-sub { font-size: 24px; font-weight: 700; letter-spacing: 0.02em; margin-top: 10px; }
 
 /* contents and chapter lists */
 .bd-ct { margin-top: 4px; }
