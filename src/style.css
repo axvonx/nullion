@@ -736,7 +736,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 
 .title-logo {
   display: block;
-  width: min(620px, calc(100vw - 20px), max(180px, calc((100dvh - var(--logo-bottom) - 12px) * 2.5)));
+  width: min(620px, calc(100vw - 20px));
   height: auto;
   aspect-ratio: 75 / 30;
   image-rendering: pixelated;
@@ -1204,8 +1204,11 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   }
 }
 
-/* Short landscape viewports (e.g. phone landscape 844×390): tighten title CTA so nothing clips past bottom. */
+/* Short landscape viewports (e.g. phone landscape 844×390): scale title logo & tighten CTA so nothing clips. */
 @media (max-height: 480px) {
+  .title-logo {
+    width: min(620px, calc(100vw - 20px), max(180px, calc((100dvh - var(--logo-bottom) - 12px) * 2.5)));
+  }
   .title-foot {
     gap: 6px;
     padding: 8px 14px 9px;

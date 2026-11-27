@@ -137,7 +137,16 @@ function bannerState(tier: 'bitflip' | 'womm', rel: number, reduced: boolean): N
     const locked = rel >= B.climaxAt;
     const top = reduced || locked ? 1 : clamp01((rel - B.topAt) / B.sparkDur);
     const bottom = reduced || locked ? 1 : clamp01((rel - B.bottomAt) / B.sparkDur);
-    const dim = locked ? 0 : reduced ? 0.92 : clamp01((rel - B.topAt) / 220) * 0.94;
+    // Keep the backdrop dim for a crisp inverted readability beat (450ms), then fade it back into view before diving.
+    const dimFadeStart = B.climaxAt + 450;
+    const dimFadeDur = 350;
+    const dim = locked
+      ? reduced
+        ? 0
+        : (1 - clamp01((rel - dimFadeStart) / dimFadeDur)) * 0.94
+      : reduced
+        ? 0.92
+        : clamp01((rel - B.topAt) / 220) * 0.94;
     const dissolveStart = B.holdEnd - 300;
     const dissolve = locked ? clamp01((rel - dissolveStart) / (B.holdEnd - dissolveStart)) : 0;
     return { top, bottom, dim, locked, dissolve, frozen: false };

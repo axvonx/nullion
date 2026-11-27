@@ -573,8 +573,10 @@ export class Hud {
     if (!scene) return;
     const mark = scene.markCss();
     const vh = window.innerHeight || 800;
-    const gap = Math.max(8, Math.min(28, Math.round(vh * 0.03)));
-    const logoBottom = Math.min(vh - 64, Math.max(vh * 0.56, vh - (mark.top - gap)));
+    const short = vh <= 480;
+    const gap = Math.max(short ? 8 : 14, Math.min(28, Math.round(vh * 0.03)));
+    const rawLogoBottom = Math.max(vh * 0.56, vh - (mark.top - gap));
+    const logoBottom = short ? Math.min(vh - 64, rawLogoBottom) : rawLogoBottom;
     const footTop = Math.min(vh * 0.52, mark.bottom + gap);
     const st = this.els.titleScreen!.style;
     st.setProperty('--logo-bottom', `${Math.round(logoBottom)}px`);

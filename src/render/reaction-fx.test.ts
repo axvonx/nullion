@@ -68,7 +68,9 @@ describe('reaction timelines', () => {
     const climax = reactionFrame('bitflip', NULLION_BANNER.climaxAt + 10, true, false);
     expect(climax.flip).toBe('invert');
     expect(climax.banner!.locked).toBe(true);
-    expect(climax.banner!.dim).toBe(0);
+    expect(climax.banner!.dim).toBeGreaterThan(0.8);
+    const faded = reactionFrame('bitflip', NULLION_BANNER.holdEnd - 50, true, false);
+    expect(faded.banner!.dim).toBe(0);
     const after = reactionFrame('bitflip', NULLION_BANNER.holdEnd + 10, true, false);
     expect(after.banner).toBeNull();
     expect(after.flip).toBe('invert');
