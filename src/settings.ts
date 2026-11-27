@@ -12,6 +12,6 @@ export interface Settings {
   answerSet: string;
 }
 
-export const DEFAULT_SETTINGS: Settings = { mode: 'play', date: '', timer: true, unlimited: false, answerSet: 'sample' };
+export const DEFAULT_SETTINGS: Settings = { mode: 'play', date: '', timer: true, unlimited: false, answerSet: 'bank' };
 
 export const settings = persisted<Settings>('nullion.settings', DEFAULT_SETTINGS);

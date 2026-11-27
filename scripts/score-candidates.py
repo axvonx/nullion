@@ -2,7 +2,12 @@
 """Score candidate answers against the local corpora and assign tiers (pilot of option 3: counts + hand pins).
 
 Usage: python3 -I scripts/score-candidates.py scripts/pilot/candidates.json ~/nullion-corpora
-Writes one file per category to src/data/generated/categories/<tag>.json, and scripts/pilot/report.md.
+Merges into the human-edited bank (bank/<domain>/<tag>.md; grammar in src/data/bank-format.ts) and writes a
+report per category to bank/reports/<tag>.md. The human file always wins:
+- a category file with no tiered answers yet (a fresh draft) gets its tiers filled in;
+- once it has tiered answers, nothing in it is moved or deleted. New candidates are appended to its Inbox with a
+  suggested tier, and the report lists answers whose file tier and scored tier differ by more than one.
+Every tag in the candidates file must already have a bank file.
 
 Evidence for an entry = rows matching ANY of its phrases (name, `search` phrases, and multi-word or long aliases),
 counted per corpus table. An entry whose words mean something else elsewhere ("rope" in robotics, "IDR" as an
@@ -56,17 +61,54 @@ def fts_query(ps: list[str]) -> str:
     return " OR ".join('"' + p.replace('"', '""') + '"' for p in ps)
 
 
-def sample_tiers() -> dict[str, dict[str, str]]:
-    """Parse the hand-written sample's category blocks: {tag: {lowercased name: tier}}."""
-    src = (REPO / "src" / "data" / "sample.ts").read_text()
-    out: dict[str, dict[str, str]] = {}
-    for m in re.finditer(r"category\('([^']+)', \[(.*?)\n\], terms\);", src, re.S):
-        tiers = {"off-by-one", "womm", "npe", "leak", "race", "heisenbug", "bitflip"}
-        # Rows look like ['name', 'tier', [aliases]]; alias arrays also match the pattern, so keep only real tiers.
-        out[m.group(1)] = {n.lower(): t for n, t in re.findall(r"\[\s*'([^']+)',\s*'([^']+)'", m.group(2)) if t in tiers}
-    if not out:
-        raise RuntimeError("could not parse any categories from sample.ts")
-    return out
+TIER_HEADINGS = {"Off-by-one": "off-by-one", "Works on my machine": "womm", "Null pointer exception": "npe",
+                 "Memory leak": "leak", "Race condition": "race", "Heisenbug": "heisenbug", "Bit Flip": "bitflip"}
+HEADING_OF = {v: k for k, v in TIER_HEADINGS.items()}
+ORDER = list(HEADING_OF)
+SUGGESTED = re.compile(r"^(.*?)\s+\(suggested: ([a-z-]+)\)$")
+
+
+def bank_file(tag: str) -> pathlib.Path:
+    hits = [h for h in (REPO / "bank").glob(f"*/{tag}.md") if h.parent.name != "reports"]
+    if len(hits) != 1:
+        raise RuntimeError(f"{tag}: expected exactly one bank/<domain>/{tag}.md, found {len(hits)}")
+    return hits[0]
+
+
+def read_bank(path: pathlib.Path) -> dict:
+    """Lenient reader for merging (the strict grammar lives in bank-format.ts and runs in npm test)."""
+    head, tiers, inbox, section = [], {}, [], None
+    for line in path.read_text().split("\n"):
+        if line.startswith("## "):
+            section = TIER_HEADINGS.get(line[3:].strip(), "inbox" if line[3:].strip() == "Inbox" else None)
+            if section is None:
+                raise RuntimeError(f"{path}: unknown section {line!r}")
+        elif section is None:
+            if line.strip():
+                head.append(line)
+        elif line.startswith("- "):
+            body = line[2:].strip()
+            if section == "inbox":
+                m = SUGGESTED.match(body)
+                names = (m.group(1) if m else body).split(" | ")
+                inbox.append({"names": names, "suggested": m.group(2) if m else None, "line": line})
+            else:
+                tiers[body.split(" | ")[0].lower()] = section
+                tiers.setdefault("_lines", []).append((section, line))
+        elif line.strip() and section != "inbox" and tiers.get("_lines"):
+            tiers["_lines"].append((section, line))  # an indented note follows its answer
+    lines = tiers.pop("_lines", [])
+    keys = set(tiers)
+    for e in inbox:
+        keys |= {n.lower() for n in e["names"]}
+    for _, l in lines:
+        if l.startswith("- "):
+            keys |= {n.lower() for n in l[2:].strip().split(" | ")}
+    return {"head": head, "tiers": tiers, "lines": lines, "inbox": inbox, "keys": keys}
+
+
+def entry_line(e: dict) -> str:
+    return "- " + " | ".join([e["name"], *[a for a in e.get("aliases", []) if a.lower() != e["name"].lower()]])
 
 
 def main() -> None:
@@ -78,12 +120,13 @@ def main() -> None:
     tables = [t for t in TABLES if t in present]
     if not tables:
         raise RuntimeError("no corpus tables indexed")
-    sample = sample_tiers()
 
-    outputs, report = {}, ["# Pilot scoring report", "", f"Corpora: {', '.join(tables)}. score = Σ weight × min(1, log1p(count)/log1p(reference)) / Σ weight, reference = count ranked {NORM_RANK + 1} in the category; weights {WEIGHTS}; cut-offs {CUTOFFS}.", ""]
+    merged, reports = {}, {}
+    HEADER = ["# Scoring report", "", f"Corpora: {', '.join(tables)}. score = Σ weight × min(1, log1p(count)/log1p(reference)) / Σ weight, reference = count ranked {NORM_RANK + 1} in the category; weights {WEIGHTS}; cut-offs {CUTOFFS}.", ""]
     for tag, entries in cands.items():
         if tag.startswith("_"):
             continue
+        report = [*HEADER]
         names = [e["name"].lower() for e in entries]
         dupes = {n for n in names if names.count(n) > 1}
         if dupes:
@@ -143,10 +186,12 @@ def main() -> None:
                 if r["score"] == 0:
                     r["flag"] = "no evidence"
 
+        path = bank_file(tag)
+        bank = read_bank(path)
+        theirs = bank["tiers"]
         ours = {r["e"]["name"].lower() for r in rows}
-        theirs = sample.get(tag, {})
         report += [f"## {tag}", "", f"{len(rows)} candidates; {sum(1 for r in rows if r.get('flag'))} with no evidence.", ""]
-        report += ["| answer | " + " | ".join(tables) + " | score | tier | source | judge | sample tier |", "|---" * (len(tables) + 6) + "|"]
+        report += ["| answer | " + " | ".join(tables) + " | score | tier | source | judge | bank file |", "|---" * (len(tables) + 6) + "|"]
         for r in sorted(rows, key=lambda r: -r["score"]):
             name = r["e"]["name"]
             st = theirs.get(name.lower(), "—")
@@ -155,27 +200,47 @@ def main() -> None:
             report.append(
                 f"| {name}{flag} | " + " | ".join(str(r["counts"][t]) for t in tables) + f" | {r['score']:.2f} | {r['tier']} | {r['source']} | {r['e'].get('judge', '—')} | {st}{mark} |"
             )
-        only_sample = sorted(set(theirs) - ours)
+        only_bank = sorted(set(theirs) - ours)
+        far = [r for r in rows if r["e"]["name"].lower() in theirs and theirs[r["e"]["name"].lower()] in LADDER
+               and r["tier"] in LADDER and abs(LADDER.index(theirs[r["e"]["name"].lower()]) - LADDER.index(r["tier"])) > MAX_DISAGREE]
         flagged = [r for r in rows if r.get("flag", "").startswith("counts said")]
         report += ["", f"Counts vs judgement disagreed by more than {MAX_DISAGREE} tier (judgement used, please review): "
                    + (", ".join(f"{r['e']['name']} ({r['flag']}, now {r['tier']})" for r in flagged) or "none")]
-        report += ["", f"In the sample but not the pilot: {', '.join(only_sample) if only_sample else 'none'}", ""]
+        report += ["", "Your file tier and the scored tier differ by more than one (your file wins; worth a look): "
+                   + (", ".join(f"{r['e']['name']} (file {theirs[r['e']['name'].lower()]}, scored {r['tier']})" for r in far) or "none")]
+        report += ["", f"In the bank file but not scored: {', '.join(only_bank) if only_bank else 'none'}", ""]
 
-        terms = []
-        for r in rows:
-            e = r["e"]
-            t = {"name": e["name"], "tier": r["tier"]}
-            if e.get("aliases"):
-                t["aliases"] = e["aliases"]
-            terms.append(t)
-        outputs[tag] = {"tag": tag, "terms": terms}
+        if not bank["lines"]:
+            # Fresh draft: fill the tiers. Keep inbox items the candidates don't cover.
+            scored = {n.lower() for r in rows for n in [r["e"]["name"], *r["e"].get("aliases", [])]}
+            out = list(bank["head"])
+            for t in ORDER:
+                es = [r["e"] for r in rows if r["tier"] == t]
+                if es:
+                    out += ["", f"## {HEADING_OF[t]}", *[entry_line(e) for e in es]]
+            keep = [e["line"] for e in bank["inbox"] if not any(n.lower() in scored for n in e["names"])]
+            if keep:
+                out += ["", "## Inbox", *keep]
+            path.write_text("\n".join(out) + "\n")
+            merged[tag] = f"filled {len(rows)} answers"
+        else:
+            new = [r for r in rows if not ({n.lower() for n in [r["e"]["name"], *r["e"].get("aliases", [])]} & bank["keys"])]
+            if new:
+                text = path.read_text().rstrip("\n")
+                if not bank["inbox"] and "\n## Inbox" not in text:
+                    text += "\n\n## Inbox"
+                text += "\n" + "\n".join(f"{entry_line(r['e'])} (suggested: {r['tier']})" for r in new)
+                path.write_text(text + "\n")
+            merged[tag] = f"{len(new)} new candidates to the Inbox"
+        reports[tag] = report
 
-    out_dir = REPO / "src" / "data" / "generated" / "categories"
+    out_dir = REPO / "bank" / "reports"
     out_dir.mkdir(parents=True, exist_ok=True)
-    for tag, body in outputs.items():
-        (out_dir / f"{tag}.json").write_text(json.dumps(body, indent=1, ensure_ascii=False) + "\n")
-    (REPO / "scripts" / "pilot" / "report.md").write_text("\n".join(report) + "\n")
-    print(f"wrote {len(outputs)} category files to {out_dir.relative_to(REPO)} and scripts/pilot/report.md")
+    for tag, rep_lines in reports.items():
+        (out_dir / f"{tag}.md").write_text("\n".join(rep_lines) + "\n")
+    for tag, what in merged.items():
+        print(f"{tag}: {what}")
+    print("then: npm run bank:index && npm test")
 
 
 if __name__ == "__main__":

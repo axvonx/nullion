@@ -35,7 +35,8 @@ The user's time is the scarce resource, so per category the only manual work sho
    - Tier by absolute cut-offs on the normalized score instead of fixed shares of the list. Shares depend on what's in the list: mining hundreds of obscure candidates would push spinlock deeper still.
    - Calibrate the cut-offs on the two pilot categories plus one new category, then freeze them.
    - Split the generated data per category (`src/data/generated/<id>.json`) and fetch only the day's 7 files. A static import of every category won't scale past a few dozen.
-1. **Category bank.**
+1. **Category bank. Format and drafts done 2026-11-26:** Markdown bank (`bank/`, format in `CLAUDE.md`), with 186 draft prompts from 4 Haiku agents after removing 22 cross-domain duplicates. Their example answers are unverified. Next: harvest candidates per draft and run the admission test below.
+   - Original plan:
    - Draft about 250 candidate prompts across systems, languages, architecture, networking, databases, graphics and game engines, security and computing history. Theoretical CS gets a lighter weight.
    - Admit a category automatically only when its harvest (stage 2) yields:
      - at least 40 candidate answers;

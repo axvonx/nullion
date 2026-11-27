@@ -9,6 +9,7 @@
     "build:debug": "tsc --noEmit && VITE_DEBUG=1 vite build --outDir dist-debug",
     "preview": "vite preview",
     "test": "vitest run",
+    "bank:index": "UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

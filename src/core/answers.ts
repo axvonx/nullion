@@ -21,6 +21,8 @@ export interface AnswerSet {
 export interface AnswerSetSource {
   id: string;
   label: string;
+  /** Every question this source can ask; a game picks from these, then loads only what it picked. */
+  pool: readonly Question[];
   load(questions: readonly Question[]): Promise<AnswerSet>;
 }
 

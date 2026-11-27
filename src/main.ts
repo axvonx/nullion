@@ -6,7 +6,7 @@ import { enforce } from './core/enforce';
 import { formatLocalDate, parseLocalDate, pickForDay, puzzleNumber } from './core/day';
 import { PROMPTS_PER_DAY } from './core/layers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from './data/sample';
-import { loadPilotTerms } from './data/pilot';
+import { BANK_QUESTIONS, loadBankTerms } from './data/bank';
 import { Game } from './game/game';
 import { LOOK_SLOTS, looks, type LookSlot } from './looks';
 import { Scene } from './render/scene';
@@ -20,15 +20,17 @@ import { Hud } from './ui/hud';
 const DEBUG = import.meta.env.DEV || import.meta.env.VITE_DEBUG === '1';
 
 const SETS: Record<string, AnswerSetSource> = {
+  bank: {
+    id: 'bank',
+    label: 'Answer bank (approved categories in bank/)',
+    pool: BANK_QUESTIONS,
+    load: async (qs) => buildAnswerSet('bank', 'Answer bank', await loadBankTerms(qs.map((q) => q.id)), qs),
+  },
   sample: {
     id: 'sample',
-    label: 'Hand-written sample',
+    label: 'Hand-written sample (src/data/sample.ts)',
+    pool: SAMPLE_QUESTIONS,
     load: async (qs) => buildAnswerSet('sample', 'Hand-written sample', SAMPLE_TERMS, qs),
-  },
-  pilot: {
-    id: 'pilot',
-    label: 'Pilot: corpus-scored locks + data structures',
-    load: async (qs) => buildAnswerSet('pilot', 'Pilot', await loadPilotTerms(qs.map((q) => q.tag)), qs),
   },
 };
 
@@ -68,12 +70,12 @@ async function boot() {
   const startDay = async () => {
     const gen = ++restartGen;
     const s = activeSettings();
-    const source = SETS[s.answerSet] ?? SETS.sample!;
+    const source = SETS[s.answerSet] ?? SETS.bank!;
     const date = s.date ? parseLocalDate(s.date) : new Date();
     const daySeed = puzzleNumber(date);
     const mode = endlessMode ? 'endless' : 'daily';
     // Load only what this game asks: the day's prompts, or the whole pool for Endless.
-    const questions = mode === 'daily' ? pickForDay(SAMPLE_QUESTIONS, daySeed, PROMPTS_PER_DAY) : SAMPLE_QUESTIONS;
+    const questions = mode === 'daily' ? pickForDay(source.pool, daySeed, PROMPTS_PER_DAY) : source.pool;
     const set = await source.load(questions);
     if (gen !== restartGen) return;
     game = new Game(set, daySeed, { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect, mode });

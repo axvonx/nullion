@@ -1,48 +1,63 @@
 import { enforce } from '../core/enforce';
-import { TIER_IDS, type TierId } from '../core/tiers';
-import type { Term } from './sample';
+import { parseBankFile, parseIndex, type BankCategory, type IndexRow } from './bank-format';
+import type { Question, Term } from './sample';
+import indexText from '../../bank/index.md?raw';
 
 /**
- * Generated categories: one JSON file per category tag, written by scripts/score-candidates.py into
- * src/data/generated/categories/<tag>.json. Each file is its own lazy chunk, so a day fetches only the
- * categories it plays rather than the whole bank.
+ * The answer bank: bank/<domain>/<id>.md, one human-edited Markdown file per category (grammar in
+ * bank-format.ts). bank/index.md is the manifest the page reads to know which questions exist; each category
+ * file is its own lazy chunk, so a day fetches only the categories it plays.
  */
-interface CategoryFile {
-  tag: string;
-  terms: { name: string; aliases?: string[]; tier: string }[];
+
+const FILES = import.meta.glob(['../../bank/*/*.md', '!../../bank/reports/*.md'], { query: '?raw', import: 'default' }) as Record<string, () => Promise<string>>;
+
+interface FileRef {
+  path: string;
+  domain: string;
+  load: () => Promise<string>;
 }
 
-const FILES = import.meta.glob('./generated/categories/*.json', { import: 'default' }) as Record<string, () => Promise<unknown>>;
-
-const LOADERS = new Map<string, () => Promise<unknown>>();
+const BY_ID = new Map<string, FileRef>();
 for (const [path, load] of Object.entries(FILES)) {
-  const m = /\/([^/]+)\.json$/.exec(path);
+  const m = /bank\/([^/]+)\/([^/]+)\.md$/.exec(path);
   enforce(m, `bank: unexpected category path ${path}`);
-  LOADERS.set(m[1]!, load);
+  const [, domain, id] = m as unknown as [string, string, string];
+  enforce(!BY_ID.has(id), `bank: category id ${id} exists in two domains`);
+  BY_ID.set(id, { path: `bank/${domain}/${id}.md`, domain, load });
 }
 
-/** Tags that have a generated category file. */
-export const GENERATED_TAGS: ReadonlySet<string> = new Set(LOADERS.keys());
+export const BANK_INDEX: readonly IndexRow[] = parseIndex(indexText);
+for (const r of BANK_INDEX) enforce(BY_ID.has(r.id), `bank/index.md lists ${r.id}, which has no file (run npm run bank:index)`);
+enforce(BANK_INDEX.length === BY_ID.size, `bank/index.md has ${BANK_INDEX.length} rows for ${BY_ID.size} files (run npm run bank:index)`);
 
-function asTier(t: unknown, where: string): TierId {
-  enforce(typeof t === 'string' && (TIER_IDS as readonly string[]).includes(t), `${where}: unknown tier ${String(t)}`);
-  return t as TierId;
+function toQuestion(r: IndexRow): Question {
+  return { id: r.id, tag: r.id, call: `name_a(${r.id.replaceAll('-', '_')})`, prompt: r.prompt };
 }
 
-/** Validate a category file's shape: JSON is typed structurally, so check it instead of trusting a cast. */
-export function parseCategory(tag: string, raw: unknown): Term[] {
-  const f = raw as CategoryFile;
-  enforce(f && typeof f === 'object' && Array.isArray(f.terms), `${tag}.json: expected { tag, terms: [] }`);
-  enforce(f.tag === tag, `${tag}.json: file declares tag ${String(f.tag)}`);
-  return f.terms.map((t) => {
-    enforce(typeof t.name === 'string' && t.name.length > 0, `${tag}.json: term without a name`);
-    enforce(t.aliases === undefined || (Array.isArray(t.aliases) && t.aliases.every((a) => typeof a === 'string')), `${tag}.json: ${t.name} has bad aliases`);
-    return { name: t.name, ...(t.aliases ? { aliases: t.aliases } : {}), tags: { [tag]: asTier(t.tier, `${tag}.json: ${t.name}`) } };
-  });
+/** Questions the game may ask: approved categories only. */
+export const BANK_QUESTIONS: readonly Question[] = BANK_INDEX.filter((r) => r.status === 'approved').map(toQuestion);
+
+export async function loadBankCategory(id: string): Promise<BankCategory> {
+  const ref = BY_ID.get(id);
+  enforce(ref, `bank: no category ${id}`);
+  const c = parseBankFile(ref.path, await ref.load());
+  enforce(c.id === id, `${ref.path}: header says id ${c.id}, file name says ${id}`);
+  enforce(c.domain === ref.domain, `${ref.path}: header says domain ${c.domain}, folder says ${ref.domain}`);
+  return c;
 }
 
-export async function loadCategory(tag: string): Promise<Term[]> {
-  const load = LOADERS.get(tag);
-  enforce(load, `bank: no generated category ${tag}`);
-  return parseCategory(tag, await load());
+/** A category's playable answers as terms. Inbox candidates are not playable until moved into a tier. */
+export function categoryTerms(c: BankCategory): Term[] {
+  return c.entries.map((e) => ({
+    name: e.name,
+    ...(e.aliases.length ? { aliases: e.aliases } : {}),
+    tags: { [c.id]: e.tier },
+    ...(e.note ? { note: e.note } : {}),
+  }));
+}
+
+export async function loadBankTerms(ids: readonly string[]): Promise<Term[]> {
+  const cats = await Promise.all([...new Set(ids)].map(loadBankCategory));
+  for (const c of cats) enforce(c.status === 'approved', `bank: ${c.id} is ${c.status}, not approved`);
+  return cats.flatMap(categoryTerms);
 }
