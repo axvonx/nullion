@@ -27,12 +27,41 @@ id: sorting-algorithm · domain: data-graphics-algorithms · status: approved
 - introsort | introspective sort
 - cocktail shaker sort | cocktail sort | shaker sort
 - comb sort
+- gnome sort (auto)
+- odd–even sort | brick sort | odd–even transposition sort | parity sort (auto)
+- pancake sorting (auto)
+- stooge sort (auto)
+- pigeonhole sort (auto)
+- bead sort (auto)
+- bitonic sorter | Bitonic mergesort (auto)
+- tree sort (auto)
+- patience sorting (auto)
+- strand sort (auto)
 
 ## Heisenbug
 - pdqsort | pattern-defeating quicksort
 - smoothsort
 - bitonic sort
 - library sort | gapped insertion sort
+- slowsort (auto)
+- Batcher odd–even mergesort (auto)
+- Burstsort (auto)
+- cycle sort (auto)
+- merge-insertion sort | Ford–Johnson algorithm | merge insertion (auto)
+- tournament sort (auto)
+- oscillating merge sort | oscillating sort (auto)
+- samplesort (auto)
+- Proxmap sort (auto)
+- multi-key quicksort | three-way radix quicksort (auto)
+- cubesort (auto)
+- Kirkpatrick–Reisch sort (auto)
+- hybridsort (auto)
+- straight selection sort (auto)
+- swapsort (auto)
+- exchange sort (auto)
+- pairwise sorting network (auto)
+- Powersort (auto)
+- Stalin sort (auto)
 
 ## Bit Flip
 - spaghetti sort

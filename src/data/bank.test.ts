@@ -27,6 +27,14 @@ describe('answer bank files', () => {
     expect(set.check('lock', 'spinlock')).toMatchObject({ kind: 'accepted', entry: { tier: 'off-by-one' } });
   });
 
+  it('accepts the deep programming languages the owner caught missing on day one', async () => {
+    const qs = BANK_QUESTIONS.filter((q) => q.id === 'programming-language');
+    const set = buildAnswerSet('bank', 'Bank', await loadBankTerms(qs.map((q) => q.id)), qs);
+    for (const g of ['BLISS', 'PL/1', 'PL/I', 'INTERCAL', 'MACRO-11', 'PlusCal', 'PILLAR']) {
+      expect(set.check('programming-language', g).kind, g).toBe('accepted');
+    }
+  });
+
   it('header id and domain match the file path', async () => {
     for (const r of BANK_INDEX) await expect(loadBankCategory(r.id)).resolves.toMatchObject({ id: r.id, domain: r.domain });
   });

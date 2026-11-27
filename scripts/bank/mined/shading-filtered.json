@@ -1,0 +1,307 @@
+[
+  {
+    "name": "Lambertian shading",
+    "aliases": ["Lambertian reflectance", "Lambert shading"],
+    "tier": "npe"
+  },
+  {
+    "name": "Half-Lambert",
+    "aliases": ["half-Lambert shading"],
+    "tier": "race"
+  },
+  {
+    "name": "Ward BRDF",
+    "aliases": ["Ward reflectance model", "Ward shading"],
+    "tier": "race"
+  },
+  {
+    "name": "GGX",
+    "aliases": ["Trowbridge-Reitz", "Trowbridge-Reitz GGX"],
+    "tier": "leak"
+  },
+  {
+    "name": "Beckmann",
+    "aliases": ["Beckmann distribution", "Beckmann microfacet"],
+    "tier": "race"
+  },
+  {
+    "name": "Ashikhmin-Shirley",
+    "aliases": ["Ashikhmin-Shirley BRDF"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Lafortune",
+    "aliases": ["Lafortune BRDF", "Lafortune reflectance model"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Disney BRDF",
+    "aliases": ["Disney principled BRDF", "principled BSDF"],
+    "tier": "leak"
+  },
+  {
+    "name": "He-Torrance-Sillion-Greenberg",
+    "aliases": ["HTSG BRDF", "He BRDF"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Torrance-Sparrow",
+    "aliases": ["Torrance-Sparrow BRDF"],
+    "tier": "race"
+  },
+  {
+    "name": "Hapke",
+    "aliases": ["Hapke BRDF", "Hapke reflectance model"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Schlick BRDF",
+    "aliases": ["Schlick approximation", "Schlick Fresnel"],
+    "tier": "leak"
+  },
+  {
+    "name": "Kajiya-Kay",
+    "aliases": ["Kajiya-Kay hair shading", "Kajiya-Kay model"],
+    "tier": "race"
+  },
+  {
+    "name": "Marschner",
+    "aliases": ["Marschner hair shading", "Marschner BCSDF"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Strauss shading",
+    "aliases": ["Strauss reflectance model"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Banks shading",
+    "aliases": ["Banks anisotropic shading"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Burley diffuse",
+    "aliases": ["Disney diffuse"],
+    "tier": "race"
+  },
+  {
+    "name": "Charlie sheen",
+    "aliases": ["Charlie BRDF"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Kulla-Conty",
+    "aliases": ["Kulla-Conty approximation"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Gooch shading",
+    "aliases": ["Gooch technical illustration"],
+    "tier": "leak"
+  },
+  {
+    "name": "Hatching",
+    "aliases": ["cross-hatching", "tonal art maps"],
+    "tier": "leak"
+  },
+  {
+    "name": "Halftone shading",
+    "aliases": ["halftoning", "Ben-Day shading"],
+    "tier": "leak"
+  },
+  {
+    "name": "Stipple shading",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "MatCap",
+    "aliases": ["matcap shading", "lit sphere"],
+    "tier": "leak"
+  },
+  {
+    "name": "Rim lighting",
+    "aliases": ["rim shading"],
+    "tier": "npe"
+  },
+  {
+    "name": "Wrap lighting",
+    "aliases": ["wrap shading", "wrapped diffuse"],
+    "tier": "race"
+  },
+  {
+    "name": "Forward shading",
+    "aliases": ["forward rendering"],
+    "tier": "npe"
+  },
+  {
+    "name": "Forward+",
+    "aliases": ["tiled forward shading", "forward plus"],
+    "tier": "leak"
+  },
+  {
+    "name": "Tiled deferred shading",
+    "aliases": ["tile-based deferred shading"],
+    "tier": "race"
+  },
+  {
+    "name": "Deferred lighting",
+    "aliases": ["light pre-pass"],
+    "tier": "race"
+  },
+  {
+    "name": "Variable rate shading",
+    "aliases": ["VRS", "coarse pixel shading"],
+    "tier": "leak"
+  },
+  {
+    "name": "Texture-space shading",
+    "aliases": ["texture space shading"],
+    "tier": "race"
+  },
+  {
+    "name": "Object-space shading",
+    "aliases": ["object space shading"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Decoupled deferred shading",
+    "aliases": ["decoupled sampling"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Reyes shading",
+    "aliases": ["micropolygon shading"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Bump mapping",
+    "aliases": [],
+    "tier": "npe"
+  },
+  {
+    "name": "Displacement mapping",
+    "aliases": [],
+    "tier": "npe"
+  },
+  {
+    "name": "Parallax occlusion mapping",
+    "aliases": ["POM"],
+    "tier": "leak"
+  },
+  {
+    "name": "Relief mapping",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Environment mapping",
+    "aliases": ["reflection mapping", "cubemap reflection"],
+    "tier": "npe"
+  },
+  {
+    "name": "Image-based lighting",
+    "aliases": ["IBL"],
+    "tier": "leak"
+  },
+  {
+    "name": "Lightmapping",
+    "aliases": ["lightmap", "baked lighting"],
+    "tier": "npe"
+  },
+  {
+    "name": "Radiosity",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "Path tracing",
+    "aliases": [],
+    "tier": "npe"
+  },
+  {
+    "name": "Photon mapping",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "Voxel cone tracing",
+    "aliases": ["VXGI"],
+    "tier": "race"
+  },
+  {
+    "name": "Precomputed radiance transfer",
+    "aliases": ["PRT"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Screen-space reflections",
+    "aliases": ["SSR"],
+    "tier": "leak"
+  },
+  {
+    "name": "Screen-space global illumination",
+    "aliases": ["SSGI"],
+    "tier": "race"
+  },
+  {
+    "name": "Virtual point lights",
+    "aliases": ["instant radiosity", "VPL"],
+    "tier": "race"
+  },
+  {
+    "name": "Reflective shadow maps",
+    "aliases": ["RSM"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Light propagation volumes",
+    "aliases": ["LPV"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "ReSTIR",
+    "aliases": ["reservoir resampling"],
+    "tier": "race"
+  },
+  {
+    "name": "Linearly transformed cosines",
+    "aliases": ["LTC"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Procedural shading",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "Neural shading",
+    "aliases": ["neural deferred shading"],
+    "tier": "race"
+  },
+  {
+    "name": "Relief shading",
+    "aliases": ["hillshading", "cartographic relief shading"],
+    "tier": "race"
+  },
+  {
+    "name": "Thin-film interference",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Spherical Gaussian lighting",
+    "aliases": ["SG lighting"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Ambient cube",
+    "aliases": ["ambient dice"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Hemisphere lighting",
+    "aliases": [],
+    "tier": "leak"
+  }
+]

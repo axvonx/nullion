@@ -50,8 +50,8 @@
 | quantum-algorithm | Name a quantum algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | query-optimization-technique | Name a query optimization technique | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | serialization-format | Name a data serialization format | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| shading-technique | Name a shading technique | data-graphics-algorithms | approved | 20 | 0 | 0 |
-| sorting-algorithm | Name a sorting algorithm | data-graphics-algorithms | approved | 21 | 0 | 0 |
+| shading-technique | Name a shading technique | data-graphics-algorithms | approved | 81 | 61 | 0 |
+| sorting-algorithm | Name a sorting algorithm | data-graphics-algorithms | approved | 50 | 29 | 0 |
 | storage-engine | Name a storage engine | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | stream-processing-system | Name a stream processing system | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | string-matching-algorithm | Name a string matching algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
@@ -109,7 +109,7 @@
 | x86-instruction | Name an x86 instruction | hardware-security-history | draft | 0 | 0 | 7 |
 | architectural-pattern | Name an architectural pattern | languages-tools | draft | 0 | 0 | 7 |
 | benchmarking-tool | Name a benchmarking tool | languages-tools | draft | 0 | 0 | 7 |
-| bug | Name a type of bug | languages-tools | approved | 26 | 0 | 0 |
+| bug | Name a type of bug | languages-tools | approved | 100 | 74 | 0 |
 | bug-tracker | Name a bug tracker | languages-tools | draft | 0 | 0 | 7 |
 | build-tool | Name a build tool | languages-tools | draft | 0 | 0 | 7 |
 | ci-service | Name a continuous integration service | languages-tools | draft | 0 | 0 | 7 |
@@ -137,7 +137,7 @@
 | package-manager | Name a package manager | languages-tools | draft | 0 | 0 | 7 |
 | parser-generator | Name a parser generator | languages-tools | draft | 0 | 0 | 7 |
 | profiler | Name a profiler | languages-tools | draft | 0 | 0 | 7 |
-| programming-language | Name a programming language | languages-tools | approved | 21 | 0 | 0 |
+| programming-language | Name a programming language | languages-tools | approved | 1874 | 1853 | 0 |
 | programming-paradigm | Name a programming paradigm | languages-tools | draft | 0 | 0 | 7 |
 | python-stdlib-module | Name a Python standard library module | languages-tools | approved | 263 | 261 | 4 |
 | refactoring | Name a refactoring | languages-tools | draft | 0 | 0 | 7 |
@@ -187,7 +187,7 @@
 | monitoring-system | Name a monitoring system | os-systems | draft | 0 | 0 | 7 |
 | network-protocol | Name a network protocol | os-systems | draft | 0 | 0 | 7 |
 | nvme-command | Name an NVMe command | os-systems | draft | 0 | 0 | 7 |
-| operating-system | Name an operating system | os-systems | approved | 21 | 0 | 0 |
+| operating-system | Name an operating system | os-systems | approved | 2064 | 2043 | 0 |
 | routing-protocol | Name a routing protocol | os-systems | draft | 0 | 0 | 7 |
 | socket-address-family | Name a socket address family | os-systems | draft | 0 | 0 | 7 |
 | systemd-directive | Name a systemd unit directive | os-systems | draft | 0 | 0 | 7 |

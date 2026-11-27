@@ -1,0 +1,372 @@
+[
+  {
+    "name": "Clickjacking",
+    "aliases": ["UI Redress Attack", "Tapjacking"],
+    "tier": "leak"
+  },
+  {
+    "name": "Tabnabbing",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "HTTP request splitting",
+    "aliases": ["HTTP response splitting"],
+    "tier": "race"
+  },
+  {
+    "name": "Log forging",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Stack-based buffer overflow",
+    "aliases": ["stack buffer overflow"],
+    "tier": "leak"
+  },
+  {
+    "name": "Heap-based buffer overflow",
+    "aliases": ["heap overflow", "heap buffer overflow"],
+    "tier": "leak"
+  },
+  {
+    "name": "Write-what-where condition",
+    "aliases": ["write-what-where"],
+    "tier": "race"
+  },
+  {
+    "name": "CSV injection",
+    "aliases": ["formula injection", "Excel macro injection"],
+    "tier": "race"
+  },
+  {
+    "name": "Buffer underwrite",
+    "aliases": ["buffer underrun", "buffer underflow"],
+    "tier": "leak"
+  },
+  {
+    "name": "Out-of-bounds read",
+    "aliases": ["OOB read"],
+    "tier": "leak"
+  },
+  {
+    "name": "Buffer over-read",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "Buffer under-read",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Out-of-bounds array index",
+    "aliases": ["index-out-of-range", "array index underflow"],
+    "tier": "npe"
+  },
+  {
+    "name": "Prototype pollution",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "ReDoS",
+    "aliases": ["catastrophic backtracking", "inefficient regular expression complexity"],
+    "tier": "leak"
+  },
+  {
+    "name": "Cross-site WebSocket hijacking",
+    "aliases": ["CSWSH"],
+    "tier": "race"
+  },
+  {
+    "name": "Prompt injection",
+    "aliases": [],
+    "tier": "npe"
+  },
+  {
+    "name": "Parser differential",
+    "aliases": ["insufficiently controlled parser differential"],
+    "tier": "race"
+  },
+  {
+    "name": "ANSI injection",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Improper null termination",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "Integer underflow",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "Unexpected sign extension",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Numeric truncation error",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "Information disclosure",
+    "aliases": ["information leak"],
+    "tier": "leak"
+  },
+  {
+    "name": "Path traversal",
+    "aliases": ["directory traversal"],
+    "tier": "leak"
+  },
+  {
+    "name": "Zip Slip",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Uncaught exception",
+    "aliases": [],
+    "tier": "npe"
+  },
+  {
+    "name": "Unchecked return value",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "Signal handler race condition",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Divide by zero",
+    "aliases": [],
+    "tier": "npe"
+  },
+  {
+    "name": "Resource exhaustion",
+    "aliases": ["uncontrolled resource consumption"],
+    "tier": "leak"
+  },
+  {
+    "name": "Resource leak",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "File descriptor leak",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "DLL preloading",
+    "aliases": ["binary planting"],
+    "tier": "race"
+  },
+  {
+    "name": "Dependency confusion",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Confused deputy",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "HTTP request smuggling",
+    "aliases": ["HTTP response smuggling", "HTTP smuggling"],
+    "tier": "race"
+  },
+  {
+    "name": "Use of uninitialized variable",
+    "aliases": ["uninitialized variable"],
+    "tier": "npe"
+  },
+  {
+    "name": "Reflection injection",
+    "aliases": ["unsafe reflection"],
+    "tier": "race"
+  },
+  {
+    "name": "Deserialization of untrusted data",
+    "aliases": ["PHP object injection"],
+    "tier": "leak"
+  },
+  {
+    "name": "HQL injection",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Open redirect",
+    "aliases": ["cross-site redirect", "cross-domain redirect", "unvalidated redirect"],
+    "tier": "leak"
+  },
+  {
+    "name": "Double-checked locking",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "XXE",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "Assertion failure",
+    "aliases": ["reachable assertion"],
+    "tier": "npe"
+  },
+  {
+    "name": "XPath injection",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "XQuery injection",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Uncontrolled recursion",
+    "aliases": [],
+    "tier": "leak"
+  },
+  {
+    "name": "Algorithm downgrade",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Mismatched memory management routines",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Command injection",
+    "aliases": ["OS command injection", "shell injection"],
+    "tier": "npe"
+  },
+  {
+    "name": "Billion laughs attack",
+    "aliases": ["XML bomb", "XEE"],
+    "tier": "race"
+  },
+  {
+    "name": "Out-of-bounds write",
+    "aliases": ["memory corruption"],
+    "tier": "leak"
+  },
+  {
+    "name": "Cross-site scripting",
+    "aliases": ["XSS", "HTML injection"],
+    "tier": "npe"
+  },
+  {
+    "name": "Dangling pointer",
+    "aliases": ["expired pointer dereference"],
+    "tier": "leak"
+  },
+  {
+    "name": "Type confusion",
+    "aliases": ["object type confusion"],
+    "tier": "race"
+  },
+  {
+    "name": "Argument injection",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "SQL injection",
+    "aliases": ["SQLi"],
+    "tier": "npe"
+  },
+  {
+    "name": "LDAP injection",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "XML injection",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Stale file descriptor",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Mass assignment",
+    "aliases": ["AutoBinding"],
+    "tier": "race"
+  },
+  {
+    "name": "EL injection",
+    "aliases": ["expression language injection"],
+    "tier": "race"
+  },
+  {
+    "name": "Server-side request forgery",
+    "aliases": ["SSRF", "XSPA"],
+    "tier": "leak"
+  },
+  {
+    "name": "Intent spoofing",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "CRLF injection",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Code injection",
+    "aliases": [],
+    "tier": "npe"
+  },
+  {
+    "name": "NoSQL injection",
+    "aliases": ["NoSQLi"],
+    "tier": "leak"
+  },
+  {
+    "name": "Eval injection",
+    "aliases": [],
+    "tier": "race"
+  },
+  {
+    "name": "Remote file inclusion",
+    "aliases": ["remote file include", "RFI", "local file inclusion"],
+    "tier": "leak"
+  },
+  {
+    "name": "Insecure direct object reference",
+    "aliases": ["IDOR"],
+    "tier": "leak"
+  },
+  {
+    "name": "Higgs-bugson",
+    "aliases": ["higgs bugson"],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Loch Ness monster bug",
+    "aliases": [],
+    "tier": "heisenbug"
+  },
+  {
+    "name": "Bit rot",
+    "aliases": ["software rot"],
+    "tier": "leak"
+  }
+]

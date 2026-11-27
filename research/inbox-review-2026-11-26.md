@@ -42,6 +42,13 @@ The filter's raw precision on kinds is about 89% for data structures: 11 of 101 
 11. **Over-short aliases:** the filter proposed `dev` and `fd` as aliases of devfs and fdescfs. Those are too generic for a game. An alias under 3 characters, or any common English word, should need review.
 12. **Scorer bug:** an alias repeated in a different case (FAT and fat) slipped past the scorer's de-duplication. The strict grammar caught it in `npm test`. It's fixed in `entry_line`.
 
+13. **Placeholders were approved without the pipeline (my mistake):** the 5 hand-written sample categories went live with 20 to 40 answers each. The owner found BLISS, PL/I, INTERCAL, MACRO-11, PlusCal and PILLAR rejected on day one. The repair:
+    - Wikidata class dumps for programming languages (1,853 added), operating systems (2,043) and sorting algorithms (29), tiered by sitelinks the way algillion does it;
+    - CWE plus jargon for bug types, filtered by Gemini (74);
+    - paper-title mining plus a recall boost for shading (61).
+14. **Wikidata's lowercase-label heuristic fails for some classes:** for "software bug" it let in "spiritual fraud", a French place name and a certificate-compromise notice. Wikidata class dumps need a membership filter unless the class is clean, as programming language and operating system are.
+15. **The game's normalizer folds more than a naive key:** `#` and `♯` both become "sharp", and names like `///` normalise to nothing. Merge scripts must use the game's exact normalize. `scripts/wikidata-merge.py` ports it.
+
 ## Implications for the full version
 
 - **Rule text:** add "a single subsystem's named struct type is an instance, not a kind" and "a name differing from a shallower answer only by inflection is its alias". Drop open-ended allowances like "hardware tables are allowed". Put allowances in the category's `> Accepts:` line instead.
