@@ -1,17 +1,16 @@
 # nullion roadmap
 
-Last updated 2026-11-26. This file is the single place for what's next. Locked decisions live in `CLAUDE.md`. The Endless stack design lives in `ENDLESS-PLAN.md`.
+Last updated 2026-11-27. This file is the single place for what's next. Locked decisions live in `CLAUDE.md`. The Endless stack design lives in `ENDLESS-PLAN.md`.
 
 ## Where things stand
 
-- **GUI and world: far ahead of content.**
-  - The title screen, the reveal flow, tier reactions, the console forms, sound and the favicon are all done.
-  - The v4 world has 29 layers, each with setpieces, 25+ props and critters.
-  - Endless mode is implemented, but only behind the debug toggle (`?endless=1`).
-- **Content: almost nothing.**
-  - There are 7 questions. Five use hand-written placeholder tiers (`src/data/sample.ts`). Two (lock, data structure) use the corpus-scored pilot (`scripts/score-candidates.py` → `src/data/generated/pilot.json`).
-  - A daily game needs about 7 new prompts a day. Endless draws from the same bank, so with 7 questions it repeats almost immediately.
-- **Content is now the bottleneck.** Further art passes have little value until there are enough questions to play the world through.
+Updated 2026-11-27.
+
+- **GUI, world and code: far ahead of content.** Title, reveal, tier reactions, console forms, sound, favicon done. 29 + 2 layers (one module each in `src/layers/`), 588 prop types at 20+ per layer, all following `ART-STYLE.md`. Endless and True Endless are debug-only. The refactor of 2026-11-27 left one module per layer, per mode, per entity.
+- **Answer bank: thin.** 34 approved categories (10 data/graphics/algorithms, 10 OS/systems, 7 hardware/security/history, 7 languages/tools) and 159 drafts. With 7 prompts a day, the 34 repeat about every 5 days. 4,168 of 7,884 approved answers link to a checked reference page.
+- **Answer matching: too literal.** A probe over the approved bank (2026-11-27): plurals and "a X" only land through the typo corrector (so "ask first" makes the player confirm), "the X" lands 1% of the time, "mutex lock"-style answers (answer + the prompt's own noun) 3%, and names of 4 letters or fewer get no typo forgiveness at all.
+- **Field Manual: built, mostly unwritten.** The binder ships; 38 approved pages, 347 LLM-drafted pages (debug only) from the naming desk, about 220 new entities still unnamed there.
+- **Content is the bottleneck**, then matching. Further art passes have little value until there are enough questions to play the world through.
 
 ## Milestone 1: question and answer generation (next)
 
