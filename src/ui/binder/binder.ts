@@ -14,6 +14,7 @@ import { LAYER_ART } from '../../layers';
 import { drawEntity, setPaint } from '../../render/v4/kit';
 import { V4_LIBRARIES } from '../../render/v4/libraries';
 import { drawTopicProp, TOPIC_PROPS } from '../../render/v4/topics';
+import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from '../../render/v4/watermark';
 
 /**
  * The Field Manual as an archive ring binder of manual pages (FIELD-MANUAL-PLAN.md). Layout comes from the pure
@@ -37,9 +38,9 @@ const LAYER_CODE: Record<LayerId, string> = {
   kernel: 'KERN',
   drivers: 'DRV',
   firmware: 'FW',
-  'ring-1': 'R−1',
-  'ring-2': 'R−2',
-  'ring-3': 'R−3',
+  'ring-1': 'R-1',
+  'ring-2': 'R-2',
+  'ring-3': 'R-3',
   internet: 'BGP',
   browser: 'DOM',
   bytecode: 'AST',
@@ -58,10 +59,59 @@ const LAYER_CODE: Record<LayerId, string> = {
   cmos: 'CMOS',
   litho: 'EUV',
   bandgap: 'GAP',
-  landauer: 'kT',
+  landauer: 'KT',
   'slab-spa': 'SLAB',
   'kthread-kabin': 'KTH',
 };
+
+/** Crisp 1x 5×7 bitmap SVG for compact habitat chips (same pixel font as the RHS layer stack). */
+function bitmapCode(code: string): SVGSVGElement {
+  const ns = 'http://www.w3.org/2000/svg';
+  const text = code.toUpperCase();
+  const w = Math.max(1, lineWidth(text));
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${w} ${GLYPH_H}`);
+  svg.setAttribute('width', String(w));
+  svg.setAttribute('height', String(GLYPH_H));
+  svg.setAttribute('shape-rendering', 'crispEdges');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.classList.add('bd-hab-code');
+  let x = 0;
+  for (const ch of text) {
+    if (ch === ' ') {
+      x += SPACE_W;
+      continue;
+    }
+    const rows = WATERMARK_GLYPHS[ch];
+    if (rows) {
+      for (let r = 0; r < GLYPH_H; r++) {
+        const row = rows[r]!;
+        for (let k = 0; k < GLYPH_W; k++) {
+          if (row[k] !== '1') continue;
+          const rect = document.createElementNS(ns, 'rect');
+          rect.setAttribute('x', String(x + k));
+          rect.setAttribute('y', String(r));
+          rect.setAttribute('width', '1');
+          rect.setAttribute('height', '1');
+          rect.setAttribute('fill', 'currentColor');
+          svg.append(rect);
+        }
+      }
+    }
+    x += GLYPH_W + 1;
+  }
+  return svg;
+}
+
+/** Deterministic 0..1 hash from a string key so stamp/note placement feels hand-stamped without jumping on re-render. */
+function hash01(seed: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i++) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return ((h >>> 0) % 1000) / 1000;
+}
 const PAGE_KEY = storageKey('manual.page');
 const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
@@ -605,13 +655,13 @@ export class FieldManualBinder {
     this.habPop.hidden = true;
   }
 
-  private showHabPop(anchor: HTMLElement, layer: LayerId, status: string, detail?: string) {
+  private showHabPop(anchor: HTMLElement, layer: LayerId, detail?: string) {
     const pop = this.habPop;
     const art = LAYER_ART[layer];
     const head = el('div', 'bd-hab-pop-head');
     const dot = el('i', 'bd-hab-pop-dot');
     dot.style.background = art.stackTheme.accent;
-    head.append(dot, el('b', '', LAYER_NAME.get(layer) ?? layer), el('span', 'bd-hab-pop-st', status));
+    head.append(dot, el('b', '', LAYER_NAME.get(layer) ?? layer));
     const nodes: Node[] = [head, el('div', 'bd-hab-pop-blurb', art.blurb)];
     if (detail) nodes.push(el('div', 'bd-hab-pop-det', detail));
     pop.replaceChildren(...nodes);
@@ -645,11 +695,10 @@ export class FieldManualBinder {
         cell.type = 'button';
         const accent = LAYER_ART[l].stackTheme.accent;
         cell.style.setProperty('--hb-accent', accent);
-        const status = isCurrent ? 'in figure' : seen ? 'logged' : present ? 'present' : 'not here';
         const fullName = LAYER_NAME.get(l) ?? l;
-        cell.setAttribute('aria-label', `${fullName}: ${status}`);
-        cell.append(el('span', 'bd-hab-code', LAYER_CODE[l]));
-        const open = () => this.showHabPop(cell, l, status, sighting?.detailNote);
+        cell.setAttribute('aria-label', `${fullName}${isCurrent ? ' (in figure)' : present ? ' (present)' : ''}`);
+        cell.append(bitmapCode(LAYER_CODE[l]));
+        const open = () => this.showHabPop(cell, l, sighting?.detailNote);
         cell.addEventListener('pointerenter', open);
         cell.addEventListener('focus', open);
         cell.addEventListener('pointerleave', () => this.hideHabPop());
@@ -716,8 +765,20 @@ export class FieldManualBinder {
         sound.stackCrunch(s.layer);
       }
       const foot = el('div', 'bd-sighting-foot');
+      // Subtle deterministic hand-stamped jitter, bounded so neither stamp nor note ever clips off the page.
+      const sx = Math.round((hash01(`${key}|sx`) - 0.5) * 24);
+      const sr = (-8 + hash01(`${key}|sr`) * 5.5).toFixed(1);
+      stamp.style.setProperty('--st-x', `${sx}px`);
+      stamp.style.setProperty('--st-r', `${sr}deg`);
       foot.append(stamp);
-      if (st.prompt) foot.append(el('div', 'bd-pencil bd-found', `found during “${st.prompt.toLowerCase()}” ✓`));
+      if (st.prompt) {
+        const found = el('div', 'bd-pencil bd-found', `found during “${st.prompt.toLowerCase()}” ✓`);
+        const fx = Math.round((hash01(`${key}|fx`) - 0.5) * 14);
+        const fr = (-1.6 + hash01(`${key}|fr`) * 2.8).toFixed(1);
+        found.style.setProperty('--fd-x', `${fx}px`);
+        found.style.setProperty('--fd-r', `${fr}deg`);
+        foot.append(found);
+      }
       body.push(foot);
     }
     return this.frame(tag, folio, side, body);
