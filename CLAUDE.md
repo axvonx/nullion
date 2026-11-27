@@ -4,7 +4,7 @@ A daily computing trivia game in the style of krillion.io. There are 7 prompts a
 
 Current stage: **offline playtest prototype.** The open question is which answer dataset and rarity strategy to use, and playtesting decides it. Don't build backend infrastructure before playtests justify it.
 
-What's next lives in `ROADMAP.md`; the next milestone is question and answer generation. The Endless stack's design lives in `ENDLESS-PLAN.md`, and the 29-layer setpiece/readability pass lives in `LAYER-PLAN.md`.
+The owner's open review queue (content approvals, naming, writing, feel checks) is `REVIEW.md`; check it first. What's next lives in `ROADMAP.md`; the next milestone is question and answer generation. The Endless stack's design lives in `ENDLESS-PLAN.md`, and the 29-layer setpiece/readability pass lives in `LAYER-PLAN.md`.
 
 ## Version
 
