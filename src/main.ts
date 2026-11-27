@@ -6,7 +6,7 @@ import { enforce } from './core/enforce';
 import { formatLocalDate, parseLocalDate, pickForDay, puzzleNumber } from './core/day';
 import { PROMPTS_PER_DAY, layerAt } from './core/layers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from './data/sample';
-import { BANK_QUESTIONS, loadBankTerms } from './data/bank';
+import { BANK_QUESTIONS, loadBankTerms, scheduledQuestions } from './data/bank';
 import { browserStorage, canPersistDaily, loadDaily, saveDaily, type SaveStorage } from './game/daily-save';
 import { Game } from './game/game';
 import { LOOK_SLOTS, looks, type LookSlot } from './looks';
@@ -25,12 +25,15 @@ const SETS: Record<string, AnswerSetSource> = {
     id: 'bank',
     label: 'Answer bank (approved categories in bank/)',
     pool: BANK_QUESTIONS,
+    // A frozen per-day schedule, so approving categories never reshuffles a day already in play.
+    daily: scheduledQuestions,
     load: async (qs) => buildAnswerSet('bank', 'Answer bank', await loadBankTerms(qs.map((q) => q.id)), qs),
   },
   sample: {
     id: 'sample',
     label: 'Hand-written sample (src/data/sample.ts)',
     pool: SAMPLE_QUESTIONS,
+    daily: (puzzle) => pickForDay(SAMPLE_QUESTIONS, puzzle, PROMPTS_PER_DAY),
     load: async (qs) => buildAnswerSet('sample', 'Hand-written sample', SAMPLE_TERMS, qs),
   },
 };
@@ -93,7 +96,7 @@ async function boot() {
     const daySeed = puzzleNumber(date);
     const mode = endlessMode ? 'endless' : 'daily';
     // Load only what this game asks: the day's prompts, or the whole pool for Endless.
-    const questions = mode === 'daily' ? pickForDay(source.pool, daySeed, PROMPTS_PER_DAY) : source.pool;
+    const questions = mode === 'daily' ? source.daily(daySeed) : source.pool;
     const set = await source.load(questions);
     if (gen !== restartGen) return;
     game = new Game(set, daySeed, { timer: s.timer, unlimited: s.unlimited, autocorrect: prefs.get().autocorrect, mode });

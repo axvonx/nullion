@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "bank:index": "UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts",
+    "bank:schedule": "UPDATE_SCHEDULE=1 vitest run src/data/schedule.test.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

@@ -2,6 +2,8 @@ import { enforce } from '../core/enforce';
 import { parseBankFile, parseIndex, playTier, type BankCategory, type IndexRow } from './bank-format';
 import type { Question, Term } from './sample';
 import indexText from '../../bank/index.md?raw';
+import scheduleText from '../../bank/schedule.md?raw';
+import { parseSchedule } from './schedule';
 
 /**
  * The answer bank: bank/<domain>/<id>.md, one human-edited Markdown file per category (grammar in
@@ -36,6 +38,20 @@ function toQuestion(r: IndexRow): Question {
 
 /** Questions the game may ask: approved categories only. */
 export const BANK_QUESTIONS: readonly Question[] = BANK_INDEX.filter((r) => r.status === 'approved').map(toQuestion);
+
+const SCHEDULE = parseSchedule(scheduleText);
+const QUESTION_BY_ID = new Map(BANK_INDEX.map((r) => [r.id, toQuestion(r)]));
+
+/** The day's prompts, in order, from bank/schedule.md. A missing day is a bug (CI keeps 14 days ahead). */
+export function scheduledQuestions(puzzle: number): Question[] {
+  const ids = SCHEDULE.get(puzzle);
+  enforce(ids, `bank/schedule.md has no row for puzzle #${puzzle} (run npm run bank:schedule)`);
+  return ids.map((id) => {
+    const q = QUESTION_BY_ID.get(id);
+    enforce(q, `bank/schedule.md: puzzle #${puzzle} asks ${id}, which is not in the bank`);
+    return q;
+  });
+}
 
 export async function loadBankCategory(id: string): Promise<BankCategory> {
   const ref = BY_ID.get(id);

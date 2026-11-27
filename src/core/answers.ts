@@ -21,8 +21,10 @@ export interface AnswerSet {
 export interface AnswerSetSource {
   id: string;
   label: string;
-  /** Every question this source can ask; a game picks from these, then loads only what it picked. */
+  /** Every question this source can ask (Endless draws from all of them). */
   pool: readonly Question[];
+  /** The questions a given puzzle asks. */
+  daily(puzzle: number): readonly Question[];
   load(questions: readonly Question[]): Promise<AnswerSet>;
 }
 
