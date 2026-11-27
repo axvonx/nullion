@@ -130,6 +130,13 @@ Debug-only for now (`?endless=1` or the header chip). A 29-layer stack to about 
 - **The "Answer set" menu** switches between `bank` (the default) and `sample` (the hand-written `src/data/sample.ts`, kept for comparison).
 - **Status, 2026-11-26:** 7 approved categories (lock and data structure are corpus-scored; the other five are hand-written placeholders) and 186 drafts. Each draft has a membership line and 7 example answers in its Inbox, written by Haiku agents and not yet verified.
 
+## Persistence
+
+- **Daily save (`src/game/daily-save.ts`, `Game.snapshot/restore`):** today's game lives in localStorage under `nullion.daily.<puzzle>`: every round's accepted answer, extras, rejected guesses, timeout/skip flags, the phase and its deadlines. Reopening the same local day restores it exactly; a finished day reopens on the end card; the next puzzle number starts fresh and old saves are pruned.
+- **Anti-cheese:** deadlines are wall-clock (`Date.now`, injected into `Game` as `now`; `src/game` never reads a clock). The reading start and the answer deadline are stored, answer deadlines chain from the end of reading, and a tick after being away replays reading, answering and the timeout. Closing, reloading or hiding the page never pauses or resets the watchdog.
+- **Not saved:** Endless and every debug mode (unlimited, chosen date, no timer, scroll-only, `?depth`) never read or write the save (`canPersistDaily`). No storage is an expected condition: the game just doesn't persist. A corrupt or mismatched save is never silently reset: it is removed, a visible notice says why, and the day starts fresh.
+- **End card:** counts down to local midnight and offers a reload once the next puzzle opens.
+
 ## Research
 
 - `research/krillion-internals.md`: how krillion and algillion validate and score answers, plus a survey of clones.
