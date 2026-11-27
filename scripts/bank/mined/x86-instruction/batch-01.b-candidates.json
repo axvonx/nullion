@@ -1,0 +1,2922 @@
+{
+ "x86-instruction": [
+  {
+   "name": "VPDPBSUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPBSUD",
+   "why": "VNNI int8 dot product"
+  },
+  {
+   "name": "VPDPBSUDS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPBSUDS",
+   "why": "VNNI int8 dot product, saturating"
+  },
+  {
+   "name": "VPDPBUSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPBUSD",
+   "why": "VNNI int8 dot product"
+  },
+  {
+   "name": "VPDPBUSDS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPBUSDS",
+   "why": "VNNI int8 dot product, saturating"
+  },
+  {
+   "name": "VPDPBUUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPBUUD",
+   "why": "VNNI int8 dot product"
+  },
+  {
+   "name": "VPDPBUUDS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPBUUDS",
+   "why": "VNNI int8 dot product, saturating"
+  },
+  {
+   "name": "VPDPWSSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPWSSD",
+   "why": "VNNI int16 dot product"
+  },
+  {
+   "name": "VPDPWSSDS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPWSSDS",
+   "why": "VNNI int16 dot product, saturating"
+  },
+  {
+   "name": "VPDPWSUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPWSUD",
+   "why": "VNNI int16 dot product"
+  },
+  {
+   "name": "VPDPWSUDS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPWSUDS",
+   "why": "VNNI int16 dot product, saturating"
+  },
+  {
+   "name": "VPDPWUSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPWUSD",
+   "why": "VNNI int16 dot product"
+  },
+  {
+   "name": "VPDPWUSDS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPWUSDS",
+   "why": "VNNI int16 dot product, saturating"
+  },
+  {
+   "name": "VPDPWUUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPWUUD",
+   "why": "VNNI int16 dot product"
+  },
+  {
+   "name": "VPDPWUUDS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPDPWUUDS",
+   "why": "VNNI int16 dot product, saturating"
+  },
+  {
+   "name": "VPERM2F128",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPERM2F128",
+   "why": "AVX lane permute"
+  },
+  {
+   "name": "VPERM2I128",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPERM2I128",
+   "why": "AVX2 lane permute"
+  },
+  {
+   "name": "VPERMB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMB",
+   "why": "AVX-512 VBMI byte permute"
+  },
+  {
+   "name": "VPERMD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPERMD",
+   "why": "AVX2 dword permute"
+  },
+  {
+   "name": "VPERMI2B",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMI2B",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMI2D",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMI2D",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMI2PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMI2PD",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMI2PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMI2PS",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMI2Q",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMI2Q",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMI2W",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMI2W",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMILPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPERMILPD",
+   "why": "AVX in-lane permute"
+  },
+  {
+   "name": "VPERMILPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPERMILPS",
+   "why": "AVX in-lane permute"
+  },
+  {
+   "name": "VPERMPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPERMPD",
+   "why": "AVX2 qword permute"
+  },
+  {
+   "name": "VPERMPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPERMPS",
+   "why": "AVX2 dword permute"
+  },
+  {
+   "name": "VPERMQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPERMQ",
+   "why": "AVX2 qword permute"
+  },
+  {
+   "name": "VPERMT2B",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMT2B",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMT2D",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMT2D",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMT2PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMT2PD",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMT2PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMT2PS",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMT2Q",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMT2Q",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMT2W",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMT2W",
+   "why": "AVX-512 two-table permute"
+  },
+  {
+   "name": "VPERMW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPERMW",
+   "why": "AVX-512 word permute"
+  },
+  {
+   "name": "VPEXPANDB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPEXPANDB",
+   "why": "AVX-512 VBMI2 expand"
+  },
+  {
+   "name": "VPEXPANDD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPEXPANDD",
+   "why": "AVX-512 expand"
+  },
+  {
+   "name": "VPEXPANDQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPEXPANDQ",
+   "why": "AVX-512 expand"
+  },
+  {
+   "name": "VPEXPANDW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPEXPANDW",
+   "why": "AVX-512 VBMI2 expand"
+  },
+  {
+   "name": "VPEXTRB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPEXTRB",
+   "why": "AVX vector extract byte"
+  },
+  {
+   "name": "VPEXTRD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPEXTRD",
+   "why": "AVX vector extract dword"
+  },
+  {
+   "name": "VPEXTRQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPEXTRQ",
+   "why": "AVX vector extract qword"
+  },
+  {
+   "name": "VPEXTRW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPEXTRW",
+   "why": "AVX vector extract word"
+  },
+  {
+   "name": "VPGATHERDD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPGATHERDD",
+   "why": "AVX2 gather"
+  },
+  {
+   "name": "VPGATHERDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPGATHERDQ",
+   "why": "AVX2 gather"
+  },
+  {
+   "name": "VPGATHERQD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPGATHERQD",
+   "why": "AVX2 gather"
+  },
+  {
+   "name": "VPGATHERQQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPGATHERQQ",
+   "why": "AVX2 gather"
+  },
+  {
+   "name": "VPHADDBD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDBD",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDBQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDBQ",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDBW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDBW",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPHADDD",
+   "why": "AVX2 horizontal add"
+  },
+  {
+   "name": "VPHADDDQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDDQ",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDSW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPHADDSW",
+   "why": "AVX2 horizontal add"
+  },
+  {
+   "name": "VPHADDUBD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDUBD",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDUBQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDUBQ",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDUBW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDUBW",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDUDQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDUDQ",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDUWD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDUWD",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDUWQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDUWQ",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPHADDW",
+   "why": "AVX2 horizontal add"
+  },
+  {
+   "name": "VPHADDWD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDWD",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHADDWQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHADDWQ",
+   "why": "XOP horizontal add"
+  },
+  {
+   "name": "VPHMINPOSUW",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VPHMINPOSUW",
+   "why": "SSE4.1 horizontal minimum"
+  },
+  {
+   "name": "VPHSUBBW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHSUBBW",
+   "why": "XOP horizontal subtract"
+  },
+  {
+   "name": "VPHSUBD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPHSUBD",
+   "why": "AVX2 horizontal subtract"
+  },
+  {
+   "name": "VPHSUBDQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHSUBDQ",
+   "why": "XOP horizontal subtract"
+  },
+  {
+   "name": "VPHSUBSW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPHSUBSW",
+   "why": "AVX2 horizontal subtract"
+  },
+  {
+   "name": "VPHSUBW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPHSUBW",
+   "why": "AVX2 horizontal subtract"
+  },
+  {
+   "name": "VPHSUBWD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPHSUBWD",
+   "why": "XOP horizontal subtract"
+  },
+  {
+   "name": "VPINSRB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPINSRB",
+   "why": "AVX vector insert byte"
+  },
+  {
+   "name": "VPINSRD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPINSRD",
+   "why": "AVX vector insert dword"
+  },
+  {
+   "name": "VPINSRQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPINSRQ",
+   "why": "AVX vector insert qword"
+  },
+  {
+   "name": "VPINSRW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPINSRW",
+   "why": "AVX vector insert word"
+  },
+  {
+   "name": "VPLZCNTD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPLZCNTD",
+   "why": "AVX-512 leading zero count"
+  },
+  {
+   "name": "VPLZCNTQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPLZCNTQ",
+   "why": "AVX-512 leading zero count"
+  },
+  {
+   "name": "VPMACSDD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMACSDD",
+   "why": "XOP multiply-accumulate"
+  },
+  {
+   "name": "VPMACSDQH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMACSDQH",
+   "why": "XOP multiply-accumulate"
+  },
+  {
+   "name": "VPMACSDQL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMACSDQL",
+   "why": "XOP multiply-accumulate"
+  },
+  {
+   "name": "VPMACSSDD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMACSSDD",
+   "why": "XOP multiply-accumulate"
+  },
+  {
+   "name": "VPMACSSDQH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMACSSDQH",
+   "why": "XOP multiply-accumulate"
+  },
+  {
+   "name": "VPMACSSDQL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMACSSDQL",
+   "why": "XOP multiply-accumulate"
+  },
+  {
+   "name": "VPMACSSWD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMACSSWD",
+   "why": "XOP multiply-accumulate"
+  },
+  {
+   "name": "VPMACSSWW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMACSSWW",
+   "why": "XOP multiply-accumulate"
+  },
+  {
+   "name": "VPMACSWD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMACSWD",
+   "why": "XOP multiply-accumulate"
+  },
+  {
+   "name": "VPMACSWW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMACSWW",
+   "why": "XOP multiply-accumulate"
+  },
+  {
+   "name": "VPMADCSSWD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMADCSSWD",
+   "why": "XOP multiply-add"
+  },
+  {
+   "name": "VPMADCSWD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMADCSWD",
+   "why": "XOP multiply-add"
+  },
+  {
+   "name": "VPMADD52HUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMADD52HUQ",
+   "why": "AVX-512 IFMA multiply"
+  },
+  {
+   "name": "VPMADD52LUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMADD52LUQ",
+   "why": "AVX-512 IFMA multiply"
+  },
+  {
+   "name": "VPMADDUBSW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMADDUBSW",
+   "why": "SSSE3 multiply-add bytes"
+  },
+  {
+   "name": "VPMADDWD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMADDWD",
+   "why": "multiply-add words"
+  },
+  {
+   "name": "VPMASKMOVD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMASKMOVD",
+   "why": "AVX masked move"
+  },
+  {
+   "name": "VPMASKMOVQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMASKMOVQ",
+   "why": "AVX masked move"
+  },
+  {
+   "name": "VPMAXSB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMAXSB",
+   "why": "SSE4.1 signed byte max"
+  },
+  {
+   "name": "VPMAXSD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMAXSD",
+   "why": "SSE4.1 signed dword max"
+  },
+  {
+   "name": "VPMAXSQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMAXSQ",
+   "why": "AVX-512 qword max"
+  },
+  {
+   "name": "VPMAXSW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMAXSW",
+   "why": "SSE2 signed word max"
+  },
+  {
+   "name": "VPMAXUB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMAXUB",
+   "why": "SSE2 unsigned byte max"
+  },
+  {
+   "name": "VPMAXUD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMAXUD",
+   "why": "SSE4.1 unsigned dword max"
+  },
+  {
+   "name": "VPMAXUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMAXUQ",
+   "why": "AVX-512 qword max"
+  },
+  {
+   "name": "VPMAXUW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMAXUW",
+   "why": "SSE4.1 unsigned word max"
+  },
+  {
+   "name": "VPMINSB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMINSB",
+   "why": "SSE4.1 signed byte min"
+  },
+  {
+   "name": "VPMINSD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMINSD",
+   "why": "SSE4.1 signed dword min"
+  },
+  {
+   "name": "VPMINSQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMINSQ",
+   "why": "AVX-512 qword min"
+  },
+  {
+   "name": "VPMINSW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMINSW",
+   "why": "SSE2 signed word min"
+  },
+  {
+   "name": "VPMINUB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMINUB",
+   "why": "SSE2 unsigned byte min"
+  },
+  {
+   "name": "VPMINUD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMINUD",
+   "why": "SSE4.1 unsigned dword min"
+  },
+  {
+   "name": "VPMINUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMINUQ",
+   "why": "AVX-512 qword min"
+  },
+  {
+   "name": "VPMINUW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMINUW",
+   "why": "SSE4.1 unsigned word min"
+  },
+  {
+   "name": "VPMOVB2M",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVB2M",
+   "why": "AVX-512 mask from vector"
+  },
+  {
+   "name": "VPMOVD2M",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVD2M",
+   "why": "AVX-512 mask from vector"
+  },
+  {
+   "name": "VPMOVDB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVDB",
+   "why": "AVX-512 down-convert"
+  },
+  {
+   "name": "VPMOVDW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVDW",
+   "why": "AVX-512 down-convert"
+  },
+  {
+   "name": "VPMOVM2B",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVM2B",
+   "why": "AVX-512 vector from mask"
+  },
+  {
+   "name": "VPMOVM2D",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVM2D",
+   "why": "AVX-512 vector from mask"
+  },
+  {
+   "name": "VPMOVM2Q",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVM2Q",
+   "why": "AVX-512 vector from mask"
+  },
+  {
+   "name": "VPMOVM2W",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVM2W",
+   "why": "AVX-512 vector from mask"
+  },
+  {
+   "name": "VPMOVMSKB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VPMOVMSKB",
+   "why": "SSE2 byte mask extract"
+  },
+  {
+   "name": "VPMOVQ2M",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVQ2M",
+   "why": "AVX-512 mask from vector"
+  },
+  {
+   "name": "VPMOVQB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVQB",
+   "why": "AVX-512 down-convert"
+  },
+  {
+   "name": "VPMOVQD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVQD",
+   "why": "AVX-512 down-convert"
+  },
+  {
+   "name": "VPMOVQW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVQW",
+   "why": "AVX-512 down-convert"
+  },
+  {
+   "name": "VPMOVSDB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVSDB",
+   "why": "AVX-512 saturating down-convert"
+  },
+  {
+   "name": "VPMOVSDW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVSDW",
+   "why": "AVX-512 saturating down-convert"
+  },
+  {
+   "name": "VPMOVSQB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVSQB",
+   "why": "AVX-512 saturating down-convert"
+  },
+  {
+   "name": "VPMOVSQD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVSQD",
+   "why": "AVX-512 saturating down-convert"
+  },
+  {
+   "name": "VPMOVSQW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVSQW",
+   "why": "AVX-512 saturating down-convert"
+  },
+  {
+   "name": "VPMOVSWB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVSWB",
+   "why": "AVX-512 saturating down-convert"
+  },
+  {
+   "name": "VPMOVSXBD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVSXBD",
+   "why": "SSE4.1 sign extend"
+  },
+  {
+   "name": "VPMOVSXBQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVSXBQ",
+   "why": "SSE4.1 sign extend"
+  },
+  {
+   "name": "VPMOVSXBW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVSXBW",
+   "why": "SSE4.1 sign extend"
+  },
+  {
+   "name": "VPMOVSXDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVSXDQ",
+   "why": "SSE4.1 sign extend"
+  },
+  {
+   "name": "VPMOVSXWD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVSXWD",
+   "why": "SSE4.1 sign extend"
+  },
+  {
+   "name": "VPMOVSXWQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVSXWQ",
+   "why": "SSE4.1 sign extend"
+  },
+  {
+   "name": "VPMOVUSDB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVUSDB",
+   "why": "AVX-512 unsigned saturating down-convert"
+  },
+  {
+   "name": "VPMOVUSDW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVUSDW",
+   "why": "AVX-512 unsigned saturating down-convert"
+  },
+  {
+   "name": "VPMOVUSQB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVUSQB",
+   "why": "AVX-512 unsigned saturating down-convert"
+  },
+  {
+   "name": "VPMOVUSQD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVUSQD",
+   "why": "AVX-512 unsigned saturating down-convert"
+  },
+  {
+   "name": "VPMOVUSQW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVUSQW",
+   "why": "AVX-512 unsigned saturating down-convert"
+  },
+  {
+   "name": "VPMOVUSWB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVUSWB",
+   "why": "AVX-512 unsigned saturating down-convert"
+  },
+  {
+   "name": "VPMOVW2M",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVW2M",
+   "why": "AVX-512 mask from vector"
+  },
+  {
+   "name": "VPMOVWB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMOVWB",
+   "why": "AVX-512 down-convert"
+  },
+  {
+   "name": "VPMOVZXBD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVZXBD",
+   "why": "SSE4.1 zero extend"
+  },
+  {
+   "name": "VPMOVZXBQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVZXBQ",
+   "why": "SSE4.1 zero extend"
+  },
+  {
+   "name": "VPMOVZXBW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVZXBW",
+   "why": "SSE4.1 zero extend"
+  },
+  {
+   "name": "VPMOVZXDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVZXDQ",
+   "why": "SSE4.1 zero extend"
+  },
+  {
+   "name": "VPMOVZXWD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVZXWD",
+   "why": "SSE4.1 zero extend"
+  },
+  {
+   "name": "VPMOVZXWQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMOVZXWQ",
+   "why": "SSE4.1 zero extend"
+  },
+  {
+   "name": "VPMULDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMULDQ",
+   "why": "SSE4.1 signed multiply"
+  },
+  {
+   "name": "VPMULHRSW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMULHRSW",
+   "why": "SSSE3 rounded multiply high"
+  },
+  {
+   "name": "VPMULHUW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMULHUW",
+   "why": "SSE2 multiply high"
+  },
+  {
+   "name": "VPMULHW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMULHW",
+   "why": "SSE2 multiply high"
+  },
+  {
+   "name": "VPMULLD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMULLD",
+   "why": "SSE4.1 multiply low dword"
+  },
+  {
+   "name": "VPMULLQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMULLQ",
+   "why": "AVX-512 multiply low qword"
+  },
+  {
+   "name": "VPMULLW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMULLW",
+   "why": "SSE2 multiply low word"
+  },
+  {
+   "name": "VPMULTISHIFTQB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPMULTISHIFTQB",
+   "why": "AVX-512 VBMI bit shuffle"
+  },
+  {
+   "name": "VPMULUDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPMULUDQ",
+   "why": "SSE2 unsigned multiply"
+  },
+  {
+   "name": "VPOPCNTB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPOPCNTB",
+   "why": "AVX-512 BITALG popcount"
+  },
+  {
+   "name": "VPOPCNTD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPOPCNTD",
+   "why": "AVX-512 VPOPCNTDQ popcount"
+  },
+  {
+   "name": "VPOPCNTQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPOPCNTQ",
+   "why": "AVX-512 VPOPCNTDQ popcount"
+  },
+  {
+   "name": "VPOPCNTW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPOPCNTW",
+   "why": "AVX-512 BITALG popcount"
+  },
+  {
+   "name": "VPOR",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPOR",
+   "why": "AVX2 bitwise OR"
+  },
+  {
+   "name": "VPORD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPORD",
+   "why": "AVX-512 dword OR"
+  },
+  {
+   "name": "VPORQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPORQ",
+   "why": "AVX-512 qword OR"
+  },
+  {
+   "name": "VPPERM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPPERM",
+   "why": "XOP byte permute"
+  },
+  {
+   "name": "VPROLD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPROLD",
+   "why": "AVX-512 rotate left"
+  },
+  {
+   "name": "VPROLQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPROLQ",
+   "why": "AVX-512 rotate left"
+  },
+  {
+   "name": "VPROLVD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPROLVD",
+   "why": "AVX-512 variable rotate"
+  },
+  {
+   "name": "VPROLVQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPROLVQ",
+   "why": "AVX-512 variable rotate"
+  },
+  {
+   "name": "VPRORD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPRORD",
+   "why": "AVX-512 rotate right"
+  },
+  {
+   "name": "VPRORQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPRORQ",
+   "why": "AVX-512 rotate right"
+  },
+  {
+   "name": "VPRORVD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPRORVD",
+   "why": "AVX-512 variable rotate"
+  },
+  {
+   "name": "VPRORVQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPRORVQ",
+   "why": "AVX-512 variable rotate"
+  },
+  {
+   "name": "VPROTB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPROTB",
+   "why": "XOP rotate"
+  },
+  {
+   "name": "VPROTD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPROTD",
+   "why": "XOP rotate"
+  },
+  {
+   "name": "VPROTQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPROTQ",
+   "why": "XOP rotate"
+  },
+  {
+   "name": "VPROTW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPROTW",
+   "why": "XOP rotate"
+  },
+  {
+   "name": "VPSADBW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSADBW",
+   "why": "sum of absolute differences"
+  },
+  {
+   "name": "VPSCATTERDD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSCATTERDD",
+   "why": "AVX-512 scatter"
+  },
+  {
+   "name": "VPSCATTERDQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSCATTERDQ",
+   "why": "AVX-512 scatter"
+  },
+  {
+   "name": "VPSCATTERQD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSCATTERQD",
+   "why": "AVX-512 scatter"
+  },
+  {
+   "name": "VPSCATTERQQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSCATTERQQ",
+   "why": "AVX-512 scatter"
+  },
+  {
+   "name": "VPSHAB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHAB",
+   "why": "XOP shift arithmetic"
+  },
+  {
+   "name": "VPSHAD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHAD",
+   "why": "XOP shift arithmetic"
+  },
+  {
+   "name": "VPSHAQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHAQ",
+   "why": "XOP shift arithmetic"
+  },
+  {
+   "name": "VPSHAW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHAW",
+   "why": "XOP shift arithmetic"
+  },
+  {
+   "name": "VPSHLB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHLB",
+   "why": "XOP shift logical"
+  },
+  {
+   "name": "VPSHLD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHLD",
+   "why": "XOP shift logical"
+  },
+  {
+   "name": "VPSHLDD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHLDD",
+   "why": "AVX-512 VBMI2 concatenate shift"
+  },
+  {
+   "name": "VPSHLDQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHLDQ",
+   "why": "AVX-512 VBMI2 concatenate shift"
+  },
+  {
+   "name": "VPSHLDVD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHLDVD",
+   "why": "AVX-512 VBMI2 variable shift"
+  },
+  {
+   "name": "VPSHLDVQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHLDVQ",
+   "why": "AVX-512 VBMI2 variable shift"
+  },
+  {
+   "name": "VPSHLDVW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHLDVW",
+   "why": "AVX-512 VBMI2 variable shift"
+  },
+  {
+   "name": "VPSHLDW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHLDW",
+   "why": "AVX-512 VBMI2 concatenate shift"
+  },
+  {
+   "name": "VPSHLQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHLQ",
+   "why": "XOP shift logical"
+  },
+  {
+   "name": "VPSHLW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHLW",
+   "why": "XOP shift logical"
+  },
+  {
+   "name": "VPSHRDD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHRDD",
+   "why": "AVX-512 VBMI2 concatenate shift"
+  },
+  {
+   "name": "VPSHRDQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHRDQ",
+   "why": "AVX-512 VBMI2 concatenate shift"
+  },
+  {
+   "name": "VPSHRDVD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHRDVD",
+   "why": "AVX-512 VBMI2 variable shift"
+  },
+  {
+   "name": "VPSHRDVQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHRDVQ",
+   "why": "AVX-512 VBMI2 variable shift"
+  },
+  {
+   "name": "VPSHRDVW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHRDVW",
+   "why": "AVX-512 VBMI2 variable shift"
+  },
+  {
+   "name": "VPSHRDW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHRDW",
+   "why": "AVX-512 VBMI2 concatenate shift"
+  },
+  {
+   "name": "VPSHUFB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSHUFB",
+   "why": "SSSE3 byte shuffle"
+  },
+  {
+   "name": "VPSHUFBITQMB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHUFBITQMB",
+   "why": "AVX-512 BITALG bit gather"
+  },
+  {
+   "name": "VPSHUFD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSHUFD",
+   "why": "SSE2 dword shuffle"
+  },
+  {
+   "name": "VPSHUFHW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSHUFHW",
+   "why": "SSE2 high-word shuffle"
+  },
+  {
+   "name": "VPSHUFLW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSHUFLW",
+   "why": "SSE2 low-word shuffle"
+  },
+  {
+   "name": "VPSIGNB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSIGNB",
+   "why": "SSSE3 sign byte"
+  },
+  {
+   "name": "VPSIGND",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSIGND",
+   "why": "SSSE3 sign dword"
+  },
+  {
+   "name": "VPSIGNW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSIGNW",
+   "why": "SSSE3 sign word"
+  },
+  {
+   "name": "VPSLLD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSLLD",
+   "why": "SSE2 shift left dword"
+  },
+  {
+   "name": "VPSLLDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSLLDQ",
+   "why": "SSE2 byte shift left"
+  },
+  {
+   "name": "VPSLLQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSLLQ",
+   "why": "SSE2 shift left qword"
+  },
+  {
+   "name": "VPSLLVD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSLLVD",
+   "why": "AVX2 variable shift"
+  },
+  {
+   "name": "VPSLLVQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSLLVQ",
+   "why": "AVX2 variable shift"
+  },
+  {
+   "name": "VPSLLVW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSLLVW",
+   "why": "AVX-512 variable shift"
+  },
+  {
+   "name": "VPSLLW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSLLW",
+   "why": "SSE2 shift left word"
+  },
+  {
+   "name": "VPSRAD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSRAD",
+   "why": "SSE2 arithmetic shift dword"
+  },
+  {
+   "name": "VPSRAQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSRAQ",
+   "why": "AVX-512 arithmetic shift qword"
+  },
+  {
+   "name": "VPSRAVD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSRAVD",
+   "why": "AVX2 variable arithmetic shift"
+  },
+  {
+   "name": "VPSRAVQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSRAVQ",
+   "why": "AVX-512 variable arithmetic shift"
+  },
+  {
+   "name": "VPSRAVW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSRAVW",
+   "why": "AVX-512 variable arithmetic shift"
+  },
+  {
+   "name": "VPSRAW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSRAW",
+   "why": "SSE2 arithmetic shift word"
+  },
+  {
+   "name": "VPSRLD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSRLD",
+   "why": "SSE2 shift right dword"
+  },
+  {
+   "name": "VPSRLDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSRLDQ",
+   "why": "SSE2 byte shift right"
+  },
+  {
+   "name": "VPSRLQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSRLQ",
+   "why": "SSE2 shift right qword"
+  },
+  {
+   "name": "VPSRLVD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSRLVD",
+   "why": "AVX2 variable shift"
+  },
+  {
+   "name": "VPSRLVQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSRLVQ",
+   "why": "AVX2 variable shift"
+  },
+  {
+   "name": "VPSRLVW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSRLVW",
+   "why": "AVX-512 variable shift"
+  },
+  {
+   "name": "VPSRLW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSRLW",
+   "why": "SSE2 shift right word"
+  },
+  {
+   "name": "VPSUBB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSUBB",
+   "why": "SSE2 subtract byte"
+  },
+  {
+   "name": "VPSUBD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSUBD",
+   "why": "SSE2 subtract dword"
+  },
+  {
+   "name": "VPSUBQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSUBQ",
+   "why": "SSE2 subtract qword"
+  },
+  {
+   "name": "VPSUBSB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSUBSB",
+   "why": "SSE2 saturating subtract"
+  },
+  {
+   "name": "VPSUBSW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSUBSW",
+   "why": "SSE2 saturating subtract"
+  },
+  {
+   "name": "VPSUBUSB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSUBUSB",
+   "why": "SSE2 unsigned saturating subtract"
+  },
+  {
+   "name": "VPSUBUSW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSUBUSW",
+   "why": "SSE2 unsigned saturating subtract"
+  },
+  {
+   "name": "VPSUBW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPSUBW",
+   "why": "SSE2 subtract word"
+  },
+  {
+   "name": "VPTERNLOGD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPTERNLOGD",
+   "why": "AVX-512 ternary logic"
+  },
+  {
+   "name": "VPTERNLOGQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPTERNLOGQ",
+   "why": "AVX-512 ternary logic"
+  },
+  {
+   "name": "VPTEST",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPTEST",
+   "why": "SSE4.1 vector test"
+  },
+  {
+   "name": "VPTESTMB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPTESTMB",
+   "why": "AVX-512 test into mask"
+  },
+  {
+   "name": "VPTESTMD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPTESTMD",
+   "why": "AVX-512 test into mask"
+  },
+  {
+   "name": "VPTESTMQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPTESTMQ",
+   "why": "AVX-512 test into mask"
+  },
+  {
+   "name": "VPTESTMW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPTESTMW",
+   "why": "AVX-512 test into mask"
+  },
+  {
+   "name": "VPTESTNMB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPTESTNMB",
+   "why": "AVX-512 test-not into mask"
+  },
+  {
+   "name": "VPTESTNMD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPTESTNMD",
+   "why": "AVX-512 test-not into mask"
+  },
+  {
+   "name": "VPTESTNMQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPTESTNMQ",
+   "why": "AVX-512 test-not into mask"
+  },
+  {
+   "name": "VPTESTNMW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPTESTNMW",
+   "why": "AVX-512 test-not into mask"
+  },
+  {
+   "name": "VPUNPCKHBW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPUNPCKHBW",
+   "why": "SSE2 unpack high bytes"
+  },
+  {
+   "name": "VPUNPCKHDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPUNPCKHDQ",
+   "why": "SSE2 unpack high dwords"
+  },
+  {
+   "name": "VPUNPCKHQDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPUNPCKHQDQ",
+   "why": "SSE2 unpack high qwords"
+  },
+  {
+   "name": "VPUNPCKHWD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPUNPCKHWD",
+   "why": "SSE2 unpack high words"
+  },
+  {
+   "name": "VPUNPCKLBW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPUNPCKLBW",
+   "why": "SSE2 unpack low bytes"
+  },
+  {
+   "name": "VPUNPCKLDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPUNPCKLDQ",
+   "why": "SSE2 unpack low dwords"
+  },
+  {
+   "name": "VPUNPCKLQDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPUNPCKLQDQ",
+   "why": "SSE2 unpack low qwords"
+  },
+  {
+   "name": "VPUNPCKLWD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VPUNPCKLWD",
+   "why": "SSE2 unpack low words"
+  },
+  {
+   "name": "VPXOR",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: VPXOR",
+   "why": "AVX2 bitwise XOR"
+  },
+  {
+   "name": "VPXORD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPXORD",
+   "why": "AVX-512 dword XOR"
+  },
+  {
+   "name": "VPXORQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPXORQ",
+   "why": "AVX-512 qword XOR"
+  },
+  {
+   "name": "VRANGEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRANGEPD",
+   "why": "AVX-512 DQ range"
+  },
+  {
+   "name": "VRANGEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRANGEPS",
+   "why": "AVX-512 DQ range"
+  },
+  {
+   "name": "VRANGESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRANGESD",
+   "why": "AVX-512 DQ range"
+  },
+  {
+   "name": "VRANGESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRANGESS",
+   "why": "AVX-512 DQ range"
+  },
+  {
+   "name": "VRCP14PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCP14PD",
+   "why": "AVX-512 reciprocal approximation"
+  },
+  {
+   "name": "VRCP14PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCP14PS",
+   "why": "AVX-512 reciprocal approximation"
+  },
+  {
+   "name": "VRCP14SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCP14SD",
+   "why": "AVX-512 reciprocal approximation"
+  },
+  {
+   "name": "VRCP14SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCP14SS",
+   "why": "AVX-512 reciprocal approximation"
+  },
+  {
+   "name": "VRCP28PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCP28PD",
+   "why": "AVX-512ER reciprocal approximation"
+  },
+  {
+   "name": "VRCP28PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCP28PS",
+   "why": "AVX-512ER reciprocal approximation"
+  },
+  {
+   "name": "VRCP28SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCP28SD",
+   "why": "AVX-512ER reciprocal approximation"
+  },
+  {
+   "name": "VRCP28SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCP28SS",
+   "why": "AVX-512ER reciprocal approximation"
+  },
+  {
+   "name": "VRCPBF16",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCPBF16",
+   "why": "AVX-512 BF16 reciprocal"
+  },
+  {
+   "name": "VRCPPH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCPPH",
+   "why": "AVX-512 FP16 reciprocal"
+  },
+  {
+   "name": "VRCPPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VRCPPS",
+   "why": "SSE reciprocal approximation"
+  },
+  {
+   "name": "VRCPSH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRCPSH",
+   "why": "AVX-512 FP16 reciprocal"
+  },
+  {
+   "name": "VRCPSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VRCPSS",
+   "why": "SSE reciprocal approximation"
+  },
+  {
+   "name": "VREDUCEBF16",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VREDUCEBF16",
+   "why": "AVX10 BF16 reduce"
+  },
+  {
+   "name": "VREDUCEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VREDUCEPD",
+   "why": "AVX-512 DQ reduce"
+  },
+  {
+   "name": "VREDUCEPH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VREDUCEPH",
+   "why": "AVX-512 FP16 reduce"
+  },
+  {
+   "name": "VREDUCEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VREDUCEPS",
+   "why": "AVX-512 DQ reduce"
+  },
+  {
+   "name": "VREDUCESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VREDUCESD",
+   "why": "AVX-512 DQ reduce"
+  },
+  {
+   "name": "VREDUCESH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VREDUCESH",
+   "why": "AVX-512 FP16 reduce"
+  },
+  {
+   "name": "VREDUCESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VREDUCESS",
+   "why": "AVX-512 DQ reduce"
+  },
+  {
+   "name": "VRNDSCALEBF16",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRNDSCALEBF16",
+   "why": "AVX10 BF16 round"
+  },
+  {
+   "name": "VRNDSCALEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRNDSCALEPD",
+   "why": "AVX-512 round to scale"
+  },
+  {
+   "name": "VRNDSCALEPH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRNDSCALEPH",
+   "why": "AVX-512 FP16 round to scale"
+  },
+  {
+   "name": "VRNDSCALEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRNDSCALEPS",
+   "why": "AVX-512 round to scale"
+  },
+  {
+   "name": "VRNDSCALESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRNDSCALESD",
+   "why": "AVX-512 round to scale"
+  },
+  {
+   "name": "VRNDSCALESH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRNDSCALESH",
+   "why": "AVX-512 FP16 round to scale"
+  },
+  {
+   "name": "VRNDSCALESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRNDSCALESS",
+   "why": "AVX-512 round to scale"
+  },
+  {
+   "name": "VROUNDPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VROUNDPD",
+   "why": "SSE4.1 round"
+  },
+  {
+   "name": "VROUNDPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VROUNDPS",
+   "why": "SSE4.1 round"
+  },
+  {
+   "name": "VROUNDSD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VROUNDSD",
+   "why": "SSE4.1 round"
+  },
+  {
+   "name": "VROUNDSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VROUNDSS",
+   "why": "SSE4.1 round"
+  },
+  {
+   "name": "VRSQRT14PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRT14PD",
+   "why": "AVX-512 reciprocal sqrt approximation"
+  },
+  {
+   "name": "VRSQRT14PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRT14PS",
+   "why": "AVX-512 reciprocal sqrt approximation"
+  },
+  {
+   "name": "VRSQRT14SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRT14SD",
+   "why": "AVX-512 reciprocal sqrt approximation"
+  },
+  {
+   "name": "VRSQRT14SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRT14SS",
+   "why": "AVX-512 reciprocal sqrt approximation"
+  },
+  {
+   "name": "VRSQRT28PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRT28PD",
+   "why": "AVX-512ER reciprocal sqrt approximation"
+  },
+  {
+   "name": "VRSQRT28PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRT28PS",
+   "why": "AVX-512ER reciprocal sqrt approximation"
+  },
+  {
+   "name": "VRSQRT28SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRT28SD",
+   "why": "AVX-512ER reciprocal sqrt approximation"
+  },
+  {
+   "name": "VRSQRT28SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRT28SS",
+   "why": "AVX-512ER reciprocal sqrt approximation"
+  },
+  {
+   "name": "VRSQRTBF16",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRTBF16",
+   "why": "AVX10 BF16 reciprocal sqrt"
+  },
+  {
+   "name": "VRSQRTPH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRTPH",
+   "why": "AVX-512 FP16 reciprocal sqrt"
+  },
+  {
+   "name": "VRSQRTPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VRSQRTPS",
+   "why": "SSE reciprocal sqrt approximation"
+  },
+  {
+   "name": "VRSQRTSH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VRSQRTSH",
+   "why": "AVX-512 FP16 reciprocal sqrt"
+  },
+  {
+   "name": "VRSQRTSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VRSQRTSS",
+   "why": "SSE reciprocal sqrt approximation"
+  },
+  {
+   "name": "VSCALEFBF16",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCALEFBF16",
+   "why": "AVX10 BF16 scale"
+  },
+  {
+   "name": "VSCALEFPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCALEFPD",
+   "why": "AVX-512 scale by power of two"
+  },
+  {
+   "name": "VSCALEFPH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCALEFPH",
+   "why": "AVX-512 FP16 scale"
+  },
+  {
+   "name": "VSCALEFPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCALEFPS",
+   "why": "AVX-512 scale by power of two"
+  },
+  {
+   "name": "VSCALEFSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCALEFSD",
+   "why": "AVX-512 scale by power of two"
+  },
+  {
+   "name": "VSCALEFSH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCALEFSH",
+   "why": "AVX-512 FP16 scale"
+  },
+  {
+   "name": "VSCALEFSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCALEFSS",
+   "why": "AVX-512 scale by power of two"
+  },
+  {
+   "name": "VSCATTERDPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERDPD",
+   "why": "AVX-512 scatter"
+  },
+  {
+   "name": "VSCATTERDPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERDPS",
+   "why": "AVX-512 scatter"
+  },
+  {
+   "name": "VSCATTERPF0DPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERPF0DPD",
+   "why": "AVX-512PF scatter prefetch"
+  },
+  {
+   "name": "VSCATTERPF0DPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERPF0DPS",
+   "why": "AVX-512PF scatter prefetch"
+  },
+  {
+   "name": "VSCATTERPF0QPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERPF0QPD",
+   "why": "AVX-512PF scatter prefetch"
+  },
+  {
+   "name": "VSCATTERPF0QPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERPF0QPS",
+   "why": "AVX-512PF scatter prefetch"
+  },
+  {
+   "name": "VSCATTERPF1DPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERPF1DPD",
+   "why": "AVX-512PF scatter prefetch"
+  },
+  {
+   "name": "VSCATTERPF1DPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERPF1DPS",
+   "why": "AVX-512PF scatter prefetch"
+  },
+  {
+   "name": "VSCATTERPF1QPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERPF1QPD",
+   "why": "AVX-512PF scatter prefetch"
+  },
+  {
+   "name": "VSCATTERPF1QPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERPF1QPS",
+   "why": "AVX-512PF scatter prefetch"
+  },
+  {
+   "name": "VSCATTERQPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERQPD",
+   "why": "AVX-512 scatter"
+  },
+  {
+   "name": "VSCATTERQPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSCATTERQPS",
+   "why": "AVX-512 scatter"
+  },
+  {
+   "name": "VSHA512MSG1",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSHA512MSG1",
+   "why": "SHA-512 message schedule"
+  },
+  {
+   "name": "VSHA512MSG2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSHA512MSG2",
+   "why": "SHA-512 message schedule"
+  },
+  {
+   "name": "VSHA512RNDS2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSHA512RNDS2",
+   "why": "SHA-512 rounds"
+  },
+  {
+   "name": "VSHUFF32X4",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSHUFF32X4",
+   "why": "AVX-512 128-bit lane shuffle"
+  },
+  {
+   "name": "VSHUFF64X2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSHUFF64X2",
+   "why": "AVX-512 128-bit lane shuffle"
+  },
+  {
+   "name": "VSHUFI32X4",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSHUFI32X4",
+   "why": "AVX-512 128-bit lane shuffle"
+  },
+  {
+   "name": "VSHUFI64X2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSHUFI64X2",
+   "why": "AVX-512 128-bit lane shuffle"
+  },
+  {
+   "name": "VSHUFPD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSHUFPD",
+   "why": "SSE2 shuffle packed double"
+  },
+  {
+   "name": "VSHUFPS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSHUFPS",
+   "why": "SSE shuffle packed single"
+  },
+  {
+   "name": "VSM3MSG1",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSM3MSG1",
+   "why": "SM3 message schedule"
+  },
+  {
+   "name": "VSM3MSG2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSM3MSG2",
+   "why": "SM3 message schedule"
+  },
+  {
+   "name": "VSM3RNDS2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSM3RNDS2",
+   "why": "SM3 rounds"
+  },
+  {
+   "name": "VSM4KEY4",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSM4KEY4",
+   "why": "SM4 key schedule"
+  },
+  {
+   "name": "VSM4RNDS4",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSM4RNDS4",
+   "why": "SM4 rounds"
+  },
+  {
+   "name": "VSQRTBF16",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSQRTBF16",
+   "why": "AVX10 BF16 square root"
+  },
+  {
+   "name": "VSQRTPD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSQRTPD",
+   "why": "SSE2 packed square root"
+  },
+  {
+   "name": "VSQRTPH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSQRTPH",
+   "why": "AVX-512 FP16 square root"
+  },
+  {
+   "name": "VSQRTPS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSQRTPS",
+   "why": "SSE packed square root"
+  },
+  {
+   "name": "VSQRTSD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSQRTSD",
+   "why": "SSE2 scalar square root"
+  },
+  {
+   "name": "VSQRTSH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSQRTSH",
+   "why": "AVX-512 FP16 square root"
+  },
+  {
+   "name": "VSQRTSS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSQRTSS",
+   "why": "SSE scalar square root"
+  },
+  {
+   "name": "VSTMXCSR",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSTMXCSR",
+   "why": "store MXCSR control register"
+  },
+  {
+   "name": "VSUBBF16",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSUBBF16",
+   "why": "AVX10 BF16 subtract"
+  },
+  {
+   "name": "VSUBPD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSUBPD",
+   "why": "SSE2 packed subtract"
+  },
+  {
+   "name": "VSUBPH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSUBPH",
+   "why": "AVX-512 FP16 subtract"
+  },
+  {
+   "name": "VSUBPS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSUBPS",
+   "why": "SSE packed subtract"
+  },
+  {
+   "name": "VSUBSD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSUBSD",
+   "why": "SSE2 scalar subtract"
+  },
+  {
+   "name": "VSUBSH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VSUBSH",
+   "why": "AVX-512 FP16 subtract"
+  },
+  {
+   "name": "VSUBSS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSUBSS",
+   "why": "SSE scalar subtract"
+  },
+  {
+   "name": "VTESTPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VTESTPD",
+   "why": "AVX packed bit test"
+  },
+  {
+   "name": "VTESTPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VTESTPS",
+   "why": "AVX packed bit test"
+  },
+  {
+   "name": "VUCOMISD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VUCOMISD",
+   "why": "SSE2 scalar compare"
+  },
+  {
+   "name": "VUCOMISH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VUCOMISH",
+   "why": "AVX-512 FP16 compare"
+  },
+  {
+   "name": "VUCOMISS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VUCOMISS",
+   "why": "SSE scalar compare"
+  },
+  {
+   "name": "VUCOMXSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VUCOMXSD",
+   "why": "AVX10.2 compare, no fault"
+  },
+  {
+   "name": "VUCOMXSH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VUCOMXSH",
+   "why": "AVX10.2 compare, no fault"
+  },
+  {
+   "name": "VUCOMXSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VUCOMXSS",
+   "why": "AVX10.2 compare, no fault"
+  },
+  {
+   "name": "VUNPCKHPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VUNPCKHPD",
+   "why": "SSE2 unpack high doubles"
+  },
+  {
+   "name": "VUNPCKHPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VUNPCKHPS",
+   "why": "SSE unpack high singles"
+  },
+  {
+   "name": "VUNPCKLPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VUNPCKLPD",
+   "why": "SSE2 unpack low doubles"
+  },
+  {
+   "name": "VUNPCKLPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: VUNPCKLPS",
+   "why": "SSE unpack low singles"
+  },
+  {
+   "name": "VXORPD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: VXORPD",
+   "why": "AVX XOR packed double"
+  },
+  {
+   "name": "VXORPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: VXORPS",
+   "why": "AVX XOR packed single"
+  },
+  {
+   "name": "VZEROALL",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: VZEROALL",
+   "why": "zero all YMM registers"
+  },
+  {
+   "name": "VZEROUPPER",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: VZEROUPPER",
+   "why": "zero upper YMM halves"
+  },
+  {
+   "name": "WBINVD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: WBINVD",
+   "why": "write back and invalidate caches"
+  },
+  {
+   "name": "WBNOINVD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: WBNOINVD",
+   "why": "write back, no invalidate"
+  },
+  {
+   "name": "WRMSR",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: WRMSR",
+   "why": "write model-specific register"
+  },
+  {
+   "name": "WRMSRLIST",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: WRMSRLIST",
+   "why": "batch MSR write"
+  },
+  {
+   "name": "WRMSRNS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: WRMSRNS",
+   "why": "non-serialising MSR write"
+  },
+  {
+   "name": "WRPKRU",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: WRPKRU",
+   "why": "write protection-key rights"
+  },
+  {
+   "name": "WRSHR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: WRSHR",
+   "why": "shadow-stack-related write"
+  },
+  {
+   "name": "WRSSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: WRSSD",
+   "why": "CET shadow-stack write"
+  },
+  {
+   "name": "WRSSQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: WRSSQ",
+   "why": "CET shadow-stack write"
+  },
+  {
+   "name": "WRUSSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: WRUSSD",
+   "why": "CET user shadow-stack write"
+  },
+  {
+   "name": "WRUSSQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: WRUSSQ",
+   "why": "CET user shadow-stack write"
+  },
+  {
+   "name": "XABORT",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: XABORT",
+   "why": "TSX abort transaction"
+  },
+  {
+   "name": "XCRYPTCBC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XCRYPTCBC",
+   "why": "VIA PadLock AES-CBC"
+  },
+  {
+   "name": "XCRYPTCFB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XCRYPTCFB",
+   "why": "VIA PadLock AES-CFB"
+  },
+  {
+   "name": "XCRYPTCTR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XCRYPTCTR",
+   "why": "VIA PadLock AES-CTR"
+  },
+  {
+   "name": "XCRYPTECB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XCRYPTECB",
+   "why": "VIA PadLock AES-ECB"
+  },
+  {
+   "name": "XCRYPTOFB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XCRYPTOFB",
+   "why": "VIA PadLock AES-OFB"
+  },
+  {
+   "name": "XEND",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: XEND",
+   "why": "TSX end transaction"
+  },
+  {
+   "name": "XGETBV",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: XGETBV",
+   "why": "read extended control register"
+  },
+  {
+   "name": "XLAT",
+   "aliases": [
+    "XLATB"
+   ],
+   "judge": "npe",
+   "evidence": "insns.dat: XLAT",
+   "why": "table lookup translate byte"
+  },
+  {
+   "name": "XORPD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: XORPD",
+   "why": "SSE2 XOR packed double"
+  },
+  {
+   "name": "XORPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: XORPS",
+   "why": "SSE XOR packed single"
+  },
+  {
+   "name": "XRESLDTRK",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XRESLDTRK",
+   "why": "TSX load tracking resume"
+  },
+  {
+   "name": "XRSTOR",
+   "aliases": [
+    "XRSTOR64"
+   ],
+   "judge": "leak",
+   "evidence": "insns.dat: XRSTOR",
+   "why": "restore extended state"
+  },
+  {
+   "name": "XRSTORS",
+   "aliases": [
+    "XRSTORS64"
+   ],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XRSTORS",
+   "why": "supervisor extended state restore"
+  },
+  {
+   "name": "XSAVE",
+   "aliases": [
+    "XSAVE64"
+   ],
+   "judge": "leak",
+   "evidence": "insns.dat: XSAVE",
+   "why": "save extended state"
+  },
+  {
+   "name": "XSAVEC",
+   "aliases": [
+    "XSAVEC64"
+   ],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XSAVEC",
+   "why": "compacted extended state save"
+  },
+  {
+   "name": "XSAVEOPT",
+   "aliases": [
+    "XSAVEOPT64"
+   ],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XSAVEOPT",
+   "why": "optimised extended state save"
+  },
+  {
+   "name": "XSAVES",
+   "aliases": [
+    "XSAVES64"
+   ],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XSAVES",
+   "why": "supervisor extended state save"
+  },
+  {
+   "name": "XSETBV",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: XSETBV",
+   "why": "write extended control register"
+  },
+  {
+   "name": "XSHA1",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XSHA1",
+   "why": "VIA PadLock SHA-1"
+  },
+  {
+   "name": "XSHA256",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XSHA256",
+   "why": "VIA PadLock SHA-256"
+  },
+  {
+   "name": "XSTORE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XSTORE",
+   "why": "VIA PadLock random store"
+  },
+  {
+   "name": "XSUSLDTRK",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XSUSLDTRK",
+   "why": "TSX load tracking suspend"
+  },
+  {
+   "name": "XTEST",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat: XTEST",
+   "why": "TSX test in transaction"
+  }
+ ],
+ "womm_candidates": [
+  {
+   "name": "XLAT",
+   "aliases": [
+    "XLATB"
+   ],
+   "judge": "npe",
+   "evidence": "insns.dat: XLAT",
+   "why": "table lookup, famously obscure"
+  },
+  {
+   "name": "WBINVD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: WBINVD",
+   "why": "sounds clever, kernel-only"
+  },
+  {
+   "name": "XSTORE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XSTORE",
+   "why": "VIA PadLock, obscure-sounding"
+  }
+ ],
+ "bitflip_candidates": [
+  {
+   "name": "VPSHUFBITQMB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: VPSHUFBITQMB",
+   "why": "bit gather into mask, delightfully odd"
+  },
+  {
+   "name": "XSUSLDTRK",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XSUSLDTRK",
+   "why": "TSX load tracking suspend"
+  },
+  {
+   "name": "XSHA1",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat: XSHA1",
+   "why": "VIA PadLock SHA-1 in hardware"
+  }
+ ]
+}

@@ -60,6 +60,7 @@ TIER_HEADINGS = ["Off-by-one", "Works on my machine", "Null pointer exception", 
 MIN_PRECISION = 0.9
 MIN_ANSWERS = 40  # the roadmap's admission test: at least 40 answers
 MIN_LINK_SHARE = 0.5
+MIN_FRESH_CANDIDATES = 10  # a fresh draft needs at least this many accepted candidates before pins are chosen
 FILTER_WORKERS = 4
 
 
@@ -411,6 +412,14 @@ def stage_filter(run: Run) -> None:
     if errors:
         raise PipelineError("filter pass failed: " + "; ".join(errors))
     run.state["filter"] = sorted(results)
+    kept = {s: sum(len(json.loads(f.read_text()).get(run.cid, [])) for f in run.mined.glob(f"batch-*.{s}-candidates.json"))
+            for s in ("a", "b")}
+    # Both passes keeping nothing means the sources never name this kind of thing (design-principle, 2026-11-27,
+    # mined 161 "...rule" phrases from code trees): stop here, not three stages later at an empty pin choice.
+    run.gate("filter", "filter kept", "fail" if not any(kept.values()) else "pass",
+             f"pass A kept {kept['a']}, pass B kept {kept['b']} of {run.state['harvest']['lines']} harvested lines"
+             + ("" if any(kept.values()) else ": the plan's sources don't name this kind of thing; write a plan"
+                " that points at a list of them (listings or extract), then rerun with --from harvest"))
 
 
 # ---------------------------------------------------------------- stage: compare / escalate
@@ -494,6 +503,11 @@ def stage_merge(run: Run) -> None:
             write_json(final, data)
         if not data.get(run.cid) or not any(e.get("pin") for e in data[run.cid]):
             if not parse_bank(run.bank)["tiers"]:  # a fresh draft needs its Bit Flip and Works on my machine pinned
+                n = len(data.get(run.cid, []))
+                if n < MIN_FRESH_CANDIDATES:
+                    raise PipelineError(f"{run.cid}: only {n} candidates survived the filter and escalation (a fresh "
+                                        f"draft needs {MIN_FRESH_CANDIDATES}): the plan's sources are too thin; "
+                                        f"fix the plan, then rerun with --from harvest")
                 choose_pins(run, data)
                 write_json(final, data)
         py(run, "merge", "score-candidates.py", str(final), str(CORPORA))

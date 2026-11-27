@@ -8,18 +8,164 @@
    "finished": "2026-11-27T22:52:16+00:00"
   },
   "harvest": {
-   "status": "failed",
-   "started": "2026-11-27T22:52:16+00:00",
-   "seconds": 1,
-   "error": "`/opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/harvest.py x86-instruction` exited 1: ~^^^^^^\n  File \"/Users/axvon/nullion/scripts/harvest.py\", line 41, in ensure_sparse\n    run(\"git\", \"-C\", str(dest), \"sparse-checkout\", \"set\", *spec[\"paths\"])\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/axvon/nullion/scripts/harvest.py\", line 32, in run\n    raise RuntimeError(f\"{' '.join(cmd)} failed ({r.returncode}): {r.stderr.strip()[:400]}\")\nRuntimeError: git -C /Users/axvon/nullion-corpora/src/nasm sparse-checkout set x86/insns.dat failed (128): fatal: 'x86/insns.dat' is not a directory; to treat it as a directory anyway, rerun with --skip-checks"
+   "status": "done",
+   "started": "2026-11-27T23:36:08+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:36:09+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T23:36:09+00:00",
+   "seconds": 286,
+   "finished": "2026-11-27T23:40:55+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T23:40:55+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:40:55+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T23:40:55+00:00",
+   "seconds": 44,
+   "finished": "2026-11-27T23:41:38+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T23:41:38+00:00",
+   "seconds": 10,
+   "finished": "2026-11-27T23:41:48+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T23:41:48+00:00",
+   "seconds": 22,
+   "finished": "2026-11-27T23:42:10+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T23:42:10+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:42:10+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T23:42:10+00:00",
+   "seconds": 18,
+   "finished": "2026-11-27T23:42:28+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T23:42:28+00:00",
+   "seconds": 19,
+   "finished": "2026-11-27T23:42:47+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T23:42:47+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:42:47+00:00"
   }
  },
- "gates": {},
+ "gates": {
+  "filter kept": {
+   "stage": "filter",
+   "level": "pass",
+   "detail": "pass A kept 1797, pass B kept 1460 of 1817 harvested lines"
+  },
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "36/36 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "warn",
+   "detail": "26 likely duplicate pairs: 'ENQCMDS' duplicates 'ENQCMD'; 'XRSTORS' duplicates 'XRSTOR'; 'XSAVES' duplicates 'XSAVE'; 'VCVT2PH2BF8S' duplicates 'VCVT2PH2BF8'; 'VCVT2PH2HF8S' duplicates 'VCVT2PH2HF8'"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "warn",
+   "detail": "20/1496 answers have a verified link (1%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "20/20 sampled answers are members (100%), 20/20 with acceptable tier"
+  }
+ },
  "warnings": [
   {
    "stage": "plan",
    "text": "scripts/bank/plans/x86-instruction.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (XSUSLDTRK; XLAT, WBINVD, VZEROUPPER): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/x86-instruction.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
   }
  ],
- "plan_origin": "llm-drafted"
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 2,
+  "lines": 1817,
+  "summary": "x86-instruction: 1815 mined lines from 1 sources -> 2 batches in scripts/bank/mined/x86-instruction"
+ },
+ "filter": [
+  "batch-00.a: 1382 kept",
+  "batch-00.b: 1052 kept",
+  "batch-01.a: 415 kept",
+  "batch-01.b: 408 kept"
+ ],
+ "compare": "x86-instruction: 1357 agreed, 440 disputed (24%) across 2 batches",
+ "escalate": "440 disputes -> 271 kept (152 low-confidence -> Inbox), 169 dropped",
+ "pins": {
+  "bitflip": "XSUSLDTRK",
+  "womm": [
+   "XLAT",
+   "WBINVD",
+   "VZEROUPPER"
+  ]
+ },
+ "merge": "1466 tiered answers, 156 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "x86-instruction: 6 aliases, 30 new answers, 3 promoted from the Inbox",
+ "dupes": [
+  "x86-instruction: 'ENQCMDS' duplicates 'ENQCMD'",
+  "x86-instruction: 'XRSTORS' duplicates 'XRSTOR'",
+  "x86-instruction: 'XSAVES' duplicates 'XSAVE'",
+  "x86-instruction: 'VCVT2PH2BF8S' duplicates 'VCVT2PH2BF8'",
+  "x86-instruction: 'VCVT2PH2HF8S' duplicates 'VCVT2PH2HF8'",
+  "x86-instruction: 'VCVTBIASPH2BF8S' duplicates 'VCVTBIASPH2BF8'",
+  "x86-instruction: 'VCVTBIASPH2HF8S' duplicates 'VCVTBIASPH2HF8'",
+  "x86-instruction: 'VCVTPH2BF8S' duplicates 'VCVTPH2BF8'",
+  "x86-instruction: 'VCVTPH2HF8S' duplicates 'VCVTPH2HF8'",
+  "x86-instruction: 'VCVTTPD2DQS' duplicates 'VCVTTPD2DQ'",
+  "x86-instruction: 'VCVTTPD2QQS' duplicates 'VCVTTPD2QQ'",
+  "x86-instruction: 'VCVTTPD2UDQS' duplicates 'VCVTTPD2UDQ'",
+  "x86-instruction: 'VCVTTPD2UQQS' duplicates 'VCVTTPD2UQQ'",
+  "x86-instruction: 'VCVTTPS2DQS' duplicates 'VCVTTPS2DQ'",
+  "x86-instruction: 'VCVTTPS2QQS' duplicates 'VCVTTPS2QQ'",
+  "x86-instruction: 'VCVTTPS2UDQS' duplicates 'VCVTTPS2UDQ'",
+  "x86-instruction: 'VCVTTPS2UQQS' duplicates 'VCVTTPS2UQQ'",
+  "x86-instruction: 'VP4DPWSSDS' duplicates 'VP4DPWSSD'",
+  "x86-instruction: 'VPDPBSSDS' duplicates 'VPDPBSSD'",
+  "x86-instruction: 'VPDPBSUDS' duplicates 'VPDPBSUD'",
+  "x86-instruction: 'VPDPBUSDS' duplicates 'VPDPBUSD'",
+  "x86-instruction: 'VPDPBUUDS' duplicates 'VPDPBUUD'",
+  "x86-instruction: 'VPDPWSSDS' duplicates 'VPDPWSSD'",
+  "x86-instruction: 'VPDPWSUDS' duplicates 'VPDPWSUD'",
+  "x86-instruction: 'VPDPWUSDS' duplicates 'VPDPWUSD'",
+  "x86-instruction: 'VPDPWUUDS' duplicates 'VPDPWUUD'"
+ ],
+ "links": [
+  "20/1496 answers linked across 1 categories",
+  "dropped as broken: {}",
+  "0 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/x86-instruction.md"
 }

@@ -34,16 +34,22 @@ def run(*cmd: str, cwd: pathlib.Path | None = None) -> str:
 
 
 def ensure_sparse(spec: dict) -> None:
+    """Sparse clones use non-cone patterns, so a path may be a single file (nasm's x86/insns.dat) as well as a
+    directory; cone mode, git's default, takes directories only. A clone made in cone mode is switched over, keeping
+    the directories it already had."""
     dest = CORPORA / "src" / spec["dir"]
     if not dest.exists():
         run("git", "clone", "-q", "--depth", "1", "--filter=blob:none", "--sparse",
             f"https://github.com/{spec['repo']}.git", str(dest))
-        run("git", "-C", str(dest), "sparse-checkout", "set", *spec["paths"])
-    else:
-        have = set(run("git", "-C", str(dest), "sparse-checkout", "list").split())
-        missing = [p for p in spec["paths"] if p not in have]
-        if missing:
-            run("git", "-C", str(dest), "sparse-checkout", "add", *missing)
+        run("git", "-C", str(dest), "sparse-checkout", "set", "--no-cone", *spec["paths"])
+        return
+    have = [p for p in run("git", "-C", str(dest), "sparse-checkout", "list").split() if p]
+    missing = [p for p in spec["paths"] if p not in have]
+    if missing:
+        run("git", "-C", str(dest), "sparse-checkout", "set", "--no-cone", *have, *missing)
+    for p in spec["paths"]:
+        if not (dest / p).exists():
+            raise RuntimeError(f"{spec['repo']}: {p} is not in the checkout (wrong path in the plan?)")
 
 
 def listing(spec: dict) -> list[str]:

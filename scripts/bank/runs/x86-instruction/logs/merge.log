@@ -1,0 +1,35 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py x86-instruction /Users/axvon/nullion/scripts/bank/mined/x86-instruction/final.json /Users/axvon/nullion/scripts/bank/mined/x86-instruction/agreed /Users/axvon/nullion/scripts/bank/mined/x86-instruction/resolved  [0s, exit 0]
+note: FXRSTOR: batches disagree (leak vs heisenbug); keeping the shallower
+note: FXSAVE: batches disagree (leak vs heisenbug); keeping the shallower
+note: XLAT: batches disagree (leak vs race); keeping the shallower
+note: XRSTOR: batches disagree (leak vs heisenbug); keeping the shallower
+note: XRSTORS: batches disagree (race vs heisenbug); keeping the shallower
+note: XSAVE: batches disagree (leak vs heisenbug); keeping the shallower
+note: XSAVEC: batches disagree (race vs heisenbug); keeping the shallower
+note: XSAVEOPT: batches disagree (race vs heisenbug); keeping the shallower
+note: XSAVES: batches disagree (race vs heisenbug); keeping the shallower
+x86-instruction: 1618 new candidates -> /Users/axvon/nullion/scripts/bank/mined/x86-instruction/final.json; 0 aliases added to bank/hardware-security-history/x86-instruction.md
+
+--- haiku call, 8s, exit 0, prompt 20974 chars, stdout 78 chars
+[17:41:46] {"bitflip": "XSUSLDTRK", "womm": ["XLAT", "WBINVD", "VZEROUPPER"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/x86-instruction/final.json /Users/axvon/nullion-corpora  [1s, exit 0]
+x86-instruction: filled 1618 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [1s, exit 0]
+
+> nullion@0.2.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  17:41:48
+   Duration  222ms (transform 67%, import 16%, tests 16%, worker 2%)
+
+

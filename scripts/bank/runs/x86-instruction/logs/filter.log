@@ -1,0 +1,16 @@
+--- gemini call, 14s, exit 0, prompt 4147 chars, stdout 4 chars
+415
+
+
+--- gemini call, 23s, exit 0, prompt 4147 chars, stdout 5 chars
+1382
+
+
+--- haiku call, 125s, exit 0, prompt 9049 chars, stdout 48268 chars
+rvisor extended state save"},{"name":"XSETBV","aliases":[],"judge":"leak","evidence":"insns.dat: XSETBV","why":"write extended control register"},{"name":"XSHA1","aliases":[],"judge":"heisenbug","evidence":"insns.dat: XSHA1","why":"VIA PadLock SHA-1"},{"name":"XSHA256","aliases":[],"judge":"heisenbug","evidence":"insns.dat: XSHA256","why":"VIA PadLock SHA-256"},{"name":"XSTORE","aliases":[],"judge":"heisenbug","evidence":"insns.dat: XSTORE","why":"VIA PadLock random store"},{"name":"XSUSLDTRK","aliases":[],"judge":"heisenbug","evidence":"insns.dat: XSUSLDTRK","why":"TSX load tracking suspend"},{"name":"XTEST","aliases":[],"judge":"race","evidence":"insns.dat: XTEST","why":"TSX test in transaction"}],"womm_candidates":[{"name":"XLAT","aliases":["XLATB"],"judge":"npe","evidence":"insns.dat: XLAT","why":"table lookup, famously obscure"},{"name":"WBINVD","aliases":[],"judge":"leak","evidence":"insns.dat: WBINVD","why":"sounds clever, kernel-only"},{"name":"XSTORE","aliases":[],"judge":"heisenbug","evidence":"insns.dat: XSTORE","why":"VIA PadLock, obscure-sounding"}],"bitflip_candidates":[{"name":"VPSHUFBITQMB","aliases":[],"judge":"heisenbug","evidence":"insns.dat: VPSHUFBITQMB","why":"bit gather into mask, delightfully odd"},{"name":"XSUSLDTRK","aliases":[],"judge":"heisenbug","evidence":"insns.dat: XSUSLDTRK","why":"TSX load tracking suspend"},{"name":"XSHA1","aliases":[],"judge":"heisenbug","evidence":"insns.dat: XSHA1","why":"VIA PadLock SHA-1 in hardware"}]}, "aliases": {}}
+
+
+--- haiku call, 286s, exit 0, prompt 18403 chars, stdout 94472 chars
+"},{"name":"VPCOMPRESSB","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"AVX-512VBMI2"},{"name":"VPCOMPRESSD","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"AVX-512"},{"name":"VPCOMPRESSQ","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"AVX-512"},{"name":"VPCOMPRESSW","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"AVX-512VBMI2"},{"name":"VPCONFLICTD","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"AVX-512CD"},{"name":"VPCONFLICTQ","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"AVX-512CD"},{"name":"VPDPBSSD","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"AVX-VNNI-INT8"},{"name":"VPDPBSSDS","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"AVX-VNNI-INT8"}],"womm_candidates":[{"name":"SALC","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"undocumented 8086 instruction"},{"name":"RDMSRLIST","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"MSR list read"},{"name":"TILERELEASE","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"AMX tile reset"}],"bitflip_candidates":[{"name":"LOADALL286","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"undocumented 286 CPU-state load"},{"name":"FSETPM","aliases":[],"judge":"heisenbug","evidence":"insns.dat","why":"287 protected-mode switch"},{"name":"ICEBP","aliases":["INT1","INT01"],"judge":"heisenbug","evidence":"insns.dat","why":"undocumented INT1 trap"}]}, "aliases": {}}
+
+

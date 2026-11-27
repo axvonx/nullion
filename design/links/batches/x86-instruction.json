@@ -1,0 +1,7584 @@
+{
+ "id": "x86-instruction",
+ "prompt": "Name an x86 instruction",
+ "accepts": "a mnemonic for an x86 or x86-64 machine instruction, including SSE, AVX and system instructions, as listed in Intel's SDM.",
+ "answers": [
+  {
+   "name": "INT",
+   "aliases": [
+    "interrupt"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "NOP",
+   "aliases": [
+    "no operation",
+    "no-op"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "POP",
+   "aliases": [
+    "pop off stack"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "PUSH",
+   "aliases": [
+    "push onto stack"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "mov",
+   "aliases": [
+    "move"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "add",
+   "aliases": [
+    "addition"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "sub",
+   "aliases": [
+    "subtract"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "call",
+   "aliases": [
+    "callq"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ret",
+   "aliases": [
+    "return"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "jmp",
+   "aliases": [
+    "jump"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "cmp",
+   "aliases": [
+    "compare"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "xor",
+   "aliases": [
+    "bitwise xor",
+    "exclusive or"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "and",
+   "aliases": [
+    "bitwise and"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "or",
+   "aliases": [
+    "bitwise or"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "lea",
+   "aliases": [
+    "load effective address"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "cpuid",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "VZEROUPPER",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "WBINVD",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "XLAT",
+   "aliases": [
+    "XLATB"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "CLC",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CLD",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FADD",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FDIV",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FLD",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FMUL",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FSIN",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FSQRT",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FST",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FSTP",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FSUB",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MOVAPS",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MOVD",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MOVDQA",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MOVDQU",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MOVQ",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MOVUPS",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PAND",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PANDN",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "POPCNT",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "POR",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PXOR",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "STC",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "STD",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "STI",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SYSENTER",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "XORPD",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "XORPS",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "INT3",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PREFETCH",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mul",
+   "aliases": [
+    "multiply"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "div",
+   "aliases": [
+    "divide"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "imul",
+   "aliases": [
+    "signed multiply",
+    "integer multiply"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "idiv",
+   "aliases": [
+    "signed divide"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "test",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "not",
+   "aliases": [
+    "bitwise not"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "inc",
+   "aliases": [
+    "increment"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "dec",
+   "aliases": [
+    "decrement"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "neg",
+   "aliases": [
+    "negate"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "hlt",
+   "aliases": [
+    "halt"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "rdtsc",
+   "aliases": [
+    "read time stamp counter"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "xchg",
+   "aliases": [
+    "exchange"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "cmpxchg",
+   "aliases": [
+    "compare and exchange",
+    "compare exchange"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "shl",
+   "aliases": [
+    "shift left"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "shr",
+   "aliases": [
+    "shift right"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "leave",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "je",
+   "aliases": [
+    "jz",
+    "jump if equal",
+    "jump if zero"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "jne",
+   "aliases": [
+    "jnz",
+    "jump if not equal",
+    "jump if not zero"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CLAC",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CLFLUSH",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CLI",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CLWB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "EMMS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ENDBR32",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ENDBR64",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FXRSTOR",
+   "aliases": [
+    "FXRSTOR64"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FXSAVE",
+   "aliases": [
+    "FXSAVE64"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "INVD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "INVEPT",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "INVLPG",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "INVPCID",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "INVVPID",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MOVNTDQ",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MOVNTDQA",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MOVNTI",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MOVNTPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MOVNTPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PEXTRW",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PINSRB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PINSRD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PINSRW",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PMOVMSKB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PREFETCHNTA",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PREFETCHT1",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PREFETCHT2",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PREFETCHW",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PTEST",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "RDMSR",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "RSM",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "STAC",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SYSCALL",
+   "aliases": [
+    "system call"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SYSEXIT",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SYSRET",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VBROADCASTSD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VBROADCASTSS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VFMADD132PD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VFMADD132PS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VFMADD213PD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VFMADD213PS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VFMADD231PD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VFMADD231PS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VGATHERDPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VGATHERDPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VGATHERQPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VGATHERQPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMCALL",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMCLEAR",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMLAUNCH",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMPTRLD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMPTRST",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMREAD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMRESUME",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMWRITE",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMXOFF",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMXON",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VSQRTPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VSQRTPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VSQRTSD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VSQRTSS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "WRMSR",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "XGETBV",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "XRSTOR",
+   "aliases": [
+    "XRSTOR64"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "XSAVE",
+   "aliases": [
+    "XSAVE64"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "XSETBV",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ADDPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ADDPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ADDSD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ADDSS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CMC",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DIVPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DIVPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DIVSD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DIVSS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FCOS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FNOP",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FWAIT",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "INT03",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LAHF",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LFENCE",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MFENCE",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MULPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MULPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MULSD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MULSS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PADDB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PADDD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PADDQ",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PADDW",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PCMPEQB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PCMPGTB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PREFETCHT0",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PSHUFB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PSHUFD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PSUBB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PSUBD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PSUBQ",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PSUBW",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SAHF",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SFENCE",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SQRTPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SQRTPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SQRTSD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SQRTSS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SUBPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SUBPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SUBSD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SUBSS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VADDPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VADDPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMOVAPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMOVDQA",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VMOVDQU",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VPXOR",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VXORPD",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VXORPS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VZEROALL",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ANDNPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ANDNPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ANDPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ANDPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CLDEMOTE",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CMPPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CMPPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CMPSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CMPSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "COMISD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "COMISS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTDQ2PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTDQ2PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTPD2DQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTPD2PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTPS2DQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTPS2PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTSD2SI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTSD2SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTSI2SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTSI2SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTSS2SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTSS2SI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTTPD2DQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTTPS2DQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTTSD2SI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CVTTSS2SI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ENQCMD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ENQCMDS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "EXTRACTPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "F2XM1",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FCLEX",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FCOM",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FCOMI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FCOMIP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FCOMP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FCOMPP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FDIVR",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FDIVRP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FFREE",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FFREEP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FIADD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FICOM",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FICOMP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FIDIV",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FIDIVR",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FILD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FIMUL",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FINIT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FIST",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FISTP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FISTTP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FISUB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FISUBR",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FLD1",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FLDCW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FLDENV",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FLDL2E",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FLDL2T",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FLDLG2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FLDLN2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FLDPI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FLDZ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FNCLEX",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FNINIT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FNSAVE",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FNSTCW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FNSTENV",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FNSTSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FPATAN",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FPREM",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FPREM1",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FPTAN",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FRNDINT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FRSTOR",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FSAVE",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FSCALE",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FSINCOS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FSTCW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FSTENV",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FSTSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FSUBR",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FSUBRP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FTST",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FUCOM",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FUCOMI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FUCOMIP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FUCOMP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FUCOMPP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FXAM",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FXTRACT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FYL2X",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FYL2XP1",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HADDPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HADDPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HRESET",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HSUBPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "HSUBPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ICEBP",
+   "aliases": [
+    "INT1",
+    "INT01"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "INSERTPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "INTO",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LDDQU",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LDMXCSR",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LDTILECFG",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LOADALL",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LOADALL286",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MASKMOVDQU",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MASKMOVQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MAXPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MAXPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MAXSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MAXSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MINPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MINPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MINSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MINSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVAPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVDDUP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVDQ2Q",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVHLPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVHPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVHPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVLHPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVLPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVLPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVMSKPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVMSKPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVNTQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVQ2DQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVSHDUP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVSLDUP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVUPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ORPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ORPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PABSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PABSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PABSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PACKSSDW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PACKSSWB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PACKUSDW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PACKUSWB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PADDSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PADDSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PADDUSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PADDUSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PAVGB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PAVGW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCMPEQD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCMPEQQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCMPEQW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCMPGTD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCMPGTQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCMPGTW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMADDWD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMAXSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMAXUB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMINSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMINUB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMULHUW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMULHW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMULLW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMULUDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSADBW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSHUFHW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSHUFLW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSHUFW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSLLD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSLLDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSLLQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSLLW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSRAD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSRAW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSRLD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSRLDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSRLQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSRLW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSUBSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSUBSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSUBUSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSUBUSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PUNPCKHBW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PUNPCKHDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PUNPCKHQDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PUNPCKHWD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PUNPCKLBW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PUNPCKLDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PUNPCKLQDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PUNPCKLWD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RCPPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RCPSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ROUNDPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ROUNDPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ROUNDSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ROUNDSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RSQRTPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RSQRTSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SALC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SERIALIZE",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SHUFPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SHUFPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "STMXCSR",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "STTILECFG",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TDPBF16PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TILELOADD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TILERELEASE",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TILESTORED",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "TILEZERO",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "UCOMISD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "UCOMISS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "UNPCKHPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "UNPCKHPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "UNPCKLPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "UNPCKLPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VADDSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VADDSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VANDNPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VANDNPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VANDPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VANDPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VBLENDPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VBLENDPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VBLENDVPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VBLENDVPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VBROADCASTF128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VBROADCASTI128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCMPPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCMPPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCMPSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCMPSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCOMISD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCOMISS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTDQ2PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTDQ2PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTPD2DQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTPD2PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTPH2PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTPS2DQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTPS2PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTPS2PH",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTSD2SI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTSD2SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTSI2SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTSI2SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTSS2SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTSS2SI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTTPD2DQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTTPS2DQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTTSD2SI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VCVTTSS2SI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VDIVPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VDIVPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VDIVSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VDIVSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VEXTRACTF128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VEXTRACTI128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VEXTRACTPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMADD132SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMADD132SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMADD213SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMADD213SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMADD231SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMADD231SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB132PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB132PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB132SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB132SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB213PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB213PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB213SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB213SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB231PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB231PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB231SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFMSUB231SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD132PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD132PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD132SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD132SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD213PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD213PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD213SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD213SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD231PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD231PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD231SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMADD231SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB132PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB132PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB132SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB132SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB213PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB213PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB213SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB213SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB231PD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB231PS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB231SD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VFNMSUB231SS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VGF2P8AFFINEQB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VHADDPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VHADDPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VHSUBPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VHSUBPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VINSERTF128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VINSERTI128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VINSERTPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VLDDQU",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VLDMXCSR",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMASKMOVDQU",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMASKMOVPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMASKMOVPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMAXPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMAXPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMAXSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMAXSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMINPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMINPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMINSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMINSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVAPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVDDUP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVHLPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVHPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVHPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVLHPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVLPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVLPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVMSKPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVMSKPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVNTDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVNTDQA",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVNTPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVNTPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVSHDUP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVSLDUP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVUPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMOVUPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMULPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMULPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMULSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VMULSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VORPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VORPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VP2INTERSECTD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VP2INTERSECTQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPABSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPABSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPABSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPACKSSDW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPACKSSWB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPACKUSDW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPACKUSWB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPADDB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPADDD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPADDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPADDSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPADDSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPADDUSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPADDUSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPADDW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPAND",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPANDN",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPAVGB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPAVGW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPBLENDVB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPBLENDW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPBROADCASTB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPBROADCASTD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPBROADCASTQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPBROADCASTW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPCMPEQB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPCMPEQD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPCMPEQQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPCMPEQW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPCMPGTB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPCMPGTD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPCMPGTQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPCMPGTW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPCONFLICTD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPCONFLICTQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPERM2F128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPERM2I128",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPERMD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPERMILPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPERMILPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPERMPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPERMPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPERMQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPEXTRB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPEXTRD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPEXTRQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPEXTRW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPGATHERDD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPGATHERDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPGATHERQD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPGATHERQQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPHADDD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPHADDSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPHADDW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPHSUBD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPHSUBSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPHSUBW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPINSRB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPINSRD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPINSRQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPINSRW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMADDUBSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMADDWD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMASKMOVD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMASKMOVQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMAXSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMAXSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMAXSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMAXUB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMAXUD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMAXUW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMINSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMINSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMINSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMINUB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMINUD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMINUW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVSXBD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVSXBQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVSXBW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVSXDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVSXWD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVSXWQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVZXBD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVZXBQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVZXBW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVZXDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVZXWD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVZXWQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMULDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMULHRSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMULHUW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMULHW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMULLD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMULLW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMULUDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPOR",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSADBW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSHUFB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSHUFD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSHUFHW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSHUFLW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSIGNB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSIGND",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSIGNW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSLLD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSLLDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSLLQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSLLVD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSLLVQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSLLW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSRAD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSRAVD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSRAW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSRLD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSRLDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSRLQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSRLVD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSRLVQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSRLW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSUBB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSUBD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSUBQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSUBSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSUBSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSUBUSB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSUBUSW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPSUBW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPTEST",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPUNPCKHBW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPUNPCKHDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPUNPCKHQDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPUNPCKHWD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPUNPCKLBW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPUNPCKLDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPUNPCKLQDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPUNPCKLWD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VRCPPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VRCPSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VROUNDPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VROUNDPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VROUNDSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VROUNDSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VRSQRTPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VRSQRTSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VTESTPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VTESTPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VUNPCKHPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VUNPCKHPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VUNPCKLPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VUNPCKLPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "WBNOINVD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XABORT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XEND",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XRSTORS",
+   "aliases": [
+    "XRSTORS64"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XSAVEC",
+   "aliases": [
+    "XSAVEC64"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XSAVEOPT",
+   "aliases": [
+    "XSAVEOPT64"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XSAVES",
+   "aliases": [
+    "XSAVES64"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XTEST",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AAA",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AAD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AAM",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AAS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AESDEC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AESDECLAST",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AESENC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AESENCLAST",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AESIMC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AESKEYGENASSIST",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CLFLUSHOPT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DAA",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DAS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ENCLS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ENCLU",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ENCLV",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FABS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FADDP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FCHS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FDIVP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FMULP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FSUBP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FXCH",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GETSEC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MOVSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCLMULQDQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCMPESTRI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCMPESTRM",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCMPISTRI",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PCMPISTRM",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PEXTRB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PEXTRD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PEXTRQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PINSRQ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RDPKRU",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SHA1RNDS4",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SHA256RNDS2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPHMINPOSUW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VPMOVMSKB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VSHUFPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VSHUFPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VSTMXCSR",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VSUBPD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VSUBPS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VSUBSD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VSUBSS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VUCOMISD",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VUCOMISS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ADDSUBPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ADDSUBPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AESDEC128KL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AESDEC256KL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AESDECWIDE128KL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AESDECWIDE256KL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AESENC128KL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AESENC256KL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AESENCWIDE128KL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AESENCWIDE256KL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BLENDPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BLENDPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BLENDVPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BLENDVPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BNDCL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BNDCN",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BNDCU",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BNDLDX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BNDMK",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BNDMOV",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BNDSTX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CLRSSBSY",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CLUI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CVTPD2PI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CVTPI2PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CVTPI2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CVTPS2PI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CVTTPD2PI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CVTTPS2PI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DPPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DPPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ENCODEKEY128",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ENCODEKEY256",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ERETS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ERETU",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FBLD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FBSTP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FCMOVB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FCMOVBE",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FCMOVE",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FCMOVNB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FCMOVNBE",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FCMOVNE",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FCMOVNU",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FCMOVU",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FDECSTP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FDISI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FENI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FINCSTP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FNDISI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FNENI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FSETPM",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GF2P8AFFINEINVQB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GF2P8AFFINEQB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GF2P8MULB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "INCSSPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "INCSSPQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LOADIWKEY",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MPSADBW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PALIGNR",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PBLENDVB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PBLENDW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PCLMULHQHQDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PCLMULHQLQDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PCLMULLQHQDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PCLMULLQLQDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PCOMMIT",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PCONFIG",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PHADDD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PHADDSW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PHADDW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PHMINPOSUW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PHSUBD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PHSUBSW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PHSUBW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMADDUBSW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMAXSB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMAXSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMAXUD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMAXUW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMINSB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMINSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMINUD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMINUW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVSXBD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVSXBQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVSXBW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVSXDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVSXWD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVSXWQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVZXBD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVZXBQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVZXBW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVZXDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVZXWD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMOVZXWQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMULDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMULHRSW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PMULLD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "POP2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PREFETCHIT0",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PREFETCHIT1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PREFETCHRST2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PREFETCHWT1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PSIGNB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PSIGND",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PSIGNW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PUSH2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RDMSRLIST",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RDSSPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RDSSPQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RSTORSSP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SAVEPREVSSP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SENDUIPI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SETSSBSY",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SHA1MSG1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SHA1MSG2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SHA1NEXTE",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SHA256MSG1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SHA256MSG2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "STUI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ0",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ0RS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ0RST1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ0T1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ1RS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ1RST1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ1T1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TCMMIMFP16PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TCMMRLFP16PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TCONJTCMMIMFP16PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TCONJTFP16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TCVTROWD2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TCVTROWPS2BF16H",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TCVTROWPS2BF16L",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TCVTROWPS2PHH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TCVTROWPS2PHL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TDPBF8PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TDPBHF8PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TDPBSSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TDPBSUD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TDPBUSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TDPBUUD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TDPFP16PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TDPHBF8PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TDPHF8PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TESTUI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TILELOADDRS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TILELOADDRST1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TILELOADDT1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TILEMOVROW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TMMULTF32PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TTCMMIMFP16PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TTCMMRLFP16PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TTDPBF16PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TTDPFP16PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TTMMULTF32PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TTRANSPOSED",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "UIRET",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "URDMSR",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "UWRMSR",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "V4FMADDPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "V4FMADDSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "V4FNMADDPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "V4FNMADDSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VADDBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VADDPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VADDSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VADDSUBPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VADDSUBPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VAESDEC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VAESDECLAST",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VAESENC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VAESENCLAST",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VAESIMC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VAESKEYGENASSIST",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VALIGND",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VALIGNQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBCSTNEBF162PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBCSTNEBF16PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBCSTNESH2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBITREV",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBLENDMPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBLENDMPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBMACOR16X16X16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBMACXOR16X16X16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBROADCASTF32X2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBROADCASTF32X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBROADCASTF32X8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBROADCASTF64X2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBROADCASTF64X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBROADCASTI32X2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBROADCASTI32X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBROADCASTI32X8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBROADCASTI64X2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VBROADCASTI64X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCMPBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCMPPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCMPSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCOMISBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCOMISH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCOMPRESSPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCOMPRESSPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCOMXSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCOMXSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCOMXSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVT2PH2BF8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVT2PH2BF8S",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVT2PH2HF8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVT2PH2HF8S",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVT2PS2PHX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTBF162IBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTBF162IUBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTBIASPH2BF8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTBIASPH2BF8S",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTBIASPH2HF8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTBIASPH2HF8S",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTDQ2PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTHF82PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTNE2PS2BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTNEEBF162PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTNEEPH2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTNEOBF162PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTNEOPH2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTNEPS2BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPD2PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPD2QQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPD2UDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPD2UQQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2BF8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2BF8S",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2DQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2HF8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2HF8S",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2IBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2IUBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2PSX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2QQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2UDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2UQQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2UW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPH2W",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPS2IBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPS2IUBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPS2PHX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPS2QQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPS2UDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTPS2UQQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTQQ2PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTQQ2PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTQQ2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTSD2SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTSD2USI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTSH2SD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTSH2SI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTSH2SS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTSH2USI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTSI2SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTSS2SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTSS2USI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTBF162IBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTBF162IUBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPD2DQS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPD2QQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPD2QQS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPD2UDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPD2UDQS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPD2UQQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPD2UQQS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPH2DQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPH2IBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPH2IUBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPH2QQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPH2UDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPH2UQQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPH2UW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPH2W",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPS2DQS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPS2IBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPS2IUBS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPS2QQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPS2QQS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPS2UDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPS2UDQS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPS2UQQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTPS2UQQS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTSD2USI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTSH2SI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTSH2USI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTTSS2USI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTUDQ2PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTUDQ2PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTUDQ2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTUQQ2PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTUQQ2PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTUQQ2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTUSI2SD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTUSI2SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTUSI2SS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTUW2PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VCVTW2PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VDBPSADBW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VDIVBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VDIVPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VDIVSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VDPBF16PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VDPPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VDPPHPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VDPPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VENDSCALEPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VENDSCALESH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXP2PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXP2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXPANDPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXPANDPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXTRACTF32X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXTRACTF32X8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXTRACTF64X2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXTRACTF64X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXTRACTI32X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXTRACTI32X8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXTRACTI64X2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VEXTRACTI64X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFCMADDCPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFCMADDCSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFCMULCPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFCMULCSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFIXUPIMMPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFIXUPIMMPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFIXUPIMMSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFIXUPIMMSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADD132BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADD132PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADD132SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADD213BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADD213PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADD213SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADD231BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADD231PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADD231SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDCPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDCSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDSUB132PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDSUB132PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDSUB132PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDSUB213PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDSUB213PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDSUB213PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDSUB231PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDSUB231PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMADDSUB231PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUB132BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUB132PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUB132SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUB213BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUB213PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUB213SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUB231BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUB231PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUB231SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUBADD132PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUBADD132PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUBADD132PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUBADD213PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUBADD213PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUBADD213PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUBADD231PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUBADD231PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMSUBADD231PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMULCPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFMULCSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMADD132BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMADD132PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMADD132SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMADD213BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMADD213PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMADD213SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMADD231BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMADD231PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMADD231SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMSUB132BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMSUB132PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMSUB132SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMSUB213BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMSUB213PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMSUB213SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMSUB231BF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMSUB231PH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFNMSUB231SH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFPCLASSBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFPCLASSPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFPCLASSPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFPCLASSPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFPCLASSSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFPCLASSSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VFPCLASSSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGATHERPF0DPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGATHERPF0DPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGATHERPF0QPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGATHERPF0QPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGATHERPF1DPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGATHERPF1DPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGATHERPF1QPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGATHERPF1QPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETEXPBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETEXPPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETEXPPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETEXPPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETEXPSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETEXPSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETEXPSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETMANTBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETMANTPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETMANTPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETMANTPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETMANTSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETMANTSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGETMANTSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGF2P8AFFINEINVQB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VGF2P8MULB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VINSERTF32X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VINSERTF32X8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VINSERTF64X2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VINSERTF64X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VINSERTI32X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VINSERTI32X8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VINSERTI64X2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VINSERTI64X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMAXBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMAXPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMAXSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMFUNC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMINBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMINMAXBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMINMAXPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMINMAXPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMINMAXPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMINMAXSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMINMAXSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMINMAXSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMINPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMINSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMOVDQA32",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMOVDQA64",
+   "aliases": [
+    "VMOVQQA"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMOVDQU16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMOVDQU32",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMOVDQU64",
+   "aliases": [
+    "VMOVQQU"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMOVDQU8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMOVSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMOVW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMPSADBW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMULBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMULPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMULSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VP4DPWSSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VP4DPWSSDS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPABSQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPALIGNR",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPANDD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPANDND",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPANDNQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPANDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPBLENDD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPBLENDMB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPBLENDMD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPBLENDMQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPBLENDMW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPBROADCASTMB2Q",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPBROADCASTMW2D",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCLMULHQHQDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCLMULHQLQDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCLMULLQHQDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCLMULLQLQDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCLMULQDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPESTRI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPESTRM",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPISTRI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPISTRM",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPUB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPUD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPUQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPUW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCMPW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCOMPRESSB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCOMPRESSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCOMPRESSQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPCOMPRESSW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPBSSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPBSSDS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPBSUD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPBSUDS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPBUSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPBUSDS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPBUUD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPBUUDS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPWSSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPWSSDS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPWSUD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPWSUDS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPWUSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPWUSDS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPWUUD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPDPWUUDS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMI2B",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMI2D",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMI2PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMI2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMI2Q",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMI2W",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMT2B",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMT2D",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMT2PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMT2PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMT2Q",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMT2W",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPERMW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPEXPANDB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPEXPANDD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPEXPANDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPEXPANDW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDBD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDBQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDBW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDUBD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDUBQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDUBW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDUDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDUWD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDUWQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDWD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHADDWQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHSUBBW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHSUBDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPHSUBWD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPLZCNTD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPLZCNTQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMACSDD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMACSDQH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMACSDQL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMACSSDD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMACSSDQH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMACSSDQL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMACSSWD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMACSSWW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMACSWD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMACSWW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMADCSSWD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMADCSWD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMADD52HUQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMADD52LUQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMAXSQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMAXUQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMINSQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMINUQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVB2M",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVD2M",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVDB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVDW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVM2B",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVM2D",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVM2Q",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVM2W",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVQ2M",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVQB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVQD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVQW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVSDB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVSDW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVSQB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVSQD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVSQW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVSWB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVUSDB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVUSDW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVUSQB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVUSQD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVUSQW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVUSWB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVW2M",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMOVWB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMULLQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPMULTISHIFTQB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPOPCNTB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPOPCNTD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPOPCNTQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPOPCNTW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPORD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPORQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPPERM",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPROLD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPROLQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPROLVD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPROLVQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPRORD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPRORQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPRORVD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPRORVQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPROTB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPROTD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPROTQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPROTW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSCATTERDD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSCATTERDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSCATTERQD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSCATTERQQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHAB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHAD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHAQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHAW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHLB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHLD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHLDD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHLDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHLDVD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHLDVQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHLDVW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHLDW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHLQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHLW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHRDD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHRDQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHRDVD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHRDVQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHRDVW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHRDW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSHUFBITQMB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSLLVW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSRAQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSRAVQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSRAVW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPSRLVW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPTERNLOGD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPTERNLOGQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPTESTMB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPTESTMD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPTESTMQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPTESTMW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPTESTNMB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPTESTNMD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPTESTNMQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPTESTNMW",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPXORD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VPXORQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRANGEPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRANGEPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRANGESD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRANGESS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCP14PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCP14PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCP14SD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCP14SS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCP28PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCP28PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCP28SD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCP28SS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCPBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCPPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRCPSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VREDUCEBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VREDUCEPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VREDUCEPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VREDUCEPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VREDUCESD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VREDUCESH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VREDUCESS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRNDSCALEBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRNDSCALEPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRNDSCALEPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRNDSCALEPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRNDSCALESD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRNDSCALESH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRNDSCALESS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRT14PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRT14PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRT14SD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRT14SS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRT28PD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRT28PS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRT28SD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRT28SS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRTBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRTPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VRSQRTSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCALEFBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCALEFPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCALEFPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCALEFPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCALEFSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCALEFSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCALEFSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERDPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERDPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERPF0DPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERPF0DPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERPF0QPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERPF0QPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERPF1DPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERPF1DPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERPF1QPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERPF1QPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERQPD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSCATTERQPS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSHA512MSG1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSHA512MSG2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSHA512RNDS2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSHUFF32X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSHUFF64X2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSHUFI32X4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSHUFI64X2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSM3MSG1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSM3MSG2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSM3RNDS2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSM4KEY4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSM4RNDS4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSQRTBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSQRTPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSQRTSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSUBBF16",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSUBPH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VSUBSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VUCOMISH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VUCOMXSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VUCOMXSH",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VUCOMXSS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WRMSRLIST",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WRMSRNS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WRPKRU",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WRSHR",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WRSSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WRSSQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WRUSSD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "WRUSSQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XCRYPTCBC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XCRYPTCFB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XCRYPTCTR",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XCRYPTECB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XCRYPTOFB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XRESLDTRK",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XSHA1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XSHA256",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XSTORE",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PBNDKB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "POP2P",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "POPP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PUSH2P",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PUSHP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "XSUSLDTRK",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

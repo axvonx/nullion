@@ -1,0 +1,5904 @@
+[
+ {
+  "name": "AAA",
+  "a": {
+   "name": "AAA",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "AAA",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "AAA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "BCD adjust"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AAD",
+  "a": {
+   "name": "AAD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "AAD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "AAD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "BCD adjust"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AAM",
+  "a": {
+   "name": "AAM",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "AAM",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "AAM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "BCD adjust"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AAS",
+  "a": {
+   "name": "AAS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "AAS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "AAS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "BCD adjust"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ADDPD",
+  "a": {
+   "name": "ADDPD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ADDPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "ADDPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ADDPS",
+  "a": {
+   "name": "ADDPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ADDPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "ADDPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ADDSD",
+  "a": {
+   "name": "ADDSD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ADDSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "ADDSD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ADDSS",
+  "a": {
+   "name": "ADDSS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ADDSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "ADDSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AESDEC",
+  "a": {
+   "name": "AESDEC",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "AESDEC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "AESDEC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "AES-NI"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AESDECLAST",
+  "a": {
+   "name": "AESDECLAST",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "AESDECLAST",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "AESDECLAST",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "AES-NI"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AESENC",
+  "a": {
+   "name": "AESENC",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "AESENC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "AESENC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "AES-NI"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AESENCLAST",
+  "a": {
+   "name": "AESENCLAST",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "AESENCLAST",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "AESENCLAST",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "AES-NI"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AESIMC",
+  "a": {
+   "name": "AESIMC",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "AESIMC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "AESIMC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "AES-NI"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AESKEYGENASSIST",
+  "a": {
+   "name": "AESKEYGENASSIST",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "AESKEYGENASSIST",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "AESKEYGENASSIST",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "AES-NI"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "BRKPT",
+  "a": {
+   "name": "BRKPT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "BRKPT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CLFLUSHOPT",
+  "a": {
+   "name": "CLFLUSHOPT",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "CLFLUSHOPT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "CLFLUSHOPT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "cache flush"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CLGI",
+  "a": {
+   "name": "CLGI",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "CLGI",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMC",
+  "a": {
+   "name": "CMC",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "CMC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "CMC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "flag op"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPEQPD",
+  "a": {
+   "name": "CMPEQPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPEQPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPEQPS",
+  "a": {
+   "name": "CMPEQPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPEQPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPEQSD",
+  "a": {
+   "name": "CMPEQSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPEQSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPEQSS",
+  "a": {
+   "name": "CMPEQSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPEQSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPLEPD",
+  "a": {
+   "name": "CMPLEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPLEPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPLEPS",
+  "a": {
+   "name": "CMPLEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPLEPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPLESD",
+  "a": {
+   "name": "CMPLESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPLESD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPLESS",
+  "a": {
+   "name": "CMPLESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPLESS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPLTPD",
+  "a": {
+   "name": "CMPLTPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPLTPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPLTPS",
+  "a": {
+   "name": "CMPLTPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPLTPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPLTSD",
+  "a": {
+   "name": "CMPLTSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPLTSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPLTSS",
+  "a": {
+   "name": "CMPLTSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPLTSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNEQPD",
+  "a": {
+   "name": "CMPNEQPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNEQPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNEQPS",
+  "a": {
+   "name": "CMPNEQPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNEQPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNEQSD",
+  "a": {
+   "name": "CMPNEQSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNEQSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNEQSS",
+  "a": {
+   "name": "CMPNEQSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNEQSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNLEPD",
+  "a": {
+   "name": "CMPNLEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNLEPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNLEPS",
+  "a": {
+   "name": "CMPNLEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNLEPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNLESD",
+  "a": {
+   "name": "CMPNLESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNLESD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNLESS",
+  "a": {
+   "name": "CMPNLESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNLESS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNLTPD",
+  "a": {
+   "name": "CMPNLTPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNLTPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNLTPS",
+  "a": {
+   "name": "CMPNLTPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNLTPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNLTSD",
+  "a": {
+   "name": "CMPNLTSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNLTSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPNLTSS",
+  "a": {
+   "name": "CMPNLTSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPNLTSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPORDPD",
+  "a": {
+   "name": "CMPORDPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPORDPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPORDPS",
+  "a": {
+   "name": "CMPORDPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPORDPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPORDSD",
+  "a": {
+   "name": "CMPORDSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPORDSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPORDSS",
+  "a": {
+   "name": "CMPORDSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPORDSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPUNORDPD",
+  "a": {
+   "name": "CMPUNORDPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPUNORDPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPUNORDPS",
+  "a": {
+   "name": "CMPUNORDPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPUNORDPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPUNORDSD",
+  "a": {
+   "name": "CMPUNORDSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPUNORDSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CMPUNORDSS",
+  "a": {
+   "name": "CMPUNORDSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CMPUNORDSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DAA",
+  "a": {
+   "name": "DAA",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "DAA",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "DAA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "BCD adjust"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DAS",
+  "a": {
+   "name": "DAS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "DAS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "DAS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "BCD adjust"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DIVPD",
+  "a": {
+   "name": "DIVPD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "DIVPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "DIVPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DIVPS",
+  "a": {
+   "name": "DIVPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "DIVPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "DIVPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DIVSD",
+  "a": {
+   "name": "DIVSD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "DIVSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "DIVSD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DIVSS",
+  "a": {
+   "name": "DIVSS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "DIVSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "DIVSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DMINT",
+  "a": {
+   "name": "DMINT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "DMINT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ENCLS",
+  "a": {
+   "name": "ENCLS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ENCLS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "ENCLS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SGX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ENCLU",
+  "a": {
+   "name": "ENCLU",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ENCLU",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "ENCLU",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SGX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ENCLV",
+  "a": {
+   "name": "ENCLV",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ENCLV",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "ENCLV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SGX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "EXTRQ",
+  "a": {
+   "name": "EXTRQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "EXTRQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FABS",
+  "a": {
+   "name": "FABS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FABS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "FABS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat",
+   "why": "x87"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FADDP",
+  "a": {
+   "name": "FADDP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FADDP",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "FADDP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat",
+   "why": "x87"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FCHS",
+  "a": {
+   "name": "FCHS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FCHS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "FCHS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat",
+   "why": "x87"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FCOS",
+  "a": {
+   "name": "FCOS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "FCOS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "FCOS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "x87"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FDIVP",
+  "a": {
+   "name": "FDIVP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FDIVP",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "FDIVP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat",
+   "why": "x87"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FEMMS",
+  "a": {
+   "name": "FEMMS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FEMMS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FMULP",
+  "a": {
+   "name": "FMULP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FMULP",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "FMULP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat",
+   "why": "x87"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FNOP",
+  "a": {
+   "name": "FNOP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "FNOP",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "FNOP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "x87"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FSUBP",
+  "a": {
+   "name": "FSUBP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FSUBP",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "FSUBP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat",
+   "why": "x87"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FWAIT",
+  "a": {
+   "name": "FWAIT",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "FWAIT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "FWAIT",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "x87"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FXCH",
+  "a": {
+   "name": "FXCH",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FXCH",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "FXCH",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat",
+   "why": "x87"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FXRSTOR64",
+  "a": {
+   "name": "FXRSTOR64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FXRSTOR64",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FXSAVE64",
+  "a": {
+   "name": "FXSAVE64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "FXSAVE64",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "GETSEC",
+  "a": {
+   "name": "GETSEC",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "GETSEC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "GETSEC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SMX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "INSERTQ",
+  "a": {
+   "name": "INSERTQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "INSERTQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "INT01",
+  "a": {
+   "name": "INT01",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "INT01",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "INT03",
+  "a": {
+   "name": "INT03",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "INT03",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "INT3",
+   "aliases": [
+    "INT03"
+   ],
+   "judge": "npe",
+   "evidence": "insns.dat",
+   "why": "breakpoint"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "INT1",
+  "a": {
+   "name": "INT1",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "INT1",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "INT3",
+  "a": {
+   "name": "INT3",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "INT3",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LAHF",
+  "a": {
+   "name": "LAHF",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "LAHF",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "LAHF",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "flags"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LFENCE",
+  "a": {
+   "name": "LFENCE",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "LFENCE",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "LFENCE",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "memory fence"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LLWPCB",
+  "a": {
+   "name": "LLWPCB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "LLWPCB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LWPINS",
+  "a": {
+   "name": "LWPINS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "LWPINS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LWPVAL",
+  "a": {
+   "name": "LWPVAL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "LWPVAL",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MFENCE",
+  "a": {
+   "name": "MFENCE",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "MFENCE",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "MFENCE",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "memory fence"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MONTMUL",
+  "a": {
+   "name": "MONTMUL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "MONTMUL",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MOVNTSD",
+  "a": {
+   "name": "MOVNTSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "MOVNTSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MOVNTSS",
+  "a": {
+   "name": "MOVNTSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "MOVNTSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MOVSD",
+  "a": {
+   "name": "MOVSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "MOVSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "MOVSD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MOVSS",
+  "a": {
+   "name": "MOVSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "MOVSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "MOVSS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MULPD",
+  "a": {
+   "name": "MULPD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "MULPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "MULPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MULPS",
+  "a": {
+   "name": "MULPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "MULPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "MULPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MULSD",
+  "a": {
+   "name": "MULSD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "MULSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "MULSD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MULSS",
+  "a": {
+   "name": "MULSS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "MULSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "MULSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "NOP2",
+  "a": {
+   "name": "NOP2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "NOP2",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PADDB",
+  "a": {
+   "name": "PADDB",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PADDB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PADDB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "MMX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PADDD",
+  "a": {
+   "name": "PADDD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PADDD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PADDD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "MMX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PADDQ",
+  "a": {
+   "name": "PADDQ",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PADDQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PADDQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PADDSIW",
+  "a": {
+   "name": "PADDSIW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PADDSIW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PADDW",
+  "a": {
+   "name": "PADDW",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PADDW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PADDW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "MMX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PAVEB",
+  "a": {
+   "name": "PAVEB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PAVEB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PAVGUSB",
+  "a": {
+   "name": "PAVGUSB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PAVGUSB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PBNDKB",
+  "a": {
+   "name": "PBNDKB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PBNDKB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PCLMULQDQ",
+  "a": {
+   "name": "PCLMULQDQ",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "PCLMULQDQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PCLMULQDQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "carry-less multiply"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PCMPEQB",
+  "a": {
+   "name": "PCMPEQB",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PCMPEQB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PCMPEQB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "MMX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PCMPESTRI",
+  "a": {
+   "name": "PCMPESTRI",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "PCMPESTRI",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PCMPESTRI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SSE4.2 string"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PCMPESTRM",
+  "a": {
+   "name": "PCMPESTRM",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "PCMPESTRM",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PCMPESTRM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SSE4.2 string"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PCMPGTB",
+  "a": {
+   "name": "PCMPGTB",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PCMPGTB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PCMPGTB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "MMX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PCMPISTRI",
+  "a": {
+   "name": "PCMPISTRI",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "PCMPISTRI",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PCMPISTRI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SSE4.2 string"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PCMPISTRM",
+  "a": {
+   "name": "PCMPISTRM",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "PCMPISTRM",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PCMPISTRM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SSE4.2 string"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PDISTIB",
+  "a": {
+   "name": "PDISTIB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PDISTIB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PEXTRB",
+  "a": {
+   "name": "PEXTRB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "PEXTRB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PEXTRB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SSE4.1"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PEXTRD",
+  "a": {
+   "name": "PEXTRD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "PEXTRD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PEXTRD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SSE4.1"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PEXTRQ",
+  "a": {
+   "name": "PEXTRQ",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "PEXTRQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PEXTRQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SSE4.1"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PF2ID",
+  "a": {
+   "name": "PF2ID",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PF2ID",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PF2IW",
+  "a": {
+   "name": "PF2IW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PF2IW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFACC",
+  "a": {
+   "name": "PFACC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFACC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFADD",
+  "a": {
+   "name": "PFADD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFADD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFCMPEQ",
+  "a": {
+   "name": "PFCMPEQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFCMPEQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFCMPGE",
+  "a": {
+   "name": "PFCMPGE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFCMPGE",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFCMPGT",
+  "a": {
+   "name": "PFCMPGT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFCMPGT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFMAX",
+  "a": {
+   "name": "PFMAX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFMAX",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFMIN",
+  "a": {
+   "name": "PFMIN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFMIN",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFMUL",
+  "a": {
+   "name": "PFMUL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFMUL",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFNACC",
+  "a": {
+   "name": "PFNACC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFNACC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFPNACC",
+  "a": {
+   "name": "PFPNACC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFPNACC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFRCP",
+  "a": {
+   "name": "PFRCP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFRCP",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFRCPIT1",
+  "a": {
+   "name": "PFRCPIT1",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFRCPIT1",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFRCPIT2",
+  "a": {
+   "name": "PFRCPIT2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFRCPIT2",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFRCPV",
+  "a": {
+   "name": "PFRCPV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFRCPV",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFRSQIT1",
+  "a": {
+   "name": "PFRSQIT1",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFRSQIT1",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFRSQRT",
+  "a": {
+   "name": "PFRSQRT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFRSQRT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFRSQRTV",
+  "a": {
+   "name": "PFRSQRTV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFRSQRTV",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFSUB",
+  "a": {
+   "name": "PFSUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFSUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PFSUBR",
+  "a": {
+   "name": "PFSUBR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PFSUBR",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PI2FD",
+  "a": {
+   "name": "PI2FD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PI2FD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PI2FW",
+  "a": {
+   "name": "PI2FW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PI2FW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PINSRQ",
+  "a": {
+   "name": "PINSRQ",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "PINSRQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PINSRQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SSE4.1"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PMACHRIW",
+  "a": {
+   "name": "PMACHRIW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PMACHRIW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PMAGW",
+  "a": {
+   "name": "PMAGW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PMAGW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PMULHRIW",
+  "a": {
+   "name": "PMULHRIW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PMULHRIW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PMULHRWA",
+  "a": {
+   "name": "PMULHRWA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PMULHRWA",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PMULHRWC",
+  "a": {
+   "name": "PMULHRWC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PMULHRWC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PMVGEZB",
+  "a": {
+   "name": "PMVGEZB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PMVGEZB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PMVLZB",
+  "a": {
+   "name": "PMVLZB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PMVLZB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PMVNZB",
+  "a": {
+   "name": "PMVNZB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PMVNZB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PMVZB",
+  "a": {
+   "name": "PMVZB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PMVZB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "POP2P",
+  "a": {
+   "name": "POP2P",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "POP2P",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "POPP",
+  "a": {
+   "name": "POPP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "POPP",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PREFETCH",
+  "a": {
+   "name": "PREFETCH",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PREFETCH",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PREFETCH",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "3DNow-era prefetch"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PREFETCHT0",
+  "a": {
+   "name": "PREFETCHT0",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PREFETCHT0",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PREFETCHT0",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "prefetch"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PSHUFB",
+  "a": {
+   "name": "PSHUFB",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PSHUFB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PSHUFB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSSE3"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PSHUFD",
+  "a": {
+   "name": "PSHUFD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PSHUFD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PSHUFD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PSUBB",
+  "a": {
+   "name": "PSUBB",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PSUBB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PSUBB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "MMX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PSUBD",
+  "a": {
+   "name": "PSUBD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PSUBD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PSUBD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "MMX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PSUBQ",
+  "a": {
+   "name": "PSUBQ",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PSUBQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PSUBQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PSUBSIW",
+  "a": {
+   "name": "PSUBSIW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PSUBSIW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PSUBW",
+  "a": {
+   "name": "PSUBW",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "PSUBW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "PSUBW",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "MMX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PSWAPD",
+  "a": {
+   "name": "PSWAPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PSWAPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PUSH2P",
+  "a": {
+   "name": "PUSH2P",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PUSH2P",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PUSHP",
+  "a": {
+   "name": "PUSHP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PUSHP",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PVALIDATE",
+  "a": {
+   "name": "PVALIDATE",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "PVALIDATE",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RDM",
+  "a": {
+   "name": "RDM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "RDM",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RDPKRU",
+  "a": {
+   "name": "RDPKRU",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "RDPKRU",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "RDPKRU",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "protection keys"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RDSHR",
+  "a": {
+   "name": "RDSHR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "RDSHR",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RMPADJUST",
+  "a": {
+   "name": "RMPADJUST",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "RMPADJUST",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RSDC",
+  "a": {
+   "name": "RSDC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "RSDC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RSLDT",
+  "a": {
+   "name": "RSLDT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "RSLDT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RSTS",
+  "a": {
+   "name": "RSTS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "RSTS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SAHF",
+  "a": {
+   "name": "SAHF",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "SAHF",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SAHF",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "flags"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SFENCE",
+  "a": {
+   "name": "SFENCE",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "SFENCE",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SFENCE",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "memory fence"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SHA1RNDS4",
+  "a": {
+   "name": "SHA1RNDS4",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "SHA1RNDS4",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SHA1RNDS4",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SHA extensions"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SHA256RNDS2",
+  "a": {
+   "name": "SHA256RNDS2",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "SHA256RNDS2",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SHA256RNDS2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "insns.dat",
+   "why": "SHA extensions"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SKINIT",
+  "a": {
+   "name": "SKINIT",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "SKINIT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SLWPCB",
+  "a": {
+   "name": "SLWPCB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "SLWPCB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SMINT",
+  "a": {
+   "name": "SMINT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "SMINT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SMINTOLD",
+  "a": {
+   "name": "SMINTOLD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "SMINTOLD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SQRTPD",
+  "a": {
+   "name": "SQRTPD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "SQRTPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SQRTPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SQRTPS",
+  "a": {
+   "name": "SQRTPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "SQRTPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SQRTPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SQRTSD",
+  "a": {
+   "name": "SQRTSD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "SQRTSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SQRTSD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SQRTSS",
+  "a": {
+   "name": "SQRTSS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "SQRTSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SQRTSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "STGI",
+  "a": {
+   "name": "STGI",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "STGI",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SUBPD",
+  "a": {
+   "name": "SUBPD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "SUBPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SUBPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SUBPS",
+  "a": {
+   "name": "SUBPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "SUBPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SUBPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SUBSD",
+  "a": {
+   "name": "SUBSD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "SUBSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SUBSD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE2"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SUBSS",
+  "a": {
+   "name": "SUBSS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "SUBSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "SUBSS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "SSE"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SVDC",
+  "a": {
+   "name": "SVDC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "SVDC",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SVLDT",
+  "a": {
+   "name": "SVLDT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "SVLDT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SVTS",
+  "a": {
+   "name": "SVTS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "SVTS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VADDPD",
+  "a": {
+   "name": "VADDPD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "VADDPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "VADDPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "AVX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VADDPS",
+  "a": {
+   "name": "VADDPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "VADDPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "VADDPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "AVX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPEQPD",
+  "a": {
+   "name": "VCMPEQPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPEQPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPEQPS",
+  "a": {
+   "name": "VCMPEQPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPEQPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPEQSD",
+  "a": {
+   "name": "VCMPEQSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPEQSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPEQSS",
+  "a": {
+   "name": "VCMPEQSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPEQSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPFALSEPD",
+  "a": {
+   "name": "VCMPFALSEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPFALSEPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPFALSEPS",
+  "a": {
+   "name": "VCMPFALSEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPFALSEPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPFALSESD",
+  "a": {
+   "name": "VCMPFALSESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPFALSESD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPFALSESS",
+  "a": {
+   "name": "VCMPFALSESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPFALSESS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPGEPD",
+  "a": {
+   "name": "VCMPGEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPGEPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPGEPS",
+  "a": {
+   "name": "VCMPGEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPGEPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPGESD",
+  "a": {
+   "name": "VCMPGESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPGESD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPGESS",
+  "a": {
+   "name": "VCMPGESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPGESS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPGTPD",
+  "a": {
+   "name": "VCMPGTPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPGTPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPGTPS",
+  "a": {
+   "name": "VCMPGTPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPGTPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPGTSD",
+  "a": {
+   "name": "VCMPGTSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPGTSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPGTSS",
+  "a": {
+   "name": "VCMPGTSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPGTSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPLEPD",
+  "a": {
+   "name": "VCMPLEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPLEPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPLEPS",
+  "a": {
+   "name": "VCMPLEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPLEPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPLESD",
+  "a": {
+   "name": "VCMPLESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPLESD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPLESS",
+  "a": {
+   "name": "VCMPLESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPLESS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPLTPD",
+  "a": {
+   "name": "VCMPLTPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPLTPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPLTPS",
+  "a": {
+   "name": "VCMPLTPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPLTPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPLTSD",
+  "a": {
+   "name": "VCMPLTSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPLTSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPLTSS",
+  "a": {
+   "name": "VCMPLTSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPLTSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNEQPD",
+  "a": {
+   "name": "VCMPNEQPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNEQPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNEQPS",
+  "a": {
+   "name": "VCMPNEQPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNEQPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNEQSD",
+  "a": {
+   "name": "VCMPNEQSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNEQSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNEQSS",
+  "a": {
+   "name": "VCMPNEQSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNEQSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNGEPD",
+  "a": {
+   "name": "VCMPNGEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNGEPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNGEPS",
+  "a": {
+   "name": "VCMPNGEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNGEPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNGESD",
+  "a": {
+   "name": "VCMPNGESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNGESD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNGESS",
+  "a": {
+   "name": "VCMPNGESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNGESS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNGTPD",
+  "a": {
+   "name": "VCMPNGTPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNGTPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNGTPS",
+  "a": {
+   "name": "VCMPNGTPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNGTPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNGTSD",
+  "a": {
+   "name": "VCMPNGTSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNGTSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNGTSS",
+  "a": {
+   "name": "VCMPNGTSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNGTSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNLEPD",
+  "a": {
+   "name": "VCMPNLEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNLEPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNLEPS",
+  "a": {
+   "name": "VCMPNLEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNLEPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNLESD",
+  "a": {
+   "name": "VCMPNLESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNLESD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNLESS",
+  "a": {
+   "name": "VCMPNLESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNLESS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNLTPD",
+  "a": {
+   "name": "VCMPNLTPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNLTPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNLTPS",
+  "a": {
+   "name": "VCMPNLTPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNLTPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNLTSD",
+  "a": {
+   "name": "VCMPNLTSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNLTSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPNLTSS",
+  "a": {
+   "name": "VCMPNLTSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPNLTSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPORDPD",
+  "a": {
+   "name": "VCMPORDPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPORDPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPORDPS",
+  "a": {
+   "name": "VCMPORDPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPORDPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPORDSD",
+  "a": {
+   "name": "VCMPORDSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPORDSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPORDSS",
+  "a": {
+   "name": "VCMPORDSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPORDSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPTRUEPD",
+  "a": {
+   "name": "VCMPTRUEPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPTRUEPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPTRUEPS",
+  "a": {
+   "name": "VCMPTRUEPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPTRUEPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPTRUESD",
+  "a": {
+   "name": "VCMPTRUESD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPTRUESD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPTRUESS",
+  "a": {
+   "name": "VCMPTRUESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPTRUESS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPUNORDPD",
+  "a": {
+   "name": "VCMPUNORDPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPUNORDPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPUNORDPS",
+  "a": {
+   "name": "VCMPUNORDPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPUNORDPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPUNORDSD",
+  "a": {
+   "name": "VCMPUNORDSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPUNORDSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VCMPUNORDSS",
+  "a": {
+   "name": "VCMPUNORDSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VCMPUNORDSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD123PD",
+  "a": {
+   "name": "VFMADD123PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD123PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD123PS",
+  "a": {
+   "name": "VFMADD123PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD123PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD123SD",
+  "a": {
+   "name": "VFMADD123SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD123SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD123SS",
+  "a": {
+   "name": "VFMADD123SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD123SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD312PD",
+  "a": {
+   "name": "VFMADD312PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD312PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD312PS",
+  "a": {
+   "name": "VFMADD312PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD312PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD312SD",
+  "a": {
+   "name": "VFMADD312SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD312SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD312SS",
+  "a": {
+   "name": "VFMADD312SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD312SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD321PD",
+  "a": {
+   "name": "VFMADD321PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD321PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD321PS",
+  "a": {
+   "name": "VFMADD321PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD321PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD321SD",
+  "a": {
+   "name": "VFMADD321SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD321SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADD321SS",
+  "a": {
+   "name": "VFMADD321SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADD321SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDPD",
+  "a": {
+   "name": "VFMADDPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDPS",
+  "a": {
+   "name": "VFMADDPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDSD",
+  "a": {
+   "name": "VFMADDSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDSS",
+  "a": {
+   "name": "VFMADDSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDSUB123PD",
+  "a": {
+   "name": "VFMADDSUB123PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDSUB123PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDSUB123PS",
+  "a": {
+   "name": "VFMADDSUB123PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDSUB123PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDSUB312PD",
+  "a": {
+   "name": "VFMADDSUB312PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDSUB312PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDSUB312PS",
+  "a": {
+   "name": "VFMADDSUB312PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDSUB312PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDSUB321PD",
+  "a": {
+   "name": "VFMADDSUB321PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDSUB321PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDSUB321PS",
+  "a": {
+   "name": "VFMADDSUB321PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDSUB321PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDSUBPD",
+  "a": {
+   "name": "VFMADDSUBPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDSUBPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMADDSUBPS",
+  "a": {
+   "name": "VFMADDSUBPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMADDSUBPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB123PD",
+  "a": {
+   "name": "VFMSUB123PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB123PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB123PS",
+  "a": {
+   "name": "VFMSUB123PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB123PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB123SD",
+  "a": {
+   "name": "VFMSUB123SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB123SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB123SS",
+  "a": {
+   "name": "VFMSUB123SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB123SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB312PD",
+  "a": {
+   "name": "VFMSUB312PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB312PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB312PS",
+  "a": {
+   "name": "VFMSUB312PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB312PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB312SD",
+  "a": {
+   "name": "VFMSUB312SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB312SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB312SS",
+  "a": {
+   "name": "VFMSUB312SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB312SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB321PD",
+  "a": {
+   "name": "VFMSUB321PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB321PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB321PS",
+  "a": {
+   "name": "VFMSUB321PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB321PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB321SD",
+  "a": {
+   "name": "VFMSUB321SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB321SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUB321SS",
+  "a": {
+   "name": "VFMSUB321SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUB321SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBADD123PD",
+  "a": {
+   "name": "VFMSUBADD123PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBADD123PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBADD123PS",
+  "a": {
+   "name": "VFMSUBADD123PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBADD123PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBADD312PD",
+  "a": {
+   "name": "VFMSUBADD312PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBADD312PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBADD312PS",
+  "a": {
+   "name": "VFMSUBADD312PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBADD312PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBADD321PD",
+  "a": {
+   "name": "VFMSUBADD321PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBADD321PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBADD321PS",
+  "a": {
+   "name": "VFMSUBADD321PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBADD321PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBADDPD",
+  "a": {
+   "name": "VFMSUBADDPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBADDPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBADDPS",
+  "a": {
+   "name": "VFMSUBADDPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBADDPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBPD",
+  "a": {
+   "name": "VFMSUBPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBPS",
+  "a": {
+   "name": "VFMSUBPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBSD",
+  "a": {
+   "name": "VFMSUBSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFMSUBSS",
+  "a": {
+   "name": "VFMSUBSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFMSUBSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD123PD",
+  "a": {
+   "name": "VFNMADD123PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD123PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD123PS",
+  "a": {
+   "name": "VFNMADD123PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD123PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD123SD",
+  "a": {
+   "name": "VFNMADD123SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD123SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD123SS",
+  "a": {
+   "name": "VFNMADD123SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD123SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD312PD",
+  "a": {
+   "name": "VFNMADD312PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD312PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD312PS",
+  "a": {
+   "name": "VFNMADD312PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD312PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD312SD",
+  "a": {
+   "name": "VFNMADD312SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD312SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD312SS",
+  "a": {
+   "name": "VFNMADD312SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD312SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD321PD",
+  "a": {
+   "name": "VFNMADD321PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD321PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD321PS",
+  "a": {
+   "name": "VFNMADD321PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD321PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD321SD",
+  "a": {
+   "name": "VFNMADD321SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD321SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADD321SS",
+  "a": {
+   "name": "VFNMADD321SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADD321SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADDPD",
+  "a": {
+   "name": "VFNMADDPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADDPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADDPS",
+  "a": {
+   "name": "VFNMADDPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADDPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADDSD",
+  "a": {
+   "name": "VFNMADDSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADDSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMADDSS",
+  "a": {
+   "name": "VFNMADDSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMADDSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB123PD",
+  "a": {
+   "name": "VFNMSUB123PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB123PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB123PS",
+  "a": {
+   "name": "VFNMSUB123PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB123PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB123SD",
+  "a": {
+   "name": "VFNMSUB123SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB123SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB123SS",
+  "a": {
+   "name": "VFNMSUB123SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB123SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB312PD",
+  "a": {
+   "name": "VFNMSUB312PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB312PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB312PS",
+  "a": {
+   "name": "VFNMSUB312PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB312PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB312SD",
+  "a": {
+   "name": "VFNMSUB312SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB312SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB312SS",
+  "a": {
+   "name": "VFNMSUB312SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB312SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB321PD",
+  "a": {
+   "name": "VFNMSUB321PD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB321PD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB321PS",
+  "a": {
+   "name": "VFNMSUB321PS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB321PS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB321SD",
+  "a": {
+   "name": "VFNMSUB321SD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB321SD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUB321SS",
+  "a": {
+   "name": "VFNMSUB321SS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUB321SS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUBPD",
+  "a": {
+   "name": "VFNMSUBPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUBPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUBPS",
+  "a": {
+   "name": "VFNMSUBPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUBPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUBSD",
+  "a": {
+   "name": "VFNMSUBSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUBSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFNMSUBSS",
+  "a": {
+   "name": "VFNMSUBSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFNMSUBSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFRCZPD",
+  "a": {
+   "name": "VFRCZPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFRCZPD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFRCZPS",
+  "a": {
+   "name": "VFRCZPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFRCZPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFRCZSD",
+  "a": {
+   "name": "VFRCZSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFRCZSD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VFRCZSS",
+  "a": {
+   "name": "VFRCZSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VFRCZSS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VLDQQU",
+  "a": {
+   "name": "VLDQQU",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VLDQQU",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMGEXIT",
+  "a": {
+   "name": "VMGEXIT",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "VMGEXIT",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMLOAD",
+  "a": {
+   "name": "VMLOAD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "VMLOAD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMMCALL",
+  "a": {
+   "name": "VMMCALL",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "VMMCALL",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMOVAPS",
+  "a": {
+   "name": "VMOVAPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "VMOVAPS",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "VMOVAPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "AVX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMOVDQA",
+  "a": {
+   "name": "VMOVDQA",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "VMOVDQA",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "VMOVDQA",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "AVX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMOVDQU",
+  "a": {
+   "name": "VMOVDQU",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "VMOVDQU",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": {
+   "name": "VMOVDQU",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "insns.dat",
+   "why": "AVX"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMOVNTQQ",
+  "a": {
+   "name": "VMOVNTQQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VMOVNTQQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMOVQQA",
+  "a": {
+   "name": "VMOVQQA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VMOVQQA",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMOVQQU",
+  "a": {
+   "name": "VMOVQQU",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VMOVQQU",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMRUN",
+  "a": {
+   "name": "VMRUN",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "VMRUN",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VMSAVE",
+  "a": {
+   "name": "VMSAVE",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "VMSAVE",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMOV",
+  "a": {
+   "name": "VPCMOV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMOV",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPEQUB",
+  "a": {
+   "name": "VPCMPEQUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPEQUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPEQUD",
+  "a": {
+   "name": "VPCMPEQUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPEQUD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPEQUQ",
+  "a": {
+   "name": "VPCMPEQUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPEQUQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPEQUW",
+  "a": {
+   "name": "VPCMPEQUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPEQUW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGEB",
+  "a": {
+   "name": "VPCMPGEB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGEB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGED",
+  "a": {
+   "name": "VPCMPGED",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGED",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGEQ",
+  "a": {
+   "name": "VPCMPGEQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGEQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGEUB",
+  "a": {
+   "name": "VPCMPGEUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGEUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGEUD",
+  "a": {
+   "name": "VPCMPGEUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGEUD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGEUQ",
+  "a": {
+   "name": "VPCMPGEUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGEUQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGEUW",
+  "a": {
+   "name": "VPCMPGEUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGEUW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGEW",
+  "a": {
+   "name": "VPCMPGEW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGEW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGTUB",
+  "a": {
+   "name": "VPCMPGTUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGTUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGTUD",
+  "a": {
+   "name": "VPCMPGTUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGTUD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGTUQ",
+  "a": {
+   "name": "VPCMPGTUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGTUQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPGTUW",
+  "a": {
+   "name": "VPCMPGTUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPGTUW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLEB",
+  "a": {
+   "name": "VPCMPLEB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLEB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLED",
+  "a": {
+   "name": "VPCMPLED",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLED",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLEQ",
+  "a": {
+   "name": "VPCMPLEQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLEQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLEUB",
+  "a": {
+   "name": "VPCMPLEUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLEUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLEUD",
+  "a": {
+   "name": "VPCMPLEUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLEUD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLEUQ",
+  "a": {
+   "name": "VPCMPLEUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLEUQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLEUW",
+  "a": {
+   "name": "VPCMPLEUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLEUW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLEW",
+  "a": {
+   "name": "VPCMPLEW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLEW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLTB",
+  "a": {
+   "name": "VPCMPLTB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLTB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLTD",
+  "a": {
+   "name": "VPCMPLTD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLTD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLTQ",
+  "a": {
+   "name": "VPCMPLTQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLTQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLTUB",
+  "a": {
+   "name": "VPCMPLTUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLTUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLTUD",
+  "a": {
+   "name": "VPCMPLTUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLTUD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLTUQ",
+  "a": {
+   "name": "VPCMPLTUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLTUQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLTUW",
+  "a": {
+   "name": "VPCMPLTUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLTUW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPLTW",
+  "a": {
+   "name": "VPCMPLTW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPLTW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNEQB",
+  "a": {
+   "name": "VPCMPNEQB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNEQB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNEQD",
+  "a": {
+   "name": "VPCMPNEQD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNEQD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNEQQ",
+  "a": {
+   "name": "VPCMPNEQQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNEQQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNEQUB",
+  "a": {
+   "name": "VPCMPNEQUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNEQUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNEQUD",
+  "a": {
+   "name": "VPCMPNEQUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNEQUD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNEQUQ",
+  "a": {
+   "name": "VPCMPNEQUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNEQUQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNEQUW",
+  "a": {
+   "name": "VPCMPNEQUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNEQUW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNEQW",
+  "a": {
+   "name": "VPCMPNEQW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNEQW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNGTB",
+  "a": {
+   "name": "VPCMPNGTB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNGTB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNGTD",
+  "a": {
+   "name": "VPCMPNGTD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNGTD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNGTQ",
+  "a": {
+   "name": "VPCMPNGTQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNGTQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNGTUB",
+  "a": {
+   "name": "VPCMPNGTUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNGTUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNGTUD",
+  "a": {
+   "name": "VPCMPNGTUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNGTUD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNGTUQ",
+  "a": {
+   "name": "VPCMPNGTUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNGTUQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNGTUW",
+  "a": {
+   "name": "VPCMPNGTUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNGTUW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNGTW",
+  "a": {
+   "name": "VPCMPNGTW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNGTW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLEB",
+  "a": {
+   "name": "VPCMPNLEB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLEB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLED",
+  "a": {
+   "name": "VPCMPNLED",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLED",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLEQ",
+  "a": {
+   "name": "VPCMPNLEQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLEQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLEUB",
+  "a": {
+   "name": "VPCMPNLEUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLEUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLEUD",
+  "a": {
+   "name": "VPCMPNLEUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLEUD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLEUQ",
+  "a": {
+   "name": "VPCMPNLEUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLEUQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLEUW",
+  "a": {
+   "name": "VPCMPNLEUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLEUW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLEW",
+  "a": {
+   "name": "VPCMPNLEW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLEW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLTB",
+  "a": {
+   "name": "VPCMPNLTB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLTB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLTD",
+  "a": {
+   "name": "VPCMPNLTD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLTD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLTQ",
+  "a": {
+   "name": "VPCMPNLTQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLTQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLTUB",
+  "a": {
+   "name": "VPCMPNLTUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLTUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLTUD",
+  "a": {
+   "name": "VPCMPNLTUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLTUD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLTUQ",
+  "a": {
+   "name": "VPCMPNLTUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLTUQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLTUW",
+  "a": {
+   "name": "VPCMPNLTUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLTUW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCMPNLTW",
+  "a": {
+   "name": "VPCMPNLTW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCMPNLTW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCOMB",
+  "a": {
+   "name": "VPCOMB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCOMB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCOMD",
+  "a": {
+   "name": "VPCOMD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCOMD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCOMQ",
+  "a": {
+   "name": "VPCOMQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCOMQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCOMUB",
+  "a": {
+   "name": "VPCOMUB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCOMUB",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCOMUD",
+  "a": {
+   "name": "VPCOMUD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCOMUD",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCOMUQ",
+  "a": {
+   "name": "VPCOMUQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCOMUQ",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCOMUW",
+  "a": {
+   "name": "VPCOMUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCOMUW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPCOMW",
+  "a": {
+   "name": "VPCOMW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPCOMW",
+   "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VPHMINPOSUW",
+  "a": {
+   "name": "VPHMINPOSUW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPHMINPOSUW",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VPHMINPOSUW",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VPHMINPOSUW",
+   "why": "SSE4.1 horizontal minimum"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VPMOVMSKB",
+  "a": {
+   "name": "VPMOVMSKB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VPMOVMSKB",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VPMOVMSKB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VPMOVMSKB",
+   "why": "SSE2 byte mask extract"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VPXOR",
+  "a": {
+   "name": "VPXOR",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "VPXOR",
+   "why": "known to systems, kernel, or SIMD specialists"
+  },
+  "b": {
+   "name": "VPXOR",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: VPXOR",
+   "why": "AVX2 bitwise XOR"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VSHUFPD",
+  "a": {
+   "name": "VSHUFPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VSHUFPD",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VSHUFPD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSHUFPD",
+   "why": "SSE2 shuffle packed double"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VSHUFPS",
+  "a": {
+   "name": "VSHUFPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VSHUFPS",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VSHUFPS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSHUFPS",
+   "why": "SSE shuffle packed single"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VSTMXCSR",
+  "a": {
+   "name": "VSTMXCSR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VSTMXCSR",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VSTMXCSR",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSTMXCSR",
+   "why": "store MXCSR control register"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VSUBPD",
+  "a": {
+   "name": "VSUBPD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VSUBPD",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VSUBPD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSUBPD",
+   "why": "SSE2 packed subtract"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VSUBPS",
+  "a": {
+   "name": "VSUBPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VSUBPS",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VSUBPS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSUBPS",
+   "why": "SSE packed subtract"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VSUBSD",
+  "a": {
+   "name": "VSUBSD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VSUBSD",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VSUBSD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSUBSD",
+   "why": "SSE2 scalar subtract"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VSUBSS",
+  "a": {
+   "name": "VSUBSS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VSUBSS",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VSUBSS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VSUBSS",
+   "why": "SSE scalar subtract"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VUCOMISD",
+  "a": {
+   "name": "VUCOMISD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VUCOMISD",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VUCOMISD",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VUCOMISD",
+   "why": "SSE2 scalar compare"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VUCOMISS",
+  "a": {
+   "name": "VUCOMISS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VUCOMISS",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": {
+   "name": "VUCOMISS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "insns.dat: VUCOMISS",
+   "why": "SSE scalar compare"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VXORPD",
+  "a": {
+   "name": "VXORPD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "VXORPD",
+   "why": "known to systems, kernel, or SIMD specialists"
+  },
+  "b": {
+   "name": "VXORPD",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: VXORPD",
+   "why": "AVX XOR packed double"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VXORPS",
+  "a": {
+   "name": "VXORPS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "VXORPS",
+   "why": "known to systems, kernel, or SIMD specialists"
+  },
+  "b": {
+   "name": "VXORPS",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: VXORPS",
+   "why": "AVX XOR packed single"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "VZEROALL",
+  "a": {
+   "name": "VZEROALL",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "VZEROALL",
+   "why": "known to systems, kernel, or SIMD specialists"
+  },
+  "b": {
+   "name": "VZEROALL",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "insns.dat: VZEROALL",
+   "why": "zero all YMM registers"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "XLAT",
+  "a": {
+   "name": "XLAT",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "XLAT",
+   "why": "known to systems, kernel, or SIMD specialists"
+  },
+  "b": {
+   "name": "XLAT",
+   "aliases": [
+    "XLATB"
+   ],
+   "judge": "npe",
+   "evidence": "insns.dat: XLAT",
+   "why": "table lookup translate byte"
+  },
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "XLATB",
+  "a": {
+   "name": "XLATB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "XLATB",
+   "why": "known to systems, kernel, or SIMD specialists"
+  },
+  "b": null,
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "XRSTOR64",
+  "a": {
+   "name": "XRSTOR64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "XRSTOR64",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": null,
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "XRSTORS64",
+  "a": {
+   "name": "XRSTORS64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "XRSTORS64",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": null,
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "XSAVE64",
+  "a": {
+   "name": "XSAVE64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "XSAVE64",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": null,
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "XSAVEC64",
+  "a": {
+   "name": "XSAVEC64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "XSAVEC64",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": null,
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "XSAVEOPT64",
+  "a": {
+   "name": "XSAVEOPT64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "XSAVEOPT64",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": null,
+  "batch": "batch-01.txt"
+ },
+ {
+  "name": "XSAVES64",
+  "a": {
+   "name": "XSAVES64",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "XSAVES64",
+   "why": "specialized x86 SIMD, crypto, or system instruction"
+  },
+  "b": null,
+  "batch": "batch-01.txt"
+ }
+]

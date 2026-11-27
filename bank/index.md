@@ -106,7 +106,7 @@
 | web-attack | Name a web attack | hardware-security-history | draft | 0 | 0 | 7 |
 | win32-api-function | Name a Windows API function | hardware-security-history | draft | 0 | 0 | 7 |
 | x86-cpu-feature-flag | Name an x86 CPU feature flag | hardware-security-history | draft | 0 | 0 | 7 |
-| x86-instruction | Name an x86 instruction | hardware-security-history | draft | 0 | 0 | 7 |
+| x86-instruction | Name an x86 instruction | hardware-security-history | draft | 1496 | 1492 | 153 |
 | architectural-pattern | Name an architectural pattern | languages-tools | draft | 0 | 0 | 7 |
 | benchmarking-tool | Name a benchmarking tool | languages-tools | draft | 0 | 0 | 7 |
 | bug | Name a type of bug | languages-tools | approved | 109 | 83 | 0 |

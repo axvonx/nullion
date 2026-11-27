@@ -1,0 +1,10 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py x86-instruction sample  [0s, exit 0]
+x86-instruction: sampled 20 of 1492 unconfirmed answers -> scripts/bank/mined/x86-instruction/sample.json
+
+--- haiku call, 19s, exit 0, prompt 3560 chars, stdout 2782 chars
+VMAXSH": {"member": true, "tier_ok": true, "why": "Real AVX-512-FP16 scalar max instruction in the SDM; deep-internals tier fits."},"VCVTPS2UQQ": {"member": true, "tier_ok": true, "why": "Real AVX-512DQ convert instruction in the SDM; deep-internals tier fits."},"VPHSUBW": {"member": true, "tier_ok": true, "why": "Real AVX2 horizontal-subtract instruction (PHSUBW family) in the SDM; specialist tier fits."},"FBSTP": {"member": true, "tier_ok": true, "why": "Real x87 packed-BCD store instruction in the SDM; obscure, so Heisenbug fits."},"PSHUFB": {"member": true, "tier_ok": true, "why": "Real SSSE3 byte-shuffle instruction in the SDM; well known to SIMD and systems people, so Memory leak fits."},"PREFETCHWT1": {"member": true, "tier_ok": true, "why": "Real prefetch hint in the SDM; deep-internals tier fits."},"PACKUSWB": {"member": true, "tier_ok": true, "why": "Real SSE2 pack-with-unsigned-saturation instruction in the SDM; specialist tier fits."},"VRNDSCALEPD": {"member": true, "tier_ok": true, "why": "Real AVX-512 round-to-scale instruction in the SDM; deep-internals tier fits."},"VADDPD": {"member": true, "tier_ok": true, "why": "Real AVX packed double add in the SDM; known to systems and numerics people, so Memory leak fits."},"VSTMXCSR": {"member": true, "tier_ok": true, "why": "Real AVX instruction (store MXCSR) in the SDM; specialist tier fits."},"VPMAXUB": {"member": true, "tier_ok": true, "why": "Real AVX2 packed unsigned-byte max in the SDM; specialist tier fits."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py x86-instruction score  [0s, exit 0]
+x86-instruction: precision 100% (20/20), tier ok 20/20
+

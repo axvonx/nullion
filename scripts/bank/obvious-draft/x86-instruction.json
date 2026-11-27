@@ -1,0 +1,256 @@
+[
+ {
+  "name": "mov",
+  "aliases": [
+   "move"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "add",
+  "aliases": [
+   "addition"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "sub",
+  "aliases": [
+   "subtract"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "push",
+  "aliases": [
+   "push onto stack"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "pop",
+  "aliases": [
+   "pop off stack"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "call",
+  "aliases": [
+   "callq"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "ret",
+  "aliases": [
+   "return"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "jmp",
+  "aliases": [
+   "jump"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "cmp",
+  "aliases": [
+   "compare"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "xor",
+  "aliases": [
+   "bitwise xor",
+   "exclusive or"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "and",
+  "aliases": [
+   "bitwise and"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "or",
+  "aliases": [
+   "bitwise or"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "lea",
+  "aliases": [
+   "load effective address"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "int",
+  "aliases": [
+   "interrupt"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "nop",
+  "aliases": [
+   "no operation",
+   "no-op"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "syscall",
+  "aliases": [
+   "system call"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "cpuid",
+  "aliases": [
+   "cpu id"
+  ],
+  "tier": "off-by-one"
+ },
+ {
+  "name": "mul",
+  "aliases": [
+   "multiply"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "div",
+  "aliases": [
+   "divide"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "imul",
+  "aliases": [
+   "signed multiply",
+   "integer multiply"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "idiv",
+  "aliases": [
+   "signed divide"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "test",
+  "aliases": [],
+  "tier": "npe"
+ },
+ {
+  "name": "not",
+  "aliases": [
+   "bitwise not"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "inc",
+  "aliases": [
+   "increment"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "dec",
+  "aliases": [
+   "decrement"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "neg",
+  "aliases": [
+   "negate"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "hlt",
+  "aliases": [
+   "halt"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "rdtsc",
+  "aliases": [
+   "read time stamp counter"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "xchg",
+  "aliases": [
+   "exchange"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "cmpxchg",
+  "aliases": [
+   "compare and exchange",
+   "compare exchange"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "shl",
+  "aliases": [
+   "shift left"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "shr",
+  "aliases": [
+   "shift right"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "leave",
+  "aliases": [],
+  "tier": "npe"
+ },
+ {
+  "name": "sysenter",
+  "aliases": [],
+  "tier": "npe"
+ },
+ {
+  "name": "je",
+  "aliases": [
+   "jz",
+   "jump if equal",
+   "jump if zero"
+  ],
+  "tier": "npe"
+ },
+ {
+  "name": "jne",
+  "aliases": [
+   "jnz",
+   "jump if not equal",
+   "jump if not zero"
+  ],
+  "tier": "npe"
+ }
+]

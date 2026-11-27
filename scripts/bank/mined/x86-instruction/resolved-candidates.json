@@ -1,0 +1,1786 @@
+{
+  "x86-instruction": [
+    {
+      "name": "AAA",
+      "aliases": [],
+      "judge": "race",
+      "why": "BCD adjust"
+    },
+    {
+      "name": "AAD",
+      "aliases": [],
+      "judge": "race",
+      "why": "BCD adjust"
+    },
+    {
+      "name": "AAM",
+      "aliases": [],
+      "judge": "race",
+      "why": "BCD adjust"
+    },
+    {
+      "name": "AAS",
+      "aliases": [],
+      "judge": "race",
+      "why": "BCD adjust"
+    },
+    {
+      "name": "ADDPD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "ADDPS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE"
+    },
+    {
+      "name": "ADDSD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "ADDSS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE"
+    },
+    {
+      "name": "AESDEC",
+      "aliases": [],
+      "judge": "race",
+      "why": "AES-NI"
+    },
+    {
+      "name": "AESDECLAST",
+      "aliases": [],
+      "judge": "race",
+      "why": "AES-NI"
+    },
+    {
+      "name": "AESENC",
+      "aliases": [],
+      "judge": "race",
+      "why": "AES-NI"
+    },
+    {
+      "name": "AESENCLAST",
+      "aliases": [],
+      "judge": "race",
+      "why": "AES-NI"
+    },
+    {
+      "name": "AESIMC",
+      "aliases": [],
+      "judge": "race",
+      "why": "AES-NI"
+    },
+    {
+      "name": "AESKEYGENASSIST",
+      "aliases": [],
+      "judge": "race",
+      "why": "AES-NI"
+    },
+    {
+      "name": "CLFLUSHOPT",
+      "aliases": [],
+      "judge": "race",
+      "why": "cache flush"
+    },
+    {
+      "name": "CMC",
+      "aliases": [],
+      "judge": "leak",
+      "why": "flag op"
+    },
+    {
+      "name": "CMPEQPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPEQPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPEQSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPEQSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPLEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPLEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPLESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPLESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPLTPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPLTPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPLTSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPLTSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNEQPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNEQPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNEQSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNEQSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNLEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNLEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNLESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNLESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNLTPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNLTPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNLTSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPNLTSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPORDPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPORDPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPORDSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPORDSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPUNORDPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPUNORDPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPUNORDSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "CMPUNORDSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "DAA",
+      "aliases": [],
+      "judge": "race",
+      "why": "BCD adjust"
+    },
+    {
+      "name": "DAS",
+      "aliases": [],
+      "judge": "race",
+      "why": "BCD adjust"
+    },
+    {
+      "name": "DIVPD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "DIVPS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE"
+    },
+    {
+      "name": "DIVSD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "DIVSS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE"
+    },
+    {
+      "name": "ENCLS",
+      "aliases": [],
+      "judge": "race",
+      "why": "SGX"
+    },
+    {
+      "name": "ENCLU",
+      "aliases": [],
+      "judge": "race",
+      "why": "SGX"
+    },
+    {
+      "name": "ENCLV",
+      "aliases": [],
+      "judge": "race",
+      "why": "SGX"
+    },
+    {
+      "name": "FABS",
+      "aliases": [],
+      "judge": "race",
+      "why": "x87"
+    },
+    {
+      "name": "FADDP",
+      "aliases": [],
+      "judge": "race",
+      "why": "x87"
+    },
+    {
+      "name": "FCHS",
+      "aliases": [],
+      "judge": "race",
+      "why": "x87"
+    },
+    {
+      "name": "FCOS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "x87"
+    },
+    {
+      "name": "FDIVP",
+      "aliases": [],
+      "judge": "race",
+      "why": "x87"
+    },
+    {
+      "name": "FMULP",
+      "aliases": [],
+      "judge": "race",
+      "why": "x87"
+    },
+    {
+      "name": "FNOP",
+      "aliases": [],
+      "judge": "leak",
+      "why": "x87"
+    },
+    {
+      "name": "FSUBP",
+      "aliases": [],
+      "judge": "race",
+      "why": "x87"
+    },
+    {
+      "name": "FWAIT",
+      "aliases": [],
+      "judge": "leak",
+      "why": "x87"
+    },
+    {
+      "name": "FXCH",
+      "aliases": [],
+      "judge": "race",
+      "why": "x87"
+    },
+    {
+      "name": "FXRSTOR64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+    },
+    {
+      "name": "FXSAVE64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+    },
+    {
+      "name": "GETSEC",
+      "aliases": [],
+      "judge": "race",
+      "why": "SMX"
+    },
+    {
+      "name": "INT03",
+      "aliases": [
+        "INT03"
+      ],
+      "judge": "leak",
+      "why": "breakpoint"
+    },
+    {
+      "name": "INT1",
+      "aliases": [],
+      "judge": "race",
+      "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+    },
+    {
+      "name": "INT3",
+      "aliases": [],
+      "judge": "npe",
+      "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+    },
+    {
+      "name": "LAHF",
+      "aliases": [],
+      "judge": "leak",
+      "why": "flags"
+    },
+    {
+      "name": "LFENCE",
+      "aliases": [],
+      "judge": "leak",
+      "why": "memory fence"
+    },
+    {
+      "name": "MFENCE",
+      "aliases": [],
+      "judge": "leak",
+      "why": "memory fence"
+    },
+    {
+      "name": "MOVSD",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE2"
+    },
+    {
+      "name": "MOVSS",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE"
+    },
+    {
+      "name": "MULPD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "MULPS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE"
+    },
+    {
+      "name": "MULSD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "MULSS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE"
+    },
+    {
+      "name": "PADDB",
+      "aliases": [],
+      "judge": "leak",
+      "why": "MMX"
+    },
+    {
+      "name": "PADDD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "MMX"
+    },
+    {
+      "name": "PADDQ",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "PADDW",
+      "aliases": [],
+      "judge": "leak",
+      "why": "MMX"
+    },
+    {
+      "name": "PBNDKB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+    },
+    {
+      "name": "PCLMULQDQ",
+      "aliases": [],
+      "judge": "race",
+      "why": "carry-less multiply"
+    },
+    {
+      "name": "PCMPEQB",
+      "aliases": [],
+      "judge": "leak",
+      "why": "MMX"
+    },
+    {
+      "name": "PCMPESTRI",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE4.2 string"
+    },
+    {
+      "name": "PCMPESTRM",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE4.2 string"
+    },
+    {
+      "name": "PCMPGTB",
+      "aliases": [],
+      "judge": "leak",
+      "why": "MMX"
+    },
+    {
+      "name": "PCMPISTRI",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE4.2 string"
+    },
+    {
+      "name": "PCMPISTRM",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE4.2 string"
+    },
+    {
+      "name": "PEXTRB",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE4.1"
+    },
+    {
+      "name": "PEXTRD",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE4.1"
+    },
+    {
+      "name": "PEXTRQ",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE4.1"
+    },
+    {
+      "name": "PINSRQ",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE4.1"
+    },
+    {
+      "name": "POP2P",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+    },
+    {
+      "name": "POPP",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+    },
+    {
+      "name": "PREFETCH",
+      "aliases": [],
+      "judge": "leak",
+      "why": "3DNow-era prefetch"
+    },
+    {
+      "name": "PREFETCHT0",
+      "aliases": [],
+      "judge": "leak",
+      "why": "prefetch"
+    },
+    {
+      "name": "PSHUFB",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSSE3"
+    },
+    {
+      "name": "PSHUFD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "PSUBB",
+      "aliases": [],
+      "judge": "leak",
+      "why": "MMX"
+    },
+    {
+      "name": "PSUBD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "MMX"
+    },
+    {
+      "name": "PSUBQ",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "PSUBW",
+      "aliases": [],
+      "judge": "leak",
+      "why": "MMX"
+    },
+    {
+      "name": "PUSH2P",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+    },
+    {
+      "name": "PUSHP",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "x86/x86-64 instruction mnemonic in NASM insns.dat"
+    },
+    {
+      "name": "RDPKRU",
+      "aliases": [],
+      "judge": "race",
+      "why": "protection keys"
+    },
+    {
+      "name": "SAHF",
+      "aliases": [],
+      "judge": "leak",
+      "why": "flags"
+    },
+    {
+      "name": "SFENCE",
+      "aliases": [],
+      "judge": "leak",
+      "why": "memory fence"
+    },
+    {
+      "name": "SHA1RNDS4",
+      "aliases": [],
+      "judge": "race",
+      "why": "SHA extensions"
+    },
+    {
+      "name": "SHA256RNDS2",
+      "aliases": [],
+      "judge": "race",
+      "why": "SHA extensions"
+    },
+    {
+      "name": "SQRTPD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "SQRTPS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE"
+    },
+    {
+      "name": "SQRTSD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "SQRTSS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE"
+    },
+    {
+      "name": "SUBPD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "SUBPS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE"
+    },
+    {
+      "name": "SUBSD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE2"
+    },
+    {
+      "name": "SUBSS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "SSE"
+    },
+    {
+      "name": "VADDPD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "AVX"
+    },
+    {
+      "name": "VADDPS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "AVX"
+    },
+    {
+      "name": "VCMPEQPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPEQPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPEQSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPEQSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPFALSEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPFALSEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPFALSESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPFALSESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPGEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPGEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPGESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPGESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPGTPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPGTPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPGTSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPGTSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPLEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPLEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPLESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPLESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPLTPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPLTPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPLTSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPLTSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNEQPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNEQPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNEQSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNEQSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNGEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNGEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNGESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNGESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNGTPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNGTPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNGTSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNGTSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNLEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNLEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNLESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNLESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNLTPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNLTPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNLTSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPNLTSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPORDPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPORDPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPORDSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPORDSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPTRUEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPTRUEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPTRUESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPTRUESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPUNORDPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPUNORDPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPUNORDSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VCMPUNORDSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VMOVAPS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "AVX"
+    },
+    {
+      "name": "VMOVDQA",
+      "aliases": [],
+      "judge": "leak",
+      "why": "AVX"
+    },
+    {
+      "name": "VMOVDQU",
+      "aliases": [],
+      "judge": "leak",
+      "why": "AVX"
+    },
+    {
+      "name": "VPCMPEQUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPEQUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPEQUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPEQUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGEB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGED",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGEQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGEUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGEUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGEUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGEUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGEW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGTUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGTUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGTUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPGTUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLEB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLED",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLEQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLEUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLEUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLEUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLEUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLEW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLTB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLTD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLTQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLTUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLTUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLTUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLTUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPLTW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNEQB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNEQD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNEQQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNEQUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNEQUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNEQUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNEQUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNEQW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNGTB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNGTD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNGTQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNGTUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNGTUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNGTUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNGTUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNGTW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLEB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLED",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLEQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLEUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLEUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLEUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLEUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLEW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLTB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLTD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLTQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLTUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLTUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLTUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLTUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPCMPNLTW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "Intel SDM comparison pseudo-op mnemonic; unsure if pseudo-ops count separately"
+    },
+    {
+      "name": "VPHMINPOSUW",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE4.1 horizontal minimum"
+    },
+    {
+      "name": "VPMOVMSKB",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE2 byte mask extract"
+    },
+    {
+      "name": "VPXOR",
+      "aliases": [],
+      "judge": "leak",
+      "why": "AVX2 bitwise XOR"
+    },
+    {
+      "name": "VSHUFPD",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE2 shuffle packed double"
+    },
+    {
+      "name": "VSHUFPS",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE shuffle packed single"
+    },
+    {
+      "name": "VSTMXCSR",
+      "aliases": [],
+      "judge": "race",
+      "why": "store MXCSR control register"
+    },
+    {
+      "name": "VSUBPD",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE2 packed subtract"
+    },
+    {
+      "name": "VSUBPS",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE packed subtract"
+    },
+    {
+      "name": "VSUBSD",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE2 scalar subtract"
+    },
+    {
+      "name": "VSUBSS",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE scalar subtract"
+    },
+    {
+      "name": "VUCOMISD",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE2 scalar compare"
+    },
+    {
+      "name": "VUCOMISS",
+      "aliases": [],
+      "judge": "race",
+      "why": "SSE scalar compare"
+    },
+    {
+      "name": "VXORPD",
+      "aliases": [],
+      "judge": "leak",
+      "why": "AVX XOR packed double"
+    },
+    {
+      "name": "VXORPS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "AVX XOR packed single"
+    },
+    {
+      "name": "VZEROALL",
+      "aliases": [],
+      "judge": "leak",
+      "why": "zero all YMM registers"
+    },
+    {
+      "name": "XLAT",
+      "aliases": [
+        "XLATB"
+      ],
+      "judge": "leak",
+      "why": "table lookup translate byte"
+    },
+    {
+      "name": "XLATB",
+      "aliases": [],
+      "judge": "race",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XRSTOR64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XRSTORS64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSAVE64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSAVEC64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSAVEOPT64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSAVES64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    }
+  ]
+}

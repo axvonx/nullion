@@ -1,0 +1,102 @@
+{
+ "VREDUCESD": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX-512DQ scalar reduce instruction in the SDM; specialist-only, so Heisenbug fits."
+ },
+ "VREDUCEPD": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX-512DQ packed reduce instruction in the SDM; deep-internals tier fits."
+ },
+ "VGATHERPF1DPD": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX-512PF gather-prefetch instruction in the SDM; very obscure, so Heisenbug fits."
+ },
+ "FCMOVNE": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real x87 FCMOVcc mnemonic (FCMOVNE) listed in the SDM; deep-internals tier fits."
+ },
+ "PADDSB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real SSE2 packed saturating-add instruction; known to SIMD specialists, so Race condition fits."
+ },
+ "VPMOVQD": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX-512 down-convert instruction in the SDM; deep-internals tier fits."
+ },
+ "VPMULUDQ": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX2 (and SSE2 PMULUDQ) instruction in the SDM; specialist tier fits."
+ },
+ "VCMPPH": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX-512-FP16 packed compare instruction in the SDM; deep-internals tier fits."
+ },
+ "T2RPNTLVWZ0T1": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AMX matrix-transpose/prefetch instruction in the SDM; very obscure, so Heisenbug fits."
+ },
+ "VMAXSH": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX-512-FP16 scalar max instruction in the SDM; deep-internals tier fits."
+ },
+ "VCVTPS2UQQ": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX-512DQ convert instruction in the SDM; deep-internals tier fits."
+ },
+ "VPHSUBW": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX2 horizontal-subtract instruction (PHSUBW family) in the SDM; specialist tier fits."
+ },
+ "FBSTP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real x87 packed-BCD store instruction in the SDM; obscure, so Heisenbug fits."
+ },
+ "PSHUFB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real SSSE3 byte-shuffle instruction in the SDM; well known to SIMD and systems people, so Memory leak fits."
+ },
+ "PREFETCHWT1": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real prefetch hint in the SDM; deep-internals tier fits."
+ },
+ "PACKUSWB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real SSE2 pack-with-unsigned-saturation instruction in the SDM; specialist tier fits."
+ },
+ "VRNDSCALEPD": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX-512 round-to-scale instruction in the SDM; deep-internals tier fits."
+ },
+ "VADDPD": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX packed double add in the SDM; known to systems and numerics people, so Memory leak fits."
+ },
+ "VSTMXCSR": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX instruction (store MXCSR) in the SDM; specialist tier fits."
+ },
+ "VPMAXUB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real AVX2 packed unsigned-byte max in the SDM; specialist tier fits."
+ }
+}

@@ -1,0 +1,2919 @@
+{
+  "x86-instruction": [
+    {
+      "name": "VPDPBSUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPBSUD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPBSUDS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPBSUDS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPBUSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPBUSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPBUSDS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPBUSDS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPBUUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPBUUD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPBUUDS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPBUUDS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPWSSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPWSSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPWSSDS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPWSSDS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPWSUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPWSUD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPWSUDS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPWSUDS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPWUSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPWUSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPWUSDS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPWUSDS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPWUUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPWUUD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPDPWUUDS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPDPWUUDS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERM2F128",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERM2F128",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERM2I128",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERM2I128",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMD",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VPERMD",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VPERMI2B",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMI2B",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMI2D",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMI2D",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMI2PD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMI2PD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMI2PS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMI2PS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMI2Q",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMI2Q",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMI2W",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMI2W",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMILPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMILPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMILPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMILPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMQ",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VPERMQ",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VPERMT2B",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMT2B",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMT2D",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMT2D",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMT2PD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMT2PD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMT2PS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMT2PS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMT2Q",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMT2Q",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMT2W",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMT2W",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPERMW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPERMW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPEXPANDB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPEXPANDB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPEXPANDD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPEXPANDD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPEXPANDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPEXPANDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPEXPANDW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPEXPANDW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPEXTRB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPEXTRB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPEXTRD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPEXTRD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPEXTRQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPEXTRQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPEXTRW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPEXTRW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPGATHERDD",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VPGATHERDD",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VPGATHERDQ",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VPGATHERDQ",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VPGATHERQD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPGATHERQD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPGATHERQQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPGATHERQQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDBD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDBD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDBQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDBQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDBW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDBW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDSW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDSW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDUBD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDUBD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDUBQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDUBQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDUBW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDUBW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDUDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDUDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDUWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDUWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDUWQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDUWQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHADDWQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHADDWQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHMINPOSUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHMINPOSUW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHSUBBW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHSUBBW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHSUBD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHSUBD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHSUBDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHSUBDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHSUBSW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHSUBSW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHSUBW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHSUBW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPHSUBWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPHSUBWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPINSRB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPINSRB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPINSRD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPINSRD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPINSRQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPINSRQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPINSRW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPINSRW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPLZCNTD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPLZCNTD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPLZCNTQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPLZCNTQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMACSDD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMACSDD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMACSDQH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMACSDQH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMACSDQL",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMACSDQL",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMACSSDD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMACSSDD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMACSSDQH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMACSSDQH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMACSSDQL",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMACSSDQL",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMACSSWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMACSSWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMACSSWW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMACSSWW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMACSWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMACSWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMACSWW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMACSWW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMADCSSWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMADCSSWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMADCSWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMADCSWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMADD52HUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMADD52HUQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMADD52LUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMADD52LUQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMADDUBSW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMADDUBSW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMADDWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMADDWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMASKMOVD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMASKMOVD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMASKMOVQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMASKMOVQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMAXSB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMAXSB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMAXSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMAXSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMAXSQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMAXSQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMAXSW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMAXSW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMAXUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMAXUB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMAXUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMAXUD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMAXUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMAXUQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMAXUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMAXUW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMINSB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMINSB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMINSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMINSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMINSQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMINSQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMINSW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMINSW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMINUB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMINUB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMINUD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMINUD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMINUQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMINUQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMINUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMINUW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVB2M",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVB2M",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVD2M",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVD2M",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVDB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVDB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVDW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVDW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVM2B",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVM2B",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVM2D",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVM2D",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVM2Q",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVM2Q",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVM2W",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVM2W",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVMSKB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVMSKB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVQ2M",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVQ2M",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVQB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVQB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVQD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVQD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVQW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVQW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSDB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSDB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSDW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSDW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSQB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSQB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSQD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSQD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSQW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSQW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSWB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSWB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSXBD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSXBD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSXBQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSXBQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSXBW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSXBW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSXDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSXDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSXWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSXWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVSXWQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVSXWQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVUSDB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVUSDB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVUSDW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVUSDW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVUSQB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVUSQB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVUSQD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVUSQD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVUSQW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVUSQW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVUSWB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVUSWB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVW2M",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVW2M",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVWB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVWB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVZXBD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVZXBD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVZXBQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVZXBQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVZXBW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVZXBW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVZXDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVZXDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVZXWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVZXWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMOVZXWQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMOVZXWQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMULDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMULDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMULHRSW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMULHRSW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMULHUW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMULHUW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMULHW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMULHW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMULLD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMULLD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMULLQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMULLQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMULLW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMULLW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMULTISHIFTQB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMULTISHIFTQB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPMULUDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPMULUDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPOPCNTB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPOPCNTB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPOPCNTD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPOPCNTD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPOPCNTQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPOPCNTQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPOPCNTW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPOPCNTW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPOR",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VPOR",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VPORD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPORD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPORQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPORQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPPERM",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPPERM",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPROLD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPROLD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPROLQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPROLQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPROLVD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPROLVD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPROLVQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPROLVQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPRORD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPRORD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPRORQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPRORQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPRORVD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPRORVD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPRORVQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPRORVQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPROTB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPROTB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPROTD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPROTD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPROTQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPROTQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPROTW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPROTW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSADBW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSADBW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSCATTERDD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSCATTERDD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSCATTERDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSCATTERDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSCATTERQD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSCATTERQD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSCATTERQQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSCATTERQQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHAB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHAB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHAD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHAD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHAQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHAQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHAW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHAW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHLB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHLB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHLD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHLD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHLDD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHLDD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHLDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHLDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHLDVD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHLDVD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHLDVQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHLDVQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHLDVW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHLDVW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHLDW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHLDW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHLQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHLQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHLW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHLW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHRDD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHRDD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHRDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHRDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHRDVD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHRDVD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHRDVQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHRDVQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHRDVW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHRDVW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHRDW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHRDW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHUFB",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VPSHUFB",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VPSHUFBITQMB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHUFBITQMB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHUFD",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VPSHUFD",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VPSHUFHW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHUFHW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSHUFLW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSHUFLW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSIGNB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSIGNB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSIGND",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSIGND",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSIGNW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSIGNW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSLLD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSLLD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSLLDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSLLDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSLLQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSLLQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSLLVD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSLLVD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSLLVQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSLLVQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSLLVW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSLLVW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSLLW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSLLW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRAD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRAD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRAQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRAQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRAVD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRAVD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRAVQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRAVQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRAVW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRAVW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRAW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRAW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRLD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRLD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRLDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRLDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRLQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRLQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRLVD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRLVD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRLVQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRLVQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRLVW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRLVW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSRLW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSRLW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSUBB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSUBB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSUBD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSUBD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSUBQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSUBQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSUBSB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSUBSB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSUBSW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSUBSW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSUBUSB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSUBUSB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSUBUSW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSUBUSW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPSUBW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPSUBW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTERNLOGD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTERNLOGD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTERNLOGQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTERNLOGQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTEST",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTEST",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTESTMB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTESTMB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTESTMD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTESTMD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTESTMQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTESTMQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTESTMW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTESTMW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTESTNMB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTESTNMB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTESTNMD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTESTNMD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTESTNMQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTESTNMQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPTESTNMW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPTESTNMW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPUNPCKHBW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPUNPCKHBW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPUNPCKHDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPUNPCKHDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPUNPCKHQDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPUNPCKHQDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPUNPCKHWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPUNPCKHWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPUNPCKLBW",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPUNPCKLBW",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPUNPCKLDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPUNPCKLDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPUNPCKLQDQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPUNPCKLQDQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPUNPCKLWD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPUNPCKLWD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPXOR",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VPXOR",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VPXORD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPXORD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VPXORQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VPXORQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRANGEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRANGEPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRANGEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRANGEPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRANGESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRANGESD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRANGESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRANGESS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCP14PD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCP14PD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCP14PS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCP14PS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCP14SD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCP14SD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCP14SS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCP14SS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCP28PD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCP28PD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCP28PS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCP28PS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCP28SD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCP28SD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCP28SS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCP28SS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCPBF16",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCPBF16",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCPPH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCPPH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCPPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCPPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCPSH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCPSH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRCPSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRCPSS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VREDUCEBF16",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VREDUCEBF16",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VREDUCEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VREDUCEPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VREDUCEPH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VREDUCEPH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VREDUCEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VREDUCEPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VREDUCESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VREDUCESD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VREDUCESH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VREDUCESH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VREDUCESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VREDUCESS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRNDSCALEBF16",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRNDSCALEBF16",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRNDSCALEPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRNDSCALEPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRNDSCALEPH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRNDSCALEPH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRNDSCALEPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRNDSCALEPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRNDSCALESD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRNDSCALESD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRNDSCALESH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRNDSCALESH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRNDSCALESS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRNDSCALESS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VROUNDPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VROUNDPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VROUNDPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VROUNDPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VROUNDSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VROUNDSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VROUNDSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VROUNDSS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRT14PD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRT14PD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRT14PS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRT14PS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRT14SD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRT14SD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRT14SS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRT14SS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRT28PD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRT28PD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRT28PS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRT28PS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRT28SD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRT28SD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRT28SS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRT28SS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRTBF16",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRTBF16",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRTPH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRTPH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRTPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRTPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRTSH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRTSH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VRSQRTSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VRSQRTSS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCALEFBF16",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCALEFBF16",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCALEFPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCALEFPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCALEFPH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCALEFPH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCALEFPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCALEFPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCALEFSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCALEFSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCALEFSH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCALEFSH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCALEFSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCALEFSS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERDPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERDPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERDPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERDPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERPF0DPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERPF0DPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERPF0DPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERPF0DPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERPF0QPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERPF0QPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERPF0QPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERPF0QPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERPF1DPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERPF1DPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERPF1DPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERPF1DPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERPF1QPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERPF1QPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERPF1QPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERPF1QPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERQPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERQPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSCATTERQPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSCATTERQPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSHA512MSG1",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSHA512MSG1",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSHA512MSG2",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSHA512MSG2",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSHA512RNDS2",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSHA512RNDS2",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSHUFF32X4",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSHUFF32X4",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSHUFF64X2",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSHUFF64X2",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSHUFI32X4",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSHUFI32X4",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSHUFI64X2",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSHUFI64X2",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSHUFPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSHUFPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSHUFPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSHUFPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSM3MSG1",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSM3MSG1",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSM3MSG2",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSM3MSG2",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSM3RNDS2",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSM3RNDS2",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSM4KEY4",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSM4KEY4",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSM4RNDS4",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSM4RNDS4",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSQRTBF16",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSQRTBF16",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSQRTPD",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VSQRTPD",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VSQRTPH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSQRTPH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSQRTPS",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VSQRTPS",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VSQRTSD",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VSQRTSD",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VSQRTSH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSQRTSH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSQRTSS",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VSQRTSS",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VSTMXCSR",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSTMXCSR",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSUBBF16",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSUBBF16",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSUBPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSUBPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSUBPH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSUBPH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSUBPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSUBPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSUBSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSUBSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSUBSH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSUBSH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VSUBSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VSUBSS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VTESTPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VTESTPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VTESTPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VTESTPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VUCOMISD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VUCOMISD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VUCOMISH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VUCOMISH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VUCOMISS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VUCOMISS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VUCOMXSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VUCOMXSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VUCOMXSH",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VUCOMXSH",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VUCOMXSS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VUCOMXSS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VUNPCKHPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VUNPCKHPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VUNPCKHPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VUNPCKHPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VUNPCKLPD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VUNPCKLPD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VUNPCKLPS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "VUNPCKLPS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "VXORPD",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VXORPD",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VXORPS",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VXORPS",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VZEROALL",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "VZEROALL",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "VZEROUPPER",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "VZEROUPPER",
+      "why": "well-known x86 system or SSE/AVX instruction"
+    },
+    {
+      "name": "WBINVD",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "WBINVD",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "WBNOINVD",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "WBNOINVD",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "WRMSR",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "WRMSR",
+      "why": "well-known x86 system or SSE/AVX instruction"
+    },
+    {
+      "name": "WRMSRLIST",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "WRMSRLIST",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "WRMSRNS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "WRMSRNS",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "WRPKRU",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "WRPKRU",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "WRSHR",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "WRSHR",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "WRSSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "WRSSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "WRSSQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "WRSSQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "WRUSSD",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "WRUSSD",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "WRUSSQ",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "WRUSSQ",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XABORT",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XABORT",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XCRYPTCBC",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XCRYPTCBC",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XCRYPTCFB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XCRYPTCFB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XCRYPTCTR",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XCRYPTCTR",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XCRYPTECB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XCRYPTECB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XCRYPTOFB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XCRYPTOFB",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XEND",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XEND",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XGETBV",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XGETBV",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XLAT",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XLAT",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XLATB",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XLATB",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XORPD",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "XORPD",
+      "why": "well-known x86 system or SSE/AVX instruction"
+    },
+    {
+      "name": "XORPS",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "XORPS",
+      "why": "well-known x86 system or SSE/AVX instruction"
+    },
+    {
+      "name": "XRESLDTRK",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XRESLDTRK",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XRSTOR",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "XRSTOR",
+      "why": "well-known x86 system or SSE/AVX instruction"
+    },
+    {
+      "name": "XRSTOR64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XRSTOR64",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XRSTORS",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XRSTORS",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XRSTORS64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XRSTORS64",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSAVE",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "XSAVE",
+      "why": "well-known x86 system or SSE/AVX instruction"
+    },
+    {
+      "name": "XSAVE64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XSAVE64",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSAVEC",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XSAVEC",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XSAVEC64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XSAVEC64",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSAVEOPT",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XSAVEOPT",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XSAVEOPT64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XSAVEOPT64",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSAVES",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XSAVES",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XSAVES64",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XSAVES64",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSETBV",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XSETBV",
+      "why": "known to systems, kernel, or SIMD specialists"
+    },
+    {
+      "name": "XSHA1",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XSHA1",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSHA256",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XSHA256",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSTORE",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XSTORE",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XSUSLDTRK",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "XSUSLDTRK",
+      "why": "specialized x86 SIMD, crypto, or system instruction"
+    },
+    {
+      "name": "XTEST",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "XTEST",
+      "why": "known to systems, kernel, or SIMD specialists"
+    }
+  ],
+  "womm_candidates": [
+    "WRMSR",
+    "VZEROUPPER",
+    "XLAT"
+  ],
+  "bitflip_candidates": [
+    "VPTERNLOGD",
+    "XCRYPTCBC",
+    "VPMULTISHIFTQB"
+  ]
+}

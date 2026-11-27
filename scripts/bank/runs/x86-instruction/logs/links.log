@@ -1,0 +1,9 @@
+$ bash /Users/axvon/nullion/design/links/run.sh x86-instruction  [18s, exit 0]
+x86-instruction: 20 / 1496 linked
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/verify-links.py x86-instruction  [0s, exit 0]
+wikipedia 18/18
+20/1496 answers linked across 1 categories
+dropped as broken: {}
+0 links on other hosts left out → design/links/review.txt
+

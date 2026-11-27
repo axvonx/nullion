@@ -1,0 +1,6812 @@
+{
+ "x86-instruction": [
+  {
+   "name": "ADDSUBPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ADDSUBPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AESDEC128KL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AESDEC256KL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AESDECWIDE128KL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AESDECWIDE256KL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AESENC128KL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AESENC256KL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AESENCWIDE128KL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AESENCWIDE256KL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ANDNPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ANDNPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ANDPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ANDPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "BLENDPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BLENDPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BLENDVPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BLENDVPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BNDCL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BNDCN",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BNDCU",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BNDLDX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BNDMK",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BNDMOV",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BNDSTX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CLAC",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "CLC",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "CLD",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "CLDEMOTE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CLFLUSH",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "CLI",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "CLRSSBSY",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CLUI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CLWB",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "CMPPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CMPPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CMPSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CMPSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "COMISD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "COMISS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTDQ2PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTDQ2PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTPD2DQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTPD2PI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CVTPD2PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTPI2PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CVTPI2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CVTPS2DQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTPS2PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTPS2PI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CVTSD2SI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTSD2SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTSI2SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTSI2SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTSS2SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTSS2SI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTTPD2DQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTTPD2PI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CVTTPS2DQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTTPS2PI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CVTTSD2SI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CVTTSS2SI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DPPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DPPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "EMMS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ENCODEKEY128",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ENCODEKEY256",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ENDBR32",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ENDBR64",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ENQCMD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ENQCMDS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ERETS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ERETU",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "EXTRACTPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "F2XM1",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FADD",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "FBLD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FBSTP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FCLEX",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FCMOVB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FCMOVBE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FCMOVE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FCMOVNB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FCMOVNBE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FCMOVNE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FCMOVNU",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FCMOVU",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FCOM",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FCOMI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FCOMIP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FCOMP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FCOMPP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FDECSTP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FDISI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FDIV",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "FDIVR",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FDIVRP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FENI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FFREE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FFREEP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FIADD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FICOM",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FICOMP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FIDIV",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FIDIVR",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FILD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FIMUL",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FINCSTP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FINIT",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FIST",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FISTP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FISTTP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FISUB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FISUBR",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FLD",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "FLD1",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FLDCW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FLDENV",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FLDL2E",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FLDL2T",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FLDLG2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FLDLN2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FLDPI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FLDZ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FMUL",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "FNCLEX",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FNDISI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FNENI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FNINIT",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FNSAVE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FNSTCW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FNSTENV",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FNSTSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FPATAN",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FPREM",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FPREM1",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FPTAN",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FRNDINT",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FRSTOR",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FSAVE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FSCALE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FSETPM",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FSIN",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "FSINCOS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FSQRT",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "FST",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "FSTCW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FSTENV",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FSTP",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "FSTSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FSUB",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "FSUBR",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FSUBRP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FTST",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FUCOM",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FUCOMI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FUCOMIP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FUCOMP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FUCOMPP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FXAM",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FXRSTOR",
+   "aliases": [
+    "FXRSTOR64"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "FXSAVE",
+   "aliases": [
+    "FXSAVE64"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "FXTRACT",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FYL2X",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "FYL2XP1",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "GF2P8AFFINEINVQB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "GF2P8AFFINEQB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "GF2P8MULB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HADDPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "HADDPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "HRESET",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "HSUBPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "HSUBPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ICEBP",
+   "aliases": [
+    "INT1",
+    "INT01"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "INCSSPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "INCSSPQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "INSERTPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "INT",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "INTO",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "INVD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "INVEPT",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "INVLPG",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "INVPCID",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "INVVPID",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "LDDQU",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LDMXCSR",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LDTILECFG",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LOADALL",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LOADALL286",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "LOADIWKEY",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MASKMOVDQU",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MASKMOVQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MAXPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MAXPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MAXSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MAXSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MINPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MINPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MINSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MINSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVAPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVAPS",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "MOVD",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "MOVDDUP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVDQ2Q",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVDQA",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "MOVDQU",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "MOVHLPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVHPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVHPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVLHPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVLPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVLPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVMSKPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVMSKPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVNTDQ",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MOVNTDQA",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MOVNTI",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MOVNTPD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MOVNTPS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MOVNTQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVQ",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "MOVQ2DQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVSHDUP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVSLDUP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVUPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MOVUPS",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "MPSADBW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NOP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "ORPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ORPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PABSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PABSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PABSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PACKSSDW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PACKSSWB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PACKUSDW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PACKUSWB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PADDSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PADDSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PADDUSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PADDUSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PALIGNR",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PAND",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "PANDN",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "PAVGB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PAVGW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PBLENDVB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PBLENDW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PCLMULHQHQDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PCLMULHQLQDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PCLMULLQHQDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PCLMULLQLQDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PCMPEQD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PCMPEQQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PCMPEQW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PCMPGTD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PCMPGTQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PCMPGTW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PCOMMIT",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PCONFIG",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PEXTRW",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PHADDD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PHADDSW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PHADDW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PHMINPOSUW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PHSUBD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PHSUBSW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PHSUBW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PINSRB",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PINSRD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PINSRW",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PMADDUBSW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMADDWD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PMAXSB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMAXSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMAXSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PMAXUB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PMAXUD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMAXUW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMINSB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMINSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMINSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PMINUB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PMINUD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMINUW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVMSKB",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PMOVSXBD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVSXBQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVSXBW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVSXDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVSXWD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVSXWQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVZXBD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVZXBQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVZXBW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVZXDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVZXWD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMOVZXWQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMULDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMULHRSW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMULHUW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PMULHW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PMULLD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PMULLW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PMULUDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "POP",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "POP2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "POPCNT",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "POR",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "PREFETCHIT0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PREFETCHIT1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PREFETCHNTA",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PREFETCHRST2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PREFETCHT1",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PREFETCHT2",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PREFETCHW",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PREFETCHWT1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PSADBW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSHUFHW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSHUFLW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSHUFW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSIGNB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PSIGND",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PSIGNW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PSLLD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSLLDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSLLQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSLLW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSRAD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSRAW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSRLD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSRLDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSRLQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSRLW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSUBSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSUBSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSUBUSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PSUBUSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PTEST",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PUNPCKHBW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PUNPCKHDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PUNPCKHQDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PUNPCKHWD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PUNPCKLBW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PUNPCKLDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PUNPCKLQDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PUNPCKLWD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PUSH",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "PUSH2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PXOR",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "RCPPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "RCPSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "RDMSR",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "RDMSRLIST",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RDSSPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RDSSPQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ROUNDPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ROUNDPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ROUNDSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ROUNDSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "RSM",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "RSQRTPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "RSQRTSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "RSTORSSP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SALC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SAVEPREVSSP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SENDUIPI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SERIALIZE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SETSSBSY",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SHA1MSG1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SHA1MSG2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SHA1NEXTE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SHA256MSG1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SHA256MSG2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SHUFPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SHUFPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "STAC",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "STC",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "STD",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "STI",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "STMXCSR",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "STTILECFG",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "STUI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SYSCALL",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "SYSENTER",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "SYSEXIT",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SYSRET",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "T2RPNTLVWZ0",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ0RS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ0RST1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ0T1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ1RS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ1RST1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "T2RPNTLVWZ1T1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCMMIMFP16PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCMMRLFP16PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCONJTCMMIMFP16PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCONJTFP16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCVTROWD2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCVTROWPS2BF16H",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCVTROWPS2BF16L",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCVTROWPS2PHH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TCVTROWPS2PHL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TDPBF16PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "TDPBF8PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TDPBHF8PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TDPBSSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TDPBSUD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TDPBUSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TDPBUUD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TDPFP16PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TDPHBF8PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TDPHF8PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TESTUI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TILELOADD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "TILELOADDRS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TILELOADDRST1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TILELOADDT1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TILEMOVROW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TILERELEASE",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "TILESTORED",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "TILEZERO",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "TMMULTF32PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TTCMMIMFP16PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TTCMMRLFP16PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TTDPBF16PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TTDPFP16PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TTMMULTF32PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TTRANSPOSED",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "UCOMISD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "UCOMISS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "UIRET",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "UNPCKHPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "UNPCKHPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "UNPCKLPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "UNPCKLPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "URDMSR",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "UWRMSR",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "V4FMADDPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "V4FMADDSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "V4FNMADDPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "V4FNMADDSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VADDBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VADDPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VADDSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VADDSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VADDSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VADDSUBPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VADDSUBPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VAESDEC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VAESDECLAST",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VAESENC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VAESENCLAST",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VAESIMC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VAESKEYGENASSIST",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VALIGND",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VALIGNQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VANDNPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VANDNPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VANDPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VANDPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VBCSTNEBF162PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBCSTNEBF16PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBCSTNESH2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBITREV",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBLENDMPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBLENDMPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBLENDPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VBLENDPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VBLENDVPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VBLENDVPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VBMACOR16X16X16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBMACXOR16X16X16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTF128",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VBROADCASTF32X2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTF32X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTF32X8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTF64X2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTF64X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTI128",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VBROADCASTI32X2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTI32X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTI32X8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTI64X2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTI64X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VBROADCASTSD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VBROADCASTSS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VCMPBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCMPPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCMPPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCMPPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCMPSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCMPSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCMPSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCOMISBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCOMISD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCOMISH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCOMISS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCOMPRESSPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCOMPRESSPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCOMXSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCOMXSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCOMXSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVT2PH2BF8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVT2PH2BF8S",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVT2PH2HF8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVT2PH2HF8S",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVT2PS2PHX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTBF162IBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTBF162IUBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTBIASPH2BF8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTBIASPH2BF8S",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTBIASPH2HF8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTBIASPH2HF8S",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTDQ2PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTDQ2PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTDQ2PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTHF82PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTNE2PS2BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTNEEBF162PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTNEEPH2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTNEOBF162PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTNEOPH2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTNEPS2BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPD2DQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTPD2PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPD2PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTPD2QQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPD2UDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPD2UQQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2BF8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2BF8S",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2DQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2HF8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2HF8S",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2IBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2IUBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTPH2PSX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2QQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2UDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2UQQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2UW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPH2W",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPS2DQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTPS2IBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPS2IUBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPS2PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTPS2PH",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTPS2PHX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPS2QQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPS2UDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTPS2UQQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTQQ2PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTQQ2PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTQQ2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTSD2SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTSD2SI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTSD2SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTSD2USI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTSH2SD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTSH2SI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTSH2SS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTSH2USI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTSI2SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTSI2SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTSI2SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTSS2SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTSS2SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTSS2SI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTSS2USI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTBF162IBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTBF162IUBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPD2DQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTTPD2DQS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPD2QQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPD2QQS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPD2UDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPD2UDQS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPD2UQQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPD2UQQS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPH2DQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPH2IBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPH2IUBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPH2QQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPH2UDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPH2UQQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPH2UW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPH2W",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPS2DQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTTPS2DQS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPS2IBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPS2IUBS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPS2QQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPS2QQS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPS2UDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPS2UDQS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPS2UQQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTPS2UQQS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTSD2SI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTTSD2USI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTSH2SI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTSH2USI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTTSS2SI",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VCVTTSS2USI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTUDQ2PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTUDQ2PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTUDQ2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTUQQ2PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTUQQ2PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTUQQ2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTUSI2SD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTUSI2SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTUSI2SS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTUW2PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VCVTW2PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VDBPSADBW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VDIVBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VDIVPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VDIVPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VDIVPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VDIVSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VDIVSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VDIVSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VDPBF16PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VDPPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VDPPHPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VDPPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VENDSCALEPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VENDSCALESH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXP2PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXP2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXPANDPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXPANDPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXTRACTF128",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VEXTRACTF32X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXTRACTF32X8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXTRACTF64X2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXTRACTF64X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXTRACTI128",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VEXTRACTI32X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXTRACTI32X8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXTRACTI64X2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXTRACTI64X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VEXTRACTPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFCMADDCPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFCMADDCSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFCMULCPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFCMULCSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFIXUPIMMPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFIXUPIMMPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFIXUPIMMSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFIXUPIMMSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADD132BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADD132PD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VFMADD132PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADD132PS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VFMADD132SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMADD132SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADD132SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMADD213BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADD213PD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VFMADD213PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADD213PS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VFMADD213SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMADD213SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADD213SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMADD231BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADD231PD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VFMADD231PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADD231PS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VFMADD231SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMADD231SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADD231SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMADDCPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADDCSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADDSUB132PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADDSUB132PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADDSUB132PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADDSUB213PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADDSUB213PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADDSUB213PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADDSUB231PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADDSUB231PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMADDSUB231PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUB132BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUB132PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB132PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUB132PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB132SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB132SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUB132SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB213BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUB213PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB213PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUB213PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB213SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB213SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUB213SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB231BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUB231PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB231PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUB231PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB231SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUB231SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUB231SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFMSUBADD132PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUBADD132PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUBADD132PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUBADD213PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUBADD213PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUBADD213PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUBADD231PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUBADD231PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMSUBADD231PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMULCPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFMULCSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMADD132BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMADD132PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD132PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMADD132PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD132SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD132SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMADD132SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD213BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMADD213PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD213PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMADD213PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD213SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD213SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMADD213SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD231BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMADD231PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD231PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMADD231PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD231SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMADD231SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMADD231SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB132BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMSUB132PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB132PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMSUB132PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB132SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB132SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMSUB132SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB213BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMSUB213PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB213PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMSUB213PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB213SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB213SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMSUB213SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB231BF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMSUB231PD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB231PH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMSUB231PS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB231SD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFNMSUB231SH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFNMSUB231SS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VFPCLASSBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFPCLASSPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFPCLASSPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFPCLASSPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFPCLASSSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFPCLASSSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VFPCLASSSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGATHERDPD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VGATHERDPS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VGATHERPF0DPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGATHERPF0DPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGATHERPF0QPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGATHERPF0QPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGATHERPF1DPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGATHERPF1DPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGATHERPF1QPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGATHERPF1QPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGATHERQPD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VGATHERQPS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VGETEXPBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETEXPPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETEXPPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETEXPPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETEXPSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETEXPSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETEXPSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETMANTBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETMANTPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETMANTPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETMANTPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETMANTSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETMANTSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGETMANTSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGF2P8AFFINEINVQB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VGF2P8AFFINEQB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VGF2P8MULB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VHADDPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VHADDPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VHSUBPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VHSUBPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VINSERTF128",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VINSERTF32X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VINSERTF32X8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VINSERTF64X2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VINSERTF64X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VINSERTI128",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VINSERTI32X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VINSERTI32X8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VINSERTI64X2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VINSERTI64X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VINSERTPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VLDDQU",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VLDMXCSR",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMASKMOVDQU",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMASKMOVPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMASKMOVPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMAXBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMAXPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMAXPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMAXPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMAXSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMAXSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMAXSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMCALL",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VMCLEAR",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VMFUNC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINMAXBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINMAXPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINMAXPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINMAXPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINMAXSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINMAXSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINMAXSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMINPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMINSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMINSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMINSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMLAUNCH",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VMOVAPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVDDUP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVDQA32",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMOVDQA64",
+   "aliases": [
+    "VMOVQQA"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMOVDQU16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMOVDQU32",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMOVDQU64",
+   "aliases": [
+    "VMOVQQU"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMOVDQU8",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMOVHLPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVHPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVHPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVLHPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVLPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVLPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVMSKPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVMSKPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVNTDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVNTDQA",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVNTPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVNTPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMOVSHDUP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVSLDUP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVUPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVUPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMOVW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMPSADBW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMPTRLD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VMPTRST",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VMREAD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VMRESUME",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VMULBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMULPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMULPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMULPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMULSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMULSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMULSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VMWRITE",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VMXOFF",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VMXON",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VORPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VORPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VP2INTERSECTD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VP2INTERSECTQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VP4DPWSSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VP4DPWSSDS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPABSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPABSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPABSQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPABSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPACKSSDW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPACKSSWB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPACKUSDW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPACKUSWB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPADDB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPADDD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPADDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPADDSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPADDSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPADDUSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPADDUSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPADDW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPALIGNR",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPAND",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPANDD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPANDN",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPANDND",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPANDNQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPANDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPAVGB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPAVGW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPBLENDD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPBLENDMB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPBLENDMD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPBLENDMQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPBLENDMW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPBLENDVB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPBLENDW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPBROADCASTB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPBROADCASTD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPBROADCASTMB2Q",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPBROADCASTMW2D",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPBROADCASTQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPBROADCASTW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPCLMULHQHQDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCLMULHQLQDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCLMULLQHQDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCLMULLQLQDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCLMULQDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPEQB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPCMPEQD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPCMPEQQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPCMPEQW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPCMPESTRI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPESTRM",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPGTB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPCMPGTD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPCMPGTQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPCMPGTW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPCMPISTRI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPISTRM",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPUB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPUD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPUQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPUW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCMPW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCOMPRESSB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCOMPRESSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCOMPRESSQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCOMPRESSW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPCONFLICTD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPCONFLICTQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPDPBSSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPBSSDS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPBSUD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPBSUDS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPBUSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPBUSDS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPBUUD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPBUUDS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPWSSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPWSSDS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPWSUD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPWSUDS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPWUSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPWUSDS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPWUUD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPDPWUUDS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERM2F128",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPERM2I128",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPERMB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPERMI2B",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMI2D",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMI2PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMI2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMI2Q",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMI2W",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMILPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPERMILPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPERMPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPERMPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPERMQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPERMT2B",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMT2D",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMT2PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMT2PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMT2Q",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMT2W",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPERMW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPEXPANDB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPEXPANDD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPEXPANDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPEXPANDW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPEXTRB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPEXTRD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPEXTRQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPEXTRW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPGATHERDD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPGATHERDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPGATHERQD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPGATHERQQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPHADDBD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDBQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDBW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPHADDDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPHADDUBD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDUBQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDUBW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDUDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDUWD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDUWQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPHADDWD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHADDWQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHSUBBW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHSUBD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPHSUBDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPHSUBSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPHSUBW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPHSUBWD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPINSRB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPINSRD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPINSRQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPINSRW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPLZCNTD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPLZCNTQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMACSDD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMACSDQH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMACSDQL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMACSSDD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMACSSDQH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMACSSDQL",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMACSSWD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMACSSWW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMACSWD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMACSWW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMADCSSWD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMADCSWD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMADD52HUQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMADD52LUQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMADDUBSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMADDWD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMASKMOVD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMASKMOVQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMAXSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMAXSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMAXSQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMAXSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMAXUB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMAXUD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMAXUQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMAXUW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMINSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMINSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMINSQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMINSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMINUB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMINUD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMINUQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMINUW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVB2M",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVD2M",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVDB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVDW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVM2B",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVM2D",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVM2Q",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVM2W",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVQ2M",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVQB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVQD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVQW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVSDB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVSDW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVSQB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVSQD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVSQW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVSWB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVSXBD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVSXBQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVSXBW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVSXDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVSXWD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVSXWQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVUSDB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVUSDW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVUSQB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVUSQD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVUSQW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVUSWB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVW2M",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVWB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMOVZXBD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVZXBQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVZXBW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVZXDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVZXWD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMOVZXWQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMULDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMULHRSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMULHUW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMULHW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMULLD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMULLQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMULLW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPMULTISHIFTQB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPMULUDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPOPCNTB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPOPCNTD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPOPCNTQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPOPCNTW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPOR",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPORD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPORQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPPERM",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPROLD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPROLQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPROLVD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPROLVQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPRORD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPRORQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPRORVD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPRORVQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPROTB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPROTD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPROTQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPROTW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSADBW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSCATTERDD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSCATTERDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSCATTERQD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSCATTERQQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHAB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHAD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHAQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHAW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHLB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHLD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHLDD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHLDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHLDVD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHLDVQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHLDVW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHLDW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHLQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHLW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHRDD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHRDQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHRDVD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHRDVQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHRDVW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHRDW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHUFB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSHUFBITQMB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSHUFD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSHUFHW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSHUFLW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSIGNB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSIGND",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSIGNW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSLLD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSLLDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSLLQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSLLVD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSLLVQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSLLVW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSLLW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSRAD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSRAQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSRAVD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSRAVQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSRAVW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSRAW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSRLD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSRLDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSRLQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSRLVD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSRLVQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSRLVW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPSRLW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSUBB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSUBD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSUBQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSUBSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSUBSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSUBUSB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSUBUSW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPSUBW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPTERNLOGD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPTERNLOGQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPTEST",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPTESTMB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPTESTMD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPTESTMQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPTESTMW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPTESTNMB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPTESTNMD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPTESTNMQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPTESTNMW",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPUNPCKHBW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPUNPCKHDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPUNPCKHQDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPUNPCKHWD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPUNPCKLBW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPUNPCKLDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPUNPCKLQDQ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPUNPCKLWD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VPXORD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VPXORQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRANGEPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRANGEPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRANGESD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRANGESS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCP14PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCP14PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCP14SD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCP14SS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCP28PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCP28PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCP28SD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCP28SS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCPBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCPPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCPPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VRCPSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRCPSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VREDUCEBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VREDUCEPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VREDUCEPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VREDUCEPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VREDUCESD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VREDUCESH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VREDUCESS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRNDSCALEBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRNDSCALEPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRNDSCALEPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRNDSCALEPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRNDSCALESD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRNDSCALESH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRNDSCALESS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VROUNDPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VROUNDPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VROUNDSD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VROUNDSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VRSQRT14PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRT14PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRT14SD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRT14SS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRT28PD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRT28PS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRT28SD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRT28SS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRTBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRTPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRTPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VRSQRTSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VRSQRTSS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VSCALEFBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCALEFPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCALEFPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCALEFPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCALEFSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCALEFSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCALEFSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERDPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERDPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERPF0DPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERPF0DPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERPF0QPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERPF0QPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERPF1DPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERPF1DPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERPF1QPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERPF1QPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERQPD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSCATTERQPS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSHA512MSG1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSHA512MSG2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSHA512RNDS2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSHUFF32X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSHUFF64X2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSHUFI32X4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSHUFI64X2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSM3MSG1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSM3MSG2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSM3RNDS2",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSM4KEY4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSM4RNDS4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSQRTBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSQRTPD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VSQRTPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSQRTPS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VSQRTSD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VSQRTSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSQRTSS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "VSUBBF16",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSUBPH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VSUBSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VTESTPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VTESTPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VUCOMISH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VUCOMXSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VUCOMXSH",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VUCOMXSS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VUNPCKHPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VUNPCKHPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VUNPCKLPD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VUNPCKLPS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "VZEROUPPER",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "WBINVD",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "WBNOINVD",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "WRMSR",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "WRMSRLIST",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WRMSRNS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WRPKRU",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WRSHR",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WRSSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WRSSQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WRUSSD",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "WRUSSQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XABORT",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "XCRYPTCBC",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XCRYPTCFB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XCRYPTCTR",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XCRYPTECB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XCRYPTOFB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XEND",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "XGETBV",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "XORPD",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "XORPS",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "XRESLDTRK",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XRSTOR",
+   "aliases": [
+    "XRSTOR64"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "XRSTORS",
+   "aliases": [
+    "XRSTORS64"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "XSAVE",
+   "aliases": [
+    "XSAVE64"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "XSAVEC",
+   "aliases": [
+    "XSAVEC64"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "XSAVEOPT",
+   "aliases": [
+    "XSAVEOPT64"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "XSAVES",
+   "aliases": [
+    "XSAVES64"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "XSETBV",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "XSHA1",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XSHA256",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XSTORE",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XSUSLDTRK",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "XTEST",
+   "aliases": [],
+   "judge": "race"
+  }
+ ]
+}

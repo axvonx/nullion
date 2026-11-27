@@ -14,31 +14,19 @@
    "finished": "2026-11-27T23:02:05+00:00"
   },
   "filter": {
-   "status": "done",
-   "started": "2026-11-27T23:02:05+00:00",
-   "seconds": 13,
-   "finished": "2026-11-27T23:02:18+00:00"
-  },
-  "compare": {
-   "status": "done",
-   "started": "2026-11-27T23:02:18+00:00",
-   "seconds": 0,
-   "finished": "2026-11-27T23:02:18+00:00"
-  },
-  "escalate": {
-   "status": "done",
-   "started": "2026-11-27T23:02:18+00:00",
-   "seconds": 0,
-   "finished": "2026-11-27T23:02:18+00:00"
-  },
-  "merge": {
    "status": "failed",
-   "started": "2026-11-27T23:02:18+00:00",
-   "seconds": 14,
-   "error": "haiku failed after 2 attempts: ValueError: need {bitflip: <candidate name>, womm: [1-3 other candidate names]}"
+   "started": "2026-11-27T23:36:03+00:00",
+   "seconds": 0,
+   "error": "GATE FAILED: filter kept: pass A kept 0, pass B kept 0 of 161 harvested lines: the plan's sources don't name this kind of thing; write a plan that points at a list of them (listings or extract), then rerun with --from harvest"
   }
  },
- "gates": {},
+ "gates": {
+  "filter kept": {
+   "stage": "filter",
+   "level": "fail",
+   "detail": "pass A kept 0, pass B kept 0 of 161 harvested lines: the plan's sources don't name this kind of thing; write a plan that points at a list of them (listings or extract), then rerun with --from harvest"
+  }
+ },
  "warnings": [
   {
    "stage": "plan",
@@ -52,8 +40,8 @@
   "summary": "design-principle: 155 mined lines from 6 sources -> 1 batches in scripts/bank/mined/design-principle"
  },
  "filter": [
-  "batch-00.a: 0 kept",
-  "batch-00.b: 0 kept"
+  "batch-00.a: reused",
+  "batch-00.b: reused"
  ],
  "compare": "design-principle: 0 agreed, 0 disputed (0%) across 1 batches",
  "escalate": "no disputes"

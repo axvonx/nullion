@@ -21,7 +21,11 @@ lowest-ranked "keep" rows and cut what you wouldn't play, e.g. `acpi-table` (obv
 `dependency-injection-framework`.
 
 **Next pipeline batch:** `python3 -I scripts/bank/pipeline.py --batch 10` runs the next ten (uses Gemini and the
-owner's Claude allowance for the Haiku passes). Note: **turing-award-winner** failed at harvest (a list of people;
+owner's Claude allowance for the Haiku passes). Batch 2 (2026-11-27): **7 drafts to review** (video-codec, web-framework, bus-standard, color-space,
+language-feature, memory-technology, x86-instruction: 1,496 answers, 1% linked, and its "duplicates" are mostly
+real S-suffixed instructions). **graphics-api** needs a deeper Bit Flip than GX2 (on its obvious list), then
+`--from merge`; **design-pattern** is at 80% precision (its report lists the wrong answers); **design-principle**
+needs a hand-written plan (code trees never name design principles). Note: **turing-award-winner** failed at harvest (a list of people;
 the code/paper corpora can't supply it) and needs a hand-written source plan pointing at a list of winners.
 
 ## 2. Naming desk: 221 new entities

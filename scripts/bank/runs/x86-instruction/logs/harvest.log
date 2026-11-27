@@ -13,3 +13,7 @@ Traceback (most recent call last):
     raise RuntimeError(f"{' '.join(cmd)} failed ({r.returncode}): {r.stderr.strip()[:400]}")
 RuntimeError: git -C /Users/axvon/nullion-corpora/src/nasm sparse-checkout set x86/insns.dat failed (128): fatal: 'x86/insns.dat' is not a directory; to treat it as a directory anyway, rerun with --skip-checks
 
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/harvest.py x86-instruction  [0s, exit 0]
+x86-instruction: 1815 mined lines from 1 sources -> 2 batches in scripts/bank/mined/x86-instruction
+next: two filter passes per batch (scripts/bank/prompts/filter.md), then scripts/compare-passes.py
+
