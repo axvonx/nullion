@@ -18,7 +18,10 @@ export const TAG_BASE_MAX = 14;
 export const BLURB_MAX = 140;
 export const NOTE_MAX = 160;
 export const BUGS_MAX = 110;
-export const BUGS_REQUIRED = true;
+export const BUGS_REQUIRED = false; // decided 2026-11-27: BUGS is optional
+/** The locked page's pencilled rumour: hand-written (decided 2026-11-27), one line. */
+export const RUMOUR_MAX = 80;
+export const RUMOUR_REQUIRED = true;
 export const SEE_ALSO_MAX = 3;
 export const DETAIL_NOTE_MAX = 90;
 
@@ -195,6 +198,17 @@ export function styleProblems(e: ManualEntry, all: readonly ManualEntry[]): stri
   out.push(...proseProblems('note', e.note));
   const bare = name.replace(/^(the|a|an)\s+/i, '').trim().toLowerCase();
   if (bare.length >= 4 && e.blurb.toLowerCase().includes(bare)) out.push(`blurb restates the name "${name}"`);
+
+  // Rumour: the hand-written pencil line on the locked page. Lowercase is fine (it's a note); still no "!" or emoji.
+  if (e.rumour === undefined) {
+    if (RUMOUR_REQUIRED) out.push('rumour is missing; every entry needs a hand-written locked-page rumour');
+  } else {
+    const r = e.rumour.trim();
+    if (!r) out.push('rumour is empty');
+    if (/\n/.test(e.rumour)) out.push('rumour must be one line');
+    if (r.length > RUMOUR_MAX) out.push(`rumour is ${r.length} characters; the limit is ${RUMOUR_MAX}`);
+    if (/[!\p{Extended_Pictographic}]/u.test(r)) out.push('rumour has "!" or emoji');
+  }
 
   // BUGS: one dry line.
   if (e.bugs === undefined) {

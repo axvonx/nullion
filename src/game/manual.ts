@@ -54,8 +54,10 @@ export interface ManualEntry {
   note: string;
   /** Ordered highest (shallowest) layer first. */
   sightings: readonly ManualSighting[];
-  /** The BUGS section: one dry line. */
+  /** The BUGS section: one dry line. Optional. */
   bugs?: string;
+  /** The pencilled rumour on the locked page: one hand-written line hinting where to look. */
+  rumour?: string;
   /** SEE ALSO: other entry ids. */
   seeAlso?: readonly string[];
 }

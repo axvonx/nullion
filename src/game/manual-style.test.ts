@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { BLURB_MAX, BUGS_MAX, DETAIL_NOTE_MAX, ID_MAX, NAME_MAX, NOTE_MAX, SEE_ALSO_MAX, styleProblems } from './manual-style';
+import { BLURB_MAX, BUGS_MAX, DETAIL_NOTE_MAX, ID_MAX, NAME_MAX, NOTE_MAX, SEE_ALSO_MAX, styleProblems, RUMOUR_MAX } from './manual-style';
 import type { ManualEntry } from './manual';
 
 // Synthetic entries only: the style rules are tested here, not the placeholder registry.
@@ -14,6 +14,7 @@ const CLEAN: ManualEntry = {
   note: 'Window managers composite each window into its own buffer before drawing the screen.',
   sightings: [{ layer: 'application', critterLayer: 'application', detailNote: 'Blue and gold feathers over the desktop.' }],
   bugs: 'Mistakes the progress bar for a perch.',
+  rumour: 'heard it nests on window titlebars.',
   seeAlso: [],
 };
 
@@ -156,10 +157,20 @@ describe('styleProblems', () => {
     });
   });
 
+  describe('rumour', () => {
+    it('is required and hand-written: one line, short, no "!"', () => {
+      const { rumour: _r, ...rest } = CLEAN;
+      expectFlags(rest as ManualEntry, /rumour is missing/);
+      expectFlags(entry({ rumour: 'heard it\nsings' }), /rumour must be one line/);
+      expectFlags(entry({ rumour: 'x'.repeat(RUMOUR_MAX + 1) }), /rumour is \d+ characters/);
+      expectFlags(entry({ rumour: 'heard it sings!' }), /"!" or emoji/);
+    });
+  });
+
   describe('bugs', () => {
-    it('is required', () => {
+    it('is optional', () => {
       const { bugs: _bugs, ...rest } = CLEAN;
-      expectFlags(rest as ManualEntry, /bugs is missing/);
+      expect(styleProblems(rest as ManualEntry, [rest as ManualEntry, OTHER])).toEqual([]);
     });
     it(`is one sentence of at most ${BUGS_MAX} characters`, () => {
       expectFlags(entry({ bugs: 'Opens early. Opens late.' }), /bugs must be exactly one sentence/);

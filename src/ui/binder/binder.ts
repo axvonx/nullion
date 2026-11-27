@@ -505,11 +505,11 @@ export class FieldManualBinder {
   private textLeaf(e: ManualEntry, folio: string): Node[] {
     const tag = manTag(e);
     if (!manualStore.isFound(e.id)) {
-      const home = this.dailySightings(e)[0]!;
+      // The rumour is hand-written per entry (FIELD-MANUAL-PLAN.md); an entry without one just shows the blank page.
       return this.frame('???', '???', folio, [
         el('p', 'bd-blank', 'This page intentionally left blank.'),
-        el('p', 'bd-pencil bd-pencil-block', `heard it lives in ${LAYER_NAME.get(home.layer)}.`),
-      ]);
+        e.rumour ? el('p', 'bd-pencil bd-pencil-block', e.rumour) : null,
+      ].filter((n): n is HTMLParagraphElement => n !== null));
     }
     const s = this.shown(e);
     const name = el('span');

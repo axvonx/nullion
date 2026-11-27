@@ -131,18 +131,13 @@ The checker cannot catch: whether a note's fact is true; whether a blurb is dry 
 funny; whether a name is a pun; whether a critter's behaviour matches its species. A reviewer does those, and the
 entry is not done until one has read the fact against a source.
 
-## 8. Open questions for the owner
+## 8. Decisions (owner, 2026-11-27)
 
-1. **BUGS required on every entry?** The checker assumes yes (`BUGS_REQUIRED`). Flip the constant to make it
-   optional.
-2. ~~Should the NAME line print the id?~~ Settled 2026-11-27: the binder prints `tag — Name` (no internal id), and the
-   permuted index rotates the display name only.
-3. **Who writes the rumour?** The binder currently generates "heard it lives in <layer>" from the home layer. A
-   hand-written, one-line rumour would give the locked page more character but adds 40 lines and a new field.
-4. **Where does the checkable fact's source go?** Adding a `source` field (a manual, spec or source file) would let
-   a reviewer verify the note in seconds. It would not render in the binder.
-5. **Is DESCRIPTION one field or two?** The code keeps `blurb` (in-world) and `note` (the fact) as separate fields.
-   Splitting them is what keeps "humour in BUGS, facts in DESCRIPTION" enforceable, but it means every entry has
-   two sentences that must each stand alone.
-6. **Puns and articles in NAME.** The checker allows a leading "The" and refuses it elsewhere. Should "The" be
-   banned outright, to save a row and 4 characters? And should a pun name need a second reviewer?
+1. **BUGS is optional.** Write one when there's a good line; never pad (`BUGS_REQUIRED = false`).
+2. **The NAME line prints `tag — Name`**, no internal id, and the permuted index rotates the display name only.
+3. **Rumours are hand-written**, one per entry: the `rumour` field, one line of at most `RUMOUR_MAX` characters,
+   pencil register (lowercase is fine), no "!". Nothing is generated; an entry without one shows a bare blank page.
+4. **No source field.** A checkable fact needs no citation unless it's very specific: "the first computer bug was a
+   moth" is fine unsourced; an exact cycle count or a CVE number should name where it comes from in the note itself.
+5. **DESCRIPTION stays two fields**: `blurb` (in-world) and `note` (the fact).
+6. Still open: whether to ban a leading "The" in names, and whether pun names need a second reviewer.
