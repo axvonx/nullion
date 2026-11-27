@@ -8,6 +8,7 @@ id: tcp-congestion-control-algorithm · domain: os-systems · status: approved
 
 ## Works on my machine
 - TCP Vegas | cc_vegas | Vegas
+  note: The delay-based classic everyone names right after Reno, CUBIC, and BBR.
 
 ## Null pointer exception
 - BBR | TCP BBR (auto)
@@ -34,3 +35,4 @@ id: tcp-congestion-control-algorithm · domain: os-systems · status: approved
 
 ## Bit Flip
 - CDG | tcp_cdg | cc_cdg
+  note: CAIA Delay-Gradient — infers queue buildup from RTT gradients while coexisting with loss-based flows.

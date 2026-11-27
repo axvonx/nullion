@@ -14,6 +14,7 @@ id: operating-system · domain: os-systems · status: approved
 
 ## Works on my machine
 - TempleOS
+  note: Terry Davis's 64-bit Ring-0 HolyC OS — the internet's favorite 'obscure' OS pick.
 - Plan 9 | plan 9 from bell labs
 
 ## Null pointer exception

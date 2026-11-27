@@ -7,6 +7,7 @@ id: lossless-compression-algorithm · domain: data-graphics-algorithms · status
 
 ## Works on my machine
 - LZW
+  note: The GIF/TIFF dictionary coder everyone remembers from the Unisys patent drama.
 
 ## Null pointer exception
 - Burrows-Wheeler transform | bwt (auto)
@@ -59,6 +60,7 @@ id: lossless-compression-algorithm · domain: data-graphics-algorithms · status
 
 ## Bit Flip
 - Tunstall coding
+  note: Variable-to-fixed-length prefix-free coding — the dual of Huffman coding.
 
 ## Inbox
 - Finite State Entropy (suggested: heisenbug)

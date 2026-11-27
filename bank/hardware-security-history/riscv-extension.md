@@ -4,6 +4,7 @@ id: riscv-extension · domain: hardware-security-history · status: approved
 
 ## Works on my machine
 - V extension
+  note: The Vector extension — the headline RISC-V letter almost everyone names first.
 
 ## Memory leak
 - M extension (auto)
@@ -84,6 +85,7 @@ id: riscv-extension · domain: hardware-security-history · status: approved
 
 ## Bit Flip
 - Zimop
+  note: May-Be-Operations: reserves safe no-op encodings for forward-compatible hints like CFI.
 
 ## Inbox
 - M (suggested: off-by-one)

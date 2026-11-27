@@ -4,6 +4,7 @@ id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 
 ## Works on my machine
 - Tarjan's strongly connected components algorithm | Tarjan's algorithm
+  note: Everyone's favorite single-DFS strongly-connected-components flex.
 
 ## Null pointer exception
 - Dijkstra's algorithm | Dijkstra (auto)
@@ -63,6 +64,7 @@ id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 
 ## Bit Flip
 - Gomory-Hu tree
+  note: Encodes all pairwise minimum s-t cuts of an undirected graph in a single weighted tree.
 
 ## Inbox
 - Gabow's path-based SCC algorithm (suggested: heisenbug)

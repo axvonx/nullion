@@ -73,8 +73,18 @@ export function categoryTerms(c: BankCategory): Term[] {
   }));
 }
 
+const ACCEPTS_BY_ID = new Map<string, string>();
+
+/** Plain-English `> Accepts:` guidance for a loaded bank category, if the category file provides one. */
+export function bankAcceptsFor(id: string): string | undefined {
+  return ACCEPTS_BY_ID.get(id);
+}
+
 export async function loadBankTerms(ids: readonly string[]): Promise<Term[]> {
   const cats = await Promise.all([...new Set(ids)].map(loadBankCategory));
-  for (const c of cats) enforce(c.status === 'approved', `bank: ${c.id} is ${c.status}, not approved`);
+  for (const c of cats) {
+    enforce(c.status === 'approved', `bank: ${c.id} is ${c.status}, not approved`);
+    if (c.accepts) ACCEPTS_BY_ID.set(c.id, c.accepts);
+  }
   return cats.flatMap(categoryTerms);
 }

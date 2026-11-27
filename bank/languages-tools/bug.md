@@ -11,6 +11,7 @@ id: bug · domain: languages-tools · status: approved
 
 ## Works on my machine
 - heisenbug
+  note: The bug that vanishes when you try to observe it — everyone's favorite jargon pick (and our 8-frame tier!).
 - bit flip | cosmic ray | cosmic ray bit flip
 - Y2K | y2k bug | millennium bug
 

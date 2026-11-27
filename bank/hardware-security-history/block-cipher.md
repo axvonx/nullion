@@ -8,6 +8,7 @@ id: block-cipher · domain: hardware-security-history · status: approved
 
 ## Works on my machine
 - Twofish | twofish_common | twofish_generic
+  note: Bruce Schneier's AES finalist — the classic 'I know more than AES' pick.
 
 ## Null pointer exception
 - DES | Data Encryption Standard | des_generic (auto)
@@ -71,3 +72,4 @@ id: block-cipher · domain: hardware-security-history · status: approved
 
 ## Bit Flip
 - Khufu
+  note: Ralph Merkle's 1989 fast software block cipher with key-dependent S-boxes.

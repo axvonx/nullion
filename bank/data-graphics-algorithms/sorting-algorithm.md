@@ -11,6 +11,7 @@ id: sorting-algorithm · domain: data-graphics-algorithms · status: approved
 
 ## Works on my machine
 - bogosort | bogo sort | stupid sort
+  note: The joke shuffle-until-sorted algorithm everyone thinks they're being cheeky by naming.
 - sleep sort
 
 ## Null pointer exception

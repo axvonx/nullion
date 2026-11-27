@@ -15,6 +15,7 @@ import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
 import { LayerStack } from './layer-stack';
 import { sound } from '../audio/sound';
+import { bankAcceptsFor } from '../data/bank';
 import { missedAnswerUrl, suggestQuestionUrl } from './issues';
 
 const $ = <T extends HTMLElement>(root: ParentNode, sel: string): T => {
@@ -236,6 +237,7 @@ export class Hud {
       'One answer per prompt: the first one accepted is locked in.',
       `Rarer answers push more stack frames (${Math.min(...frames)} to ${Math.max(...frames)}), so you descend deeper.`,
       'More stack frames = deeper inside the computer, from Apps down to bare silicon.',
+      'Tiers are named after bugs — rarer answers are harder-to-reproduce bugs.',
       'Everyone gets the same puzzle.',
       'A new one opens at your local midnight.',
     ];
@@ -1000,6 +1002,10 @@ export class Hud {
         const url = missedAnswerUrl({ prompt: cur?.question.prompt, guesses: cur?.rejected, puzzle: g.puzzle });
         // Clear first, so a repeat of the same line is announced again by screen readers.
         fb.replaceChildren();
+        const hintText =
+          cur && cur.rejected.length >= 2
+            ? cur.question.accepts ?? bankAcceptsFor(cur.question.id) ?? 'Try a broad, common name.'
+            : undefined;
         requestAnimationFrame(() => {
           const link = document.createElement('a');
           link.className = 'issue-link';
@@ -1007,7 +1013,14 @@ export class Hud {
           link.target = '_blank';
           link.rel = 'noopener noreferrer';
           link.textContent = 'Missing an answer?';
-          fb.replaceChildren('Not accepted · ', link);
+          if (hintText) {
+            const hint = document.createElement('span');
+            hint.className = 'fb-hint';
+            hint.textContent = ` · Hint: ${hintText}`;
+            fb.replaceChildren('Not accepted · ', link, hint);
+          } else {
+            fb.replaceChildren('Not accepted · ', link);
+          }
         });
         replay(this.els.console!, 'reject');
         scene.rejectNudge();
@@ -1100,6 +1113,7 @@ export class Hud {
         name.className = 'bt-tier';
         name.dataset.tier = t.id;
         name.textContent = t.name;
+        name.title = `${t.name}: +${framesLabel(t.frames)}${t.id === 'womm' ? ' (the cliché “clever” pick)' : ''}`;
         det.append(name, ` · ${r.name ?? '—'} · +${n}`);
         row.setAttribute('aria-label', `#${i}: ${t.name}, ${r.name ?? 'answer'}, ${sum.textContent}`);
       } else {
@@ -1222,12 +1236,19 @@ export class Hud {
   private sheetItem(e: CategoryEntry, own: boolean): HTMLElement {
     const li = document.createElement('li');
     li.textContent = e.name;
+    if (e.note) li.title = e.note;
     if (own) {
       li.className = 'own';
       const you = document.createElement('span');
       you.className = 'sheet-you';
       you.textContent = ' ◂ you';
       li.append(you);
+    }
+    if (e.note && (e.tier === 'bitflip' || e.tier === 'womm')) {
+      const note = document.createElement('span');
+      note.className = 'sheet-note';
+      note.textContent = ` — ${e.note}`;
+      li.append(note);
     }
     return li;
   }

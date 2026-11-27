@@ -10,6 +10,7 @@ id: non-cryptographic-hash-function · domain: data-graphics-algorithms · statu
 
 ## Works on my machine
 - MurmurHash | MurmurHash1 | MurmurHash2 | MurmurHash3 | PMurHash
+  note: Austin Appleby's fast hash — the first non-crypto name almost every engineer thinks of.
 
 ## Null pointer exception
 - SHA-3 (auto)
@@ -77,6 +78,7 @@ id: non-cryptographic-hash-function · domain: data-graphics-algorithms · statu
 
 ## Bit Flip
 - MeowHash | meow_hash_x64_aesni
+  note: Casey Muratori's AES-NI throughput monster designed to saturate memory bandwidth.
 
 ## Inbox
 - SHA-256 (suggested: off-by-one)

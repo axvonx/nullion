@@ -21,6 +21,8 @@ export interface Question {
   /** Rendered as code: name_a(type_of_lock). */
   call: string;
   prompt: string;
+  /** Plain-English scope line from the bank file (`> Accepts:`), shown gently after repeated rejections. */
+  accepts?: string;
 }
 
 type Row = [name: string, tier: TierId, aliases?: string[], note?: string];

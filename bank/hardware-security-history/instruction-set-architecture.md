@@ -10,6 +10,7 @@ id: instruction-set-architecture · domain: hardware-security-history · status:
 
 ## Works on my machine
 - IA-64 | Itanium
+  note: Intel's famously doomed VLIW Itanium architecture — everyone's favorite trivia flex.
 
 ## Null pointer exception
 - AVR (auto)
@@ -68,3 +69,4 @@ id: instruction-set-architecture · domain: hardware-security-history · status:
 
 ## Bit Flip
 - MMIX
+  note: Donald Knuth's 64-bit RISC teaching architecture for The Art of Computer Programming.

@@ -48,6 +48,7 @@ id: python-stdlib-module · domain: languages-tools · status: approved
 
 ## Works on my machine
 - this
+  note: Imports the Zen of Python — the Easter egg module everyone remembers.
 
 ## Null pointer exception
 - random (auto)
@@ -278,6 +279,7 @@ id: python-stdlib-module · domain: languages-tools · status: approved
 
 ## Bit Flip
 - tabnanny
+  note: Python's built-in indentation checker that flags ambiguous mixed tabs and spaces.
 
 ## Inbox
 - concurrent (suggested: leak)

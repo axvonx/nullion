@@ -21,6 +21,7 @@ id: git-subcommand · domain: languages-tools · status: approved
 
 ## Works on my machine
 - rerere | git-rerere
+  note: Reuse Recorded Resolution — the 'hidden gem' git command every blog post recommends.
 
 ## Null pointer exception
 - archive | git-archive (auto)
@@ -176,3 +177,4 @@ id: git-subcommand · domain: languages-tools · status: approved
 
 ## Bit Flip
 - stripspace | git-stripspace
+  note: Normalizes whitespace and strips comment lines from commit messages and patches.

@@ -6,6 +6,7 @@ id: garbage-collection-algorithm · domain: languages-tools · status: approved
 
 ## Works on my machine
 - ZGC | Z Garbage Collector
+  note: Java's sub-millisecond colored-pointer collector — everyone's modern GC flex.
 
 ## Null pointer exception
 - G1 | G1GC | Garbage-First | Garbage-First GC (auto)
@@ -57,6 +58,7 @@ id: garbage-collection-algorithm · domain: languages-tools · status: approved
 
 ## Bit Flip
 - Train algorithm
+  note: Hudson and Moss's mature-object-space collector that evacuates cyclic garbage car by car.
 
 ## Inbox
 - generational (suggested: off-by-one)

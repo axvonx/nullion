@@ -7,6 +7,7 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 
 ## Works on my machine
 - SystemTap
+  note: The pre-eBPF kernel scripting tool everyone remembers from the DTrace vs. Linux era.
 
 ## Null pointer exception
 - profile (auto)
@@ -181,3 +182,4 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 
 ## Bit Flip
 - criticalstat
+  note: An eBPF/bcc tool that tracks long preemption-off and interrupt-disabled kernel sections.

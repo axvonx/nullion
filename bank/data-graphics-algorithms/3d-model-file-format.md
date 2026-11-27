@@ -11,6 +11,7 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
 
 ## Works on my machine
 - VRML | Virtual Reality Modeling Language | WRL
+  note: The 1990s web-VR text format everyone reaches for when trying to sound retro.
 
 ## Null pointer exception
 - COLLADA | DAE (auto)
@@ -67,6 +68,7 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
 
 ## Bit Flip
 - NDO | Nendo
+  note: Nendo's winged-edge polygon format — beloved by early low-poly modelers and Wings 3D.
 
 ## Inbox
 - Alembic (suggested: heisenbug)

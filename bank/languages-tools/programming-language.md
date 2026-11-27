@@ -20,6 +20,7 @@ id: programming-language · domain: languages-tools · status: approved
 
 ## Works on my machine
 - Brainfuck | bf
+  note: The 8-command Turing tarpit everyone types to be clever.
 
 ## Null pointer exception
 - Go | golang

@@ -10,6 +10,7 @@ id: software-license · domain: languages-tools · status: approved
 
 ## Works on my machine
 - WTFPL
+  note: The permissive joke license everyone reaches for after MIT and GPL.
 
 ## Null pointer exception
 - Apache License | Apache | Apache-1.0 | Apache-1.1 | Apache-2.0 (auto)
@@ -447,3 +448,4 @@ id: software-license · domain: languages-tools · status: approved
 
 ## Bit Flip
 - GLWTPL | Good Luck With That Public License
+  note: Good Luck With That Public License — a wryly minimal disclaimer-only license.

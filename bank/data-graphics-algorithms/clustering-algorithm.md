@@ -4,6 +4,7 @@ id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
 
 ## Works on my machine
 - Mean Shift
+  note: The go-to non-parametric mode-seeker everyone names right after k-means and DBSCAN.
 
 ## Null pointer exception
 - agglomerative clustering | agglomerative hierarchical clustering | hierarchical agglomerative clustering (auto)
@@ -64,6 +65,7 @@ id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
 
 ## Bit Flip
 - BIRCH
+  note: Balanced Iterative Reducing and Clustering using Hierarchies — builds a CF-tree in a single pass.
 
 ## Inbox
 - feature agglomeration (suggested: heisenbug)

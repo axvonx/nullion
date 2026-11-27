@@ -12,6 +12,7 @@ id: compiler-optimization · domain: languages-tools · status: approved
 
 ## Works on my machine
 - peephole optimization
+  note: The classic sliding-window instruction tweak everyone recalls from compilers class.
 
 ## Null pointer exception
 - copy propagation (auto)
@@ -94,6 +95,7 @@ id: compiler-optimization · domain: languages-tools · status: approved
 
 ## Bit Flip
 - DFA jump threading
+  note: Uses a finite automaton over control-flow paths to thread redundant conditional branches.
 
 ## Inbox
 - constant folding (suggested: off-by-one)

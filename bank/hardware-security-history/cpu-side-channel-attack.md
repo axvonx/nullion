@@ -8,6 +8,7 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 
 ## Works on my machine
 - L1 Terminal Fault | L1TF | Foreshadow
+  note: Foreshadow — the first speculative-execution leak people name after Spectre and Meltdown.
 
 ## Null pointer exception
 - Prime+Probe (auto)
@@ -65,3 +66,4 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 
 ## Bit Flip
 - Collide+Power
+  note: Leaks secrets across cores by measuring power-draw differences when cache lines collide.

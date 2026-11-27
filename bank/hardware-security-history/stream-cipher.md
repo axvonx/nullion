@@ -4,6 +4,7 @@ id: stream-cipher · domain: hardware-security-history · status: approved
 
 ## Works on my machine
 - Salsa20
+  note: Daniel J. Bernstein's ARX cipher — everyone's go-to pick right beside ChaCha20.
 
 ## Null pointer exception
 - RC4 | ARC4 | ARCFOUR (auto)
@@ -64,3 +65,4 @@ id: stream-cipher · domain: hardware-security-history · status: approved
 
 ## Bit Flip
 - Lorenz cipher | SZ40 | SZ42
+  note: The WWII German teleprinter Vernam cipher broken at Bletchley Park by Colossus.

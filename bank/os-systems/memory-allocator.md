@@ -4,6 +4,7 @@ id: memory-allocator · domain: os-systems · status: approved
 
 ## Works on my machine
 - jemalloc
+  note: Jason Evans's arena allocator (Firefox, FreeBSD, Redis) — everyone's go-to beyond malloc.
 
 ## Null pointer exception
 - first-fit allocator | first fit (auto)
@@ -59,3 +60,4 @@ id: memory-allocator · domain: os-systems · status: approved
 
 ## Bit Flip
 - Scudo | Scudo Hardened Allocator
+  note: Google's hardened user-mode allocator built to mitigate heap exploitation in Android and Fuchsia.

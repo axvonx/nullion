@@ -15,6 +15,7 @@ id: data-structure · domain: data-graphics-algorithms · status: approved
 
 ## Works on my machine
 - bloom filter
+  note: The probabilistic set everyone reaches for to sound clever — which is why everyone says it.
 
 ## Null pointer exception
 - linked list | singly linked list | single-linked list

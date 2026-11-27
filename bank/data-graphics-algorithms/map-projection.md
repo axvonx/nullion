@@ -8,6 +8,7 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 
 ## Works on my machine
 - Dymaxion map | airocean
+  note: Buckminster Fuller's icosahedral unfold — the classic 'clever map' pick.
 
 ## Null pointer exception
 - Albers equal-area conic | aea | Albers equal-area conic projection (auto)
@@ -119,6 +120,7 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 
 ## Bit Flip
 - Spilhaus world ocean projection | spilhaus | Spilhaus projection
+  note: Athelstan Spilhaus's 1942 projection that keeps the world's oceans connected as one body of water.
 
 ## Inbox
 - Peirce quincuncial projection (suggested: heisenbug)

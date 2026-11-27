@@ -7,6 +7,7 @@ id: post-quantum-signature-scheme · domain: hardware-security-history · status
 
 ## Works on my machine
 - Falcon | FN-DSA
+  note: Fast-Fourier Lattice-based Compact Signatures — the NTRU pick everyone reaches for after Dilithium.
 
 ## Null pointer exception
 - SLH-DSA | SPHINCS+ (auto)
@@ -61,3 +62,4 @@ id: post-quantum-signature-scheme · domain: hardware-security-history · status
 
 ## Bit Flip
 - SQIsign
+  note: Short Quaternion and Isogeny Signature — tiny signatures built from supersingular elliptic curves.

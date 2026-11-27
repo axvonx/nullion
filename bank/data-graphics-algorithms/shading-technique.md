@@ -10,6 +10,7 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 
 ## Works on my machine
 - ray tracing | raytracing
+  note: The photorealistic rendering buzzword everyone reaches for first.
 
 ## Null pointer exception
 - Blinn-Phong | blinn phong shading

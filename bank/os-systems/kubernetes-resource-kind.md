@@ -11,6 +11,7 @@ id: kubernetes-resource-kind · domain: os-systems · status: approved
 
 ## Works on my machine
 - PodDisruptionBudget | PDB | pod-disruption-budget-v1
+  note: The availability guardrail everyone names to show they've run production clusters.
 
 ## Null pointer exception
 - CustomResourceDefinition | CRD | custom-resource-definition-v1 (auto)
@@ -82,3 +83,4 @@ id: kubernetes-resource-kind · domain: os-systems · status: approved
 
 ## Bit Flip
 - FlowSchema | flow-schema-v1
+  note: Part of API Priority and Fairness — classifies incoming API requests into priority queues.

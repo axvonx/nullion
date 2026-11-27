@@ -9,6 +9,7 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 
 ## Works on my machine
 - Whirlpool | wp512 | whrlpool
+  note: The 512-bit AES-derived hash everyone names to avoid saying SHA-256.
 
 ## Null pointer exception
 - SHA-512 (auto)
@@ -64,3 +65,4 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 
 ## Bit Flip
 - RadioGatun
+  note: Bertoni, Daemen, Peeters and Van Assche's belt-and-mill sponge precursor to Keccak/SHA-3.

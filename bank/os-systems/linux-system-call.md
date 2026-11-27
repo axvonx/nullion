@@ -27,6 +27,7 @@ id: linux-system-call · domain: os-systems · status: approved
 
 ## Works on my machine
 - futex
+  note: Fast Userspace Mutex — the first deep-sounding Linux syscall everyone reaches for.
 
 ## Null pointer exception
 - access (auto)
@@ -455,3 +456,4 @@ id: linux-system-call · domain: os-systems · status: approved
 
 ## Bit Flip
 - subpage_prot
+  note: PowerPC-specific syscall that sets per-4KiB page permissions inside a 64KiB base page.

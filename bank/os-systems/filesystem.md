@@ -9,6 +9,7 @@ id: filesystem · domain: os-systems · status: approved
 
 ## Works on my machine
 - ReiserFS
+  note: The balanced-tree Linux filesystem everyone remembers for its infamous history.
 
 ## Null pointer exception
 - Ceph (auto)
@@ -114,3 +115,4 @@ id: filesystem · domain: os-systems · status: approved
 
 ## Bit Flip
 - spufs
+  note: The Cell Broadband Engine's virtual filesystem for driving PlayStation 3 SPU cores.

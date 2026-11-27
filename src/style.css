@@ -198,6 +198,7 @@ body {
 .feedback { display: block; min-height: 1.15em; margin-top: 4px; color: var(--dim); font-size: 17px; }
 .feedback.fault { color: var(--fault); }
 .feedback.ok { color: var(--ok); }
+.fb-hint { color: var(--dim); }
 
 .tier { font-family: var(--display); font-size: 11px; }
 .tier-off-by-one, [data-tier='off-by-one'] { color: var(--t-offbyone); }
@@ -259,6 +260,7 @@ body {
 .sheet-list li { overflow-wrap: anywhere; }
 .sheet-list li.own { color: var(--signal); }
 .sheet-you { font-size: 14px; }
+.sheet-note { color: var(--dim); font-size: 15px; }
 .sheet-more { margin-top: 2px; padding: 4px 6px; min-height: 32px; font: inherit; font-size: 16px; color: var(--dim); background: transparent; border: 1px solid var(--rule); cursor: pointer; }
 .sheet-more:is(:hover, :focus-visible) { color: var(--ink); }
 .console[data-form='gui'] :is(.bt-sheet, .sheet-head, .sheet-more, .bt-sheet-btn) { color: #4a4656; }

@@ -7,6 +7,7 @@ id: gradient-based-optimizer · domain: data-graphics-algorithms · status: appr
 
 ## Works on my machine
 - Lion
+  note: Google's EvoLved Sign Momentum optimizer — everyone's favorite recent drop-in after AdamW.
 
 ## Null pointer exception
 - SGD | Stochastic Gradient Descent (auto)
@@ -64,6 +65,7 @@ id: gradient-based-optimizer · domain: data-graphics-algorithms · status: appr
 
 ## Bit Flip
 - Shampoo
+  note: Second-order preconditioned optimizer using Kronecker-factored matrix roots of gradient statistics.
 
 ## Inbox
 - SGD with momentum (suggested: off-by-one)

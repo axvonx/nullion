@@ -68,6 +68,7 @@ id: unix-command · domain: os-systems · status: approved
 
 ## Works on my machine
 - yes
+  note: Repeatedly prints 'y' forever — the classic cheeky one-word Unix trivia pick.
 
 ## Null pointer exception
 - base32 (auto)
@@ -427,6 +428,7 @@ id: unix-command · domain: os-systems · status: approved
 
 ## Bit Flip
 - pom
+  note: Phase of the Moon — a classic BSD games utility that prints the current lunar phase.
 
 ## Inbox
 - chrt (suggested: heisenbug)

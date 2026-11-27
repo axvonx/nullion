@@ -19,6 +19,7 @@ id: http-status-code · domain: os-systems · status: approved
 
 ## Works on my machine
 - 418 I'm a teapot | 418 | I'm a teapot
+  note: RFC 2324's April Fools' coffee-pot error — the #1 'clever' HTTP status code.
 
 ## Null pointer exception
 - 100 Continue | 100 (auto)
@@ -77,3 +78,4 @@ id: http-status-code · domain: os-systems · status: approved
 
 ## Bit Flip
 - 226 IM Used | 226 | IM Used
+  note: RFC 3229 delta-encoding response indicating the server applied instance manipulations.
