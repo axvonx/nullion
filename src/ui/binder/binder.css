@@ -160,6 +160,17 @@
 .bd-hab-pop-dot { flex: none; width: 8px; height: 8px; border-radius: 2px; }
 .bd-hab-pop-blurb { color: #d7d2c6; }
 .bd-hab-pop-det { margin-top: 4px; font-style: italic; color: #b9c7d6; }
+.bd-hab-pop-mini { width: auto; padding: 3px 8px; font-family: var(--mono); font-size: 11px; white-space: nowrap; }
+.bd-idx-pop {
+  position: absolute; z-index: 10; display: flex; gap: 10px; align-items: flex-start;
+  width: min(300px, calc(100% - 20px)); padding: 9px 10px;
+  background: var(--bond); color: var(--toner);
+  border: 1.5px solid var(--slate); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.42);
+  font-family: var(--serif); font-size: 13px; line-height: 1.3; pointer-events: none;
+}
+.bd-idx-pop[hidden] { display: none; }
+.bd-idx-thumb { flex: none; width: 88px; height: 66px; display: grid; place-items: center; background: #121116; outline: 1px solid var(--rule2); outline-offset: 2px; }
+.bd-idx-desc { flex: 1; min-width: 0; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 .bd-behav { display: inline-flex; gap: 6px; flex-wrap: wrap; } .bd-behav span { border: 1px solid var(--toner); padding: 0 6px; font-size: 14px; }
 /* Sighting stamp & found-during note: centered at the foot of the entry text with subtle bounded hand-stamped jitter. */
 .bd-sighting-foot { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 26px auto 8px; padding: 0 12px; max-width: 100%; }
@@ -177,19 +188,26 @@
 .bd-blank { text-align: center; font-style: italic; margin: 48px 0 10px; }
 .bd-blank-sub { text-align: center; font-size: 15px; color: var(--toner-dim); }
 
-/* permuted index */
+/* alphabetical index */
 .bd-search { display: flex; gap: 6px; align-items: baseline; font-family: var(--mono); font-size: 14px; border-bottom: 1px solid var(--toner); padding-bottom: 4px; margin-bottom: 8px; }
 .bd-search input { flex: 1; min-width: 0; font: inherit; color: var(--toner); background: transparent; border: 0; outline: 0; }
-.bd-kwic-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) auto; gap: 10px; align-items: baseline; width: 100%; font: inherit; font-size: 15px; line-height: 1.35;
-  color: inherit; background: none; border: 0; border-bottom: 1px dotted var(--rule2); padding: 2px 0; cursor: pointer; text-align: left; }
-.bd-kwic-row:hover { background: rgba(62, 90, 154, 0.06); }
-/* Left context hugs the keyword and fades out at its start instead of cutting letters in half. */
-.bd-kw-l { display: flex; justify-content: flex-end; overflow: hidden; white-space: nowrap; color: var(--toner-dim);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 2.5em); mask-image: linear-gradient(90deg, transparent, #000 2.5em); }
-.bd-kw-l > span { flex: none; }
-.bd-kw-k { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.bd-kw-k b { font-weight: 700; }
-.bd-kw-r { font-weight: 700; font-size: 13px; white-space: nowrap; }
+.bd-idx-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) 68px 58px 11.5ch; gap: 6px; align-items: center;
+  width: 100%; font: inherit; font-size: 15px; line-height: 1.35; color: inherit;
+  border-bottom: 1px dotted var(--rule2); padding: 3px 2px; cursor: pointer;
+}
+.bd-idx-row:hover, .bd-idx-row:focus-visible { background: rgba(62, 90, 154, 0.08); outline: none; }
+.bd-idx-name { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.bd-idx-rar { font-family: var(--hand); color: var(--pencil); font-size: 16px; line-height: 1; text-align: right; white-space: nowrap; }
+.bd-idx-bits { display: inline-flex; justify-content: flex-end; align-items: center; gap: 2px; }
+.bd-idx-bit {
+  display: inline-block; width: 8px; height: 8px; border-radius: 1px;
+  border: 1px solid color-mix(in srgb, var(--hb-accent) 65%, #5a5666); background: transparent;
+  transition: transform 90ms ease;
+}
+.bd-idx-bit.on { background: var(--hb-accent); border-color: color-mix(in srgb, var(--hb-accent) 55%, #14131a); }
+.bd-idx-bit:hover { transform: scale(1.35); }
+.bd-idx-tag { font-weight: 700; font-size: 12px; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* motion (all off under reduced motion: the binder never adds these classes then) */
 .bd.bd-opening { animation: bd-open 360ms steps(4) both; transform-origin: left center; }
@@ -217,4 +235,5 @@
   .bd-mhead { grid-template-columns: auto 1fr; }
   .bd-mh-mid { display: none; }
   .bd-mb { padding-left: 1.2em; }
+  .bd-idx-row { grid-template-columns: minmax(0, 1fr) 56px auto 9.5ch; gap: 4px; font-size: 14px; }
 }

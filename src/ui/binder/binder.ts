@@ -4,7 +4,7 @@ import './binder.css';
 import { sound } from '../../audio/sound';
 import { enforce } from '../../core/enforce';
 import { DAILY_LAYERS, ENDLESS_LAYERS, LAYERS, TRUE_ENDLESS_LAYERS, type LayerId } from '../../core/layers';
-import { buildBook, bookChapters, kwicRows, manTag, spreadOf, type Chapter, type Leaf, type Spread } from '../../game/manual-book';
+import { buildBook, bookChapters, manTag, spreadOf, type Chapter, type Leaf, type Spread } from '../../game/manual-book';
 import { MANUAL_RARITIES, manualEntryById, manualStore, type ManualEntry, type ManualSighting } from '../../game/manual';
 import { formatRate, shownRate } from '../../game/rarity';
 import { storageKey } from '../../keys';
@@ -207,6 +207,7 @@ export class FieldManualBinder {
   private leaves: [HTMLElement, HTMLElement];
   private tabs: HTMLElement;
   private habPop: HTMLElement;
+  private idxPop: HTMLElement;
   private book: Spread[] = [];
   private at = 0;
   private selected = new Map<string, LayerId>();
@@ -234,6 +235,7 @@ export class FieldManualBinder {
         <button type="button" class="bd-edge bd-next" data-bd="next" aria-label="Next page">▶</button>
         <button type="button" class="bd-close" data-bd="close" aria-label="Close Field Manual">×</button>
         <div class="bd-hab-pop" data-bd="habPop" role="tooltip" hidden></div>
+        <div class="bd-idx-pop" data-bd="idxPop" role="tooltip" hidden></div>
       </section>`;
     mount.append(wrap);
     this.el = wrap;
@@ -242,6 +244,7 @@ export class FieldManualBinder {
     this.leaves = [q('l'), q('r')];
     this.tabs = q('tabs');
     this.habPop = q('habPop');
+    this.idxPop = q('idxPop');
     q('close').addEventListener('click', () => this.close());
     q('prev').addEventListener('click', () => this.step(-1));
     q('next').addEventListener('click', () => this.step(1));
@@ -464,7 +467,7 @@ export class FieldManualBinder {
     const unread = manualStore.unreadCount();
     this.tabs.replaceChildren(
       note('to-title', '↩ Title', unread ? `${unread} new stamp${unread === 1 ? '' : 's'}` : 'and contents', 0, this.at === 0),
-      note('to-index', 'Index →', 'permuted index', this.book.length - 1, s.left.kind === 'index'),
+      note('to-index', 'Index →', 'A–Z index', this.book.length - 1, s.left.kind === 'index'),
     );
   }
 
@@ -559,7 +562,7 @@ export class FieldManualBinder {
     }
     const idx = el('button', 'bd-ct-row');
     idx.type = 'button';
-    idx.append(el('span', 'bd-ct-n', ''), el('span', 'bd-ct-name bd-it', 'Permuted index'), el('span', 'bd-ct-p', 'I-1'));
+    idx.append(el('span', 'bd-ct-n', ''), el('span', 'bd-ct-name bd-it', 'Index'), el('span', 'bd-ct-p', 'I-1'));
     idx.addEventListener('click', () => this.go(this.book.length - 1));
     table.append(idx);
     return this.frame('CONTENTS', folio, side, [table, el('div', 'bd-gloss', 'Boxes are the entries filed in each chapter; filled ones are logged.')]);
@@ -653,10 +656,50 @@ export class FieldManualBinder {
 
   private hideHabPop() {
     this.habPop.hidden = true;
+    this.idxPop.hidden = true;
+  }
+
+  private placePop(pop: HTMLElement, anchor: HTMLElement, gap = 8) {
+    const bd = this.el.querySelector<HTMLElement>('.bd')!;
+    const bdR = bd.getBoundingClientRect();
+    const aR = anchor.getBoundingClientRect();
+    const pR = pop.getBoundingClientRect();
+    const pad = 10;
+    let left = aR.left - bdR.left + aR.width / 2 - pR.width / 2;
+    left = Math.max(pad, Math.min(bdR.width - pR.width - pad, left));
+    let top = aR.top - bdR.top - pR.height - gap;
+    if (top < pad) top = aR.bottom - bdR.top + gap;
+    pop.style.left = `${Math.round(left)}px`;
+    pop.style.top = `${Math.round(top)}px`;
+  }
+
+  /** Tiny layer-name-only tooltip for an index bitmap square (no color square, no description). */
+  private showLayerNamePop(anchor: HTMLElement, layer: LayerId) {
+    this.idxPop.hidden = true;
+    const pop = this.habPop;
+    pop.className = 'bd-hab-pop bd-hab-pop-mini';
+    pop.replaceChildren(el('span', '', LAYER_NAME.get(layer) ?? layer));
+    pop.hidden = false;
+    this.placePop(pop, anchor, 6);
+  }
+
+  /** Compact page snapshot popup for hovering an index listing: sprite image + description only. */
+  private showIndexPreview(anchor: HTMLElement, e: ManualEntry) {
+    const pop = this.idxPop;
+    const s = this.shown(e);
+    const thumb = el('div', 'bd-idx-thumb');
+    const dummyLive = new Set<() => void>();
+    thumb.append(plateCanvas(s, 84, 62, 'sprite', dummyLive));
+    const desc = el('div', 'bd-idx-desc', `${e.blurb} ${e.note}`.trim());
+    pop.replaceChildren(thumb, desc);
+    pop.hidden = false;
+    this.placePop(pop, anchor, 8);
   }
 
   private showHabPop(anchor: HTMLElement, layer: LayerId, detail?: string) {
+    this.idxPop.hidden = true;
     const pop = this.habPop;
+    pop.className = 'bd-hab-pop';
     const art = LAYER_ART[layer];
     const head = el('div', 'bd-hab-pop-head');
     const dot = el('i', 'bd-hab-pop-dot');
@@ -666,18 +709,7 @@ export class FieldManualBinder {
     if (detail) nodes.push(el('div', 'bd-hab-pop-det', detail));
     pop.replaceChildren(...nodes);
     pop.hidden = false;
-
-    const bd = this.el.querySelector<HTMLElement>('.bd')!;
-    const bdR = bd.getBoundingClientRect();
-    const aR = anchor.getBoundingClientRect();
-    const pR = pop.getBoundingClientRect();
-    const pad = 10;
-    let left = aR.left - bdR.left + aR.width / 2 - pR.width / 2;
-    left = Math.max(pad, Math.min(bdR.width - pR.width - pad, left));
-    let top = aR.top - bdR.top - pR.height - 8;
-    if (top < pad) top = aR.bottom - bdR.top + 8;
-    pop.style.left = `${Math.round(left)}px`;
-    pop.style.top = `${Math.round(top)}px`;
+    this.placePop(pop, anchor, 8);
   }
 
   private buildHabitat(e: ManualEntry, shown: ManualSighting): HTMLElement {
@@ -785,14 +817,14 @@ export class FieldManualBinder {
   }
 
   private indexLeaf(half: 0 | 1, folio: string, side: 'l' | 'r'): Node[] {
-    const lines = bookChapters()
+    const q = this.query.toLowerCase();
+    const entries = bookChapters()
       .flatMap((c) => c.entries)
       .filter((e) => manualStore.isFound(e.id))
-      .map((e) => ({ tag: manTag(e), line: e.name, target: e.id }));
-    const q = this.query.toLowerCase();
-    const rows = kwicRows(lines).filter((r) => !q || r.key.toLowerCase().startsWith(q) || r.key.toLowerCase().includes(` ${q}`));
-    const mid = Math.ceil(rows.length / 2);
-    const mine = half === 0 ? rows.slice(0, mid) : rows.slice(mid);
+      .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
+      .filter((e) => !q || e.name.toLowerCase().includes(q) || manTag(e).toLowerCase().includes(q));
+    const mid = Math.ceil(entries.length / 2);
+    const mine = half === 0 ? entries.slice(0, mid) : entries.slice(mid);
     const body: Node[] = [];
     if (half === 0) {
       const search = el('label', 'bd-search');
@@ -800,7 +832,7 @@ export class FieldManualBinder {
       input.type = 'search';
       input.placeholder = 'search';
       input.value = this.query;
-      input.setAttribute('aria-label', 'Search the permuted index');
+      input.setAttribute('aria-label', 'Search the index');
       input.addEventListener('input', () => {
         this.query = input.value.trim();
         this.render();
@@ -811,22 +843,56 @@ export class FieldManualBinder {
       search.append('search: ', input);
       body.push(search);
     }
-    const table = el('div', 'bd-kwic');
-    for (const r of mine) {
-      const row = el('button', 'bd-kwic-row');
-      row.type = 'button';
-      const key = el('span', 'bd-kw-k');
-      const [first, ...rest] = r.key.split(' ');
-      key.append(el('b', '', first), rest.length ? ` ${rest.join(' ')}` : '');
-      const before = el('span', 'bd-kw-l');
-      before.append(el('span', '', r.before));
-      row.append(before, key, el('span', 'bd-kw-r', r.tag));
-      row.addEventListener('click', () => this.go(spreadOf(this.book, r.target)));
+    const table = el('div', 'bd-idx');
+    for (const e of mine) {
+      const row = el('div', 'bd-idx-row');
+      row.setAttribute('role', 'button');
+      row.tabIndex = 0;
+
+      const name = el('span', 'bd-idx-name', e.name);
+      const meta = MANUAL_RARITIES[e.rarity];
+      const rar = el('span', 'bd-idx-rar');
+      rar.append(el('span', `bd-hl hl-${e.rarity}`, meta.label.toLowerCase()));
+
+      // Layer discovery bitmap: one tiny colored square per possible layer; found layers filled, unfound outlined.
+      const bits = el('span', 'bd-idx-bits');
+      for (const s of this.dailySightings(e)) {
+        const found = manualStore.hasLayer(e.id, s.layer);
+        const sq = el('i', `bd-idx-bit${found ? ' on' : ''}`);
+        sq.style.setProperty('--hb-accent', LAYER_ART[s.layer].stackTheme.accent);
+        sq.addEventListener('pointerenter', (ev) => {
+          ev.stopPropagation();
+          this.showLayerNamePop(sq, s.layer);
+        });
+        sq.addEventListener('pointerleave', (ev) => {
+          ev.stopPropagation();
+          this.habPop.hidden = true;
+          this.showIndexPreview(row, e);
+        });
+        bits.append(sq);
+      }
+
+      const tag = el('span', 'bd-idx-tag', manTag(e));
+      row.append(name, rar, bits, tag);
+
+      row.addEventListener('pointerenter', () => this.showIndexPreview(row, e));
+      row.addEventListener('focus', () => this.showIndexPreview(row, e));
+      row.addEventListener('pointerleave', () => this.hideHabPop());
+      row.addEventListener('blur', () => this.hideHabPop());
+      row.addEventListener('click', () => this.go(spreadOf(this.book, e.id)));
+      row.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          this.go(spreadOf(this.book, e.id));
+        }
+      });
       table.append(row);
     }
     body.push(table);
-    if (half === 0 && !rows.length) body.push(el('p', 'bd-blank-sub', lines.length ? 'No entry matches.' : 'Nothing logged yet. Click what you see while you dive.'));
-    if (half === 1) body.push(el('div', 'bd-gloss', 'Every word of every logged entry’s NAME line, rotated into the middle column and alphabetised.'));
-    return this.frame('PERMUTED INDEX', folio, side, body);
+    if (half === 0 && !entries.length) {
+      const anyFound = bookChapters().some((c) => c.entries.some((e) => manualStore.isFound(e.id)));
+      body.push(el('p', 'bd-blank-sub', anyFound ? 'No entry matches.' : 'Nothing logged yet. Click what you see while you dive.'));
+    }
+    return this.frame('INDEX', folio, side, body);
   }
 }
