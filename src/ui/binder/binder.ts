@@ -160,6 +160,17 @@ export class FieldManualBinder {
     let swipeY = 0;
     let swipeT = 0;
     let swipeActive = false;
+    let suppressClickUntil = 0;
+    this.sheet.addEventListener(
+      'click',
+      (ev) => {
+        if (Date.now() < suppressClickUntil) {
+          ev.preventDefault();
+          ev.stopPropagation();
+        }
+      },
+      true,
+    );
     this.sheet.addEventListener(
       'touchstart',
       (ev) => {
@@ -168,7 +179,8 @@ export class FieldManualBinder {
           return;
         }
         const target = ev.target;
-        if (target instanceof Element && target.closest('input, select, textarea, button, a')) {
+        // Allow swiping across full-width row buttons (Contents / Permuted Index); only exclude text/select inputs.
+        if (target instanceof Element && target.closest('input, select, textarea')) {
           swipeActive = false;
           return;
         }
@@ -202,6 +214,7 @@ export class FieldManualBinder {
         const dy = t.clientY - swipeY;
         if (Date.now() - swipeT > 650) return;
         if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.4) return;
+        suppressClickUntil = Date.now() + 350;
         this.step(dx < 0 ? 1 : -1);
       },
       { passive: true },

@@ -337,7 +337,8 @@ export class Reveal {
     this.root.classList.toggle('reveal-stowed', stow);
     this.showBtn.hidden = !stow;
     this.host.scene()?.setVignette(!stow);
-    (stow ? this.nextBtn : this.hideBtn).focus({ preventScroll: true });
+    // Focus Unwind further in both states so pressing Enter always advances instead of immediately re-hiding.
+    this.nextBtn.focus({ preventScroll: true });
   }
 
   private hide(unstickZLayers = true) {

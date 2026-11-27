@@ -385,7 +385,8 @@ export class Scene {
           : `${entry.name} · logged`;
       this.manualToasts.push({
         x: hit.x + hit.w / 2,
-        y: Math.max(18, hit.y - 4),
+        // Keep clear of the top HUD bar even at peak float lift (14 scene px).
+        y: Math.max(36, hit.y - 4),
         text: msg,
         color: res.isNewEntry || res.isNewLayer ? meta.color : '#cfcbd8',
         at: performance.now(),

@@ -231,12 +231,14 @@ export class SoundEngine {
   private duckUntil = 0;
   private duckTimer = 0;
   private lastEventAt = 0;
+  private unlocked = false;
   private volume: VolumeLevel = 'medium';
   mode: SoundMode = 'full';
   enabled = true;
 
   /** Lazily create and unlock the AudioContext on a user gesture. */
   unlock() {
+    this.unlocked = true;
     if (!this.enabled) return;
     const ctx = this.ensureCtx();
     if (ctx && 'state' in ctx && (ctx as AudioContext).state === 'suspended') {
@@ -552,11 +554,17 @@ export class SoundEngine {
   private ensureCtx(): BaseAudioContext | null {
     if (!this.enabled) return null;
     if (this.ctx) {
-      if ('state' in this.ctx && (this.ctx as AudioContext).state === 'suspended') {
+      if (this.unlocked && 'state' in this.ctx && (this.ctx as AudioContext).state === 'suspended') {
         void (this.ctx as AudioContext).resume();
       }
       return this.ctx;
     }
+    // In browsers with User Activation API, skip creating an AudioContext before any gesture to avoid autoplay warnings.
+    const ua =
+      typeof navigator !== 'undefined'
+        ? (navigator as Navigator & { userActivation?: { hasBeenActive: boolean } }).userActivation
+        : undefined;
+    if (!this.unlocked && ua && !ua.hasBeenActive) return null;
     const Ctor =
       typeof window !== 'undefined'
         ? (window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)

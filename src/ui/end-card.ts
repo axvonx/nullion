@@ -301,11 +301,16 @@ export class EndCard {
         row.setAttribute('aria-expanded', String(open));
       });
       row.append(num, icon, mid, more);
-      li.append(row);
+      // Keep the row and its overlay icon buttons in a header wrapper so `height: 100%` never stretches over an open sheet.
+      const head = document.createElement('div');
+      head.className = 'bt-head';
+      head.append(row);
       const ref = prompt && r.question ? this.questionLink(i, prompt, r.question) : undefined;
-      if (ref) li.append(ref);
+      if (ref) head.append(ref);
       const sheetBtn = this.answerSheetFor(li, i, r, puzzle);
-      if (sheetBtn) li.append(sheetBtn.toggle, sheetBtn.panel);
+      if (sheetBtn) head.append(sheetBtn.toggle);
+      li.append(head);
+      if (sheetBtn) li.append(sheetBtn.panel);
       ol.append(li);
     });
     // The share text is emoji glyphs only (oldest first), so it pastes cleanly anywhere. Frame scores stay out of it.

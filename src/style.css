@@ -192,6 +192,7 @@ body {
   box-shadow: 0 0 0 1px var(--te-accent, var(--signal));
 }
 .te-nav-tip {
+  display: none;
   position: absolute;
   left: calc(100% + 8px);
   top: 50%;
@@ -204,12 +205,10 @@ body {
   font-size: 14px;
   white-space: nowrap;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 120ms ease;
 }
 .te-nav-btn:hover .te-nav-tip,
 .te-nav-btn:focus-visible .te-nav-tip {
-  opacity: 1;
+  display: block;
 }
 .depth { color: var(--signal); font-size: 17px; white-space: nowrap; }
 .scroll-mode .slots { display: none; }
@@ -302,7 +301,7 @@ body {
  * icon. The last column holds the dropdown arrow, which opens the prompt's answer sheet under the row.
  */
 .record { list-style: none; margin: 0 0 6px; padding: 0; display: flex; flex-direction: column; gap: 2px; }
-.record > li { position: relative; }
+.bt-head { position: relative; }
 .bt-row {
   display: grid;
   grid-template-columns: 3ch 40px minmax(0, 1fr) 46px;
@@ -490,6 +489,16 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .console[data-form='gui'] .bt-ans { color: #16141c; }
 .console[data-form='gui'] .bt-row:is(:hover, :focus-visible, [aria-expanded='true']) { background: #fff; border-color: #808080; }
 .console[data-form='gui'] .wordmark .wm-no { color: #16141c; }
+.console[data-form='gui'] .eod-summary { background: rgba(255, 255, 255, 0.45); border-color: #808080; }
+.console[data-form='gui'] .stats { border-top-color: #808080; }
+.console[data-form='gui'] .stats-head { color: #1d3f8f; }
+.console[data-form='gui'] .stats-block { background: rgba(255, 255, 255, 0.55); border-color: #808080; }
+.console[data-form='gui'] :is(.stats-sub, .stats-grid dt, .build-tag) { color: #4a4656; }
+.console[data-form='gui'] :is(.stats-grid dd, .sd-n) { color: #16141c; }
+.console[data-form='gui'] .sd-name { background: #16141c; padding: 1px 4px; }
+.console[data-form='gui'] .sd-bar { background: rgba(0, 0, 0, 0.14); }
+.console[data-form='gui'] .eod-hide { color: #16141c; background: #d4d0c8; border-color: #404040; }
+.console[data-form='gui'] .eod-hide:is(:hover, :focus-visible) { background: #e8e4dc; }
 
 /* Runtime, Libraries: a REPL. */
 .console[data-form='repl'] .plain { color: #f5d76e; }
@@ -1622,9 +1631,8 @@ html.kb-open .console {
 .eod-layer-link { display: block; text-decoration: none; cursor: help; }
 .eod-layer-link:hover .ls-badge, .eod-layer-link:focus-visible .ls-badge { filter: brightness(1.2); }
 
-/* Phones: the end card's stack has tighter badges, so a deep day is not a screenful of bars. */
+/* Phones: the end card's stack has tighter badges and stays single-column so deep Endless runs never overflow. */
 @media (max-width: 640px) {
-  .eod-stack { width: min(220px, calc(100% - 40px)); gap: 2px; }
+  .eod-stack, .eod-stack.wide { display: flex; flex-direction: column; width: min(220px, calc(100% - 40px)); gap: 2px; }
   .eod-stack .ls-badge .ls-inner { padding: 2px 6px; min-height: 20px; }
-  .eod-stack.wide { width: calc(100% - 40px); gap: 2px 36px; }
 }

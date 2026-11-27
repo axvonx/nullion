@@ -20,7 +20,7 @@
 .bd { position: relative; width: min(1040px, 100%); max-height: calc(var(--vvh, 100dvh) - 80px); display: flex; flex-direction: column;
   background: var(--slate); padding: 16px; margin-top: 46px; box-shadow: inset 0 0 0 2px var(--slate-hi), 0 0 0 2px var(--slate-lo), 0 18px 40px rgba(0, 0, 0, 0.5); }
 .bd-sheet { display: grid; grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr); min-height: min(560px, calc(var(--vvh, 100dvh) - 112px)); height: calc(var(--vvh, 100dvh) - 112px); max-height: 760px; }
-.bd-leaf { position: relative; min-width: 0; min-height: 0; overflow: hidden; display: flex; flex-direction: column; background: var(--bond); color: var(--toner);
+.bd-leaf { position: relative; min-width: 0; min-height: 0; overflow: hidden; display: flex; flex-direction: column; background: var(--bond); color: var(--toner); color-scheme: light;
   font-family: var(--serif); font-size: 17px; line-height: 1.3; padding: 14px 20px 8px 36px; }
 /* Header and footer stay put; only the page body scrolls (the long permuted index). */
 .bd-body { flex: 1; min-height: 0; overflow: auto; scrollbar-width: thin; padding-right: 4px; }
@@ -141,9 +141,9 @@
 @keyframes bd-flip { from { transform: scaleX(0.05); filter: brightness(0.8); } to { transform: none; filter: none; } }
 .bd-sheet.bd-riffle .bd-leaf { animation: bd-flip 140ms steps(3) 3 both; }
 
-/* Phones: a spread is one long page that scrolls (the portrait leaf above its text), with one running head at the
-   top and one foot at the bottom; the arrows turn whole spreads and sit on the slate under the paper. */
-@media (max-width: 720px) {
+/* Phones & short landscape viewports: a spread is one long page that scrolls (the portrait leaf above its text),
+   with one running head at the top and one foot at the bottom; the arrows turn whole spreads on the slate below. */
+@media (max-width: 720px), (max-height: 520px) {
   .bd { padding: 10px 10px 44px; margin-top: 40px; height: calc(var(--vvh, 100dvh) - 64px); max-height: none; }
   .bd-sheet { display: block; height: auto; min-height: 0; max-height: none; flex: 1; overflow-y: auto; overscroll-behavior: contain; background: var(--bond); touch-action: pan-y; }
   .bd-rings { display: none; }
