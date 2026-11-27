@@ -1,7 +1,4 @@
 import { ent, type EntityDef, type Pen, type Size } from './kit';
-import { DRIVERS, FIRMWARE, RING1, RING2, RING3 } from './lib-lower';
-import { KERNEL, LIBRARIES, USERSPACE } from './lib-mid';
-import { APPLICATION, RUNTIME } from './lib-upper';
 
 /**
  * Bespoke v4 pixel-art entities & anchors for the 19 Endless Mode layers (Zones A–F).
@@ -69,17 +66,6 @@ const bpr = E(PK);
 const waf = E(WK);
 const euv = E(EK);
 const aby = E(YK);
-
-/** Combine bespoke entities with donor props (re-keyed with a prefix so IDs stay unique) up to at least 20 types. */
-function mix(prefix: string, bespoke: readonly EntityDef[], donor: readonly EntityDef[]): EntityDef[] {
-  const out: EntityDef[] = [...bespoke];
-  const need = Math.max(0, 20 - out.length);
-  for (let i = 0; i < Math.min(need, donor.length); i++) {
-    const d = donor[i]!;
-    out.push({ ...d, id: `${prefix}-${d.id}` });
-  }
-  return out;
-}
 
 // =============================================================================================
 // Zone A — Above Application: Internet / BGP & Browser / Compositor
@@ -188,7 +174,6 @@ export const INTERNET_BESPOKE: EntityDef[] = [
     p.r(10, 8, 2, 2, k.d);
   }),
 ];
-export const INTERNET = mix('net', INTERNET_BESPOKE, APPLICATION);
 export const INTERNET_ANCHORS: EntityDef[] = [
   ent(
     'net-ixp',
@@ -334,7 +319,6 @@ export const BROWSER_BESPOKE: EntityDef[] = [
     p.p(7, 9, k.b);
   }),
 ];
-export const BROWSER = mix('br', BROWSER_BESPOKE, APPLICATION);
 export const BROWSER_ANCHORS: EntityDef[] = [
   ent('br-viewport', [[54, 40]], (p) => {
     p.r(0, 0, 54, 40, '#2a3358');
@@ -459,7 +443,6 @@ export const BYTECODE_BESPOKE: EntityDef[] = [
     p.p(10, 11, k.i);
   }),
 ];
-export const BYTECODE = mix('bc', BYTECODE_BESPOKE, RUNTIME);
 export const BYTECODE_ANCHORS: EntityDef[] = [
   ent('bc-parsetree', [[52, 46]], (p) => {
     p.box(20, 0, 12, 6, '#ffcc33', '#666699');
@@ -562,7 +545,6 @@ export const JIT_BESPOKE: EntityDef[] = [
     p.r(0, 8, 1, 4, k.o);
   }),
 ];
-export const JIT = mix('jit', JIT_BESPOKE, RUNTIME);
 export const JIT_ANCHORS: EntityDef[] = [
   ent(
     'jit-forge',
@@ -672,7 +654,6 @@ export const LINKER_BESPOKE: EntityDef[] = [
     p.p(8, 2, k.a);
   }),
 ];
-export const LINKER = mix('ld', LINKER_BESPOKE, LIBRARIES);
 export const LINKER_ANCHORS: EntityDef[] = [
   lnk('ld-switchboard', [50, 44], (p, k) => {
     // a rack of knife switches: brass hinge and contact blocks, blades open or closed
@@ -793,7 +774,6 @@ export const KERNEL_ENTRY_BESPOKE: EntityDef[] = [
     }
   }),
 ];
-export const KERNEL_ENTRY = mix('ke', KERNEL_ENTRY_BESPOKE, KERNEL);
 export const KERNEL_ENTRY_ANCHORS: EntityDef[] = [
   cga('ke-gatehouse', [52, 42], (p, k) => {
     // symmetric stone gatehouse: crenellated towers, lintel, iron portcullis with a brass padlock
@@ -900,8 +880,16 @@ export const KERNEL_ARCH_BESPOKE: EntityDef[] = [
     p.disc(7, 5, 1, k.a);
     p.p(7, 5, k.h);
   }),
+    ent('ka-nmi', [[14, 14]], (p) => {
+      p.disc(7, 7, 6, '#aa0000');
+      p.disc(7, 7, 3, '#ffff55');
+      p.r(6, 0, 2, 3, '#ffffff');
+    }),
+    ent('ka-spinlock', [[14, 12]], (p) => {
+      p.ring(7, 6, 5, '#ffff55');
+      p.r(6, 5, 3, 3, '#ff5555');
+    }),
 ];
-export const KERNEL_ARCH = mix('ka', KERNEL_ARCH_BESPOKE, KERNEL);
 export const KERNEL_ARCH_ANCHORS: EntityDef[] = [
   cga('ka-apicbank', [50, 42], (p, k) => {
     // relay switchboard: hooded status lamps on top, clapper switches and a busbar, heavy legs
@@ -1009,7 +997,6 @@ export const BUS_FABRIC_BESPOKE: EntityDef[] = [
     p.r(2, 9, 10, 1, k.d);
   }),
 ];
-export const BUS_FABRIC = mix('bf', BUS_FABRIC_BESPOKE, DRIVERS);
 export const BUS_FABRIC_ANCHORS: EntityDef[] = [
   bus('bf-pcieswitch', [56, 40], (p, k) => {
     // rackmount switch chassis: mounting ears, two rows of port cages with status LEDs, on a stand
@@ -1121,7 +1108,6 @@ export const VMM_BESPOKE: EntityDef[] = [
     p.p(11, 7, k.l);
   }),
 ];
-export const VMM = mix('vmm', VMM_BESPOKE, RING1);
 export const VMM_ANCHORS: EntityDef[] = [
   grn('vmm-qemu', [50, 38], (p, k) => {
     // rack hypervisor cabinet: two recessed machine bays, a teleprinter keyboard shelf, four levelling feet
@@ -1202,7 +1188,6 @@ export const EPT_BESPOKE: EntityDef[] = [
     p.p(9, 7, k.i);
   }),
 ];
-export const EPT = mix('ept', EPT_BESPOKE, RING1);
 export const EPT_ANCHORS: EntityDef[] = [
   grn('ept-matrix', [50, 40], (p, k) => {
     // twin-towered gatehouse bridged by a catwalk, mint signal lamps
@@ -1295,7 +1280,6 @@ export const SMRAM_BESPOKE: EntityDef[] = [
     p.p(15, 8, k.i);
   }),
 ];
-export const SMRAM = mix('sm', SMRAM_BESPOKE, RING2);
 export const SMRAM_ANCHORS: EntityDef[] = [
   ent('sm-vaultdoor', [[48, 44]], (p) => {
     p.box(0, 0, 48, 44, '#404040', '#c0c0c0');
@@ -1395,7 +1379,6 @@ export const ME_MINIX_USER_BESPOKE: EntityDef[] = [
     p.l(6, 6, 8, 4, k.l);
   }),
 ];
-export const ME_MINIX_USER = mix('mx', ME_MINIX_USER_BESPOKE, USERSPACE);
 export const ME_MINIX_USER_ANCHORS: EntityDef[] = [
   ent('mx-bottle', [[46, 44]], (p) => {
     p.frame(4, 6, 38, 38, '#ffffff');
@@ -1489,7 +1472,6 @@ export const ME_MINIX_KERN_BESPOKE: EntityDef[] = [
     p.r(6, 0, 3, 2, k.l);
   }),
 ];
-export const ME_MINIX_KERN = mix('mk', ME_MINIX_KERN_BESPOKE, FIRMWARE);
 export const ME_MINIX_KERN_ANCHORS: EntityDef[] = [
   amb('mk-microkern', [48, 38], (p, k) => {
     // message-switching rotunda: central kernel plinth under a dome, four isolated booths linked by pneumatic tubes
@@ -1603,7 +1585,6 @@ export const UARCH_BESPOKE: EntityDef[] = [
     p.r(11, 9, 2, 1, k.d);
   }),
 ];
-export const UARCH = mix('ua', UARCH_BESPOKE, RING3);
 export const UARCH_ANCHORS: EntityDef[] = [
   bpr('ua-pipeline', [56, 36], (p, k) => {
     // assembly line: conveyor on steel legs under four distinct stations (stamp, drill, press, inspection lamp)
@@ -1717,7 +1698,6 @@ export const RTL_BESPOKE: EntityDef[] = [
     p.l(14, 16, 17, 21, k.d);
   }),
 ];
-export const RTL = mix('rtl', RTL_BESPOKE, RING3);
 export const RTL_ANCHORS: EntityDef[] = [
   bpr('rtl-htree', [50, 44], (p, k) => {
     // clock gantry: metronome tower feeding four conduit arms to corner bell-housings
@@ -1813,7 +1793,6 @@ export const CMOS_BESPOKE: EntityDef[] = [
     p.r(4, 2, 1, 8, k.b);
   }),
 ];
-export const CMOS = mix('cm', CMOS_BESPOKE, RING3);
 export const CMOS_ANCHORS: EntityDef[] = [
   ent('cm-viatower', [[52, 42]], (p) => {
     for (let y = 4; y < 38; y += 8) p.r(2, y, 48, 3, '#e88438');
@@ -1876,8 +1855,16 @@ export const LITHO_BESPOKE: EntityDef[] = [
     p.r(5, 1, 7, 1, k.m);
     p.r(5, 2, 1, 2, k.l);
   }),
+    ent('li-mask', [[18, 18]], (p) => {
+      p.frame(0, 0, 18, 18, '#aaaaaa');
+      p.r(3, 3, 5, 5, '#555555');
+      p.r(10, 9, 5, 6, '#555555');
+    }),
+    ent('li-resist', [[20, 8]], (p) => {
+      p.r(0, 4, 20, 4, '#555555');
+      for (let k = 0; k < 4; k++) p.r(2 + k * 5, 0, 3, 5, '#aaaaaa');
+    }),
 ];
-export const LITHO = mix('li', LITHO_BESPOKE, RING3);
 export const LITHO_ANCHORS: EntityDef[] = [
   ent('li-reticle', [[48, 48]], (p) => {
     p.disc(24, 24, 22, '#555555');
@@ -1964,8 +1951,11 @@ export const BANDGAP_BESPOKE: EntityDef[] = [
     p.p(3, 8, k.l);
     p.p(4, 9, k.l);
   }),
+    ent('bg-hole', [[10, 10]], (p) => {
+      p.disc(5, 5, 4, '#aaaaaa');
+      p.disc(5, 5, 2, '#000000');
+    }),
 ];
-export const BANDGAP = mix('bg', BANDGAP_BESPOKE, RING3);
 export const BANDGAP_ANCHORS: EntityDef[] = [
   aby('bg-diagram', [52, 40], (p, k) => {
     // two-tier semiconductor viaduct bench: conduction deck above a gap, valence deck below, five glass elevator tubes
@@ -2051,8 +2041,11 @@ export const LANDAUER_BESPOKE: EntityDef[] = [
     p.p(6, 0, k.l);
     p.r(2, 11, 10, 1, k.d);
   }),
+    ent('la-lonebit', [[8, 8]], (p) => {
+      p.r(1, 1, 6, 6, '#aaaaaa');
+      p.r(3, 3, 2, 2, '#ffffff');
+    }),
 ];
-export const LANDAUER = mix('la', LANDAUER_BESPOKE, RING3);
 export const LANDAUER_ANCHORS: EntityDef[] = [
   ent(
     'la-horizon',
