@@ -1,0 +1,637 @@
+{
+  "complexity-class": [
+    {
+      "name": "P",
+      "aliases": ["polynomial time"],
+      "judge": "off-by-one",
+      "evidence": "P - polynomial-time",
+      "why": "fundamental polynomial-time class"
+    },
+    {
+      "name": "NP",
+      "aliases": ["non-deterministic polynomial time"],
+      "judge": "off-by-one",
+      "evidence": "NP - non-deterministic polynomial-time",
+      "why": "fundamental nondeterministic polynomial-time class"
+    },
+    {
+      "name": "PSPACE",
+      "aliases": ["polynomial space"],
+      "judge": "off-by-one",
+      "evidence": "PSPACE - polynomial-space",
+      "why": "fundamental polynomial-space class"
+    },
+    {
+      "name": "EXP",
+      "aliases": ["EXPTIME", "exponential time"],
+      "judge": "off-by-one",
+      "evidence": "EXP - exponential-time",
+      "why": "fundamental exponential-time class"
+    },
+    {
+      "name": "BQP",
+      "aliases": ["bounded-error quantum polynomial time"],
+      "judge": "npe",
+      "evidence": "BQP - bounded error quantum polyomial-time",
+      "why": "standard quantum polynomial-time class"
+    },
+    {
+      "name": "BPP",
+      "aliases": ["bounded-error probabilistic polynomial time"],
+      "judge": "npe",
+      "evidence": "BPP - bounded error probabilistic polynomial-time",
+      "why": "standard randomized polynomial-time class"
+    },
+    {
+      "name": "P/poly",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "P/poly - P with advice",
+      "why": "standard non-uniform polynomial-time class"
+    },
+    {
+      "name": "NP/poly",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "NP/poly - NP with advice",
+      "why": "non-uniform NP with polynomial advice"
+    },
+    {
+      "name": "RP",
+      "aliases": ["randomized polynomial time"],
+      "judge": "npe",
+      "evidence": "RP - randomized polynomial-time",
+      "why": "one-sided error randomized polynomial time"
+    },
+    {
+      "name": "ZPP",
+      "aliases": ["zero-error probabilistic polynomial time", "cocap-RP"],
+      "judge": "npe",
+      "evidence": "ZPP - zero-error probabilistic polynomial time",
+      "why": "Las Vegas randomized polynomial time"
+    },
+    {
+      "name": "PH",
+      "aliases": ["polynomial hierarchy"],
+      "judge": "npe",
+      "evidence": "PH - polynomial-time hierarchy",
+      "why": "polynomial-time hierarchy"
+    },
+    {
+      "name": "NEXP",
+      "aliases": ["NEXPTIME"],
+      "judge": "npe",
+      "evidence": "NEXP - non-deterministic EXP",
+      "why": "nondeterministic exponential time"
+    },
+    {
+      "name": "RE",
+      "aliases": ["recursively enumerable"],
+      "judge": "npe",
+      "evidence": "RE - Recursively Enumerable Languages",
+      "why": "recursively enumerable languages"
+    },
+    {
+      "name": "R",
+      "aliases": ["recursive languages", "cocap-RE"],
+      "judge": "npe",
+      "evidence": "R - Recursive (Computable) Languages",
+      "why": "decidable languages"
+    },
+    {
+      "name": "IP",
+      "aliases": ["interactive proof"],
+      "judge": "npe",
+      "evidence": "IP - interactive proof",
+      "why": "interactive proof systems"
+    },
+    {
+      "name": "PP",
+      "aliases": ["probabilistic polynomial time"],
+      "judge": "npe",
+      "evidence": "PP - probabilistic polynomial-time",
+      "why": "probabilistic polynomial time"
+    },
+    {
+      "name": "AM",
+      "aliases": ["Arthur-Merlin"],
+      "judge": "leak",
+      "evidence": "AM - Arthur-Merlin",
+      "why": "Arthur-Merlin interactive proof class"
+    },
+    {
+      "name": "MA",
+      "aliases": ["Merlin-Arthur"],
+      "judge": "leak",
+      "evidence": "MA - Merlin-Arthur",
+      "why": "Merlin-Arthur interactive proof class"
+    },
+    {
+      "name": "SZK",
+      "aliases": ["statistical zero knowledge"],
+      "judge": "leak",
+      "evidence": "SZK - statistical zero knowledge",
+      "why": "statistical zero-knowledge proofs"
+    },
+    {
+      "name": "QMA",
+      "aliases": ["quantum Merlin-Arthur"],
+      "judge": "leak",
+      "evidence": "QMA - quantum MA",
+      "why": "quantum analogue of NP/MA"
+    },
+    {
+      "name": "MIP",
+      "aliases": ["multi-prover interactive proof"],
+      "judge": "leak",
+      "evidence": "MIP - multi-prover interactive proof",
+      "why": "multi-prover interactive proofs"
+    },
+    {
+      "name": "MIP*",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "MIP* - MIP with quantum provers",
+      "why": "multi-prover interactive proofs with entangled provers"
+    },
+    {
+      "name": "NPSPACE",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "NPSPACE - non-deterministic PSPACE",
+      "why": "nondeterministic polynomial space"
+    },
+    {
+      "name": "PR",
+      "aliases": ["primitive recursive"],
+      "judge": "leak",
+      "evidence": "PR - primitive recursive languages",
+      "why": "primitive recursive languages"
+    },
+    {
+      "name": "ALL",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "ALL - every language",
+      "why": "class of all decision problems"
+    },
+    {
+      "name": "UP",
+      "aliases": ["unambiguous polynomial time"],
+      "judge": "leak",
+      "evidence": "UP - unambiguous polynomial time",
+      "why": "unambiguous nondeterministic polynomial time"
+    },
+    {
+      "name": "AH",
+      "aliases": ["arithmetic hierarchy"],
+      "judge": "leak",
+      "evidence": "AH - arithmetic hierarchy",
+      "why": "arithmetical hierarchy"
+    },
+    {
+      "name": "CH",
+      "aliases": ["counting hierarchy"],
+      "judge": "leak",
+      "evidence": "CH - counting hierarchy",
+      "why": "counting hierarchy"
+    },
+    {
+      "name": "P^PP",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "P^PP - P with PP oracle",
+      "why": "P with a PP oracle"
+    },
+    {
+      "name": "P^Sharp-P",
+      "aliases": ["P^#P"],
+      "judge": "leak",
+      "evidence": "P^Sharp-P - P with Sharp-P oracle",
+      "why": "P with a #P oracle"
+    },
+    {
+      "name": "Sigma_2P",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "Sigma_2P - NP With NP Oracle",
+      "why": "second level of the polynomial hierarchy"
+    },
+    {
+      "name": "Delta_2P",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "Delta_2P - P With NP Oracle",
+      "why": "P with an NP oracle"
+    },
+    {
+      "name": "Delta_3P",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "Delta_3P - P with Sigma_2P oracle",
+      "why": "P with a Sigma_2P oracle"
+    },
+    {
+      "name": "EXP^NP",
+      "aliases": ["Sigma_2EXP"],
+      "judge": "leak",
+      "evidence": "EXP^NP - EXP with NP oracle",
+      "why": "EXP with an NP oracle"
+    },
+    {
+      "name": "PostBPP",
+      "aliases": ["BPP_path"],
+      "judge": "leak",
+      "evidence": "PostBPP - BPP with postselection",
+      "why": "BPP with postselection"
+    },
+    {
+      "name": "PostBQP",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "PostBQP - BQP with postselection",
+      "why": "BQP with postselection"
+    },
+    {
+      "name": "QIP",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "QIP - quantum IP",
+      "why": "quantum interactive proofs"
+    },
+    {
+      "name": "QSZK",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "QSZK - quantum SZK",
+      "why": "quantum statistical zero knowledge"
+    },
+    {
+      "name": "AP",
+      "aliases": ["alternating polynomial time"],
+      "judge": "leak",
+      "evidence": "AP - alternating polynomial time",
+      "why": "alternating polynomial time"
+    },
+    {
+      "name": "MAEXP",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "MAEXP - Exponential MA",
+      "why": "exponential-time Merlin-Arthur"
+    },
+    {
+      "name": "IPP",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "IPP - unbounded interactive proof",
+      "why": "unbounded interactive proofs"
+    },
+    {
+      "name": "NBPP",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "NBPP - non-deterministic BPP",
+      "why": "nondeterministic BPP"
+    },
+    {
+      "name": "NEXP/poly",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "NEXP/poly - NEXP with advice",
+      "why": "NEXP with polynomial advice"
+    },
+    {
+      "name": "PP/poly",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "PP/poly - PP with advice",
+      "why": "PP with polynomial advice"
+    },
+    {
+      "name": "PSPACE/poly",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "PSPACE/poly - PSPACE with advice",
+      "why": "PSPACE with polynomial advice"
+    },
+    {
+      "name": "PEXP",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "PEXP - probabilistic EXP",
+      "why": "probabilistic exponential time"
+    },
+    {
+      "name": "PPSPACE",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "PPSPACE - probabilistic PSPACE",
+      "why": "probabilistic polynomial space"
+    },
+    {
+      "name": "BQPSPACE",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "BQPSPACE - bounded error quantum PSPACE",
+      "why": "bounded-error quantum polynomial space"
+    },
+    {
+      "name": "BQP/poly",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "BQP/poly - BQP with polynomial advice",
+      "why": "BQP with classical polynomial advice"
+    },
+    {
+      "name": "BQP/qpoly",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "BQP/qpoly - BQP with quantum polynomial advice",
+      "why": "BQP with quantum polynomial advice"
+    },
+    {
+      "name": "QCMA",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "QCMA - quantum classical MA",
+      "why": "QMA with classical witness"
+    },
+    {
+      "name": "QAM",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "QAM - quantum AM",
+      "why": "quantum Arthur-Merlin"
+    },
+    {
+      "name": "QMIP",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "QMIP - quantum MIP",
+      "why": "quantum multi-prover interactive proofs"
+    },
+    {
+      "name": "QMA(2)",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "QMA(2) - QMA with multiple certificates",
+      "why": "QMA with unentangled multiple certificates"
+    },
+    {
+      "name": "QIP(2)",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "QIP(2) - two-message QIP",
+      "why": "two-message quantum interactive proofs"
+    },
+    {
+      "name": "QIP(3)",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "QIP(3) - three-message QIP",
+      "why": "three-message quantum interactive proofs"
+    },
+    {
+      "name": "NISZK",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "NISZK - non-interactive SZK",
+      "why": "non-interactive statistical zero knowledge"
+    },
+    {
+      "name": "NIQSZK",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "NIQSZK - non-interactive QSZK",
+      "why": "non-interactive quantum statistical zero knowledge"
+    },
+    {
+      "name": "QRG",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "QRG - Quantum Refereed Games [Gut05]",
+      "why": "quantum refereed games"
+    },
+    {
+      "name": "RG",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "RG - Refereed Games",
+      "why": "refereed games complexity class"
+    },
+    {
+      "name": "SBP",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "SBP - Small Bounded-Error Probability [BGM02]",
+      "why": "small bounded-error probability"
+    },
+    {
+      "name": "SBQP",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "SBQP - small bounded-error quantum polynomial-time",
+      "why": "small bounded-error quantum polynomial time"
+    },
+    {
+      "name": "SPP",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "SPP - stoic PP",
+      "why": "stoic PP"
+    },
+    {
+      "name": "AWPP",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "AWPP - almost wide PP",
+      "why": "almost wide PP"
+    },
+    {
+      "name": "S_2P",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "S_2P - second level of the symmetric hierarchy",
+      "why": "second level of the symmetric hierarchy"
+    },
+    {
+      "name": "ER",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "ER - iterated exponential time",
+      "why": "iterated exponential time"
+    },
+    {
+      "name": "(NP-cap-coNP)/poly",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "(NP-cap-coNP)/poly - NP-cap-coNP with advice",
+      "why": "NP intersect coNP with polynomial advice"
+    },
+    {
+      "name": "+P",
+      "aliases": ["parity-P"],
+      "judge": "race",
+      "evidence": "+P - parity-P",
+      "why": "parity polynomial time"
+    },
+    {
+      "name": "+EXP",
+      "aliases": ["parity-EXP"],
+      "judge": "race",
+      "evidence": "+EXP - parity-EXP",
+      "why": "parity exponential time"
+    },
+    {
+      "name": "MP",
+      "aliases": ["middle-bit P"],
+      "judge": "race",
+      "evidence": "MP - middle-bit P",
+      "why": "middle-bit P"
+    },
+    {
+      "name": "AH_plo",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "AH_plo - AH with polynomial-length limited oracles",
+      "why": "arithmetic hierarchy with polynomial-length limited oracles"
+    },
+    {
+      "name": "A_0PP",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "A_0PP - One-sided analog of AWPP",
+      "why": "one-sided analog of AWPP"
+    },
+    {
+      "name": "BQP/mpoly",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "BQP/mpoly - BQP with polynomial-size deterministic Merlin-like advice",
+      "why": "BQP with Merlin-like polynomial advice"
+    },
+    {
+      "name": "EXP_plo",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "EXP_plo - limited oracle EXP",
+      "why": "limited-oracle EXP"
+    },
+    {
+      "name": "MIP*_cme",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "MIP*_cme - MIP with quantum provers (commuting measure entanglement)",
+      "why": "MIP* with commuting measure entanglement"
+    },
+    {
+      "name": "MIP*_fe",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "MIP*_fe - MIP with quantum provers (finite entanglement)",
+      "why": "MIP* with finite entanglement"
+    },
+    {
+      "name": "NEXP_plo",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "NEXP_plo - NEXP with polynomial-length limited oracles",
+      "why": "NEXP with polynomial-length limited oracles"
+    },
+    {
+      "name": "QCMA/qpoly",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "QCMA/qpoly - QCMA with polynomial-size quantum advice",
+      "why": "QCMA with quantum polynomial advice"
+    },
+    {
+      "name": "QMA/mpoly",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "QMA/mpoly - QMA with polynomial-size Merlin-like advice",
+      "why": "QMA with Merlin-like polynomial advice"
+    },
+    {
+      "name": "QMA/qpoly",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "QMA/qpoly - QMA with polynomial-size quantum advice",
+      "why": "QMA with quantum polynomial advice"
+    },
+    {
+      "name": "QMIP_cme",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "QMIP_cme - quantum MIP (commuting measure entanglement)",
+      "why": "QMIP with commuting measure entanglement"
+    },
+    {
+      "name": "QMIP_fe",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "QMIP_fe - quantum MIP (finite entanglement)",
+      "why": "QMIP with finite entanglement"
+    },
+    {
+      "name": "QMIP_le",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "QMIP_le - quantum MIP (limited prior entanglement)",
+      "why": "QMIP with limited prior entanglement"
+    },
+    {
+      "name": "QMIP_ne",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "QMIP_ne - quantum MIP (no entanglement)",
+      "why": "QMIP with no entanglement"
+    },
+    {
+      "name": "QRG(1)",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "QRG(1) - one-turn quantum refereed games",
+      "why": "one-turn quantum refereed games"
+    },
+    {
+      "name": "QRG(2)",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "QRG(2) - two-turn quantum refereed games",
+      "why": "two-turn quantum refereed games"
+    },
+    {
+      "name": "RG(1)",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "RG(1) - one-turn refereed games",
+      "why": "one-turn refereed games"
+    },
+    {
+      "name": "RG(2)",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "RG(2) - two-turn refereed games",
+      "why": "two-turn refereed games"
+    },
+    {
+      "name": "RG(3)",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "RG(3) - three-turn refereed games",
+      "why": "three-turn refereed games"
+    }
+  ],
+  "womm_candidates": [
+    "BQP",
+    "MIP*",
+    "P/poly"
+  ],
+  "bitflip_candidates": [
+    "A_0PP",
+    "QMIP_cme",
+    "BQP/mpoly"
+  ]
+}

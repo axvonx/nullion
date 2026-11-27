@@ -1,0 +1,328 @@
+{
+ "compiler": [
+  {
+   "name": "GCC",
+   "aliases": [
+    "GNU Compiler Collection",
+    "gnu compiler"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Clang",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "LLVM",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "GHC",
+   "aliases": [
+    "Glasgow Haskell Compiler"
+   ],
+   "judge": "npe",
+   "pin": "womm"
+  },
+  {
+   "name": "SBCL",
+   "aliases": [
+    "Steel Bank Common Lisp"
+   ],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "FPC",
+   "aliases": [
+    "Free Pascal",
+    "Free Pascal Compiler"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ABCL",
+   "aliases": [
+    "Armed Bear Common Lisp"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CCL",
+   "aliases": [
+    "Clozure CL"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CMUCL",
+   "aliases": [
+    "CMU Common Lisp"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ECL",
+   "aliases": [
+    "Embeddable Common Lisp"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "GCL",
+   "aliases": [
+    "GNU Common Lisp"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Gambit",
+   "aliases": [
+    "Gambit Scheme"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "GNAT",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Open Watcom",
+   "aliases": [
+    "Watcom"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "MLton",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "mrustc",
+   "aliases": [],
+   "judge": "race",
+   "pin": "bitflip"
+  },
+  {
+   "name": "Codon",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DirectXShaderCompiler",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "XL C",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "arocc",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Clasp",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Gerbil",
+   "aliases": [
+    "Gerbil Scheme"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MicroHs",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MKCL",
+   "aliases": [
+    "ManKai Common Lisp"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "p4c",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PAKCS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Rust",
+   "aliases": [
+    "rustc"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Go",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Swift",
+   "aliases": [
+    "swiftc"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "OpenJDK",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Zig",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "OCaml",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Scala",
+   "aliases": [
+    "scalac"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Dart",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Julia",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Emscripten",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "GraalVM",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Mono",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "FASM",
+   "aliases": [
+    "Flat Assembler"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Crystal",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Elm",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PureScript",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Haxe",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Vala",
+   "aliases": [
+    "valac"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Reason",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Binaryen",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CHICKEN",
+   "aliases": [
+    "CHICKEN Scheme"
+   ],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "DJGPP",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Factor",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Idris 2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Vyper",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Yosys",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Mezzo",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RML",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MSVC",
+   "aliases": [],
+   "judge": "npe"
+  }
+ ],
+ "_context": {
+  "compiler": [
+   "compiler"
+  ]
+ }
+}

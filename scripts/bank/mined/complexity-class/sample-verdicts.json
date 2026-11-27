@@ -1,0 +1,102 @@
+{
+ "QMA": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Quantum Merlin-Arthur, a standard Zoo class. Batch line not checked: the batch file was not readable from this session."
+ },
+ "PSPACE": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Real and resource-defined, but far from 'nearly everyone names it first'. Off-by-one is too shallow; Memory leak or Null pointer exception fits better. Batch line not checked."
+ },
+ "NISZK": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Non-interactive statistical zero knowledge, a specialist class. The alias is just the expanded abbreviation. Batch line not checked."
+ },
+ "RP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Randomized polynomial time, a standard Zoo class. Memory leak is reasonable for a theory-aware player. Batch line not checked."
+ },
+ "QMIP_fe": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Quantum MIP with fully entangled provers, a Zoo-style class. Heisenbug suits deep quantum-complexity detail. Batch line not checked."
+ },
+ "QMIP_le": {
+  "member": false,
+  "tier_ok": true,
+  "why": "Not certain this Zoo-style name exists, and the rule says to reject when unsure. Batch line not checked."
+ },
+ "AP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Alternating polynomial time, a real alternation class. Memory leak is plausible for specialists. Batch line not checked."
+ },
+ "SBQP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Small bounded-error quantum polynomial time, a real Zoo class. Race condition fits specialists. Batch line not checked."
+ },
+ "Delta_2P": {
+  "member": true,
+  "tier_ok": true,
+  "why": "P^NP, a real polynomial-hierarchy level. Heisenbug is right for deep-cut hierarchy detail. Batch line not checked."
+ },
+ "PP/poly": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Probabilistic polynomial time with advice, a standard nonuniform class. Race condition fits. Batch line not checked."
+ },
+ "Sigma_2P": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Second level of the polynomial hierarchy, NP^NP. Race condition is slightly deep for a common level but acceptable. Batch line not checked."
+ },
+ "+P": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Parity-P (⊕P), a real Zoo class. Race condition fits. Batch line not checked."
+ },
+ "RE": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Recursively enumerable languages, a real class defined by a Turing-machine model. Off-by-one is too shallow for a class most players meet after P and NP; Null pointer exception fits better. Batch line not checked."
+ },
+ "BQP/mpoly": {
+  "member": true,
+  "tier_ok": true,
+  "why": "BQP with multiple-prover-style advice, a real Zoo-style class. Heisenbug fits deep quantum detail. Batch line not checked."
+ },
+ "ALL": {
+  "member": false,
+  "tier_ok": true,
+  "why": "The class of all languages is not defined by a resource bound or model, so the Accepts line excludes it. Tier is moot. Batch line not checked."
+ },
+ "NBPP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Non-deterministic BPP, a real Zoo class. Race condition fits. Batch line not checked."
+ },
+ "R": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Recursive languages (decidable), a real class defined by a model. Null pointer exception is plausible. The aliases 'recursive' and 'decidable' are common English words and should be dropped under the alias rule. Batch line not checked."
+ },
+ "MIP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Multi-prover interactive proofs, a standard class. Memory leak is plausible for domain people. Batch line not checked."
+ },
+ "SZK": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Statistical zero knowledge, a standard class. Race condition fits. Batch line not checked."
+ },
+ "QP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Quasipolynomial time, a standard class. Null pointer exception fits many-know-it. Batch line not checked."
+ }
+}

@@ -1,0 +1,693 @@
+{
+ "id": "complexity-class",
+ "prompt": "Name a complexity class",
+ "accepts": "Any named class of decision problems defined by a resource bound or model in the Complexity Zoo or the literature.",
+ "answers": [
+  {
+   "name": "P",
+   "aliases": [
+    "polynomial time",
+    "PTIME"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "PSPACE",
+   "aliases": [
+    "polynomial space"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "RE",
+   "aliases": [
+    "recursively enumerable",
+    "Recursively Enumerable Languages"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "P/poly",
+   "aliases": [
+    "P with advice",
+    "nonuniform polynomial time"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "BQP",
+   "aliases": [
+    "bounded-error quantum polynomial time"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "MIP*",
+   "aliases": [
+    "MIP with quantum provers"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "NP",
+   "aliases": [
+    "non-deterministic polynomial time"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "EXP",
+   "aliases": [
+    "EXPTIME",
+    "exponential time"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ZPP",
+   "aliases": [
+    "zero-error probabilistic polynomial time",
+    "cocap-RP"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "R",
+   "aliases": [
+    "recursive languages",
+    "cocap-RE",
+    "Computable languages",
+    "recursive",
+    "decidable"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "IP",
+   "aliases": [
+    "interactive proof",
+    "interactive proofs"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PP",
+   "aliases": [
+    "probabilistic polynomial time"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "L",
+   "aliases": [
+    "LOGSPACE"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NL",
+   "aliases": [
+    "NLOGSPACE",
+    "nondeterministic log space"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RL",
+   "aliases": [
+    "randomized logspace"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "EXPSPACE",
+   "aliases": [
+    "exponential space"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "AC0",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "TC0",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NC",
+   "aliases": [
+    "Nick's class"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "#P",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "QP",
+   "aliases": [
+    "quasipolynomial time"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SUBEXP",
+   "aliases": [
+    "subexponential time"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "coNP",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "coRE",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "BPP",
+   "aliases": [
+    "bounded-error probabilistic polynomial time"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "RP",
+   "aliases": [
+    "randomized polynomial time"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PH",
+   "aliases": [
+    "polynomial hierarchy",
+    "polynomial-time hierarchy"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AM",
+   "aliases": [
+    "Arthur-Merlin"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MA",
+   "aliases": [
+    "Merlin-Arthur"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MIP",
+   "aliases": [
+    "multi-prover interactive proof"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "NPSPACE",
+   "aliases": [
+    "non-deterministic PSPACE"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AP",
+   "aliases": [
+    "alternating polynomial time"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "QAM",
+   "aliases": [
+    "quantum AM"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ER",
+   "aliases": [
+    "iterated exponential time"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "+EXP",
+   "aliases": [
+    "parity-EXP"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MP",
+   "aliases": [
+    "middle-bit P"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "NEXP",
+   "aliases": [
+    "NEXPTIME",
+    "non-deterministic EXP",
+    "nondeterministic exponential time"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PR",
+   "aliases": [
+    "primitive recursive",
+    "primitive recursive languages"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "QMA",
+   "aliases": [
+    "quantum Merlin-Arthur",
+    "quantum MA"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MAEXP",
+   "aliases": [
+    "Exponential MA"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "NBPP",
+   "aliases": [
+    "non-deterministic BPP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "NEXP/poly",
+   "aliases": [
+    "NEXP with advice"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PP/poly",
+   "aliases": [
+    "PP with advice"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PSPACE/poly",
+   "aliases": [
+    "PSPACE with advice"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PEXP",
+   "aliases": [
+    "probabilistic EXP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PPSPACE",
+   "aliases": [
+    "probabilistic PSPACE"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BQPSPACE",
+   "aliases": [
+    "bounded error quantum PSPACE"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BQP/poly",
+   "aliases": [
+    "BQP with polynomial advice"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BQP/qpoly",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "QMIP",
+   "aliases": [
+    "quantum MIP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "QIP(2)",
+   "aliases": [
+    "two-message QIP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "QIP(3)",
+   "aliases": [
+    "three-message QIP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "NISZK",
+   "aliases": [
+    "non-interactive SZK"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "NIQSZK",
+   "aliases": [
+    "non-interactive QSZK"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "QRG",
+   "aliases": [
+    "Quantum Refereed Games"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RG",
+   "aliases": [
+    "Refereed Games"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SBQP",
+   "aliases": [
+    "small bounded-error quantum polynomial-time"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SPP",
+   "aliases": [
+    "stoic PP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AWPP",
+   "aliases": [
+    "almost wide PP"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "S_2P",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "(NP-cap-coNP)/poly",
+   "aliases": [
+    "NP cap coNP with advice"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "+P",
+   "aliases": [
+    "parity-P"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SZK",
+   "aliases": [
+    "statistical zero knowledge"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "UP",
+   "aliases": [
+    "unambiguous polynomial time"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Sigma_2P",
+   "aliases": [
+    "NP with NP oracle"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IPP",
+   "aliases": [
+    "unbounded interactive proof"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QCMA",
+   "aliases": [
+    "quantum classical MA"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QMA(2)",
+   "aliases": [
+    "QMA with multiple certificates"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SBP",
+   "aliases": [
+    "Small Bounded-Error Probability"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AH_plo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BQP/mpoly",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EXP_plo",
+   "aliases": [
+    "limited oracle EXP"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MIP*_cme",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MIP*_fe",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NEXP_plo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QCMA/qpoly",
+   "aliases": [
+    "QCMA with polynomial-size quantum advice"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QMA/mpoly",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QMA/qpoly",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QMIP_cme",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QMIP_fe",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QMIP_le",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QMIP_ne",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QRG(1)",
+   "aliases": [
+    "one-turn quantum refereed games"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QRG(2)",
+   "aliases": [
+    "two-turn quantum refereed games"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RG(1)",
+   "aliases": [
+    "one-turn refereed games"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RG(2)",
+   "aliases": [
+    "two-turn refereed games"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RG(3)",
+   "aliases": [
+    "three-turn refereed games"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NP/poly",
+   "aliases": [
+    "NP with advice"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ALL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AH",
+   "aliases": [
+    "arithmetic hierarchy"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CH",
+   "aliases": [
+    "counting hierarchy"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "P^PP",
+   "aliases": [
+    "P with PP oracle"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "P^Sharp-P",
+   "aliases": [
+    "P^#P",
+    "P with Sharp-P oracle"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Delta_2P",
+   "aliases": [
+    "P with NP oracle"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Delta_3P",
+   "aliases": [
+    "P with Sigma_2P oracle"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EXP^NP",
+   "aliases": [
+    "Sigma_2EXP",
+    "EXP with NP oracle"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PostBPP",
+   "aliases": [
+    "BPP_path",
+    "BPP with postselection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PostBQP",
+   "aliases": [
+    "BQP with postselection"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QIP",
+   "aliases": [
+    "quantum IP"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QSZK",
+   "aliases": [
+    "quantum SZK"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "A_0PP",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

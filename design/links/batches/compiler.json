@@ -1,0 +1,455 @@
+{
+ "id": "compiler",
+ "prompt": "Name a compiler",
+ "accepts": "Any named program that translates source code in a programming language into another form, current or historical.",
+ "answers": [
+  {
+   "name": "GCC",
+   "aliases": [
+    "GNU Compiler Collection",
+    "gnu compiler",
+    "GNU C Compiler"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "LLVM",
+   "aliases": [
+    "LLVM Project",
+    "llvm compiler"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Rust",
+   "aliases": [
+    "rustc",
+    "Rust compiler"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Swift",
+   "aliases": [
+    "swiftc",
+    "Swift compiler"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "javac",
+   "aliases": [
+    "Java compiler",
+    "OpenJDK javac",
+    "OpenJDK",
+    "OpenJDK compiler"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "tsc",
+   "aliases": [
+    "TypeScript compiler",
+    "TypeScript"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "GHC",
+   "aliases": [
+    "Glasgow Haskell Compiler"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "SBCL",
+   "aliases": [
+    "Steel Bank Common Lisp"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "CHICKEN",
+   "aliases": [
+    "CHICKEN Scheme"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Clang",
+   "aliases": [
+    "LLVM Clang",
+    "clang compiler"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Go",
+   "aliases": [
+    "Go compiler",
+    "golang"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Zig",
+   "aliases": [
+    "Zig compiler"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Dart",
+   "aliases": [
+    "Dart compiler",
+    "dart2js"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Emscripten",
+   "aliases": [
+    "emcc",
+    "Emscripten compiler"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "GraalVM",
+   "aliases": [
+    "Graal compiler",
+    "GraalVM native-image"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mcs",
+   "aliases": [
+    "Mono compiler",
+    "Mono"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MSVC",
+   "aliases": [
+    "Microsoft Visual C++",
+    "Visual C++",
+    "cl.exe"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "kotlinc",
+   "aliases": [
+    "Kotlin compiler",
+    "Kotlin/JVM compiler"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Babel",
+   "aliases": [
+    "Babel JS",
+    "Babel transpiler"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Cython",
+   "aliases": [
+    "Cython transpiler",
+    "Cython compiler"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ocamlc",
+   "aliases": [
+    "OCaml compiler",
+    "ocamlopt"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "gfortran",
+   "aliases": [
+    "GNU Fortran"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Turbo Pascal",
+   "aliases": [
+    "Borland Turbo Pascal",
+    "TP compiler"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "TCC",
+   "aliases": [
+    "Tiny C Compiler",
+    "tinycc"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ICC",
+   "aliases": [
+    "Intel C++ Compiler",
+    "icpc"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CoffeeScript",
+   "aliases": [
+    "coffee compiler",
+    "CoffeeScript compiler"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Nim",
+   "aliases": [
+    "nim compiler"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mypyc",
+   "aliases": [
+    "mypy compiler"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FPC",
+   "aliases": [
+    "Free Pascal",
+    "Free Pascal Compiler"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "OCaml",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Scala",
+   "aliases": [
+    "scalac",
+    "Scala compiler",
+    "Scala 3 compiler"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Julia",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FASM",
+   "aliases": [
+    "Flat Assembler"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Crystal",
+   "aliases": [
+    "crystal compiler"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Elm",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PureScript",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Haxe",
+   "aliases": [
+    "Haxe compiler",
+    "haxec"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Vala",
+   "aliases": [
+    "valac"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ABCL",
+   "aliases": [
+    "Armed Bear Common Lisp"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CCL",
+   "aliases": [
+    "Clozure CL"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CMUCL",
+   "aliases": [
+    "CMU Common Lisp"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ECL",
+   "aliases": [
+    "Embeddable Common Lisp"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GCL",
+   "aliases": [
+    "GNU Common Lisp"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Gambit",
+   "aliases": [
+    "Gambit Scheme"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GNAT",
+   "aliases": [
+    "GNAT Ada",
+    "GNAT Ada compiler"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Open Watcom",
+   "aliases": [
+    "Watcom"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MLton",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Codon",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DirectXShaderCompiler",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "XL C",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Binaryen",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DJGPP",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Factor",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Idris 2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Vyper",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Yosys",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "arocc",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Clasp",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Gerbil",
+   "aliases": [
+    "Gerbil Scheme"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MicroHs",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MKCL",
+   "aliases": [
+    "ManKai Common Lisp"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "p4c",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PAKCS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Mezzo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RML",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mrustc",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

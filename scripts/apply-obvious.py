@@ -31,7 +31,12 @@ def apply(cid: str) -> None:
     if len(hits) != 1:
         raise RuntimeError(f"{cid}: expected one bank file, found {len(hits)}")
     path = hits[0]
-    groups = json.loads((REPO / "scripts" / "bank" / "obvious" / f"{cid}.json").read_text())
+    # Approved categories keep their list in obvious/ (a test requires it); a draft's list waits in obvious-draft/
+    # until approval (the pipeline writes it there), because that test rejects lists for non-approved categories.
+    listed = [d for d in ("obvious", "obvious-draft") if (REPO / "scripts" / "bank" / d / f"{cid}.json").exists()]
+    if not listed:
+        raise RuntimeError(f"{cid}: no obvious list in scripts/bank/obvious/ or obvious-draft/")
+    groups = json.loads((REPO / "scripts" / "bank" / listed[0] / f"{cid}.json").read_text())
     lines = path.read_text().rstrip("\n").split("\n")
 
     owner: dict[str, int] = {}  # key -> line index of the answer that owns it (tiered sections only)

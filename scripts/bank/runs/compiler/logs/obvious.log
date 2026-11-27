@@ -1,0 +1,30 @@
+--- haiku call, 30s, exit 0, prompt 1874 chars, stdout 2722 chars
+pe"},
+  {"name": "Mono", "aliases": ["Mono compiler", "mcs"], "tier": "npe"},
+  {"name": "kotlinc", "aliases": ["Kotlin compiler", "Kotlin/JVM compiler"], "tier": "npe"},
+  {"name": "Babel", "aliases": ["Babel JS", "Babel transpiler"], "tier": "npe"},
+  {"name": "Cython", "aliases": ["Cython transpiler", "Cython compiler"], "tier": "npe"},
+  {"name": "GHC", "aliases": ["Glasgow Haskell Compiler", "ghc"], "tier": "npe"},
+  {"name": "scalac", "aliases": ["Scala compiler", "Scala 3 compiler"], "tier": "npe"},
+  {"name": "ocamlc", "aliases": ["OCaml compiler", "ocamlopt"], "tier": "npe"},
+  {"name": "gfortran", "aliases": ["GNU Fortran", "GFortran"], "tier": "npe"},
+  {"name": "GNAT", "aliases": ["GNAT Ada", "GNAT Ada compiler"], "tier": "npe"},
+  {"name": "Free Pascal", "aliases": ["fpc", "FreePascal"], "tier": "npe"},
+  {"name": "Turbo Pascal", "aliases": ["Borland Turbo Pascal", "TP compiler"], "tier": "npe"},
+  {"name": "TCC", "aliases": ["Tiny C Compiler", "tinycc"], "tier": "npe"},
+  {"name": "ICC", "aliases": ["Intel C++ Compiler", "icpc"], "tier": "npe"},
+  {"name": "Haxe", "aliases": ["Haxe compiler", "haxec"], "tier": "npe"},
+  {"name": "CoffeeScript", "aliases": ["coffee compiler", "CoffeeScript compiler"], "tier": "npe"},
+  {"name": "Nim", "aliases": ["nim compiler", "Nim compiler"], "tier": "npe"},
+  {"name": "Crystal", "aliases": ["crystal compiler", "Crystal compiler"], "tier": "npe"},
+  {"name": "mypyc", "aliases": ["mypy compiler", "Mypyc"], "tier": "npe"}
+]
+```
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/apply-obvious.py compiler  [0s, exit 0]
+compiler: 28 aliases, 13 new answers, 0 promoted from the Inbox; skipped: OpenJDK (its names match 2 different answers)
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/apply-obvious.py compiler  [0s, exit 0]
+compiler: 3 aliases, 0 new answers, 0 promoted from the Inbox
+

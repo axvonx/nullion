@@ -1,0 +1,35 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/merge-mined.py compiler /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/compiler/final.json /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/compiler/agreed /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/compiler/resolved  [0s, exit 0]
+compiler: 55 new candidates -> /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/compiler/final.json; 0 aliases added to bank/languages-tools/compiler.md
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/score-candidates.py /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/compiler/final.json /Users/axvon/nullion-corpora  [0s, exit 1]
+Traceback (most recent call last):
+  File "/Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/score-candidates.py", line 273, in <module>
+    main()
+    ~~~~^^
+  File "/Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/score-candidates.py", line 182, in main
+    raise RuntimeError(f"{tag}: filling a fresh draft needs exactly one bitflip pin, have {len(pins)}")
+RuntimeError: compiler: filling a fresh draft needs exactly one bitflip pin, have 0
+
+--- haiku call, 6s, exit 0, prompt 1366 chars, stdout 69 chars
+[12:47:58] {"bitflip": "mrustc", "womm": ["SBCL", "GHC", "CHICKEN"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/score-candidates.py /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b/scripts/bank/mined/compiler/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+compiler: filled 55 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [1s, exit 0]
+
+> nullion@0.1.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion/.claude/worktrees/agent-abd9584769e26ba9b
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  12:47:59
+   Duration  311ms (transform 78%, import 13%, tests 9%, worker 1%)
+
+

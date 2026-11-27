@@ -1,0 +1,843 @@
+{
+ "complexity-class": [
+  {
+   "name": "P",
+   "aliases": [
+    "polynomial-time"
+   ],
+   "judge": "off-by-one",
+   "evidence": "P - polynomial-time",
+   "why": "core class, nearly everyone knows"
+  },
+  {
+   "name": "NP",
+   "aliases": [
+    "non-deterministic polynomial-time"
+   ],
+   "judge": "off-by-one",
+   "evidence": "NP - non-deterministic polynomial-time",
+   "why": "core class, nearly everyone knows"
+  },
+  {
+   "name": "PSPACE",
+   "aliases": [
+    "polynomial-space"
+   ],
+   "judge": "npe",
+   "evidence": "PSPACE - polynomial-space",
+   "why": "standard class many know"
+  },
+  {
+   "name": "EXP",
+   "aliases": [
+    "exponential-time"
+   ],
+   "judge": "npe",
+   "evidence": "EXP - exponential-time",
+   "why": "standard class many know"
+  },
+  {
+   "name": "BPP",
+   "aliases": [
+    "bounded error probabilistic polynomial-time"
+   ],
+   "judge": "npe",
+   "evidence": "BPP - bounded error probabilistic polynomial-time",
+   "why": "randomized class many know"
+  },
+  {
+   "name": "ZPP",
+   "aliases": [
+    "zero-error probabilistic polynomial time"
+   ],
+   "judge": "leak",
+   "evidence": "ZPP - zero-error probabilistic polynomial time",
+   "why": "randomized class systems people know"
+  },
+  {
+   "name": "RP",
+   "aliases": [
+    "randomized polynomial-time"
+   ],
+   "judge": "leak",
+   "evidence": "RP - randomized polynomial-time",
+   "why": "randomized class systems people know"
+  },
+  {
+   "name": "PH",
+   "aliases": [
+    "polynomial-time hierarchy"
+   ],
+   "judge": "leak",
+   "evidence": "PH - polynomial-time hierarchy",
+   "why": "hierarchy domain people know"
+  },
+  {
+   "name": "PP",
+   "aliases": [
+    "probabilistic polynomial-time"
+   ],
+   "judge": "leak",
+   "evidence": "PP - probabilistic polynomial-time",
+   "why": "named class theorists use"
+  },
+  {
+   "name": "IP",
+   "aliases": [
+    "interactive proof"
+   ],
+   "judge": "leak",
+   "evidence": "IP - interactive proof",
+   "why": "proof-system class known to some"
+  },
+  {
+   "name": "RE",
+   "aliases": [
+    "Recursively Enumerable Languages"
+   ],
+   "judge": "leak",
+   "evidence": "RE - Recursively Enumerable Languages",
+   "why": "computability class CS people know"
+  },
+  {
+   "name": "Recursive languages",
+   "aliases": [
+    "Computable languages"
+   ],
+   "judge": "leak",
+   "evidence": "R - Recursive (Computable) Languages",
+   "why": "computability class CS people know"
+  },
+  {
+   "name": "P/poly",
+   "aliases": [
+    "P with advice"
+   ],
+   "judge": "leak",
+   "evidence": "P/poly - P with advice",
+   "why": "advice class known to theorists"
+  },
+  {
+   "name": "NP/poly",
+   "aliases": [
+    "NP with advice"
+   ],
+   "judge": "race",
+   "evidence": "NP/poly - NP with advice",
+   "why": "advice class specialists know"
+  },
+  {
+   "name": "NPSPACE",
+   "aliases": [
+    "non-deterministic PSPACE"
+   ],
+   "judge": "race",
+   "evidence": "NPSPACE - non-deterministic PSPACE",
+   "why": "complexity specialists know"
+  },
+  {
+   "name": "NEXP",
+   "aliases": [
+    "non-deterministic EXP"
+   ],
+   "judge": "race",
+   "evidence": "NEXP - non-deterministic EXP",
+   "why": "complexity specialists know"
+  },
+  {
+   "name": "AM",
+   "aliases": [
+    "Arthur-Merlin"
+   ],
+   "judge": "race",
+   "evidence": "AM - Arthur-Merlin",
+   "why": "interactive proof class specialists know"
+  },
+  {
+   "name": "MA",
+   "aliases": [
+    "Merlin-Arthur"
+   ],
+   "judge": "race",
+   "evidence": "MA - Merlin-Arthur",
+   "why": "interactive proof class specialists know"
+  },
+  {
+   "name": "AP",
+   "aliases": [
+    "alternating polynomial time"
+   ],
+   "judge": "race",
+   "evidence": "AP - alternating polynomial time",
+   "why": "alternation class specialists know"
+  },
+  {
+   "name": "MIP",
+   "aliases": [
+    "multi-prover interactive proof"
+   ],
+   "judge": "race",
+   "evidence": "MIP - multi-prover interactive proof",
+   "why": "proof-system class specialists know"
+  },
+  {
+   "name": "QMA",
+   "aliases": [
+    "quantum MA"
+   ],
+   "judge": "race",
+   "evidence": "QMA - quantum MA",
+   "why": "quantum class specialists know"
+  },
+  {
+   "name": "BQP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "BQP - bounded error quantum polyomial-time",
+   "why": "quantum class specialists know"
+  },
+  {
+   "name": "CH",
+   "aliases": [
+    "counting hierarchy"
+   ],
+   "judge": "heisenbug",
+   "evidence": "CH - counting hierarchy",
+   "why": "hierarchy for deep internals"
+  },
+  {
+   "name": "AH",
+   "aliases": [
+    "arithmetic hierarchy"
+   ],
+   "judge": "heisenbug",
+   "evidence": "AH - arithmetic hierarchy",
+   "why": "logic hierarchy, deep internals"
+  },
+  {
+   "name": "AH_plo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "AH_plo - AH with polynomial-length limited oracles",
+   "why": "zoo variant, deep internals"
+  },
+  {
+   "name": "ALL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ALL - every language",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "AWPP",
+   "aliases": [
+    "almost wide PP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "AWPP - almost wide PP",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "A_0PP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "A_0PP - One-sided analog of AWPP",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "BQP/mpoly",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "BQP/mpoly - BQP with polynomial-size deterministic Merlin-like advice",
+   "why": "zoo advice variant, deep internals"
+  },
+  {
+   "name": "BQP/poly",
+   "aliases": [
+    "BQP with polynomial advice"
+   ],
+   "judge": "heisenbug",
+   "evidence": "BQP/poly - BQP with polynomial advice",
+   "why": "zoo advice variant, deep internals"
+  },
+  {
+   "name": "BQP/qpoly",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "BQP/qpoly - BQP with quantum polynomial advice",
+   "why": "zoo advice variant, deep internals"
+  },
+  {
+   "name": "BQPSPACE",
+   "aliases": [
+    "bounded error quantum PSPACE"
+   ],
+   "judge": "heisenbug",
+   "evidence": "BQPSPACE - bounded error quantum PSPACE",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "Delta_2P",
+   "aliases": [
+    "P with NP oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Delta_2P - P With NP Oracle",
+   "why": "oracle class, deep internals"
+  },
+  {
+   "name": "Delta_3P",
+   "aliases": [
+    "P with Sigma_2P oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Delta_3P - P with Sigma_2P oracle",
+   "why": "oracle class, deep internals"
+  },
+  {
+   "name": "Sigma_2P",
+   "aliases": [
+    "NP with NP oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Sigma_2P - NP With NP Oracle",
+   "why": "oracle class, deep internals"
+  },
+  {
+   "name": "ER",
+   "aliases": [
+    "iterated exponential time"
+   ],
+   "judge": "heisenbug",
+   "evidence": "ER - iterated exponential time",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "EXP^NP",
+   "aliases": [
+    "Sigma_2EXP",
+    "EXP with NP oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Sigma_2EXP - alternate name for EXP^NP",
+   "why": "oracle class, deep internals"
+  },
+  {
+   "name": "EXP_plo",
+   "aliases": [
+    "limited oracle EXP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "EXP_plo - limited oracle EXP",
+   "why": "zoo variant, deep internals"
+  },
+  {
+   "name": "IPP",
+   "aliases": [
+    "unbounded interactive proof"
+   ],
+   "judge": "heisenbug",
+   "evidence": "IPP - unbounded interactive proof",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "MAEXP",
+   "aliases": [
+    "Exponential MA"
+   ],
+   "judge": "heisenbug",
+   "evidence": "MAEXP - Exponential MA",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "MIP*",
+   "aliases": [
+    "MIP with quantum provers"
+   ],
+   "judge": "heisenbug",
+   "evidence": "MIP* - MIP with quantum provers",
+   "why": "quantum proof-system class, deep internals"
+  },
+  {
+   "name": "MIP*_cme",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "MIP*_cme - MIP with quantum provers (commuting measure entanglement)",
+   "why": "zoo variant, deep internals"
+  },
+  {
+   "name": "MIP*_fe",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "MIP*_fe - MIP with quantum provers (finite entanglement)",
+   "why": "zoo variant, deep internals"
+  },
+  {
+   "name": "MP",
+   "aliases": [
+    "middle-bit P"
+   ],
+   "judge": "heisenbug",
+   "evidence": "MP - middle-bit P",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "NBPP",
+   "aliases": [
+    "non-deterministic BPP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "NBPP - non-deterministic BPP",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "NEXP/poly",
+   "aliases": [
+    "NEXP with advice"
+   ],
+   "judge": "heisenbug",
+   "evidence": "NEXP/poly - NEXP with advice",
+   "why": "zoo advice class, deep internals"
+  },
+  {
+   "name": "NEXP_plo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "NEXP_plo - NEXP with polynomial-length limited oracles",
+   "why": "zoo variant, deep internals"
+  },
+  {
+   "name": "NIQSZK",
+   "aliases": [
+    "non-interactive QSZK"
+   ],
+   "judge": "heisenbug",
+   "evidence": "NIQSZK - non-interactive QSZK",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "NISZK",
+   "aliases": [
+    "non-interactive SZK"
+   ],
+   "judge": "heisenbug",
+   "evidence": "NISZK - non-interactive SZK",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "(NP cap coNP)/poly",
+   "aliases": [
+    "NP cap coNP with advice"
+   ],
+   "judge": "heisenbug",
+   "evidence": "(NP-cap-coNP)/poly - NP-cap-coNP with advice",
+   "why": "zoo advice class, deep internals"
+  },
+  {
+   "name": "parity-EXP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "+EXP - parity-EXP",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "parity-P",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "+P - parity-P",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "PEXP",
+   "aliases": [
+    "probabilistic EXP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "PEXP - probabilistic EXP",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "PP/poly",
+   "aliases": [
+    "PP with advice"
+   ],
+   "judge": "heisenbug",
+   "evidence": "PP/poly - PP with advice",
+   "why": "zoo advice class, deep internals"
+  },
+  {
+   "name": "PPSPACE",
+   "aliases": [
+    "probabilistic PSPACE"
+   ],
+   "judge": "heisenbug",
+   "evidence": "PPSPACE - probabilistic PSPACE",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "PR",
+   "aliases": [
+    "primitive recursive languages"
+   ],
+   "judge": "heisenbug",
+   "evidence": "PR - primitive recursive languages",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "PSPACE/poly",
+   "aliases": [
+    "PSPACE with advice"
+   ],
+   "judge": "heisenbug",
+   "evidence": "PSPACE/poly - PSPACE with advice",
+   "why": "zoo advice class, deep internals"
+  },
+  {
+   "name": "P^PP",
+   "aliases": [
+    "P with PP oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "P^PP - P with PP oracle",
+   "why": "oracle class, deep internals"
+  },
+  {
+   "name": "P^Sharp-P",
+   "aliases": [
+    "P with Sharp-P oracle"
+   ],
+   "judge": "heisenbug",
+   "evidence": "P^Sharp-P - P with Sharp-P oracle",
+   "why": "oracle class, deep internals"
+  },
+  {
+   "name": "PostBPP",
+   "aliases": [
+    "BPP with postselection",
+    "BPP_path"
+   ],
+   "judge": "heisenbug",
+   "evidence": "PostBPP - BPP with postselection",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "PostBQP",
+   "aliases": [
+    "BQP with postselection"
+   ],
+   "judge": "heisenbug",
+   "evidence": "PostBQP - BQP with postselection",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "QAM",
+   "aliases": [
+    "quantum AM"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QAM - quantum AM",
+   "why": "quantum class, deep internals"
+  },
+  {
+   "name": "QCMA",
+   "aliases": [
+    "quantum classical MA"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QCMA - quantum classical MA",
+   "why": "quantum class, deep internals"
+  },
+  {
+   "name": "QCMA/qpoly",
+   "aliases": [
+    "QCMA with polynomial-size quantum advice"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QCMA/qpoly - QCMA with polynomial-size quantum advice",
+   "why": "quantum advice class, deep internals"
+  },
+  {
+   "name": "QIP",
+   "aliases": [
+    "quantum IP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QIP - quantum IP",
+   "why": "quantum class, deep internals"
+  },
+  {
+   "name": "QIP(2)",
+   "aliases": [
+    "two-message QIP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QIP(2) - two-message QIP",
+   "why": "quantum class, deep internals"
+  },
+  {
+   "name": "QIP(3)",
+   "aliases": [
+    "three-message QIP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QIP(3) - three-message QIP",
+   "why": "quantum class, deep internals"
+  },
+  {
+   "name": "QMA(2)",
+   "aliases": [
+    "QMA with multiple certificates"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QMA(2) - QMA with multiple certificates",
+   "why": "quantum class, deep internals"
+  },
+  {
+   "name": "QMA/mpoly",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "QMA/mpoly - QMA with polynomial-size Merlin-like advice",
+   "why": "quantum advice class, deep internals"
+  },
+  {
+   "name": "QMA/qpoly",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "QMA/qpoly - QMA with polynomial-size quantum advice",
+   "why": "quantum advice class, deep internals"
+  },
+  {
+   "name": "QMIP",
+   "aliases": [
+    "quantum MIP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QMIP - quantum MIP",
+   "why": "quantum class, deep internals"
+  },
+  {
+   "name": "QMIP_cme",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "QMIP_cme - quantum MIP (commuting measure entanglement)",
+   "why": "zoo variant, deep internals"
+  },
+  {
+   "name": "QMIP_fe",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "QMIP_fe - quantum MIP (finite entanglement)",
+   "why": "zoo variant, deep internals"
+  },
+  {
+   "name": "QMIP_le",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "QMIP_le - quantum MIP (limited prior entanglement)",
+   "why": "zoo variant, deep internals"
+  },
+  {
+   "name": "QMIP_ne",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "QMIP_ne - quantum MIP (no entanglement)",
+   "why": "zoo variant, deep internals"
+  },
+  {
+   "name": "QRG",
+   "aliases": [
+    "Quantum Refereed Games"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QRG - Quantum Refereed Games [Gut05]",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "QRG(1)",
+   "aliases": [
+    "one-turn quantum refereed games"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QRG(1) - one-turn quantum refereed games",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "QRG(2)",
+   "aliases": [
+    "two-turn quantum refereed games"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QRG(2) - two-turn quantum refereed games",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "QSZK",
+   "aliases": [
+    "quantum SZK"
+   ],
+   "judge": "heisenbug",
+   "evidence": "QSZK - quantum SZK",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "RG",
+   "aliases": [
+    "Refereed Games"
+   ],
+   "judge": "heisenbug",
+   "evidence": "RG - Refereed Games",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "RG(1)",
+   "aliases": [
+    "one-turn refereed games"
+   ],
+   "judge": "heisenbug",
+   "evidence": "RG(1) - one-turn refereed games",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "RG(2)",
+   "aliases": [
+    "two-turn refereed games"
+   ],
+   "judge": "heisenbug",
+   "evidence": "RG(2) - two-turn refereed games",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "RG(3)",
+   "aliases": [
+    "three-turn refereed games"
+   ],
+   "judge": "heisenbug",
+   "evidence": "RG(3) - three-turn refereed games",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "SBP",
+   "aliases": [
+    "Small Bounded-Error Probability"
+   ],
+   "judge": "heisenbug",
+   "evidence": "SBP - Small Bounded-Error Probability",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "SBQP",
+   "aliases": [
+    "small bounded-error quantum polynomial-time"
+   ],
+   "judge": "heisenbug",
+   "evidence": "SBQP - small bounded-error quantum polynomial-time",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "SPP",
+   "aliases": [
+    "stoic PP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "SPP - stoic PP",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "SZK",
+   "aliases": [
+    "statistical zero knowledge"
+   ],
+   "judge": "heisenbug",
+   "evidence": "SZK - statistical zero knowledge",
+   "why": "proof class, deep internals"
+  },
+  {
+   "name": "S_2P",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "S_2P - second level of the symmetric hierarchy",
+   "why": "symmetric hierarchy, deep internals"
+  },
+  {
+   "name": "UP",
+   "aliases": [
+    "unambiguous polynomial time"
+   ],
+   "judge": "heisenbug",
+   "evidence": "UP - unambiguous polynomial time",
+   "why": "zoo class, deep internals"
+  },
+  {
+   "name": "RE cap co-RE",
+   "aliases": [
+    "cocap-RE"
+   ],
+   "judge": "heisenbug",
+   "evidence": "cocap-RE - RE cap co-RE",
+   "why": "intersection class, deep internals"
+  },
+  {
+   "name": "RP cap co-RP",
+   "aliases": [
+    "cocap-RP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "cocap-RP - RP cap co-RP",
+   "why": "intersection class, deep internals"
+  }
+ ],
+ "womm_candidates": [
+  {
+   "name": "BQP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "BQP - bounded error quantum polyomial-time",
+   "why": "quantum pick everyone reaches for"
+  },
+  {
+   "name": "ZPP",
+   "aliases": [
+    "zero-error probabilistic polynomial time"
+   ],
+   "judge": "leak",
+   "evidence": "ZPP - zero-error probabilistic polynomial time",
+   "why": "randomness pick that sounds clever"
+  },
+  {
+   "name": "MIP*",
+   "aliases": [
+    "MIP with quantum provers"
+   ],
+   "judge": "heisenbug",
+   "evidence": "MIP* - MIP with quantum provers",
+   "why": "sounds exotic, a common reach"
+  }
+ ],
+ "bitflip_candidates": [
+  {
+   "name": "MP",
+   "aliases": [
+    "middle-bit P"
+   ],
+   "judge": "heisenbug",
+   "evidence": "MP - middle-bit P",
+   "why": "obscure, delightfully odd deep cut"
+  },
+  {
+   "name": "ER",
+   "aliases": [
+    "iterated exponential time"
+   ],
+   "judge": "heisenbug",
+   "evidence": "ER - iterated exponential time",
+   "why": "vivid, deep, rarely named"
+  },
+  {
+   "name": "A_0PP",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "A_0PP - One-sided analog of AWPP",
+   "why": "deep cut with a clean story"
+  }
+ ]
+}

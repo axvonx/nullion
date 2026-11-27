@@ -1,0 +1,392 @@
+{
+  "compiler": [
+    {
+      "name": "GCC",
+      "aliases": ["GNU Compiler Collection", "gnu compiler"],
+      "judge": "off-by-one",
+      "evidence": "gcc",
+      "why": "standard GNU compiler suite"
+    },
+    {
+      "name": "Clang",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "     2  clang compiler",
+      "why": "LLVM C/C++/Objective-C frontend compiler"
+    },
+    {
+      "name": "LLVM",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "llvm",
+      "why": "widely used compiler infrastructure and backend"
+    },
+    {
+      "name": "Rust",
+      "aliases": ["rustc"],
+      "judge": "off-by-one",
+      "evidence": "rust",
+      "why": "the Rust programming language compiler"
+    },
+    {
+      "name": "Go",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "go",
+      "why": "the Go programming language compiler"
+    },
+    {
+      "name": "Swift",
+      "aliases": ["swiftc"],
+      "judge": "off-by-one",
+      "evidence": "swift",
+      "why": "Apple's Swift language compiler"
+    },
+    {
+      "name": "OpenJDK",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "openjdk",
+      "why": "reference Java development kit and javac compiler"
+    },
+    {
+      "name": "GHC",
+      "aliases": ["Glasgow Haskell Compiler"],
+      "judge": "npe",
+      "evidence": "ghc",
+      "why": "the standard Haskell compiler"
+    },
+    {
+      "name": "Zig",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "zig",
+      "why": "the Zig language compiler"
+    },
+    {
+      "name": "OCaml",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "ocaml",
+      "why": "the OCaml bytecode and native-code compiler"
+    },
+    {
+      "name": "Scala",
+      "aliases": ["scalac"],
+      "judge": "npe",
+      "evidence": "scala",
+      "why": "the Scala language compiler"
+    },
+    {
+      "name": "Dart",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "dart",
+      "why": "the Dart language compiler"
+    },
+    {
+      "name": "Julia",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "julia",
+      "why": "the Julia JIT compiler"
+    },
+    {
+      "name": "Emscripten",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "emscripten",
+      "why": "LLVM-to-WebAssembly compiler toolchain"
+    },
+    {
+      "name": "GraalVM",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "graalvm",
+      "why": "polyglot JIT and ahead-of-time compiler"
+    },
+    {
+      "name": "Mono",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "mono",
+      "why": "open-source .NET runtime and C# compiler"
+    },
+    {
+      "name": "SBCL",
+      "aliases": ["Steel Bank Common Lisp"],
+      "judge": "leak",
+      "evidence": "sbcl",
+      "why": "high-performance Common Lisp compiler"
+    },
+    {
+      "name": "FPC",
+      "aliases": ["Free Pascal", "Free Pascal Compiler"],
+      "judge": "leak",
+      "evidence": "fpc",
+      "why": "open-source Pascal and Object Pascal compiler"
+    },
+    {
+      "name": "FASM",
+      "aliases": ["Flat Assembler"],
+      "judge": "leak",
+      "evidence": "fasm",
+      "why": "self-assembling x86/x86-64 assembler"
+    },
+    {
+      "name": "Crystal",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "crystal",
+      "why": "compiled Ruby-like language using LLVM"
+    },
+    {
+      "name": "Elm",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "elm",
+      "why": "Elm-to-JavaScript compiler"
+    },
+    {
+      "name": "PureScript",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "purescript",
+      "why": "strongly-typed functional language compiler targeting JS"
+    },
+    {
+      "name": "Haxe",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "haxe",
+      "why": "multi-target cross-compiler"
+    },
+    {
+      "name": "Vala",
+      "aliases": ["valac"],
+      "judge": "leak",
+      "evidence": "vala",
+      "why": "compiles Vala source to C using GObject"
+    },
+    {
+      "name": "Reason",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "reason",
+      "why": "OCaml-based syntax and compiler toolchain"
+    },
+    {
+      "name": "Binaryen",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "binaryen",
+      "why": "WebAssembly compiler and optimizer library"
+    },
+    {
+      "name": "CHICKEN",
+      "aliases": ["CHICKEN Scheme"],
+      "judge": "leak",
+      "evidence": "chicken",
+      "why": "Scheme-to-C compiler"
+    },
+    {
+      "name": "ABCL",
+      "aliases": ["Armed Bear Common Lisp"],
+      "judge": "race",
+      "evidence": "abcl",
+      "why": "Common Lisp compiler targeting the JVM"
+    },
+    {
+      "name": "CCL",
+      "aliases": ["Clozure CL"],
+      "judge": "race",
+      "evidence": "ccl",
+      "why": "native-code Common Lisp compiler"
+    },
+    {
+      "name": "CMUCL",
+      "aliases": ["CMU Common Lisp"],
+      "judge": "race",
+      "evidence": "cmucl",
+      "why": "pioneering native-code Common Lisp compiler"
+    },
+    {
+      "name": "ECL",
+      "aliases": ["Embeddable Common Lisp"],
+      "judge": "race",
+      "evidence": "ecl",
+      "why": "Common Lisp compiler that compiles to C"
+    },
+    {
+      "name": "GCL",
+      "aliases": ["GNU Common Lisp"],
+      "judge": "race",
+      "evidence": "gcl",
+      "why": "GNU Common Lisp compiler"
+    },
+    {
+      "name": "Gambit",
+      "aliases": ["Gambit Scheme"],
+      "judge": "race",
+      "evidence": "gambit",
+      "why": "Scheme-to-C compiler"
+    },
+    {
+      "name": "GNAT",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "gnat-bootstrap",
+      "why": "GNU Ada compiler"
+    },
+    {
+      "name": "DJGPP",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "djgpp",
+      "why": "DOS port of GCC"
+    },
+    {
+      "name": "Open Watcom",
+      "aliases": ["Watcom"],
+      "judge": "race",
+      "evidence": "open-watcom",
+      "why": "classic C/C++/Fortran compiler suite"
+    },
+    {
+      "name": "MLton",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "mlton",
+      "why": "whole-program optimizing Standard ML compiler"
+    },
+    {
+      "name": "mrustc",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "mrustc",
+      "why": "alternative Rust compiler written in C++"
+    },
+    {
+      "name": "Codon",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "codon",
+      "why": "high-performance Python compiler using LLVM"
+    },
+    {
+      "name": "Factor",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "factor-lang",
+      "why": "stack-based language with optimizing native compiler"
+    },
+    {
+      "name": "Idris 2",
+      "aliases": ["idris2"],
+      "judge": "race",
+      "evidence": "idris2",
+      "why": "dependently typed language compiler"
+    },
+    {
+      "name": "Vyper",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "vyper",
+      "why": "Pythonic smart contract compiler for EVM"
+    },
+    {
+      "name": "Yosys",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "yosys",
+      "why": "Verilog RTL synthesis compiler"
+    },
+    {
+      "name": "DirectXShaderCompiler",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "     4  DirectXShaderCompiler",
+      "why": "Microsoft's HLSL-to-DXIL shader compiler"
+    },
+    {
+      "name": "XL C",
+      "aliases": ["xlc"],
+      "judge": "race",
+      "evidence": "     2  xlc compiler",
+      "why": "IBM's optimizing C/C++ compiler"
+    },
+    {
+      "name": "arocc",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "arocc",
+      "why": "C compiler written in Zig"
+    },
+    {
+      "name": "Clasp",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "clasp",
+      "why": "Common Lisp compiler built on LLVM"
+    },
+    {
+      "name": "Gerbil",
+      "aliases": ["Gerbil Scheme"],
+      "judge": "heisenbug",
+      "evidence": "gerbil",
+      "why": "Scheme dialect and compiler built on Gambit"
+    },
+    {
+      "name": "Mezzo",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "mezzo",
+      "why": "ML-family language compiler with permissions"
+    },
+    {
+      "name": "MicroHs",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "microhs",
+      "why": "small Haskell compiler using combinators"
+    },
+    {
+      "name": "MKCL",
+      "aliases": ["ManKai Common Lisp"],
+      "judge": "heisenbug",
+      "evidence": "mkcl",
+      "why": "Common Lisp compiler forked from ECL"
+    },
+    {
+      "name": "p4c",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "p4c",
+      "why": "reference compiler for the P4 packet-processing language"
+    },
+    {
+      "name": "PAKCS",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "pakcs",
+      "why": "Curry functional logic language compiler"
+    },
+    {
+      "name": "RML",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "rml",
+      "why": "Relational Meta-Language compiler"
+    }
+  ],
+  "womm_candidates": [
+    "SBCL",
+    "FASM",
+    "GHC"
+  ],
+  "bitflip_candidates": [
+    "arocc",
+    "mrustc",
+    "MicroHs"
+  ]
+}

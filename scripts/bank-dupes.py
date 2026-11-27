@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """List likely duplicate answers inside each bank category: two entries that are the same answer said two ways.
 
-Usage: python3 -I scripts/bank-dupes.py [<category id> ...]
+Usage: python3 -I scripts/bank-dupes.py [--include-draft] [<category id> ...]
 
 Two entries are flagged when one's name, with a plural made singular or the prompt's own noun (or "projection",
 "extension", "language", … the generic nouns the matcher strips, src/core/match.ts) dropped off the end, is the
 other's name or alias: "Sinusoidal" vs "Sinusoidal projection", RISC-V "M" vs "M extension". The matcher already
 lands both phrasings on an answer, but they are separate entries with separate tiers, which the content pass should
 merge (one entry, the other as an alias). Read-only: it prints, it never edits a bank file.
+Only approved categories are checked unless --include-draft is given (the content pipeline uses it).
 """
 import glob
 import pathlib
@@ -46,12 +47,13 @@ def stripped(name: str, tails: list[str]) -> set[str]:
 
 
 def main() -> None:
-    want = set(sys.argv[1:])
+    drafts = "--include-draft" in sys.argv
+    want = set(a for a in sys.argv[1:] if a != "--include-draft")
     total = 0
     for f in sorted(glob.glob(str(ROOT / "bank" / "*" / "*.md"))):
         text = pathlib.Path(f).read_text()
         cid = re.search(r"^id: ([^ ]+)", text, re.M)
-        if not cid or (want and cid.group(1) not in want) or "status: approved" not in text:
+        if not cid or (want and cid.group(1) not in want) or ("status: approved" not in text and not drafts):
             continue
         subj = subject(text.splitlines()[0][2:])
         tails = sorted({subj, subj.split()[-1], *GENERIC}, key=len, reverse=True)

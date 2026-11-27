@@ -165,7 +165,10 @@ def main() -> None:
         prompt = p.get("prompt") if p.get("prompt") and cache[p["prompt"]] == "ok" else None
         total_ok += len(good)
         (OUT / f"{cid}.json").write_text(json.dumps({"prompt": prompt, "answers": dict(sorted(good.items()))}, indent=1) + "\n")
-    (LINKS / "review.txt").write_text("\n".join(sorted(review)) + "\n")
+    # Keep other categories' review lines: only the ids checked in this run are replaced.
+    old = (LINKS / "review.txt").read_text().splitlines() if (LINKS / "review.txt").exists() else []
+    kept = [l for l in old if l.strip() and l.split(" · ")[0] not in props]
+    (LINKS / "review.txt").write_text("\n".join(sorted(kept + review)) + "\n")
     print(f"{total_ok}/{total} answers linked across {len(props)} categories")
     print(f"dropped as broken: {dropped}")
     print(f"{len(review)} links on other hosts left out → design/links/review.txt")

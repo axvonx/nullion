@@ -16,6 +16,7 @@ At least one of heads or listings. Writes scripts/bank/mined/<id>/batch-NN.txt, 
 (one `## source:` header per source), and prints the next steps. Clones and listings that fail raise.
 """
 import json
+import re
 import pathlib
 import subprocess
 import sys
@@ -63,8 +64,8 @@ def main() -> None:
     cid = sys.argv[1]
     plan_path = REPO / "scripts" / "bank" / "plans" / f"{cid}.json"
     plan = json.loads(plan_path.read_text())
-    if not plan.get("heads") and not plan.get("listings"):
-        raise RuntimeError(f"{plan_path}: needs heads (with trees) or listings")
+    if not plan.get("heads") and not plan.get("listings") and not plan.get("extract"):
+        raise RuntimeError(f"{plan_path}: needs heads (with trees), listings or extract")
     bank = [h for h in (REPO / "bank").glob(f"*/{cid}.md") if h.parent.name != "reports"]
     if len(bank) != 1:
         raise RuntimeError(f"{cid}: expected one bank file, found {len(bank)}")
@@ -75,6 +76,17 @@ def main() -> None:
     sections: list[tuple[str, list[str]]] = []
     for spec in plan.get("listings", []):
         sections.append((f"{spec['repo']}/{spec['path']} ({spec.get('type', 'dir')} names)", listing(spec)))
+    for spec in plan.get("extract", []):  # a registry file in a local tree: one candidate per regex match
+        f = CORPORA / spec["tree"] / spec["file"]
+        if not f.is_file():
+            raise RuntimeError(f"extract file {f} does not exist (add the repo to sparse, or fix the path)")
+        rx = re.compile(spec["regex"])
+        found = []
+        for line in f.read_text(errors="replace").split("\n"):
+            m = rx.match(line)
+            if m:
+                found.append(" - ".join(g.strip() for g in m.groups() if g and g.strip()))
+        sections.append((f"{spec['tree']}/{spec['file']} (registry lines)", sorted(set(found))))
     if plan.get("heads"):
         for tree in plan.get("trees", []):
             path = CORPORA / tree
