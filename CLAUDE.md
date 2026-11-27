@@ -111,8 +111,9 @@ Debug-only for now (`?endless=1` or the header chip). A 29-layer stack to about 
   - A player gives one answer per prompt, so overlapping entries never double-score. The rule only decides what's accepted and whether a system's own name earns its own tier.
   - Category-specific limits go in the file's `> Accepts:` line.
 - **Recall comes from real sources, not memory.** `scripts/mine-heads.py <bank file> <head,nouns> <dirs…>` mines phrases and identifiers ending in a head noun from source trees in `~/nullion-corpora/src`. Those are sparse clones: FreeBSD `share/man/man9`, MicrosoftDocs `windows-driver-docs` (kernel) and `win32` (Sync), and PostgreSQL docs plus `lmgr`. The output is noisy, so an agent applies the membership rule to it, and survivors go through the scorer into the Inbox. Add source trees per domain as categories need them.
-- **Unconfirmed answers are capped.**
-  - A tiered line ending in `(auto)` was accepted by the pipeline and not yet confirmed by a person. It plays at most Memory leak (`AUTO_TIER_CAP` in `src/data/bank-format.ts`), so a wrong accept can't be farmed for deep-tier frames.
+- **Unconfirmed answers (decided 2026-11-26).**
+  - A tiered line ending in `(auto)` was accepted by the pipeline and not yet confirmed by a person. It plays its **full tier**, and players are never shown that an answer is unconfirmed. An earlier Memory-leak cap made deep cuts pay 3 frames instead of 8 and was dropped.
+  - `(auto)` is a review label only. Precision samples (95–100% on sourced answers) are the guard against wrong accepts.
   - Delete the marker to confirm an answer. Bit Flip and Works on my machine can never be `(auto)`.
   - The index counts unconfirmed answers per category.
 - **Harvesting a category** (error classes behind each step: `research/inbox-review-2026-11-26.md`):

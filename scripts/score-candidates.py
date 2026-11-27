@@ -5,7 +5,7 @@ Usage: python3 -I scripts/score-candidates.py scripts/pilot/candidates.json ~/nu
 Merges into the human-edited bank (bank/<domain>/<tag>.md; grammar in src/data/bank-format.ts) and writes a
 report per category to bank/reports/<tag>.md. The human file always wins:
 - a category file with no tiered answers yet (a fresh draft) gets its tiers filled in, every answer marked (auto)
-  (unconfirmed: plays at most Memory leak until a person deletes the marker) except the pinned picks;
+  (unconfirmed, a review label; it plays its full tier) except the pinned picks;
 - once it has tiered answers, nothing in it is moved or deleted. New candidates are appended to its Inbox with a
   suggested tier, and the report lists answers whose file tier and scored tier differ by more than one.
 A candidate with "confidence": "low" (an escalation that stayed unsure) goes to the Inbox even on a fresh fill.
@@ -240,7 +240,7 @@ def main() -> None:
             for t in ORDER:
                 es = [r["e"] for r in rows if r["tier"] == t and r not in low]
                 if es:
-                    # Filled answers are unconfirmed (auto) and play capped until a person deletes the marker;
+                    # Filled answers are unconfirmed (auto), a review label (they play their full tier);
                     # pinned picks are the person's own.
                     out += ["", f"## {HEADING_OF[t]}", *[entry_line(e, auto=not e.get("pin")) for e in es]]
             keep = [e["line"] for e in bank["inbox"] if not any(n.lower() in scored for n in e["names"])]

@@ -7,8 +7,8 @@ Usage: python3 -I scripts/wikidata-merge.py <id> <source.json> [--lowercase-only
 
 - The tier comes from Wikidata sitelinks (how many Wikipedia editions have an article), algillion's
   familiarity signal: SITELINK_TIERS below. Plain-list entries carry their own tier, or --default-tier.
-- New answers are appended inside their tier's section as "(auto)". They play capped at Memory leak until a
-  person deletes the marker. Existing lines are never moved, edited or deleted (your edits win). Anything whose
+- New answers are appended inside their tier's section as "(auto)", a review label (they play their full
+  tier). Existing lines are never moved, edited or deleted (your edits win). Anything whose
   name or alias already exists in the file is skipped.
 - Names and aliases are cleaned: Wikipedia-style disambiguators like "(programming language)" are stripped,
   and aliases shorter than 3 characters, or claimed by two new entries, are dropped.

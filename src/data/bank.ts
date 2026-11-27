@@ -62,8 +62,8 @@ export async function loadBankCategory(id: string): Promise<BankCategory> {
   return c;
 }
 
-/** A category's playable answers as terms. Inbox candidates are not playable until moved into a tier, and
- * unconfirmed (auto) answers play at most at AUTO_TIER_CAP. */
+/** A category's playable answers as terms. Inbox candidates are not playable until moved into a tier;
+ * unconfirmed (auto) answers play their full tier. */
 export function categoryTerms(c: BankCategory): Term[] {
   return c.entries.map((e) => ({
     name: e.name,

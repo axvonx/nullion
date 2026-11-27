@@ -13,8 +13,8 @@ import { TIERS, TIER_IDS, type TierId } from '../core/tiers';
  *   ## Off-by-one                      one section per tier, in the canonical order, each at most once
  *   - mutex
  *   - spinlock | spin lock | spin-lock  aliases after " | "
- *   - ERESOURCE (auto)                 accepted by the pipeline, not yet confirmed by a person: scores at most
- *                                      AUTO_TIER_CAP until someone deletes the marker
+ *   - ERESOURCE (auto)                 accepted by the pipeline, not yet confirmed by a person (a review label;
+ *                                      it plays its full tier); delete the marker to confirm it
  *     note: shown on the reveal         optional, indented, directly under its answer
  *   ...
  *   ## Bit Flip
@@ -64,18 +64,12 @@ const SUGGESTED_RE = /^(.*?)\s+\(suggested: ([a-z-]+)\)$/;
 const AUTO_RE = /^(.*?)\s+\(auto\)$/;
 
 /**
- * Unconfirmed answers score at most this tier, so a wrongly accepted string can't be farmed for deep-tier
- * frames. A person confirms an answer by deleting its (auto) marker.
+ * The tier an entry plays at. Unconfirmed (auto) answers play their full tier, and players are never told
+ * an answer is unconfirmed (decided 2026-11-26: the cap made deep cuts like MACRO-11 pay 3 frames instead
+ * of 8). "(auto)" is a review label for the bank's curator only.
  */
-export const AUTO_TIER_CAP: TierId = 'leak';
-
-/** The tier an entry actually plays at: its own, capped for unconfirmed (auto) entries. */
 export function playTier(e: BankEntry): TierId {
-  if (!e.auto) return e.tier;
-  const ladder: readonly TierId[] = ['off-by-one', 'npe', 'leak', 'race', 'heisenbug'];
-  const i = ladder.indexOf(e.tier);
-  enforce(i >= 0, `an (auto) entry cannot be ${e.tier}: Bit Flip and Works on my machine are picked by a person`);
-  return i > ladder.indexOf(AUTO_TIER_CAP) ? AUTO_TIER_CAP : e.tier;
+  return e.tier;
 }
 
 function splitNames(text: string, where: string): { name: string; aliases: string[] } {
