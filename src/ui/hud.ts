@@ -11,6 +11,7 @@ import { tierIcon } from './tier-icons';
 import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
+import { LayerStack } from './layer-stack';
 import { sound } from '../audio/sound';
 import { missedAnswerUrl, suggestQuestionUrl } from './issues';
 
@@ -139,6 +140,7 @@ export class Hud {
   private liveDaily = false;
   private demo = false;
   private titleLogo: TitleLogo;
+  private layerStack: LayerStack;
   private titleOpen = false;
   private titleTimer = 0;
 
@@ -214,6 +216,8 @@ export class Hud {
     this.els = Object.fromEntries([...mount.querySelectorAll<HTMLElement>('[data-el]')].map((e) => [e.dataset.el!, e]));
     this.titleLogo = new TitleLogo();
     this.els.titleHead!.append(this.titleLogo.canvas);
+    this.layerStack = new LayerStack((id) => sound.stackCrunch(id));
+    mount.append(this.layerStack.el);
     this.buildTitleRules();
     this.buildTitleTiers();
     mountPrefsMenu(mount, this.els.barLeft!);
@@ -583,6 +587,9 @@ export class Hud {
     }
     this.updateMotion(now, depthShown);
     this.mirrorReaction(now);
+    this.layerStack.setRightReserve(this.scene?.uiReserveRightCss ?? 0);
+    this.layerStack.setVisible(!this.titleOpen && look('layerStack') === 'on');
+    this.layerStack.sync(depthShown, activeMode, { animate: !this.scrollMode, reduced: reducedMotion() });
     const frames = Math.round(depthShown);
     if (frames !== this.shownFrames) {
       this.shownFrames = frames;

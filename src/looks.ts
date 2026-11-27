@@ -17,6 +17,11 @@ export const LOOK_SLOTS = {
     options: { watermark: 'Watermark in the world', card: 'Entrance card (old)' },
     default: 'watermark',
   },
+  layerStack: {
+    label: 'RHS layer stack',
+    options: { on: 'On (top-down stack)', off: 'Off' },
+    default: 'on',
+  },
   reveal: {
     label: 'Reveal backdrop',
     options: { framebuffer: 'Degrading frame buffer', mosaic: 'Grayscale mosaic (old)' },

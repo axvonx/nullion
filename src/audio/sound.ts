@@ -1413,6 +1413,16 @@ export class SoundEngine {
     }
   }
 
+  /** Subtle tactile crunch/thud when a new layer block slams into the RHS application stack. */
+  stackCrunch(layer: LayerId) {
+    const ctx = this.ensureCtx();
+    if (!ctx) return;
+    const t = ctx.currentTime;
+    const tm = timbreFor(layer);
+    this.thud(ctx, t, 145, 54, 0.09, 0.24);
+    this.noiseBurst(ctx, { at: t, dur: 0.032, type: 'bandpass', filterHz: 1800, toFilterHz: 480, q: 1.8, gain: 0.14, crush: true, reverb: tm.reverbWet * 0.4 });
+  }
+
   // -------------------------------------------------------------------------------------------
   // Layer Boundary Crossings
 
