@@ -51,6 +51,9 @@ export const MotionType = {
 
 export type MotionType = (typeof MotionType)[keyof typeof MotionType];
 
+/** Visible critter hitboxes collected each frame in scene pixels (cleared each frame by Scene). */
+export const CRITTER_SPOTS: { x: number; y: number; w: number; h: number; layer: LayerId }[] = [];
+
 /** Allowed motion set for each layer's species across all 29 Daily & Endless layers. */
 export const SPECIES_MOTIONS: Record<LayerId, readonly MotionType[]> = {
   // Zone A — Above Application
@@ -855,6 +858,7 @@ export class CritterSystem {
   ) {
     const x = R(rawX);
     const y = R(rawY);
+    CRITTER_SPOTS.push({ x: x - 2, y: y - 3, w: 12, h: 11, layer: layerId });
     const variant = c.variant;
     const px = (dx: number, dy: number, w: number, h: number, hex: string) => {
       ctx.fillStyle = col(hex);

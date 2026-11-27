@@ -1,5 +1,6 @@
 import { enforce } from '../../core/enforce';
 import { layersFor, type LayerId, type StackMode } from '../../core/layers';
+import { gateFor } from '../../game/rarity';
 import { V4_LIBRARIES } from './libraries';
 import { placeBand, type LayerPlacement, type PlaceGeom, type Rect } from './place';
 
@@ -93,6 +94,8 @@ function buildGeom(spec: WorldSpecV4): PlaceGeom {
   return {
     W: spec.W,
     densityScale: densityForWidth(spec.W),
+    // Field Manual rarity: which gated props are in the world for this seed (the puzzle in Daily, the run in Endless).
+    gate: gateFor(spec.seed),
     cursorLane: spec.cursorLane,
     panelLanes: spec.panelLanes,
     bands: spec.bands.map((b, i) => {

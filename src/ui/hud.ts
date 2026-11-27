@@ -14,6 +14,8 @@ import { revealLayout } from './reveal-layout';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
 import { LayerStack, createLayerBadge } from './layer-stack';
+import { FieldManualModal, manualBookIcon } from './manual-modal';
+import { manualStore } from '../game/manual';
 import { sound } from '../audio/sound';
 import { bankAcceptsFor } from '../data/bank';
 import { missedAnswerUrl, suggestQuestionUrl } from './issues';
@@ -146,6 +148,7 @@ export class Hud {
   private demo = false;
   private titleLogo: TitleLogo;
   private layerStack: LayerStack;
+  private manual: FieldManualModal;
   private titleOpen = false;
   private titleTimer = 0;
   private topicKey = '';
@@ -175,7 +178,10 @@ export class Hud {
         <div class="title-foot">
           <p class="title-tag">Seven prompts a day. Rarer answers descend deeper into the stack.</p>
           <button type="button" class="title-start" data-el="titleStart"><span>Unwind the stack</span><span class="title-arrow" aria-hidden="true">▾</span></button>
-          <button type="button" class="title-how-btn" data-el="titleHowBtn" aria-expanded="false" aria-controls="title-how">How to play</button>
+          <div class="title-foot-links">
+            <button type="button" class="title-how-btn" data-el="titleHowBtn" aria-expanded="false" aria-controls="title-how">How to play</button>
+            <button type="button" class="title-how-btn title-manual-btn" data-el="titleManualBtn"><span data-el="titleManualLabel">Field Manual</span></button>
+          </div>
         </div>
         <div id="title-how" class="title-how" data-el="titleHow" role="dialog" aria-label="How to play" hidden>
           <div class="title-how-bar">
@@ -208,6 +214,7 @@ export class Hud {
           <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
           <div class="stats" data-el="stats" hidden></div>
           <div class="result-foot"><span class="next-day" data-el="nextDay">A new stack opens at local midnight.</span><button type="button" data-el="copy">Copy result</button></div>
+          <div class="result-manual"><button type="button" class="fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
           <div class="result-links" data-el="resultLinks"></div>
         </div>
         <div class="scroll-hint" data-el="scrollHint" hidden>scroll · ↑ ↓ · PgUp PgDn</div>
@@ -228,6 +235,23 @@ export class Hud {
     this.els.titleHead!.append(this.titleLogo.canvas);
     this.layerStack = new LayerStack((id) => sound.stackCrunch(id), LAYER_BLURBS);
     mount.append(this.layerStack.el);
+    this.manual = new FieldManualModal(mount);
+    this.els.titleManualBtn!.prepend(manualBookIcon(13));
+    this.els.manualEndBtn!.prepend(manualBookIcon(22));
+    this.els.titleManualBtn!.addEventListener('click', () => this.manual.open());
+    this.els.manualEndBtn!.addEventListener('click', () => this.manual.open());
+    const syncManualBadges = () => {
+      const unread = manualStore.unreadCount();
+      const found = manualStore.foundCount();
+      this.els.titleManualLabel!.textContent = unread > 0 ? `Field Manual · ${unread} new` : 'Field Manual';
+      this.els.titleManualBtn!.classList.toggle('has-unread', unread > 0);
+      this.els.manualEndSub!.textContent = found > 0 ? `${found} logged · click background folks to collect more` : 'Click characters & props in the stack to log them';
+      this.els.manualEndBadge!.textContent = `${unread} NEW`;
+      this.els.manualEndBadge!.hidden = unread === 0;
+      this.els.manualEndBtn!.classList.toggle('has-unread', unread > 0);
+    };
+    syncManualBadges();
+    manualStore.subscribe(syncManualBadges);
     this.buildTitleRules();
     this.buildTitleTiers();
     mountPrefsMenu(mount, this.els.barLeft!);
@@ -1388,6 +1412,11 @@ export class Hud {
   // Debug demos (driven by the debug rail; these only show content, they never touch game state).
 
   private demoPrompt = '';
+
+  /** Open the Field Manual modal (used by the title/end-of-day buttons and the debug rail). */
+  openManual(entryId?: string) {
+    this.manual.open(entryId);
+  }
 
   /** Show a prompt in the console without a running round, even in scroll mode. */
   demoBegin(prompt: string) {

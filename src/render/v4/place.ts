@@ -73,6 +73,14 @@ export interface PlaceGeom {
   panelLanes: readonly (readonly [number, number])[];
   /** Scales every layer's scatter density uniformly (narrow screens get a calmer world). Default 1. */
   densityScale?: number;
+  /**
+   * Field Manual rarity gates for this world's seed (src/game/rarity.ts): an absent prop is never placed (near, far
+   * or bled into a neighbour band); a required one is fitted at least once in its own band when there is room.
+   */
+  gate?: {
+    absent(layer: LayerId, entityId: string): boolean;
+    required(layer: LayerId): readonly string[];
+  };
 }
 
 export interface LayerPlacement {
@@ -246,9 +254,14 @@ export function placeBand(
   }
   if (lib.anchorCount > 0) enforce(near.length > 0, `v4 placement: no anchor fits in ${band.id} at width ${W}`);
 
-  // 2. Scatter (using `rand`).
-  const up = bi > 0 ? libs[geom.bands[bi - 1]!.id] : undefined;
-  const down = bi < geom.bands.length - 1 ? libs[geom.bands[bi + 1]!.id] : undefined;
+  // 2. Scatter (using `rand`). Gated-off props are dropped from each source library's pool first.
+  const gate = geom.gate;
+  const present = (layer: LayerId, defs: readonly EntityDef[]) => (gate ? defs.filter((d) => !gate.absent(layer, d.id)) : defs);
+  const upId = bi > 0 ? geom.bands[bi - 1]!.id : undefined;
+  const downId = bi < geom.bands.length - 1 ? geom.bands[bi + 1]!.id : undefined;
+  const ownNear = present(band.id, lib.near);
+  const up = upId ? { lib: libs[upId], near: present(upId, libs[upId].near) } : undefined;
+  const down = downId ? { lib: libs[downId], near: present(downId, libs[downId].near) } : undefined;
   const target = Math.max(4, Math.round((W * bandH * lib.density * (geom.densityScale ?? 1)) / 10000));
   const used = new Map<string, number>();
   const blocked = new Set<string>();
@@ -259,11 +272,12 @@ export function placeBand(
     const dTop = yc - top;
     const dBot = bottom - yc;
     let src = lib;
-    if (up && rand() < 0.5 * Math.max(0, 1 - dTop / BLEED)) src = up;
-    else if (down && rand() < 0.5 * Math.max(0, 1 - dBot / BLEED)) src = down;
+    let pool = ownNear;
+    if (up && rand() < 0.5 * Math.max(0, 1 - dTop / BLEED)) ({ lib: src, near: pool } = up);
+    else if (down && rand() < 0.5 * Math.max(0, 1 - dBot / BLEED)) ({ lib: src, near: pool } = down);
     // A type that failed to fit repeatedly sits out for a while; the block clears every few hundred attempts.
     if (attempt % 300 === 299) blocked.clear();
-    const def = pickType(rand, src.near, used, blocked);
+    const def = pickType(rand, pool, used, blocked);
     if (!def) continue;
     const v = Math.floor(rand() * def.sizes.length);
     const [w, h] = def.sizes[v]!;
@@ -282,6 +296,26 @@ export function placeBand(
     used.set(def.id, (used.get(def.id) ?? 0) + 1);
     scattered++;
   }
+  // 2b. A gated prop that is on today must be in the world: fit any that the scatter missed (bounded attempts).
+  for (const id of gate?.required(band.id) ?? []) {
+    if (byType.has(id)) continue;
+    const def = lib.near.find((d) => d.id === id);
+    enforce(def, `v4 placement: rarity gate requires ${band.id}:${id}, which is not a scatter prop of that layer`);
+    // First by the usual rules; then, on screens where the panel lanes cover nearly everything (phones), today's
+    // gated prop may sit in a panel lane even when it is not small: a rarity that can't appear would be a lie.
+    for (let attempt = 0; attempt < 400; attempt++) {
+      const v = Math.floor(rand() * def.sizes.length);
+      const [w, h] = def.sizes[v]!;
+      const x = Math.round(rand() * (W - w));
+      const y = lib.floor?.ids.has(def.id) ? bottom - lib.floor.offset - h : Math.round(top + rand() * (bandH - h));
+      const r = { x, y, w, h };
+      if (!clear(r)) continue;
+      if (attempt < 200 && geom.panelLanes.some((l) => inLane(x, w, l)) && (def.text || w * h > SMALL_AREA)) continue;
+      add({ def, v, look: Math.floor(rand() * LOOKS), x, y, w, h, flip: !def.noFlip && !def.text && rand() < 0.5, ph: rand() * 20, anchor: false });
+      used.set(def.id, (used.get(def.id) ?? 0) + 1);
+      break;
+    }
+  }
   enforce(
     scattered >= Math.floor(target * 0.5),
     `v4 placement: ${band.id} placed ${scattered} of ${target} entities at width ${W}; keep-outs or caps leave too little room`,
@@ -291,7 +325,7 @@ export function placeBand(
   const far: Placed[] = [];
   const farGrid = new Map<number, Placed[]>();
   const farByType = new Map<string, Placed[]>();
-  const farDefs = lib.near.filter((d) => !d.text && d.sizes.every(([w, h]) => w <= 24 && h <= 20));
+  const farDefs = ownNear.filter((d) => !d.text && d.sizes.every(([w, h]) => w <= 24 && h <= 20));
   const farTarget = Math.round(target * lib.far);
   const y0 = -bandH * (1 - FAR_F);
   const y1 = bandH + FAR_SCREEN_H * (1 - FAR_F);

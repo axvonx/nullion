@@ -4,6 +4,8 @@ import { diveLeadMs, diveMs } from '../render/scene';
 import { FORM_BY_LAYER, FORM_IDS, FORM_NAMES } from '../ui/forms';
 import { REVEAL_MS } from '../ui/hud';
 import { tierIcon } from '../ui/tier-icons';
+import { manualBookIcon } from '../ui/manual-modal';
+import { manualStore } from '../game/manual';
 import type { DebugHooks } from './menu';
 
 /**
@@ -67,6 +69,17 @@ const ICONS: Record<string, string[]> = {
     '# +   + #',
     '#       #',
     '#########',
+  ],
+  unlock: [
+    '  #####  ',
+    ' #     # ',
+    ' #     # ',
+    '         ',
+    ' ####### ',
+    ' #  +  # ',
+    ' # +++ # ',
+    ' #  +  # ',
+    ' ####### ',
   ],
   'off-by-one': ['         ', ' ###     ', ' #+#     ', ' ###     ', '         ', '    ###  ', '    # #  ', '    ###  ', '         '],
   womm: ['#########', ' #     # ', '  #+++#  ', '   #+#   ', '    #    ', '   # #   ', '  # + #  ', ' # +++ # ', '#########'],
@@ -139,7 +152,7 @@ export function mountRail(h: DebugHooks) {
   };
   const later = (ms: number, fn: () => void) => timers.push(window.setTimeout(fn, ms));
 
-  function add(id: string, label: string, accent: string, run: () => void, img?: HTMLElement) {
+  function add(id: string, label: string, accent: string, run: () => void, img?: Element) {
     const rows = ICONS[id];
     if (!rows && !img) throw new Error(`rail: no icon '${id}'`);
     const b = document.createElement('button');
@@ -228,6 +241,29 @@ export function mountRail(h: DebugHooks) {
     if (!h.hud.showsPrompt) h.hud.demoBegin('Name a type of lock');
     formBtn.dataset.tip = `Console form: ${FORM_NAMES[form]} (${formIdx + 1}/${FORM_IDS.length})`;
   });
+
+  // Debug-only Field Manual buttons: open the manual anytime, and toggle unlock-all without mutating saved discoveries.
+  add(
+    'manual-open',
+    'Open Field Manual',
+    'var(--signal)',
+    () => h.hud.openManual(),
+    manualBookIcon(18),
+  );
+  const manualBtn = add(
+    'unlock',
+    'Field Manual: unlock all entries (debug toggle)',
+    'var(--signal)',
+    () => {
+      const next = !manualStore.isDebugUnlocked;
+      manualStore.setDebugUnlockAll(next);
+      manualBtn.classList.toggle('active', next);
+      manualBtn.dataset.tip = next
+        ? 'Field Manual: ALL UNLOCKED (click to restore normal progress)'
+        : 'Field Manual: unlock all entries (debug toggle)';
+      manualBtn.title = manualBtn.dataset.tip;
+    },
+  );
 
   // Each tier: the full sequence. A dive by its frames, the cursor's reaction and the screen's mirror, then the reveal.
   for (const id of TIER_IDS) {

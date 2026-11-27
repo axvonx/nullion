@@ -5,7 +5,9 @@ import { enforce } from '../core/enforce';
 import { FONT, LAYER_ART, hash, type Art, type Band } from './art';
 import { LAYER_ART_DETAILED, SEAM_ART, SEAM_H } from './art-detailed';
 import { LAYER_ART_V3, PROP_SPOTS } from './art-v3';
-import { ENTITY_SPOTS, LAYER_ART_V4, ensureWorldV4, setActiveTopicV4 } from './art-v4';
+import { ENTITY_SPOTS, LAYER_ART_V4, MANUAL_TARGETS, ensureWorldV4, setActiveTopicV4, type ManualTarget } from './art-v4';
+import { CRITTER_SPOTS, CritterSystem } from './critters';
+import { MANUAL_RARITIES, entryForCritter, manualEntryById, manualStore } from '../game/manual';
 import { tagsForQuestion } from './v4/topics';
 import { FAR_F } from './v4/place';
 import type { WorldSpecV4 } from './v4/world';
@@ -16,7 +18,6 @@ import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from './v4/wat
 import { CURSOR_FRAC, FORM_BY_LAYER, MARK_RX, MARK_RY, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
 import { drawMiniNullion, type TitleGlitchEvent } from '../ui/title-logo';
 import { sound } from '../audio/sound';
-import { CritterSystem } from './critters';
 
 export { pixelScale } from './cursor-geom';
 
@@ -302,6 +303,10 @@ export class Scene {
   private scatterSeed = 1;
   /** CSS pixels at the right edge covered by debug UI (the demo rail); v4 drops entities under it. 0 in production. */
   uiReserveRightCss = 0;
+  /** Pointer position in scene pixels for Field Manual hover & click discovery. */
+  private hoverScene: { x: number; y: number } | undefined;
+  /** Floating in-world toasts when a player clicks & logs a Field Manual character. */
+  private manualToasts: { x: number; y: number; text: string; color: string; at: number }[] = [];
 
   constructor(private canvas: HTMLCanvasElement) {
     this.ctx = get2d(canvas);
@@ -316,6 +321,74 @@ export class Scene {
     this.leakShot = document.createElement('canvas');
     this.resize();
     window.addEventListener('resize', () => this.resize());
+    this.bindManualPointer();
+  }
+
+  private bindManualPointer() {
+    const toScene = (ev: PointerEvent): { x: number; y: number } | undefined => {
+      if (this.W <= 0 || this.H <= 0) return undefined;
+      const rect = this.canvas.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) return undefined;
+      return {
+        x: ((ev.clientX - rect.left) / rect.width) * this.W,
+        y: ((ev.clientY - rect.top) / rect.height) * this.H,
+      };
+    };
+    this.canvas.addEventListener('pointermove', (ev) => {
+      const pt = toScene(ev);
+      this.hoverScene = pt;
+      const hit = pt ? this.hitManualTarget(pt.x, pt.y) : undefined;
+      this.canvas.style.cursor = hit ? 'pointer' : '';
+    });
+    this.canvas.addEventListener('pointerleave', () => {
+      this.hoverScene = undefined;
+      this.canvas.style.cursor = '';
+    });
+    this.canvas.addEventListener('pointerdown', (ev) => {
+      if (ev.button !== 0) return;
+      const pt = toScene(ev);
+      if (!pt) return;
+      const hit = this.hitManualTarget(pt.x, pt.y);
+      if (!hit) return;
+      // Don't steal focus from the answer input while logging a background specimen!
+      ev.preventDefault();
+      const entry = manualEntryById(hit.entryId);
+      if (!entry) return;
+      const res = manualStore.log(hit.entryId, hit.layer);
+      const meta = MANUAL_RARITIES[entry.rarity];
+      const msg = res.isNewEntry
+        ? `Logged: ${entry.name}!`
+        : res.isNewLayer
+          ? `${entry.name} · new layer!`
+          : `${entry.name} · logged`;
+      this.manualToasts.push({
+        x: hit.x + hit.w / 2,
+        y: Math.max(18, hit.y - 4),
+        text: msg,
+        color: res.isNewEntry || res.isNewLayer ? meta.color : '#cfcbd8',
+        at: performance.now(),
+      });
+      if (res.isNewEntry || res.isNewLayer) sound.suggest(hit.layer);
+    });
+  }
+
+  private hitManualTarget(sx: number, sy: number): ManualTarget | undefined {
+    const pad = 2;
+    // Critters take priority since they move over props.
+    for (let i = CRITTER_SPOTS.length - 1; i >= 0; i--) {
+      const c = CRITTER_SPOTS[i]!;
+      if (sx >= c.x - pad && sx <= c.x + c.w + pad && sy >= c.y - pad && sy <= c.y + c.h + pad) {
+        const hit = entryForCritter(c.layer);
+        if (hit) return { x: c.x, y: c.y, w: c.w, h: c.h, entryId: hit.entry.id, layer: hit.layer };
+      }
+    }
+    for (let i = MANUAL_TARGETS.length - 1; i >= 0; i--) {
+      const t = MANUAL_TARGETS[i]!;
+      if (sx >= t.x - pad && sx <= t.x + t.w + pad && sy >= t.y - pad && sy <= t.y + t.h + pad) {
+        return t;
+      }
+    }
+    return undefined;
   }
 
   private started = false;
@@ -933,6 +1006,8 @@ export class Scene {
     if (!worldFrozen) this.artTime += dt;
     PROP_SPOTS.length = 0;
     ENTITY_SPOTS.length = 0;
+    MANUAL_TARGETS.length = 0;
+    CRITTER_SPOTS.length = 0;
 
     const camWorldY = worldY(this.cam, this.stackMode);
     const camY = Math.round(camWorldY - this.cursorY);
@@ -1080,6 +1155,9 @@ export class Scene {
 
     // 5b. "ONE IN A / NULLION" dramatic buildup (Bit Flip climax & Works on my machine fake-out).
     if (this.rf.banner) this.drawNullionBanner(now, this.rf.banner, reduced);
+
+    // 5c. Field Manual hover reticle, rarity pill, subtle "click me!" breadcrumb, and catch toasts.
+    this.drawManualOverlay(now, reduced);
 
     // 6. Ghosting: two VMs sharing one screen. The echo is of the clean previous frame, so it doesn't feed back
     // into itself and smear into noise.
@@ -1915,6 +1993,105 @@ export class Scene {
         ctx.fillRect(bx, by - 1, 1, 1);
         ctx.fillRect(bx, by + 1, 1, 1);
       } else ctx.fillRect(bx, by, 1, 1);
+    }
+  }
+
+  /**
+   * Field Manual in-world overlay (drawn post-quantization so rarity pills and hints stay crisp even in 1-bit Ring −3):
+   * - Hover reticle + rarity/percentage/logged status pill.
+   * - Occasional gentle "click me!" (or "?") tag above one visible uncollected prop so players discover the manual.
+   * - Short floating catch toasts after clicking a character.
+   */
+  private drawManualOverlay(now: number, reduced: boolean) {
+    const ctx = this.ctx;
+    const W = this.W;
+    const H = this.H;
+
+    const drawPill = (cx: number, y: number, text: string, borderCol: string, textCol: string) => {
+      ctx.font = FONT;
+      const tw = Math.ceil(ctx.measureText(text).width);
+      const pw = tw + 8;
+      const ph = 11;
+      const px = Math.max(4, Math.min(W - pw - 4, Math.round(cx - pw / 2)));
+      const py = Math.max(4, Math.min(H - ph - 4, Math.round(y)));
+      ctx.fillStyle = 'rgba(12, 10, 18, 0.94)';
+      ctx.fillRect(px, py, pw, ph);
+      ctx.fillStyle = borderCol;
+      ctx.fillRect(px, py, pw, 1);
+      ctx.fillRect(px, py + ph - 1, pw, 1);
+      ctx.fillRect(px, py, 1, ph);
+      ctx.fillRect(px + pw - 1, py, 1, ph);
+      ctx.fillStyle = textCol;
+      ctx.fillText(text, px + 4, py + 8);
+    };
+
+    const hit = this.hoverScene ? this.hitManualTarget(this.hoverScene.x, this.hoverScene.y) : undefined;
+    if (hit) {
+      const entry = manualEntryById(hit.entryId);
+      if (entry) {
+        const meta = MANUAL_RARITIES[entry.rarity];
+        const found = manualStore.isFound(entry.id);
+        const hasLayer = manualStore.hasLayer(entry.id, hit.layer);
+        // Crisp 3px pixel corner brackets around the hovered specimen
+        const bx = Math.round(hit.x) - 2;
+        const by = Math.round(hit.y) - 2;
+        const bw = Math.round(hit.w) + 4;
+        const bh = Math.round(hit.h) + 4;
+        ctx.fillStyle = hasLayer ? '#8ea8c3' : meta.color;
+        ctx.fillRect(bx, by, 4, 1);
+        ctx.fillRect(bx, by, 1, 4);
+        ctx.fillRect(bx + bw - 4, by, 4, 1);
+        ctx.fillRect(bx + bw - 1, by, 1, 4);
+        ctx.fillRect(bx, by + bh - 1, 4, 1);
+        ctx.fillRect(bx, by + bh - 4, 1, 4);
+        ctx.fillRect(bx + bw - 4, by + bh - 1, 4, 1);
+        ctx.fillRect(bx + bw - 1, by + bh - 4, 1, 4);
+
+        // No % on the hover pill: the measured rate lives in the Field Manual (FIELD-MANUAL-PLAN.md).
+        const label = hasLayer ? `${entry.name} · logged` : found ? `${entry.name} · new layer!` : `??? · ${meta.label} · click`;
+        const pillY = by > 18 ? by - 13 : by + bh + 3;
+        drawPill(bx + bw / 2, pillY, label, hasLayer ? '#68768a' : meta.color, hasLayer ? '#cfcbd8' : '#ffffff');
+      }
+    } else if (MANUAL_TARGETS.length > 0 && !this.rf.banner) {
+      // Gentle occasional "click me!" breadcrumb above one visible uncollected prop (less frequent once player knows).
+      const slot = Math.floor(now / 7000);
+      const frac = (now % 7000) / 7000;
+      const foundTotal = manualStore.foundCount();
+      const showChance = foundTotal < 3 ? 0.55 : 0.22;
+      if (frac > 0.15 && frac < 0.72 && hash(slot * 53 + 11) < showChance) {
+        const uncollected = MANUAL_TARGETS.filter(
+          (t) =>
+            !manualStore.hasLayer(t.entryId, t.layer) &&
+            t.y > 28 &&
+            t.y + t.h < H - 46 &&
+            t.x > 16 &&
+            t.x + t.w < W - 16,
+        );
+        if (uncollected.length > 0) {
+          const pick = uncollected[Math.floor(hash(slot * 97 + 7) * uncollected.length)]!;
+          const entry = manualEntryById(pick.entryId);
+          if (entry) {
+            const bob = reduced ? 0 : Math.round(Math.sin(now / 260) * 1.5);
+            const tag = foundTotal < 3 ? 'click me!' : '?';
+            drawPill(pick.x + pick.w / 2, pick.y - 14 + bob, tag, MANUAL_RARITIES[entry.rarity].color, '#ffe25a');
+          }
+        }
+      }
+    }
+
+    // Floating catch toasts
+    for (let i = this.manualToasts.length - 1; i >= 0; i--) {
+      const toast = this.manualToasts[i]!;
+      const age = now - toast.at;
+      if (age > 1600) {
+        this.manualToasts.splice(i, 1);
+        continue;
+      }
+      const lift = reduced ? 0 : Math.round((age / 1600) * 14);
+      ctx.save();
+      ctx.globalAlpha = age > 1100 ? Math.max(0, 1 - (age - 1100) / 500) : 1;
+      drawPill(toast.x, toast.y - lift, toast.text, toast.color, '#ffffff');
+      ctx.restore();
     }
   }
 }

@@ -11,6 +11,7 @@ import { drawSetpiece } from './v4/setpieces';
 import { WATERMARK_ALPHA, drawName, layoutName, nameHeight, type NamePattern } from './v4/watermark';
 import { drawTopicProp, pickTopicFlip, type TopicTag } from './v4/topics';
 import { CORE_DY, RAIL_START, RAIL_STEP, placeBandForSpec, specKey, type WorldSpecV4 } from './v4/world';
+import { entryForEntity, entryForTopic } from '../game/manual';
 
 /**
  * Layer art v4 (look `artStyle: v4`): a seeded world of hand-drawn entities, placed once.
@@ -118,6 +119,17 @@ function bandPlacement(idx: number): LayerPlacement {
 /** Entities drawn this frame, near plane, as flat [x, y, w, h, ...] in scene pixels: what tier reactions act on. */
 export const ENTITY_SPOTS: number[] = [];
 
+/** Clickable Field Manual targets drawn this frame in scene pixels (cleared each frame by Scene). */
+export interface ManualTarget {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  entryId: string;
+  layer: LayerId;
+}
+export const MANUAL_TARGETS: ManualTarget[] = [];
+
 /** How many entities of each layer are placed (for the debug read-out and tests of the wiring). */
 export function worldStats(): { layer: LayerId; near: number; far: number; types: number }[] {
   enforce(worldSpec, 'v4: world not built');
@@ -218,6 +230,10 @@ function entities(ctx: Ctx, b: Band, id: LayerId) {
     else drawEntity(ctx, e.def, e.v, e.look, e.x, sy, e.flip, T + e.ph);
     // Reactions copy and jiggle props, not whole buildings.
     if (report && !e.anchor && e.w <= 40 && e.h <= 32) ENTITY_SPOTS.push(e.x - 1, R(sy) - 1, e.w + 2, e.h + 2);
+    if (report) {
+      const hit = flipped ? entryForTopic(flipped.id) : entryForEntity(e.def.id, id);
+      if (hit) MANUAL_TARGETS.push({ x: e.x, y: R(sy), w: e.w, h: e.h, entryId: hit.entry.id, layer: hit.layer });
+    }
   }
 }
 
