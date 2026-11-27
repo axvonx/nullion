@@ -294,8 +294,9 @@ ${REVEAL_HTML}`;
       'wheel',
       (ev) => {
         if (!this.scrollMode || ev.target instanceof HTMLInputElement || ev.target instanceof HTMLSelectElement) return;
-        // Panels (and the debug menu) scroll themselves.
-        if (ev.target instanceof Element && ev.target.closest('.panel, .dbg-panel, .dbg-rail, .bd-backdrop, .prefs-pop')) return;
+        // Panels scroll themselves, as does anything marked `data-own-scroll` (the debug menu and rail: production code
+        // never names debug classes, which the deploy's leak check enforces).
+        if (ev.target instanceof Element && ev.target.closest('.panel, [data-own-scroll], .bd-backdrop, .prefs-pop')) return;
         ev.preventDefault();
         const mult = ev.shiftKey ? 3 : 1;
         nudge((ev.deltaY / rulesFor(this.game?.mode ?? 'daily').scroll.wheelDivisor) * mult);
@@ -315,7 +316,7 @@ ${REVEAL_HTML}`;
         const target = ev.target;
         if (
           target instanceof Element &&
-          target.closest('.panel, .dbg-panel, .dbg-rail, .dbg-toggle, .bd-backdrop, .prefs-pop, .layer-stack, .bar, .te-nav, input, select, button, a')
+          target.closest('.panel, [data-own-scroll], .bd-backdrop, .prefs-pop, .layer-stack, .bar, .te-nav, input, select, button, a')
         ) {
           touchActive = false;
           return;

@@ -141,6 +141,7 @@ export const SAMPLE_DAY: { tier: TierId; name: string }[] = [
 export function mountRail(h: DebugHooks) {
   const rail = document.createElement('nav');
   rail.className = 'dbg-rail';
+  rail.dataset.ownScroll = '';
   rail.setAttribute('aria-label', 'Debug demos');
   document.body.append(rail);
   // The rail covers the right edge (right: 16px + 36px buttons, see menu.css): v4 keeps entities out from under it.

@@ -21,6 +21,7 @@ export interface DebugHooks {
 export function mountDebugMenu(h: DebugHooks) {
   const btn = document.createElement('button');
   btn.className = 'dbg-toggle';
+  btn.dataset.ownScroll = '';
   btn.type = 'button';
   btn.setAttribute('aria-label', 'Debug menu');
   btn.setAttribute('aria-expanded', 'false');
@@ -28,6 +29,7 @@ export function mountDebugMenu(h: DebugHooks) {
 
   const panel = document.createElement('aside');
   panel.className = 'dbg-panel';
+  panel.dataset.ownScroll = '';
   panel.hidden = true;
   document.body.append(btn, panel);
   mountRail(h);
