@@ -94,7 +94,7 @@ textarea { width: 100%; min-height: 70px; background: #0c0b10; border: 1px solid
   </select>
   <select id="fSort" aria-label="Sort"><option value="priority">red first</option><option value="layer">by layer</option></select>
   <select id="fStatus" aria-label="Status">
-    <option value="">all</option><option value="needs-you">needs you (red/orange, not yet yours)</option><option value="llm">LLM defaults (unconfirmed)</option><option value="owner">decided by you</option><option value="merged">verified merges (folded away)</option><option value="deleted">marked for deletion</option><option value="art">art-style slate (delete/rework)</option><option value="name-open">name still open</option><option value="dec-open">decision still open</option><option value="done">named + decided</option><option value="notes">has design notes</option>
+    <option value="">all</option><option value="needs-you">needs you (red/orange, not yet yours)</option><option value="llm">LLM defaults (unconfirmed)</option><option value="owner">decided by you</option><option value="merged">verified merges (folded away)</option><option value="deleted">marked for deletion</option><option value="art">art-style slate (delete/rework)</option><option value="fresh">new in the art pass</option><option value="name-open">name still open</option><option value="dec-open">decision still open</option><option value="done">named + decided</option><option value="notes">has design notes</option>
   </select>
   <input type="search" id="fSearch" placeholder="search id, name, concept…" />
   <span class="save" id="save">loading…</span>
@@ -233,6 +233,7 @@ function filter(keepKey) {
     if (S === 'done' && (d.name.choice === 'open' || d.decision.choice === 'open')) return false;
     if (S === 'notes' && !d.description.trim()) return false;
     if (S === 'art' && d.decision.by !== 'art') return false;
+    if (S === 'fresh' && !(d.decision.note ?? '').startsWith('new in the art pass')) return false;
     if (S === 'needs-you' && !(PR(it) >= 4 && (d.name.by !== 'owner' || d.decision.by !== 'owner'))) return false;
     if (S === 'llm' && d.name.by !== 'llm' && d.decision.by !== 'llm') return false;
     if (S === 'owner' && d.name.by !== 'owner' && d.decision.by !== 'owner') return false;
