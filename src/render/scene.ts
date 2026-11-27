@@ -476,29 +476,29 @@ export class Scene {
     if (this.bufCopy.length !== d.length) this.bufCopy = new Uint8ClampedArray(d.length);
     this.bufCopy.set(d);
     const src = this.bufCopy;
-    const snap = (n: number) => Math.round(n / 8) * 8;
-    const cx = snap(W / 2);
-    const cy = snap(this.cursorY);
-    const rx = snap(Math.min(Math.round(W * 0.62), 232));
-    const ry = snap(Math.round(H * 0.36));
-    // Cumulative darkness of the base dim and the nested rectangles, outermost to innermost.
-    const levels = [0.42, ...VIGNETTE_STEPS];
-    const rects = VIGNETTE_STEPS.map((_, idx) => {
-      const frac = 1 - idx * (0.16 / Math.max(1, VIGNETTE_STEPS.length - 1));
-      return { hw: snap(rx * frac), hh: snap(ry * frac) };
-    });
+    const cx = Math.round(W / 2);
+    const cy = Math.round(this.cursorY);
+    // Solid-black inner core covers the tier name above the cursor and the answer/line below it;
+    // outside that core, darkness feathers smoothly across all 16 Bayer levels to a soft outer dim (no hard step cutoffs).
+    const innerW = Math.min(Math.round(W * 0.44), 172);
+    const innerH = Math.round(H * 0.27);
+    const featherX = Math.max(48, Math.round(W * 0.24));
+    const featherY = Math.max(40, Math.round(H * 0.24));
+    const outerDim = 0.28;
     const quantised = look('palette') === 'per-layer';
     for (let y = 0; y < H; y++) {
       const sy = Math.min(H - 1, y - (y % bs) + (bs >> 1));
-      const inY = rects.map((r) => Math.abs(y - cy) < r.hh);
+      const dy = Math.max(0, (Math.abs(y - cy) - innerH) / featherY);
+      const bRow = (y & 3) * 4;
       for (let x = 0; x < W; x++) {
         const sx = Math.min(W - 1, x - (x % bs) + (bs >> 1));
         const si = (sy * W + sx) * 4;
         const i = (y * W + x) * 4;
-        let depth = 0;
-        for (let r = 0; r < rects.length; r++) if (inY[r] && Math.abs(x - cx) < rects[r]!.hw) depth = r + 1;
-        const dark = levels[depth]! * a;
-        if (BAYER16[(y & 3) * 4 + (x & 3)]! < dark * 16) {
+        const dx = Math.max(0, (Math.abs(x - cx) - innerW) / featherX);
+        const t = Math.min(1, Math.hypot(dx, dy));
+        const smooth = t * t * (3 - 2 * t);
+        const dark = (1 - smooth * (1 - outerDim)) * a;
+        if (BAYER16[bRow + (x & 3)]! < dark * 16) {
           d[i] = 0;
           d[i + 1] = 0;
           d[i + 2] = 0;
