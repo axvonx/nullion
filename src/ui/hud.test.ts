@@ -763,7 +763,7 @@ describe('end card answer sheet', () => {
     expect(det.querySelector('.bt-ans')!.textContent).toBe(h.own.name);
     expect(det.querySelector('.bt-tier')!.textContent).toBe(TIERS['off-by-one'].name);
     expect(det.textContent).toContain('+1');
-    expect(h.mount.querySelector('.bt-row .bt-sum')!.textContent).toBe('frame 1');
+    expect(h.mount.querySelector('.bt-row .bt-detail')!.textContent).toContain('frame 1');
   });
 
   it('opens and closes from the row arrow, and says so to assistive tech', () => {

@@ -304,7 +304,7 @@ body {
 .record > li { position: relative; }
 .bt-row {
   display: grid;
-  grid-template-columns: 3ch 40px minmax(0, 1fr) auto 76px;
+  grid-template-columns: 3ch 40px minmax(0, 1fr) 46px;
   align-items: center;
   gap: 8px;
   width: 100%;
@@ -323,21 +323,20 @@ body {
 .bt-icon .tier-icon { transform-origin: left center; transition: transform 120ms steps(2); }
 .bt-mid { display: grid; min-width: 0; }
 .bt-q, .bt-detail { grid-area: 1 / 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.bt-detail { visibility: hidden; }
-.bt-sum { font-size: 17px; color: var(--dim); text-align: right; white-space: nowrap; }
+.bt-detail { visibility: hidden; font-size: 15px; letter-spacing: -0.01em; }
 .bt-ans { color: var(--ink); }
-.bt-more { width: 76px; }
+.bt-more { width: 46px; }
 .bt-row.no-prompt .bt-detail { visibility: visible; }
 /* A small link-out icon on the collapsed row: what the question means in computing. */
 .bt-ref {
-  position: absolute; top: 0; right: 40px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
-  font-size: 18px; color: var(--dim); text-decoration: none; border: 1px solid transparent;
+  position: absolute; top: 0; right: 22px; width: 22px; height: 36px; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--dim); text-decoration: none; border: 1px solid transparent;
 }
 .bt-ref:is(:hover, :focus-visible) { color: var(--ink); border-color: var(--rule); }
 /* The dropdown arrow sits over the row's last slot; its tap target is the full row height. */
 .bt-sheet-btn {
-  position: absolute; top: 0; right: 0; width: 40px; height: 36px; padding: 0;
-  font: inherit; font-size: 18px; color: var(--dim); background: transparent; border: 1px solid transparent; cursor: pointer;
+  position: absolute; top: 0; right: 0; width: 22px; height: 36px; padding: 0;
+  font: inherit; font-size: 14px; color: var(--dim); background: transparent; border: 1px solid transparent; cursor: pointer;
 }
 .bt-sheet-btn:is(:hover, :focus-visible) { color: var(--ink); border-color: var(--rule); }
 .bt-sheet-btn[aria-expanded='true'] { color: var(--ink); transform: scaleY(-1); }
@@ -353,7 +352,7 @@ body {
 .sheet-note { color: var(--dim); font-size: 15px; }
 .sheet-more { margin-top: 2px; padding: 4px 6px; min-height: 32px; font: inherit; font-size: 16px; color: var(--dim); background: transparent; border: 1px solid var(--rule); cursor: pointer; }
 .sheet-more:is(:hover, :focus-visible) { color: var(--ink); }
-.console[data-form='gui'] :is(.bt-sheet, .sheet-head, .sheet-more, .bt-sheet-btn, .bt-ref, .bt-sum) { color: #4a4656; }
+.console[data-form='gui'] :is(.bt-sheet, .sheet-head, .sheet-more, .bt-sheet-btn, .bt-ref) { color: #4a4656; }
 .bt-row:is(:hover, :focus-visible, [aria-expanded='true']) { background: rgba(255, 255, 255, 0.07); border-color: var(--rule); }
 .bt-row:is(:hover, :focus-visible, [aria-expanded='true']) .bt-q { visibility: hidden; }
 .bt-row:is(:hover, :focus-visible, [aria-expanded='true']) .bt-detail { visibility: visible; }
@@ -1431,17 +1430,14 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 
 /* Narrow phones: keep EOD backtrace answers readable and stats distribution bars visible. */
 @media (max-width: 480px) {
-  /* The frame count drops under the question; the icon, link-out and arrow keep their columns. */
+  /* The question gets the width; the link-out and arrow are two small tap targets at the right. */
   .bt-row {
     height: auto; min-height: 44px; padding: 4px 6px; gap: 0 6px;
-    grid-template-columns: 3ch 34px minmax(0, 1fr) 68px;
-    grid-template-areas: 'n icon mid more' 'n icon sum more';
+    grid-template-columns: 3ch 34px minmax(0, 1fr) 52px;
   }
-  .bt-n { grid-area: n; } .bt-icon { grid-area: icon; } .bt-mid { grid-area: mid; } .bt-sum { grid-area: sum; text-align: left; } .bt-more { grid-area: more; width: 68px; }
   .bt-q, .bt-detail { white-space: normal; line-height: 1.12; }
   .bt-sheet-btn, .bt-ref { height: 100%; }
-  .bt-sheet-btn { width: 36px; } .bt-ref { right: 36px; width: 32px; }
-  .bt-sum { font-size: 16px; }
+  .bt-sheet-btn { width: 26px; } .bt-ref { right: 26px; width: 26px; }
 }
 @media (max-width: 420px) {
   .stats-dist li { grid-template-columns: 9em minmax(32px, 1fr) 1.8em; gap: 6px; }

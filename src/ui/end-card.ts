@@ -270,17 +270,7 @@ export class EndCard {
       q.textContent = prompt ?? '';
       const det = document.createElement('span');
       det.className = 'bt-detail';
-      // The frame count sits at the right, beside the dropdown arrow.
-      const sum = document.createElement('span');
-      sum.className = 'bt-sum';
       const span = n === 0 ? 'no frames' : n === 1 ? `frame ${from}` : `frames ${from}–${to}`;
-      if (n === 0) sum.textContent = span;
-      else {
-        const word = document.createElement('span');
-        word.className = 'bt-fw';
-        word.textContent = n === 1 ? 'frame ' : 'frames ';
-        sum.append(word, n === 1 ? String(from) : `${from}–${to}`);
-      }
       const more = document.createElement('span');
       more.className = 'bt-more';
       more.setAttribute('aria-hidden', 'true');
@@ -294,7 +284,7 @@ export class EndCard {
         name.dataset.tier = t.id;
         name.textContent = t.name;
         name.title = `${t.name}: +${framesLabel(t.frames)}${t.id === 'womm' ? ' (the cliché “clever” pick)' : ''}`;
-        det.append(ans, ' · ', name, ` · +${n}`);
+        det.append(ans, ' · ', name, ` · +${n} · ${span}`);
         row.setAttribute('aria-label', `#${i}: ${prompt ? `${prompt}: ` : ''}${r.name ?? 'answer'}, ${t.name}, ${span}`);
       } else {
         row.classList.add('timeout');
@@ -310,7 +300,7 @@ export class EndCard {
         for (const b of ol.querySelectorAll('.bt-row')) b.setAttribute('aria-expanded', 'false');
         row.setAttribute('aria-expanded', String(open));
       });
-      row.append(num, icon, mid, sum, more);
+      row.append(num, icon, mid, more);
       li.append(row);
       const ref = prompt && r.question ? this.questionLink(i, prompt, r.question) : undefined;
       if (ref) li.append(ref);
@@ -371,7 +361,7 @@ export class EndCard {
     }
   }
 
-  /** "#7" is set in the same pixel face as "nullion"; a word chip ("ENDLESS") stays plain text, the face having no such letters. */
+  /** The chip ("#7", "ENDLESS") is set in the same pixel face as "nullion". */
   private setPuzzleNo(chip: string) {
     const el = this.els.puzzleNo!;
     el.dataset.chip = chip;

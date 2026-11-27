@@ -46,7 +46,8 @@ describe('EndCard', () => {
     const rows = [...t.q('.record').querySelectorAll('.bt-row')];
     expect(rows).toHaveLength(3);
     expect(rows[0]!.textContent).toContain('#0');
-    expect(rows[0]!.querySelector('.bt-sum')!.textContent).toBe('frames 6–18');
+    expect(rows[0]!.querySelector('.bt-detail')!.textContent).toContain('frames 6–18');
+    expect(rows[0]!.querySelector('.bt-sum')).toBeNull();
     expect(rows[1]!.classList.contains('timeout')).toBe(true);
     expect(rows[2]!.textContent).toContain('frames 1–5');
   });
@@ -89,7 +90,7 @@ describe('EndCard', () => {
     const t = setup();
     t.card.show(ROWS, 18, 7);
     expect(t.q('[data-el="puzzleNo"]').dataset.chip).toBe('#7');
-    expect(t.q('[data-el="puzzleNo"]').querySelector('canvas')?.getAttribute('aria-label')).toBe('#7');
+    expect(t.q('[data-el="puzzleNo"]').textContent).toBe('#7');
     expect(t.q('.wordmark').querySelector('.wm-word canvas')?.getAttribute('aria-label')).toBe('nullion');
     expect(t.q('.headline').textContent).toBe('18 stack frames · Kernel');
   });
