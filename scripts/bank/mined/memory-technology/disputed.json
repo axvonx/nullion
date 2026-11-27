@@ -1,0 +1,178 @@
+[
+ {
+  "name": "DDR",
+  "a": {
+   "name": "DDR",
+   "aliases": [
+    "DDR SDRAM",
+    "ddr memory"
+   ],
+   "judge": "off-by-one",
+   "evidence": "251:      5  ddr memory",
+   "why": "standard double-data-rate synchronous DRAM"
+  },
+  "b": {
+   "name": "DDR",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ddr memory (kernel, 5)",
+   "why": "common DRAM generation family"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DDR4",
+  "a": {
+   "name": "DDR4",
+   "aliases": [
+    "DDR4 SDRAM",
+    "ddr4 memory"
+   ],
+   "judge": "off-by-one",
+   "evidence": "723:      2  ddr4 memory",
+   "why": "widely used fourth-generation DDR SDRAM"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LPDDR",
+  "a": {
+   "name": "LPDDR",
+   "aliases": [
+    "low-power DDR"
+   ],
+   "judge": "leak",
+   "evidence": "5: lpddr",
+   "why": "low-power DRAM variant for mobile and embedded devices"
+  },
+  "b": {
+   "name": "LPDDR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "lpddr (drivers/mtd dir name)",
+   "why": "low-power DRAM kind, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ECC memory",
+  "a": {
+   "name": "ECC memory",
+   "aliases": [
+    "ECC RAM"
+   ],
+   "judge": "npe",
+   "evidence": "389:      3  ecc memory",
+   "why": "error-correcting code memory technology"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CompactFlash",
+  "a": {
+   "name": "CompactFlash",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "544:      2  CompactFlash",
+   "why": "classic solid-state flash memory card format"
+  },
+  "b": {
+   "name": "CompactFlash",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CompactFlash (freebsd, 2)",
+   "why": "named flash card format"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "serial flash",
+  "a": {
+   "name": "serial flash",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "795:      2  serial flash",
+   "why": "low-pin-count SPI/serial-interface flash memory"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "OTP memory",
+  "a": {
+   "name": "OTP memory",
+   "aliases": [
+    "one-time programmable memory"
+   ],
+   "judge": "leak",
+   "evidence": "473:      3  otp memory",
+   "why": "one-time programmable non-volatile memory"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DataFlash",
+  "a": {
+   "name": "DataFlash",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "829:      2  DataFlash",
+   "why": "Atmel/Adesto serial-interface flash memory family"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RAM",
+  "a": null,
+  "b": {
+   "name": "RAM",
+   "aliases": [
+    "ram memory"
+   ],
+   "judge": "off-by-one",
+   "evidence": "ram memory (kernel, 2)",
+   "why": "generic kind, nearly everyone names it"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "persistent memory",
+  "a": null,
+  "b": {
+   "name": "persistent memory",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "persistent memory (kernel, 18)",
+   "why": "byte-addressable non-volatile memory class"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "core memory",
+  "a": null,
+  "b": {
+   "name": "core memory",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "core memory (kernel, 2)",
+   "why": "magnetic core, historical named kind"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CXL memory",
+  "a": null,
+  "b": {
+   "name": "CXL memory",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cxl memory (kernel, 25)",
+   "why": "CXL-attached memory expansion kind"
+  },
+  "batch": "batch-00.txt"
+ }
+]

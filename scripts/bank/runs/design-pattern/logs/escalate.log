@@ -1,0 +1,8 @@
+--- gemini call, 29s, exit 0, prompt 1219 chars, stdout 585 chars
+Resolved all 60 disputes in [disputed.json](file:///Users/axvon/nullion/scripts/bank/mined/design-pattern/disputed.json) and wrote [resolved-candidates.json](file:///Users/axvon/nullion/scripts/bank/mined/design-pattern/resolved-candidates.json) and [resolved-aliases.json](file:///Users/axvon/nullion/scripts/bank/mined/design-pattern/resolved-aliases.json):
+
+- **kept**: 56 (plus 2 low-confidence = 58 total in `resolved-candidates.json`)
+- **low**: 2 (`Money`, `Version Number`)
+- **dropped**: 2 (`Distributed Tracing`, `Client Session State` — merged as alias of `Client Session`)
+
+

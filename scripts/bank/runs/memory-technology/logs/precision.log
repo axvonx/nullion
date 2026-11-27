@@ -1,0 +1,21 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py memory-technology sample  [0s, exit 0]
+memory-technology: sampled 20 of 39 unconfirmed answers -> scripts/bank/mined/memory-technology/sample.json
+
+--- haiku call, 16s, exit 0, prompt 4278 chars, stdout 2938 chars
+ier fits deep-cut knowledge."},
+"DRAM": {"member": true, "tier_ok": true, "why": "Real and very common memory kind; Off-by-one is the right tier."},
+"solid-state drive": {"member": true, "tier_ok": true, "why": "Real storage technology built on NAND flash; SSD is its standard abbreviation alias."},
+"NVRAM": {"member": true, "tier_ok": true, "why": "Real named class of non-volatile RAM technologies; non-volatile RAM is a plain alias."},
+"FRAM": {"member": true, "tier_ok": true, "why": "Real ferroelectric memory kind; FeRAM and ferroelectric RAM are plain aliases."},
+"VRAM": {"member": true, "tier_ok": true, "why": "Real graphics memory kind (dual-ported DRAM); video RAM and video memory are plain aliases."},
+"CD-ROM": {"member": true, "tier_ok": true, "why": "Real optical storage format; compact disc is a plain generic alias of the medium."},
+"cache memory": {"member": true, "tier_ok": true, "why": "Named memory kind in computer architecture; CPU cache and processor cache are plain aliases."},
+"USB flash drive": {"member": true, "tier_ok": true, "why": "Real flash storage device kind; thumb drive, USB stick and pen drive are plain names for it."},
+"LPDDR": {"member": true, "tier_ok": true, "why": "Real JEDEC mobile DRAM standard; LPDDR4 and LPDDR5 are generations used as aliases. Race condition is a fair tier for specialists."},
+"CompactFlash": {"member": true, "tier_ok": true, "why": "Real flash memory card format; CF card and CompactFlash card are plain names for it."}}
+```
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py memory-technology score  [0s, exit 0]
+memory-technology: precision 100% (20/20), tier ok 20/20
+

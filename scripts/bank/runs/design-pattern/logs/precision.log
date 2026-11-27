@@ -1,0 +1,18 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py design-pattern sample  [0s, exit 0]
+design-pattern: sampled 20 of 142 unconfirmed answers -> scripts/bank/mined/design-pattern/sample.json
+
+--- haiku call, 28s, exit 0, prompt 3906 chars, stdout 3873 chars
+ that practitioners use by name. Specialist tier fits."},
+"Self Registration": {"member": false, "tier_ok": false, "why": "I cannot place this as a named pattern in the GoF catalogue or a published pattern language. It reads as a descriptive phrase, so when unsure it is out."},
+"Subclass Sandbox": {"member": false, "tier_ok": false, "why": "I cannot confirm this as a named pattern in a published source. It is unsure, so it is out under the strict rule."},
+"Table Inheritance": {"member": false, "tier_ok": false, "why": "Not a named pattern. Fowler's catalogue has Single Table, Class Table and Concrete Table Inheritance; the bare phrase is a fragment of those."},
+"Map-Reduce": {"member": false, "tier_ok": false, "why": "A distributed programming model from Google's paper, not an object-oriented design solution or a GoF or pattern-language entry. Outside the accepts line."},
+"Naked Objects": {"member": true, "tier_ok": false, "why": "Named architectural pattern (Pawson and Matthews, Naked Objects). Niche but not internals-level, so heisenbug is too deep; race or memory leak fits better."},
+"Page Object": {"member": true, "tier_ok": true, "why": "Named test-automation pattern (Selenium community) that practitioners call by name. Many QA and test developers know it, so npe fits."},
+"Resource Acquisition Is Initialization": {"member": true, "tier_ok": true, "why": "Named C++ idiom and pattern (Stroustrup; POSA2 and Meyers-era literature) that C++ developers know well. npe fits."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py design-pattern score  [0s, exit 1]
+design-pattern: precision 80% (16/20), tier ok 14/20
+design-pattern: below 90%; fix the source plan or the filter before approving
+

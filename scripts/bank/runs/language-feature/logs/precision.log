@@ -1,0 +1,10 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py language-feature sample  [0s, exit 0]
+language-feature: sampled 20 of 51 unconfirmed answers -> scripts/bank/mined/language-feature/sample.json
+
+--- haiku call, 23s, exit 0, prompt 4160 chars, stdout 3501 chars
+C++ manuals. 'lambda expression' and 'lambdas' are phrasing variants; 'anonymous function' is a generic name for the same kind."}, "iterator": {"member": true, "tier_ok": true, "why": "Named construct in C++, Python and Java manuals. Plural alias is inflection."}, "default arguments": {"member": true, "tier_ok": true, "why": "Named feature in C++, Python and Kotlin manuals. 'default parameters' is a synonym. 'default values' is too generic and should be dropped."}, "tuple": {"member": true, "tier_ok": true, "why": "Named construct in Python and other language manuals. Plural alias is inflection."}, "list comprehension": {"member": true, "tier_ok": true, "why": "Named Python feature (PEP 202). Plural alias is inflection."}, "multithreading": {"member": true, "tier_ok": true, "why": "Named language capability in Java and other manuals, though it is a broad concept. The alias 'threads' names a different kind and should be dropped."}, "dictionary comprehension": {"member": true, "tier_ok": true, "why": "Named Python feature. 'dict comprehension' is an abbreviation of a kept entry, and the plural is inflection."}, "reflection": {"member": true, "tier_ok": true, "why": "Named capability in Java, C# and Go manuals. 'runtime reflection' is a qualified binding. 'introspection' is looser and arguably a different concept, so it's questionable as an alias."}, "set comprehension": {"member": true, "tier_ok": true, "why": "Named Python feature (PEP 274 era). Plural alias is inflection."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py language-feature score  [0s, exit 0]
+language-feature: precision 100% (20/20), tier ok 20/20
+

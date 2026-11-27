@@ -1,0 +1,467 @@
+{
+ "id": "color-space",
+ "prompt": "Name a color space",
+ "accepts": "Any named color space or encoding defining how color values map to perceived or displayed color.",
+ "answers": [
+  {
+   "name": "RGB",
+   "aliases": [
+    "RGB color",
+    "RGB color space",
+    "Red Green Blue"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "CMYK",
+   "aliases": [
+    "CMYK color",
+    "Cyan Magenta Yellow Key"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "HSV",
+   "aliases": [
+    "HSB",
+    "Hue Saturation Value",
+    "Hue Saturation Brightness"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "HSL",
+   "aliases": [
+    "Hue Saturation Lightness"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "YUV",
+   "aliases": [
+    "YUV color"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "CIELUV",
+   "aliases": [
+    "CIE L*u*v*",
+    "Luv"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Oklab",
+   "aliases": [
+    "Oklab color space"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Adobe RGB (1998)",
+   "aliases": [
+    "Adobe RGB",
+    "adobe_rgb_1998"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DCI-P3",
+   "aliases": [
+    "DCI-P3 color"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Display P3",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Rec. 2020",
+   "aliases": [
+    "BT.2020",
+    "ITU-R BT.2020",
+    "itur_bt_2020"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Rec. 709",
+   "aliases": [
+    "BT.709",
+    "ITU-R BT.709",
+    "itur_bt_709"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NTSC",
+   "aliases": [
+    "NTSC color",
+    "NTSC 1953"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "sRGB",
+   "aliases": [
+    "standard RGB",
+    "IEC 61966-2-1"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CIELAB",
+   "aliases": [
+    "CIE L*a*b*",
+    "Lab"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CIE RGB",
+   "aliases": [
+    "CIE 1931 RGB"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ProPhoto RGB",
+   "aliases": [
+    "ROMM RGB",
+    "RIMM RGB",
+    "rimm_romm_rgb",
+    "ProPhoto",
+    "ROMM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CIE xyY",
+   "aliases": [
+    "xyY",
+    "CIE xyY color",
+    "Yxy"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Grayscale",
+   "aliases": [
+    "Greyscale",
+    "Gray",
+    "Grey"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "YCbCr",
+   "aliases": [
+    "YCC"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "YPbPr",
+   "aliases": [
+    "YPrPb"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "YIQ",
+   "aliases": [
+    "YIQ color"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "HSI",
+   "aliases": [
+    "Hue Saturation Intensity"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "HWB",
+   "aliases": [
+    "Hue Whiteness Blackness"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CIE XYZ",
+   "aliases": [
+    "XYZ",
+    "CIE 1931 XYZ"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Rec. 601",
+   "aliases": [
+    "BT.601",
+    "ITU-R BT.601"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Rec. 2100",
+   "aliases": [
+    "BT.2100",
+    "ITU-R BT.2100"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Linear RGB",
+   "aliases": [
+    "RGB linear",
+    "Linear light RGB"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "scRGB",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ACES",
+   "aliases": [
+    "ACEScg",
+    "ACES AP1",
+    "Academy Color Encoding System"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Adobe Wide Gamut RGB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Apple RGB",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PAL/SECAM",
+   "aliases": [
+    "pal_secam"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SMPTE-C",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Hunter Lab",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DaVinci Wide Gamut",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "P3-D65",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Canon Cinema Gamut",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ColorMatch RGB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DCDM XYZ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ECI RGB v2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Nikon N-Gamut",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Panasonic V-Gamut",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SMPTE 240M",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CAM02-UCS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CAM16-UCS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CIE UCS",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CIE UVW",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DIN99",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "IPT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Jzazbz",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Apple Wide Gamut RGB",
+   "aliases": [
+    "Apple Wide Gamut"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DJI D-Gamut",
+   "aliases": [
+    "D-Gamut"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ITU-R BT.470",
+   "aliases": [
+    "BT.470",
+    "itur_bt_470"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Best RGB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Beta RGB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Don RGB 4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Ekta Space PS 5",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PLASA ANSI E1.54",
+   "aliases": [
+    "plasa_ansi_e154"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Russell RGB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hdr-CIELAB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hdr-IPT",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ICaCb",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "OSA-UCS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "sUCS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EBU 3213-E",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Max RGB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Xtreme RGB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Hunter Rdab",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ProLab",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Ragoo 2021",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Yrg",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IgPgTg",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

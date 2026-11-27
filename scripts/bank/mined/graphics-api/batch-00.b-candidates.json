@@ -1,0 +1,153 @@
+{
+ "graphics-api": [
+  {
+   "name": "OpenGL",
+   "aliases": [
+    "gl1",
+    "gl2",
+    "gl3"
+   ],
+   "judge": "off-by-one",
+   "evidence": "gl1, gl2, gl3 (RetroArch gfx drivers)",
+   "why": "Nearly everyone names it first"
+  },
+  {
+   "name": "Vulkan",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "vulkan (SDL render dirs)",
+   "why": "Widely known modern explicit API"
+  },
+  {
+   "name": "DirectX",
+   "aliases": [
+    "Direct3D",
+    "D3D",
+    "direct3d11",
+    "direct3d12"
+   ],
+   "judge": "off-by-one",
+   "evidence": "direct3d (SDL render dirs)",
+   "why": "Microsoft's famous API suite"
+  },
+  {
+   "name": "OpenGL ES",
+   "aliases": [
+    "opengles2"
+   ],
+   "judge": "npe",
+   "evidence": "opengles, opengles2 (SDL render dirs)",
+   "why": "Mobile and embedded OpenGL subset"
+  },
+  {
+   "name": "Metal",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "metal (SDL render dirs)",
+   "why": "Apple's GPU API"
+  },
+  {
+   "name": "Mantle",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "AMD's early low-level API"
+  },
+  {
+   "name": "Glide",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "3dfx's classic game API"
+  },
+  {
+   "name": "NVN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Nintendo Switch's low-level API"
+  },
+  {
+   "name": "GNM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "PlayStation 4's low-level API"
+  },
+  {
+   "name": "GX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "gx_gfx_libogc (RetroArch gfx drivers)",
+   "why": "GameCube and Wii graphics API"
+  },
+  {
+   "name": "GX2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "gx2_gfx (RetroArch gfx drivers)",
+   "why": "Wii U graphics API"
+  },
+  {
+   "name": "GXM",
+   "aliases": [
+    "vitagxm"
+   ],
+   "judge": "heisenbug",
+   "evidence": "gxm_gfx, vitagxm (RetroArch, SDL)",
+   "why": "PlayStation Vita graphics API"
+  },
+  {
+   "name": "deko3d",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "deko3d (RetroArch gfx drivers)",
+   "why": "Switch's low-level graphics API"
+  },
+  {
+   "name": "OpenVG",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "vg (RetroArch gfx drivers)",
+   "why": "Khronos 2D vector graphics API"
+  },
+  {
+   "name": "SDL_GPU",
+   "aliases": [
+    "sdlgpu3"
+   ],
+   "judge": "heisenbug",
+   "evidence": "imgui_impl_sdlgpu3 (imgui backends)",
+   "why": "SDL's GPU abstraction API"
+  },
+  {
+   "name": "SDL_Renderer",
+   "aliases": [
+    "sdlrenderer2",
+    "sdlrenderer3"
+   ],
+   "judge": "race",
+   "evidence": "imgui_impl_sdlrenderer2 (imgui backends)",
+   "why": "SDL's 2D accelerated renderer"
+  },
+  {
+   "name": "WebGPU",
+   "aliases": [
+    "wgpu"
+   ],
+   "judge": "race",
+   "evidence": "imgui_impl_wgpu (imgui backends)",
+   "why": "Modern web GPU API"
+  }
+ ],
+ "womm_candidates": [
+  "Glide",
+  "deko3d",
+  "GX"
+ ],
+ "bitflip_candidates": [
+  "GXM",
+  "GX2",
+  "OpenVG"
+ ]
+}

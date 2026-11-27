@@ -1,0 +1,102 @@
+{
+ "HSV": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named color model/space in common use; very widely known, so first-pick tier is right."
+ },
+ "Ekta Space PS 5": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Real wide-gamut RGB space (Pointer's Ekta Space PS5) used in raw converters. Obscure, so a deep tier fits."
+ },
+ "PAL/SECAM": {
+  "member": false,
+  "tier_ok": true,
+  "why": "Two distinct TV colour encodings joined by a slash, not one named kind. The alias pal_secam is an identifier, not a name. Keep PAL and SECAM as separate entries if they are wanted."
+ },
+ "ICaCb": {
+  "member": false,
+  "tier_ok": true,
+  "why": "I cannot confirm this as an established colour space name, and the rule says to reject when unsure it exists."
+ },
+ "Panasonic V-Gamut": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named gamut of Panasonic's V-Log camera pipeline. Specialist knowledge, so Race condition fits."
+ },
+ "CAM02-UCS": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named uniform colour space derived from CIECAM02 in the colour science literature. Specialist tier fits."
+ },
+ "DCDM XYZ": {
+  "member": true,
+  "tier_ok": true,
+  "why": "DCDM is the SMPTE digital cinema distribution master, encoded in XYZ. Specialist tier fits."
+ },
+ "Apple Wide Gamut RGB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named ColorSync working space. The alias 'Apple Wide Gamut' is a shortened form and is acceptable as an alias."
+ },
+ "IPT": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Ebner and Fairchild's IPT colour space, a named perceptual space in the literature. Specialist tier fits."
+ },
+ "CAM16-UCS": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named uniform colour space from the CAM16 appearance model. Specialist tier fits."
+ },
+ "ECI RGB v2": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named European Color Initiative RGB working space. Specialist tier fits."
+ },
+ "sRGB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The default web and display colour space (IEC 61966-2-1). Well known to developers, so a shallow tier fits."
+ },
+ "HSL": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Hue-saturation-lightness colour model, familiar from CSS and design tools. First-pick tier fits."
+ },
+ "Russell RGB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named RGB colour space in the standard lists of RGB spaces. Obscure, so a deep tier fits."
+ },
+ "Hunter Lab": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Hunter Lab colour space (1948) used in colour measurement. Domain-expert tier fits."
+ },
+ "NTSC": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named NTSC colour encoding standard, widely known from TV history. 'NTSC color' and 'NTSC 1953' are acceptable aliases."
+ },
+ "Canon Cinema Gamut": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Canon cinema camera gamut. Specialist tier fits."
+ },
+ "SMPTE-C": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named SMPTE C phosphor standard for NTSC-era displays. Domain-expert tier fits."
+ },
+ "ACES": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Academy Color Encoding System. The alias ACEScg is a separate working space (AP1) folded in as an alias, which is borderline but tolerable. Domain-expert tier fits."
+ },
+ "Linear RGB": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Named kind (linear-light RGB), but it is a generic description of a state rather than a single space, so membership is borderline. A Null pointer exception tier is too shallow; it is a specialist concept, closer to Memory leak."
+ }
+}

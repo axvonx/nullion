@@ -1,0 +1,363 @@
+{
+ "bus-standard": [
+  {
+   "name": "AMBA",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ATA",
+   "aliases": [
+    "IDE"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "EISA",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "FireWire",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Greybus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "womm"
+  },
+  {
+   "name": "I2C",
+   "aliases": [
+    "I²C"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "I3C",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "IndustryPack",
+   "aliases": [
+    "ipack"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MCB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NuBus",
+   "aliases": [],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "NVMe",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "PCI",
+   "aliases": [
+    "PCI Local Bus"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "PCMCIA",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PECI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RapidIO",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SBus",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SCSI",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SLIMbus",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SoundWire",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SPI",
+   "aliases": [
+    "Serial Peripheral Interface"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "SPMI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "USB",
+   "aliases": [
+    "Universal Serial Bus"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Zorro",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ADB",
+   "aliases": [
+    "Apple Desktop Bus"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CardBus",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MDIO",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SDIO",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SMBus",
+   "aliases": [
+    "System Management Bus"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "PMBus",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ISA",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "VMBus",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AVSBus",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMEbus",
+   "aliases": [
+    "VME"
+   ],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "CXL",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "DIO",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "GPIB",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "InfiniBand",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MMC",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "MOST",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Thunderbolt",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "UFS",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "1-Wire",
+   "aliases": [
+    "one-wire"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "AGP",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "AHCI",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "HDMI",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "MII",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "UART",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "PCIe",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "CEC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AXI",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "AHB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "MIPI CSI-2",
+   "aliases": [
+    "CSI-2"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "LPC",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "IPMB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "bitflip"
+  },
+  {
+   "name": "HD Audio",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "RS-232",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Multibus",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Memory Stick",
+   "aliases": [
+    "memstick"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "HSI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SIOX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "STBus",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BCMA",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SSB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CDX",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Virtio",
+   "aliases": [],
+   "judge": "race"
+  }
+ ],
+ "_context": {
+  "bus-standard": [
+   "bus",
+   "interface"
+  ]
+ }
+}

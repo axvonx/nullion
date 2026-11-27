@@ -1,0 +1,865 @@
+{
+ "id": "design-pattern",
+ "prompt": "Name a design pattern",
+ "accepts": "Any named reusable object-oriented design solution from the Gang of Four catalogue or a published pattern language, such as Adapter or Decorator.",
+ "answers": [
+  {
+   "name": "Abstract Factory",
+   "aliases": [
+    "Abstract Factory pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Builder",
+   "aliases": [
+    "Builder pattern",
+    "Builder design pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Command",
+   "aliases": [
+    "Command pattern",
+    "Command design pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Decorator",
+   "aliases": [
+    "Decorator pattern",
+    "Decorator design pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Dependency Injection",
+   "aliases": [
+    "Dependency Injection pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Facade",
+   "aliases": [
+    "Facade pattern",
+    "Facade design pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Factory Method",
+   "aliases": [
+    "Factory Method pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Iterator",
+   "aliases": [
+    "Iterator pattern",
+    "Iterator design pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Model-View-Controller",
+   "aliases": [
+    "MVC",
+    "MVC pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Singleton",
+   "aliases": [
+    "Singleton pattern",
+    "Singleton design pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "State",
+   "aliases": [
+    "State pattern",
+    "State design pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Factory",
+   "aliases": [
+    "Factory pattern",
+    "Factory design pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Producer-Consumer",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Publish-Subscribe",
+   "aliases": [
+    "Pub-Sub"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Repository",
+   "aliases": [
+    "Repository pattern",
+    "Repository design pattern"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Monostate",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Multiton",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Curiously Recurring Template Pattern",
+   "aliases": [
+    "CRTP"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Adapter",
+   "aliases": [
+    "Adapter pattern",
+    "Adapter design pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Chain of Responsibility",
+   "aliases": [
+    "Chain of Responsibility pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Circuit Breaker",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Composite",
+   "aliases": [
+    "Composite pattern",
+    "Composite design pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Data Access Object",
+   "aliases": [
+    "DAO"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Data Transfer Object",
+   "aliases": [
+    "DTO"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Fluent Interface",
+   "aliases": [
+    "chaining method"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Flyweight",
+   "aliases": [
+    "Flyweight pattern",
+    "Flyweight design pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Game Loop",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Lazy Loading",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Marker Interface",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Mediator",
+   "aliases": [
+    "Mediator pattern",
+    "Mediator design pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Memento",
+   "aliases": [
+    "Memento pattern",
+    "Memento design pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Model-View-Presenter",
+   "aliases": [
+    "MVP"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Model-View-ViewModel",
+   "aliases": [
+    "MVVM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Object Pool",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Observer",
+   "aliases": [
+    "Observer pattern",
+    "Observer design pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Proxy",
+   "aliases": [
+    "dynamic proxy",
+    "Proxy pattern",
+    "Proxy design pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Resource Acquisition Is Initialization",
+   "aliases": [
+    "RAII"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Service Layer",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Service Locator",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Strategy",
+   "aliases": [
+    "Strategy pattern",
+    "Strategy design pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Template Method",
+   "aliases": [
+    "Template Method pattern",
+    "Template pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Unit of Work",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Value Object",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Visitor",
+   "aliases": [
+    "Visitor pattern",
+    "Visitor design pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Monitor",
+   "aliases": [
+    "Monitor Object"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Null Object",
+   "aliases": [
+    "Null Object pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Page Object",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Parameter Object",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Registry",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Active Record",
+   "aliases": [
+    "Active Record pattern"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Pipes and Filters",
+   "aliases": [
+    "Pipe and Filter",
+    "Pipes and Filter"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Active Object",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Bridge",
+   "aliases": [
+    "Bridge pattern",
+    "Bridge design pattern"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Command Query Responsibility Segregation",
+   "aliases": [
+    "CQRS",
+    "CQRS pattern"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Domain Model",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Double-Checked Locking",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Event Sourcing",
+   "aliases": [
+    "Event Sourcing pattern",
+    "Event sourced"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Interpreter",
+   "aliases": [
+    "Interpreter pattern",
+    "Interpreter design pattern"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Leader Election",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Master-Worker",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Model-View-Intent",
+   "aliases": [
+    "MVI"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Prototype",
+   "aliases": [
+    "Prototype pattern",
+    "Prototype design pattern"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Reactor",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Saga",
+   "aliases": [
+    "Saga pattern",
+    "Saga design pattern"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Transaction Script",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Ambassador",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Anti-Corruption Layer",
+   "aliases": [
+    "ACL"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Data Mapper",
+   "aliases": [
+    "Data Mapper pattern"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Double Buffer",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Double Dispatch",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Event Queue",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Front Controller",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Gateway",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Pipeline",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Poison Pill",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Single Table Inheritance",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Spatial Partition",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Specification",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Strangler Fig",
+   "aliases": [
+    "Strangler"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Trampoline",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Transactional Outbox",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Virtual Proxy",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Write-Ahead Log",
+   "aliases": [
+    "WAL"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Bulkhead",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "API Gateway",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Map-Reduce",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Fork-Join",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Flux",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Thread Pool",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Backends for Frontends",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Load Shedding",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Hexagonal Architecture",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Acyclic Visitor",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Balking",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Business Delegate",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Collecting Parameter",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Composite Entity",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Composite View",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Dirty Flag",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Event Aggregator",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Execute Around",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Guarded Suspension",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Half-Sync/Half-Async",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Identity Map",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Intercepting Filter",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Leader/Followers",
+   "aliases": [
+    "Leader-Follower"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Metadata Mapping",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Object Mother",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Optimistic Offline Lock",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Presentation Model",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Separated Interface",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Session Facade",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Step Builder",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Subclass Sandbox",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Table Module",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Template View",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Thread-Specific Storage",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Tolerant Reader",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Type Object",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "View Helper",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Abstract Document",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Client Session",
+   "aliases": [
+    "Client Session State"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Collection Pipeline",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Context Object",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Data Locality",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Page Controller",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Server Session",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Service Stub",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Special Case",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Table Inheritance",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Update Method",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Async Method Invocation",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Idempotent Consumer",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Self Registration",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Queue-Based Load Leveling",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "BLoC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Extension Object",
+   "aliases": [
+    "Extension Objects"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Factory Kit",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Naked Objects",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Private Class Data",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Role Object",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Serialized LOB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Service to Worker",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Servant",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Event-Based Asynchronous Pattern",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Twin",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

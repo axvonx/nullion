@@ -1,0 +1,15 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/harvest.py x86-instruction  [1s, exit 1]
+Traceback (most recent call last):
+  File "/Users/axvon/nullion/scripts/harvest.py", line 119, in <module>
+    main()
+    ~~~~^^
+  File "/Users/axvon/nullion/scripts/harvest.py", line 74, in main
+    ensure_sparse(spec)
+    ~~~~~~~~~~~~~^^^^^^
+  File "/Users/axvon/nullion/scripts/harvest.py", line 41, in ensure_sparse
+    run("git", "-C", str(dest), "sparse-checkout", "set", *spec["paths"])
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/axvon/nullion/scripts/harvest.py", line 32, in run
+    raise RuntimeError(f"{' '.join(cmd)} failed ({r.returncode}): {r.stderr.strip()[:400]}")
+RuntimeError: git -C /Users/axvon/nullion-corpora/src/nasm sparse-checkout set x86/insns.dat failed (128): fatal: 'x86/insns.dat' is not a directory; to treat it as a directory anyway, rerun with --skip-checks
+

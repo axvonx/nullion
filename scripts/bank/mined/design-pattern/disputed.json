@@ -1,0 +1,854 @@
+[
+ {
+  "name": "Abstract Document",
+  "a": {
+   "name": "Abstract Document",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "abstract-document",
+   "why": "published pattern for flexible, weakly typed object trees"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Ambassador",
+  "a": {
+   "name": "Ambassador",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ambassador",
+   "why": "cloud design pattern offloading client connectivity tasks"
+  },
+  "b": {
+   "name": "Ambassador",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: ambassador",
+   "why": "Microsoft cloud pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Anti-Corruption Layer",
+  "a": {
+   "name": "Anti-Corruption Layer",
+   "aliases": [
+    "ACL"
+   ],
+   "judge": "leak",
+   "evidence": "anti-corruption-layer",
+   "why": "DDD pattern isolating a domain model from external systems"
+  },
+  "b": {
+   "name": "Anti-Corruption Layer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: anti-corruption-layer",
+   "why": "Evans DDD pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Client Session",
+  "a": {
+   "name": "Client Session",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "client-session",
+   "why": "PoEAA pattern storing session state on the client"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Collection Pipeline",
+  "a": {
+   "name": "Collection Pipeline",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "collection-pipeline",
+   "why": "Martin Fowler pattern chaining operations over collections"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Context Object",
+  "a": {
+   "name": "Context Object",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "context-object",
+   "why": "Core J2EE pattern encapsulating protocol-independent request state"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Curiously Recurring Template Pattern",
+  "a": {
+   "name": "Curiously Recurring Template Pattern",
+   "aliases": [
+    "CRTP"
+   ],
+   "judge": "leak",
+   "evidence": "curiously-recurring-template-pattern",
+   "why": "C++ static polymorphism pattern"
+  },
+  "b": {
+   "name": "Curiously Recurring Template Pattern",
+   "aliases": [
+    "CRTP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: curiously-recurring-template-pattern",
+   "why": "named C++ idiom"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Data Locality",
+  "a": {
+   "name": "Data Locality",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "data-locality",
+   "why": "Game Programming Patterns pattern for CPU cache-friendly layout"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Data Mapper",
+  "a": {
+   "name": "Data Mapper",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "data-mapper",
+   "why": "PoEAA pattern separating domain objects from database schema"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Double Buffer",
+  "a": {
+   "name": "Double Buffer",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "double-buffer",
+   "why": "Game Programming Patterns pattern for atomic state/frame swaps"
+  },
+  "b": {
+   "name": "Double Buffer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: double-buffer",
+   "why": "Game Programming Patterns entry"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Double Dispatch",
+  "a": {
+   "name": "Double Dispatch",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "double-dispatch",
+   "why": "OO pattern underlying Visitor for runtime dispatch on two types"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Event Queue",
+  "a": {
+   "name": "Event Queue",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "event-queue",
+   "why": "Game Programming Patterns pattern decoupling event emission and handling"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Factory",
+  "a": {
+   "name": "Factory",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "factory",
+   "why": "ubiquitous creational pattern"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Front Controller",
+  "a": {
+   "name": "Front Controller",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "front-controller",
+   "why": "PoEAA/J2EE pattern routing all requests through a single handler"
+  },
+  "b": {
+   "name": "Front Controller",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: front-controller; faif front_controller",
+   "why": "J2EE enterprise pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Gateway",
+  "a": {
+   "name": "Gateway",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "gateway",
+   "why": "PoEAA pattern encapsulating access to an external system"
+  },
+  "b": {
+   "name": "Gateway",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: gateway",
+   "why": "Fowler enterprise pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Monitor",
+  "a": {
+   "name": "Monitor",
+   "aliases": [
+    "Monitor Object"
+   ],
+   "judge": "leak",
+   "evidence": "monitor",
+   "why": "POSA2 concurrency pattern synchronizing object method execution"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Null Object",
+  "a": {
+   "name": "Null Object",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "null-object",
+   "why": "pattern replacing null references with a neutral-behavior object"
+  },
+  "b": {
+   "name": "Null Object",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: null-object",
+   "why": "Object-oriented null replacement"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Page Controller",
+  "a": {
+   "name": "Page Controller",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "page-controller",
+   "why": "PoEAA pattern handling requests for a specific web page"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Page Object",
+  "a": {
+   "name": "Page Object",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "page-object",
+   "why": "Martin Fowler UI testing pattern"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Parameter Object",
+  "a": {
+   "name": "Parameter Object",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "parameter-object",
+   "why": "refactoring/design pattern grouping related parameters into an object"
+  },
+  "b": {
+   "name": "Parameter Object",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: parameter-object",
+   "why": "named refactoring pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Pipeline",
+  "a": {
+   "name": "Pipeline",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "pipeline",
+   "why": "pattern chaining processing stages sequentially"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Poison Pill",
+  "a": {
+   "name": "Poison Pill",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "poison-pill",
+   "why": "concurrency pattern signaling consumers to shut down via a sentinel message"
+  },
+  "b": {
+   "name": "Poison Pill",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: poison-pill",
+   "why": "Hohpe messaging pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Producer-Consumer",
+  "a": {
+   "name": "Producer-Consumer",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "producer-consumer",
+   "why": "classic concurrency pattern"
+  },
+  "b": {
+   "name": "Producer-Consumer",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: producer-consumer",
+   "why": "classic concurrency pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Publish-Subscribe",
+  "a": {
+   "name": "Publish-Subscribe",
+   "aliases": [
+    "Pub-Sub"
+   ],
+   "judge": "off-by-one",
+   "evidence": "publish-subscribe",
+   "why": "ubiquitous messaging pattern"
+  },
+  "b": {
+   "name": "Publish-Subscribe",
+   "aliases": [
+    "pub-sub"
+   ],
+   "judge": "leak",
+   "evidence": "iluwatar dir: publish-subscribe; faif publish_subscribe",
+   "why": "named messaging pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Registry",
+  "a": {
+   "name": "Registry",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "registry",
+   "why": "PoEAA pattern for a well-known lookup object"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Repository",
+  "a": {
+   "name": "Repository",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "repository",
+   "why": "PoEAA/DDD pattern mediating between domain and data mapping"
+  },
+  "b": {
+   "name": "Repository",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: repository",
+   "why": "DDD pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Servant",
+  "a": {
+   "name": "Servant",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "servant",
+   "why": "pattern defining common functionality for a group of classes via a helper"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Server Session",
+  "a": {
+   "name": "Server Session",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "server-session",
+   "why": "PoEAA pattern storing session state on the server"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Service Stub",
+  "a": {
+   "name": "Service Stub",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "service-stub",
+   "why": "PoEAA pattern removing dependence on problematic services during testing"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Single Table Inheritance",
+  "a": {
+   "name": "Single Table Inheritance",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "single-table-inheritance",
+   "why": "PoEAA pattern mapping an inheritance hierarchy to one database table"
+  },
+  "b": {
+   "name": "Single Table Inheritance",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: single-table-inheritance",
+   "why": "Fowler enterprise pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Spatial Partition",
+  "a": {
+   "name": "Spatial Partition",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "spatial-partition",
+   "why": "Game Programming Patterns pattern for fast spatial queries"
+  },
+  "b": {
+   "name": "Spatial Partition",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: spatial-partition",
+   "why": "Game Programming Patterns entry"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Special Case",
+  "a": {
+   "name": "Special Case",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "special-case",
+   "why": "PoEAA pattern generalizing Null Object for special-case behavior"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Specification",
+  "a": {
+   "name": "Specification",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "specification",
+   "why": "Eric Evans / Martin Fowler pattern for composable business rules"
+  },
+  "b": {
+   "name": "Specification",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: specification",
+   "why": "Evans DDD pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Strangler Fig",
+  "a": {
+   "name": "Strangler Fig",
+   "aliases": [
+    "Strangler"
+   ],
+   "judge": "leak",
+   "evidence": "strangler",
+   "why": "Martin Fowler pattern for incrementally replacing a legacy system"
+  },
+  "b": {
+   "name": "Strangler Fig",
+   "aliases": [
+    "strangler"
+   ],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: strangler",
+   "why": "Fowler migration pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Table Inheritance",
+  "a": {
+   "name": "Table Inheritance",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "table-inheritance",
+   "why": "PoEAA pattern mapping inheritance hierarchies to relational tables"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Trampoline",
+  "a": {
+   "name": "Trampoline",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "trampoline",
+   "why": "pattern converting recursion into iteration via thunks"
+  },
+  "b": {
+   "name": "Trampoline",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: trampoline",
+   "why": "named tail-call pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Transactional Outbox",
+  "a": {
+   "name": "Transactional Outbox",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "transactional-outbox",
+   "why": "pattern reliably publishing events alongside database updates"
+  },
+  "b": {
+   "name": "Transactional Outbox",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: transactional-outbox",
+   "why": "named messaging pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Twin",
+  "a": {
+   "name": "Twin",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "twin",
+   "why": "pattern simulating multiple inheritance in single-inheritance languages"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Update Method",
+  "a": {
+   "name": "Update Method",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "update-method",
+   "why": "Game Programming Patterns pattern advancing entities one frame at a time"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Virtual Proxy",
+  "a": {
+   "name": "Virtual Proxy",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "virtual-proxy",
+   "why": "Proxy variant deferring creation of expensive objects"
+  },
+  "b": {
+   "name": "Virtual Proxy",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: virtual-proxy",
+   "why": "named proxy variant"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Write-Ahead Log",
+  "a": {
+   "name": "Write-Ahead Log",
+   "aliases": [
+    "WAL"
+   ],
+   "judge": "leak",
+   "evidence": "write-ahead-log",
+   "why": "durability pattern logging changes before applying them"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Bulkhead",
+  "a": null,
+  "b": {
+   "name": "Bulkhead",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: microservices-bulkhead",
+   "why": "named resilience pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "API Gateway",
+  "a": null,
+  "b": {
+   "name": "API Gateway",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: microservices-api-gateway",
+   "why": "named microservices pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Map-Reduce",
+  "a": null,
+  "b": {
+   "name": "Map-Reduce",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: map-reduce",
+   "why": "named distributed pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Fork-Join",
+  "a": null,
+  "b": {
+   "name": "Fork-Join",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: fork-join",
+   "why": "named parallel pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Flux",
+  "a": null,
+  "b": {
+   "name": "Flux",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: flux",
+   "why": "named front-end architecture pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Thread Pool",
+  "a": null,
+  "b": {
+   "name": "Thread Pool",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: thread-pool-executor",
+   "why": "named concurrency pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Async Method Invocation",
+  "a": null,
+  "b": {
+   "name": "Async Method Invocation",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: async-method-invocation",
+   "why": "POSA concurrency pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Backends for Frontends",
+  "a": null,
+  "b": {
+   "name": "Backends for Frontends",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: backends-for-frontends",
+   "why": "named cloud pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Idempotent Consumer",
+  "a": null,
+  "b": {
+   "name": "Idempotent Consumer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: microservices-idempotent-consumer",
+   "why": "Hohpe messaging pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Load Shedding",
+  "a": null,
+  "b": {
+   "name": "Load Shedding",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: microservices-load-shedding",
+   "why": "named resilience pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Distributed Tracing",
+  "a": null,
+  "b": {
+   "name": "Distributed Tracing",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: microservices-distributed-tracing",
+   "why": "named microservices pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Self Registration",
+  "a": null,
+  "b": {
+   "name": "Self Registration",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: microservices-self-registration",
+   "why": "named microservices pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Queue-Based Load Leveling",
+  "a": null,
+  "b": {
+   "name": "Queue-Based Load Leveling",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: queue-based-load-leveling",
+   "why": "named cloud pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Hexagonal Architecture",
+  "a": null,
+  "b": {
+   "name": "Hexagonal Architecture",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: hexagonal-architecture",
+   "why": "Cockburn's ports-and-adapters pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Money",
+  "a": null,
+  "b": {
+   "name": "Money",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: money",
+   "why": "Fowler value pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Version Number",
+  "a": null,
+  "b": {
+   "name": "Version Number",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: version-number",
+   "why": "Fowler concurrency pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Event-Based Asynchronous Pattern",
+  "a": null,
+  "b": {
+   "name": "Event-Based Asynchronous Pattern",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: event-based-asynchronous",
+   "why": "named Microsoft async pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Client Session State",
+  "a": null,
+  "b": {
+   "name": "Client Session State",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: client-session",
+   "why": "Fowler session pattern"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "BLoC",
+  "a": null,
+  "b": {
+   "name": "BLoC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: bloc",
+   "why": "named Flutter architecture pattern"
+  },
+  "batch": "batch-00.txt"
+ }
+]

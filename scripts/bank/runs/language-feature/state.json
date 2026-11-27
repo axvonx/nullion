@@ -1,0 +1,136 @@
+{
+ "id": "language-feature",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T23:04:37+00:00",
+   "seconds": 11,
+   "finished": "2026-11-27T23:04:47+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T23:04:47+00:00",
+   "seconds": 3,
+   "finished": "2026-11-27T23:04:50+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T23:04:50+00:00",
+   "seconds": 23,
+   "finished": "2026-11-27T23:05:13+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T23:05:13+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:05:13+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T23:05:13+00:00",
+   "seconds": 15,
+   "finished": "2026-11-27T23:05:28+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T23:05:28+00:00",
+   "seconds": 7,
+   "finished": "2026-11-27T23:05:35+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T23:05:35+00:00",
+   "seconds": 31,
+   "finished": "2026-11-27T23:06:06+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T23:06:06+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:06:06+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T23:06:06+00:00",
+   "seconds": 21,
+   "finished": "2026-11-27T23:06:27+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T23:06:27+00:00",
+   "seconds": 23,
+   "finished": "2026-11-27T23:06:50+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T23:06:50+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:06:50+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "47/47 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "53/54 answers have a verified link (98%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "20/20 sampled answers are members (100%), 20/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/language-feature.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (generator-based coroutine; static polymorphism, dynamic dispatch): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/language-feature.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 84,
+  "summary": "language-feature: 80 mined lines from 4 sources -> 1 batches in scripts/bank/mined/language-feature"
+ },
+ "filter": [
+  "batch-00.a: 14 kept",
+  "batch-00.b: 14 kept"
+ ],
+ "compare": "language-feature: 13 agreed, 2 disputed (13%) across 1 batches",
+ "escalate": "2 disputes -> 2 kept (0 low-confidence -> Inbox), 0 dropped",
+ "pins": {
+  "bitflip": "generator-based coroutine",
+  "womm": [
+   "static polymorphism",
+   "dynamic dispatch"
+  ]
+ },
+ "merge": "15 tiered answers, 7 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "language-feature: 14 aliases, 39 new answers, 3 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "53/54 answers linked across 1 categories",
+  "dropped as broken: {}",
+  "1 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/language-feature.md"
+}

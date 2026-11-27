@@ -1,0 +1,9 @@
+$ bash /Users/axvon/nullion/design/links/run.sh web-framework  [27s, exit 0]
+web-framework: 115 / 126 linked
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/verify-links.py web-framework  [3s, exit 0]
+wikipedia 46/46
+59/126 answers linked across 1 categories
+dropped as broken: {'wikipedia missing': 4, 'http 404': 2}
+50 links on other hosts left out → design/links/review.txt
+

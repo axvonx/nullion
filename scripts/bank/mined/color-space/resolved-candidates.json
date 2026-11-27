@@ -1,0 +1,130 @@
+{
+ "color-space": [
+  {
+   "name": "Apple Wide Gamut RGB",
+   "aliases": [
+    "Apple Wide Gamut",
+    "apple_wide_gamut"
+   ],
+   "judge": "race",
+   "why": "Apple wide-gamut RGB color space (merged with Apple Wide Gamut)"
+  },
+  {
+   "name": "CIE RGB",
+   "aliases": [
+    "cie_rgb"
+   ],
+   "judge": "npe",
+   "why": "1931 CIE primary RGB color space"
+  },
+  {
+   "name": "DaVinci Wide Gamut",
+   "aliases": [
+    "davinci_wide_gamut"
+   ],
+   "judge": "leak",
+   "why": "wide-gamut color space used in DaVinci Resolve"
+  },
+  {
+   "name": "DJI D-Gamut",
+   "aliases": [
+    "D-Gamut",
+    "dji_d_gamut"
+   ],
+   "judge": "race",
+   "why": "wide-gamut color space for DJI cinema cameras (merged with D-Gamut)"
+  },
+  {
+   "name": "EBU 3213-E",
+   "aliases": [
+    "ebu_3213_e"
+   ],
+   "judge": "heisenbug",
+   "why": "European Broadcasting Union PAL/SECAM phosphor primaries"
+  },
+  {
+   "name": "ITU-R BT.470",
+   "aliases": [
+    "BT.470",
+    "itur_bt_470"
+   ],
+   "judge": "race",
+   "why": "analog television colorimetry standard"
+  },
+  {
+   "name": "Max RGB",
+   "aliases": [
+    "max_rgb"
+   ],
+   "judge": "heisenbug",
+   "why": "wide-gamut RGB working space"
+  },
+  {
+   "name": "P3-D65",
+   "aliases": [
+    "p3_d65"
+   ],
+   "judge": "leak",
+   "why": "D65 white-point variant of DCI-P3"
+  },
+  {
+   "name": "ProPhoto RGB",
+   "aliases": [
+    "ROMM RGB",
+    "RIMM RGB",
+    "rimm_romm_rgb"
+   ],
+   "judge": "npe",
+   "why": "wide-gamut RGB color space by Kodak (ROMM RGB)"
+  },
+  {
+   "name": "Xtreme RGB",
+   "aliases": [
+    "xtreme_rgb"
+   ],
+   "judge": "heisenbug",
+   "why": "wide-gamut RGB working space"
+  },
+  {
+   "name": "CIE xyY",
+   "aliases": [
+    "xyY",
+    "cie_xyy"
+   ],
+   "judge": "npe",
+   "why": "chromaticity-luminance color space derived from CIE XYZ"
+  },
+  {
+   "name": "Hunter Rdab",
+   "aliases": [
+    "hunter_rdab"
+   ],
+   "judge": "heisenbug",
+   "why": "Hunter color space variant using Rd instead of L"
+  },
+  {
+   "name": "ProLab",
+   "aliases": [
+    "prolab"
+   ],
+   "judge": "heisenbug",
+   "why": "projective transformation of CIE XYZ for perceptual uniformity"
+  },
+  {
+   "name": "Ragoo 2021",
+   "aliases": [
+    "ragoo2021"
+   ],
+   "judge": "heisenbug",
+   "why": "perceptual color space proposed by Ragoo and colleagues"
+  },
+  {
+   "name": "Yrg",
+   "aliases": [
+    "yrg"
+   ],
+   "judge": "heisenbug",
+   "why": "luminance and red-green chromaticity color space"
+  }
+ ]
+}

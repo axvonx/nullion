@@ -1,0 +1,141 @@
+{
+ "memory-technology": [
+  {
+   "name": "DRAM",
+   "aliases": [
+    "dynamic RAM",
+    "dram memory"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "flash memory",
+   "aliases": [
+    "flash"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "read-only memory",
+   "aliases": [
+    "ROM"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "VRAM",
+   "aliases": [
+    "video RAM",
+    "vram memory"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "NAND flash",
+   "aliases": [
+    "NAND"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "NOR flash",
+   "aliases": [
+    "NOR",
+    "SPI-NOR"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "High Bandwidth Memory",
+   "aliases": [
+    "HBM"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "DDR",
+   "aliases": [
+    "DDR SDRAM",
+    "ddr memory"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "DDR4",
+   "aliases": [
+    "DDR4 SDRAM",
+    "ddr4 memory"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "LPDDR",
+   "aliases": [
+    "low-power DDR"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "ECC memory",
+   "aliases": [
+    "ECC RAM"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CompactFlash",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "serial flash",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "OTP memory",
+   "aliases": [
+    "one-time programmable memory"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "DataFlash",
+   "aliases": [],
+   "judge": "race",
+   "pin": "bitflip"
+  },
+  {
+   "name": "RAM",
+   "aliases": [
+    "ram memory"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "persistent memory",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "core memory",
+   "aliases": [],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "CXL memory",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  }
+ ],
+ "_context": {
+  "memory-technology": [
+   "memory",
+   "RAM",
+   "ROM"
+  ]
+ }
+}

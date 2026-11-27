@@ -1,0 +1,26 @@
+--- haiku call, 24s, exit 0, prompt 1872 chars, stdout 3811 chars
+tached SCSI"], "tier": "npe"},
+  {"name": "HyperTransport", "aliases": ["HT bus", "Hyper Transport"], "tier": "npe"},
+  {"name": "QuickPath Interconnect", "aliases": ["QPI", "Intel QPI"], "tier": "npe"},
+  {"name": "CAN bus", "aliases": ["Controller Area Network", "CAN"], "tier": "npe"},
+  {"name": "1-Wire", "aliases": ["One-Wire", "Dallas 1-Wire", "1 Wire"], "tier": "npe"},
+  {"name": "PS/2", "aliases": ["PS/2 port", "PS2", "IBM PS/2"], "tier": "npe"},
+  {"name": "Lightning", "aliases": ["Apple Lightning", "Lightning connector"], "tier": "npe"},
+  {"name": "MIPI", "aliases": ["Mobile Industry Processor Interface", "MIPI CSI", "MIPI DSI"], "tier": "npe"},
+  {"name": "I2S", "aliases": ["I²S", "Inter-IC Sound"], "tier": "npe"},
+  {"name": "GPIB", "aliases": ["IEEE 488", "General Purpose Interface Bus", "HP-IB"], "tier": "npe"},
+  {"name": "ADB", "aliases": ["Apple Desktop Bus", "Apple ADB"], "tier": "npe"},
+  {"name": "VMEbus", "aliases": ["VME bus", "VERSAmodule Eurocard bus", "VME"], "tier": "npe"},
+  {"name": "Unibus", "aliases": ["UNIBUS", "DEC Unibus", "Q-bus"], "tier": "npe"},
+  {"name": "CompactPCI", "aliases": ["cPCI", "Compact PCI"], "tier": "npe"},
+  {"name": "DisplayPort", "aliases": ["Display Port", "DP"], "tier": "npe"},
+  {"name": "VGA", "aliases": ["Video Graphics Array", "D-Sub 15"], "tier": "npe"},
+  {"name": "RS-485", "aliases": ["RS485", "EIA-485"], "tier": "npe"},
+  {"name": "Centronics", "aliases": ["IEEE 1284", "Centronics parallel"], "tier": "npe"}
+]
+```
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py bus-standard  [0s, exit 0]
+bus-standard: 44 aliases, 18 new answers, 0 promoted from the Inbox
+

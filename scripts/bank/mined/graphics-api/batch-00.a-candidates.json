@@ -1,0 +1,111 @@
+{
+  "graphics-api": [
+    {
+      "name": "Direct3D",
+      "aliases": ["D3D", "Direct3D 11", "Direct3D 12", "D3D11", "D3D12", "Direct3D 9", "D3D9", "Direct3D 10", "D3D10", "Direct3D 8", "D3D8"],
+      "judge": "off-by-one",
+      "evidence": "direct3d (libsdl-org/SDL/src/render)",
+      "why": "Microsoft's flagship 3D graphics API"
+    },
+    {
+      "name": "OpenGL",
+      "aliases": ["OpenGL 2", "OpenGL 3"],
+      "judge": "off-by-one",
+      "evidence": "opengl (libsdl-org/SDL/src/render)",
+      "why": "Cross-platform 2D and 3D graphics API"
+    },
+    {
+      "name": "Vulkan",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "vulkan (libretro/RetroArch/gfx/drivers)",
+      "why": "Modern low-overhead cross-platform GPU API"
+    },
+    {
+      "name": "Metal",
+      "aliases": ["Apple Metal", "Metal 4"],
+      "judge": "npe",
+      "evidence": "metal (libretro/RetroArch/gfx/drivers)",
+      "why": "Apple's low-level GPU rendering and compute API"
+    },
+    {
+      "name": "OpenGL ES",
+      "aliases": ["GLES", "OpenGL ES 2.0", "GLES2"],
+      "judge": "npe",
+      "evidence": "opengles (libsdl-org/SDL/src/render)",
+      "why": "Embedded and mobile subset of OpenGL"
+    },
+    {
+      "name": "WebGPU",
+      "aliases": ["wgpu"],
+      "judge": "npe",
+      "evidence": "imgui_impl_wgpu (ocornut/imgui/backends)",
+      "why": "Modern web and cross-platform GPU API"
+    },
+    {
+      "name": "GDI",
+      "aliases": ["Windows GDI"],
+      "judge": "npe",
+      "evidence": "gdi_gfx (libretro/RetroArch/gfx/drivers)",
+      "why": "Classic Windows 2D graphics device interface"
+    },
+    {
+      "name": "OpenVG",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "vg (libretro/RetroArch/gfx/drivers)",
+      "why": "Khronos hardware-accelerated 2D vector graphics API"
+    },
+    {
+      "name": "SDL_gpu",
+      "aliases": ["SDL GPU", "SDL3 GPU"],
+      "judge": "leak",
+      "evidence": "imgui_impl_sdlgpu3 (ocornut/imgui/backends)",
+      "why": "SDL3's cross-platform GPU rendering and compute API"
+    },
+    {
+      "name": "GXM",
+      "aliases": ["libgxm", "sceGxm", "Vita GXM"],
+      "judge": "race",
+      "evidence": "vitagxm (libsdl-org/SDL/src/render)",
+      "why": "PlayStation Vita's low-level graphics API"
+    },
+    {
+      "name": "GX2",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "gx2_gfx (libretro/RetroArch/gfx/drivers)",
+      "why": "Nintendo Wii U's graphics API"
+    },
+    {
+      "name": "GX",
+      "aliases": ["libogc GX"],
+      "judge": "race",
+      "evidence": "gx_gfx_libogc (libretro/RetroArch/gfx/drivers)",
+      "why": "Nintendo GameCube and Wii graphics API"
+    },
+    {
+      "name": "DispmanX",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "dispmanx_gfx (libretro/RetroArch/gfx/drivers)",
+      "why": "Raspberry Pi VideoCore 2D composition API"
+    },
+    {
+      "name": "XVideo",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "xvideo (libretro/RetroArch/gfx/drivers)",
+      "why": "X11 hardware-accelerated video rendering extension API"
+    },
+    {
+      "name": "deko3d",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "deko3d (libretro/RetroArch/gfx/drivers)",
+      "why": "Open-source low-level GPU API for Nintendo Switch"
+    }
+  ],
+  "womm_candidates": ["OpenVG", "WebGPU", "GDI"],
+  "bitflip_candidates": ["deko3d", "GXM", "GX2"]
+}

@@ -1,0 +1,56 @@
+{
+ "memory-technology": [
+  {
+   "name": "DRAM",
+   "aliases": [
+    "dynamic RAM",
+    "dram memory"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "flash memory",
+   "aliases": [
+    "flash"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "read-only memory",
+   "aliases": [
+    "ROM"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "VRAM",
+   "aliases": [
+    "video RAM",
+    "vram memory"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "NAND flash",
+   "aliases": [
+    "NAND"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "NOR flash",
+   "aliases": [
+    "NOR",
+    "SPI-NOR"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "High Bandwidth Memory",
+   "aliases": [
+    "HBM"
+   ],
+   "judge": "leak"
+  }
+ ]
+}

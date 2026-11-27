@@ -1,0 +1,10 @@
+$ bash /Users/axvon/nullion/design/links/run.sh bus-standard  [26s, exit 0]
+bus-standard: 68 / 83 linked
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/verify-links.py bus-standard  [0s, exit 0]
+wikipedia 50/64
+wikipedia 64/64
+67/83 answers linked across 1 categories
+dropped as broken: {'wikipedia missing': 1}
+0 links on other hosts left out → design/links/review.txt
+

@@ -1,0 +1,102 @@
+{
+ "coroutine": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named language construct (coroutines in Python, Kotlin, C++20, Go-style manuals). Plural alias is fine."
+ },
+ "destructuring": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named feature in JS, Python and Rust manuals. Plausibly known by many programmers."
+ },
+ "preprocessor macro": {
+  "member": true,
+  "tier_ok": true,
+  "why": "C standard construct (C11 6.10). Aliases 'macros' and 'macro' are inflection or a generic form. 'C macros' is a qualified binding, acceptable."
+ },
+ "dynamic typing": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named typing discipline that language manuals and papers use by name. Common among programmers."
+ },
+ "pointers": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Core named construct in C and C++ manuals. Off-by-one tier fits; 'pointer' is inflection, 'raw pointers' is a Rust/C++ kind."
+ },
+ "exception handling": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named language feature in every major language manual. 'try catch' is a keyword binding of the same feature, so it's an alias."
+ },
+ "struct": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named construct in the C standard and in Rust and Go manuals. 'structs' is inflection; 'structure' is a synonym."
+ },
+ "const": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named qualifier in C, C++ and JS manuals. Alias 'final' is a common English word and too generic; drop it. 'constants' names a different concept, so it's questionable as an alias."
+ },
+ "goto": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named construct in C and Go manuals. 'goto statement' is a plain binding."
+ },
+ "function-like macro": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named C standard term (C11 6.10.3), a kind of preprocessor macro. Specialist tier fits."
+ },
+ "decorators": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Python feature (PEP 318). 'decorator' is inflection; 'function decorators' is a qualified binding."
+ },
+ "lambda": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named construct in Python, Java and C++ manuals. 'lambda expression' and 'lambdas' are phrasing variants; 'anonymous function' is a generic name for the same kind."
+ },
+ "iterator": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named construct in C++, Python and Java manuals. Plural alias is inflection."
+ },
+ "default arguments": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named feature in C++, Python and Kotlin manuals. 'default parameters' is a synonym. 'default values' is too generic and should be dropped."
+ },
+ "tuple": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named construct in Python and other language manuals. Plural alias is inflection."
+ },
+ "list comprehension": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Python feature (PEP 202). Plural alias is inflection."
+ },
+ "multithreading": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named language capability in Java and other manuals, though it is a broad concept. The alias 'threads' names a different kind and should be dropped."
+ },
+ "dictionary comprehension": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Python feature. 'dict comprehension' is an abbreviation of a kept entry, and the plural is inflection."
+ },
+ "reflection": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named capability in Java, C# and Go manuals. 'runtime reflection' is a qualified binding. 'introspection' is looser and arguably a different concept, so it's questionable as an alias."
+ },
+ "set comprehension": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Python feature (PEP 274 era). Plural alias is inflection."
+ }
+}

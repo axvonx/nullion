@@ -1,0 +1,25 @@
+--- haiku call, 20s, exit 0, prompt 1875 chars, stdout 3314 chars
+r": "off-by-one"},
+  {"name": "core memory", "aliases": ["magnetic core memory", "magnetic core"], "tier": "npe"},
+  {"name": "magnetic tape", "aliases": ["tape", "tape drive"], "tier": "npe"},
+  {"name": "floppy disk", "aliases": ["floppy", "floppy drive"], "tier": "npe"},
+  {"name": "CD-ROM", "aliases": ["compact disc read-only memory", "compact disc"], "tier": "npe"},
+  {"name": "DVD", "aliases": ["digital versatile disc", "DVD-ROM"], "tier": "npe"},
+  {"name": "cache memory", "aliases": ["CPU cache", "processor cache"], "tier": "npe"},
+  {"name": "NVRAM", "aliases": ["non-volatile RAM", "nonvolatile RAM"], "tier": "npe"},
+  {"name": "MRAM", "aliases": ["magnetoresistive RAM", "magnetoresistive random access memory"], "tier": "npe"},
+  {"name": "FRAM", "aliases": ["FeRAM", "ferroelectric RAM"], "tier": "npe"},
+  {"name": "ReRAM", "aliases": ["RRAM", "resistive RAM"], "tier": "npe"},
+  {"name": "phase-change memory", "aliases": ["PCM", "PRAM"], "tier": "npe"},
+  {"name": "3D XPoint", "aliases": ["Optane", "3D Xpoint"], "tier": "npe"},
+  {"name": "CompactFlash", "aliases": ["CF card", "CompactFlash card"], "tier": "npe"},
+  {"name": "SD card", "aliases": ["Secure Digital", "SD memory card"], "tier": "npe"},
+  {"name": "USB flash drive", "aliases": ["thumb drive", "USB stick", "pen drive"], "tier": "npe"},
+  {"name": "drum memory", "aliases": ["magnetic drum", "drum storage"], "tier": "npe"},
+  {"name": "bubble memory", "aliases": ["magnetic bubble memory"], "tier": "npe"}
+]
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py memory-technology  [0s, exit 0]
+memory-technology: 16 aliases, 24 new answers, 1 promoted from the Inbox
+

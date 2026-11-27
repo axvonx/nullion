@@ -1,0 +1,1387 @@
+## source: torvalds/linux/drivers (dir names)
+accel
+accessibility
+acpi
+amba
+android
+ata
+atm
+auxdisplay
+base
+bcma
+block
+bluetooth
+bus
+cache
+cdrom
+cdx
+char
+clk
+clocksource
+comedi
+connector
+counter
+cpufreq
+cpuidle
+crypto
+cxl
+dax
+dca
+devfreq
+dibs
+dio
+dma
+dma-buf
+dpll
+edac
+eisa
+extcon
+firewire
+firmware
+fpga
+fsi
+fwctl
+gnss
+gpib
+gpio
+gpu
+greybus
+hid
+hsi
+hte
+hv
+hwmon
+hwspinlock
+hwtracing
+i2c
+i3c
+idle
+iio
+infiniband
+input
+interconnect
+iommu
+ipack
+irqchip
+leds
+macintosh
+mailbox
+mcb
+md
+media
+memory
+memstick
+message
+mfd
+misc
+mmc
+most
+mtd
+mux
+net
+nfc
+ntb
+nubus
+nvdimm
+nvme
+nvmem
+of
+opp
+parisc
+parport
+pci
+pcmcia
+peci
+perf
+phy
+pinctrl
+platform
+pmdomain
+pnp
+power
+powercap
+pps
+ps3
+ptp
+pwm
+rapidio
+ras
+regulator
+remoteproc
+resctrl
+reset
+rpmsg
+rtc
+s390
+sbus
+scsi
+sh
+siox
+slimbus
+soc
+soundwire
+spi
+spmi
+ssb
+staging
+target
+tc
+tee
+thermal
+thunderbolt
+tty
+ufs
+uio
+usb
+vdpa
+vfio
+vhost
+video
+virt
+virtio
+w1
+watchdog
+xen
+zorro
+## source: freebsd/freebsd-src/sys/dev (dir names)
+aac
+aacraid
+acpi_apple
+acpi_support
+acpica
+adb
+adlink
+ae
+age
+agp
+ahci
+aic7xxx
+al_eth
+alc
+ale
+alpm
+amd_ecc_inject
+amdgpio
+amdpm
+amdsbwd
+amdsmb
+amdsmn
+amdsmu
+amdtemp
+apple_bce
+aq
+arcmsr
+asmc
+ata
+ath
+atkbdc
+atopcase
+axgbe
+backlight
+bce
+bfe
+bge
+bhnd
+bnxt
+bwi
+bwn
+bxe
+cadence
+cardbus
+cas
+cesa
+cfe
+cfi
+chromebook_platform
+ciss
+clk
+coreboot
+coretemp
+cpuctl
+cpufreq
+cxgb
+cxgbe
+cyapa
+dc
+dcons
+dialog
+dpaa
+dpaa2
+dpms
+drm2
+dwc
+dwwdt
+e1000
+efidev
+ena
+enetc
+enic
+eqos
+et
+etherswitch
+evdev
+exca
+fb
+fdc
+fdt
+ffec
+filemon
+firewire
+firmware
+flash
+ftgpio
+ftwd
+fxp
+gem
+glxiic
+glxsb
+goldfish
+gpio
+gve
+hdmi
+hid
+hpt27xx
+hptiop
+hptmv
+hptnr
+hptrr
+hwpmc
+hwreset
+hwt
+hyperv
+iavf
+ic
+ice
+ichiic
+ichsmb
+ichwd
+ida
+igc
+iicbus
+imcsmb
+intel
+intpm
+io
+ioat
+iommu
+ipmi
+ips
+ipw
+irdma
+isci
+iscsi
+iser
+isl
+ismt
+isp
+ispfw
+itwd
+iwi
+iwm
+iwn
+iwx
+ixgbe
+ixl
+jedec_dimm
+jme
+kbd
+kbdmux
+ksyms
+kvm_clock
+led
+lge
+liquidio
+mailbox
+malo
+mana
+mbox
+md
+mdio
+mem
+mfi
+mgb
+mge
+mii
+mlx
+mlx4
+mlx5
+mlxfw
+mmc
+mmcnull
+mpi3mr
+mpr
+mps
+mpt
+mrsas
+msk
+mthca
+mvs
+mwl
+mxge
+my
+nctgpio
+ncthwm
+neta
+netmap
+nfe
+nfsmb
+nge
+nmdm
+ntb
+ntsync
+null
+nvd
+nvdimm
+nvme
+nvmem
+nvmf
+nvram
+oce
+ocs_fc
+ofw
+otus
+ow
+p2sb
+pbio
+pccard
+pccbb
+pcf
+pci
+phy
+pms
+powermac_nvram
+ppbus
+ppc
+proto
+psci
+pst
+pty
+puc
+pwm
+qat
+qat_c2xxx
+qcom_clk
+qcom_dwc3
+qcom_ess_edma
+qcom_gcc
+qcom_mdio
+qcom_qup
+qcom_rnd
+qcom_tcsr
+qcom_tlmm
+qlnx
+qlxgb
+qlxgbe
+qlxge
+quicc
+ral
+random
+rccgpio
+re
+regulator
+rge
+rl
+rndtest
+rtsx
+rtwn
+safe
+safexcel
+sbni
+scc
+sdhci
+sdio
+sec
+sff
+sfxge
+sge
+siis
+sis
+sk
+smartpqi
+smbios
+smbus
+smc
+snp
+sound
+speaker
+spibus
+sram
+ste
+stge
+sume
+superio
+sym
+syscon
+syscons
+tcp_log
+tdfx
+thunderbolt
+ti
+tpm
+tsec
+tws
+uart
+ufshci
+usb
+veriexec
+vge
+viapm
+viawd
+video
+videomode
+virtio
+vkbd
+vmd
+vmgenc
+vmm
+vmware
+vnic
+vr
+vt
+vte
+watchdog
+wbwd
+wdatwd
+wg
+wpi
+wtap
+xdma
+xen
+xilinx
+xl
+xz
+zlib
+## source: kernel (head nouns: bus, interface, interconnect)
+   113  sysfs interface
+    97  i2c bus
+    78  PMBus
+    65  network interface
+    61  SMBus
+    60  pci bus
+    53  user interface
+    44  provides interface
+    43  driver interface
+    43  kernel interface
+    38  device interface
+    38  debugfs interface
+    37  control interface
+    34  programming interface
+    30  firmware interface
+    30  userspace interface
+    29  ioctl interface
+    25  management interface
+    25  serial interface
+    24  audio interface
+    20  spi bus
+    18  usb bus
+    18  serial bus
+    18  pmbus interface
+    17  host interface
+    17  i2c interface
+    16  hardware interface
+    16  mdio bus
+    15  netlink interface
+    15  standard interface
+    15  ethernet interface
+    15  scsi bus
+    15  event interface
+    15  generic interface
+    15  video interface
+    15  media bus
+    14  device bus
+    14  controller interface
+    14  ethtool interface
+    13  power interface
+    13  physical interface
+    13  configuration interface
+    12  usb interface
+    12  user space interface
+    12  space interface
+    12  platform bus
+    12  system interface
+    12  capture interface
+    12  data bus
+    12  wmi interface
+    11  different interface
+    11  through interface
+    11  control bus
+    11  hwmon interface
+    11  communication interface
+    11  data interface
+    11  management bus
+    11  common interface
+    11  provide interface
+    11  uma interface
+    10  external interface
+    10  port interface
+     9  unified interface
+     9  via interface
+     9  isa bus
+     9  memory interface
+     9  pcie interface
+     9  command interface
+     9  current interface
+     9  internal interface
+     9  parallel bus
+     9  host bus
+     8  human interface
+     8  pcie bus
+     8  implement interface
+     8  system management bus
+     8  simple interface
+     8  following interface
+     8  input interface
+     8  parallel interface
+     8  wire interface
+     8  output interface
+     8  used interface
+     7  consistent interface
+     7  CardBus
+     7  pci interface
+     7  physical bus
+     7  application interface
+     7  legacy interface
+     7  system bus
+     7  binary interface
+     7  both interface
+     7  phy interface
+     7  subdev interface
+     7  sensor interface
+     7  hardware bus
+     7  spi interface
+     7  processor interface
+     7  vlan interface
+     7  describes interface
+     7  based interface
+     7  VMBus
+     7  usb_interface
+     6  local bus
+     6  mode interface
+     6  create interface
+     6  socket interface
+     6  bit bus
+     6  primary interface
+     6  software interface
+     6  user-space interface
+     6  virtual interface
+     6  parent bus
+     6  command line interface
+     6  line interface
+     6  cpu interface
+     6  acpi interface
+     6  class interface
+     6  v4l2 subdev interface
+     6  access interface
+     6  bus interface
+     6  digital interface
+     6  serial peripheral interface
+     6  peripheral interface
+     6  proc interface
+     6  device driver interface
+     6  slave interface
+     6  graphical user interface
+     6  serial audio interface
+     6  digital audio interface
+     5  at interface
+     5  standard kernel interface
+     5  machine interface
+     5  where interface
+     5  represents interface
+     5  parallel port interface
+     5  administrative interface
+     5  text-based user interface
+     5  i2c_bus
+     5  configure interface
+     5  core interface
+     5  ide interface
+     5  local network interface
+     5  various interface
+     5  change interface
+     5  set interface
+     5  target interface
+     5  video capture interface
+     5  camera interface
+     5  cec bus
+     5  sub-device interface
+     5  axi bus
+     5  sets interface
+     5  defines interface
+     5  reset bus
+     5  module interface
+     5  link interface
+     5  io bus
+     5  mii interface
+     5  universal serial bus
+     5  master interface
+     5  register interface
+     5  similar interface
+     5  specified interface
+     5  once bus
+     5  auxiliary_bus
+     5  auxiliary bus
+     5  type interface
+     5  wire bus
+     5  host controller interface
+     5  gpio interface
+     5  level interface
+     5  mixer interface
+     5  midi interface
+     5  maximal bus
+     4  taskstats interface
+     4  user-kernel interface
+     4  subsystem interface
+     4  consumer driver interface
+     4  api interface
+     4  secondary bus
+     4  dma interface
+     4  configfs interface
+     4  existing interface
+     4  uniform interface
+     4  documents interface
+     4  in-kernel interface
+     4  buffer interface
+     4  sysctl interface
+     4  debugging interface
+     4  amba bus
+     4  debug interface
+     4  stable interface
+     4  system management interface
+     4  internal bus
+     4  scaling interface
+     4  I2cSerialBus
+     4  into interface
+     4  associated interface
+     4  allowed interface
+     4  call interface
+     4  character device interface
+     4  v4l2 sub-device interface
+     4  via bus
+     4  memory bus
+     4  standardized interface
+     4  old interface
+     4  shunt bus
+     4  AVSBus
+     4  smbus interface
+     4  besides standard interface
+     4  claimed interface
+     4  external bus
+     4  added interface
+     4  DBus
+     4  ip interface
+     4  mii bus
+     4  ingress interface
+     4  during bus
+     4  independent interface
+     4  passing interface
+     4  local interface
+     4  over interface
+     4  created interface
+     4  contains interface
+     4  o interface
+     4  types interface
+     4  o bus
+     4  are bus
+     4  soundwire bus
+     4  engine interface
+     4  client bus
+     4  hid interface
+     4  address bus
+     4  node interface
+     4  device node interface
+     4  master bus
+     4  overlay interface
+     4  pcm interface
+     4  de interface
+     3  storage interface
+     3  networking interface
+     3  power management interface
+     3  pm_qos_interface
+     3  userland interface
+     3  regulator driver interface
+     3  main interface
+     3  setting interface
+     3  returns bus
+     3  pci_bus
+     3  scan bus
+     3  secondary interface
+     3  different bus
+     3  char device interface
+     3  message interface
+     3  framebuffer interface
+     3  injection interface
+     3  config interface
+     3  command-line interface
+     3  trace interface
+     3  existing coresight bus
+     3  coresight bus
+     3  irq interface
+     3  ppp interface
+     3  layer interface
+     3  disable interface
+     3  at bus
+     3  prctl interface
+     3  fifo interface
+     3  usb_unbind_interface
+     3  alternative interface
+     3  rdma interface
+     3  io interface
+     3  bmc interface
+     3  just interface
+     3  are interface
+     3  hwmon sysfs interface
+     3  led class interface
+     3  standard hwmon interface
+     3  system call interface
+     3  sysfs_interface
+     3  damon sysfs interface
+     3  table interface
+     3  radio interface
+     3  memory-to-memory interface
+     3  media controller interface
+     3  ahb bus
+     3  tpm interface
+     3  filesystem interface
+     3  acpi wmi interface
+     3  ec interface
+     3  in1_input bus
+     3  standard sysfs interface
+     3  pwm interface
+     3  sideband interface
+     3  protocol interface
+     3  compatible interface
+     3  avsbus interface
+     3  offers interface
+     3  i2c-compatible interface
+     3  peci bus
+     3  peci interface
+     3  minimum bus
+     3  send bus
+     3  cpu bus
+     3  c interface
+     3  mobile interface
+     3  mobile broadband interface
+     3  broadband interface
+     3  means interface
+     3  vf interface
+     3  paravirtual interface
+     3  via netlink interface
+     3  virtual network interface
+     3  ip network interface
+     3  message bus
+     3  since interface
+     3  egress interface
+     3  right interface
+     3  particular interface
+     3  out interface
+     3  bridge interface
+     3  between interface
+     3  conduit interface
+     3  external mdio bus
+     3  application binary interface
+     3  internal mdio bus
+     3  peripheral bus
+     3  dcb netlink interface
+     3  ntuple interface
+     3  mac interface
+     3  fsl-mc bus
+     3  exposes interface
+     3  platform management interface
+     3  driver programming interface
+     3  mediated bus
+     3  message passing interface
+     3  zorro bus
+     3  generic bus
+     3  between bus
+     3  external memory interface
+     3  panel interface
+     3  allows bus
+     3  fpga interface
+     3  low-level bus
+     3  over bus
+     3  boot bus
+     3  sdw_bus
+     3  soundwire interface
+     3  linux bus
+     3  under bus
+     3  alternate interface
+     3  within bus
+     3  find bus
+     3  nvdimm firmware interface
+     3  slow bus
+     3  abstract interface
+     3  high level interface
+     3  mmap interface
+     3  class control interface
+     3  controller bus
+     3  f interface
+     3  related interface
+     3  calling interface
+     3  standard memories interface
+     3  memories interface
+     3  briefly interface
+     3  exception interface
+     3  delegated exception interface
+     3  syscall interface
+     3  application programming interface
+     3  accelerator processor interface
+     3  decoder interface
+     3  vbi interface
+     3  once interface
+     3  effect bus
+     3  serial control bus
+     3  axi interface
+     3  da interface
+     3  nova interface
+     3  oferece uma interface
+     3  que interface
+     3  invent kernel interface
+     3  sul bus
+     3  las interface
+     3  vfs interface
+     2  information bus
+     2  tee bus
+     2  suspend interface
+     2  pci local bus
+     2  programmable interface
+     2  individual interface
+     2  class bus
+     2  service interface
+     2  four interface
+     2  clock interface
+     2  code interface
+     2  port bus
+     2  msi_bus
+     2  standard firmware interface
+     2  root pci bus
+     2  root bus
+     2  start bus
+     2  proprietary interface
+     2  actual interface
+     2  cd-rom interface
+     2  electrical interface
+     2  modem host interface
+     2  boot host interface
+     2  rpmsg bus
+     2  counter interface
+     2  modeset interface
+     2  backlight interface
+     2  virtual bus
+     2  robust interface
+     2  basic interface
+     2  support bus
+     2  guc interface
+     2  higher-level interface
+     2  cross trigger interface
+     2  trigger interface
+     2  cause bus
+     2  creating interface
+     2  logitech bus
+     2  services interface
+     2  vme bus
+     2  block device interface
+     2  logging interface
+     2  x interface
+     2  bt interface
+     2  enable interface
+     2  sdio interface
+     2  second bus
+     2  usb human interface
+     2  pv interface
+     2  exception bus
+     2  os interface
+     2  n bus
+     2  sets bus
+     2  procfs interface
+     2  fabric interconnect
+     2  about interface
+     2  fundamental interface
+     2  up interface
+     2  made interface
+     2  resource control interface
+     2  latency interface
+     2  text interface
+     2  web interface
+     2  policy interface
+     2  performance scaling interface
+     2  selection interface
+     2  above interface
+     2  profile interface
+     2  led interface
+     2  sysfs-based interface
+     2  alsa interface
+     2  select interface
+     2  led sysfs interface
+     2  awcc interface
+     2  write interface
+     2  additional interface
+     2  cxl bus
+     2  usable interface
+     2  camera sensor interface
+     2  image sensor interface
+     2  soc camera interface
+     2  cmos sensor interface
+     2  another bus
+     2  individual bus
+     2  request bus
+     2  i²c bus
+     2  controls interface
+     2  camera serial interface
+     2  camera host interface
+     2  mipi csi-2 interface
+     2  capture device interface
+     2  csi-2 interface
+     2  hdmi interface
+     2  list interface
+     2  original interface
+     2  open interface
+     2  securityfs interface
+     2  against bus
+     2  client interface
+     2  documented interface
+     2  unregister interface
+     2  gamezone interface
+     2  mode wmi interface
+     2  lenovo wmi interface
+     2  ec wmi interface
+     2  battery interface
+     2  platform interface
+     2  evdev interface
+     2  containing interface
+     2  hiddev interface
+     2  preferred interface
+     2  but interface
+     2  parport interface
+     2  through bus
+     2  configuration bus
+     2  registration interface
+     2  time travel bus
+     2  travel bus
+     2  between i2c bus
+     2  map interface
+     2  temperature sensor interface
+     2  lpc bus
+     2  uart interface
+     2  svid interface
+     2  in0_input bus
+     2  allowed bus
+     2  processor peci interface
+     2  different i2c bus
+     2  custom interface
+     2  maximum bus
+     2  remote management interface
+     2  wire digital interface
+     2  current bus
+     2  claim interface
+     2  transport interface
+     2  graphical interface
+     2  check scsi bus
+     2  common scsi bus
+     2  bf bus
+     2  fault pci bus
+     2  conformant scsi bus
+     2  sbdl scsi bus
+     2  sbcl scsi bus
+     2  faulty scsi bus
+     2  rst scsi bus
+     2  max bus
+     2  applications interface
+     2  read interface
+     2  called host bus
+     2  proc fs interface
+     2  fs interface
+     2  user-level interface
+     2  outlines interface
+     2  scsi interface
+     2  channel interface
+     2  host ethernet interface
+     2  assigned interface
+     2  passthrough interface
+     2  l3 interface
+     2  addresses interface
+     2  raw interface
+     2  mii_bus
+     2  return bus
+     2  phy_interface_t interface
+     2  particular network interface
+     2  monitoring interface
+     2  enabled interface
+     2  heavy bus
+     2  outgoing interface
+     2  program interface
+     2  mdio_bus
+     2  media interface
+     2  user-facing interface
+     2  com interface
+     2  packet interface
+     2  different programming interface
+     2  stack interface
+     2  linux network interface
+     2  underlying bus
+     2  bond interface
+     2  than interface
+     2  eth1 interface
+     2  upper interface
+     2  onto bus
+     2  base interface
+     2  diagnostic interface
+     2  cpu network interface
+     2  switch interface
+     2  lag interface
+     2  linux interface
+     2  user mdio bus
+     2  respective bus
+     2  router interface
+     2  devlink port interface
+     2  region interface
+     2  dependent interface
+     2  tool interface
+     2  existing bus
+     2  monitoring bus
+     2  writing interface
+     2  previously-used lro interface
+     2  lro interface
+     2  virt_interface
+     2  flow interface
+     2  offload interface
+     2  pf interface
+     2  systems interface
+     2  h interface
+     2  mailbox interface
+     2  c bus
+     2  unbind interface
+     2  implementing bus
+     2  datapath network interface
+     2  int interface
+     2  STBus
+     2  aui interface
+     2  enabling bus
+     2  eisa bus
+     2  individual network interface
+     2  ip link interface
+     2  mbim interface
+     2  over pcie interface
+     2  driver exposes interface
+     2  provides sysfs interface
+     2  platform_bus
+     2  ipmb bus
+     2  allows interface
+     2  things interface
+     2  remove interface
+     2  timer interface
+     2  nand interface
+     2  register bus
+     2  components interface
+     2  controller driver interface
+     2  consumer interface
+     2  simple sysfs interface
+     2  synchronous interface
+     2  synchronous serial interface
+     2  kind bus
+     2  notifier interface
+     2  pm interface
+     2  query interface
+     2  provided interface
+     2  side bus
+     2  simple bus
+     2  system interconnect
+     2  generic fpga interface
+     2  async interface
+     2  extensible firmware interface
+     2  detected bus
+     2  regmap interface
+     2  includes bus
+     2  used bus
+     2  mode driver interface
+     2  architecture-specific interface
+     2  virtio bus
+     2  driver model interface
+     2  model interface
+     2  transition bus
+     2  them bus
+     2  name bus
+     2  generic device interface
+     2  list bus
+     2  management engine interface
+     2  me client bus
+     2  mei client bus
+     2  public interface
+     2  usb_bus
+     2  changes interface
+     2  descriptors interface
+     2  sharing bus
+     2  libnvdimm bus
+     2  supporting interface
+     2  through i2c bus
+     2  discoverable bus
+     2  i3c bus
+     2  security engine interface
+     2  one-wire bus
+     2  driver-internal interface
+     2  network device interface
+     2  test interface
+     2  protected mode interface
+     2  display interface
+     2  access bus
+     2  dev interface
+     2  idle bus
+     2  another i2c bus
+     2  next bus
+     2  underlying i2c bus
+     2  child bus
+     2  example bus
+     2  task interface
+     2  discusses interface
+     2  cgroup interface
+     2  lsm_interface
+     2  lp55xx common interface
+     2  specialized interface
+     2  handle bus
+     2  set_one_reg interface
+     2  state coordination interface
+     2  coordination interface
+     2  vm interface
+     2  SPISerialBus
+     2  memory mapped interface
+     2  mapped interface
+     2  reporting interface
+     2  driver claimed interface
+     2  vendor interface
+     2  dmabuf based interface
+     2  dmabuf interface
+     2  device-dax interface
+     2  ptrace interface
+     2  feedback interface
+     2  hardware feedback interface
+     2  request interface
+     2  page request interface
+     2  best interface
+     2  hypervisor interface
+     2  linux-specific system interface
+     2  platform error interface
+     2  reset device interface
+     2  error interface
+     2  input device interface
+     2  containing bus
+     2  relay interface
+     2  mapping interface
+     2  extra interface
+     2  few extra interface
+     2  than bus
+     2  populated bus
+     2  expose interface
+     2  v4l2 event interface
+     2  video memory-to-memory interface
+     2  output overlay interface
+     2  encoder interface
+     2  vbi capture interface
+     2  enumerate media bus
+     2  video decoder interface
+     2  video overlay interface
+     2  vbi data interface
+     2  support interface
+     2  sliced vbi interface
+     2  raw vbi interface
+     2  lirc device interface
+     2  hd-audio bus
+     2  mpu-401 interface
+     2  through debugfs interface
+     2  serial sound interface
+     2  sound interface
+     2  rawmidi interface
+     2  wire serial bus
+     2  mpu401-uart interface
+     2  localplus bus
+     2  memory-mapped bus
+     2  signal processor interface
+     2  proprietary serial interface
+     2  rs232-type interface
+     2  multi-channel spi-like interface
+     2  spi-like interface
+     2  disk interface
+     2  bit serial interface
+     2  represents bus
+     2  ebi bus
+     2  glue-less interface
+     2  parent local bus
+     2  two-wire serial interface
+     2  descrevem interface
+     2  de uma interface
+     2  essa interface
+     2  uma nova interface
+     2  essas interface
+     2  quer uma interface
+     2  nas interface
+     2  dessa interface
+     2  create user-kernel interface
+     2  del interface
+     2  el interface
+     2  un interface
+     2  w1 bus
+## source: src/freebsd (head nouns: bus, interface, interconnect)
+    11  parent bus
+    11  network interface
+    10  kernel interface
+     8  programming interface
+     8  ofw_bus
+     7  nm interface
+     5  device_t bus
+     4  notify bus
+     4  provide interface
+     4  nd kernel interface
+     3  call interface
+     3  system interface
+     3  directory acl interface
+     3  acl interface
+     3  vnode acl interface
+     3  startup interface
+     3  isa bus
+     3  pci bus
+     3  most bus
+     3  ethernet interface
+     3  device interface
+     3  sh interface
+     3  ss bus
+     3  rid bus
+     3  fa bus
+     2  programs interface
+     2  operating system interface
+     2  management interface
+     2  em interface
+     2  system startup interface
+     2  provides interface
+     2  machine-dependent interface
+     2  application interface
+     2  particular bus
+     2  access bus
+     2  packet filter interface
+     2  filter interface
+     2  describes interface
+     2  managed interface
+     2  root bus
+     2  virtual radio interface
+     2  radio interface
+     2  concurrent interface
+     2  through network interface
+     2  kernel programming interface
+     2  wire bus
+     2  notes interface
+     2  type bus
+     2  general interface
+     2  ss interface
+     2  serial bus
+     2  universal serial bus
+     2  driver programming interface
+     2  accessing bus
+     2  bus interface
+     2  change interface
+     2  type interface
+     2  xr bus
+     2  pp interface
+## source: src/windows-driver-docs (head nouns: bus, interface, interconnect)
+    37  parent bus
+    22  device interface
+    14  _INTERFACE
+    12  direct interface
+    12  pci bus
+    11  driver interface
+     9  reaches bus
+     8  IRP_MN_QUERY_INTERFACE
+     7  IoRegisterDeviceInterface
+     7  system bus
+     6  than bus
+     6  underlying bus
+     6  block bus
+     6  drivers bus
+     6  dma operations interface
+     6  operations interface
+     6  power interface
+     6  pnp bus
+     5  user interface
+     5  programming interface
+     5  _BUS
+     5  device bus
+     4  serial bus
+     4  network interface
+     4  about device interface
+     4  usb hub bus
+     4  hub bus
+     4  hardware bus
+     4  controller bus
+     4  packet-based bus
+     4  GUID_D3COLD_SUPPORT_INTERFACE
+     4  are bus
+     4  o bus
+     4  user-mode interface
+     4  mapping bus
+     4  driver bus
+     4  above bus
+     4  wdm bus
+     3  universal serial bus
+     3  device driver interface
+     3  pnp device interface
+     3  up bus
+     3  power management interface
+     3  management interface
+     3  optional bus
+     3  pnp hardware bus
+     3  usb bus
+     3  common-buffer bus
+     3  enable interface
+     3  handling device interface
+     3  case bus
+     3  standard bus
+     3  where bus
+     3  access bus
+     3  client interface
+     3  operation bus
+     3  transactional interface
+     3  additional transactional interface
+     3  guid_d3cold_support_interface driver interface
+     3  routines bus
+     3  allocating bus
+     3  provides interface
+     3  provides bus
+     3  through bus
+     3  provide interface
+     3  buffer bus
+     2  visual studio interface
+     2  studio interface
+     2  related sd bus
+     2  sd bus
+     2  introduces interface
+     2  sd card bus
+     2  card bus
+     2  through interface
+     2  bus interface
+     2  consistent interface
+     2  channel bus
+     2  function bus
+     2  root bus
+     2  wmi interface
+     2  down bus
+     2  about interface
+     2  about bus
+     2  CardBus
+     2  existing interface
+     2  dereference interface
+     2  call interface
+     2  QueryInterface
+     2  direct-call interface
+     2  dereferencing interface
+     2  off bus
+     2  queries bus
+     2  guid_reenumerate_self_interface_standard interface
+     2  microsoft provides bus
+     2  services bus
+     2  type bus
+     2  D3COLD_SUPPORT_INTERFACE
+     2  private interface
+     2  implement interface
+     2  program bus
+     2  firmware interface
+     2  extensible firmware interface
+     2  system-defined interface
+     2  simpler interface
+     2  different bus
+     2  scsi bus
+     2  GUID_THERMAL_COOLING_INTERFACE

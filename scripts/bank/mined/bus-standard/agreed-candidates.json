@@ -1,0 +1,189 @@
+{
+ "bus-standard": [
+  {
+   "name": "AMBA",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ATA",
+   "aliases": [
+    "IDE"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "EISA",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "FireWire",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Greybus",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "I2C",
+   "aliases": [
+    "I²C"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "I3C",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "IndustryPack",
+   "aliases": [
+    "ipack",
+    "IPACK"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MCB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "NuBus",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "NVMe",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "PCI",
+   "aliases": [
+    "PCI Local Bus"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "PCMCIA",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PECI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RapidIO",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SBus",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SCSI",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "SLIMbus",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SoundWire",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SPI",
+   "aliases": [
+    "Serial Peripheral Interface"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "SPMI",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "USB",
+   "aliases": [
+    "Universal Serial Bus"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Zorro",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ADB",
+   "aliases": [
+    "Apple Desktop Bus"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CardBus",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MDIO",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SDIO",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "SMBus",
+   "aliases": [
+    "System Management Bus",
+    "system management bus"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "PMBus",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ISA",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "VMBus",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "AVSBus",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "VMEbus",
+   "aliases": [
+    "VME"
+   ],
+   "judge": "race"
+  }
+ ]
+}

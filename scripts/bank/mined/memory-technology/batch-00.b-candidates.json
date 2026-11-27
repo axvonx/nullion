@@ -1,0 +1,120 @@
+{
+ "memory-technology": [
+  {
+   "name": "DRAM",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "dram memory (windows-driver-docs, freebsd, kernel)",
+   "why": "standard main memory, widely named"
+  },
+  {
+   "name": "RAM",
+   "aliases": [
+    "ram memory"
+   ],
+   "judge": "off-by-one",
+   "evidence": "ram memory (kernel, 2)",
+   "why": "generic kind, nearly everyone names it"
+  },
+  {
+   "name": "flash memory",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "flash memory (kernel, 4)",
+   "why": "common storage technology name"
+  },
+  {
+   "name": "NAND flash",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "nand flash (kernel, 11)",
+   "why": "named flash type, known to many"
+  },
+  {
+   "name": "NOR flash",
+   "aliases": [
+    "SPI-NOR"
+   ],
+   "judge": "npe",
+   "evidence": "nor flash (kernel, 5); spi-nor dir (mtd)",
+   "why": "named flash type; dir name aliased"
+  },
+  {
+   "name": "ROM",
+   "aliases": [
+    "read-only memory"
+   ],
+   "judge": "npe",
+   "evidence": "read-only memory (kernel, 4); boot rom (kernel, 8)",
+   "why": "classic read-only storage kind"
+  },
+  {
+   "name": "VRAM",
+   "aliases": [
+    "video RAM"
+   ],
+   "judge": "leak",
+   "evidence": "video ram (kernel, 10)",
+   "why": "graphics memory kind, systems people know"
+  },
+  {
+   "name": "persistent memory",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "persistent memory (kernel, 18)",
+   "why": "byte-addressable non-volatile memory class"
+  },
+  {
+   "name": "core memory",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "core memory (kernel, 2)",
+   "why": "magnetic core, historical named kind"
+  },
+  {
+   "name": "CompactFlash",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "CompactFlash (freebsd, 2)",
+   "why": "named flash card format"
+  },
+  {
+   "name": "DDR",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ddr memory (kernel, 5)",
+   "why": "common DRAM generation family"
+  },
+  {
+   "name": "LPDDR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "lpddr (drivers/mtd dir name)",
+   "why": "low-power DRAM kind, deep internals"
+  },
+  {
+   "name": "high bandwidth memory",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "high bandwidth memory (kernel, 2)",
+   "why": "named stacked DRAM technology"
+  },
+  {
+   "name": "CXL memory",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cxl memory (kernel, 25)",
+   "why": "CXL-attached memory expansion kind"
+  }
+ ],
+ "womm_candidates": [
+  "core memory",
+  "persistent memory",
+  "CXL memory"
+ ],
+ "bitflip_candidates": [
+  "LPDDR",
+  "CompactFlash",
+  "NOR flash"
+ ]
+}

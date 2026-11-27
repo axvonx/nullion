@@ -10,7 +10,7 @@
 | approximate-nearest-neighbor-index | Name an approximate nearest neighbor index | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | clustering-algorithm | Name a clustering algorithm | data-graphics-algorithms | approved | 51 | 49 | 1 |
 | collision-detection-algorithm | Name a collision detection algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| color-space | Name a color space | data-graphics-algorithms | draft | 0 | 0 | 7 |
+| color-space | Name a color space | data-graphics-algorithms | draft | 73 | 70 | 1 |
 | column-encoding-scheme | Name a column encoding scheme | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | combinatorial-optimization-heuristic | Name a combinatorial optimization heuristic | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | complexity-class | Name a complexity class | data-graphics-algorithms | approved | 101 | 97 | 1 |
@@ -29,7 +29,7 @@
 | game-engine | Name a game engine | data-graphics-algorithms | approved | 62 | 58 | 2 |
 | gradient-based-optimizer | Name a gradient-based optimizer | data-graphics-algorithms | approved | 58 | 56 | 0 |
 | graph-algorithm | Name a graph algorithm | data-graphics-algorithms | approved | 54 | 52 | 2 |
-| graphics-api | Name a graphics API | data-graphics-algorithms | draft | 0 | 0 | 7 |
+| graphics-api | Name a graphics API | data-graphics-algorithms | draft | 32 | 28 | 1 |
 | image-filter | Name an image filter | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | join-algorithm | Name a join algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | lossless-compression-algorithm | Name a lossless compression algorithm | data-graphics-algorithms | approved | 48 | 46 | 1 |
@@ -58,14 +58,14 @@
 | string-similarity-measure | Name a string similarity measure | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | texture-compression-format | Name a texture compression format | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | time-series-database | Name a time-series database | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| video-codec | Name a video codec | data-graphics-algorithms | draft | 0 | 0 | 7 |
+| video-codec | Name a video codec | data-graphics-algorithms | draft | 110 | 106 | 0 |
 | acpi-table | Name an ACPI table | hardware-security-history | draft | 0 | 0 | 7 |
 | apple-macintosh-model | Name an Apple Macintosh model | hardware-security-history | draft | 0 | 0 | 7 |
 | arm-core | Name an ARM core | hardware-security-history | draft | 0 | 0 | 7 |
 | block-cipher | Name a block cipher | hardware-security-history | approved | 56 | 54 | 0 |
 | bluetooth-profile | Name a Bluetooth profile | hardware-security-history | draft | 0 | 0 | 7 |
 | bootloader | Name a bootloader | hardware-security-history | draft | 0 | 0 | 7 |
-| bus-standard | Name a computer bus or peripheral interface standard | hardware-security-history | draft | 0 | 0 | 7 |
+| bus-standard | Name a computer bus or peripheral interface standard | hardware-security-history | draft | 83 | 79 | 0 |
 | computing-benchmark | Name a computing benchmark | hardware-security-history | draft | 0 | 0 | 7 |
 | cpu-side-channel-attack | Name a CPU side-channel attack | hardware-security-history | approved | 59 | 57 | 0 |
 | cpu-socket | Name a CPU socket | hardware-security-history | draft | 0 | 0 | 7 |
@@ -90,7 +90,7 @@
 | key-derivation-function | Name a key derivation function | hardware-security-history | draft | 0 | 0 | 7 |
 | logic-gate | Name a logic gate | hardware-security-history | draft | 0 | 0 | 7 |
 | malware-family | Name a malware family | hardware-security-history | draft | 0 | 0 | 7 |
-| memory-technology | Name a computer memory technology | hardware-security-history | draft | 0 | 0 | 7 |
+| memory-technology | Name a computer memory technology | hardware-security-history | draft | 42 | 39 | 5 |
 | microprocessor | Name a microprocessor | hardware-security-history | draft | 0 | 0 | 7 |
 | penetration-testing-tool | Name a penetration testing tool | hardware-security-history | draft | 0 | 0 | 7 |
 | post-quantum-signature-scheme | Name a post-quantum signature scheme | hardware-security-history | approved | 46 | 44 | 0 |
@@ -120,7 +120,7 @@
 | css-framework | Name a CSS framework | languages-tools | draft | 0 | 0 | 7 |
 | debugger | Name a debugger | languages-tools | draft | 0 | 0 | 7 |
 | dependency-injection-framework | Name a dependency injection framework | languages-tools | draft | 0 | 0 | 7 |
-| design-pattern | Name a design pattern | languages-tools | draft | 0 | 0 | 7 |
+| design-pattern | Name a design pattern | languages-tools | draft | 146 | 142 | 2 |
 | design-principle | Name a software design principle | languages-tools | draft | 0 | 0 | 7 |
 | documentation-generator | Name a documentation generator | languages-tools | draft | 0 | 0 | 7 |
 | domain-specific-language | Name a domain-specific language | languages-tools | draft | 0 | 0 | 7 |
@@ -130,7 +130,7 @@
 | git-subcommand | Name a git subcommand | languages-tools | approved | 161 | 159 | 0 |
 | ide | Name an IDE | languages-tools | draft | 0 | 0 | 7 |
 | javascript-engine | Name a JavaScript engine | languages-tools | draft | 0 | 0 | 7 |
-| language-feature | Name a programming language feature | languages-tools | draft | 0 | 0 | 7 |
+| language-feature | Name a programming language feature | languages-tools | draft | 54 | 51 | 4 |
 | logging-library | Name a logging library | languages-tools | draft | 0 | 0 | 7 |
 | markup-language | Name a markup language | languages-tools | draft | 0 | 0 | 7 |
 | orm | Name an ORM | languages-tools | draft | 0 | 0 | 7 |
@@ -154,7 +154,7 @@
 | text-editor | Name a text editor | languages-tools | approved | 76 | 73 | 1 |
 | version-control-system | Name a version control system | languages-tools | draft | 0 | 0 | 7 |
 | vim-plugin | Name a Vim plugin | languages-tools | draft | 0 | 0 | 7 |
-| web-framework | Name a web framework | languages-tools | draft | 0 | 0 | 7 |
+| web-framework | Name a web framework | languages-tools | draft | 126 | 122 | 4 |
 | web-server | Name a web server | languages-tools | draft | 0 | 0 | 7 |
 | bgp-path-attribute | Name a BGP path attribute | os-systems | draft | 0 | 0 | 7 |
 | cache-replacement-policy | Name a cache replacement policy | os-systems | draft | 0 | 0 | 7 |

@@ -1,0 +1,440 @@
+[
+ {
+  "name": "Starlette",
+  "a": {
+   "name": "Starlette",
+   "aliases": [
+    "starlette"
+   ],
+   "judge": "npe",
+   "evidence": "starlette",
+   "why": "lightweight Python ASGI framework"
+  },
+  "b": {
+   "name": "Starlette",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: starlette",
+   "why": "ASGI toolkit under FastAPI"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ActFramework",
+  "a": {
+   "name": "ActFramework",
+   "aliases": [
+    "act"
+   ],
+   "judge": "heisenbug",
+   "evidence": "act",
+   "why": "Java MVC web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Gemini",
+  "a": {
+   "name": "Gemini",
+   "aliases": [
+    "gemini"
+   ],
+   "judge": "heisenbug",
+   "evidence": "gemini",
+   "why": "Java web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "HServer",
+  "a": {
+   "name": "HServer",
+   "aliases": [
+    "hserver",
+    "hserver-business"
+   ],
+   "judge": "heisenbug",
+   "evidence": "hserver",
+   "why": "Java web and RPC framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Jersey",
+  "a": {
+   "name": "Jersey",
+   "aliases": [
+    "jersey"
+   ],
+   "judge": "npe",
+   "evidence": "jersey",
+   "why": "Java JAX-RS RESTful web framework"
+  },
+  "b": {
+   "name": "Jersey",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: jersey",
+   "why": "JAX-RS reference implementation"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Magician",
+  "a": {
+   "name": "Magician",
+   "aliases": [
+    "magician-io"
+   ],
+   "judge": "heisenbug",
+   "evidence": "magician-io",
+   "why": "Java web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Proteus",
+  "a": {
+   "name": "Proteus",
+   "aliases": [
+    "proteus"
+   ],
+   "judge": "heisenbug",
+   "evidence": "proteus",
+   "why": "Java web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Spark",
+  "a": {
+   "name": "Spark",
+   "aliases": [
+    "spark"
+   ],
+   "judge": "leak",
+   "evidence": "spark",
+   "why": "Java micro web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "tio-boot",
+  "a": {
+   "name": "tio-boot",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "tio-boot",
+   "why": "Java web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "TODAY-Web",
+  "a": {
+   "name": "TODAY-Web",
+   "aliases": [
+    "today"
+   ],
+   "judge": "heisenbug",
+   "evidence": "today",
+   "why": "Java web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Wizzardo HTTP",
+  "a": {
+   "name": "Wizzardo HTTP",
+   "aliases": [
+    "wizzardo-http"
+   ],
+   "judge": "heisenbug",
+   "evidence": "wizzardo-http",
+   "why": "Java web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Binding.scala",
+  "a": {
+   "name": "Binding.scala",
+   "aliases": [
+    "binding-scala"
+   ],
+   "judge": "heisenbug",
+   "evidence": "binding-scala",
+   "why": "Scala reactive web UI framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Duel",
+  "a": {
+   "name": "Duel",
+   "aliases": [
+    "duel"
+   ],
+   "judge": "heisenbug",
+   "evidence": "duel",
+   "why": "JavaScript web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Enyo",
+  "a": {
+   "name": "Enyo",
+   "aliases": [
+    "enyo_backbone"
+   ],
+   "judge": "race",
+   "evidence": "enyo_backbone",
+   "why": "JavaScript web application framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "jsblocks",
+  "a": {
+   "name": "jsblocks",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "jsblocks",
+   "why": "JavaScript MV-VM web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Knockback.js",
+  "a": {
+   "name": "Knockback.js",
+   "aliases": [
+    "knockback"
+   ],
+   "judge": "heisenbug",
+   "evidence": "knockback",
+   "why": "JavaScript Backbone and Knockout framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Lavaca",
+  "a": {
+   "name": "Lavaca",
+   "aliases": [
+    "lavaca_require"
+   ],
+   "judge": "heisenbug",
+   "evidence": "lavaca_require",
+   "why": "JavaScript mobile web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Lit",
+  "a": {
+   "name": "Lit",
+   "aliases": [
+    "lit"
+   ],
+   "judge": "leak",
+   "evidence": "lit",
+   "why": "web components UI framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Preact",
+  "a": {
+   "name": "Preact",
+   "aliases": [
+    "preact"
+   ],
+   "judge": "npe",
+   "evidence": "preact",
+   "why": "lightweight React-compatible web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "React",
+  "a": {
+   "name": "React",
+   "aliases": [
+    "react",
+    "react-redux",
+    "typescript-react"
+   ],
+   "judge": "off-by-one",
+   "evidence": "react",
+   "why": "dominant JavaScript web UI framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Reagent",
+  "a": {
+   "name": "Reagent",
+   "aliases": [
+    "reagent"
+   ],
+   "judge": "race",
+   "evidence": "reagent",
+   "why": "ClojureScript React web framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Riot.js",
+  "a": {
+   "name": "Riot.js",
+   "aliases": [
+    "riotjs"
+   ],
+   "judge": "race",
+   "evidence": "riotjs",
+   "why": "component-based JavaScript UI framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Svelte",
+  "a": {
+   "name": "Svelte",
+   "aliases": [
+    "svelte"
+   ],
+   "judge": "off-by-one",
+   "evidence": "svelte",
+   "why": "compiled JavaScript web framework"
+  },
+  "b": {
+   "name": "Svelte",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TodoMVC examples: svelte",
+   "why": "known compiler-based framework"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "socketify.py",
+  "a": null,
+  "b": {
+   "name": "socketify.py",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Python dirs: socketify.py",
+   "why": "uWebSockets-based Python framework"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Spark Java",
+  "a": null,
+  "b": {
+   "name": "Spark Java",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: spark",
+   "why": "Java microframework, not Apache Spark"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Grizzly",
+  "a": null,
+  "b": {
+   "name": "Grizzly",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: grizzly",
+   "why": "NIO framework behind GlassFish"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Bayou",
+  "a": null,
+  "b": {
+   "name": "Bayou",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: bayou",
+   "why": "obscure Java REST framework"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Firenio",
+  "a": null,
+  "b": {
+   "name": "Firenio",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: firenio",
+   "why": "obscure Java NIO framework"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Redkale",
+  "a": null,
+  "b": {
+   "name": "Redkale",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: redkale",
+   "why": "obscure Java framework"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ServiceTalk",
+  "a": null,
+  "b": {
+   "name": "ServiceTalk",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: servicetalk",
+   "why": "Apple's Java networking framework"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Marionette",
+  "a": null,
+  "b": {
+   "name": "Marionette",
+   "aliases": [
+    "Backbone.Marionette",
+    "backbone_marionette"
+   ],
+   "judge": "race",
+   "evidence": "TodoMVC examples: backbone_marionette",
+   "why": "Backbone extension, specialist knowledge"
+  },
+  "batch": "batch-00.txt"
+ }
+]

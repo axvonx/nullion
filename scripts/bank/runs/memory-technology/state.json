@@ -1,0 +1,136 @@
+{
+ "id": "memory-technology",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T23:06:50+00:00",
+   "seconds": 11,
+   "finished": "2026-11-27T23:07:01+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T23:07:01+00:00",
+   "seconds": 4,
+   "finished": "2026-11-27T23:07:05+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T23:07:05+00:00",
+   "seconds": 43,
+   "finished": "2026-11-27T23:07:48+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T23:07:48+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:07:48+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T23:07:48+00:00",
+   "seconds": 21,
+   "finished": "2026-11-27T23:08:10+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T23:08:10+00:00",
+   "seconds": 7,
+   "finished": "2026-11-27T23:08:17+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T23:08:17+00:00",
+   "seconds": 20,
+   "finished": "2026-11-27T23:08:37+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T23:08:37+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:08:37+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T23:08:37+00:00",
+   "seconds": 17,
+   "finished": "2026-11-27T23:08:54+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T23:08:54+00:00",
+   "seconds": 17,
+   "finished": "2026-11-27T23:09:10+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T23:09:10+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:09:10+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "37/37 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "42/42 answers have a verified link (100%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "20/20 sampled answers are members (100%), 20/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/memory-technology.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (DataFlash; core memory, persistent memory): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/memory-technology.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 1077,
+  "summary": "memory-technology: 1072 mined lines from 5 sources -> 1 batches in scripts/bank/mined/memory-technology"
+ },
+ "filter": [
+  "batch-00.a: 15 kept",
+  "batch-00.b: 14 kept"
+ ],
+ "compare": "memory-technology: 7 agreed, 12 disputed (63%) across 1 batches",
+ "escalate": "12 disputes -> 12 kept (1 low-confidence -> Inbox), 0 dropped",
+ "pins": {
+  "bitflip": "DataFlash",
+  "womm": [
+   "core memory",
+   "persistent memory"
+  ]
+ },
+ "merge": "18 tiered answers, 6 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "memory-technology: 16 aliases, 24 new answers, 1 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "42/42 answers linked across 1 categories",
+  "dropped as broken: {}",
+  "0 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/memory-technology.md"
+}

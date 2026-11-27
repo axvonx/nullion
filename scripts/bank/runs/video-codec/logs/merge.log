@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py video-codec /Users/axvon/nullion/scripts/bank/mined/video-codec/final.json /Users/axvon/nullion/scripts/bank/mined/video-codec/agreed /Users/axvon/nullion/scripts/bank/mined/video-codec/resolved  [0s, exit 0]
+video-codec: 101 new candidates -> /Users/axvon/nullion/scripts/bank/mined/video-codec/final.json; 0 aliases added to bank/data-graphics-algorithms/video-codec.md
+
+--- haiku call, 7s, exit 0, prompt 1863 chars, stdout 77 chars
+[16:48:06] {"bitflip": "Escape 130", "womm": ["Theora", "Cinepak", "Dirac"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/video-codec/final.json /Users/axvon/nullion-corpora  [1s, exit 0]
+video-codec: filled 101 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.2.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  16:48:08
+   Duration  165ms (transform 61%, import 20%, tests 18%, worker 1%)
+
+

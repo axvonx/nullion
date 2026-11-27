@@ -1,0 +1,94 @@
+{
+ "language-feature": [
+  {
+   "name": "list comprehension",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "type inference",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "dynamic dispatch",
+   "aliases": [],
+   "judge": "npe",
+   "pin": "womm"
+  },
+  {
+   "name": "implicit coercion",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "preprocessor macro",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "set comprehension",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "dictionary comprehension",
+   "aliases": [
+    "dict comprehension"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "static polymorphism",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "function-like macro",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "derive macro",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "attribute macro",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "generator-based coroutine",
+   "aliases": [
+    "generator coroutine"
+   ],
+   "judge": "race",
+   "pin": "bitflip"
+  },
+  {
+   "name": "concept-based polymorphism",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "static typing",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "coroutine",
+   "aliases": [],
+   "judge": "leak"
+  }
+ ],
+ "_context": {
+  "language-feature": [
+   "programming language",
+   "language feature",
+   "compiler",
+   "semantics"
+  ]
+ }
+}

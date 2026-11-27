@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py language-feature /Users/axvon/nullion/scripts/bank/mined/language-feature/final.json /Users/axvon/nullion/scripts/bank/mined/language-feature/agreed /Users/axvon/nullion/scripts/bank/mined/language-feature/resolved  [0s, exit 0]
+language-feature: 15 new candidates -> /Users/axvon/nullion/scripts/bank/mined/language-feature/final.json; 0 aliases added to bank/languages-tools/language-feature.md
+
+--- haiku call, 6s, exit 0, prompt 1369 chars, stdout 105 chars
+[17:05:34] {"bitflip": "generator-based coroutine", "womm": ["static polymorphism", "dynamic dispatch"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/language-feature/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+language-feature: filled 15 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.2.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  17:05:35
+   Duration  209ms (transform 68%, import 16%, tests 15%, worker 1%)
+
+

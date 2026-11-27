@@ -1,0 +1,266 @@
+[
+ {
+  "name": "Apple Wide Gamut",
+  "a": {
+   "name": "Apple Wide Gamut",
+   "aliases": [
+    "apple_wide_gamut"
+   ],
+   "judge": "race",
+   "evidence": "apple_wide_gamut",
+   "why": "Apple wide-gamut RGB color space"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CIE RGB",
+  "a": {
+   "name": "CIE RGB",
+   "aliases": [
+    "cie_rgb"
+   ],
+   "judge": "npe",
+   "evidence": "cie_rgb",
+   "why": "1931 CIE primary RGB color space"
+  },
+  "b": {
+   "name": "CIE RGB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "cie_rgb (file name)",
+   "why": "1931 primaries reference space"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DaVinci Wide Gamut",
+  "a": {
+   "name": "DaVinci Wide Gamut",
+   "aliases": [
+    "davinci_wide_gamut"
+   ],
+   "judge": "leak",
+   "evidence": "davinci_wide_gamut",
+   "why": "wide-gamut color space used in DaVinci Resolve"
+  },
+  "b": {
+   "name": "DaVinci Wide Gamut",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "davinci_wide_gamut (file name)",
+   "why": "Resolve camera working space"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DJI D-Gamut",
+  "a": {
+   "name": "DJI D-Gamut",
+   "aliases": [
+    "dji_d_gamut"
+   ],
+   "judge": "race",
+   "evidence": "dji_d_gamut",
+   "why": "wide-gamut color space for DJI cinema cameras"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "EBU 3213-E",
+  "a": {
+   "name": "EBU 3213-E",
+   "aliases": [
+    "ebu_3213_e"
+   ],
+   "judge": "heisenbug",
+   "evidence": "ebu_3213_e",
+   "why": "European Broadcasting Union PAL/SECAM phosphor primaries"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ITU-R BT.470",
+  "a": {
+   "name": "ITU-R BT.470",
+   "aliases": [
+    "BT.470",
+    "itur_bt_470"
+   ],
+   "judge": "race",
+   "evidence": "itur_bt_470",
+   "why": "analog television colorimetry standard"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Max RGB",
+  "a": {
+   "name": "Max RGB",
+   "aliases": [
+    "max_rgb"
+   ],
+   "judge": "heisenbug",
+   "evidence": "max_rgb",
+   "why": "wide-gamut RGB working space"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "P3-D65",
+  "a": {
+   "name": "P3-D65",
+   "aliases": [
+    "p3_d65"
+   ],
+   "judge": "leak",
+   "evidence": "p3_d65",
+   "why": "D65 white-point variant of DCI-P3"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ProPhoto RGB",
+  "a": {
+   "name": "ProPhoto RGB",
+   "aliases": [
+    "ROMM RGB",
+    "RIMM RGB",
+    "rimm_romm_rgb"
+   ],
+   "judge": "npe",
+   "evidence": "rimm_romm_rgb",
+   "why": "wide-gamut RGB color space by Kodak"
+  },
+  "b": {
+   "name": "ROMM RGB",
+   "aliases": [
+    "RIMM RGB"
+   ],
+   "judge": "race",
+   "evidence": "rimm_romm_rgb (file name)",
+   "why": "ProPhoto's underlying space"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Xtreme RGB",
+  "a": {
+   "name": "Xtreme RGB",
+   "aliases": [
+    "xtreme_rgb"
+   ],
+   "judge": "heisenbug",
+   "evidence": "xtreme_rgb",
+   "why": "wide-gamut RGB working space"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CIE xyY",
+  "a": {
+   "name": "CIE xyY",
+   "aliases": [
+    "xyY",
+    "cie_xyy"
+   ],
+   "judge": "npe",
+   "evidence": "cie_xyy",
+   "why": "chromaticity-luminance color space derived from CIE XYZ"
+  },
+  "b": {
+   "name": "CIE xyY",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "cie_xyy (file name)",
+   "why": "chromaticity-plus-luminance space"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Hunter Rdab",
+  "a": {
+   "name": "Hunter Rdab",
+   "aliases": [
+    "hunter_rdab"
+   ],
+   "judge": "heisenbug",
+   "evidence": "hunter_rdab",
+   "why": "Hunter color space variant using Rd instead of L"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ProLab",
+  "a": {
+   "name": "ProLab",
+   "aliases": [
+    "prolab"
+   ],
+   "judge": "heisenbug",
+   "evidence": "prolab",
+   "why": "projective transformation of CIE XYZ for perceptual uniformity"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Ragoo 2021",
+  "a": {
+   "name": "Ragoo 2021",
+   "aliases": [
+    "ragoo2021"
+   ],
+   "judge": "heisenbug",
+   "evidence": "ragoo2021",
+   "why": "perceptual color space proposed by Ragoo and colleagues"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Yrg",
+  "a": {
+   "name": "Yrg",
+   "aliases": [
+    "yrg"
+   ],
+   "judge": "heisenbug",
+   "evidence": "yrg",
+   "why": "luminance and red-green chromaticity color space"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Apple Wide Gamut RGB",
+  "a": null,
+  "b": {
+   "name": "Apple Wide Gamut RGB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "apple_wide_gamut (file name)",
+   "why": "named Apple wide-gamut space"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "D-Gamut",
+  "a": null,
+  "b": {
+   "name": "D-Gamut",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dji_d_gamut (file name)",
+   "why": "drone camera gamut"
+  },
+  "batch": "batch-00.txt"
+ }
+]

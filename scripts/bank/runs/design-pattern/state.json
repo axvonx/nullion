@@ -1,0 +1,130 @@
+{
+ "id": "design-pattern",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T22:58:18+00:00",
+   "seconds": 12,
+   "finished": "2026-11-27T22:58:30+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T22:58:30+00:00",
+   "seconds": 2,
+   "finished": "2026-11-27T22:58:32+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T22:58:32+00:00",
+   "seconds": 83,
+   "finished": "2026-11-27T22:59:55+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T22:59:55+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T22:59:55+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T22:59:55+00:00",
+   "seconds": 29,
+   "finished": "2026-11-27T23:00:24+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T23:00:24+00:00",
+   "seconds": 11,
+   "finished": "2026-11-27T23:00:36+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T23:00:36+00:00",
+   "seconds": 26,
+   "finished": "2026-11-27T23:01:01+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T23:01:01+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:01:01+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T23:01:01+00:00",
+   "seconds": 22,
+   "finished": "2026-11-27T23:01:24+00:00"
+  },
+  "precision": {
+   "status": "failed",
+   "started": "2026-11-27T23:01:24+00:00",
+   "seconds": 28,
+   "error": "GATE FAILED: precision: precision 80% < 90%: `/opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py design-pattern` exited 1: design-pattern: below 90%; fix the source plan or the filter before approving"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "34/34 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "76/146 answers have a verified link (52%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "fail",
+   "detail": "precision 80% < 90%: `/opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py design-pattern` exited 1: design-pattern: below 90%; fix the source plan or the filter before approving"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/design-pattern.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (Twin; Curiously Recurring Template Pattern, Monostate, Multiton): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/design-pattern.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 272,
+  "summary": "design-pattern: 266 mined lines from 6 sources -> 1 batches in scripts/bank/mined/design-pattern"
+ },
+ "filter": [
+  "batch-00.a: 129 kept",
+  "batch-00.b: 126 kept"
+ ],
+ "compare": "design-pattern: 88 agreed, 60 disputed (41%) across 1 batches",
+ "escalate": "60 disputes -> 58 kept (2 low-confidence -> Inbox), 2 dropped",
+ "pins": {
+  "bitflip": "Twin",
+  "womm": [
+   "Curiously Recurring Template Pattern",
+   "Monostate",
+   "Multiton"
+  ]
+ },
+ "merge": "144 tiered answers, 2 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "design-pattern: 56 aliases, 2 new answers, 0 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "76/146 answers linked across 1 categories",
+  "dropped as broken: {}",
+  "37 links on other hosts left out → design/links/review.txt"
+ ]
+}

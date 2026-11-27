@@ -1,0 +1,85 @@
+{
+ "graphics-api": [
+  {
+   "name": "Direct3D",
+   "aliases": [
+    "D3D",
+    "Direct3D 11",
+    "Direct3D 12",
+    "D3D11",
+    "D3D12",
+    "Direct3D 9",
+    "D3D9",
+    "Direct3D 10",
+    "D3D10",
+    "Direct3D 8",
+    "D3D8",
+    "DirectX",
+    "direct3d11",
+    "direct3d12"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "OpenGL",
+   "aliases": [
+    "OpenGL 2",
+    "OpenGL 3",
+    "gl1",
+    "gl2",
+    "gl3"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Vulkan",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Metal",
+   "aliases": [
+    "Apple Metal",
+    "Metal 4"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "OpenGL ES",
+   "aliases": [
+    "GLES",
+    "OpenGL ES 2.0",
+    "GLES2",
+    "opengles2"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "GXM",
+   "aliases": [
+    "libgxm",
+    "sceGxm",
+    "Vita GXM",
+    "vitagxm"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "GX2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "GX",
+   "aliases": [
+    "libogc GX"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "deko3d",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

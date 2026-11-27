@@ -1,0 +1,8 @@
+--- gemini call, 19s, exit 0, prompt 4167 chars, stdout 3 chars
+15
+
+
+--- haiku call, 43s, exit 0, prompt 30303 chars, stdout 2306 chars
+iased"}, {"name": "ROM", "aliases": ["read-only memory"], "judge": "npe", "evidence": "read-only memory (kernel, 4); boot rom (kernel, 8)", "why": "classic read-only storage kind"}, {"name": "VRAM", "aliases": ["video RAM"], "judge": "leak", "evidence": "video ram (kernel, 10)", "why": "graphics memory kind, systems people know"}, {"name": "persistent memory", "aliases": [], "judge": "leak", "evidence": "persistent memory (kernel, 18)", "why": "byte-addressable non-volatile memory class"}, {"name": "core memory", "aliases": [], "judge": "race", "evidence": "core memory (kernel, 2)", "why": "magnetic core, historical named kind"}, {"name": "CompactFlash", "aliases": [], "judge": "heisenbug", "evidence": "CompactFlash (freebsd, 2)", "why": "named flash card format"}, {"name": "DDR", "aliases": [], "judge": "leak", "evidence": "ddr memory (kernel, 5)", "why": "common DRAM generation family"}, {"name": "LPDDR", "aliases": [], "judge": "heisenbug", "evidence": "lpddr (drivers/mtd dir name)", "why": "low-power DRAM kind, deep internals"}, {"name": "high bandwidth memory", "aliases": [], "judge": "leak", "evidence": "high bandwidth memory (kernel, 2)", "why": "named stacked DRAM technology"}, {"name": "CXL memory", "aliases": [], "judge": "heisenbug", "evidence": "cxl memory (kernel, 25)", "why": "CXL-attached memory expansion kind"}], "womm_candidates": ["core memory", "persistent memory", "CXL memory"], "bitflip_candidates": ["LPDDR", "CompactFlash", "NOR flash"]}, "aliases": {}}
+
+

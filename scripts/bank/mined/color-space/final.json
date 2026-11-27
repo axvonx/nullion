@@ -1,0 +1,331 @@
+{
+ "color-space": [
+  {
+   "name": "ACES",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Adobe RGB (1998)",
+   "aliases": [
+    "Adobe RGB",
+    "adobe_rgb_1998"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Adobe Wide Gamut RGB",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Apple RGB",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Best RGB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Beta RGB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Canon Cinema Gamut",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "ColorMatch RGB",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DCDM XYZ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DCI-P3",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Display P3",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Don RGB 4",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ECI RGB v2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Ekta Space PS 5",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Rec. 2020",
+   "aliases": [
+    "BT.2020",
+    "ITU-R BT.2020",
+    "itur_bt_2020"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Rec. 709",
+   "aliases": [
+    "BT.709",
+    "ITU-R BT.709",
+    "itur_bt_709"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Nikon N-Gamut",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "NTSC",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "PAL/SECAM",
+   "aliases": [
+    "pal_secam"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Panasonic V-Gamut",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "PLASA ANSI E1.54",
+   "aliases": [
+    "plasa_ansi_e154"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Russell RGB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "SMPTE 240M",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "SMPTE-C",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "sRGB",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "CAM02-UCS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CAM16-UCS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CIELAB",
+   "aliases": [
+    "CIE L*a*b*",
+    "Lab"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "CIELUV",
+   "aliases": [
+    "CIE L*u*v*",
+    "Luv"
+   ],
+   "judge": "npe",
+   "pin": "womm"
+  },
+  {
+   "name": "CIE UCS",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "CIE UVW",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DIN99",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "hdr-CIELAB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "hdr-IPT",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Hunter Lab",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ICaCb",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "IgPgTg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "bitflip"
+  },
+  {
+   "name": "IPT",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Jzazbz",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Oklab",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "OSA-UCS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "sUCS",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Apple Wide Gamut RGB",
+   "aliases": [
+    "Apple Wide Gamut"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "CIE RGB",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "DaVinci Wide Gamut",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "DJI D-Gamut",
+   "aliases": [
+    "D-Gamut"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "EBU 3213-E",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ITU-R BT.470",
+   "aliases": [
+    "BT.470",
+    "itur_bt_470"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Max RGB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "P3-D65",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ProPhoto RGB",
+   "aliases": [
+    "ROMM RGB",
+    "RIMM RGB",
+    "rimm_romm_rgb"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Xtreme RGB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CIE xyY",
+   "aliases": [
+    "xyY"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Hunter Rdab",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ProLab",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Ragoo 2021",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Yrg",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ],
+ "_context": {
+  "color-space": [
+   "color space"
+  ]
+ }
+}

@@ -1,0 +1,102 @@
+{
+ "SoundWire": {
+  "member": true,
+  "tier_ok": true,
+  "why": "MIPI SoundWire is a real two-wire audio/peripheral bus; niche enough that Heisenbug fits."
+ },
+ "1-Wire": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Dallas/Maxim 1-Wire is a real peripheral bus. Known mainly to embedded and domain people, so Memory leak fits."
+ },
+ "VMBus": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Microsoft's Hyper-V virtual bus is a named system bus for virtual devices. Deep-internals knowledge, so Heisenbug fits."
+ },
+ "SBus": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Sun's SBus is a real expansion bus. Known to Sun and retro-hardware people, so Race condition fits."
+ },
+ "MDIO": {
+  "member": true,
+  "tier_ok": true,
+  "why": "MDIO is the standard management interface between a MAC and an Ethernet PHY (IEEE 802.3 clause 22), a peripheral interface. Specialist knowledge, so Heisenbug fits."
+ },
+ "AHB": {
+  "member": true,
+  "tier_ok": true,
+  "why": "AMBA AHB is ARM's real on-chip system bus. Embedded engineers know it, so Race condition fits."
+ },
+ "STBus": {
+  "member": true,
+  "tier_ok": true,
+  "why": "STMicroelectronics STBus is a real on-chip interconnect bus. Deep-internals knowledge, so Heisenbug fits."
+ },
+ "CardBus": {
+  "member": true,
+  "tier_ok": true,
+  "why": "CardBus is the 32-bit PC Card bus standard. Known to systems people, so Memory leak fits."
+ },
+ "MII": {
+  "member": true,
+  "tier_ok": true,
+  "why": "MII is the IEEE 802.3 media-independent interface between a MAC and a PHY, a peripheral interface. Networking specialists know it, so Race condition fits."
+ },
+ "SATA": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Serial ATA is a real, very widely known storage/peripheral interface, so Off-by-one fits. 'SATA III' is a revision name, which is an acceptable alias."
+ },
+ "SPI": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Serial Peripheral Interface is a real, common embedded peripheral bus. Many hobbyists and engineers know it, so Null pointer exception fits."
+ },
+ "Micro Channel": {
+  "member": true,
+  "tier_ok": false,
+  "why": "IBM's Micro Channel Architecture is a real expansion bus. It is known mainly to PC-history and systems people, so Memory leak fits better than Null pointer exception."
+ },
+ "InfiniBand": {
+  "member": false,
+  "tier_ok": true,
+  "why": "InfiniBand is a real standard but a switched network fabric for servers and HPC, not a system, expansion or peripheral bus. It is neighbouring-domain networking, so it does not meet the category."
+ },
+ "HyperTransport": {
+  "member": true,
+  "tier_ok": true,
+  "why": "HyperTransport is a real point-to-point system interconnect that replaced the front-side bus in AMD systems. Known to PC builders and enthusiasts, so Null pointer exception is plausible."
+ },
+ "SAS": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Serial Attached SCSI is a real storage/peripheral interface. IT and storage people know it, so Null pointer exception fits."
+ },
+ "BCMA": {
+  "member": true,
+  "tier_ok": true,
+  "why": "BCMA is Broadcom's on-chip bus architecture, as used by the Linux bcma bus driver. Deep-internals knowledge, so Heisenbug fits. Membership is from memory of the kernel driver, not a source line I could check here."
+ },
+ "AVSBus": {
+  "member": false,
+  "tier_ok": true,
+  "why": "I cannot confirm this is a real, named bus standard. It may be a voltage-scaling control interface, but the strict rule says to reject when unsure it exists."
+ },
+ "Multibus": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Intel's Multibus (I and II) is a real, historically significant system bus. Only specialists know it, so Heisenbug fits."
+ },
+ "LPC": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Low Pin Count is Intel's real bus that replaced ISA on PC motherboards. Firmware and PC specialists know it, so Race condition fits."
+ },
+ "DIO": {
+  "member": true,
+  "tier_ok": true,
+  "why": "DIO is HP's real Direct I/O expansion bus on its 9000 series 200/300 workstations. Deep-internals knowledge, so Heisenbug fits."
+ }
+}

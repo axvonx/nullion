@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py graphics-api /Users/axvon/nullion/scripts/bank/mined/graphics-api/final.json /Users/axvon/nullion/scripts/bank/mined/graphics-api/agreed /Users/axvon/nullion/scripts/bank/mined/graphics-api/resolved  [0s, exit 0]
+graphics-api: 20 new candidates -> /Users/axvon/nullion/scripts/bank/mined/graphics-api/final.json; 0 aliases added to bank/data-graphics-algorithms/graphics-api.md
+
+--- haiku call, 6s, exit 0, prompt 1040 chars, stdout 66 chars
+[17:04:03] {"bitflip": "GX2", "womm": ["OpenVG", "Glide", "GDI"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/graphics-api/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+graphics-api: filled 20 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.2.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  17:04:04
+   Duration  196ms (transform 69%, import 16%, tests 14%, worker 1%)
+
+

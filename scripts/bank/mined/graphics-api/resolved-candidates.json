@@ -1,0 +1,80 @@
+{
+ "graphics-api": [
+  {
+   "name": "WebGPU",
+   "aliases": [
+    "wgpu"
+   ],
+   "judge": "npe",
+   "why": "Modern web and cross-platform GPU API"
+  },
+  {
+   "name": "GDI",
+   "aliases": [
+    "Windows GDI"
+   ],
+   "judge": "npe",
+   "why": "Classic Windows 2D graphics device interface"
+  },
+  {
+   "name": "OpenVG",
+   "aliases": [],
+   "judge": "leak",
+   "why": "Khronos hardware-accelerated 2D vector graphics API"
+  },
+  {
+   "name": "SDL_gpu",
+   "aliases": [
+    "SDL GPU",
+    "SDL3 GPU"
+   ],
+   "judge": "race",
+   "why": "SDL3's cross-platform GPU rendering and compute API"
+  },
+  {
+   "name": "DispmanX",
+   "aliases": [],
+   "judge": "race",
+   "why": "Raspberry Pi VideoCore 2D composition API"
+  },
+  {
+   "name": "XVideo",
+   "aliases": [],
+   "judge": "race",
+   "confidence": "low",
+   "why": "X11 hardware-accelerated video rendering extension API"
+  },
+  {
+   "name": "Mantle",
+   "aliases": [],
+   "judge": "race",
+   "why": "AMD's proprietary low-level 3D graphics API"
+  },
+  {
+   "name": "Glide",
+   "aliases": [],
+   "judge": "race",
+   "why": "3dfx's proprietary 3D graphics API"
+  },
+  {
+   "name": "NVN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "Nintendo Switch's proprietary low-level graphics API"
+  },
+  {
+   "name": "GNM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "why": "PlayStation 4's proprietary low-level graphics API"
+  },
+  {
+   "name": "SDL_Renderer",
+   "aliases": [
+    "SDL Renderer"
+   ],
+   "judge": "race",
+   "why": "SDL's 2D hardware-accelerated rendering API"
+  }
+ ]
+}

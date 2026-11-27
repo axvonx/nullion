@@ -1,0 +1,102 @@
+{
+ "Business Delegate": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Core J2EE pattern (Alur, Crupi, Malks); known mainly to enterprise Java developers, so a specialist tier fits."
+ },
+ "Event Aggregator": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named enterprise pattern (Fowler's catalogue, also in Microsoft Prism); niche, so a specialist tier fits."
+ },
+ "Chain of Responsibility": {
+  "member": true,
+  "tier_ok": true,
+  "why": "GoF pattern. The 'pattern' suffix alias is just the prompt's noun on the end, so it adds no entry. Widely known through middleware and servlet filters, so npe fits."
+ },
+ "Servant": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named pattern from the Fowler/Johnson-era catalogue. I am not certain of the exact source, so this is a low-confidence keep; deep-internals tier is plausible."
+ },
+ "Dependency Injection": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named pattern (Fowler's 2004 term, in Pico and Spring docs). Very widely known, so off-by-one is defensible."
+ },
+ "Saga": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named distributed-transaction pattern from Garcia-Molina and Salem (1987) and the microservices literature. Systems and domain knowledge, so memory leak fits."
+ },
+ "API Gateway": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named microservices pattern (Richardson, microservices.io). Systems and architecture people know it, so memory leak is a reasonable tier."
+ },
+ "Dirty Flag": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named game-programming pattern (Game Programming Gems / Game Programming Patterns). Specialists know it, so race fits."
+ },
+ "Bridge": {
+  "member": true,
+  "tier_ok": false,
+  "why": "GoF pattern, one of the best-known. Memory leak is too deep; it should be off-by-one or npe."
+ },
+ "Execute Around": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Smalltalk/Java idiom (Execute Around Method) that practitioners call by name. Specialist tier fits."
+ },
+ "Data Transfer Object": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named pattern (Fowler, PoEAA). The DTO alias is an abbreviation of the kept entry and is fine. Many developers know it, so npe fits."
+ },
+ "Composite View": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named J2EE presentation pattern (Core J2EE Patterns). Specialist tier fits."
+ },
+ "Collecting Parameter": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named Smalltalk pattern (Beck, Smalltalk Best Practice Patterns) that practitioners use by name. Specialist tier fits."
+ },
+ "Self Registration": {
+  "member": false,
+  "tier_ok": false,
+  "why": "I cannot place this as a named pattern in the GoF catalogue or a published pattern language. It reads as a descriptive phrase, so when unsure it is out."
+ },
+ "Subclass Sandbox": {
+  "member": false,
+  "tier_ok": false,
+  "why": "I cannot confirm this as a named pattern in a published source. It is unsure, so it is out under the strict rule."
+ },
+ "Table Inheritance": {
+  "member": false,
+  "tier_ok": false,
+  "why": "Not a named pattern. Fowler's catalogue has Single Table, Class Table and Concrete Table Inheritance; the bare phrase is a fragment of those."
+ },
+ "Map-Reduce": {
+  "member": false,
+  "tier_ok": false,
+  "why": "A distributed programming model from Google's paper, not an object-oriented design solution or a GoF or pattern-language entry. Outside the accepts line."
+ },
+ "Naked Objects": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Named architectural pattern (Pawson and Matthews, Naked Objects). Niche but not internals-level, so heisenbug is too deep; race or memory leak fits better."
+ },
+ "Page Object": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named test-automation pattern (Selenium community) that practitioners call by name. Many QA and test developers know it, so npe fits."
+ },
+ "Resource Acquisition Is Initialization": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named C++ idiom and pattern (Stroustrup; POSA2 and Meyers-era literature) that C++ developers know well. npe fits."
+ }
+}

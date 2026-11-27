@@ -1,0 +1,10 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py video-codec sample  [0s, exit 0]
+video-codec: sampled 20 of 106 unconfirmed answers -> scripts/bank/mined/video-codec/sample.json
+
+--- haiku call, 22s, exit 0, prompt 3663 chars, stdout 3171 chars
+ialist knowledge fits Race condition."}, "LEAD Video": {"member": false, "tier_ok": true, "why": "LEAD Technologies made video codecs, but I can't confirm the exact name 'LEAD Video' as a codec kind from a source, so under the strict rule it's out."}, "Sorenson Video": {"member": true, "tier_ok": true, "why": "Sorenson Video (SVQ1 / Sorenson Video 1 and 3), a named QuickTime codec; moderately known, so Null pointer exception fits."}, "DNxHD": {"member": true, "tier_ok": true, "why": "Avid DNxHD, a named professional intermediate codec; domain-specialist knowledge fits Memory leak."}, "MagicYUV": {"member": true, "tier_ok": true, "why": "MagicYUV, a named lossless codec used in FFmpeg and by its vendor; specialist knowledge fits Race condition."}, "BMV": {"member": true, "tier_ok": true, "why": "Interplay's 'Discworld II BMV' video codec, a named FFmpeg decoder; deep-internals level."}, "CPiA": {"member": true, "tier_ok": true, "why": "The CPiA (Vision) camera video codec, a named FFmpeg decoder; deep-internals level."}, "CYUV": {"member": true, "tier_ok": true, "why": "Creative YUV (CYUV) codec, a named FFmpeg decoder; deep-internals level."}, "VVC": {"member": true, "tier_ok": false, "why": "H.266/Versatile Video Coding is a real standardized codec, but it is much less known than HEVC or H.264, so Memory leak fits better than Null pointer exception."}, "HEVC": {"member": true, "tier_ok": true, "why": "H.265/HEVC, a standardized codec that most video-literate people know."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py video-codec score  [0s, exit 0]
+video-codec: precision 95% (19/20), tier ok 18/20
+

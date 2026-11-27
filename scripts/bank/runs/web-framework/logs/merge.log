@@ -1,0 +1,27 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py web-framework /Users/axvon/nullion/scripts/bank/mined/web-framework/final.json /Users/axvon/nullion/scripts/bank/mined/web-framework/agreed /Users/axvon/nullion/scripts/bank/mined/web-framework/resolved  [0s, exit 0]
+note: Backbone.js: batches disagree (npe vs race); keeping the shallower
+web-framework: 94 new candidates -> /Users/axvon/nullion/scripts/bank/mined/web-framework/final.json; 0 aliases added to bank/languages-tools/web-framework.md
+
+--- haiku call, 5s, exit 0, prompt 1972 chars, stdout 80 chars
+[16:50:45] {"bitflip": "Binding.scala", "womm": ["CherryPy", "Klein", "Pippo"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/web-framework/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+web-framework: filled 94 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.2.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  16:50:46
+   Duration  206ms (transform 68%, import 16%, tests 15%, worker 1%)
+
+

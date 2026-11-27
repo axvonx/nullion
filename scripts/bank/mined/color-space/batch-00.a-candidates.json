@@ -1,0 +1,405 @@
+{
+  "color-space": [
+    {
+      "name": "ACES",
+      "aliases": ["aces"],
+      "judge": "leak",
+      "evidence": "aces",
+      "why": "Academy Color Encoding System used in film and VFX"
+    },
+    {
+      "name": "Adobe RGB (1998)",
+      "aliases": ["Adobe RGB", "adobe_rgb_1998"],
+      "judge": "npe",
+      "evidence": "adobe_rgb_1998",
+      "why": "wide-gamut RGB color space for print and photography"
+    },
+    {
+      "name": "Adobe Wide Gamut RGB",
+      "aliases": ["adobe_wide_gamut_rgb"],
+      "judge": "leak",
+      "evidence": "adobe_wide_gamut_rgb",
+      "why": "wide-gamut RGB color space developed by Adobe"
+    },
+    {
+      "name": "Apple RGB",
+      "aliases": ["apple_rgb"],
+      "judge": "leak",
+      "evidence": "apple_rgb",
+      "why": "legacy RGB color space for classic Apple displays"
+    },
+    {
+      "name": "Apple Wide Gamut",
+      "aliases": ["apple_wide_gamut"],
+      "judge": "race",
+      "evidence": "apple_wide_gamut",
+      "why": "Apple wide-gamut RGB color space"
+    },
+    {
+      "name": "Best RGB",
+      "aliases": ["best_rgb"],
+      "judge": "heisenbug",
+      "evidence": "best_rgb",
+      "why": "working RGB color space by Don Hutcheson"
+    },
+    {
+      "name": "Beta RGB",
+      "aliases": ["beta_rgb"],
+      "judge": "heisenbug",
+      "evidence": "beta_rgb",
+      "why": "wide-gamut RGB working space by Bruce Lindbloom"
+    },
+    {
+      "name": "Canon Cinema Gamut",
+      "aliases": ["canon_cinema_gamut"],
+      "judge": "race",
+      "evidence": "canon_cinema_gamut",
+      "why": "wide-gamut color space for Canon Cinema EOS cameras"
+    },
+    {
+      "name": "CIE RGB",
+      "aliases": ["cie_rgb"],
+      "judge": "npe",
+      "evidence": "cie_rgb",
+      "why": "1931 CIE primary RGB color space"
+    },
+    {
+      "name": "ColorMatch RGB",
+      "aliases": ["color_match_rgb"],
+      "judge": "race",
+      "evidence": "color_match_rgb",
+      "why": "legacy RGB working space for Radius PressView monitors"
+    },
+    {
+      "name": "DaVinci Wide Gamut",
+      "aliases": ["davinci_wide_gamut"],
+      "judge": "leak",
+      "evidence": "davinci_wide_gamut",
+      "why": "wide-gamut color space used in DaVinci Resolve"
+    },
+    {
+      "name": "DCDM XYZ",
+      "aliases": ["dcdm_xyz"],
+      "judge": "race",
+      "evidence": "dcdm_xyz",
+      "why": "Digital Cinema Distribution Master XYZ color space"
+    },
+    {
+      "name": "DCI-P3",
+      "aliases": ["dci_p3"],
+      "judge": "npe",
+      "evidence": "dci_p3",
+      "why": "digital cinema RGB color space"
+    },
+    {
+      "name": "Display P3",
+      "aliases": ["display_p3"],
+      "judge": "npe",
+      "evidence": "display_p3",
+      "why": "wide-gamut RGB color space used on Apple and web displays"
+    },
+    {
+      "name": "DJI D-Gamut",
+      "aliases": ["dji_d_gamut"],
+      "judge": "race",
+      "evidence": "dji_d_gamut",
+      "why": "wide-gamut color space for DJI cinema cameras"
+    },
+    {
+      "name": "Don RGB 4",
+      "aliases": ["don_rgb_4"],
+      "judge": "heisenbug",
+      "evidence": "don_rgb_4",
+      "why": "RGB working space by Don Hutcheson"
+    },
+    {
+      "name": "EBU 3213-E",
+      "aliases": ["ebu_3213_e"],
+      "judge": "heisenbug",
+      "evidence": "ebu_3213_e",
+      "why": "European Broadcasting Union PAL/SECAM phosphor primaries"
+    },
+    {
+      "name": "ECI RGB v2",
+      "aliases": ["eci_rgb_v2"],
+      "judge": "race",
+      "evidence": "eci_rgb_v2",
+      "why": "European Color Initiative RGB working space"
+    },
+    {
+      "name": "Ekta Space PS 5",
+      "aliases": ["ekta_space_ps5"],
+      "judge": "heisenbug",
+      "evidence": "ekta_space_ps5",
+      "why": "RGB working space by Joseph Holmes"
+    },
+    {
+      "name": "Rec. 2020",
+      "aliases": ["BT.2020", "ITU-R BT.2020", "itur_bt_2020"],
+      "judge": "npe",
+      "evidence": "itur_bt_2020",
+      "why": "UHDTV wide-gamut RGB color space"
+    },
+    {
+      "name": "ITU-R BT.470",
+      "aliases": ["BT.470", "itur_bt_470"],
+      "judge": "race",
+      "evidence": "itur_bt_470",
+      "why": "analog television colorimetry standard"
+    },
+    {
+      "name": "Rec. 709",
+      "aliases": ["BT.709", "ITU-R BT.709", "itur_bt_709"],
+      "judge": "npe",
+      "evidence": "itur_bt_709",
+      "why": "HDTV standard RGB color space"
+    },
+    {
+      "name": "Max RGB",
+      "aliases": ["max_rgb"],
+      "judge": "heisenbug",
+      "evidence": "max_rgb",
+      "why": "wide-gamut RGB working space"
+    },
+    {
+      "name": "Nikon N-Gamut",
+      "aliases": ["nikon_n_gamut"],
+      "judge": "race",
+      "evidence": "nikon_n_gamut",
+      "why": "wide-gamut color space for Nikon N-Log"
+    },
+    {
+      "name": "NTSC",
+      "aliases": ["ntsc"],
+      "judge": "npe",
+      "evidence": "ntsc",
+      "why": "1953 NTSC television RGB color space"
+    },
+    {
+      "name": "P3-D65",
+      "aliases": ["p3_d65"],
+      "judge": "leak",
+      "evidence": "p3_d65",
+      "why": "D65 white-point variant of DCI-P3"
+    },
+    {
+      "name": "PAL/SECAM",
+      "aliases": ["pal_secam"],
+      "judge": "leak",
+      "evidence": "pal_secam",
+      "why": "analog television RGB color space"
+    },
+    {
+      "name": "Panasonic V-Gamut",
+      "aliases": ["panasonic_v_gamut"],
+      "judge": "race",
+      "evidence": "panasonic_v_gamut",
+      "why": "wide-gamut color space for Panasonic V-Log"
+    },
+    {
+      "name": "PLASA ANSI E1.54",
+      "aliases": ["plasa_ansi_e154"],
+      "judge": "heisenbug",
+      "evidence": "plasa_ansi_e154",
+      "why": "stage lighting RGB color space standard"
+    },
+    {
+      "name": "ProPhoto RGB",
+      "aliases": ["ROMM RGB", "RIMM RGB", "rimm_romm_rgb"],
+      "judge": "npe",
+      "evidence": "rimm_romm_rgb",
+      "why": "wide-gamut RGB color space by Kodak"
+    },
+    {
+      "name": "Russell RGB",
+      "aliases": ["russell_rgb"],
+      "judge": "heisenbug",
+      "evidence": "russell_rgb",
+      "why": "RGB working space by Russell Cottrell"
+    },
+    {
+      "name": "SMPTE 240M",
+      "aliases": ["smpte_240m"],
+      "judge": "race",
+      "evidence": "smpte_240m",
+      "why": "early HDTV RGB color space standard"
+    },
+    {
+      "name": "SMPTE-C",
+      "aliases": ["smpte_c"],
+      "judge": "leak",
+      "evidence": "smpte_c",
+      "why": "North American broadcast television RGB primaries"
+    },
+    {
+      "name": "sRGB",
+      "aliases": ["srgb"],
+      "judge": "off-by-one",
+      "evidence": "srgb",
+      "why": "standard RGB color space for the web and consumer displays"
+    },
+    {
+      "name": "Xtreme RGB",
+      "aliases": ["xtreme_rgb"],
+      "judge": "heisenbug",
+      "evidence": "xtreme_rgb",
+      "why": "wide-gamut RGB working space"
+    },
+    {
+      "name": "CAM02-UCS",
+      "aliases": ["cam02_ucs"],
+      "judge": "race",
+      "evidence": "cam02_ucs",
+      "why": "perceptually uniform color space based on CIECAM02"
+    },
+    {
+      "name": "CAM16-UCS",
+      "aliases": ["cam16_ucs"],
+      "judge": "race",
+      "evidence": "cam16_ucs",
+      "why": "perceptually uniform color space based on CAM16"
+    },
+    {
+      "name": "CIELAB",
+      "aliases": ["CIE L*a*b*", "Lab", "cie_lab"],
+      "judge": "off-by-one",
+      "evidence": "cie_lab",
+      "why": "perceptually uniform opponent color space by CIE"
+    },
+    {
+      "name": "CIELUV",
+      "aliases": ["CIE L*u*v*", "Luv", "cie_luv"],
+      "judge": "npe",
+      "evidence": "cie_luv",
+      "why": "1976 CIE uniform chromaticity color space"
+    },
+    {
+      "name": "CIE UCS",
+      "aliases": ["cie_ucs"],
+      "judge": "race",
+      "evidence": "cie_ucs",
+      "why": "1960 CIE uniform chromaticity scale"
+    },
+    {
+      "name": "CIE UVW",
+      "aliases": ["cie_uvw"],
+      "judge": "race",
+      "evidence": "cie_uvw",
+      "why": "1964 CIE uniform color space"
+    },
+    {
+      "name": "CIE xyY",
+      "aliases": ["xyY", "cie_xyy"],
+      "judge": "npe",
+      "evidence": "cie_xyy",
+      "why": "chromaticity-luminance color space derived from CIE XYZ"
+    },
+    {
+      "name": "DIN99",
+      "aliases": ["din99"],
+      "judge": "heisenbug",
+      "evidence": "din99",
+      "why": "German standard perceptually uniform transformation of CIELAB"
+    },
+    {
+      "name": "hdr-CIELAB",
+      "aliases": ["hdr_cie_lab"],
+      "judge": "heisenbug",
+      "evidence": "hdr_cie_lab",
+      "why": "high-dynamic-range extension of CIELAB"
+    },
+    {
+      "name": "hdr-IPT",
+      "aliases": ["hdr_ipt"],
+      "judge": "heisenbug",
+      "evidence": "hdr_ipt",
+      "why": "high-dynamic-range extension of IPT"
+    },
+    {
+      "name": "Hunter Lab",
+      "aliases": ["hunter_lab"],
+      "judge": "leak",
+      "evidence": "hunter_lab",
+      "why": "1948 opponent color space by Richard Hunter"
+    },
+    {
+      "name": "Hunter Rdab",
+      "aliases": ["hunter_rdab"],
+      "judge": "heisenbug",
+      "evidence": "hunter_rdab",
+      "why": "Hunter color space variant using Rd instead of L"
+    },
+    {
+      "name": "ICaCb",
+      "aliases": ["icacb"],
+      "judge": "heisenbug",
+      "evidence": "icacb",
+      "why": "perceptual opponent color space for HDR"
+    },
+    {
+      "name": "IgPgTg",
+      "aliases": ["igpgtg"],
+      "judge": "heisenbug",
+      "evidence": "igpgtg",
+      "why": "perceptual opponent color space"
+    },
+    {
+      "name": "IPT",
+      "aliases": ["ipt"],
+      "judge": "race",
+      "evidence": "ipt",
+      "why": "hue-linear perceptual color space by Ebner and Fairchild"
+    },
+    {
+      "name": "Jzazbz",
+      "aliases": ["jzazbz"],
+      "judge": "race",
+      "evidence": "jzazbz",
+      "why": "perceptually uniform HDR and wide-gamut color space"
+    },
+    {
+      "name": "Oklab",
+      "aliases": ["oklab"],
+      "judge": "leak",
+      "evidence": "oklab",
+      "why": "perceptual color space by Björn Ottosson"
+    },
+    {
+      "name": "OSA-UCS",
+      "aliases": ["osa_ucs"],
+      "judge": "heisenbug",
+      "evidence": "osa_ucs",
+      "why": "Optical Society of America Uniform Color Scales"
+    },
+    {
+      "name": "ProLab",
+      "aliases": ["prolab"],
+      "judge": "heisenbug",
+      "evidence": "prolab",
+      "why": "projective transformation of CIE XYZ for perceptual uniformity"
+    },
+    {
+      "name": "Ragoo 2021",
+      "aliases": ["ragoo2021"],
+      "judge": "heisenbug",
+      "evidence": "ragoo2021",
+      "why": "perceptual color space proposed by Ragoo and colleagues"
+    },
+    {
+      "name": "sUCS",
+      "aliases": ["sucs"],
+      "judge": "heisenbug",
+      "evidence": "sucs",
+      "why": "simple uniform color space"
+    },
+    {
+      "name": "Yrg",
+      "aliases": ["yrg"],
+      "judge": "heisenbug",
+      "evidence": "yrg",
+      "why": "luminance and red-green chromaticity color space"
+    }
+  ],
+  "womm_candidates": ["Oklab", "CIELUV", "Display P3"],
+  "bitflip_candidates": ["Jzazbz", "IgPgTg", "DIN99"]
+}

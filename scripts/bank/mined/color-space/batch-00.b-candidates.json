@@ -1,0 +1,358 @@
+{
+ "color-space": [
+  {
+   "name": "sRGB",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "srgb (file name)",
+   "why": "default display colour space"
+  },
+  {
+   "name": "CIELAB",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "cie_lab (file name)",
+   "why": "standard perceptual space"
+  },
+  {
+   "name": "Adobe RGB",
+   "aliases": [
+    "Adobe RGB 1998"
+   ],
+   "judge": "npe",
+   "evidence": "adobe_rgb_1998 (file name)",
+   "why": "photography standard space"
+  },
+  {
+   "name": "Adobe Wide Gamut RGB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "adobe_wide_gamut_rgb (file name)",
+   "why": "named wide-gamut working space"
+  },
+  {
+   "name": "Display P3",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "display_p3 (file name)",
+   "why": "Apple display colour space"
+  },
+  {
+   "name": "DCI-P3",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "dci_p3 (file name)",
+   "why": "cinema projection space"
+  },
+  {
+   "name": "ACES",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "aces (file name)",
+   "why": "film industry interchange space"
+  },
+  {
+   "name": "Rec. 709",
+   "aliases": [
+    "BT.709"
+   ],
+   "judge": "npe",
+   "evidence": "itur_bt_709 (file name)",
+   "why": "HDTV colour standard"
+  },
+  {
+   "name": "Rec. 2020",
+   "aliases": [
+    "BT.2020"
+   ],
+   "judge": "leak",
+   "evidence": "itur_bt_2020 (file name)",
+   "why": "UHDTV colour standard"
+  },
+  {
+   "name": "NTSC",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "ntsc (file name)",
+   "why": "legacy TV colour system"
+  },
+  {
+   "name": "SMPTE-C",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "smpte_c (file name)",
+   "why": "legacy broadcast phosphor space"
+  },
+  {
+   "name": "SMPTE 240M",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "smpte_240m (file name)",
+   "why": "early HDTV colour standard"
+  },
+  {
+   "name": "PAL/SECAM",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "pal_secam (file name)",
+   "why": "European analogue colour encoding"
+  },
+  {
+   "name": "Apple RGB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "apple_rgb (file name)",
+   "why": "legacy Mac display space"
+  },
+  {
+   "name": "Apple Wide Gamut RGB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "apple_wide_gamut (file name)",
+   "why": "named Apple wide-gamut space"
+  },
+  {
+   "name": "CIE RGB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "cie_rgb (file name)",
+   "why": "1931 primaries reference space"
+  },
+  {
+   "name": "ColorMatch RGB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "color_match_rgb (file name)",
+   "why": "pre-press monitor space"
+  },
+  {
+   "name": "ROMM RGB",
+   "aliases": [
+    "RIMM RGB"
+   ],
+   "judge": "race",
+   "evidence": "rimm_romm_rgb (file name)",
+   "why": "ProPhoto's underlying space"
+  },
+  {
+   "name": "Best RGB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "best_rgb (file name)",
+   "why": "obscure wide-gamut RGB"
+  },
+  {
+   "name": "Beta RGB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "beta_rgb (file name)",
+   "why": "obscure wide-gamut RGB"
+  },
+  {
+   "name": "Don RGB 4",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "don_rgb_4 (file name)",
+   "why": "obscure named RGB space"
+  },
+  {
+   "name": "Russell RGB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "russell_rgb (file name)",
+   "why": "obscure named RGB space"
+  },
+  {
+   "name": "ECI RGB v2",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "eci_rgb_v2 (file name)",
+   "why": "European print colour space"
+  },
+  {
+   "name": "Ekta Space PS5",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ekta_space_ps5 (file name)",
+   "why": "obscure Photoshop-era RGB space"
+  },
+  {
+   "name": "PLASA ANSI E1.54",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "plasa_ansi_e154 (file name)",
+   "why": "stage lighting colour standard"
+  },
+  {
+   "name": "Canon Cinema Gamut",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "canon_cinema_gamut (file name)",
+   "why": "camera manufacturer gamut"
+  },
+  {
+   "name": "DaVinci Wide Gamut",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "davinci_wide_gamut (file name)",
+   "why": "Resolve camera working space"
+  },
+  {
+   "name": "D-Gamut",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dji_d_gamut (file name)",
+   "why": "drone camera gamut"
+  },
+  {
+   "name": "Nikon N-Gamut",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "nikon_n_gamut (file name)",
+   "why": "camera manufacturer gamut"
+  },
+  {
+   "name": "Panasonic V-Gamut",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "panasonic_v_gamut (file name)",
+   "why": "camera manufacturer gamut"
+  },
+  {
+   "name": "DCDM XYZ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dcdm_xyz (file name)",
+   "why": "digital cinema XYZ encoding"
+  },
+  {
+   "name": "CIE xyY",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "cie_xyy (file name)",
+   "why": "chromaticity-plus-luminance space"
+  },
+  {
+   "name": "CIELUV",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "cie_luv (file name)",
+   "why": "CIE uniform perceptual space"
+  },
+  {
+   "name": "CIE UCS",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "cie_ucs (file name)",
+   "why": "1960 uniform chromaticity space"
+  },
+  {
+   "name": "CIE UVW",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cie_uvw (file name)",
+   "why": "1964 uniform colour space"
+  },
+  {
+   "name": "CAM02-UCS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cam02_ucs (file name)",
+   "why": "colour appearance uniform space"
+  },
+  {
+   "name": "CAM16-UCS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cam16_ucs (file name)",
+   "why": "colour appearance uniform space"
+  },
+  {
+   "name": "DIN99",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "din99 (file name)",
+   "why": "German uniform Lab variant"
+  },
+  {
+   "name": "HDR-CIELAB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hdr_cie_lab (file name)",
+   "why": "HDR extension of CIELAB"
+  },
+  {
+   "name": "HDR-IPT",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hdr_ipt (file name)",
+   "why": "HDR extension of IPT"
+  },
+  {
+   "name": "Hunter Lab",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "hunter_lab (file name)",
+   "why": "1948 opponent-colour space"
+  },
+  {
+   "name": "IPT",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ipt (file name)",
+   "why": "Ebner-Fairchild perceptual space"
+  },
+  {
+   "name": "Jzazbz",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "jzazbz (file name)",
+   "why": "HDR perceptual uniform space"
+  },
+  {
+   "name": "Oklab",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "oklab (file name)",
+   "why": "modern perceptual Lab space"
+  },
+  {
+   "name": "OSA-UCS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "osa_ucs (file name)",
+   "why": "optical society uniform space"
+  },
+  {
+   "name": "sUCS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sucs (file name)",
+   "why": "simplified uniform colour space"
+  },
+  {
+   "name": "ICaCb",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "icacb (file name)",
+   "why": "Ebner opponent colour space"
+  },
+  {
+   "name": "IgPgTg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "igpgtg (file name)",
+   "why": "Ebner-Fairchild opponent space"
+  }
+ ],
+ "womm_candidates": [
+  "CAM16-UCS",
+  "ICaCb",
+  "Ekta Space PS5"
+ ],
+ "bitflip_candidates": [
+  "IgPgTg",
+  "Russell RGB",
+  "Don RGB 4"
+ ]
+}

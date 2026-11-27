@@ -1,0 +1,22 @@
+{
+ "sparse": [
+  {
+   "repo": "netwide-assembler/nasm",
+   "dir": "nasm",
+   "paths": [
+    "x86/insns.dat"
+   ]
+  }
+ ],
+ "extract": [
+  {
+   "tree": "src/nasm",
+   "file": "x86/insns.dat",
+   "regex": "^([A-Z][A-Z0-9]+)\\s+"
+  }
+ ],
+ "context": [
+  "x86",
+  "instruction"
+ ]
+}

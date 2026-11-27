@@ -1,0 +1,102 @@
+{
+ "EA TGQ": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Electronic Arts' TGQ video codec, a real FFmpeg-supported format used in EA games; deep internals knowledge."
+ },
+ "BFI": {
+  "member": true,
+  "tier_ok": true,
+  "why": "'Brute Force & Ignorance' (BFI) video codec, a real named FFmpeg decoder; obscure, so Heisenbug fits."
+ },
+ "AVUI": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Avid's AVUI (Meridien-family) intermediate codec, a named FFmpeg decoder; specialist knowledge."
+ },
+ "012v": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Apple's uncompressed 4:2:2 10-bit codec, identified in FFmpeg and QuickTime docs by this FourCC; it's a named codec, though the name is a code, so this is a borderline keep."
+ },
+ "Mimic": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The Mimic video codec, a named FFmpeg decoder; deep-internals level."
+ },
+ "Escape 124": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The Escape 124 video codec, a named FFmpeg decoder used in Escape-engine titles; deep-internals level."
+ },
+ "H.264": {
+  "member": true,
+  "tier_ok": true,
+  "why": "H.264/AVC, a standardized codec; nearly everyone knows it."
+ },
+ "AVS3": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Chinese AVS3 standard, a named codec in the AVS working group's specs and libuavs3d; specialists know it, so Race condition fits."
+ },
+ "Interplay Video": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Interplay's named video codec (FFmpeg interplayvideo decoder); deep-internals level."
+ },
+ "EA MAD": {
+  "member": true,
+  "tier_ok": true,
+  "why": "EA's MAD video codec, a named FFmpeg decoder; deep-internals level."
+ },
+ "DXV": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Resolume's DXV codec, a named VJ/realtime codec in FFmpeg; specialist knowledge fits Race condition."
+ },
+ "LEAD Video": {
+  "member": false,
+  "tier_ok": true,
+  "why": "LEAD Technologies made video codecs, but I can't confirm the exact name 'LEAD Video' as a codec kind from a source, so under the strict rule it's out."
+ },
+ "Sorenson Video": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Sorenson Video (SVQ1 / Sorenson Video 1 and 3), a named QuickTime codec; moderately known, so Null pointer exception fits."
+ },
+ "DNxHD": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Avid DNxHD, a named professional intermediate codec; domain-specialist knowledge fits Memory leak."
+ },
+ "MagicYUV": {
+  "member": true,
+  "tier_ok": true,
+  "why": "MagicYUV, a named lossless codec used in FFmpeg and by its vendor; specialist knowledge fits Race condition."
+ },
+ "BMV": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Interplay's 'Discworld II BMV' video codec, a named FFmpeg decoder; deep-internals level."
+ },
+ "CPiA": {
+  "member": true,
+  "tier_ok": true,
+  "why": "The CPiA (Vision) camera video codec, a named FFmpeg decoder; deep-internals level."
+ },
+ "CYUV": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Creative YUV (CYUV) codec, a named FFmpeg decoder; deep-internals level."
+ },
+ "VVC": {
+  "member": true,
+  "tier_ok": false,
+  "why": "H.266/Versatile Video Coding is a real standardized codec, but it is much less known than HEVC or H.264, so Memory leak fits better than Null pointer exception."
+ },
+ "HEVC": {
+  "member": true,
+  "tier_ok": true,
+  "why": "H.265/HEVC, a standardized codec that most video-literate people know."
+ }
+}

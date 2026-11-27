@@ -1,0 +1,337 @@
+{
+ "id": "memory-technology",
+ "prompt": "Name a computer memory technology",
+ "accepts": "a named technology used to store data in a computer, historical or current.",
+ "answers": [
+  {
+   "name": "DRAM",
+   "aliases": [
+    "dynamic RAM",
+    "dram memory",
+    "dynamic random access memory"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "flash memory",
+   "aliases": [
+    "flash",
+    "flash storage"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "DDR4",
+   "aliases": [
+    "DDR4 SDRAM",
+    "ddr4 memory",
+    "DDR4 RAM"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "RAM",
+   "aliases": [
+    "ram memory",
+    "random access memory"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "hard disk drive",
+   "aliases": [
+    "HDD",
+    "hard disk",
+    "hard drive"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "persistent memory",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "core memory",
+   "aliases": [
+    "magnetic core memory",
+    "magnetic core"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "read-only memory",
+   "aliases": [
+    "ROM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "VRAM",
+   "aliases": [
+    "video RAM",
+    "vram memory",
+    "video memory"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NAND flash",
+   "aliases": [
+    "NAND",
+    "NAND flash memory"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "High Bandwidth Memory",
+   "aliases": [
+    "HBM",
+    "HBM2",
+    "HBM3"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DDR",
+   "aliases": [
+    "DDR SDRAM",
+    "ddr memory",
+    "double data rate"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CompactFlash",
+   "aliases": [
+    "CF card",
+    "CompactFlash card"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SRAM",
+   "aliases": [
+    "static RAM",
+    "static random access memory"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SDRAM",
+   "aliases": [
+    "synchronous DRAM",
+    "synchronous dynamic RAM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DDR5",
+   "aliases": [
+    "DDR5 SDRAM",
+    "DDR5 RAM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "GDDR",
+   "aliases": [
+    "graphics DDR",
+    "GDDR6",
+    "GDDR5"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PROM",
+   "aliases": [
+    "programmable ROM",
+    "programmable read-only memory"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "EPROM",
+   "aliases": [
+    "erasable PROM",
+    "erasable programmable ROM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "EEPROM",
+   "aliases": [
+    "electrically erasable PROM",
+    "electrically erasable programmable read-only memory"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "solid-state drive",
+   "aliases": [
+    "SSD"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "magnetic tape",
+   "aliases": [
+    "tape",
+    "tape drive"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "floppy disk",
+   "aliases": [
+    "floppy",
+    "floppy drive"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CD-ROM",
+   "aliases": [
+    "compact disc read-only memory",
+    "compact disc"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DVD",
+   "aliases": [
+    "digital versatile disc",
+    "DVD-ROM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "cache memory",
+   "aliases": [
+    "CPU cache",
+    "processor cache"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NVRAM",
+   "aliases": [
+    "non-volatile RAM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MRAM",
+   "aliases": [
+    "magnetoresistive RAM",
+    "magnetoresistive random access memory"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "FRAM",
+   "aliases": [
+    "FeRAM",
+    "ferroelectric RAM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ReRAM",
+   "aliases": [
+    "RRAM",
+    "resistive RAM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "phase-change memory",
+   "aliases": [
+    "PCM",
+    "PRAM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "3D XPoint",
+   "aliases": [
+    "Optane"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SD card",
+   "aliases": [
+    "Secure Digital",
+    "SD memory card"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "USB flash drive",
+   "aliases": [
+    "thumb drive",
+    "USB stick",
+    "pen drive"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "drum memory",
+   "aliases": [
+    "magnetic drum",
+    "drum storage"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "bubble memory",
+   "aliases": [
+    "magnetic bubble memory"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "NOR flash",
+   "aliases": [
+    "NOR",
+    "SPI-NOR",
+    "NOR flash memory"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ECC memory",
+   "aliases": [
+    "ECC RAM"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "serial flash",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "LPDDR",
+   "aliases": [
+    "low-power DDR",
+    "LPDDR4",
+    "LPDDR5"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "OTP memory",
+   "aliases": [
+    "one-time programmable memory"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DataFlash",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

@@ -1,0 +1,917 @@
+{
+  "design-pattern": [
+    {
+      "name": "Abstract Document",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "abstract-document",
+      "why": "published pattern for flexible, weakly typed object trees"
+    },
+    {
+      "name": "Abstract Factory",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "abstract-factory",
+      "why": "core Gang of Four creational pattern"
+    },
+    {
+      "name": "Active Object",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "active-object",
+      "why": "POSA2 concurrency pattern decoupling method execution from invocation"
+    },
+    {
+      "name": "Acyclic Visitor",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "acyclic-visitor",
+      "why": "Robert C. Martin pattern breaking Visitor dependency cycles"
+    },
+    {
+      "name": "Adapter",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "adapter",
+      "why": "core Gang of Four structural pattern"
+    },
+    {
+      "name": "Ambassador",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "ambassador",
+      "why": "cloud design pattern offloading client connectivity tasks"
+    },
+    {
+      "name": "Anti-Corruption Layer",
+      "aliases": ["ACL"],
+      "judge": "leak",
+      "evidence": "anti-corruption-layer",
+      "why": "DDD pattern isolating a domain model from external systems"
+    },
+    {
+      "name": "Balking",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "balking",
+      "why": "concurrency pattern returning early when an object is not ready"
+    },
+    {
+      "name": "Bridge",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "bridge",
+      "why": "Gang of Four structural pattern decoupling abstraction from implementation"
+    },
+    {
+      "name": "Builder",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "builder",
+      "why": "core Gang of Four creational pattern"
+    },
+    {
+      "name": "Business Delegate",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "business-delegate",
+      "why": "Core J2EE pattern decoupling presentation from business services"
+    },
+    {
+      "name": "Chain of Responsibility",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "chain-of-responsibility",
+      "why": "Gang of Four behavioral pattern passing requests along a handler chain"
+    },
+    {
+      "name": "Circuit Breaker",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "circuit-breaker",
+      "why": "resilience pattern preventing cascading failures"
+    },
+    {
+      "name": "Client Session",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "client-session",
+      "why": "PoEAA pattern storing session state on the client"
+    },
+    {
+      "name": "Collecting Parameter",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "collecting-parameter",
+      "why": "Kent Beck pattern passing an accumulator across methods"
+    },
+    {
+      "name": "Collection Pipeline",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "collection-pipeline",
+      "why": "Martin Fowler pattern chaining operations over collections"
+    },
+    {
+      "name": "Command",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "command",
+      "why": "core Gang of Four behavioral pattern"
+    },
+    {
+      "name": "Command Query Responsibility Segregation",
+      "aliases": ["CQRS"],
+      "judge": "leak",
+      "evidence": "command-query-responsibility-segregation",
+      "why": "pattern separating read and write models"
+    },
+    {
+      "name": "Composite",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "composite",
+      "why": "Gang of Four structural pattern for tree-structured objects"
+    },
+    {
+      "name": "Composite Entity",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "composite-entity",
+      "why": "Core J2EE pattern modeling coarse-grained entity beans"
+    },
+    {
+      "name": "Composite View",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "composite-view",
+      "why": "Core J2EE pattern assembling views from modular subviews"
+    },
+    {
+      "name": "Context Object",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "context-object",
+      "why": "Core J2EE pattern encapsulating protocol-independent request state"
+    },
+    {
+      "name": "Curiously Recurring Template Pattern",
+      "aliases": ["CRTP"],
+      "judge": "leak",
+      "evidence": "curiously-recurring-template-pattern",
+      "why": "C++ static polymorphism pattern"
+    },
+    {
+      "name": "Data Access Object",
+      "aliases": ["DAO"],
+      "judge": "npe",
+      "evidence": "data-access-object",
+      "why": "Core J2EE pattern abstracting persistence"
+    },
+    {
+      "name": "Data Locality",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "data-locality",
+      "why": "Game Programming Patterns pattern for CPU cache-friendly layout"
+    },
+    {
+      "name": "Data Mapper",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "data-mapper",
+      "why": "PoEAA pattern separating domain objects from database schema"
+    },
+    {
+      "name": "Data Transfer Object",
+      "aliases": ["DTO"],
+      "judge": "npe",
+      "evidence": "data-transfer-object",
+      "why": "PoEAA pattern carrying data across process boundaries"
+    },
+    {
+      "name": "Decorator",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "decorator",
+      "why": "core Gang of Four structural pattern"
+    },
+    {
+      "name": "Dependency Injection",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "dependency-injection",
+      "why": "widely used inversion-of-control pattern"
+    },
+    {
+      "name": "Dirty Flag",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "dirty-flag",
+      "why": "Game Programming Patterns pattern deferring recomputation until needed"
+    },
+    {
+      "name": "Domain Model",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "domain-model",
+      "why": "PoEAA pattern modeling business behavior and data together"
+    },
+    {
+      "name": "Double Buffer",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "double-buffer",
+      "why": "Game Programming Patterns pattern for atomic state/frame swaps"
+    },
+    {
+      "name": "Double-Checked Locking",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "double-checked-locking",
+      "why": "POSA2 concurrency pattern for lazy initialization"
+    },
+    {
+      "name": "Double Dispatch",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "double-dispatch",
+      "why": "OO pattern underlying Visitor for runtime dispatch on two types"
+    },
+    {
+      "name": "Event Aggregator",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "event-aggregator",
+      "why": "Martin Fowler pattern channeling events from many sources"
+    },
+    {
+      "name": "Event Queue",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "event-queue",
+      "why": "Game Programming Patterns pattern decoupling event emission and handling"
+    },
+    {
+      "name": "Event Sourcing",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "event-sourcing",
+      "why": "Martin Fowler pattern storing state as an append-only event log"
+    },
+    {
+      "name": "Execute Around",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "execute-around",
+      "why": "Kent Beck pattern wrapping setup and teardown around a callback"
+    },
+    {
+      "name": "Extension Object",
+      "aliases": ["Extension Objects"],
+      "judge": "heisenbug",
+      "evidence": "extension-objects",
+      "why": "Erich Gamma pattern adding interfaces to an object without changing its class"
+    },
+    {
+      "name": "Facade",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "facade",
+      "why": "core Gang of Four structural pattern"
+    },
+    {
+      "name": "Factory",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "factory",
+      "why": "ubiquitous creational pattern"
+    },
+    {
+      "name": "Factory Kit",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "factory-kit",
+      "why": "immutable factory-of-builders pattern"
+    },
+    {
+      "name": "Factory Method",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "factory-method",
+      "why": "core Gang of Four creational pattern"
+    },
+    {
+      "name": "Fluent Interface",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "fluent-interface",
+      "why": "Martin Fowler pattern for readable method-chaining APIs"
+    },
+    {
+      "name": "Flyweight",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "flyweight",
+      "why": "Gang of Four structural pattern sharing intrinsic state"
+    },
+    {
+      "name": "Front Controller",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "front-controller",
+      "why": "PoEAA/J2EE pattern routing all requests through a single handler"
+    },
+    {
+      "name": "Game Loop",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "game-loop",
+      "why": "Game Programming Patterns pattern decoupling game time from hardware speed"
+    },
+    {
+      "name": "Gateway",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "gateway",
+      "why": "PoEAA pattern encapsulating access to an external system"
+    },
+    {
+      "name": "Guarded Suspension",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "guarded-suspension",
+      "why": "concurrency pattern suspending execution until a precondition holds"
+    },
+    {
+      "name": "Half-Sync/Half-Async",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "half-sync-half-async",
+      "why": "POSA2 concurrency pattern decoupling sync and async layers"
+    },
+    {
+      "name": "Identity Map",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "identity-map",
+      "why": "PoEAA pattern ensuring each database row is loaded once per session"
+    },
+    {
+      "name": "Intercepting Filter",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "intercepting-filter",
+      "why": "Core J2EE pattern for pluggable request/response pre- and post-processing"
+    },
+    {
+      "name": "Interpreter",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "interpreter",
+      "why": "Gang of Four behavioral pattern"
+    },
+    {
+      "name": "Iterator",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "iterator",
+      "why": "core Gang of Four behavioral pattern"
+    },
+    {
+      "name": "Lazy Loading",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "lazy-loading",
+      "why": "PoEAA pattern deferring object initialization until first use"
+    },
+    {
+      "name": "Leader Election",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "leader-election",
+      "why": "distributed systems pattern designating a single coordinator"
+    },
+    {
+      "name": "Leader/Followers",
+      "aliases": ["Leader-Follower"],
+      "judge": "race",
+      "evidence": "leader-followers",
+      "why": "POSA2 concurrency pattern for thread-pool event demultiplexing"
+    },
+    {
+      "name": "Marker Interface",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "marker-interface",
+      "why": "pattern using an empty interface to tag types with metadata"
+    },
+    {
+      "name": "Master-Worker",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "master-worker",
+      "why": "parallelism pattern partitioning work from a coordinator to workers"
+    },
+    {
+      "name": "Mediator",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "mediator",
+      "why": "Gang of Four behavioral pattern"
+    },
+    {
+      "name": "Memento",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "memento",
+      "why": "Gang of Four behavioral pattern"
+    },
+    {
+      "name": "Metadata Mapping",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "metadata-mapping",
+      "why": "PoEAA pattern storing object-relational mappings in metadata"
+    },
+    {
+      "name": "Model-View-Controller",
+      "aliases": ["MVC"],
+      "judge": "off-by-one",
+      "evidence": "model-view-controller",
+      "why": "foundational UI architectural pattern"
+    },
+    {
+      "name": "Model-View-Intent",
+      "aliases": ["MVI"],
+      "judge": "leak",
+      "evidence": "model-view-intent",
+      "why": "unidirectional UI pattern"
+    },
+    {
+      "name": "Model-View-Presenter",
+      "aliases": ["MVP"],
+      "judge": "npe",
+      "evidence": "model-view-presenter",
+      "why": "UI pattern separating view from presentation logic"
+    },
+    {
+      "name": "Model-View-ViewModel",
+      "aliases": ["MVVM"],
+      "judge": "npe",
+      "evidence": "model-view-viewmodel",
+      "why": "UI pattern using data-bound view models"
+    },
+    {
+      "name": "Monitor",
+      "aliases": ["Monitor Object"],
+      "judge": "leak",
+      "evidence": "monitor",
+      "why": "POSA2 concurrency pattern synchronizing object method execution"
+    },
+    {
+      "name": "Monostate",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "monostate",
+      "why": "Robert C. Martin pattern sharing state across all instances via static fields"
+    },
+    {
+      "name": "Multiton",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "multiton",
+      "why": "creational pattern managing keyed singleton instances"
+    },
+    {
+      "name": "Naked Objects",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "naked-objects",
+      "why": "Richard Pawson pattern generating UI directly from domain objects"
+    },
+    {
+      "name": "Null Object",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "null-object",
+      "why": "pattern replacing null references with a neutral-behavior object"
+    },
+    {
+      "name": "Object Mother",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "object-mother",
+      "why": "testing pattern for factory objects creating test fixtures"
+    },
+    {
+      "name": "Object Pool",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "object-pool",
+      "why": "creational pattern reusing expensive-to-allocate objects"
+    },
+    {
+      "name": "Observer",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "observer",
+      "why": "core Gang of Four behavioral pattern"
+    },
+    {
+      "name": "Optimistic Offline Lock",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "optimistic-offline-lock",
+      "why": "PoEAA concurrency pattern detecting conflicts at commit time"
+    },
+    {
+      "name": "Page Controller",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "page-controller",
+      "why": "PoEAA pattern handling requests for a specific web page"
+    },
+    {
+      "name": "Page Object",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "page-object",
+      "why": "Martin Fowler UI testing pattern"
+    },
+    {
+      "name": "Parameter Object",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "parameter-object",
+      "why": "refactoring/design pattern grouping related parameters into an object"
+    },
+    {
+      "name": "Pipeline",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "pipeline",
+      "why": "pattern chaining processing stages sequentially"
+    },
+    {
+      "name": "Poison Pill",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "poison-pill",
+      "why": "concurrency pattern signaling consumers to shut down via a sentinel message"
+    },
+    {
+      "name": "Presentation Model",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "presentation-model",
+      "why": "Martin Fowler UI pattern"
+    },
+    {
+      "name": "Private Class Data",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "private-class-data",
+      "why": "pattern encapsulating class attributes in a separate data object"
+    },
+    {
+      "name": "Producer-Consumer",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "producer-consumer",
+      "why": "classic concurrency pattern"
+    },
+    {
+      "name": "Prototype",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "prototype",
+      "why": "Gang of Four creational pattern"
+    },
+    {
+      "name": "Proxy",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "proxy",
+      "why": "core Gang of Four structural pattern"
+    },
+    {
+      "name": "Publish-Subscribe",
+      "aliases": ["Pub-Sub"],
+      "judge": "off-by-one",
+      "evidence": "publish-subscribe",
+      "why": "ubiquitous messaging pattern"
+    },
+    {
+      "name": "Reactor",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "reactor",
+      "why": "POSA2 event-handling pattern"
+    },
+    {
+      "name": "Registry",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "registry",
+      "why": "PoEAA pattern for a well-known lookup object"
+    },
+    {
+      "name": "Repository",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "repository",
+      "why": "PoEAA/DDD pattern mediating between domain and data mapping"
+    },
+    {
+      "name": "Resource Acquisition Is Initialization",
+      "aliases": ["RAII"],
+      "judge": "npe",
+      "evidence": "resource-acquisition-is-initialization",
+      "why": "C++ resource management pattern"
+    },
+    {
+      "name": "Role Object",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "role-object",
+      "why": "pattern adapting an object to different client roles dynamically"
+    },
+    {
+      "name": "Saga",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "saga",
+      "why": "distributed transaction pattern using compensating actions"
+    },
+    {
+      "name": "Separated Interface",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "separated-interface",
+      "why": "PoEAA pattern placing an interface in a separate package from its implementation"
+    },
+    {
+      "name": "Serialized LOB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "serialized-lob",
+      "why": "PoEAA pattern persisting an object graph as a serialized blob"
+    },
+    {
+      "name": "Servant",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "servant",
+      "why": "pattern defining common functionality for a group of classes via a helper"
+    },
+    {
+      "name": "Server Session",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "server-session",
+      "why": "PoEAA pattern storing session state on the server"
+    },
+    {
+      "name": "Service Layer",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "service-layer",
+      "why": "PoEAA pattern defining an application's boundary and available operations"
+    },
+    {
+      "name": "Service Locator",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "service-locator",
+      "why": "Core J2EE / PoEAA pattern for centralizing service lookup"
+    },
+    {
+      "name": "Service Stub",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "service-stub",
+      "why": "PoEAA pattern removing dependence on problematic services during testing"
+    },
+    {
+      "name": "Service to Worker",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "service-to-worker",
+      "why": "Core J2EE pattern combining Front Controller and View Helper"
+    },
+    {
+      "name": "Session Facade",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "session-facade",
+      "why": "Core J2EE pattern hiding complex entity interactions behind a session bean"
+    },
+    {
+      "name": "Single Table Inheritance",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "single-table-inheritance",
+      "why": "PoEAA pattern mapping an inheritance hierarchy to one database table"
+    },
+    {
+      "name": "Singleton",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "singleton",
+      "why": "most famous Gang of Four creational pattern"
+    },
+    {
+      "name": "Spatial Partition",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "spatial-partition",
+      "why": "Game Programming Patterns pattern for fast spatial queries"
+    },
+    {
+      "name": "Special Case",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "special-case",
+      "why": "PoEAA pattern generalizing Null Object for special-case behavior"
+    },
+    {
+      "name": "Specification",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "specification",
+      "why": "Eric Evans / Martin Fowler pattern for composable business rules"
+    },
+    {
+      "name": "State",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "state",
+      "why": "core Gang of Four behavioral pattern"
+    },
+    {
+      "name": "Step Builder",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "step-builder",
+      "why": "Builder variant enforcing construction step order via types"
+    },
+    {
+      "name": "Strangler Fig",
+      "aliases": ["Strangler"],
+      "judge": "leak",
+      "evidence": "strangler",
+      "why": "Martin Fowler pattern for incrementally replacing a legacy system"
+    },
+    {
+      "name": "Strategy",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "strategy",
+      "why": "core Gang of Four behavioral pattern"
+    },
+    {
+      "name": "Subclass Sandbox",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "subclass-sandbox",
+      "why": "Game Programming Patterns pattern providing protected operations to subclasses"
+    },
+    {
+      "name": "Table Inheritance",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "table-inheritance",
+      "why": "PoEAA pattern mapping inheritance hierarchies to relational tables"
+    },
+    {
+      "name": "Table Module",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "table-module",
+      "why": "PoEAA pattern with one instance handling business logic for all rows in a table"
+    },
+    {
+      "name": "Template Method",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "template-method",
+      "why": "Gang of Four behavioral pattern"
+    },
+    {
+      "name": "Template View",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "templateview",
+      "why": "PoEAA pattern embedding markers in HTML templates"
+    },
+    {
+      "name": "Thread-Specific Storage",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "thread-specific-storage",
+      "why": "POSA2 concurrency pattern"
+    },
+    {
+      "name": "Tolerant Reader",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "tolerant-reader",
+      "why": "Martin Fowler pattern for resilient schema consumption"
+    },
+    {
+      "name": "Trampoline",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "trampoline",
+      "why": "pattern converting recursion into iteration via thunks"
+    },
+    {
+      "name": "Transaction Script",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "transaction-script",
+      "why": "PoEAA pattern organizing business logic as procedural scripts"
+    },
+    {
+      "name": "Transactional Outbox",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "transactional-outbox",
+      "why": "pattern reliably publishing events alongside database updates"
+    },
+    {
+      "name": "Twin",
+      "aliases": [],
+      "judge": "heisenbug",
+      "evidence": "twin",
+      "why": "pattern simulating multiple inheritance in single-inheritance languages"
+    },
+    {
+      "name": "Type Object",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "type-object",
+      "why": "Game Programming Patterns pattern representing types as runtime objects"
+    },
+    {
+      "name": "Unit of Work",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "unit-of-work",
+      "why": "PoEAA pattern tracking changes to write in a single transaction"
+    },
+    {
+      "name": "Update Method",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "update-method",
+      "why": "Game Programming Patterns pattern advancing entities one frame at a time"
+    },
+    {
+      "name": "Value Object",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "value-object",
+      "why": "PoEAA/DDD pattern for immutable equality-by-value objects"
+    },
+    {
+      "name": "View Helper",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "view-helper",
+      "why": "Core J2EE pattern encapsulating view-formatting logic"
+    },
+    {
+      "name": "Virtual Proxy",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "virtual-proxy",
+      "why": "Proxy variant deferring creation of expensive objects"
+    },
+    {
+      "name": "Visitor",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "visitor",
+      "why": "Gang of Four behavioral pattern"
+    },
+    {
+      "name": "Write-Ahead Log",
+      "aliases": ["WAL"],
+      "judge": "leak",
+      "evidence": "write-ahead-log",
+      "why": "durability pattern logging changes before applying them"
+    }
+  ],
+  "womm_candidates": [
+    "Curiously Recurring Template Pattern",
+    "Double-Checked Locking",
+    "Flyweight"
+  ],
+  "bitflip_candidates": [
+    "Twin",
+    "Naked Objects",
+    "Extension Object"
+  ]
+}

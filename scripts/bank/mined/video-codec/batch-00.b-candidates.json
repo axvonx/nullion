@@ -1,0 +1,700 @@
+{
+ "video-codec": [
+  {
+   "name": "H.264",
+   "aliases": [
+    "h264",
+    "libx264",
+    "x264",
+    "libopenh264"
+   ],
+   "judge": "off-by-one",
+   "evidence": "h264, libx264 (libavcodec); x264 (vlc)",
+   "why": "Nearly everyone names it first"
+  },
+  {
+   "name": "HEVC",
+   "aliases": [
+    "h265",
+    "x265",
+    "libx265",
+    "libkvazaar"
+   ],
+   "judge": "npe",
+   "evidence": "x265 (vlc); libx265, libkvazaar (libavcodec)",
+   "why": "Widely known successor to H.264"
+  },
+  {
+   "name": "AV1",
+   "aliases": [
+    "libaom",
+    "libdav1d",
+    "dav1d",
+    "librav1e",
+    "libsvtav1"
+   ],
+   "judge": "npe",
+   "evidence": "av1, libaom, libdav1d (libavcodec)",
+   "why": "Widely known open codec"
+  },
+  {
+   "name": "H.261",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "h261 (libavcodec)",
+   "why": "Early videoconferencing standard"
+  },
+  {
+   "name": "H.263",
+   "aliases": [
+    "intelh263",
+    "ituh263"
+   ],
+   "judge": "leak",
+   "evidence": "h263, intelh263dec, ituh263enc (libavcodec)",
+   "why": "ITU videoconferencing standard"
+  },
+  {
+   "name": "Motion JPEG",
+   "aliases": [
+    "mjpeg"
+   ],
+   "judge": "leak",
+   "evidence": "mjpeg (libavcodec)",
+   "why": "Common camera and editing codec"
+  },
+  {
+   "name": "Theora",
+   "aliases": [
+    "libtheoraenc"
+   ],
+   "judge": "race",
+   "evidence": "theora (vlc); libtheoraenc (libavcodec)",
+   "why": "Xiph open codec, specialists"
+  },
+  {
+   "name": "VP8",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "cbs_vp8 (libavcodec)",
+   "why": "WebM codec, known to web folk"
+  },
+  {
+   "name": "VP9",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "cbs_vp9 (libavcodec)",
+   "why": "WebM codec, known to web folk"
+  },
+  {
+   "name": "VVC",
+   "aliases": [
+    "h266",
+    "libvvenc"
+   ],
+   "judge": "race",
+   "evidence": "libvvenc, cbs_h266 (libavcodec)",
+   "why": "Recent ITU successor, specialists"
+  },
+  {
+   "name": "EVC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "evc (libavcodec)",
+   "why": "MPEG-5 standard, deep"
+  },
+  {
+   "name": "LCEVC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "lcevc (libavcodec)",
+   "why": "MPEG-5 enhancement layer"
+  },
+  {
+   "name": "AVS",
+   "aliases": [
+    "cavs"
+   ],
+   "judge": "race",
+   "evidence": "avs, cavs (libavcodec)",
+   "why": "Chinese national standard"
+  },
+  {
+   "name": "AVS2",
+   "aliases": [
+    "davs2",
+    "libxavs2"
+   ],
+   "judge": "heisenbug",
+   "evidence": "avs2 (libavcodec); davs2 (vlc)",
+   "why": "Second-generation AVS"
+  },
+  {
+   "name": "AVS3",
+   "aliases": [
+    "libuavs3d"
+   ],
+   "judge": "heisenbug",
+   "evidence": "avs3 (libavcodec)",
+   "why": "Third-generation AVS"
+  },
+  {
+   "name": "Dirac",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dirac (libavcodec)",
+   "why": "BBC wavelet codec"
+  },
+  {
+   "name": "Daala",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "daala (vlc)",
+   "why": "Xiph wavelet experiment"
+  },
+  {
+   "name": "Cinepak",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "cinepak (libavcodec)",
+   "why": "Old QuickTime codec"
+  },
+  {
+   "name": "Indeo 2",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "indeo2 (libavcodec)",
+   "why": "Early Intel Indeo version"
+  },
+  {
+   "name": "Indeo 3",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "indeo3 (libavcodec)",
+   "why": "Intel 1990s codec version"
+  },
+  {
+   "name": "Indeo 4",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "indeo4 (libavcodec)",
+   "why": "Intel 1990s codec version"
+  },
+  {
+   "name": "Indeo 5",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "indeo5 (libavcodec)",
+   "why": "Intel 1990s codec version"
+  },
+  {
+   "name": "IVI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ivi (libavcodec)",
+   "why": "Indeo Video Interactive"
+  },
+  {
+   "name": "FFV1",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "ffv1 (libavcodec)",
+   "why": "Archival lossless codec"
+  },
+  {
+   "name": "HuffYUV",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "huffyuv (libavcodec)",
+   "why": "Classic lossless codec"
+  },
+  {
+   "name": "Lagarith",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "lagarith (libavcodec)",
+   "why": "Niche lossless codec"
+  },
+  {
+   "name": "MagicYUV",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "magicyuv (libavcodec)",
+   "why": "Lossless codec, specialists"
+  },
+  {
+   "name": "DNxHD",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "dnxhddec (libavcodec)",
+   "why": "Avid editing codec"
+  },
+  {
+   "name": "CineForm HD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cfhd (libavcodec)",
+   "why": "GoPro-era intermediate codec"
+  },
+  {
+   "name": "HAP",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "hap (libavcodec)",
+   "why": "VJ and media server codec"
+  },
+  {
+   "name": "Dxtory",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dxtory (libavcodec)",
+   "why": "Capture codec, deep"
+  },
+  {
+   "name": "DXV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dxv (libavcodec)",
+   "why": "Resolume playback codec"
+  },
+  {
+   "name": "Fraps",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "fraps (libavcodec)",
+   "why": "Game capture codec"
+  },
+  {
+   "name": "Bink",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "bink (libavcodec)",
+   "why": "Game video middleware codec"
+  },
+  {
+   "name": "DV",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "dv (libavcodec)",
+   "why": "Camcorder tape codec"
+  },
+  {
+   "name": "CLLC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cllc (libavcodec)",
+   "why": "Canopus lossless codec"
+  },
+  {
+   "name": "HQX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hqx (libavcodec)",
+   "why": "Canopus HQ family codec"
+  },
+  {
+   "name": "HQA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hq_hqa (libavcodec)",
+   "why": "Canopus HQ family codec"
+  },
+  {
+   "name": "Canopus HQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "canopus (libavcodec)",
+   "why": "Canopus HQ codec"
+  },
+  {
+   "name": "CLJR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cljrdec (libavcodec)",
+   "why": "Cirrus Logic AccuPak codec"
+  },
+  {
+   "name": "AASC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "aasc (libavcodec)",
+   "why": "Autodesk Animator codec"
+  },
+  {
+   "name": "Apple Intermediate Codec",
+   "aliases": [
+    "AIC"
+   ],
+   "judge": "heisenbug",
+   "evidence": "aic (libavcodec)",
+   "why": "Apple's intermediate codec"
+  },
+  {
+   "name": "AGM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "agm (libavcodec)",
+   "why": "Amuse Graphics Movie codec"
+  },
+  {
+   "name": "ANM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "anm (libavcodec)",
+   "why": "Deluxe Paint animation codec"
+  },
+  {
+   "name": "ARBC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "arbc (libavcodec)",
+   "why": "Gryphon arbitrary codec"
+  },
+  {
+   "name": "ASV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "asv (libavcodec)",
+   "why": "ASUS video codec"
+  },
+  {
+   "name": "Aura",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "aura (libavcodec)",
+   "why": "Auravision video codec"
+  },
+  {
+   "name": "Argo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "argo (libavcodec)",
+   "why": "Argonaut Games video codec"
+  },
+  {
+   "name": "AVUI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "avuienc (libavcodec)",
+   "why": "Avid video codec"
+  },
+  {
+   "name": "BFI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "bfi (libavcodec)",
+   "why": "Brute Force and Ignorance codec"
+  },
+  {
+   "name": "BMV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "bmvvideo (libavcodec)",
+   "why": "Discworld game video codec"
+  },
+  {
+   "name": "BRender Pixel",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "brenderpix (libavcodec)",
+   "why": "3D engine pixel codec"
+  },
+  {
+   "name": "8BPS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "8bps (libavcodec)",
+   "why": "QuickTime planar RGB codec"
+  },
+  {
+   "name": "012v",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "012v (libavcodec)",
+   "why": "Apple 10-bit YUV codec"
+  },
+  {
+   "name": "4XM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "4xm (libavcodec)",
+   "why": "4X Technologies video codec"
+  },
+  {
+   "name": "Alias PIX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "aliaspixdec (libavcodec)",
+   "why": "Alias image-sequence codec"
+  },
+  {
+   "name": "Bethsoft Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "bethsoftvideo (libavcodec)",
+   "why": "Bethesda game video codec"
+  },
+  {
+   "name": "C93",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "c93 (libavcodec)",
+   "why": "Interplay game video codec"
+  },
+  {
+   "name": "CDXL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cdxl (libavcodec)",
+   "why": "Amiga CDXL video codec"
+  },
+  {
+   "name": "CRI Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cri (libavcodec)",
+   "why": "CRI middleware video codec"
+  },
+  {
+   "name": "ClearVideo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "clearvideo (libavcodec)",
+   "why": "Iterated Systems video codec"
+  },
+  {
+   "name": "CPiA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cpia (libavcodec)",
+   "why": "Webcam video codec"
+  },
+  {
+   "name": "CSCD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cscd (libavcodec)",
+   "why": "CamStudio screen codec"
+  },
+  {
+   "name": "CYUV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cyuv (libavcodec)",
+   "why": "Creative YUV codec"
+  },
+  {
+   "name": "DFA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dfa (libavcodec)",
+   "why": "Chronomaster video codec"
+  },
+  {
+   "name": "DXA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dxa (libavcodec)",
+   "why": "Feeble Files game codec"
+  },
+  {
+   "name": "Flash Screen Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "flashsv (libavcodec)",
+   "why": "Adobe screen capture codec"
+  },
+  {
+   "name": "FIC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "fic (libavcodec)",
+   "why": "Obscure video codec"
+  },
+  {
+   "name": "FLIC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "flicvideo (libavcodec)",
+   "why": "Autodesk Animator animation codec"
+  },
+  {
+   "name": "G2M",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "g2meet (libavcodec)",
+   "why": "GoToMeeting screen codec"
+  },
+  {
+   "name": "Gremlin Digital Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "gdv (libavcodec)",
+   "why": "Gremlin game video codec"
+  },
+  {
+   "name": "HNM4",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hnm4video (libavcodec)",
+   "why": "Cryo game video codec"
+  },
+  {
+   "name": "IMM4",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "imm4 (libavcodec)",
+   "why": "Infinity IMM video codec"
+  },
+  {
+   "name": "IMM5",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "imm5 (libavcodec)",
+   "why": "Infinity IMM video codec"
+  },
+  {
+   "name": "IMM6",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "imm6 (libavcodec)",
+   "why": "Infinity IMM video codec"
+  },
+  {
+   "name": "Interplay Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "interplayvideo (libavcodec)",
+   "why": "Interplay game video codec"
+  },
+  {
+   "name": "IDCIN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "idcinvideo (libavcodec)",
+   "why": "id Software cinematic codec"
+  },
+  {
+   "name": "IntraX8",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "intrax8 (libavcodec)",
+   "why": "Microsoft WMV-era intra codec"
+  },
+  {
+   "name": "KMVC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kmvc (libavcodec)",
+   "why": "Karl Morton video codec"
+  },
+  {
+   "name": "KGV1",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kgv1dec (libavcodec)",
+   "why": "Obscure video codec"
+  },
+  {
+   "name": "LCL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "lcl (libavcodec)",
+   "why": "Lossless Codec Library"
+  },
+  {
+   "name": "LEAD Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "leaddec (libavcodec)",
+   "why": "LEAD Technologies video codec"
+  },
+  {
+   "name": "LSCR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "lscrdec (libavcodec)",
+   "why": "Screen capture codec"
+  },
+  {
+   "name": "M101",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "m101 (libavcodec)",
+   "why": "Matrox video codec"
+  },
+  {
+   "name": "MDEC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "mdec (libavcodec)",
+   "why": "PlayStation video decoder codec"
+  },
+  {
+   "name": "MidiVid",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "midivid (libavcodec)",
+   "why": "Obscure video codec"
+  },
+  {
+   "name": "Mimic",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "mimic (libavcodec)",
+   "why": "Obscure video codec"
+  },
+  {
+   "name": "EA MAD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "eamad (libavcodec)",
+   "why": "Electronic Arts game codec"
+  },
+  {
+   "name": "EA TGV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "eatgv (libavcodec)",
+   "why": "Electronic Arts game codec"
+  },
+  {
+   "name": "EA TGQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "eatgq (libavcodec)",
+   "why": "Electronic Arts game codec"
+  },
+  {
+   "name": "EA TQI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "eatqi (libavcodec)",
+   "why": "Electronic Arts game codec"
+  },
+  {
+   "name": "Escape 124",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "escape124 (libavcodec)",
+   "why": "Escape video codec"
+  },
+  {
+   "name": "Escape 130",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "escape130 (libavcodec)",
+   "why": "Escape video codec"
+  }
+ ],
+ "womm_candidates": [
+  "Dirac",
+  "Daala",
+  "Theora"
+ ],
+ "bitflip_candidates": [
+  "Escape 130",
+  "Argo",
+  "M101"
+ ]
+}

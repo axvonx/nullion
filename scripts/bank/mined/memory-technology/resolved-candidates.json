@@ -1,0 +1,91 @@
+{
+  "memory-technology": [
+    {
+      "name": "DDR",
+      "aliases": [
+        "DDR SDRAM",
+        "ddr memory"
+      ],
+      "judge": "off-by-one",
+      "why": "standard double-data-rate synchronous DRAM"
+    },
+    {
+      "name": "DDR4",
+      "aliases": [
+        "DDR4 SDRAM",
+        "ddr4 memory"
+      ],
+      "judge": "off-by-one",
+      "why": "widely used fourth-generation DDR SDRAM"
+    },
+    {
+      "name": "LPDDR",
+      "aliases": [
+        "low-power DDR"
+      ],
+      "judge": "leak",
+      "why": "low-power DRAM variant for mobile and embedded devices"
+    },
+    {
+      "name": "ECC memory",
+      "aliases": [
+        "ECC RAM"
+      ],
+      "judge": "npe",
+      "why": "error-correcting code memory technology"
+    },
+    {
+      "name": "CompactFlash",
+      "aliases": [],
+      "judge": "npe",
+      "why": "classic solid-state flash memory card format"
+    },
+    {
+      "name": "serial flash",
+      "aliases": [],
+      "judge": "leak",
+      "why": "low-pin-count SPI/serial-interface flash memory"
+    },
+    {
+      "name": "OTP memory",
+      "aliases": [
+        "one-time programmable memory"
+      ],
+      "judge": "leak",
+      "why": "one-time programmable non-volatile memory"
+    },
+    {
+      "name": "DataFlash",
+      "aliases": [],
+      "judge": "race",
+      "why": "Atmel/Adesto serial-interface flash memory family"
+    },
+    {
+      "name": "RAM",
+      "aliases": [
+        "ram memory"
+      ],
+      "judge": "off-by-one",
+      "why": "generic random-access memory, nearly everyone names it"
+    },
+    {
+      "name": "persistent memory",
+      "aliases": [],
+      "judge": "leak",
+      "why": "byte-addressable non-volatile memory class"
+    },
+    {
+      "name": "core memory",
+      "aliases": [],
+      "judge": "race",
+      "why": "magnetic core, historical named memory kind"
+    },
+    {
+      "name": "CXL memory",
+      "aliases": [],
+      "judge": "heisenbug",
+      "confidence": "low",
+      "why": "CXL-attached memory expansion; borderline between memory technology and interconnect"
+    }
+  ]
+}

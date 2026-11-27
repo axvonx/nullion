@@ -1,0 +1,15 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py design-principle /Users/axvon/nullion/scripts/bank/mined/design-principle/final.json /Users/axvon/nullion/scripts/bank/mined/design-principle/agreed /Users/axvon/nullion/scripts/bank/mined/design-principle/resolved  [0s, exit 0]
+design-principle: 0 new candidates -> /Users/axvon/nullion/scripts/bank/mined/design-principle/final.json; 0 aliases added to bank/languages-tools/design-principle.md
+
+--- haiku call, 5s, exit 0, prompt 758 chars, stdout 191 chars
+[17:02:23] {"error": "No candidate names were provided (All candidate names: []), and the proposed Bit Flip and Works on my machine lists are empty too, so there is no name to choose from."}
+
+
+!!! attempt 1 rejected: ValueError: need {bitflip: <candidate name>, womm: [1-3 other candidate names]}
+--- haiku call, 9s, exit 0, prompt 928 chars, stdout 620 chars
+[17:02:32] I can't produce a valid answer: the prompt's candidate list is empty (`All candidate names: []`), and the required format only allows names copied from that list. Both proposal lists are empty too, so there is no Bit Flip or Works on my machine pick to choose from.
+
+I haven't invented names. If you paste the candidate names for "Name a software design principle" (for example, from `scripts/bank/runs/design-principle/` or the mined output in `scripts/bank/mined/design-principle/`), I'll return the JSON with one Bit Flip and 1 to 3 Works on my machine names, all taken from that list and with no overlap.
+
+
+!!! attempt 2 rejected: ValueError: need {bitflip: <candidate name>, womm: [1-3 other candidate names]}

@@ -1,0 +1,556 @@
+{
+ "id": "bus-standard",
+ "prompt": "Name a computer bus or peripheral interface standard",
+ "accepts": "a named standard for a computer system bus, expansion bus or peripheral interface.",
+ "answers": [
+  {
+   "name": "SCSI",
+   "aliases": [
+    "Small Computer System Interface",
+    "Ultra SCSI"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "USB",
+   "aliases": [
+    "Universal Serial Bus",
+    "USB-C",
+    "USB 3.0"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Thunderbolt",
+   "aliases": [
+    "Thunderbolt 3",
+    "Thunderbolt 4"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "HDMI",
+   "aliases": [
+    "High-Definition Multimedia Interface"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "RS-232",
+   "aliases": [
+    "EIA-232",
+    "EIA RS-232"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "SATA",
+   "aliases": [
+    "Serial ATA",
+    "SATA III"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Greybus",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "NuBus",
+   "aliases": [
+    "Apple NuBus"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "VMEbus",
+   "aliases": [
+    "VME",
+    "VERSAmodule Eurocard bus"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "AMBA",
+   "aliases": [
+    "Advanced Microcontroller Bus Architecture"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "I2C",
+   "aliases": [
+    "I²C",
+    "IIC",
+    "I2C bus",
+    "Inter-Integrated Circuit"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PCI",
+   "aliases": [
+    "PCI Local Bus",
+    "Peripheral Component Interconnect",
+    "Conventional PCI"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SPI",
+   "aliases": [
+    "Serial Peripheral Interface",
+    "SPI bus"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ISA",
+   "aliases": [
+    "Industry Standard Architecture",
+    "ISA bus"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MMC",
+   "aliases": [
+    "MultiMediaCard",
+    "eMMC",
+    "MMC bus"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "AGP",
+   "aliases": [
+    "Accelerated Graphics Port"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PCIe",
+   "aliases": [
+    "PCI Express"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "VESA Local Bus",
+   "aliases": [
+    "VLB",
+    "VL-Bus"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Micro Channel",
+   "aliases": [
+    "MCA",
+    "Micro Channel Architecture",
+    "IBM Micro Channel"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "APB",
+   "aliases": [
+    "AMBA APB",
+    "Advanced Peripheral Bus"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SAS",
+   "aliases": [
+    "Serial Attached SCSI"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "HyperTransport",
+   "aliases": [
+    "HT bus"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "QuickPath Interconnect",
+   "aliases": [
+    "QPI",
+    "Intel QPI"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CAN bus",
+   "aliases": [
+    "Controller Area Network",
+    "CAN"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "PS/2",
+   "aliases": [
+    "PS/2 port",
+    "IBM PS/2"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Lightning",
+   "aliases": [
+    "Apple Lightning",
+    "Lightning connector"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MIPI",
+   "aliases": [
+    "Mobile Industry Processor Interface",
+    "MIPI CSI",
+    "MIPI DSI"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "I2S",
+   "aliases": [
+    "Inter-IC Sound"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Unibus",
+   "aliases": [
+    "DEC Unibus",
+    "Q-bus"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CompactPCI",
+   "aliases": [
+    "cPCI"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DisplayPort",
+   "aliases": [
+    "DP"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "VGA",
+   "aliases": [
+    "Video Graphics Array",
+    "D-Sub 15"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RS-485",
+   "aliases": [
+    "EIA-485"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Centronics",
+   "aliases": [
+    "IEEE 1284",
+    "Centronics parallel"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ATA",
+   "aliases": [
+    "IDE",
+    "Parallel ATA",
+    "PATA",
+    "Integrated Drive Electronics",
+    "ATA/ATAPI"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "EISA",
+   "aliases": [
+    "Extended Industry Standard Architecture",
+    "EISA bus"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FireWire",
+   "aliases": [
+    "IEEE 1394",
+    "i.LINK",
+    "Firewire 800"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "NVMe",
+   "aliases": [
+    "Non-Volatile Memory Express"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PCMCIA",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CardBus",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SDIO",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "SMBus",
+   "aliases": [
+    "System Management Bus"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CXL",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "GPIB",
+   "aliases": [
+    "IEEE 488",
+    "General Purpose Interface Bus",
+    "HP-IB"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "InfiniBand",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "UFS",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "1-Wire",
+   "aliases": [
+    "one-wire",
+    "Dallas 1-Wire"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AHCI",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "UART",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "AXI",
+   "aliases": [
+    "AMBA AXI",
+    "Advanced eXtensible Interface"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "HD Audio",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MCB",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RapidIO",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SBus",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ADB",
+   "aliases": [
+    "Apple Desktop Bus",
+    "Apple ADB"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "PMBus",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MII",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AHB",
+   "aliases": [
+    "AMBA AHB",
+    "Advanced High-performance Bus"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LPC",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Memory Stick",
+   "aliases": [
+    "memstick"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Virtio",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "I3C",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IndustryPack",
+   "aliases": [
+    "ipack"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "PECI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SLIMbus",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SoundWire",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SPMI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zorro",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MDIO",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "VMBus",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AVSBus",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DIO",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MOST",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CEC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MIPI CSI-2",
+   "aliases": [
+    "CSI-2"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Multibus",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HSI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SIOX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "STBus",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BCMA",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "SSB",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CDX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IPMB",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+--- haiku call, 21s, exit 0, prompt 1823 chars, stdout 2149 chars
+pe"},
+  {"name": "Xvid", "aliases": ["XviD"], "tier": "npe"},
+  {"name": "DivX", "aliases": ["DivX Video"], "tier": "npe"},
+  {"name": "MPEG-4 Part 2", "aliases": ["MPEG-4 Visual", "MP4V"], "tier": "npe"},
+  {"name": "MPEG-1", "aliases": ["MPEG1", "MPEG-1 Video"], "tier": "npe"},
+  {"name": "H.263", "aliases": ["H263"], "tier": "npe"},
+  {"name": "H.261", "aliases": ["H261"], "tier": "npe"},
+  {"name": "VP8", "aliases": ["VP08"], "tier": "npe"},
+  {"name": "Theora", "aliases": ["Ogg Theora"], "tier": "npe"},
+  {"name": "WMV", "aliases": ["Windows Media Video"], "tier": "npe"},
+  {"name": "VC-1", "aliases": ["VC1"], "tier": "npe"},
+  {"name": "ProRes", "aliases": ["Apple ProRes", "Prores"], "tier": "npe"},
+  {"name": "DNxHD", "aliases": ["Avid DNxHD"], "tier": "npe"},
+  {"name": "Cinepak", "aliases": ["CVID"], "tier": "npe"},
+  {"name": "Indeo", "aliases": ["Intel Indeo"], "tier": "npe"},
+  {"name": "RealVideo", "aliases": ["RV40", "Real Video"], "tier": "npe"},
+  {"name": "Sorenson Video", "aliases": ["Sorenson", "SVQ1"], "tier": "npe"},
+  {"name": "Dirac", "aliases": ["Dirac Pro"], "tier": "npe"},
+  {"name": "FFV1", "aliases": ["FFv1"], "tier": "npe"},
+  {"name": "HuffYUV", "aliases": ["Huffyuv"], "tier": "npe"},
+  {"name": "Ut Video", "aliases": ["UtVideo"], "tier": "npe"},
+  {"name": "Bink", "aliases": ["Bink Video"], "tier": "npe"},
+  {"name": "LCEVC", "aliases": ["MPEG-5 LCEVC"], "tier": "npe"},
+  {"name": "MPEG-5 EVC", "aliases": ["EVC", "MPEG-5"], "tier": "npe"}
+]
+```
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py video-codec  [0s, exit 0]
+video-codec: 11 aliases, 9 new answers, 0 promoted from the Inbox
+

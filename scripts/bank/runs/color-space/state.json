@@ -1,0 +1,136 @@
+{
+ "id": "color-space",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T22:55:30+00:00",
+   "seconds": 13,
+   "finished": "2026-11-27T22:55:44+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T22:55:44+00:00",
+   "seconds": 3,
+   "finished": "2026-11-27T22:55:47+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T22:55:47+00:00",
+   "seconds": 44,
+   "finished": "2026-11-27T22:56:31+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T22:56:31+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T22:56:32+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T22:56:32+00:00",
+   "seconds": 27,
+   "finished": "2026-11-27T22:56:58+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-27T22:56:58+00:00",
+   "seconds": 7,
+   "finished": "2026-11-27T22:57:05+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-27T22:57:05+00:00",
+   "seconds": 33,
+   "finished": "2026-11-27T22:57:37+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-27T22:57:37+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T22:57:37+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-27T22:57:37+00:00",
+   "seconds": 19,
+   "finished": "2026-11-27T22:57:56+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-27T22:57:56+00:00",
+   "seconds": 22,
+   "finished": "2026-11-27T22:58:18+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-27T22:58:18+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T22:58:18+00:00"
+  }
+ },
+ "gates": {
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "30/30 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "37/73 answers have a verified link (51%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "18/20 sampled answers are members (90%), 17/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/color-space.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (IgPgTg; Oklab, CIELUV): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/color-space.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 74,
+  "summary": "color-space: 72 mined lines from 4 sources -> 1 batches in scripts/bank/mined/color-space"
+ },
+ "filter": [
+  "batch-00.a: 57 kept",
+  "batch-00.b: 48 kept"
+ ],
+ "compare": "color-space: 42 agreed, 17 disputed (29%) across 1 batches",
+ "escalate": "17 disputes -> 15 kept (0 low-confidence -> Inbox), 2 dropped",
+ "pins": {
+  "bitflip": "IgPgTg",
+  "womm": [
+   "Oklab",
+   "CIELUV"
+  ]
+ },
+ "merge": "57 tiered answers, 3 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "color-space: 14 aliases, 16 new answers, 2 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "37/73 answers linked across 1 categories",
+  "dropped as broken: {}",
+  "0 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/color-space.md"
+}

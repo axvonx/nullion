@@ -1,0 +1,954 @@
+{
+ "design-pattern": [
+  {
+   "name": "Singleton",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "iluwatar dir: singleton",
+   "why": "first pattern everyone names"
+  },
+  {
+   "name": "Observer",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "iluwatar dir: observer",
+   "why": "GoF behavioural staple"
+  },
+  {
+   "name": "Factory Method",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: factory-method",
+   "why": "GoF creational pattern"
+  },
+  {
+   "name": "Abstract Factory",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: abstract-factory",
+   "why": "GoF creational pattern"
+  },
+  {
+   "name": "Adapter",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: adapter",
+   "why": "GoF structural pattern"
+  },
+  {
+   "name": "Builder",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: builder",
+   "why": "GoF creational pattern"
+  },
+  {
+   "name": "Decorator",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: decorator",
+   "why": "GoF structural pattern"
+  },
+  {
+   "name": "Command",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: command",
+   "why": "GoF behavioural pattern"
+  },
+  {
+   "name": "Composite",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: composite",
+   "why": "GoF structural pattern"
+  },
+  {
+   "name": "Facade",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: facade",
+   "why": "GoF structural pattern"
+  },
+  {
+   "name": "Proxy",
+   "aliases": [
+    "dynamic proxy"
+   ],
+   "judge": "npe",
+   "evidence": "iluwatar dir: proxy",
+   "why": "GoF structural pattern"
+  },
+  {
+   "name": "Bridge",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: bridge",
+   "why": "GoF structural pattern"
+  },
+  {
+   "name": "Chain of Responsibility",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: chain-of-responsibility",
+   "why": "GoF behavioural pattern"
+  },
+  {
+   "name": "Iterator",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: iterator",
+   "why": "GoF behavioural pattern"
+  },
+  {
+   "name": "Mediator",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: mediator",
+   "why": "GoF behavioural pattern"
+  },
+  {
+   "name": "Memento",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: memento",
+   "why": "GoF behavioural pattern"
+  },
+  {
+   "name": "State",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: state",
+   "why": "GoF behavioural pattern"
+  },
+  {
+   "name": "Strategy",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: strategy",
+   "why": "GoF behavioural pattern"
+  },
+  {
+   "name": "Template Method",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: template-method",
+   "why": "GoF behavioural pattern"
+  },
+  {
+   "name": "Visitor",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: visitor",
+   "why": "GoF behavioural pattern"
+  },
+  {
+   "name": "Prototype",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: prototype",
+   "why": "GoF creational pattern"
+  },
+  {
+   "name": "Flyweight",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: flyweight",
+   "why": "GoF structural pattern"
+  },
+  {
+   "name": "Interpreter",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: interpreter",
+   "why": "GoF behavioural pattern"
+  },
+  {
+   "name": "Model-View-Controller",
+   "aliases": [
+    "MVC"
+   ],
+   "judge": "npe",
+   "evidence": "iluwatar dir: model-view-controller",
+   "why": "well-known architecture pattern"
+  },
+  {
+   "name": "Model-View-Presenter",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: model-view-presenter",
+   "why": "GUI architecture pattern"
+  },
+  {
+   "name": "Model-View-ViewModel",
+   "aliases": [
+    "MVVM"
+   ],
+   "judge": "leak",
+   "evidence": "iluwatar dir: model-view-viewmodel",
+   "why": "GUI architecture pattern"
+  },
+  {
+   "name": "Model-View-Intent",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: model-view-intent",
+   "why": "UI architecture pattern"
+  },
+  {
+   "name": "Acyclic Visitor",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: acyclic-visitor",
+   "why": "Martin's visitor variant"
+  },
+  {
+   "name": "Extension Object",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: extension-objects",
+   "why": "Pattern-language object extension"
+  },
+  {
+   "name": "Null Object",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: null-object",
+   "why": "Object-oriented null replacement"
+  },
+  {
+   "name": "Data Transfer Object",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: data-transfer-object",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Data Access Object",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: data-access-object",
+   "why": "J2EE enterprise pattern"
+  },
+  {
+   "name": "Repository",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: repository",
+   "why": "DDD pattern"
+  },
+  {
+   "name": "Service Layer",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: service-layer",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Domain Model",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: domain-model",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Unit of Work",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: unit-of-work",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Value Object",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: value-object",
+   "why": "DDD pattern"
+  },
+  {
+   "name": "Dependency Injection",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "iluwatar dir: dependency-injection",
+   "why": "widely known design pattern"
+  },
+  {
+   "name": "Service Locator",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: service-locator",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Transaction Script",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: transaction-script",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Lazy Loading",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: lazy-loading",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Object Pool",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: object-pool",
+   "why": "named resource-reuse pattern"
+  },
+  {
+   "name": "Fluent Interface",
+   "aliases": [
+    "chaining method"
+   ],
+   "judge": "leak",
+   "evidence": "iluwatar dir: fluent-interface; faif chaining_method",
+   "why": "Fowler method-chaining pattern"
+  },
+  {
+   "name": "Event Sourcing",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: event-sourcing",
+   "why": "named persistence pattern"
+  },
+  {
+   "name": "Command Query Responsibility Segregation",
+   "aliases": [
+    "CQRS"
+   ],
+   "judge": "leak",
+   "evidence": "iluwatar dir: command-query-responsibility-segregation",
+   "why": "named architecture pattern"
+  },
+  {
+   "name": "Circuit Breaker",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: circuit-breaker",
+   "why": "Nygard resilience pattern"
+  },
+  {
+   "name": "Bulkhead",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: microservices-bulkhead",
+   "why": "named resilience pattern"
+  },
+  {
+   "name": "API Gateway",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: microservices-api-gateway",
+   "why": "named microservices pattern"
+  },
+  {
+   "name": "Saga",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: saga",
+   "why": "named distributed transaction pattern"
+  },
+  {
+   "name": "Map-Reduce",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: map-reduce",
+   "why": "named distributed pattern"
+  },
+  {
+   "name": "Producer-Consumer",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: producer-consumer",
+   "why": "classic concurrency pattern"
+  },
+  {
+   "name": "Publish-Subscribe",
+   "aliases": [
+    "pub-sub"
+   ],
+   "judge": "leak",
+   "evidence": "iluwatar dir: publish-subscribe; faif publish_subscribe",
+   "why": "named messaging pattern"
+  },
+  {
+   "name": "Fork-Join",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: fork-join",
+   "why": "named parallel pattern"
+  },
+  {
+   "name": "Game Loop",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: game-loop",
+   "why": "Game Programming Patterns entry"
+  },
+  {
+   "name": "Resource Acquisition Is Initialization",
+   "aliases": [
+    "RAII"
+   ],
+   "judge": "leak",
+   "evidence": "iluwatar dir: resource-acquisition-is-initialization",
+   "why": "C++ idiom known to specialists"
+  },
+  {
+   "name": "Marker Interface",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: marker-interface",
+   "why": "named Java idiom"
+  },
+  {
+   "name": "Flux",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: flux",
+   "why": "named front-end architecture pattern"
+  },
+  {
+   "name": "Active Object",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: active-object",
+   "why": "POSA concurrency pattern"
+  },
+  {
+   "name": "Half-Sync/Half-Async",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: half-sync-half-async",
+   "why": "POSA concurrency pattern"
+  },
+  {
+   "name": "Leader/Followers",
+   "aliases": [
+    "Leader-Follower"
+   ],
+   "judge": "race",
+   "evidence": "iluwatar dir: leader-followers; openjdk leader-follower pattern",
+   "why": "POSA event-handling pattern"
+  },
+  {
+   "name": "Master-Worker",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: master-worker",
+   "why": "parallel processing pattern"
+  },
+  {
+   "name": "Reactor",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: reactor",
+   "why": "POSA event-demultiplexing pattern"
+  },
+  {
+   "name": "Double-Checked Locking",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: double-checked-locking",
+   "why": "famously broken locking idiom"
+  },
+  {
+   "name": "Guarded Suspension",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: guarded-suspension",
+   "why": "Lea concurrency pattern"
+  },
+  {
+   "name": "Thread Pool",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: thread-pool-executor",
+   "why": "named concurrency pattern"
+  },
+  {
+   "name": "Thread-Specific Storage",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: thread-specific-storage",
+   "why": "POSA concurrency pattern"
+  },
+  {
+   "name": "Leader Election",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: leader-election",
+   "why": "distributed coordination pattern"
+  },
+  {
+   "name": "Async Method Invocation",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: async-method-invocation",
+   "why": "POSA concurrency pattern"
+  },
+  {
+   "name": "Balking",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "iluwatar dir: balking",
+   "why": "Lea concurrency pattern"
+  },
+  {
+   "name": "Monostate",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: monostate",
+   "why": "Martin's singleton alternative"
+  },
+  {
+   "name": "Multiton",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: multiton",
+   "why": "named singleton generalisation"
+  },
+  {
+   "name": "Strangler Fig",
+   "aliases": [
+    "strangler"
+   ],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: strangler",
+   "why": "Fowler migration pattern"
+  },
+  {
+   "name": "Ambassador",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: ambassador",
+   "why": "Microsoft cloud pattern"
+  },
+  {
+   "name": "Anti-Corruption Layer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: anti-corruption-layer",
+   "why": "Evans DDD pattern"
+  },
+  {
+   "name": "Backends for Frontends",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: backends-for-frontends",
+   "why": "named cloud pattern"
+  },
+  {
+   "name": "Idempotent Consumer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: microservices-idempotent-consumer",
+   "why": "Hohpe messaging pattern"
+  },
+  {
+   "name": "Load Shedding",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: microservices-load-shedding",
+   "why": "named resilience pattern"
+  },
+  {
+   "name": "Distributed Tracing",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: microservices-distributed-tracing",
+   "why": "named microservices pattern"
+  },
+  {
+   "name": "Self Registration",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: microservices-self-registration",
+   "why": "named microservices pattern"
+  },
+  {
+   "name": "Transactional Outbox",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: transactional-outbox",
+   "why": "named messaging pattern"
+  },
+  {
+   "name": "Poison Pill",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: poison-pill",
+   "why": "Hohpe messaging pattern"
+  },
+  {
+   "name": "Queue-Based Load Leveling",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: queue-based-load-leveling",
+   "why": "named cloud pattern"
+  },
+  {
+   "name": "Tolerant Reader",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: tolerant-reader",
+   "why": "named integration pattern"
+  },
+  {
+   "name": "Hexagonal Architecture",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "iluwatar dir: hexagonal-architecture",
+   "why": "Cockburn's ports-and-adapters pattern"
+  },
+  {
+   "name": "Spatial Partition",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: spatial-partition",
+   "why": "Game Programming Patterns entry"
+  },
+  {
+   "name": "Dirty Flag",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: dirty-flag",
+   "why": "Game Programming Patterns entry"
+  },
+  {
+   "name": "Double Buffer",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: double-buffer",
+   "why": "Game Programming Patterns entry"
+  },
+  {
+   "name": "Trampoline",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: trampoline",
+   "why": "named tail-call pattern"
+  },
+  {
+   "name": "Specification",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: specification",
+   "why": "Evans DDD pattern"
+  },
+  {
+   "name": "Metadata Mapping",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: metadata-mapping",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Identity Map",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: identity-map",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Role Object",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: role-object",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Separated Interface",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: separated-interface",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Gateway",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: gateway",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Presentation Model",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: presentation-model",
+   "why": "Fowler GUI pattern"
+  },
+  {
+   "name": "Type Object",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: type-object",
+   "why": "named domain-modelling pattern"
+  },
+  {
+   "name": "Single Table Inheritance",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: single-table-inheritance",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Table Module",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: table-module",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Subclass Sandbox",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: subclass-sandbox",
+   "why": "Beck's named pattern"
+  },
+  {
+   "name": "Object Mother",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: object-mother",
+   "why": "named test-data pattern"
+  },
+  {
+   "name": "Naked Objects",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: naked-objects",
+   "why": "Pawson's named pattern"
+  },
+  {
+   "name": "Money",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: money",
+   "why": "Fowler value pattern"
+  },
+  {
+   "name": "Version Number",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: version-number",
+   "why": "Fowler concurrency pattern"
+  },
+  {
+   "name": "Parameter Object",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: parameter-object",
+   "why": "named refactoring pattern"
+  },
+  {
+   "name": "Private Class Data",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: private-class-data",
+   "why": "named encapsulation pattern"
+  },
+  {
+   "name": "Collecting Parameter",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: collecting-parameter",
+   "why": "Beck's named pattern"
+  },
+  {
+   "name": "Curiously Recurring Template Pattern",
+   "aliases": [
+    "CRTP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: curiously-recurring-template-pattern",
+   "why": "named C++ idiom"
+  },
+  {
+   "name": "Execute Around",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: execute-around",
+   "why": "named resource-wrapping pattern"
+  },
+  {
+   "name": "Event Aggregator",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: event-aggregator",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Event-Based Asynchronous Pattern",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: event-based-asynchronous",
+   "why": "named Microsoft async pattern"
+  },
+  {
+   "name": "Client Session State",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: client-session",
+   "why": "Fowler session pattern"
+  },
+  {
+   "name": "Front Controller",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: front-controller; faif front_controller",
+   "why": "J2EE enterprise pattern"
+  },
+  {
+   "name": "Intercepting Filter",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: intercepting-filter",
+   "why": "J2EE enterprise pattern"
+  },
+  {
+   "name": "Service to Worker",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: service-to-worker",
+   "why": "J2EE enterprise pattern"
+  },
+  {
+   "name": "Session Facade",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: session-facade",
+   "why": "J2EE enterprise pattern"
+  },
+  {
+   "name": "View Helper",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: view-helper",
+   "why": "J2EE presentation pattern"
+  },
+  {
+   "name": "Composite Entity",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: composite-entity",
+   "why": "J2EE enterprise pattern"
+  },
+  {
+   "name": "Composite View",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: composite-view",
+   "why": "J2EE presentation pattern"
+  },
+  {
+   "name": "Business Delegate",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: business-delegate",
+   "why": "J2EE business-tier pattern"
+  },
+  {
+   "name": "Template View",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: templateview",
+   "why": "Fowler view pattern"
+  },
+  {
+   "name": "Virtual Proxy",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: virtual-proxy",
+   "why": "named proxy variant"
+  },
+  {
+   "name": "Serialized LOB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: serialized-lob",
+   "why": "Fowler enterprise pattern"
+  },
+  {
+   "name": "Optimistic Offline Lock",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: optimistic-offline-lock",
+   "why": "Fowler concurrency pattern"
+  },
+  {
+   "name": "BLoC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: bloc",
+   "why": "named Flutter architecture pattern"
+  },
+  {
+   "name": "Factory Kit",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: factory-kit",
+   "why": "named creational pattern"
+  },
+  {
+   "name": "Step Builder",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: step-builder",
+   "why": "named builder variant"
+  }
+ ],
+ "womm_candidates": [
+  {
+   "name": "Monostate",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: monostate",
+   "why": "clever singleton alternative"
+  },
+  {
+   "name": "Multiton",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: multiton",
+   "why": "clever singleton generalisation"
+  },
+  {
+   "name": "Acyclic Visitor",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: acyclic-visitor",
+   "why": "clever visitor variant"
+  }
+ ],
+ "bitflip_candidates": [
+  {
+   "name": "Curiously Recurring Template Pattern",
+   "aliases": [
+    "CRTP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: curiously-recurring-template-pattern",
+   "why": "delightfully odd C++ idiom"
+  },
+  {
+   "name": "Subclass Sandbox",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: subclass-sandbox",
+   "why": "delightfully obscure Beck pattern"
+  },
+  {
+   "name": "Tolerant Reader",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "iluwatar dir: tolerant-reader",
+   "why": "delightfully obscure integration pattern"
+  }
+ ]
+}

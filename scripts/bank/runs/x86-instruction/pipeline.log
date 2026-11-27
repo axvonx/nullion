@@ -1,0 +1,13 @@
+
+===== 2026-11-27T22:52:02+00:00 =====
+[x86-instruction] plan: running...
+[x86-instruction] plan: done in 14s
+[x86-instruction] harvest: running...
+
+PIPELINE FAILED: `/opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/harvest.py x86-instruction` exited 1: ~^^^^^^
+  File "/Users/axvon/nullion/scripts/harvest.py", line 41, in ensure_sparse
+    run("git", "-C", str(dest), "sparse-checkout", "set", *spec["paths"])
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/axvon/nullion/scripts/harvest.py", line 32, in run
+    raise RuntimeError(f"{' '.join(cmd)} failed ({r.returncode}): {r.stderr.strip()[:400]}")
+RuntimeError: git -C /Users/axvon/nullion-corpora/src/nasm sparse-checkout set x86/insns.dat failed (128): fatal: 'x86/insns.dat' is not a directory; to treat it as a directory anyway, rerun with --skip-checks

@@ -1,0 +1,60 @@
+{
+ "id": "design-principle",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T23:01:52+00:00",
+   "seconds": 9,
+   "finished": "2026-11-27T23:02:01+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-27T23:02:01+00:00",
+   "seconds": 4,
+   "finished": "2026-11-27T23:02:05+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-27T23:02:05+00:00",
+   "seconds": 13,
+   "finished": "2026-11-27T23:02:18+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-27T23:02:18+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:02:18+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-27T23:02:18+00:00",
+   "seconds": 0,
+   "finished": "2026-11-27T23:02:18+00:00"
+  },
+  "merge": {
+   "status": "failed",
+   "started": "2026-11-27T23:02:18+00:00",
+   "seconds": 14,
+   "error": "haiku failed after 2 attempts: ValueError: need {bitflip: <candidate name>, womm: [1-3 other candidate names]}"
+  }
+ },
+ "gates": {},
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/design-principle.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 161,
+  "summary": "design-principle: 155 mined lines from 6 sources -> 1 batches in scripts/bank/mined/design-principle"
+ },
+ "filter": [
+  "batch-00.a: 0 kept",
+  "batch-00.b: 0 kept"
+ ],
+ "compare": "design-principle: 0 agreed, 0 disputed (0%) across 1 batches",
+ "escalate": "no disputes"
+}

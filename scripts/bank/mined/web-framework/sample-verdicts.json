@@ -1,0 +1,102 @@
+{
+ "Blade": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Lightweight Java web/MVC framework (lets-blade/blade). Obscure, so Race condition fits."
+ },
+ "Svelte": {
+  "member": true,
+  "tier_ok": true,
+  "why": "UI framework and compiler, with SvelteKit for full web apps. Widely known, so Null pointer exception is plausible."
+ },
+ "Armeria": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Java/Kotlin microservice and HTTP framework from LINE. Specialist-known, so Race condition fits."
+ },
+ "LoveQQ": {
+  "member": false,
+  "tier_ok": true,
+  "why": "I cannot confirm a web framework by this name exists, and I can't open the batch file here to check. Strict rule: false when unsure."
+ },
+ "Javalin": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Java web framework built on Jetty. Known to Java web developers, so Memory leak (systems and domain people) fits."
+ },
+ "Riot.js": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Component-based UI framework for web apps. The alias riotjs only differs by punctuation, so it is redundant, not wrong."
+ },
+ "Emmett": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Python full-stack web framework (distributed as emmett55 on PyPI). Obscure, so Race condition fits. The alias emmett55 is a package name."
+ },
+ "Ktor": {
+  "member": true,
+  "tier_ok": true,
+  "why": "JetBrains' Kotlin framework for web apps and HTTP services. Known to Kotlin developers, so Null pointer exception fits."
+ },
+ "AdonisJS": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Node.js MVC web framework. Known to Node developers, so Null pointer exception fits."
+ },
+ "RestExpress": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Java REST service framework (RestExpress on GitHub). Obscure, so Race condition fits. From memory; I cannot check the batch file here."
+ },
+ "ActiveJ": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Java platform with a high-performance async HTTP server and framework. Specialist-known, so Race condition fits."
+ },
+ "Micronaut": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Java/Kotlin/Groovy framework for microservices and HTTP services. Widely known, so Null pointer exception fits."
+ },
+ "Webware": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Webware for Python, an older Python web application framework. Obscure, so Heisenbug fits."
+ },
+ "Voovan": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Java network and web framework (voovan). Obscure, so Heisenbug fits. From memory; I cannot check the batch file here."
+ },
+ "ActFramework": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Java web framework (act, actframework.org). Obscure, so Heisenbug fits. The alias 'act' is a common English word, so it is too generic and should be dropped."
+ },
+ "Laravel": {
+  "member": true,
+  "tier_ok": true,
+  "why": "PHP web framework, the most widely known. Off-by-one is correct."
+ },
+ "CanJS": {
+  "member": true,
+  "tier_ok": true,
+  "why": "JavaScript MVC framework for web apps (DoneJS, canjs.com). Specialist-known, so Race condition fits. The alias canjs_require is a module-name binding and should be dropped."
+ },
+ "Lavaca": {
+  "member": true,
+  "tier_ok": true,
+  "why": "JavaScript web framework (Lavaca). Obscure, so Heisenbug fits. From memory; I cannot check the batch file here."
+ },
+ "Express": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Node.js web framework, the most widely known Node one. Off-by-one is correct."
+ },
+ "Ninja": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Ninja Framework, a Java web framework (ninja-standalone is its artifact name). Obscure, so Race condition fits."
+ }
+}

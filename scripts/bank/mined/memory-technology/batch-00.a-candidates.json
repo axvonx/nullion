@@ -1,0 +1,119 @@
+{
+  "memory-technology": [
+    {
+      "name": "DRAM",
+      "aliases": ["dynamic RAM", "dram memory"],
+      "judge": "off-by-one",
+      "evidence": "465:      3  dram memory",
+      "why": "fundamental volatile main memory technology"
+    },
+    {
+      "name": "flash memory",
+      "aliases": ["flash"],
+      "judge": "off-by-one",
+      "evidence": "296:      4  flash memory",
+      "why": "ubiquitous non-volatile solid-state memory"
+    },
+    {
+      "name": "read-only memory",
+      "aliases": ["ROM"],
+      "judge": "off-by-one",
+      "evidence": "289:      4  read-only memory",
+      "why": "fundamental non-volatile memory class"
+    },
+    {
+      "name": "DDR",
+      "aliases": ["DDR SDRAM", "ddr memory"],
+      "judge": "off-by-one",
+      "evidence": "251:      5  ddr memory",
+      "why": "standard double-data-rate synchronous DRAM"
+    },
+    {
+      "name": "DDR4",
+      "aliases": ["DDR4 SDRAM", "ddr4 memory"],
+      "judge": "off-by-one",
+      "evidence": "723:      2  ddr4 memory",
+      "why": "widely used fourth-generation DDR SDRAM"
+    },
+    {
+      "name": "VRAM",
+      "aliases": ["video RAM", "vram memory"],
+      "judge": "npe",
+      "evidence": "107:     10  video ram",
+      "why": "dedicated video memory technology"
+    },
+    {
+      "name": "NAND flash",
+      "aliases": ["NAND"],
+      "judge": "npe",
+      "evidence": "99:     11  nand flash",
+      "why": "dominant high-density flash memory architecture"
+    },
+    {
+      "name": "NOR flash",
+      "aliases": ["NOR", "SPI-NOR"],
+      "judge": "leak",
+      "evidence": "263:      5  nor flash",
+      "why": "execute-in-place flash memory architecture"
+    },
+    {
+      "name": "LPDDR",
+      "aliases": ["low-power DDR"],
+      "judge": "leak",
+      "evidence": "5: lpddr",
+      "why": "low-power DRAM variant for mobile and embedded devices"
+    },
+    {
+      "name": "ECC memory",
+      "aliases": ["ECC RAM"],
+      "judge": "npe",
+      "evidence": "389:      3  ecc memory",
+      "why": "error-correcting code memory technology"
+    },
+    {
+      "name": "High Bandwidth Memory",
+      "aliases": ["HBM"],
+      "judge": "leak",
+      "evidence": "767:      2  high bandwidth memory",
+      "why": "3D-stacked high-throughput DRAM interface"
+    },
+    {
+      "name": "CompactFlash",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "544:      2  CompactFlash",
+      "why": "classic solid-state flash memory card format"
+    },
+    {
+      "name": "serial flash",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "795:      2  serial flash",
+      "why": "low-pin-count SPI/serial-interface flash memory"
+    },
+    {
+      "name": "OTP memory",
+      "aliases": ["one-time programmable memory"],
+      "judge": "leak",
+      "evidence": "473:      3  otp memory",
+      "why": "one-time programmable non-volatile memory"
+    },
+    {
+      "name": "DataFlash",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "829:      2  DataFlash",
+      "why": "Atmel/Adesto serial-interface flash memory family"
+    }
+  ],
+  "womm_candidates": [
+    "ECC memory",
+    "NOR flash",
+    "High Bandwidth Memory"
+  ],
+  "bitflip_candidates": [
+    "DataFlash",
+    "OTP memory",
+    "serial flash"
+  ]
+}

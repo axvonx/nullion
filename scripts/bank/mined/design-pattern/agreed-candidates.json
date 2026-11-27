@@ -1,0 +1,468 @@
+{
+ "design-pattern": [
+  {
+   "name": "Abstract Factory",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Active Object",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Acyclic Visitor",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Adapter",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Balking",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Bridge",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Builder",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Business Delegate",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Chain of Responsibility",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Circuit Breaker",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Collecting Parameter",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Command",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Command Query Responsibility Segregation",
+   "aliases": [
+    "CQRS"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Composite",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Composite Entity",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Composite View",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Data Access Object",
+   "aliases": [
+    "DAO"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Data Transfer Object",
+   "aliases": [
+    "DTO"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Decorator",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Dependency Injection",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Dirty Flag",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Domain Model",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Double-Checked Locking",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Event Aggregator",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Event Sourcing",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Execute Around",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Extension Object",
+   "aliases": [
+    "Extension Objects"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Facade",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Factory Kit",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Factory Method",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Fluent Interface",
+   "aliases": [
+    "chaining method"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Flyweight",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Game Loop",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Guarded Suspension",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Half-Sync/Half-Async",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Identity Map",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Intercepting Filter",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Interpreter",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Iterator",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Lazy Loading",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Leader Election",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Leader/Followers",
+   "aliases": [
+    "Leader-Follower"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Marker Interface",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Master-Worker",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Mediator",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Memento",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Metadata Mapping",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Model-View-Controller",
+   "aliases": [
+    "MVC"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Model-View-Intent",
+   "aliases": [
+    "MVI"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Model-View-Presenter",
+   "aliases": [
+    "MVP"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Model-View-ViewModel",
+   "aliases": [
+    "MVVM"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Monostate",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Multiton",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Naked Objects",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Object Mother",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Object Pool",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Observer",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Optimistic Offline Lock",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Presentation Model",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Private Class Data",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Prototype",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Proxy",
+   "aliases": [
+    "dynamic proxy"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Reactor",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Resource Acquisition Is Initialization",
+   "aliases": [
+    "RAII"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Role Object",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Saga",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Separated Interface",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Serialized LOB",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Service Layer",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Service Locator",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Service to Worker",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Session Facade",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Singleton",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "State",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Step Builder",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Strategy",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Subclass Sandbox",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Table Module",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Template Method",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Template View",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Thread-Specific Storage",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Tolerant Reader",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Transaction Script",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Type Object",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Unit of Work",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Value Object",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "View Helper",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Visitor",
+   "aliases": [],
+   "judge": "npe"
+  }
+ ]
+}

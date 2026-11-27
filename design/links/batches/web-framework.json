@@ -1,0 +1,772 @@
+{
+ "id": "web-framework",
+ "prompt": "Name a web framework",
+ "accepts": "Any named software framework for building web applications or HTTP services, in any language, that is documented or published.",
+ "answers": [
+  {
+   "name": "Django",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "FastAPI",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Flask",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Spring",
+   "aliases": [
+    "spring-webflux",
+    "Spring Framework"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Angular",
+   "aliases": [
+    "angular-dart",
+    "angularjs_require",
+    "typescript-angular",
+    "AngularJS"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Vue.js",
+   "aliases": [
+    "vue"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "React",
+   "aliases": [
+    "react-redux",
+    "typescript-react"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Express",
+   "aliases": [
+    "Express.js"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Ruby on Rails",
+   "aliases": [
+    "Rails",
+    "RoR",
+    "Ruby Rails"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Laravel",
+   "aliases": [
+    "Laravel PHP"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Next.js",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Nuxt",
+   "aliases": [
+    "Nuxt.js"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "ASP.NET",
+   "aliases": [
+    "ASP.NET Core"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Spring Boot",
+   "aliases": [],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "CherryPy",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Klein",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Pippo",
+   "aliases": [],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Tornado",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Dropwizard",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Micronaut",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Play Framework",
+   "aliases": [
+    "play2-java"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Quarkus",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Backbone.js",
+   "aliases": [
+    "backbone",
+    "backbone_marionette",
+    "backbone_require",
+    "typescript-backbone",
+    "Marionette",
+    "Backbone.Marionette"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Ember.js",
+   "aliases": [
+    "emberjs",
+    "emberjs_require"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Starlette",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Preact",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Svelte",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Symfony",
+   "aliases": [
+    "Symfony PHP"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Gin",
+   "aliases": [
+    "Gin Gonic"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Echo",
+   "aliases": [
+    "Labstack Echo",
+    "Go Echo"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Fiber",
+   "aliases": [
+    "Go Fiber"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Sinatra",
+   "aliases": [
+    "Sinatra Ruby"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Koa",
+   "aliases": [
+    "Koa.js"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Hapi",
+   "aliases": [
+    "hapi.js"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Fastify",
+   "aliases": [
+    "Fastify.js"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Nest.js",
+   "aliases": [
+    "Nest"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Meteor",
+   "aliases": [
+    "Meteor.js"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Remix",
+   "aliases": [
+    "Remix.run",
+    "Remix React"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Gatsby",
+   "aliases": [
+    "Gatsby.js"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Astro",
+   "aliases": [
+    "Astro.js"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SvelteKit",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Sails",
+   "aliases": [
+    "Sails.js"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "AdonisJS",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Phoenix",
+   "aliases": [
+    "Phoenix Framework",
+    "Elixir Phoenix"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Ktor",
+   "aliases": [
+    "Ktor Kotlin"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Actix",
+   "aliases": [
+    "Actix Web"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Axum",
+   "aliases": [
+    "Axum Rust"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CodeIgniter",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CakePHP",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Struts",
+   "aliases": [
+    "Apache Struts"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Grails",
+   "aliases": [
+    "Grails Groovy",
+    "Apache Grails"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Streamlit",
+   "aliases": [
+    "Streamlit Python"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "aiohttp",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Bottle",
+   "aliases": [
+    "Bottle.py",
+    "Bottle Python"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Falcon",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Litestar",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Pyramid",
+   "aliases": [
+    "Pyramid Python"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Quart",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Sanic",
+   "aliases": [
+    "Sanic Python"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "TurboGears",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "web2py",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Helidon",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Javalin",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Ratpack",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Apache Tapestry",
+   "aliases": [
+    "tapestry"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Eclipse Vert.x",
+   "aliases": [
+    "vertx",
+    "vertx-web",
+    "Vert.x"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Apache Wicket",
+   "aliases": [
+    "wicket"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Aurelia",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Dojo",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Google Web Toolkit",
+   "aliases": [
+    "gwt"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Knockout",
+   "aliases": [
+    "knockoutjs",
+    "knockoutjs_require"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Mithril",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Polymer",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Jersey",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Spark",
+   "aliases": [
+    "Spark Java"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Lit",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "BlackSheep",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Emmett",
+   "aliases": [
+    "emmett55"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Eve",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Microdot",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Panther",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Responder",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Robyn",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ActiveJ",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Armeria",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Avaje Jex",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Blade",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Jooby",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Light-4j",
+   "aliases": [
+    "light-java"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MuServer",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Ninja",
+   "aliases": [
+    "ninja-standalone"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Rapidoid",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "RestExpress",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Solon",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "CanJS",
+   "aliases": [
+    "canjs_require"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Exoskeleton",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Ractive.js",
+   "aliases": [
+    "ractive"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Enyo",
+   "aliases": [
+    "enyo_backbone"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Reagent",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Riot.js",
+   "aliases": [
+    "riotjs"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "mrhttp",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Webware",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Curacao",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Inverno",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Jawn",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LoveQQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Minijax",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "OfficeFloor",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Revenj",
+   "aliases": [
+    "revenj-jvm"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Voovan",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ActFramework",
+   "aliases": [
+    "act"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Gemini",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HServer",
+   "aliases": [
+    "hserver-business"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Magician",
+   "aliases": [
+    "magician-io"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Proteus",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "tio-boot",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "TODAY-Web",
+   "aliases": [
+    "today"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Wizzardo HTTP",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Duel",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "jsblocks",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Knockback.js",
+   "aliases": [
+    "knockback"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Lavaca",
+   "aliases": [
+    "lavaca_require"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "socketify.py",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Bayou",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Redkale",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Binding.scala",
+   "aliases": [
+    "binding-scala"
+   ],
+   "tier": "Bit Flip"
+  }
+ ]
+}

@@ -1,0 +1,407 @@
+{
+ "bus-standard": [
+  {
+   "name": "USB",
+   "aliases": [
+    "Universal Serial Bus"
+   ],
+   "judge": "off-by-one",
+   "evidence": "usb bus; universal serial bus",
+   "why": "everyone knows USB"
+  },
+  {
+   "name": "PCI",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "pci bus",
+   "why": "household expansion bus"
+  },
+  {
+   "name": "SCSI",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "scsi bus",
+   "why": "common storage interface"
+  },
+  {
+   "name": "ISA",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "isa bus",
+   "why": "classic PC expansion bus"
+  },
+  {
+   "name": "PCIe",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "pcie bus",
+   "why": "modern PCI successor, widely named"
+  },
+  {
+   "name": "I2C",
+   "aliases": [
+    "I²C"
+   ],
+   "judge": "npe",
+   "evidence": "i2c bus; i²c bus",
+   "why": "embedded staple, widely known"
+  },
+  {
+   "name": "SPI",
+   "aliases": [
+    "Serial Peripheral Interface"
+   ],
+   "judge": "npe",
+   "evidence": "spi bus; serial peripheral interface",
+   "why": "embedded staple"
+  },
+  {
+   "name": "SMBus",
+   "aliases": [
+    "system management bus"
+   ],
+   "judge": "race",
+   "evidence": "SMBus; system management bus",
+   "why": "PC management bus, specialist"
+  },
+  {
+   "name": "PMBus",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "PMBus",
+   "why": "power-supply management bus, specialist"
+  },
+  {
+   "name": "FireWire",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "firewire",
+   "why": "IEEE 1394 consumer bus"
+  },
+  {
+   "name": "Thunderbolt",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "thunderbolt",
+   "why": "Intel high-speed I/O standard"
+  },
+  {
+   "name": "PCMCIA",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "pcmcia",
+   "why": "laptop card interface, known to many"
+  },
+  {
+   "name": "CardBus",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "CardBus",
+   "why": "32-bit PCMCIA successor, specialist"
+  },
+  {
+   "name": "EISA",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "eisa bus",
+   "why": "old PC bus, specialist"
+  },
+  {
+   "name": "VME",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "vme bus",
+   "why": "industrial backplane, deep internals"
+  },
+  {
+   "name": "Multibus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Intel backplane bus, deep internals"
+  },
+  {
+   "name": "NuBus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "nubus",
+   "why": "Macintosh expansion bus, deep internals"
+  },
+  {
+   "name": "Zorro",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "zorro bus",
+   "why": "Amiga expansion bus, deep internals"
+  },
+  {
+   "name": "SBus",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "sbus",
+   "why": "Sun workstation bus, specialist"
+  },
+  {
+   "name": "AMBA",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "amba bus",
+   "why": "ARM on-chip bus family, specialist"
+  },
+  {
+   "name": "Apple Desktop Bus",
+   "aliases": [
+    "ADB"
+   ],
+   "judge": "race",
+   "evidence": "adb",
+   "why": "Apple peripheral bus, specialist"
+  },
+  {
+   "name": "GPIB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "gpib",
+   "why": "instrument bus, deep internals"
+  },
+  {
+   "name": "MDIO",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "mdio bus",
+   "why": "PHY management bus, specialist"
+  },
+  {
+   "name": "MMC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "mmc",
+   "why": "flash card interface, specialist"
+  },
+  {
+   "name": "NVMe",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "nvme",
+   "why": "common SSD interface"
+  },
+  {
+   "name": "ATA",
+   "aliases": [
+    "IDE"
+   ],
+   "judge": "npe",
+   "evidence": "ata; ide interface",
+   "why": "classic disk interface, many know"
+  },
+  {
+   "name": "Memory Stick",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memstick",
+   "why": "Sony card interface, deep internals"
+  },
+  {
+   "name": "Human Interface Device",
+   "aliases": [
+    "HID"
+   ],
+   "judge": "race",
+   "evidence": "hid; human interface",
+   "why": "USB input device class, specialist"
+  },
+  {
+   "name": "1-Wire",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "one-wire bus",
+   "why": "Dallas single-wire bus, deep internals"
+  },
+  {
+   "name": "Greybus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "greybus",
+   "why": "Project Ara module bus, deep internals"
+  },
+  {
+   "name": "HSI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hsi",
+   "why": "modem serial interface, deep internals"
+  },
+  {
+   "name": "SoundWire",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "soundwire bus",
+   "why": "audio codec bus, deep internals"
+  },
+  {
+   "name": "SLIMbus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "slimbus",
+   "why": "audio companion bus, deep internals"
+  },
+  {
+   "name": "SPMI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "spmi",
+   "why": "power management bus, deep internals"
+  },
+  {
+   "name": "SIOX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "siox",
+   "why": "serial I/O bus, deep internals"
+  },
+  {
+   "name": "RapidIO",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "rapidio",
+   "why": "embedded interconnect, specialist"
+  },
+  {
+   "name": "CXL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cxl bus",
+   "why": "coherent memory interconnect, deep internals"
+  },
+  {
+   "name": "VMBus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "VMBus",
+   "why": "Hyper-V virtual bus, deep internals"
+  },
+  {
+   "name": "STBus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "STBus",
+   "why": "STMicro on-chip bus, deep internals"
+  },
+  {
+   "name": "AVSBus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "AVSBus",
+   "why": "voltage scaling bus, deep internals"
+  },
+  {
+   "name": "I3C",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "i3c bus",
+   "why": "successor to I2C, deep internals"
+  },
+  {
+   "name": "PECI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "peci bus",
+   "why": "Intel thermal sideband bus, deep internals"
+  },
+  {
+   "name": "BCMA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "bcma",
+   "why": "Broadcom on-chip bus, deep internals"
+  },
+  {
+   "name": "SSB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ssb",
+   "why": "Sonics backplane bus, deep internals"
+  },
+  {
+   "name": "CDX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cdx",
+   "why": "AMD device bus, deep internals"
+  },
+  {
+   "name": "MCB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "mcb",
+   "why": "Chameleon bus, deep internals"
+  },
+  {
+   "name": "IPACK",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ipack",
+   "why": "IndustryPack bus, deep internals"
+  },
+  {
+   "name": "Virtio",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "virtio bus",
+   "why": "VM device bus standard, specialist"
+  },
+  {
+   "name": "SDIO",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "sdio",
+   "why": "SD card I/O interface, specialist"
+  }
+ ],
+ "womm_candidates": [
+  {
+   "name": "Zorro",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "zorro bus",
+   "why": "sounds obscure, reached for by clever players"
+  },
+  {
+   "name": "GPIB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "gpib",
+   "why": "sounds obscure, reached for by clever players"
+  },
+  {
+   "name": "Greybus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "greybus",
+   "why": "sounds obscure, reached for by clever players"
+  }
+ ],
+ "bitflip_candidates": [
+  {
+   "name": "SIOX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "siox",
+   "why": "delightfully obscure serial bus"
+  },
+  {
+   "name": "SLIMbus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "slimbus",
+   "why": "delightfully obscure audio bus"
+  },
+  {
+   "name": "STBus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "STBus",
+   "why": "delightfully obscure on-chip bus"
+  }
+ ]
+}

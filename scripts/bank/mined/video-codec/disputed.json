@@ -1,0 +1,631 @@
+[
+ {
+  "name": "APV",
+  "a": {
+   "name": "APV",
+   "aliases": [
+    "Advanced Professional Video"
+   ],
+   "judge": "race",
+   "evidence": "apv",
+   "why": "Samsung/open professional video codec"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CAVS",
+  "a": {
+   "name": "CAVS",
+   "aliases": [
+    "Chinese AVS"
+   ],
+   "judge": "race",
+   "evidence": "cavs",
+   "why": "Chinese AVS video codec"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CineForm",
+  "a": {
+   "name": "CineForm",
+   "aliases": [
+    "CineForm HD",
+    "CFHD"
+   ],
+   "judge": "leak",
+   "evidence": "cfhd",
+   "why": "GoPro CineForm intermediate video codec"
+  },
+  "b": {
+   "name": "CineForm HD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cfhd (libavcodec)",
+   "why": "GoPro-era intermediate codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Daala",
+  "a": {
+   "name": "Daala",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "daala",
+   "why": "Xiph experimental video codec"
+  },
+  "b": {
+   "name": "Daala",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "daala (vlc)",
+   "why": "Xiph wavelet experiment"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Dirac",
+  "a": {
+   "name": "Dirac",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "dirac",
+   "why": "BBC Research wavelet video codec"
+  },
+  "b": {
+   "name": "Dirac",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dirac (libavcodec)",
+   "why": "BBC wavelet codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DNxUC",
+  "a": {
+   "name": "DNxUC",
+   "aliases": [
+    "Avid DNxUncompressed"
+   ],
+   "judge": "race",
+   "evidence": "dnxuc_parser",
+   "why": "Avid uncompressed video codec"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Sorenson Spark",
+  "a": {
+   "name": "Sorenson Spark",
+   "aliases": [
+    "FLV1"
+   ],
+   "judge": "race",
+   "evidence": "flvdec",
+   "why": "original Flash Video codec"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FMVC",
+  "a": {
+   "name": "FMVC",
+   "aliases": [
+    "FM Screen Capture Codec"
+   ],
+   "judge": "heisenbug",
+   "evidence": "fmvc",
+   "why": "FM screen capture video codec"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LOCO",
+  "a": {
+   "name": "LOCO",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "loco",
+   "why": "lossless video codec based on JPEG-LS"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MPEG-2",
+  "a": {
+   "name": "MPEG-2",
+   "aliases": [
+    "H.262"
+   ],
+   "judge": "off-by-one",
+   "evidence": "cbs_mpeg2",
+   "why": "DVD and broadcast video codec"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VC-1",
+  "a": {
+   "name": "VC-1",
+   "aliases": [
+    "SMPTE 421M"
+   ],
+   "judge": "leak",
+   "evidence": "d3d12va_vc1",
+   "why": "Microsoft/SMPTE Blu-ray video codec"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "VP9",
+  "a": {
+   "name": "VP9",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "cbs_vp9",
+   "why": "Google open-source YouTube video codec"
+  },
+  "b": {
+   "name": "VP9",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "cbs_vp9 (libavcodec)",
+   "why": "WebM codec, known to web folk"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Xvid",
+  "a": {
+   "name": "Xvid",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "libxvid",
+   "why": "open-source MPEG-4 Part 2 codec"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "IVI",
+  "a": null,
+  "b": {
+   "name": "IVI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ivi (libavcodec)",
+   "why": "Indeo Video Interactive"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "HQA",
+  "a": null,
+  "b": {
+   "name": "HQA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hq_hqa (libavcodec)",
+   "why": "Canopus HQ family codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Canopus HQ",
+  "a": null,
+  "b": {
+   "name": "Canopus HQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "canopus (libavcodec)",
+   "why": "Canopus HQ codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ARBC",
+  "a": null,
+  "b": {
+   "name": "ARBC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "arbc (libavcodec)",
+   "why": "Gryphon arbitrary codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ASV",
+  "a": null,
+  "b": {
+   "name": "ASV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "asv (libavcodec)",
+   "why": "ASUS video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Aura",
+  "a": null,
+  "b": {
+   "name": "Aura",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "aura (libavcodec)",
+   "why": "Auravision video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Argo",
+  "a": null,
+  "b": {
+   "name": "Argo",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "argo (libavcodec)",
+   "why": "Argonaut Games video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AVUI",
+  "a": null,
+  "b": {
+   "name": "AVUI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "avuienc (libavcodec)",
+   "why": "Avid video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "BFI",
+  "a": null,
+  "b": {
+   "name": "BFI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "bfi (libavcodec)",
+   "why": "Brute Force and Ignorance codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "BRender Pixel",
+  "a": null,
+  "b": {
+   "name": "BRender Pixel",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "brenderpix (libavcodec)",
+   "why": "3D engine pixel codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "012v",
+  "a": null,
+  "b": {
+   "name": "012v",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "012v (libavcodec)",
+   "why": "Apple 10-bit YUV codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Alias PIX",
+  "a": null,
+  "b": {
+   "name": "Alias PIX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "aliaspixdec (libavcodec)",
+   "why": "Alias image-sequence codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Bethsoft Video",
+  "a": null,
+  "b": {
+   "name": "Bethsoft Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "bethsoftvideo (libavcodec)",
+   "why": "Bethesda game video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CRI Video",
+  "a": null,
+  "b": {
+   "name": "CRI Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cri (libavcodec)",
+   "why": "CRI middleware video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CPiA",
+  "a": null,
+  "b": {
+   "name": "CPiA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cpia (libavcodec)",
+   "why": "Webcam video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DFA",
+  "a": null,
+  "b": {
+   "name": "DFA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dfa (libavcodec)",
+   "why": "Chronomaster video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Gremlin Digital Video",
+  "a": null,
+  "b": {
+   "name": "Gremlin Digital Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "gdv (libavcodec)",
+   "why": "Gremlin game video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "HNM4",
+  "a": null,
+  "b": {
+   "name": "HNM4",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hnm4video (libavcodec)",
+   "why": "Cryo game video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "IMM6",
+  "a": null,
+  "b": {
+   "name": "IMM6",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "imm6 (libavcodec)",
+   "why": "Infinity IMM video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Interplay Video",
+  "a": null,
+  "b": {
+   "name": "Interplay Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "interplayvideo (libavcodec)",
+   "why": "Interplay game video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "IDCIN",
+  "a": null,
+  "b": {
+   "name": "IDCIN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "idcinvideo (libavcodec)",
+   "why": "id Software cinematic codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "IntraX8",
+  "a": null,
+  "b": {
+   "name": "IntraX8",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "intrax8 (libavcodec)",
+   "why": "Microsoft WMV-era intra codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "KMVC",
+  "a": null,
+  "b": {
+   "name": "KMVC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kmvc (libavcodec)",
+   "why": "Karl Morton video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "KGV1",
+  "a": null,
+  "b": {
+   "name": "KGV1",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kgv1dec (libavcodec)",
+   "why": "Obscure video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LCL",
+  "a": null,
+  "b": {
+   "name": "LCL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "lcl (libavcodec)",
+   "why": "Lossless Codec Library"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LEAD Video",
+  "a": null,
+  "b": {
+   "name": "LEAD Video",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "leaddec (libavcodec)",
+   "why": "LEAD Technologies video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LSCR",
+  "a": null,
+  "b": {
+   "name": "LSCR",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "lscrdec (libavcodec)",
+   "why": "Screen capture codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "M101",
+  "a": null,
+  "b": {
+   "name": "M101",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "m101 (libavcodec)",
+   "why": "Matrox video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MDEC",
+  "a": null,
+  "b": {
+   "name": "MDEC",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "mdec (libavcodec)",
+   "why": "PlayStation video decoder codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MidiVid",
+  "a": null,
+  "b": {
+   "name": "MidiVid",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "midivid (libavcodec)",
+   "why": "Obscure video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "EA MAD",
+  "a": null,
+  "b": {
+   "name": "EA MAD",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "eamad (libavcodec)",
+   "why": "Electronic Arts game codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "EA TGV",
+  "a": null,
+  "b": {
+   "name": "EA TGV",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "eatgv (libavcodec)",
+   "why": "Electronic Arts game codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "EA TGQ",
+  "a": null,
+  "b": {
+   "name": "EA TGQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "eatgq (libavcodec)",
+   "why": "Electronic Arts game codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "EA TQI",
+  "a": null,
+  "b": {
+   "name": "EA TQI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "eatqi (libavcodec)",
+   "why": "Electronic Arts game codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Escape 124",
+  "a": null,
+  "b": {
+   "name": "Escape 124",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "escape124 (libavcodec)",
+   "why": "Escape video codec"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Escape 130",
+  "a": null,
+  "b": {
+   "name": "Escape 130",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "escape130 (libavcodec)",
+   "why": "Escape video codec"
+  },
+  "batch": "batch-00.txt"
+ }
+]

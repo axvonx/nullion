@@ -1,0 +1,8 @@
+--- gemini call, 23s, exit 0, prompt 4127 chars, stdout 3 chars
+15
+
+
+--- haiku call, 54s, exit 0, prompt 6863 chars, stdout 2619 chars
+vidence": "memory (no source)", "why": "Nintendo Switch's low-level API"}, {"name": "GNM", "aliases": [], "judge": "heisenbug", "evidence": "memory (no source)", "why": "PlayStation 4's low-level API"}, {"name": "GX", "aliases": [], "judge": "heisenbug", "evidence": "gx_gfx_libogc (RetroArch gfx drivers)", "why": "GameCube and Wii graphics API"}, {"name": "GX2", "aliases": [], "judge": "heisenbug", "evidence": "gx2_gfx (RetroArch gfx drivers)", "why": "Wii U graphics API"}, {"name": "GXM", "aliases": ["vitagxm"], "judge": "heisenbug", "evidence": "gxm_gfx, vitagxm (RetroArch, SDL)", "why": "PlayStation Vita graphics API"}, {"name": "deko3d", "aliases": [], "judge": "heisenbug", "evidence": "deko3d (RetroArch gfx drivers)", "why": "Switch's low-level graphics API"}, {"name": "OpenVG", "aliases": [], "judge": "heisenbug", "evidence": "vg (RetroArch gfx drivers)", "why": "Khronos 2D vector graphics API"}, {"name": "SDL_GPU", "aliases": ["sdlgpu3"], "judge": "heisenbug", "evidence": "imgui_impl_sdlgpu3 (imgui backends)", "why": "SDL's GPU abstraction API"}, {"name": "SDL_Renderer", "aliases": ["sdlrenderer2", "sdlrenderer3"], "judge": "race", "evidence": "imgui_impl_sdlrenderer2 (imgui backends)", "why": "SDL's 2D accelerated renderer"}, {"name": "WebGPU", "aliases": ["wgpu"], "judge": "race", "evidence": "imgui_impl_wgpu (imgui backends)", "why": "Modern web GPU API"}], "womm_candidates": ["Glide", "deko3d", "GX"], "bitflip_candidates": ["GXM", "GX2", "OpenVG"]}, "aliases": {}}
+
+

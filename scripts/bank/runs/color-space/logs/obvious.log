@@ -1,0 +1,26 @@
+--- haiku call, 33s, exit 0, prompt 1883 chars, stdout 2456 chars
+ess Blackness"], "tier": "npe"},
+  {"name": "CIE XYZ", "aliases": ["XYZ", "CIE 1931 XYZ"], "tier": "npe"},
+  {"name": "CIELAB", "aliases": ["CIE Lab", "Lab"], "tier": "npe"},
+  {"name": "CIELUV", "aliases": ["CIE LUV", "Luv"], "tier": "npe"},
+  {"name": "Oklab", "aliases": ["Oklab color space"], "tier": "npe"},
+  {"name": "CIE xyY", "aliases": ["xyY", "CIE xyY color", "Yxy"], "tier": "npe"},
+  {"name": "CIE RGB", "aliases": ["CIE 1931 RGB"], "tier": "npe"},
+  {"name": "Adobe RGB (1998)", "aliases": ["Adobe RGB", "AdobeRGB", "Adobe RGB 1998"], "tier": "npe"},
+  {"name": "ProPhoto RGB", "aliases": ["ProPhoto", "ROMM RGB", "ROMM"], "tier": "npe"},
+  {"name": "DCI-P3", "aliases": ["DCI P3", "DCI-P3 color"], "tier": "npe"},
+  {"name": "Display P3", "aliases": ["Display-P3", "DisplayP3"], "tier": "npe"},
+  {"name": "Rec. 709", "aliases": ["Rec 709", "BT.709", "ITU-R BT.709"], "tier": "npe"},
+  {"name": "Rec. 601", "aliases": ["Rec 601", "BT.601", "ITU-R BT.601"], "tier": "npe"},
+  {"name": "Rec. 2020", "aliases": ["Rec 2020", "BT.2020", "ITU-R BT.2020"], "tier": "npe"},
+  {"name": "Rec. 2100", "aliases": ["Rec 2100", "BT.2100", "ITU-R BT.2100"], "tier": "npe"},
+  {"name": "NTSC", "aliases": ["NTSC color", "NTSC 1953"], "tier": "npe"},
+  {"name": "ACEScg", "aliases": ["ACES", "ACES AP1", "Academy Color Encoding System"], "tier": "npe"},
+  {"name": "Linear RGB", "aliases": ["RGB linear", "Linear light RGB"], "tier": "npe"},
+  {"name": "scRGB", "aliases": ["sc-RGB"], "tier": "npe"}
+]
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py color-space  [0s, exit 0]
+color-space: 14 aliases, 16 new answers, 2 promoted from the Inbox
+

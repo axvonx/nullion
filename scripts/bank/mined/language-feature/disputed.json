@@ -1,0 +1,26 @@
+[
+ {
+  "name": "static typing",
+  "a": {
+   "name": "static typing",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "2  static typing (src/cpython)",
+   "why": "fundamental type system feature known by nearly all programmers"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "coroutine",
+  "a": null,
+  "b": {
+   "name": "coroutine",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "c++ coroutine (src/llvm)",
+   "why": "named C++20 language feature"
+  },
+  "batch": "batch-00.txt"
+ }
+]

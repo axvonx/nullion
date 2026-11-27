@@ -1,0 +1,553 @@
+{
+ "web-framework": [
+  {
+   "name": "aiohttp",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "BlackSheep",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Bottle",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "CherryPy",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "Django",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Emmett",
+   "aliases": [
+    "emmett55"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Eve",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Falcon",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "FastAPI",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Flask",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Klein",
+   "aliases": [],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "Litestar",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Microdot",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "mrhttp",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Panther",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Pyramid",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Quart",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Responder",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Robyn",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Sanic",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Tornado",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "TurboGears",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "web2py",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Webware",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "ActiveJ",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Armeria",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Avaje Jex",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Blade",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Curacao",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Dropwizard",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Helidon",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Inverno",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Javalin",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Jawn",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Jooby",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Light-4j",
+   "aliases": [
+    "light-java"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "LoveQQ",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Micronaut",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Minijax",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "MuServer",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Ninja",
+   "aliases": [
+    "ninja-standalone"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "OfficeFloor",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Pippo",
+   "aliases": [],
+   "judge": "race",
+   "pin": "womm"
+  },
+  {
+   "name": "Play Framework",
+   "aliases": [
+    "play2-java"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Quarkus",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Rapidoid",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Ratpack",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "RestExpress",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Revenj",
+   "aliases": [
+    "revenj-jvm"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Solon",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Spring",
+   "aliases": [
+    "spring-webflux",
+    "Spring Framework"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Apache Tapestry",
+   "aliases": [
+    "tapestry"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Eclipse Vert.x",
+   "aliases": [
+    "vertx",
+    "vertx-web",
+    "Vert.x"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Voovan",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Apache Wicket",
+   "aliases": [
+    "wicket"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Angular",
+   "aliases": [
+    "angular-dart",
+    "angularjs_require",
+    "typescript-angular",
+    "AngularJS"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Aurelia",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Backbone.js",
+   "aliases": [
+    "backbone",
+    "backbone_marionette",
+    "backbone_require",
+    "typescript-backbone",
+    "Marionette",
+    "Backbone.Marionette"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "CanJS",
+   "aliases": [
+    "canjs_require"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Dojo",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Ember.js",
+   "aliases": [
+    "emberjs",
+    "emberjs_require"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Exoskeleton",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Google Web Toolkit",
+   "aliases": [
+    "gwt"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Knockout",
+   "aliases": [
+    "knockoutjs",
+    "knockoutjs_require"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Mithril",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Polymer",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Ractive.js",
+   "aliases": [
+    "ractive"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Vue.js",
+   "aliases": [
+    "vue"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Starlette",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "ActFramework",
+   "aliases": [
+    "act"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Gemini",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "HServer",
+   "aliases": [
+    "hserver-business"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Jersey",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Magician",
+   "aliases": [
+    "magician-io"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Proteus",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Spark",
+   "aliases": [
+    "Spark Java"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "tio-boot",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TODAY-Web",
+   "aliases": [
+    "today"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Wizzardo HTTP",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Binding.scala",
+   "aliases": [
+    "binding-scala"
+   ],
+   "judge": "heisenbug",
+   "pin": "bitflip"
+  },
+  {
+   "name": "Duel",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Enyo",
+   "aliases": [
+    "enyo_backbone"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "jsblocks",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Knockback.js",
+   "aliases": [
+    "knockback"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Lavaca",
+   "aliases": [
+    "lavaca_require"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Lit",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Preact",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "React",
+   "aliases": [
+    "react-redux",
+    "typescript-react"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Reagent",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Riot.js",
+   "aliases": [
+    "riotjs"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Svelte",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "socketify.py",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Bayou",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Redkale",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ],
+ "_context": {
+  "web-framework": [
+   "web framework"
+  ]
+ }
+}

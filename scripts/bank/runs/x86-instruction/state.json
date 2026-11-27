@@ -1,0 +1,25 @@
+{
+ "id": "x86-instruction",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-27T22:52:02+00:00",
+   "seconds": 14,
+   "finished": "2026-11-27T22:52:16+00:00"
+  },
+  "harvest": {
+   "status": "failed",
+   "started": "2026-11-27T22:52:16+00:00",
+   "seconds": 1,
+   "error": "`/opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/harvest.py x86-instruction` exited 1: ~^^^^^^\n  File \"/Users/axvon/nullion/scripts/harvest.py\", line 41, in ensure_sparse\n    run(\"git\", \"-C\", str(dest), \"sparse-checkout\", \"set\", *spec[\"paths\"])\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/axvon/nullion/scripts/harvest.py\", line 32, in run\n    raise RuntimeError(f\"{' '.join(cmd)} failed ({r.returncode}): {r.stderr.strip()[:400]}\")\nRuntimeError: git -C /Users/axvon/nullion-corpora/src/nasm sparse-checkout set x86/insns.dat failed (128): fatal: 'x86/insns.dat' is not a directory; to treat it as a directory anyway, rerun with --skip-checks"
+  }
+ },
+ "gates": {},
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/x86-instruction.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  }
+ ],
+ "plan_origin": "llm-drafted"
+}

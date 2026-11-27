@@ -1,0 +1,27 @@
+--- haiku call, 32s, exit 0, prompt 1863 chars, stdout 2160 chars
+OpenGLES", "GLES", "OpenGL for Embedded Systems"], "tier": "npe"},
+  {"name": "CUDA", "aliases": ["NVIDIA CUDA", "CUDA C"], "tier": "npe"},
+  {"name": "OpenCL", "aliases": ["Open CL", "Open Computing Language"], "tier": "npe"},
+  {"name": "DirectCompute", "aliases": ["Direct Compute", "DirectX Compute"], "tier": "npe"},
+  {"name": "Direct2D", "aliases": ["D2D", "Direct 2D"], "tier": "npe"},
+  {"name": "DirectDraw", "aliases": ["DirectDraw API", "DDraw"], "tier": "npe"},
+  {"name": "DirectX Raytracing", "aliases": ["DXR", "D3D12 Raytracing"], "tier": "npe"},
+  {"name": "OptiX", "aliases": ["NVIDIA OptiX"], "tier": "npe"},
+  {"name": "Glide", "aliases": ["3dfx Glide", "Glide API"], "tier": "npe"},
+  {"name": "Mantle", "aliases": ["AMD Mantle"], "tier": "npe"},
+  {"name": "HIP", "aliases": ["AMD HIP", "ROCm HIP"], "tier": "npe"},
+  {"name": "SYCL", "aliases": ["Khronos SYCL"], "tier": "npe"},
+  {"name": "RenderScript", "aliases": ["Android RenderScript"], "tier": "npe"},
+  {"name": "Stage3D", "aliases": ["Flash Stage3D", "Adobe Stage3D"], "tier": "npe"},
+  {"name": "OpenVG", "aliases": ["Open VG", "OVG"], "tier": "npe"},
+  {"name": "GNM", "aliases": ["libGNM", "PlayStation GNM"], "tier": "npe"},
+  {"name": "LibGCM", "aliases": ["libgcm", "PS3 LibGCM"], "tier": "npe"},
+  {"name": "NVN", "aliases": ["Nintendo NVN"], "tier": "npe"},
+  {"name": "GX2", "aliases": ["Wii U GX2", "Nintendo GX2"], "tier": "npe"},
+  {"name": "GXM", "aliases": ["PS Vita GXM", "Vita GXM"], "tier": "npe"}
+]
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py graphics-api  [0s, exit 0]
+graphics-api: 20 aliases, 13 new answers, 0 promoted from the Inbox
+

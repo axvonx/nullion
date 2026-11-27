@@ -1,0 +1,440 @@
+[
+ {
+  "name": "CXL",
+  "a": {
+   "name": "CXL",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "cxl",
+   "why": "Compute Express Link cache-coherent interconnect"
+  },
+  "b": {
+   "name": "CXL",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cxl bus",
+   "why": "coherent memory interconnect, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DIO",
+  "a": {
+   "name": "DIO",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "dio",
+   "why": "HP 9000 Device I/O expansion bus"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "GPIB",
+  "a": {
+   "name": "GPIB",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "gpib",
+   "why": "IEEE-488 General Purpose Interface Bus"
+  },
+  "b": {
+   "name": "GPIB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "gpib",
+   "why": "instrument bus, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "InfiniBand",
+  "a": {
+   "name": "InfiniBand",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "infiniband",
+   "why": "High-throughput HPC and storage interconnect"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MMC",
+  "a": {
+   "name": "MMC",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "mmc",
+   "why": "MultiMediaCard flash memory interface standard"
+  },
+  "b": {
+   "name": "MMC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "mmc",
+   "why": "flash card interface, specialist"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MOST",
+  "a": {
+   "name": "MOST",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "most",
+   "why": "Media Oriented Systems Transport automotive bus"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Thunderbolt",
+  "a": {
+   "name": "Thunderbolt",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "thunderbolt",
+   "why": "High-speed external peripheral interface"
+  },
+  "b": {
+   "name": "Thunderbolt",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "thunderbolt",
+   "why": "Intel high-speed I/O standard"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "UFS",
+  "a": {
+   "name": "UFS",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ufs",
+   "why": "Universal Flash Storage interface standard"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "1-Wire",
+  "a": {
+   "name": "1-Wire",
+   "aliases": [
+    "one-wire"
+   ],
+   "judge": "leak",
+   "evidence": "1118  2  one-wire bus",
+   "why": "Dallas Semiconductor single-wire serial bus"
+  },
+  "b": {
+   "name": "1-Wire",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "one-wire bus",
+   "why": "Dallas single-wire bus, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AGP",
+  "a": {
+   "name": "AGP",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "agp",
+   "why": "Accelerated Graphics Port"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AHCI",
+  "a": {
+   "name": "AHCI",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "ahci",
+   "why": "Advanced Host Controller Interface for SATA"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "HDMI",
+  "a": {
+   "name": "HDMI",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "hdmi",
+   "why": "High-Definition Multimedia Interface"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MII",
+  "a": {
+   "name": "MII",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "mii",
+   "why": "Media Independent Interface for Ethernet MAC-PHY"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "UART",
+  "a": {
+   "name": "UART",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "uart",
+   "why": "Universal Asynchronous Receiver-Transmitter"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PCIe",
+  "a": {
+   "name": "PCIe",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "528      8  pcie bus",
+   "why": "PCI Express high-speed serial expansion bus"
+  },
+  "b": {
+   "name": "PCIe",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "pcie bus",
+   "why": "modern PCI successor, widely named"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CEC",
+  "a": {
+   "name": "CEC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "604      5  cec bus",
+   "why": "HDMI Consumer Electronics Control bus"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AXI",
+  "a": {
+   "name": "AXI",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "606      5  axi bus",
+   "why": "ARM Advanced eXtensible Interface"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "AHB",
+  "a": {
+   "name": "AHB",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "741      3  ahb bus",
+   "why": "AMBA High-performance Bus"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MIPI CSI-2",
+  "a": {
+   "name": "MIPI CSI-2",
+   "aliases": [
+    "CSI-2"
+   ],
+   "judge": "race",
+   "evidence": "930      2  mipi csi-2 interface",
+   "why": "MIPI Camera Serial Interface 2"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "LPC",
+  "a": {
+   "name": "LPC",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "962      2  lpc bus",
+   "why": "Intel Low Pin Count motherboard bus"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "IPMB",
+  "a": {
+   "name": "IPMB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "1066      2  ipmb bus",
+   "why": "Intelligent Platform Management Bus"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "HD Audio",
+  "a": {
+   "name": "HD Audio",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "1185      2  hd-audio bus",
+   "why": "Intel High Definition Audio bus"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "RS-232",
+  "a": {
+   "name": "RS-232",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "1197      2  rs232-type interface",
+   "why": "Classic serial communication interface standard"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Multibus",
+  "a": null,
+  "b": {
+   "name": "Multibus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Intel backplane bus, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Memory Stick",
+  "a": null,
+  "b": {
+   "name": "Memory Stick",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memstick",
+   "why": "Sony card interface, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Human Interface Device",
+  "a": null,
+  "b": {
+   "name": "Human Interface Device",
+   "aliases": [
+    "HID"
+   ],
+   "judge": "race",
+   "evidence": "hid; human interface",
+   "why": "USB input device class, specialist"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "HSI",
+  "a": null,
+  "b": {
+   "name": "HSI",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "hsi",
+   "why": "modem serial interface, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SIOX",
+  "a": null,
+  "b": {
+   "name": "SIOX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "siox",
+   "why": "serial I/O bus, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "STBus",
+  "a": null,
+  "b": {
+   "name": "STBus",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "STBus",
+   "why": "STMicro on-chip bus, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "BCMA",
+  "a": null,
+  "b": {
+   "name": "BCMA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "bcma",
+   "why": "Broadcom on-chip bus, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SSB",
+  "a": null,
+  "b": {
+   "name": "SSB",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "ssb",
+   "why": "Sonics backplane bus, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CDX",
+  "a": null,
+  "b": {
+   "name": "CDX",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "cdx",
+   "why": "AMD device bus, deep internals"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Virtio",
+  "a": null,
+  "b": {
+   "name": "Virtio",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "virtio bus",
+   "why": "VM device bus standard, specialist"
+  },
+  "batch": "batch-00.txt"
+ }
+]

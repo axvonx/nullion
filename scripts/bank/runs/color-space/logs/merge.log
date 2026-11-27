@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py color-space /Users/axvon/nullion/scripts/bank/mined/color-space/final.json /Users/axvon/nullion/scripts/bank/mined/color-space/agreed /Users/axvon/nullion/scripts/bank/mined/color-space/resolved  [0s, exit 0]
+color-space: 57 new candidates -> /Users/axvon/nullion/scripts/bank/mined/color-space/final.json; 0 aliases added to bank/data-graphics-algorithms/color-space.md
+
+--- haiku call, 6s, exit 0, prompt 1605 chars, stdout 62 chars
+[16:57:03] {"bitflip": "IgPgTg", "womm": ["Oklab", "CIELUV"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/color-space/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+color-space: filled 57 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.2.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  16:57:05
+   Duration  195ms (transform 67%, import 16%, tests 15%, worker 1%)
+
+

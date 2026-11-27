@@ -1,0 +1,112 @@
+{
+  "language-feature": [
+    {
+      "name": "static typing",
+      "aliases": [],
+      "judge": "off-by-one",
+      "evidence": "2  static typing (src/cpython)",
+      "why": "fundamental type system feature known by nearly all programmers"
+    },
+    {
+      "name": "list comprehension",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "2  list comprehension (src/cpython)",
+      "why": "widely known syntactic construct for building lists"
+    },
+    {
+      "name": "type inference",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "7  type inference (src/rust); 2  type inference (src/llvm)",
+      "why": "widely known type system feature in modern languages"
+    },
+    {
+      "name": "dynamic dispatch",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "2  dynamic dispatch (src/llvm)",
+      "why": "standard runtime method resolution mechanism in OOP"
+    },
+    {
+      "name": "implicit coercion",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "2  implicit coercion (src/rust)",
+      "why": "common automatic type conversion feature"
+    },
+    {
+      "name": "preprocessor macro",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "3  preprocessor macro (src/llvm)",
+      "why": "well-known C/C++ lexical macro feature"
+    },
+    {
+      "name": "set comprehension",
+      "aliases": [],
+      "judge": "npe",
+      "evidence": "3  set comprehension (src/cpython)",
+      "why": "common comprehension construct for sets"
+    },
+    {
+      "name": "dictionary comprehension",
+      "aliases": ["dict comprehension"],
+      "judge": "npe",
+      "evidence": "2  dictionary comprehension (src/cpython); 2  dict comprehension (src/cpython)",
+      "why": "common comprehension construct for key-value maps"
+    },
+    {
+      "name": "static polymorphism",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "2  static polymorphism (src/llvm)",
+      "why": "compile-time polymorphism via templates or overloading"
+    },
+    {
+      "name": "function-like macro",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "2  function-like macro (src/llvm)",
+      "why": "C/C++ preprocessor macro with parameter syntax"
+    },
+    {
+      "name": "derive macro",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "2  derive macro (src/rust)",
+      "why": "Rust procedural macro for automatic trait implementation"
+    },
+    {
+      "name": "attribute macro",
+      "aliases": [],
+      "judge": "leak",
+      "evidence": "3  attribute macro (src/rust)",
+      "why": "Rust procedural macro attached to items as attributes"
+    },
+    {
+      "name": "generator-based coroutine",
+      "aliases": ["generator coroutine"],
+      "judge": "race",
+      "evidence": "4  generator-based coroutine (src/cpython); 2  generator coroutine (src/cpython)",
+      "why": "Python coroutine built on generator yield-from semantics"
+    },
+    {
+      "name": "concept-based polymorphism",
+      "aliases": [],
+      "judge": "race",
+      "evidence": "2  concept-based polymorphism (src/llvm)",
+      "why": "constrained compile-time polymorphism using C++20 concepts"
+    }
+  ],
+  "womm_candidates": [
+    "type inference",
+    "dynamic dispatch",
+    "static polymorphism"
+  ],
+  "bitflip_candidates": [
+    "concept-based polymorphism",
+    "generator-based coroutine",
+    "attribute macro"
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "bus-standard": [
+    {
+      "name": "CXL",
+      "aliases": [],
+      "judge": "leak",
+      "why": "Compute Express Link cache-coherent interconnect"
+    },
+    {
+      "name": "DIO",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "HP 9000 Device I/O expansion bus"
+    },
+    {
+      "name": "GPIB",
+      "aliases": [],
+      "judge": "leak",
+      "why": "IEEE-488 General Purpose Interface Bus"
+    },
+    {
+      "name": "InfiniBand",
+      "aliases": [],
+      "judge": "leak",
+      "why": "High-throughput HPC and storage interconnect"
+    },
+    {
+      "name": "MMC",
+      "aliases": [],
+      "judge": "npe",
+      "why": "MultiMediaCard flash memory interface standard"
+    },
+    {
+      "name": "MOST",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "Media Oriented Systems Transport automotive bus"
+    },
+    {
+      "name": "Thunderbolt",
+      "aliases": [],
+      "judge": "off-by-one",
+      "why": "High-speed external peripheral interface"
+    },
+    {
+      "name": "UFS",
+      "aliases": [],
+      "judge": "leak",
+      "why": "Universal Flash Storage interface standard"
+    },
+    {
+      "name": "1-Wire",
+      "aliases": ["one-wire"],
+      "judge": "leak",
+      "why": "Dallas Semiconductor single-wire serial bus"
+    },
+    {
+      "name": "AGP",
+      "aliases": [],
+      "judge": "npe",
+      "why": "Accelerated Graphics Port"
+    },
+    {
+      "name": "AHCI",
+      "aliases": [],
+      "judge": "leak",
+      "why": "Advanced Host Controller Interface for SATA"
+    },
+    {
+      "name": "HDMI",
+      "aliases": [],
+      "judge": "off-by-one",
+      "why": "High-Definition Multimedia Interface"
+    },
+    {
+      "name": "MII",
+      "aliases": [],
+      "judge": "race",
+      "why": "Media Independent Interface for Ethernet MAC-PHY"
+    },
+    {
+      "name": "UART",
+      "aliases": [],
+      "judge": "npe",
+      "why": "Universal Asynchronous Receiver-Transmitter"
+    },
+    {
+      "name": "PCIe",
+      "aliases": [],
+      "judge": "off-by-one",
+      "why": "PCI Express high-speed serial expansion bus"
+    },
+    {
+      "name": "CEC",
+      "aliases": [],
+      "judge": "race",
+      "why": "HDMI Consumer Electronics Control bus"
+    },
+    {
+      "name": "AXI",
+      "aliases": [],
+      "judge": "leak",
+      "why": "ARM Advanced eXtensible Interface"
+    },
+    {
+      "name": "AHB",
+      "aliases": [],
+      "judge": "race",
+      "why": "AMBA High-performance Bus"
+    },
+    {
+      "name": "MIPI CSI-2",
+      "aliases": ["CSI-2"],
+      "judge": "race",
+      "why": "MIPI Camera Serial Interface 2"
+    },
+    {
+      "name": "LPC",
+      "aliases": [],
+      "judge": "race",
+      "why": "Intel Low Pin Count motherboard bus"
+    },
+    {
+      "name": "IPMB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "Intelligent Platform Management Bus"
+    },
+    {
+      "name": "HD Audio",
+      "aliases": ["hd-audio"],
+      "judge": "leak",
+      "why": "Intel High Definition Audio bus"
+    },
+    {
+      "name": "RS-232",
+      "aliases": ["rs232"],
+      "judge": "off-by-one",
+      "why": "Classic serial communication interface standard"
+    },
+    {
+      "name": "Multibus",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "Intel IEEE-796 backplane bus"
+    },
+    {
+      "name": "Memory Stick",
+      "aliases": ["memstick"],
+      "judge": "race",
+      "why": "Sony flash memory card interface"
+    },
+    {
+      "name": "HSI",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "MIPI High Speed Synchronous Serial Interface"
+    },
+    {
+      "name": "SIOX",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "Serial I/O industrial bus"
+    },
+    {
+      "name": "STBus",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "STMicroelectronics on-chip bus"
+    },
+    {
+      "name": "BCMA",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "Broadcom AMBA on-chip bus"
+    },
+    {
+      "name": "SSB",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "Sonics Silicon Backplane bus"
+    },
+    {
+      "name": "CDX",
+      "aliases": [],
+      "judge": "heisenbug",
+      "why": "AMD SoC/FPGA device bus"
+    },
+    {
+      "name": "Virtio",
+      "aliases": [],
+      "judge": "race",
+      "why": "Virtualization I/O device bus standard"
+    }
+  ]
+}

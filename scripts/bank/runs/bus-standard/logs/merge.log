@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py bus-standard /Users/axvon/nullion/scripts/bank/mined/bus-standard/final.json /Users/axvon/nullion/scripts/bank/mined/bus-standard/agreed /Users/axvon/nullion/scripts/bank/mined/bus-standard/resolved  [0s, exit 0]
+bus-standard: 65 new candidates -> /Users/axvon/nullion/scripts/bank/mined/bus-standard/final.json; 0 aliases added to bank/hardware-security-history/bus-standard.md
+
+--- haiku call, 7s, exit 0, prompt 1430 chars, stdout 71 chars
+[16:54:11] {"bitflip": "IPMB", "womm": ["VMEbus", "NuBus", "Greybus"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/bus-standard/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+bus-standard: filled 65 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.2.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  16:54:12
+   Duration  183ms (transform 66%, import 17%, tests 15%, worker 1%)
+
+

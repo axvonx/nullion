@@ -1,0 +1,703 @@
+{
+ "id": "video-codec",
+ "prompt": "Name a video codec",
+ "accepts": "Any named video compression codec, standardized, open-source, proprietary or historical.",
+ "answers": [
+  {
+   "name": "DV",
+   "aliases": [
+    "Digital Video",
+    "DV25"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "H.264",
+   "aliases": [
+    "AVC",
+    "MPEG-4 AVC",
+    "h264",
+    "libx264",
+    "x264",
+    "libopenh264"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "HEVC",
+   "aliases": [
+    "H.265",
+    "h265",
+    "x265",
+    "libx265",
+    "libkvazaar"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Cinepak",
+   "aliases": [
+    "CVID"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Theora",
+   "aliases": [
+    "libtheoraenc",
+    "Ogg Theora"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Dirac",
+   "aliases": [
+    "Dirac Pro"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "AV1",
+   "aliases": [
+    "AOMedia Video 1",
+    "libaom",
+    "libdav1d",
+    "dav1d",
+    "librav1e",
+    "libsvtav1",
+    "AV01"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "VVC",
+   "aliases": [
+    "H.266",
+    "Versatile Video Coding",
+    "h266",
+    "libvvenc"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Motion JPEG",
+   "aliases": [
+    "MJPEG"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MPEG-2",
+   "aliases": [
+    "H.262",
+    "MPEG-2 Video"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "VP9",
+   "aliases": [
+    "VP09"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Xvid",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DivX",
+   "aliases": [
+    "DivX Video"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MPEG-4 Part 2",
+   "aliases": [
+    "MPEG-4 Visual",
+    "MP4V"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "MPEG-1",
+   "aliases": [
+    "MPEG-1 Video"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "WMV",
+   "aliases": [
+    "Windows Media Video"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "ProRes",
+   "aliases": [
+    "Apple ProRes"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Indeo",
+   "aliases": [
+    "Intel Indeo"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RealVideo",
+   "aliases": [
+    "RV40"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Sorenson Video",
+   "aliases": [
+    "Sorenson",
+    "SVQ1"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Ut Video",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Bink Video",
+   "aliases": [
+    "Bink"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "DNxHD",
+   "aliases": [
+    "Avid DNxHD"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "FFV1",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Fraps",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "H.263",
+   "aliases": [
+    "intelh263",
+    "ituh263"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Huffyuv",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Lagarith",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "VP8",
+   "aliases": [
+    "VP08"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "CineForm",
+   "aliases": [
+    "CineForm HD",
+    "CFHD"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Daala",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Apple Intermediate Codec",
+   "aliases": [
+    "AIC"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AVS",
+   "aliases": [
+    "Audio Video Standard",
+    "cavs",
+    "Chinese AVS"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AVS2",
+   "aliases": [
+    "davs2",
+    "libxavs2"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "AVS3",
+   "aliases": [
+    "libuavs3d"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Dxtory",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DXV",
+   "aliases": [
+    "Resolume DXV"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "EVC",
+   "aliases": [
+    "Essential Video Coding",
+    "MPEG-5 Part 1",
+    "MPEG-5 EVC",
+    "MPEG-5"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Flash Screen Video",
+   "aliases": [
+    "FlashSV"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "FLIC",
+   "aliases": [
+    "Autodesk FLIC",
+    "FLI",
+    "FLC"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "H.261",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Hap",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Indeo 2",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Indeo 3",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Indeo 4",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Indeo 5",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LCEVC",
+   "aliases": [
+    "MPEG-5 Part 2",
+    "MPEG-5 LCEVC"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MagicYUV",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "APV",
+   "aliases": [
+    "Advanced Professional Video"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DNxUC",
+   "aliases": [
+    "Avid DNxUncompressed"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Sorenson Spark",
+   "aliases": [
+    "FLV1"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VC-1",
+   "aliases": [
+    "SMPTE 421M"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ASV",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Aura",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DFA",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "LEAD Video",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "4X Movie",
+   "aliases": [
+    "4XM"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "8BPS",
+   "aliases": [
+    "QuickTime 8BPS"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AASC",
+   "aliases": [
+    "Autodesk Animator Studio Codec"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AGM",
+   "aliases": [
+    "AmuseGraphics Movie"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ANM",
+   "aliases": [
+    "DeluxePaint Animation"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BMV",
+   "aliases": [
+    "Discworld II BMV"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "C93",
+   "aliases": [
+    "Interplay C93"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CDXL",
+   "aliases": [
+    "Commodore CDXL"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ClearVideo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CLJR",
+   "aliases": [
+    "Cirrus Logic AccuPak"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Canopus Lossless",
+   "aliases": [
+    "CLLC"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CSCD",
+   "aliases": [
+    "CamStudio Codec"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CYUV",
+   "aliases": [
+    "Creative YUV"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "DXA",
+   "aliases": [
+    "Feeble Files DXA"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Mirillis FIC",
+   "aliases": [
+    "FIC"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GoToMeeting Codec",
+   "aliases": [
+    "G2M"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Canopus HQX",
+   "aliases": [
+    "HQX"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IMM4",
+   "aliases": [
+    "Infinity IMM4"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IMM5",
+   "aliases": [
+    "Infinity IMM5"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Mimic",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "FMVC",
+   "aliases": [
+    "FM Screen Capture Codec"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LOCO",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IVI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HQA",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Canopus HQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ARBC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Argo",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "AVUI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BFI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "BRender Pixel",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "012v",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Alias PIX",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Bethsoft Video",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CRI Video",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "CPiA",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Gremlin Digital Video",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HNM4",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IMM6",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Interplay Video",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IDCIN",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "IntraX8",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "KMVC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "KGV1",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LCL",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "LSCR",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "M101",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MDEC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "MidiVid",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EA MAD",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EA TGV",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EA TGQ",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "EA TQI",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Escape 124",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Escape 130",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

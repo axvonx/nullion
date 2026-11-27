@@ -1,0 +1,17 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py bus-standard sample  [0s, exit 0]
+bus-standard: sampled 20 of 79 unconfirmed answers -> scripts/bank/mined/bus-standard/sample.json
+
+--- haiku call, 29s, exit 0, prompt 3714 chars, stdout 3864 chars
+ networking, so it does not meet the category."},
+"HyperTransport": {"member": true, "tier_ok": true, "why": "HyperTransport is a real point-to-point system interconnect that replaced the front-side bus in AMD systems. Known to PC builders and enthusiasts, so Null pointer exception is plausible."},
+"SAS": {"member": true, "tier_ok": true, "why": "Serial Attached SCSI is a real storage/peripheral interface. IT and storage people know it, so Null pointer exception fits."},
+"BCMA": {"member": true, "tier_ok": true, "why": "BCMA is Broadcom's on-chip bus architecture, as used by the Linux bcma bus driver. Deep-internals knowledge, so Heisenbug fits. Membership is from memory of the kernel driver, not a source line I could check here."},
+"AVSBus": {"member": false, "tier_ok": true, "why": "I cannot confirm this is a real, named bus standard. It may be a voltage-scaling control interface, but the strict rule says to reject when unsure it exists."},
+"Multibus": {"member": true, "tier_ok": true, "why": "Intel's Multibus (I and II) is a real, historically significant system bus. Only specialists know it, so Heisenbug fits."},
+"LPC": {"member": true, "tier_ok": true, "why": "Low Pin Count is Intel's real bus that replaced ISA on PC motherboards. Firmware and PC specialists know it, so Race condition fits."},
+"DIO": {"member": true, "tier_ok": true, "why": "DIO is HP's real Direct I/O expansion bus on its 9000 series 200/300 workstations. Deep-internals knowledge, so Heisenbug fits."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py bus-standard score  [0s, exit 0]
+bus-standard: precision 90% (18/20), tier ok 17/20
+

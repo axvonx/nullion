@@ -1,0 +1,165 @@
+[
+ {
+  "name": "NOR flash",
+  "aliases": [
+   "NOR",
+   "SPI-NOR",
+   "NOR flash memory"
+  ],
+  "tier": "Memory leak"
+ },
+ {
+  "name": "EEPROM",
+  "aliases": [
+   "electrically erasable PROM",
+   "electrically erasable programmable read-only memory"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "SDRAM",
+  "aliases": [
+   "synchronous DRAM",
+   "synchronous dynamic RAM"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "PROM",
+  "aliases": [
+   "programmable ROM",
+   "programmable read-only memory"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "DVD",
+  "aliases": [
+   "digital versatile disc",
+   "DVD-ROM"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "SD card",
+  "aliases": [
+   "Secure Digital",
+   "SD memory card"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "3D XPoint",
+  "aliases": [
+   "Optane"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "High Bandwidth Memory",
+  "aliases": [
+   "HBM",
+   "HBM2",
+   "HBM3"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "RAM",
+  "aliases": [
+   "ram memory",
+   "random access memory"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "MRAM",
+  "aliases": [
+   "magnetoresistive RAM",
+   "magnetoresistive random access memory"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "DRAM",
+  "aliases": [
+   "dynamic RAM",
+   "dram memory",
+   "dynamic random access memory"
+  ],
+  "tier": "Off-by-one"
+ },
+ {
+  "name": "solid-state drive",
+  "aliases": [
+   "SSD"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "NVRAM",
+  "aliases": [
+   "non-volatile RAM"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "FRAM",
+  "aliases": [
+   "FeRAM",
+   "ferroelectric RAM"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "VRAM",
+  "aliases": [
+   "video RAM",
+   "vram memory",
+   "video memory"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "CD-ROM",
+  "aliases": [
+   "compact disc read-only memory",
+   "compact disc"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "cache memory",
+  "aliases": [
+   "CPU cache",
+   "processor cache"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "USB flash drive",
+  "aliases": [
+   "thumb drive",
+   "USB stick",
+   "pen drive"
+  ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "LPDDR",
+  "aliases": [
+   "low-power DDR",
+   "LPDDR4",
+   "LPDDR5"
+  ],
+  "tier": "Race condition"
+ },
+ {
+  "name": "CompactFlash",
+  "aliases": [
+   "CF card",
+   "CompactFlash card"
+  ],
+  "tier": "Null pointer exception"
+ }
+]

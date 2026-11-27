@@ -1,0 +1,166 @@
+[
+ {
+  "name": "WebGPU",
+  "a": {
+   "name": "WebGPU",
+   "aliases": [
+    "wgpu"
+   ],
+   "judge": "npe",
+   "evidence": "imgui_impl_wgpu (ocornut/imgui/backends)",
+   "why": "Modern web and cross-platform GPU API"
+  },
+  "b": {
+   "name": "WebGPU",
+   "aliases": [
+    "wgpu"
+   ],
+   "judge": "race",
+   "evidence": "imgui_impl_wgpu (imgui backends)",
+   "why": "Modern web GPU API"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "GDI",
+  "a": {
+   "name": "GDI",
+   "aliases": [
+    "Windows GDI"
+   ],
+   "judge": "npe",
+   "evidence": "gdi_gfx (libretro/RetroArch/gfx/drivers)",
+   "why": "Classic Windows 2D graphics device interface"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "OpenVG",
+  "a": {
+   "name": "OpenVG",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "vg (libretro/RetroArch/gfx/drivers)",
+   "why": "Khronos hardware-accelerated 2D vector graphics API"
+  },
+  "b": {
+   "name": "OpenVG",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "vg (RetroArch gfx drivers)",
+   "why": "Khronos 2D vector graphics API"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SDL_gpu",
+  "a": {
+   "name": "SDL_gpu",
+   "aliases": [
+    "SDL GPU",
+    "SDL3 GPU"
+   ],
+   "judge": "leak",
+   "evidence": "imgui_impl_sdlgpu3 (ocornut/imgui/backends)",
+   "why": "SDL3's cross-platform GPU rendering and compute API"
+  },
+  "b": {
+   "name": "SDL_GPU",
+   "aliases": [
+    "sdlgpu3"
+   ],
+   "judge": "heisenbug",
+   "evidence": "imgui_impl_sdlgpu3 (imgui backends)",
+   "why": "SDL's GPU abstraction API"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "DispmanX",
+  "a": {
+   "name": "DispmanX",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "dispmanx_gfx (libretro/RetroArch/gfx/drivers)",
+   "why": "Raspberry Pi VideoCore 2D composition API"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "XVideo",
+  "a": {
+   "name": "XVideo",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "xvideo (libretro/RetroArch/gfx/drivers)",
+   "why": "X11 hardware-accelerated video rendering extension API"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Mantle",
+  "a": null,
+  "b": {
+   "name": "Mantle",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "AMD's early low-level API"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Glide",
+  "a": null,
+  "b": {
+   "name": "Glide",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "3dfx's classic game API"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "NVN",
+  "a": null,
+  "b": {
+   "name": "NVN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Nintendo Switch's low-level API"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "GNM",
+  "a": null,
+  "b": {
+   "name": "GNM",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "PlayStation 4's low-level API"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SDL_Renderer",
+  "a": null,
+  "b": {
+   "name": "SDL_Renderer",
+   "aliases": [
+    "sdlrenderer2",
+    "sdlrenderer3"
+   ],
+   "judge": "race",
+   "evidence": "imgui_impl_sdlrenderer2 (imgui backends)",
+   "why": "SDL's 2D accelerated renderer"
+  },
+  "batch": "batch-00.txt"
+ }
+]

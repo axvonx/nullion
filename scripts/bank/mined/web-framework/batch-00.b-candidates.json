@@ -1,0 +1,624 @@
+{
+ "web-framework": [
+  {
+   "name": "Django",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "TechEmpower Python dirs: django",
+   "why": "famous Python web framework"
+  },
+  {
+   "name": "Flask",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "TechEmpower Python dirs: flask",
+   "why": "well-known Python microframework"
+  },
+  {
+   "name": "Tornado",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Python dirs: tornado",
+   "why": "known async Python framework"
+  },
+  {
+   "name": "Bottle",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Python dirs: bottle",
+   "why": "single-file Python microframework"
+  },
+  {
+   "name": "CherryPy",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Python dirs: cherrypy",
+   "why": "long-running Python framework"
+  },
+  {
+   "name": "Pyramid",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Python dirs: pyramid",
+   "why": "established Python framework"
+  },
+  {
+   "name": "Falcon",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Python dirs: falcon",
+   "why": "known Python API framework"
+  },
+  {
+   "name": "FastAPI",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "TechEmpower Python dirs: fastapi",
+   "why": "widely used Python API framework"
+  },
+  {
+   "name": "Starlette",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: starlette",
+   "why": "ASGI toolkit under FastAPI"
+  },
+  {
+   "name": "Sanic",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Python dirs: sanic",
+   "why": "async Python web framework"
+  },
+  {
+   "name": "Quart",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: quart",
+   "why": "asyncio Flask-compatible framework"
+  },
+  {
+   "name": "aiohttp",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Python dirs: aiohttp",
+   "why": "asyncio HTTP framework"
+  },
+  {
+   "name": "Litestar",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: litestar",
+   "why": "ASGI framework, niche outside Python"
+  },
+  {
+   "name": "TurboGears",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Python dirs: turbogears",
+   "why": "older full-stack Python framework"
+  },
+  {
+   "name": "web2py",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Python dirs: web2py",
+   "why": "older Python full-stack framework"
+  },
+  {
+   "name": "Webware",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Python dirs: webware",
+   "why": "obscure old Python framework"
+  },
+  {
+   "name": "Emmett",
+   "aliases": [
+    "emmett55"
+   ],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: emmett, emmett55",
+   "why": "Python framework; 55 is its version dir"
+  },
+  {
+   "name": "Eve",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: eve",
+   "why": "REST API framework on Flask"
+  },
+  {
+   "name": "Klein",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: klein",
+   "why": "Twisted-based Python microframework"
+  },
+  {
+   "name": "Microdot",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: microdot",
+   "why": "small MicroPython-friendly framework"
+  },
+  {
+   "name": "Panther",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: panther",
+   "why": "Python API framework, niche"
+  },
+  {
+   "name": "Responder",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: responder",
+   "why": "Python API framework, niche"
+  },
+  {
+   "name": "Robyn",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: robyn",
+   "why": "Rust-backed Python framework"
+  },
+  {
+   "name": "mrhttp",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Python dirs: mrhttp",
+   "why": "obscure Python HTTP framework"
+  },
+  {
+   "name": "socketify.py",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Python dirs: socketify.py",
+   "why": "uWebSockets-based Python framework"
+  },
+  {
+   "name": "BlackSheep",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: blacksheep",
+   "why": "ASGI web framework, niche"
+  },
+  {
+   "name": "Spring",
+   "aliases": [
+    "Spring Framework"
+   ],
+   "judge": "npe",
+   "evidence": "TechEmpower Java dirs: spring",
+   "why": "widely known Java framework"
+  },
+  {
+   "name": "Vert.x",
+   "aliases": [
+    "vertx"
+   ],
+   "judge": "leak",
+   "evidence": "TechEmpower Java dirs: vertx",
+   "why": "known reactive JVM toolkit"
+  },
+  {
+   "name": "Dropwizard",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Java dirs: dropwizard",
+   "why": "known Java service framework"
+  },
+  {
+   "name": "Quarkus",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Java dirs: quarkus",
+   "why": "known Kubernetes-native Java framework"
+  },
+  {
+   "name": "Micronaut",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Java dirs: micronaut",
+   "why": "known JVM microservice framework"
+  },
+  {
+   "name": "Play Framework",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Java dirs: play2-java",
+   "why": "known JVM web framework"
+  },
+  {
+   "name": "Spark Java",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: spark",
+   "why": "Java microframework, not Apache Spark"
+  },
+  {
+   "name": "Javalin",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: javalin",
+   "why": "Kotlin/Java microframework"
+  },
+  {
+   "name": "Jersey",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: jersey",
+   "why": "JAX-RS reference implementation"
+  },
+  {
+   "name": "Wicket",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Java dirs: wicket",
+   "why": "known component-based Java framework"
+  },
+  {
+   "name": "Tapestry",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TechEmpower Java dirs: tapestry",
+   "why": "older Java component framework"
+  },
+  {
+   "name": "Grizzly",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: grizzly",
+   "why": "NIO framework behind GlassFish"
+  },
+  {
+   "name": "Helidon",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: helidon",
+   "why": "Oracle microservice framework"
+  },
+  {
+   "name": "Ratpack",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: ratpack",
+   "why": "reactive Java framework"
+  },
+  {
+   "name": "Jooby",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: jooby",
+   "why": "Java microframework"
+  },
+  {
+   "name": "Light Java",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: light-java",
+   "why": "lightweight Java framework"
+  },
+  {
+   "name": "Pippo",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: pippo",
+   "why": "small Java framework"
+  },
+  {
+   "name": "Ninja",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: ninja-standalone",
+   "why": "Ninja Java web framework"
+  },
+  {
+   "name": "Blade",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: blade",
+   "why": "Java microframework"
+  },
+  {
+   "name": "Armeria",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: armeria",
+   "why": "gRPC/HTTP Java framework"
+  },
+  {
+   "name": "ActiveJ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: activej",
+   "why": "Java async framework"
+  },
+  {
+   "name": "Avaje Jex",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: avaje-jex",
+   "why": "small Java HTTP framework"
+  },
+  {
+   "name": "Bayou",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: bayou",
+   "why": "obscure Java REST framework"
+  },
+  {
+   "name": "Curacao",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: curacao",
+   "why": "obscure Java framework"
+  },
+  {
+   "name": "Firenio",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: firenio",
+   "why": "obscure Java NIO framework"
+  },
+  {
+   "name": "Inverno",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: inverno",
+   "why": "obscure Java framework"
+  },
+  {
+   "name": "Jawn",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: jawn",
+   "why": "obscure Java framework"
+  },
+  {
+   "name": "Loveqq",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: loveqq",
+   "why": "obscure Java framework"
+  },
+  {
+   "name": "Minijax",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: minijax",
+   "why": "obscure Java JAX-RS framework"
+  },
+  {
+   "name": "muserver",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: muserver",
+   "why": "Java HTTP/2 framework, niche"
+  },
+  {
+   "name": "OfficeFloor",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: officefloor",
+   "why": "obscure Java framework"
+  },
+  {
+   "name": "Revenj",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: revenj-jvm",
+   "why": "obscure JVM framework"
+  },
+  {
+   "name": "Redkale",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: redkale",
+   "why": "obscure Java framework"
+  },
+  {
+   "name": "ServiceTalk",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: servicetalk",
+   "why": "Apple's Java networking framework"
+  },
+  {
+   "name": "Solon",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: solon",
+   "why": "obscure Chinese-origin Java framework"
+  },
+  {
+   "name": "Voovan",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: voovan",
+   "why": "obscure Java framework"
+  },
+  {
+   "name": "RESTExpress",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: restexpress",
+   "why": "Java REST framework, niche"
+  },
+  {
+   "name": "Rapidoid",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: rapidoid",
+   "why": "Java web framework, niche"
+  },
+  {
+   "name": "Angular",
+   "aliases": [
+    "AngularJS",
+    "angularjs_require"
+   ],
+   "judge": "npe",
+   "evidence": "TodoMVC examples: angular, angularjs_require",
+   "why": "famous frontend framework; AngularJS is its earlier name"
+  },
+  {
+   "name": "Vue",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "TodoMVC examples: vue",
+   "why": "widely known frontend framework"
+  },
+  {
+   "name": "Backbone",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TodoMVC examples: backbone",
+   "why": "known early JavaScript framework"
+  },
+  {
+   "name": "Marionette",
+   "aliases": [
+    "Backbone.Marionette",
+    "backbone_marionette"
+   ],
+   "judge": "race",
+   "evidence": "TodoMVC examples: backbone_marionette",
+   "why": "Backbone extension, specialist knowledge"
+  },
+  {
+   "name": "Aurelia",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TodoMVC examples: aurelia",
+   "why": "niche JavaScript framework"
+  },
+  {
+   "name": "CanJS",
+   "aliases": [
+    "canjs_require"
+   ],
+   "judge": "race",
+   "evidence": "TodoMVC examples: canjs",
+   "why": "niche JavaScript framework"
+  },
+  {
+   "name": "Dojo",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TodoMVC examples: dojo",
+   "why": "older JavaScript toolkit/framework"
+  },
+  {
+   "name": "Ember.js",
+   "aliases": [
+    "emberjs_require"
+   ],
+   "judge": "leak",
+   "evidence": "TodoMVC examples: emberjs",
+   "why": "known JavaScript framework"
+  },
+  {
+   "name": "Exoskeleton",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TodoMVC examples: exoskeleton",
+   "why": "Backbone-compatible niche framework"
+  },
+  {
+   "name": "Google Web Toolkit",
+   "aliases": [
+    "GWT"
+   ],
+   "judge": "leak",
+   "evidence": "TodoMVC examples: gwt",
+   "why": "known Java-to-JavaScript framework"
+  },
+  {
+   "name": "Knockout",
+   "aliases": [
+    "knockoutjs",
+    "knockoutjs_require"
+   ],
+   "judge": "leak",
+   "evidence": "TodoMVC examples: knockoutjs",
+   "why": "known MVVM JavaScript framework"
+  },
+  {
+   "name": "Mithril",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TodoMVC examples: mithril",
+   "why": "small JavaScript framework, specialist knowledge"
+  },
+  {
+   "name": "Polymer",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TodoMVC examples: polymer",
+   "why": "known web components framework"
+  },
+  {
+   "name": "Ractive",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TodoMVC examples: ractive",
+   "why": "niche JavaScript framework"
+  },
+  {
+   "name": "Svelte",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "TodoMVC examples: svelte",
+   "why": "known compiler-based framework"
+  }
+ ],
+ "womm_candidates": [
+  {
+   "name": "Webware",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Python dirs: webware",
+   "why": "clever-looking obscure Python pick"
+  },
+  {
+   "name": "Klein",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Python dirs: klein",
+   "why": "tiny Twisted framework players reach for"
+  },
+  {
+   "name": "Pippo",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "TechEmpower Java dirs: pippo",
+   "why": "sounds obscure, widely recognised enough"
+  }
+ ],
+ "bitflip_candidates": [
+  {
+   "name": "OfficeFloor",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: officefloor",
+   "why": "delightfully odd Java framework name"
+  },
+  {
+   "name": "Revenj",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: revenj-jvm",
+   "why": "rare JVM framework, deep cut"
+  },
+  {
+   "name": "Redkale",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "TechEmpower Java dirs: redkale",
+   "why": "obscure Chinese-origin Java framework"
+  }
+ ]
+}

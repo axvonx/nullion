@@ -1,0 +1,26 @@
+--- haiku call, 31s, exit 0, prompt 1965 chars, stdout 4389 chars
+"], "tier": "off-by-one"},
+  {"name": "pattern matching", "aliases": ["match statement", "match expression"], "tier": "npe"},
+  {"name": "enum", "aliases": ["enums", "enumeration", "enumerated type"], "tier": "off-by-one"},
+  {"name": "struct", "aliases": ["structs", "structure"], "tier": "off-by-one"},
+  {"name": "pointers", "aliases": ["pointer", "raw pointers"], "tier": "off-by-one"},
+  {"name": "tuple", "aliases": ["tuples"], "tier": "off-by-one"},
+  {"name": "destructuring", "aliases": ["destructuring assignment", "unpacking"], "tier": "npe"},
+  {"name": "lazy evaluation", "aliases": ["lazy", "laziness"], "tier": "npe"},
+  {"name": "multithreading", "aliases": ["multi-threading", "threads"], "tier": "npe"},
+  {"name": "modules", "aliases": ["module system", "import system"], "tier": "off-by-one"},
+  {"name": "namespace", "aliases": ["namespaces"], "tier": "npe"},
+  {"name": "goto", "aliases": ["goto statement"], "tier": "off-by-one"},
+  {"name": "string interpolation", "aliases": ["f-strings", "template literals"], "tier": "npe"},
+  {"name": "const", "aliases": ["constants", "final"], "tier": "npe"},
+  {"name": "tail call optimization", "aliases": ["tail call", "tail recursion"], "tier": "npe"},
+  {"name": "first-class functions", "aliases": ["higher-order functions", "first class functions"], "tier": "npe"},
+  {"name": "destructor", "aliases": ["destructors", "finalizer"], "tier": "npe"},
+  {"name": "assertion", "aliases": ["assert", "assertions"], "tier": "npe"}
+]
+```
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/apply-obvious.py language-feature  [0s, exit 0]
+language-feature: 14 aliases, 39 new answers, 3 promoted from the Inbox
+

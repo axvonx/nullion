@@ -1,0 +1,116 @@
+{
+ "language-feature": [
+  {
+   "name": "type inference",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "type inference (src/rust)",
+   "why": "common compiler feature"
+  },
+  {
+   "name": "attribute macro",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "attribute macro (src/rust)",
+   "why": "named Rust macro kind"
+  },
+  {
+   "name": "derive macro",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "derive macro (src/rust)",
+   "why": "named Rust macro kind"
+  },
+  {
+   "name": "implicit coercion",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "implicit coercion (src/rust)",
+   "why": "named language conversion feature"
+  },
+  {
+   "name": "list comprehension",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "list comprehension (src/cpython)",
+   "why": "well-known Python syntax"
+  },
+  {
+   "name": "dictionary comprehension",
+   "aliases": [
+    "dict comprehension"
+   ],
+   "judge": "leak",
+   "evidence": "dictionary comprehension (src/cpython)",
+   "why": "named Python syntax, dict form"
+  },
+  {
+   "name": "set comprehension",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "set comprehension (src/cpython)",
+   "why": "named Python syntax"
+  },
+  {
+   "name": "generator-based coroutine",
+   "aliases": [
+    "generator coroutine"
+   ],
+   "judge": "race",
+   "evidence": "generator-based coroutine (src/cpython)",
+   "why": "CPython-specific coroutine design"
+  },
+  {
+   "name": "static polymorphism",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "static polymorphism (src/llvm)",
+   "why": "named compile-time dispatch technique"
+  },
+  {
+   "name": "concept-based polymorphism",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "concept-based polymorphism (src/llvm)",
+   "why": "C++ concepts-based design, deep"
+  },
+  {
+   "name": "dynamic dispatch",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "dynamic dispatch (src/llvm)",
+   "why": "standard OOP mechanism"
+  },
+  {
+   "name": "function-like macro",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "function-like macro (src/llvm)",
+   "why": "named C preprocessor form"
+  },
+  {
+   "name": "preprocessor macro",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "preprocessor macro (src/llvm)",
+   "why": "named C preprocessor feature"
+  },
+  {
+   "name": "coroutine",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "c++ coroutine (src/llvm)",
+   "why": "named C++20 language feature"
+  }
+ ],
+ "womm_candidates": [
+  "concept-based polymorphism",
+  "generator-based coroutine",
+  "coroutine"
+ ],
+ "bitflip_candidates": [
+  "static polymorphism",
+  "implicit coercion",
+  "function-like macro"
+ ]
+}

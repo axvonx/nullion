@@ -1,0 +1,367 @@
+{
+ "video-codec": [
+  {
+   "name": "4X Movie",
+   "aliases": [
+    "4XM"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "8BPS",
+   "aliases": [
+    "QuickTime 8BPS"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AASC",
+   "aliases": [
+    "Autodesk Animator Studio Codec"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AGM",
+   "aliases": [
+    "AmuseGraphics Movie"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Apple Intermediate Codec",
+   "aliases": [
+    "AIC"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ANM",
+   "aliases": [
+    "DeluxePaint Animation"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "AV1",
+   "aliases": [
+    "AOMedia Video 1",
+    "libaom",
+    "libdav1d",
+    "dav1d",
+    "librav1e",
+    "libsvtav1"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "AVS",
+   "aliases": [
+    "Audio Video Standard",
+    "cavs"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "AVS2",
+   "aliases": [
+    "davs2",
+    "libxavs2"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "AVS3",
+   "aliases": [
+    "libuavs3d"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Bink Video",
+   "aliases": [
+    "Bink"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "BMV",
+   "aliases": [
+    "Discworld II BMV"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "C93",
+   "aliases": [
+    "Interplay C93"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CDXL",
+   "aliases": [
+    "Commodore CDXL"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Cinepak",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ClearVideo",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CLJR",
+   "aliases": [
+    "Cirrus Logic AccuPak"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Canopus Lossless",
+   "aliases": [
+    "CLLC"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CSCD",
+   "aliases": [
+    "CamStudio Codec"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CYUV",
+   "aliases": [
+    "Creative YUV"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "DNxHD",
+   "aliases": [
+    "Avid DNxHD"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "DV",
+   "aliases": [
+    "Digital Video"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "DXA",
+   "aliases": [
+    "Feeble Files DXA"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Dxtory",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "DXV",
+   "aliases": [
+    "Resolume DXV"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "EVC",
+   "aliases": [
+    "Essential Video Coding",
+    "MPEG-5 Part 1"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "FFV1",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Mirillis FIC",
+   "aliases": [
+    "FIC"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Flash Screen Video",
+   "aliases": [
+    "FlashSV"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "FLIC",
+   "aliases": [
+    "Autodesk FLIC",
+    "FLI",
+    "FLC"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Fraps",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "GoToMeeting Codec",
+   "aliases": [
+    "G2M"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "H.261",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "H.263",
+   "aliases": [
+    "intelh263",
+    "ituh263"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "H.264",
+   "aliases": [
+    "AVC",
+    "MPEG-4 AVC",
+    "h264",
+    "libx264",
+    "x264",
+    "libopenh264"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "HEVC",
+   "aliases": [
+    "H.265",
+    "h265",
+    "x265",
+    "libx265",
+    "libkvazaar"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "VVC",
+   "aliases": [
+    "H.266",
+    "Versatile Video Coding",
+    "h266",
+    "libvvenc"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Hap",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Canopus HQX",
+   "aliases": [
+    "HQX"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Huffyuv",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "IMM4",
+   "aliases": [
+    "Infinity IMM4"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "IMM5",
+   "aliases": [
+    "Infinity IMM5"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Indeo 2",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Indeo 3",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Indeo 4",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Indeo 5",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Lagarith",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "LCEVC",
+   "aliases": [
+    "MPEG-5 Part 2"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "MagicYUV",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Mimic",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Motion JPEG",
+   "aliases": [
+    "MJPEG",
+    "mjpeg"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Theora",
+   "aliases": [
+    "libtheoraenc"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "VP8",
+   "aliases": [],
+   "judge": "npe"
+  }
+ ]
+}

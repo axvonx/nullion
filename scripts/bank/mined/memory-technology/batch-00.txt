@@ -1,0 +1,1077 @@
+## source: torvalds/linux/drivers/mtd (dir names)
+chips
+devices
+hyperbus
+lpddr
+maps
+nand
+parsers
+spi-nor
+tests
+ubi
+## source: torvalds/linux/drivers/mtd/devices (file names)
+Kconfig
+Makefile
+bcm47xxsflash
+block2mtd
+docg3
+mchp23k256
+mchp48l640
+ms02-nv
+mtd_dataflash
+mtd_intel_dg
+mtdram
+phram
+pmc551
+powernv_flash
+serial_flash_cmds
+slram
+spear_smi
+sst25l
+st_spi_fsm
+## source: kernel (head nouns: RAM, ROM, memory, flash, delay line, tube)
+    86  physical memory
+    85  system memory
+    77  virtual memory
+    62  shared memory
+    61  kernel memory
+    54  allocate memory
+    50  into memory
+    47  device memory
+    40  out memory
+    39  free memory
+    37  access memory
+    37  contiguous memory
+    36  amount memory
+    29  allocated memory
+    27  host memory
+    26  main memory
+    25  cxl memory
+    22  enough memory
+    22  low memory
+    20  much memory
+    20  under memory
+    20  guest memory
+    19  where memory
+    19  cpu memory
+    19  total memory
+    19  user memory
+    18  persistent memory
+    18  system ram
+    18  region memory
+    17  normal memory
+    17  different memory
+    17  stored memory
+    17  available memory
+    17  buffer memory
+    17  length memory
+    16  o memory
+    16  types memory
+    16  local memory
+    16  video memory
+    16  external memory
+    15  set memory
+    15  high memory
+    14  data memory
+    14  support memory
+    14  reserved memory
+    14  allocates memory
+    14  userspace memory
+    14  mapped memory
+    14  anonymous memory
+    14  direct memory
+    13  read memory
+    13  pci memory
+    13  size memory
+    12  about memory
+    12  through memory
+    12  additional memory
+    12  physically contiguous memory
+    12  accessing memory
+    12  gpu memory
+    12  space memory
+    12  physical ram
+    12  allocating memory
+    12  dma memory
+    12  pages memory
+    12  linux memory
+    11  private memory
+    11  nand flash
+    11  dynamic memory
+    11  bytes memory
+    11  fixed memory
+    10  cached memory
+    10  are memory
+    10  writes memory
+    10  separate memory
+    10  video ram
+    10  register memory
+    10  accesses memory
+    10  cxl fixed memory
+     9  full memory
+     9  what memory
+     9  used memory
+     9  target memory
+     9  freed memory
+     9  like memory
+     9  how memory
+     9  user space memory
+     9  process memory
+     9  but memory
+     9  boot memory
+     9  transactional memory
+     9  reduce memory
+     9  internal memory
+     9  current memory
+     9  io memory
+     9  between memory
+     9  address memory
+     9  reclaim memory
+     9  within memory
+     9  inaccessible memory
+     8  write memory
+     8  coherent memory
+     8  map memory
+     8  boot rom
+     8  framebuffer memory
+     8  non-volatile memory
+     8  reserve memory
+     8  save memory
+     8  numa memory
+     8  due memory
+     8  range memory
+     8  how much memory
+     8  hardware memory
+     8  page memory
+     8  associated memory
+     8  volatile memory
+     8  device flash
+     7  level memory
+     7  independent memory
+     7  over memory
+     7  suspend ram
+     7  available ram
+     7  loaded into memory
+     7  time memory
+     7  disable memory
+     7  enable memory
+     7  whether memory
+     7  controller memory
+     7  provides memory
+     7  underlying memory
+     7  piece memory
+     7  lack memory
+     7  initial ram
+     7  efi memory
+     7  hotplugged memory
+     7  node memory
+     7  maximum memory
+     7  image memory
+     7  via memory
+     7  block memory
+     7  large memory
+     7  cache memory
+     7  contain memory
+     7  hotplug memory
+     7  frames memory
+     7  internal ram
+     7  regular memory
+     7  shadow memory
+     6  aligned memory
+     6  amounts memory
+     6  kept memory
+     6  chunks memory
+     6  specify memory
+     6  entire memory
+     6  check memory
+     6  standard memory
+     6  shared virtual memory
+     6  remote memory
+     6  protected memory
+     6  provide memory
+     6  area memory
+     6  blocks memory
+     6  nodes memory
+     6  up memory
+     6  copy memory
+     6  default memory
+     6  vm memory
+     6  secure memory
+     6  static memory
+     6  apply memory
+     6  list memory
+     6  control memory
+     6  dirty memory
+     6  arbitrary memory
+     6  type memory
+     6  at memory
+     6  describe memory
+     6  byte memory
+     6  performance memory
+     6  during memory
+     6  support flash
+     6  enomem memory
+     6  real memory
+     6  input memory
+     6  virtually contiguous memory
+     6  generic memory
+     5  reads memory
+     5  various memory
+     5  perform memory
+     5  cpus memory
+     5  frees memory
+     5  identify memory
+     5  configure memory
+     5  too much memory
+     5  unified memory
+     5  contains memory
+     5  possible memory
+     5  vram memory
+     5  backing memory
+     5  encrypted memory
+     5  accessible memory
+     5  random memory
+     5  invalid memory
+     5  both memory
+     5  make memory
+     5  limit memory
+     5  posix shared memory
+     5  provided memory
+     5  see memory
+     5  reclaimed memory
+     5  overcommit_memory
+     5  allow memory
+     5  into kernel memory
+     5  value memory
+     5  file-backed memory
+     5  registers memory
+     5  heterogeneous memory
+     5  detected memory
+     5  online memory
+     5  ddr memory
+     5  non volatile memory
+     5  pool memory
+     5  particular memory
+     5  combined flash
+     5  dev flash
+     5  devlink dev flash
+     5  stored flash
+     5  pointers memory
+     5  remote direct memory
+     5  avoid memory
+     5  frame buffer memory
+     5  nor flash
+     5  describes memory
+     5  routes memory
+     5  simple memory
+     5  led flash
+     5  also memory
+     5  guest ram
+     5  effective memory
+     4  even memory
+     4  following memory
+     4  physical_memory
+     4  transactional_memory
+     4  share memory
+     4  waiting memory
+     4  remove memory
+     4  contents memory
+     4  unused memory
+     4  state memory
+     4  result memory
+     4  bit memory
+     4  expose memory
+     4  remaining memory
+     4  kib memory
+     4  request memory
+     4  includes memory
+     4  expansion rom
+     4  read-only memory
+     4  pinned memory
+     4  back memory
+     4  fetch memory
+     4  user-space memory
+     4  cannot allocate memory
+     4  extra memory
+     4  flash memory
+     4  limited memory
+     4  based memory
+     4  causes memory
+     4  clear memory
+     4  global memory
+     4  memmap_on_memory
+     4  small memory
+     4  since memory
+     4  contiguous physical memory
+     4  defines memory
+     4  hugetlb memory
+     4  backed memory
+     4  whose memory
+     4  preserve memory
+     4  requests memory
+     4  offline memory
+     4  slab memory
+     4  tasks memory
+     4  add memory
+     4  atomic memory
+     4  means memory
+     4  N_MEMORY
+     4  detect memory
+     4  addressable memory
+     4  systems memory
+     4  mmap memory
+     4  allowed memory
+     4  cold memory
+     4  wasting memory
+     4  supports memory
+     4  prevent memory
+     4  many memory
+     4  accessed memory
+     4  indicates memory
+     4  consume memory
+     4  selected memory
+     4  find memory
+     4  entire physical memory
+     4  sized memory
+     4  end memory
+     4  stack memory
+     4  hypervisor memory
+     4  mapping memory
+     4  option rom
+     4  higher memory
+     4  sufficient memory
+     4  bring memory
+     4  regions memory
+     4  than memory
+     4  management memory
+     4  chunk memory
+     4  internal program memory
+     4  program memory
+     4  guest physical memory
+     4  maps memory
+     4  kernel virtual memory
+     4  internal flash
+     4  handle memory
+     4  valid memory
+     4  v4l2_memory
+     3  against memory
+     3  consistent memory
+     3  indicated memory
+     3  linux kernel memory
+     3  matching memory
+     3  reorder memory
+     3  general memory
+     3  terms memory
+     3  manage memory
+     3  table memory
+     3  image into memory
+     3  areas memory
+     3  work memory
+     3  update memory
+     3  details memory
+     3  display memory
+     3  previously allocated memory
+     3  flushed memory
+     3  graphics memory
+     3  drm memory
+     3  point memory
+     3  specified memory
+     3  vbios rom
+     3  kind memory
+     3  queues memory
+     3  information memory
+     3  cathode ray tube
+     3  ray tube
+     3  content memory
+     3  outbound memory
+     3  location memory
+     3  second memory
+     3  ecc memory
+     3  slow memory
+     3  mb memory
+     3  uncacheable memory
+     3  added memory
+     3  os memory
+     3  boot time memory
+     3  mmio memory
+     3  total system memory
+     3  scan memory
+     3  hardware transactional memory
+     3  class memory
+     3  limits memory
+     3  you memory
+     3  minimal memory
+     3  trigger memory
+     3  original memory
+     3  move memory
+     3  actual memory
+     3  format memory
+     3  application memory
+     3  overall memory
+     3  affected memory
+     3  writing memory
+     3  setting memory
+     3  total available memory
+     3  create ram
+     3  except memory
+     3  mb ram
+     3  overcommit memory
+     3  uncorrected memory
+     3  dump memory
+     3  sysv shared memory
+     3  corrected memory
+     3  enables memory
+     3  usable ram
+     3  modify memory
+     3  include memory
+     3  load memory
+     3  complex memory
+     3  code memory
+     3  implements memory
+     3  required memory
+     3  operations memory
+     3  applies memory
+     3  removing memory
+     3  start memory
+     3  high_memory
+     3  resident memory
+     3  improve memory
+     3  early memory
+     3  operate memory
+     3  sufficient contiguous memory
+     3  non-uniform memory
+     3  represent memory
+     3  effects memory
+     3  initiate memory
+     3  query memory
+     3  implement memory
+     3  specifies memory
+     3  components memory
+     3  track memory
+     3  waste memory
+     3  around memory
+     3  consuming memory
+     3  configuration memory
+     3  basic memory
+     3  offlining memory
+     3  cma memory
+     3  individual memory
+     3  present memory
+     3  special memory
+     3  into physical memory
+     3  active memory
+     3  destination memory
+     3  made memory
+     3  dram memory
+     3  v4l2 memory
+     3  directly memory
+     3  into system memory
+     3  desired memory
+     3  amd memory
+     3  insufficient memory
+     3  amount ram
+     3  otp memory
+     3  on-chip ram
+     3  bits memory
+     3  dma coherent memory
+     3  fragment memory
+     3  was memory
+     3  devlink flash
+     3  base option rom
+     3  lead memory
+     3  manages memory
+     3  logical memory
+     3  devices memory
+     3  purpose memory
+     3  SystemRAM
+     3  platform memory
+     3  cause memory
+     3  host-managed device memory
+     3  managed memory
+     3  runtime memory
+     3  v4l2 flash
+     3  sharing memory
+     3  once memory
+     3  unaligned memory
+     3  invalid guest ram
+     3  efficient memory
+     3  storage memory
+     3  size ram
+     3  kasan shadow memory
+     3  arbitrary kernel memory
+     3  descriptor ram
+     3  vmalloc memory
+     3  errors memory
+     3  debug memory
+     3  order memory
+     3  pointer memory
+     3  portion memory
+     3  non-coherent memory
+     3  inside memory
+     3  store memory
+     3  percpu memory
+     3  access detected memory
+     3  show flash
+     3  byte ram
+     3  reflect memory
+     3  bios-provided physical ram
+     3  byte slab memory
+     3  changes memory
+     2  item memory
+     2  weak memory
+     2  back ram
+     2  moving memory
+     2  examples memory
+     2  want memory
+     2  data ram
+     2  combining memory
+     2  sequence memory
+     2  dependent memory
+     2  complete memory
+     2  sparc-v9 memory
+     2  application level memory
+     2  relaxed memory
+     2  abstract memory
+     2  explicit memory
+     2  overlapping memory
+     2  affect memory
+     2  queue memory
+     2  monitor memory
+     2  partial memory
+     2  delay memory
+     2  old memory
+     2  pre-hibernation memory
+     2  CompactFlash
+     2  back into memory
+     2  otherwise memory
+     2  consumption memory
+     2  corrupt memory
+     2  clearing memory
+     2  pci rom
+     2  converts memory
+     2  ram memory
+     2  assign memory
+     2  configuring memory
+     2  least memory
+     2  bar5 memory
+     2  bar4 memory
+     2  bar3 memory
+     2  loaded memory
+     2  maintains memory
+     2  driver allocates memory
+     2  view memory
+     2  d memory
+     2  pixel memory
+     2  normal system memory
+     2  device local memory
+     2  depend memory
+     2  select memory
+     2  part memory
+     2  visible memory
+     2  gpu virtual memory
+     2  trusted memory
+     2  graphic memory
+     2  mc memory
+     2  privileged memory
+     2  bios rom
+     2  fault memory
+     2  in-kernel memory
+     2  persistent ram
+     2  updates memory
+     2  much physical memory
+     2  missing memory
+     2  block ram
+     2  board memory
+     2  useful memory
+     2  treat memory
+     2  parts memory
+     2  making memory
+     2  significant memory
+     2  help save memory
+     2  driver memory
+     2  gb ram
+     2  read-only kernel memory
+     2  leak host memory
+     2  spanning memory
+     2  gb memory
+     2  total ram
+     2  basically memory
+     2  sacrifice enough memory
+     2  crash kernel memory
+     2  allows memory
+     2  accept memory
+     2  sets memory
+     2  available physical ram
+     2  handed over memory
+     2  unaccepted memory
+     2  allocate physical memory
+     2  occupy memory
+     2  include efi memory
+     2  raw flash
+     2  e820 memory
+     2  define memory
+     2  print system memory
+     2  mark memory
+     2  socket memory
+     2  ports memory
+     2  unless memory
+     2  processor memory
+     2  correct memory
+     2  userland memory
+     2  max memory
+     2  anon memory
+     2  there memory
+     2  reporting memory
+     2  towards memory
+     2  measure memory
+     2  reclaimable memory
+     2  indicate memory
+     2  requested memory
+     2  regardless memory
+     2  load ram
+     2  loading ram
+     2  including memory
+     2  locations memory
+     2  dma-able memory
+     2  compressed ram
+     2  allocate enough memory
+     2  compact memory
+     2  zone_movable memory
+     2  patterns under memory
+     2  lowmem memory
+     2  correctable memory
+     2  allow process memory
+     2  enabling memory
+     2  examine memory
+     2  receive memory
+     2  upon memory
+     2  fast memory
+     2  results memory
+     2  read arbitrary memory
+     2  component memory
+     2  host physical memory
+     2  sampling uncacheable memory
+     2  groups memory
+     2  intel memory
+     2  scalable memory
+     2  enhanced memory
+     2  charged memory
+     2  reclaiming memory
+     2  managing memory
+     2  reported memory
+     2  allocation memory
+     2  increases memory
+     2  reading memory
+     2  page cache memory
+     2  numa node memory
+     2  kinds memory
+     2  controlling memory
+     2  tcp memory
+     2  applications memory
+     2  allocations memory
+     2  inherit memory
+     2  obtain memory
+     2  sufficient free memory
+     2  cpusets memory
+     2  just memory
+     2  executable memory
+     2  sparse memory
+     2  ranges within memory
+     2  direct-mapped ram
+     2  ksm memory
+     2  form memory
+     2  defines what memory
+     2  tracking memory
+     2  usage ram
+     2  performance under memory
+     2  fail memory
+     2  task memory
+     2  physical system memory
+     2  providing memory
+     2  last memory
+     2  corresponds memory
+     2  registered memory
+     2  containing memory
+     2  located memory
+     2  interaction memory
+     2  percentage memory
+     2  increase memory
+     2  lower memory
+     2  scans memory
+     2  run memory
+     2  adding memory
+     2  related memory
+     2  zone memory
+     2  failing memory
+     2  balloon memory
+     2  arm64 memory
+     2  makes memory
+     2  zone_device memory
+     2  units memory
+     2  assigned memory
+     2  having memory
+     2  consume additional memory
+     2  are unprofitable memory
+     2  unprofitable memory
+     2  action-failed memory
+     2  factor memory
+     2  saving memory
+     2  showing memory
+     2  l3 memory
+     2  local system memory
+     2  metrics like memory
+     2  ddr4 memory
+     2  how many memory
+     2  overall system memory
+     2  normal ram
+     2  mode memory
+     2  back end memory
+     2  images memory
+     2  adp1653 flash
+     2  lens flash
+     2  isp data memory
+     2  power memory
+     2  heap memory
+     2  manipulate memory
+     2  enough kernel memory
+     2  bus memory
+     2  ec ram
+     2  management flash
+     2  throttling memory
+     2  dmaable memory
+     2  info about memory
+     2  fw flash
+     2  index memory
+     2  into device memory
+     2  unswappable memory
+     2  create memory
+     2  module flash
+     2  issues memory
+     2  moderate memory
+     2  installed memory
+     2  perform flash
+     2  full flash
+     2  are ram
+     2  run flash
+     2  configuration flash
+     2  shadow ram
+     2  entire flash
+     2  increased system memory
+     2  into flash
+     2  option memory
+     2  firmware flash
+     2  multi-user ram
+     2  table flash
+     2  fill memory
+     2  bandwidth memory
+     2  high bandwidth memory
+     2  row memory
+     2  existing memory
+     2  page table memory
+     2  occurs memory
+     2  continuous physical memory
+     2  most memory
+     2  instructions memory
+     2  capable memory
+     2  drivers memory
+     2  general purpose memory
+     2  dsp memory
+     2  express link memory
+     2  link memory
+     2  interleaved memory
+     2  supported memory
+     2  between ram
+     2  probe memory
+     2  driver managed memory
+     2  surfaces memory
+     2  dax device memory
+     2  comes memory
+     2  coherent dma memory
+     2  asynchronous memory
+     2  sure memory
+     2  base memory
+     2  dma-coherent memory
+     2  default rom
+     2  serial flash
+     2  smaller memory
+     2  fix memory
+     2  setup memory
+     2  n setup memory
+     2  remap memory
+     2  features memory
+     2  screen memory
+     2  continuous memory
+     2  arena memory
+     2  synchronise flash
+     2  whether flash
+     2  controlling flash
+     2  light tube
+     2  placed memory
+     2  enclave memory
+     2  used flash
+     2  swiotlb memory
+     2  initial guest memory
+     2  top memory
+     2  communicate memory
+     2  ring buffer memory
+     2  example memory
+     2  copies memory
+     2  guest private memory
+     2  live ram
+     2  enabled memory
+     2  absolute memory
+     2  prefix memory
+     2  file backed memory
+     2  cpu-local memory
+     2  accessed through memory
+     2  into guest ram
+     2  mask memory
+     2  DataFlash
+     2  needed memory
+     2  directives memory
+     2  reduces memory
+     2  read-side memory
+     2  safe memory
+     2  execute memory
+     2  silent memory
+     2  already freed memory
+     2  saves memory
+     2  start ram
+     2  increased memory
+     2  wasted memory
+     2  linear memory
+     2  user-space virtual memory
+     2  kernel-space virtual memory
+     2  common memory
+     2  perform unaligned memory
+     2  external ram
+     2  at ram
+     2  uefi memory
+     2  initialise ram
+     2  into ram
+     2  linking ram
+     2  read-write memory
+     2  rely memory
+     2  writable memory
+     2  freeing memory
+     2  encoded memory
+     2  exchanged memory
+     2  permissions memory
+     2  understanding memory
+     2  protected ram
+     2  unevictable memory
+     2  guarantee memory
+     2  represents memory
+     2  N_HIGH_MEMORY
+     2  flatmem memory
+     2  N_NORMAL_MEMORY
+     2  core memory
+     2  varying memory
+     2  sort memory
+     2  hugetlb_acct_memory
+     2  real shadow memory
+     2  arch_add_memory
+     2  device private memory
+     2  HIGH_MEMORY
+     2  EXCLUSIVE_SYSTEM_RAM
+     2  low_on_memory
+     2  set_memory
+     2  transfer memory
+     2  performed memory
+     2  preallocated memory
+     2  mapping ram
+     2  minimum memory
+     2  dereferencing freed memory
+     2  pools memory
+     2  temporary memory
+     2  wastes memory
+     2  subsequent memory
+     2  hardware-based memory
+     2  file-backed shared memory
+     2  unallocated memory
+     2  demux memory
+     2  unmap device memory
+     2  map device memory
+     2  locks memory
+     2  consecutively memory
+     2  dma-able system memory
+     2  discontiguous memory
+     2  insufficient kernel memory
+     2  CONFIG_KCSAN_WEAK_MEMORY
+     2  test_uninit_kmsan_check_memory
+     2  __no_sanitize_memory
+     2  are uninitialized memory
+     2  uninitialized memory
+     2  shows memory
+     2  found memory
+     2  suspected memory
+     2  mem memory
+     2  too memory
+     2  early_init_dt_scan_memory
+     2  parameter ram
+     2  YouTube
+     2  api_memory
+     2  mlocked memory
+     2  writeback memory
+## source: src/freebsd (head nouns: RAM, ROM, memory, flash, delay line, tube)
+    14  allocate memory
+    14  physical memory
+    12  insufficient memory
+    12  kernel memory
+    12  virtual memory
+    11  enomem insufficient memory
+    10  allocates memory
+     8  into memory
+     7  SYS_RES_MEMORY
+     7  frees memory
+     6  sufficient memory
+     5  allocated memory
+     5  enomem sufficient memory
+     4  enough memory
+     4  out memory
+     4  function allocates memory
+     4  free memory
+     4  access memory
+     4  device memory
+     4  into physical memory
+     3  than memory
+     3  where memory
+     3  ss memory
+     3  allocating memory
+     3  o memory
+     3  returned memory
+     3  shared memory
+     3  waiting memory
+     3  direct memory
+     3  user memory
+     3  dynamic memory
+     2  size memory
+     2  allocate enough memory
+     2  space memory
+     2  contiguous memory
+     2  existing memory
+     2  ensure memory
+     2  unused memory
+     2  reclaim memory
+     2  non-executable memory
+     2  executable memory
+     2  notes memory
+     2  freeing memory
+     2  per-cpu memory
+     2  available memory
+     2  bytes memory
+     2  network memory
+     2  dma memory
+     2  host memory
+     2  due memory
+     2  cpu memory
+     2  safe memory
+     2  uninitialized memory
+     2  requested memory
+     2  nd kernel memory
+     2  page memory
+     2  extra memory
+     2  bus memory
+     2  pci memory
+     2  nd check memory
+     2  check memory
+     2  enables memory
+     2  piece memory
+     2  main memory
+     2  allocation memory
+     2  invalid memory
+     2  default memory
+## source: src/windows-driver-docs (head nouns: RAM, ROM, memory, flash, delay line, tube)
+    28  physical memory
+    26  system memory
+    19  allocate memory
+    18  system-space memory
+    12  access memory
+    12  into memory
+    11  RtlZeroMemory
+    10  direct memory
+    10  virtual memory
+     9  paged memory
+     8  pageable memory
+     8  nonpaged memory
+     8  system physical memory
+     7  wdk memory
+     7  allocating system-space memory
+     7  about memory
+     7  kernel-mode memory
+     7  resident memory
+     6  block memory
+     6  buffer memory
+     6  RtlCopyMemory
+     6  allocates memory
+     5  amount memory
+     5  volatile memory
+     5  processor memory
+     5  driver-allocated memory
+     5  user-mode memory
+     5  allocated memory
+     5  device memory
+     4  locked memory
+     4  shared memory
+     4  windows kernel-mode memory
+     4  into system memory
+     4  nonpaged system memory
+     4  allocating memory
+     4  free memory
+     4  pool memory
+     4  kernel memory
+     3  nonpaged system-space memory
+     3  GUID_DEVICE_MEMORY
+     3  notified memory
+     3  _MEMORY
+     3  data memory
+     3  accessing user-space memory
+     3  user-space memory
+     3  windows memory
+     3  section memory
+     3  MmAllocateNonCachedMemory
+     3  bus-relative memory
+     3  processors memory
+     3  additional memory
+     3  access pageable memory
+     3  o buffer memory
+     3  conserve system memory
+     3  views wdk memory
+     3  managing memory
+     3  read-only system memory
+     3  possible memory
+     3  sharing memory
+     2  additional system-space memory
+     2  amounts memory
+     2  locks wdk memory
+     2  notified about memory
+     2  manages physical memory
+     2  information about memory
+     2  particular memory
+     2  mapping memory
+     2  copy memory
+     2  much physical memory
+     2  access user-mode memory
+     2  paged physical memory
+     2  always memory
+     2  code into memory
+     2  MmAllocateContiguousMemory
+     2  causes memory
+     2  nonpaged pool memory
+     2  user memory
+     2  performs memory
+     2  RtlMoveMemory
+     2  executable nonpaged memory
+     2  irps memory
+     2  freeing memory
+     2  allocate pageable memory
+     2  free physical memory
+     2  manager allocates memory
+     2  avoid possible memory
+     2  CmResourceTypeMemory
+     2  translated memory
+     2  locked into memory
+     2  code memory
+     2  drivers allocate memory
+     2  frees memory
+     2  read-only memory
