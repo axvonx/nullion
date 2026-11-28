@@ -21,19 +21,18 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 ## Memory leak
 - Equal Earth projection | eqearth | Equal Earth (auto)
 - Gall-Peters | Peters projection | Peters (auto)
-- Miller cylindrical | Miller (auto)
 - Cassini | Cassini-Soldner (auto)
 - Geostationary satellite view projection | geos (auto)
 - Space Oblique Mercator projection | som (auto)
 - Transverse Central Cylindrical projection | tcc (auto)
 
 ## Race condition
-- HEALPix projection | healpix (auto)
 - Robinson projection | robin | Robinson (auto)
 - Winkel tripel | Winkel III (auto)
 - Azimuthal equidistant projection | aeqd (auto)
 - Azimuthal equidistant (auto)
 - Dymaxion | Fuller projection | Fuller (auto)
+- Miller cylindrical | Miller (auto)
 
 ## Heisenbug
 - Adams projection | adams | Adams hemisphere-in-a-square projection (auto)
@@ -139,6 +138,7 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 - Interrupted Mollweide projection (auto)
 - Simple conic projection (auto)
 - S2 projection (auto)
+- HEALPix projection | healpix (auto)
 
 ## Bit Flip
 - Spilhaus world ocean projection | spilhaus | Spilhaus projection

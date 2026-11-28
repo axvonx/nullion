@@ -1,16 +1,16 @@
 # Scoring: lock (Name a type of lock)
 
-106 answers (Bit Flip and Works on my machine left out); 10 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (10000, 100, 15), some (3000, 50, 8) (clicks/month, Stack Exchange questions, distro families).
+106 answers (Bit Flip and Works on my machine left out); 10 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (10000, 50, None), some (3000, 20, 20) (clicks/month, Stack Exchange questions, distro families).
 
 | tier | new | bank today | of the new, confirmed lines that disagree |
 |---|---|---|---|
 | off-by-one | 2 (2%) | 3 | 1 |
-| npe | 27 (25%) | 14 | 15 |
+| npe | 27 (25%) | 13 | 15 |
 | leak | 0 (0%) | 19 | 0 |
 | race | 0 (0%) | 20 | 0 |
-| heisenbug | 77 (73%) | 50 | 31 |
+| heisenbug | 77 (73%) | 51 | 31 |
 
-Same tier as today: 58/106 (55%).
+Same tier as today: 59/106 (56%).
 
 ## Off-by-one (2)
 

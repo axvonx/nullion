@@ -42,15 +42,15 @@ id: memory-technology · domain: hardware-security-history · status: draft
 ## Memory leak
 - High Bandwidth Memory | HBM | HBM2 | HBM3 (auto)
 - phase-change memory | PCM | PRAM (auto)
+- CompactFlash | CF card | CompactFlash card (auto)
 
 ## Race condition
-- CompactFlash | CF card | CompactFlash card (auto)
+- 3D XPoint | Optane (auto)
 
 ## Heisenbug
 - MRAM | magnetoresistive RAM | magnetoresistive random access memory (auto)
 - FRAM | FeRAM | ferroelectric RAM (auto)
 - ReRAM | RRAM | resistive RAM (auto)
-- 3D XPoint | Optane (auto)
 - drum memory | magnetic drum | drum storage (auto)
 - bubble memory | magnetic bubble memory (auto)
 - OTP memory | one-time programmable memory (auto)

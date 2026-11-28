@@ -81,21 +81,21 @@ id: database · domain: data-graphics-algorithms · status: approved
 - Datomic (auto)
 - LMDB (auto)
 - VoltDB (auto)
-
-## Race condition
 - Exasol (auto)
 - IMS (auto)
+
+## Race condition
+- FoundationDB (auto)
+- Apache Pinot | Pinot (auto)
 
 ## Heisenbug
 - Hologres (auto)
 - MaxCompute | ODPS (auto)
 - Umbra (auto)
-- FoundationDB (auto)
 - Databend (auto)
 - Apache Doris | Doris (auto)
 - Firebolt (auto)
 - OceanBase (auto)
-- Apache Pinot | Pinot (auto)
 - RisingWave (auto)
 - StarRocks (auto)
 - YDB (auto)

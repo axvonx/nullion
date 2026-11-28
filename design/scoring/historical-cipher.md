@@ -1,16 +1,16 @@
 # Scoring: historical-cipher (Name a historical cipher)
 
-33 answers (Bit Flip and Works on my machine left out); 1 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (10000, 100, 15), some (3000, 50, 8) (clicks/month, Stack Exchange questions, distro families).
+33 answers (Bit Flip and Works on my machine left out); 1 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (10000, 50, None), some (3000, 20, 20) (clicks/month, Stack Exchange questions, distro families).
 
 | tier | new | bank today | of the new, confirmed lines that disagree |
 |---|---|---|---|
-| off-by-one | 2 (6%) | 1 | 0 |
-| npe | 7 (21%) | 20 | 0 |
-| leak | 1 (3%) | 3 | 0 |
-| race | 4 (12%) | 5 | 0 |
-| heisenbug | 19 (58%) | 4 | 0 |
+| off-by-one | 2 (6%) | 2 | 0 |
+| npe | 7 (21%) | 7 | 0 |
+| leak | 2 (6%) | 1 | 0 |
+| race | 3 (9%) | 4 | 0 |
+| heisenbug | 19 (58%) | 19 | 0 |
 
-Same tier as today: 7/33 (21%).
+Same tier as today: 32/33 (97%).
 
 ## Off-by-one (2)
 
@@ -20,13 +20,13 @@ Caesar cipher 5.8 [17380c 794q 1f], Enigma 4.8 [46104c 0q 0f]
 
 Vigenère cipher 4.0 [15995c 350q 1f], Simple substitution 4.0* [5678c 0q 0f], One-time pad 3.4 [14207c 797q 1f], Playfair cipher 2.8 [3880c 0q 0f], Columnar transposition 2.5 [2507c 0q 0f], Affine cipher 2.2 [899c 0q 0f], Polybius square 2.1 [2851c 0q 0f]
 
-## Memory leak (1)
+## Memory leak (2)
 
-Gronsfeld cipher 0.8 [15995c 0q 0f]
+Autokey cipher 1.7 [1012c 96q 11f], Gronsfeld cipher 0.8 [15995c 0q 0f]
 
-## Race condition (4)
+## Race condition (3)
 
-Pigpen cipher 1.9 [9833c 0q 0f], Baconian cipher 1.9 [3044c 0q 0f], Autokey cipher 1.7 [1012c 96q 11f], Lorenz cipher 1.3 [7605c 0q 0f]
+Pigpen cipher 1.9 [9833c 0q 0f], Baconian cipher 1.9 [3044c 0q 0f], Lorenz cipher 1.3 [7605c 0q 0f]
 
 ## Heisenbug (19)
 

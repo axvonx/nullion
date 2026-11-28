@@ -28,10 +28,11 @@ id: garbage-collection-algorithm · domain: languages-tools · status: approved
 ## Memory leak
 - Boehm GC | Boehm-Demers-Weiser (auto)
 - Epsilon GC | Epsilon | Epsilon Garbage Collector | no-op GC (auto)
-
-## Race condition
 - C4 | Pauseless GC | Continuously Concurrent Compacting Collector (auto)
 - deferred reference counting | DRC (auto)
+
+## Race condition
+- Metronome (auto)
 
 ## Heisenbug
 - Immix | mark-region | Immix GC | mark-region GC (auto)
@@ -39,7 +40,6 @@ id: garbage-collection-algorithm · domain: languages-tools · status: approved
 - Lisp2 algorithm (auto)
 - Compressor (auto)
 - Morris algorithm (auto)
-- Metronome (auto)
 - Sapphire (auto)
 - Deutsch-Schorr-Waite algorithm (auto)
 - weighted reference counting (auto)

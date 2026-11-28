@@ -42,9 +42,10 @@ id: scheduling-algorithm · domain: os-systems · status: draft
 - Energy aware scheduling | EAS (auto)
 - Enhanced Transmission Selection | ETS | sch_ets (auto)
 - Tetris (auto)
+- Cilk (auto)
 
 ## Race condition
-- Cilk (auto)
+- Hierarchical token bucket | HTB | sch_htb (auto)
 
 ## Heisenbug
 - Proportional-fair scheduling (auto)
@@ -119,7 +120,6 @@ id: scheduling-algorithm · domain: os-systems · status: draft
 - BFQ | bfq-iosched (auto)
 - Windows NT processor scheduling (auto)
 - FQ-CoDel | sch_fq_codel (auto)
-- Hierarchical token bucket | HTB | sch_htb (auto)
 - Stochastic Fair Queueing | SFQ (auto)
 - Credit-based shaper | CBS | sch_cbs (auto)
 - Multifit algorithm | MULTIFIT (auto)

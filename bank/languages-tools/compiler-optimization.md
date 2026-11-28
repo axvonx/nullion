@@ -34,6 +34,9 @@ id: compiler-optimization · domain: languages-tools · status: approved
 - full unrolling | full loop unrolling (auto)
 - partial unrolling | partial loop unrolling (auto)
 
+## Race condition
+- Escape analysis (auto)
+
 ## Heisenbug
 - argument promotion (auto)
 - bit-tracking dead code elimination | BDCE (auto)
@@ -57,7 +60,6 @@ id: compiler-optimization · domain: languages-tools · status: approved
 - lazy code motion (auto)
 - shrink wrapping (auto)
 - copy propagation (auto)
-- Escape analysis (auto)
 - If-conversion | predication (auto)
 - Tail duplication (auto)
 - CFG simplification | SimplifyCFG | control-flow graph simplification (auto)

@@ -30,12 +30,10 @@ id: memory-allocator · domain: os-systems · status: approved
 - bitmap allocator (auto)
 
 ## Memory leak
-- talloc | Samba talloc (auto)
 - Mesh | Mesh allocator (auto)
 
 ## Race condition
-- Electric Fence (auto)
-- DieHarder (auto)
+- talloc | Samba talloc (auto)
 
 ## Heisenbug
 - zsmalloc (auto)
@@ -67,6 +65,8 @@ id: memory-allocator · domain: os-systems · status: approved
 - SLOB allocator | SLOB (auto)
 - segregated free list allocator | segregated fit (auto)
 - pymalloc (auto)
+- Electric Fence (auto)
+- DieHarder (auto)
 
 ## Bit Flip
 - Scudo | Scudo Hardened Allocator

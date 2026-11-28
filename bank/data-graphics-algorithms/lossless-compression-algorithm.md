@@ -27,12 +27,12 @@ id: lossless-compression-algorithm · domain: data-graphics-algorithms · status
 ## Memory leak
 - PPM | prediction by partial matching (auto)
 - LZO | Lempel-Ziv-Oberhumer (auto)
+- LZX (auto)
+
+## Race condition
 - LZFSE (auto)
 - Zopfli (auto)
 - ZPAQ (auto)
-
-## Race condition
-- LZX (auto)
 
 ## Heisenbug
 - LZRW (auto)

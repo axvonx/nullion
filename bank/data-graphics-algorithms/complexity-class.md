@@ -29,12 +29,13 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 - SPP | stoic PP (auto)
 - IPP | unbounded interactive proof (auto)
 - P^PP | P with PP oracle (auto)
+- coRE (auto)
 
 ## Race condition
 - SZK | statistical zero knowledge (auto)
 - RL | randomized logspace (auto)
-- coRE (auto)
-- MP | middle-bit P (auto)
+- PP | probabilistic polynomial time (auto)
+- BPP | bounded-error probabilistic polynomial time (auto)
 
 ## Heisenbug
 - QCMA | quantum classical MA (auto)
@@ -72,7 +73,6 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 - QSZK | quantum SZK (auto)
 - PPAD (auto)
 - ZPP | zero-error probabilistic polynomial time | cocap-RP (auto)
-- PP | probabilistic polynomial time (auto)
 - L | LOGSPACE (auto)
 - NL | NLOGSPACE | nondeterministic log space (auto)
 - EXPSPACE | exponential space (auto)
@@ -81,7 +81,6 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 - #P (auto)
 - QP | quasipolynomial time (auto)
 - SUBEXP | subexponential time (auto)
-- BPP | bounded-error probabilistic polynomial time (auto)
 - RP | randomized polynomial time (auto)
 - PH | polynomial hierarchy | polynomial-time hierarchy (auto)
 - AM | Arthur-Merlin (auto)
@@ -117,6 +116,7 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 - +P | parity-P (auto)
 - UP | unambiguous polynomial time (auto)
 - Sigma_2P | NP with NP oracle (auto)
+- MP | middle-bit P (auto)
 
 ## Bit Flip
 - A_0PP

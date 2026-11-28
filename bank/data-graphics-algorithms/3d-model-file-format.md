@@ -36,12 +36,12 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
 - PMX | PMD | MikuMikuDance (auto)
 - MDC (auto)
 - RAW (auto)
+- ASE | ASCII Scene Exporter (auto)
+- 3DM | Rhino 3D | OpenNURBS (auto)
 
 ## Race condition
-- ASE | ASCII Scene Exporter (auto)
 - MA | Maya ASCII (auto)
 - MB | Maya Binary (auto)
-- 3DM | Rhino 3D | OpenNURBS (auto)
 
 ## Heisenbug
 - Assbin (auto)

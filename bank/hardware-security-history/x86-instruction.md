@@ -56,11 +56,10 @@ id: x86-instruction · domain: hardware-security-history · status: draft
 - PREFETCH (auto)
 - rdtsc | read time stamp counter (auto)
 - SERIALIZE (auto)
-- STUI (auto)
 
 ## Race condition
-- STC (auto)
-- RSM (auto)
+- FST (auto)
+- DAS (auto)
 
 ## Heisenbug
 - ADDSUBPD (auto)
@@ -822,7 +821,6 @@ id: x86-instruction · domain: hardware-security-history · status: draft
 - FMUL (auto)
 - FSIN (auto)
 - FSQRT (auto)
-- FST (auto)
 - FSTP (auto)
 - FSUB (auto)
 - MOVAPS (auto)
@@ -1471,7 +1469,6 @@ id: x86-instruction · domain: hardware-security-history · status: draft
 - AESKEYGENASSIST (auto)
 - CLFLUSHOPT (auto)
 - DAA (auto)
-- DAS (auto)
 - ENCLS (auto)
 - ENCLU (auto)
 - ENCLV (auto)
@@ -1508,6 +1505,9 @@ id: x86-instruction · domain: hardware-security-history · status: draft
 - VSUBSS (auto)
 - VUCOMISD (auto)
 - VUCOMISS (auto)
+- STUI (auto)
+- STC (auto)
+- RSM (auto)
 
 ## Bit Flip
 - XSUSLDTRK

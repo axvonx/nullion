@@ -23,11 +23,11 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 ## Memory leak
 - Microarchitectural Data Sampling | MDS (auto)
 - PACMAN (auto)
+- Special Register Buffer Data Sampling | SRBDS | CrossTalk (auto)
+- PLATYPUS (auto)
 
 ## Race condition
-- Special Register Buffer Data Sampling | SRBDS | CrossTalk (auto)
 - Spectre v4 | Speculative store bypass | SSB (auto)
-- PLATYPUS (auto)
 - Branch target injection | BTI (auto)
 - Bounds check bypass | BCB (auto)
 

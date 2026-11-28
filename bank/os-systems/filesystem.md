@@ -46,14 +46,20 @@ id: filesystem · domain: os-systems · status: approved
 - BeFS | bfs (auto)
 - eCryptfs (auto)
 - unionfs | union (auto)
-- bindfs (auto)
 - Fossil (auto)
-
-## Race condition
-- cramfs (auto)
 - OCFS2 (auto)
 - Lustre (auto)
 - UBIFS (auto)
+
+## Race condition
+- GFS2 (auto)
+- JFS | Journaled File System (auto)
+- HAMMER (auto)
+- AFS | Andrew File System (auto)
+- CephFS (auto)
+- debugfs (auto)
+- F2FS | Flash-Friendly File System (auto)
+- JFFS2 (auto)
 
 ## Heisenbug
 - ntfs3 (auto)
@@ -62,7 +68,6 @@ id: filesystem · domain: os-systems · status: approved
 - configfs (auto)
 - dlmfs (auto)
 - efivarfs (auto)
-- GFS2 (auto)
 - OMFS | Optimized MPEG File System (auto)
 - OrangeFS (auto)
 - QNX6 (auto)
@@ -72,7 +77,6 @@ id: filesystem · domain: os-systems · status: approved
 - NILFS2 | nilfs (auto)
 - 9P | v9fs | p9fs (auto)
 - hostfs (auto)
-- JFS | Journaled File System (auto)
 - OpenPROM FS | openpromfs (auto)
 - pstore (auto)
 - QNX4 (auto)
@@ -83,7 +87,6 @@ id: filesystem · domain: os-systems · status: approved
 - ptyfs (auto)
 - SysV BFS | sysvbfs (auto)
 - V7FS (auto)
-- HAMMER (auto)
 - HAMMER2 (auto)
 - MFS (auto)
 - ctfs (auto)
@@ -100,20 +103,17 @@ id: filesystem · domain: os-systems · status: approved
 - tapefs (auto)
 - bcachefs (auto)
 - WAFL | Write Anywhere File Layout (auto)
-- AFS | Andrew File System (auto)
-- CephFS (auto)
-- debugfs (auto)
 - devpts (auto)
 - ramfs (auto)
 - hugetlbfs (auto)
 - lofs (auto)
 - EROFS (auto)
-- F2FS | Flash-Friendly File System (auto)
 - virtiofs (auto)
-- JFFS2 (auto)
 - tracefs (auto)
 - vboxsf (auto)
 - GPFS | IBM Spectrum Scale | Spectrum Scale (auto)
+- bindfs (auto)
+- cramfs (auto)
 
 ## Bit Flip
 - spufs

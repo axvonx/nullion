@@ -22,12 +22,12 @@ id: non-cryptographic-hash-function · domain: data-graphics-algorithms · statu
 
 ## Memory leak
 - CityHash | City | CityCrc (auto)
+- SHA-3 (auto)
 
 ## Race condition
-- SHA-3 (auto)
-- FarmHash | farmhash-c (auto)
 - BLAKE2 | blake2b | blake2s (auto)
 - FNV-1 (auto)
+- RIPEMD | rmd128 | rmd160 | rmd256 | RIPEMD-128 | RIPEMD-160 | RIPEMD-256 (auto)
 
 ## Heisenbug
 - Chaskey (auto)
@@ -70,7 +70,6 @@ id: non-cryptographic-hash-function · domain: data-graphics-algorithms · statu
 - Fletcher's checksum | Fletcher-16 | Fletcher-32 (auto)
 - PJW hash | ELF hash (auto)
 - FxHash (auto)
-- RIPEMD | rmd128 | rmd160 | rmd256 | RIPEMD-128 | RIPEMD-160 | RIPEMD-256 (auto)
 - HighwayHash (auto)
 - SpookyHash | Spooky | SpookyV2 (auto)
 - lookup3 | Jenkins hash | one-at-a-time (auto)
@@ -88,6 +87,7 @@ id: non-cryptographic-hash-function · domain: data-graphics-algorithms · statu
 - VMAC (auto)
 - fasthash (auto)
 - MUM | mum_v3 | MUM-hash (auto)
+- FarmHash | farmhash-c (auto)
 
 ## Bit Flip
 - MeowHash | meow_hash_x64_aesni

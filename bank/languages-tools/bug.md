@@ -59,6 +59,7 @@ id: bug · domain: languages-tools · status: approved
 - Command injection | OS command injection | shell injection (auto)
 - Double-checked locking (auto)
 - Mass assignment | AutoBinding (auto)
+- XXE (auto)
 
 ## Race condition
 - TOCTOU | time-of-check to time-of-use
@@ -69,9 +70,9 @@ id: bug · domain: languages-tools · status: approved
 - Billion laughs attack | XML bomb | XEE (auto)
 - Deserialization of untrusted data | PHP object injection (auto)
 - Open redirect | cross-site redirect | cross-domain redirect | unvalidated redirect (auto)
-- XXE (auto)
 - Server-side request forgery | SSRF | XSPA (auto)
 - Higgs-bugson (auto)
+- Remote file inclusion | remote file include | RFI | local file inclusion (auto)
 
 ## Heisenbug
 - Mandelbug
@@ -89,7 +90,6 @@ id: bug · domain: languages-tools · status: approved
 - Unchecked return value (auto)
 - Resource exhaustion | uncontrolled resource consumption (auto)
 - NoSQL injection | NoSQLi (auto)
-- Remote file inclusion | remote file include | RFI | local file inclusion (auto)
 - Insecure direct object reference | IDOR (auto)
 - Tabnabbing (auto)
 - HTTP request splitting | HTTP response splitting (auto)

@@ -16,9 +16,10 @@ id: post-quantum-signature-scheme · domain: hardware-security-history · status
 ## Memory leak
 - LESS (auto)
 - Wave (auto)
+- LMS | Leighton-Micali Signature (auto)
 
 ## Race condition
-- LMS | Leighton-Micali Signature (auto)
+- Merkle signature scheme | MSS (auto)
 
 ## Heisenbug
 - CROSS (auto)
@@ -58,7 +59,6 @@ id: post-quantum-signature-scheme · domain: hardware-security-history · status
 - BLISS | Bimodal Lattice Signature Scheme (auto)
 - HAWK (auto)
 - MEDS (auto)
-- Merkle signature scheme | MSS (auto)
 
 ## Bit Flip
 - SQIsign

@@ -93,10 +93,12 @@ id: design-pattern · domain: languages-tools · status: draft
 - View Helper (auto)
 - BLoC (auto)
 - Servant (auto)
-
-## Race condition
 - Ambassador (auto)
 - Double Dispatch (auto)
+
+## Race condition
+- Identity Map (auto)
+- Presentation Model (auto)
 
 ## Heisenbug
 - Extension Object | Extension Objects (auto)
@@ -127,13 +129,11 @@ id: design-pattern · domain: languages-tools · status: draft
 - Execute Around (auto)
 - Guarded Suspension (auto)
 - Half-Sync/Half-Async (auto)
-- Identity Map (auto)
 - Intercepting Filter (auto)
 - Leader/Followers | Leader-Follower (auto)
 - Metadata Mapping (auto)
 - Object Mother (auto)
 - Optimistic Offline Lock (auto)
-- Presentation Model (auto)
 - Separated Interface (auto)
 - Step Builder (auto)
 - Subclass Sandbox (auto)

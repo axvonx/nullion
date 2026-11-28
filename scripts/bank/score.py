@@ -44,8 +44,10 @@ HEAD = {"off-by-one": 4.4, "npe": 2.0}  # familiarity (0-7) lower bounds; see --
 # Evidence: (clicks per month, Stack Exchange questions, distro families). Any one at or above the level counts.
 # Fitted 2026-11-28 to the owner's target shares, averaged per category (a player sees one category at a time):
 # Off-by-one 4%, Null pointer exception 17%, Memory leak 13%, Race condition 6%, Heisenbug 60% -> got 5/18/12/5/60.
-STRONG = (10000, 100, 15)
-SOME = (3000, 50, 8)
+# Distro families never make evidence strong: packaging shows a thing exists, not that people know it (Debian
+# packages feedbackd and mbpfan everywhere). Refit 2026-11-28 with that: got 5/18/12/5/59.
+STRONG = (10000, 50, None)
+SOME = (3000, 20, 20)
 TIERS = ["off-by-one", "npe", "leak", "race", "heisenbug"]
 HEADINGS = {"off-by-one": "Off-by-one", "npe": "Null pointer exception", "leak": "Memory leak",
             "race": "Race condition", "heisenbug": "Heisenbug"}
@@ -126,9 +128,9 @@ class Evidence:
 
 def evidence_level(e: dict) -> str:
     v = (e["clicks"], e["se"], e["families"])
-    if any(x >= s for x, s in zip(v, STRONG)):
+    if any(s is not None and x >= s for x, s in zip(v, STRONG)):
         return "strong"
-    if any(x >= s for x, s in zip(v, SOME)):
+    if any(s is not None and x >= s for x, s in zip(v, SOME)):
         return "some"
     return "none"
 

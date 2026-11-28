@@ -37,7 +37,6 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 - Thin-film interference (auto)
 - Hatching | cross-hatching | tonal art maps (auto)
 - Halftone shading | halftoning | Ben-Day shading (auto)
-- Reflective shadow maps | RSM (auto)
 
 ## Heisenbug
 - visibility buffer | vbuffer
@@ -94,6 +93,7 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 - ReSTIR | reservoir resampling (auto)
 - Neural shading | neural deferred shading (auto)
 - Relief shading | hillshading | cartographic relief shading (auto)
+- Reflective shadow maps | RSM (auto)
 
 ## Bit Flip
 - Lommel-Seeliger

@@ -35,15 +35,15 @@ id: serialization-format · domain: data-graphics-algorithms · status: approved
 - ASN.1 | Abstract Syntax Notation One (auto)
 - Gob | Go gob | encoding/gob (auto)
 - Hessian | Hessian binary protocol (auto)
-
-## Race condition
 - EDN | Extensible Data Notation (auto)
 - XDR | External Data Representation (auto)
+
+## Race condition
+- Smile | Smile binary JSON (auto)
 
 ## Heisenbug
 - Bencode | BitTorrent bencode (auto)
 - UBJSON | Universal Binary JSON (auto)
-- Smile | Smile binary JSON (auto)
 
 ## Bit Flip
 - Ion | Amazon Ion

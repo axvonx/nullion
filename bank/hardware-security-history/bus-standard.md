@@ -46,13 +46,15 @@ id: bus-standard · domain: hardware-security-history · status: draft
 - LPC (auto)
 - Virtio (auto)
 - DIO (auto)
-- MOST (auto)
-
-## Race condition
-- Memory Stick | memstick (auto)
 - I2S | Inter-IC Sound (auto)
 - SMBus | System Management Bus (auto)
 - UFS (auto)
+
+## Race condition
+- Memory Stick | memstick (auto)
+- MOST (auto)
+- AMBA | Advanced Microcontroller Bus Architecture (auto)
+- 1-Wire | one-wire | Dallas 1-Wire (auto)
 
 ## Heisenbug
 - I3C (auto)
@@ -74,7 +76,6 @@ id: bus-standard · domain: hardware-security-history · status: draft
 - BCMA (auto)
 - SSB (auto)
 - CDX (auto)
-- AMBA | Advanced Microcontroller Bus Architecture (auto)
 - VESA Local Bus | VLB | VL-Bus (auto)
 - Micro Channel | MCA | Micro Channel Architecture | IBM Micro Channel (auto)
 - APB | AMBA APB | Advanced Peripheral Bus (auto)
@@ -87,7 +88,6 @@ id: bus-standard · domain: hardware-security-history · status: draft
 - EISA | Extended Industry Standard Architecture | EISA bus (auto)
 - CardBus (auto)
 - CXL (auto)
-- 1-Wire | one-wire | Dallas 1-Wire (auto)
 - AXI | AMBA AXI | Advanced eXtensible Interface (auto)
 - MCB (auto)
 - RapidIO (auto)

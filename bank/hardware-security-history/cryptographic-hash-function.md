@@ -21,7 +21,6 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 
 ## Memory leak
 - SHA-384 (auto)
-- BLAKE3 (auto)
 - SHA-512/256 (auto)
 - ECHO (auto)
 
@@ -32,6 +31,10 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - BLAKE2b | BLAKE2 (auto)
 - BLAKE | BLAKE-256 | BLAKE-512 (auto)
 - BLAKE2s (auto)
+- BLAKE3 (auto)
+- LSH (auto)
+- RIPEMD-160 | RIPEMD | rmd160 (auto)
+- Tiger (auto)
 
 ## Heisenbug
 - Streebog | streebog_generic | GOST R 34.11-2012 (auto)
@@ -39,7 +42,6 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - Snefru (auto)
 - N-Hash (auto)
 - FORK-256 (auto)
-- LSH (auto)
 - Fugue (auto)
 - Hamsi (auto)
 - Luffa (auto)
@@ -54,12 +56,10 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - Ascon-Hash | Ascon (auto)
 - Xoodyak (auto)
 - RIPEMD-320 (auto)
-- RIPEMD-160 | RIPEMD | rmd160 (auto)
 - MD4 (auto)
 - MD2 (auto)
 - SM3 (auto)
 - MD6 (auto)
-- Tiger (auto)
 - HAVAL (auto)
 - Skein (auto)
 - Groestl | Grøstl (auto)

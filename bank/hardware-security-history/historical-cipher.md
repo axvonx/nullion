@@ -25,9 +25,9 @@ id: historical-cipher · domain: hardware-security-history · status: approved
 
 ## Memory leak
 - Gronsfeld cipher | gronsfeld (auto)
+- Autokey cipher | autokey (auto)
 
 ## Race condition
-- Autokey cipher | autokey (auto)
 - Pigpen cipher | pigpen | Freemason cipher (auto)
 - Baconian cipher | Bacon's cipher | Bacon cipher (auto)
 - Lorenz cipher | Lorenz machine | Lorenz SZ40 | Tunny (auto)

@@ -47,12 +47,12 @@ id: linux-device-node · domain: os-systems · status: approved
 ## Memory leak
 - /dev/ppp (auto)
 - /dev/rfcomm0 | /dev/rfcomm1 (auto)
+- /dev/uinput | uinput (auto)
 
 ## Race condition
 - /dev/btrfs-control (auto)
 - /dev/infiniband/uverbs0 | /dev/infiniband/uverbs1 (auto)
 - /dev/agpgart (auto)
-- /dev/uinput | uinput (auto)
 - /dev/tpm (auto)
 - /dev/psaux (auto)
 - /dev/3dfx (auto)

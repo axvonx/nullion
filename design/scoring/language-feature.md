@@ -1,16 +1,16 @@
 # Scoring: language-feature (Name a programming language feature)
 
-51 answers (Bit Flip and Works on my machine left out); 11 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (10000, 100, 15), some (3000, 50, 8) (clicks/month, Stack Exchange questions, distro families).
+51 answers (Bit Flip and Works on my machine left out); 11 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (10000, 50, None), some (3000, 20, 20) (clicks/month, Stack Exchange questions, distro families).
 
 | tier | new | bank today | of the new, confirmed lines that disagree |
 |---|---|---|---|
-| off-by-one | 24 (47%) | 17 | 0 |
-| npe | 24 (47%) | 30 | 0 |
-| leak | 0 (0%) | 3 | 0 |
-| race | 0 (0%) | 1 | 0 |
-| heisenbug | 3 (6%) | 0 | 0 |
+| off-by-one | 24 (47%) | 24 | 0 |
+| npe | 24 (47%) | 24 | 0 |
+| leak | 0 (0%) | 0 | 0 |
+| race | 0 (0%) | 0 | 0 |
+| heisenbug | 3 (6%) | 3 | 0 |
 
-Same tier as today: 34/51 (67%).
+Same tier as today: 51/51 (100%).
 
 ## Off-by-one (24)
 

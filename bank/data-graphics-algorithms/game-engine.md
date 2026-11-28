@@ -32,19 +32,21 @@ id: game-engine · domain: data-graphics-algorithms · status: approved
 - Stride | Stride Engine | Xenko (auto)
 - MonoGame | MonoGame Framework (auto)
 - RAGE | Rockstar Advanced Game Engine | RAGE Engine (auto)
-- GrimE | GRIM (auto)
 - SAGA (auto)
 - GOB (auto)
 - HUGO (auto)
+- Ren'Py (auto)
 
 ## Race condition
 - id Tech | id Tech 4 | id Tech 7 (auto)
-- Ren'Py (auto)
 - Creation Engine | Bethesda Creation Engine | Creation Engine 2 (auto)
 - Decima | Decima Engine | Guerrilla Decima (auto)
 - Anvil | Anvil Engine | Anvil Next (auto)
 - Infinity Engine | BioWare Infinity Engine (auto)
 - Gamebryo | Gamebryo Engine (auto)
+- GrimE | GRIM (auto)
+- Macromedia Director | Director | Adobe Director (auto)
+- Defold | Defold Engine | Defold game engine (auto)
 
 ## Heisenbug
 - Groovie (auto)
@@ -62,8 +64,6 @@ id: game-engine · domain: data-graphics-algorithms · status: approved
 - DGDS (auto)
 - Tetraedge (auto)
 - NGI (auto)
-- Macromedia Director | Director | Adobe Director (auto)
-- Defold | Defold Engine | Defold game engine (auto)
 - Torque 3D | Torque Game Engine | TGE (auto)
 - Amazon Lumberyard | Lumberyard | Lumberyard Engine (auto)
 - REDengine (auto)

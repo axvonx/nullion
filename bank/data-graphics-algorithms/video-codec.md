@@ -26,14 +26,13 @@ id: video-codec · domain: data-graphics-algorithms · status: draft
 ## Memory leak
 - DFA (auto)
 - Argo (auto)
+- AGM | AmuseGraphics Movie (auto)
 
 ## Race condition
-- AVS2 | davs2 | libxavs2 (auto)
 - DV | Digital Video | DV25 (auto)
 - VVC | H.266 | Versatile Video Coding | h266 | libvvenc (auto)
 - Bink Video | Bink (auto)
-- AGM | AmuseGraphics Movie (auto)
-- Mimic (auto)
+- AVS | Audio Video Standard | cavs | Chinese AVS (auto)
 
 ## Heisenbug
 - 4X Movie | 4XM (auto)
@@ -100,7 +99,6 @@ id: video-codec · domain: data-graphics-algorithms · status: draft
 - CineForm | CineForm HD | CFHD (auto)
 - Daala (auto)
 - Apple Intermediate Codec | AIC (auto)
-- AVS | Audio Video Standard | cavs | Chinese AVS (auto)
 - AVS3 | libuavs3d (auto)
 - Dxtory (auto)
 - DXV | Resolume DXV (auto)
@@ -122,6 +120,8 @@ id: video-codec · domain: data-graphics-algorithms · status: draft
 - ASV (auto)
 - Aura (auto)
 - LEAD Video (auto)
+- AVS2 | davs2 | libxavs2 (auto)
+- Mimic (auto)
 
 ## Bit Flip
 - Escape 130

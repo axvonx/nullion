@@ -37,11 +37,11 @@ id: kubernetes-resource-kind · domain: os-systems · status: approved
 - Endpoints | endpoints-v1 | ep (auto)
 - Event | event-v1 | ev (auto)
 - LimitRange | limit-range-v1 | limits (auto)
-- StorageClass | storage-class-v1 | sc (auto)
 - IPAddress | ip-address-v1 (auto)
+- Workload | workload-v1beta1 (auto)
 
 ## Race condition
-- Workload | workload-v1beta1 (auto)
+- CSIDriver | csi-driver-v1 (auto)
 
 ## Heisenbug
 - MutatingAdmissionPolicyBinding | mutating-admission-policy-binding-v1 (auto)
@@ -77,9 +77,9 @@ id: kubernetes-resource-kind · domain: os-systems · status: approved
 - PodTemplate | pod-template-v1 (auto)
 - ResourceClaim | resource-claim-v1 (auto)
 - PodGroup | pod-group-v1beta1 (auto)
-- CSIDriver | csi-driver-v1 (auto)
 - CSINode | csi-node-v1 (auto)
 - VolumeAttachment | volume-attachment-v1 (auto)
+- StorageClass | storage-class-v1 | sc (auto)
 
 ## Bit Flip
 - FlowSchema | flow-schema-v1

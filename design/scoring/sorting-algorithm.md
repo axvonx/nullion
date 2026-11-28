@@ -1,16 +1,16 @@
 # Scoring: sorting-algorithm (Name a sorting algorithm)
 
-48 answers (Bit Flip and Works on my machine left out); 3 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (10000, 100, 15), some (3000, 50, 8) (clicks/month, Stack Exchange questions, distro families).
+48 answers (Bit Flip and Works on my machine left out); 3 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (10000, 50, None), some (3000, 20, 20) (clicks/month, Stack Exchange questions, distro families).
 
 | tier | new | bank today | of the new, confirmed lines that disagree |
 |---|---|---|---|
 | off-by-one | 5 (10%) | 5 | 0 |
-| npe | 6 (12%) | 4 | 3 |
+| npe | 6 (12%) | 3 | 3 |
 | leak | 0 (0%) | 3 | 0 |
-| race | 0 (0%) | 13 | 0 |
-| heisenbug | 37 (77%) | 23 | 3 |
+| race | 0 (0%) | 3 | 0 |
+| heisenbug | 37 (77%) | 34 | 3 |
 
-Same tier as today: 31/48 (65%).
+Same tier as today: 42/48 (88%).
 
 ## Off-by-one (5)
 

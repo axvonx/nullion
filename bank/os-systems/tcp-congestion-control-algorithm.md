@@ -16,7 +16,6 @@ id: tcp-congestion-control-algorithm · domain: os-systems · status: approved
 - NewReno | cc_newreno | TCP NewReno (auto)
 
 ## Memory leak
-- PCC | Performance-oriented Congestion Control | PCC Vivace (auto)
 - Swift | Swift congestion control (auto)
 
 ## Heisenbug
@@ -42,6 +41,7 @@ id: tcp-congestion-control-algorithm · domain: os-systems · status: approved
 - Scalable TCP | tcp_scalable | STCP (auto)
 - TCP Westwood | Westwood (auto)
 - Hybla | TCP Hybla (auto)
+- PCC | Performance-oriented Congestion Control | PCC Vivace (auto)
 
 ## Bit Flip
 - CDG | tcp_cdg | cc_cdg | CAIA Delay-Gradient

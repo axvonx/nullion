@@ -25,8 +25,6 @@ id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
 - self-organizing map | SOM | Kohonen map | Kohonen network (auto)
 - CHAMELEON (auto)
 - canopy clustering | Canopy (auto)
-
-## Race condition
 - CLIQUE | Clustering In Quest (auto)
 
 ## Heisenbug

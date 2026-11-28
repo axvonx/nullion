@@ -51,23 +51,22 @@ id: compiler · domain: languages-tools · status: approved
 - Nim | nim compiler (auto)
 - CCL | Clozure CL (auto)
 - ECL | Embeddable Common Lisp (auto)
-- GCL | GNU Common Lisp (auto)
 - GNAT | GNAT Ada | GNAT Ada compiler (auto)
-- DirectXShaderCompiler (auto)
 - XL C (auto)
-- Binaryen (auto)
 - Yosys (auto)
 - Clasp (auto)
 - RML (auto)
+- Open Watcom | Watcom (auto)
+- kotlinc | Kotlin compiler | Kotlin/JVM compiler (auto)
 
 ## Race condition
-- ABCL | Armed Bear Common Lisp (auto)
-- Open Watcom | Watcom (auto)
 - MLton (auto)
-- Factor (auto)
 - Idris 2 (auto)
-- kotlinc | Kotlin compiler | Kotlin/JVM compiler (auto)
-- cproc (auto)
+- GCL | GNU Common Lisp (auto)
+- Binaryen (auto)
+- Gambit | Gambit Scheme (auto)
+- DJGPP (auto)
+- Vyper (auto)
 
 ## Heisenbug
 - arocc (auto)
@@ -82,10 +81,11 @@ id: compiler · domain: languages-tools · status: approved
 - Open64 (auto)
 - mypyc | mypy compiler (auto)
 - CMUCL | CMU Common Lisp (auto)
-- Gambit | Gambit Scheme (auto)
 - Codon (auto)
-- DJGPP (auto)
-- Vyper (auto)
+- DirectXShaderCompiler (auto)
+- ABCL | Armed Bear Common Lisp (auto)
+- Factor (auto)
+- cproc (auto)
 
 ## Bit Flip
 - mrustc

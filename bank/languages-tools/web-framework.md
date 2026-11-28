@@ -87,12 +87,16 @@ id: web-framework · domain: languages-tools · status: draft
 - Enyo | enyo_backbone (auto)
 - Reagent (auto)
 - Riot.js | riotjs (auto)
-
-## Race condition
 - Falcon (auto)
 - Javalin (auto)
 - Ratpack (auto)
 - Proteus (auto)
+
+## Race condition
+- Gemini (auto)
+- Knockback.js | knockback (auto)
+- Armeria (auto)
+- Light-4j | light-java (auto)
 
 ## Heisenbug
 - mrhttp (auto)
@@ -106,7 +110,6 @@ id: web-framework · domain: languages-tools · status: draft
 - Revenj | revenj-jvm (auto)
 - Voovan (auto)
 - ActFramework | act (auto)
-- Gemini (auto)
 - HServer | hserver-business (auto)
 - Magician | magician-io (auto)
 - tio-boot (auto)
@@ -114,7 +117,6 @@ id: web-framework · domain: languages-tools · status: draft
 - Wizzardo HTTP (auto)
 - Duel (auto)
 - jsblocks (auto)
-- Knockback.js | knockback (auto)
 - Lavaca | lavaca_require (auto)
 - socketify.py (auto)
 - Bayou (auto)
@@ -129,10 +131,8 @@ id: web-framework · domain: languages-tools · status: draft
 - Responder (auto)
 - Robyn (auto)
 - ActiveJ (auto)
-- Armeria (auto)
 - Avaje Jex (auto)
 - Jooby (auto)
-- Light-4j | light-java (auto)
 - MuServer (auto)
 - Rapidoid (auto)
 - RestExpress (auto)

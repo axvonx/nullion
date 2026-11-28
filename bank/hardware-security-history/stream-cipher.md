@@ -18,15 +18,14 @@ id: stream-cipher · domain: hardware-security-history · status: approved
 - Py (auto)
 - Turing (auto)
 - LEX (auto)
+- SEAL (auto)
+- Helix (auto)
 
 ## Race condition
 - XSalsa20 (auto)
 - ChaCha8 (auto)
 - ChaCha12 (auto)
-- Fruit (auto)
 - XChaCha20 (auto)
-- SEAL (auto)
-- Helix (auto)
 
 ## Heisenbug
 - SNOW 2.0 (auto)
@@ -69,6 +68,7 @@ id: stream-cipher · domain: hardware-security-history · status: approved
 - Crypto1 (auto)
 - Spritz (auto)
 - Content Scramble System | CSS cipher (auto)
+- Fruit (auto)
 
 ## Bit Flip
 - Lorenz cipher | SZ40 | SZ42

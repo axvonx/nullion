@@ -33,14 +33,10 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 
 ## Memory leak
 - OProfile (auto)
-- apitrace (auto)
-- blktrace (auto)
 - javathreads (auto)
 
 ## Race condition
-- KernelShark (auto)
-- uftrace (auto)
-- fatrace (auto)
+- rr (auto)
 
 ## Heisenbug
 - biolatpcts (auto)
@@ -104,7 +100,6 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 - uprobes (auto)
 - Tracee (auto)
 - profile (auto)
-- rr (auto)
 - ply (auto)
 - ktap (auto)
 - pwru | Packet, where are you? (auto)
@@ -194,6 +189,11 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 - xfsslower (auto)
 - zfsdist (auto)
 - zfsslower (auto)
+- apitrace (auto)
+- blktrace (auto)
+- KernelShark (auto)
+- uftrace (auto)
+- fatrace (auto)
 
 ## Bit Flip
 - criticalstat

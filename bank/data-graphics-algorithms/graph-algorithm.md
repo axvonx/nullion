@@ -32,6 +32,7 @@ id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 - d-separation (auto)
 - Kahn's algorithm | Kahn (auto)
 - Welsh-Powell algorithm (auto)
+- Edmonds-Karp algorithm | Edmonds-Karp (auto)
 
 ## Heisenbug
 - Christofides algorithm (auto)
@@ -53,7 +54,6 @@ id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 - SPFA | Shortest Path Faster Algorithm (auto)
 - Borůvka's algorithm | Boruvka (auto)
 - Kosaraju's algorithm | Kosaraju (auto)
-- Edmonds-Karp algorithm | Edmonds-Karp (auto)
 - Dinic's algorithm | Dinic | Dinitz's algorithm (auto)
 - push-relabel algorithm | Goldberg-Tarjan | Push-relabel (auto)
 - Hopcroft-Karp algorithm | Hopcroft-Karp (auto)

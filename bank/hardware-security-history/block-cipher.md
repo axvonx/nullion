@@ -16,16 +16,15 @@ id: block-cipher · domain: hardware-security-history · status: approved
 
 ## Memory leak
 - ARIA | aria_generic (auto)
-- KASUMI | A5/3 (auto)
 - IDEA | International Data Encryption Algorithm (auto)
 - SEED (auto)
 - Square (auto)
+- Magenta (auto)
+- REDOC (auto)
 
 ## Race condition
 - GOST 28147-89 | Magma | GOST (auto)
 - MARS (auto)
-- Magenta (auto)
-- REDOC (auto)
 
 ## Heisenbug
 - Anubis (auto)
@@ -69,6 +68,7 @@ id: block-cipher · domain: hardware-security-history · status: approved
 - XTEA | eXtended TEA (auto)
 - XXTEA | Corrected Block TEA (auto)
 - SKINNY (auto)
+- KASUMI | A5/3 (auto)
 
 ## Bit Flip
 - Khufu

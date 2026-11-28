@@ -31,6 +31,7 @@ id: gradient-based-optimizer · domain: data-graphics-algorithms · status: appr
 ## Race condition
 - BFGS | Broyden-Fletcher-Goldfarb-Shanno (auto)
 - Gauss-Newton | Gauss-Newton algorithm (auto)
+- LARS | Layer-wise Adaptive Rate Scaling (auto)
 
 ## Heisenbug
 - Schedule-Free AdamW (auto)
@@ -57,7 +58,6 @@ id: gradient-based-optimizer · domain: data-graphics-algorithms · status: appr
 - AMSGrad (auto)
 - AdaBelief (auto)
 - Sophia | Second-order Clipped Stochastic Optimization (auto)
-- LARS | Layer-wise Adaptive Rate Scaling (auto)
 - K-FAC (auto)
 - Hessian-free optimization (auto)
 - signSGD (auto)

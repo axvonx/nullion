@@ -25,18 +25,18 @@ id: graphics-api · domain: data-graphics-algorithms · status: draft
 - SYCL | Khronos SYCL (auto)
 - RenderScript | Android RenderScript (auto)
 - Stage3D | Flash Stage3D | Adobe Stage3D (auto)
-
-## Race condition
 - DirectCompute | DirectX Compute (auto)
 - DirectDraw | DirectDraw API | DDraw (auto)
+
+## Race condition
 - HIP | AMD HIP | ROCm HIP (auto)
+- OptiX | NVIDIA OptiX (auto)
 
 ## Heisenbug
 - GX2 | Wii U GX2 | Nintendo GX2 (auto)
 - NVN | Nintendo NVN (auto)
 - GNM | libGNM | PlayStation GNM (auto)
 - DirectX Raytracing | DXR | D3D12 Raytracing (auto)
-- OptiX | NVIDIA OptiX (auto)
 - LibGCM | PS3 LibGCM (auto)
 - GXM | libgxm | sceGxm | Vita GXM | PS Vita GXM (auto)
 - GX | libogc GX (auto)
