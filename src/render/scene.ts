@@ -298,7 +298,19 @@ export class Scene {
   private swayPhase = 0;
   private bubbles: { x: number; y: number; age: number }[] = [];
   private vignette = { on: false, at: -Infinity };
-  private vignetteMaxBlock = 8;
+  private vignetteCfg = {
+    maxBlock: 8,
+    cxFrac: 0.5,
+    cyFrac: null as number | null,
+    bar: false,
+    barAlpha: 0,
+    barLeft: 0.14,
+    barRight: 0.86,
+    dotCx: 1.1,
+    dotCy: 0.46,
+    dotAlpha: 0,
+  };
+  private cursorHidden = false;
   /**
    * The frame as the reveal opened. The black region (the core and the darker half of its feather) samples this,
    * not the live frame, so nothing moving behind the reveal (a held jiggle, critters, ambience) flickers through it.
@@ -570,17 +582,60 @@ export class Scene {
    * The tier reveal's dim: a soft radial vignette over the middle of the screen, under the cursor. It eases in and
    * out over VIGNETTE_MS; under reduced motion it is a static dim that simply appears and goes.
    */
-  setVignette(on: boolean, opts?: { maxBlock?: number }) {
-    if (on === this.vignette.on && (!on || (opts?.maxBlock ?? 8) === this.vignetteMaxBlock)) return;
+  setVignette(
+    on: boolean,
+    opts?: {
+      maxBlock?: number;
+      cyFrac?: number;
+      bar?: boolean;
+      barAlpha?: number;
+      barLeft?: number;
+      barRight?: number;
+      dotCx?: number;
+      dotCy?: number;
+      dotAlpha?: number;
+    },
+  ) {
     if (on) {
-      this.vignetteMaxBlock = opts?.maxBlock ?? 8;
+      const next = {
+        maxBlock: opts?.maxBlock ?? 8,
+        cxFrac: 0.5,
+        cyFrac: opts?.cyFrac ?? null,
+        bar: opts?.bar ?? false,
+        barAlpha: opts?.barAlpha ?? 1,
+        barLeft: opts?.barLeft ?? 0.14,
+        barRight: opts?.barRight ?? 0.86,
+        dotCx: opts?.dotCx ?? 0.5,
+        dotCy: opts?.dotCy ?? 0.46,
+        dotAlpha: opts?.dotAlpha ?? 0,
+      };
+      if (this.vignette.on) {
+        this.vignetteCfg = next;
+        return;
+      }
+      this.vignetteCfg = next;
       this.revealStill = undefined; // retaken on the reveal's first frame
       this.revealLive = undefined;
+    } else if (!this.vignette.on) {
+      return;
     }
     const now = performance.now();
     // Reversing mid-fade starts from where the fade got to.
     const k = Math.max(0, Math.min(1, (now - this.vignette.at) / VIGNETTE_MS));
     this.vignette = { on, at: now - (1 - k) * VIGNETTE_MS };
+  }
+
+  /** Update the stage bar and Dottybase's smooth lagging personal shadow without restarting the vignette fade. */
+  setVignetteStage(barAlpha: number, dotCx: number, dotCy: number, dotAlpha: number) {
+    this.vignetteCfg.barAlpha = barAlpha;
+    this.vignetteCfg.dotCx = dotCx;
+    this.vignetteCfg.dotCy = dotCy;
+    this.vignetteCfg.dotAlpha = dotAlpha;
+  }
+
+  /** Temporarily hide the scrolling virtual cursor (e.g. while Dottybase takes center stage). */
+  setCursorHidden(hidden: boolean) {
+    this.cursorHidden = hidden;
   }
 
   /** Scale background simulation delta-time (e.g. 0.12 for bullet-time during table-check). */
@@ -643,7 +698,8 @@ export class Scene {
     if (a <= 0) return;
     const { W, H } = this;
     const ctx = this.ctx;
-    const bs = Math.min(this.vignetteMaxBlock, bufferBlock(a));
+    const cfg = this.vignetteCfg;
+    const bs = Math.min(cfg.maxBlock, bufferBlock(a));
     const img = ctx.getImageData(0, 0, W, H);
     const d = img.data;
     // Blocks sample copies (the still and the floored live frame) while the buffer is rewritten in place.
@@ -655,28 +711,54 @@ export class Scene {
       this.revealLiveAt = now;
     }
     const live = this.revealLive;
-    const cx = Math.round(W / 2);
-    const cy = Math.round(this.cursorY);
-    // Compact solid-black core hugs the tier name & answer text; outside it, darkness feathers quickly across
-    // all 16 Bayer levels to a light outer stipple so the pixel-art world remains clearly visible around the edges.
+    const cx = Math.round(W * cfg.cxFrac);
+    const cy = cfg.cyFrac !== null ? Math.round(H * cfg.cyFrac) : Math.round(this.cursorY);
+    // Bar mode (Dottybase): a modest centered stage band with side margins + her own smooth lagging shadow.
     const innerW = Math.min(Math.round(W * 0.28), 118);
-    const innerH = Math.round(H * 0.19);
-    const featherX = Math.max(32, Math.round(W * 0.16));
-    const featherY = Math.max(26, Math.round(H * 0.15));
-    const outerDim = 0.12;
+    const innerH = cfg.bar ? Math.round(H * 0.23) : Math.round(H * 0.19);
+    const featherX = cfg.bar ? Math.max(36, Math.round(W * 0.15)) : Math.max(32, Math.round(W * 0.16));
+    const featherY = cfg.bar ? Math.max(26, Math.round(H * 0.13)) : Math.max(26, Math.round(H * 0.15));
+    const barXL = cfg.barLeft * W;
+    const barXR = cfg.barRight * W;
+    const dotX = cfg.dotCx * W;
+    const dotY = cfg.dotCy * H;
+    const dotRx = Math.min(Math.round(W * 0.12), 54);
+    const dotRy = Math.round(H * 0.14);
+    const dotFx = Math.max(24, Math.round(W * 0.1));
+    const dotFy = Math.max(22, Math.round(H * 0.1));
+    const outerDim = cfg.bar ? 0.08 : 0.12;
     const quantised = look('palette') === 'per-layer';
     for (let y = 0; y < H; y++) {
       const sy = Math.min(H - 1, y - (y % bs) + (bs >> 1));
       const dy = Math.max(0, (Math.abs(y - cy) - innerH) / featherY);
+      const ddy = cfg.bar && cfg.dotAlpha > 0 ? Math.max(0, (Math.abs(y - dotY) - dotRy) / dotFy) : 1;
       const bRow = (y & 3) * 4;
       for (let x = 0; x < W; x++) {
         const sx = Math.min(W - 1, x - (x % bs) + (bs >> 1));
         const si = (sy * W + sx) * 4;
         const i = (y * W + x) * 4;
-        const dx = Math.max(0, (Math.abs(x - cx) - innerW) / featherX);
-        const t = Math.min(1, Math.hypot(dx, dy));
-        const smooth = t * t * (3 - 2 * t);
-        const dark = (1 - smooth * (1 - outerDim)) * a;
+        let smooth: number;
+        let dark: number;
+        if (cfg.bar) {
+          const bdx = Math.max(x < barXL ? (barXL - x) / featherX : 0, x > barXR ? (x - barXR) / featherX : 0);
+          const bt = Math.min(1, Math.hypot(bdx, dy));
+          const bSmooth = bt * bt * (3 - 2 * bt);
+          const barDark = (1 - bSmooth * (1 - outerDim)) * cfg.barAlpha;
+          let dotDark = 0;
+          if (cfg.dotAlpha > 0) {
+            const ddx = Math.max(0, (Math.abs(x - dotX) - dotRx) / dotFx);
+            const dt = Math.min(1, Math.hypot(ddx, ddy));
+            const dSmooth = dt * dt * (3 - 2 * dt);
+            dotDark = (1 - dSmooth) * cfg.dotAlpha;
+          }
+          dark = Math.max(barDark, dotDark) * a;
+          smooth = 1 - Math.max(barDark, dotDark);
+        } else {
+          const dx = Math.max(0, (Math.abs(x - cx) - innerW) / featherX);
+          const t = Math.min(1, Math.hypot(dx, dy));
+          smooth = t * t * (3 - 2 * t);
+          dark = (1 - smooth * (1 - outerDim)) * a;
+        }
         // The black region (core and the darker half of the feather) shows the still frame; the world flickers on
         // only outside it.
         const from = smooth < 0.5 ? still : live;
@@ -1111,9 +1193,11 @@ export class Scene {
     }
     // The reveal's vignette dims the middle beneath the cursor pass, so the cursor and its reaction play in front of it.
     this.drawRevealBuffer(now, reduced, camY, stack);
-    this.drawBubbles(swayDt, speed, reduced, layer.id);
-    this.drawCursor(now, layer.id, reduced);
-    this.drawPops(now, layer.id, reduced);
+    if (!this.cursorHidden) {
+      this.drawBubbles(swayDt, speed, reduced, layer.id);
+      this.drawCursor(now, layer.id, reduced);
+      this.drawPops(now, layer.id, reduced);
+    }
   }
 
   /** Everything over the finished picture: colour depth, banner, manual overlay, ghosting, scanlines, tearing, crossing effects. */
