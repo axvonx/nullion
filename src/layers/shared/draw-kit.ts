@@ -74,16 +74,49 @@ export function frame(ctx: Ctx, x: number, y: number, w: number, h: number, col:
   rect(ctx, x + w - 1, y, 1, h, col);
 }
 
-/** Monumental rotating pixel cogwheel with hub, spokes, rivets, and rim highlight. */
-export function giantCog(ctx: Ctx, cx: number, cy: number, rad: number, ang: number, body: string, hole: string, rim: string) {
-  const teeth = Math.max(12, Math.floor(rad * 0.44));
-  for (let k = 0; k < teeth; k++) {
-    const a = ang + (k * TAU) / teeth;
-    const tx = cx + Math.cos(a) * (rad + 4);
-    const ty = cy + Math.sin(a) * (rad + 4);
-    rect(ctx, tx - 3, ty - 3, 6, 6, body);
-    px(ctx, tx - 2, ty - 2, rim);
+/** Monumental rotating pixel cogwheel with radially-aligned tapered teeth, hub, spokes, rivets, and rim highlight. */
+export function giantCog(
+  ctx: Ctx,
+  cx: number,
+  cy: number,
+  rad: number,
+  ang: number,
+  body: string,
+  hole: string,
+  rim: string,
+  teeth = Math.max(12, R(rad * 0.42)),
+) {
+  const toothH = 6;
+  const outerR = rad + toothH;
+  const innerR = rad - 1;
+  const outerR2 = outerR * outerR;
+  const innerR2 = innerR * innerR;
+  const pitch = TAU / teeth;
+  const bodyCol = c(body);
+  const rimCol = c(rim);
+  const cxR = R(cx);
+  const cyR = R(cy);
+
+  // Rasterize radially-aligned, tapered gear teeth seamlessly fused to the rim
+  for (let dy = -outerR; dy <= outerR; dy++) {
+    const dy2 = dy * dy;
+    const maxDx = Math.floor(Math.sqrt(outerR2 - dy2));
+    for (let dx = -maxDx; dx <= maxDx; dx++) {
+      const r2 = dx * dx + dy2;
+      if (r2 < innerR2 || r2 > outerR2) continue;
+      const r = Math.sqrt(r2);
+      const frac = Math.max(0, (r - rad) / toothH);
+      const halfW = 0.27 - frac * 0.09; // trapezoidal taper: wider at root, narrower at tip
+      const u = mod((Math.atan2(dy, dx) - ang) / pitch, 1);
+      const dist = Math.abs(u - 0.5);
+      if (dist <= halfW) {
+        const isEdge = r >= outerR - 1.1 || dist >= halfW - 0.045;
+        ctx.fillStyle = isEdge ? rimCol : bodyCol;
+        ctx.fillRect(cxR + dx, cyR + dy, 1, 1);
+      }
+    }
   }
+
   disc(ctx, cx, cy, rad, body);
   ring(ctx, cx, cy, rad - 2, rim);
   ring(ctx, cx, cy, Math.max(8, R(rad * 0.66)), hole);

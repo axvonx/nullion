@@ -239,10 +239,13 @@ const PROPS: EntityDef[] = [
     p.r(1, 2, 16, 12, G1);
     p.r(1, 2, 16, 1, G2);
     p.r(3, 4, 12, 8, G0);
-    for (const cx of [6, 11]) {
+    for (const [cx, diag] of [[6, false], [11, true]] as const) {
       p.disc(cx, 8, 3, G2);
       p.disc(cx, 8, 1, G0);
-      for (const [dx, dy] of [[0, -3], [0, 3], [-3, 0], [3, 0]] as const) p.p(cx + dx, 8 + dy, G3);
+      const pts = diag
+        ? ([[-2, -2], [2, -2], [-2, 2], [2, 2]] as const)
+        : ([[0, -3], [0, 3], [-3, 0], [3, 0]] as const);
+      for (const [dx, dy] of pts) p.p(cx + dx, 8 + dy, G3);
     }
     p.r(6, 14, 6, 3, G1);
     p.r(3, 17, 12, 1, G2);

@@ -60,7 +60,7 @@ const PROPS: EntityDef[] = [
     }
     p.disc(12, 6, 3, K2);
     p.p(12, 6, K0);
-    for (let k = 0; k < 6; k++) p.p(12 + R(Math.cos((k * TAU) / 6) * 5), 6 + R(Math.sin((k * TAU) / 6) * 5), K3);
+    for (let k = 0; k < 6; k++) p.p(12 + R(Math.cos((k * TAU) / 6) * 4), 6 + R(Math.sin((k * TAU) / 6) * 4), K3);
   }),
   ent('r2-safe', [[13, 13]], (p) => {
     p.r(0, 0, 13, 12, K2);

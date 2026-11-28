@@ -10,13 +10,19 @@ import type { LayerArt } from './types';
 import { userspace } from './userspace';
 
 // Kernel (CGA 16): the machine room. Gears, wheels, cabinets, bells and logs.
-function cog(p: Pen, cx: number, cy: number, r: number, a: number, body: string, hi: string) {
-  p.disc(cx, cy, r - 1, body);
-  const teeth = Math.max(6, r + 3);
-  for (let k = 0; k < teeth; k++) {
-    const ang = a + (k * TAU) / teeth;
-    p.r(cx + R(Math.cos(ang) * r) - 0, cy + R(Math.sin(ang) * r), 1, 1, body);
+function cog(p: Pen, cx: number, cy: number, r: number, a: number, body: string, hi: string, teeth = Math.max(6, R(r * 1.1))) {
+  const inner = r - 2;
+  const outer = r + 1;
+  const pitch = TAU / teeth;
+  for (let dy = -outer; dy <= outer; dy++) {
+    for (let dx = -outer; dx <= outer; dx++) {
+      const d = Math.hypot(dx, dy);
+      if (d < inner || d > outer) continue;
+      const u = mod((Math.atan2(dy, dx) - a) / pitch, 1);
+      if (Math.abs(u - 0.5) <= 0.24) p.p(cx + dx, cy + dy, body);
+    }
   }
+  p.disc(cx, cy, r - 1, body);
   p.disc(cx, cy, Math.max(0, r - 4), C.k);
   p.p(cx, cy, hi);
 }
@@ -403,9 +409,14 @@ const ANCHORS: EntityDef[] = [
           const fh = 4 + R((Math.sin(t * 6 + k * 1.7) * 0.5 + 0.5) * 8);
           p.r(15 + k * 4.4, 52 - fh, 3, fh, k % 2 ? C.R : C.Y);
         }
-        cog(p, 14, 13, 11, t * 0.6, C.l, C.W);
-        cog(p, 33, 18, 7, -t * 0.94, C.n, C.Y);
-        p.r(33, 25, 1, 3, C.d);
+        const n1 = 12;
+        const n2 = 8;
+        const phi = Math.atan2(17 - 13, 31 - 14);
+        const a1 = t * 0.6;
+        const a2 = phi + Math.PI + (Math.PI - n1 * (a1 - phi)) / n2;
+        cog(p, 14, 13, 10, a1, C.l, C.W, n1);
+        cog(p, 31, 17, 6, a2, C.n, C.Y, n2);
+        p.r(31, 24, 1, 4, C.d);
       },
       noFlip: true,
     },
@@ -497,10 +508,24 @@ export const kernel: LayerArt = {
         rect(ctx, 0, py, W, 2, '#ff5555');
         for (let x = 20; x < W; x += 40) rect(ctx, x, py - 2, 4, 12, '#555555');
       }
-      // 3 huge interlocking flywheel gears covering left, center-left, and right
-      giantCog(ctx, cx - 76, cy - 8, 52, t * 0.22, '#555555', '#000000', '#aaaaaa');
-      giantCog(ctx, cx + 22, cy + 12, 42, -t * 0.27, '#aa5500', '#000000', '#ffff55');
-      giantCog(ctx, cx + 106, cy - 14, 34, t * 0.34, '#555555', '#000000', '#aaaaaa');
+      // 3 huge interlocking flywheel gears with matched circular pitch and exact meshing phase
+      const g1x = cx - 76;
+      const g1y = cy - 8;
+      const g2x = cx + 22;
+      const g2y = cy + 12;
+      const g3x = cx + 100;
+      const g3y = cy - 11;
+      const n1 = 22;
+      const n2 = 18;
+      const n3 = 15;
+      const phi12 = Math.atan2(g2y - g1y, g2x - g1x);
+      const phi23 = Math.atan2(g3y - g2y, g3x - g2x);
+      const a1 = t * 0.22;
+      const a2 = phi12 + Math.PI + (Math.PI - n1 * (a1 - phi12)) / n2;
+      const a3 = phi23 + Math.PI + (Math.PI - n2 * (a2 - phi23)) / n3;
+      giantCog(ctx, g1x, g1y, 52, a1, '#555555', '#000000', '#aaaaaa', n1);
+      giantCog(ctx, g2x, g2y, 42, a2, '#aa5500', '#000000', '#ffff55', n2);
+      giantCog(ctx, g3x, g3y, 34, a3, '#555555', '#000000', '#aaaaaa', n3);
       // Traveling pressure bubbles along the bottom steam pipe
       const bx = mod(t * 36, W);
       rect(ctx, bx, bot - 18, 8, 3, '#ffff55');
