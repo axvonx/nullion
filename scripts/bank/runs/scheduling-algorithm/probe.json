@@ -1,0 +1,524 @@
+[
+ {
+  "name": "First Come First Served",
+  "aliases": [
+   "FCFS",
+   "first-come first-served",
+   "first come, first served"
+  ],
+  "sub_kind": "textbook CPU",
+  "depth": "common"
+ },
+ {
+  "name": "Round Robin",
+  "aliases": [
+   "RR",
+   "round-robin"
+  ],
+  "sub_kind": "textbook CPU",
+  "depth": "common"
+ },
+ {
+  "name": "Shortest Job First",
+  "aliases": [
+   "SJF",
+   "shortest job next",
+   "SJN"
+  ],
+  "sub_kind": "textbook CPU",
+  "depth": "common"
+ },
+ {
+  "name": "Shortest Remaining Time First",
+  "aliases": [
+   "SRTF",
+   "shortest remaining time"
+  ],
+  "sub_kind": "textbook CPU",
+  "depth": "common"
+ },
+ {
+  "name": "Priority Scheduling",
+  "aliases": [
+   "priority scheduler",
+   "priority-based scheduling"
+  ],
+  "sub_kind": "textbook CPU",
+  "depth": "common"
+ },
+ {
+  "name": "Multilevel Feedback Queue",
+  "aliases": [
+   "MLFQ",
+   "multi-level feedback queue"
+  ],
+  "sub_kind": "textbook CPU",
+  "depth": "common"
+ },
+ {
+  "name": "Multilevel Queue Scheduling",
+  "aliases": [
+   "multi-level queue",
+   "multilevel queue"
+  ],
+  "sub_kind": "textbook CPU",
+  "depth": "common"
+ },
+ {
+  "name": "Completely Fair Scheduler",
+  "aliases": [
+   "CFS"
+  ],
+  "sub_kind": "kernel CPU",
+  "depth": "common"
+ },
+ {
+  "name": "Earliest Deadline First",
+  "aliases": [
+   "EDF",
+   "earliest deadline"
+  ],
+  "sub_kind": "real-time",
+  "depth": "common"
+ },
+ {
+  "name": "Rate-Monotonic Scheduling",
+  "aliases": [
+   "RMS",
+   "rate monotonic",
+   "rate-monotonic"
+  ],
+  "sub_kind": "real-time",
+  "depth": "common"
+ },
+ {
+  "name": "SCAN",
+  "aliases": [
+   "elevator algorithm",
+   "elevator"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "common"
+ },
+ {
+  "name": "Lottery Scheduling",
+  "aliases": [
+   "lottery scheduler"
+  ],
+  "sub_kind": "proportional share",
+  "depth": "common"
+ },
+ {
+  "name": "Work Stealing",
+  "aliases": [
+   "work-stealing scheduler",
+   "work-stealing"
+  ],
+  "sub_kind": "multiprocessor and runtime",
+  "depth": "common"
+ },
+ {
+  "name": "Weighted Fair Queueing",
+  "aliases": [
+   "WFQ",
+   "weighted fair queuing"
+  ],
+  "sub_kind": "packet",
+  "depth": "common"
+ },
+ {
+  "name": "Gang Scheduling",
+  "aliases": [
+   "gang scheduler"
+  ],
+  "sub_kind": "multiprocessor and runtime",
+  "depth": "common"
+ },
+ {
+  "name": "Shortest Seek Time First",
+  "aliases": [
+   "SSTF",
+   "shortest seek first"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "mid"
+ },
+ {
+  "name": "LOOK",
+  "aliases": [
+   "LOOK algorithm",
+   "LOOK disk scheduling"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "mid"
+ },
+ {
+  "name": "C-LOOK",
+  "aliases": [
+   "CLOOK",
+   "C LOOK"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "mid"
+ },
+ {
+  "name": "mq-deadline",
+  "aliases": [
+   "mq deadline",
+   "multi-queue deadline"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "mid"
+ },
+ {
+  "name": "CFQ",
+  "aliases": [
+   "Completely Fair Queuing",
+   "Completely Fair Queueing"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "mid"
+ },
+ {
+  "name": "BFQ",
+  "aliases": [
+   "Budget Fair Queueing",
+   "Budget Fair Queuing"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "mid"
+ },
+ {
+  "name": "noop I/O scheduler",
+  "aliases": [
+   "noop",
+   "noop scheduler"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "mid"
+ },
+ {
+  "name": "Stride Scheduling",
+  "aliases": [
+   "stride scheduler"
+  ],
+  "sub_kind": "proportional share",
+  "depth": "mid"
+ },
+ {
+  "name": "Deficit Round Robin",
+  "aliases": [
+   "DRR"
+  ],
+  "sub_kind": "packet",
+  "depth": "mid"
+ },
+ {
+  "name": "Hierarchical Token Bucket",
+  "aliases": [
+   "HTB"
+  ],
+  "sub_kind": "packet",
+  "depth": "mid"
+ },
+ {
+  "name": "FQ-CoDel",
+  "aliases": [
+   "FQ CoDel",
+   "fair queuing controlled delay"
+  ],
+  "sub_kind": "packet",
+  "depth": "mid"
+ },
+ {
+  "name": "CAKE",
+  "aliases": [
+   "Common Applications Kept Enhanced",
+   "Cake qdisc"
+  ],
+  "sub_kind": "packet",
+  "depth": "mid"
+ },
+ {
+  "name": "Backfilling",
+  "aliases": [
+   "backfill",
+   "EASY backfilling"
+  ],
+  "sub_kind": "cluster and batch",
+  "depth": "mid"
+ },
+ {
+  "name": "Fair-Share Scheduling",
+  "aliases": [
+   "fair share scheduling",
+   "fair-share scheduler"
+  ],
+  "sub_kind": "proportional share",
+  "depth": "mid"
+ },
+ {
+  "name": "O(1) scheduler",
+  "aliases": [
+   "O(1)"
+  ],
+  "sub_kind": "kernel CPU",
+  "depth": "mid"
+ },
+ {
+  "name": "ULE",
+  "aliases": [
+   "FreeBSD ULE",
+   "ULE scheduler"
+  ],
+  "sub_kind": "kernel CPU",
+  "depth": "mid"
+ },
+ {
+  "name": "BFS",
+  "aliases": [
+   "Brain Fuck Scheduler",
+   "Brainfuck scheduler"
+  ],
+  "sub_kind": "kernel CPU",
+  "depth": "mid"
+ },
+ {
+  "name": "SCHED_FIFO",
+  "aliases": [
+   "sched_fifo"
+  ],
+  "sub_kind": "kernel CPU",
+  "depth": "mid"
+ },
+ {
+  "name": "SCHED_DEADLINE",
+  "aliases": [
+   "sched_deadline"
+  ],
+  "sub_kind": "real-time",
+  "depth": "mid"
+ },
+ {
+  "name": "GMP scheduler",
+  "aliases": [
+   "Go scheduler",
+   "GMP",
+   "Go runtime scheduler"
+  ],
+  "sub_kind": "multiprocessor and runtime",
+  "depth": "mid"
+ },
+ {
+  "name": "Earliest Eligible Virtual Deadline First",
+  "aliases": [
+   "EEVDF"
+  ],
+  "sub_kind": "kernel CPU",
+  "depth": "deep"
+ },
+ {
+  "name": "MuQSS",
+  "aliases": [
+   "Multiple Queue Skiplist Scheduler"
+  ],
+  "sub_kind": "kernel CPU",
+  "depth": "deep"
+ },
+ {
+  "name": "Borrowed Virtual Time",
+  "aliases": [
+   "BVT"
+  ],
+  "sub_kind": "proportional share",
+  "depth": "deep"
+ },
+ {
+  "name": "Kyber",
+  "aliases": [
+   "Kyber I/O scheduler"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "deep"
+ },
+ {
+  "name": "Anticipatory scheduler",
+  "aliases": [
+   "anticipatory I/O scheduler",
+   "anticipatory"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "deep"
+ },
+ {
+  "name": "Least Laxity First",
+  "aliases": [
+   "LLF",
+   "least laxity"
+  ],
+  "sub_kind": "real-time",
+  "depth": "deep"
+ },
+ {
+  "name": "Constant Bandwidth Server",
+  "aliases": [
+   "CBS"
+  ],
+  "sub_kind": "real-time",
+  "depth": "deep"
+ },
+ {
+  "name": "Pfair scheduling",
+  "aliases": [
+   "Pfair",
+   "proportionate fair scheduling"
+  ],
+  "sub_kind": "real-time",
+  "depth": "deep"
+ },
+ {
+  "name": "Dominant Resource Fairness",
+  "aliases": [
+   "DRF"
+  ],
+  "sub_kind": "cluster and batch",
+  "depth": "deep"
+ },
+ {
+  "name": "Tetris",
+  "aliases": [
+   "Tetris packing",
+   "Tetris scheduler"
+  ],
+  "sub_kind": "cluster and batch",
+  "depth": "deep"
+ },
+ {
+  "name": "scx_rusty",
+  "aliases": [
+   "rusty",
+   "sched_ext rusty"
+  ],
+  "sub_kind": "kernel CPU",
+  "depth": "deep"
+ },
+ {
+  "name": "scx_lavd",
+  "aliases": [
+   "lavd",
+   "sched_ext lavd"
+  ],
+  "sub_kind": "kernel CPU",
+  "depth": "deep"
+ },
+ {
+  "name": "Cilk",
+  "aliases": [
+   "Cilk scheduler",
+   "Cilk work-stealing"
+  ],
+  "sub_kind": "multiprocessor and runtime",
+  "depth": "deep"
+ },
+ {
+  "name": "Proportional Fair Scheduling",
+  "aliases": [
+   "PF scheduler",
+   "proportional fair"
+  ],
+  "sub_kind": "packet",
+  "depth": "deep"
+ },
+ {
+  "name": "Hierarchical Fair Service Curve",
+  "aliases": [
+   "HFSC"
+  ],
+  "sub_kind": "packet",
+  "depth": "deep"
+ },
+ {
+  "name": "Virtual Clock",
+  "aliases": [
+   "virtual clock scheduling"
+  ],
+  "sub_kind": "packet",
+  "depth": "deep"
+ },
+ {
+  "name": "Least Attained Service",
+  "aliases": [
+   "LAS",
+   "least attained service first"
+  ],
+  "sub_kind": "textbook CPU",
+  "depth": "deep"
+ },
+ {
+  "name": "PIE",
+  "aliases": [
+   "Proportional Integral controller Enhanced"
+  ],
+  "sub_kind": "packet",
+  "depth": "deep"
+ },
+ {
+  "name": "Global EDF",
+  "aliases": [
+   "G-EDF",
+   "global earliest deadline first"
+  ],
+  "sub_kind": "real-time",
+  "depth": "deep"
+ },
+ {
+  "name": "Self-Clocked Fair Queueing",
+  "aliases": [
+   "SCFQ"
+  ],
+  "sub_kind": "packet",
+  "depth": "deep"
+ },
+ {
+  "name": "Start-time Fair Queueing",
+  "aliases": [
+   "SFQ"
+  ],
+  "sub_kind": "packet",
+  "depth": "deep"
+ },
+ {
+  "name": "Deficit Weighted Round Robin",
+  "aliases": [
+   "DWRR"
+  ],
+  "sub_kind": "packet",
+  "depth": "deep"
+ },
+ {
+  "name": "Credit Scheduler",
+  "aliases": [
+   "Xen credit scheduler",
+   "Xen Credit"
+  ],
+  "sub_kind": "kernel CPU",
+  "depth": "deep"
+ },
+ {
+  "name": "FSCAN",
+  "aliases": [
+   "F-SCAN"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "deep"
+ },
+ {
+  "name": "N-step SCAN",
+  "aliases": [
+   "N-SCAN",
+   "NSCAN"
+  ],
+  "sub_kind": "disk and I/O",
+  "depth": "deep"
+ }
+]

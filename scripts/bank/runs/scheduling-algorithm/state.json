@@ -1,0 +1,115 @@
+{
+ "id": "scheduling-algorithm",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-28T03:51:12+00:00",
+   "seconds": 51,
+   "finished": "2026-11-28T03:52:04+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-28T03:52:04+00:00",
+   "seconds": 61,
+   "finished": "2026-11-28T03:53:05+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-28T03:53:05+00:00",
+   "seconds": 165,
+   "finished": "2026-11-28T03:55:50+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-28T03:55:50+00:00",
+   "seconds": 0,
+   "finished": "2026-11-28T03:55:50+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-28T03:55:50+00:00",
+   "seconds": 61,
+   "finished": "2026-11-28T03:56:51+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-28T03:56:51+00:00",
+   "seconds": 16,
+   "finished": "2026-11-28T03:57:08+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-28T03:57:08+00:00",
+   "seconds": 36,
+   "finished": "2026-11-28T03:57:44+00:00"
+  },
+  "recall": {
+   "status": "failed",
+   "started": "2026-11-28T03:57:44+00:00",
+   "seconds": 77,
+   "error": "GATE FAILED: head recall: 45/60 real probe answers playable (75%); 1 Inbox-only, 14 added to the Inbox; misses: Borrowed Virtual Time, C-LOOK, Backfilling, GMP scheduler, MuQSS, Anticipatory scheduler, Pfair scheduling, Tetris, Cilk, Virtual Clock, Least Attained Service, Global EDF ... (design/recall/scheduling-algorithm-probe.md): below 85%; promote the Inbox lines into tiers (or fix the plan's sources), then rerun with --from recall"
+  }
+ },
+ "gates": {
+  "filter kept": {
+   "stage": "filter",
+   "level": "pass",
+   "detail": "pass A kept 92, pass B kept 82 of 544 harvested lines"
+  },
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "30/30 obvious answers accepted"
+  },
+  "head recall": {
+   "stage": "recall",
+   "level": "fail",
+   "detail": "45/60 real probe answers playable (75%); 1 Inbox-only, 14 added to the Inbox; misses: Borrowed Virtual Time, C-LOOK, Backfilling, GMP scheduler, MuQSS, Anticipatory scheduler, Pfair scheduling, Tetris, Cilk, Virtual Clock, Least Attained Service, Global EDF ... (design/recall/scheduling-algorithm-probe.md): below 85%; promote the Inbox lines into tiers (or fix the plan's sources), then rerun with --from recall"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/scheduling-algorithm.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (Interleaved polling with adaptive cycle time; Lottery scheduling, Elevator algorithm, Work stealing): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/scheduling-algorithm.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 1,
+  "lines": 544,
+  "summary": "scheduling-algorithm: 534 mined lines from 11 sources -> 1 batches in scripts/bank/mined/scheduling-algorithm"
+ },
+ "filter": [
+  "batch-00.a: 92 kept",
+  "batch-00.b: 82 kept"
+ ],
+ "compare": "scheduling-algorithm: 78 agreed, 18 disputed (19%) across 1 batches",
+ "escalate": "18 disputes -> 17 kept (2 low-confidence -> Inbox), 1 dropped",
+ "pins": {
+  "bitflip": "Interleaved polling with adaptive cycle time",
+  "womm": [
+   "Lottery scheduling",
+   "Elevator algorithm",
+   "Work stealing"
+  ]
+ },
+ "merge": "91 tiered answers, 3 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "scheduling-algorithm: 24 aliases, 5 new answers, 0 promoted from the Inbox",
+ "recall": {
+  "playable": 45,
+  "real": 60,
+  "inbox_only": 1,
+  "added": 14,
+  "not_members": 0,
+  "report": "design/recall/scheduling-algorithm-probe.md"
+ }
+}

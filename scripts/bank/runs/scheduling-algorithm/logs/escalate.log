@@ -1,0 +1,18 @@
+--- gemini via claude:claude-haiku-5-5 call, 61s, exit 0, prompt 4383 chars, stdout 1866 chars
+utes).
+
+- **Kept (16 disputes):** Least slack time scheduling and "Least laxity first" were one algorithm, so they became one entry (17 entries written in total). The other 15 are: First come first served (FIFO folded in as an alias), Generalized foreground-background, mq-deadline, SCHED_FIFO, Token bucket, Stochastic Fair Blue, Heavy-Hitter Filter, Generalized RED, CHOKe, ALTQ, Multifit algorithm, Fair-share scheduling, Priority queueing, and Core scheduling.
+- **Low (2 disputes):** scx_cpu0 and scx_sdt. Both are real sched_ext schedulers in the kernel tree, but they are small example schedulers, so I marked them `confidence: "low"` for a person to decide.
+- **Dropped:** none. The scope's In rules cover every item, and none hit an Out rule.
+
+**Rulings to check:**
+- **FIFO:** I made "First come first served" the canonical name, with FIFO and FCFS as aliases. Its batch line (210) is FIFO's, and the bank Inbox already holds FCFS.
+- **Least slack time / LLF:** I used the batch line 233 name as canonical, with "Least laxity first" and LLF as aliases.
+- **Core scheduling:** I kept it as a kernel scheduling policy. It is a co-scheduling feature rather than a textbook algorithm, so this is the closest call I made.
+- **Aliases file:** `{}`. The bank has no tiered answers yet (it is a fresh draft), so there is nothing for an alias to point at.
+
+Files:
+- `scripts/bank/mined/scheduling-algorithm/resolved-candidates.json`
+- `scripts/bank/mined/scheduling-algorithm/resolved-aliases.json`
+
+

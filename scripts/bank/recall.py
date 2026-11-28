@@ -10,8 +10,8 @@ least 5 articles, and the kept ones are saved to the plan (`"by": "llm"`: the ow
 `--no-llm` never proposes: a category without a reference is reported as such.
 
 A member counts as covered when its title, without a "(qualifier)" and with the prompt's noun or a generic one
-dropped off the end ("Oracle Database", "Opus (audio format)"), normalizes (the game's normalize) to an answer,
-alias or Inbox line of the category. Writes:
+dropped off the end ("Oracle Database", "Opus (audio format)"), normalizes (the game's normalize) to a tiered answer
+or alias of the category. Inbox lines do not count: they are rejected in play. Writes:
   design/recall/<id>.md          recall %, and the covered and missing members;
   design/misses/recall-<id>.md   the missing members in the missed-guesses format, so
                                  `python3 -I scripts/bank/misses.py design/misses/recall-<id>.md` judges them and puts
@@ -166,7 +166,7 @@ def check(cid: str, no_llm: bool) -> tuple[str, float | None, int, int]:
     ref = reference(cid, prompt, accepts, no_llm)
     if ref is None:
         return cid, None, 0, 0
-    known = misses.known_keys(text)
+    known = misses.playable_keys(text)  # the Inbox is never played: an Inbox-only member is not covered
     subj = subject(prompt)
     pages: list[str] = []
     for cat in ref:

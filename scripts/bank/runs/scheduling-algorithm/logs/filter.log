@@ -1,0 +1,10 @@
+--- haiku call, 103s, exit 0, prompt 18551 chars, stdout 14245 chars
+cheduler"}, {"name": "scx_flatcg", "aliases": [], "judge": "heisenbug", "evidence": "torvalds/linux tools/sched_ext: scx_flatcg", "why": "named sched_ext scheduler"}, {"name": "scx_central", "aliases": [], "judge": "heisenbug", "evidence": "torvalds/linux tools/sched_ext: scx_central", "why": "named sched_ext example scheduler"}, {"name": "scx_pair", "aliases": [], "judge": "heisenbug", "evidence": "torvalds/linux tools/sched_ext: scx_pair", "why": "named sched_ext example scheduler"}, {"name": "scx_qmap", "aliases": [], "judge": "heisenbug", "evidence": "torvalds/linux tools/sched_ext: scx_qmap", "why": "named sched_ext example scheduler"}, {"name": "scx_simple", "aliases": [], "judge": "heisenbug", "evidence": "torvalds/linux tools/sched_ext: scx_simple", "why": "named sched_ext example scheduler"}, {"name": "scx_userland", "aliases": [], "judge": "heisenbug", "evidence": "torvalds/linux tools/sched_ext: scx_userland", "why": "named sched_ext example scheduler"}, {"name": "Energy aware scheduling", "aliases": ["EAS"], "judge": "heisenbug", "evidence": "kernel: energy aware scheduling", "why": "named Linux CPU scheduling feature"}, {"name": "Core scheduling", "aliases": [], "judge": "heisenbug", "evidence": "kernel: core scheduling", "why": "named Linux SMT scheduling feature"}], "womm_candidates": ["Lottery scheduling", "SCAN", "Work stealing"], "bitflip_candidates": ["scx_pandemonium", "Pinwheel scheduling", "Interleaved polling with adaptive cycle time"]}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 165s, exit 0, prompt 7283 chars, stdout 166 chars
+[21:55:50] 92
+
+Not validated: the Bash tool is disabled in this session, so I could not run the `json.load` check on either file. I checked the syntax by reading it.
+
+

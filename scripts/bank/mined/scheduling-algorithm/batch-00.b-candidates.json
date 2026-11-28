@@ -1,0 +1,677 @@
+{
+ "scheduling-algorithm": [
+  {
+   "name": "Round robin",
+   "aliases": [
+    "Round-robin scheduling"
+   ],
+   "judge": "off-by-one",
+   "evidence": "Wikipedia scheduling category: Round-robin scheduling",
+   "why": "textbook CPU policy"
+  },
+  {
+   "name": "Shortest job first",
+   "aliases": [
+    "Shortest job next"
+   ],
+   "judge": "off-by-one",
+   "evidence": "Wikipedia scheduling category: Shortest job next",
+   "why": "textbook CPU policy"
+  },
+  {
+   "name": "Priority scheduling",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "kernel head nouns: priority scheduling",
+   "why": "textbook CPU policy"
+  },
+  {
+   "name": "Earliest deadline first",
+   "aliases": [
+    "Earliest deadline first scheduling",
+    "EDF"
+   ],
+   "judge": "npe",
+   "evidence": "Wikipedia scheduling category: Earliest deadline first scheduling",
+   "why": "real-time textbook policy"
+  },
+  {
+   "name": "Multilevel feedback queue",
+   "aliases": [
+    "MLFQ"
+   ],
+   "judge": "npe",
+   "evidence": "Wikipedia scheduling category: Multilevel feedback queue",
+   "why": "textbook CPU policy"
+  },
+  {
+   "name": "Shortest remaining time first",
+   "aliases": [
+    "Shortest remaining time"
+   ],
+   "judge": "npe",
+   "evidence": "Wikipedia scheduling category: Shortest remaining time",
+   "why": "textbook CPU policy"
+  },
+  {
+   "name": "Completely Fair Scheduler",
+   "aliases": [
+    "CFS"
+   ],
+   "judge": "npe",
+   "evidence": "kernel: completely fair scheduler; cfs scheduler",
+   "why": "named Linux CPU scheduler"
+  },
+  {
+   "name": "Rate-monotonic scheduling",
+   "aliases": [
+    "RMS"
+   ],
+   "judge": "leak",
+   "evidence": "Wikipedia scheduling category: Rate-monotonic scheduling",
+   "why": "real-time policy, systems people know"
+  },
+  {
+   "name": "Lottery scheduling",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "Wikipedia scheduling category: Lottery scheduling",
+   "why": "proportional-share research algorithm"
+  },
+  {
+   "name": "Work stealing",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "Wikipedia scheduling category: Work stealing",
+   "why": "runtime scheduling design"
+  },
+  {
+   "name": "SCAN",
+   "aliases": [
+    "Elevator algorithm"
+   ],
+   "judge": "leak",
+   "evidence": "Wikipedia scheduling category: Elevator algorithm",
+   "why": "disk-arm algorithm, systems people know"
+  },
+  {
+   "name": "Completely fair queueing",
+   "aliases": [
+    "CFQ"
+   ],
+   "judge": "leak",
+   "evidence": "Wikipedia disk category: Completely fair queueing",
+   "why": "named Linux I/O scheduler"
+  },
+  {
+   "name": "Shortest seek first",
+   "aliases": [
+    "SSTF"
+   ],
+   "judge": "leak",
+   "evidence": "Wikipedia scheduling category: Shortest seek first",
+   "why": "disk scheduling algorithm"
+  },
+  {
+   "name": "Deadline scheduler",
+   "aliases": [
+    "mq-deadline"
+   ],
+   "judge": "race",
+   "evidence": "Wikipedia disk category: Deadline Scheduler; block/mq-deadline",
+   "why": "named Linux I/O scheduler"
+  },
+  {
+   "name": "Noop scheduler",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "Wikipedia disk category: Noop scheduler",
+   "why": "named Linux I/O scheduler"
+  },
+  {
+   "name": "LOOK",
+   "aliases": [
+    "LOOK algorithm"
+   ],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: LOOK algorithm",
+   "why": "disk-arm algorithm, specialists know"
+  },
+  {
+   "name": "FSCAN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia disk category: FSCAN",
+   "why": "obscure disk-arm variant"
+  },
+  {
+   "name": "N-Step-SCAN",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia disk category: N-Step-SCAN",
+   "why": "obscure disk-arm variant"
+  },
+  {
+   "name": "Anticipatory scheduling",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia disk category: Anticipatory scheduling",
+   "why": "old Linux I/O scheduler design"
+  },
+  {
+   "name": "Kyber",
+   "aliases": [
+    "kyber-iosched"
+   ],
+   "judge": "heisenbug",
+   "evidence": "block/kyber-iosched; kernel: kyber scheduler",
+   "why": "named Linux block scheduler"
+  },
+  {
+   "name": "BFQ",
+   "aliases": [
+    "bfq-iosched"
+   ],
+   "judge": "race",
+   "evidence": "block/bfq-iosched",
+   "why": "named Linux block scheduler"
+  },
+  {
+   "name": "Stride scheduling",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Stride scheduling",
+   "why": "proportional-share research algorithm"
+  },
+  {
+   "name": "EEVDF",
+   "aliases": [
+    "Earliest eligible virtual deadline first scheduling",
+    "Earliest eligible virtual deadline first",
+    "scx_eevdf"
+   ],
+   "judge": "race",
+   "evidence": "Wikipedia: Earliest eligible virtual deadline first scheduling",
+   "why": "Linux CPU scheduler; scx_eevdf same algorithm"
+  },
+  {
+   "name": "ULE",
+   "aliases": [
+    "ULE scheduler"
+   ],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: ULE scheduler",
+   "why": "named FreeBSD CPU scheduler"
+  },
+  {
+   "name": "Windows NT processor scheduling",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Windows NT processor scheduling",
+   "why": "named Windows CPU scheduler"
+  },
+  {
+   "name": "Foreground-background",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Foreground-background",
+   "why": "named textbook CPU policy"
+  },
+  {
+   "name": "Multilevel queue",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "Wikipedia scheduling category: Multilevel queue",
+   "why": "textbook CPU policy"
+  },
+  {
+   "name": "Weighted round robin",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Weighted round robin",
+   "why": "named weighted policy"
+  },
+  {
+   "name": "Highest response ratio next",
+   "aliases": [
+    "HRRN"
+   ],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Highest response ratio next",
+   "why": "named batch CPU policy"
+  },
+  {
+   "name": "Stack resource policy",
+   "aliases": [
+    "SRP"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia real-time category: Stack resource policy",
+   "why": "real-time scheduling and resource policy"
+  },
+  {
+   "name": "Least slack time scheduling",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Least slack time scheduling",
+   "why": "real-time deadline policy"
+  },
+  {
+   "name": "Deadline-monotonic scheduling",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Deadline-monotonic scheduling",
+   "why": "real-time fixed-priority policy"
+  },
+  {
+   "name": "Pinwheel scheduling",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Pinwheel scheduling",
+   "why": "real-time periodic scheduling model"
+  },
+  {
+   "name": "YDS algorithm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: YDS algorithm",
+   "why": "energy-aware real-time scheduling"
+  },
+  {
+   "name": "Dominant resource fairness",
+   "aliases": [
+    "DRF"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Dominant resource fairness",
+   "why": "cluster fair-share policy"
+  },
+  {
+   "name": "Gang scheduling",
+   "aliases": [
+    "Coscheduling"
+   ],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Gang scheduling; Coscheduling",
+   "why": "multiprocessor scheduling policy"
+  },
+  {
+   "name": "Fair-share scheduling",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Fair-share scheduling",
+   "why": "named fair-share policy"
+  },
+  {
+   "name": "Proportional share scheduling",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Proportional share scheduling",
+   "why": "named proportional-share policy"
+  },
+  {
+   "name": "Proportional-fair scheduling",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Proportional-fair scheduling",
+   "why": "wireless packet scheduler"
+  },
+  {
+   "name": "Generalized processor sharing",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Generalized processor sharing",
+   "why": "fluid fair-queueing model"
+  },
+  {
+   "name": "Weighted fair queueing",
+   "aliases": [
+    "WFQ"
+   ],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Weighted fair queueing",
+   "why": "named packet scheduler"
+  },
+  {
+   "name": "Fair queuing",
+   "aliases": [
+    "sch_fq"
+   ],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Fair queuing; sch_fq",
+   "why": "named packet scheduler"
+  },
+  {
+   "name": "Deficit round robin",
+   "aliases": [
+    "DRR"
+   ],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Deficit round robin",
+   "why": "named packet scheduler"
+  },
+  {
+   "name": "Credit-based fair queuing",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Credit-based fair queuing",
+   "why": "named fair queueing algorithm"
+  },
+  {
+   "name": "Class-based queueing",
+   "aliases": [
+    "CBQ"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Class-based queueing",
+   "why": "named packet scheduler"
+  },
+  {
+   "name": "Hierarchical fair-service curve",
+   "aliases": [
+    "HFSC"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Hierarchical fair-service curve",
+   "why": "named Linux qdisc algorithm"
+  },
+  {
+   "name": "Heterogeneous earliest finish time",
+   "aliases": [
+    "HEFT"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Heterogeneous earliest finish time",
+   "why": "workflow scheduling for computing"
+  },
+  {
+   "name": "Adaptive partition scheduler",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia real-time category: Adaptive partition scheduler",
+   "why": "named QNX partition scheduler"
+  },
+  {
+   "name": "Interleaved polling with adaptive cycle time",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Interleaved polling with adaptive cycle time",
+   "why": "named access-scheduling algorithm"
+  },
+  {
+   "name": "Enhanced Transmission Selection",
+   "aliases": [
+    "ETS",
+    "sch_ets"
+   ],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Enhanced Transmission Selection",
+   "why": "named IEEE packet scheduler"
+  },
+  {
+   "name": "CoDel",
+   "aliases": [
+    "sch_codel"
+   ],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: CoDel; sch_codel",
+   "why": "named queue discipline"
+  },
+  {
+   "name": "FQ-CoDel",
+   "aliases": [
+    "sch_fq_codel"
+   ],
+   "judge": "race",
+   "evidence": "net/sched: sch_fq_codel",
+   "why": "named Linux default queue discipline"
+  },
+  {
+   "name": "CAKE",
+   "aliases": [
+    "sch_cake"
+   ],
+   "judge": "heisenbug",
+   "evidence": "net/sched: sch_cake",
+   "why": "named Linux queue discipline"
+  },
+  {
+   "name": "PIE",
+   "aliases": [
+    "sch_pie"
+   ],
+   "judge": "heisenbug",
+   "evidence": "net/sched: sch_pie",
+   "why": "named queue discipline"
+  },
+  {
+   "name": "FQ-PIE",
+   "aliases": [
+    "sch_fq_pie"
+   ],
+   "judge": "heisenbug",
+   "evidence": "net/sched: sch_fq_pie",
+   "why": "named queue discipline"
+  },
+  {
+   "name": "Random early detection",
+   "aliases": [
+    "RED",
+    "sch_red"
+   ],
+   "judge": "leak",
+   "evidence": "Wikipedia scheduling category: Random early detection",
+   "why": "famous queue management algorithm"
+  },
+  {
+   "name": "DualPI2",
+   "aliases": [
+    "sch_dualpi2"
+   ],
+   "judge": "heisenbug",
+   "evidence": "net/sched: sch_dualpi2",
+   "why": "named L4S queue discipline"
+  },
+  {
+   "name": "HTB",
+   "aliases": [
+    "Hierarchical token bucket",
+    "sch_htb"
+   ],
+   "judge": "race",
+   "evidence": "net/sched: sch_htb",
+   "why": "named Linux packet scheduler"
+  },
+  {
+   "name": "Priority queueing",
+   "aliases": [
+    "sch_prio"
+   ],
+   "judge": "race",
+   "evidence": "net/sched: sch_prio",
+   "why": "named packet scheduler"
+  },
+  {
+   "name": "SFQ",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "net/sched: sch_sfq",
+   "why": "named Linux queue discipline"
+  },
+  {
+   "name": "QFQ",
+   "aliases": [
+    "sch_qfq"
+   ],
+   "judge": "heisenbug",
+   "evidence": "net/sched: sch_qfq",
+   "why": "named Linux queue discipline"
+  },
+  {
+   "name": "TAPRIO",
+   "aliases": [
+    "sch_taprio"
+   ],
+   "judge": "heisenbug",
+   "evidence": "net/sched: sch_taprio",
+   "why": "time-aware priority scheduler"
+  },
+  {
+   "name": "ETF",
+   "aliases": [
+    "sch_etf"
+   ],
+   "judge": "heisenbug",
+   "evidence": "net/sched: sch_etf",
+   "why": "Linux time-based packet scheduler"
+  },
+  {
+   "name": "Credit-based shaper",
+   "aliases": [
+    "CBS",
+    "sch_cbs"
+   ],
+   "judge": "heisenbug",
+   "evidence": "net/sched: sch_cbs",
+   "why": "IEEE 802.1Qav scheduler"
+  },
+  {
+   "name": "scx_rusty",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sched-ext/scx scheds/rust: scx_rusty",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_bpfland",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sched-ext/scx scheds/rust: scx_bpfland",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_lavd",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sched-ext/scx scheds/rust: scx_lavd",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_layered",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sched-ext/scx scheds/rust: scx_layered",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_cosmos",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sched-ext/scx scheds/rust: scx_cosmos",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_p2dq",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sched-ext/scx scheds/rust: scx_p2dq",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_mitosis",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sched-ext/scx scheds/rust: scx_mitosis",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_pandemonium",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sched-ext/scx scheds/rust: scx_pandemonium",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_chaos",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sched-ext/scx scheds/rust: scx_chaos",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_cake",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "sched-ext/scx scheds/rust: scx_cake",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_flatcg",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "torvalds/linux tools/sched_ext: scx_flatcg",
+   "why": "named sched_ext scheduler"
+  },
+  {
+   "name": "scx_central",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "torvalds/linux tools/sched_ext: scx_central",
+   "why": "named sched_ext example scheduler"
+  },
+  {
+   "name": "scx_pair",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "torvalds/linux tools/sched_ext: scx_pair",
+   "why": "named sched_ext example scheduler"
+  },
+  {
+   "name": "scx_qmap",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "torvalds/linux tools/sched_ext: scx_qmap",
+   "why": "named sched_ext example scheduler"
+  },
+  {
+   "name": "scx_simple",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "torvalds/linux tools/sched_ext: scx_simple",
+   "why": "named sched_ext example scheduler"
+  },
+  {
+   "name": "scx_userland",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "torvalds/linux tools/sched_ext: scx_userland",
+   "why": "named sched_ext example scheduler"
+  },
+  {
+   "name": "Energy aware scheduling",
+   "aliases": [
+    "EAS"
+   ],
+   "judge": "heisenbug",
+   "evidence": "kernel: energy aware scheduling",
+   "why": "named Linux CPU scheduling feature"
+  },
+  {
+   "name": "Core scheduling",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: core scheduling",
+   "why": "named Linux SMT scheduling feature"
+  }
+ ],
+ "womm_candidates": [
+  "Lottery scheduling",
+  "SCAN",
+  "Work stealing"
+ ],
+ "bitflip_candidates": [
+  "scx_pandemonium",
+  "Pinwheel scheduling",
+  "Interleaved polling with adaptive cycle time"
+ ]
+}

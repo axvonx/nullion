@@ -1,0 +1,521 @@
+[
+ {
+  "name": "cron",
+  "aliases": [
+   "Vixie cron",
+   "vixie-cron"
+  ],
+  "sub_kind": "scheduling",
+  "depth": "common"
+ },
+ {
+  "name": "sshd",
+  "aliases": [
+   "OpenSSH daemon",
+   "ssh daemon"
+  ],
+  "sub_kind": "network services",
+  "depth": "common"
+ },
+ {
+  "name": "systemd",
+  "aliases": [
+   "systemd init",
+   "PID 1"
+  ],
+  "sub_kind": "init and service managers",
+  "depth": "common"
+ },
+ {
+  "name": "init",
+  "aliases": [
+   "PID 1",
+   "sysv init"
+  ],
+  "sub_kind": "init and service managers",
+  "depth": "common"
+ },
+ {
+  "name": "httpd",
+  "aliases": [
+   "Apache httpd",
+   "Apache HTTP Server",
+   "apache2"
+  ],
+  "sub_kind": "network services",
+  "depth": "common"
+ },
+ {
+  "name": "nginx",
+  "aliases": [
+   "NGINX"
+  ],
+  "sub_kind": "network services",
+  "depth": "common"
+ },
+ {
+  "name": "syslogd",
+  "aliases": [
+   "sysklogd"
+  ],
+  "sub_kind": "logging and auditing",
+  "depth": "common"
+ },
+ {
+  "name": "launchd",
+  "aliases": [
+   "launchd daemon"
+  ],
+  "sub_kind": "macOS",
+  "depth": "common"
+ },
+ {
+  "name": "cupsd",
+  "aliases": [
+   "CUPS",
+   "CUPS daemon"
+  ],
+  "sub_kind": "printing",
+  "depth": "common"
+ },
+ {
+  "name": "mysqld",
+  "aliases": [
+   "MySQL",
+   "MySQL server",
+   "mariadbd"
+  ],
+  "sub_kind": "servers run as daemons",
+  "depth": "common"
+ },
+ {
+  "name": "dockerd",
+  "aliases": [
+   "Docker daemon",
+   "docker engine"
+  ],
+  "sub_kind": "servers run as daemons",
+  "depth": "common"
+ },
+ {
+  "name": "kswapd",
+  "aliases": [
+   "kernel swap daemon"
+  ],
+  "sub_kind": "kernel daemons",
+  "depth": "common"
+ },
+ {
+  "name": "postfix",
+  "aliases": [
+   "Postfix",
+   "postfix master"
+  ],
+  "sub_kind": "mail",
+  "depth": "common"
+ },
+ {
+  "name": "redis-server",
+  "aliases": [
+   "redis",
+   "Redis"
+  ],
+  "sub_kind": "servers run as daemons",
+  "depth": "common"
+ },
+ {
+  "name": "crond",
+  "aliases": [
+   "cron daemon"
+  ],
+  "sub_kind": "scheduling",
+  "depth": "common"
+ },
+ {
+  "name": "runit",
+  "aliases": [
+   "runit-init",
+   "runsvdir"
+  ],
+  "sub_kind": "init and service managers",
+  "depth": "mid"
+ },
+ {
+  "name": "upstart",
+  "aliases": [
+   "Ubuntu upstart"
+  ],
+  "sub_kind": "init and service managers",
+  "depth": "mid"
+ },
+ {
+  "name": "inetd",
+  "aliases": [
+   "internet daemon",
+   "internet super-server"
+  ],
+  "sub_kind": "network services",
+  "depth": "mid"
+ },
+ {
+  "name": "named",
+  "aliases": [
+   "BIND",
+   "bind9",
+   "ISC BIND"
+  ],
+  "sub_kind": "network services",
+  "depth": "mid"
+ },
+ {
+  "name": "ntpd",
+  "aliases": [
+   "NTP daemon",
+   "ntp"
+  ],
+  "sub_kind": "network services",
+  "depth": "mid"
+ },
+ {
+  "name": "dhcpd",
+  "aliases": [
+   "isc-dhcpd",
+   "ISC DHCP"
+  ],
+  "sub_kind": "network services",
+  "depth": "mid"
+ },
+ {
+  "name": "sendmail",
+  "aliases": [
+   "Sendmail"
+  ],
+  "sub_kind": "mail",
+  "depth": "mid"
+ },
+ {
+  "name": "exim",
+  "aliases": [
+   "Exim",
+   "exim4"
+  ],
+  "sub_kind": "mail",
+  "depth": "mid"
+ },
+ {
+  "name": "atd",
+  "aliases": [
+   "at daemon"
+  ],
+  "sub_kind": "scheduling",
+  "depth": "mid"
+ },
+ {
+  "name": "rsyslogd",
+  "aliases": [
+   "rsyslog"
+  ],
+  "sub_kind": "logging and auditing",
+  "depth": "mid"
+ },
+ {
+  "name": "auditd",
+  "aliases": [
+   "Linux audit daemon",
+   "audit daemon"
+  ],
+  "sub_kind": "logging and auditing",
+  "depth": "mid"
+ },
+ {
+  "name": "udevd",
+  "aliases": [
+   "systemd-udevd",
+   "udev"
+  ],
+  "sub_kind": "hardware and devices",
+  "depth": "mid"
+ },
+ {
+  "name": "acpid",
+  "aliases": [
+   "ACPI daemon"
+  ],
+  "sub_kind": "hardware and devices",
+  "depth": "mid"
+ },
+ {
+  "name": "smartd",
+  "aliases": [
+   "smartmontools daemon",
+   "smartmontools"
+  ],
+  "sub_kind": "hardware and devices",
+  "depth": "mid"
+ },
+ {
+  "name": "lpd",
+  "aliases": [
+   "line printer daemon",
+   "LPD"
+  ],
+  "sub_kind": "printing",
+  "depth": "mid"
+ },
+ {
+  "name": "dbus-daemon",
+  "aliases": [
+   "D-Bus",
+   "dbus"
+  ],
+  "sub_kind": "desktop and IPC",
+  "depth": "mid"
+ },
+ {
+  "name": "mDNSResponder",
+  "aliases": [
+   "mdnsresponder",
+   "Bonjour daemon"
+  ],
+  "sub_kind": "macOS",
+  "depth": "mid"
+ },
+ {
+  "name": "kthreadd",
+  "aliases": [
+   "kernel thread daemon",
+   "kthread daemon"
+  ],
+  "sub_kind": "kernel daemons",
+  "depth": "mid"
+ },
+ {
+  "name": "khugepaged",
+  "aliases": [
+   "khugepaged kernel thread"
+  ],
+  "sub_kind": "kernel daemons",
+  "depth": "mid"
+ },
+ {
+  "name": "postgres",
+  "aliases": [
+   "PostgreSQL",
+   "postmaster"
+  ],
+  "sub_kind": "servers run as daemons",
+  "depth": "mid"
+ },
+ {
+  "name": "s6-svscan",
+  "aliases": [
+   "s6",
+   "s6 supervision"
+  ],
+  "sub_kind": "init and service managers",
+  "depth": "deep"
+ },
+ {
+  "name": "supervise-daemon",
+  "aliases": [
+   "OpenRC supervise-daemon",
+   "OpenRC supervisor"
+  ],
+  "sub_kind": "init and service managers",
+  "depth": "deep"
+ },
+ {
+  "name": "svc.startd",
+  "aliases": [
+   "SMF svc.startd",
+   "Solaris svc.startd"
+  ],
+  "sub_kind": "init and service managers",
+  "depth": "deep"
+ },
+ {
+  "name": "xinetd",
+  "aliases": [
+   "extended internet daemon"
+  ],
+  "sub_kind": "network services",
+  "depth": "deep"
+ },
+ {
+  "name": "rpcbind",
+  "aliases": [
+   "portmapper",
+   "portmap"
+  ],
+  "sub_kind": "network services",
+  "depth": "deep"
+ },
+ {
+  "name": "bootparamd",
+  "aliases": [
+   "bootparams daemon"
+  ],
+  "sub_kind": "network services",
+  "depth": "deep"
+ },
+ {
+  "name": "qmail",
+  "aliases": [
+   "qmail-send",
+   "qmail daemon"
+  ],
+  "sub_kind": "mail",
+  "depth": "deep"
+ },
+ {
+  "name": "comsat",
+  "aliases": [
+   "biff daemon",
+   "mail notification daemon"
+  ],
+  "sub_kind": "mail",
+  "depth": "deep"
+ },
+ {
+  "name": "anacron",
+  "aliases": [
+   "anacron daemon"
+  ],
+  "sub_kind": "scheduling",
+  "depth": "deep"
+ },
+ {
+  "name": "syslog-ng",
+  "aliases": [
+   "syslog-ng daemon"
+  ],
+  "sub_kind": "logging and auditing",
+  "depth": "deep"
+ },
+ {
+  "name": "systemd-journald",
+  "aliases": [
+   "journald"
+  ],
+  "sub_kind": "logging and auditing",
+  "depth": "deep"
+ },
+ {
+  "name": "devd",
+  "aliases": [
+   "device daemon",
+   "FreeBSD devd"
+  ],
+  "sub_kind": "hardware and devices",
+  "depth": "deep"
+ },
+ {
+  "name": "moused",
+  "aliases": [
+   "mouse daemon",
+   "BSD moused"
+  ],
+  "sub_kind": "hardware and devices",
+  "depth": "deep"
+ },
+ {
+  "name": "cups-browsed",
+  "aliases": [
+   "cups browsed"
+  ],
+  "sub_kind": "printing",
+  "depth": "deep"
+ },
+ {
+  "name": "lpsched",
+  "aliases": [
+   "SysV lpsched",
+   "print scheduler"
+  ],
+  "sub_kind": "printing",
+  "depth": "deep"
+ },
+ {
+  "name": "polkitd",
+  "aliases": [
+   "polkit daemon",
+   "PolicyKit daemon"
+  ],
+  "sub_kind": "desktop and IPC",
+  "depth": "deep"
+ },
+ {
+  "name": "NetworkManager",
+  "aliases": [
+   "network manager"
+  ],
+  "sub_kind": "desktop and IPC",
+  "depth": "deep"
+ },
+ {
+  "name": "pipewire",
+  "aliases": [
+   "PipeWire"
+  ],
+  "sub_kind": "desktop and IPC",
+  "depth": "deep"
+ },
+ {
+  "name": "configd",
+  "aliases": [
+   "SystemConfiguration daemon",
+   "configd daemon"
+  ],
+  "sub_kind": "macOS",
+  "depth": "deep"
+ },
+ {
+  "name": "coreaudiod",
+  "aliases": [
+   "core audio daemon"
+  ],
+  "sub_kind": "macOS",
+  "depth": "deep"
+ },
+ {
+  "name": "cfprefsd",
+  "aliases": [
+   "cfprefs daemon"
+  ],
+  "sub_kind": "macOS",
+  "depth": "deep"
+ },
+ {
+  "name": "ksoftirqd",
+  "aliases": [
+   "ksoftirqd kernel thread",
+   "soft IRQ daemon"
+  ],
+  "sub_kind": "kernel daemons",
+  "depth": "deep"
+ },
+ {
+  "name": "kcompactd",
+  "aliases": [
+   "kernel compaction daemon"
+  ],
+  "sub_kind": "kernel daemons",
+  "depth": "deep"
+ },
+ {
+  "name": "pdflush",
+  "aliases": [
+   "page dirty flush daemon"
+  ],
+  "sub_kind": "kernel daemons",
+  "depth": "deep"
+ },
+ {
+  "name": "bdflush",
+  "aliases": [
+   "buffer dirty flush daemon"
+  ],
+  "sub_kind": "kernel daemons",
+  "depth": "deep"
+ }
+]

@@ -1,0 +1,84 @@
+{
+ "listings": [
+  {
+   "repo": "torvalds/linux",
+   "path": "net/sched",
+   "type": "file"
+  },
+  {
+   "repo": "torvalds/linux",
+   "path": "block",
+   "type": "file"
+  },
+  {
+   "repo": "torvalds/linux",
+   "path": "tools/sched_ext",
+   "type": "file"
+  },
+  {
+   "repo": "sched-ext/scx",
+   "path": "scheds/rust",
+   "type": "dir"
+  }
+ ],
+ "heads": [
+  "scheduler",
+  "scheduling",
+  "scheduling algorithm",
+  "scheduling policy",
+  "queueing discipline",
+  "queue discipline"
+ ],
+ "trees": [
+  "kernel",
+  "src/freebsd",
+  "src/windows-driver-docs",
+  "src/win32"
+ ],
+ "wiki": [
+  "Category:Scheduling algorithms",
+  "Category:Disk scheduling algorithms",
+  "Category:Real-time computing"
+ ],
+ "covers": {
+  "textbook CPU": [
+   "Category:Scheduling algorithms"
+  ],
+  "kernel CPU": [
+   "torvalds/linux/tools/sched_ext",
+   "sched-ext/scx/scheds/rust",
+   "src/freebsd",
+   "src/windows-driver-docs",
+   "kernel",
+   "Category:Scheduling algorithms"
+  ],
+  "real-time": [
+   "Category:Real-time computing",
+   "Category:Scheduling algorithms",
+   "kernel"
+  ],
+  "proportional share": [
+   "Category:Scheduling algorithms",
+   "torvalds/linux/net/sched"
+  ],
+  "multiprocessor and runtime": [
+   "Category:Scheduling algorithms",
+   "kernel"
+  ],
+  "disk and I/O": [
+   "torvalds/linux/block",
+   "Category:Disk scheduling algorithms"
+  ],
+  "packet": [
+   "torvalds/linux/net/sched"
+  ],
+  "cluster and batch": [
+   "Category:Scheduling algorithms"
+  ]
+ },
+ "context": [
+  "scheduling",
+  "scheduler",
+  "queue"
+ ]
+}

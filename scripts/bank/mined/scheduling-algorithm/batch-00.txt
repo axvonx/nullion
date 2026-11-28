@@ -1,0 +1,544 @@
+## source: torvalds/linux/net/sched (file names)
+Kconfig
+Makefile
+act_api
+act_bpf
+act_connmark
+act_csum
+act_ct
+act_ctinfo
+act_gact
+act_gate
+act_ife
+act_meta_mark
+act_meta_skbprio
+act_meta_skbtcindex
+act_mirred
+act_mpls
+act_nat
+act_pedit
+act_police
+act_sample
+act_simple
+act_skbedit
+act_skbmod
+act_tunnel_key
+act_vlan
+bpf_qdisc
+cls_api
+cls_basic
+cls_bpf
+cls_cgroup
+cls_flow
+cls_flower
+cls_fw
+cls_matchall
+cls_route
+cls_u32
+em_canid
+em_cmp
+em_ipset
+em_ipt
+em_meta
+em_nbyte
+em_text
+em_u32
+ematch
+sch_api
+sch_blackhole
+sch_cake
+sch_cbs
+sch_choke
+sch_codel
+sch_drr
+sch_dualpi2
+sch_etf
+sch_ets
+sch_fifo
+sch_fq
+sch_fq_codel
+sch_fq_pie
+sch_frag
+sch_generic
+sch_gred
+sch_hfsc
+sch_hhf
+sch_htb
+sch_ingress
+sch_mq
+sch_mqprio
+sch_mqprio_lib
+sch_multiq
+sch_netem
+sch_pie
+sch_plug
+sch_prio
+sch_qfq
+sch_red
+sch_sfb
+sch_sfq
+sch_skbprio
+sch_taprio
+sch_tbf
+sch_teql
+## source: torvalds/linux/block (file names)
+Kconfig
+Makefile
+badblocks
+bdev
+bfq-cgroup
+bfq-iosched
+bfq-wf2q
+bio
+bio-integrity
+bio-integrity-auto
+bio-integrity-fs
+blk
+blk-cgroup
+blk-cgroup-fc-appid
+blk-cgroup-rwstat
+blk-core
+blk-crypto
+blk-crypto-fallback
+blk-crypto-internal
+blk-crypto-profile
+blk-crypto-sysfs
+blk-flush
+blk-ia-ranges
+blk-integrity
+blk-ioc
+blk-iocost
+blk-iolatency
+blk-ioprio
+blk-lib
+blk-map
+blk-merge
+blk-mq
+blk-mq-cpumap
+blk-mq-debugfs
+blk-mq-dma
+blk-mq-sched
+blk-mq-sysfs
+blk-mq-tag
+blk-pm
+blk-rq-qos
+blk-settings
+blk-stat
+blk-sysfs
+blk-throttle
+blk-timeout
+blk-wbt
+blk-zoned
+bsg
+bsg-lib
+disk-events
+early-lookup
+elevator
+error-injection
+fops
+genhd
+holder
+ioctl
+ioprio
+kyber-iosched
+mq-deadline
+opal_proto
+sed-opal
+t10-pi
+## source: torvalds/linux/tools/sched_ext (file names)
+Kconfig
+Makefile
+README
+scx_central
+scx_central.bpf
+scx_cpu0
+scx_cpu0.bpf
+scx_flatcg
+scx_flatcg.bpf
+scx_pair
+scx_pair.bpf
+scx_qmap
+scx_qmap.bpf
+scx_sdt
+scx_sdt.bpf
+scx_show_state
+scx_simple
+scx_simple.bpf
+scx_userland
+scx_userland.bpf
+## source: sched-ext/scx/scheds/rust (dir names)
+scx_bpfland
+scx_cake
+scx_chaos
+scx_cosmos
+scx_eevdf
+scx_lavd
+scx_layered
+scx_mitosis
+scx_p2dq
+scx_pandemonium
+scx_rusty
+## source: Wikipedia Category:Scheduling algorithms (article titles)
+ALTQ
+Active queue management
+Activity selection problem
+Adaptive partition scheduler
+Aging (scheduling)
+Anticipatory scheduling
+Class-based queueing
+CoDel
+Coffman–Graham algorithm
+Completely fair queueing
+Coscheduling
+Credit-based fair queuing
+Critical path method
+Deadline Scheduler
+Deadline-monotonic scheduling
+Deficit round robin
+Delay-gradient congestion control
+Directed acyclic graph
+Dominant resource fairness
+Drift plus penalty
+Dynamic priority scheduling
+Earliest deadline first scheduling
+Earliest eligible virtual deadline first scheduling
+Elevator algorithm
+Enhanced Transmission Selection
+Event chain diagram
+Event chain methodology
+Exponential backoff
+FIFO (computing and electronics)
+FINO
+FSCAN
+Fair queuing
+Fair-share scheduling
+Fixed-priority pre-emptive scheduling
+Flow-shop scheduling
+Foreground-background
+Gang scheduling
+Generalized foreground-background
+Generalized processor sharing
+Generic cell rate algorithm
+Graphical path method
+Heterogeneous earliest finish time
+Hierarchical fair-service curve
+Highest response ratio next
+Identical-machines scheduling
+Interleaved polling with adaptive cycle time
+Interval scheduling
+Job-shop scheduling
+LOOK algorithm
+Lawler's algorithm
+Leaky bucket
+Least slack time scheduling
+Linear scheduling method
+List scheduling
+Longest-processing-time-first scheduling
+Lottery scheduling
+Max-min fairness
+Maximum throughput scheduling
+Modified due-date scheduling heuristic
+Multifit algorithm
+Multilevel feedback queue
+Multilevel queue
+N-Step-SCAN
+Network scheduler
+Noop scheduler
+Nurse scheduling problem
+Online job scheduling
+Open-shop scheduling
+Optimal job scheduling
+Parallel task scheduling
+Pinwheel scheduling
+Processor affinity
+Proportional share scheduling
+Proportional-fair scheduling
+Random early detection
+Rate-monotonic scheduling
+Resource starvation
+Round-robin scheduling
+Scheduling starvation
+Sequence step algorithm
+Shortest job next
+Shortest remaining time
+Shortest seek first
+Single-machine scheduling
+Statistical time-division multiplexing
+Stride scheduling
+System Contention Scope
+Talent scheduling
+Time-utility function
+Token bucket
+Top-nodes algorithm
+Traffic shaping
+Truthful job scheduling
+Two-level scheduling
+ULE scheduler
+Uniform-machines scheduling
+Unrelated-machines scheduling
+Vehicle rescheduling problem
+Weighted fair queueing
+Weighted round robin
+Windows NT processor scheduling
+Work stealing
+YDS algorithm
+## source: Wikipedia Category:Disk scheduling algorithms (article titles)
+Anticipatory scheduling
+Completely fair queueing
+Deadline Scheduler
+Elevator algorithm
+FSCAN
+LOOK algorithm
+N-Step-SCAN
+Noop scheduler
+Shortest seek first
+## source: Wikipedia Category:Real-time computing (article titles)
+4690 Operating System
+AQuoSA
+Apache Mynewt
+Arthur Pollen
+Asymmetric follow
+Atom (programming language)
+Averest
+BeRTOS
+BlackBerry 10
+BlackBerry Tablet OS
+CPU shielding
+ChibiOS/RT
+ChorusOS
+ChucK
+Clinical data repository
+Cohost
+CompactDAQ
+CompactRIO
+Concurrent DOS 286
+Concurrent DOS 386
+Concurrent DOS 386/MGE
+Concurrent DOS 68K
+Concurrent DOS 86
+Concurrent DOS V60
+Concurrent DOS XM
+DEC BATCH-11/DOS-11
+DNIX
+DRYOS
+DSOS
+Data General RDOS
+DioneOS
+ECos
+ENEA AB
+ERIKA Enterprise
+EROS (microkernel)
+Earliest deadline first scheduling
+Earliest eligible virtual deadline first scheduling
+Esterel
+FlexOS
+FlexOS 186
+FlexOS 286
+FlexOS 386
+FlexOS 68K
+FreeRTOS
+GTFS Realtime
+Gab (social network)
+Google Buzz
+Grabyo
+Harmony (operating system)
+INtime
+Idka
+Inferno (operating system)
+Integrity (operating system)
+IntervalZero
+JackBe
+JetOS
+Kim Guldstrand Larsen
+Koo (social network)
+LabVIEW
+LiteOS
+Lustre (programming language)
+Lynx Software Technologies
+LynxOS
+MQX
+Micro-Controller Operating Systems
+Mimer SQL
+Multi-Environment Real-Time
+Multiuser DOS
+MyRIO
+Native video
+Nucleus RTOS
+NuttX
+ORBexpress
+OS-9
+OS2000
+OS4000
+Open Graph protocol
+OpenComRTOS
+OpenVibe
+Oryx/Pecos
+PEARL (programming language)
+PREEMPT RT
+PSOS (real-time operating system)
+Pebble (social network)
+Phantom OS
+Phoenix-RTOS
+PikeOS
+Priority ceiling protocol
+Priority inheritance
+QNX
+QP (framework)
+REAL/32
+REAL/NG
+REX OS
+RIOT (operating system)
+RMX (operating system)
+RSX-11
+RSX-15
+RT-11
+RT-Thread
+RTAI
+RTEMS
+RTLinux
+RTX (operating system)
+RTXC Quadros
+RX116
+RX616
+Rate-monotonic scheduling
+Real Time Information Group
+Real-Time Multiprogramming Operating System
+Real-Time UML
+Real-time Java
+Real-time business intelligence
+Real-time computer graphics
+Real-time computing
+Real-time data
+Real-time database
+Real-time operating system
+Real-time testing
+Real-time web
+SIGNAL (programming language)
+Sally Shlaer
+ScreenOS
+Secure Operations Language
+Service Interface for Real Time Information
+Sintran III
+Soft Hard Real-Time Kernel
+Stack resource policy
+Stephen J. Mellor
+StockTwits
+SuperTinyKernel RTOS
+SwellRT
+Symbian
+Symobi
+Synchronous programming language
+TI-RTOS
+TRON project
+Temporal isolation
+Temporal isolation among virtual machines
+Tencent Weibo
+Thoth (operating system)
+ThreadX
+Time-utility function
+Timing failure
+TipTop Technologies
+Today Trader
+Transaction Processing Facility
+Twitter Amplify
+UNOS (operating system)
+Uptime
+Urban Traffic Management and Control
+VAXELN
+Venix
+Versatile Real-Time Executive
+VxWorks
+WebSocket
+Whirlwind I
+Wimkin
+Window of opportunity
+Windows Embedded Compact 7
+Wombat (operating system)
+Worst-case execution time
+X (social network)
+XMK (operating system)
+Xenomai
+YDS algorithm
+YouTube Instant
+Zephyr (operating system)
+## source: kernel (head nouns: scheduler, scheduling, scheduling algorithm, scheduling policy, queueing discipline, queue discipline)
+     8  io scheduler
+     6  aware scheduling
+     5  group scheduling
+     5  cpu scheduler
+     5  energy aware scheduling
+     5  real-time scheduling
+     4  since scheduler
+     4  o scheduler
+     4  packet scheduler
+     4  linux scheduler
+     4  fair scheduler
+     3  access scheduler
+     3  drm scheduler
+     3  microengine scheduler
+     3  through scheduler
+     3  capacity-aware scheduling
+     3  realtime scheduling
+     3  system scheduler
+     3  cfs scheduler
+     3  deadline scheduling
+     3  core scheduling
+     3  core scheduler
+     3  kernel scheduler
+     3  task scheduling
+     3  where scheduling
+     3  allows scheduler
+     3  within scheduler
+     3  completely fair scheduler
+     2  enter scheduler
+     2  index scheduler
+     2  gpu scheduler
+     2  gpu_scheduler
+     2  well scheduling
+     2  fair-class scheduler
+     2  bpf scheduler
+     2  make scheduling
+     2  remote scheduler
+     2  priority scheduling
+     2  enables scheduler
+     2  directly scheduler
+     2  energy-aware scheduling
+     2  allow scheduler
+     2  stopping scheduler
+     2  stop scheduler
+     2  batch scheduler
+     2  job scheduling
+     2  next scheduling
+     2  used scheduling
+     2  transmit scheduler
+     2  hierarchical scheduling
+     2  into scheduler
+     2  capacity aware scheduling
+     2  how scheduler
+     2  real-time group scheduling
+     2  edf scheduler
+     2  hierarchy scheduler
+     2  under scheduler
+     2  through scheduling
+     2  sched_fifo scheduling
+     2  otherwise scheduler
+     2  example scheduler
+     2  switching scheduler
+     2  excessive scheduling
+     2  avoid excessive scheduling
+     2  kernel scheduling
+     2  allowing scheduler
+     2  linux kernel scheduler
+     2  Noop_scheduler
+     2  cpu scheduling
+     2  kyber scheduler
+## source: src/freebsd (head nouns: scheduler, scheduling, scheduling algorithm, scheduling policy, queueing discipline, queue discipline)
+     3  thread scheduling
+     3  xr scheduler
+     2  set scheduling
+## source: src/windows-driver-docs (head nouns: scheduler, scheduling, scheduling algorithm, scheduling policy, queueing discipline, queue discipline)
+     2  adjust scheduling
+     2  begin scheduling
+     2  started scheduling
+## source: src/win32 (head nouns: scheduler, scheduling, scheduling algorithm, scheduling policy, queueing discipline, queue discipline)
+     2  task scheduler

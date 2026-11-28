@@ -1,0 +1,30 @@
+--- haiku call, 57s, exit 0, prompt 3999 chars, stdout 7058 chars
+b_kind": "kernel CPU", "depth": "deep"},
+{"name": "Cilk", "aliases": ["Cilk scheduler", "Cilk work-stealing"], "sub_kind": "multiprocessor and runtime", "depth": "deep"},
+{"name": "Proportional Fair Scheduling", "aliases": ["PF scheduler", "proportional fair"], "sub_kind": "packet", "depth": "deep"},
+{"name": "Hierarchical Fair Service Curve", "aliases": ["HFSC"], "sub_kind": "packet", "depth": "deep"},
+{"name": "Virtual Clock", "aliases": ["virtual clock scheduling"], "sub_kind": "packet", "depth": "deep"},
+{"name": "Least Attained Service", "aliases": ["LAS", "least attained service first"], "sub_kind": "textbook CPU", "depth": "deep"},
+{"name": "PIE", "aliases": ["Proportional Integral controller Enhanced"], "sub_kind": "packet", "depth": "deep"},
+{"name": "Global EDF", "aliases": ["G-EDF", "global earliest deadline first"], "sub_kind": "real-time", "depth": "deep"},
+{"name": "Self-Clocked Fair Queueing", "aliases": ["SCFQ"], "sub_kind": "packet", "depth": "deep"},
+{"name": "Start-time Fair Queueing", "aliases": ["SFQ"], "sub_kind": "packet", "depth": "deep"},
+{"name": "Deficit Weighted Round Robin", "aliases": ["DWRR"], "sub_kind": "packet", "depth": "deep"},
+{"name": "Credit Scheduler", "aliases": ["Xen credit scheduler", "Xen Credit"], "sub_kind": "kernel CPU", "depth": "deep"},
+{"name": "FSCAN", "aliases": ["F-SCAN"], "sub_kind": "disk and I/O", "depth": "deep"},
+{"name": "N-step SCAN", "aliases": ["N-SCAN", "NSCAN"], "sub_kind": "disk and I/O", "depth": "deep"}
+]
+```
+
+
+--- haiku call, 20s, exit 0, prompt 4338 chars, stdout 2751 chars
+": "Tetris", "tier": "heisenbug", "why": "Multi-resource cluster job-packing scheduler from Grandl et al. (SIGCOMM 2014)."},
+{"guess": "Cilk", "member": true, "name": "Cilk", "tier": "race", "why": "The Cilk runtime's work-stealing scheduler, a named multithreaded runtime from MIT."},
+{"guess": "Virtual Clock", "member": true, "name": "Virtual Clock", "tier": "heisenbug", "why": "Zhang's 1991 Virtual Clock packet scheduling discipline."},
+{"guess": "Least Attained Service", "member": true, "name": "Least Attained Service", "tier": "heisenbug", "why": "LAS, a named size-based policy from queueing-theory and scheduling research that serves the job with the least service so far."},
+{"guess": "Global EDF", "member": true, "name": "Global EDF", "tier": "race", "why": "Global earliest deadline first, a named multiprocessor real-time variant of EDF in the literature and in Linux SCHED_DEADLINE discussions."},
+{"guess": "Self-Clocked Fair Queueing", "member": true, "name": "Self-Clocked Fair Queueing", "tier": "heisenbug", "why": "SCFQ, Golestani's 1994 packet fair-queueing algorithm."},
+{"guess": "Deficit Weighted Round Robin", "member": true, "name": "Deficit Weighted Round Robin", "tier": "heisenbug", "why": "DWRR, a weighted form of deficit round robin used in packet-scheduling research and router implementations."},
+{"guess": "Credit Scheduler", "member": true, "name": "Credit Scheduler", "tier": "heisenbug", "why": "Xen's named hypervisor CPU scheduler (credit and credit2)."}]
+
+

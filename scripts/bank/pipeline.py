@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """One resumable command per bank category: plan -> harvest -> filter -> compare -> escalate -> merge -> obvious ->
-dupes -> links -> precision -> report. Stdlib only.
+recall -> dupes -> links -> precision -> report. Stdlib only.
 
   python3 -I scripts/bank/pipeline.py <id> [--from <stage>] [--dry-run] [--force]
   python3 -I scripts/bank/pipeline.py --batch N [--from-rank K] [--jobs J] [--dry-run]
@@ -12,14 +12,21 @@ failed runs again, and inside a stage finished sub-steps (a filter pass whose ou
 non-zero exit and a message; nothing is ever swallowed. The category stays `status: draft`: approval is a person's
 (or the bank desk's) decision, and the Bit Flip / Works on my machine picks are listed in the report, not made.
 
+A category's scope spec, scripts/bank/scopes/<id>.md (sub-kinds, In/Out rulings, examples per tier), is binding: every
+LLM stage reads it, a new plan must say which source covers each sub-kind, and the recall gate needs it.
+
 Stages (see STAGES below for the code):
-  plan       draft scripts/bank/plans/<id>.json with Gemini when missing (an LLM-drafted plan is flagged for review)
+  plan       draft scripts/bank/plans/<id>.json with Gemini when missing (an LLM-drafted plan is flagged for review);
+             needs the scope spec, and every sub-kind must be covered by a source
   harvest    scripts/harvest.py
   filter     two independent passes per batch with scripts/bank/prompts/filter.md: A = Gemini, B = Claude Haiku
   compare    scripts/compare-passes.py
   escalate   disputes via escalate.md (Gemini); "confidence": "low" goes to the Inbox
   merge      merge-mined.py, score-candidates.py, npm run bank:index
   obvious    scripts/bank/obvious-draft/<id>.json (Haiku drafts it when missing; approval moves it to obvious/), apply-obvious.py; gate: all covered
+  recall     head-recall probe: Haiku lists answers players would type across the scope's sub-kinds (runs/<id>/probe.json);
+             the ones no tier accepts are judged (misses.triage, scope-aware), real ones go to the Inbox;
+             gate: >= MIN_HEAD_RECALL of the real ones are playable (an Inbox-only answer is a miss)
   dupes      bank-dupes.py --include-draft (advisory)
   links      design/links batch file, design/links/run.sh, scripts/verify-links.py (coverage is advisory)
   precision  sample-precision.py, a Haiku reviewer's verdicts, score; gate: >= 90% members
@@ -53,8 +60,9 @@ PLANS = HERE / "plans"
 OBVIOUS = HERE / "obvious"
 OBVIOUS_DRAFT = HERE / "obvious-draft"  # drafts' lists: src/data/obvious.test.ts rejects lists in obvious/ for non-approved ones
 PROMPTS = HERE / "prompts"
+SCOPES = HERE / "scopes"
 LADDER = ["off-by-one", "npe", "leak", "race", "heisenbug"]
-STAGES = ["plan", "harvest", "filter", "compare", "escalate", "merge", "obvious", "dupes", "links", "precision", "report"]
+STAGES = ["plan", "harvest", "filter", "compare", "escalate", "merge", "obvious", "recall", "dupes", "links", "precision", "report"]
 TIER_HEADINGS = ["Off-by-one", "Works on my machine", "Null pointer exception", "Memory leak", "Race condition",
                  "Heisenbug", "Bit Flip"]
 MIN_PRECISION = 0.9
@@ -62,6 +70,32 @@ MIN_ANSWERS = 40  # the roadmap's admission test: at least 40 answers
 MIN_LINK_SHARE = 0.5
 MIN_FRESH_CANDIDATES = 10  # a fresh draft needs at least this many accepted candidates before pins are chosen
 FILTER_WORKERS = 4
+MIN_HEAD_RECALL = 0.85  # placeholder until calibrated on approved categories (like recall.py's MIN_RECALL)
+PROBE_SIZE = 60
+
+
+def scope_text(cid: str) -> str | None:
+    """The category's scope spec, or None for a category written before scope specs (an expected, legacy case)."""
+    f = SCOPES / f"{cid}.md"
+    return f.read_text().strip() if f.exists() else None
+
+
+def scope_subkinds(text: str) -> list[str]:
+    m = re.search(r"^## Sub-kinds\n(.*?)(?=^## |\Z)", text, re.M | re.S)
+    if not m:
+        raise PipelineError("scope spec has no '## Sub-kinds' section")
+    kinds = [l[2:].split(":", 1)[0].strip() for l in m.group(1).splitlines() if l.startswith("- ")]
+    if len(kinds) < 2 or len(set(kinds)) != len(kinds):
+        raise PipelineError(f"scope spec needs at least 2 distinct sub-kinds ('- name: description'), got {kinds}")
+    return kinds
+
+
+def scope_block(cid: str) -> str:
+    """Appended to every LLM prompt about the category: the spec overrides the model's own reading of the prompt."""
+    t = scope_text(cid)
+    return ("" if t is None else
+            f"\n\nSCOPE SPEC for this category (binding: it overrides your own reading of the prompt; its In and Out "
+            f"rulings decide membership, its sub-kinds say how wide the category is):\n{t}\n")
 
 
 class PipelineError(RuntimeError):
@@ -234,18 +268,39 @@ PLAN_SCHEMA = """A plan is JSON: {
                                           (type "dir" lists subdirectories; type "file" lists files, extension dropped)
   "extract":  [{"tree": "src/complexity-zoology", "file": "data/classes.txt", "regex": "^(\\\\S+) : (.+?) :"}],
                                           a registry FILE in a local tree: one candidate per line matching the regex (groups joined with " - ")
+  "wiki":     ["Category:Disk scheduling algorithms"],   Wikipedia categories: their article titles are candidates
+                                          (articles in the category and its direct subcategories; each must hold at least 8)
+  "covers":   {"<sub-kind>": ["<source>", ...]}   required when the category has a scope spec: for EVERY sub-kind, the
+                                          sources above (repo/path, tree, or category title) that name its members
   "context":  ["file system"]             optional: scorer counts must co-occur with one of these phrases (for short proper nouns)
 }
-At least one of heads (with trees), listings or extract. Source choice is the biggest lever on recall: prefer a listing whose
+At least one of heads (with trees), listings, extract or wiki. Source choice is the biggest lever on recall: prefer a listing whose
 entry NAMES are the kinds themselves (one directory or file per compiler, per DNS record type, per codec...), in the
 canonical project or registry repo. Several listings are fine. Mixed plans (listings + head-noun mining) are fine."""
 
 
 def check_plan(plan, run: Run) -> None:
-    if not isinstance(plan, dict) or not set(plan) <= {"sparse", "heads", "trees", "listings", "extract", "context"}:
-        raise ValueError("plan must be an object with only the keys sparse, heads, trees, listings, extract, context")
-    if not plan.get("listings") and not plan.get("extract") and not (plan.get("heads") and plan.get("trees")):
-        raise ValueError("plan needs listings, extract, or heads together with trees")
+    keys = {"sparse", "heads", "trees", "listings", "extract", "wiki", "covers", "context", "reference"}
+    if not isinstance(plan, dict) or not set(plan) <= keys:
+        raise ValueError(f"plan must be an object with only the keys {sorted(keys)}")
+    if not plan.get("listings") and not plan.get("extract") and not plan.get("wiki") and not (plan.get("heads") and plan.get("trees")):
+        raise ValueError("plan needs listings, extract, wiki, or heads together with trees")
+    scope = scope_text(run.cid)
+    if scope is not None:
+        cov = plan.get("covers")
+        if not isinstance(cov, dict):
+            raise ValueError("this category has a scope spec: the plan needs a covers object, one key per sub-kind")
+        missing = [k for k in scope_subkinds(scope) if not (isinstance(cov.get(k), list) and cov[k] and all(isinstance(x, str) for x in cov[k]))]
+        if missing:
+            raise ValueError(f"covers names no source for these scope sub-kinds: {missing}. Add a source that lists them "
+                             f"(a listing, a Wikipedia category, head nouns over a tree) and map it in covers")
+    for cat in plan.get("wiki", []):
+        if not (isinstance(cat, str) and cat.startswith("Category:")):
+            raise ValueError(f"wiki entries are Wikipedia category titles starting with 'Category:', got {cat!r}")
+        recall_mod = load_module("recall", HERE / "recall.py")
+        n = len(recall_mod.members(cat)[0])
+        if n < 8:
+            raise ValueError(f"wiki category {cat!r} has {n} articles (needs 8; check the exact title on Wikipedia)")
     for l in plan.get("listings", []):
         if not (isinstance(l, dict) and {"repo", "path"} <= set(l) and l.get("type", "dir") in ("dir", "file")):
             raise ValueError(f"bad listing {l!r}: need repo, path, type dir|file")
@@ -265,6 +320,28 @@ def check_plan(plan, run: Run) -> None:
             raise ValueError(f"listing {l} has only {len(names)} entries: not a useful source")
 
 
+def wiki_suggestions(cid: str, prompt: str) -> str:
+    """Real Wikipedia categories per scope sub-kind (a category-namespace search, each checked for >= 8 articles), for
+    the plan prompt: models guess category titles that do not exist ("Category:Init systems"), so we give them real ones."""
+    recall_mod = load_module("recall", HERE / "recall.py")
+    subject = re.sub(r"^name (?:an?|the)\s+(?:(?:type|kind|sort|form) of\s+)?", "", prompt, flags=re.I).rstrip(".?!")
+    lines, seen = [], set()
+    for kind in scope_subkinds(scope_text(cid) or ""):
+        found = []
+        for q in (f"{kind} {subject}", kind):
+            r = recall_mod.api({"action": "query", "list": "search", "srsearch": q, "srnamespace": "14", "srlimit": "6"})
+            for hit in r.get("query", {}).get("search", []):
+                t = hit["title"]
+                if t in seen:
+                    continue
+                seen.add(t)
+                n = len(recall_mod.members(t)[0])
+                if n >= 8:
+                    found.append(f"{t} ({n} articles)")
+        lines.append(f"- {kind}: {'; '.join(found[:5]) or 'none found: use a listing or head nouns'}")
+    return "\n".join(lines)
+
+
 def stage_plan(run: Run) -> None:
     path = PLANS / f"{run.cid}.json"
     if path.exists():
@@ -279,6 +356,10 @@ def stage_plan(run: Run) -> None:
         examples.append(f"Example, category {p.stem!r} ({b['prompt']}; accepts: {b['accepts']}):\n{p.read_text().strip()}")
     trees = sorted(x.name for x in (CORPORA / "src").iterdir()) if (CORPORA / "src").exists() else []
     b = parse_bank(run.bank)
+    if scope_text(run.cid) is None:
+        raise PipelineError(f"{run.cid}: no scope spec. Write scripts/bank/scopes/{run.cid}.md (sub-kinds, In/Out rulings, "
+                            f"examples per tier; see scheduling-algorithm.md) before drafting a plan: the plan is chosen to cover it")
+    run.dir.mkdir(parents=True, exist_ok=True)
     out = run.dir / "plan.draft.json"
     prompt = f"""You are drafting a harvesting source plan for nullion, a computing-trivia game. Each category is a prompt that
 accepts every NAMED KIND of something ("Name a type of lock"); we harvest a long deep tail of real names from public
@@ -295,14 +376,22 @@ and src/: {', '.join(trees)}. A sparse entry can clone other GitHub repos (small
 {chr(10).join(examples)}
 
 Rules: use real, public GitHub repositories and paths that you are confident exist. Every listing is verified with the
-GitHub API right after you answer, and must return at least 8 entries. Don't invent paths. Prefer 1-3 sources.
+GitHub API right after you answer, and must return at least 8 entries. Don't invent paths. The sources together must
+cover the WHOLE scope: a category's recall is capped by its sources (one ecosystem's tree, one library, one vendor's
+list leaves the rest of the category out), so use as many sources as the scope's sub-kinds need, and fill "covers" with
+every sub-kind of the scope spec mapped to the sources that name its members. Wikipedia categories ("wiki") are good for
+kinds no single repo lists, but use ONLY titles from this verified list (searched just now; any other title fails):
+{wiki_suggestions(run.cid, b['prompt'])}
+Category membership is noisy (people, companies, concepts): the filter passes remove those, so a broad category is fine.{scope_block(run.cid)}
 Write ONLY the plan JSON to the file {out.relative_to(REPO)}. Reply with only "done"."""
 
     def validate(obj):
         check_plan(obj, run)
         return obj
 
-    plan = llm.call("gemini", prompt, validate, out_path=out, log=run.log("plan"))
+    # Three retries, not one: a plan that must cover every sub-kind fails the check (or names a path that 404s) more
+    # often than a one-source plan did, and each retry is told exactly what was wrong.
+    plan = llm.call("gemini", prompt, validate, out_path=out, log=run.log("plan"), retries=3)
     PLANS.mkdir(parents=True, exist_ok=True)
     write_json(path, plan)
     out.unlink(missing_ok=True)
@@ -346,6 +435,7 @@ def filter_prompt(run: Run, batch: pathlib.Path, side: str, mode: str) -> str:
     text = (template.replace("{PROMPT}", b["prompt"]).replace("{ID}", run.cid)
             .replace("{BATCH_FILE}", str(batch.relative_to(REPO))).replace("{BANK_FILE}", str(run.bank.relative_to(REPO)))
             .replace("OUT_PREFIX", str(prefix)))
+    text += scope_block(run.cid)
     if mode == "gemini":
         return text
     return f"""{text}
@@ -442,7 +532,7 @@ def stage_escalate(run: Run) -> None:
     rc.unlink(missing_ok=True)
     ra.unlink(missing_ok=True)
     prompt = (PROMPTS / "escalate.md").read_text().split("\n---\n")[-1] if "\n---\n" in (PROMPTS / "escalate.md").read_text() else (PROMPTS / "escalate.md").read_text()
-    prompt = prompt.replace("{PROMPT}", b["prompt"]).replace("{ID}", run.cid)
+    prompt = prompt.replace("{PROMPT}", b["prompt"]).replace("{ID}", run.cid) + scope_block(run.cid)
     prompt += (f"\n\nWrite the two files to exactly these paths: {rc.relative_to(REPO)} and {ra.relative_to(REPO)}. "
                f"There are {len(disputed)} disputes: decide every one (keep, keep with confidence low, or drop).")
 
@@ -473,7 +563,7 @@ Two reviewers proposed rarity picks among these accepted answers.
 Proposed Bit Flip: {picks.get('bitflip_candidates', [])}
 Proposed Works on my machine: {picks.get('womm_candidates', [])}
 All candidate names: {sorted(names)}
-Choose exactly ONE bitflip and 1 to 3 womm, all spelled exactly as in the candidate names, no overlap.
+Choose exactly ONE bitflip and 1 to 3 womm, all spelled exactly as in the candidate names, no overlap.{scope_block(run.cid)}
 Reply with ONLY JSON: {{"bitflip": "<name>", "womm": ["<name>", ...]}}"""
 
     def validate(o):
@@ -553,7 +643,7 @@ each at least 3 characters], "tier": "off-by-one" (nearly everyone names it firs
 accepts rule; no functions or API calls; no duplicates; never use "|" in a name. Today's bank already tiers these as obvious: {have or '(none yet)'}.
 Cover what is missing from that list, but include the true top answers even if listed.
 Format example (another category):
-{example}
+{example}{scope_block(run.cid)}
 Reply with ONLY the JSON list."""
         groups = llm.call("haiku", prompt, check_obvious, log=run.log("obvious"))
         OBVIOUS_DRAFT.mkdir(parents=True, exist_ok=True)
@@ -579,6 +669,96 @@ Reply with ONLY the JSON list."""
                  f"(edit the bank file's ## Bit Flip, then rerun with --from merge)")
     run.gate("obvious", "obvious coverage", "pass", f"{len(groups) - len(missing)}/{len(groups)} obvious answers accepted"
              + (f"; {run.state['obvious'].split('; ', 1)[1]}" if "; skipped" in run.state["obvious"] else ""))
+
+
+# ---------------------------------------------------------------- stage: recall (head-recall probe)
+
+def check_probe(d) -> list[dict]:
+    if not isinstance(d, list) or len(d) < PROBE_SIZE // 2:
+        raise ValueError(f"need a JSON list of about {PROBE_SIZE} objects")
+    seen = set()
+    for x in d:
+        if not (isinstance(x, dict) and isinstance(x.get("name"), str) and x["name"].strip() and "|" not in x["name"]):
+            raise ValueError(f"every item needs a name string without '|', got {x!r}")
+        if not (isinstance(x.get("aliases", []), list) and all(isinstance(a, str) for a in x.get("aliases", []))):
+            raise ValueError(f"{x['name']!r}: aliases must be a list of strings")
+        if x.get("depth") not in ("common", "mid", "deep"):
+            raise ValueError(f"{x['name']!r}: depth must be common, mid or deep")
+        if x["name"].lower() in seen:
+            raise ValueError(f"duplicate {x['name']!r}")
+        seen.add(x["name"].lower())
+    return d
+
+
+def probe_keys(name: str, aliases: list[str], subject: str, norm) -> set[str]:
+    """What a player typing this name (or an alias) would be matched on: the name itself, and the name with the
+    prompt's noun or a generic noun dropped off the end, as the game's phrasings() does."""
+    tails = sorted({subject, subject.split()[-1], "algorithm", "scheduling", "scheduler", "policy", "daemon", "service",
+                    "system", "protocol", "format", "cipher", "editor", "tool"}, key=len, reverse=True)
+    out = set()
+    for n in [name, *aliases]:
+        k = norm(n)
+        out.add(k)
+        for t in tails:
+            tk = norm(t)
+            if k.endswith(tk) and len(k) > len(tk) + 1:
+                out.add(k[: -len(tk)])
+    return {k for k in out if k}
+
+
+def stage_recall(run: Run) -> None:
+    scope = scope_text(run.cid)
+    if scope is None:
+        raise PipelineError(f"{run.cid}: the recall gate needs a scope spec (scripts/bank/scopes/{run.cid}.md)")
+    misses = load_module("misses", HERE / "misses.py")
+    b = parse_bank(run.bank)
+    probe_path = run.dir / "probe.json"
+    if not valid_file(probe_path, check_probe):
+        prompt = f"""For nullion, a computing-trivia game, list {PROBE_SIZE} answers that real players would type for the prompt
+"{b['prompt']}" (accepts: {b['accepts'] or 'any named kind of it'}).{scope_block(run.cid)}
+Spread them: about 15 "common" (nearly everyone types these first), 20 "mid" (people with some systems background),
+25 "deep" (specialists, papers, kernel internals). Cover EVERY sub-kind in the scope spec, several answers each. Only
+real, named things you are confident exist and that the scope's In rules accept; none of its Out cases. Each item:
+{{"name": "<usual spelling>", "aliases": [abbreviations and other spellings people type], "sub_kind": "<one of the sub-kinds>", "depth": "common" | "mid" | "deep"}}
+Never use "|" in a name. Reply with ONLY the JSON list."""
+        write_json(probe_path, llm.call("haiku", prompt, check_probe, log=run.log("recall")))
+    probe = json.loads(probe_path.read_text())
+    text = run.bank.read_text()
+    playable, known = misses.playable_keys(text), misses.known_keys(text)
+    subj = re.sub(r"^name (?:an?|the)\s+(?:(?:type|kind|sort|form) of\s+)?", "", b["prompt"], flags=re.I).rstrip(".?!").lower()
+    covered, inbox_only, unknown = [], [], []
+    for x in probe:
+        ks = probe_keys(x["name"], x.get("aliases", []), subj, misses.norm)
+        (covered if ks & playable else inbox_only if ks & known else unknown).append(x)
+    report, added, aliased = misses.triage(run.cid, b["prompt"], [(x["name"], 1) for x in unknown], False,
+                                           run.log("recall"), scope)
+    if added:
+        with global_lock("bank"):
+            misses.bank_index()
+    not_members = sum(1 for l in report if ": not an answer:" in l)
+    real = len(covered) + aliased + len(inbox_only) + added
+    share = (len(covered) + aliased) / real if real else 0.0
+    out = REPO / "design" / "recall" / f"{run.cid}-probe.md"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    by_kind: dict[str, list[str]] = {}
+    for x in inbox_only + unknown:
+        by_kind.setdefault(x.get("sub_kind", "?"), []).append(x["name"])
+    out.write_text("\n".join([
+        f"# Head-recall probe: {run.cid} ({b['prompt']})", "",
+        f"{len(covered) + aliased} of {real} real probe answers are playable ({share:.0%}); {len(inbox_only)} only in the "
+        f"Inbox; {added} new ones added to the Inbox; {not_members} probe answers judged not members (out of scope or not real).",
+        "", "## Misses by sub-kind", *[f"- {k}: {', '.join(v)}" for k, v in sorted(by_kind.items())],
+        "", "## Inbox only (rejected in play until promoted)", *[f"- {x['name']}" for x in inbox_only],
+        "", "## Judged", *report, "", "## Covered", *[f"- {x['name']}" for x in covered], ""]))
+    run.state["recall"] = {"playable": len(covered) + aliased, "real": real, "inbox_only": len(inbox_only),
+                           "added": added, "not_members": not_members, "report": str(out.relative_to(REPO))}
+    missed = [x["name"] for x in inbox_only + unknown if not any(x["name"] in l and ": not an answer:" in l for l in report)]
+    detail = (f"{len(covered) + aliased}/{real} real probe answers playable ({share:.0%}); "
+              f"{len(inbox_only)} Inbox-only, {added} added to the Inbox; misses: {', '.join(missed[:12])}"
+              f"{' ...' if len(missed) > 12 else ''} ({out.relative_to(REPO)})")
+    run.gate("recall", "head recall", "pass" if share >= MIN_HEAD_RECALL else "fail",
+             detail + ("" if share >= MIN_HEAD_RECALL else f": below {MIN_HEAD_RECALL:.0%}; promote the Inbox lines into tiers "
+                       f"(or fix the plan's sources), then rerun with --from recall"))
 
 
 # ---------------------------------------------------------------- stage: dupes
@@ -663,7 +843,7 @@ Judge each sampled answer. "member": is it a real, correct answer to the prompt 
 its tier plausible (off-by-one = nearly everyone names it first; npe = many know it; leak = systems/domain people;
 race = specialists; heisenbug = deep internals only)? Be strict about membership: say false when unsure it exists.
 
-{rule}
+{rule}{scope_block(run.cid)}
 SAMPLE:
 {listing}
 
@@ -728,7 +908,7 @@ def stage_report(run: Run, partial: str | None = None) -> None:
 def execute(run: Run, stage: str, force: bool) -> None:
     fn = {"plan": lambda: stage_plan(run), "harvest": lambda: stage_harvest(run, force), "filter": lambda: stage_filter(run),
           "compare": lambda: stage_compare(run), "escalate": lambda: stage_escalate(run), "merge": lambda: stage_merge(run),
-          "obvious": lambda: stage_obvious(run), "dupes": lambda: stage_dupes(run), "links": lambda: stage_links(run),
+          "obvious": lambda: stage_obvious(run), "recall": lambda: stage_recall(run), "dupes": lambda: stage_dupes(run), "links": lambda: stage_links(run),
           "precision": lambda: stage_precision(run), "report": lambda: stage_report(run)}[stage]
     fn()
 

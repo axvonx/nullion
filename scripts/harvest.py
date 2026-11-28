@@ -10,9 +10,12 @@ Reads scripts/bank/plans/<id>.json:
     "trees":    ["kernel", "src/freebsd"],    relative to ~/nullion-corpora
     "listings": [{"repo": "torvalds/linux", "path": "fs", "type": "dir"}],  GitHub API directory listings
                                               (type "dir" or "file"; file names lose their extension)
+    "wiki":     ["Category:Scheduling algorithms"],  Wikipedia category members (articles in it and its direct
+                                              subcategories, via scripts/bank/recall.py's members())
+    "covers":   {"<scope sub-kind>": ["<source>"]}   which source covers each sub-kind of the scope (pipeline check)
     "context":  ["file system"]               optional: counts must co-occur with one of these (scorer)
   }
-At least one of heads or listings. Writes scripts/bank/mined/<id>/batch-NN.txt, at most BATCH lines each
+At least one of heads, listings, extract or wiki. Writes scripts/bank/mined/<id>/batch-NN.txt, at most BATCH lines each
 (one `## source:` header per source), and prints the next steps. Clones and listings that fail raise.
 """
 import json
@@ -24,6 +27,13 @@ import sys
 REPO = pathlib.Path(__file__).resolve().parent.parent
 CORPORA = pathlib.Path("~/nullion-corpora").expanduser()
 BATCH = 1400
+
+
+def wiki_members(category: str) -> list[str]:
+    """Article titles in a Wikipedia category and its direct subcategories (recall.py's members(), one API client)."""
+    sys.path.insert(0, str(REPO / "scripts" / "bank"))
+    import recall  # noqa: E402  # pyright: ignore[reportMissingImports]
+    return recall.members(category)[0]
 
 
 def run(*cmd: str, cwd: pathlib.Path | None = None) -> str:
@@ -70,8 +80,8 @@ def main() -> None:
     cid = sys.argv[1]
     plan_path = REPO / "scripts" / "bank" / "plans" / f"{cid}.json"
     plan = json.loads(plan_path.read_text())
-    if not plan.get("heads") and not plan.get("listings") and not plan.get("extract"):
-        raise RuntimeError(f"{plan_path}: needs heads (with trees), listings or extract")
+    if not plan.get("heads") and not plan.get("listings") and not plan.get("extract") and not plan.get("wiki"):
+        raise RuntimeError(f"{plan_path}: needs heads (with trees), listings, extract or wiki")
     bank = [h for h in (REPO / "bank").glob(f"*/{cid}.md") if h.parent.name != "reports"]
     if len(bank) != 1:
         raise RuntimeError(f"{cid}: expected one bank file, found {len(bank)}")
@@ -82,6 +92,11 @@ def main() -> None:
     sections: list[tuple[str, list[str]]] = []
     for spec in plan.get("listings", []):
         sections.append((f"{spec['repo']}/{spec['path']} ({spec.get('type', 'dir')} names)", listing(spec)))
+    for cat in plan.get("wiki", []):
+        names = wiki_members(cat)
+        if len(names) < 8:
+            raise RuntimeError(f"wiki source {cat!r} has only {len(names)} articles: not a useful source")
+        sections.append((f"Wikipedia {cat} (article titles)", names))
     for spec in plan.get("extract", []):  # a registry file in a local tree: one candidate per regex match
         f = CORPORA / spec["tree"] / spec["file"]
         if not f.is_file():

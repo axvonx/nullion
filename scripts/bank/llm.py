@@ -10,7 +10,13 @@ Every output is validated by a caller-supplied function (raises ValueError with 
 wrong). On a failure the call is retried ONCE with that message appended to the prompt, then LLMError is raised.
 Nothing about the user or their machine is added to a prompt: callers pass category data and repo-relative paths.
 
-Environment overrides: NULLION_GEMINI_MODEL, NULLION_HAIKU_MODEL, NULLION_LLM_TIMEOUT (seconds per call).
+The "gemini" role (filter pass A, plan, escalate) can run on Claude instead: NULLION_A_BACKEND=claude runs
+`claude -p --model $NULLION_A_MODEL --tools Read,Write --permission-mode acceptEdits`, so the same write-a-file
+prompts work. Both passes on one model family are no longer independent (their errors correlate): a run says so in
+its log, and precision samples from such a run are optimistic.
+
+Environment overrides: NULLION_GEMINI_MODEL, NULLION_HAIKU_MODEL, NULLION_A_BACKEND (agy | claude), NULLION_A_MODEL,
+NULLION_LLM_TIMEOUT (seconds per call).
 """
 import json
 import os
@@ -24,6 +30,10 @@ from typing import Any, Callable
 REPO = pathlib.Path(__file__).resolve().parent.parent.parent
 GEMINI_MODEL = os.environ.get("NULLION_GEMINI_MODEL", "gemini-4-hydrogen-low")
 HAIKU_MODEL = os.environ.get("NULLION_HAIKU_MODEL", "haiku")
+A_BACKEND = os.environ.get("NULLION_A_BACKEND", "agy")
+A_MODEL = os.environ.get("NULLION_A_MODEL", "sonnet")
+if A_BACKEND not in ("agy", "claude"):
+    raise SystemExit(f"NULLION_A_BACKEND must be agy or claude, got {A_BACKEND!r}")
 TIMEOUT = int(os.environ.get("NULLION_LLM_TIMEOUT", "1800"))
 
 
@@ -73,13 +83,18 @@ def _once(model: str, prompt: str, out_path: pathlib.Path | None, log: pathlib.P
     if model == "gemini":
         if out_path:
             out_path.unlink(missing_ok=True)
-        r = run_group(["agy", "-p", prompt, "--model", GEMINI_MODEL, "--dangerously-skip-permissions"])
+        if A_BACKEND == "claude":
+            r = run_group(["claude", "-p", "--model", A_MODEL, "--tools", "Read,Write", "--permission-mode", "acceptEdits",
+                           "--no-session-persistence", "--disable-slash-commands"], stdin=prompt)
+        else:
+            r = run_group(["agy", "-p", prompt, "--model", GEMINI_MODEL, "--dangerously-skip-permissions"])
     elif model == "haiku":
         r = run_group(["claude", "-p", "--model", HAIKU_MODEL, "--tools", "", "--no-session-persistence",
                        "--disable-slash-commands"], stdin=prompt)
     else:
         raise LLMError(f"unknown model backend {model!r}")
-    _log(log, f"--- {model} call, {time.time() - t0:.0f}s, exit {r.returncode}, prompt {len(prompt)} chars, "
+    who = f"{model} via claude:{A_MODEL}" if model == "gemini" and A_BACKEND == "claude" else model
+    _log(log, f"--- {who} call, {time.time() - t0:.0f}s, exit {r.returncode}, prompt {len(prompt)} chars, "
               f"stdout {len(r.stdout)} chars\n{r.stdout[-1500:]}\n{('stderr: ' + r.stderr[-800:]) if r.stderr.strip() else ''}")
     if r.returncode != 0:
         raise LLMError(f"{model} exited {r.returncode}: {(r.stderr or r.stdout).strip()[-400:]}")

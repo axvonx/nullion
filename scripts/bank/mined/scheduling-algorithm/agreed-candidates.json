@@ -1,0 +1,498 @@
+{
+ "scheduling-algorithm": [
+  {
+   "name": "Round robin",
+   "aliases": [
+    "Round-robin scheduling"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Priority scheduling",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Shortest job first",
+   "aliases": [
+    "Shortest job next",
+    "SJF",
+    "SJN"
+   ],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Shortest remaining time first",
+   "aliases": [
+    "Shortest remaining time",
+    "SRTF"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Earliest deadline first",
+   "aliases": [
+    "EDF",
+    "Earliest deadline first scheduling"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Multilevel feedback queue",
+   "aliases": [
+    "MLFQ"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Multilevel queue",
+   "aliases": [
+    "MLQ"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Completely Fair Scheduler",
+   "aliases": [
+    "CFS",
+    "cfs scheduler"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "EEVDF",
+   "aliases": [
+    "Earliest eligible virtual deadline first",
+    "scx_eevdf",
+    "Earliest eligible virtual deadline first scheduling"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Rate-monotonic scheduling",
+   "aliases": [
+    "RMS"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Deadline-monotonic scheduling",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Lottery scheduling",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Stride scheduling",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Gang scheduling",
+   "aliases": [
+    "Coscheduling"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Work stealing",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Dominant resource fairness",
+   "aliases": [
+    "DRF"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Deficit round robin",
+   "aliases": [
+    "DRR"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Weighted round robin",
+   "aliases": [
+    "WRR"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Proportional share scheduling",
+   "aliases": [
+    "Fair-share scheduling"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Proportional-fair scheduling",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Generalized processor sharing",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Stack resource policy",
+   "aliases": [
+    "SRP"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Adaptive partition scheduler",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Pinwheel scheduling",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Foreground-background",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Highest response ratio next",
+   "aliases": [
+    "HRRN"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Anticipatory scheduling",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Elevator algorithm",
+   "aliases": [
+    "SCAN"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "LOOK",
+   "aliases": [
+    "LOOK algorithm"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "N-Step-SCAN",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "FSCAN",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Shortest seek first",
+   "aliases": [
+    "SSTF"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Deadline scheduler",
+   "aliases": [
+    "mq-deadline"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Completely fair queueing",
+   "aliases": [
+    "CFQ"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "Noop scheduler",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Kyber",
+   "aliases": [
+    "kyber-iosched",
+    "Kyber scheduler"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "BFQ",
+   "aliases": [
+    "bfq-iosched"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "ULE",
+   "aliases": [
+    "ULE scheduler"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Windows NT processor scheduling",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Energy aware scheduling",
+   "aliases": [
+    "EAS"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Random early detection",
+   "aliases": [
+    "RED",
+    "sch_red"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "CoDel",
+   "aliases": [
+    "sch_codel"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "FQ-CoDel",
+   "aliases": [
+    "sch_fq_codel"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "FQ-PIE",
+   "aliases": [
+    "sch_fq_pie"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "PIE",
+   "aliases": [
+    "sch_pie"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "CAKE",
+   "aliases": [
+    "sch_cake"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "DualPI2",
+   "aliases": [
+    "sch_dualpi2"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Fair queuing",
+   "aliases": [
+    "sch_fq"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Weighted fair queueing",
+   "aliases": [
+    "WFQ"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Credit-based fair queuing",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Class-based queueing",
+   "aliases": [
+    "CBQ"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Hierarchical fair-service curve",
+   "aliases": [
+    "HFSC"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Hierarchical token bucket",
+   "aliases": [
+    "HTB",
+    "sch_htb"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Stochastic Fair Queueing",
+   "aliases": [
+    "SFQ"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Quick Fair Queueing",
+   "aliases": [
+    "QFQ",
+    "sch_qfq"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Credit-based shaper",
+   "aliases": [
+    "CBS",
+    "sch_cbs"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Earliest TxTime First",
+   "aliases": [
+    "ETF",
+    "sch_etf"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "TAPRIO",
+   "aliases": [
+    "sch_taprio"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Enhanced Transmission Selection",
+   "aliases": [
+    "ETS",
+    "sch_ets"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Interleaved polling with adaptive cycle time",
+   "aliases": [
+    "IPACT"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Heterogeneous earliest finish time",
+   "aliases": [
+    "HEFT"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "YDS algorithm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_rusty",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_bpfland",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_cake",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_chaos",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_cosmos",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_lavd",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_layered",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_mitosis",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_p2dq",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_pandemonium",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_central",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_flatcg",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_pair",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_qmap",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_simple",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "scx_userland",
+   "aliases": [],
+   "judge": "heisenbug"
+  }
+ ]
+}

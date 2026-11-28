@@ -1,0 +1,233 @@
+[
+ {
+  "name": "Least laxity first",
+  "a": {
+   "name": "Least laxity first",
+   "aliases": [
+    "Least slack time",
+    "LLF"
+   ],
+   "judge": "heisenbug",
+   "evidence": "line 233: Least slack time scheduling (Wikipedia Category:Scheduling algorithms)",
+   "why": "real-time policy, the same algorithm as least slack time"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Generalized foreground-background",
+  "a": {
+   "name": "Generalized foreground-background",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "line 219: Generalized foreground-background (Wikipedia Category:Scheduling algorithms)",
+   "why": "distinct generalisation of foreground-background"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "mq-deadline",
+  "a": {
+   "name": "mq-deadline",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "line 144: mq-deadline (torvalds/linux/block file names)",
+   "why": "named blk-mq I/O scheduler"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "SCHED_FIFO",
+  "a": {
+   "name": "SCHED_FIFO",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "line 523: sched_fifo scheduling (kernel, 2 hits)",
+   "why": "documented Linux scheduling policy"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "FIFO",
+  "a": {
+   "name": "FIFO",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "line 210: FIFO (computing and electronics) (Wikipedia Category:Scheduling algorithms)",
+   "why": "first-in first-out service order, the textbook FCFS"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Token bucket",
+  "a": {
+   "name": "Token bucket",
+   "aliases": [
+    "TBF"
+   ],
+   "judge": "leak",
+   "evidence": "line 271: Token bucket (Wikipedia Category:Scheduling algorithms); line 82: sch_tbf",
+   "why": "rate-control queueing discipline"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Stochastic Fair Blue",
+  "a": {
+   "name": "Stochastic Fair Blue",
+   "aliases": [
+    "SFB"
+   ],
+   "judge": "heisenbug",
+   "evidence": "line 78: sch_sfb (torvalds/linux/net/sched file names)",
+   "why": "named Linux queueing discipline"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Heavy-Hitter Filter",
+  "a": {
+   "name": "Heavy-Hitter Filter",
+   "aliases": [
+    "HHF"
+   ],
+   "judge": "heisenbug",
+   "evidence": "line 65: sch_hhf (torvalds/linux/net/sched file names)",
+   "why": "named Linux queueing discipline"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Generalized RED",
+  "a": {
+   "name": "Generalized RED",
+   "aliases": [
+    "GRED"
+   ],
+   "judge": "heisenbug",
+   "evidence": "line 63: sch_gred (torvalds/linux/net/sched file names)",
+   "why": "named Linux queueing discipline"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "CHOKe",
+  "a": {
+   "name": "CHOKe",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "line 51: sch_choke (torvalds/linux/net/sched file names)",
+   "why": "named AQM queueing discipline"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ALTQ",
+  "a": {
+   "name": "ALTQ",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "line 182: ALTQ (Wikipedia Category:Scheduling algorithms)",
+   "why": "named BSD packet-scheduling framework"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "MULTIFIT",
+  "a": {
+   "name": "MULTIFIT",
+   "aliases": [
+    "Multifit algorithm"
+   ],
+   "judge": "heisenbug",
+   "evidence": "line 241: Multifit algorithm (Wikipedia Category:Scheduling algorithms)",
+   "why": "multiprocessor makespan heuristic"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "scx_cpu0",
+  "a": {
+   "name": "scx_cpu0",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "line 154: scx_cpu0 (torvalds/linux/tools/sched_ext)",
+   "why": "sched_ext example scheduler in the kernel tree"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "scx_sdt",
+  "a": {
+   "name": "scx_sdt",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "line 162: scx_sdt (torvalds/linux/tools/sched_ext)",
+   "why": "sched_ext example scheduler in the kernel tree"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Least slack time scheduling",
+  "a": null,
+  "b": {
+   "name": "Least slack time scheduling",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia scheduling category: Least slack time scheduling",
+   "why": "real-time deadline policy"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Fair-share scheduling",
+  "a": null,
+  "b": {
+   "name": "Fair-share scheduling",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "Wikipedia scheduling category: Fair-share scheduling",
+   "why": "named fair-share policy"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Priority queueing",
+  "a": null,
+  "b": {
+   "name": "Priority queueing",
+   "aliases": [
+    "sch_prio"
+   ],
+   "judge": "race",
+   "evidence": "net/sched: sch_prio",
+   "why": "named packet scheduler"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Core scheduling",
+  "a": null,
+  "b": {
+   "name": "Core scheduling",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "kernel: core scheduling",
+   "why": "named Linux SMT scheduling feature"
+  },
+  "batch": "batch-00.txt"
+ }
+]

@@ -1,5 +1,5 @@
 # Name a CPU scheduling algorithm
-id: cpu-scheduling-algorithm · domain: os-systems · status: draft
+id: cpu-scheduling-algorithm · domain: os-systems · status: retired
 > Any named algorithm or policy that selects which runnable task gets the CPU next, from textbooks, research papers or OS source code.
 
 ## Inbox

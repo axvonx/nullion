@@ -65,6 +65,7 @@ def bank_file(cid: str) -> pathlib.Path:
 
 
 def known_keys(text: str) -> set[str]:
+    """Every name and alias in the file, the Inbox included (so a guess is never appended to the Inbox twice)."""
     keys: set[str] = set()
     for line in text.splitlines():
         if line.startswith("- "):
@@ -73,14 +74,22 @@ def known_keys(text: str) -> set[str]:
     return keys
 
 
+def playable_keys(text: str) -> set[str]:
+    """Names and aliases in the tier sections only: what the game accepts. The Inbox is never played, so an answer
+    that is only in the Inbox is still a miss (the 2026-11-27 database misses sat there, reported as known)."""
+    head = text.split("\n## Inbox", 1)[0]
+    return known_keys(head)
+
+
 def accepts_line(text: str) -> str:
     m = re.search(r"^> (.+)$", text, re.M)
     return m.group(1) if m else "every named kind"
 
 
-def judge(prompt: str, accepts: str, guesses: list[str], log: pathlib.Path) -> list[dict]:
+def judge(prompt: str, accepts: str, guesses: list[str], log: pathlib.Path, scope: str = "") -> list[dict]:
     listing = "\n".join(f"- {g}" for g in guesses)
-    ask = f"""A computing-trivia game asks players: "{prompt}". Accepted: {accepts}
+    scope_note = f"\nSCOPE SPEC (binding: its In and Out rulings decide membership):\n{scope}\n" if scope else ""
+    ask = f"""A computing-trivia game asks players: "{prompt}". Accepted: {accepts}{scope_note}
 Players typed these answers, which the game's answer list does not have yet:
 {listing}
 
@@ -114,29 +123,37 @@ Reply with ONLY a JSON list, one object per guess, in the same order:
 JUDGE_CHUNK = 25
 
 
-def triage(cid: str, prompt: str, guesses: list[tuple[str, int]], no_llm: bool, log: pathlib.Path) -> tuple[list[str], int, int]:
+def triage(cid: str, prompt: str, guesses: list[tuple[str, int]], no_llm: bool, log: pathlib.Path,
+           scope: str = "") -> tuple[list[str], int, int]:
     """Judge a category's guesses and append the real, unknown ones to its Inbox.
-    Returns (report lines, added to the Inbox, real but already known by another name)."""
+    Returns (report lines, added to the Inbox, real and already PLAYABLE under another name). A guess or name found
+    only in the Inbox is reported as such, loudly: it is still rejected in play until someone promotes it."""
     path = bank_file(cid)
     text = path.read_text()
     known = known_keys(text)
+    playable = playable_keys(text)
     fresh = [(g, n) for g, n in guesses if norm(g) not in known]
-    report = [f"- {g} (×{n}): already in the bank or its Inbox" for g, n in guesses if norm(g) in known]
+    report = [f"- {g} (×{n}): already in the bank" if norm(g) in playable else
+              f"- {g} (×{n}): **in the Inbox only: still rejected in play until promoted**"
+              for g, n in guesses if norm(g) in known]
     if not fresh:
         return report, 0, 0
     if no_llm:
         return report + [f"- {g} (×{n}): not in the bank (not judged: --no-llm)" for g, n in fresh], 0, 0
     verdicts = []
     for i in range(0, len(fresh), JUDGE_CHUNK):
-        verdicts += judge(prompt, accepts_line(text), [g for g, _ in fresh[i:i + JUDGE_CHUNK]], log)
+        verdicts += judge(prompt, accepts_line(text), [g for g, _ in fresh[i:i + JUDGE_CHUNK]], log, scope)
     lines, aliased = [], 0
     for (g, n), v in zip(fresh, verdicts):
         if not v["member"]:
             report.append(f"- {g} (×{n}): not an answer: {v['why']}")
             continue
-        if norm(v["name"]) in known:
+        if norm(v["name"]) in playable:
             aliased += 1
             report.append(f"- {g} (×{n}): the model's name {v['name']!r} is already in the bank: {v['why']}")
+            continue
+        if norm(v["name"]) in known:
+            report.append(f"- {g} (×{n}): the model's name {v['name']!r} is **in the Inbox only: still rejected in play**: {v['why']}")
             continue
         names = [v["name"]] + ([g] if norm(g) != norm(v["name"]) else [])
         lines.append(f"- {' | '.join(names)} (suggested: {v['tier']})")

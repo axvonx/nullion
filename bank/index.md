@@ -2,7 +2,7 @@
 
 <!-- Generated from the category files by `npm run bank:index`; CI fails if it is stale. Edit the category files, not this. -->
 
-193 categories: 148 draft, 45 approved, 0 retired.
+194 categories: 148 draft, 45 approved, 1 retired.
 
 | id | prompt | domain | status | answers | unconfirmed | inbox |
 |---|---|---|---|---|---|---|
@@ -158,7 +158,7 @@
 | web-server | Name a web server | languages-tools | draft | 0 | 0 | 7 |
 | bgp-path-attribute | Name a BGP path attribute | os-systems | draft | 0 | 0 | 7 |
 | cache-replacement-policy | Name a cache replacement policy | os-systems | draft | 0 | 0 | 7 |
-| cpu-scheduling-algorithm | Name a CPU scheduling algorithm | os-systems | draft | 0 | 0 | 7 |
+| cpu-scheduling-algorithm | Name a CPU scheduling algorithm | os-systems | retired | 0 | 0 | 7 |
 | dhcp-option | Name a DHCP option | os-systems | draft | 0 | 0 | 7 |
 | dns-record-type | Name a DNS record type | os-systems | approved | 68 | 64 | 0 |
 | eap-method | Name an EAP method | os-systems | draft | 0 | 0 | 7 |
@@ -189,12 +189,13 @@
 | nvme-command | Name an NVMe command | os-systems | draft | 0 | 0 | 7 |
 | operating-system | Name an operating system | os-systems | approved | 2260 | 2239 | 0 |
 | routing-protocol | Name a routing protocol | os-systems | draft | 0 | 0 | 7 |
+| scheduling-algorithm | Name a scheduling algorithm | os-systems | draft | 96 | 92 | 17 |
 | socket-address-family | Name a socket address family | os-systems | draft | 0 | 0 | 7 |
 | systemd-directive | Name a systemd unit directive | os-systems | draft | 0 | 0 | 7 |
 | tcp-congestion-control-algorithm | Name a TCP congestion control algorithm | os-systems | approved | 31 | 29 | 0 |
 | tls-extension | Name a TLS extension | os-systems | draft | 0 | 0 | 7 |
 | unix-command | Name a Unix command | os-systems | approved | 415 | 413 | 4 |
-| unix-daemon | Name a Unix daemon | os-systems | approved | 79 | 75 | 1 |
+| unix-daemon | Name a Unix daemon | os-systems | approved | 79 | 75 | 33 |
 | unix-shell | Name a Unix shell | os-systems | draft | 0 | 0 | 7 |
 | unix-signal | Name a Unix signal | os-systems | draft | 0 | 0 | 7 |
 | window-manager | Name a window manager | os-systems | draft | 0 | 0 | 7 |

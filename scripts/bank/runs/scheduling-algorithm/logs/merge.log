@@ -1,0 +1,28 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py scheduling-algorithm /Users/axvon/nullion/scripts/bank/mined/scheduling-algorithm/final.json /Users/axvon/nullion/scripts/bank/mined/scheduling-algorithm/agreed /Users/axvon/nullion/scripts/bank/mined/scheduling-algorithm/resolved  [0s, exit 0]
+note: Deadline scheduler: batches disagree (race vs heisenbug); keeping the shallower
+note: Proportional share scheduling: batches disagree (leak vs race); keeping the shallower
+scheduling-algorithm: 93 new candidates -> /Users/axvon/nullion/scripts/bank/mined/scheduling-algorithm/final.json; 0 aliases added to bank/os-systems/scheduling-algorithm.md
+
+--- haiku call, 15s, exit 0, prompt 6052 chars, stdout 142 chars
+[21:57:06] {"bitflip": "Interleaved polling with adaptive cycle time", "womm": ["Lottery scheduling", "Elevator algorithm", "Work stealing"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/scheduling-algorithm/final.json /Users/axvon/nullion-corpora  [1s, exit 0]
+scheduling-algorithm: filled 93 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.3.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  21:57:07
+   Duration  216ms (transform 67%, import 16%, tests 16%, worker 1%)
+
+

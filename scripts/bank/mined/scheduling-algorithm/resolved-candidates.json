@@ -1,0 +1,19 @@
+{"scheduling-algorithm": [
+  {"name": "First come first served", "aliases": ["FIFO", "FCFS"], "judge": "off-by-one", "why": "textbook FCFS (in bank Inbox); FIFO (batch line 210) is the same service order, so it is an alias"},
+  {"name": "Least slack time scheduling", "aliases": ["Least laxity first", "LLF", "Least slack time"], "judge": "heisenbug", "why": "real-time deadline policy (batch line 233); disputes 'Least laxity first' and 'Least slack time scheduling' are one algorithm, merged"},
+  {"name": "Generalized foreground-background", "aliases": [], "judge": "heisenbug", "why": "named generalisation of foreground-background, Wikipedia scheduling category (batch line 219)"},
+  {"name": "mq-deadline", "aliases": [], "judge": "heisenbug", "why": "named blk-mq I/O scheduler in the block tree (batch line 144), in the disk and I/O sub-kind"},
+  {"name": "SCHED_FIFO", "aliases": [], "judge": "leak", "why": "documented Linux scheduling policy, listed in the scope's In rule (batch line 523)"},
+  {"name": "Token bucket", "aliases": ["TBF"], "judge": "leak", "why": "named rate-control queueing discipline, sch_tbf (batch lines 271, 82)"},
+  {"name": "Stochastic Fair Blue", "aliases": ["SFB"], "judge": "heisenbug", "why": "named Linux queueing discipline, sch_sfb (batch line 78)"},
+  {"name": "Heavy-Hitter Filter", "aliases": ["HHF"], "judge": "heisenbug", "why": "named Linux queueing discipline, sch_hhf (batch line 65)"},
+  {"name": "Generalized RED", "aliases": ["GRED"], "judge": "heisenbug", "why": "named Linux queueing discipline, sch_gred (batch line 63)"},
+  {"name": "CHOKe", "aliases": [], "judge": "heisenbug", "why": "named AQM queueing discipline, sch_choke (batch line 51)"},
+  {"name": "ALTQ", "aliases": [], "judge": "heisenbug", "why": "named BSD packet-scheduling framework (batch line 182); a system's own named implementation"},
+  {"name": "Multifit algorithm", "aliases": ["MULTIFIT", "Multifit"], "judge": "heisenbug", "why": "named multiprocessor makespan heuristic, Wikipedia scheduling category (batch line 241)"},
+  {"name": "scx_cpu0", "aliases": [], "judge": "heisenbug", "confidence": "low", "why": "sched_ext scheduler in the kernel tree (batch line 154), but it is a small example rather than a production policy; a person should decide"},
+  {"name": "scx_sdt", "aliases": [], "judge": "heisenbug", "confidence": "low", "why": "sched_ext scheduler in the kernel tree (batch line 162), again an example-tree scheduler; a person should decide"},
+  {"name": "Fair-share scheduling", "aliases": [], "judge": "race", "why": "named proportional-share policy, listed in the scope's sub-kinds (batch line 214)"},
+  {"name": "Priority queueing", "aliases": ["sch_prio"], "judge": "race", "why": "named packet scheduler, sch_prio (batch line 75); distinct from CPU priority scheduling in the packet sub-kind"},
+  {"name": "Core scheduling", "aliases": [], "judge": "heisenbug", "why": "named Linux SMT co-scheduling mode in the kernel (batch line 485); a kernel scheduling policy"}
+]}
