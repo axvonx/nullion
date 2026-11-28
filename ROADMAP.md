@@ -6,9 +6,9 @@ Last updated 2026-11-27. This file is the single place for what's next. Locked d
 
 Updated 2026-11-27.
 
-- **GUI, world and code: far ahead of content.** Title, reveal, tier reactions, console forms, sound, favicon done. 29 + 2 layers (one module each in `src/layers/`), 588 prop types at 20+ per layer, all following `ART-STYLE.md`. Endless and True Endless are debug-only. The refactor of 2026-11-27 left one module per layer, per mode, per entity.
-- **Answer bank: thin.** 34 approved categories (10 data/graphics/algorithms, 10 OS/systems, 7 hardware/security/history, 7 languages/tools) and 159 drafts. With 7 prompts a day, the 34 repeat about every 5 days. 4,168 of 7,884 approved answers link to a checked reference page.
-- **Answer matching: too literal.** A probe over the approved bank (2026-11-27): plurals and "a X" only land through the typo corrector (so "ask first" makes the player confirm), "the X" lands 1% of the time, "mutex lock"-style answers (answer + the prompt's own noun) 3%, and names of 4 letters or fewer get no typo forgiveness at all.
+- **GUI, world and code: far ahead of content.** Title, reveal, tier reactions, console forms, sound, favicon done. 29 + 2 layers (one module each in `src/layers/`), 588 prop types at 20+ per layer, all following `ART-STYLE.md`. Endless is released (offered on the end card after the daily; hearts, saved runs, a personal best); True Endless is debug-only. The refactor of 2026-11-27 left one module per layer, per mode, per entity.
+- **Answer bank: thin.** 45 approved categories (2026-11-27) and 148 drafts, 7 of them pipeline-complete and waiting for review (REVIEW.md). With 7 prompts a day, the 45 repeat about every 6 days.
+- **Answer matching: fixed 2026-11-27** (phrasings, four-letter swaps, sure corrections; `CLAUDE.md`). Guesses outside the bank: a debug-only Wikipedia check is being evaluated (`src/game/outside-check.ts`).
 - **Field Manual: built, mostly unwritten.** The binder ships; 38 approved pages, 347 LLM-drafted pages (debug only) from the naming desk, about 220 new entities still unnamed there.
 - **Content is the bottleneck**, then matching. Further art passes have little value until there are enough questions to play the world through.
 
@@ -98,13 +98,9 @@ The user's time is the scarce resource, so per category the only manual work sho
   - **Measuring recall.**
     - Hold out reference lists (Wikipedia lists, textbook indexes) and check what share the pipeline found without them.
     - Playtest misses are the other measure, as the lock gaps showed.
-- **Production Endless entry:**
-  - A Daily/Endless switch on the title screen, replacing the debug chip.
-  - A personal best stored in localStorage.
-  - An Endless share card.
+- **Production Endless entry: done 2026-11-27** (Enter endless on the end card after the daily, not a title-screen switch; a personal best in localStorage; a tally share).
 - **Build hygiene:**
-  - The Pages workflow currently deploys the debug build. Switch it to `npm run build` for launch, and keep the debug build at a separate path if it's still wanted.
-  - Keep the dist grep for debug strings as a CI check.
+  - Done: Pages deploys `npm run build`, with the debug build under `/debug/`; the dist grep for debug strings is a CI check, mirrored on the sources by `src/debug-leak.test.ts`.
 
 ## Player data (planned 2026-11-26)
 

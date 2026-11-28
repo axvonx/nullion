@@ -101,9 +101,9 @@ export interface EndlessHook {
 /** How long the Enter button's white-out takes (the button turns white, then the white fills the screen). */
 const ENTER_GLOW_MS = 650;
 
-/** Pixel pops while the Endless button is hovered: how often, and their colours (the button's green and yellow). */
+/** Pixel pops while the Endless button is hovered: how often, and their colours (the button's greens). */
 const POP_EVERY_MS = 90;
-const POP_COLORS = ['#d6f04a', '#ffd84a', '#9be84a', '#eaffc2'];
+const POP_COLORS = ['#4ee08a', '#3ddc84', '#9cf0b0', '#d8ffe4'];
 
 /**
  * Square pixels popping off the button's edges while it's hovered or focused (none under reduced motion). Each pop
