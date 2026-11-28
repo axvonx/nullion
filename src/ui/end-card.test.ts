@@ -1,8 +1,7 @@
 // @vitest-environment happy-dom
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import { buildAnswerSet } from '../core/answers';
 import { TIER_IDS } from '../core/tiers';
-import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
+import { bankTestSet } from '../test-support/bank-set';
 import { Game } from '../game/game';
 import type { StatsOutcome } from '../game/stats';
 import { looks } from '../looks';
@@ -10,7 +9,7 @@ import { END_CARD_HTML, EndCard, type RecordRow , type EndlessHook } from './end
 
 /** The end card on its own: its rows, headline, stats and countdown, with a stand-in host. */
 
-const SET = buildAnswerSet('sample', 'sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);
+const SET = await bankTestSet();
 const T0 = new Date(2026, 10, 26, 22, 30, 0).getTime();
 
 beforeAll(() => {

@@ -150,7 +150,7 @@ In-play animation, for orientation:
 
 - Invariants use `enforce()` from `src/core/enforce.ts` and throw loudly. Expected conditions are handled explicitly, never with silent defaults. Missing localStorage is an expected condition.
 - Keep game rules in `src/core` and `src/game`, free of DOM code, and test them.
-- `src/data/sample.ts` holds hand-written placeholder tiers, not the output of a rarity signal.
+- There is no hand-written answer set: the game, the debug build (its rail demos and `?endcard=1` play real answers from the live day's prompts) and the tests (`src/test-support/bank-set.ts`: seven approved categories loaded from `bank/`) all use the real answer bank. A test that names an answer names a real one.
 
 ## Stack modes (`src/core/modes.ts`)
 
@@ -201,7 +201,7 @@ Debug-only for now (`?endless=1`, the header chip, or **Enter endless** on a fin
   - Counts are normalised per category against the 3rd-largest count.
   - Absolute cut-offs (`CUTOFFS`, fitted to the pilot's judge calls) map score to tier, so adding obscure candidates never pushes common answers deeper.
   - Counts decide only with at least 10 hits in some corpus; below that the candidate's `judge` tier decides, and a weak candidate without one is an error. Bit Flip and Works on my machine are pinned.
-- **The "Answer set" menu** switches between `bank` (the default) and `sample` (the hand-written `src/data/sample.ts`, kept for comparison).
+- **Answer sets** are still swappable (`SETS` in `src/main.ts`, the debug menu's "Answer set"), but `bank` is the only one: the hand-written sample was deleted on 2026-11-27 so debug play matches the real game.
 - **Status, 2026-11-27:** 45 approved categories (precision 95–100% on 20-answer samples; `Bit Flip` and `Works on my machine` picks carry 1-sentence `note:` whispers; the 11 approved 2026-11-27 have Claude-drafted ones awaiting the owner's skim, see REVIEW.md) and 148 drafts.
 
 ## Persistence

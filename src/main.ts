@@ -6,10 +6,8 @@ import './style.css';
 import { buildAnswerSet, type AnswerSetSource } from './core/answers';
 import { manualStore } from './game/manual';
 import { enforce } from './core/enforce';
-import { formatLocalDate, parseLocalDate, pickForDay, puzzleNumber } from './core/day';
-import { PROMPTS_PER_DAY } from './core/layers';
+import { formatLocalDate, parseLocalDate, puzzleNumber } from './core/day';
 import { layerAt, rulesFor } from './core/modes';
-import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from './data/sample';
 import { BANK_QUESTIONS, loadBankTerms, scheduledQuestions } from './data/bank';
 import { browserStorage, canPersistDaily, clearDaily, loadDaily, saveDaily, type SaveStorage } from './game/daily-save';
 import { Game } from './game/game';
@@ -37,13 +35,6 @@ const SETS: Record<string, AnswerSetSource> = {
     // A frozen per-day schedule, so approving categories never reshuffles a day already in play.
     daily: scheduledQuestions,
     load: async (qs) => buildAnswerSet('bank', 'Answer bank', await loadBankTerms(qs.map((q) => q.id)), qs),
-  },
-  sample: {
-    id: 'sample',
-    label: 'Hand-written sample (src/data/sample.ts)',
-    pool: SAMPLE_QUESTIONS,
-    daily: (puzzle) => pickForDay(SAMPLE_QUESTIONS, puzzle, PROMPTS_PER_DAY),
-    load: async (qs) => buildAnswerSet('sample', 'Hand-written sample', SAMPLE_TERMS, qs),
   },
 };
 
@@ -113,7 +104,15 @@ async function boot() {
   const startDay = async (fresh = false) => {
     const gen = ++restartGen;
     const s = activeSettings();
-    const source = SETS[s.answerSet] ?? SETS.bank!;
+    // A saved debug setting can name a set that no longer exists (the hand-written sample, deleted 2026-11-27): reset
+    // it to the bank, and say so, rather than quietly playing something else.
+    if (!(s.answerSet in SETS)) {
+      const gone = s.answerSet;
+      settings.set({ answerSet: 'bank' }); // restarts with the bank
+      hud.notify(`Debug: the answer set "${gone}" no longer exists; switched to the bank.`, 'info');
+      return;
+    }
+    const source = SETS[s.answerSet]!;
     const date = s.date ? parseLocalDate(s.date) : new Date();
     const daySeed = puzzleNumber(date);
     const mode = endlessDebugMode === 'off' ? 'daily' : endlessDebugMode;

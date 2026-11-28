@@ -5,9 +5,11 @@ import { LAYER_ART } from '../layers';
 import { snapColor } from '../render/palettes';
 import { TIERS } from './tiers';
 import { CategoryIndex, normalize } from './match';
-import { buildAnswerSet } from './answers';
-import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
+import { bankTestSet } from '../test-support/bank-set';
 import { pickForDay, puzzleNumber, parseLocalDate, msUntilNextDay, formatCountdown } from './day';
+
+/** The real answer bank's test categories (src/test-support/bank-set.ts). */
+const BANK_SET = await bankTestSet();
 
 describe('depth and layers', () => {
   it('a perfect day reaches exactly Ring −3', () => {
@@ -177,8 +179,8 @@ describe('matching', () => {
   });
 });
 
-describe('sample answer set', () => {
-  const set = buildAnswerSet('sample', 'Sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);
+describe('the answer bank', () => {
+  const set = BANK_SET;
 
   it('accepts the answers algillion rejects', () => {
     expect(set.check('data-structure', 'xarray').kind).toBe('accepted');
@@ -205,8 +207,8 @@ describe('daily selection', () => {
   });
 
   it('is deterministic and distinct', () => {
-    const a = pickForDay(SAMPLE_QUESTIONS, 5, 7).map((q) => q.id);
-    const b = pickForDay(SAMPLE_QUESTIONS, 5, 7).map((q) => q.id);
+    const a = pickForDay(BANK_SET.questions, 5, 7).map((q) => q.id);
+    const b = pickForDay(BANK_SET.questions, 5, 7).map((q) => q.id);
     expect(a).toEqual(b);
     expect(new Set(a).size).toBe(7);
   });

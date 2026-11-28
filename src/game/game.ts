@@ -6,7 +6,7 @@ import { rulesFor, type ModeRules } from '../core/modes';
 import { normalize, type CategoryEntry } from '../core/match';
 import type { TierId } from '../core/tiers';
 import { text } from '../text';
-import type { Question } from '../data/sample';
+import type { Question } from '../core/answers';
 
 export const READ_MS = 3000;
 

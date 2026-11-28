@@ -1,11 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { buildAnswerSet } from '../core/answers';
-import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
+import { bankTestSet } from '../test-support/bank-set';
 import { ANSWER_MS, ENDLESS_HEARTS, ENDLESS_HEART_REFILL_FRAMES, endlessAnswerMs, rulesFor } from '../core/modes';
 import { Game, InvalidSaveError, READ_MS } from './game';
 import { browserStorage, canPersistDaily, dailyKey, loadDaily, saveDaily, type SaveStorage } from './daily-save';
 
-const set = buildAnswerSet('sample', 'Sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);
+const set = await bankTestSet();
 
 function bitflipFor(g: Game, round: number) {
   return set.entries(g.rounds[round]!.question.id).find((e) => e.tier === 'bitflip')!.name;
@@ -146,8 +145,9 @@ describe('game loop', () => {
 
     it('confirm mode suggests a two-typo correction without locking or logging a rejection', () => {
       const { g, now } = atLockRound('confirm');
-      const res = g.submit('fisle lock', now);
-      expect(res).toMatchObject({ kind: 'suggestion', guess: 'fisle lock' });
+      // Two typos from "fissile lock" (and far from the real bank's "file lock", one typo from "fisle lock").
+      const res = g.submit('fisile lok', now);
+      expect(res).toMatchObject({ kind: 'suggestion', guess: 'fisile lok' });
       expect(res.kind === 'suggestion' && res.entry.name).toBe('fissile lock');
       expect(g.phase.kind).toBe('answering');
       expect(g.current()!.locked).toBeUndefined();

@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildAnswerSet } from '../core/answers';
-import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
+import { bankTestSet } from '../test-support/bank-set';
 import { Game, READ_MS } from './game';
 import type { SaveStorage } from './daily-save';
 import { canPersistRun, hasRun, loadBest, loadRun, saveRun, savedRunSeed } from './endless-save';
@@ -24,7 +23,7 @@ class MemStorage implements SaveStorage {
   }
 }
 
-const set = buildAnswerSet('sample', 'Sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);
+const set = await bankTestSet();
 const OPTS = { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' } as const;
 
 function play(seed: number) {

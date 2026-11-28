@@ -1,6 +1,6 @@
 import { enforce } from '../core/enforce';
 import { parseBankFile, parseIndex, playTier, type BankCategory, type IndexRow } from './bank-format';
-import type { Question, Term } from './sample';
+import type { Question, Term } from '../core/answers';
 import indexText from '../../bank/index.md?raw';
 import scheduleText from '../../bank/schedule.md?raw';
 import { parseSchedule } from './schedule';

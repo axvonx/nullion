@@ -1,3 +1,4 @@
+import type { Question } from '../core/answers';
 import { enforce } from '../core/enforce';
 import { LAYERS } from '../core/layers';
 import { TIERS, TIER_IDS, type TierId } from '../core/tiers';
@@ -127,16 +128,11 @@ const TIER_COLOR: Record<TierId, string> = {
   bitflip: 'var(--t-bitflip)',
 };
 
-/** A plausible mixed day: seven accepted answers, 33 frames, ending in Kernel (it crosses the syscall boundary). */
-export const SAMPLE_DAY: { tier: TierId; name: string }[] = [
-  { tier: 'race', name: 'mutex' },
-  { tier: 'npe', name: 'spinlock' },
-  { tier: 'heisenbug', name: 'seqlock' },
-  { tier: 'womm', name: 'file lock' },
-  { tier: 'leak', name: 'RCU' },
-  { tier: 'bitflip', name: 'futex' },
-  { tier: 'off-by-one', name: 'semaphore' },
-];
+/**
+ * A plausible mixed day's tiers: 33 frames, ending in Kernel (it crosses the syscall boundary). The demo plays them
+ * with real answers from the bank, on the live game's prompts (`realAnswer`), never names made up for the rail.
+ */
+export const SAMPLE_DAY_TIERS: readonly TierId[] = ['race', 'npe', 'heisenbug', 'womm', 'leak', 'bitflip', 'off-by-one'];
 
 export function mountRail(h: DebugHooks) {
   const rail = document.createElement('nav');
@@ -195,13 +191,55 @@ export function mountRail(h: DebugHooks) {
     later(t + 1000, () => h.scene.setTarget(0));
   });
 
-  add('day', 'Play a sample day: seven answers, dives, reactions, then the end-of-day replay', 'var(--ok)', () => {
+  /** The live game's prompt for round `i` (a game that has not started borrows its set's prompts). */
+  function promptAt(i: number): Question {
+    const g = h.game();
+    const q = g.rounds[i]?.question ?? g.set.questions[i % g.set.questions.length];
+    enforce(q, `rail: no prompt for round ${i}`);
+    return q;
+  }
+
+  /** A real answer of `tier` to `q` from the live game's set, or of the nearest tier the category has. */
+  function realAnswer(q: Question, tier: TierId): { name: string; tier: TierId } {
+    const entries = h.game().set.entries(q.id);
+    enforce(entries.length > 0, `rail: ${q.id} has no answers`);
+    const at = TIER_IDS.indexOf(tier);
+    const nearest = [...TIER_IDS].sort((a, b) => Math.abs(TIER_IDS.indexOf(a) - at) - Math.abs(TIER_IDS.indexOf(b) - at));
+    for (const t of nearest) {
+      const e = entries.find((x) => x.tier === t);
+      if (e) return { name: e.name, tier: t };
+    }
+    throw new Error(`rail: ${q.id} has answers but none in a tier`);
+  }
+
+  /** A real answer that has exactly `tier`: the current prompt's if it has one, else any of the set's prompts'. */
+  function answerOfTier(tier: TierId): string {
+    const g = h.game();
+    const p = g.phase;
+    const first = 'round' in p ? g.rounds[p.round]!.question : promptAt(0);
+    for (const q of [first, ...g.set.questions]) {
+      const e = g.set.entries(q.id).find((x) => x.tier === tier);
+      if (e) return e.name;
+    }
+    throw new Error(`rail: no prompt in this game has a ${tier} answer`);
+  }
+
+  /** The demo day: each round's prompt with a real answer in (about) the pattern's tier. */
+  function sampleDay() {
+    return SAMPLE_DAY_TIERS.map((tier, i) => {
+      const q = promptAt(i);
+      return { q, ...realAnswer(q, tier) };
+    });
+  }
+
+  add('day', 'Play a sample day: seven real answers, dives, reactions, then the end-of-day replay', 'var(--ok)', () => {
     cancel();
     h.scene.setTarget(0, true);
-    h.hud.demoBegin('Name a type of lock');
+    const day = sampleDay();
+    h.hud.demoBegin(day[0]!.q.prompt);
     let depth = 0;
     let t = 900;
-    for (const { tier, name } of SAMPLE_DAY) {
+    for (const { tier, name } of day) {
       const f = TIERS[tier].frames;
       later(t, () => {
         depth += f;
@@ -209,19 +247,12 @@ export function mountRail(h: DebugHooks) {
       });
       t += diveLeadMs(tier) + diveMs(f) + REVEAL_MS + 600;
     }
-    later(t, () => showSampleEndCard(depth));
+    later(t, () => showSampleEndCard(day, depth));
   });
 
   // Rows carry the live game's prompts (and one of its answers in the right tier, where it has one) so the answer-sheet dropdown works.
-  function showSampleEndCard(depth: number) {
-    const g = h.game();
-    const rows = SAMPLE_DAY.map((d, i) => {
-      // A game that has not started has no rounds yet: borrow the set's first prompts so the dropdowns still work.
-      const q = g.rounds[i]?.question ?? g.set.questions[i];
-      enforce(q, `rail: no prompt for sample row ${i}`);
-      const question = q.id;
-      return { question, prompt: q.prompt, tier: d.tier, name: g.set.entries(question).find((e) => e.tier === d.tier)?.name ?? d.name };
-    });
+  function showSampleEndCard(day: ReturnType<typeof sampleDay>, depth: number) {
+    const rows = day.map((d) => ({ question: d.q.id, prompt: d.q.prompt, tier: d.tier, name: d.name }));
     // Made-up lifetime stats so the card's stats block has something to show.
     const days = { 1: { d: 31, t: ['race', 'npe', null, 'womm', 'leak', 'off-by-one', 'npe'] }, 2: { d: 56, t: ['bitflip', 'race', 'heisenbug', 'womm', 'npe', 'leak', 'off-by-one'] } } as const;
     const stats = computeStats(JSON.parse(JSON.stringify(days)), 3);
@@ -229,12 +260,13 @@ export function mountRail(h: DebugHooks) {
   }
   // `?endcard=1` goes straight to the sample day's end card (for looking at it without the three-minute demo).
   if (new URLSearchParams(location.search).has('endcard')) {
-    const total = SAMPLE_DAY.reduce((n, d) => n + TIERS[d.tier].frames, 0);
-    // After the first frame has picked a console form.
+    // After the first frame has picked a console form (and the day's categories have loaded).
     window.setTimeout(() => {
-      h.hud.demoBegin('Name a type of lock');
+      const day = sampleDay();
+      const total = day.reduce((n, d) => n + TIERS[d.tier].frames, 0);
+      h.hud.demoBegin(day[0]!.q.prompt);
       h.scene.setTarget(total, true);
-      window.setTimeout(() => showSampleEndCard(total), 600);
+      window.setTimeout(() => showSampleEndCard(day, total), 600);
     }, 800);
   }
 
@@ -290,13 +322,13 @@ export function mountRail(h: DebugHooks) {
   // Each tier: the full sequence. A dive by its frames, the cursor's reaction and the screen's mirror, then the reveal.
   for (const id of TIER_IDS) {
     const f = TIERS[id].frames;
-    const name = SAMPLE_DAY.find((d) => d.tier === id)?.name ?? TIERS[id].name;
     add(
       id,
       `${TIERS[id].name}: dive +${f}, its reaction, then the reveal`,
       TIER_COLOR[id],
       () => {
         cancel();
+        const name = answerOfTier(id);
         h.scene.diveTo(h.scene.displayDepth + f, id, f, true, () => h.hud.demoReveal(id, name, f));
       },
       tierIcon(id),

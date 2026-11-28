@@ -3,7 +3,7 @@ import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { buildAnswerSet } from '../core/answers';
 import { PROMPTS_PER_DAY } from '../core/layers';
 import { TIERS, TIER_IDS } from '../core/tiers';
-import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
+import { bankTestSet, bankTestTerms, TEST_QUESTIONS } from '../test-support/bank-set';
 import { ANSWER_MS } from '../core/modes';
 import { Game, READ_MS } from '../game/game';
 import { looks } from '../looks';
@@ -17,7 +17,8 @@ import { Hud } from './hud';
  * duplicates, typo confirmation, reduced motion, and the backtrace card.
  */
 
-const SET = buildAnswerSet('sample', 'sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);
+const SET = await bankTestSet();
+const BANK_TERMS = await bankTestTerms();
 
 beforeAll(() => {
   // Tier icons draw on a canvas; happy-dom has none, so give it a no-op 2D context.
@@ -95,9 +96,8 @@ function setup(opts: Partial<{ unlimited: boolean; autocorrect: 'confirm' | 'aut
     step();
   };
   const answerFor = (tier?: string) => {
-    const tag = game.current()!.question.tag;
-    const t = SAMPLE_TERMS.find((t) => t.tags[tag] && (!tier || t.tags[tag] === tier)) ?? SAMPLE_TERMS.find((t) => t.tags[tag])!;
-    return t.name;
+    const entries = SET.entries(game.current()!.question.id);
+    return (entries.find((e) => !tier || e.tier === tier) ?? entries[0]!).name;
   };
   const revealUp = () => !$('.reveal').hidden && mount.classList.contains('unwinding');
   const unwind = () => {
@@ -302,7 +302,7 @@ describe('typo correction', () => {
   /** A typo of an answer to the current question that the matcher corrects (drop one inner letter). */
   function typoFor(h: ReturnType<typeof setup>): { typo: string; name: string } {
     const q = h.game.current()!.question;
-    for (const t of SAMPLE_TERMS.filter((t) => t.tags[q.tag] && t.name.length >= 6)) {
+    for (const t of SET.entries(q.id).filter((t) => t.name.length >= 6)) {
       for (let i = 1; i < t.name.length - 1; i++) {
         const typo = t.name.slice(0, i) + t.name.slice(i + 1);
         const r = SET.check(q.id, typo);
@@ -761,11 +761,11 @@ describe('resume and end-card extras', () => {
 });
 
 describe('end card answer sheet', () => {
-  /** The sample set plus a long off-by-one tail on the first prompt, so "+N more" has something to expand. */
+  /** The test bank plus a long off-by-one tail on the first prompt, so "+N more" has something to expand. */
   function sheetSetup(puzzle = 1) {
-    const tag = SAMPLE_QUESTIONS[0]!.tag;
+    const tag = TEST_QUESTIONS[0]!.tag;
     const extra = Array.from({ length: 30 }, (_, i) => ({ name: `filler ${String(i).padStart(2, '0')}`, tags: { [tag]: 'off-by-one' as const } }));
-    const set = buildAnswerSet('sheet', 'sheet', [...SAMPLE_TERMS, ...extra], SAMPLE_QUESTIONS);
+    const set = buildAnswerSet('sheet', 'sheet', [...BANK_TERMS, ...extra], TEST_QUESTIONS);
     document.body.innerHTML = '<div id="app"></div>';
     const mount = document.getElementById('app')!;
     const hud = new Hud(mount);

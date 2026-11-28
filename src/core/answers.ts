@@ -1,6 +1,29 @@
+import type { TierId } from './tiers';
 import { enforce } from './enforce';
 import { CategoryIndex, normalize, type CategoryEntry, type CheckResult } from './match';
-import type { Question, Term } from '../data/sample';
+
+/**
+ * A term is stored once; each tag it belongs to carries that term's tier *for that category* (e.g. "heisenbug" is a
+ * Works-on-my-machine answer to "Name a type of bug").
+ */
+export interface Term {
+  name: string;
+  aliases?: string[];
+  tags: Partial<Record<string, TierId>>;
+  note?: string;
+}
+
+export interface Question {
+  id: string;
+  /** The category tag this question queries. */
+  tag: string;
+  /** Rendered as code: name_a(type_of_lock). */
+  call: string;
+  prompt: string;
+  /** Plain-English scope line from the bank file (`> Accepts:`), shown gently after repeated rejections. */
+  accepts?: string;
+}
+
 
 /**
  * An answer set is one swappable source of truth (hand sample, Wikidata-derived, LLM-generated, union…).

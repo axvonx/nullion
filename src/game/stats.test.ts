@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { buildAnswerSet } from '../core/answers';
 import { PROMPTS_PER_DAY } from '../core/layers';
 import { TIER_IDS } from '../core/tiers';
-import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
+import { bankTestSet } from '../test-support/bank-set';
 import { DEBUG_KEY_PREFIX, storageKey } from '../keys';
 import { canPersistDaily, dailyKey, type SaveStorage } from './daily-save';
 import { READ_MS, Game } from './game';
@@ -10,7 +9,7 @@ import { buildShareText, deliverShare, glyphLine, siteUrl } from './share';
 import { InvalidStatsError, computeStats, finishDaily, statsKey, type DayResult } from './stats';
 import { TIERS } from '../core/tiers';
 
-const set = buildAnswerSet('sample', 'Sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);
+const set = await bankTestSet();
 
 class MemStorage implements SaveStorage {
   m = new Map<string, string>();

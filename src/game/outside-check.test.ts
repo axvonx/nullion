@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { buildAnswerSet } from '../core/answers';
-import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
+import { bankTestSet } from '../test-support/bank-set';
 import { Game, READ_MS } from './game';
 import { checkOutside, exactUrl, firstSentence, headNouns, judgeOutside, subjectPatterns, type WikiResponse } from './outside-check';
+
+/** The real answer bank's test categories (src/test-support/bank-set.ts). */
+const BANK_SET = await bankTestSet();
 
 const CODEC = 'Name a video codec';
 const page = (title: string, extract: string, cats: string[] = [], extra: object = {}): WikiResponse => ({
@@ -61,7 +63,7 @@ describe('outside answers: the Wikipedia verdict', () => {
 });
 
 describe('outside answers: the game', () => {
-  const set = buildAnswerSet('sample', 'Sample', SAMPLE_TERMS, SAMPLE_QUESTIONS);
+  const set = BANK_SET;
   const answering = () => {
     const g = new Game(set, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
     g.start(0);
