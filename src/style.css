@@ -2190,7 +2190,7 @@ html.kb-open .still .console.low { animation: none; }
 }
 .still .tx-gl.is-on, .still .tx-gl.is-on::after, .still .tx-spark { animation: none; text-shadow: none; }
 
-/* Table-check easter egg mini-console */
+/* Table-check easter egg: high-fidelity archivist scampers in, dims screen, squints at user, types text, runs off */
 .tc-backdrop {
   position: fixed;
   inset: 0;
@@ -2198,14 +2198,43 @@ html.kb-open .still .console.low { animation: none; }
   display: grid;
   place-items: center;
   padding: 16px;
-  background: rgba(8, 7, 14, 0.52);
   pointer-events: auto;
+  overflow: hidden;
 }
 .tc-backdrop[hidden] { display: none; }
+.tc-stage-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: min(400px, calc(calc(100vw / var(--ui, 1)) - 32px));
+}
+.tc-actor {
+  position: relative;
+  width: 144px;
+  height: 144px;
+  display: grid;
+  place-items: center;
+  will-change: transform;
+  filter: drop-shadow(0 6px 0 rgba(0, 0, 0, 0.55));
+}
+.tc-char {
+  display: block;
+  width: 144px;
+  height: 144px;
+  image-rendering: pixelated;
+  overflow: visible;
+}
 .tc-card {
   position: relative;
-  width: min(360px, calc(calc(100vw / var(--ui, 1)) - 32px));
+  width: 100%;
   padding: 10px 12px 12px;
+  animation: tc-card-in 180ms steps(4, end) forwards;
+}
+.tc-card[hidden] { display: none; }
+@keyframes tc-card-in {
+  from { opacity: 0; transform: translateY(10px) scaleY(0.85); }
+  to { opacity: 1; transform: none; }
 }
 .tc-top {
   display: flex;
@@ -2230,18 +2259,8 @@ html.kb-open .still .console.low { animation: none; }
   box-shadow: 1px 1px 0 #000;
 }
 .tc-badge[hidden] { display: none; }
-.tc-card[data-outcome='accept'] .tc-badge { background: var(--ok); color: #0e1a12; }
-.tc-card[data-outcome='reject'] .tc-badge { background: var(--fault); color: #14111a; }
-.tc-stage {
-  height: 54px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 8px;
-}
-.tc-critter { display: block; image-rendering: pixelated; }
+.tc-backdrop[data-outcome='accept'] .tc-badge { background: var(--ok); color: #0e1a12; }
+.tc-backdrop[data-outcome='reject'] .tc-badge { background: var(--fault); color: #14111a; }
 .tc-row {
   display: flex;
   align-items: center;
@@ -2250,33 +2269,147 @@ html.kb-open .still .console.low { animation: none; }
 }
 .tc-hg { flex: none; display: inline-flex; }
 .tc-hourglass { display: block; image-rendering: pixelated; animation: tc-hg-flip 900ms steps(2, end) infinite; }
-.tc-card[data-state='verdict'] .tc-hourglass { animation: none; }
-.tc-line { font-family: var(--body); font-size: 20px; line-height: 1.15; color: var(--ink); flex: 1; min-width: 0; }
+.tc-backdrop[data-stage='verdict'] .tc-hourglass { animation: none; }
+.tc-line { font-family: var(--body); font-size: 21px; line-height: 1.15; color: var(--ink); flex: 1; min-width: 0; }
 .tc-cursor { color: var(--signal); }
 
-/* 3 distinct character animations */
-.tc-card[data-anim='squint'][data-state='checking'] .tc-critter { animation: tc-squint-in 380ms steps(4, end) forwards; }
-.tc-card[data-anim='squint'] .tc-scan { animation: tc-scan-y 520ms steps(4, end) infinite; }
-.tc-card[data-anim='squint'][data-state='verdict'][data-outcome='accept'] .tc-critter { animation: tc-nod 260ms steps(2, end) 2; }
-.tc-card[data-anim='squint'][data-state='verdict'][data-outcome='reject'] .tc-critter { animation: tc-scamper-out 420ms steps(4, end) forwards; }
+/* Articulated character transforms & pivot origins */
+.tc-upper { transform-origin: 24px 36px; }
+.tc-head { transform-origin: 24px 26px; }
+.tc-leg-l { transform-origin: 18px 36px; }
+.tc-leg-r { transform-origin: 29px 36px; }
+.tc-arm-l { transform-origin: 13px 28px; }
+.tc-arm-r { transform-origin: 35px 28px; }
+.tc-tail { transform-origin: 14px 34px; }
+.tc-ant-l { transform-origin: 17px 7px; }
+.tc-ant-r { transform-origin: 31px 7px; }
+.tc-lid-top, .tc-lid-bot { transition: transform 140ms steps(3, end); }
+.tc-dust { opacity: 0; }
+.tc-prop { opacity: 0; transform-origin: 34px 30px; transition: opacity 120ms steps(2, end), transform 140ms steps(3, end); }
+.tc-scan { animation: tc-scan-y 640ms steps(6, end) infinite; }
+.tc-bar-1 { animation: tc-bar-blink 420ms steps(2, end) infinite; }
+.tc-bar-2 { animation: tc-bar-blink 530ms steps(2, end) 120ms infinite; }
+.tc-bar-3 { animation: tc-bar-blink 380ms steps(2, end) 60ms infinite; }
+.tc-bar-4 { animation: tc-bar-blink 610ms steps(2, end) 200ms infinite; }
 
-.tc-card[data-anim='ledger'][data-state='checking'] .tc-critter { animation: tc-pop-up 340ms steps(4, end) forwards, tc-ledger-bob 220ms steps(2, end) 340ms infinite; }
-.tc-card[data-anim='ledger'][data-state='verdict'][data-outcome='accept'] .tc-critter { animation: tc-nod 260ms steps(2, end) 2; }
-.tc-card[data-anim='ledger'][data-state='verdict'][data-outcome='reject'] .tc-critter { animation: tc-shake 260ms steps(3, end) 2; }
+/* Stage 1: Scamper in from the right edge of the screen */
+.tc-backdrop[data-stage='enter'] .tc-actor {
+  animation: tc-enter-run 520ms steps(12, end) forwards;
+}
+.tc-backdrop[data-stage='enter'] .tc-char { transform: scaleX(-1); }
+.tc-backdrop[data-stage='enter'] .tc-upper,
+.tc-backdrop[data-stage='exit'] .tc-upper { animation: tc-run-bob 160ms steps(2, end) infinite; }
+.tc-backdrop[data-stage='enter'] .tc-leg-l,
+.tc-backdrop[data-stage='exit'] .tc-leg-l { animation: tc-stride-a 160ms steps(2, end) infinite; }
+.tc-backdrop[data-stage='enter'] .tc-leg-r,
+.tc-backdrop[data-stage='exit'] .tc-leg-r { animation: tc-stride-b 160ms steps(2, end) infinite; }
+.tc-backdrop[data-stage='enter'] .tc-arm-l,
+.tc-backdrop[data-stage='exit'] .tc-arm-l { animation: tc-stride-b 160ms steps(2, end) infinite; }
+.tc-backdrop[data-stage='enter'] .tc-arm-r,
+.tc-backdrop[data-stage='exit'] .tc-arm-r { animation: tc-stride-a 160ms steps(2, end) infinite; }
+.tc-backdrop[data-stage='enter'] .tc-tail,
+.tc-backdrop[data-stage='exit'] .tc-tail { animation: tc-tail-wag 180ms steps(2, end) infinite; }
+.tc-backdrop[data-stage='enter'] .tc-dust,
+.tc-backdrop[data-stage='exit'] .tc-dust { opacity: 1; animation: tc-dust-puff 200ms steps(3, end) infinite; }
 
-.tc-card[data-anim='wiretap'][data-state='checking'] .tc-critter { animation: tc-drop-in 340ms steps(4, end) forwards, tc-pan 700ms steps(4, end) 340ms infinite; }
-.tc-card[data-anim='wiretap'][data-state='verdict'][data-outcome='accept'] .tc-critter { animation: tc-nod 260ms steps(2, end) 2; }
-.tc-card[data-anim='wiretap'][data-state='verdict'][data-outcome='reject'] .tc-critter { animation: tc-reel-up 360ms steps(4, end) forwards; }
+/* Stage 2: Fourth-wall squint directly at the user / screen */
+.tc-backdrop[data-stage='squint'] .tc-actor {
+  animation: tc-squint-lean 640ms steps(5, end) forwards;
+}
+.tc-backdrop[data-stage='squint'] .tc-head {
+  animation: tc-head-tilt 640ms steps(4, end) forwards;
+}
+.tc-backdrop[data-stage='squint'] .tc-lid-top { transform: translateY(2px); }
+.tc-backdrop[data-stage='squint'] .tc-lid-bot { transform: translateY(-2px); }
+.tc-backdrop[data-stage='squint'] .tc-ant-l { animation: tc-ant-twitch 280ms steps(2, end) 2; }
+.tc-backdrop[data-stage='squint'] .tc-glass-flash { animation: tc-glass-glint 460ms steps(5, end) 140ms 1; }
+.tc-backdrop[data-stage='squint'] .tc-arm-l { transform: translate(2px, -3px) rotate(-14deg); }
+.tc-backdrop[data-stage='squint'] .tc-arm-r { transform: translate(-2px, -3px) rotate(14deg); }
+.tc-backdrop[data-stage='squint'][data-anim='squint'] .tc-prop-loupe { opacity: 1; transform: translate(-2px, -3px); }
+
+/* Stage 3: Checking the table (eyelids stay narrowed, pupils scan, variant props active) */
+.tc-backdrop[data-stage='checking'] .tc-actor { transform: scale(1.06); }
+.tc-backdrop[data-stage='checking'] .tc-lid-top { transform: translateY(1.5px); }
+.tc-backdrop[data-stage='checking'] .tc-lid-bot { transform: translateY(-1.5px); }
+.tc-backdrop[data-stage='checking'] .tc-pupil { animation: tc-eye-scan 680ms steps(4, end) infinite; }
+.tc-backdrop[data-stage='checking'] .tc-upper { animation: tc-idle-breathe 900ms steps(2, end) infinite; }
+.tc-backdrop[data-stage='checking'] .tc-prop { opacity: 1; }
+.tc-backdrop[data-stage='checking'][data-anim='ledger'] .tc-prop-ledger { animation: tc-ledger-flip 360ms steps(2, end) infinite; }
+.tc-backdrop[data-stage='checking'][data-anim='wiretap'] .tc-prop-wiretap { animation: tc-probe-sweep 520ms steps(4, end) infinite; }
+.tc-backdrop[data-stage='checking'][data-anim='wiretap'] .tc-spark-tip { animation: tc-spark-flash 220ms steps(2, end) infinite; }
+.tc-backdrop[data-stage='checking'][data-anim='squint'] .tc-prop-loupe { animation: tc-loupe-bob 480ms steps(2, end) infinite; }
+
+/* Stage 4: Verdict (accept = phosphor green double-nod; reject = deadpan red shake) */
+.tc-backdrop[data-stage='verdict'] .tc-actor { transform: scale(1.04); }
+.tc-backdrop[data-stage='verdict'][data-outcome='accept'] .tc-eye-bg,
+.tc-backdrop[data-stage='verdict'][data-outcome='accept'] .tc-led { fill: var(--ok); }
+.tc-backdrop[data-stage='verdict'][data-outcome='accept'] .tc-lid-top,
+.tc-backdrop[data-stage='verdict'][data-outcome='accept'] .tc-lid-bot { transform: none; }
+.tc-backdrop[data-stage='verdict'][data-outcome='accept'] .tc-head { animation: tc-nod 280ms steps(2, end) 2; }
+.tc-backdrop[data-stage='verdict'][data-outcome='accept'] .tc-arm-r { transform: translateY(-4px) rotate(-18deg); }
+
+.tc-backdrop[data-stage='verdict'][data-outcome='reject'] .tc-eye-bg,
+.tc-backdrop[data-stage='verdict'][data-outcome='reject'] .tc-led { fill: var(--fault); }
+.tc-backdrop[data-stage='verdict'][data-outcome='reject'] .tc-lid-top { transform: translateY(2px); }
+.tc-backdrop[data-stage='verdict'][data-outcome='reject'] .tc-lid-bot { transform: translateY(-1px); }
+.tc-backdrop[data-stage='verdict'][data-outcome='reject'] .tc-head { animation: tc-shake 240ms steps(3, end) 2; }
+
+/* Stage 5: Scamper off the left edge of the screen */
+.tc-backdrop[data-stage='exit'] .tc-actor {
+  animation: tc-exit-run 560ms steps(12, end) forwards;
+}
+.tc-backdrop[data-stage='exit'] .tc-char { transform: scaleX(-1); }
 
 @keyframes tc-hg-flip { 0%, 49% { transform: none; } 50%, 100% { transform: rotate(180deg); } }
-@keyframes tc-squint-in { from { transform: translateX(64px); } to { transform: none; } }
-@keyframes tc-scamper-out { from { transform: none; } to { transform: translateX(-80px); opacity: 0; } }
-@keyframes tc-pop-up { from { transform: translateY(48px); } to { transform: none; } }
-@keyframes tc-ledger-bob { 0%, 100% { transform: none; } 50% { transform: translateY(-2px); } }
-@keyframes tc-drop-in { from { transform: translateY(-48px); } to { transform: none; } }
-@keyframes tc-reel-up { from { transform: none; } to { transform: translateY(-48px); opacity: 0; } }
-@keyframes tc-pan { 0%, 100% { transform: translateX(-8px); } 50% { transform: translateX(8px); } }
+@keyframes tc-enter-run {
+  0% { transform: translateX(calc(50vw + 120px)); }
+  88% { transform: translateX(-8px); }
+  100% { transform: translateX(0); }
+}
+@keyframes tc-exit-run {
+  0% { transform: translateX(0); opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(calc(-50vw - 140px)); opacity: 0; }
+}
+@keyframes tc-squint-lean {
+  0% { transform: scale(1) translateY(0); }
+  40% { transform: scale(1.16) translateY(-4px); }
+  100% { transform: scale(1.12) translateY(-2px); }
+}
+@keyframes tc-head-tilt {
+  0% { transform: rotate(0deg); }
+  45% { transform: rotate(-4deg) translateY(1px); }
+  100% { transform: rotate(-2deg) translateY(1px); }
+}
+@keyframes tc-run-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes tc-idle-breathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(1px); } }
+@keyframes tc-stride-a { 0%, 100% { transform: rotate(-18deg) translateY(-1px); } 50% { transform: rotate(18deg) translateY(0); } }
+@keyframes tc-stride-b { 0%, 100% { transform: rotate(18deg) translateY(0); } 50% { transform: rotate(-18deg) translateY(-1px); } }
+@keyframes tc-tail-wag { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(10deg); } }
+@keyframes tc-dust-puff {
+  0% { transform: translate(0, 0); opacity: 0.9; }
+  100% { transform: translate(-8px, -3px); opacity: 0; }
+}
+@keyframes tc-ant-twitch { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-12deg); } }
+@keyframes tc-glass-glint {
+  0% { transform: translateX(0); opacity: 0; }
+  25% { opacity: 0.45; }
+  80% { transform: translateX(16px); opacity: 0.35; }
+  100% { transform: translateX(18px); opacity: 0; }
+}
+@keyframes tc-eye-scan {
+  0%, 100% { transform: translateX(-1px); }
+  50% { transform: translateX(2px); }
+}
+@keyframes tc-ledger-flip { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px) rotate(-3deg); } }
+@keyframes tc-probe-sweep { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(10deg); } }
+@keyframes tc-spark-flash { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+@keyframes tc-loupe-bob { 0%, 100% { transform: translate(-2px, -3px); } 50% { transform: translate(-1px, -5px); } }
+@keyframes tc-bar-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 @keyframes tc-nod { 0%, 100% { transform: none; } 50% { transform: translateY(3px); } }
-@keyframes tc-shake { 0%, 100% { transform: none; } 33% { transform: translateX(-4px); } 66% { transform: translateX(4px); } }
-@keyframes tc-scan-y { 0% { transform: translateY(0); } 100% { transform: translateY(4px); } }
-.still .tc-hourglass, .still .tc-critter, .still .tc-scan { animation: none !important; }
+@keyframes tc-shake { 0%, 100% { transform: none; } 33% { transform: translateX(-3px); } 66% { transform: translateX(3px); } }
+@keyframes tc-scan-y { 0% { transform: translateY(0); } 100% { transform: translateY(10px); } }
+.still .tc-actor,
+.still .tc-char *,
+.still .tc-hourglass,
+.still .tc-card { animation: none !important; transition: none !important; }

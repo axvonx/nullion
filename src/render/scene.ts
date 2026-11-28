@@ -298,6 +298,7 @@ export class Scene {
   private swayPhase = 0;
   private bubbles: { x: number; y: number; age: number }[] = [];
   private vignette = { on: false, at: -Infinity };
+  private vignetteMaxBlock = 8;
   /**
    * The frame as the reveal opened. The black region (the core and the darker half of its feather) samples this,
    * not the live frame, so nothing moving behind the reveal (a held jiggle, critters, ambience) flickers through it.
@@ -569,9 +570,10 @@ export class Scene {
    * The tier reveal's dim: a soft radial vignette over the middle of the screen, under the cursor. It eases in and
    * out over VIGNETTE_MS; under reduced motion it is a static dim that simply appears and goes.
    */
-  setVignette(on: boolean) {
-    if (on === this.vignette.on) return;
+  setVignette(on: boolean, opts?: { maxBlock?: number }) {
+    if (on === this.vignette.on && (!on || (opts?.maxBlock ?? 8) === this.vignetteMaxBlock)) return;
     if (on) {
+      this.vignetteMaxBlock = opts?.maxBlock ?? 8;
       this.revealStill = undefined; // retaken on the reveal's first frame
       this.revealLive = undefined;
     }
@@ -641,7 +643,7 @@ export class Scene {
     if (a <= 0) return;
     const { W, H } = this;
     const ctx = this.ctx;
-    const bs = bufferBlock(a);
+    const bs = Math.min(this.vignetteMaxBlock, bufferBlock(a));
     const img = ctx.getImageData(0, 0, W, H);
     const d = img.data;
     // Blocks sample copies (the still and the floored live frame) while the buffer is rewritten in place.
