@@ -419,12 +419,14 @@ export class TableCheck {
 
     const vw = Math.max(320, window.innerWidth);
     const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
-    const measureBlobTarget = (showText: boolean): { halfW: number; halfH: number } => {
+    const walkHalfW = clamp(92 / vw, 0.075, 0.14);
+    const measureBlobTarget = (inMiddle: boolean, showText: boolean): { halfW: number; halfH: number } => {
+      if (!inMiddle) return { halfW: walkHalfW, halfH: 0.13 };
       const headW = this.head.hidden ? 0 : this.head.getBoundingClientRect().width;
       const capRect = this.caption.hidden ? null : this.caption.getBoundingClientRect();
       const capW = capRect ? capRect.width : 0;
-      const contentCssW = Math.max(156, headW, showText ? capW : 0);
-      const halfW = clamp((contentCssW * 0.5 + 34) / vw, 0.11, 0.34);
+      const contentCssW = Math.max(152, headW, showText ? capW : 0);
+      const halfW = clamp((contentCssW * 0.5 + 32) / vw, walkHalfW, 0.34);
       const multiline = capRect ? capRect.height > 44 : false;
       const halfH = showText ? (multiline ? 0.23 : 0.2) : 0.15;
       return { halfW, halfH };
@@ -435,53 +437,45 @@ export class TableCheck {
       blob: true,
       cyFrac: 0.46,
       blobAlpha: still ? 1 : 0,
-      blobHalfW: still ? 0.22 : 0.11,
-      blobHalfH: still ? 0.2 : 0.14,
-      bridgeL: 0.5,
-      bridgeR: still ? 0.5 : 1.06,
-      bridgeH: 0.095,
+      blobCx: still ? 0.5 : 1.06,
+      blobHalfW: still ? 0.22 : walkHalfW,
+      blobHalfH: still ? 0.2 : 0.13,
     });
 
-    // Unified morphing shadow blob:
-    // - Intro: fades in quickly while morphing a right-side protrusion so Dotty is backed as she walks in,
-    //   then smoothly retracts the protrusion into a snug center blob sized to the actual message width.
-    // - Exit: morphs a left-side bridge out from the center blob for Dotty to cross, holding dark longer
-    //   before fading out smoothly as one unified blob.
+    // Single moving & morphing shadow blob that follows Dottybase all the way through:
+    // enters from the right around her (no pre-filled center shadow), morphs smoothly to fit
+    // the actual message width while she checks & replies, then contracts and glides off left with her.
     if (!still) {
       const startAt = performance.now();
       const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
       const smoothstep = (t: number) => t * t * (3 - 2 * t);
       const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
-      const fadeOutStart = exitAt + Math.round(walkMs * 0.58);
-      const fadeOutDur = Math.max(460, doneAt - fadeOutStart);
-      let curHalfW = 0.11;
-      let curHalfH = 0.14;
+      const easeInOutQuad = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
+      const fadeOutStart = exitAt + Math.round(walkMs * 0.68);
+      const fadeOutDur = Math.max(420, doneAt - fadeOutStart);
+      let curHalfW = walkHalfW;
+      let curHalfH = 0.13;
       const tickShadow = (now: number) => {
         if (!this.active) return;
         const el = now - startAt;
 
-        const showText = el >= checkAt && el < exitAt;
-        const target = measureBlobTarget(showText);
-        curHalfW += (target.halfW - curHalfW) * 0.12;
-        curHalfH += (target.halfH - curHalfH) * 0.12;
-
-        // Morphing protrusion (intro: right side -> center) and bridge (exit: center -> left side)
-        let bridgeL = 0.5;
-        let bridgeR = 0.5;
-        if (el < walkMs + 180) {
-          // Protrusion starts extended on right, then pulls smoothly into the center body as Dotty arrives
-          const retract = smoothstep(clamp01((el - walkMs * 0.18) / (walkMs * 0.85)));
-          bridgeR = 1.06 - (1.06 - 0.5) * retract;
-        } else if (el >= exitAt - 140) {
-          // Bridge stretches smoothly leftward out of the center blob for Dotty to cross out
-          const extend = easeOutCubic(clamp01((el - (exitAt - 140)) / (walkMs * 0.72)));
-          bridgeL = 0.5 - 0.58 * extend;
+        let blobCx = 0.5;
+        if (el < walkMs) {
+          blobCx = 1.06 - 0.56 * easeOutCubic(clamp01(el / walkMs));
+        } else if (el >= exitAt) {
+          blobCx = 0.5 - 0.62 * easeInOutQuad(clamp01((el - exitAt) / walkMs));
         }
 
-        const fadeIn = smoothstep(clamp01((el - 60) / 360));
+        const inMiddle = el >= walkMs - 140 && el < exitAt;
+        const showText = el >= checkAt && el < exitAt;
+        const target = measureBlobTarget(inMiddle, showText);
+        curHalfW += (target.halfW - curHalfW) * 0.11;
+        curHalfH += (target.halfH - curHalfH) * 0.11;
+
+        const fadeIn = smoothstep(clamp01((el - 40) / 300));
         const fadeOut = 1 - smoothstep(clamp01((el - fadeOutStart) / fadeOutDur));
         const blobAlpha = Math.min(fadeIn, fadeOut);
-        scene?.setVignetteBlob(blobAlpha, curHalfW, curHalfH, bridgeL, bridgeR, 0.095);
+        scene?.setVignetteBlob(blobAlpha, blobCx, curHalfW, curHalfH);
         this.rafId = requestAnimationFrame(tickShadow);
       };
       this.rafId = requestAnimationFrame(tickShadow);

@@ -304,11 +304,9 @@ export class Scene {
     cyFrac: null as number | null,
     blob: false,
     blobAlpha: 0,
-    blobHalfW: 0.15,
-    blobHalfH: 0.16,
-    bridgeL: 0.5,
-    bridgeR: 0.5,
-    bridgeH: 0.1,
+    blobCx: 0.5,
+    blobHalfW: 0.1,
+    blobHalfH: 0.13,
   };
   private cursorHidden = false;
   /**
@@ -589,11 +587,9 @@ export class Scene {
       cyFrac?: number;
       blob?: boolean;
       blobAlpha?: number;
+      blobCx?: number;
       blobHalfW?: number;
       blobHalfH?: number;
-      bridgeL?: number;
-      bridgeR?: number;
-      bridgeH?: number;
     },
   ) {
     if (on) {
@@ -603,11 +599,9 @@ export class Scene {
         cyFrac: opts?.cyFrac ?? null,
         blob: opts?.blob ?? false,
         blobAlpha: opts?.blobAlpha ?? 1,
-        blobHalfW: opts?.blobHalfW ?? 0.15,
-        blobHalfH: opts?.blobHalfH ?? 0.16,
-        bridgeL: opts?.bridgeL ?? 0.5,
-        bridgeR: opts?.bridgeR ?? 0.5,
-        bridgeH: opts?.bridgeH ?? 0.1,
+        blobCx: opts?.blobCx ?? 0.5,
+        blobHalfW: opts?.blobHalfW ?? 0.1,
+        blobHalfH: opts?.blobHalfH ?? 0.13,
       };
       if (this.vignette.on) {
         this.vignetteCfg = next;
@@ -625,14 +619,12 @@ export class Scene {
     this.vignette = { on, at: now - (1 - k) * VIGNETTE_MS };
   }
 
-  /** Update Dottybase's unified morphing shadow blob (size, protrusion/bridge span, and overall alpha). */
-  setVignetteBlob(blobAlpha: number, blobHalfW: number, blobHalfH: number, bridgeL: number, bridgeR: number, bridgeH = 0.1) {
+  /** Update Dottybase's single moving & morphing shadow blob (center X, half-extents, and overall alpha). */
+  setVignetteBlob(blobAlpha: number, blobCx: number, blobHalfW: number, blobHalfH: number) {
     this.vignetteCfg.blobAlpha = blobAlpha;
+    this.vignetteCfg.blobCx = blobCx;
     this.vignetteCfg.blobHalfW = blobHalfW;
     this.vignetteCfg.blobHalfH = blobHalfH;
-    this.vignetteCfg.bridgeL = bridgeL;
-    this.vignetteCfg.bridgeR = bridgeR;
-    this.vignetteCfg.bridgeH = bridgeH;
   }
 
   /** Temporarily hide the scrolling virtual cursor (e.g. while Dottybase takes center stage). */
@@ -715,24 +707,20 @@ export class Scene {
     const live = this.revealLive;
     const cx = Math.round(W * cfg.cxFrac);
     const cy = cfg.cyFrac !== null ? Math.round(H * cfg.cyFrac) : Math.round(this.cursorY);
-    // Unified morphing blob mode (Dottybase): one smooth-union SDF shadow that fits the message width
-    // in the center and organically grows a right-side protrusion (intro) and left-side bridge (exit).
+    // Single moving & morphing SDF shadow blob (Dottybase): travels with her from right -> center -> left,
+    // expanding dynamically to fit the message width in the middle and contracting back as she walks off.
     const innerW = Math.min(Math.round(W * 0.28), 118);
     const innerH = Math.round(H * 0.19);
     const featherX = Math.max(32, Math.round(W * 0.16));
     const featherY = Math.max(26, Math.round(H * 0.15));
-    const bodyRx = Math.max(24, Math.round(W * cfg.blobHalfW));
-    const bodyRy = Math.max(22, Math.round(H * cfg.blobHalfH));
-    const cornerR = Math.min(bodyRx, bodyRy) * 0.45;
+    const blobX = cfg.blobCx * W;
+    const bodyRx = Math.max(22, Math.round(W * cfg.blobHalfW));
+    const bodyRy = Math.max(20, Math.round(H * cfg.blobHalfH));
+    const cornerR = Math.min(bodyRx, bodyRy) * 0.55;
     const boxX = Math.max(0, bodyRx - cornerR);
     const boxY = Math.max(0, bodyRy - cornerR);
-    const brL = cfg.bridgeL * W;
-    const brR = cfg.bridgeR * W;
-    const brRy = Math.max(14, Math.round(H * cfg.bridgeH));
-    const hasBridge = cfg.blob && brR - brL > 2;
-    const blendK = Math.max(14, Math.round(Math.min(W, H) * 0.12));
-    const blobFeather = Math.max(18, Math.round(Math.min(W, H) * 0.1));
-    const outerDim = cfg.blob ? 0.06 : 0.12;
+    const blobFeather = Math.max(18, Math.round(Math.min(W, H) * 0.11));
+    const outerDim = cfg.blob ? 0.05 : 0.12;
     const quantised = look('palette') === 'per-layer';
     for (let y = 0; y < H; y++) {
       const sy = Math.min(H - 1, y - (y % bs) + (bs >> 1));
@@ -747,14 +735,8 @@ export class Scene {
         let smooth: number;
         let dark: number;
         if (cfg.blob) {
-          const qx = Math.abs(x - cx) - boxX;
-          let dist = Math.hypot(Math.max(qx, 0), qyPos) + Math.min(Math.max(qx, qy), 0) - cornerR;
-          if (hasBridge) {
-            const px = x < brL ? brL : x > brR ? brR : x;
-            const dBr = Math.hypot(x - px, y - cy) - brRy;
-            const h = Math.max(blendK - Math.abs(dist - dBr), 0) / blendK;
-            dist = Math.min(dist, dBr) - h * h * blendK * 0.25;
-          }
+          const qx = Math.abs(x - blobX) - boxX;
+          const dist = Math.hypot(Math.max(qx, 0), qyPos) + Math.min(Math.max(qx, qy), 0) - cornerR;
           const bt = Math.max(0, Math.min(1, dist / blobFeather));
           smooth = bt * bt * (3 - 2 * bt);
           dark = (1 - smooth * (1 - outerDim)) * cfg.blobAlpha * a;
