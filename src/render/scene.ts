@@ -719,7 +719,7 @@ export class Scene {
     const cornerR = Math.min(bodyRx, bodyRy) * 0.55;
     const boxX = Math.max(0, bodyRx - cornerR);
     const boxY = Math.max(0, bodyRy - cornerR);
-    const blobFeather = Math.max(18, Math.round(Math.min(W, H) * 0.11));
+    const blobFeather = Math.max(26, Math.round(Math.min(W, H) * 0.14));
     const outerDim = cfg.blob ? 0.05 : 0.12;
     const quantised = look('palette') === 'per-layer';
     for (let y = 0; y < H; y++) {

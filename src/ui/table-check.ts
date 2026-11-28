@@ -419,16 +419,17 @@ export class TableCheck {
 
     const vw = Math.max(320, window.innerWidth);
     const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
-    const walkHalfW = clamp(92 / vw, 0.075, 0.14);
+    // Generous horizontal leeway while walking so stepped frames stay comfortably inside the soft shadow
+    const walkHalfW = clamp(152 / vw, 0.13, 0.22);
     const measureBlobTarget = (inMiddle: boolean, showText: boolean): { halfW: number; halfH: number } => {
-      if (!inMiddle) return { halfW: walkHalfW, halfH: 0.13 };
+      if (!inMiddle) return { halfW: walkHalfW, halfH: 0.14 };
       const headW = this.head.hidden ? 0 : this.head.getBoundingClientRect().width;
       const capRect = this.caption.hidden ? null : this.caption.getBoundingClientRect();
       const capW = capRect ? capRect.width : 0;
-      const contentCssW = Math.max(152, headW, showText ? capW : 0);
-      const halfW = clamp((contentCssW * 0.5 + 32) / vw, walkHalfW, 0.34);
+      const contentCssW = Math.max(220, headW, showText ? capW : 0);
+      const halfW = clamp((contentCssW * 0.5 + 48) / vw, walkHalfW, 0.36);
       const multiline = capRect ? capRect.height > 44 : false;
-      const halfH = showText ? (multiline ? 0.23 : 0.2) : 0.15;
+      const halfH = showText ? (multiline ? 0.23 : 0.2) : 0.16;
       return { halfW, halfH };
     };
 
@@ -439,43 +440,44 @@ export class TableCheck {
       blobAlpha: still ? 1 : 0,
       blobCx: still ? 0.5 : 1.06,
       blobHalfW: still ? 0.22 : walkHalfW,
-      blobHalfH: still ? 0.2 : 0.13,
+      blobHalfH: still ? 0.2 : 0.14,
     });
 
-    // Single moving & morphing shadow blob that follows Dottybase all the way through:
-    // enters from the right around her (no pre-filled center shadow), morphs smoothly to fit
-    // the actual message width while she checks & replies, then contracts and glides off left with her.
+    // Single moving & morphing shadow blob that tracks Dottybase's actual position smoothly
+    // with generous horizontal leeway, expanding to fit her message in the middle and fading out as one shape.
     if (!still) {
       const startAt = performance.now();
+      let prevAt = startAt;
       const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
       const smoothstep = (t: number) => t * t * (3 - 2 * t);
-      const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
-      const easeInOutQuad = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
-      const fadeOutStart = exitAt + Math.round(walkMs * 0.68);
-      const fadeOutDur = Math.max(420, doneAt - fadeOutStart);
+      const fadeOutStart = exitAt + Math.round(walkMs * 0.65);
+      const fadeOutDur = Math.max(440, doneAt - fadeOutStart);
+      let curCx = 1.06;
       let curHalfW = walkHalfW;
-      let curHalfH = 0.13;
+      let curHalfH = 0.14;
       const tickShadow = (now: number) => {
         if (!this.active) return;
         const el = now - startAt;
+        const dt = Math.min(0.05, Math.max(0.001, (now - prevAt) / 1000));
+        prevAt = now;
 
-        let blobCx = 0.5;
-        if (el < walkMs) {
-          blobCx = 1.06 - 0.56 * easeOutCubic(clamp01(el / walkMs));
-        } else if (el >= exitAt) {
-          blobCx = 0.5 - 0.62 * easeInOutQuad(clamp01((el - exitAt) / walkMs));
-        }
+        const rect = this.actor.getBoundingClientRect();
+        const actorCx = rect.width > 0 ? (rect.left + rect.width * 0.5) / vw : 0.5;
+        const targetCx = el >= walkMs && el < exitAt ? 0.5 : actorCx;
+        const posK = 1 - Math.exp(-dt * 8.5);
+        curCx += (targetCx - curCx) * posK;
 
         const inMiddle = el >= walkMs - 140 && el < exitAt;
         const showText = el >= checkAt && el < exitAt;
         const target = measureBlobTarget(inMiddle, showText);
-        curHalfW += (target.halfW - curHalfW) * 0.11;
-        curHalfH += (target.halfH - curHalfH) * 0.11;
+        const sizeK = 1 - Math.exp(-dt * 6.5);
+        curHalfW += (target.halfW - curHalfW) * sizeK;
+        curHalfH += (target.halfH - curHalfH) * sizeK;
 
         const fadeIn = smoothstep(clamp01((el - 40) / 300));
         const fadeOut = 1 - smoothstep(clamp01((el - fadeOutStart) / fadeOutDur));
         const blobAlpha = Math.min(fadeIn, fadeOut);
-        scene?.setVignetteBlob(blobAlpha, blobCx, curHalfW, curHalfH);
+        scene?.setVignetteBlob(blobAlpha, curCx, curHalfW, curHalfH);
         this.rafId = requestAnimationFrame(tickShadow);
       };
       this.rafId = requestAnimationFrame(tickShadow);
