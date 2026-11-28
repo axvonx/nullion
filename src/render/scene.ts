@@ -1666,7 +1666,7 @@ export class Scene {
 
         // Seen here: its name in a quiet gray (hidden while its "Already seen" is up, so they never stack). Not seen
         // here: "???" (or, for an entry found in another layer, its name) flashing in the layer's own colours, letter by
-        // letter; no rarity, no "click". The measured rate lives in the Field Manual (FIELD-MANUAL-PLAN.md).
+        // letter; no rarity, no "click". The measured rate lives in the Field Manual (docs/field-manual.md).
         const pillY = by > 18 ? by - 13 : by + bh + 3;
         const key = `${entry.id}|${hit.layer}`;
         if (hasLayer) {

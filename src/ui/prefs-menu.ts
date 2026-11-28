@@ -7,7 +7,7 @@ import { browserStorage } from '../game/daily-save';
 import { createModal } from './modal';
 
 /**
- * Player settings (UI-STYLE.md §5–§6): a stacked `⚙` icon key in the top-right header that opens a unified
+ * Player settings (docs/ui-style.md §5–§6): a stacked `⚙` icon key in the top-right header that opens a unified
  * Windowed Modal containing status-displaying popped-frame switches, a 4-bar hardware volume meter, and the
  * device's Missed Guesses utility row.
  */

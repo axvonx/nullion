@@ -157,7 +157,7 @@ The approved `writing/manual/**/*.md` entries (names, blurbs, notes) are scaffol
   whose entity still exists, is not deleted or folded into another record, has a resolved name, and has no manual file
   yet. Verified merges and variants become extra sightings. It never edits an existing file, so rerunning it only adds
   pages for new records. Promote a draft by editing it and setting `status: approved`.
-- **The style guide is `research/field-manual-style-guide.md`.** `styleProblems()` in `src/game/manual-style.ts`
+- **The style guide is `docs/field-manual-style.md`.** `styleProblems()` in `src/game/manual-style.ts`
   checks its rules. `manual-registry.test.ts` runs it over every loaded entry: approved entries must match their
   recorded `LEGACY_STYLE_DEBT` exactly (the debt can only shrink), and drafts are exempt only from the rules that need
   hand-written prose (rumour, name wording, blurb and note shape and length, detail note length).

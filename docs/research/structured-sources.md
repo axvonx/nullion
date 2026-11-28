@@ -4,8 +4,8 @@
 query, with rarity from a structured familiarity number (the way krillion uses IMDb tags). This goes beyond the
 sources already chosen or proposed: Stack Exchange tags, Debian debtags, Contents and popcon, Homebrew, Wikidata
 SPARQL, arXiv, dblp, kernel Documentation, CWE, the sparse source trees, NIST DADS, Wikipedia List-of/Comparison-of,
-PLDB, Linguist, IANA, SPDX, RFC index, man-pages and POSIX. Prior work: `research/answer-games-and-aliases.md` (Wikidata
-classes, redirects, sitelinks, pageviews) and `research/data-sources-and-hosting.md`.
+PLDB, Linguist, IANA, SPDX, RFC index, man-pages and POSIX. Prior work: `docs/research/answer-games-and-aliases.md` (Wikidata
+classes, redirects, sitelinks, pageviews) and `docs/research/data-sources-and-hosting.md`.
 
 How this was checked: under the owner's rule, nothing was downloaded. **VERIFIED** means I fetched the landing or docs
 page (HTTP 200) or sent an HTTP HEAD for a size on 2026-11-27, and read the stated facts there. **INFERRED** means the

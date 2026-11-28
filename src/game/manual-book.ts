@@ -2,7 +2,7 @@ import { LAYERS, type LayerId } from '../core/layers';
 import { MANUAL_ENTRIES, type ManualEntry } from './manual';
 
 /**
- * The Field Manual as a book (FIELD-MANUAL-PLAN.md): front matter, one chapter per Daily layer (1 = Application …
+ * The Field Manual as a book (docs/field-manual.md): front matter, one chapter per Daily layer (1 = Application …
  * 10 = Ring −3), and the permuted index. Pure: the binder UI (src/ui/binder/) renders what this lays out.
  * - An entry lives in the chapter of its shallowest Daily appearance; each deeper appearance gets a stub there.
  * - A chapter the player hasn't reached is sealed: its divider stays, its pages don't.

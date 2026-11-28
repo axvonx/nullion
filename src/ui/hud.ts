@@ -58,7 +58,7 @@ const HISTORY_PHONE = 7;
 const TELEPORT_MS = 1800;
 const TELEPORT_STILL_MS = 900;
 
-/** 9×8 Specular Pixel Heart SVG for Endless lives (alive vs empty dark socket; UI-STYLE.md §9.4). */
+/** 9×8 Specular Pixel Heart SVG for Endless lives (alive vs empty dark socket; docs/ui-style.md §9.4). */
 export function pixelHeartSvg(alive: boolean): SVGSVGElement {
   const ns = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(ns, 'svg');
@@ -328,7 +328,7 @@ ${REVEAL_HTML}`;
     this.els.titleHowBtn!.addEventListener('click', () => this.howModal.toggle(this.els.titleHowBtn!));
     this.els.helpBtn!.addEventListener('click', () => this.howModal.toggle(this.els.helpBtn!));
 
-    // Smart-Context prop-snap loop (UI-STYLE.md §7.3): fly photos directly to the top-left Book icon.
+    // Smart-Context prop-snap loop (docs/ui-style.md §7.3): fly photos directly to the top-left Book icon.
     scene.snapTarget = () => {
       const book = this.els.hudBook;
       if (!book || this.canvas.width <= 0 || this.canvas.height <= 0) return null;

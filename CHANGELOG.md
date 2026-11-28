@@ -46,7 +46,7 @@ The first numbered build: the whole daily loop works, content is thin.
 - 34 approved answer categories (repeat about every 5 days).
 - Answer matching: articles, plurals and the prompt's own noun are the same answer; four-letter swaps; confident
   one-typo corrections no longer ask.
-- The world: 31 layers (29 Daily + Endless, 2 True Endless, debug only), 588 prop types under ART-STYLE.md, critters.
+- The world: 31 layers (29 Daily + Endless, 2 True Endless, debug only), 588 prop types under docs/art-style.md, critters.
 - Field Manual: the archive binder, 38 approved pages (347 drafts in debug builds).
 - Watchdog submits what's typed when time runs out; the reveal can be hidden to collect props; the cursor leans
   toward the mouse.

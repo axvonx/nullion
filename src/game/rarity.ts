@@ -3,7 +3,7 @@ import type { LayerId } from '../core/layers';
 import { MANUAL_ENTRIES, type ManualEntry, type ManualRarity, type ManualSighting } from './manual';
 
 /**
- * Field Manual rarity, wired into the world (FIELD-MANUAL-PLAN.md).
+ * Field Manual rarity, wired into the world (docs/field-manual.md).
  *
  * Each (entry, layer) appearance spawns on a share of days picked by hashing (seed, entry id, layer): every day
  * for common, 1 in 2 for uncommon, 1 in 5 for rare, 1 in 14 for mythic. The seed is the world seed (the puzzle

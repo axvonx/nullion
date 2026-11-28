@@ -1,6 +1,6 @@
-# UI Style Guide & Design System (`UI-STYLE.md`)
+# UI Style Guide & Design System (`docs/ui-style.md`)
 
-Settled 2026-11-27 from the Lavish UI audit and design session (`.lavish/ui-audit.html`). Sibling to `ART-STYLE.md` (world sprites) and `FIELD-MANUAL-PLAN.md` (the archive binder). Every new UI surface, control, modal, or polish pass must follow this spec so the game scales cleanly into Settings rework, the HUD Field Manual book, Achievements, User Profile, and Account/Export without visual drift.
+Settled 2026-11-27 from the Lavish UI audit and design session (`.lavish/ui-audit.html`). Sibling to `docs/art-style.md` (world sprites) and `docs/field-manual.md` (the archive binder). Every new UI surface, control, modal, or polish pass must follow this spec so the game scales cleanly into Settings rework, the HUD Field Manual book, Achievements, User Profile, and Account/Export without visual drift.
 
 ---
 
@@ -692,7 +692,7 @@ Today `.console[data-form='bios']`'s 5-layer `box-shadow` overrides `.console.lo
 ```
 
 ### 9.4 Endless HUD: Specular Pixel Hearts & Stacked Pager (`src/ui/hud.ts`)
-Replace Unicode `♥ / ♡` text with crisp **9×8 Specular Pixel Hearts** (matching `ART-STYLE.md`'s 1px dark outline + top-left highlight), and replace the native `<select class="history-page">` with compact `.ui-key--quiet` prev/next pager buttons (`◀ 1–14`, `15–28 ▶`):
+Replace Unicode `♥ / ♡` text with crisp **9×8 Specular Pixel Hearts** (matching `docs/art-style.md`'s 1px dark outline + top-left highlight), and replace the native `<select class="history-page">` with compact `.ui-key--quiet` prev/next pager buttons (`◀ 1–14`, `15–28 ▶`):
 
 ```ts
 // 9×8 Specular Pixel Heart SVG (alive vs empty dark socket)

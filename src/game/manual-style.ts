@@ -2,7 +2,7 @@ import { ALL_LAYER_IDS, LAYERS, type LayerId } from '../core/layers';
 import type { ManualEntry, ManualSighting } from './manual';
 
 /**
- * The mechanical half of the Field Manual style guide (research/field-manual-style-guide.md).
+ * The mechanical half of the Field Manual style guide (docs/field-manual-style.md).
  *
  * `styleProblems` checks one entry against the rules a computer can check: lengths, character classes, tag shape,
  * sentence counts, forbidden words, and references. It returns human-readable problems; an empty array is clean.

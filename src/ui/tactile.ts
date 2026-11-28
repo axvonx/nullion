@@ -9,7 +9,7 @@ let lastGlitchAt = -Infinity;
 let glitchSeq = 0;
 
 /**
- * Central tactile chrome delegation (UI-STYLE.md §4.2):
+ * Central tactile chrome delegation (docs/ui-style.md §4.2):
  * 1. Crisp chiptune micro-foley on every `.ui-key`, switch detent, volume bar, and binder page button.
  * 2. Rare (~10%, 1.8 s cooldown, strictly off under reduced motion) 90–140 ms non-strobing glitch easter egg
  *    on `.ui-key` presses.

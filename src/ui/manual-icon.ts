@@ -36,7 +36,7 @@ export function manualBookIcon(size = 16): SVGSVGElement {
 }
 
 /**
- * Standalone 14×14 pixel physical Field Manual binder/book for the persistent top-left HUD dock (UI-STYLE.md §7.2).
+ * Standalone 14×14 pixel physical Field Manual binder/book for the persistent top-left HUD dock (docs/ui-style.md §7.2).
  * Slate vinyl cover, bond page edge, amber spine plate, and crimson bookmark ribbon.
  */
 export function hudBookSvg(size = 32): SVGSVGElement {

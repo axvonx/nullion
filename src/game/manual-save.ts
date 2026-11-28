@@ -1,7 +1,7 @@
 import { storageKey } from '../keys';
 
 /**
- * Field Manual save, version 2 (FIELD-MANUAL-PLAN.md): per (entry, layer) appearance, when it was first seen; plus
+ * Field Manual save, version 2 (docs/field-manual.md): per (entry, layer) appearance, when it was first seen; plus
  * the "wet" stamps, appearances logged but not yet viewed in the binder. Parsing is strict: a save that is present
  * but unreadable is an InvalidManualSave, which the store reports to the player and removes (never a silent reset).
  */

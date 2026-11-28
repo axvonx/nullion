@@ -1,12 +1,12 @@
 # nullion roadmap
 
-Last updated 2026-11-27. This file is the single place for what's next. Locked decisions live in `CLAUDE.md`. The Endless stack design lives in `ENDLESS-PLAN.md`.
+Last updated 2026-11-27. This file is the single place for what's next. Locked decisions live in `CLAUDE.md`. The Endless stack design lives in `docs/archive/endless-plan.md`.
 
 ## Where things stand
 
 Updated 2026-11-27.
 
-- **GUI, world and code: far ahead of content.** Title, reveal, tier reactions, console forms, sound, favicon done. 29 + 2 layers (one module each in `src/layers/`), 588 prop types at 20+ per layer, all following `ART-STYLE.md`. Endless is released (offered on the end card after the daily; hearts, saved runs, a personal best); True Endless is debug-only. The refactor of 2026-11-27 left one module per layer, per mode, per entity.
+- **GUI, world and code: far ahead of content.** Title, reveal, tier reactions, console forms, sound, favicon done. 29 + 2 layers (one module each in `src/layers/`), 588 prop types at 20+ per layer, all following `docs/art-style.md`. Endless is released (offered on the end card after the daily; hearts, saved runs, a personal best); True Endless is debug-only. The refactor of 2026-11-27 left one module per layer, per mode, per entity.
 - **Answer bank: thin.** 45 approved categories (2026-11-27) and 148 drafts, 7 of them pipeline-complete and waiting for review (REVIEW.md). With 7 prompts a day, the 45 repeat about every 6 days.
 - **Answer matching: fixed 2026-11-27** (phrasings, four-letter swaps, sure corrections; `CLAUDE.md`). Guesses outside the bank: a debug-only Wikipedia check is being evaluated (`src/game/outside-check.ts`).
 - **Field Manual: built, mostly unwritten.** The binder ships; 38 approved pages, 347 LLM-drafted pages (debug only) from the naming desk, about 220 new entities still unnamed there.

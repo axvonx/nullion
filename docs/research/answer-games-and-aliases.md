@@ -1,7 +1,7 @@
 # Answer games: scope, aliases, rarity, and missed answers
 
 Researched 2026-11-27 for the playtest misses in `design/misses/2026-11-27-seed.md`. This builds on
-`research/krillion-internals.md` and does not repeat it: krillion's fixed per-day sheet, its mined-typo aliases, the
+`docs/research/krillion-internals.md` and does not repeat it: krillion's fixed per-day sheet, its mined-typo aliases, the
 fact that player share never sets a tier, Algillion's Wikidata `w<QID>` keys with sitelink tiers, and the cached LLM
 judge are all covered there.
 

@@ -141,7 +141,7 @@ export function snapColor(hex: string, mode: PaletteMode): string {
   return out;
 }
 
-/** Darkest ink colour for a layer palette (ART-STYLE.md rule 3: 1 px silhouette outline). */
+/** Darkest ink colour for a layer palette (docs/art-style.md rule 3: 1 px silhouette outline). */
 export function darkestInk(mode: PaletteMode): string {
   return mode === 'full' ? '#2a3358' : snapColor('#000000', mode);
 }

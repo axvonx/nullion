@@ -1,6 +1,6 @@
 # Krillion and friends: launch-feature checklist
 
-Researched 2026-11-26. This builds on `research/krillion-internals.md` and does not repeat it.
+Researched 2026-11-26. This builds on `docs/research/krillion-internals.md` and does not repeat it.
 
 Sources:
 - **krillion.io**: the Next.js JS chunks and page HTML, downloaded earlier into the session scratchpad (`dl-krillion/js/*.js`, `faq.html`). I cite chunks by filename, e.g. `2aysgah32oe75.js` is the daily results page.
@@ -178,7 +178,7 @@ https://electicode.tj/algillion
 | Share link toggle | Settings "Share link" (default off) appends `https://krillion.io` | None. Plain `https://` link missing from the text, so shared posts do not point back. | S | n |
 | Native share sheet | Button shown when `navigator.share` exists | Clipboard only (`hud.ts` ~266) | S | n |
 | Endless entry in production | `Unlimited ∞` in menu and intro footer, paid $5 | Debug chip only (`?endless=1`, `main.ts` line 83). `ROADMAP.md` lists it under Milestone 2. | M | n |
-| Endless personal best | Dive log per game number (no single best seen) | None. `ENDLESS-PLAN.md` says it is planned. | S | n |
+| Endless personal best | Dive log per game number (no single best seen) | None. `docs/archive/endless-plan.md` says it is planned. | S | n |
 | Endless share card | `Krillion ∞ #N` | Text exists in `hud.ts`, not reachable in production | S | n |
 | How-to-play | Collapsed "how to play" on the intro, 6 lines | "How tiers work" dialog on the title screen (`hud.ts` 157). It does not state the rules (7 prompts a day, watchdog time per prompt, one attempt per day). | S | n |
 | First-visit help | None seen | None | n/a | n |

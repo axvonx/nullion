@@ -1,4 +1,4 @@
-# nullion — Endless Mode Plan (`ENDLESS-PLAN.md`)
+# nullion — Endless Mode Plan (`docs/archive/endless-plan.md`)
 
 > **Status (2026-11-27):** released. Phases 1–3 are implemented; phase 4 shipped differently from this plan: Endless is entered from a finished day's end card (not a title switch), runs on **hearts** rather than strikes, scales frames along a smooth curve, saves and resumes runs, keeps a personal best and shares a tier tally. `CLAUDE.md` (Endless mode) is the current description; this file keeps the original stack design.
 > **Goal:** A finite-but-deep (~2,500-frame) Endless descent inspired by *krillion.io*—expanding the computing stack **upwards**, **through the middle** (de-opaquing Runtime, Kernel, Ring −1, Ring −2, and Ring −3 without faking peer hierarchies), and **downwards** through the Intel ME's hidden MINIX 3 OS into microarchitecture, silicon, and fundamental physics.

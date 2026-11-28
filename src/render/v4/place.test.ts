@@ -200,7 +200,7 @@ describe('v4 world', () => {
     }
   });
 
-  it('ART-STYLE.md: every entity is >= 8x8 px, text is <= 4 glyphs, and silhouette edge is darkest ink', () => {
+  it('docs/art-style.md: every entity is >= 8x8 px, text is <= 4 glyphs, and silhouette edge is darkest ink', () => {
     const texts: string[] = [];
     const makeCtx = (w: number, h: number) => {
       const data = new Uint8ClampedArray(w * h * 4);

@@ -3,7 +3,7 @@
  * The scene itself owns all the color; the chrome stays quiet so the color-depth drop is the thing you notice.
  */
 :root {
-  /* Surfaces & edges (UI-STYLE.md §2) */
+  /* Surfaces & edges (docs/ui-style.md §2) */
   --bezel: #1d1a24;
   --panel: #131118;
   --panel-fill: rgba(16, 14, 22, 0.96);
@@ -82,7 +82,7 @@ body {
 }
 
 /*
- * Floating Debugger Chrome panels & chips (UI-STYLE.md §3):
+ * Floating Debugger Chrome panels & chips (docs/ui-style.md §3):
  * near-opaque obsidian fill, hard 2px black edge, 1px inner rule, and stepped downward stack-frame slices.
  */
 .panel, .chip {
@@ -154,7 +154,7 @@ body {
 .bar-right > * { pointer-events: auto; }
 .bar .chip.depth { min-height: 32px; display: inline-flex; align-items: center; padding: 0 9px; }
 
-/* Standalone Top-Left Pixel Field Manual Book (UI-STYLE.md §7.2) */
+/* Standalone Top-Left Pixel Field Manual Book (docs/ui-style.md §7.2) */
 .hud-book {
   position: relative;
   display: inline-grid;
@@ -213,7 +213,7 @@ body {
 .slot.miss .tier-icon { opacity: 0.6; }
 .slot[tabindex] { cursor: default; }
 .slot[tabindex]:hover .tier-icon, .slot[tabindex]:focus-visible .tier-icon { filter: brightness(1.25); }
-/* The expansion: the round's answer, tier and frames, dropping out under its icon on hover, focus or tap (UI-STYLE.md §9.5). */
+/* The expansion: the round's answer, tier and frames, dropping out under its icon on hover, focus or tap (docs/ui-style.md §9.5). */
 .slot-x {
   position: absolute;
   top: calc(100% + 8px);
@@ -311,7 +311,7 @@ body {
   overscroll-behavior: contain;
   padding: 0 12px 9px;
 }
-/* Outer outline never collides with per-form box-shadows (BIOS / Hyper / Raw; UI-STYLE.md §9.3). */
+/* Outer outline never collides with per-form box-shadows (BIOS / Hyper / Raw; docs/ui-style.md §9.3). */
 .console.low {
   outline: 2px solid var(--fault);
   outline-offset: 2px;
@@ -383,7 +383,7 @@ body {
 .wordmark > * { min-width: 0; }
 .wordmark .wm-no { font-family: var(--display); font-size: 22px; letter-spacing: 0.06em; color: var(--ink); }
 .headline { color: var(--signal); font-size: 26px; line-height: 1.1; margin: 8px 0 12px; text-align: center; }
-/* End Card always lives in dark Debugger Chrome (UI-STYLE.md §1, §9.1); prompt chrome steps aside. */
+/* End Card always lives in dark Debugger Chrome (docs/ui-style.md §1, §9.1); prompt chrome steps aside. */
 .console.has-result :is(.plain, .prompt-line, .feedback, .bios-footer, .watchdog, .titlebar),
 .console:has(.result:not([hidden])) :is(.plain, .prompt-line, .feedback, .bios-footer, .watchdog, .titlebar) { display: none; }
 .console.has-result,
@@ -481,7 +481,7 @@ body {
 .result-share { margin: 20px 0 0; text-align: center; }
 .share-big { display: flex; width: 100%; min-height: 54px; font-size: 16px; letter-spacing: 0.1em; }
 .next-day { margin-top: 10px; color: var(--ink); font-size: 20px; opacity: 0.85; }
-/* Endless from the end card (UI-STYLE.md §4.1 L4 Exaggerated Hero + glitch/pop/white-out). */
+/* Endless from the end card (docs/ui-style.md §4.1 L4 Exaggerated Hero + glitch/pop/white-out). */
 .endless-go {
   position: relative; overflow: visible;
   display: flex; width: 100%; margin-top: 14px;
@@ -554,7 +554,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .prompt-line input:focus-visible { outline: none; }
 
 /* ---------------------------------------------------------------------------------------------
- * Debugger Chrome Button Primitives — Family C: Stacked Memory Frames (UI-STYLE.md §4)
+ * Debugger Chrome Button Primitives — Family C: Stacked Memory Frames (docs/ui-style.md §4)
  */
 .ui-key {
   position: relative;
@@ -730,7 +730,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   transform: none;
 }
 
-/* Per-click glitch easter eggs (130ms max, stepped, strictly off under .still; UI-STYLE.md §4.2) */
+/* Per-click glitch easter eggs (130ms max, stepped, strictly off under .still; docs/ui-style.md §4.2) */
 .ui-key.ui-gl-chroma { text-shadow: -2px 0 #5fd3e0, 2px 0 #ff6ad5; }
 .ui-key.ui-gl-shear { animation: ui-gl-shear 120ms steps(2, end) 1; }
 .ui-key.ui-gl-invert { animation: ui-gl-invert 90ms steps(1, end) 1; }
@@ -750,7 +750,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .still .ui-key:is(.ui-gl-chroma, .ui-gl-shear, .ui-gl-invert, .ui-gl-scan) { animation: none; filter: none; text-shadow: none; }
 
 /* ---------------------------------------------------------------------------------------------
- * Unified Windowed Dark Titlebar Modal Shell (UI-STYLE.md §6)
+ * Unified Windowed Dark Titlebar Modal Shell (docs/ui-style.md §6)
  */
 .ui-modal-backdrop {
   position: fixed;
@@ -809,7 +809,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .still .ui-modal { animation: none; }
 
 /* ---------------------------------------------------------------------------------------------
- * Settings Rows, Popped-Frame Status Switches & 4-Bar Volume Meter (UI-STYLE.md §5)
+ * Settings Rows, Popped-Frame Status Switches & 4-Bar Volume Meter (docs/ui-style.md §5)
  */
 .settings-row {
   display: flex;
@@ -1449,7 +1449,7 @@ html.kb-open .still .console.low { animation: none; }
 .title-tiers .tt-name { font-family: var(--display); font-size: 11px; }
 .title-tiers .tt-frames { color: var(--dim); white-space: nowrap; }
 
-/* Notice toast bar: Debugger Chrome bezel + L1 stack shadow + stacked icon close (UI-STYLE.md §9.2). */
+/* Notice toast bar: Debugger Chrome bezel + L1 stack shadow + stacked icon close (docs/ui-style.md §9.2). */
 .notice {
   position: fixed;
   top: 58px;
@@ -1952,7 +1952,7 @@ html.kb-open .still .console.low { animation: none; }
   image-rendering: pixelated;
 }
 
-/* The build's version at the foot of Title, Settings & End Card (Silkscreen 9px; UI-STYLE.md §8). */
+/* The build's version at the foot of Title, Settings & End Card (Silkscreen 9px; docs/ui-style.md §8). */
 .build-tag {
   margin-top: 10px;
   text-align: center;

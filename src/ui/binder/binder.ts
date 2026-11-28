@@ -20,7 +20,7 @@ import { sqSep } from '../dom';
 import { toCss } from '../ui-scale';
 
 /**
- * The Field Manual as an archive ring binder of manual pages (FIELD-MANUAL-PLAN.md). Layout comes from the pure
+ * The Field Manual as an archive ring binder of manual pages (docs/field-manual.md). Layout comes from the pure
  * book model (src/game/manual-book.ts); this file only renders it. Wide screens show a spread, phones one leaf.
  */
 
@@ -854,7 +854,7 @@ export class FieldManualBinder {
   private textLeaf(e: ManualEntry, folio: string, side: 'l' | 'r'): Node[] {
     const tag = manTag(e);
     if (!manualStore.isFound(e.id)) {
-      // The rumour is hand-written per entry (FIELD-MANUAL-PLAN.md); an entry without one just shows the blank page.
+      // The rumour is hand-written per entry (docs/field-manual.md); an entry without one just shows the blank page.
       return this.frame('???', folio, side, [
         el('p', 'bd-blank', 'This page intentionally left blank.'),
         e.rumour ? el('p', 'bd-pencil bd-pencil-block', e.rumour) : null,

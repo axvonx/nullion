@@ -72,7 +72,7 @@ proposed name as a write-in. Named entities get draft Field Manual pages from `p
 - Big screens (1440p, 4K): the UI zoom (`src/ui/ui-scale.ts`), and the badge flights and reveal under zoom (only the
   end card was checked).
 - Prop pills: flashing "???", the snapshot, gray seen names, "Already seen".
-- UI-STYLE pass (`UI-STYLE.md` §12 lists the checks): the header book and its snapshot catch, Settings switches and volume bars,
+- UI-STYLE pass (`docs/ui-style.md` §12 lists the checks): the header book and its snapshot catch, Settings switches and volume bars,
   How to play modal, key clicks and the rare glitch, the Endless pager and pixel hearts; at 1280×800, 2560×1440 and phones.
 
 ## Reference: what links out on hover (end card and title)

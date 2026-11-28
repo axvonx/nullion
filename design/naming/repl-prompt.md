@@ -1,6 +1,6 @@
 You are designing replacement props for nullion's pixel-art world. nullion is a computing-trivia game whose world is the software stack drawn as places, one layer per level of the machine (Application at the top, down through kernel, firmware, hypervisor, SMM, the Management Engine, microarchitecture and physics). Every prop is a collectible Field Manual entry, so each must stand for one real computing concept worth a page.
 
-Read ART-STYLE.md (the art rules; rule 1 matters most: every prop is a PHYSICAL OBJECT that could sit in that place, never a UI panel, schematic symbol, diagram, arrow, or a word in a box; rule 2: text at most 4 glyphs and never the point). Read BATCH: this layer's kept items, items slated for rework (with the problem), and deleted props (with why they failed and any earlier idea). Also read ALL (every surviving item in every layer) so you never propose something that already exists elsewhere.
+Read docs/art-style.md (the art rules; rule 1 matters most: every prop is a PHYSICAL OBJECT that could sit in that place, never a UI panel, schematic symbol, diagram, arrow, or a word in a box; rule 2: text at most 4 glyphs and never the point). Read BATCH: this layer's kept items, items slated for rework (with the problem), and deleted props (with why they failed and any earlier idea). Also read ALL (every surviving item in every layer) so you never propose something that already exists elsewhere.
 
 Write ONLY a JSON file to OUT:
 {"layer": "<id>",

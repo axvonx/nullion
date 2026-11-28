@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Measure every surviving naming-desk entity against ART-STYLE.md's measurable rules.
+"""Measure every surviving naming-desk entity against docs/art-style.md's measurable rules.
 
 Usage: python3 -I scripts/art-audit.py [-o design/naming/art-audit.json] [--sheets DIR]
 

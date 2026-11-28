@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Contact sheets for art-consistency review (ART-STYLE.md): every entity of the given layers on one dark sheet.
+"""Contact sheets for art-consistency review (docs/art-style.md): every entity of the given layers on one dark sheet.
 
 Usage: python3 -I scripts/art-sheet.py <layer> [<layer> ...] [-o out.png]
 Reads design/naming/inventory.json and design/naming/sprites/ (rebuild them with scripts/naming-inventory.mjs).

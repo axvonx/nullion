@@ -218,7 +218,7 @@ export const MAX_BAKE_CACHE = 600;
 const bakeCache = new Map<string, HTMLCanvasElement>();
 const pen = new Pen();
 
-/** Add a 1 px silhouette outline in the current palette's darkest ink (ART-STYLE.md rule 3). */
+/** Add a 1 px silhouette outline in the current palette's darkest ink (docs/art-style.md rule 3). */
 export function outlineSilhouette(ctx: Ctx, w: number, h: number, inkHex: string) {
   const n = parseInt(inkHex.slice(1), 16);
   const ir = n >> 16;

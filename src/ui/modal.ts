@@ -28,7 +28,7 @@ export interface ModalHandle {
 }
 
 /**
- * Unified Windowed Dark Titlebar Modal (UI-STYLE.md §6).
+ * Unified Windowed Dark Titlebar Modal (docs/ui-style.md §6).
  * Shared by Settings, How to Play, and future player panels (Achievements, User Profile, Account).
  * Closes on Escape, backdrop click, or `×`; saves and restores trigger focus without touching game timers.
  */

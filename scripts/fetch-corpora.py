@@ -157,7 +157,7 @@ def fetch_stackexchange() -> None:
 
 WDQS = "https://query.wikidata.org/sparql"
 # (file slug, QID, its English label). The label is checked against Wikidata before the class is queried: a wrong
-# QID (research/answer-games-and-aliases.md §3.1 found two) fails loudly instead of fetching the wrong class.
+# QID (docs/research/answer-games-and-aliases.md §3.1 found two) fails loudly instead of fetching the wrong class.
 WD_CLASSES = [
     ("text-editor", "Q131212", "text editor"),
     ("source-code-editor", "Q522972", "source code editor"),

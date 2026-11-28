@@ -1,6 +1,6 @@
 # Field Manual style guide
 
-The Field Manual is an archive binder of Unix-style manual pages (FIELD-MANUAL-PLAN.md). Each entry is one page:
+The Field Manual is an archive binder of Unix-style manual pages (docs/field-manual.md). Each entry is one page:
 NAME, HABITAT, BEHAVIOR (critters only), DESCRIPTION, BUGS, SEE ALSO. This guide says how to write those pages.
 Every number below is a constant in `src/game/manual-style.ts`, and `styleProblems()` enforces the mechanical rules.
 Change a limit in the code and here together.

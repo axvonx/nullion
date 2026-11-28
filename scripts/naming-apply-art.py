@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply the ART-STYLE.md slate (design/naming/art/slate.json) to design/naming/decisions.json.
+"""Apply the docs/art-style.md slate (design/naming/art/slate.json) to design/naming/decisions.json.
 
 Usage: python3 -I scripts/naming-apply-art.py [--undo]
 
