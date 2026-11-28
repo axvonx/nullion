@@ -1,0 +1,264 @@
+{
+ "id": "graphics-api",
+ "prompt": "Name a graphics API",
+ "accepts": "Any named programming interface for issuing GPU rendering or compute commands, historical or current, including console-specific APIs.",
+ "answers": [
+  {
+   "name": "Direct3D",
+   "aliases": [
+    "D3D",
+    "Direct3D 11",
+    "Direct3D 12",
+    "D3D11",
+    "D3D12",
+    "Direct3D 9",
+    "D3D9",
+    "Direct3D 10",
+    "D3D10",
+    "Direct3D 8",
+    "D3D8",
+    "DirectX",
+    "Microsoft DirectX",
+    "DirectX 12",
+    "DirectX 11",
+    "DirectX 9"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "OpenGL",
+   "aliases": [
+    "OpenGL 2",
+    "OpenGL 3",
+    "gl1",
+    "gl2",
+    "gl3",
+    "OGL"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Vulkan",
+   "aliases": [
+    "Khronos Vulkan",
+    "Vulkan API"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "WebGL",
+   "aliases": [
+    "WebGL 2"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "GDI",
+   "aliases": [
+    "Windows GDI"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "OpenVG",
+   "aliases": [
+    "OVG"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Glide",
+   "aliases": [
+    "3dfx Glide",
+    "Glide API"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Metal",
+   "aliases": [
+    "Apple Metal",
+    "Metal 4",
+    "Metal API"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "OpenGL ES",
+   "aliases": [
+    "GLES",
+    "OpenGL ES 2.0",
+    "GLES2",
+    "opengles2",
+    "OpenGL for Embedded Systems"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "WebGPU",
+   "aliases": [
+    "wgpu",
+    "WebGPU API"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "CUDA",
+   "aliases": [
+    "NVIDIA CUDA",
+    "CUDA C"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "OpenCL",
+   "aliases": [
+    "Open Computing Language"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DirectCompute",
+   "aliases": [
+    "DirectX Compute"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Direct2D",
+   "aliases": [
+    "D2D"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DirectDraw",
+   "aliases": [
+    "DirectDraw API",
+    "DDraw"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "DirectX Raytracing",
+   "aliases": [
+    "DXR",
+    "D3D12 Raytracing"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "OptiX",
+   "aliases": [
+    "NVIDIA OptiX"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "HIP",
+   "aliases": [
+    "AMD HIP",
+    "ROCm HIP"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "SYCL",
+   "aliases": [
+    "Khronos SYCL"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "RenderScript",
+   "aliases": [
+    "Android RenderScript"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Stage3D",
+   "aliases": [
+    "Flash Stage3D",
+    "Adobe Stage3D"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "LibGCM",
+   "aliases": [
+    "PS3 LibGCM"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "GXM",
+   "aliases": [
+    "libgxm",
+    "sceGxm",
+    "Vita GXM",
+    "PS Vita GXM"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GX",
+   "aliases": [
+    "libogc GX"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SDL_gpu",
+   "aliases": [
+    "SDL3 GPU"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "DispmanX",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Mantle",
+   "aliases": [
+    "AMD Mantle"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SDL_Renderer",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "GX2",
+   "aliases": [
+    "Wii U GX2",
+    "Nintendo GX2"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "NVN",
+   "aliases": [
+    "Nintendo NVN"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GNM",
+   "aliases": [
+    "libGNM",
+    "PlayStation GNM"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "deko3d",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

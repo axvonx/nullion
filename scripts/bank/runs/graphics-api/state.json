@@ -38,17 +38,56 @@
    "finished": "2026-11-27T23:04:04+00:00"
   },
   "obvious": {
-   "status": "failed",
-   "started": "2026-11-27T23:04:04+00:00",
-   "seconds": 32,
-   "error": "GATE FAILED: Bit Flip pin: the Bit Flip 'GX2' is an obvious answer: pick a deep cut (edit the bank file's ## Bit Flip, then rerun with --from merge)"
+   "status": "done",
+   "started": "2026-11-28T00:44:34+00:00",
+   "seconds": 0,
+   "finished": "2026-11-28T00:44:34+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-28T00:44:34+00:00",
+   "seconds": 0,
+   "finished": "2026-11-28T00:44:34+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-28T00:44:34+00:00",
+   "seconds": 15,
+   "finished": "2026-11-28T00:44:50+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-28T00:44:50+00:00",
+   "seconds": 19,
+   "finished": "2026-11-28T00:45:09+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-28T00:45:09+00:00",
+   "seconds": 0,
+   "finished": "2026-11-28T00:45:09+00:00"
   }
  },
  "gates": {
-  "Bit Flip pin": {
+  "obvious coverage": {
    "stage": "obvious",
-   "level": "fail",
-   "detail": "the Bit Flip 'GX2' is an obvious answer: pick a deep cut (edit the bank file's ## Bit Flip, then rerun with --from merge)"
+   "level": "pass",
+   "detail": "27/27 obvious answers accepted"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "23/32 answers have a verified link (72%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "19/20 sampled answers are members (95%), 18/20 with acceptable tier"
   }
  },
  "warnings": [
@@ -59,10 +98,6 @@
   {
    "stage": "merge",
    "text": "Bit Flip / Works on my machine PINNED BY AN LLM (GX2; OpenVG, Glide, GDI): the owner vets them"
-  },
-  {
-   "stage": "obvious",
-   "text": "scripts/bank/obvious-draft/graphics-api.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
   }
  ],
  "plan_origin": "llm-drafted",
@@ -86,6 +121,13 @@
   ]
  },
  "merge": "19 tiered answers, 1 in the Inbox",
- "obvious_origin": "llm-drafted",
- "obvious": "graphics-api: 20 aliases, 13 new answers, 0 promoted from the Inbox"
+ "obvious_origin": "existing",
+ "obvious": "graphics-api: 0 aliases, 0 new answers, 0 promoted from the Inbox",
+ "dupes": [],
+ "links": [
+  "23/32 answers linked across 1 categories",
+  "dropped as broken: {}",
+  "2 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/graphics-api.md"
 }

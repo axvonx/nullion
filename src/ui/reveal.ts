@@ -199,7 +199,7 @@ export class Reveal {
   unwind(now: number) {
     if (!this.open) return;
     const g = this.host.game();
-    const isLastRound = g?.phase.kind === 'between' && g.phase.round + 1 >= g.rounds.length;
+    const isLastRound = Boolean(g?.endsAfterThisRound);
     // Folded away, the reached badges have no on-screen start to fly from: they join the stack directly.
     this.launchReachedFlight(Boolean(isLastRound) || this.stowed);
     sound.stopReactions();

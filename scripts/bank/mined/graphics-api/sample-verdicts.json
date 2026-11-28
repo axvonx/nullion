@@ -1,0 +1,102 @@
+{
+ "RenderScript": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Android's compute and graphics API. Android developers know it by name, though it is deprecated and niche outside that community."
+ },
+ "OpenGL": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named graphics API. Nearly everyone names it first."
+ },
+ "SDL_gpu": {
+  "member": true,
+  "tier_ok": true,
+  "why": "SDL's GPU API for rendering and compute. Specialist knowledge fits Race condition."
+ },
+ "Vulkan": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named graphics and compute API. Nearly everyone names it first."
+ },
+ "Stage3D": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Flash/AIR GPU rendering API. Known to people who worked with Flash, which fits Null pointer exception."
+ },
+ "GXM": {
+  "member": true,
+  "tier_ok": true,
+  "why": "PS Vita's graphics API. Console-specific, so it fits Race condition for specialists."
+ },
+ "DirectCompute": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Compute API within DirectX. Known to graphics developers, which fits Null pointer exception."
+ },
+ "HIP": {
+  "member": true,
+  "tier_ok": true,
+  "why": "AMD's GPU programming API for compute and some rendering. Known to GPU developers, which fits Null pointer exception."
+ },
+ "Direct3D": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named graphics API and the most common DirectX answer. Nearly everyone names it first."
+ },
+ "Direct2D": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named 2D GPU-accelerated graphics API in Windows. Known to Windows developers, which fits Null pointer exception."
+ },
+ "DirectDraw": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Historical DirectX graphics API. Older Windows developers know it, which fits Null pointer exception."
+ },
+ "GX": {
+  "member": true,
+  "tier_ok": true,
+  "why": "GameCube and Wii graphics API in libogc. Console-specific, so it fits Race condition."
+ },
+ "OpenGL ES": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named embedded and mobile graphics API. Many developers know it, which fits Null pointer exception."
+ },
+ "WebGPU": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named web GPU API. Known to web and graphics developers, which fits Null pointer exception."
+ },
+ "WebGL": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named web graphics API that most web developers know. Off-by-one is plausible."
+ },
+ "NVN": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Nintendo Switch's low-level graphics API. Deep console internals, which fits Heisenbug."
+ },
+ "Metal": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Apple's named GPU API. Many developers know it, which fits Null pointer exception."
+ },
+ "SDL_Renderer": {
+  "member": false,
+  "tier_ok": true,
+  "why": "Borderline. SDL_Renderer is the struct type for one renderer object, which the rule excludes. The SDL render API is the kind, so this name only aliases it. Keep it out unless the owner rules that SDL's render API counts as its own named API."
+ },
+ "GNM": {
+  "member": true,
+  "tier_ok": true,
+  "why": "PS4's low-level graphics API. Console-specific and deep, which fits Heisenbug."
+ },
+ "CUDA": {
+  "member": true,
+  "tier_ok": false,
+  "why": "Named GPU compute API, and among the best-known in the category. Nearly everyone names it first, so Off-by-one fits better than Null pointer exception."
+ }
+}

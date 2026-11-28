@@ -39,12 +39,13 @@ id: graphics-api · domain: data-graphics-algorithms · status: draft
 - SDL_Renderer (auto)
 
 ## Heisenbug
-- deko3d (auto)
+- GX2 | Wii U GX2 | Nintendo GX2 (auto)
 - NVN | Nintendo NVN (auto)
 - GNM | libGNM | PlayStation GNM (auto)
 
 ## Bit Flip
-- GX2 | Wii U GX2 | Nintendo GX2
+- deko3d
+  note: devkitPro's open-source low-level API for the Nintendo Switch GPU, written by homebrew developers.
 
 ## Inbox
 - XVideo (suggested: race)

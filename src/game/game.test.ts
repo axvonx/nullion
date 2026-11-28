@@ -235,6 +235,45 @@ describe('game loop', () => {
       return { g, timeout, answer };
     }
 
+    it('the game ends after a round only when the hearts are gone (a run adds rounds one at a time)', () => {
+      const g = new Game(set, 42, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless', seed: 3 });
+      let now = 0;
+      g.start(now);
+      const toReveal = (answer: boolean) => {
+        now += READ_MS;
+        g.tick(now);
+        if (answer) g.submit(set.entries(g.current()!.question.id)[0]!.name, now);
+        else {
+          now += g.answerMs;
+          g.tick(now);
+        }
+        expect(g.phase.kind).toBe('between');
+      };
+      toReveal(true);
+      // On the reveal of the only round so far: the last in the list, but the run goes on.
+      expect(g.rounds.length).toBe(1);
+      expect(g.endsAfterThisRound).toBe(false);
+      g.advance(now);
+      toReveal(false);
+      g.advance(now);
+      toReveal(false);
+      expect(g.endsAfterThisRound).toBe(false);
+      g.advance(now);
+      toReveal(false);
+      expect(g.hearts).toBe(0);
+      expect(g.endsAfterThisRound).toBe(true);
+      // Daily: the seventh round's reveal ends the day.
+      const d = new Game(set, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
+      d.start(0);
+      for (let i = 0; i < 7; i++) {
+        const t = (i + 1) * 100000;
+        d.tick(t); // reading, answering and the timeout replay: on this round's reveal
+        expect(d.phase).toMatchObject({ kind: 'between', round: i });
+        expect(d.endsAfterThisRound).toBe(i === 6);
+        d.advance(t);
+      }
+    });
+
     it('a Bit Flip gives a heart back, never above the maximum', () => {
       const { g, timeout, answer } = run();
       timeout();

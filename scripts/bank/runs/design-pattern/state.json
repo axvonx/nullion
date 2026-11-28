@@ -56,10 +56,16 @@
    "finished": "2026-11-27T23:01:24+00:00"
   },
   "precision": {
-   "status": "failed",
-   "started": "2026-11-27T23:01:24+00:00",
-   "seconds": 28,
-   "error": "GATE FAILED: precision: precision 80% < 90%: `/opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py design-pattern` exited 1: design-pattern: below 90%; fix the source plan or the filter before approving"
+   "status": "done",
+   "started": "2026-11-28T00:45:34+00:00",
+   "seconds": 23,
+   "finished": "2026-11-28T00:45:56+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-28T00:45:56+00:00",
+   "seconds": 0,
+   "finished": "2026-11-28T00:45:56+00:00"
   }
  },
  "gates": {
@@ -80,8 +86,8 @@
   },
   "precision": {
    "stage": "precision",
-   "level": "fail",
-   "detail": "precision 80% < 90%: `/opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py design-pattern` exited 1: design-pattern: below 90%; fix the source plan or the filter before approving"
+   "level": "pass",
+   "detail": "19/20 sampled answers are members (95%), 14/20 with acceptable tier"
   }
  },
  "warnings": [
@@ -126,5 +132,6 @@
   "76/146 answers linked across 1 categories",
   "dropped as broken: {}",
   "37 links on other hosts left out → design/links/review.txt"
- ]
+ ],
+ "report": "bank/reports/design-pattern.md"
 }

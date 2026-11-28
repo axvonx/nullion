@@ -169,7 +169,9 @@ async function boot() {
     savedRev = game.rev;
     scene.setStackMode(mode);
     // Everyone sees the same world on a given day: landmarks and scatter are both seeded by the puzzle (or ?seed=N).
-    scene.setWorldSeed(seedOverride ?? daySeed, seedOverride ?? daySeed * 997);
+    // An Endless run builds its own world from its run seed (a resumed run gets the same one back).
+    const worldSeed = seedOverride ?? (rules.promptSource === 'pool' ? game.seed : daySeed);
+    scene.setWorldSeed(worldSeed, seedOverride ?? worldSeed * 997);
     // Only a real daily game counts toward stats: the same rule as the save (Endless and every debug mode never do).
     const counted = game;
     hud.setGame(game, formatLocalDate(date), persisting ? () => finishDaily(storage, counted) : undefined);

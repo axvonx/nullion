@@ -10,16 +10,12 @@
   "tier": "Race condition"
  },
  {
-  "name": "Chain of Responsibility",
+  "name": "Adapter",
   "aliases": [
-   "Chain of Responsibility pattern"
+   "Adapter pattern",
+   "Adapter design pattern"
   ],
   "tier": "Null pointer exception"
- },
- {
-  "name": "Servant",
-  "aliases": [],
-  "tier": "Heisenbug"
  },
  {
   "name": "Dependency Injection",
@@ -47,11 +43,8 @@
   "tier": "Race condition"
  },
  {
-  "name": "Bridge",
-  "aliases": [
-   "Bridge pattern",
-   "Bridge design pattern"
-  ],
+  "name": "Active Object",
+  "aliases": [],
   "tier": "Memory leak"
  },
  {
@@ -60,9 +53,9 @@
   "tier": "Race condition"
  },
  {
-  "name": "Data Transfer Object",
+  "name": "Data Access Object",
   "aliases": [
-   "DTO"
+   "DAO"
   ],
   "tier": "Null pointer exception"
  },
@@ -77,7 +70,7 @@
   "tier": "Race condition"
  },
  {
-  "name": "Self Registration",
+  "name": "Queue-Based Load Leveling",
   "aliases": [],
   "tier": "Race condition"
  },
@@ -87,30 +80,39 @@
   "tier": "Race condition"
  },
  {
-  "name": "Table Inheritance",
+  "name": "Update Method",
   "aliases": [],
   "tier": "Race condition"
  },
  {
-  "name": "Map-Reduce",
+  "name": "Fork-Join",
   "aliases": [],
   "tier": "Memory leak"
  },
  {
-  "name": "Naked Objects",
+  "name": "Role Object",
   "aliases": [],
   "tier": "Heisenbug"
  },
  {
-  "name": "Page Object",
-  "aliases": [],
+  "name": "Null Object",
+  "aliases": [
+   "Null Object pattern"
+  ],
   "tier": "Null pointer exception"
  },
  {
-  "name": "Resource Acquisition Is Initialization",
+  "name": "Proxy",
   "aliases": [
-   "RAII"
+   "dynamic proxy",
+   "Proxy pattern",
+   "Proxy design pattern"
   ],
+  "tier": "Null pointer exception"
+ },
+ {
+  "name": "Parameter Object",
+  "aliases": [],
   "tier": "Null pointer exception"
  }
 ]

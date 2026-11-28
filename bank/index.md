@@ -120,7 +120,7 @@
 | css-framework | Name a CSS framework | languages-tools | draft | 0 | 0 | 7 |
 | debugger | Name a debugger | languages-tools | draft | 0 | 0 | 7 |
 | dependency-injection-framework | Name a dependency injection framework | languages-tools | draft | 0 | 0 | 7 |
-| design-pattern | Name a design pattern | languages-tools | draft | 146 | 142 | 2 |
+| design-pattern | Name a design pattern | languages-tools | draft | 144 | 140 | 2 |
 | design-principle | Name a software design principle | languages-tools | draft | 0 | 0 | 7 |
 | documentation-generator | Name a documentation generator | languages-tools | draft | 0 | 0 | 7 |
 | domain-specific-language | Name a domain-specific language | languages-tools | draft | 0 | 0 | 7 |

@@ -201,6 +201,17 @@ export class Game {
     return hearts;
   }
 
+  /**
+   * The game ends when the player moves on from this round's reveal: Daily's last prompt, or (a mode with hearts)
+   * no hearts left. A pooled run adds its next round only after the reveal, so "is this the last round in the list"
+   * is always true there and must never stand in for this.
+   */
+  get endsAfterThisRound(): boolean {
+    const p = this.phase;
+    if (p.kind !== 'between') return false;
+    return this.rules.promptSource === 'pool' ? this.rules.hearts !== null && this.hearts <= 0 : p.round + 1 >= this.rounds.length;
+  }
+
   /** Lock a round's answer, pushing the mode's frames for it at the current depth. */
   private lock(r: Round, entry: CategoryEntry, corrected: boolean, guess: string): number {
     const pushed = this.rules.framesFor(entry.tier, this.depth);

@@ -164,15 +164,52 @@ Your file tier and the scored tier differ by more than one (your file wins; wort
 In the bank file but not scored: none
 
 
+## design-pattern
+_Name a design pattern_
+
+Works on my machine:
+- [ ] Curiously Recurring Template Pattern
+- [ ] Double-Checked Locking
+- [ ] Flyweight
+- [ ] Monostate
+- [ ] Multiton
+- [ ] Acyclic Visitor
+- [ ] other: 
+
+Bit Flip:
+- [ ] Twin
+- [ ] Naked Objects
+- [ ] Extension Object
+- [ ] Curiously Recurring Template Pattern
+- [ ] Subclass Sandbox
+- [ ] Tolerant Reader
+- [ ] other: 
+
+```
+
+### Stage timings
+
+| stage | status | seconds |
+|---|---|---|
+| plan | done | 12 |
+| harvest | done | 2 |
+| filter | done | 83 |
+| compare | done | 0 |
+| escalate | done | 29 |
+| merge | done | 11 |
+| obvious | done | 26 |
+| dupes | done | 0 |
+| links | done | 22 |
+| precision | failed | 28 |
+| report | pending |  |
+
 ## Precision sample
 
-16/20 sampled answers are members (80%); 14/20 also have an acceptable tier. Not members: Self Registration (I cannot place this as a named pattern in the GoF catalogue or a published pattern language. It reads as a descriptive phrase, so when unsure it is out.), Subclass Sandbox (I cannot confirm this as a named pattern in a published source. It is unsure, so it is out under the strict rule.), Table Inheritance (Not a named pattern. Fowler's catalogue has Single Table, Class Table and Concrete Table Inheritance; the bare phrase is a fragment of those.), Map-Reduce (A distributed programming model from Google's paper, not an object-oriented design solution or a GoF or pattern-language entry. Outside the accepts line.).
+19/20 sampled answers are members (95%); 14/20 also have an acceptable tier. Not members: Parameter Object (Fowler's refactoring (Introduce Parameter Object). It is a named refactoring, not a GoF pattern or a pattern-language entry. I am not sure it falls under the Accepts line. The NPE tier also overstates how well known it is.).
 
 ## Pipeline report
 
-Generated 2026-11-27 23:01 UTC by scripts/bank/pipeline.py. Status stays `draft`: approval is the owner's call.
-
-**INCOMPLETE RUN: stage precision failed: GATE FAILED: precision: precision 80% < 90%: `/opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py design-pattern` exited 1: design-pattern: below 90%; fix the source plan or the filter before approving**
+Generated 2026-11-28 00:45 UTC by scripts/bank/pipeline.py. Status stays `draft`: approval is the owner's call.
 
 Needs a human look:
 - scripts/bank/plans/design-pattern.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)
@@ -186,8 +223,8 @@ Needs a human look:
 | obvious coverage | PASS | 34/34 obvious answers accepted |
 | duplicates | PASS | 0 likely duplicate pairs |
 | link coverage | PASS | 76/146 answers have a verified link (52%); prompt link yes |
-| precision | FAIL | precision 80% < 90%: `/opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py design-pattern` exited 1: design-pattern: below 90%; fix the source plan or the filter before approving |
-| answer count | PASS | 146 tiered answers (roadmap admission test: at least 40) |
+| precision | PASS | 19/20 sampled answers are members (95%), 14/20 with acceptable tier |
+| answer count | PASS | 144 tiered answers (roadmap admission test: at least 40) |
 | picks (owner) | PASS | 1 Bit Flip, 3 Works on my machine in the file; approval needs exactly 1 and at least 1: choose from the shortlists below |
 
 ### Tiers
@@ -196,10 +233,10 @@ Needs a human look:
 |---|---|---|
 | Off-by-one | 15 | 15 |
 | Works on my machine | 3 | 0 |
-| Null pointer exception | 33 | 33 |
-| Memory leak | 41 | 41 |
+| Null pointer exception | 34 | 34 |
+| Memory leak | 39 | 39 |
 | Race condition | 44 | 44 |
-| Heisenbug | 9 | 9 |
+| Heisenbug | 8 | 8 |
 | Bit Flip | 1 | 0 |
 
 Inbox (never accepted in play): 2.
@@ -245,5 +282,5 @@ Bit Flip:
 | obvious | done | 26 |
 | dupes | done | 0 |
 | links | done | 22 |
-| precision | failed | 28 |
-| report | pending |  |
+| precision | done | 23 |
+| report | running |  |

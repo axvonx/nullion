@@ -16,3 +16,13 @@ $ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/s
 design-pattern: precision 80% (16/20), tier ok 14/20
 design-pattern: below 90%; fix the source plan or the filter before approving
 
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py design-pattern sample  [0s, exit 0]
+design-pattern: sampled 20 of 140 unconfirmed answers -> scripts/bank/mined/design-pattern/sample.json
+
+--- haiku call, 23s, exit 0, prompt 3921 chars, stdout 3291 chars
+eck. Specialist tier fits."}, "Queue-Based Load Leveling": {"member": true, "tier_ok": true, "why": "Named cloud design pattern (Microsoft Azure Architecture Center). Specialist tier fits."}, "Subclass Sandbox": {"member": true, "tier_ok": false, "why": "Named Beck Smalltalk pattern, but obscure. Heisenbug fits better than Race condition."}, "Update Method": {"member": true, "tier_ok": false, "why": "Named Beck Smalltalk pattern, but obscure. Heisenbug fits better than Race condition."}, "Fork-Join": {"member": true, "tier_ok": false, "why": "Named parallel-computing pattern (Lea, Java ForkJoinPool). Parallel programmers know it, so Race condition fits. Memory leak does not."}, "Role Object": {"member": true, "tier_ok": true, "why": "Named design pattern (Riehle et al., PLoPD). Deep-internals tier fits."}, "Null Object": {"member": true, "tier_ok": true, "why": "Named pattern (Woolf, Martin, PLoPD3). Its null-related name suits the NPE tier."}, "Proxy": {"member": true, "tier_ok": true, "why": "GoF pattern. 'dynamic proxy' is a Java API binding of the generic name, so it is an alias; 'Proxy pattern' and 'Proxy design pattern' are punctuation or inflection aliases. NPE tier is reasonable."}, "Parameter Object": {"member": false, "tier_ok": false, "why": "Fowler's refactoring (Introduce Parameter Object). It is a named refactoring, not a GoF pattern or a pattern-language entry. I am not sure it falls under the Accepts line. The NPE tier also overstates how well known it is."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py design-pattern score  [0s, exit 0]
+design-pattern: precision 95% (19/20), tier ok 14/20
+

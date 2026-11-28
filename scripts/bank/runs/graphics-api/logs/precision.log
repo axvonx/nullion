@@ -1,0 +1,10 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py graphics-api sample  [0s, exit 0]
+graphics-api: sampled 20 of 28 unconfirmed answers -> scripts/bank/mined/graphics-api/sample.json
+
+--- haiku call, 19s, exit 0, prompt 4139 chars, stdout 3158 chars
+on."}, "GX": {"member": true, "tier_ok": true, "why": "GameCube and Wii graphics API in libogc. Console-specific, so it fits Race condition."}, "OpenGL ES": {"member": true, "tier_ok": true, "why": "Named embedded and mobile graphics API. Many developers know it, which fits Null pointer exception."}, "WebGPU": {"member": true, "tier_ok": true, "why": "Named web GPU API. Known to web and graphics developers, which fits Null pointer exception."}, "WebGL": {"member": true, "tier_ok": true, "why": "Named web graphics API that most web developers know. Off-by-one is plausible."}, "NVN": {"member": true, "tier_ok": true, "why": "Nintendo Switch's low-level graphics API. Deep console internals, which fits Heisenbug."}, "Metal": {"member": true, "tier_ok": true, "why": "Apple's named GPU API. Many developers know it, which fits Null pointer exception."}, "SDL_Renderer": {"member": false, "tier_ok": true, "why": "Borderline. SDL_Renderer is the struct type for one renderer object, which the rule excludes. The SDL render API is the kind, so this name only aliases it. Keep it out unless the owner rules that SDL's render API counts as its own named API."}, "GNM": {"member": true, "tier_ok": true, "why": "PS4's low-level graphics API. Console-specific and deep, which fits Heisenbug."}, "CUDA": {"member": true, "tier_ok": false, "why": "Named GPU compute API, and among the best-known in the category. Nearly everyone names it first, so Off-by-one fits better than Null pointer exception."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py graphics-api score  [0s, exit 0]
+graphics-api: precision 95% (19/20), tier ok 18/20
+

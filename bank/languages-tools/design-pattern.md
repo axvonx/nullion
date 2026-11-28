@@ -25,6 +25,7 @@ id: design-pattern · domain: languages-tools · status: draft
 - Curiously Recurring Template Pattern | CRTP
 
 ## Null pointer exception
+- Bridge | Bridge pattern | Bridge design pattern (auto)
 - Adapter | Adapter pattern | Adapter design pattern (auto)
 - Chain of Responsibility | Chain of Responsibility pattern (auto)
 - Circuit Breaker (auto)
@@ -61,7 +62,6 @@ id: design-pattern · domain: languages-tools · status: draft
 
 ## Memory leak
 - Active Object (auto)
-- Bridge | Bridge pattern | Bridge design pattern (auto)
 - Command Query Responsibility Segregation | CQRS | CQRS pattern (auto)
 - Domain Model (auto)
 - Double-Checked Locking (auto)
@@ -94,7 +94,6 @@ id: design-pattern · domain: languages-tools · status: draft
 - Write-Ahead Log | WAL (auto)
 - Bulkhead (auto)
 - API Gateway (auto)
-- Map-Reduce (auto)
 - Fork-Join (auto)
 - Flux (auto)
 - Thread Pool (auto)
@@ -103,6 +102,7 @@ id: design-pattern · domain: languages-tools · status: draft
 - Hexagonal Architecture (auto)
 
 ## Race condition
+- Naked Objects (auto)
 - Acyclic Visitor (auto)
 - Balking (auto)
 - Business Delegate (auto)
@@ -140,7 +140,6 @@ id: design-pattern · domain: languages-tools · status: draft
 - Server Session (auto)
 - Service Stub (auto)
 - Special Case (auto)
-- Table Inheritance (auto)
 - Update Method (auto)
 - Async Method Invocation (auto)
 - Idempotent Consumer (auto)
@@ -151,7 +150,6 @@ id: design-pattern · domain: languages-tools · status: draft
 ## Heisenbug
 - Extension Object | Extension Objects (auto)
 - Factory Kit (auto)
-- Naked Objects (auto)
 - Private Class Data (auto)
 - Role Object (auto)
 - Serialized LOB (auto)

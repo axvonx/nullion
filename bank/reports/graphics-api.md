@@ -37,22 +37,63 @@ Your file tier and the scored tier differ by more than one (your file wins; wort
 
 In the bank file but not scored: none
 
+## graphics-api
+_Name a graphics API_
+
+Works on my machine:
+- [ ] OpenVG
+- [ ] WebGPU
+- [ ] GDI
+- [ ] Glide
+- [ ] deko3d
+- [ ] GX
+- [ ] other: 
+
+Bit Flip:
+- [ ] deko3d
+- [ ] GXM
+- [ ] GX2
+- [ ] OpenVG
+- [ ] other: 
+
+```
+
+### Stage timings
+
+| stage | status | seconds |
+|---|---|---|
+| plan | done | 10 |
+| harvest | done | 4 |
+| filter | done | 54 |
+| compare | done | 0 |
+| escalate | done | 17 |
+| merge | done | 7 |
+| obvious | failed | 32 |
+| dupes | pending |  |
+| links | pending |  |
+| precision | pending |  |
+| report | pending |  |
+
+## Precision sample
+
+19/20 sampled answers are members (95%); 18/20 also have an acceptable tier. Not members: SDL_Renderer (Borderline. SDL_Renderer is the struct type for one renderer object, which the rule excludes. The SDL render API is the kind, so this name only aliases it. Keep it out unless the owner rules that SDL's render API counts as its own named API.).
+
 ## Pipeline report
 
-Generated 2026-11-27 23:04 UTC by scripts/bank/pipeline.py. Status stays `draft`: approval is the owner's call.
-
-**INCOMPLETE RUN: stage obvious failed: GATE FAILED: Bit Flip pin: the Bit Flip 'GX2' is an obvious answer: pick a deep cut (edit the bank file's ## Bit Flip, then rerun with --from merge)**
+Generated 2026-11-28 00:45 UTC by scripts/bank/pipeline.py. Status stays `draft`: approval is the owner's call.
 
 Needs a human look:
 - scripts/bank/plans/graphics-api.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)
 - Bit Flip / Works on my machine PINNED BY AN LLM (GX2; OpenVG, Glide, GDI): the owner vets them
-- scripts/bank/obvious-draft/graphics-api.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)
 
 ### Gates
 
 | gate | result | detail |
 |---|---|---|
-| Bit Flip pin | FAIL | the Bit Flip 'GX2' is an obvious answer: pick a deep cut (edit the bank file's ## Bit Flip, then rerun with --from merge) |
+| obvious coverage | PASS | 27/27 obvious answers accepted |
+| duplicates | PASS | 0 likely duplicate pairs |
+| link coverage | PASS | 23/32 answers have a verified link (72%); prompt link yes |
+| precision | PASS | 19/20 sampled answers are members (95%), 18/20 with acceptable tier |
 | answer count | WARN | 32 tiered answers (roadmap admission test: at least 40) |
 | picks (owner) | PASS | 1 Bit Flip, 3 Works on my machine in the file; approval needs exactly 1 and at least 1: choose from the shortlists below |
 
@@ -106,8 +147,8 @@ Bit Flip:
 | compare | done | 0 |
 | escalate | done | 17 |
 | merge | done | 7 |
-| obvious | failed | 32 |
-| dupes | pending |  |
-| links | pending |  |
-| precision | pending |  |
-| report | pending |  |
+| obvious | done | 0 |
+| dupes | done | 0 |
+| links | done | 15 |
+| precision | done | 19 |
+| report | running |  |
