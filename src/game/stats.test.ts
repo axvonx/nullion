@@ -6,7 +6,7 @@ import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
 import { DEBUG_KEY_PREFIX, storageKey } from '../keys';
 import { canPersistDaily, dailyKey, type SaveStorage } from './daily-save';
 import { READ_MS, Game } from './game';
-import { buildShareText, deliverShare, siteUrl } from './share';
+import { buildShareText, deliverShare, glyphLine, siteUrl } from './share';
 import { InvalidStatsError, computeStats, finishDaily, statsKey, type DayResult } from './stats';
 import { TIERS } from '../core/tiers';
 
@@ -191,6 +191,13 @@ describe('share text', () => {
   });
   it('the glyph row has no digits (no frame scores)', () => {
     expect(lines[2]).not.toMatch(/[0-9]/);
+  });
+  it('Daily shares one glyph per round; Endless a tally per tier, deepest first, so no emoji is ever cut', () => {
+    expect(glyphLine(['off-by-one', null, 'npe'], 'row')).toBe('⬜⬛🕳️');
+    const run = ['npe', 'off-by-one', 'npe', null, 'bitflip', 'npe', null] as const;
+    expect(glyphLine(run, 'tally')).toBe('⚡1 🕳️3 ⬜1 ⬛2');
+    const endless = buildShareText({ mode: 'endless', puzzle: 12, headline: 'KERNEL PANIC · 1522 stack frames · Kernel Core', glyphs: glyphLine(run, 'tally'), url: 'https://x.dev/' });
+    expect(endless.split('\n')).toEqual(['nullion endless', 'KERNEL PANIC · 1522 stack frames · Kernel Core', '⚡1 🕳️3 ⬜1 ⬛2', 'https://x.dev/']);
   });
   it('the URL has no query string or hash', () => {
     expect(siteUrl({ origin: 'https://x.dev', pathname: '/nullion/' })).toBe('https://x.dev/nullion/');

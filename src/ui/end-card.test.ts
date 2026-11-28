@@ -121,6 +121,8 @@ describe('EndCard', () => {
       const t = setup(daily(), null);
       t.card.show(ROWS, 18, 7);
       expect(t.q('[data-el="endlessBtn"]').hidden).toBe(true);
+      expect(t.q('[data-el="endlessBack"]').hidden).toBe(true);
+      expect(t.q('.eod-h').textContent).toBe('Today’s backtrace');
     });
 
     it('a finished day offers it under Share; the button lights up, then the run starts', () => {
@@ -161,12 +163,22 @@ describe('EndCard', () => {
       }
     });
 
-    it('a finished run shows the best (new or not) and goes back to today', () => {
+    it('a finished run shows the best (new or not), re-enters a new run or goes back to today', () => {
+      vi.useFakeTimers();
       const h = hook({ best: { depth: 1340, isNew: true } });
       const t = setup(endless(), h);
       t.card.show(ROWS, 18, 7);
       expect(t.q('[data-el="endlessBest"]').textContent).toBe('New best: 1340 stack frames');
-      t.q<HTMLButtonElement>('[data-el="endlessBtn"]').click();
+      expect(t.q('.eod-h').textContent).toBe('This run’s backtrace');
+      const again = t.q<HTMLButtonElement>('[data-el="endlessBtn"]');
+      expect(again.textContent).toBe('Re-enter endless ▾');
+      again.click();
+      vi.advanceTimersByTime(700);
+      vi.useRealTimers();
+      expect(h.entered).toBe(1);
+      const back = t.q<HTMLButtonElement>('[data-el="endlessBack"]');
+      expect(back.textContent).toBe('Back to today’s stack ▴');
+      back.click();
       expect(h.backs).toBe(1);
       const t2 = setup(endless(), hook({ best: { depth: 2000, isNew: false } }));
       t2.card.show(ROWS, 18, 7);

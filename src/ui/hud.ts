@@ -26,6 +26,7 @@ import { bankAcceptsFor } from '../data/bank';
 import { missedAnswerUrl } from './issues';
 import { mountVisualViewport } from './viewport';
 import { enforce } from '../core/enforce';
+import { wordmarkCanvas } from './wordmark';
 import { browserFetchJson, checkOutside } from '../game/outside-check';
 
 /** Below this share of the answer time left, the watchdog goes into its low-time state. */
@@ -38,6 +39,10 @@ function answerPlaceholder(): string {
 
 /** What each layer is (`LAYER_ART[id].blurb`), for the stack's tooltips. */
 const LAYER_BLURBS = Object.fromEntries(ALL_LAYER_IDS.map((id) => [id, LAYER_ART[id].blurb])) as Record<LayerId, string>;
+
+/** How long the teleport card into Endless stays up (reduced motion: shorter, no flash). */
+const TELEPORT_MS = 1800;
+const TELEPORT_STILL_MS = 900;
 
 export class Hud {
   readonly root: HTMLElement;
@@ -67,6 +72,10 @@ export class Hud {
   /** Outside answers (debug prototype, src/game/outside-check.ts): the tier a rejected guess scores if Wikipedia
    *  backs it; null (always, in production) leaves rejected guesses rejected. Set by main.ts on every (re)start. */
   outsideTier: TierId | null = null;
+  private readonly mountEl: HTMLElement;
+  /** A teleport into Endless is playing: the title stays hidden while the game waits to start. */
+  private teleporting = false;
+  private teleportTimer = 0;
   /** Endless from the end card (set by main.ts); null where it isn't offered. */
   endless: () => EndlessHook | null = () => null;
   private titleLogo: TitleLogo;
@@ -86,6 +95,7 @@ export class Hud {
   formOverride: FormId | undefined;
 
   constructor(mount: HTMLElement) {
+    this.mountEl = mount;
     // The scene is a full-bleed backdrop; every piece of UI floats over it as a panel.
     mount.innerHTML = `
       <canvas class="scene" aria-label="Your cursor descending through the software stack"></canvas>
@@ -532,6 +542,43 @@ ${REVEAL_HTML}`;
     this.syncTitle();
   }
 
+  /**
+   * Into Endless from the end card: no title screen. A white flash wipes the old world, the camera is already at the
+   * top of the new stack, and a card shows `nullion` with `ENDLESS` under it in the title face; when it goes, a new
+   * run starts its first reading countdown (a resumed run keeps its own clock and just gets the card). Reduced
+   * motion: no flash, a shorter card.
+   */
+  teleportIn() {
+    const g = this.game;
+    enforce(g, 'Hud.teleportIn before setGame()');
+    clearTimeout(this.teleportTimer);
+    this.mountEl.querySelector('.teleport')?.remove();
+    const still = reducedMotion();
+    const card = document.createElement('div');
+    card.className = still ? 'teleport still-tp' : 'teleport';
+    card.setAttribute('role', 'status');
+    card.setAttribute('aria-label', 'nullion endless');
+    const word = wordmarkCanvas('nullion', 6);
+    word.classList.add('tp-word');
+    const sub = wordmarkCanvas('ENDLESS', 3);
+    sub.classList.add('tp-sub');
+    card.append(word, sub);
+    this.mountEl.append(card);
+    const fresh = g.phase.kind === 'ready';
+    this.teleporting = fresh;
+    this.syncTitle();
+    sound.unlock();
+    sound.diveStart();
+    this.teleportTimer = window.setTimeout(() => {
+      card.remove();
+      this.teleporting = false;
+      if (fresh && this.game === g && g.phase.kind === 'ready') {
+        g.start(this.clock());
+        this.onPhaseChange();
+      }
+    }, still ? TELEPORT_STILL_MS : TELEPORT_MS);
+  }
+
   private startFromTitle(now: number) {
     const g = this.game;
     if (!g || g.phase.kind !== 'ready') return;
@@ -544,7 +591,7 @@ ${REVEAL_HTML}`;
   }
 
   private syncTitle() {
-    const want = this.game?.phase.kind === 'ready' && !this.scrollMode && !this.demo;
+    const want = this.game?.phase.kind === 'ready' && !this.scrollMode && !this.demo && !this.teleporting;
     if (want) this.showTitle();
     else this.hideTitle();
   }

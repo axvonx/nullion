@@ -1,5 +1,26 @@
 import type { StackMode } from '../core/layers';
 import { rulesFor } from '../core/modes';
+import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
+
+/** The glyph for a round that ended without an answer. */
+export const MISS_GLYPH = '⬛';
+
+/**
+ * The share's glyph line for a game's rounds (oldest first; null = no answer). 'row': one glyph per round. 'tally':
+ * a count per tier, deepest first, then misses ("⚡1 👻2 🏁4 💧6 🕳️9 ⬜12 ⬛3"): a long run stays one short line,
+ * and no emoji is ever cut in half.
+ */
+export function glyphLine(rounds: readonly (TierId | null)[], style: 'row' | 'tally'): string {
+  if (style === 'row') return rounds.map((t) => (t ? TIERS[t].glyph : MISS_GLYPH)).join('');
+  const parts: string[] = [];
+  for (const id of [...TIER_IDS].reverse()) {
+    const n = rounds.filter((t) => t === id).length;
+    if (n) parts.push(`${TIERS[id].glyph}${n}`);
+  }
+  const misses = rounds.filter((t) => t === null).length;
+  if (misses) parts.push(`${MISS_GLYPH}${misses}`);
+  return parts.join(' ');
+}
 
 export interface ShareInput {
   mode: StackMode;

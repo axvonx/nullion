@@ -9,7 +9,7 @@ import { layerAt, layerIndexAt, layersFor, rulesFor } from '../core/modes';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import type { Game } from '../game/game';
 import { manualStore } from '../game/manual';
-import { buildShareText, deliverShare, siteUrl } from '../game/share';
+import { buildShareText, deliverShare, glyphLine, siteUrl } from '../game/share';
 import type { StatsOutcome } from '../game/stats';
 import { answerSheet, answerUrl, questionUrl, type SheetGroup } from './answer-sheet';
 import { elementsOf, framesLabel, refLink, replay, setLineWithStackFrames } from './dom';
@@ -61,9 +61,9 @@ export const END_CARD_HTML = `
             <div class="headline" data-el="headline"></div>
             <ol class="eod-stack" data-el="eodStack" aria-label="The stack you reached, top-down"></ol>
           </section>
-          <div class="eod-h">Today’s backtrace</div>
-          <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
-          <div class="result-share"><button type="button" class="share-big" data-el="copy">Copy result</button><div class="next-day" data-el="nextDay"></div><div class="endless-best" data-el="endlessBest" hidden></div><button type="button" class="endless-go" data-el="endlessBtn" hidden></button></div>
+          <div class="eod-h" data-el="backtraceHeading"></div>
+          <ol class="record" data-el="record"></ol>
+          <div class="result-share"><button type="button" class="share-big" data-el="copy">Copy result</button><div class="next-day" data-el="nextDay"></div><div class="endless-best" data-el="endlessBest" hidden></div><button type="button" class="endless-go" data-el="endlessBtn" hidden></button><button type="button" class="endless-back" data-el="endlessBack" hidden></button></div>
           <div class="stats" data-el="stats" hidden></div>
           <div class="result-manual"><button type="button" class="fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
           <div class="result-links" data-el="resultLinks"></div>
@@ -345,8 +345,10 @@ export class EndCard {
     // The share text is emoji glyphs only (oldest first), so it pastes cleanly anywhere. Frame scores stay out of it.
     const mode = this.host.game()?.mode ?? 'daily';
     const layerName = layerAt(depth, mode).name;
-    const glyphs = rows.map((r) => (r.tier ? TIERS[r.tier].glyph : '⬛')).join('');
     const rules = rulesFor(mode);
+    const glyphs = glyphLine(rows.map((r) => r.tier ?? null), rules.shareGlyphs);
+    this.els.backtraceHeading!.textContent = rules.backtraceHeading();
+    this.els.record!.setAttribute('aria-label', `${rules.backtraceHeading()}, most recent first`);
     const headline = rules.headline(framesLabel(depth), layerName);
     this.setPuzzleNo(rules.puzzleChip(puzzle));
     setLineWithStackFrames(this.els.headline!, rules.cardLine(framesLabel(depth)));
@@ -354,7 +356,7 @@ export class EndCard {
       mode,
       puzzle,
       headline,
-      glyphs: glyphs.slice(0, rules.shareGlyphLimit),
+      glyphs,
       url: siteUrl(location),
     });
     this.buildReached(depth, mode);
@@ -408,16 +410,20 @@ export class EndCard {
   /** The Endless line under Share: enter/resume on a finished day, the best and the way back on a finished run. */
   private buildEndless() {
     const btn = this.els.endlessBtn! as HTMLButtonElement;
+    const back = this.els.endlessBack! as HTMLButtonElement;
     const bestEl = this.els.endlessBest!;
     btn.hidden = true;
+    back.hidden = true;
     bestEl.hidden = true;
     btn.classList.remove('lit');
     btn.disabled = false;
     const g = this.host.game();
     const hook = this.host.endless();
     if (!g || !hook) return;
-    if (g.rules.persistsDaily) {
-      btn.textContent = hook.resume ? text('end-card.endless.resume') : text('end-card.endless.enter');
+    // A finished day enters (or resumes) Endless; a finished run re-enters a new one or goes back to today.
+    const daily = g.rules.persistsDaily;
+    if (daily || g.rules.persistsRun) {
+      btn.textContent = !daily ? text('end-card.endless.reenter') : hook.resume ? text('end-card.endless.resume') : text('end-card.endless.enter');
       btn.onclick = () => {
         // Just for fun: the button lights up, then the run starts (straight away under reduced motion).
         btn.disabled = true;
@@ -426,16 +432,17 @@ export class EndCard {
         window.setTimeout(() => hook.enter(), ENTER_GLOW_MS);
       };
       btn.hidden = false;
-    } else if (g.rules.persistsRun) {
+    }
+    if (g.rules.persistsRun) {
       if (hook.best) {
         const frames = framesLabel(hook.best.depth);
         bestEl.textContent = hook.best.isNew ? text('end-card.endless.new-best', { frames }) : text('end-card.endless.best', { frames });
         bestEl.classList.toggle('is-new', hook.best.isNew);
         bestEl.hidden = false;
       }
-      btn.textContent = text('end-card.endless.back');
-      btn.onclick = () => hook.back();
-      btn.hidden = false;
+      back.textContent = text('end-card.endless.back');
+      back.onclick = () => hook.back();
+      back.hidden = false;
     }
   }
 

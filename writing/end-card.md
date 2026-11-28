@@ -161,3 +161,27 @@ max: 30
 status: draft
 
 Back to today’s stack ▴
+
+## end-card.endless.reenter
+where: the button under the best line on an Endless end card
+when: an Endless run has ended; pressing it lights up and starts a new run
+max: 30
+status: draft
+
+Re-enter endless ▾
+
+## end-card.backtrace.daily
+where: the heading over the end card's backtrace
+when: the day is over
+max: 30
+status: draft
+
+Today’s backtrace
+
+## end-card.backtrace.endless
+where: the heading over the end card's backtrace
+when: an Endless run has ended
+max: 30
+status: draft
+
+This run’s backtrace

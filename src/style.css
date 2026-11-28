@@ -404,6 +404,13 @@ body {
 }
 .still .endless-go.lit { animation: none; }
 .endless-best { margin-top: 10px; font-size: 20px; color: var(--ink); }
+.endless-back {
+  display: block; width: min(320px, 100%); min-height: 36px; margin: 10px auto 0; padding: 0 12px;
+  font-family: var(--display); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--dim); background: rgba(0, 0, 0, 0.35); border: 1px solid currentColor; text-shadow: none;
+}
+.endless-back[hidden] { display: none; }
+.endless-back:is(:hover, :focus-visible) { color: var(--ink); }
 .endless-best.is-new { color: var(--signal); }
 .eod-h { margin: 4px 0 6px; font-family: var(--display); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; color: var(--dim); }
 .result-links { margin-top: 14px; font-size: 17px; color: var(--dim); text-align: center; }
@@ -1670,3 +1677,30 @@ html.kb-open .still .console.low { animation: none; }
   .eod-stack, .eod-stack.wide { display: flex; flex-direction: column; width: min(220px, calc(100% - 40px)); gap: 2px; }
   .eod-stack .ls-badge .ls-inner { padding: 2px 6px; min-height: 20px; }
 }
+
+/* The teleport into Endless (Hud.teleportIn): a white flash that drains away, then the title face's `nullion` with
+   `ENDLESS` under it, held over the top of the new stack, then gone. Reduced motion: just the card, briefly. */
+.teleport {
+  position: fixed; inset: 0; z-index: 30; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  pointer-events: none; animation: tp-flash 1800ms steps(12, end) forwards;
+}
+.teleport .wordmark-cv { image-rendering: pixelated; max-width: calc(100vw - 32px); height: auto; }
+.teleport .tp-word { animation: tp-in 1800ms steps(8, end) forwards; }
+.teleport .tp-sub { animation: tp-in 1800ms steps(8, end) 120ms backwards, tp-glow 900ms steps(3) 2; }
+@keyframes tp-flash {
+  0% { background: #fff; }
+  18% { background: rgba(255, 255, 255, 0.85); }
+  45% { background: rgba(10, 8, 20, 0.35); }
+  85% { background: rgba(10, 8, 20, 0.2); opacity: 1; }
+  100% { background: transparent; opacity: 0; }
+}
+@keyframes tp-in {
+  0% { opacity: 0; transform: scale(1.6); filter: brightness(3); }
+  20% { opacity: 1; transform: scale(1); filter: brightness(1.4); }
+  80% { opacity: 1; transform: scale(1); filter: none; }
+  100% { opacity: 0; transform: translateY(-12px); }
+}
+@keyframes tp-glow { 50% { filter: drop-shadow(0 0 8px #9d7bff) brightness(1.3); } }
+.teleport.still-tp { animation: tp-still 900ms linear forwards; }
+.teleport.still-tp .wordmark-cv { animation: none; }
+@keyframes tp-still { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }

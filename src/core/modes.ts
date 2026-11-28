@@ -91,7 +91,10 @@ export interface ModeRules {
   /** First line of the share text. */
   shareTitle(puzzle: number): string;
   /** Most glyphs the share text carries. */
-  readonly shareGlyphLimit: number;
+  /** The share's glyph line: one glyph per round ('row', a day's 7), or a count per tier ('tally', a long run). */
+  readonly shareGlyphs: 'row' | 'tally';
+  /** The end card's heading over the backtrace. */
+  backtraceHeading(): string;
   /** World height per frame in each layer: base 160 px plus `layerPerFrameH` per frame of its span. */
   readonly layerPerFrameH: number;
   /** World px per frame inside the last (open-ended) layer. */
@@ -136,7 +139,8 @@ export const MODE_RULES: Record<StackMode, ModeRules> = {
     headline: (framesLabel, layerName) => text('end-card.headline.daily', { frames: framesLabel, layer: layerName }),
     cardLine: (framesLabel) => text('end-card.summary.daily', { frames: framesLabel }),
     shareTitle: (puzzle) => `nullion #${puzzle}`,
-    shareGlyphLimit: Infinity,
+    shareGlyphs: 'row',
+    backtraceHeading: () => text('end-card.backtrace.daily'),
     layerPerFrameH: 8,
     lastLayerPxPerFrame: 24, // = world px per stack frame of depth
     kernelLayerId: 'kernel',
@@ -161,7 +165,8 @@ export const MODE_RULES: Record<StackMode, ModeRules> = {
     headline: endlessHeadline,
     cardLine: endlessCardLine,
     shareTitle: () => 'nullion endless',
-    shareGlyphLimit: 42,
+    shareGlyphs: 'tally',
+    backtraceHeading: () => text('end-card.backtrace.endless'),
     layerPerFrameH: 2.2,
     lastLayerPxPerFrame: 6,
     kernelLayerId: 'kernel-entry',
@@ -187,7 +192,8 @@ export const MODE_RULES: Record<StackMode, ModeRules> = {
     headline: endlessHeadline,
     cardLine: endlessCardLine,
     shareTitle: () => 'nullion endless',
-    shareGlyphLimit: 42,
+    shareGlyphs: 'tally',
+    backtraceHeading: () => text('end-card.backtrace.endless'),
     layerPerFrameH: 3.5,
     lastLayerPxPerFrame: 6,
     // Cozy pocket universes: no kernel rain or auto scanlines.

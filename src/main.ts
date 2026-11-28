@@ -100,6 +100,8 @@ async function boot() {
   // Endless is offered on the end card once the day is done. Debug builds only for now: production waits for the
   // teleport to the top, the ENDLESS wordmark and the answer history bar (ENDLESS-PLAN.md).
   const ENDLESS_OFFERED = DEBUG;
+  // Entering Endless from the end card teleports into the run (no title screen); set until that game is up.
+  let teleport = false;
   // The `?endless=` URL param and the debug dropdown name a mode by string: identity, not a rule, so compared here.
   const endlessParam = DEBUG ? new URLSearchParams(location.search).get('endless') : null;
   let endlessDebugMode: 'off' | 'endless' | 'true-endless' =
@@ -159,6 +161,7 @@ async function boot() {
         best: best.kind === 'best' ? { depth: best.best.depth, isNew: newBest } : null,
         enter: () => {
           endlessDebugMode = 'endless';
+          teleport = true;
           restart();
         },
         back: () => {
@@ -190,6 +193,10 @@ async function boot() {
     const manualNotice = manualStore.takeLoadNotice();
     if (manualNotice) hud.notify(manualNotice, 'error');
     scene.setTarget(game.depth, true);
+    if (teleport) {
+      teleport = false;
+      hud.teleportIn();
+    }
     sound.setPuzzleSeed(daySeed);
     sound.setLayer(rules.soundLayerId ?? layerAt(game.depth, mode).id);
   };
