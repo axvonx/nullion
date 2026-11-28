@@ -234,7 +234,7 @@ ${REVEAL_HTML}`;
     this.buildTitleRules();
     this.buildTitleTiers();
     mountPrefsMenu(mount, this.els.barRight!);
-    mountTactileChrome(mount);
+    mountTactileChrome(); // on document.body: the binder mounts there, outside #app
     // Lives as long as the page (one Hud per page), so its cleanup is never needed.
     // The zoom first: the viewport tracker converts its pixels with it (and its resize listener runs after).
     mountUiScale();

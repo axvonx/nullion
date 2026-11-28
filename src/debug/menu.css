@@ -102,7 +102,7 @@ body:has(.dbg-panel:not([hidden])) .dbg-rail { visibility: hidden; }
   /* The tier reveal's text and title cards too. */
   body .rv-name, body .rv-body { right: 64px; }
   body .title-head, body .title-foot { right: 64px; max-width: calc(calc(100vw / var(--ui, 1)) - 80px); }
-  body .title-how { left: 16px; right: 64px; width: auto; transform: none; }
+  body .ui-modal-backdrop { padding-right: 64px; }
 }
 
 /* Mobile / short viewports: keep the tall debug rail scrollable so every demo button is reachable. */

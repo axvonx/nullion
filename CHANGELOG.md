@@ -7,6 +7,10 @@ for fixes, and add an entry here. Stage bars (ROADMAP.md): beta at ~100 approved
 or data bugs and phones verified; 1.0 at ~150 categories, a schedule kept 30+ days ahead, and the small backend for
 "% of players".
 
+## Unreleased (next patch)
+
+- **Fixes (UI pass review):** tactile click sounds now reach the Field Manual binder's page and close buttons (the delegate was mounted on `#app`, the binder lives on `body`); the debug build's narrow-screen rail clearance now applies to the unified modals (it still targeted the retired `.title-how`).
+
 ## 0.3.0-alpha — 2026-11-27
 
 - **Endless is released:** offered under Share result on a finished day's end card (never before the daily). A
