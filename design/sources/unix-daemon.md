@@ -6,9 +6,9 @@ Generated 2026-11-27 by `python3 -I scripts/sources/unix_daemon.py`. No LLM in t
 
 - **1875 derived answers** (`~/nullion-corpora/derived/unix-daemon.json`).
 - **Bank coverage:** 108/112 of the bank's playable answers are in the derived set.
-- **Tier agreement** on the 104 bank ladder answers found (Works on my machine and Bit Flip are hand picks, left out): exact 59/104 (57%), within one tier 83/104 (80%), Spearman 0.705.
-- **Cut-offs** (score >= c): off-by-one 0.6586, npe 0.2372, leak 0.2062, race 0.1101, else heisenbug.
-- **Derived tier counts:** off-by-one 25, npe 228, leak 55, race 532, heisenbug 1035.
+- **Tier agreement** on the 104 bank ladder answers found (Works on my machine and Bit Flip are hand picks, left out): exact 59/104 (57%), within one tier 83/104 (80%), Spearman 0.714.
+- **Cut-offs** (score >= c): off-by-one 0.6586, npe 0.2433, leak 0.1813, race 0.1101, else heisenbug.
+- **Derived tier counts:** off-by-one 25, npe 238, leak 161, race 418, heisenbug 1033.
 - **Probe:** derived 59/60, current bank 60/60. Each source alone: debian 36, freebsd 13, curated 11, macos 9, kernel 5.
 
 Caveat: the cut-offs are fitted on the same bank answers the agreement is measured on (in-sample), and the bank's tiers were themselves judged by an LLM; the agreement is an upper bound on how well the formula reproduces the bank, not a measure of truth.
@@ -54,7 +54,7 @@ Inputs:
 - `src/freebsd-daemons/DONE`: 2026-11-28, commit 056925e30639c8b62841fcca8efcc02bd90e04dd 2026-11-27T17:32:04-08:00; sparse ['/libexec/rc/rc.d/', '/usr.sbin/**/*.8', '/libexec/**/*.8']; 434 files, 20 MB with .git
 - `repology/packages.tsv.gz`: 2026-11-28, 5061926 rows
 - `wikidata/class-daemon-Q308980.json`: 2026-11-28, 82 items
-- `stackexchange/unix-tags.json`: 2026-11-28, 2500 items, 25 pages; TRUNCATED: the first 2500 in popular order (an app key lifts the cap)
+- `stackexchange/unix-tags.json`: 2026-11-28, 2827 items, 29 pages
 
 ## Familiarity
 
@@ -80,34 +80,34 @@ Confusion (rows: bank tier, columns: derived tier):
 | bank \ derived | off-by-one | npe | leak | race | heisenbug |
 |---|---|---|---|---|---|
 | off-by-one | 7 | 1 | 0 | 0 | 0 |
-| npe | 3 | 18 | 0 | 5 | 1 |
-| leak | 0 | 5 | 3 | 1 | 2 |
-| race | 0 | 9 | 0 | 7 | 13 |
-| heisenbug | 0 | 4 | 0 | 1 | 24 |
+| npe | 3 | 18 | 1 | 4 | 1 |
+| leak | 0 | 5 | 4 | 0 | 2 |
+| race | 0 | 10 | 0 | 6 | 13 |
+| heisenbug | 0 | 3 | 1 | 1 | 24 |
 
 Biggest disagreements (two or more tiers apart):
 
 - nfsd: bank npe, derived heisenbug (score 0.0, se 0)
-- dma: bank heisenbug, derived npe (score 0.5753, se 869, {'stackoverflow': 869})
+- dma: bank heisenbug, derived npe (score 0.577, se 898, {'stackoverflow': 869, 'superuser': 29})
 - s6-svscan: bank heisenbug, derived npe (score 0.2959, se 12, {'stackoverflow': 12})
 - cups-browsed: bank heisenbug, derived npe (score 0.2777, se 0)
-- kcompactd: bank heisenbug, derived npe (score 0.2392, se 0)
 - atd: bank npe, derived race (score 0.16, se 0)
-- cupsd: bank npe, derived race (score 0.1889, se 0)
 - smbd: bank npe, derived race (score 0.167, se 0)
 - dockerd: bank npe, derived race (score 0.1452, se 0)
 - telnetd: bank npe, derived race (score 0.1415, se 0)
 - mountd: bank leak, derived heisenbug (score 0.0, se 0)
 - ypbind: bank leak, derived heisenbug (score 0.0965, se 0)
-- auditd: bank race, derived npe (score 0.5158, se 284, {'unix': 118, 'serverfault': 166})
+- auditd: bank race, derived npe (score 0.5208, se 313, {'unix': 118, 'serverfault': 166, 'superuser': 29})
+- bootpd: bank race, derived npe (score 0.2464, se 33, {'stackoverflow': 12, 'serverfault': 21})
 - iscsid: bank race, derived npe (score 0.353, se 41, {'serverfault': 41})
 - runit: bank race, derived npe (score 0.4927, se 103, {'stackoverflow': 47, 'unix': 32, 'serverfault': 24})
 - Upstart: bank race, derived npe (score 0.3367, se 0)
-- smartd: bank race, derived npe (score 0.4073, se 28, {'unix': 28})
+- smartd: bank race, derived npe (score 0.4379, se 51, {'unix': 28, 'serverfault': 18, 'superuser': 5})
 - khugepaged: bank race, derived npe (score 0.3858, se 0)
 - anacron: bank race, derived npe (score 0.4813, se 37, {'unix': 37})
 - systemd-journald: bank race, derived npe (score 0.4892, se 533, {'stackoverflow': 95, 'unix': 317, 'serverfault': 121})
 - polkitd: bank race, derived npe (score 0.2836, se 0)
+- kcompactd: bank heisenbug, derived leak (score 0.2392, se 0)
 
 ## Bank coverage by tier
 
@@ -136,8 +136,8 @@ Top 60 by score (name, derived tier, score, sources):
 - rsync (off-by-one, 0.8482; debian:debtags)
 - openvpn (off-by-one, 0.8072; debian:debtags)
 - pulseaudio (off-by-one, 0.7489; debian:debtags)
-- prometheus (off-by-one, 0.7403; debian:service-unit)
-- haproxy (off-by-one, 0.7342; debian:debtags)
+- prometheus (off-by-one, 0.7404; debian:service-unit)
+- haproxy (off-by-one, 0.7346; debian:debtags)
 - mdadm (off-by-one, 0.7313; debian:debtags)
 - podman (off-by-one, 0.707; debian:service-unit)
 - logrotate (off-by-one, 0.6984; debian:service-unit)
@@ -149,57 +149,57 @@ Top 60 by score (name, derived tier, score, sources):
 - dnsmasq (off-by-one, 0.6677; debian:debtags)
 - quota (npe, 0.6359; debian:service-unit)
 - freeradius (npe, 0.6358; debian:debtags)
-- ejabberd (npe, 0.6344; debian:service-unit)
-- lightdm (npe, 0.6191; debian:service-unit)
+- ejabberd (npe, 0.6347; debian:service-unit)
+- lightdm (npe, 0.6228; debian:service-unit)
 - preload (npe, 0.6191; debian:debtags)
-- monit (npe, 0.6166; debian:debtags)
+- monit (npe, 0.6177; debian:debtags)
 - lvm (npe, 0.6159; debian:service-unit)
 - start-stop-daemon (npe, 0.6062; debian:service-unit)
 - prometheus-node-exporter (npe, 0.6014; debian:service-unit)
 - xen (npe, 0.5965; debian:service-unit)
-- docker-registry (npe, 0.5914; debian:service-unit)
+- docker-registry (npe, 0.5915; debian:service-unit)
+- xrdp (npe, 0.5907; debian:debtags)
 - systemd-bsod (npe, 0.5889; debian:debtags)
 - gpg-agent (npe, 0.5882; debian:service-unit)
-- xrdp (npe, 0.5822; debian:debtags)
-- sddm (npe, 0.5669; debian:service-unit)
+- slim (npe, 0.582; debian:debtags)
+- sddm (npe, 0.5726; debian:service-unit)
+- iperf3 (npe, 0.5699; debian:service-unit)
 - corosync (npe, 0.5659; debian:service-unit)
 - keepalived (npe, 0.5656; debian:debtags)
 - opendkim (npe, 0.5645; debian:service-unit)
 - plymouth (npe, 0.563; debian:service-unit)
 - lxc-monitord (npe, 0.5597; debian:service-unit)
 - ssh-agent (npe, 0.5596; debian:service-unit)
-- iperf3 (npe, 0.5584; debian:service-unit)
-- etcd (npe, 0.5561; debian:service-unit)
-- mpd (npe, 0.5483; debian:debtags)
+- mpd (npe, 0.559; debian:debtags)
+- etcd (npe, 0.5562; debian:service-unit)
+- ssmtp (npe, 0.5474; debian:debtags)
 - systemd-random-seed (npe, 0.5463; debian:debtags)
-- ssmtp (npe, 0.5449; debian:debtags)
 - sssd (npe, 0.5423; debian:service-unit)
-- gpsd (npe, 0.541; debian:debtags)
+- gpsd (npe, 0.5422; debian:debtags)
 - nasd (npe, 0.5386; debian:debtags)
 - wpa_supplicant (npe, 0.5363; debian:debtags)
+- coturn (npe, 0.5333; debian:service-unit)
+- powertop (npe, 0.5318; debian:service-unit)
+- pgbouncer (npe, 0.5317; debian:service-unit)
 - containerd (npe, 0.5311; debian:service-unit)
-- pgbouncer (npe, 0.5305; debian:service-unit)
 - fluidsynth (npe, 0.5302; debian:service-unit)
-- coturn (npe, 0.5301; debian:service-unit)
 - snmpd (npe, 0.5255; debian:debtags, macos:LaunchDaemons)
 - winbind (npe, 0.5227; debian:debtags)
-- powertop (npe, 0.5138; debian:service-unit)
-- privoxy (npe, 0.5112; debian:debtags)
+- privoxy (npe, 0.5175; debian:debtags)
+- fetchmail (npe, 0.5166; debian:debtags)
+- xscreensaver (npe, 0.5146; debian:service-unit)
 - nvme (npe, 0.5106; debian:service-unit)
 - beanstalkd (npe, 0.5095; debian:debtags)
-- prometheus-alertmanager (npe, 0.5042; debian:service-unit)
-- gdm3 (npe, 0.5019; debian:service-unit)
-- pure-ftpd (npe, 0.4996; debian:debtags)
-- fetchmail (npe, 0.4994; debian:debtags)
-- pppd (npe, 0.4983; debian:debtags)
+- prometheus-alertmanager (npe, 0.5047; debian:service-unit)
+- pure-ftpd (npe, 0.5047; debian:debtags)
 
 ## Sample per derived tier (top 15 by score)
 
 - **off-by-one** (25): postgres, nginx, systemd, sudo, cron, rsync, openvpn, sendmail, mysqld, memcached, httpd, pulseaudio, prometheus, haproxy, mdadm
-- **npe** (228): quota, freeradius, ejabberd, vsftpd, exim, lightdm, preload, monit, lvm, start-stop-daemon, prometheus-node-exporter, xen, launchd, named, docker-registry
-- **leak** (55): notification-daemon, feedbackd, tcpd, ptpd, clamav-daemon, nats-server, system-tools-backends, gerbera, ircd, sshguard, motion, i2pd, fastnetmon, mbpfan, rrdcached
-- **race** (532): miredo, nslcd, bird, cyrus-imapd, milter-greylist, darkstat, miniflux, blkdiscard, cryptmount, c-icap, pound, bamfdaemon, webhook, soundmodem, ksmbd
-- **heisenbug** (1035): calls-daemon, pure-ftpd-postgresql, direvent, gnupg-pkcs11-scd-proxy, systemd-netlogd, afpd, cnid_dbd, cnid_metad, mako, mknetid, rpc.yppasswdd, rpc.ypxfrd, yppasswdd, ypxfrd, parsec
+- **npe** (238): quota, freeradius, ejabberd, vsftpd, exim, lightdm, preload, monit, lvm, start-stop-daemon, prometheus-node-exporter, xen, launchd, named, docker-registry
+- **leak** (161): webdis, a2enmod, systemd-udevd, kcompactd, notification-daemon, feedbackd, crowdsec, tcpd, zfs-fuse, ptpd, clamav-daemon, nats-server, system-tools-backends, gerbera, sshguard
+- **race** (418): fprobe, qemu-vmsr-helper, soju, kbdd, ratbagd, bacula-fd, xdg-desktop-portal-validate-sound, smartdns, ifrename, tmpreaper, ceph-mon, aa-load, profile-load, lcdproc, nbd-client
+- **heisenbug** (1033): calls-daemon, pure-ftpd-postgresql, direvent, gnupg-pkcs11-scd-proxy, systemd-netlogd, afpd, cnid_dbd, cnid_metad, mako, mknetid, rpc.yppasswdd, rpc.ypxfrd, yppasswdd, ypxfrd, parsec
 
 ## Probe (scripts/bank/runs/unix-daemon/probe.json)
 
@@ -215,13 +215,13 @@ Derived covers **59/60** probe answers; the current bank's playable tiers cover 
 | nginx | common | network services | nginx (off-by-one) | yes |
 | syslogd | common | logging and auditing | syslogd (npe) | yes |
 | launchd | common | macOS | launchd (npe) | yes |
-| cupsd | common | printing | cupsd (race) | yes |
+| cupsd | common | printing | cupsd (leak) | yes |
 | mysqld | common | servers run as daemons | mysqld (off-by-one) | yes |
 | dockerd | common | servers run as daemons | dockerd (race) | yes |
 | kswapd | common | kernel daemons | kswapd (npe) | yes |
 | postfix | common | mail | postfix (npe) | yes |
 | redis-server | common | servers run as daemons | redis-server (npe) | yes |
-| crond | common | scheduling | crond (race) | yes |
+| crond | common | scheduling | crond (leak) | yes |
 | runit | mid | init and service managers | runit (npe) | yes |
 | upstart | mid | init and service managers | upstart (npe) | yes |
 | inetd | mid | network services | inetd (npe) | yes |
@@ -233,7 +233,7 @@ Derived covers **59/60** probe answers; the current bank's playable tiers cover 
 | atd | mid | scheduling | atd (race) | yes |
 | rsyslogd | mid | logging and auditing | rsyslogd (npe) | yes |
 | auditd | mid | logging and auditing | auditd (npe) | yes |
-| udevd | mid | hardware and devices | systemd-udevd (race) | yes |
+| udevd | mid | hardware and devices | systemd-udevd (leak) | yes |
 | acpid | mid | hardware and devices | acpid (npe) | yes |
 | smartd | mid | hardware and devices | smartd (npe) | yes |
 | lpd | mid | printing | lpd (npe) | yes |
@@ -264,6 +264,6 @@ Derived covers **59/60** probe answers; the current bank's playable tiers cover 
 | coreaudiod | deep | macOS | coreaudiod (heisenbug) | yes |
 | cfprefsd | deep | macOS | cfprefsd (heisenbug) | yes |
 | ksoftirqd | deep | kernel daemons | ksoftirqd (race) | yes |
-| kcompactd | deep | kernel daemons | kcompactd (npe) | yes |
+| kcompactd | deep | kernel daemons | kcompactd (leak) | yes |
 | pdflush | deep | kernel daemons | pdflush (heisenbug) | yes |
 | bdflush | deep | kernel daemons | bdflush (heisenbug) | yes |

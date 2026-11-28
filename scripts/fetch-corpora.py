@@ -26,6 +26,7 @@ kept (delete it to refetch). Every failure raises: a partial download is removed
 Requests carry a generic client name and nothing about the user.
 """
 import gzip
+import os
 import json
 import pathlib
 import shutil
@@ -41,7 +42,11 @@ CORPORA = pathlib.Path("~/nullion-corpora").expanduser()
 UA = "nullion-corpora/0.1 (static computing-trivia game; structured answer sources)"
 SE_SITES = ["stackoverflow", "unix", "serverfault", "superuser"]
 SE_API = "https://api.stackexchange.com/2.3"
-SE_MAX_PAGES = 25  # without an app key the API refuses page 26+ ("page above 25 requires access token or app key")
+# An app key (not a secret, per Stack Exchange; kept out of the repo anyway) lifts the 25-page cap and raises the
+# daily quota from 300 to 10,000 requests: NULLION_SE_KEY, or the file ~/.config/nullion/stackexchange-key.
+_KEY_FILE = pathlib.Path("~/.config/nullion/stackexchange-key").expanduser()
+SE_KEY = os.environ.get("NULLION_SE_KEY") or (_KEY_FILE.read_text().strip() if _KEY_FILE.exists() else "")
+SE_MAX_PAGES = 10_000 if SE_KEY else 25  # without a key the API refuses page 26+
 
 
 def stamp(path: pathlib.Path, url: str, note: str = "") -> None:
@@ -100,7 +105,7 @@ def se_pages(path: str, site: str, out: pathlib.Path, params: dict) -> None:
         return
     items, page, truncated = [], 1, False
     while True:
-        q = urllib.parse.urlencode({**params, "site": site, "pagesize": 100, "page": page})
+        q = urllib.parse.urlencode({**params, "site": site, "pagesize": 100, "page": page, **({"key": SE_KEY} if SE_KEY else {})})
         req = urllib.request.Request(f"{SE_API}{path}?{q}", headers={"User-Agent": UA, "Accept-Encoding": "gzip"})
         try:
             with urllib.request.urlopen(req, timeout=120) as r:
