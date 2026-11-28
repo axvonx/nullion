@@ -34,9 +34,9 @@ function hourglassSvg(): SVGSVGElement {
 
 /**
  * Dottybase — high-fidelity 48×48 pixel-art character (rendered at 144×144px, 3× integer scale).
- * Includes both a true side-profile sprite (`.tc-pose-side`) for clunky skipping entrances/exits
- * and a head-on front-facing sprite (`.tc-pose-front`) for her eyeball-spring squint, checking
- * props, and accept/reject verdicts.
+ * Extended arms and legs give bold, cartoony silhouettes across both her side-profile skipping pose
+ * (`.tc-pose-side`, with multi-color CRT phosphor spill and no eyes visible) and her head-on pose
+ * (`.tc-pose-front`, with spring-out eyeballs, fourth-wall squint, props, and verdict reactions).
  */
 function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
   const svg = document.createElementNS(NS, 'svg');
@@ -92,16 +92,14 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
       <rect x="16" y="44" width="16" height="1" fill="rgba(0,0,0,0.45)"/>
     </g>
 
-    <!-- SIDE-PROFILE POSE (facing left; used for clunky skipping in and skipping out) -->
+    <!-- SIDE-PROFILE POSE (facing left; used for clunky cartoony skipping in and out) -->
     <g class="tc-pose-side">
-      <!-- Chunky dust puffs kicked up behind boots -->
       <g class="tc-dust">
         <rect x="36" y="41" width="5" height="3" fill="#8b8598"/>
         <rect x="40" y="39" width="3" height="2" fill="#cfcbd8"/>
         <rect x="33" y="43" width="3" height="2" fill="#544e66"/>
       </g>
 
-      <!-- Trailing rear data-cable tail -->
       <g class="tc-tail">
         <rect x="31" y="33" width="6" height="2" fill="#000"/>
         <rect x="32" y="33" width="5" height="1" fill="#4f4861"/>
@@ -111,45 +109,47 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
         <rect x="41" y="30" width="1" height="1" fill="#ffb000"/>
       </g>
 
-      <!-- Far leg (behind) -->
+      <!-- Extended far leg (behind) -->
       <g class="tc-sleg-b">
-        <rect x="24" y="35" width="5" height="8" fill="#000"/>
-        <rect x="25" y="36" width="3" height="6" fill="#322d40"/>
-        <rect x="21" y="42" width="8" height="4" fill="#000"/>
-        <rect x="22" y="43" width="6" height="2" fill="#1e1a29"/>
-        <rect x="22" y="43" width="2" height="1" fill="#b87600"/>
+        <rect x="24" y="34" width="5" height="10" fill="#000"/>
+        <rect x="25" y="35" width="3" height="8" fill="#322d40"/>
+        <rect x="26" y="38" width="1" height="1" fill="#544e66"/>
+        <rect x="20" y="42" width="9" height="4" fill="#000"/>
+        <rect x="21" y="43" width="7" height="2" fill="#1e1a29"/>
+        <rect x="21" y="43" width="2" height="1" fill="#b87600"/>
       </g>
 
-      <!-- Near leg (front) -->
+      <!-- Extended near leg (front) -->
       <g class="tc-sleg-f">
-        <rect x="19" y="35" width="5" height="8" fill="#000"/>
-        <rect x="20" y="36" width="3" height="6" fill="#4f4861"/>
-        <rect x="16" y="42" width="8" height="4" fill="#000"/>
-        <rect x="17" y="43" width="6" height="2" fill="#2a2538"/>
-        <rect x="17" y="43" width="2" height="1" fill="#ffb000"/>
+        <rect x="19" y="34" width="5" height="10" fill="#000"/>
+        <rect x="20" y="35" width="3" height="8" fill="#4f4861"/>
+        <rect x="21" y="38" width="1" height="1" fill="#8b8598"/>
+        <rect x="15" y="42" width="9" height="4" fill="#000"/>
+        <rect x="16" y="43" width="7" height="2" fill="#2a2538"/>
+        <rect x="16" y="43" width="2" height="1" fill="#ffb000"/>
       </g>
 
       <g class="tc-side-upper">
-        <!-- Far arm -->
+        <!-- Extended far arm -->
         <g class="tc-sarm-b">
-          <rect x="13" y="27" width="6" height="7" fill="#000"/>
-          <rect x="14" y="28" width="4" height="5" fill="#2a2538"/>
-          <rect x="13" y="31" width="3" height="2" fill="#cfcbd8"/>
+          <rect x="11" y="26" width="6" height="10" fill="#000"/>
+          <rect x="12" y="27" width="4" height="7" fill="#2a2538"/>
+          <rect x="11" y="33" width="4" height="3" fill="#000"/>
+          <rect x="12" y="34" width="3" height="2" fill="#cfcbd8"/>
         </g>
 
-        <!-- Side torso (waistcoat + side brass button) -->
+        <!-- Side torso -->
         <g class="tc-side-torso">
-          <rect x="17" y="25" width="14" height="12" fill="#000"/>
-          <rect x="18" y="26" width="12" height="10" fill="#2a2538"/>
+          <rect x="17" y="25" width="14" height="11" fill="#000"/>
+          <rect x="18" y="26" width="12" height="9" fill="#2a2538"/>
           <rect x="18" y="26" width="12" height="1" fill="#4f4861"/>
-          <rect x="18" y="28" width="2" height="7" fill="#181522"/>
-          <rect x="19" y="30" width="1" height="1" fill="#ffb000"/>
-          <rect x="19" y="33" width="1" height="1" fill="#8fb7ff"/>
+          <rect x="18" y="28" width="2" height="6" fill="#181522"/>
+          <rect x="19" y="29" width="1" height="1" fill="#ffb000"/>
+          <rect x="19" y="32" width="1" height="1" fill="#8fb7ff"/>
         </g>
 
-        <!-- Side-profile CRT Head (deep sloped back tube + glowing front face) -->
+        <!-- Side-profile CRT Head (no eyes visible; multi-color phosphor glow spill in front) -->
         <g class="tc-side-head">
-          <!-- Swept-back rabbit-ear antennas -->
           <g class="tc-ant tc-ant-l">
             <rect x="26" y="3" width="2" height="5" fill="#000"/>
             <rect x="28" y="1" width="3" height="3" fill="#000"/>
@@ -163,23 +163,20 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
             <rect x="25" y="3" width="2" height="1" fill="#5fd3e0"/>
           </g>
 
-          <!-- Front CRT bezel + deep sloped rear cathode housing -->
           <rect x="11" y="7" width="17" height="19" fill="#000"/>
           <rect x="27" y="10" width="8" height="13" fill="#000"/>
           <rect x="12" y="8" width="15" height="17" fill="#39334a"/>
           <rect x="12" y="8" width="15" height="2" fill="#544e66"/>
           <rect x="27" y="11" width="7" height="11" fill="#2a2538"/>
-          <!-- Side cooling vents on rear housing -->
           <rect x="29" y="13" width="3" height="1" fill="#131118"/>
           <rect x="29" y="15" width="3" height="1" fill="#131118"/>
           <rect x="29" y="17" width="3" height="1" fill="#131118"/>
           <rect x="29" y="19" width="3" height="1" fill="#131118"/>
-          <!-- Side rotary dial -->
           <rect x="20" y="14" width="4" height="4" fill="#181522"/>
           <rect x="21" y="15" width="2" height="2" fill="#8b8598"/>
           <rect class="tc-led" x="14" y="23" width="2" height="1" fill="#ffb000"/>
 
-          <!-- Curved front CRT glass edge (no eyes visible in side profile) + multi-color phosphor glow spill -->
+          <!-- Curved front CRT glass edge + multi-color phosphor glow spill -->
           <rect x="10" y="10" width="3" height="12" fill="#000"/>
           <rect x="10" y="11" width="2" height="10" fill="#182230"/>
           <rect x="10" y="12" width="1" height="8" fill="#5fd3e0"/>
@@ -193,19 +190,19 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
           </g>
         </g>
 
-        <!-- Near swinging arm -->
+        <!-- Extended near swinging arm -->
         <g class="tc-sarm-f">
-          <rect x="22" y="27" width="6" height="8" fill="#000"/>
-          <rect x="23" y="28" width="4" height="6" fill="#39334a"/>
-          <rect x="24" y="29" width="2" height="2" fill="#544e66"/>
-          <rect x="23" y="33" width="3" height="2" fill="#ebe6d6"/>
+          <rect x="22" y="26" width="6" height="11" fill="#000"/>
+          <rect x="23" y="27" width="4" height="8" fill="#39334a"/>
+          <rect x="24" y="28" width="2" height="2" fill="#544e66"/>
+          <rect x="22" y="34" width="5" height="3" fill="#000"/>
+          <rect x="23" y="35" width="3" height="2" fill="#ebe6d6"/>
         </g>
       </g>
     </g>
 
     <!-- FRONT-FACING HEAD-ON POSE (used for squint, checking, and verdict) -->
     <g class="tc-pose-front">
-      <!-- Articulated rear data-cable tail -->
       <g class="tc-tail">
         <rect x="9" y="34" width="5" height="2" fill="#000"/>
         <rect x="10" y="34" width="4" height="1" fill="#4f4861"/>
@@ -215,40 +212,40 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
         <rect x="5" y="31" width="1" height="1" fill="#ffb000"/>
       </g>
 
-      <!-- Planted front legs -->
+      <!-- Extended front legs -->
       <g class="tc-leg tc-leg-l">
-        <rect x="16" y="36" width="5" height="7" fill="#000"/>
-        <rect x="17" y="36" width="3" height="6" fill="#4f4861"/>
+        <rect x="16" y="34" width="5" height="9" fill="#000"/>
+        <rect x="17" y="35" width="3" height="7" fill="#4f4861"/>
         <rect x="18" y="38" width="1" height="1" fill="#8b8598"/>
-        <rect x="15" y="42" width="7" height="4" fill="#000"/>
-        <rect x="16" y="43" width="5" height="2" fill="#2a2538"/>
-        <rect x="16" y="43" width="2" height="1" fill="#ffb000"/>
+        <rect x="14" y="42" width="8" height="4" fill="#000"/>
+        <rect x="15" y="43" width="6" height="2" fill="#2a2538"/>
+        <rect x="15" y="43" width="2" height="1" fill="#ffb000"/>
       </g>
       <g class="tc-leg tc-leg-r">
-        <rect x="27" y="36" width="5" height="7" fill="#000"/>
-        <rect x="28" y="36" width="3" height="6" fill="#4f4861"/>
+        <rect x="27" y="34" width="5" height="9" fill="#000"/>
+        <rect x="28" y="35" width="3" height="7" fill="#4f4861"/>
         <rect x="29" y="38" width="1" height="1" fill="#8b8598"/>
-        <rect x="26" y="42" width="7" height="4" fill="#000"/>
-        <rect x="27" y="43" width="5" height="2" fill="#2a2538"/>
-        <rect x="30" y="43" width="2" height="1" fill="#ffb000"/>
+        <rect x="26" y="42" width="8" height="4" fill="#000"/>
+        <rect x="27" y="43" width="6" height="2" fill="#2a2538"/>
+        <rect x="31" y="43" width="2" height="1" fill="#ffb000"/>
       </g>
 
-      <!-- Upper body assembly -->
       <g class="tc-upper">
         <g class="tc-arm tc-arm-l">
-          <rect x="9" y="27" width="6" height="8" fill="#000"/>
-          <rect x="10" y="28" width="4" height="6" fill="#39334a"/>
-          <rect x="11" y="29" width="2" height="2" fill="#544e66"/>
-          <rect x="10" y="33" width="3" height="2" fill="#ebe6d6"/>
+          <rect x="8" y="26" width="6" height="11" fill="#000"/>
+          <rect x="9" y="27" width="4" height="8" fill="#39334a"/>
+          <rect x="10" y="28" width="2" height="2" fill="#544e66"/>
+          <rect x="8" y="34" width="5" height="3" fill="#000"/>
+          <rect x="9" y="35" width="3" height="2" fill="#ebe6d6"/>
         </g>
 
         <g class="tc-torso">
-          <rect x="14" y="26" width="20" height="12" fill="#000"/>
-          <rect x="15" y="27" width="18" height="10" fill="#2a2538"/>
+          <rect x="14" y="26" width="20" height="10" fill="#000"/>
+          <rect x="15" y="27" width="18" height="8" fill="#2a2538"/>
           <rect x="15" y="27" width="18" height="1" fill="#4f4861"/>
           <rect x="19" y="27" width="10" height="2" fill="#181522"/>
           <rect x="23" y="28" width="2" height="1" fill="#ffb000"/>
-          <rect x="18" y="30" width="12" height="6" fill="#0b0a12"/>
+          <rect x="18" y="30" width="12" height="5" fill="#0b0a12"/>
           <rect class="tc-bar tc-bar-1" x="19" y="31" width="10" height="1" fill="#8fb7ff"/>
           <rect class="tc-bar tc-bar-2" x="19" y="32" width="8" height="1" fill="#7ee0a1"/>
           <rect class="tc-bar tc-bar-3" x="19" y="33" width="10" height="1" fill="#ffb000"/>
@@ -256,10 +253,11 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
         </g>
 
         <g class="tc-arm tc-arm-r">
-          <rect x="33" y="27" width="6" height="8" fill="#000"/>
-          <rect x="34" y="28" width="4" height="6" fill="#39334a"/>
-          <rect x="35" y="29" width="2" height="2" fill="#544e66"/>
-          <rect x="35" y="33" width="3" height="2" fill="#ebe6d6"/>
+          <rect x="34" y="26" width="6" height="11" fill="#000"/>
+          <rect x="35" y="27" width="4" height="8" fill="#39334a"/>
+          <rect x="36" y="28" width="2" height="2" fill="#544e66"/>
+          <rect x="35" y="34" width="5" height="3" fill="#000"/>
+          <rect x="36" y="35" width="3" height="2" fill="#ebe6d6"/>
         </g>
 
         <!-- High-res CRT Head -->
@@ -335,7 +333,7 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
  * - Side-profile clunky skipping entrance on 4s with a smooth, lagging personal shadow + a softer,
  *   side-padded center stage band that fades in as she arrives.
  * - Snaps head-on, springs her eyeballs out in a double-take, leans into a fourth-wall squint.
- * - Renders frameless header above and cursor-typed text + WOMM hourglass below on the dark region.
+ * - Renders frameless guess/badge above and cursor-typed text + WOMM hourglass below on the dark region.
  * - Delivers verdict, snaps back to side-profile, and clunky-skips off the left edge while her
  *   lagging personal shadow smoothly trails behind her until she vanishes.
  */
@@ -362,7 +360,6 @@ export class TableCheck {
     wrap.innerHTML = `
       <div class="tc-stage-wrap" role="status" aria-live="polite">
         <div class="tc-head" data-tc="head" hidden>
-          <div class="tc-name">DOTTYBASE</div>
           <div class="tc-sub">
             <span class="tc-guess" data-tc="guess"></span>
             <span class="tc-badge" data-tc="badge" hidden></span>
@@ -432,19 +429,18 @@ export class TableCheck {
         const el = now - startAt;
 
         let dotCx = 0.5;
-        if (el < 920) {
-          const p = clamp01((el - 40) / 880);
+        if (el < 1720) {
+          const p = clamp01((el - 40) / 1680);
           dotCx = 1.08 - 0.58 * easeOutCubic(p);
-        } else if (el >= 4860) {
-          const p = clamp01((el - 4860) / 820);
+        } else if (el >= 6200) {
+          const p = clamp01((el - 6200) / 1620);
           dotCx = 0.5 - 0.68 * easeInOutQuad(p);
         }
 
-        // Center bar fades in gently as she arrives, holds during squint/check/verdict, and fades out after she starts leaving.
-        const barIn = clamp01((el - 360) / 520);
-        const barOut = 1 - clamp01((el - 4860) / 480);
+        const barIn = clamp01((el - 180) / 380);
+        const barOut = 1 - clamp01((el - 6950) / 680);
         const barAlpha = Math.min(barIn, barOut);
-        const dotAlpha = el > 5440 ? Math.max(0, 1 - (el - 5440) / 260) * 0.92 : 0.92;
+        const dotAlpha = el > 7720 ? Math.max(0, 1 - (el - 7720) / 280) * 0.92 : 0.92;
         scene?.setVignetteStage(barAlpha, dotCx, 0.46, dotAlpha);
         this.rafId = requestAnimationFrame(tickShadow);
       };
@@ -495,21 +491,21 @@ export class TableCheck {
       return;
     }
 
-    // 1. Clunky side-profile skipping entrance completes -> snap head-on, eyeball-spring double-take & squint.
-    later(840, () => {
+    // 1. Slower, higher side-profile skipping entrance -> snap head-on, eyeball-spring double-take & squint.
+    later(1650, () => {
       this.root.dataset.stage = 'squint';
       this.head.hidden = false;
     });
 
-    // 2. Checking beat: typed text + WOMM hourglass appear below Dottybase on the dark backdrop.
-    later(1720, () => {
+    // 2. Checking beat: typed text + WOMM hourglass appear below on the dark backdrop.
+    later(2750, () => {
       this.root.dataset.stage = 'checking';
       this.caption.hidden = false;
       typeOut(opts.checkLine);
     });
 
-    // 3. Verdict beat: bold accept/reject pose + verdict quip.
-    later(3480, () => {
+    // 3. Verdict beat: accept/reject pose + verdict quip.
+    later(4650, () => {
       this.root.dataset.stage = 'verdict';
       this.root.dataset.outcome = opts.outcome;
       this.badge.textContent = opts.outcome === 'accept' ? 'OK' : '?';
@@ -517,15 +513,15 @@ export class TableCheck {
       typeOut(opts.verdictLine);
     });
 
-    // 4. Exit: hide text, snap back to side-profile, clunky-skip off the left edge while personal shadow trails behind.
-    later(4860, () => {
+    // 4. Exit: hide text, snap back to side-profile, higher slower skips off the left edge while shadow trails behind.
+    later(6200, () => {
       this.root.dataset.stage = 'exit';
       this.head.hidden = true;
       this.caption.hidden = true;
     });
 
     // 5. Restore world only after Dottybase and her trailing shadow have exited.
-    later(5720, () => {
+    later(8020, () => {
       this.close();
       opts.onDone?.();
     });
