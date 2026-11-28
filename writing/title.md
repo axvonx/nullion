@@ -8,7 +8,7 @@ when: the title screen is up
 max: 100
 status: draft
 
-Seven prompts a day. Rarer answers descend deeper into the stack.
+Seven prompts a day. The rarer your answer, the further you unwind.
 
 ## title.start
 where: the title screen’s start button
@@ -25,7 +25,7 @@ max: 80
 vars: {prompts}, {seconds}
 status: draft
 
-{prompts} prompts a day, {seconds} seconds each.
+There are {prompts} prompts a day, with {seconds} seconds each.
 
 ## title.rule.answer
 where: the second line of the How to play list
@@ -33,7 +33,7 @@ when: the player opens How to play
 max: 90
 status: draft
 
-One answer per prompt: the first one accepted is locked in.
+You answer once per prompt: whatever's accepted first is chosen.
 
 ## title.rule.frames
 where: the third line of the How to play list
@@ -42,7 +42,7 @@ max: 100
 vars: {min}, {max}
 status: draft
 
-Rarer answers push more stack frames ({min} to {max}), so you descend deeper.
+If your answer is rarer, you unwind more stack frames ({min} to {max}), so you descend deeper.
 
 ## title.rule.depth
 where: the fourth line of the How to play list
@@ -50,7 +50,7 @@ when: the player opens How to play
 max: 100
 status: draft
 
-More stack frames = deeper inside the computer, from Apps down to bare silicon.
+The more stack frames you've unwound, the deeper in the computer you are.
 
 ## title.rule.bugs
 where: the fifth line of the How to play list
@@ -58,7 +58,7 @@ when: the player opens How to play
 max: 100
 status: draft
 
-Tiers are named after bugs — rarer answers are harder-to-reproduce bugs.
+Tier names are bugs, and rarer answers are harder-to-reproduce kinds.
 
 ## title.rule.same
 where: the sixth line of the How to play list
@@ -74,7 +74,7 @@ when: the player opens How to play
 max: 60
 status: draft
 
-Unwind the next stack at midnight.
+Unwind the next one at midnight.
 
 ## title.tiers.heading
 where: the heading over the tier guide inside How to play
@@ -83,11 +83,3 @@ max: 40
 status: draft
 
 Tiers {sq} stack frames
-
-## title.tiers.note
-where: the sentence above the tier guide inside How to play
-when: the player opens How to play
-max: 100
-status: draft
-
-Wrong guesses cost nothing but time. Harder-to-reproduce answers descend deeper:

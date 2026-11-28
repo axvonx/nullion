@@ -505,7 +505,7 @@ describe('end card', () => {
   it('the title rules quote the game constants', () => {
     const h = setup();
     const text = h.mount.querySelector('[data-el="titleRules"]')!.textContent!;
-    expect(text).toContain(`${PROMPTS_PER_DAY} prompts a day, ${ANSWER_MS / 1000} seconds each`);
+    expect(text).toContain(`${PROMPTS_PER_DAY} prompts a day, with ${ANSWER_MS / 1000} seconds each`);
     expect(text).toContain('midnight');
   });
 

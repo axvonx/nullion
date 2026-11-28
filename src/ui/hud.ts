@@ -195,7 +195,6 @@ ${REVEAL_HTML}`;
     this.howModal.body.innerHTML = `
       <ul class="title-rules" data-el="titleRules"></ul>
       <div class="title-how-title title-how-sub" data-el="titleTiersHeading"></div>
-      <p class="title-how-note" data-el="titleTiersNote"></p>
       <ol class="title-tiers" data-el="titleTiers"></ol>`;
     this.els = elementsOf(mount);
     this.titleLogo = new TitleLogo();
@@ -233,7 +232,6 @@ ${REVEAL_HTML}`;
     this.els.titleTag!.textContent = text('title.tag');
     this.els.titleStartText!.textContent = text('title.start');
     setSqText(this.els.titleTiersHeading!, text('title.tiers.heading'));
-    this.els.titleTiersNote!.textContent = text('title.tiers.note');
     this.buildTitleRules();
     this.buildTitleTiers();
     mountPrefsMenu(mount, this.els.barRight!);
