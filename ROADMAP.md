@@ -10,6 +10,7 @@ Updated 2026-11-27.
 - **Answer bank: thin.** 45 approved categories (2026-11-27) and 148 drafts, 7 of them pipeline-complete and waiting for review (REVIEW.md). With 7 prompts a day, the 45 repeat about every 6 days.
 - **Answer matching: fixed 2026-11-27** (phrasings, four-letter swaps, sure corrections; `CLAUDE.md`). Guesses outside the bank: a debug-only Wikipedia check is being evaluated (`src/game/outside-check.ts`).
 - **Field Manual: built, mostly unwritten.** The binder ships; 38 approved pages, 347 LLM-drafted pages (debug only) from the naming desk, about 220 new entities still unnamed there.
+- **Recall is measurable now:** `scripts/bank/recall.py` (Wikipedia categories as references, members judged) and the missed-guesses log (`scripts/bank/misses.py`) feed the Inbox. The database showed the gap: 13+ well-known systems missing from a two-listing plan.
 - **Content is the bottleneck**, then matching. Further art passes have little value until there are enough questions to play the world through.
 
 ## Milestone 1: question and answer generation (next)

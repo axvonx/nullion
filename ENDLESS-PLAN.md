@@ -1,6 +1,6 @@
 # nullion — Endless Mode Plan (`ENDLESS-PLAN.md`)
 
-> **Status:** Phases 1–3 are implemented behind the debug toggle (commits `c335e70` → `877620b`, then the setpiece, prop and critter passes up to `bf772d8`). Phase 4 (production entry) is open and tracked in `ROADMAP.md`. The art from the last passes has not been checked on screen yet.  
+> **Status (2026-11-27):** released. Phases 1–3 are implemented; phase 4 shipped differently from this plan: Endless is entered from a finished day's end card (not a title switch), runs on **hearts** rather than strikes, scales frames along a smooth curve, saves and resumes runs, keeps a personal best and shares a tier tally. `CLAUDE.md` (Endless mode) is the current description; this file keeps the original stack design.
 > **Goal:** A finite-but-deep (~2,500-frame) Endless descent inspired by *krillion.io*—expanding the computing stack **upwards**, **through the middle** (de-opaquing Runtime, Kernel, Ring −1, Ring −2, and Ring −3 without faking peer hierarchies), and **downwards** through the Intel ME's hidden MINIX 3 OS into microarchitecture, silicon, and fundamental physics.
 
 ---
@@ -8,7 +8,7 @@
 ## 1. Core Gameplay Loop (Endless Mode)
 
 - **Watchdog per prompt:** Every question has a live watchdog timer (starts at `30s`, gradually tightening as you cross deeper strata: e.g., `30s` upper stack → `25s` kernel/hardware → `20s` hidden rings/MINIX → `16s` silicon/physics).
-- **3 Strikes and You're Out:** Missing a prompt (watchdog timeout) burns **1 of 3 Watchdog Strikes** (shown as 3 pixel fuses/shields in the top bar). On the 3rd strike, the run terminates in a `KERNEL PANIC` / `STACK OVERFLOW` end-of-run card showing:
+- **Hearts (as built; originally 3 strikes):** 3 hearts; a timeout or skip costs one, a Bit Flip and every 1,000 frames earned restore one. Originally: missing a prompt burned **1 of 3 Watchdog Strikes** (shown as 3 pixel fuses). On the 3rd strike, the run terminates in a `KERNEL PANIC` / `STACK OVERFLOW` end-of-run card showing:
   - Total frames unwound & deepest layer reached
   - Best single-question tier & streak
   - Personal-best depth (`localStorage`) & shareable Endless result string

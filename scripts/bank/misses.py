@@ -111,6 +111,50 @@ Reply with ONLY a JSON list, one object per guess, in the same order:
     return llm.call("haiku", ask, validate, log=log)
 
 
+JUDGE_CHUNK = 25
+
+
+def triage(cid: str, prompt: str, guesses: list[tuple[str, int]], no_llm: bool, log: pathlib.Path) -> tuple[list[str], int, int]:
+    """Judge a category's guesses and append the real, unknown ones to its Inbox.
+    Returns (report lines, added to the Inbox, real but already known by another name)."""
+    path = bank_file(cid)
+    text = path.read_text()
+    known = known_keys(text)
+    fresh = [(g, n) for g, n in guesses if norm(g) not in known]
+    report = [f"- {g} (×{n}): already in the bank or its Inbox" for g, n in guesses if norm(g) in known]
+    if not fresh:
+        return report, 0, 0
+    if no_llm:
+        return report + [f"- {g} (×{n}): not in the bank (not judged: --no-llm)" for g, n in fresh], 0, 0
+    verdicts = []
+    for i in range(0, len(fresh), JUDGE_CHUNK):
+        verdicts += judge(prompt, accepts_line(text), [g for g, _ in fresh[i:i + JUDGE_CHUNK]], log)
+    lines, aliased = [], 0
+    for (g, n), v in zip(fresh, verdicts):
+        if not v["member"]:
+            report.append(f"- {g} (×{n}): not an answer: {v['why']}")
+            continue
+        if norm(v["name"]) in known:
+            aliased += 1
+            report.append(f"- {g} (×{n}): the model's name {v['name']!r} is already in the bank: {v['why']}")
+            continue
+        names = [v["name"]] + ([g] if norm(g) != norm(v["name"]) else [])
+        lines.append(f"- {' | '.join(names)} (suggested: {v['tier']})")
+        known |= {norm(x) for x in names}
+        report.append(f"- {g} (×{n}): **to the Inbox** as {v['name']} ({v['tier']}): {v['why']}")
+    if lines:
+        if "\n## Inbox" not in text:
+            text = text.rstrip("\n") + "\n\n## Inbox\n"
+        path.write_text(text.rstrip("\n") + "\n" + "\n".join(lines) + "\n")
+    return report, len(lines), aliased
+
+
+def bank_index() -> None:
+    r = subprocess.run(["npm", "run", "bank:index"], cwd=REPO, capture_output=True, text=True)
+    if r.returncode != 0:
+        raise SystemExit(f"npm run bank:index failed:\n{r.stdout[-2000:]}\n{r.stderr[-2000:]}")
+
+
 def main() -> None:
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if len(args) != 1:
@@ -122,45 +166,13 @@ def main() -> None:
     report = [f"# Missed-guess triage: {src.name} ({datetime.date.today().isoformat()})", ""]
     added = 0
     for cid, c in cats.items():
-        path = bank_file(cid)
-        text = path.read_text()
-        known = known_keys(text)
-        fresh = [(g, n) for g, n in c["guesses"] if norm(g) not in known]
-        stale = [(g, n) for g, n in c["guesses"] if norm(g) in known]
-        report += [f"## {cid} · {c['prompt']}", ""]
-        for g, n in stale:
-            report.append(f"- {g} (×{n}): already in the bank or its Inbox")
-        if not fresh:
-            report.append("")
-            continue
-        if no_llm:
-            report += [f"- {g} (×{n}): not in the bank (not judged: --no-llm)" for g, n in fresh] + [""]
-            continue
-        verdicts = judge(c["prompt"], accepts_line(text), [g for g, _ in fresh], log)
-        lines = []
-        for (g, n), v in zip(fresh, verdicts):
-            if not v["member"]:
-                report.append(f"- {g} (×{n}): not an answer: {v['why']}")
-                continue
-            if norm(v["name"]) in known:
-                report.append(f"- {g} (×{n}): the model's name {v['name']!r} is already in the bank: {v['why']}")
-                continue
-            names = [v["name"]] + ([g] if norm(g) != norm(v["name"]) else [])
-            lines.append(f"- {' | '.join(names)} (suggested: {v['tier']})")
-            known |= {norm(x) for x in names}
-            report.append(f"- {g} (×{n}): **to the Inbox** as {v['name']} ({v['tier']}): {v['why']}")
-        if lines:
-            if "\n## Inbox" not in text:
-                text = text.rstrip("\n") + "\n\n## Inbox\n"
-            path.write_text(text.rstrip("\n") + "\n" + "\n".join(lines) + "\n")
-            added += len(lines)
-        report.append("")
+        lines, n, _ = triage(cid, c["prompt"], c["guesses"], no_llm, log)
+        report += [f"## {cid} · {c['prompt']}", "", *lines, ""]
+        added += n
     out = src.with_suffix(".triage.md")
     out.write_text("\n".join(report))
     if added:
-        r = subprocess.run(["npm", "run", "bank:index"], cwd=REPO, capture_output=True, text=True)
-        if r.returncode != 0:
-            raise SystemExit(f"npm run bank:index failed:\n{r.stdout[-2000:]}\n{r.stderr[-2000:]}")
+        bank_index()
     print(f"{added} candidates added to Inboxes; report: {out.relative_to(REPO) if out.is_relative_to(REPO) else out}")
 
 

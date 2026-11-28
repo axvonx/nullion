@@ -1,6 +1,6 @@
 # Owner review queue
 
-Written 2026-11-27, updated at version 0.2.0-alpha. Things only the owner can decide, most important first. Tick or delete
+Written 2026-11-27, updated at version 0.3.0-alpha. Things only the owner can decide, most important first. Tick or delete
 items as they're done; tell Claude which ones passed and it does the mechanical part (approving, moving files,
 re-running the pipeline).
 
@@ -14,9 +14,13 @@ Left from the approvals:
 - Settled 2026-11-27: M-209 dropped from historical-cipher's obvious list; the compiler edits kept; HTTPS is an alias
   of HTTP.
 
-**Missed guesses:** `design/misses/2026-11-27-seed.triage.md` put 13 missing databases (ScyllaDB, Riak, RethinkDB, …)
-into `database`'s Inbox with suggested tiers; promote them (or tell Claude to). Keep copying Settings → Missed guesses
-into `design/misses/` as you play.
+**Missed guesses and recall:**
+- `design/misses/2026-11-27-seed.triage.md` put 13 missing databases (ScyllaDB, Riak, RethinkDB, …) into `database`'s
+  Inbox with suggested tiers; the recall run on `database` (`design/recall/database.md`) may have added more. Promote
+  them into tiers (or tell Claude to). Inbox lines never play.
+- Keep copying Settings → Missed guesses into `design/misses/<date>.md` as you play; `scripts/bank/misses.py` triages it.
+- Recall on all 45 approved categories (`python3 -I scripts/bank/recall.py --approved`) is ready but not run: it costs
+  roughly 10–25 Haiku calls per category. Say when; its results set the pipeline's recall gate.
 
 ## 1. Triage: the bottom of the keep list
 
@@ -44,9 +48,10 @@ proposed name as a write-in. Named entities get draft Field Manual pages from `p
   A few are false alarms (`logins` and `login` are different commands).
 - **Reference links left out:** `design/links/review.txt` lists 116 links on hosts outside the allowlist
   (mysql.com, redis.io, …). Say which hosts to trust and they get added.
-- **Unlinked on purpose:** "Works on my machine" has no Wikipedia article, so the tier name is plain text wherever
-  it appears. Give it a page (e.g. a well-known article or essay) if you want one.
-- **Plain-text "nullion":** the title screen's and Settings' version lines are still plain text, not the title font.
+- **Outside answers (debug, Wikipedia check):** ship it or not, and at what tier (4 of 18 wrong guesses got through in
+  the probe; it sends guesses to Wikipedia).
+- **Bank size before beta** (~100 categories is the stated bar; 45 now) and **domain weighting** (which are
+  first-class).
 
 ## 4. Writing (whenever you want to start)
 
@@ -58,12 +63,14 @@ proposed name as a write-in. Named entities get draft Field Manual pages from `p
 
 ## 5. Feel checks in the browser (can't be judged from screenshots)
 
-- The reveal's background flicker: the black region is now still, the world outside it refreshes at most every
-  250 ms, and the held jiggle steps no faster than that. Enough, or calmer still?
-- The end card on a phone: long prompts in the backtrace; the stack flying into the summary card; hide/show.
-- The cursor's lean toward the mouse (up to 3 px): subtle enough?
-- The reached layer's glow on the end card.
-- Endless (released): the pacing (the curve's two numbers live in `ENDLESS_FRAME_CURVE`, `src/core/modes.ts`), the teleport card (the empty console shows under it), the button's glow and pixel pops, the history bar past 14 rounds, hearts under it.
+- The reveal's background flicker (black region still, world refreshed at most every 250 ms). Enough, or calmer?
+- The end card on a phone: long prompts, the stack flying in, hide/show, tap targets.
+- The cursor's lean toward the mouse (up to 3 px), and the reached layer's glow and pointers.
+- Endless: pacing (`ENDLESS_FRAME_CURVE`, two numbers), the teleport card (the empty console shows under it), the
+  button's glow and pixel pops, the history bar past 14 rounds, hearts, badges flying into the stack.
+- Big screens (1440p, 4K): the UI zoom (`src/ui/ui-scale.ts`), and the badge flights and reveal under zoom (only the
+  end card was checked).
+- Prop pills: flashing "???", the snapshot, gray seen names, "Already seen".
 
 ## Reference: what links out on hover (end card and title)
 
@@ -74,7 +81,7 @@ proposed name as a write-in. Named entities get draft Field Manual pages from `p
 | Tier names: backtrace hover line, answer-sheet group heads, all-time stats rows, title "How to play" tier guide | Off-by-one error, Null pointer, Memory leak, Race condition, Heisenbug, Soft error (Bit Flip) |
 | Answers in the answer sheet, and the row's ↗ | checked reference links (`bank/links/`), else a Wikipedia search |
 
-Left unlinked on purpose:
+Left unlinked on purpose (accepted by the owner 2026-11-27):
 
 - **"Works on my machine"**: no article exists.
 - **The reveal** (tier name, answer, "+N stack frames"): it sits over play and takes no pointer input, so a link
