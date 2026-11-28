@@ -167,6 +167,18 @@ WD_CLASSES = [
     ("web-server", "Q11288", "web server"),
     ("message-transfer-agent", "Q859477", "message transfer agent"),
     ("name-server", "Q41494", "name server"),
+    ("dbms", "Q176165", "database management system"),
+    ("compiler", "Q47506", "compiler"),
+    ("game-engine", "Q193564", "game engine"),
+    ("operating-system", "Q9135", "operating system"),
+    ("file-system", "Q174989", "file system"),
+    ("programming-language", "Q9143", "programming language"),
+    ("instruction-set-architecture", "Q272683", "instruction set architecture"),
+    ("map-projection", "Q186386", "map projection"),
+    ("block-cipher", "Q543151", "block cipher"),
+    ("cryptographic-hash-function", "Q477202", "cryptographic hash function"),
+    ("sorting-algorithm", "Q181593", "sorting algorithm"),
+    ("data-structure", "Q175263", "data structure"),
 ]
 # One query for every missing class (WDQS answered this machine's second query in a run with a 1,000 s
 # Retry-After, so the fetch asks once): the class's own English label comes back with its items and is checked.
