@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { buildAnswerSet } from '../core/answers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
-import { ANSWER_MS, ENDLESS_HEARTS, ENDLESS_HEART_REFILL_FRAMES, ENDLESS_KERNEL_DEPTH, endlessAnswerMs } from '../core/modes';
+import { ANSWER_MS, ENDLESS_HEARTS, ENDLESS_HEART_REFILL_FRAMES, endlessAnswerMs, rulesFor } from '../core/modes';
 import { Game, InvalidSaveError, READ_MS } from './game';
 import { browserStorage, canPersistDaily, dailyKey, loadDaily, saveDaily, type SaveStorage } from './daily-save';
 
@@ -195,9 +195,10 @@ describe('game loop', () => {
         g.advance(now);
         expect(g.phase).toMatchObject({ kind: 'reading', round: i + 1 });
       }
-      // Bit Flips push 13 x20 above the kernel (705), 13 x10 from it: 260, 520, 780, then 7 x 130.
-      expect(ENDLESS_KERNEL_DEPTH).toBe(705);
-      expect(g.depth).toBe(780 + 7 * 130);
+      // Each Bit Flip pushed the Endless curve's frames at the depth it landed.
+      let d = 0;
+      for (let i = 0; i < 10; i++) d += rulesFor('endless').framesFor('bitflip', d);
+      expect(g.depth).toBe(d);
       expect(g.hearts).toBe(ENDLESS_HEARTS);
 
       // Now let the watchdog take every heart
@@ -250,14 +251,12 @@ describe('game loop', () => {
       const { g, timeout, answer } = run();
       timeout();
       expect(g.hearts).toBe(2);
-      // Off-by-one pushes 20 above the kernel (705) and 10 from it: 35 answers make 700, then 720, 730, 740, 750.
-      for (let i = 0; i < 35; i++) answer('off-by-one');
-      expect(g.depth).toBe(700);
-      for (let i = 0; i < 3; i++) answer('off-by-one');
-      expect(g.depth).toBe(740);
+      // Off-by-one answers until the next one would cross the refill line: still 2; that one gives the heart back.
+      const f = (d: number) => rulesFor('endless').framesFor('off-by-one', d);
+      while (g.depth + f(g.depth) < ENDLESS_HEART_REFILL_FRAMES) answer('off-by-one');
       expect(g.hearts).toBe(2);
       answer('off-by-one');
-      expect(ENDLESS_HEART_REFILL_FRAMES).toBe(750);
+      expect(g.depth).toBeGreaterThanOrEqual(ENDLESS_HEART_REFILL_FRAMES);
       expect(g.hearts).toBe(3);
     });
 

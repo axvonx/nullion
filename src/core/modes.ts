@@ -29,19 +29,15 @@ export interface HeartRules {
 }
 
 /**
- * Endless pacing (scripts/endless-sim.py, 2026-11-27; owner's target: a good player reaches the kernel in about 5
- * minutes and the rings in about 15): an answer pushes its tier's frames x20 above the kernel and x10 from it down
- * (the kernel-to-rings stretch is short in frames), and every 750 frames earned restores a heart. Simulated good
- * player: kernel at ~5.7 min, rings at ~14.6 min, median run ~21 min. Daily keeps the locked 1-13.
+ * Endless pacing (scripts/endless-sim.py, 2026-11-27). Owner's targets: a good player reaches the kernel in about 5
+ * minutes and the rings in about 15, and about 10% of good runs reach the Landauer limit. An answer pushes its tier's
+ * frames times a scale that eases off smoothly with depth, `38 / (1 + depth / 400)` (x38 at the top, ~x13 at the
+ * kernel, ~x5 near the bottom; never below the tier's own frames), and every 1,000 frames earned restores a heart.
+ * Simulated good player: kernel at ~5.4 min, rings at ~13.8 min, 10% at the bottom, median run ~19 min. Daily keeps
+ * the locked 1-13.
  */
-export const ENDLESS_FRAME_SCALE = { aboveKernel: 20, fromKernel: 10 } as const;
-export const ENDLESS_HEART_REFILL_FRAMES = 750;
-/** Where Endless's frame scale steps down: the first kernel layer. */
-export const ENDLESS_KERNEL_DEPTH: number = (() => {
-  const l = ENDLESS_LAYERS.find((x) => x.id === 'kernel-entry');
-  enforce(l, 'endless stack has no kernel-entry layer');
-  return l.from;
-})();
+export const ENDLESS_FRAME_CURVE = { top: 38, halfAt: 400 } as const;
+export const ENDLESS_HEART_REFILL_FRAMES = 1000;
 
 /** Endless per-prompt watchdog tightens as you descend deeper into the stack. */
 export function endlessAnswerMs(depth: number): number {
@@ -116,8 +112,10 @@ export interface ModeRules {
 const ENDLESS_SCROLL: ScrollRules = { capExtra: 60, snapGap: 220, wheelDivisor: 10, arrowStep: 12, pageStep: 80 };
 
 const tierFrames = (tier: TierId) => TIERS[tier].frames;
-const endlessFrames = (tier: TierId, depth: number) =>
-  TIERS[tier].frames * (depth < ENDLESS_KERNEL_DEPTH ? ENDLESS_FRAME_SCALE.aboveKernel : ENDLESS_FRAME_SCALE.fromKernel);
+const endlessFrames = (tier: TierId, depth: number) => {
+  const f = TIERS[tier].frames;
+  return Math.max(f, Math.round((f * ENDLESS_FRAME_CURVE.top) / (1 + depth / ENDLESS_FRAME_CURVE.halfAt)));
+};
 
 const endlessHeadline = (framesLabel: string, layerName: string) => text('end-card.headline.endless', { frames: framesLabel, layer: layerName });
 const endlessCardLine = (framesLabel: string) => text('end-card.summary.endless', { frames: framesLabel });

@@ -3,7 +3,8 @@
 
 Usage: python3 -I scripts/endless-sim.py [--runs N]
 
-Owner's targets (2026-11-27): a good player reaches the kernel in about 5 minutes and the rings in about 15.
+Owner's targets (2026-11-27): a good player reaches the kernel in about 5 minutes, the rings in about 15, and about
+10% of good runs reach the Landauer limit; the scale eases off smoothly with depth (no step).
 Model, per prompt: 3 s reading, the profile's answer time, 6 s of dive / reveal / Unwind; a timeout costs the full
 watchdog (endlessAnswerMs at that depth) and a heart. Accepted answers land on a tier from the profile's mix and push
 `tier frames x k`. Hearts: start 3, max 3; a Bit Flip restores one; every `refill` frames earned restores one.
@@ -41,7 +42,7 @@ def run(profile, k, refill: int | None, rng: random.Random):
             hearts -= 1
             continue
         tier = rng.choices(tiers, weights)[0]
-        push = FRAMES[tier] * (k(depth) if callable(k) else k)
+        push = round(FRAMES[tier] * (k(depth) if callable(k) else k))
         depth += push
         t += READ_S + ans_s + SHOW_S
         if tier == "bitflip":
@@ -71,20 +72,20 @@ def summarize(name, k, refill, n, seed=1):
     return f"{name:7} k={kl:<7} refill={str(refill):5} | run {mins:5.1f}m, depth {depth:6.0f} | kernel {fmt(kern)} | rings {fmt(ring)} | bottom {bottom:4.0%}"
 
 
-class Stepped:
-    """k above the kernel, a lower k below it (the kernel-to-rings stretch is short in frames)."""
+class Smooth:
+    """The shipped curve (src/core/modes.ts endlessFrames): k0 / (1 + depth / D), never below the tier's own frames."""
 
-    def __init__(self, hi: float, lo: float):
-        self.hi, self.lo, self.label = hi, lo, f"{hi:g}/{lo:g}"
+    def __init__(self, k0: float, d: float):
+        self.k0, self.d, self.label = k0, d, f"{k0:g}/(1+d/{d:g})"
 
     def __call__(self, depth: float) -> float:
-        return self.hi if depth < KERNEL else self.lo
+        return max(1.0, self.k0 / (1 + depth / self.d))
 
 
 def main():
     n = int(sys.argv[sys.argv.index("--runs") + 1]) if "--runs" in sys.argv else 2000
-    ks = [1, 15, 20, Stepped(20, 10), Stepped(20, 8)] if "--all" in sys.argv else [Stepped(20, 10), Stepped(20, 8), Stepped(18, 9)]
-    refills = (None, 100, 150, 250) if "--all" in sys.argv else (None, 500, 750, 1000)
+    ks = [1, 15, 20] if "--all" in sys.argv else [Smooth(36, 400), Smooth(38, 400)]
+    refills = (None, 100, 150, 250) if "--all" in sys.argv else (750, 1000)
     for k in ks:
         for refill in refills:
             for name in PROFILES:

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { StackMode } from './layers';
-import { ANSWER_MS, ENDLESS_HEARTS, ENDLESS_KERNEL_DEPTH, MODE_RULES, layerAt, layersFor, maxDepthFor, rulesFor } from './modes';
+import { ANSWER_MS, ENDLESS_HEARTS, MODE_RULES, layerAt, layersFor, maxDepthFor, rulesFor } from './modes';
 
 const MODES = Object.keys(MODE_RULES) as StackMode[];
 
@@ -23,11 +23,22 @@ describe('mode rules', () => {
     }
   });
 
-  it('Daily pushes the locked tier frames at any depth; Endless scales them x20 above the kernel, x10 from it', () => {
+  it('Daily pushes the locked tier frames at any depth; Endless scales them, easing off smoothly with depth', () => {
     expect(rulesFor('daily').framesFor('bitflip', 80)).toBe(13);
-    expect(rulesFor('endless').framesFor('bitflip', ENDLESS_KERNEL_DEPTH - 1)).toBe(260);
-    expect(rulesFor('endless').framesFor('bitflip', ENDLESS_KERNEL_DEPTH)).toBe(130);
-    expect(rulesFor('endless').framesFor('off-by-one', 0)).toBe(20);
+    const e = rulesFor('endless');
+    expect(e.framesFor('bitflip', 0)).toBe(13 * 38);
+    expect(e.framesFor('bitflip', 400)).toBe(13 * 19);
+    expect(e.framesFor('off-by-one', 0)).toBe(38);
+    // Smooth: no step anywhere, always falling, never below the tier's own frames.
+    let prev = Infinity;
+    for (let d = 0; d <= 5000; d += 25) {
+      const f = e.framesFor('heisenbug', d);
+      expect(f).toBeLessThanOrEqual(prev);
+      if (prev !== Infinity) expect(prev - f).toBeLessThanOrEqual(Math.ceil(prev * 0.07)); // no cliff: under 7% per 25 frames
+      expect(f).toBeGreaterThanOrEqual(8);
+      prev = f;
+    }
+    expect(e.framesFor('off-by-one', 1e6)).toBe(1);
     expect(rulesFor('true-endless').framesFor('race', 10)).toBe(5);
   });
 
