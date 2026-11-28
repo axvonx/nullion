@@ -23,6 +23,7 @@ import { CURSOR_FRAC, MARK_RX, MARK_RY, cursorNudge, markCenter, markExtentY, pi
 import type { TitleGlitchEvent } from '../ui/title-logo';
 import { sound } from '../audio/sound';
 import { toCss, uiZoom } from '../ui/ui-scale';
+import { text } from '../text';
 
 export { pixelScale } from './cursor-geom';
 
@@ -223,6 +224,11 @@ interface Frame {
   art: typeof LAYER_ART_V4;
 }
 
+/** Clicks on the same prop closer together than this are ignored (no toast pile-up). */
+const TOAST_COOLDOWN_MS = 700;
+/** "Already seen": the fault red the console uses for a rejected guess. */
+const ALREADY_SEEN_RED = '#ff5d73';
+
 export class Scene {
   private ctx: CanvasRenderingContext2D;
   private prev: HTMLCanvasElement;
@@ -323,7 +329,9 @@ export class Scene {
   /** The cursor's current lean toward the real mouse (scene px, eased; see cursorNudge). */
   private nudge = { x: 0, y: 0 };
   /** Floating in-world toasts when a player clicks & logs a Field Manual character. */
-  private manualToasts: { x: number; y: number; text: string; color: string; at: number }[] = [];
+  private manualToasts: { key: string; x: number; y: number; text: string; color: string; at: number; repeat?: boolean }[] = [];
+  /** When each (entry, layer) was last acknowledged this visit: repeats say "Already seen", spam is ignored. */
+  private toastAckAt = new Map<string, number>();
 
   constructor(private canvas: HTMLCanvasElement) {
     this.ctx = get2d(canvas);
@@ -377,20 +385,35 @@ export class Scene {
       ev.preventDefault();
       const entry = manualEntryById(hit.entryId);
       if (!entry) return;
+      const key = `${hit.entryId}|${hit.layer}`;
+      const now = performance.now();
+      const last = this.toastAckAt.get(key);
+      // Spam guard: a click on the same prop within the cooldown does nothing at all.
+      if (last !== undefined && now - last < TOAST_COOLDOWN_MS) return;
+      this.toastAckAt.set(key, now);
       const res = manualStore.log(hit.entryId, hit.layer);
       const meta = MANUAL_RARITIES[entry.rarity];
+      const fresh = res.isNewEntry || res.isNewLayer;
+      // Already logged and already acknowledged this visit: a red, wobbling "Already seen", in place of any toast of
+      // this prop still on screen rather than one more on top.
+      const repeat = !fresh && last !== undefined;
       const msg = res.isNewEntry
-        ? `Logged: ${entry.name}!`
+        ? text('world.toast.new-entry', { name: entry.name })
         : res.isNewLayer
-          ? `${entry.name} · new layer!`
-          : `${entry.name} · logged`;
+          ? text('world.toast.new-layer', { name: entry.name })
+          : repeat
+            ? text('world.toast.already-seen')
+            : text('world.toast.logged', { name: entry.name });
+      this.manualToasts = this.manualToasts.filter((t) => t.key !== key);
       this.manualToasts.push({
+        key,
         x: hit.x + hit.w / 2,
         // Keep clear of the top HUD bar even at peak float lift (14 scene px).
         y: Math.max(36, hit.y - 4),
         text: msg,
-        color: res.isNewEntry || res.isNewLayer ? meta.color : '#cfcbd8',
-        at: performance.now(),
+        color: fresh ? meta.color : repeat ? ALREADY_SEEN_RED : '#cfcbd8',
+        at: now,
+        repeat,
       });
       if (res.isNewEntry || res.isNewLayer) sound.suggest(hit.layer);
     });
@@ -1553,9 +1576,11 @@ export class Scene {
         continue;
       }
       const lift = reduced ? 0 : Math.round((age / 1600) * 14);
+      // "Already seen" shakes side to side for its first 360 ms, in whole scene pixels, settling.
+      const wobble = toast.repeat && !reduced && age < 360 ? Math.round(Math.sin(age / 28) * 3 * (1 - age / 360)) : 0;
       ctx.save();
       ctx.globalAlpha = age > 1100 ? Math.max(0, 1 - (age - 1100) / 500) : 1;
-      drawPill(toast.x, toast.y - lift, toast.text, toast.color, '#ffffff');
+      drawPill(toast.x + wobble, toast.y - lift, toast.text, toast.color, toast.repeat ? ALREADY_SEEN_RED : '#ffffff');
       ctx.restore();
     }
   }
