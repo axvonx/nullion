@@ -28,6 +28,7 @@ import { mountVisualViewport } from './viewport';
 import { enforce } from '../core/enforce';
 import { wordmarkCanvas } from './wordmark';
 import { browserFetchJson, checkOutside } from '../game/outside-check';
+import { mountUiScale, toCss } from './ui-scale';
 
 /** Below this share of the answer time left, the watchdog goes into its low-time state. */
 export const LOW_TIME = 0.25;
@@ -199,6 +200,8 @@ ${REVEAL_HTML}`;
     this.buildTitleTiers();
     mountPrefsMenu(mount, this.els.barLeft!);
     // Lives as long as the page (one Hud per page), so its cleanup is never needed.
+    // The zoom first: the viewport tracker converts its pixels with it (and its resize listener runs after).
+    mountUiScale();
     mountVisualViewport();
   }
 
@@ -683,7 +686,7 @@ ${REVEAL_HTML}`;
     const scene = this.scene;
     if (!scene) return;
     const mark = scene.markCss();
-    const vh = window.innerHeight || 800;
+    const vh = toCss(window.innerHeight || 800);
     const short = vh <= 480;
     const gap = Math.max(short ? 8 : 14, Math.min(28, Math.round(vh * 0.03)));
     const rawLogoBottom = Math.max(vh * 0.56, vh - (mark.top - gap));
@@ -708,7 +711,7 @@ ${REVEAL_HTML}`;
     this.mirrorReaction(now);
     this.reveal.update(now);
     this.layerStack.setRightReserve(this.scene?.uiReserveRightCss ?? 0);
-    const barBottom = Math.ceil(this.els.bar!.getBoundingClientRect().bottom);
+    const barBottom = Math.ceil(toCss(this.els.bar!.getBoundingClientRect().bottom));
     this.layerStack.setTopOffset(barBottom > 0 ? Math.max(50, barBottom + 6) : 52);
     this.layerStack.setVisible(!this.titleOpen && look('layerStack') === 'on');
     // In active play, hold the RHS stack during dives so newly reached layers appear in the reveal first, then fly over.

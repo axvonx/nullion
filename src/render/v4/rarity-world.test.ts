@@ -6,7 +6,8 @@ import { placeForSpec, type WorldSpecV4 } from './world';
 
 /** Daily-shaped bands and the scene's real lanes for a viewport (Scene.worldSpec: console, header chips, rail). */
 function spec(seed: number, vw: number): WorldSpecV4 {
-  const scale = pixelScale(vw);
+  // A 16:10 window of that width (the scale also depends on height).
+  const scale = pixelScale(vw, Math.round(vw * 0.625));
   const W = Math.ceil(vw / scale);
   const cx = Math.round(W / 2);
   const consoleHalf = Math.ceil(Math.min(520, vw - 32) / 2 / scale) + 3;

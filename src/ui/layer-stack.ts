@@ -2,6 +2,7 @@ import { type Layer, type LayerId, type StackMode } from '../core/layers';
 import { layerIndexAt, layersFor } from '../core/modes';
 import { LAYER_ART } from '../layers';
 import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from '../render/v4/watermark';
+import { toCss } from './ui-scale';
 
 /**
  * RHS top-down application stack indicator.
@@ -195,9 +196,10 @@ export function flyBadges(flights: readonly BadgeFlight[], opts: BadgeFlightOpti
       const dst = a.f.to.getBoundingClientRect();
       const raw = Math.min(1, Math.max(0, (now - a.startAt) / FLIGHT_MS));
       const p = 1 - (1 - raw) ** 3;
-      const dx = (dst.left - a.f.from.left) * p;
-      const dy = (dst.top - a.f.from.top) * p;
-      const w = a.f.from.width + (dst.width - a.f.from.width) * p;
+      // Rects are screen pixels; the flyer is styled in the zoomed page's CSS pixels (ui-scale.ts).
+      const dx = toCss((dst.left - a.f.from.left) * p);
+      const dy = toCss((dst.top - a.f.from.top) * p);
+      const w = toCss(a.f.from.width + (dst.width - a.f.from.width) * p);
       a.flyer.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0)`;
       if (w > 0) a.flyer.style.width = `${w.toFixed(1)}px`;
     }
@@ -220,9 +222,9 @@ export function flyBadges(flights: readonly BadgeFlight[], opts: BadgeFlightOpti
     const flyer = createLayerBadge(f.layer);
     flyer.classList.add('ls-flyer');
     flyer.style.transition = 'none';
-    flyer.style.left = `${Math.round(f.from.left)}px`;
-    flyer.style.top = `${Math.round(f.from.top)}px`;
-    flyer.style.width = `${Math.round(f.from.width)}px`;
+    flyer.style.left = `${Math.round(toCss(f.from.left))}px`;
+    flyer.style.top = `${Math.round(toCss(f.from.top))}px`;
+    flyer.style.width = `${Math.round(toCss(f.from.width))}px`;
     document.body.append(flyer);
     flyers.push(flyer);
     const go = opts.delayMs + i * opts.staggerMs;
@@ -525,21 +527,21 @@ export class LayerStack {
 
     const flyer = createLayerBadge(layer);
     flyer.classList.add('ls-flyer', 'into-spine');
-    flyer.style.left = `${Math.round(srcRect.left)}px`;
-    flyer.style.top = `${Math.round(srcRect.top)}px`;
-    flyer.style.width = `${Math.round(srcRect.width)}px`;
+    flyer.style.left = `${Math.round(toCss(srcRect.left))}px`;
+    flyer.style.top = `${Math.round(toCss(srcRect.top))}px`;
+    flyer.style.width = `${Math.round(toCss(srcRect.width))}px`;
     document.body.append(flyer);
     this.flyers.push(flyer);
 
-    const dx = Math.round(dstRect.left - srcRect.left);
-    const dy = Math.round(dstRect.top - srcRect.top);
+    const dx = Math.round(toCss(dstRect.left - srcRect.left));
+    const dy = Math.round(toCss(dstRect.top - srcRect.top));
     const delayMs = Math.max(0, opts.delayMs ?? 0);
     const flightMs = 760;
 
     const launch = () => {
       requestAnimationFrame(() => {
         flyer.style.transform = `translate(${dx}px, ${dy}px)`;
-        flyer.style.width = `${Math.round(dstRect.width)}px`;
+        flyer.style.width = `${Math.round(toCss(dstRect.width))}px`;
       });
     };
     if (delayMs > 0) {

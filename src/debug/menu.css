@@ -16,8 +16,8 @@
   right: 16px;
   bottom: calc(60px + var(--kb, 0px));
   z-index: 21;
-  width: min(380px, calc(100vw - 32px));
-  max-height: calc(var(--vvh, 100dvh) - 100px);
+  width: min(380px, calc(calc(100vw / var(--ui, 1)) - 32px));
+  max-height: calc(var(--vvh, calc(100dvh / var(--ui, 1))) - 100px);
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
@@ -95,17 +95,17 @@ body:has(.dbg-panel:not([hidden])) .dbg-rail { visibility: hidden; }
 /* On narrow screens the console, title card, modal and reveal keep clear of the rail and 🐞 column. */
 @media (max-width: 900px) {
   body .console, body #app.unwinding .console { left: 16px; right: 64px; width: auto; margin: 0; }
-  body .scroll-mode .console { width: max-content; max-width: calc(100vw - 80px); }
+  body .scroll-mode .console { width: max-content; max-width: calc(calc(100vw / var(--ui, 1)) - 80px); }
   /* The tier reveal's text and title cards too. */
   body .rv-name, body .rv-body { right: 64px; }
-  body .title-head, body .title-foot { right: 64px; max-width: calc(100vw - 80px); }
+  body .title-head, body .title-foot { right: 64px; max-width: calc(calc(100vw / var(--ui, 1)) - 80px); }
   body .title-how { left: 16px; right: 64px; width: auto; transform: none; }
 }
 
 /* Mobile / short viewports: keep the tall debug rail scrollable so every demo button is reachable. */
 @media (max-width: 900px), (max-height: 640px), (pointer: coarse) {
   .dbg-rail {
-    max-height: calc(var(--vvh, 100dvh) - 120px);
+    max-height: calc(var(--vvh, calc(100dvh / var(--ui, 1))) - 120px);
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;

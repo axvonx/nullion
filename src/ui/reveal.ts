@@ -11,6 +11,7 @@ import type { Scene } from '../render/scene';
 import { $, framesLabel, replay, setText } from './dom';
 import { LayerStack, createLayerBadge } from './layer-stack';
 import { revealLayout } from './reveal-layout';
+import { toCss } from './ui-scale';
 
 /** Demos only: how long the rail lets a reveal sit before pressing "Unwind further" for you. Play waits for the player. */
 export const REVEAL_MS = 2400;
@@ -218,14 +219,14 @@ export class Reveal {
     const scene = this.host.scene();
     if (scene) {
       const lay = revealLayout(
-        window.innerWidth,
-        window.innerHeight,
+        toCss(window.innerWidth),
+        toCss(window.innerHeight),
         scene.markCss(),
         { name: this.name.textContent ?? '', answer: this.answer.textContent ?? '', line: this.line.textContent ?? '', lowKey: kind === 'timeout' },
         scene.uiReserveRightCss > 0,
       );
       const st = el.style;
-      st.setProperty('--name-bottom', `${Math.round(window.innerHeight - lay.name.bottom)}px`);
+      st.setProperty('--name-bottom', `${Math.round(toCss(window.innerHeight) - lay.name.bottom)}px`);
       st.setProperty('--body-top', `${Math.round(lay.body.top)}px`);
       st.setProperty('--name-px', `${lay.namePx}px`);
       st.setProperty('--answer-px', `${lay.answerPx}px`);

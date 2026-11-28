@@ -15,14 +15,18 @@ const MARK_EDGE = 3;
 
 export type CursorForm = 'arrow' | 'ibeam' | 'block' | 'underscore' | 'bioscell' | 'bit';
 
-/** Integer screen pixels per scene pixel: small, so the full-bleed scene can carry fine detail. */
-export function pixelScale(viewportW: number): number {
-  return viewportW < 700 ? 2 : viewportW > 1900 ? 4 : 3;
+/**
+ * Integer screen pixels per scene pixel: the scene is about 270 scene pixels tall on any screen (x3 at 800 px tall,
+ * x4 at 1080, x5 at 1440, x8 at 4K), so the world reads the same size everywhere; capped by width (at least 240
+ * scene pixels across) so phones and portrait tablets keep a wide-enough world; never below 2.
+ */
+export function pixelScale(viewportW: number, viewportH: number): number {
+  return Math.max(2, Math.min(Math.round(viewportH / 270), Math.floor(viewportW / 240)));
 }
 
 /** The scene's resting cursor row, in scene pixels, for a viewport. */
 export function cursorRow(viewportW: number, viewportH: number): number {
-  const scale = pixelScale(viewportW);
+  const scale = pixelScale(viewportW, viewportH);
   return Math.round(Math.ceil(viewportH / scale) * CURSOR_FRAC);
 }
 

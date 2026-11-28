@@ -146,6 +146,11 @@ In-play animation, for orientation:
 - At ≤ 640 px the right-hand stack is an icon spine, so the reveal's reached badges are icons from the start (named by `title`/aria) and fly into the spine as icons; the end card's stack is tighter.
 - Debug scroll mode also scrolls by touch drag.
 
+## Big screens
+
+- The scene's integer pixel scale (`pixelScale(vw, vh)`, `src/render/cursor-geom.ts`) aims for about 270 scene pixels tall (×3 at 800 px, ×4 at 1080, ×5 at 1440, ×8 at 4K), capped by width (at least 240 across), never below 2.
+- The UI is zoomed with the page (`src/ui/ui-scale.ts`, CSS `zoom` on `body`, `--ui` on `:root`): 1 up to 1080p, then `min(vh/1080, vw/1700)`. Under zoom, viewport units and lengths written into styles are multiplied, while rects, `innerWidth` and pointer positions stay in screen pixels. So stylesheets write viewport units as `calc(100vh / var(--ui, 1))`, and code that writes a screen-pixel measurement into a style converts it with `toCss` (flights, the reveal layout, the title, the canvas size, `--vvh`).
+
 ## Conventions
 
 - Invariants use `enforce()` from `src/core/enforce.ts` and throw loudly. Expected conditions are handled explicitly, never with silent defaults. Missing localStorage is an expected condition.

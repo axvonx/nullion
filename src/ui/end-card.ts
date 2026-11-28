@@ -21,6 +21,7 @@ import { tierIcon } from './tier-icons';
 import { createLayerBadge, flyBadges, type BadgeFlight } from './layer-stack';
 import { sound } from '../audio/sound';
 import { wordmarkCanvas } from './wordmark';
+import { toCss } from './ui-scale';
 
 /** How long the card takes to fold into its "show" bar (matches the CSS). */
 const FOLD_MS = 180;
@@ -156,7 +157,7 @@ function whiteOutFrom(el: HTMLElement) {
   const r = el.getBoundingClientRect();
   const w = document.createElement('div');
   w.className = 'endless-whiteout';
-  Object.assign(w.style, { left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
+  Object.assign(w.style, { left: `${toCss(r.left)}px`, top: `${toCss(r.top)}px`, width: `${toCss(r.width)}px`, height: `${toCss(r.height)}px` });
   document.body.append(w);
   // Next frame: grow to the viewport (the transition does the rest).
   requestAnimationFrame(() => requestAnimationFrame(() => w.classList.add('full')));

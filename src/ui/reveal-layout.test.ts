@@ -13,6 +13,8 @@ const VIEWPORTS = [
   [1280, 800],
   [390, 844],
   [360, 740],
+  [2560, 1440],
+  [3840, 2160],
 ] as const;
 
 describe('reveal layout', () => {
@@ -20,7 +22,7 @@ describe('reveal layout', () => {
     for (const railed of [false, true])
       it(`never overlaps at ${vw}×${vh}${railed ? ' with the debug rail' : ''}`, () => {
         const bad: string[] = [];
-        const scale = pixelScale(vw);
+        const scale = pixelScale(vw, vh);
         for (const layer of LAYERS) {
           const m = markExtentY(LAYER_ART[layer.id].cursor, cursorRow(vw, vh));
           const mark = { top: m.top * scale, bottom: m.bottom * scale };

@@ -22,6 +22,7 @@ import { TitleGlitches } from './title-glitches';
 import { CURSOR_FRAC, MARK_RX, MARK_RY, cursorNudge, markCenter, markExtentY, pixelScale, type CursorForm } from './cursor-geom';
 import type { TitleGlitchEvent } from '../ui/title-logo';
 import { sound } from '../audio/sound';
+import { toCss, uiZoom } from '../ui/ui-scale';
 
 export { pixelScale } from './cursor-geom';
 
@@ -408,7 +409,7 @@ export class Scene {
       this.H = 0;
       return;
     }
-    const scale = pixelScale(vw);
+    const scale = pixelScale(vw, vh);
     const nextW = Math.ceil(vw / scale);
     const nextH = Math.ceil(vh / scale);
     // Never wipe the canvas buffers when the integer scene dimensions didn't actually change (common on mobile
@@ -422,8 +423,9 @@ export class Scene {
       c.height = this.H;
     }
     // Exact integer scale; the overshoot (under one scene pixel) hangs off the right and bottom edges.
-    this.canvas.style.width = `${this.W * scale}px`;
-    this.canvas.style.height = `${this.H * scale}px`;
+    // The page is zoomed on big screens (ui-scale.ts): the canvas's CSS size is its screen size over that zoom.
+    this.canvas.style.width = `${toCss(this.W * scale)}px`;
+    this.canvas.style.height = `${toCss(this.H * scale)}px`;
     this.paint.resize(this.W, this.H);
     this.seamMask = ditherFadeMask(this.W);
     const cols = Math.ceil(this.W / 14.5);
@@ -476,9 +478,10 @@ export class Scene {
   private worldSpec(): WorldSpecV4 {
     const W = this.W;
     const vw = window.innerWidth;
-    const scale = pixelScale(vw);
+    const scale = pixelScale(vw, window.innerHeight);
     const cx = Math.round(W / 2);
-    const consoleHalf = Math.ceil(Math.min(520, vw - 32) / 2 / scale) + 3;
+    // The console card is 520 CSS px wide at most, zoomed with the page on big screens.
+    const consoleHalf = Math.ceil(Math.min(520 * uiZoom(), vw - 32) / 2 / scale) + 3;
     const stack = layersFor(this.stackMode);
     const last = stack.length - 1;
     return {
@@ -552,11 +555,11 @@ export class Scene {
     return override === 'evolving' ? LAYER_ART[layerId].cursor : override;
   }
 
-  /** The cursor's bracket mark at rest, in CSS pixels: the HUD frames it with the reveal's text. */
+  /** The cursor's bracket mark at rest, in CSS pixels of the (zoomed) page: the HUD frames it with the reveal's text. */
   markCss(): { top: number; bottom: number } {
-    const scale = pixelScale(window.innerWidth);
+    const scale = pixelScale(window.innerWidth, window.innerHeight);
     const m = markExtentY(this.formFor(layersFor(this.stackMode)[layerIndexAt(this.depth, this.stackMode)]!.id), this.cursorY);
-    return { top: m.top * scale, bottom: m.bottom * scale };
+    return { top: toCss(m.top * scale), bottom: toCss(m.bottom * scale) };
   }
 
   /**

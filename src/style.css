@@ -222,8 +222,8 @@ body {
   right: 0;
   margin-inline: auto;
   bottom: calc(16px + var(--kb, 0px));
-  width: min(520px, calc(100vw - 32px));
-  max-height: calc(var(--vvh, 100dvh) * 0.55 - 16px);
+  width: min(520px, calc(calc(100vw / var(--ui, 1)) - 32px));
+  max-height: calc(var(--vvh, calc(100dvh / var(--ui, 1))) * 0.55 - 16px);
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 0 12px 9px;
@@ -245,7 +245,7 @@ body {
 .wd-secs { flex: none; color: var(--fault); font-size: 18px; }
 .wd-secs:empty { display: none; }
 
-.plain { font-family: var(--body); font-size: clamp(24px, 4vw, 32px); color: var(--signal); margin-top: 2px; min-height: 1.15em; overflow-wrap: anywhere; }
+.plain { font-family: var(--body); font-size: clamp(24px, calc(4vw / var(--ui, 1)), 32px); color: var(--signal); margin-top: 2px; min-height: 1.15em; overflow-wrap: anywhere; }
 
 .prompt-line { display: flex; align-items: center; gap: 6px; margin-top: 6px; border-bottom: 2px solid var(--rule); }
 .prompt-line:focus-within { border-bottom-color: var(--signal); }
@@ -297,7 +297,7 @@ body {
 .headline { color: var(--signal); font-size: 26px; line-height: 1.1; margin: 8px 0 12px; text-align: center; }
 /* With the result card up, the card is the whole console: the prompt and answer line step aside. */
 .console:has(.result:not([hidden])) :is(.plain, .prompt-line, .feedback, .bios-footer) { display: none; }
-.console:has(.result:not([hidden])) { max-height: calc(var(--vvh, 100dvh) - 72px); overflow-y: auto; }
+.console:has(.result:not([hidden])) { max-height: calc(var(--vvh, calc(100dvh / var(--ui, 1))) - 72px); overflow-y: auto; }
 
 /*
  * The day's backtrace: one row per round, #0 the most recent. A row shows its frames and its tier's cursor icon;
@@ -344,7 +344,7 @@ body {
 }
 .bt-sheet-btn:is(:hover, :focus-visible) { color: var(--ink); border-color: var(--rule); }
 .bt-sheet-btn[aria-expanded='true'] { color: var(--ink); transform: scaleY(-1); }
-.bt-sheet { margin: 2px 0 6px 4ch; padding: 6px 8px; max-height: min(50dvh, 360px); overflow-y: auto; border-left: 2px solid var(--rule); font-size: 17px; line-height: 1.2; }
+.bt-sheet { margin: 2px 0 6px 4ch; padding: 6px 8px; max-height: min(calc(50dvh / var(--ui, 1)), 360px); overflow-y: auto; border-left: 2px solid var(--rule); font-size: 17px; line-height: 1.2; }
 .bt-sheet[hidden] { display: none; }
 .sheet-group + .sheet-group { margin-top: 8px; }
 .sheet-q { color: var(--dim); margin-bottom: 6px; }
@@ -454,7 +454,7 @@ body {
   position: fixed; z-index: 40; background: #fff; pointer-events: none;
   transition: left 420ms cubic-bezier(0.5, 0, 0.75, 0), top 420ms cubic-bezier(0.5, 0, 0.75, 0), width 420ms cubic-bezier(0.5, 0, 0.75, 0), height 420ms cubic-bezier(0.5, 0, 0.75, 0);
 }
-.endless-whiteout.full { left: 0 !important; top: 0 !important; width: 100vw !important; height: 100vh !important; }
+.endless-whiteout.full { left: 0 !important; top: 0 !important; width: calc(100vw / var(--ui, 1)) !important; height: calc(100vh / var(--ui, 1)) !important; }
 .still .endless-go, .still .endless-go::before, .still .endless-go::after, .still .endless-go.lit { animation: none; }
 .still .endless-pop { display: none; }
 .endless-best { margin-top: 10px; font-size: 20px; color: var(--ink); }
@@ -491,7 +491,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .scroll-mode .plain,
 .scroll-mode .wd-secs,
 .scroll-mode .watchdog { display: none; }
-.scroll-mode .console { padding-top: 7px; width: max-content; max-width: calc(100vw - 32px); }
+.scroll-mode .console { padding-top: 7px; width: max-content; max-width: calc(calc(100vw / var(--ui, 1)) - 32px); }
 .wd-demo.scroll-mode .console { padding-right: 44px; }
 .scroll-hint { color: var(--dim); font-size: 16px; }
 /* The debug timer demo shows the watchdog even in scroll mode. */
@@ -641,7 +641,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .demo.scroll-mode .prompt-line, .demo.scroll-mode .watchdog { display: block; }
 .demo.scroll-mode .prompt-line { display: flex; }
 .demo.scroll-mode .scroll-hint { display: none; }
-.demo.scroll-mode .console { width: min(520px, calc(100vw - 32px)); padding-top: 0; }
+.demo.scroll-mode .console { width: min(520px, calc(calc(100vw / var(--ui, 1)) - 32px)); padding-top: 0; }
 #app.scroll-mode:not(.demo) .console[data-form] :is(.titlebar, .bios-footer) { display: none; }
 .demo.scroll-mode .console[data-form='gui'] .titlebar { display: flex; }
 .demo.scroll-mode .console[data-form='bios'] .bios-footer { display: block; }
@@ -660,7 +660,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 
 @media (max-width: 760px) {
   body { font-size: 18px; }
-  .console { max-height: calc(var(--vvh, 100dvh) * 0.5); }
+  .console { max-height: calc(var(--vvh, calc(100dvh / var(--ui, 1))) * 0.5); }
 }
 @media (max-width: 480px) {
   .bar { top: 8px; left: 10px; right: 10px; gap: 6px; }
@@ -671,13 +671,13 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   /* Phones: the header is full, so the slots take their own row under it, still centred. */
   .bar-mid { top: 34px; }
   .depth { font-size: 15px; }
-  .console { bottom: calc(10px + var(--kb, 0px)); width: calc(100vw - 20px); padding: 0 10px 8px; }
+  .console { bottom: calc(10px + var(--kb, 0px)); width: calc(calc(100vw / var(--ui, 1)) - 20px); padding: 0 10px 8px; }
 }
 /* Soft keyboard open (Android/iOS): keep the prompt console lifted above the keyboard and tall enough for the
    question + input line without bobbing under the player's thumb. */
 html.kb-open .console {
   bottom: calc(8px + var(--kb, 0px));
-  max-height: calc(var(--vvh, 100dvh) - 56px);
+  max-height: calc(var(--vvh, calc(100dvh / var(--ui, 1))) - 56px);
   animation: none;
   translate: none;
 }
@@ -695,8 +695,8 @@ html.kb-open .still .console.low { animation: none; }
   position: fixed;
   inset: 0;
   z-index: 2;
-  --name-bottom: 66vh;
-  --body-top: 42vh;
+  --name-bottom: calc(66vh / var(--ui, 1));
+  --body-top: calc(42vh / var(--ui, 1));
   --name-px: 40px;
   --answer-px: 26px;
   --line-px: 20px;
@@ -825,7 +825,7 @@ html.kb-open .still .console.low { animation: none; }
 /* "Unwind further": while the reveal is up, the whole console collapses into just this button. Focused, Enter/Space press it. */
 .rv-next { display: none; }
 #app.unwinding .console {
-  width: min(360px, calc(100vw - 32px));
+  width: min(360px, calc(calc(100vw / var(--ui, 1)) - 32px));
   padding: 0;
   background: transparent;
   border: 0;
@@ -862,7 +862,7 @@ html.kb-open .still .console.low { animation: none; }
 .rv-hide {
   display: block;
   /* Half as wide as the "show" bar and "Unwind further" (#app.unwinding .console): present, not competing. */
-  width: min(180px, calc(50vw - 16px));
+  width: min(180px, calc(calc(50vw / var(--ui, 1)) - 16px));
   height: 22px;
   margin: 14px auto 0;
   padding: 0;
@@ -883,13 +883,13 @@ html.kb-open .still .console.low { animation: none; }
 .reveal.stowed { pointer-events: none; }
 .reveal.stowed .rv-name, .reveal.stowed .rv-body {
   opacity: 0;
-  transform: translateY(30vh) scale(0.2);
+  transform: translateY(calc(30vh / var(--ui, 1))) scale(0.2);
   transition: opacity 180ms steps(4, end), transform 180ms steps(4, end);
 }
 .reveal.stowed .rv-hide { pointer-events: none; }
 .reveal.back .rv-name, .reveal.back .rv-body { animation: reveal-back 280ms steps(6, end); }
 @keyframes reveal-back {
-  0% { opacity: 0; transform: translateY(30vh) scale(0.2); }
+  0% { opacity: 0; transform: translateY(calc(30vh / var(--ui, 1))) scale(0.2); }
   70% { opacity: 1; transform: translateY(-6px) scale(1.04); }
   100% { opacity: 1; transform: none; }
 }
@@ -952,7 +952,7 @@ html.kb-open .still .console.low { animation: none; }
 .prefs-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .sound-btn.muted { color: var(--fault); }
 .prefs-group + .prefs-group { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--rule); }
-.prefs-pop { position: fixed; z-index: 4; top: 50px; left: 16px; width: min(300px, calc(100vw - 32px)); max-height: calc(var(--vvh, 100dvh) - 68px); overflow-y: auto; padding: 8px 12px 10px; }
+.prefs-pop { position: fixed; z-index: 4; top: 50px; left: 16px; width: min(300px, calc(calc(100vw / var(--ui, 1)) - 32px)); max-height: calc(var(--vvh, calc(100dvh / var(--ui, 1))) - 68px); overflow-y: auto; padding: 8px 12px 10px; }
 .prefs-pop[hidden] { display: none; }
 .prefs-title { font-family: var(--display); font-size: 11px; letter-spacing: 0.06em; color: var(--signal); margin-bottom: 6px; }
 .prefs-group { border: 0; margin: 0; padding: 0; }
@@ -973,8 +973,8 @@ html.kb-open .still .console.low { animation: none; }
   position: fixed;
   inset: 0;
   z-index: 2;
-  --logo-bottom: 66vh;
-  --foot-top: 44vh;
+  --logo-bottom: calc(66vh / var(--ui, 1));
+  --foot-top: calc(44vh / var(--ui, 1));
   pointer-events: none;
   transition: opacity 220ms linear;
 }
@@ -1000,7 +1000,7 @@ html.kb-open .still .console.low { animation: none; }
 
 .title-logo {
   display: block;
-  width: min(620px, calc(100vw - 20px));
+  width: min(620px, calc(calc(100vw / var(--ui, 1)) - 20px));
   height: auto;
   aspect-ratio: 75 / 30;
   image-rendering: pixelated;
@@ -1011,7 +1011,7 @@ html.kb-open .still .console.low { animation: none; }
 .title-foot {
   top: var(--foot-top);
   width: fit-content;
-  max-width: min(540px, calc(100vw - 32px));
+  max-width: min(540px, calc(calc(100vw / var(--ui, 1)) - 32px));
   gap: 10px;
   pointer-events: auto;
   padding: 12px 18px 14px;
@@ -1022,7 +1022,7 @@ html.kb-open .still .console.low { animation: none; }
 
 .title-tag {
   margin: 0;
-  font-size: clamp(22px, 4.2vw, 27px);
+  font-size: clamp(22px, calc(4.2vw / var(--ui, 1)), 27px);
   line-height: 1.12;
   color: var(--ink);
   text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
@@ -1037,7 +1037,7 @@ html.kb-open .still .console.low { animation: none; }
   min-height: 50px;
   padding: 11px 24px;
   font-family: var(--display);
-  font-size: clamp(13px, 3vw, 15px);
+  font-size: clamp(13px, calc(3vw / var(--ui, 1)), 15px);
   letter-spacing: 0.05em;
   color: #16141c;
   background: var(--signal);
@@ -1077,8 +1077,8 @@ html.kb-open .still .console.low { animation: none; }
   bottom: calc(16px + var(--kb, 0px));
   transform: translateX(-50%);
   z-index: 5;
-  width: min(440px, calc(100vw - 24px));
-  max-height: calc(var(--vvh, 100dvh) - 64px);
+  width: min(440px, calc(calc(100vw / var(--ui, 1)) - 24px));
+  max-height: calc(var(--vvh, calc(100dvh / var(--ui, 1))) - 64px);
   overflow-y: auto;
   padding: 10px 12px 12px;
   text-align: left;
@@ -1135,7 +1135,7 @@ html.kb-open .still .console.low { animation: none; }
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  max-width: min(560px, calc(100vw - 32px));
+  max-width: min(560px, calc(calc(100vw / var(--ui, 1)) - 32px));
   padding: 8px 12px;
   font-size: 18px;
   color: var(--ink);
@@ -1420,7 +1420,7 @@ html.kb-open .still .console.low { animation: none; }
   top: 50%;
   transform: translate(4px, -50%);
   width: max-content;
-  max-width: min(230px, calc(100vw - 220px));
+  max-width: min(230px, calc(calc(100vw / var(--ui, 1)) - 220px));
   padding: 5px 8px 6px;
   background: rgba(14, 12, 20, 0.96);
   border: 1px solid #000;
@@ -1515,7 +1515,7 @@ html.kb-open .still .console.low { animation: none; }
     display: none;
   }
   .ls-tip {
-    max-width: min(210px, calc(100vw - 72px));
+    max-width: min(210px, calc(calc(100vw / var(--ui, 1)) - 72px));
   }
   /* The right-hand stack is a spine of icons here, so the reveal's reached layers are icons from the start (a row,
      named for hover and screen readers), and what flies into the spine is an icon too. */
@@ -1527,7 +1527,7 @@ html.kb-open .still .console.low { animation: none; }
 /* Short landscape viewports (e.g. phone landscape 844×390): scale title logo & tighten CTA so nothing clips. */
 @media (max-height: 480px) {
   .title-logo {
-    width: min(620px, calc(100vw - 20px), max(180px, calc((100dvh - var(--logo-bottom) - 12px) * 2.5)));
+    width: min(620px, calc(calc(100vw / var(--ui, 1)) - 20px), max(180px, calc((calc(100dvh / var(--ui, 1)) - var(--logo-bottom) - 12px) * 2.5)));
   }
   .title-foot {
     gap: 6px;
@@ -1715,7 +1715,7 @@ html.kb-open .still .console.low { animation: none; }
 .result.folding .eod-body { animation: eod-fold 180ms steps(4, end) forwards; pointer-events: none; }
 @keyframes eod-fold {
   from { opacity: 1; transform: none; }
-  to { opacity: 0; transform: translateY(30vh) scale(0.2); }
+  to { opacity: 0; transform: translateY(calc(30vh / var(--ui, 1))) scale(0.2); }
 }
 .result.stowed .eod-body { display: none; }
 .eod-body.back { animation: reveal-back 280ms steps(6, end); }
@@ -1740,7 +1740,7 @@ html.kb-open .still .console.low { animation: none; }
   position: fixed; inset: 0; z-index: 30; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
   pointer-events: none; animation: tp-flash 1800ms steps(12, end) forwards;
 }
-.teleport .wordmark-cv { image-rendering: pixelated; max-width: calc(100vw - 32px); height: auto; }
+.teleport .wordmark-cv { image-rendering: pixelated; max-width: calc(calc(100vw / var(--ui, 1)) - 32px); height: auto; }
 .teleport .tp-word { animation: tp-in 1800ms steps(8, end) forwards; }
 .teleport .tp-sub { animation: tp-in 1800ms steps(8, end) 120ms backwards, tp-glow 900ms steps(3) 2; }
 @keyframes tp-flash {

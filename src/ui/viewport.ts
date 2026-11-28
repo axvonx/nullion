@@ -1,3 +1,5 @@
+import { toCss } from './ui-scale';
+
 /**
  * Tracks the visual viewport (soft keyboard inset & visible height) and exposes CSS custom properties on `:root`:
  *   --vvh: visible viewport height in px (equals visualViewport.height, or innerHeight when unavailable)
@@ -50,10 +52,11 @@ export function mountVisualViewport(win: Window = window, doc: Document = docume
     const shrunk = restingHeight - vvH > KB_THRESHOLD_PX;
     const kbOpen = focused && (kb > KB_THRESHOLD_PX || shrunk);
 
-    if (vvH > 0) root.style.setProperty('--vvh', `${vvH}px`);
-    root.style.setProperty('--vvt', `${vvTop}px`);
+    // CSS pixels of the page, which is zoomed on big screens (ui-scale.ts).
+    if (vvH > 0) root.style.setProperty('--vvh', `${toCss(vvH)}px`);
+    root.style.setProperty('--vvt', `${toCss(vvTop)}px`);
     // Only a keyboard lifts the UI: a pinch-zoom also shrinks the visual viewport, and must not move anything.
-    root.style.setProperty('--kb', `${kbOpen ? kb : 0}px`);
+    root.style.setProperty('--kb', `${kbOpen ? toCss(kb) : 0}px`);
     root.classList.toggle('kb-open', kbOpen);
 
     // If the console itself had to scroll to fit above the keyboard, keep the prompt line at the bottom in view.

@@ -16,6 +16,7 @@ import { V4_LIBRARIES } from '../../render/v4/libraries';
 import { drawTopicProp, TOPIC_PROPS } from '../../render/v4/topics';
 import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from '../../render/v4/watermark';
 import { CELL_H, CELL_W, GLYPHS, WORDMARK_OUTLINE, drawGlyph, layoutWord } from '../wordmark';
+import { toCss } from '../ui-scale';
 
 /**
  * The Field Manual as an archive ring binder of manual pages (FIELD-MANUAL-PLAN.md). Layout comes from the pure
@@ -764,8 +765,9 @@ export class FieldManualBinder {
     left = Math.max(pad, Math.min(bdR.width - pR.width - pad, left));
     let top = aR.top - bdR.top - pR.height - gap;
     if (top < pad) top = aR.bottom - bdR.top + gap;
-    pop.style.left = `${Math.round(left)}px`;
-    pop.style.top = `${Math.round(top)}px`;
+    // Rects are screen pixels; the page may be zoomed on big screens (ui-scale.ts).
+    pop.style.left = `${Math.round(toCss(left))}px`;
+    pop.style.top = `${Math.round(toCss(top))}px`;
   }
 
   /** Tiny layer-name-only tooltip for an index bitmap square (no color square, no description). */
