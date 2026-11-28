@@ -16,11 +16,12 @@ Left from the approvals:
 
 **Missed guesses and recall:**
 - `design/misses/2026-11-27-seed.triage.md` put 13 missing databases (ScyllaDB, Riak, RethinkDB, …) into `database`'s
-  Inbox with suggested tiers; the recall run on `database` (`design/recall/database.md`) may have added more. Promote
-  them into tiers (or tell Claude to). Inbox lines never play.
+  Inbox with suggested tiers. Promote them into tiers (or tell Claude to). Inbox lines never play.
 - Keep copying Settings → Missed guesses into `design/misses/<date>.md` as you play; `scripts/bank/misses.py` triages it.
-- Recall on all 45 approved categories (`python3 -I scripts/bank/recall.py --approved`) is ready but not run: it costs
-  roughly 10–25 Haiku calls per category. Say when; its results set the pipeline's recall gate.
+- Recall (`scripts/bank/recall.py`) is built but has no judged result yet: the `database` run was stopped at wrap-up
+  (its Wikipedia reference categories are saved in `scripts/bank/plans/database.json`, LLM-proposed: veto or keep).
+  One category takes ~25 Haiku calls (about 15–25 minutes); all 45 approved, far more. Run `database` first to
+  calibrate `MIN_RECALL`, then decide on the rest; its results set the pipeline's recall gate.
 
 ## 1. Triage: the bottom of the keep list
 
