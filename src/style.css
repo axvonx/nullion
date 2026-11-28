@@ -156,8 +156,8 @@ body {
 .slot.miss .slot-x { color: var(--fault); }
 .slot:hover .slot-x, .slot:focus .slot-x { opacity: 1; transform: translateX(-50%) scaleY(1); }
 .still .slot-x { transition: none; }
-.slot.fuse { color: var(--ok); font-size: 15px; }
-.slot.fuse.burned { color: var(--fault); opacity: 0.75; }
+.slot.heart { color: #ff5d73; font-size: 15px; text-shadow: 0 0 6px rgba(255, 93, 115, 0.45); }
+.slot.heart.lost { color: var(--dim); opacity: 0.6; text-shadow: none; }
 .slot.endless-round { color: var(--dim); margin-left: 4px; font-size: 15px; }
 .endless-select { color: var(--dim); font: inherit; font-size: 15px; cursor: pointer; white-space: nowrap; background: rgba(16, 14, 22, 0.95); }
 .endless-select:hover { color: var(--ink); }
@@ -383,6 +383,28 @@ body {
 .share-big:is(:hover, :focus-visible) { filter: brightness(1.12); }
 .share-big:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45); }
 .next-day { margin-top: 10px; color: var(--ink); font-size: 20px; opacity: 0.85; }
+/* Endless from the end card: a dark, rainbow-edged button under the countdown. Pressed, it lights up (a running
+   rainbow edge, a white flash and a glow) for ENTER_GLOW_MS before the run starts; reduced motion skips the show. */
+.endless-go {
+  display: block; width: 100%; min-height: 44px; margin-top: 12px; padding: 0 12px;
+  font-family: var(--display); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink); background: #120f1c; border: 2px solid transparent; text-shadow: none;
+  background-image: linear-gradient(#120f1c, #120f1c), linear-gradient(90deg, #ff5d73, #ffb000, #6be38a, #5fd3e0, #9d7bff, #ff5d73);
+  background-origin: border-box; background-clip: padding-box, border-box; background-size: 100% 100%, 300% 100%;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.45);
+}
+.endless-go[hidden] { display: none; }
+.endless-go:is(:hover, :focus-visible) { filter: brightness(1.2); }
+.endless-go.lit { animation: endless-rainbow 650ms linear, endless-flash 650ms steps(6, end); color: #fff; }
+@keyframes endless-rainbow { from { background-position: 0 0, 0 0; } to { background-position: 0 0, 150% 0; } }
+@keyframes endless-flash {
+  0% { box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.45); }
+  30% { box-shadow: 0 0 0 3px #fff, 0 0 28px 6px rgba(157, 123, 255, 0.8); filter: brightness(1.8); }
+  100% { box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6), 0 0 40px 12px rgba(95, 211, 224, 0.55); filter: brightness(1.3); }
+}
+.still .endless-go.lit { animation: none; }
+.endless-best { margin-top: 10px; font-size: 20px; color: var(--ink); }
+.endless-best.is-new { color: var(--signal); }
 .eod-h { margin: 4px 0 6px; font-family: var(--display); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; color: var(--dim); }
 .result-links { margin-top: 14px; font-size: 17px; color: var(--dim); text-align: center; }
 .issue-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; }

@@ -1,5 +1,6 @@
 import { text } from '../text';
 import { enforce } from './enforce';
+import { TIERS, type TierId } from './tiers';
 import {
   DAILY_LAYERS,
   ENDLESS_LAYERS,
@@ -14,8 +15,33 @@ import {
 
 /** Daily per-prompt watchdog. */
 export const ANSWER_MS = 25000;
-/** Endless strike budget: 3 watchdog fails (or skips) end the run in a Kernel Panic. */
-export const ENDLESS_MAX_STRIKES = 3;
+/** Endless hearts: a run starts with 3; a timeout or skip costs one; at 0 the run ends in a Kernel Panic. */
+export const ENDLESS_HEARTS = 3;
+
+/** How hearts come and go in a mode that has them. */
+export interface HeartRules {
+  /** Hearts at the start, and the most a run can hold. */
+  readonly max: number;
+  /** Every this many frames earned gives one back (0: never). */
+  readonly refillFrames: number;
+  /** A Bit Flip gives one back. */
+  readonly bitflipRestores: boolean;
+}
+
+/**
+ * Endless pacing (scripts/endless-sim.py, 2026-11-27; owner's target: a good player reaches the kernel in about 5
+ * minutes and the rings in about 15): an answer pushes its tier's frames x20 above the kernel and x10 from it down
+ * (the kernel-to-rings stretch is short in frames), and every 750 frames earned restores a heart. Simulated good
+ * player: kernel at ~5.7 min, rings at ~14.6 min, median run ~21 min. Daily keeps the locked 1-13.
+ */
+export const ENDLESS_FRAME_SCALE = { aboveKernel: 20, fromKernel: 10 } as const;
+export const ENDLESS_HEART_REFILL_FRAMES = 750;
+/** Where Endless's frame scale steps down: the first kernel layer. */
+export const ENDLESS_KERNEL_DEPTH: number = (() => {
+  const l = ENDLESS_LAYERS.find((x) => x.id === 'kernel-entry');
+  enforce(l, 'endless stack has no kernel-entry layer');
+  return l.from;
+})();
 
 /** Endless per-prompt watchdog tightens as you descend deeper into the stack. */
 export function endlessAnswerMs(depth: number): number {
@@ -48,14 +74,18 @@ export interface ModeRules {
   readonly maxDepth: number;
   /** 'day': the day's 7 fixed prompts. 'pool': an anti-repeat bag over the whole bank, round after round. */
   readonly promptSource: 'day' | 'pool';
-  /** Watchdog strikes that end the run (0: no strikes, the game ends after its last prompt). */
-  readonly maxStrikes: number;
+  /** Hearts, or null: no hearts, the game ends after its last prompt. */
+  readonly hearts: HeartRules | null;
+  /** Frames an accepted answer of `tier` pushes when it lands at `depth` (the tier's own frames in Daily). */
+  framesFor(tier: TierId, depth: number): number;
   /** Per-prompt watchdog in ms at this depth. */
   answerMs(depth: number): number;
   /** Only this mode reads and writes the daily save, counts toward stats and shows the next-puzzle countdown. */
   readonly persistsDaily: boolean;
-  /** 'slots': one score slot per round. 'fuses': the strike fuses plus a round counter. */
-  readonly roundCounter: 'slots' | 'fuses';
+  /** A run of this mode is saved and resumed (src/game/endless-save.ts), and its best depth is kept. */
+  readonly persistsRun: boolean;
+  /** 'slots': one score slot per round. 'hearts': the hearts plus a round counter. */
+  readonly roundCounter: 'slots' | 'hearts';
   /** The end card (and its share text) is a plain backtrace for 'daily', a KERNEL PANIC for the strike modes: the chip text. */
   puzzleChip(puzzle: number): string;
   /** The share text's headline for a final depth label and layer name (the share has no stack picture, so it names the layer). */
@@ -85,6 +115,10 @@ export interface ModeRules {
 
 const ENDLESS_SCROLL: ScrollRules = { capExtra: 60, snapGap: 220, wheelDivisor: 10, arrowStep: 12, pageStep: 80 };
 
+const tierFrames = (tier: TierId) => TIERS[tier].frames;
+const endlessFrames = (tier: TierId, depth: number) =>
+  TIERS[tier].frames * (depth < ENDLESS_KERNEL_DEPTH ? ENDLESS_FRAME_SCALE.aboveKernel : ENDLESS_FRAME_SCALE.fromKernel);
+
 const endlessHeadline = (framesLabel: string, layerName: string) => text('end-card.headline.endless', { frames: framesLabel, layer: layerName });
 const endlessCardLine = (framesLabel: string) => text('end-card.summary.endless', { frames: framesLabel });
 
@@ -94,9 +128,11 @@ export const MODE_RULES: Record<StackMode, ModeRules> = {
     layers: DAILY_LAYERS,
     maxDepth: MAX_DEPTH,
     promptSource: 'day',
-    maxStrikes: 0,
+    hearts: null,
+    framesFor: tierFrames,
     answerMs: () => ANSWER_MS,
     persistsDaily: true,
+    persistsRun: false,
     roundCounter: 'slots',
     puzzleChip: (puzzle) => `#${puzzle}`,
     headline: (framesLabel, layerName) => text('end-card.headline.daily', { frames: framesLabel, layer: layerName }),
@@ -117,10 +153,12 @@ export const MODE_RULES: Record<StackMode, ModeRules> = {
     layers: ENDLESS_LAYERS,
     maxDepth: ENDLESS_MAX_DEPTH,
     promptSource: 'pool',
-    maxStrikes: ENDLESS_MAX_STRIKES,
+    hearts: { max: ENDLESS_HEARTS, refillFrames: ENDLESS_HEART_REFILL_FRAMES, bitflipRestores: true },
+    framesFor: endlessFrames,
     answerMs: endlessAnswerMs,
     persistsDaily: false,
-    roundCounter: 'fuses',
+    persistsRun: true,
+    roundCounter: 'hearts',
     puzzleChip: () => 'ENDLESS',
     headline: endlessHeadline,
     cardLine: endlessCardLine,
@@ -140,10 +178,13 @@ export const MODE_RULES: Record<StackMode, ModeRules> = {
     layers: TRUE_ENDLESS_LAYERS,
     maxDepth: TRUE_ENDLESS_MAX_DEPTH,
     promptSource: 'pool',
-    maxStrikes: ENDLESS_MAX_STRIKES,
+    // Debug-only pocket universes: unscaled frames, and hearts as the old strikes (no refills).
+    hearts: { max: ENDLESS_HEARTS, refillFrames: 0, bitflipRestores: false },
+    framesFor: tierFrames,
     answerMs: endlessAnswerMs,
     persistsDaily: false,
-    roundCounter: 'fuses',
+    persistsRun: false, // debug-only pocket universes
+    roundCounter: 'hearts',
     puzzleChip: () => 'ENDLESS',
     headline: endlessHeadline,
     cardLine: endlessCardLine,

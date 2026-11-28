@@ -508,7 +508,7 @@ describe('end card', () => {
     expect(h.$('[data-el=secs]').textContent).toBe('7s');
   });
 
-  it('shows 3 watchdog fuses in Endless mode and KERNEL PANIC on the 3rd strike', () => {
+  it('shows 3 hearts in Endless mode and KERNEL PANIC when the last is lost', () => {
     const h = setup();
     const endless = new Game(SET, 7, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });
     h.hud.setGame(endless, '2026-11-26');
@@ -526,10 +526,10 @@ describe('end card', () => {
     let now = 0;
     endless.start(now);
     h.hud.update(now, 0);
-    const fuses = () => [...h.mount.querySelectorAll<HTMLElement>('.slots .fuse')].map((f) => f.textContent);
-    expect(fuses()).toEqual(['●', '●', '●']);
+    const hearts = () => [...h.mount.querySelectorAll<HTMLElement>('.slots .heart')].map((f) => f.textContent);
+    expect(hearts()).toEqual(['♥', '♥', '♥']);
 
-    // Burn 3 watchdog strikes
+    // The watchdog takes every heart
     for (let s = 1; s <= 3; s++) {
       now += READ_MS + 1;
       endless.tick(now);
@@ -537,7 +537,7 @@ describe('end card', () => {
       now += endless.answerMs + 1;
       endless.tick(now);
       h.hud.update(now, endless.depth);
-      expect(fuses().filter((c) => c === '×')).toHaveLength(s);
+      expect(hearts().filter((c) => c === '♡')).toHaveLength(s);
       endless.advance(now);
       h.hud.update(now, endless.depth);
     }

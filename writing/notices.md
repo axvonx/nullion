@@ -45,3 +45,20 @@ vars: {pages}
 status: draft
 
 Some Field Manual pages no longer exist and were removed: {pages}.
+
+## notices.endless.invalid
+where: the dismissible notice bar at the top of the page (an error)
+when: Endless starts and the saved run (or the stored best) is unreadable
+max: 140
+vars: {reason}
+status: draft
+
+Your saved Endless run could not be restored ({reason}). Starting a new run.
+
+## notices.endless.resumed
+where: the dismissible notice bar at the top of the page
+when: Endless starts and an unfinished run is restored
+max: 100
+status: draft
+
+Resumed your Endless run. The clock kept running while you were away.

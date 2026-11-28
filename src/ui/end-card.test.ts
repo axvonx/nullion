@@ -6,7 +6,7 @@ import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
 import { Game } from '../game/game';
 import type { StatsOutcome } from '../game/stats';
 import { looks } from '../looks';
-import { END_CARD_HTML, EndCard, type RecordRow } from './end-card';
+import { END_CARD_HTML, EndCard, type RecordRow , type EndlessHook } from './end-card';
 
 /** The end card on its own: its rows, headline, stats and countdown, with a stand-in host. */
 
@@ -19,7 +19,7 @@ beforeAll(() => {
   HTMLCanvasElement.prototype.toDataURL = () => 'data:,';
 });
 
-function setup(game?: Game) {
+function setup(game?: Game, endless: EndlessHook | null = null) {
   document.body.innerHTML = `<div id="app">${END_CARD_HTML}</div>`;
   const root = document.getElementById('app')!;
   const notes: string[] = [];
@@ -29,6 +29,7 @@ function setup(game?: Game) {
     clock: () => now,
     notify: (m) => notes.push(m),
     openManual: () => undefined,
+    endless: () => endless,
   });
   const q = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
   return { card, q, notes, setNow: (n: number) => (now = n) };
@@ -106,6 +107,71 @@ describe('EndCard', () => {
     expect(t.q('[data-el="puzzleNo"]').querySelector('canvas')?.getAttribute('aria-label')).toBe('ENDLESS');
     expect(t.q('[data-el="puzzleNo"]').dataset.chip).toBe('ENDLESS');
     expect(t.q('.headline').textContent).toBe('KERNEL PANIC · 18 stack frames');
+  });
+
+  describe('Endless from the end card', () => {
+    const hook = (over: Partial<EndlessHook> = {}): EndlessHook & { entered: number; backs: number } => {
+      const h = { resume: false, best: null, entered: 0, backs: 0, enter: () => h.entered++, back: () => h.backs++, ...over };
+      return h;
+    };
+    const daily = () => new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm' });
+    const endless = () => new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });
+
+    it('is not offered where the host says no', () => {
+      const t = setup(daily(), null);
+      t.card.show(ROWS, 18, 7);
+      expect(t.q('[data-el="endlessBtn"]').hidden).toBe(true);
+    });
+
+    it('a finished day offers it under Share; the button lights up, then the run starts', () => {
+      vi.useFakeTimers();
+      try {
+        const h = hook();
+        const t = setup(daily(), h);
+        t.card.show(ROWS, 18, 7);
+        const btn = t.q<HTMLButtonElement>('[data-el="endlessBtn"]');
+        expect(btn.hidden).toBe(false);
+        expect(btn.textContent).toBe('Enter endless ▾');
+        expect(btn.previousElementSibling?.classList.contains('endless-best')).toBe(true);
+        btn.click();
+        expect(btn.classList.contains('lit')).toBe(true);
+        expect(h.entered).toBe(0);
+        vi.advanceTimersByTime(700);
+        expect(h.entered).toBe(1);
+        btn.click(); // disabled while it starts: one run, not two
+        vi.advanceTimersByTime(700);
+        expect(h.entered).toBe(1);
+      } finally {
+        vi.useRealTimers();
+      }
+    });
+
+    it('a saved run is resumed; under reduced motion it starts at once', () => {
+      looks.set({ motion: 'reduced' });
+      try {
+        const h = hook({ resume: true });
+        const t = setup(daily(), h);
+        t.card.show(ROWS, 18, 7);
+        const btn = t.q<HTMLButtonElement>('[data-el="endlessBtn"]');
+        expect(btn.textContent).toBe('Resume endless run ▾');
+        btn.click();
+        expect(h.entered).toBe(1);
+      } finally {
+        looks.set({ motion: 'full' });
+      }
+    });
+
+    it('a finished run shows the best (new or not) and goes back to today', () => {
+      const h = hook({ best: { depth: 1340, isNew: true } });
+      const t = setup(endless(), h);
+      t.card.show(ROWS, 18, 7);
+      expect(t.q('[data-el="endlessBest"]').textContent).toBe('New best: 1340 stack frames');
+      t.q<HTMLButtonElement>('[data-el="endlessBtn"]').click();
+      expect(h.backs).toBe(1);
+      const t2 = setup(endless(), hook({ best: { depth: 2000, isNew: false } }));
+      t2.card.show(ROWS, 18, 7);
+      expect(t2.q('[data-el="endlessBest"]').textContent).toBe('Your best: 2000 stack frames');
+    });
   });
 
   it('shows stats from the source, warns about a reset file, and hides them with none', () => {

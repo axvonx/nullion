@@ -14,6 +14,7 @@ import { BANK_QUESTIONS, loadBankTerms, scheduledQuestions } from './data/bank';
 import { browserStorage, canPersistDaily, clearDaily, loadDaily, saveDaily, type SaveStorage } from './game/daily-save';
 import { Game } from './game/game';
 import { finishDaily } from './game/stats';
+import { canPersistRun, clearRun, hasRun, loadBest, loadRun, newRunSeed, savedRunSeed, saveRun } from './game/endless-save';
 import { LOOK_SLOTS, looks, type LookSlot } from './looks';
 import { Scene } from './render/scene';
 import { DEFAULT_SETTINGS, settings, type Settings } from './settings';
@@ -87,12 +88,18 @@ async function boot() {
   let persistTo: SaveStorage | null = null;
   let persisting = false;
   let savedRev = 0;
+  // The Endless run save (src/game/endless-save.ts): on for a real Endless run, which also keeps a personal best.
+  let persistingRun = false;
+  let newBest = false;
   const flushSave = () => {
-    if (persisting && game.rev !== savedRev) {
-      saveDaily(persistTo, game);
-      savedRev = game.rev;
-    }
+    if (game.rev === savedRev) return;
+    if (persisting) saveDaily(persistTo, game);
+    if (persistingRun && saveRun(storage, game, clock())) newBest = true;
+    savedRev = game.rev;
   };
+  // Endless is offered on the end card once the day is done. Debug builds only for now: production waits for the
+  // teleport to the top, the ENDLESS wordmark and the answer history bar (ENDLESS-PLAN.md).
+  const ENDLESS_OFFERED = DEBUG;
   // The `?endless=` URL param and the debug dropdown name a mode by string: identity, not a rule, so compared here.
   const endlessParam = DEBUG ? new URLSearchParams(location.search).get('endless') : null;
   let endlessDebugMode: 'off' | 'endless' | 'true-endless' =
@@ -113,14 +120,19 @@ async function boot() {
     const questions = rules.promptSource === 'day' ? source.daily(daySeed) : source.pool;
     const set = await source.load(questions);
     if (gen !== restartGen) return;
+    // Resume today's game after a reload, unless this is Endless, a debug mode, or an explicit debug restart.
+    const depthDeepLink = DEBUG && new URLSearchParams(location.search).has('depth');
+    persistingRun = canPersistRun({ mode, unlimited: s.unlimited, timer: s.timer, scroll: s.mode === 'scroll' || depthDeepLink, outside: s.outsideTier !== 'off' });
+    newBest = false;
+    if (persistingRun && fresh) clearRun(storage);
     game = new Game(set, daySeed, {
       timer: s.timer,
       unlimited: s.unlimited,
       autocorrect: prefs.get().autocorrect,
       mode,
+      // Each Endless run draws its own prompt order; a saved run brings its seed back.
+      ...(rules.promptSource === 'pool' ? { seed: (persistingRun ? savedRunSeed(storage) : null) ?? newRunSeed() } : {}),
     });
-    // Resume today's game after a reload, unless this is Endless, a debug mode, or an explicit debug restart.
-    const depthDeepLink = DEBUG && new URLSearchParams(location.search).has('depth');
     persisting = canPersistDaily({ mode, unlimited: s.unlimited, timer: s.timer, date: s.date, scroll: s.mode === 'scroll' || depthDeepLink, outside: s.outsideTier !== 'off' });
     hud.outsideTier = s.outsideTier === 'off' ? null : s.outsideTier;
     persistTo = persisting ? storage : null;
@@ -132,6 +144,29 @@ async function boot() {
       else if (res.kind === 'resumed' && game.phase.kind !== 'done')
         notice = { text: text('notices.daily.resumed'), kind: 'info' };
     }
+    if (persistingRun) {
+      const res = loadRun(storage, game);
+      if (res.kind === 'invalid') notice = { text: text('notices.endless.invalid', { reason: res.reason }), kind: 'error' };
+      else if (res.kind === 'resumed') notice = { text: text('notices.endless.resumed'), kind: 'info' };
+      const best = loadBest(storage);
+      if (best.kind === 'invalid') notice = { text: text('notices.endless.invalid', { reason: best.reason }), kind: 'error' };
+    }
+    hud.endless = () => {
+      if (!ENDLESS_OFFERED) return null;
+      const best = loadBest(storage);
+      return {
+        resume: hasRun(storage),
+        best: best.kind === 'best' ? { depth: best.best.depth, isNew: newBest } : null,
+        enter: () => {
+          endlessDebugMode = 'endless';
+          restart();
+        },
+        back: () => {
+          endlessDebugMode = 'off';
+          restart();
+        },
+      };
+    };
     savedRev = game.rev;
     scene.setStackMode(mode);
     // Everyone sees the same world on a given day: landmarks and scatter are both seeded by the puzzle (or ?seed=N).

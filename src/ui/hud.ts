@@ -13,7 +13,7 @@ import { LAYER_ART } from '../layers';
 import { tierIcon } from './tier-icons';
 import { text } from '../text';
 import { $, elementsOf, framesLabel, refLink, replay, setText } from './dom';
-import { END_CARD_HTML, EndCard, rowsOf, type RecordRow } from './end-card';
+import { END_CARD_HTML, EndCard, rowsOf, type RecordRow , type EndlessHook } from './end-card';
 import { REVEAL_HTML, REVEAL_MS, Reveal } from './reveal';
 import { mountPrefsMenu } from './prefs-menu';
 import { TitleLogo } from './title-logo';
@@ -25,6 +25,7 @@ import { sound } from '../audio/sound';
 import { bankAcceptsFor } from '../data/bank';
 import { missedAnswerUrl } from './issues';
 import { mountVisualViewport } from './viewport';
+import { enforce } from '../core/enforce';
 import { browserFetchJson, checkOutside } from '../game/outside-check';
 
 /** Below this share of the answer time left, the watchdog goes into its low-time state. */
@@ -66,6 +67,8 @@ export class Hud {
   /** Outside answers (debug prototype, src/game/outside-check.ts): the tier a rejected guess scores if Wikipedia
    *  backs it; null (always, in production) leaves rejected guesses rejected. Set by main.ts on every (re)start. */
   outsideTier: TierId | null = null;
+  /** Endless from the end card (set by main.ts); null where it isn't offered. */
+  endless: () => EndlessHook | null = () => null;
   private titleLogo: TitleLogo;
   private layerStack: LayerStack;
   private binder: FieldManualBinder;
@@ -155,6 +158,7 @@ ${REVEAL_HTML}`;
       clock: () => this.clock(),
       notify: (message, kind) => this.notify(message, kind),
       openManual: () => this.openManual(),
+      endless: () => this.endless(),
     });
     this.binder = new FieldManualBinder(document.body); // above the HUD's stacking context (and the debug rail)
     this.els.titleManualBtn!.prepend(manualBookIcon(13));
@@ -441,20 +445,24 @@ ${REVEAL_HTML}`;
     sel.onchange = () => onChange(sel.value as 'off' | 'endless' | 'true-endless');
   }
 
-  /** Render the 7 round score slots (Daily) or 3 watchdog strike fuses + round counter (Endless). */
+  /** Render the 7 round score slots (Daily) or the hearts + round counter (Endless). */
   private syncSlots(g: Game) {
-    if (g.rules.roundCounter === 'fuses') {
-      const sig = `endless|${g.strikes}|${g.rounds.length}`;
+    if (g.rules.roundCounter === 'hearts') {
+      const hearts = g.rules.hearts;
+      enforce(hearts, `mode ${g.mode} counts hearts but has no heart rules`);
+      const left = g.hearts;
+      const sig = `endless|${left}|${g.rounds.length}`;
       if (sig === this.slotsSig) return;
       this.slotsSig = sig;
       const wrap = this.els.slots!;
       wrap.replaceChildren();
-      for (let i = 0; i < g.maxStrikes; i++) {
-        const alive = i < g.strikesLeft;
+      wrap.setAttribute('aria-label', `${left} of ${hearts.max} hearts`);
+      for (let i = 0; i < hearts.max; i++) {
+        const alive = i < left;
         const f = document.createElement('span');
-        f.className = alive ? 'slot fuse' : 'slot fuse burned';
-        f.textContent = alive ? '●' : '×';
-        f.title = alive ? 'Watchdog fuse intact' : 'Watchdog strike burned';
+        f.className = alive ? 'slot heart' : 'slot heart lost';
+        f.textContent = alive ? '♥' : '♡';
+        f.title = alive ? 'Heart: a timeout or skip costs one' : 'Heart lost: a Bit Flip or more frames win it back';
         wrap.append(f);
       }
       const rc = document.createElement('span');
@@ -475,7 +483,7 @@ ${REVEAL_HTML}`;
           i === pendingSink
             ? '-'
             : r.locked
-              ? `${r.locked.entry.tier}:${TIERS[r.locked.entry.tier].frames}`
+              ? `${r.locked.entry.tier}:${r.locked.pushed}`
               : r.timedOut || (g.phase.kind === 'done' && !r.locked) || (active > i && !r.locked)
                 ? '0'
                 : '-',
@@ -502,7 +510,7 @@ ${REVEAL_HTML}`;
         const t = TIERS[r.locked.entry.tier];
         s.dataset.tier = t.id;
         s.append(tierIcon(t.id));
-        expand(`#${i + 1} ${r.locked.entry.name} · ${t.name} · +${t.frames}`);
+        expand(`#${i + 1} ${r.locked.entry.name} · ${t.name} · +${r.locked.pushed}`);
       } else if (i !== pendingSink && (r.timedOut || g.phase.kind === 'done' || (active > i && !r.locked))) {
         s.classList.add('miss');
         s.append(tierIcon('timeout'));
@@ -685,10 +693,9 @@ ${REVEAL_HTML}`;
         this.input.classList.remove('corrected');
         const lk = r!.locked;
         if (r!.buzzer.accepted && lk && this.scene) {
-          const t = TIERS[lk.entry.tier];
           this.els.feedback!.className = 'feedback ok';
           this.els.feedback!.textContent = lk.corrected ? text('console.corrected', { name: lk.entry.name }) : '';
-          this.scene.diveTo(g.depth, t.id, t.frames);
+          this.scene.diveTo(g.depth, lk.entry.tier, lk.pushed);
         }
       }
       if (r!.timedOut && this.barked !== p.round) {

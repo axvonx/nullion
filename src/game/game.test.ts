@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { buildAnswerSet } from '../core/answers';
 import { SAMPLE_QUESTIONS, SAMPLE_TERMS } from '../data/sample';
-import { ANSWER_MS, ENDLESS_MAX_STRIKES, endlessAnswerMs } from '../core/modes';
+import { ANSWER_MS, ENDLESS_HEARTS, ENDLESS_HEART_REFILL_FRAMES, ENDLESS_KERNEL_DEPTH, endlessAnswerMs } from '../core/modes';
 import { Game, InvalidSaveError, READ_MS } from './game';
 import { browserStorage, canPersistDaily, dailyKey, loadDaily, saveDaily, type SaveStorage } from './daily-save';
 
@@ -175,12 +175,11 @@ describe('game loop', () => {
     });
   });
 
-  describe('endless mode (3-strike watchdog)', () => {
-    it('continues past 7 rounds with anti-repeat prompts and ends on the 3rd watchdog strike', () => {
+  describe('endless mode (hearts)', () => {
+    it('continues past 7 rounds with anti-repeat prompts and ends when the hearts run out', () => {
       const g = new Game(set, 42, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });
       expect(g.mode).toBe('endless');
-      expect(g.strikes).toBe(0);
-      expect(g.strikesLeft).toBe(ENDLESS_MAX_STRIKES);
+      expect(g.hearts).toBe(ENDLESS_HEARTS);
       let now = 0;
       g.start(now);
 
@@ -196,20 +195,97 @@ describe('game loop', () => {
         g.advance(now);
         expect(g.phase).toMatchObject({ kind: 'reading', round: i + 1 });
       }
-      expect(g.depth).toBe(130);
-      expect(g.strikes).toBe(0);
+      // Bit Flips push 13 x20 above the kernel (705), 13 x10 from it: 260, 520, 780, then 7 x 130.
+      expect(ENDLESS_KERNEL_DEPTH).toBe(705);
+      expect(g.depth).toBe(780 + 7 * 130);
+      expect(g.hearts).toBe(ENDLESS_HEARTS);
 
-      // Now burn 3 watchdog strikes
-      for (let s = 1; s <= ENDLESS_MAX_STRIKES; s++) {
+      // Now let the watchdog take every heart
+      for (let s = 1; s <= ENDLESS_HEARTS; s++) {
         now += READ_MS;
         g.tick(now);
         now += g.answerMs;
         g.tick(now);
-        expect(g.strikes).toBe(s);
-        expect(g.strikesLeft).toBe(ENDLESS_MAX_STRIKES - s);
+        expect(g.hearts).toBe(ENDLESS_HEARTS - s);
         g.advance(now);
       }
       expect(g.phase.kind).toBe('done');
+    });
+
+    /** An Endless run parked at reading round 0, plus helpers to time out or answer a round at a given tier. */
+    function run(seed = 7) {
+      const g = new Game(set, 42, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless', seed });
+      let now = 0;
+      g.start(now);
+      const timeout = () => {
+        now += READ_MS;
+        g.tick(now);
+        now += g.answerMs;
+        g.tick(now);
+        g.advance(now);
+      };
+      const answer = (tier: 'bitflip' | 'off-by-one') => {
+        now += READ_MS;
+        g.tick(now);
+        const name = set.entries(g.current()!.question.id).find((e) => e.tier === tier)!.name;
+        expect(g.submit(name, now).kind).toBe('accepted');
+        g.advance(now);
+      };
+      return { g, timeout, answer };
+    }
+
+    it('a Bit Flip gives a heart back, never above the maximum', () => {
+      const { g, timeout, answer } = run();
+      timeout();
+      timeout();
+      expect(g.hearts).toBe(1);
+      answer('bitflip');
+      expect(g.hearts).toBe(2);
+      answer('bitflip');
+      answer('bitflip');
+      expect(g.hearts).toBe(ENDLESS_HEARTS);
+    });
+
+    it('every 750 frames earned gives a heart back', () => {
+      const { g, timeout, answer } = run();
+      timeout();
+      expect(g.hearts).toBe(2);
+      // Off-by-one pushes 20 above the kernel (705) and 10 from it: 35 answers make 700, then 720, 730, 740, 750.
+      for (let i = 0; i < 35; i++) answer('off-by-one');
+      expect(g.depth).toBe(700);
+      for (let i = 0; i < 3; i++) answer('off-by-one');
+      expect(g.depth).toBe(740);
+      expect(g.hearts).toBe(2);
+      answer('off-by-one');
+      expect(ENDLESS_HEART_REFILL_FRAMES).toBe(750);
+      expect(g.hearts).toBe(3);
+    });
+
+    it('a run saves and restores: same prompts, depth, hearts and phase; the next prompt follows on', () => {
+      const { g, timeout, answer } = run(99);
+      answer('bitflip');
+      timeout();
+      answer('off-by-one');
+      const snap = JSON.parse(JSON.stringify(g.snapshot()));
+      expect(snap).toMatchObject({ mode: 'endless', seed: 99 });
+      const back = new Game(set, 42, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless', seed: 99 });
+      back.restore(snap);
+      expect(back.rounds.map((r) => r.question.id)).toEqual(g.rounds.map((r) => r.question.id));
+      expect([back.depth, back.hearts, back.phase]).toEqual([g.depth, g.hearts, g.phase]);
+      g.advance(0);
+      back.advance(0);
+      expect(back.current()!.question.id).toBe(g.current()!.question.id);
+    });
+
+    it('a run save with another seed, or prompts that are not its draw, is refused', () => {
+      const { g, answer } = run(5);
+      answer('off-by-one');
+      const snap = JSON.parse(JSON.stringify(g.snapshot()));
+      const other = new Game(set, 42, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless', seed: 6 });
+      expect(() => other.restore(snap)).toThrow(InvalidSaveError);
+      snap.rounds[1].q = 'not-a-prompt';
+      const same = new Game(set, 42, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless', seed: 5 });
+      expect(() => same.restore(snap)).toThrow(/round 1 asks/);
     });
 
     it('tightens the per-prompt watchdog timer at deeper layers', () => {
@@ -425,10 +501,9 @@ describe('daily save and resume', () => {
     expect(canPersistDaily({ ...base, outside: true })).toBe(false);
     expect(canPersistDaily({ ...base, date: '2026-12-01' })).toBe(false);
     expect(canPersistDaily({ ...base, scroll: true })).toBe(false);
-    // And the save layer itself refuses to snapshot or write an Endless game.
+    // And the daily save refuses an Endless game (a run has its own save, src/game/endless-save.ts).
     const e = new Game(set, 1, { ...OPTS, mode: 'endless' });
     e.start(0);
-    expect(() => e.snapshot()).toThrow();
     const store = new MemStorage();
     expect(() => saveDaily(store, e)).toThrow();
     expect(store.length).toBe(0);

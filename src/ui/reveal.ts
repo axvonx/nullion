@@ -138,7 +138,7 @@ export class Reveal {
   showRound(round: number, r: Round) {
     this.shown = round;
     const lk = r.locked;
-    if (lk) this.showTier(lk.entry.tier, lk.entry.name, TIERS[lk.entry.tier].frames, lk.entry.note);
+    if (lk) this.showTier(lk.entry.tier, lk.entry.name, lk.pushed, lk.entry.note);
     else this.showTimeout();
   }
 

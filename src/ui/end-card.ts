@@ -33,6 +33,8 @@ export interface RecordRow {
   prompt?: string;
   tier?: TierId;
   name?: string;
+  /** Frames the answer pushed (the tier's own in Daily; scaled in Endless). Defaults to the tier's frames. */
+  pushed?: number;
   timedOut?: boolean;
 }
 
@@ -40,7 +42,7 @@ export interface RecordRow {
 export function rowsOf(g: Game): RecordRow[] {
   return g.rounds.map((r) =>
     r.locked
-      ? { question: r.question.id, prompt: r.question.prompt, tier: r.locked.entry.tier, name: r.locked.entry.name }
+      ? { question: r.question.id, prompt: r.question.prompt, tier: r.locked.entry.tier, name: r.locked.entry.name, pushed: r.locked.pushed }
       : { question: r.question.id, prompt: r.question.prompt, timedOut: r.timedOut },
   );
 }
@@ -61,7 +63,7 @@ export const END_CARD_HTML = `
           </section>
           <div class="eod-h">Today’s backtrace</div>
           <ol class="record" data-el="record" aria-label="Today’s backtrace, most recent first"></ol>
-          <div class="result-share"><button type="button" class="share-big" data-el="copy">Copy result</button><div class="next-day" data-el="nextDay"></div></div>
+          <div class="result-share"><button type="button" class="share-big" data-el="copy">Copy result</button><div class="next-day" data-el="nextDay"></div><div class="endless-best" data-el="endlessBest" hidden></div><button type="button" class="endless-go" data-el="endlessBtn" hidden></button></div>
           <div class="stats" data-el="stats" hidden></div>
           <div class="result-manual"><button type="button" class="fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
           <div class="result-links" data-el="resultLinks"></div>
@@ -79,7 +81,25 @@ export interface EndCardHost {
   /** A visible message (a stats file that could not be read). */
   notify(message: string, kind: 'info' | 'error'): void;
   openManual(): void;
+  /** Endless from the end card, or null where it isn't offered (see `EndlessHook`). */
+  endless(): EndlessHook | null;
 }
+
+/**
+ * Endless from the end card. The daily card offers to enter it (or resume a saved run), only once the day is done;
+ * an Endless card shows the personal best and goes back to today's stack.
+ */
+export interface EndlessHook {
+  /** An unfinished run is saved. */
+  resume: boolean;
+  /** The best run's depth, and whether the run just ended set it. */
+  best: { depth: number; isNew: boolean } | null;
+  enter(): void;
+  back(): void;
+}
+
+/** How long the Enter button's light-up plays before the run starts. */
+const ENTER_GLOW_MS = 650;
 
 /**
  * The end-of-day card: the day's backtrace (rows, answer sheets), the share text and button, the lifetime stats,
@@ -209,6 +229,7 @@ export class EndCard {
     this.shownNow = true;
     this.unstow();
     this.build(rows, depth, puzzle);
+    this.buildEndless();
     this.els.result!.hidden = false;
     replay(this.els.result!, 'settle-in');
     this.els.copy!.focus({ preventScroll: true });
@@ -253,7 +274,7 @@ export class EndCard {
     ol.replaceChildren();
     let d = 0;
     const frames = rows.map((r) => {
-      const n = r.tier ? TIERS[r.tier].frames : 0;
+      const n = r.tier ? r.pushed ?? TIERS[r.tier].frames : 0;
       const span = { r, from: d + 1, to: d + n, n };
       d += n;
       return span;
@@ -381,6 +402,40 @@ export class EndCard {
       }
       ol.append(li);
       this.reachedBadges.push({ layer: stack[i]!, el: badge });
+    }
+  }
+
+  /** The Endless line under Share: enter/resume on a finished day, the best and the way back on a finished run. */
+  private buildEndless() {
+    const btn = this.els.endlessBtn! as HTMLButtonElement;
+    const bestEl = this.els.endlessBest!;
+    btn.hidden = true;
+    bestEl.hidden = true;
+    btn.classList.remove('lit');
+    btn.disabled = false;
+    const g = this.host.game();
+    const hook = this.host.endless();
+    if (!g || !hook) return;
+    if (g.rules.persistsDaily) {
+      btn.textContent = hook.resume ? text('end-card.endless.resume') : text('end-card.endless.enter');
+      btn.onclick = () => {
+        // Just for fun: the button lights up, then the run starts (straight away under reduced motion).
+        btn.disabled = true;
+        if (reducedMotion()) return hook.enter();
+        btn.classList.add('lit');
+        window.setTimeout(() => hook.enter(), ENTER_GLOW_MS);
+      };
+      btn.hidden = false;
+    } else if (g.rules.persistsRun) {
+      if (hook.best) {
+        const frames = framesLabel(hook.best.depth);
+        bestEl.textContent = hook.best.isNew ? text('end-card.endless.new-best', { frames }) : text('end-card.endless.best', { frames });
+        bestEl.classList.toggle('is-new', hook.best.isNew);
+        bestEl.hidden = false;
+      }
+      btn.textContent = text('end-card.endless.back');
+      btn.onclick = () => hook.back();
+      btn.hidden = false;
     }
   }
 

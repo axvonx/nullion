@@ -4,7 +4,7 @@ import { enforce } from '../core/enforce';
 import { PROMPTS_PER_DAY, type StackMode } from '../core/layers';
 import { rulesFor, type ModeRules } from '../core/modes';
 import { normalize, type CategoryEntry } from '../core/match';
-import { TIERS, type TierId } from '../core/tiers';
+import type { TierId } from '../core/tiers';
 import { text } from '../text';
 import type { Question } from '../data/sample';
 
@@ -12,8 +12,9 @@ export const READ_MS = 3000;
 
 export interface Round {
   question: Question;
-  /** The first accepted answer: the only one that pushes frames. */
-  locked?: { entry: CategoryEntry; corrected: boolean; guess: string };
+  /** The first accepted answer: the only one that pushes frames (`pushed`: how many, by the mode's rules at the
+   *  depth it landed; Endless scales them). */
+  locked?: { entry: CategoryEntry; corrected: boolean; guess: string; pushed: number };
   /** Further accepted answers in unlimited mode (debug); logged, no frames. */
   extra: CategoryEntry[];
   rejected: string[];
@@ -43,10 +44,16 @@ export type SubmitResult =
   | { kind: 'rejected'; guess: string }
   | { kind: 'ignored' };
 
-/** The persisted shape of a daily game (see src/game/save.ts). `phase` is never 'ready': nothing is saved before Start. */
+/**
+ * The persisted shape of a game (daily: src/game/daily-save.ts; Endless: src/game/endless-save.ts). `phase` is never
+ * 'ready': nothing is saved before Start. Endless runs also carry their mode and prompt seed, so the restored run
+ * draws the same prompts in the same order (and its rounds are checked against that draw).
+ */
 export interface GameSnapshot {
   v: 1;
   puzzle: number;
+  mode?: StackMode;
+  seed?: number;
   rounds: {
     q: string;
     locked?: { name: string; corrected: boolean; guess: string };
@@ -78,14 +85,17 @@ export interface GameOptions {
    * 'auto': accept the corrected answer straight away. Mutable so a preference change applies mid-game.
    */
   autocorrect: 'confirm' | 'auto';
-  /** Stack mode: 'daily' (7 fixed prompts) or 'endless' (3-strike watchdog descent). Defaults to 'daily'. */
+  /** Stack mode: 'daily' (7 fixed prompts) or 'endless' (a descent on hearts). Defaults to 'daily'. */
   mode?: StackMode;
+  /** Prompt-order seed for a pooled run (Endless): each run its own. Defaults to one derived from the puzzle. */
+  seed?: number;
 }
 
 export class Game {
   readonly mode: StackMode;
   readonly rules: ModeRules;
-  readonly maxStrikes: number;
+  /** The prompt-order seed (pooled runs). */
+  readonly seed: number;
   readonly rounds: Round[];
   phase: Phase = { kind: 'ready' };
   /**
@@ -107,8 +117,8 @@ export class Game {
   ) {
     this.mode = opts.mode ?? 'daily';
     this.rules = rulesFor(this.mode);
-    this.maxStrikes = this.rules.maxStrikes;
-    this.endlessRand = rng((Math.imul(puzzle | 0, 2654435761) ^ 0x517cc1b7) >>> 0);
+    this.seed = opts.seed ?? (Math.imul(puzzle | 0, 2654435761) ^ 0x517cc1b7) >>> 0;
+    this.endlessRand = rng(this.seed);
     if (this.rules.promptSource === 'pool') {
       enforce(set.questions.length > 0, 'endless mode requires at least one question');
       this.rounds = [this.makeRound(this.drawEndlessQuestion())];
@@ -162,19 +172,40 @@ export class Game {
   }
 
   get depth(): number {
-    return this.rounds.reduce((d, r) => d + (r.locked ? TIERS[r.locked.entry.tier].frames : 0), 0);
+    return this.rounds.reduce((d, r) => d + (r.locked ? r.locked.pushed : 0), 0);
   }
 
-  /** Number of watchdog fails / missed prompts in the current run. */
-  get strikes(): number {
-    let n = 0;
-    for (const r of this.rounds) if (!r.locked && (r.timedOut || r.missed)) n++;
-    return n;
+  /**
+   * Hearts left (modes with hearts; 0 otherwise), replayed from the rounds so a restored run agrees: start full;
+   * a round that ended without an answer (timeout or skip) costs one; a Bit Flip restores one; every
+   * `refillFrames` frames earned restores one; never above the maximum.
+   */
+  get hearts(): number {
+    const h = this.rules.hearts;
+    if (!h) return 0;
+    let hearts = h.max;
+    let earned = 0;
+    for (const r of this.rounds) {
+      if (r.locked) {
+        if (h.bitflipRestores && r.locked.entry.tier === 'bitflip') hearts = Math.min(h.max, hearts + 1);
+        if (h.refillFrames > 0) {
+          const before = Math.floor(earned / h.refillFrames);
+          earned += r.locked.pushed;
+          hearts = Math.min(h.max, hearts + Math.floor(earned / h.refillFrames) - before);
+        }
+      } else if (r.timedOut || r.missed) {
+        hearts -= 1;
+        if (hearts <= 0) return 0;
+      }
+    }
+    return hearts;
   }
 
-  /** Remaining strikes in Endless mode (0 in Daily mode). */
-  get strikesLeft(): number {
-    return Math.max(0, this.maxStrikes - this.strikes);
+  /** Lock a round's answer, pushing the mode's frames for it at the current depth. */
+  private lock(r: Round, entry: CategoryEntry, corrected: boolean, guess: string): number {
+    const pushed = this.rules.framesFor(entry.tier, this.depth);
+    r.locked = { entry, corrected, guess, pushed };
+    return pushed;
   }
 
   /** Active per-prompt watchdog duration in ms. */
@@ -253,9 +284,9 @@ export class Game {
     // Ask first only when the correction is a real judgement call: one typo on a long name needs no confirming.
     if (res.corrected && !res.sure && this.opts.autocorrect === 'confirm') return { kind: 'suggestion', entry: res.entry, guess: trimmed };
     if (!r.locked) {
-      r.locked = { entry: res.entry, corrected: res.corrected, guess: trimmed };
+      const pushed = this.lock(r, res.entry, res.corrected, trimmed);
       if (!this.opts.unlimited) this.toBetween(p.round, now);
-      return { kind: 'accepted', entry: res.entry, corrected: res.corrected, pushed: TIERS[res.entry.tier].frames };
+      return { kind: 'accepted', entry: res.entry, corrected: res.corrected, pushed };
     }
     r.extra.push(res.entry);
     return { kind: 'accepted', entry: res.entry, corrected: res.corrected, pushed: 0 };
@@ -281,9 +312,9 @@ export class Game {
     const i = r.rejected.lastIndexOf(guess.trim());
     if (i >= 0) r.rejected.splice(i, 1);
     this.rev++;
-    r.locked = { entry, corrected: false, guess: guess.trim() };
+    const pushed = this.lock(r, entry, false, guess.trim());
     if (!this.opts.unlimited) this.toBetween(round, now);
-    return { kind: 'accepted', entry, corrected: false, pushed: TIERS[entry.tier].frames };
+    return { kind: 'accepted', entry, corrected: false, pushed };
   }
 
   /** The watchdog fired with text in the box: try it once, correction applied. A miss is logged as a rejected guess. */
@@ -292,7 +323,7 @@ export class Game {
     if (!guess) return;
     const res = this.set.check(r.question.id, guess);
     if (res.kind === 'accepted') {
-      r.locked = { entry: res.entry, corrected: res.corrected, guess };
+      this.lock(r, res.entry, res.corrected, guess);
       r.buzzer = { guess, accepted: true };
     } else {
       r.rejected.push(guess);
@@ -306,7 +337,7 @@ export class Game {
 
   private next(round: number, now: number) {
     if (this.rules.promptSource === 'pool') {
-      if (this.strikes >= this.maxStrikes) {
+      if (this.rules.hearts && this.hearts <= 0) {
         this.phase = { kind: 'done' };
         return;
       }
@@ -319,13 +350,19 @@ export class Game {
   }
 
   /** The daily game's persistable state. Daily only: Endless is never saved. */
+  /** A pooled run (Endless) is saved and restored like a day: its own save, keyed by mode and seed. */
+  private get savable(): boolean {
+    return this.rules.persistsDaily || this.rules.promptSource === 'pool';
+  }
+
   snapshot(): GameSnapshot {
-    enforce(this.rules.persistsDaily, 'only a daily game can be saved');
+    enforce(this.savable, `a ${this.mode} game cannot be saved`);
     const p = this.phase;
     enforce(p.kind !== 'ready', 'a game that has not started has nothing to save');
     return {
       v: 1,
       puzzle: this.puzzle,
+      ...(this.rules.promptSource === 'pool' ? { mode: this.mode, seed: this.seed } : {}),
       rounds: this.rounds.map((r) => ({
         q: r.question.id,
         ...(r.locked ? { locked: { name: r.locked.entry.name, corrected: r.locked.corrected, guess: r.locked.guess } } : {}),
@@ -344,7 +381,8 @@ export class Game {
    */
   restore(raw: unknown): void {
     enforce(this.phase.kind === 'ready', `restore() from ${this.phase.kind}`);
-    enforce(this.rules.persistsDaily, 'only a daily game can be restored');
+    enforce(this.savable, `a ${this.mode} game cannot be restored`);
+    const pool = this.rules.promptSource === 'pool';
     const bad = (why: string): never => {
       throw new InvalidSaveError(why);
     };
@@ -353,12 +391,22 @@ export class Game {
     if (!isObj(raw)) return bad('not an object');
     if (raw.v !== 1) return bad(`unknown version ${String(raw.v)}`);
     if (raw.puzzle !== this.puzzle) return bad(`save is for puzzle ${String(raw.puzzle)}, not ${this.puzzle}`);
-    if (!Array.isArray(raw.rounds) || raw.rounds.length !== this.rounds.length) return bad('wrong number of rounds');
+    // A pooled run's prompts are the draw of its seed: a scratch game with that seed says what they must be.
+    let expected: Question[] = this.rounds.map((r) => r.question);
+    if (pool) {
+      if (raw.mode !== this.mode) return bad(`save is a ${String(raw.mode)} run, not ${this.mode}`);
+      if (raw.seed !== this.seed) return bad(`save has seed ${String(raw.seed)}, this run ${this.seed}`);
+      if (!Array.isArray(raw.rounds) || raw.rounds.length < 1 || raw.rounds.length > 100_000) return bad('wrong number of rounds');
+      const scratch = new Game(this.set, this.puzzle, { ...this.opts, mode: this.mode, seed: this.seed });
+      expected = [scratch.rounds[0]!.question];
+      while (expected.length < raw.rounds.length) expected.push(scratch.drawEndlessQuestion());
+    } else if (!Array.isArray(raw.rounds) || raw.rounds.length !== this.rounds.length) return bad('wrong number of rounds');
     const rounds: Round[] = [];
+    let depth = 0;
     raw.rounds.forEach((sr: unknown, i: number) => {
-      const mine = this.rounds[i]!;
+      const mine = { question: expected[i]! };
       if (!isObj(sr)) return bad(`round ${i} is not an object`);
-      if (sr.q !== mine.question.id) return bad(`round ${i} asks '${String(sr.q)}', today's prompt is '${mine.question.id}'`);
+      if (sr.q !== mine.question.id) return bad(`round ${i} asks '${String(sr.q)}', the run's prompt is '${mine.question.id}'`);
       const entries = this.set.entries(mine.question.id);
       const find = (name: unknown) => {
         const e = typeof name === 'string' ? entries.find((x) => x.name === name) : undefined;
@@ -372,7 +420,10 @@ export class Game {
       if (sr.locked !== undefined) {
         const l = sr.locked;
         if (!isObj(l) || typeof l.corrected !== 'boolean' || typeof l.guess !== 'string') return bad(`round ${i}: malformed locked answer`);
-        round.locked = { entry: find(l.name), corrected: l.corrected, guess: l.guess };
+        const entry = find(l.name);
+        const pushed = this.rules.framesFor(entry.tier, depth);
+        depth += pushed;
+        round.locked = { entry, corrected: l.corrected, guess: l.guess, pushed };
       }
       rounds.push(round);
     });
@@ -398,6 +449,8 @@ export class Game {
     if (phase.kind === 'between' && !rounds[phase.round]!.locked && !rounds[phase.round]!.missed && !rounds[phase.round]!.timedOut)
       return bad('round is over but has no outcome');
 
+    // Bring this game's prompt bag to the same point as the saved run's, so its next prompt follows on.
+    if (pool) for (let i = 1; i < rounds.length; i++) this.drawEndlessQuestion();
     this.rounds.splice(0, this.rounds.length, ...rounds);
     this.phase = phase;
     this.rev++;

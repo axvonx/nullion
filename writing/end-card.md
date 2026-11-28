@@ -119,3 +119,45 @@ max: 40
 status: draft
 
 Other answers
+
+## end-card.endless.enter
+where: the button under Share result on the daily end card
+when: the day is over and no Endless run is waiting; pressing it lights up and drops into Endless
+max: 30
+status: draft
+
+Enter endless ▾
+
+## end-card.endless.resume
+where: the button under Share result on the daily end card
+when: the day is over and an unfinished Endless run is saved
+max: 30
+status: draft
+
+Resume endless run ▾
+
+## end-card.endless.best
+where: under Share result on an Endless end card
+when: an Endless run has ended and an earlier run went deeper (or as deep)
+max: 60
+vars: {frames}
+status: draft
+
+Your best: {frames}
+
+## end-card.endless.new-best
+where: under Share result on an Endless end card
+when: an Endless run has ended deeper than any before
+max: 60
+vars: {frames}
+status: draft
+
+New best: {frames}
+
+## end-card.endless.back
+where: the button under the best line on an Endless end card
+when: an Endless run has ended
+max: 30
+status: draft
+
+Back to today’s stack ▴

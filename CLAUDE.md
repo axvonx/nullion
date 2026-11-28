@@ -71,7 +71,7 @@ The owner's open review queue (content approvals, naming, writing, feel checks) 
 - **Other players' answers:** each row of the end-of-day backtrace will get a dropdown arrow that reveals what other players answered for that question (requested 2026-11-26). It needs server-side answer counts, so it waits for a backend. The row layout already leaves room for it.
 - **Achievements, progress & True Endless (pinned 2026-11-27):** reaching the Landauer limit (`2,500` frames) in Endless triggers a milestone ("You have reached the end of endless." → "But, there is a *true endless* beyond" — not real computing, fantasy/procedural layers + critters beyond). Stopping / claiming the milestone awards an achievement (part of a broader achievements/progress system to design); achievement holders unlock a sparkly rainbow fast-dive button at the start of Endless to blast straight down to the Landauer limit and continue into True Endless to collect entities and creatures.
 - **Character bibles (pinned 2026-11-27, folded 2026-11-27):** settled designs are catalogued by `writing/manual/` (one page per entity) and `ART-STYLE.md`; add a separate art directory only for things those can't hold (design sketches, turnarounds).
-- **Hearts / lives system (pinned 2026-11-27):** explore a hearts/lives mechanic for future implementation (to be designed and picked up later).
+- **Hearts (decided 2026-11-27, Endless):** see Endless mode. **Revives (pinned 2026-11-27):** none yet; achievements should let players collect revives, and extra hearts may someday be offered by small easter eggs on screen.
 
 ## Sound & favicon
 
@@ -157,7 +157,12 @@ In-play animation, for orientation:
 
 ## Endless mode
 
-Debug-only for now (`?endless=1` or the header chip). A 29-layer stack to about 2,500 frames (`ENDLESS_LAYERS` in `src/core/layers.ts`), a per-prompt watchdog that tightens with depth (`endlessAnswerMs`, in `src/core/modes.ts`), 3 strikes and a `KERNEL PANIC` card, and an anti-repeat prompt bag. It draws from the same question bank as the daily game, so it only plays well once the bank is large.
+Debug-only for now (`?endless=1`, the header chip, or **Enter endless** on a finished day's end card). A 29-layer stack to about 2,500 frames (`ENDLESS_LAYERS` in `src/core/layers.ts`), a per-prompt watchdog that tightens with depth (`endlessAnswerMs`, in `src/core/modes.ts`), and an anti-repeat prompt bag drawn from the whole bank with a per-run seed.
+
+- **Decided 2026-11-27 (owner):** Endless is offered only on a finished daily's end card, under Share result (never before the daily, like krillion; free). Entering lights the button up and drops into a run. **Hearts**, not strikes: 3; a timeout or skip costs one; a Bit Flip restores one; every 750 frames earned restores one (max 3); at 0 the run ends in a `KERNEL PANIC` card. No revives yet (pinned below). Pacing target: a good player reaches the kernel in about 5 minutes and the rings in about 15.
+- **Frames (`ModeRules.framesFor`):** Endless pushes the tier's frames ×20 above the kernel (705) and ×10 from it (`ENDLESS_FRAME_SCALE`); Daily keeps the locked 1–13. `scripts/endless-sim.py` (player profiles × scale × refill) chose the numbers: simulated good player at the kernel ~5.7 min, rings ~14.6 min, median run ~21 min. Each round stores what it pushed (`Round.locked.pushed`); depth is their sum and hearts are replayed from the rounds (`Game.hearts`), so a restored run agrees.
+- **Saved runs (`src/game/endless-save.ts`):** the run in progress lives under `nullion.endless.run` (snapshot with mode and seed; restore re-draws the seed's prompts and checks them), so reloads, closed tabs and new days resume it with wall-clock deadlines. A finished run is dropped and its depth kept as `nullion.endless.best` if deeper. Unusable saves are removed and reported. True Endless and debug settings never persist (`canPersistRun`).
+- **Not done yet (production entry waits on these, `ENDLESS_OFFERED` in `main.ts`):** the teleport to the top with a fresh `nullion` wordmark and an `ENDLESS` subheading (it goes through the title screen today); the answer history bar (the last 14 tier icons, older ones in a left-hand dropdown by number, "1–14", "15–28"…); and one answer per run (a repeated prompt must not take an answer already used; proposed, not decided).
 
 ## Answer bank
 
