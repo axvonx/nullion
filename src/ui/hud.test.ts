@@ -287,6 +287,15 @@ describe('HUD flow', () => {
     expect(h.scene.dives.length).toBe(dives);
   });
 
+  it('pressing Enter on a blank prompt does nothing', () => {
+    const h = setup();
+    h.toAnswering();
+    h.submit('   ');
+    expect(h.game.phase.kind).toBe('answering');
+    expect(h.round()).toBe(0);
+    expect(h.revealUp()).toBe(false);
+  });
+
   it('reduced motion: the panels go still and the reveal still waits for its button', () => {
     looks.set({ motion: 'reduced' });
     const h = setup();
@@ -497,7 +506,7 @@ describe('end card', () => {
     const h = setup();
     const text = h.mount.querySelector('[data-el="titleRules"]')!.textContent!;
     expect(text).toContain(`${PROMPTS_PER_DAY} prompts a day, ${ANSWER_MS / 1000} seconds each`);
-    expect(text).toContain('local midnight');
+    expect(text).toContain('midnight');
   });
 
   it('the share text carries tier glyphs but never the frame scores', async () => {
@@ -514,7 +523,7 @@ describe('end card', () => {
     expect(copied).toContain(TIERS.bitflip.glyph);
     const lines = copied.split('\n');
     expect(lines[0]).toBe('nullion #1');
-    expect(lines[1]).toBe('18 stack frames · Kernel');
+    expect(lines[1]).toBe('18 stack frames ▪ Kernel');
     expect(lines[2]).not.toMatch(/\d/);
     expect(lines[3]).toBe(location.origin + location.pathname);
     expect(lines).toHaveLength(4);
@@ -540,7 +549,8 @@ describe('end card', () => {
     h.step();
     const slotsAfter0 = [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')];
     expect(slotsAfter0[0]!.querySelector('.tier-icon')).not.toBeNull();
-    expect(slotsAfter0[0]!.querySelector('.slot-x')!.textContent).toMatch(/^#1 .+ · Race condition · \+5$/);
+    expect(slotsAfter0[0]!.querySelector('.slot-x')!.textContent).toMatch(/^#1 .+Race condition\+5$/);
+    expect(slotsAfter0[0]!.querySelector('.slot-x .sq-sep')).not.toBeNull();
     expect(slotsAfter0[0]!.dataset.tier).toBe('race');
     expect(slotsAfter0[0]!.tabIndex).toBe(0); // focusable, so the expansion opens from the keyboard and on tap
 
@@ -549,7 +559,7 @@ describe('end card', () => {
     h.toAnswering();
     h.timeOut();
     const slotsAfter1 = [...h.mount.querySelectorAll<HTMLElement>('.slots .slot')];
-    expect(slotsAfter1[1]!.querySelector('.slot-x')!.textContent).toBe('#2 timed out · +0');
+    expect(slotsAfter1[1]!.querySelector('.slot-x')!.textContent).toBe('#2 timed out+0');
     expect(slotsAfter1[1]!.classList.contains('miss')).toBe(true);
   });
 
@@ -673,13 +683,13 @@ describe('console layout', () => {
     h.step(100);
     expect(consoleEl.classList.contains('reading')).toBe(true);
     expect(input.disabled).toBe(true);
-    expect(input.placeholder).toBe('Starting in 3s');
+    expect(input.placeholder).toBe('Prompt in 3s');
 
     h.step(1000);
-    expect(input.placeholder).toBe('Starting in 2s');
+    expect(input.placeholder).toBe('Prompt in 2s');
 
     h.step(1000);
-    expect(input.placeholder).toBe('Starting in 1s');
+    expect(input.placeholder).toBe('Prompt in 1s');
 
     h.step(1000);
     expect(h.game.phase.kind).toBe('answering');
@@ -811,7 +821,7 @@ describe('resume and end-card extras', () => {
     const { hud, mount } = mountWith(g, () => new Date(2026, 10, 26, 22, 0, 0).getTime());
     hud.notify('x');
     hud.update(0, 0);
-    expect(mount.querySelector('[data-el="nextDay"]')!.textContent).toBe('A new stack opens at local midnight.');
+    expect(mount.querySelector('[data-el="nextDay"]')!.textContent).toBe('Unwind the next stack at midnight.');
   });
 
   it('notify shows a dismissible notice', () => {

@@ -51,8 +51,94 @@ export function refLink(text: string, href: string | null, what: string): HTMLEl
   return a;
 }
 
-/** Put `line` into `el`, with every "stack frame(s)" in it linked to what a stack frame is. */
+export function sqSep(): HTMLSpanElement {
+  const s = document.createElement('span');
+  s.className = 'sq-sep';
+  s.setAttribute('aria-hidden', 'true');
+  return s;
+}
+
+/** Put `line` into `el`, turning every `{sq}` (`▪`) separator into a CSS pixel square. */
+export function setSqText(el: HTMLElement, line: string) {
+  const parts = line.split(/ ?\u25AA ?/);
+  if (parts.length === 1) {
+    setText(el, line);
+    return;
+  }
+  const nodes: (string | Node)[] = [];
+  parts.forEach((p, i) => {
+    if (i > 0) nodes.push(sqSep());
+    if (p) nodes.push(p);
+  });
+  el.replaceChildren(...nodes);
+}
+
+/** Put `line` into `el`, linking every "stack frame(s)" and turning every `{sq}` (`▪`) into a CSS pixel square. */
 export function setLineWithStackFrames(el: HTMLElement, line: string) {
-  const parts = line.split(/(stack frames?)/);
-  el.replaceChildren(...parts.filter(Boolean).map((p) => (/^stack frames?$/.test(p) ? refLink(p, STACK_FRAME_WIKI, 'Stack frame') : p)));
+  const parts = line.split(/(stack frames?| ?\u25AA ?)/);
+  el.replaceChildren(
+    ...parts.filter(Boolean).map((p) => {
+      if (/^stack frames?$/.test(p)) return refLink(p, STACK_FRAME_WIKI, 'Stack frame');
+      if (/^ ?\u25AA ?$/.test(p)) return sqSep();
+      return p;
+    }),
+  );
+}
+
+const GLITCH_RE = /\{gl:([^|{}]*)\|([^{}]*)\}/g;
+
+/** Strip `{gl:base|glitch}` markers down to their clean `base` text. */
+export function stripGlitch(template: string): string {
+  return template.replace(GLITCH_RE, '$1');
+}
+
+/**
+ * Render `template` into `el`, animating `{gl:base|glitch}` spans with stepped chroma/shear flickers.
+ * Returns a cleanup function that cancels pending timers. Under `reduced` motion (or without `force`),
+ * `base` stays static.
+ */
+export function renderGlitchLine(
+  el: HTMLElement,
+  template: string,
+  opts: { force?: boolean; reduced?: boolean } = {},
+): () => void {
+  const tokens = [...template.matchAll(GLITCH_RE)];
+  if (!tokens.length || opts.reduced || !opts.force) {
+    setText(el, stripGlitch(template));
+    return () => {};
+  }
+  const nodes: (string | HTMLElement)[] = [];
+  const spans: { span: HTMLSpanElement; base: string; glitch: string }[] = [];
+  let last = 0;
+  for (const m of tokens) {
+    const idx = m.index ?? 0;
+    if (idx > last) nodes.push(template.slice(last, idx));
+    const base = m[1]!;
+    const glitch = m[2]!;
+    const span = document.createElement('span');
+    span.className = 'tx-gl';
+    span.textContent = base;
+    nodes.push(span);
+    spans.push({ span, base, glitch });
+    last = idx + m[0].length;
+  }
+  if (last < template.length) nodes.push(template.slice(last));
+  el.replaceChildren(...nodes);
+
+  const timers: number[] = [];
+  const later = (ms: number, fn: () => void) => timers.push(window.setTimeout(fn, ms));
+  const fire = (on: boolean) => {
+    for (const s of spans) {
+      s.span.textContent = on ? s.glitch : s.base;
+      s.span.classList.toggle('is-on', on);
+    }
+  };
+  // Brief initial settle, then a two-beat glitch flicker before returning to base.
+  later(360, () => fire(true));
+  later(740, () => fire(false));
+  later(900, () => fire(true));
+  later(1120, () => fire(false));
+  return () => {
+    for (const t of timers) clearTimeout(t);
+  };
 }

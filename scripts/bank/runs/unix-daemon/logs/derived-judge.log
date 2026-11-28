@@ -1,0 +1,825 @@
+--- haiku call, 19s, exit 0, prompt 3456 chars, stdout 3979 chars
+mber": true, "name": "dunst", "tier": "heisenbug", "why": "A lightweight notification daemon for X and Wayland, named dunst."},
+{"guess": "caddy", "member": true, "name": "Caddy", "tier": "leak", "why": "The Caddy web server, run as a daemon and named caddy."},
+{"guess": "dirmngr", "member": true, "name": "dirmngr", "tier": "heisenbug", "why": "The GnuPG directory manager daemon for certificate and key lookups, named dirmngr."},
+{"guess": "authbind", "member": false, "name": "authbind", "tier": "womm", "why": "A wrapper that grants a program permission to bind privileged ports; it is a tool, not a daemon."},
+{"guess": "nvi", "member": false, "name": "nvi", "tier": "womm", "why": "A vi-clone text editor, an interactive program rather than a daemon."},
+{"guess": "lxcfs", "member": true, "name": "LXCFS", "tier": "heisenbug", "why": "The FUSE filesystem daemon that gives LXC containers a virtualized /proc and /sys view."},
+{"guess": "lsd", "member": false, "name": "lsd", "tier": "womm", "why": "LSDeluxe, a directory-listing command-line tool, not a daemon."},
+{"guess": "jabberd", "member": true, "name": "jabberd", "tier": "heisenbug", "why": "The jabberd XMPP (Jabber) server daemon."},
+{"guess": "dnsdist", "member": true, "name": "dnsdist", "tier": "heisenbug", "why": "PowerDNS's DNS load balancer and filtering daemon, named dnsdist."},
+{"guess": "squid", "member": true, "name": "Squid", "tier": "leak", "why": "The Squid caching and forwarding HTTP proxy, run as a daemon."}]
+```
+
+
+!!! attempt 1 rejected: ValueError: object for 'dnsdist' missing or out of order
+--- haiku call, 20s, exit 0, prompt 3492 chars, stdout 4074 chars
+"slapd", "member": true, "name": "slapd", "tier": "race", "why": "The OpenLDAP standalone LDAP server daemon."},
+{"guess": "libvirtd", "member": true, "name": "libvirtd", "tier": "race", "why": "The libvirt daemon that manages virtual machines on a host."},
+{"guess": "rspamd", "member": true, "name": "rspamd", "tier": "race", "why": "A spam-filtering daemon used with mail servers."},
+{"guess": "redis-sentinel", "member": true, "name": "redis-sentinel", "tier": "heisenbug", "why": "Redis's high-availability monitor, run as its own long-lived daemon process."},
+{"guess": "icinga2", "member": true, "name": "icinga2", "tier": "heisenbug", "why": "A monitoring daemon that runs continuously to check hosts and services."},
+{"guess": "hostapd", "member": true, "name": "hostapd", "tier": "race", "why": "The user-space daemon that runs Wi-Fi access points and authentication servers."},
+{"guess": "kamailio", "member": true, "name": "Kamailio", "tier": "heisenbug", "why": "A SIP server that runs as a long-lived daemon."},
+{"guess": "nsd", "member": true, "name": "NSD", "tier": "race", "why": "The NLnet Labs authoritative name server, whose name stands for Name Server Daemon."},
+{"guess": "pptpd", "member": true, "name": "pptpd", "tier": "heisenbug", "why": "A PPTP VPN server daemon that accepts incoming tunnel connections."},
+{"guess": "suricata", "member": true, "name": "Suricata", "tier": "race", "why": "An intrusion detection and prevention engine that runs as a long-lived daemon."}]
+
+
+--- haiku call, 22s, exit 0, prompt 3496 chars, stdout 4443 chars
+ is a one-shot service unit that saves and restores the random seed, not a long-running daemon."},
+{"guess": "sssd", "member": true, "name": "SSSD", "tier": "heisenbug", "why": "SSSD (System Security Services Daemon) is a long-running daemon that provides identity and authentication services."},
+{"guess": "gpsd", "member": true, "name": "gpsd", "tier": "heisenbug", "why": "gpsd is a daemon that reads GPS receivers and serves their data to clients over the network."},
+{"guess": "nasd", "member": false, "name": "nasd", "tier": "", "why": "I cannot name a specific, documented Unix daemon called nasd, so I am not confident it is real."},
+{"guess": "wpa_supplicant", "member": true, "name": "wpa_supplicant", "tier": "race", "why": "wpa_supplicant is a long-running wireless authentication daemon that manages Wi-Fi connections."},
+{"guess": "coturn", "member": true, "name": "coturn", "tier": "heisenbug", "why": "coturn is a long-running TURN and STUN relay server (turnserver) used for WebRTC."},
+{"guess": "powertop", "member": false, "name": "powertop", "tier": "", "why": "powertop is an interactive power-analysis tool, not a background daemon."},
+{"guess": "pgbouncer", "member": true, "name": "PgBouncer", "tier": "heisenbug", "why": "PgBouncer is a long-running PostgreSQL connection-pooling daemon."},
+{"guess": "containerd", "member": true, "name": "containerd", "tier": "race", "why": "containerd is a long-running container runtime daemon that Docker and Kubernetes build on."}]
+```
+
+
+--- haiku call, 22s, exit 0, prompt 3506 chars, stdout 4116 chars
+r the Xfce desktop."},
+{"guess": "openntpd", "member": true, "name": "OpenNTPD", "tier": "leak", "why": "The OpenBSD project's NTP time daemon, ntpd's alternative."},
+{"guess": "psad", "member": true, "name": "psad", "tier": "heisenbug", "why": "Port Scan Attack Detector, a daemon that watches firewall logs for attacks."},
+{"guess": "xsettingsd", "member": true, "name": "xsettingsd", "tier": "heisenbug", "why": "A lightweight daemon that publishes XSETTINGS for X11 desktops."},
+{"guess": "epmd", "member": true, "name": "epmd", "tier": "race", "why": "The Erlang Port Mapper Daemon, which maps node names to ports for distributed Erlang."},
+{"guess": "tor", "member": true, "name": "Tor", "tier": "leak", "why": "The Tor anonymity network, run as a tor daemon by Linux and BSD systems."},
+{"guess": "prometheus-postgres-exporter", "member": true, "name": "postgres_exporter", "tier": "heisenbug", "why": "The Prometheus exporter for PostgreSQL, a daemon Debian packages as prometheus-postgres-exporter."},
+{"guess": "fprintd", "member": true, "name": "fprintd", "tier": "race", "why": "The fingerprint daemon that handles fprint devices for login and sudo on Linux."},
+{"guess": "rasdaemon", "member": true, "name": "rasdaemon", "tier": "heisenbug", "why": "The Linux daemon that logs reliability, availability and serviceability (RAS) error events."},
+{"guess": "rcd", "member": false, "name": "rcd", "tier": "", "why": "No known daemon by this name; rc.d is only a directory of rc scripts."}]
+
+
+--- haiku call, 22s, exit 0, prompt 3506 chars, stdout 4095 chars
+": "earlyoom", "member": true, "name": "earlyoom", "tier": "heisenbug", "why": "Early out-of-memory killer daemon for Linux, with its own project and man page."},{"guess": "pcscd", "member": true, "name": "pcscd", "tier": "heisenbug", "why": "PC/SC smart-card resource manager daemon from pcsc-lite."},{"guess": "smd", "member": false, "name": "smd", "tier": "", "why": "No Unix daemon by this name that I can cite; unsure, so not counted."},{"guess": "usbmuxd", "member": true, "name": "usbmuxd", "tier": "heisenbug", "why": "USB multiplexing daemon for iOS devices, part of libimobiledevice."},{"guess": "watchdog", "member": true, "name": "watchdog", "tier": "race", "why": "The watchdog(8) daemon that pings the hardware watchdog and monitors system health."},{"guess": "arpwatch", "member": true, "name": "arpwatch", "tier": "heisenbug", "why": "ARP-monitoring daemon that logs ethernet/IP address pairings, with its own man page."},{"guess": "avahi-autoipd", "member": true, "name": "avahi-autoipd", "tier": "heisenbug", "why": "Avahi's IPv4 link-local (zeroconf) address daemon, with its own man page."},{"guess": "prometheus-process-exporter", "member": true, "name": "process-exporter", "tier": "heisenbug", "why": "The ncabatoff process-exporter, a long-running Prometheus exporter; the usual project name drops the prefix."},{"guess": "prosody", "member": true, "name": "Prosody", "tier": "heisenbug", "why": "XMPP server daemon, a named open-source project run as a long-lived server."}]
+
+
+--- haiku call, 23s, exit 0, prompt 3495 chars, stdout 4082 chars
+mand is a client utility; the related daemon is rquotad."},
+{"guess": "freeradius", "member": true, "name": "FreeRADIUS", "tier": "race", "why": "FreeRADIUS is a RADIUS server daemon (radiusd) that runs in the background."},
+{"guess": "ejabberd", "member": true, "name": "ejabberd", "tier": "heisenbug", "why": "ejabberd is a long-running XMPP server daemon."},
+{"guess": "lightdm", "member": true, "name": "LightDM", "tier": "race", "why": "LightDM is a display manager that runs as a system daemon."},
+{"guess": "preload", "member": true, "name": "preload", "tier": "heisenbug", "why": "preload is an adaptive readahead daemon for Linux that runs in the background."},
+{"guess": "monit", "member": true, "name": "Monit", "tier": "race", "why": "Monit is a process supervision and monitoring daemon."},
+{"guess": "lvm", "member": false, "name": "LVM", "tier": null, "why": "A suite of command-line tools; its daemons (lvmetad, lvmpolld) are named separately."},
+{"guess": "start-stop-daemon", "member": false, "name": "start-stop-daemon", "tier": null, "why": "A tool that starts and stops daemons; it is not a daemon itself."},
+{"guess": "prometheus-node-exporter", "member": true, "name": "Prometheus Node Exporter", "tier": "heisenbug", "why": "node_exporter, packaged as prometheus-node-exporter, is a long-running metrics daemon."},
+{"guess": "xen", "member": false, "name": "Xen", "tier": null, "why": "The Xen hypervisor project; its daemons (xenstored, xl devd) are named separately."}]
+```
+
+
+--- haiku call, 24s, exit 0, prompt 3520 chars, stdout 3894 chars
+"The Window Display Manager, a long-running X login daemon."},
+{"guess": "proftpd", "member": true, "name": "ProFTPD", "tier": "race", "why": "An FTP server that runs as a long-lived daemon."},
+{"guess": "lxd", "member": true, "name": "LXD", "tier": "race", "why": "The lxd daemon that manages Linux containers and VMs."},
+{"guess": "drbd", "member": false, "name": "DRBD", "tier": "", "why": "A kernel block-device module with userspace tools; it has no daemon of its own."},
+{"guess": "lsyncd", "member": true, "name": "lsyncd", "tier": "heisenbug", "why": "The Live Syncing daemon that watches directories and runs rsync."},
+{"guess": "radvd", "member": true, "name": "radvd", "tier": "race", "why": "The IPv6 Router Advertisement Daemon."},
+{"guess": "chkrootkit", "member": false, "name": "chkrootkit", "tier": "", "why": "A one-shot security scanner, not a background service."},
+{"guess": "netatalk", "member": true, "name": "Netatalk", "tier": "heisenbug", "why": "An Apple Filing Protocol file server whose afpd runs as a daemon."},
+{"guess": "schroot", "member": false, "name": "schroot", "tier": "", "why": "A client tool for running commands in chroots, not a daemon."},
+{"guess": "wireplumber", "member": true, "name": "WirePlumber", "tier": "heisenbug", "why": "The session-manager daemon for PipeWire."},
+{"guess": "prometheus-pushgateway", "member": true, "name": "Prometheus Pushgateway", "tier": "heisenbug", "why": "A long-running Prometheus server that accepts pushed metrics."}]
+
+
+--- haiku call, 32s, exit 0, prompt 3554 chars, stdout 3915 chars
+est", "tier": null, "why": "Primarily a one-shot backup command run from cron; its server mode is optional."},{"guess": "getty", "member": true, "name": "getty", "tier": "race", "why": "The tty login program that init spawns and respawns as a long-running process."},{"guess": "transmission-daemon", "member": true, "name": "transmission-daemon", "tier": "race", "why": "The headless Transmission BitTorrent daemon."},{"guess": "realmd", "member": true, "name": "realmd", "tier": "heisenbug", "why": "The Linux realm discovery and join daemon from the realmd project."},{"guess": "systemd-timesyncd", "member": true, "name": "systemd-timesyncd", "tier": "race", "why": "systemd's SNTP time synchronisation daemon."},{"guess": "victoria-metrics", "member": true, "name": "VictoriaMetrics", "tier": "heisenbug", "why": "The VictoriaMetrics time-series database server, run as a daemon."},{"guess": "mds", "member": true, "name": "mds", "tier": "race", "why": "The macOS Spotlight metadata server daemon, listed in the scope."},{"guess": "upower", "member": true, "name": "upowerd", "tier": "race", "why": "UPower's daemon (upowerd), which the project name refers to."},{"guess": "vnstat", "member": false, "name": "vnstat", "tier": null, "why": "The client command that reads the database; the daemon is vnstatd."},{"guess": "systemd-boot-random-seed", "member": false, "name": "systemd-boot-random-seed", "tier": null, "why": "A one-shot unit that seeds the random seed, not a long-running daemon."}]
+
+
+--- haiku call, 19s, exit 0, prompt 3603 chars, stdout 3942 chars
+ "heisenbug", "why": "A notification daemon for X and Wayland desktops, documented in its project."},
+{"guess": "caddy", "member": true, "name": "Caddy", "tier": "race", "why": "The Caddy web server, normally run as a long-running daemon."},
+{"guess": "dirmngr", "member": true, "name": "dirmngr", "tier": "heisenbug", "why": "GnuPG's certificate and OpenPGP keyserver daemon, documented in its man page."},
+{"guess": "authbind", "member": false, "name": "authbind", "tier": "", "why": "A wrapper utility that lets a program bind privileged ports; it is not a daemon."},
+{"guess": "nvi", "member": false, "name": "nvi", "tier": "", "why": "A vi-compatible text editor, not a background program."},
+{"guess": "lxcfs", "member": true, "name": "lxcfs", "tier": "heisenbug", "why": "A FUSE daemon that provides container-aware /proc files for LXC, named in its project."},
+{"guess": "dnsdist", "member": true, "name": "dnsdist", "tier": "heisenbug", "why": "PowerDNS's DNS load balancer, a long-running daemon documented in its project."},
+{"guess": "lsd", "member": false, "name": "lsd", "tier": "", "why": "Known as a client `ls` replacement, not a named daemon."},
+{"guess": "jabberd", "member": true, "name": "jabberd", "tier": "heisenbug", "why": "The jabberd XMPP (Jabber) server daemon, documented in the jabberd2 project."},
+{"guess": "squid", "member": true, "name": "Squid", "tier": "race", "why": "The Squid caching proxy server, run as a long-running daemon and named in its man page."}]
+```
+
+
+--- haiku call, 20s, exit 0, prompt 3526 chars, stdout 3744 chars
+ "A one-shot Debian helper command for enabling Apache modules, not a daemon."}, {"guess": "notification-daemon", "member": true, "name": "notification-daemon", "tier": "race", "why": "The GNOME desktop notification daemon program."}, {"guess": "feedbackd", "member": true, "name": "feedbackd", "tier": "heisenbug", "why": "The feedback daemon for mobile Linux desktops that drives haptic and sound feedback."}, {"guess": "crowdsec", "member": true, "name": "CrowdSec", "tier": "race", "why": "An open-source security engine daemon that detects and blocks attacks from logs."}, {"guess": "zfs-fuse", "member": true, "name": "zfs-fuse", "tier": "race", "why": "A userspace ZFS implementation run as a FUSE daemon."}, {"guess": "ptpd", "member": true, "name": "ptpd", "tier": "heisenbug", "why": "The Precision Time Protocol daemon for clock synchronisation."}, {"guess": "clamav-daemon", "member": true, "name": "clamd", "tier": "leak", "why": "The ClamAV scanning daemon; clamav-daemon is the Debian package name and the program is clamd."}, {"guess": "nats-server", "member": true, "name": "nats-server", "tier": "heisenbug", "why": "The NATS messaging server daemon."}, {"guess": "system-tools-backends", "member": false, "name": "system-tools-backends", "tier": null, "why": "A collection of GNOME backend scripts, not a long-running daemon program."}, {"guess": "gerbera", "member": true, "name": "Gerbera", "tier": "heisenbug", "why": "A UPnP media server daemon, run as the gerbera program."}]
+
+
+!!! attempt 1 rejected: ValueError: need a JSON list of exactly 25 objects, one per guess, in order
+--- haiku call, 17s, exit 0, prompt 3635 chars, stdout 3826 chars
+false, "name": "systemd-sysusers", "tier": "", "why": "One-shot tool that creates system users at boot."},
+{"guess": "v86d", "member": true, "name": "v86d", "tier": "heisenbug", "why": "User-space helper daemon for the Linux uvesafb video driver."},
+{"guess": "ntfy", "member": true, "name": "ntfy", "tier": "race", "why": "The ntfy notification server runs as a long-lived service daemon."},
+{"guess": "vblade", "member": true, "name": "vblade", "tier": "heisenbug", "why": "ATA-over-Ethernet target server that runs continuously to export disks."},
+{"guess": "aprx", "member": true, "name": "aprx", "tier": "heisenbug", "why": "APRS internet gateway daemon, run as a long-lived service."},
+{"guess": "cwdaemon", "member": true, "name": "cwdaemon", "tier": "heisenbug", "why": "Daemon that keys CW (Morse) output for amateur radio software."},
+{"guess": "netperf", "member": false, "name": "netperf", "tier": "", "why": "The netperf benchmark is a client; its daemon is netserver."},
+{"guess": "ayatana-indicator-sound", "member": true, "name": "ayatana-indicator-sound", "tier": "heisenbug", "why": "Long-running Ayatana sound indicator service started in the user session."},
+{"guess": "clamav-milter", "member": true, "name": "clamav-milter", "tier": "heisenbug", "why": "ClamAV mail filter daemon that runs under Sendmail or Postfix."},
+{"guess": "inetutils-inetd", "member": true, "name": "inetd", "tier": "leak", "why": "The inetd super-server from GNU inetutils; same daemon as inetd."}]
+```
+
+
+--- haiku call, 20s, exit 0, prompt 3499 chars, stdout 4038 chars
+ is a lightweight Wayland notification daemon."},
+{"guess": "corosync-qdevice", "member": true, "name": "corosync-qdevice", "tier": "heisenbug", "why": "corosync-qdevice is the quorum device daemon for corosync clusters."},
+{"guess": "gssproxy", "member": true, "name": "gssproxy", "tier": "race", "why": "gssproxy is a GSS-API proxy daemon that runs in the background."},
+{"guess": "seahorse-daemon", "member": true, "name": "seahorse-daemon", "tier": "heisenbug", "why": "seahorse-daemon is the GNOME Seahorse background daemon for keyring and SSH key handling."},
+{"guess": "wsdd2", "member": true, "name": "wsdd2", "tier": "heisenbug", "why": "wsdd2 is a WS-Discovery daemon that makes Linux hosts visible to Windows networks."},
+{"guess": "tayga", "member": true, "name": "TAYGA", "tier": "heisenbug", "why": "TAYGA is a NAT64 daemon for Linux."},
+{"guess": "swapspace", "member": true, "name": "swapspace", "tier": "heisenbug", "why": "swapspace is a daemon that dynamically manages swap files."},
+{"guess": "snapd", "member": true, "name": "snapd", "tier": "race", "why": "snapd is the background daemon that manages Snap packages."},
+{"guess": "sudo_logsrvd", "member": true, "name": "sudo_logsrvd", "tier": "heisenbug", "why": "sudo_logsrvd is the sudo log server daemon that receives remote session logs."},
+{"guess": "systemd-repart", "member": false, "name": "systemd-repart", "tier": "", "why": "A oneshot systemd service that runs at boot and exits; it is not a long-running daemon."}]
+
+
+--- haiku call, 23s, exit 0, prompt 3497 chars, stdout 4090 chars
+ and Fedora systems."},
+{"guess": "dlt-daemon", "member": true, "name": "dlt-daemon", "tier": "heisenbug", "why": "COVESA DLT daemon that collects diagnostic log and trace messages, run as a service."},
+{"guess": "dnscache", "member": true, "name": "dnscache", "tier": "race", "why": "Caching DNS server from djbdns, run as a long-lived service under daemontools."},
+{"guess": "ledmon", "member": true, "name": "ledmon", "tier": "heisenbug", "why": "Enclosure LED monitoring daemon for storage devices on Linux."},
+{"guess": "keyd", "member": true, "name": "keyd", "tier": "race", "why": "Linux key remapping daemon that runs in the background."},
+{"guess": "fcgiwrap", "member": true, "name": "fcgiwrap", "tier": "heisenbug", "why": "FastCGI wrapper that runs as a socket-activated daemon for web servers."},
+{"guess": "daemon", "member": false, "name": "daemon", "tier": "", "why": "A generic word for the category, not a named program; the BSD daemon(8) utility is a one-shot wrapper."},
+{"guess": "accounts-daemon", "member": true, "name": "accounts-daemon", "tier": "heisenbug", "why": "AccountsService's daemon on Linux desktops, run as a background service."},
+{"guess": "opensm", "member": true, "name": "OpenSM", "tier": "heisenbug", "why": "InfiniBand subnet manager daemon, a long-running service on Linux clusters."},
+{"guess": "cdemu-daemon", "member": true, "name": "cdemu-daemon", "tier": "heisenbug", "why": "CDEmu daemon that manages virtual optical drives in the background."}]
+```
+
+
+--- haiku call, 23s, exit 0, prompt 3527 chars, stdout 3992 chars
+ a YubiKey awaits touch."},
+  {"guess": "rbldnsd", "member": true, "name": "rbldnsd", "tier": "heisenbug", "why": "A small DNS daemon that serves DNSBL zones."},
+  {"guess": "upowerd", "member": true, "name": "upowerd", "tier": "race", "why": "The UPower power-management daemon, named in the scope spec as a hardware daemon."},
+  {"guess": "ata_id", "member": false, "name": "ata_id", "tier": null, "why": "A udev helper that runs once per device, not a daemon."},
+  {"guess": "cdrom_id", "member": false, "name": "cdrom_id", "tier": null, "why": "A udev helper that runs once per device, not a daemon."},
+  {"guess": "dmi_memory_id", "member": false, "name": "dmi_memory_id", "tier": null, "why": "A udev helper that runs once per device, not a daemon."},
+  {"guess": "fido_id", "member": false, "name": "fido_id", "tier": null, "why": "A udev helper that runs once per device, not a daemon."},
+  {"guess": "portsentry", "member": true, "name": "PortSentry", "tier": "heisenbug", "why": "A port-scan detection daemon from Psionic, run as a long-lived process."},
+  {"guess": "scsi_id", "member": false, "name": "scsi_id", "tier": null, "why": "A udev helper that runs once per device, not a daemon."},
+  {"guess": "v4l_id", "member": false, "name": "v4l_id", "tier": null, "why": "A udev helper that runs once per device, not a daemon."},
+  {"guess": "saned", "member": true, "name": "saned", "tier": "race", "why": "The SANE network scanner daemon, which serves scanners over the network."}
+]
+```
+
+
+--- haiku call, 27s, exit 0, prompt 3499 chars, stdout 3939 chars
+n-migration", "tier": "womm", "why": "Not a recognised daemon or program name in standard Unix service lists."},
+{"guess": "nsca", "member": true, "name": "NSCA", "tier": "heisenbug", "why": "The Nagios Service Check Acceptor, a daemon that receives passive check results."},
+{"guess": "miredo", "member": true, "name": "Miredo", "tier": "race", "why": "A Teredo IPv6 tunnelling daemon."},
+{"guess": "nslcd", "member": true, "name": "nslcd", "tier": "heisenbug", "why": "The LDAP name service daemon from nss-pam-ldapd."},
+{"guess": "bird", "member": true, "name": "BIRD", "tier": "race", "why": "The BIRD Internet Routing Daemon."},
+{"guess": "milter-greylist", "member": true, "name": "milter-greylist", "tier": "heisenbug", "why": "A milter daemon that applies greylisting to mail."},
+{"guess": "darkstat", "member": true, "name": "darkstat", "tier": "heisenbug", "why": "A network traffic analyser that runs as a daemon serving its own web interface."},
+{"guess": "miniflux", "member": true, "name": "Miniflux", "tier": "heisenbug", "why": "A self-hosted feed-reader server run as a long-lived background service; it is a web app rather than a classic Unix daemon, so this is borderline."},
+{"guess": "blkdiscard", "member": false, "name": "blkdiscard", "tier": "womm", "why": "A one-shot util-linux command that discards device blocks."},
+{"guess": "cryptmount", "member": false, "name": "cryptmount", "tier": "womm", "why": "A command-line tool for mounting encrypted devices, not a daemon."}]
+
+
+--- haiku call, 25s, exit 0, prompt 3544 chars, stdout 4350 chars
+ "name": "mptcpd", "tier": "heisenbug", "why": "The Multipath TCP path-manager daemon from the mptcpd project, which runs as a service."},{"guess": "uuidd", "member": true, "name": "uuidd", "tier": "race", "why": "The UUID generation daemon shipped in util-linux, documented in its man page."},{"guess": "fprobe", "member": true, "name": "fprobe", "tier": "heisenbug", "why": "A NetFlow probe that runs as a daemon and is packaged on Debian and other distros."},{"guess": "qemu-vmsr-helper", "member": true, "name": "qemu-vmsr-helper", "tier": "heisenbug", "why": "A QEMU helper daemon that performs MSR access for VMs, shipped with QEMU 7.2 and later."},{"guess": "soju", "member": true, "name": "soju", "tier": "heisenbug", "why": "An IRC bouncer that runs as a long-lived daemon, documented in its project."},{"guess": "kbdd", "member": false, "name": "kbdd", "tier": null, "why": "I can't confirm this as a named daemon I can cite, so I'm marking it unsure."},{"guess": "ratbagd", "member": true, "name": "ratbagd", "tier": "heisenbug", "why": "The libratbag D-Bus daemon that configures gaming mice, part of the libratbag project."},{"guess": "bacula-fd", "member": true, "name": "bacula-fd", "tier": "race", "why": "The Bacula File Daemon, a long-running backup agent documented in the Bacula manual."},{"guess": "xdg-desktop-portal-validate-sound", "member": false, "name": "xdg-desktop-portal-validate-sound", "tier": null, "why": "A test or validation utility, not a long-running daemon."}]
+
+
+--- haiku call, 19s, exit 0, prompt 3692 chars, stdout 4318 chars
+ion-daemon", "tier": "race", "why": "The GNOME desktop notification daemon, a long-running D-Bus service."},{"guess": "feedbackd", "member": true, "name": "feedbackd", "tier": "heisenbug", "why": "The feedback daemon for mobile Linux that coordinates haptic, LED and sound feedback."},{"guess": "crowdsec", "member": true, "name": "CrowdSec", "tier": "race", "why": "The CrowdSec security engine, a long-running daemon that analyses logs and blocks threats."},{"guess": "zfs-fuse", "member": true, "name": "zfs-fuse", "tier": "heisenbug", "why": "A userspace ZFS implementation that runs as a FUSE daemon, documented in its project."},{"guess": "ptpd", "member": true, "name": "ptpd", "tier": "race", "why": "A Precision Time Protocol daemon for clock synchronisation on Unix-like systems."},{"guess": "clamav-daemon", "member": true, "name": "clamd", "tier": "race", "why": "ClamAV's daemon is clamd; clamav-daemon is the Debian package name for it."},{"guess": "nats-server", "member": true, "name": "nats-server", "tier": "race", "why": "The NATS messaging server, a long-running daemon named nats-server in its project."},{"guess": "system-tools-backends", "member": false, "name": "system-tools-backends", "tier": "", "why": "A GNOME backend package for system tools, and I am unsure it is a daemon in its own right."},{"guess": "gerbera", "member": true, "name": "Gerbera", "tier": "heisenbug", "why": "The Gerbera UPnP media server, which runs as a daemon and is documented in its project."}]
+
+
+--- haiku call, 20s, exit 0, prompt 3573 chars, stdout 4262 chars
+elper daemon for mounting disk images on behalf of unprivileged users, in recent systemd releases."},
+{"guess": "systemd-nsresourced", "member": true, "name": "systemd-nsresourced", "tier": "heisenbug", "why": "systemd daemon that allocates user namespace resources, in recent systemd releases."},
+{"guess": "jitterentropy-rngd", "member": true, "name": "jitterentropy-rngd", "tier": "heisenbug", "why": "Random-number daemon from the jitterentropy project that feeds entropy to the kernel."},
+{"guess": "opentracker", "member": true, "name": "opentracker", "tier": "race", "why": "BitTorrent tracker server that runs as a long-lived daemon."},
+{"guess": "nmbd", "member": true, "name": "nmbd", "tier": "race", "why": "Samba's NetBIOS name service daemon."},
+{"guess": "exim_dbmbuild", "member": false, "name": "exim_dbmbuild", "tier": "", "why": "A one-shot Exim utility that builds DBM lookup files, not a daemon."},
+{"guess": "scanbd", "member": true, "name": "scanbd", "tier": "heisenbug", "why": "Scanner button daemon that watches scanner buttons on Linux and runs actions."},
+{"guess": "sndiod", "member": true, "name": "sndiod", "tier": "race", "why": "OpenBSD's audio server daemon."},
+{"guess": "minidlnad", "member": true, "name": "minidlnad", "tier": "heisenbug", "why": "MiniDLNA media server daemon serving DLNA/UPnP clients."},
+{"guess": "slurmd", "member": true, "name": "slurmd", "tier": "race", "why": "Slurm node daemon that runs on compute nodes of the Slurm workload manager."}]
+
+
+--- haiku call, 26s, exit 0, prompt 3542 chars, stdout 4292 chars
+": "gsd-sound", "member": true, "name": "gsd-sound", "tier": "race", "why": "gsd-sound is the sound plugin of GNOME Settings Daemon, which runs as a background process."},{"guess": "prometheus-exporter-exporter", "member": true, "name": "exporter_exporter", "tier": "heisenbug", "why": "exporter_exporter is a long-running proxy daemon for Prometheus exporters; the guess is a loose form of its name."},{"guess": "goa-daemon", "member": true, "name": "goa-daemon", "tier": "heisenbug", "why": "goa-daemon is the GNOME Online Accounts D-Bus daemon."},{"guess": "radsecproxy", "member": true, "name": "radsecproxy", "tier": "heisenbug", "why": "radsecproxy is a daemon that proxies RADIUS traffic over TLS."},{"guess": "xfconfd", "member": true, "name": "xfconfd", "tier": "heisenbug", "why": "xfconfd is the Xfce configuration daemon that serves settings over D-Bus."},{"guess": "readsb", "member": true, "name": "readsb", "tier": "heisenbug", "why": "readsb is an ADS-B decoder that runs as a daemon, a fork of dump1090."},{"guess": "bpftune", "member": true, "name": "bpftune", "tier": "heisenbug", "why": "bpftune is Oracle's daemon that auto-tunes Linux kernel settings using BPF."},{"guess": "plymouthd", "member": true, "name": "plymouthd", "tier": "race", "why": "plymouthd is the Plymouth boot splash daemon, which runs during boot."},{"guess": "blkmapd", "member": true, "name": "blkmapd", "tier": "heisenbug", "why": "blkmapd is the pNFS block-layout mapping daemon shipped in nfs-utils."}]
+
+
+--- haiku call, 21s, exit 0, prompt 3567 chars, stdout 3994 chars
+FSv4 client-tracking daemon from nfs-utils."},{"guess": "rpc.mountd", "member": true, "name": "rpc.mountd", "tier": "race", "why": "The NFS mount daemon from nfs-utils that answers mount requests."},{"guess": "rpc.nfsd", "member": true, "name": "rpc.nfsd", "tier": "race", "why": "The user-space NFS server daemon from nfs-utils."},{"guess": "gkrellmd", "member": true, "name": "gkrellmd", "tier": "heisenbug", "why": "The gkrellm system-monitor server daemon that serves metrics to remote clients."},{"guess": "clamd", "member": true, "name": "clamd", "tier": "race", "why": "The ClamAV antivirus scanning daemon."},{"guess": "hitch", "member": true, "name": "hitch", "tier": "heisenbug", "why": "A TLS termination proxy daemon written by the Varnish project."},{"guess": "slapadd", "member": false, "name": "slapadd", "tier": "", "why": "A one-shot OpenLDAP offline tool for loading entries; the daemon is slapd."},{"guess": "g15daemon", "member": true, "name": "g15daemon", "tier": "heisenbug", "why": "The daemon that drives Logitech G15 keyboard LCDs on Linux."},{"guess": "knxd", "member": true, "name": "knxd", "tier": "heisenbug", "why": "A KNX building-automation gateway daemon for Linux."},{"guess": "rpki-client", "member": false, "name": "rpki-client", "tier": "", "why": "Normally run as a one-shot validator from cron, not as a long-running daemon."},{"guess": "bluetoothd", "member": true, "name": "bluetoothd", "tier": "leak", "why": "The BlueZ Bluetooth daemon on Linux and BSD."}]
+
+
+--- haiku call, 20s, exit 0, prompt 3573 chars, stdout 4340 chars
+eus-varnish-exporter", "tier": "heisenbug", "why": "A Prometheus exporter daemon for Varnish Cache metrics."},{"guess": "conserver", "member": true, "name": "conserver", "tier": "race", "why": "The conserver console-server daemon that multiplexes serial and console connections, documented in conserver(8)."},{"guess": "kpatch", "member": false, "name": "kpatch", "tier": "", "why": "A command-line live-patching tool, not a background daemon."},{"guess": "msmtpd", "member": false, "name": "msmtpd", "tier": "", "why": "I'm not confident a daemon by this name exists, so I won't count it."},{"guess": "anope", "member": true, "name": "Anope", "tier": "heisenbug", "why": "The Anope IRC services daemon, which runs as a long-lived server process on IRC networks."},{"guess": "zabbix_agent2", "member": true, "name": "Zabbix Agent 2", "tier": "race", "why": "The Zabbix Agent 2 monitoring daemon, a long-running agent process."},{"guess": "gammu-smsd", "member": true, "name": "gammu-smsd", "tier": "heisenbug", "why": "The Gammu SMS daemon (smsd) that queues and sends SMS messages through a modem in the background."},{"guess": "sysprofd", "member": true, "name": "sysprofd", "tier": "heisenbug", "why": "The Sysprof profiling daemon, which runs in the background as a D-Bus-activated service."},{"guess": "systemd-userdbd", "member": true, "name": "systemd-userdbd", "tier": "race", "why": "A systemd daemon that provides user and group records to NSS, documented in systemd-userdbd.service(8)."}]
+
+
+--- haiku call, 30s, exit 0, prompt 3566 chars, stdout 4102 chars
+bDAV, from spice-gtk."},{"guess": "spacenavd", "member": true, "name": "spacenavd", "tier": "heisenbug", "why": "The Linux daemon that handles 3Dconnexion SpaceNavigator input devices."},{"guess": "atftpd", "member": true, "name": "atftpd", "tier": "heisenbug", "why": "A TFTP server daemon from the atftp project."},{"guess": "valkey-server", "member": true, "name": "valkey-server", "tier": "race", "why": "The Valkey key-value server, a Redis fork that runs as a daemon; the binary is valkey-server."},{"guess": "tumblerd", "member": true, "name": "tumblerd", "tier": "heisenbug", "why": "Xfce's Tumbler thumbnail D-Bus daemon."},{"guess": "ctdb", "member": true, "name": "CTDB", "tier": "heisenbug", "why": "The clustered database cluster-manager daemon (ctdbd) used with Samba; the project name is how people say it."},{"guess": "courier-authdaemon", "member": true, "name": "authdaemond", "tier": "heisenbug", "why": "Courier's authentication daemon, whose program is authdaemond."},{"guess": "plasma-kscreen-osd", "member": false, "name": "plasma-kscreen-osd", "tier": "", "why": "A KScreen on-screen-display helper; unsure it counts as a daemon rather than a UI popup."},{"guess": "floppyd", "member": false, "name": "floppyd", "tier": "", "why": "Unsure I can confirm a named, long-running floppyd daemon in a reference source."},{"guess": "gearmand", "member": true, "name": "gearmand", "tier": "heisenbug", "why": "The Gearman job-server daemon, with its own project and documentation."}]
+
+
+!!! attempt 1 rejected: ValueError: need a JSON list of exactly 25 objects, one per guess, in order
+--- haiku call, 22s, exit 0, prompt 3581 chars, stdout 4302 chars
+mon."},
+{"guess": "integrit", "member": false, "name": "integrit", "tier": "", "why": "A file integrity checker run as a tool, not a daemon."},
+{"guess": "prometheus-libvirt-exporter", "member": true, "name": "prometheus-libvirt-exporter", "tier": "heisenbug", "why": "A long-running metrics exporter service that serves libvirt stats over HTTP for Prometheus."},
+{"guess": "mdnsd", "member": true, "name": "mdnsd", "tier": "race", "why": "A multicast DNS responder daemon, the mDNS service in the mdnsd implementation."},
+{"guess": "quota_nld", "member": true, "name": "quota_nld", "tier": "heisenbug", "why": "The Linux quota netlink daemon, shipped in the quota package."},
+{"guess": "postsrsd", "member": true, "name": "postsrsd", "tier": "heisenbug", "why": "The Postfix Sender Rewriting Scheme daemon, a long-running mail helper."},
+{"guess": "lxsettings-daemon", "member": true, "name": "lxsettings-daemon", "tier": "heisenbug", "why": "The LXDE settings daemon from lxsession, a background service."},
+{"guess": "krb5-kpropd", "member": true, "name": "kpropd", "tier": "heisenbug", "why": "The Kerberos propagation daemon, packaged as krb5-kpropd on Debian."},
+{"guess": "ircd-hybrid", "member": true, "name": "ircd-hybrid", "tier": "race", "why": "An IRC server daemon, the ircd-hybrid project's long-running server."},
+{"guess": "perdition", "member": true, "name": "perdition", "tier": "heisenbug", "why": "A POP3 and IMAP proxy daemon that routes mail sessions to backend servers."}]
+```
+
+
+--- haiku call, 13s, exit 0, prompt 3496 chars, stdout 3538 chars
+
+{"guess": "pimd", "member": true, "name": "pimd", "tier": "heisenbug", "why": "FRR's PIM (Protocol Independent Multicast) daemon."},
+{"guess": "ripd", "member": true, "name": "ripd", "tier": "race", "why": "The RIP routing daemon in Quagga and FRR."},
+{"guess": "ripngd", "member": true, "name": "ripngd", "tier": "heisenbug", "why": "The RIPng (IPv6 RIP) routing daemon in Quagga and FRR."},
+{"guess": "staticd", "member": true, "name": "staticd", "tier": "heisenbug", "why": "FRR's static route daemon."},
+{"guess": "vrrpd", "member": true, "name": "vrrpd", "tier": "heisenbug", "why": "FRR's VRRP (Virtual Router Redundancy Protocol) daemon."},
+{"guess": "lighttpd-disable-mod", "member": false, "name": "lighttpd-disable-mod", "tier": "", "why": "A Debian helper script that disables modules, not a daemon."},
+{"guess": "lighttpd-enable-mod", "member": false, "name": "lighttpd-enable-mod", "tier": "", "why": "A Debian helper script that enables modules, not a daemon."},
+{"guess": "lighty-disable-mod", "member": false, "name": "lighty-disable-mod", "tier": "", "why": "An alias of the lighttpd module-disable helper script, not a daemon."},
+{"guess": "lighty-enable-mod", "member": false, "name": "lighty-enable-mod", "tier": "", "why": "An alias of the lighttpd module-enable helper script, not a daemon."},
+{"guess": "valkey-sentinel", "member": true, "name": "valkey-sentinel", "tier": "race", "why": "Valkey's sentinel monitoring server, a fork of redis-sentinel, run as a daemon."}]
+```
+
+
+--- haiku call, 20s, exit 0, prompt 3544 chars, stdout 3581 chars
+emory monitoring daemon."},{"guess": "remotetrx", "member": false, "name": "remotetrx", "tier": "", "why": "I can't verify a daemon by this name."},{"guess": "svxreflector", "member": true, "name": "svxreflector", "tier": "heisenbug", "why": "Reflector server daemon in the SvxLink amateur-radio project."},{"guess": "deepin-boot-maker", "member": false, "name": "deepin-boot-maker", "tier": "", "why": "A GUI boot-disk creation application, not a daemon."},{"guess": "snapd.seeded", "member": false, "name": "snapd.seeded", "tier": "", "why": "A systemd unit name (snapd.seeded.service), which the scope rules out."},{"guess": "tqftpserv", "member": true, "name": "tqftpserv", "tier": "heisenbug", "why": "Qualcomm's TFTP server daemon used in Linux and Android DSP and modem setups."},{"guess": "diskd", "member": true, "name": "diskd", "tier": "heisenbug", "why": "Squid's disk I/O helper daemon for the cache store."},{"guess": "log_db_daemon", "member": false, "name": "log_db_daemon", "tier": "", "why": "I can't verify a Unix daemon by this name."},{"guess": "log_file_daemon", "member": false, "name": "log_file_daemon", "tier": "", "why": "I can't verify a Unix daemon by this name."},{"guess": "unlinkd", "member": true, "name": "unlinkd", "tier": "heisenbug", "why": "Squid's helper daemon that deletes cache files in the background."},{"guess": "hwlatd", "member": true, "name": "hwlatd", "tier": "heisenbug", "why": "The Linux hardware-latency detector's kernel thread, named hwlatd."}]
+
+
+!!! attempt 1 rejected: ValueError: need a JSON list of exactly 25 objects, one per guess, in order
+--- haiku call, 22s, exit 0, prompt 3521 chars, stdout 4010 chars
+ change their mail passwords over the network."},
+{"guess": "ttysnoop", "member": false, "name": "ttysnoop", "tier": null, "why": "A client tool for snooping a terminal session, not a daemon."},
+{"guess": "evremap", "member": true, "name": "evremap", "tier": "heisenbug", "why": "A Linux key remapping program that runs continuously in the background."},
+{"guess": "systemd-hostnamed", "member": true, "name": "systemd-hostnamed", "tier": "race", "why": "systemd's hostname daemon, documented as a daemon in its man pages."},
+{"guess": "systemd-socket-proxyd", "member": true, "name": "systemd-socket-proxyd", "tier": "heisenbug", "why": "systemd's socket proxy daemon, documented as a daemon in its man pages."},
+{"guess": "systemd-timedated", "member": true, "name": "systemd-timedated", "tier": "race", "why": "systemd's time and date daemon, documented as a daemon in its man pages."},
+{"guess": "rbdmap", "member": false, "name": "rbdmap", "tier": null, "why": "A one-shot script that maps Ceph RBD devices at boot, not a long-running daemon."},
+{"guess": "checkrad", "member": false, "name": "checkrad", "tier": null, "why": "I can't cite a Unix daemon by this name, so I'm unsure it exists."},
+{"guess": "snapperd", "member": true, "name": "snapperd", "tier": "heisenbug", "why": "The snapper D-Bus daemon that manages Btrfs and LVM snapshots, used on openSUSE."},
+{"guess": "kadmind", "member": true, "name": "kadmind", "tier": "heisenbug", "why": "The MIT Kerberos administration daemon."}]
+
+
+--- haiku call, 20s, exit 0, prompt 3517 chars, stdout 4397 chars
+ on Linux."},
+{"guess": "prometheus-bird-exporter", "member": true, "name": "prometheus-bird-exporter", "tier": "heisenbug", "why": "A Prometheus exporter daemon for the BIRD routing daemon, packaged under this name on Debian."},
+{"guess": "irexec", "member": false, "name": "irexec", "tier": "", "why": "A LIRC client that runs commands on infrared events, so it is a client program rather than a daemon."},
+{"guess": "lircd", "member": true, "name": "lircd", "tier": "race", "why": "The Linux Infrared Remote Control daemon, which reads IR hardware and serves events to clients."},
+{"guess": "lircmd", "member": true, "name": "lircmd", "tier": "heisenbug", "why": "The LIRC daemon that turns infrared remote presses into mouse events on Linux."},
+{"guess": "infnoise", "member": true, "name": "infnoise", "tier": "heisenbug", "why": "The Infinite Noise TRNG project's entropy daemon, which can feed randomness to /dev/random on Linux."},
+{"guess": "prometheus-smokeping-prober", "member": true, "name": "prometheus-smokeping-prober", "tier": "heisenbug", "why": "A long-running Prometheus prober daemon that measures latency in the Smokeping style."},
+{"guess": "cvsd", "member": true, "name": "cvsd", "tier": "heisenbug", "why": "A chrooted CVS pserver daemon that serves CVS repositories on Unix-like systems."},
+{"guess": "mumudvb", "member": true, "name": "mumudvb", "tier": "heisenbug", "why": "A DVB-to-IP streaming daemon for Linux that runs in the background to serve DVB multicast."}]
+```
+
+
+!!! attempt 1 rejected: ValueError: object for 'prometheus-smokeping-prober' missing or out of order
+--- haiku call, 21s, exit 0, prompt 3511 chars, stdout 3870 chars
+ess": "owftpd", "member": true, "name": "owftpd", "tier": "heisenbug", "why": "The FTP daemon of the OWFS One-Wire File System suite."},
+{"guess": "armagetronad-dedicated", "member": true, "name": "armagetronad-dedicated", "tier": "heisenbug", "why": "The dedicated server binary for Armagetron Advanced, a background game server."},
+{"guess": "mbmon", "member": false, "name": "mbmon", "tier": "", "why": "A sensor-reading tool, and I am unsure it runs as a daemon."},
+{"guess": "bumblebeed", "member": true, "name": "bumblebeed", "tier": "heisenbug", "why": "The Bumblebee daemon that manages NVIDIA Optimus graphics on Linux."},
+{"guess": "jool", "member": false, "name": "jool", "tier": "", "why": "A NAT64 kernel module with a userspace control tool, not a daemon."},
+{"guess": "bootpc", "member": false, "name": "bootpc", "tier": "", "why": "A BOOTP client that runs at boot and exits, not a daemon."},
+{"guess": "iwpmd", "member": true, "name": "iwpmd", "tier": "heisenbug", "why": "The iWARP port mapper daemon from the rdma-core project."},
+{"guess": "rdma-ndd", "member": true, "name": "rdma-ndd", "tier": "heisenbug", "why": "The RDMA node-description daemon from the rdma-core project."},
+{"guess": "babeld", "member": true, "name": "babeld", "tier": "race", "why": "The Babel distance-vector routing daemon, documented in its man page."},
+{"guess": "rlinetd", "member": false, "name": "rlinetd", "tier": "", "why": "I cannot identify a known Unix daemon by this name, so I am unsure."}]
+
+
+--- haiku call, 22s, exit 0, prompt 3547 chars, stdout 4090 chars
+heus-ipmi-exporter", "member": true, "name": "prometheus-ipmi-exporter", "tier": "heisenbug", "why": "A Prometheus exporter daemon for IPMI hardware sensors (ipmi_exporter, packaged under this name)."},
+{"guess": "cyrus", "member": true, "name": "Cyrus IMAP", "tier": "race", "why": "The Cyrus IMAP mail server, whose master daemon is how people name the project."},
+{"guess": "swaync", "member": true, "name": "swaync", "tier": "heisenbug", "why": "Sway Notification Center, a notification daemon for Sway and wlroots desktops."},
+{"guess": "unicorn", "member": true, "name": "Unicorn", "tier": "heisenbug", "why": "The Unicorn Rack HTTP server, which runs as a long-lived daemon behind a reverse proxy."},
+{"guess": "mailutils-pop3d", "member": true, "name": "pop3d", "tier": "heisenbug", "why": "The POP3 server daemon from GNU Mailutils, packaged under this name."},
+{"guess": "x2gormforward", "member": false, "name": "x2gormforward", "tier": "", "why": "I cannot confirm a real X2Go daemon by this name."},
+{"guess": "pdns_server", "member": true, "name": "PowerDNS", "tier": "race", "why": "The PowerDNS authoritative DNS server daemon, binary pdns_server."},
+{"guess": "blueman-applet", "member": false, "name": "blueman-applet", "tier": "", "why": "A desktop tray applet and client, not the daemon (the daemon is blued or bluetoothd)."},
+{"guess": "blueman-manager", "member": false, "name": "blueman-manager", "tier": "", "why": "A graphical client for managing Bluetooth, not a daemon."}]
+
+
+--- haiku call, 23s, exit 0, prompt 3571 chars, stdout 4073 chars
+s": "rblsmtpd", "member": true, "name": "rblsmtpd", "tier": "heisenbug", "why": "An SMTP proxy that checks RBL blocklists, run as a network service under tcpserver."},
+{"guess": "oddjobd", "member": true, "name": "oddjobd", "tier": "race", "why": "Red Hat's oddjob daemon that runs privileged helper tasks over D-Bus."},
+{"guess": "prometheus-elasticsearch-exporter", "member": true, "name": "prometheus-elasticsearch-exporter", "tier": "heisenbug", "why": "A long-running Prometheus exporter service for Elasticsearch."},
+{"guess": "bluealsa", "member": true, "name": "bluealsa", "tier": "heisenbug", "why": "The BlueALSA daemon that exposes Bluetooth audio to ALSA."},
+{"guess": "bluealsa-aplay", "member": false, "name": "bluealsa-aplay", "tier": "womm", "why": "A one-shot client that plays audio from BlueALSA, not a daemon."},
+{"guess": "authdaemond", "member": true, "name": "authdaemond", "tier": "heisenbug", "why": "The Courier authentication daemon, documented in the courier-authlib package."},
+{"guess": "authpasswd", "member": false, "name": "authpasswd", "tier": "womm", "why": "I can't confirm a named Unix daemon by this name, so I won't count it."},
+{"guess": "quasselcore", "member": true, "name": "quasselcore", "tier": "heisenbug", "why": "The Quassel IRC core, a long-running server daemon that keeps connections alive."},
+{"guess": "autolog", "member": false, "name": "autolog", "tier": "womm", "why": "I can't confirm a named Unix daemon by this name, so I won't count it."}]
+
+
+--- haiku call, 20s, exit 0, prompt 3565 chars, stdout 4655 chars
+gh-availability cluster stack."},{"guess": "pacemaker-fenced", "member": true, "name": "pacemaker-fenced", "tier": "heisenbug", "why": "Pacemaker's fencing daemon, which isolates failed nodes; a component of the cluster stack."},{"guess": "pacemaker-schedulerd", "member": true, "name": "pacemaker-schedulerd", "tier": "heisenbug", "why": "Pacemaker's policy engine daemon, which computes cluster actions; a component of the cluster stack."},{"guess": "pacemakerd", "member": true, "name": "pacemakerd", "tier": "race", "why": "The Pacemaker master process that launches and supervises the other cluster daemons; known to HA administrators."},{"guess": "pgqd", "member": true, "name": "pgqd", "tier": "heisenbug", "why": "The PgQ ticker daemon from Skytools, which advances PostgreSQL event queues; a niche name."},{"guess": "merecat", "member": true, "name": "merecat", "tier": "heisenbug", "why": "A small Unix HTTP server by Jef Poskanzer, run as a daemon; a niche name."},{"guess": "tmate-ssh-server", "member": true, "name": "tmate-ssh-server", "tier": "heisenbug", "why": "The SSH server component of the tmate.io terminal-sharing service, a long-running server process."},{"guess": "conman", "member": true, "name": "ConMan", "tier": "heisenbug", "why": "LLNL's console management project, whose daemon is conmand; named as the project."},{"guess": "memlockd", "member": false, "name": "memlockd", "tier": "", "why": "I cannot confirm a daemon by this name, so I am not certain it is real."}]
+
+
+--- haiku call, 19s, exit 0, prompt 3710 chars, stdout 3836 chars
+otetrx", "member": false, "name": "remotetrx", "tier": "", "why": "I cannot place a Unix daemon by this name, so I am ruling it out."},
+{"guess": "svxreflector", "member": true, "name": "svxreflector", "tier": "heisenbug", "why": "The reflector server daemon in the SvxLink project."},
+{"guess": "deepin-boot-maker", "member": false, "name": "deepin-boot-maker", "tier": "", "why": "A GUI application for making boot media, not a daemon."},
+{"guess": "snapd.seeded", "member": false, "name": "snapd.seeded", "tier": "", "why": "A systemd unit name, not a daemon name; the daemon is snapd."},
+{"guess": "tqftpserv", "member": true, "name": "tqftpserv", "tier": "heisenbug", "why": "Qualcomm's TFTP server daemon used on Linux devices with remote processors."},
+{"guess": "diskd", "member": true, "name": "diskd", "tier": "heisenbug", "why": "Squid's disk I/O helper daemon."},
+{"guess": "log_db_daemon", "member": false, "name": "log_db_daemon", "tier": "", "why": "I cannot place a named Unix daemon by this name, so I am ruling it out."},
+{"guess": "log_file_daemon", "member": false, "name": "log_file_daemon", "tier": "", "why": "I cannot place a named Unix daemon by this name, so I am ruling it out."},
+{"guess": "unlinkd", "member": true, "name": "unlinkd", "tier": "heisenbug", "why": "Squid's helper daemon that deletes cached files from disk."},
+{"guess": "hwlatd", "member": true, "name": "hwlatd", "tier": "heisenbug", "why": "The Linux kernel thread for the hardware latency detector."}]
+
+
+--- haiku call, 26s, exit 0, prompt 3732 chars, stdout 3924 chars
+s the inetd super-server daemon."}, {"guess": "spice-webdavd", "member": true, "name": "spice-webdavd", "tier": "heisenbug", "why": "The SPICE guest daemon that exposes shared folders over WebDAV."}, {"guess": "spacenavd", "member": true, "name": "spacenavd", "tier": "heisenbug", "why": "The Linux daemon that reads 3Dconnexion SpaceMouse devices."}, {"guess": "atftpd", "member": true, "name": "atftpd", "tier": "heisenbug", "why": "A TFTP server daemon."}, {"guess": "valkey-server", "member": true, "name": "valkey-server", "tier": "race", "why": "The server daemon of Valkey, the Redis fork."}, {"guess": "tumblerd", "member": true, "name": "tumblerd", "tier": "heisenbug", "why": "Xfce's thumbnail-generation daemon."}, {"guess": "ctdb", "member": true, "name": "ctdbd", "tier": "heisenbug", "why": "The clustered-database daemon (CTDB) used by Samba clusters."}, {"guess": "courier-authdaemon", "member": true, "name": "authdaemond", "tier": "heisenbug", "why": "The Courier mail suite's authentication daemon, started as courier-authdaemon on Debian."}, {"guess": "plasma-kscreen-osd", "member": false, "name": "plasma-kscreen-osd", "tier": "womm", "why": "A KDE on-screen display component, not a named background daemon."}, {"guess": "floppyd", "member": false, "name": "floppyd", "tier": "womm", "why": "Unsure whether this is a real, named daemon, so not counted."}, {"guess": "gearmand", "member": true, "name": "gearmand", "tier": "heisenbug", "why": "The Gearman job-server daemon."}]
+
+
+--- haiku call, 20s, exit 0, prompt 3684 chars, stdout 4176 chars
+", "member": true, "name": "nftlb", "tier": "heisenbug", "why": "The nftables load-balancer daemon from the Zevenet project."},{"guess": "prometheus-bird-exporter", "member": true, "name": "bird_exporter", "tier": "heisenbug", "why": "A long-running Prometheus exporter daemon for the BIRD routing daemon, known upstream as bird_exporter."},{"guess": "irexec", "member": false, "name": "irexec", "tier": "", "why": "It is a LIRC client that runs commands on IR events, not a daemon itself."},{"guess": "lircd", "member": true, "name": "lircd", "tier": "race", "why": "The Linux Infrared Remote Control daemon, lircd."},{"guess": "lircmd", "member": true, "name": "lircmd", "tier": "heisenbug", "why": "The LIRC daemon that turns infrared remote presses into mouse events."},{"guess": "prometheus-smokeping-prober", "member": true, "name": "smokeping_prober", "tier": "heisenbug", "why": "A long-running Prometheus exporter that sends ICMP probes, known upstream as smokeping_prober."},{"guess": "infnoise", "member": true, "name": "infnoised", "tier": "heisenbug", "why": "The infnoised daemon from the Infinite Noise TRNG project, which feeds random numbers to the kernel."},{"guess": "cvsd", "member": true, "name": "cvsd", "tier": "heisenbug", "why": "The chroot-jailed CVS server daemon packaged for Debian and Ubuntu."},{"guess": "mumudvb", "member": false, "name": "mumudvb", "tier": "", "why": "It is a DVB-to-IP streaming tool that can daemonize, not a named system daemon, so I'm unsure."}]
+
+
+--- haiku call, 18s, exit 0, prompt 3557 chars, stdout 3816 chars
+ng", "tier": "heisenbug", "why": "The Nagios NSCA-NG daemon that receives passive check results."},
+{"guess": "tgtd", "member": true, "name": "tgtd", "tier": "race", "why": "The user-space SCSI target daemon from the tgt project on Linux."},
+{"guess": "iceccd", "member": true, "name": "iceccd", "tier": "heisenbug", "why": "The icecream daemon that runs distributed compile jobs."},
+{"guess": "snmptrapfmt", "member": false, "name": "snmptrapfmt", "tier": "", "why": "A trap-formatting helper that snmptrapd invokes, not a long-running daemon."},
+{"guess": "ident2", "member": false, "name": "ident2", "tier": "", "why": "I can't confirm this as a named daemon, so I'm not sure it exists."},
+{"guess": "glewlwyd", "member": true, "name": "Glewlwyd", "tier": "heisenbug", "why": "An OAuth2 and SSO authorization server that runs as a daemon."},
+{"guess": "iiod", "member": true, "name": "iiod", "tier": "heisenbug", "why": "The Industrial I/O daemon from libiio, which runs on embedded boards."},
+{"guess": "ngetty", "member": true, "name": "ngetty", "tier": "heisenbug", "why": "A getty replacement that init starts as a terminal-login daemon."},
+{"guess": "prometheus-apache-exporter", "member": true, "name": "prometheus-apache-exporter", "tier": "heisenbug", "why": "A Prometheus metrics exporter daemon for Apache, packaged in Debian."},
+{"guess": "calls-daemon", "member": false, "name": "calls-daemon", "tier": "", "why": "I can't confirm this as a named daemon, so I'm not sure it exists."}]
+
+
+!!! attempt 1 rejected: ValueError: need a JSON list of exactly 25 objects, one per guess, in order
+--- haiku call, 29s, exit 0, prompt 3543 chars, stdout 4070 chars
+", "why": "Osmocom's home location register daemon for GSM networks."},
+{"guess": "osmo-msc", "member": true, "name": "osmo-msc", "tier": "heisenbug", "why": "Osmocom's mobile switching centre daemon for GSM networks."},
+{"guess": "osmo-sgsn", "member": true, "name": "osmo-sgsn", "tier": "heisenbug", "why": "Osmocom's serving GPRS support node daemon."},
+{"guess": "canbusload", "member": false, "name": "canbusload", "tier": "", "why": "A command-line bus load monitor from can-utils that runs as a one-shot tool, not a daemon."},
+{"guess": "cansend", "member": false, "name": "cansend", "tier": "", "why": "A one-shot client from can-utils that sends a single CAN frame."},
+{"guess": "usbguard-daemon", "member": true, "name": "usbguard-daemon", "tier": "race", "why": "The USBGuard daemon that enforces USB device authorization policy."},
+{"guess": "cifsd", "member": true, "name": "ksmbd", "tier": "heisenbug", "why": "The early name of the Linux in-kernel SMB server, which was later renamed ksmbd."},
+{"guess": "isotpsend", "member": false, "name": "isotpsend", "tier": "", "why": "A one-shot sender tool from can-utils for ISO-TP frames, not a daemon."},
+{"guess": "j1939acd", "member": true, "name": "j1939acd", "tier": "heisenbug", "why": "The J1939 address claiming daemon from the Linux SocketCAN can-utils suite."},
+{"guess": "slcand", "member": true, "name": "slcand", "tier": "heisenbug", "why": "The daemon that attaches serial-line CAN adapters to SocketCAN, from can-utils."}]
+```
+
+
+!!! attempt 1 rejected: ValueError: object for 'usbguard-daemon' missing or out of order
+--- haiku call, 18s, exit 0, prompt 3550 chars, stdout 3796 chars
+, "name": "renderd", "tier": "heisenbug", "why": "mod_tile's long-running daemon that renders OpenStreetMap tiles."},
+{"guess": "rshim", "member": false, "name": "rshim", "tier": null, "why": "Host-side BlueField driver component; not confirmed as a named daemon."},
+{"guess": "lttng-sessiond", "member": true, "name": "lttng-sessiond", "tier": "heisenbug", "why": "LTTng's session daemon, which manages tracing sessions."},
+{"guess": "add-sg-to-squid", "member": false, "name": "add-sg-to-squid", "tier": null, "why": "A helper script run once to change configuration, not a daemon."},
+{"guess": "del-sg-from-squid", "member": false, "name": "del-sg-from-squid", "tier": null, "why": "A helper script run once to change configuration, not a daemon."},
+{"guess": "update-squidguard", "member": false, "name": "update-squidguard", "tier": null, "why": "A script that updates blocklists and exits, not a daemon."},
+{"guess": "sbd", "member": true, "name": "sbd", "tier": "heisenbug", "why": "The Storage-Based Death daemon used for fencing in Pacemaker clusters."},
+{"guess": "crossfire-server", "member": true, "name": "crossfire-server", "tier": "heisenbug", "why": "The Crossfire multiplayer game server, run as a daemon."},
+{"guess": "systemd-homed", "member": true, "name": "systemd-homed", "tier": "race", "why": "systemd's home-directory management daemon."},
+{"guess": "webfsd", "member": true, "name": "webfsd", "tier": "heisenbug", "why": "A small standalone web server daemon, webfs."}]
+```
+
+
+--- haiku call, 18s, exit 0, prompt 3502 chars, stdout 3609 chars
+that accepts connections."},{"guess": "rmtsysd", "member": false, "name": "rmtsysd", "tier": "", "why": "Unsure it is a real Unix daemon, so not counted."},{"guess": "dbeacon", "member": false, "name": "dbeacon", "tier": "", "why": "Unsure it is a real Unix daemon, so not counted."},{"guess": "gnss-share", "member": false, "name": "gnss-share", "tier": "", "why": "Unsure it is a real Unix daemon, so not counted."},{"guess": "gotd", "member": true, "name": "gotd", "tier": "heisenbug", "why": "OpenBSD's Game of Trees (got) server daemon."},{"guess": "isatapd", "member": false, "name": "isatapd", "tier": "", "why": "Unsure whether it is a real, named daemon, so not counted."},{"guess": "jesred", "member": false, "name": "jesred", "tier": "", "why": "Unsure it is a real Unix daemon, so not counted."},{"guess": "receptor", "member": true, "name": "receptor", "tier": "heisenbug", "why": "The Receptor mesh networking daemon from Ansible Automation Platform."},{"guess": "srcpd", "member": true, "name": "srcpd", "tier": "heisenbug", "why": "The SRCP server daemon for model railway control."},{"guess": "isnsd", "member": true, "name": "isnsd", "tier": "heisenbug", "why": "The iSNS server daemon used with iSCSI."},{"guess": "amidxtaped", "member": true, "name": "amidxtaped", "tier": "heisenbug", "why": "AMANDA's tape index daemon, which serves tape-restore requests."},{"guess": "amindexd", "member": true, "name": "amindexd", "tier": "heisenbug", "why": "AMANDA's index server daemon."}]
+
+
+--- haiku call, 21s, exit 0, prompt 3528 chars, stdout 4254 chars
+ess": "nutcracker", "member": true, "name": "nutcracker", "tier": "race", "why": "The binary of twemproxy (nutcracker), a long-running Redis and Memcached proxy daemon."},
+{"guess": "ctlinnd", "member": false, "name": "ctlinnd", "tier": "", "why": "A one-shot control client that sends commands to the INN news daemon innd; clients are Out."},
+{"guess": "th-cmd", "member": false, "name": "th-cmd", "tier": "", "why": "I cannot confirm this as a named Unix daemon, so I am not treating it as a member."},
+{"guess": "thd", "member": false, "name": "thd", "tier": "", "why": "Too ambiguous to identify as a named Unix daemon, so I am not treating it as a member."},
+{"guess": "gnunet-did", "member": false, "name": "gnunet-did", "tier": "", "why": "I cannot confirm this as a named GNUnet daemon, so I am not treating it as a member."},
+{"guess": "gnunet-download", "member": false, "name": "gnunet-download", "tier": "", "why": "A GNUnet command-line client for downloading files, not a daemon."},
+{"guess": "clamsmtpd", "member": true, "name": "clamsmtpd", "tier": "heisenbug", "why": "An SMTP filter daemon that scans mail with ClamAV."},
+{"guess": "isnsdd", "member": true, "name": "isnsdd", "tier": "heisenbug", "why": "The iSNS (Internet Storage Name Service) server daemon from the isns-utils package on Linux; moderate confidence."},
+{"guess": "pmcd", "member": true, "name": "pmcd", "tier": "heisenbug", "why": "The Performance Co-Pilot collector daemon that serves metrics to PCP clients."}]
+
+
+--- haiku call, 31s, exit 0, prompt 3568 chars, stdout 3773 chars
+he project and program are sql_exporter."},
+  {"guess": "solid-pop3d", "member": true, "name": "solid-pop3d", "tier": "heisenbug", "why": "Solid POP3D, a POP3 mail server daemon."},
+  {"guess": "i8kmon", "member": true, "name": "i8kmon", "tier": "heisenbug", "why": "The i8kutils fan and temperature monitor daemon for Dell laptops."},
+  {"guess": "dicod", "member": true, "name": "dicod", "tier": "heisenbug", "why": "GNU Dico's DICT protocol server daemon."},
+  {"guess": "ipmiseld", "member": true, "name": "ipmiseld", "tier": "heisenbug", "why": "FreeIPMI's daemon that logs IPMI System Event Log entries."},
+  {"guess": "lomiri-url-dispatcher", "member": true, "name": "lomiri-url-dispatcher", "tier": "heisenbug", "why": "Lomiri's (Ubuntu Touch) URL dispatcher daemon, a fork of url-dispatcher."},
+  {"guess": "mailutils-comsatd", "member": true, "name": "comsatd", "tier": "race", "why": "GNU Mailutils' comsat daemon, the same role as comsat."},
+  {"guess": "powermand", "member": true, "name": "powermand", "tier": "heisenbug", "why": "The PowerMan power-control daemon from LLNL."},
+  {"guess": "budgie-extras-daemon", "member": true, "name": "budgie-extras-daemon", "tier": "heisenbug", "why": "A daemon from the Budgie desktop extras."},
+  {"guess": "connman-vpnd", "member": true, "name": "connman-vpnd", "tier": "heisenbug", "why": "ConnMan's VPN daemon."},
+  {"guess": "nfcapd", "member": true, "name": "nfcapd", "tier": "heisenbug", "why": "The nfdump NetFlow capture daemon."}
+]
+```
+
+
+--- haiku call, 25s, exit 0, prompt 3544 chars, stdout 4237 chars
+input-backend", "tier": "heisenbug", "why": "The privileged backend daemon of SwayOSD that listens to libinput events, run as its own systemd service."},
+{"guess": "ufoded", "member": false, "name": "ufoded", "tier": "", "why": "I can't confirm a daemon by this name, so I can't cite one."},
+{"guess": "pkcsslotd", "member": false, "name": "pkcsslotd", "tier": "", "why": "I'm not confident enough of a citable daemon by this name to mark it as a member."},
+{"guess": "Orthanc", "member": true, "name": "Orthanc", "tier": "race", "why": "A DICOM medical imaging server that runs as a background service under its project name."},
+{"guess": "ergochat", "member": true, "name": "Ergo", "tier": "heisenbug", "why": "The Ergo IRC server (the ergo daemon), a long-running IRC network server."},
+{"guess": "gobgpd", "member": true, "name": "gobgpd", "tier": "heisenbug", "why": "The BGP routing daemon from the GoBGP project."},
+{"guess": "robustirc-bridge", "member": true, "name": "robustirc-bridge", "tier": "heisenbug", "why": "A long-running local bridge daemon that lets standard IRC clients connect to a RobustIRC network."},
+{"guess": "crowdsec-custom-bouncer", "member": false, "name": "crowdsec-custom-bouncer", "tier": "", "why": "This reads as a generic template name for a user-built bouncer, not a named daemon."},
+{"guess": "in.fingerd", "member": true, "name": "in.fingerd", "tier": "race", "why": "The classic finger protocol daemon, run from inetd on BSD and Linux netkit systems."}]
+```
+
+
+--- haiku call, 16s, exit 0, prompt 3723 chars, stdout 4297 chars
+s project."}, {"guess": "iceccd", "member": true, "name": "iceccd", "tier": "race", "why": "The Icecream distributed compiler daemon that runs on build hosts."}, {"guess": "snmptrapfmt", "member": false, "name": "snmptrapfmt", "tier": "", "why": "A one-shot filter program that net-snmp's trap handler calls, not a long-running daemon."}, {"guess": "iodined", "member": true, "name": "iodined", "tier": "race", "why": "The server daemon of the iodine DNS tunnel, a documented open-source tool."}, {"guess": "ident2", "member": false, "name": "ident2", "tier": "", "why": "Not confident this is a documented Unix daemon, so it is treated as unverified."}, {"guess": "glewlwyd", "member": true, "name": "glewlwyd", "tier": "heisenbug", "why": "A long-running OAuth2 and SSO authorization server with its own project and documentation."}, {"guess": "iiod", "member": true, "name": "iiod", "tier": "heisenbug", "why": "The Linux Industrial I/O network daemon shipped with libiio."}, {"guess": "ngetty", "member": true, "name": "ngetty", "tier": "heisenbug", "why": "A getty replacement daemon that handles terminal logins on Linux."}, {"guess": "prometheus-apache-exporter", "member": true, "name": "prometheus-apache-exporter", "tier": "heisenbug", "why": "A long-running metrics exporter daemon for Apache, with its own project."}, {"guess": "calls-daemon", "member": false, "name": "calls-daemon", "tier": "", "why": "Not confident this is a documented Unix daemon, so it is treated as unverified."}]
+
+
+--- haiku call, 18s, exit 0, prompt 3698 chars, stdout 3842 chars
+n, documented as usbguard-daemon(8)."},
+{"guess": "cifsd", "member": false, "name": "cifsd", "tier": "", "why": "The in-kernel SMB server is ksmbd; cifsd was only an early patch-set name."},
+{"guess": "osmo-bsc", "member": true, "name": "osmo-bsc", "tier": "heisenbug", "why": "OsmoBSC, the Osmocom base station controller daemon."},
+{"guess": "osmo-hlr", "member": true, "name": "osmo-hlr", "tier": "heisenbug", "why": "OsmoHLR, the Osmocom home location register daemon."},
+{"guess": "osmo-msc", "member": true, "name": "osmo-msc", "tier": "heisenbug", "why": "OsmoMSC, the Osmocom mobile switching centre daemon."},
+{"guess": "osmo-sgsn", "member": true, "name": "osmo-sgsn", "tier": "heisenbug", "why": "OsmoSGSN, the Osmocom serving GPRS support node daemon."},
+{"guess": "canbusload", "member": false, "name": "canbusload", "tier": "", "why": "A one-shot can-utils command-line tool, not a daemon."},
+{"guess": "cansend", "member": false, "name": "cansend", "tier": "", "why": "A one-shot can-utils command for sending a frame, not a daemon."},
+{"guess": "isotpsend", "member": false, "name": "isotpsend", "tier": "", "why": "A one-shot can-utils command for sending ISO-TP data, not a daemon."},
+{"guess": "j1939acd", "member": true, "name": "j1939acd", "tier": "heisenbug", "why": "The J1939 address claiming daemon from can-utils."},
+{"guess": "slcand", "member": true, "name": "slcand", "tier": "heisenbug", "why": "The can-utils daemon that attaches serial lines as CAN interfaces."}]
+```
+
+
+--- haiku call, 19s, exit 0, prompt 3538 chars, stdout 3783 chars
+ handshake daemon from ktls-utils."},
+{"guess": "alertmanager-irc-relay", "member": true, "name": "alertmanager-irc-relay", "tier": "heisenbug", "why": "A long-running relay that forwards Prometheus Alertmanager alerts to IRC."},
+{"guess": "mirrorbits", "member": true, "name": "mirrorbits", "tier": "heisenbug", "why": "A long-running mirror redirector server."},
+{"guess": "hpsockd", "member": false, "name": "hpsockd", "tier": "", "why": "I can't confirm it as a named daemon, so I'm not counting it."},
+{"guess": "nss_updatedb", "member": false, "name": "nss_updatedb", "tier": "", "why": "A one-shot database builder run from cron, not a long-running daemon."},
+{"guess": "cyclades-serial-client", "member": true, "name": "cyclades-serial-client", "tier": "heisenbug", "why": "A Debian package whose daemon serves Cyclades serial console terminal servers; I'm fairly but not fully sure."},
+{"guess": "fwlw_respond", "member": false, "name": "fwlw_respond", "tier": "", "why": "I can't identify it as a named daemon, so I'm not counting it."},
+{"guess": "axfrdns", "member": true, "name": "axfrdns", "tier": "heisenbug", "why": "Dan Bernstein's zone-transfer DNS server from djbdns."},
+{"guess": "rastream", "member": false, "name": "rastream", "tier": "", "why": "I can't identify it as a named daemon, so I'm not counting it."},
+{"guess": "varnishd", "member": true, "name": "varnishd", "tier": "race", "why": "The Varnish HTTP cache daemon, well known to sysadmins but not to most players."}]
+
+
+--- haiku call, 33s, exit 0, prompt 3569 chars, stdout 4222 chars
+md unit (service file name), which the scope excludes."},{"guess": "remctld", "member": true, "name": "remctld", "tier": "heisenbug", "why": "The remctl server daemon, a real network service, though obscure."},{"guess": "pop3d", "member": false, "name": "pop3d", "tier": "", "why": "A generic protocol-based name rather than a specific named program."},{"guess": "ngtcp2d", "member": false, "name": "ngtcp2d", "tier": "", "why": "I don't know of a real daemon by this name; ngtcp2 is a QUIC library."},{"guess": "ipip", "member": false, "name": "ipip", "tier": "", "why": "IP-in-IP is a tunnelling protocol and kernel module, not a daemon."},{"guess": "prometheus-frr-exporter", "member": false, "name": "prometheus-frr-exporter", "tier": "", "why": "The exporter is usually called frr_exporter, and I'm not sure this spelling names a specific program."},{"guess": "corosync-notifyd", "member": true, "name": "corosync-notifyd", "tier": "heisenbug", "why": "Corosync's notification daemon, which sends alerts for cluster events."},{"guess": "serf", "member": true, "name": "Serf", "tier": "heisenbug", "why": "HashiCorp's Serf, a cluster membership agent that runs as a long-lived daemon."},{"guess": "dhcp_probe", "member": false, "name": "dhcp_probe", "tier": "", "why": "A generic description, not a specific named daemon I can confirm."},{"guess": "ixfrdist", "member": true, "name": "ixfrdist", "tier": "heisenbug", "why": "BIND's IXFR distribution server, a real DNS daemon, though obscure."}]
+
+
+--- haiku call, 17s, exit 0, prompt 3584 chars, stdout 3861 chars
+d", "member": true, "name": "in.telnetd", "tier": "leak", "why": "The telnet server daemon from BSD and netkit, normally started by inetd and documented in its man page."},
+{"guess": "hddemux", "member": false, "name": "hddemux", "tier": "", "why": "I cannot cite a real Unix daemon by this name."},
+{"guess": "prometheus-mongodb-exporter", "member": true, "name": "prometheus-mongodb-exporter", "tier": "heisenbug", "why": "A long-running Prometheus exporter daemon for MongoDB, from the Percona project."},
+{"guess": "ums2net", "member": false, "name": "ums2net", "tier": "", "why": "I cannot cite a real Unix daemon by this name."},
+{"guess": "inputlircd", "member": true, "name": "inputlircd", "tier": "heisenbug", "why": "The input-device daemon from the LIRC infrared remote-control project."},
+{"guess": "calloutd", "member": false, "name": "calloutd", "tier": "", "why": "I cannot cite a real Unix daemon by this name."},
+{"guess": "ha_cluster_exporter", "member": true, "name": "ha_cluster_exporter", "tier": "heisenbug", "why": "A Prometheus exporter daemon for Pacemaker high-availability clusters, from the ClusterLabs project."},
+{"guess": "tcmu-runner", "member": true, "name": "tcmu-runner", "tier": "heisenbug", "why": "The userspace daemon that backs TCMU devices for the Linux LIO iSCSI target."},
+{"guess": "globus-gatekeeper", "member": true, "name": "globus-gatekeeper", "tier": "heisenbug", "why": "The Globus GRAM gatekeeper server daemon, documented in the Globus Toolkit."}]
+
+
+--- haiku call, 24s, exit 0, prompt 3558 chars, stdout 3783 chars
+lugd", "member": true, "name": "netplugd", "tier": "heisenbug", "why": "The Netplug network hotplug daemon."},{"guess": "ovn-controller-vtep", "member": true, "name": "ovn-controller-vtep", "tier": "heisenbug", "why": "The OVN daemon that connects logical switches to VTEP hardware gateways."},{"guess": "cubemap", "member": false, "name": "cubemap", "tier": "", "why": "I can't cite Cubemap as a Unix daemon."},{"guess": "tiny-dfr", "member": true, "name": "tiny-dfr", "tier": "heisenbug", "why": "The Asahi Linux daemon that drives the MacBook Touch Bar display."},{"guess": "acpi_fakekeyd", "member": true, "name": "acpi_fakekeyd", "tier": "heisenbug", "why": "The acpi-fakekeyd daemon that turns ACPI events into synthetic key presses."},{"guess": "dns-flood-detector", "member": false, "name": "dns-flood-detector", "tier": "", "why": "I can't cite a named daemon by this name."},{"guess": "farpd", "member": true, "name": "farpd", "tier": "heisenbug", "why": "The farpd proxy-ARP daemon."},{"guess": "l2tpns", "member": true, "name": "l2tpns", "tier": "heisenbug", "why": "The L2TP network server daemon."},{"guess": "fence_virtd", "member": true, "name": "fence_virtd", "tier": "heisenbug", "why": "The fence_virt daemon that services fencing requests for virtual machines in clusters."},{"guess": "blahpd_daemon", "member": true, "name": "blahpd", "tier": "heisenbug", "why": "The BLAH daemon (blahpd) used by HTCondor-CE and CREAM batch systems; the guess adds a suffix to its real name."}]
+
+
+--- haiku call, 19s, exit 0, prompt 3593 chars, stdout 3931 chars
+ "booth", "member": false, "name": "booth", "tier": "", "why": "The ticket-manager daemon is boothd; I am not confident 'booth' is the daemon's name."},
+{"guess": "bgplgd", "member": false, "name": "bgplgd", "tier": "", "why": "No BGP looking-glass daemon by this name that I can cite."},
+{"guess": "ovn-ic", "member": true, "name": "ovn-ic", "tier": "heisenbug", "why": "OVN interconnection controller daemon."},
+{"guess": "prometheus-pgbouncer-exporter", "member": true, "name": "prometheus-pgbouncer-exporter", "tier": "heisenbug", "why": "Prometheus exporter daemon for PgBouncer, packaged under this name in Debian."},
+{"guess": "stenographer", "member": true, "name": "stenographer", "tier": "heisenbug", "why": "Google's packet-capture daemon that keeps a rolling record of traffic."},
+{"guess": "filetea", "member": false, "name": "filetea", "tier": "", "why": "No daemon by this name that I can cite."},
+{"guess": "ircd-ircu", "member": true, "name": "ircd-ircu", "tier": "heisenbug", "why": "IRC server daemon from the ircu project, packaged as ircd-ircu."},
+{"guess": "natlog", "member": false, "name": "natlog", "tier": "", "why": "No daemon by this name that I can cite."},
+{"guess": "dnssec-triggerd", "member": true, "name": "dnssec-triggerd", "tier": "heisenbug", "why": "Background daemon of the dnssec-trigger project from NLnet Labs."},
+{"guess": "inetd2rlinetd", "member": false, "name": "inetd2rlinetd", "tier": "", "why": "Not a recognisable daemon name; looks invented."}]
+```
+
+
+--- haiku call, 29s, exit 0, prompt 3541 chars, stdout 3779 chars
+tributed lock manager in cluster stacks."}, {"guess": "icegridnode", "member": true, "name": "icegridnode", "tier": "heisenbug", "why": "The IceGrid node server daemon from ZeroC's Ice middleware."}, {"guess": "icegridregistry", "member": true, "name": "icegridregistry", "tier": "heisenbug", "why": "The IceGrid registry daemon from ZeroC's Ice middleware."}, {"guess": "jool_siit", "member": false, "name": "jool_siit", "tier": "", "why": "A one-shot configuration command for the Jool SIIT module, not a daemon."}, {"guess": "ovn-controller", "member": true, "name": "ovn-controller", "tier": "heisenbug", "why": "The local controller daemon in Open Virtual Network (OVN)."}, {"guess": "rapiddisk", "member": false, "name": "rapiddisk", "tier": "", "why": "A RAM disk module with a command-line tool, not a daemon."}, {"guess": "w1retap", "member": false, "name": "w1retap", "tier": "", "why": "Unsure what this names, so it is not counted."}, {"guess": "in.nnrpd", "member": true, "name": "nnrpd", "tier": "heisenbug", "why": "INN's NNTP reader daemon, sometimes installed under the in.nnrpd name."}, {"guess": "innd", "member": true, "name": "innd", "tier": "race", "why": "The INN Usenet news server daemon."}, {"guess": "mgmt", "member": false, "name": "mgmt", "tier": "", "why": "Too generic to tell which program is meant, so it is not counted."}, {"guess": "ftpasswd", "member": false, "name": "ftpasswd", "tier": "", "why": "A one-shot password-file utility from ProFTPD, not a daemon."}]
+
+
+!!! attempt 1 rejected: ValueError: need a JSON list of exactly 25 objects, one per guess, in order
+--- haiku call, 30s, exit 0, prompt 3666 chars, stdout 4114 chars
+ "member": true, "name": "nextcloud-spreed-signaling-proxy", "tier": "heisenbug", "why": "The proxy component of the Nextcloud Spreed signaling server, run as a daemon."},
+{"guess": "kprobe-optimizer", "member": false, "name": "kprobe-optimizer", "tier": "", "why": "A kernel work function for optimising kprobes, not a kernel thread documented as a daemon."},
+{"guess": "ktimers", "member": true, "name": "ktimers", "tier": "heisenbug", "why": "The per-CPU ktimers kernel threads on PREEMPT_RT kernels, named like ksoftirqd."},
+{"guess": "dhcpoptinj", "member": false, "name": "dhcpoptinj", "tier": "", "why": "I cannot identify it as a Unix daemon."},
+{"guess": "wys", "member": false, "name": "wys", "tier": "", "why": "I cannot identify a known Unix daemon by this name."},
+{"guess": "rngd", "member": true, "name": "rngd", "tier": "leak", "why": "The rng-tools daemon that feeds hardware random-number output into the kernel entropy pool."},
+{"guess": "gthd", "member": false, "name": "gthd", "tier": "", "why": "I cannot identify a known Unix daemon by this name."},
+{"guess": "webmaild", "member": false, "name": "webmaild", "tier": "", "why": "I cannot confidently identify a known Unix daemon by this name."},
+{"guess": "rbldns", "member": true, "name": "rbldns", "tier": "heisenbug", "why": "djbdns's DNS blocklist (RBL) server, run as a service."},
+{"guess": "walldns", "member": true, "name": "walldns", "tier": "heisenbug", "why": "djbdns's wildcard DNS server, run as a service."}]
+```
+
+
+--- haiku call, 20s, exit 0, prompt 3582 chars, stdout 3762 chars
+firm a daemon by this name."}, {"guess": "globus-gridftp-password", "member": false, "name": "globus-gridftp-password", "tier": "", "why": "A password-file or config name, not a daemon; the server is globus-gridftp-server."}, {"guess": "sxmo_daemons.sh", "member": true, "name": "sxmo_daemons.sh", "tier": "heisenbug", "why": "Sxmo's long-running background script that starts its helper daemons on mobile Linux."}, {"guess": "sxmo_hook_lisgd", "member": false, "name": "sxmo_hook_lisgd", "tier": "", "why": "A hook script for the lisgd gesture daemon, not a daemon itself."}, {"guess": "gld", "member": false, "name": "gld", "tier": "", "why": "gld is a Solaris LAN driver framework, not a daemon."}, {"guess": "dlt-dbus", "member": true, "name": "dlt-dbus", "tier": "heisenbug", "why": "A long-running DLT daemon that bridges D-Bus messages into Diagnostic Log and Trace."}, {"guess": "dlt-system", "member": true, "name": "dlt-system", "tier": "heisenbug", "why": "The DLT daemon that brings system logs into Diagnostic Log and Trace."}, {"guess": "altos-mapd", "member": false, "name": "altos-mapd", "tier": "", "why": "I can't confirm a daemon by this name."}, {"guess": "rapiddiskd", "member": false, "name": "rapiddiskd", "tier": "", "why": "I can't confirm a daemon by this name; RapidDisk is a RAM-disk project I can't tie to it."}, {"guess": "osmo-gtphub", "member": true, "name": "osmo-gtphub", "tier": "heisenbug", "why": "Osmocom's long-running GTP hub server for GPRS core networks."}]
+
+
+--- haiku call, 23s, exit 0, prompt 3595 chars, stdout 3804 chars
+ the exporter is real, but I can't confirm this is how the daemon is named."},
+{"guess": "prometheus-tplink-plug-exporter", "member": false, "name": "prometheus-tplink-plug-exporter", "tier": "", "why": "A package-style name I can't confirm as the daemon's name."},
+{"guess": "regolith-init-powerd", "member": false, "name": "regolith-init-powerd", "tier": "", "why": "Unsure whether this daemon exists, so not a member."},
+{"guess": "shoelaces", "member": false, "name": "shoelaces", "tier": "", "why": "Not a Unix daemon I can confirm."},
+{"guess": "slinkwatch", "member": false, "name": "slinkwatch", "tier": "", "why": "A link-monitoring tool, not a confirmed background daemon."},
+{"guess": "tua", "member": false, "name": "tua", "tier": "", "why": "No Unix daemon by this name that I can confirm."},
+{"guess": "dibbler-relay", "member": true, "name": "dibbler-relay", "tier": "heisenbug", "why": "The DHCPv6 relay daemon of the Dibbler project."},
+{"guess": "hexagonrpcd", "member": true, "name": "hexagonrpcd", "tier": "heisenbug", "why": "A Linux daemon that serves the Qualcomm Hexagon DSP over RPC."},
+{"guess": "Mailsound", "member": false, "name": "Mailsound", "tier": "", "why": "Not a daemon I can confirm."},
+{"guess": "rplayd", "member": true, "name": "rplayd", "tier": "heisenbug", "why": "The server daemon of the rplay network audio system."},
+{"guess": "zephyrd", "member": true, "name": "zephyrd", "tier": "race", "why": "The server daemon of the Zephyr messaging system."}]
+```
+
+
+--- haiku call, 19s, exit 0, prompt 3637 chars, stdout 4553 chars
+gnal processor on iOS (Darwin)."},
+{"guess": "appleh16camerad", "member": true, "name": "appleh16camerad", "tier": "heisenbug", "why": "The Apple camera daemon for the H16 image signal processor on iOS (Darwin)."},
+{"guess": "appleidsetupd", "member": true, "name": "appleidsetupd", "tier": "heisenbug", "why": "The macOS daemon that runs Apple ID setup."},
+{"guess": "applekeystored", "member": true, "name": "applekeystored", "tier": "heisenbug", "why": "The macOS keystore daemon that manages the Apple keystore."},
+{"guess": "AppleQEMUGuestAgent", "member": false, "name": "AppleQEMUGuestAgent", "tier": "", "why": "Not confident this is a named Apple daemon; the QEMU guest agent is qemu-ga."},
+{"guess": "applessdstatistics", "member": true, "name": "applessdstatistics", "tier": "heisenbug", "why": "A macOS helper that collects SSD statistics for the storage stack."},
+{"guess": "AppleVirtualPlatformHIDBridge", "member": false, "name": "AppleVirtualPlatformHIDBridge", "tier": "", "why": "Not confident this is a named daemon, so the rule says no."}]
+```
+
+I judged these from memory, not from a codebase or the macOS sources, so the less-known macOS names are my best guess. The ones I marked false only because I was unsure (aned, aneuserd, appleaccountd, appleaccounttransparencyd, AppleQEMUGuestAgent, AppleVirtualPlatformHIDBridge) may be real. The rule says to mark unsure guesses false, so they stay that way. The `afpLoad` false is a firmer call: it is a one-shot tool, not a daemon.
+
+
+--- haiku call, 22s, exit 0, prompt 3624 chars, stdout 3853 chars
+true, "name": "myproxy-server", "tier": "heisenbug", "why": "The MyProxy credential server daemon from the Globus toolkit."},
+{"guess": "config-gfsd", "member": false, "name": "config-gfsd", "tier": "womm", "why": "A Gfarm configuration command for gfsd, not the daemon itself."},
+{"guess": "lyskomd", "member": true, "name": "lyskomd", "tier": "heisenbug", "why": "The LysKOM conferencing server daemon."},
+{"guess": "accessoryd", "member": false, "name": "accessoryd", "tier": "womm", "why": "Probably an Apple accessory daemon, but I could not confirm it."},
+{"guess": "accessorysensormgrd", "member": false, "name": "accessorysensormgrd", "tier": "womm", "why": "Probably an Apple accessory daemon, but I could not confirm it."},
+{"guess": "accessoryupdaterd", "member": false, "name": "accessoryupdaterd", "tier": "womm", "why": "Probably an Apple accessory daemon, but I could not confirm it."},
+{"guess": "accountsd", "member": true, "name": "accountsd", "tier": "race", "why": "The macOS accounts daemon that manages user account data."},
+{"guess": "adid", "member": false, "name": "adid", "tier": "womm", "why": "Could not confirm this as a named Unix daemon."},
+{"guess": "adprivacyd", "member": false, "name": "adprivacyd", "tier": "womm", "why": "Probably an Apple ad-privacy daemon, but I could not confirm it."},
+{"guess": "AEServer", "member": false, "name": "AEServer", "tier": "womm", "why": "Apple Event Server is a classic Mac OS name; I could not confirm it as a Unix daemon."}
+]
+
+
+--- haiku call, 24s, exit 0, prompt 3614 chars, stdout 4636 chars
+_client_kernel_generic", "tier": null, "why": "An Entropy Broker client program and a per-source instance name, not a daemon (Out)."},
+{"guess": "eb_client_linux_kernel", "member": false, "name": "eb_client_linux_kernel", "tier": null, "why": "An Entropy Broker client program and a per-source instance name, not a daemon (Out)."},
+{"guess": "eb_proxy_knuth_b", "member": false, "name": "eb_proxy_knuth_b", "tier": null, "why": "A proxy program and per-instance name in the Entropy Broker tooling, not a named daemon (Out)."},
+{"guess": "eb_proxy_knuth_m", "member": false, "name": "eb_proxy_knuth_m", "tier": null, "why": "A proxy program and per-instance name in the Entropy Broker tooling, not a named daemon (Out)."},
+{"guess": "eb_server_Araneus_Alea", "member": false, "name": "eb_server_Araneus_Alea", "tier": null, "why": "A per-device source instance name in the Entropy Broker tooling, not a named daemon (Out)."},
+{"guess": "eb_server_audio", "member": false, "name": "eb_server_audio", "tier": null, "why": "A per-source instance name in the Entropy Broker tooling, not a named daemon (Out)."},
+{"guess": "eb_server_ComScire_R2000KU", "member": false, "name": "eb_server_ComScire_R2000KU", "tier": null, "why": "A per-device source instance name in the Entropy Broker tooling, not a named daemon (Out)."},
+{"guess": "eb_server_egd", "member": false, "name": "eb_server_egd", "tier": null, "why": "A per-source instance name in the Entropy Broker tooling, not a named daemon (Out)."}]
+```
+
+
+--- haiku call, 24s, exit 0, prompt 3626 chars, stdout 4358 chars
+nbug", "why": "A macOS Content Caching background service; I'm moderately confident of the name."},
+  {"guess": "assetsubscriptiond", "member": false, "name": "assetsubscriptiond", "tier": null, "why": "I can't confirm this is a real daemon, so I can't cite it."},
+  {"guess": "assistant_cdmd", "member": true, "name": "assistant_cdmd", "tier": "heisenbug", "why": "A macOS Siri assistant daemon; I'm moderately confident it exists."},
+  {"guess": "assistantd", "member": true, "name": "assistantd", "tier": "race", "why": "The macOS Siri assistant daemon, known to some macOS users."},
+  {"guess": "atrun", "member": false, "name": "atrun", "tier": null, "why": "A helper program run by cron to execute at jobs, not a long-running daemon; the daemon is atd."},
+  {"guess": "attentionawarenessd", "member": true, "name": "attentionawarenessd", "tier": "heisenbug", "why": "An Apple daemon for attention awareness (Face ID attention checks); I'm moderately confident it exists."},
+  {"guess": "audioaccessoryd", "member": true, "name": "audioaccessoryd", "tier": "heisenbug", "why": "An Apple audio accessory daemon (AirPods and similar); I'm moderately confident it exists."},
+  {"guess": "audioanalyticsd", "member": false, "name": "audioanalyticsd", "tier": null, "why": "I can't confirm this is a real daemon, so I can't cite it."},
+  {"guess": "audioclocksyncd", "member": false, "name": "audioclocksyncd", "tier": null, "why": "I can't confirm this is a real daemon, so I can't cite it."}
+]
+```
+
+
+--- haiku call, 23s, exit 0, prompt 3707 chars, stdout 4328 chars
+, a long-running server."}, {"guess": "jool_siit", "member": false, "name": "jool_siit", "tier": "", "why": "A configuration or control tool for the Jool translation module, not a daemon."}, {"guess": "ovn-controller", "member": true, "name": "ovn-controller", "tier": "race", "why": "The per-hypervisor daemon of Open Virtual Network that programs local flows."}, {"guess": "rapiddisk", "member": false, "name": "rapiddisk", "tier": "", "why": "A kernel RAM-disk module and its tool, not a background service program."}, {"guess": "w1retap", "member": false, "name": "w1retap", "tier": "", "why": "I cannot confirm it as a named Unix daemon, so I am not sure enough to mark it a member."}, {"guess": "glacier2router", "member": true, "name": "glacier2router", "tier": "heisenbug", "why": "The firewall-traversal router daemon from ZeroC's Ice middleware."}, {"guess": "in.nnrpd", "member": true, "name": "nnrpd", "tier": "heisenbug", "why": "The NNTP reader daemon of the INN Usenet server, installed as in.nnrpd on Debian."}, {"guess": "innd", "member": true, "name": "innd", "tier": "race", "why": "The core news-transit daemon of the INN Usenet server."}, {"guess": "mgmt", "member": false, "name": "mgmt", "tier": "", "why": "A configuration-management tool that runs continuously, not clearly a Unix daemon by its own name, so I am unsure."}, {"guess": "ftpasswd", "member": false, "name": "ftpasswd", "tier": "", "why": "A utility for managing FTP password files, not a background service."}]
+
+
+--- haiku call, 18s, exit 0, prompt 3705 chars, stdout 4483 chars
+er": "heisenbug", "why": "macOS daemon behind display features such as Night Shift and True Tone."},
+{"guess": "corecaptured", "member": true, "name": "corecaptured", "tier": "heisenbug", "why": "macOS daemon that captures and records core system diagnostics for CoreCapture."},
+{"guess": "coredatad", "member": true, "name": "coredatad", "tier": "heisenbug", "why": "macOS daemon that runs Core Data store work on behalf of apps."},
+{"guess": "coreduetd", "member": true, "name": "coreduetd", "tier": "heisenbug", "why": "macOS daemon for the Duet/Biome knowledge and prediction system."},
+{"guess": "coreidvd", "member": true, "name": "coreidvd", "tier": "heisenbug", "why": "macOS identity verification daemon for Apple's IDV framework."},
+{"guess": "coreimportd", "member": true, "name": "coreimportd", "tier": "heisenbug", "why": "macOS daemon that handles device import, such as copying photos from cameras and phones."},
+{"guess": "corekdld", "member": false, "name": "corekdld", "tier": "", "why": "Not confident this is a named macOS daemon."},
+{"guess": "corercd", "member": false, "name": "corercd", "tier": "", "why": "Not confident this is a named macOS daemon."},
+{"guess": "corerepaird", "member": false, "name": "corerepaird", "tier": "", "why": "Not confident this is a named macOS daemon."},
+{"guess": "coreservicesd", "member": true, "name": "coreservicesd", "tier": "race", "why": "macOS daemon behind Launch Services, which tracks app registration and file type associations."}]
+
+
+--- haiku call, 21s, exit 0, prompt 3618 chars, stdout 4370 chars
+ams."},{"guess": "biomed", "member": false, "name": "biomed", "tier": "", "why": "Not confident it is a named macOS daemon, so not counted."},{"guess": "biomesyncd", "member": true, "name": "biomesyncd", "tier": "heisenbug", "why": "macOS daemon that syncs Biome behavioural data stores across a user's devices."},{"guess": "biometrickitd", "member": true, "name": "biometrickitd", "tier": "race", "why": "macOS daemon behind BiometricKit, which handles Touch ID and biometric authentication."},{"guess": "BlueTool", "member": false, "name": "BlueTool", "tier": "", "why": "Apple's Bluetooth test or utility tool, not a long-running background daemon."},{"guess": "bluetoothaudiod", "member": true, "name": "bluetoothaudiod", "tier": "heisenbug", "why": "macOS daemon that manages Bluetooth audio connections and profiles."},{"guess": "BluetoothUIService", "member": true, "name": "BluetoothUIService", "tier": "heisenbug", "why": "macOS background service that shows the Bluetooth pairing and status UI."},{"guess": "bluetoothuserd", "member": true, "name": "bluetoothuserd", "tier": "heisenbug", "why": "macOS daemon that runs Bluetooth services in the user session."},{"guess": "bookassetd", "member": true, "name": "bookassetd", "tier": "heisenbug", "why": "macOS daemon that downloads and manages assets for the Books app."},{"guess": "bookdatastored", "member": true, "name": "bookdatastored", "tier": "heisenbug", "why": "macOS daemon that stores and manages the data behind the Books app."}]
+
+
+--- haiku call, 21s, exit 0, prompt 3581 chars, stdout 3971 chars
+: true, "name": "cdpd", "tier": "race", "why": "The Cisco Discovery Protocol daemon, available on Linux and BSD systems."},
+{"guess": "centaurid", "member": false, "name": "centaurid", "tier": "", "why": "I can't confirm it is a named Unix daemon, so I'm ruling it out rather than guessing."},
+{"guess": "CFNetworkAgent", "member": true, "name": "CFNetworkAgent", "tier": "heisenbug", "why": "A macOS networking helper daemon in the CFNetwork stack."},
+{"guess": "check_afp", "member": false, "name": "check_afp", "tier": "", "why": "A one-shot AFP check tool, not a long-running daemon."},
+{"guess": "chronod", "member": true, "name": "chronod", "tier": "heisenbug", "why": "A macOS daemon that manages widget timelines."},
+{"guess": "ciphermld", "member": false, "name": "ciphermld", "tier": "", "why": "I can't confirm it is a named Unix daemon, so I'm ruling it out rather than guessing."},
+{"guess": "ckdiscretionaryd", "member": true, "name": "ckdiscretionaryd", "tier": "heisenbug", "why": "A macOS CloudKit daemon, very obscure."},
+{"guess": "cloudd", "member": true, "name": "cloudd", "tier": "race", "why": "The macOS CloudKit daemon, a well-known iCloud sync service."},
+{"guess": "cloudphotod", "member": true, "name": "cloudphotod", "tier": "heisenbug", "why": "A macOS daemon for iCloud Photos."},
+{"guess": "colorsync.displayservices", "member": false, "name": "colorsync.displayservices", "tier": "", "why": "This reads as a launchd service label, not a named daemon program."}
+]
+```
+
+
+--- haiku call, 17s, exit 0, prompt 3633 chars, stdout 3877 chars
+ss": "donotdisturbd", "member": true, "name": "donotdisturbd", "tier": "heisenbug", "why": "macOS's Do Not Disturb daemon."},
+{"guess": "doubleagentd", "member": false, "name": "doubleagentd", "tier": "", "why": "Not a real daemon I can cite."},
+{"guess": "dprivacyd", "member": true, "name": "dprivacyd", "tier": "heisenbug", "why": "macOS's differential privacy daemon."},
+{"guess": "dspluginhelperd", "member": false, "name": "dspluginhelperd", "tier": "", "why": "I am not confident this is a real daemon, so I am ruling it out."},
+{"guess": "dtfetchsymbolsd", "member": false, "name": "dtfetchsymbolsd", "tier": "", "why": "I am not confident this is a real daemon, so I am ruling it out."},
+{"guess": "duetexpertd", "member": true, "name": "duetexpertd", "tier": "heisenbug", "why": "macOS's Duet Expert daemon, part of Siri and proactive suggestions."},
+{"guess": "DumpGPURestart", "member": false, "name": "DumpGPURestart", "tier": "", "why": "A GPU restart diagnostic tool, not a daemon I can cite."},
+{"guess": "DumpPanic", "member": false, "name": "DumpPanic", "tier": "", "why": "A panic-dump diagnostic tool, not a daemon I can cite."},
+{"guess": "DumpPanicRecoveryOS", "member": false, "name": "DumpPanicRecoveryOS", "tier": "", "why": "A panic-dump diagnostic tool, not a daemon I can cite."},
+{"guess": "dynamic_pager", "member": true, "name": "dynamic_pager", "tier": "heisenbug", "why": "The Mach dynamic_pager daemon, which manages swap files on macOS and historical Unix."}
+]
+```
+
+
+--- haiku call, 18s, exit 0, prompt 3621 chars, stdout 3674 chars
+ber": true, "name": "cups-lpd", "tier": "race", "why": "CUPS's lpd-protocol server, run from inetd on Unix-like systems."},
+{"guess": "CVMServer", "member": false, "name": "CVMServer", "tier": "", "why": "Cannot confirm it as a named daemon (the media service I know is cvmsServ)."},
+{"guess": "dasd", "member": true, "name": "dasd", "tier": "race", "why": "Apple's Duet Activity Scheduler daemon on macOS and iOS."},
+{"guess": "dataaccessd", "member": true, "name": "dataaccessd", "tier": "heisenbug", "why": "Apple's data access daemon on macOS and iOS."},
+{"guess": "DataDetectorsSourceAccess", "member": true, "name": "DataDetectorsSourceAccess", "tier": "heisenbug", "why": "A background XPC service in macOS DataDetectorsCore."},
+{"guess": "datastored", "member": false, "name": "datastored", "tier": "", "why": "Cannot confirm it as a named daemon."},
+{"guess": "deleted", "member": false, "name": "deleted", "tier": "", "why": "A word, not a named daemon."},
+{"guess": "deleted_helper", "member": false, "name": "deleted_helper", "tier": "", "why": "Not a named daemon."},
+{"guess": "DesktopServicesHelper", "member": false, "name": "DesktopServicesHelper", "tier": "", "why": "Cannot confirm it as a named daemon."},
+{"guess": "destinationd", "member": false, "name": "destinationd", "tier": "", "why": "Cannot confirm it as a named daemon."},
+{"guess": "devicecheckd", "member": true, "name": "devicecheckd", "tier": "heisenbug", "why": "Apple's DeviceCheck daemon on macOS and iOS."}]
+```
+
+
+--- haiku call, 23s, exit 0, prompt 3664 chars, stdout 3785 chars
+FairPlay content protection."},
+{"guess": "fairplaydeviceidentityd", "member": false, "name": "fairplaydeviceidentityd", "tier": "", "why": "Unsure whether this exists as a daemon."},
+{"guess": "familycircled", "member": true, "name": "familycircled", "tier": "heisenbug", "why": "macOS daemon for Family Sharing."},
+{"guess": "familynotificationd", "member": true, "name": "familynotificationd", "tier": "heisenbug", "why": "macOS daemon for Family Sharing notifications."},
+{"guess": "fbahelperd", "member": false, "name": "fbahelperd", "tier": "", "why": "No known Unix daemon by this name."},
+{"guess": "FDERecoveryAgent", "member": false, "name": "FDERecoveryAgent", "tier": "", "why": "A FileVault recovery agent that runs on demand, not a long-running daemon."},
+{"guess": "filecoordinationd", "member": true, "name": "filecoordinationd", "tier": "race", "why": "macOS daemon that coordinates file access."},
+{"guess": "fileproviderd", "member": true, "name": "fileproviderd", "tier": "race", "why": "macOS daemon behind File Provider (iCloud Drive and similar)."},
+{"guess": "filevaultd", "member": true, "name": "filevaultd", "tier": "heisenbug", "why": "macOS daemon for FileVault disk encryption."},
+{"guess": "financed", "member": true, "name": "financed", "tier": "heisenbug", "why": "macOS daemon for Apple Card and Wallet finance features."},
+{"guess": "findmybeaconingd", "member": true, "name": "findmybeaconingd", "tier": "heisenbug", "why": "macOS daemon for Find My beaconing."}]
+
+
+--- haiku call, 22s, exit 0, prompt 3575 chars, stdout 3797 chars
+"guess": "gamesaved", "member": false, "name": "gamesaved", "tier": null, "why": "I can't confirm this as a named background service, so I'm treating it as unsure."},
+{"guess": "generativeexperiencesd", "member": true, "name": "generativeexperiencesd", "tier": "heisenbug", "why": "A macOS Apple Intelligence background service."},
+{"guess": "geoanalyticsd", "member": true, "name": "geoanalyticsd", "tier": "heisenbug", "why": "A macOS location-analytics background service."},
+{"guess": "gfs2_logd", "member": true, "name": "gfs2_logd", "tier": "heisenbug", "why": "The Linux GFS2 journal daemon kernel thread."},
+{"guess": "gfs2_quotad", "member": true, "name": "gfs2_quotad", "tier": "heisenbug", "why": "The Linux GFS2 quota daemon kernel thread."},
+{"guess": "ggated", "member": true, "name": "ggated", "tier": "heisenbug", "why": "The FreeBSD GEOM gate network daemon."},
+{"guess": "gkreport", "member": false, "name": "gkreport", "tier": null, "why": "I can't confirm this as a named background service, so I'm treating it as unsure."},
+{"guess": "gputoolsserviced", "member": true, "name": "gputoolsserviced", "tier": "heisenbug", "why": "An Apple GPU developer-tools service daemon."},
+{"guess": "griddatad", "member": false, "name": "griddatad", "tier": null, "why": "I can't confirm this as a named background service, so I'm treating it as unsure."},
+{"guess": "GSSCred", "member": true, "name": "GSSCred", "tier": "heisenbug", "why": "The macOS Kerberos credential-cache daemon."}]
+```
+
+
+--- haiku call, 22s, exit 0, prompt 3587 chars, stdout 4172 chars
+ the background service that manages icon caches for the system."},
+{"guess": "identityservicesd", "member": true, "name": "identityservicesd", "tier": "heisenbug", "why": "macOS identityservicesd, the background service behind iMessage and FaceTime identity."},
+{"guess": "ifcstart", "member": false, "name": "ifcstart", "tier": "", "why": "Not a recognised daemon name, so not a member."},
+{"guess": "inboxupdaterd", "member": false, "name": "inboxupdaterd", "tier": "", "why": "Not confident this is a real named daemon, so ruled out as unsure."},
+{"guess": "inputanalyticsd", "member": true, "name": "inputanalyticsd", "tier": "heisenbug", "why": "macOS inputanalyticsd, a background service that collects input analytics."},
+{"guess": "installcoordination_proxy", "member": false, "name": "installcoordination_proxy", "tier": "", "why": "A helper for installcoordinationd; not confident it is a named daemon, so ruled out as unsure."},
+{"guess": "installcoordinationd", "member": true, "name": "installcoordinationd", "tier": "heisenbug", "why": "macOS installcoordinationd, the background service that coordinates software installs."},
+{"guess": "installd", "member": true, "name": "installd", "tier": "race", "why": "macOS installd, the daemon that performs package installs, named in Apple's system docs and launchd plists."},
+{"guess": "installerdiagd", "member": false, "name": "installerdiagd", "tier": "", "why": "Not confident this is a real named daemon, so ruled out as unsure."}]
+```
+
+
+--- haiku call, 19s, exit 0, prompt 3609 chars, stdout 3757 chars
+": true, "name": "Postfix master", "tier": "race", "why": "The bare name refers to Postfix's master daemon, which supervises the other Postfix services."},{"guess": "mbsystemadministration", "member": false, "name": "mbsystemadministration", "tier": "", "why": "Not confident this is a real named daemon."},{"guess": "mbusertrampoline", "member": false, "name": "mbusertrampoline", "tier": "", "why": "Not confident this is a real named daemon."},{"guess": "mdmclient", "member": true, "name": "mdmclient", "tier": "race", "why": "macOS MDM client daemon that talks to device-management servers."},{"guess": "mDNSResponderHelper", "member": true, "name": "mDNSResponderHelper", "tier": "heisenbug", "why": "Helper process that works alongside the mDNSResponder daemon on macOS."},{"guess": "mds_stores", "member": true, "name": "mds_stores", "tier": "race", "why": "Spotlight's background daemon that maintains index stores on macOS."},{"guess": "mdsync", "member": false, "name": "mdsync", "tier": "", "why": "Not confident this is a real named daemon."},{"guess": "mdworker", "member": true, "name": "mdworker", "tier": "race", "why": "Spotlight's background indexing worker on macOS."},{"guess": "mdworker_shared", "member": true, "name": "mdworker_shared", "tier": "heisenbug", "why": "Shared Spotlight indexing worker on macOS."},{"guess": "mediaanalysisd", "member": true, "name": "mediaanalysisd", "tier": "heisenbug", "why": "macOS daemon that analyses photos and media in the background."}]
+
+
+--- haiku call, 22s, exit 0, prompt 3643 chars, stdout 4341 chars
+hy": "It is a short-lived batman-adv throughput-test thread, not a daemon."},
+{"guess": "kbnepd", "member": true, "name": "kbnepd", "tier": "heisenbug", "why": "The Linux Bluetooth BNEP kernel thread (net/bluetooth/bnep), named like a daemon."},
+{"guess": "kcgend", "member": false, "name": "kcgend", "tier": "", "why": "I can't verify it as a named daemon."},
+{"guess": "kcm", "member": false, "name": "kcm", "tier": "", "why": "It is the Linux Kernel Connection Multiplexor, a protocol facility, not a daemon."},
+{"guess": "kcproxy", "member": false, "name": "kcproxy", "tier": "", "why": "I can't verify it as a named daemon."},
+{"guess": "kdumpd", "member": false, "name": "kdumpd", "tier": "", "why": "I can't verify it as a named daemon; the kdump service is usually called kdump."},
+{"guess": "KernelEventAgent", "member": true, "name": "KernelEventAgent", "tier": "race", "why": "A macOS launchd-managed agent that handles kernel events, though I can't cite its docs here."},
+{"guess": "kernelmanager_helper", "member": false, "name": "kernelmanager_helper", "tier": "", "why": "It is a helper binary, not a daemon in its own right, and I can't confirm it."},
+{"guess": "kernelmanagerd", "member": true, "name": "kernelmanagerd", "tier": "race", "why": "A macOS daemon for kernel extension management, launched by launchd."},
+{"guess": "keybagd", "member": false, "name": "keybagd", "tier": "", "why": "It may be a real Apple daemon, but I can't cite a source, so I'm not counting it."}]
+```
+
+
+--- haiku call, 18s, exit 0, prompt 3609 chars, stdout 4089 chars
+se, "name": "mobilerepaird", "tier": "", "why": "Unsure it is a real daemon name."},
+{"guess": "MobileStorageMounter", "member": true, "name": "MobileStorageMounter", "tier": "heisenbug", "why": "Apple's iOS helper that mounts device storage images, a real system binary."},
+{"guess": "mobiletimerd", "member": true, "name": "mobiletimerd", "tier": "heisenbug", "why": "Apple's iOS daemon behind the Clock app's alarms and timers."},
+{"guess": "modelcatalogd", "member": false, "name": "modelcatalogd", "tier": "", "why": "Unsure it is a real daemon name."},
+{"guess": "modelmanagerd", "member": false, "name": "modelmanagerd", "tier": "", "why": "Unsure it is a real daemon name."},
+{"guess": "mount_nfs", "member": false, "name": "mount_nfs", "tier": "", "why": "A one-shot mount command, not a daemon; the daemon is nfsd."},
+{"guess": "msconvd", "member": false, "name": "msconvd", "tier": "", "why": "Unsure it is a real daemon name."},
+{"guess": "mstreamd", "member": false, "name": "mstreamd", "tier": "", "why": "Unsure it is a real daemon name."},
+{"guess": "multiversed", "member": false, "name": "multiversed", "tier": "", "why": "Unsure it is a real daemon name."}]
+```
+
+These are from memory, not checked against a codebase or docs, so the members I marked true (mediacontinuityd, mediaremoted, mediasharingd, misagent, mlhostd, the mobile_* services, MobileGestaltHelper, MobileStorageMounter, mobiletimerd) are the ones to verify first. Where I was unsure I marked false, per the rule.
+
+
+--- haiku call, 26s, exit 0, prompt 3637 chars, stdout 4420 chars
+r": "race", "why": "The macOS LaunchServices daemon that maintains the app registration database."}, {"guess": "lightsoutmanagementd", "member": false, "name": "lightsoutmanagementd", "tier": "", "why": "Unsure a daemon by this name exists on a Unix-like system."}, {"guess": "linkd", "member": false, "name": "linkd", "tier": "", "why": "No known Unix daemon by this name, and the bare word is too generic to count."}, {"guess": "liquiddetectiond", "member": false, "name": "liquiddetectiond", "tier": "", "why": "Unsure whether this is a real named daemon, so not counted."}, {"guess": "liveactivitiesd", "member": false, "name": "liveactivitiesd", "tier": "", "why": "Unsure whether this is a real daemon on a Unix-like system."}, {"guess": "local-unbound", "member": false, "name": "local-unbound", "tier": "", "why": "A FreeBSD rc service name for the local unbound resolver, so it names a service and configuration rather than the daemon, which is unbound."}, {"guess": "localizationswitcherd", "member": true, "name": "localizationswitcherd", "tier": "heisenbug", "why": "A macOS system daemon that switches localization settings."}, {"guess": "locate.updatedb", "member": false, "name": "locate.updatedb", "tier": "", "why": "A one-shot script that rebuilds the locate database, not a long-running daemon."}, {"guess": "locationaccessstored", "member": true, "name": "locationaccessstored", "tier": "heisenbug", "why": "A macOS system daemon that stores per-app location access decisions."}]
+
+
+--- haiku call, 21s, exit 0, prompt 3529 chars, stdout 4054 chars
+ "tier": "race", "why": "The notification daemon behind notify(3) on macOS and BSD."},
+{"guess": "NRDUpdated", "member": false, "name": "NRDUpdated", "tier": "", "why": "I can't cite a documented daemon by this name."},
+{"guess": "nsurlsessiond", "member": true, "name": "nsurlsessiond", "tier": "heisenbug", "why": "Apple's background NSURLSession transfer daemon on macOS and iOS."},
+{"guess": "ntalkd", "member": true, "name": "ntalkd", "tier": "heisenbug", "why": "The BSD talk server daemon for the talk(1) protocol."},
+{"guess": "oahd", "member": true, "name": "oahd", "tier": "heisenbug", "why": "Apple's Rosetta 2 (Open Architecture Assistant) daemon on macOS."},
+{"guess": "oahd-root-helper", "member": true, "name": "oahd-root-helper", "tier": "heisenbug", "why": "The privileged helper companion to Apple's oahd on macOS."},
+{"guess": "ocspd", "member": true, "name": "ocspd", "tier": "race", "why": "macOS daemon that checks certificate revocation status via OCSP."},
+{"guess": "odproxyd", "member": true, "name": "odproxyd", "tier": "heisenbug", "why": "Apple's OpenDirectory proxy daemon on macOS."}]
+```
+
+Most of these are judgement calls from memory, not checked against a source. The ones I'm least sure of are `naturallanguaged`, `nfcd`, `notification_proxy`, `oahd-root-helper` and `NetAuthAgent`, which is an agent rather than a classic daemon. Apple's daemons are mostly undocumented, so the owner may want to check them against a macOS `launchd` dump before trusting the tiers.
+
+
+--- haiku call, 19s, exit 0, prompt 3591 chars, stdout 4328 chars
+ launchd job."},
+{"guess": "pfd", "member": false, "name": "pfd", "tier": "womm", "why": "No known Unix daemon by this name; packet filtering on BSD is pf in the kernel plus pflogd."},
+{"guess": "pflogd", "member": true, "name": "pflogd", "tier": "race", "why": "The packet filter logging daemon on OpenBSD, FreeBSD and macOS that writes pf logs to pflog."},
+{"guess": "photoanalysisd", "member": true, "name": "photoanalysisd", "tier": "heisenbug", "why": "macOS daemon that runs machine-learning analysis on the Photos library."},
+{"guess": "photolibraryd", "member": true, "name": "photolibraryd", "tier": "heisenbug", "why": "macOS daemon that manages the Photos library database."},
+{"guess": "pkd", "member": false, "name": "pkd", "tier": "womm", "why": "Not a confirmed Unix daemon; unsure of a real macOS or BSD program by this name."},
+{"guess": "postersyncd", "member": false, "name": "postersyncd", "tier": "womm", "why": "Not a confirmed daemon; unsure this is a real named program."},
+{"guess": "postupgraded", "member": false, "name": "postupgraded", "tier": "womm", "why": "Not a confirmed daemon; unsure this is a real named program."},
+{"guess": "powerdatad", "member": false, "name": "powerdatad", "tier": "womm", "why": "Not a confirmed daemon; unsure this is a real named program."},
+{"guess": "powerexperienced", "member": true, "name": "powerexperienced", "tier": "heisenbug", "why": "macOS daemon that manages power-experience and battery-related behaviour, run by launchd."}]
+
+
+--- haiku call, 18s, exit 0, prompt 3604 chars, stdout 4132 chars
+ "why": "Not confident this is a real daemon, so ruled out."},{"guess": "remindd", "member": true, "name": "remindd", "tier": "race", "why": "The macOS background daemon behind Reminders sync and storage."},{"guess": "remotecompositorclientd", "member": false, "name": "remotecompositorclientd", "tier": "heisenbug", "why": "Not confident this is a real daemon, so ruled out."},{"guess": "remoted", "member": false, "name": "remoted", "tier": "heisenbug", "why": "Not confident this is a real daemon, so ruled out."},{"guess": "remotemanagementd", "member": true, "name": "remotemanagementd", "tier": "heisenbug", "why": "A macOS background daemon that handles Apple Remote Management."},{"guess": "RemotePairTool", "member": false, "name": "RemotePairTool", "tier": "heisenbug", "why": "A developer pairing utility for Apple TV remotes, not a daemon."},{"guess": "replayd", "member": true, "name": "replayd", "tier": "heisenbug", "why": "The macOS daemon that handles screen capture and ReplayKit recording."},{"guess": "replicatord", "member": false, "name": "replicatord", "tier": "heisenbug", "why": "Not confident this is a real daemon, so ruled out."},{"guess": "ReportCrash", "member": true, "name": "ReportCrash", "tier": "race", "why": "The macOS crash-reporting daemon that launchd starts when a process crashes."},{"guess": "ReportMemoryException", "member": true, "name": "ReportMemoryException", "tier": "heisenbug", "why": "A macOS background process that reports memory exceptions."}]
+
+
+--- haiku call, 21s, exit 0, prompt 3575 chars, stdout 4174 chars
+": true, "name": "sdpd", "tier": "heisenbug", "why": "The Bluetooth Service Discovery Protocol daemon, historically in BlueZ."},
+{"guess": "searchpartyd", "member": true, "name": "searchpartyd", "tier": "heisenbug", "why": "macOS's daemon behind Find My offline finding over the Bluetooth network."},
+{"guess": "searchtoold", "member": false, "name": "searchtoold", "tier": "", "why": "I can't confirm this as a named daemon, so I'm marking it false."},
+{"guess": "secd", "member": true, "name": "secd", "tier": "race", "why": "macOS's security daemon for Keychain and iCloud Keychain syncing."},
+{"guess": "secinitd", "member": true, "name": "secinitd", "tier": "heisenbug", "why": "A macOS security initialization daemon that I believe ships in /usr/libexec, though I'm not fully certain."},
+{"guess": "SecurityAgent", "member": false, "name": "SecurityAgent", "tier": "", "why": "A GUI authorization dialog agent launched on demand, not a long-running daemon."},
+{"guess": "securityd", "member": true, "name": "securityd", "tier": "race", "why": "macOS's Security Server, which handles Keychain and authorization requests."},
+{"guess": "securityd_system", "member": false, "name": "securityd_system", "tier": "", "why": "I can't confirm this as a named daemon, so I'm marking it false."},
+{"guess": "securityuploadd", "member": true, "name": "securityuploadd", "tier": "heisenbug", "why": "A macOS security-uploads daemon that I believe ships in /usr/libexec, though I'm not fully certain."}]
+```
+
+
+--- haiku call, 19s, exit 0, prompt 3594 chars, stdout 4079 chars
+exists as a macOS daemon, but I can't confirm it, so I'm ruling it out under the unsure rule."},
+{"guess": "socketfilterfw", "member": false, "name": "socketfilterfw", "tier": "womm", "why": "Mainly the command-line tool for the macOS Application Firewall, and I can't confirm a separate daemon by this name."},
+{"guess": "softwareupdated", "member": true, "name": "softwareupdated", "tier": "race", "why": "macOS daemon that checks for and installs software updates."},
+{"guess": "SpeechDataInstallerd", "member": false, "name": "SpeechDataInstallerd", "tier": "womm", "why": "I think it's a macOS speech-data daemon, but I can't confirm it, so I'm ruling it out under the unsure rule."},
+{"guess": "spindump", "member": false, "name": "spindump", "tier": "womm", "why": "A command-line tool for sampling hung processes, not a daemon."},
+{"guess": "sportsd", "member": true, "name": "sportsd", "tier": "heisenbug", "why": "macOS daemon that supports the Sports app and its data."},
+{"guess": "SpotlightHelper", "member": false, "name": "SpotlightHelper", "tier": "womm", "why": "Not a daemon I can identify by this name."},
+{"guess": "spotlightknowledged", "member": true, "name": "spotlightknowledged", "tier": "heisenbug", "why": "macOS daemon that maintains Spotlight's knowledge and suggestions index."},
+{"guess": "srp-mdns-proxy", "member": true, "name": "srp-mdns-proxy", "tier": "heisenbug", "why": "Apple's Thread border-router daemon that proxies SRP service registrations to mDNS."}]
+```
+
+
+--- haiku call, 19s, exit 0, prompt 3597 chars, stdout 3809 chars
+ftuitraced", "member": false, "name": "swiftuitraced", "tier": "", "why": "Not a recognised named daemon; unsure, so not counted."}, {"guess": "swtransparencyd", "member": true, "name": "swtransparencyd", "tier": "heisenbug", "why": "macOS daemon for Software Transparency and certificate verification."}, {"guess": "symptomsd", "member": true, "name": "symptomsd", "tier": "race", "why": "macOS daemon that monitors system symptoms and diagnostics."}, {"guess": "symptomsd-diag", "member": false, "name": "symptomsd-diag", "tier": "", "why": "A diagnostic helper tool for symptomsd, not the daemon itself."}, {"guess": "symptomsd-distributed", "member": false, "name": "symptomsd-distributed", "tier": "", "why": "Not a recognised named daemon; unsure, so not counted."}, {"guess": "syncdefaultsd", "member": false, "name": "syncdefaultsd", "tier": "", "why": "Not a recognised named daemon; unsure, so not counted."}, {"guess": "syncuid", "member": false, "name": "syncuid", "tier": "", "why": "Not a recognised named daemon; unsure, so not counted."}, {"guess": "sysdiagnose_helper", "member": false, "name": "sysdiagnose_helper", "tier": "", "why": "A helper, not the named daemon; unsure, so not counted."}, {"guess": "sysdiagnosed", "member": true, "name": "sysdiagnosed", "tier": "heisenbug", "why": "macOS daemon that collects sysdiagnose diagnostic data."}, {"guess": "sysextd", "member": true, "name": "sysextd", "tier": "heisenbug", "why": "macOS daemon that manages system extensions."}]
+
+
+--- haiku call, 18s, exit 0, prompt 3596 chars, stdout 3783 chars
+y Xcode to run tests on macOS and iOS devices."},
+{"guess": "textcomposerd", "member": false, "name": "textcomposerd", "tier": "", "why": "Not a daemon I can confirm exists."},
+{"guess": "textunderstandingd", "member": false, "name": "textunderstandingd", "tier": "", "why": "Not a daemon I can confirm exists."},
+{"guess": "thermalmonitord", "member": true, "name": "thermalmonitord", "tier": "race", "why": "macOS daemon that monitors temperature and throttles hardware for thermal management."},
+{"guess": "threadradiod", "member": true, "name": "threadradiod", "tier": "heisenbug", "why": "macOS daemon that manages the Thread networking radio."},
+{"guess": "timemachinehelper", "member": false, "name": "timemachinehelper", "tier": "", "why": "Not a daemon I can confirm; Time Machine's services are backupd and related helpers."},
+{"guess": "TimeZoneAdminTool", "member": false, "name": "TimeZoneAdminTool", "tier": "", "why": "An admin tool, not a background daemon."},
+{"guess": "tipsd", "member": false, "name": "tipsd", "tier": "", "why": "Not a daemon I can confirm exists."},
+{"guess": "tmp_cleaner", "member": false, "name": "tmp_cleaner", "tier": "", "why": "A generic script name, not a named daemon."},
+{"guess": "toolkitd", "member": false, "name": "toolkitd", "tier": "", "why": "Not a daemon I can confirm exists."},
+{"guess": "TouchBarServer", "member": true, "name": "TouchBarServer", "tier": "heisenbug", "why": "macOS daemon that drives the Touch Bar on MacBook Pro models."}]
+
+
+--- haiku call, 19s, exit 0, prompt 3579 chars, stdout 4188 chars
+why": "Unsure of any Unix daemon by this name."},{"guess": "uninstalld", "member": false, "name": "uninstalld", "tier": "", "why": "Unsure of any Unix daemon by this name."},{"guess": "universalaccessd", "member": true, "name": "universalaccessd", "tier": "race", "why": "macOS daemon that handles Universal Access (accessibility) settings; I'm fairly confident it's real."},{"guess": "update", "member": true, "name": "update", "tier": "race", "why": "The historical Unix sync daemon `update`, listed as a kernel daemon in the scope spec."},{"guess": "UpdateSettingsTool", "member": false, "name": "UpdateSettingsTool", "tier": "", "why": "A tool name, not a daemon I can confirm."},{"guess": "usbaudiod", "member": false, "name": "usbaudiod", "tier": "", "why": "Unsure whether this is a real daemon, so I rule it out."},{"guess": "usbctelemetryd", "member": false, "name": "usbctelemetryd", "tier": "", "why": "Unsure whether this is a real daemon, so I rule it out."},{"guess": "usbpowerd", "member": false, "name": "usbpowerd", "tier": "", "why": "Unsure whether this is a real daemon, so I rule it out."},{"guess": "usbsmartcardreaderd", "member": true, "name": "usbsmartcardreaderd", "tier": "heisenbug", "why": "macOS daemon for USB smart-card readers under CryptoTokenKit; I'm moderately confident it's real."},{"guess": "useractivityd", "member": true, "name": "useractivityd", "tier": "heisenbug", "why": "macOS daemon behind NSUserActivity and Handoff; I'm fairly confident it's real."}]
+
+
+--- haiku call, 19s, exit 0, prompt 3590 chars, stdout 4343 chars
+xportd", "member": false, "name": "wallpaperexportd", "tier": "", "why": "I'm not confident this is a real named daemon, so I'm treating it as unrecognised."},
+{"guess": "warmd", "member": false, "name": "warmd", "tier": "", "why": "I can't place this as a named Unix daemon, so I'm treating it as unrecognised."},
+{"guess": "watchlistd", "member": false, "name": "watchlistd", "tier": "", "why": "I'm not confident this is a real named daemon, so I'm treating it as unrecognised."},
+{"guess": "weatherd", "member": false, "name": "weatherd", "tier": "", "why": "I'm not confident this is a real named daemon, so I'm treating it as unrecognised."},
+{"guess": "webinspectord", "member": true, "name": "webinspectord", "tier": "race", "why": "A macOS/iOS daemon that backs Safari's Web Inspector."},
+{"guess": "webprivacyd", "member": false, "name": "webprivacyd", "tier": "", "why": "I'm not confident this is a real named daemon, so I'm treating it as unrecognised."},
+{"guess": "webpushd", "member": false, "name": "webpushd", "tier": "", "why": "I'm not confident this is a real named daemon, so I'm treating it as unrecognised."},
+{"guess": "wifianalyticsd", "member": false, "name": "wifianalyticsd", "tier": "", "why": "I'm not confident this is a real named daemon, so I'm treating it as unrecognised."},
+{"guess": "wifiFirmwareLoader", "member": false, "name": "wifiFirmwareLoader", "tier": "", "why": "I'm not confident this is a real named daemon, so I'm treating it as unrecognised."}]
+```
+
+
+--- haiku call, 14s, exit 0, prompt 3405 chars, stdout 2296 chars
+ "heisenbug", "why": "An Apple XPC daemon in macOS and iOS, though I'm not certain of its exact spelling in their docs."}, {"guess": "xfsaild", "member": true, "name": "xfsaild", "tier": "heisenbug", "why": "The XFS log-push kernel thread on Linux, named like a daemon by the kernel's own XFS docs."}, {"guess": "xpcroleaccountd", "member": true, "name": "xpcroleaccountd", "tier": "heisenbug", "why": "An Apple XPC role-account daemon on macOS, though I'm not certain of its exact spelling in their docs."}, {"guess": "xprotectd", "member": true, "name": "xprotectd", "tier": "heisenbug", "why": "The XProtect malware-scanning daemon on macOS."}, {"guess": "xsand", "member": true, "name": "xsand", "tier": "heisenbug", "why": "The Xsan file-system daemon on macOS Server, though I'm not certain of the exact spelling in their docs."}, {"guess": "xscertadmin", "member": false, "name": "xscertadmin", "tier": "", "why": "A client command for managing Xsan certificates, not a daemon."}, {"guess": "xscertd", "member": true, "name": "xscertd", "tier": "heisenbug", "why": "The Xsan certificate daemon on macOS Server, though I'm not certain of its exact spelling in their docs."}, {"guess": "xscertd-helper", "member": false, "name": "xscertd-helper", "tier": "", "why": "A helper binary that the certificate daemon launches, not a named daemon of its own, and I'm not sure of it."}, {"guess": "zfsd", "member": true, "name": "zfsd", "tier": "race", "why": "FreeBSD's ZFS fault-management daemon."}]
+
+

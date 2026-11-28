@@ -73,7 +73,7 @@ describe('writing catalog', () => {
         const want = [...s.vars].sort().join(',');
         if (got !== want) bad.push(`${key}: code passes {${got}}, writing declares {${want}}`);
       }
-      for (const t of s.texts) for (const p of placeholdersOf(t)) if (!s.vars.includes(p)) bad.push(`${key}: {${p}} undeclared`);
+      for (const t of s.texts) for (const p of placeholdersOf(t)) if (!s.vars.includes(p) && p !== 'sq') bad.push(`${key}: {${p}} undeclared`);
     }
     expect(bad).toEqual([]);
   });

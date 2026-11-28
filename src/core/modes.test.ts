@@ -45,9 +45,9 @@ describe('mode rules', () => {
   it('share and end-card text come from the rules', () => {
     expect(rulesFor('daily').shareTitle(7)).toBe('nullion #7');
     expect(rulesFor('daily').puzzleChip(7)).toBe('#7');
-    expect(rulesFor('daily').headline('9 frames', 'Kernel')).toBe('9 frames · Kernel');
+    expect(rulesFor('daily').headline('9 frames', 'Kernel')).toBe('9 frames ▪ Kernel');
     expect(rulesFor('true-endless').shareTitle(7)).toBe('nullion endless');
-    expect(rulesFor('endless').headline('9 frames', 'Kernel')).toBe('KERNEL PANIC · 9 frames · Kernel');
+    expect(rulesFor('endless').headline('9 frames', 'Kernel')).toBe('KERNEL PANIC ▪ 9 frames ▪ Kernel');
     expect(rulesFor('endless').puzzleChip(7)).toBe('ENDLESS');
   });
 

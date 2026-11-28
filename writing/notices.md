@@ -9,7 +9,7 @@ max: 140
 vars: {reason}
 status: draft
 
-Your saved game for today could not be restored ({reason}). Starting fresh.
+Your saved stack for today could not be restored ({reason}). Starting fresh.
 
 ## notices.daily.resumed
 where: the dismissible notice bar at the top of the page
@@ -17,7 +17,7 @@ when: the page loads and today’s unfinished game is restored
 max: 100
 status: draft
 
-Resumed today’s game. The clock kept running while you were away.
+Resumed today’s stack. The clock kept running while you were away.
 
 ## notices.stats.reset
 where: the notice bar, and under the stats on the end card (an error)

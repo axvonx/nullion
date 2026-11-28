@@ -12,7 +12,7 @@ import { manualStore } from '../game/manual';
 import { buildShareText, deliverShare, glyphLine, siteUrl } from '../game/share';
 import type { StatsOutcome } from '../game/stats';
 import { answerSheet, answerUrl, questionUrl, type SheetGroup } from './answer-sheet';
-import { elementsOf, framesLabel, refLink, replay, setLineWithStackFrames } from './dom';
+import { elementsOf, framesLabel, refLink, replay, setLineWithStackFrames, setSqText, sqSep } from './dom';
 import { LAYER_ART } from '../layers';
 import { bankLink } from '../data/bank';
 import { missedAnswerUrl, suggestQuestionUrl } from './issues';
@@ -196,7 +196,7 @@ export class EndCard {
     const syncManualBadges = () => {
       const unread = manualStore.unreadCount();
       const found = manualStore.foundCount();
-      this.els.manualEndSub!.textContent = found > 0 ? text('end-card.manual.found', { found }) : text('end-card.manual.none');
+      setSqText(this.els.manualEndSub!, found > 0 ? text('end-card.manual.found', { found }) : text('end-card.manual.none'));
       this.els.manualEndBadge!.textContent = `${unread} NEW`;
       this.els.manualEndBadge!.hidden = unread === 0;
       this.els.manualEndBtn!.classList.toggle('has-unread', unread > 0);
@@ -378,11 +378,11 @@ export class EndCard {
         name.classList.add('bt-tier');
         name.dataset.tier = t.id;
         if (!t.wiki) name.title = `${t.name}: +${framesLabel(t.frames)} (the cliché “clever” pick)`;
-        det.append(ans, ' · ', name, ` · +${n} · ${span}`);
+        det.append(ans, sqSep(), name, sqSep(), `+${n}`, sqSep(), span);
         row.setAttribute('aria-label', `#${i}: ${prompt ? `${prompt}: ` : ''}${r.name ?? 'answer'}, ${t.name}, ${span}`);
       } else {
         row.classList.add('timeout');
-        det.textContent = r.timedOut ? text('end-card.row.timed-out') : text('end-card.row.skipped');
+        setSqText(det, r.timedOut ? text('end-card.row.timed-out') : text('end-card.row.skipped'));
         row.setAttribute('aria-label', `#${i}: ${prompt ? `${prompt}: ` : ''}${r.timedOut ? 'timed out' : 'skipped'}, no frames`);
       }
       // A row without a prompt text has no centre to swap: it shows its detail all the time.
@@ -440,7 +440,7 @@ export class EndCard {
     ideaLink.target = '_blank';
     ideaLink.rel = 'noopener noreferrer';
     ideaLink.textContent = text('end-card.link.suggest');
-    this.els.resultLinks!.replaceChildren(missLink, ' · ', ideaLink);
+    this.els.resultLinks!.replaceChildren(missLink, sqSep(), ideaLink);
   }
 
   /** The stack as it stood on the right-hand side at the end of the day: the same badges, top-down, the deepest one lit. */
@@ -585,7 +585,7 @@ export class EndCard {
       const name = refLink(TIERS[g.tier].name, TIERS[g.tier].wiki, TIERS[g.tier].name);
       name.classList.add('bt-tier');
       name.dataset.tier = g.tier;
-      head.append(name, ` · ${g.total}`);
+      head.append(name, sqSep(), String(g.total));
       const list = document.createElement('ul');
       list.className = 'sheet-list';
       const fill = (entries: readonly CategoryEntry[]) => list.replaceChildren(...entries.map((e) => this.sheetItem(e, prompt, qid)));
@@ -710,12 +710,15 @@ export class EndCard {
     if (puzzleNumber(now) !== this.host.game()!.puzzle) {
       if (this.nextDaySig === 'new') return;
       this.nextDaySig = 'new';
+      const raw = text('end-card.next.reload');
+      const parts = raw.split(/ ?\u25AA ?/);
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'ui-key ui-key--secondary next-day-reload';
-      b.textContent = text('end-card.next.reload');
+      b.textContent = parts.length > 1 ? parts.slice(1).join(' ') : raw;
       b.addEventListener('click', () => location.reload());
-      el.replaceChildren(b);
+      if (parts.length > 1 && parts[0]) el.replaceChildren(parts[0], sqSep(), b);
+      else el.replaceChildren(b);
       return;
     }
     const txt = text('end-card.next.countdown', { countdown: formatCountdown(msUntilNextDay(now)) });

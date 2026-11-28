@@ -69,4 +69,4 @@ max: 30
 vars: {secs}
 status: draft
 
-Starting in {secs}s
+Prompt in {secs}s

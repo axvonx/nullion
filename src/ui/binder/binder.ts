@@ -16,6 +16,7 @@ import { V4_LIBRARIES } from '../../render/v4/libraries';
 import { drawTopicProp, TOPIC_PROPS } from '../../render/v4/topics';
 import { GLYPH_H, GLYPH_W, SPACE_W, WATERMARK_GLYPHS, lineWidth } from '../../render/v4/watermark';
 import { CELL_H, CELL_W, GLYPHS, WORDMARK_OUTLINE, drawGlyph, layoutWord } from '../wordmark';
+import { sqSep } from '../dom';
 import { toCss } from '../ui-scale';
 
 /**
@@ -746,7 +747,7 @@ export class FieldManualBinder {
     const meta = MANUAL_RARITIES[e.rarity];
     const rate = formatRate(shownRate(e, s));
     const rar = el('div', 'bd-pencil bd-rarity');
-    rar.append(el('span', `bd-hl hl-${e.rarity}`, meta.label.toLowerCase()), rate ? ` · ${rate} of days` : ' · comes with its questions');
+    rar.append(el('span', `bd-hl hl-${e.rarity}`, meta.label.toLowerCase()), sqSep(), rate ? `${rate} of days` : 'comes with its questions');
     return this.frame(tag, folio, side, [mount, cap, strip, rar]);
   }
 

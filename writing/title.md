@@ -66,7 +66,7 @@ when: the player opens How to play
 max: 60
 status: draft
 
-Everyone gets the same puzzle.
+Everyone gets the same stack.
 
 ## title.rule.midnight
 where: the last line of the How to play list
@@ -74,7 +74,7 @@ when: the player opens How to play
 max: 60
 status: draft
 
-A new one opens at your local midnight.
+Unwind the next stack at midnight.
 
 ## title.tiers.heading
 where: the heading over the tier guide inside How to play
@@ -82,7 +82,7 @@ when: the player opens How to play
 max: 40
 status: draft
 
-Tiers · stack frames
+Tiers {sq} stack frames
 
 ## title.tiers.note
 where: the sentence above the tier guide inside How to play

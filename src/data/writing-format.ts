@@ -50,6 +50,9 @@ export class WritingFormatError extends Error {
   }
 }
 
+export const SQ = '\u25AA';
+const BUILTIN_VARS = new Set(['sq']);
+
 const KEY_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*(?:\.[a-z0-9]+(?:-[a-z0-9]+)*)+$/;
 const META_RE = /^([a-z]+):\s?(.*)$/;
 const META_KEYS = new Set(['where', 'when', 'max', 'vars', 'status']);
@@ -156,7 +159,7 @@ export function parseWritingFile(path: string, source: string): WritingString[] 
     texts.forEach((t, n) => {
       const at = list ? body[n]!.line : bodyStart;
       if (t === '') fail('an empty variant', at);
-      for (const p of placeholdersOf(t)) if (!vars.includes(p)) fail(`{${p}} is used but not declared in vars:`, at);
+      for (const p of placeholdersOf(t)) if (!vars.includes(p) && !BUILTIN_VARS.has(p)) fail(`{${p}} is used but not declared in vars:`, at);
       const stripped = t.replace(PLACEHOLDER_RE, '');
       if (/[{}]/.test(stripped)) fail('a stray brace: write variables as {name}', at);
       if (max !== undefined && t.length > max) fail(`${t.length} characters, over max: ${max}`, at);
@@ -190,5 +193,5 @@ export function fillVars(key: string, template: string, declared: readonly strin
   if (missing.length || extra.length) {
     throw new Error(`invariant violated: text '${key}' takes {${declared.join('}, {')}} but was given ${given.length ? `{${given.join('}, {')}}` : 'none'}${missing.length ? ` (missing ${missing.join(', ')})` : ''}${extra.length ? ` (unexpected ${extra.join(', ')})` : ''}`);
   }
-  return template.replace(PLACEHOLDER_RE, (_, name: string) => String(vars![name]));
+  return template.replace(PLACEHOLDER_RE, (_, name: string) => (name === 'sq' ? SQ : String(vars![name])));
 }

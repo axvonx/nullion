@@ -9,7 +9,7 @@ max: 60
 vars: {frames}, {layer}
 status: draft
 
-{frames} · {layer}
+{frames} {sq} {layer}
 
 ## end-card.headline.endless
 where: the share text’s headline, in the strike modes (Endless)
@@ -18,7 +18,7 @@ max: 60
 vars: {frames}, {layer}
 status: draft
 
-KERNEL PANIC · {frames} · {layer}
+KERNEL PANIC {sq} {frames} {sq} {layer}
 
 ## end-card.summary.daily
 where: the end card's summary line, under "nullion #n" and above the drawn stack
@@ -36,7 +36,7 @@ max: 40
 vars: {frames}
 status: draft
 
-KERNEL PANIC · {frames}
+KERNEL PANIC {sq} {frames}
 
 ## end-card.next.waiting
 where: the footer of the end card, until the countdown starts, and in games that do not count down
@@ -44,7 +44,7 @@ when: the day is over
 max: 60
 status: draft
 
-A new stack opens at local midnight.
+Unwind the next stack at midnight.
 
 ## end-card.next.countdown
 where: the footer of the end card
@@ -61,7 +61,7 @@ when: local midnight has passed with the end card still open
 max: 40
 status: draft
 
-A new stack is open · reload
+New stack ready {sq} reload
 
 ## end-card.manual.found
 where: the line under “Field Manual” on the end card button
@@ -70,7 +70,7 @@ max: 80
 vars: {found}
 status: draft
 
-{found} logged · click background folks to collect more
+{found} logged {sq} click characters & props to log more
 
 ## end-card.manual.none
 where: the line under “Field Manual” on the end card button
@@ -86,7 +86,7 @@ when: the round ended on the watchdog
 max: 40
 status: draft
 
-Timed out · no frames
+Timed out {sq} no frames
 
 ## end-card.row.skipped
 where: a backtrace row’s detail, once opened
@@ -94,7 +94,7 @@ when: the round was skipped
 max: 40
 status: draft
 
-Skipped · no frames
+Skipped {sq} no frames
 
 ## end-card.link.missed
 where: a link at the bottom of the end card

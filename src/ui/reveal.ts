@@ -8,7 +8,7 @@ import { sound } from '../audio/sound';
 import { reducedMotion } from '../looks';
 import { text, variants } from '../text';
 import type { Scene } from '../render/scene';
-import { $, framesLabel, replay, setText } from './dom';
+import { $, framesLabel, renderGlitchLine, replay, setSqText, setText } from './dom';
 import { LayerStack, createLayerBadge } from './layer-stack';
 import { revealLayout } from './reveal-layout';
 import { toCss } from './ui-scale';
@@ -86,6 +86,7 @@ export class Reveal {
 
   private open = false;
   private fadeTimer = 0;
+  private cancelGlitch: (() => void) | undefined;
   private quipTurn = 0;
   /** The round whose reveal has been shown (play mode). */
   private shown = -1;
@@ -144,19 +145,22 @@ export class Reveal {
   }
 
   /** Full-screen reveal of an accepted answer's tier. Call when the dive lands. */
-  showTier(tier: TierId, name: string, frames: number, note?: string) {
+  showTier(tier: TierId, name: string, frames: number, note?: string, glitchForce = false) {
     const t = TIERS[tier];
     const quips = TIER_QUIPS[tier];
     const line = note ?? quips[this.quipTurn++ % quips.length]!;
     setText(this.name, t.name);
     this.name.dataset.text = t.name;
-    setText(this.answer, `${name} · +${framesLabel(frames)}`);
-    setText(this.line, line);
+    setSqText(this.answer, `${name} ▪ +${framesLabel(frames)}`);
+    this.cancelGlitch?.();
+    this.cancelGlitch = renderGlitchLine(this.line, line, { force: glitchForce, reduced: reducedMotion() });
     this.openFor(tier);
   }
 
   /** The watchdog's lower-key reveal: smaller, no icon pose or rarity, just that the round pushed nothing. */
   showTimeout() {
+    this.cancelGlitch?.();
+    this.cancelGlitch = undefined;
     setText(this.name, text('reveal.timeout.title'));
     delete this.name.dataset.text;
     setText(this.answer, '');
@@ -167,14 +171,15 @@ export class Reveal {
 
   /**
    * The rail's demo: show a reveal, then press "Unwind further" for the demo after `autoMs`; `then` runs on that press.
+   * Pass `autoMs = 0` to keep the reveal open until the user or caller advances it.
    */
-  demo(tier: TierId, name: string, frames: number, autoMs: number, then?: () => void) {
+  demo(tier: TierId, name: string, frames: number, autoMs: number, then?: () => void, opts?: { note?: string; glitchForce?: boolean }) {
     this.onUnwind = () => {
       this.onUnwind = undefined;
       then?.();
     };
-    this.showTier(tier, name, frames);
-    this.fadeTimer = window.setTimeout(() => this.unwind(this.host.clock()), autoMs);
+    this.showTier(tier, name, frames, opts?.note, opts?.glitchForce ?? false);
+    if (autoMs > 0) this.fadeTimer = window.setTimeout(() => this.unwind(this.host.clock()), autoMs);
   }
 
   /** A new game: close any reveal, forget the shown round and any demo, and start the reached layers at its depth. */
@@ -346,6 +351,8 @@ export class Reveal {
     if (!this.open) return;
     this.open = false;
     clearTimeout(this.fadeTimer);
+    this.cancelGlitch?.();
+    this.cancelGlitch = undefined;
     this.clearReached();
     this.root.classList.remove('unwinding', 'reveal-stowed');
     this.stowed = false;

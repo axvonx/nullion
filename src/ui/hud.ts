@@ -12,7 +12,7 @@ import { FORMS, type FormId } from './forms';
 import { LAYER_ART } from '../layers';
 import { tierIcon } from './tier-icons';
 import { text } from '../text';
-import { $, elementsOf, framesLabel, refLink, replay, setText } from './dom';
+import { $, elementsOf, framesLabel, refLink, replay, setSqText, setText, sqSep } from './dom';
 import { END_CARD_HTML, EndCard, rowsOf, type RecordRow , type EndlessHook } from './end-card';
 import { REVEAL_HTML, REVEAL_MS, Reveal } from './reveal';
 import { mountPrefsMenu } from './prefs-menu';
@@ -166,10 +166,10 @@ export class Hud {
           <button type="button" class="ui-key ui-key--primary rv-show" data-el="rvShow" hidden aria-label="Show the reveal again">show ▴</button>
           <button type="button" class="ui-key ui-key--primary rv-next" data-el="rvNext">Unwind further ▾</button>
         </form>
-        <div class="bios-footer" aria-hidden="true"><b>F10</b> Save · <b>Enter</b> Select · <b>ESC</b> Exit</div>
+        <div class="bios-footer" aria-hidden="true"><b>F10</b> Save<span class="sq-sep" aria-hidden="true"></span><b>Enter</b> Select<span class="sq-sep" aria-hidden="true"></span><b>ESC</b> Exit</div>
         <output class="feedback" data-el="feedback" aria-live="polite"></output>
 ${END_CARD_HTML}
-        <div class="scroll-hint" data-el="scrollHint" hidden>scroll · drag · ↑ ↓ · PgUp PgDn</div>
+        <div class="scroll-hint" data-el="scrollHint" hidden>scroll<span class="sq-sep" aria-hidden="true"></span>drag<span class="sq-sep" aria-hidden="true"></span>↑ ↓<span class="sq-sep" aria-hidden="true"></span>PgUp PgDn</div>
       </section>
 ${REVEAL_HTML}`;
     this.root = mount;
@@ -229,7 +229,7 @@ ${REVEAL_HTML}`;
     manualStore.subscribe(syncManualBadges);
     this.els.titleTag!.textContent = text('title.tag');
     this.els.titleStartText!.textContent = text('title.start');
-    this.els.titleTiersHeading!.textContent = text('title.tiers.heading');
+    setSqText(this.els.titleTiersHeading!, text('title.tiers.heading'));
     this.els.titleTiersNote!.textContent = text('title.tiers.note');
     this.buildTitleRules();
     this.buildTitleTiers();
@@ -256,7 +256,7 @@ ${REVEAL_HTML}`;
     this.els.titleRules!.replaceChildren(
       ...lines.map((t) => {
         const li = document.createElement('li');
-        li.textContent = t;
+        setSqText(li, t);
         return li;
       }),
     );
@@ -301,10 +301,7 @@ ${REVEAL_HTML}`;
       const g = this.game;
       if (!g || this.demo) return;
       const guess = this.input.value;
-      if (!guess.trim()) {
-        g.advance(now());
-        return;
-      }
+      if (!guess.trim()) return;
       const res = g.submit(guess, now());
       this.onSubmit(res, scene, g);
     });
@@ -555,18 +552,18 @@ ${REVEAL_HTML}`;
       s.setAttribute('aria-label', label);
       const x = document.createElement('span');
       x.className = 'slot-x';
-      x.textContent = label;
+      setSqText(x, label);
       s.append(x);
     };
     if (state !== '-' && r.locked) {
       const t = TIERS[r.locked.entry.tier];
       s.dataset.tier = t.id;
       s.append(tierIcon(t.id));
-      expand(`#${i + 1} ${r.locked.entry.name} · ${t.name} · +${r.locked.pushed}`);
+      expand(`#${i + 1} ${r.locked.entry.name} ▪ ${t.name} ▪ +${r.locked.pushed}`);
     } else if (state === '0') {
       s.classList.add('miss');
       s.append(tierIcon('timeout'));
-      expand(`#${i + 1} ${r.timedOut ? 'timed out' : 'skipped'} · +0`);
+      expand(`#${i + 1} ${r.timedOut ? 'timed out' : 'skipped'} ▪ +0`);
     } else {
       s.classList.add('pending');
       s.textContent = '-';
@@ -1037,7 +1034,7 @@ ${REVEAL_HTML}`;
     const fb = this.els.feedback!;
     const pending = document.createElement('span');
     pending.className = 'fb-hint';
-    pending.textContent = ' · checking Wikipedia…';
+    pending.replaceChildren(sqSep(), 'checking Wikipedia…');
     requestAnimationFrame(() => fb.append(pending));
     const log = ((window as unknown as { nullionOutside?: object[] }).nullionOutside ??= []);
     checkOutside(guess, prompt, browserFetchJson).then(
@@ -1050,7 +1047,7 @@ ${REVEAL_HTML}`;
         if (res.kind === 'accepted') this.onSubmit(res, scene, g);
       },
       (err: unknown) => {
-        pending.textContent = ` · Wikipedia check failed: ${err instanceof Error ? err.message : String(err)}`;
+        pending.replaceChildren(sqSep(), `Wikipedia check failed: ${err instanceof Error ? err.message : String(err)}`);
         console.error('[outside]', err);
       },
     );
@@ -1083,10 +1080,10 @@ ${REVEAL_HTML}`;
           if (hintText) {
             const hint = document.createElement('span');
             hint.className = 'fb-hint';
-            hint.textContent = ` · ${text('console.hint', { hint: hintText })}`;
-            fb.replaceChildren(`${text('console.rejected')} · `, link, hint);
+            hint.replaceChildren(sqSep(), text('console.hint', { hint: hintText }));
+            fb.replaceChildren(text('console.rejected'), sqSep(), link, hint);
           } else {
-            fb.replaceChildren(`${text('console.rejected')} · `, link);
+            fb.replaceChildren(text('console.rejected'), sqSep(), link);
           }
         });
         replay(this.els.console!, 'reject');
@@ -1180,8 +1177,8 @@ ${REVEAL_HTML}`;
    * The demo's half of a landing: the reveal (the rail plays it when its dive lands). The demo presses
    * "Unwind further" itself after `autoMs`, so demos keep flowing; `then` runs on that press.
    */
-  demoReveal(tier: TierId, name: string, frames: number, autoMs = REVEAL_MS, then?: () => void) {
-    this.reveal.demo(tier, name, frames, autoMs, then);
+  demoReveal(tier: TierId, name: string, frames: number, autoMs = REVEAL_MS, then?: () => void, opts?: { note?: string; glitchForce?: boolean }) {
+    this.reveal.demo(tier, name, frames, autoMs, then, opts);
   }
 
   private endDemo() {

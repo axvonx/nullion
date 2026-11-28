@@ -2090,3 +2090,31 @@ html.kb-open .still .console.low { animation: none; }
 .teleport.still-tp { animation: tp-still 900ms linear forwards; }
 .teleport.still-tp .wordmark-cv { animation: none; }
 @keyframes tp-still { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
+
+/* Crisp pixel square separator ({sq} in writing/*.md, sqSep() in DOM) */
+.sq-sep {
+  display: inline-block;
+  width: 0.34em;
+  height: 0.34em;
+  margin: 0 0.45em;
+  vertical-align: 0.16em;
+  background: currentColor;
+  opacity: 0.72;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.75);
+}
+.next-day-reload { margin-bottom: 0; vertical-align: middle; }
+
+/* In-text stepped glitch span ({gl:base|glitch}) */
+.tx-gl { display: inline; }
+.tx-gl.is-on {
+  display: inline-block;
+  color: var(--t-heisenbug);
+  text-shadow: -2px 0 #5fd3e0, 2px 0 #ff6ad5, 1px 1px 0 #000;
+  animation: tx-gl-shear 110ms steps(2, end) infinite;
+}
+@keyframes tx-gl-shear {
+  0% { transform: translate(1px, 0); }
+  50% { transform: translate(-2px, 0); }
+  100% { transform: translate(0, 0); }
+}
+.still .tx-gl.is-on { animation: none; text-shadow: none; }

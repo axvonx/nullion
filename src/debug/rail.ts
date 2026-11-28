@@ -10,6 +10,7 @@ import { tierIcon } from '../ui/tier-icons';
 import { manualBookIcon } from '../ui/manual-icon';
 import { manualStore } from '../game/manual';
 import { computeStats } from '../game/stats';
+import glitchMd from '../../writing/debug/glitch.md?raw';
 import type { DebugHooks } from './menu';
 
 /**
@@ -92,6 +93,7 @@ const ICONS: Record<string, string[]> = {
   race: ['         ', '#      + ', '##    ++ ', '###  +++ ', '#### ++++', '###  +++ ', '##    ++ ', '#      + ', '         '],
   heisenbug: ['  #####  ', ' #     # ', '#  + +  #', '#       #', '#       #', '#       #', '#       #', '# # # # #', ' # # # # '],
   bitflip: ['    ###  ', '   ###   ', '  ###    ', ' ####### ', '    ###  ', '   ###   ', '  ##     ', ' #       ', '         '],
+  glitch: ['  ###### ', ' #      #', ' #  ++   ', ' #   ++  ', ' #  ++++ ', ' #      #', '  ###### ', '   +   + ', '         '],
 };
 
 function icon(rows: string[], accent: string): SVGSVGElement {
@@ -318,6 +320,50 @@ export function mountRail(h: DebugHooks) {
       manualBtn.title = manualBtn.dataset.tip;
     },
   );
+
+  // Glitch text demo: cycle through writing/debug/glitch.md with ← / → arrow keys.
+  const glitchLines = glitchMd
+    .split('\n')
+    .filter((l) => l.startsWith('- '))
+    .map((l) => l.slice(2).trim())
+    .filter(Boolean);
+  let glitchIdx = 0;
+  let glitchOpen = false;
+  const showGlitch = () => {
+    if (!glitchLines.length) return;
+    glitchOpen = true;
+    const line = glitchLines[glitchIdx]!;
+    h.hud.demoReveal(
+      'heisenbug',
+      `Glitch ${glitchIdx + 1}/${glitchLines.length} (←/→)`,
+      8,
+      0,
+      () => {
+        glitchOpen = false;
+      },
+      { note: line, glitchForce: true },
+    );
+  };
+  add('glitch', 'Glitch text demo: cycle writing/debug/glitch.md with ← / → arrow keys', 'var(--t-heisenbug)', () => {
+    cancel();
+    glitchIdx = 0;
+    showGlitch();
+  });
+  window.addEventListener('keydown', (ev) => {
+    if (!glitchOpen || ev.target instanceof HTMLInputElement || ev.target instanceof HTMLSelectElement) return;
+    if (ev.key === 'ArrowRight' || ev.key === 'ArrowDown') {
+      ev.preventDefault();
+      glitchIdx = (glitchIdx + 1) % glitchLines.length;
+      showGlitch();
+    } else if (ev.key === 'ArrowLeft' || ev.key === 'ArrowUp') {
+      ev.preventDefault();
+      glitchIdx = (glitchIdx - 1 + glitchLines.length) % glitchLines.length;
+      showGlitch();
+    } else if (ev.key === ' ') {
+      ev.preventDefault();
+      showGlitch();
+    }
+  });
 
   // Each tier: the full sequence. A dive by its frames, the cursor's reaction and the screen's mirror, then the reveal.
   for (const id of TIER_IDS) {

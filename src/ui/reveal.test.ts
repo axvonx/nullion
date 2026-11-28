@@ -54,7 +54,8 @@ describe('Reveal', () => {
     expect(t.q('.reveal').hidden).toBe(false);
     expect(t.q('.reveal').dataset.tier).toBe('bitflip');
     expect(t.q('.rv-name').textContent).toBe('Bit Flip');
-    expect(t.q('.rv-answer').textContent).toBe('Mercator · +13 stack frames');
+    expect(t.q('.rv-answer').textContent).toBe('Mercator+13 stack frames');
+    expect(t.q('.rv-answer .sq-sep')).not.toBeNull();
     expect(t.q('.rv-pips').querySelectorAll('.rv-pip.on')).toHaveLength(7);
     expect(t.root.classList.contains('unwinding')).toBe(true);
     expect(t.scene.vignette.at(-1)).toBe(true);

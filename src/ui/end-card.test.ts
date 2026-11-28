@@ -105,7 +105,8 @@ describe('EndCard', () => {
     t.card.show(ROWS, 18, 7);
     expect(t.q('[data-el="puzzleNo"]').querySelector('canvas')?.getAttribute('aria-label')).toBe('ENDLESS');
     expect(t.q('[data-el="puzzleNo"]').dataset.chip).toBe('ENDLESS');
-    expect(t.q('.headline').textContent).toBe('KERNEL PANIC · 18 stack frames');
+    expect(t.q('.headline').textContent).toBe('KERNEL PANIC18 stack frames');
+    expect(t.q('.headline .sq-sep')).not.toBeNull();
   });
 
   describe('Endless from the end card', () => {
@@ -297,11 +298,11 @@ describe('EndCard', () => {
     const t = setup(game);
     t.card.reset(game, undefined);
     t.card.updateNextDay(T0);
-    expect(t.q('[data-el="nextDay"]').textContent).toBe('A new stack opens at local midnight.');
+    expect(t.q('[data-el="nextDay"]').textContent).toBe('Unwind the next stack at midnight.');
     const endless = new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });
     t.card.reset(endless, undefined);
     t.card.updateNextDay(T0);
-    expect(t.q('[data-el="nextDay"]').textContent).toBe('A new stack opens at local midnight.');
+    expect(t.q('[data-el="nextDay"]').textContent).toBe('Unwind the next stack at midnight.');
   });
 });
 
