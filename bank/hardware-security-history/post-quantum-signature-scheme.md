@@ -4,38 +4,21 @@ id: post-quantum-signature-scheme · domain: hardware-security-history · status
 
 ## Off-by-one
 - ML-DSA | Dilithium | CRYSTALS-Dilithium (auto)
+- SPHINCS (auto)
 
 ## Works on my machine
 - Falcon | FN-DSA
   note: Fast-Fourier Lattice-based Compact Signatures — the NTRU pick everyone reaches for after Dilithium.
 
 ## Null pointer exception
-- SLH-DSA | SPHINCS+ (auto)
+- Lamport signature | Lamport OTS | Lamport one-time signature (auto)
 
 ## Memory leak
-- UOV | Unbalanced Oil and Vinegar (auto)
-- MAYO (auto)
-- Rainbow (auto)
-- Picnic (auto)
-- XMSS | eXtended Merkle Signature Scheme (auto)
-- LMS | Leighton-Micali Signature (auto)
-- Lamport signature | Lamport OTS | Lamport one-time signature (auto)
-- Winternitz one-time signature | W-OTS | W-OTS+ | Winternitz OTS (auto)
+- LESS (auto)
+- Wave (auto)
 
 ## Race condition
-- SPHINCS (auto)
-- GeMSS (auto)
-- LUOV (auto)
-- qTESLA (auto)
-- XMSS-MT (auto)
-- HSS | Hierarchical Signature System (auto)
-- MQDSS (auto)
-- BLISS | Bimodal Lattice Signature Scheme (auto)
-- HAWK (auto)
-- LESS (auto)
-- MEDS (auto)
-- Wave (auto)
-- Merkle signature scheme | MSS (auto)
+- LMS | Leighton-Micali Signature (auto)
 
 ## Heisenbug
 - CROSS (auto)
@@ -59,6 +42,23 @@ id: post-quantum-signature-scheme · domain: hardware-security-history · status
 - pqsigRM (auto)
 - EagleSign (auto)
 - SOFIA (auto)
+- SLH-DSA | SPHINCS+ (auto)
+- UOV | Unbalanced Oil and Vinegar (auto)
+- MAYO (auto)
+- Rainbow (auto)
+- Picnic (auto)
+- XMSS | eXtended Merkle Signature Scheme (auto)
+- Winternitz one-time signature | W-OTS | W-OTS+ | Winternitz OTS (auto)
+- GeMSS (auto)
+- LUOV (auto)
+- qTESLA (auto)
+- XMSS-MT (auto)
+- HSS | Hierarchical Signature System (auto)
+- MQDSS (auto)
+- BLISS | Bimodal Lattice Signature Scheme (auto)
+- HAWK (auto)
+- MEDS (auto)
+- Merkle signature scheme | MSS (auto)
 
 ## Bit Flip
 - SQIsign

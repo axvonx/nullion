@@ -5,34 +5,51 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 ## Off-by-one
 - Spectre (auto)
 - Meltdown | Rogue Data Cache Load (auto)
-- Rowhammer (auto)
-- Timing attack | cache timing attack (auto)
-- Power analysis | DPA | differential power analysis | SPA (auto)
+- Spectre-PHT (auto)
 
 ## Works on my machine
 - L1 Terminal Fault | L1TF | Foreshadow
   note: Foreshadow — the first speculative-execution leak people name after Spectre and Meltdown.
 
 ## Null pointer exception
-- Prime+Probe | Prime and Probe (auto)
 - Flush+Reload | Flush and Reload (auto)
-- Plundervolt (auto)
-- Branch target injection | BTI (auto)
-- Bounds check bypass | BCB (auto)
-- Acoustic cryptanalysis | acoustic side-channel (auto)
-- Electromagnetic attack | EM side-channel | TEMPEST (auto)
-- GhostRace (auto)
-
-## Memory leak
-- Microarchitectural Data Sampling | MDS (auto)
-- Gather Data Sampling | Downfall | GDS (auto)
+- Rowhammer (auto)
+- Timing attack | cache timing attack (auto)
+- Power analysis | DPA | differential power analysis | SPA (auto)
 - ZombieLoad (auto)
 - Spectre v1 (auto)
 - Spectre v2 (auto)
 
+## Memory leak
+- Microarchitectural Data Sampling | MDS (auto)
+- PACMAN (auto)
+
 ## Race condition
-- TSX Async Abort | TAA | TSX Asynchronous Abort (auto)
 - Special Register Buffer Data Sampling | SRBDS | CrossTalk (auto)
+- Spectre v4 | Speculative store bypass | SSB (auto)
+- PLATYPUS (auto)
+- Branch target injection | BTI (auto)
+- Bounds check bypass | BCB (auto)
+
+## Heisenbug
+- VMSCAPE (auto)
+- Augury (auto)
+- SWAPGS attack (auto)
+- SMoTherSpectre (auto)
+- Branch Privilege Injection (auto)
+- Training Solo (auto)
+- Phantom (auto)
+- Prime+Abort (auto)
+- ret2spec (auto)
+- MeltdownPrime (auto)
+- SpectrePrime (auto)
+- Prime+Probe | Prime and Probe (auto)
+- Plundervolt (auto)
+- Acoustic cryptanalysis | acoustic side-channel (auto)
+- Electromagnetic attack | EM side-channel | TEMPEST (auto)
+- GhostRace (auto)
+- Gather Data Sampling | Downfall | GDS (auto)
+- TSX Async Abort | TAA | TSX Asynchronous Abort (auto)
 - Speculative Return Stack Overflow | SRSO | Inception (auto)
 - Processor MMIO Stale Data | MMIO Stale Data (auto)
 - Register File Data Sampling | RFDS | reg-file-data-sampling (auto)
@@ -42,7 +59,6 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 - CacheOut (auto)
 - SGAxe (auto)
 - Load Value Injection | LVI (auto)
-- Spectre v4 | Speculative store bypass | SSB (auto)
 - Branch History Injection (auto)
 - Retbleed (auto)
 - SpectreRSB (auto)
@@ -51,27 +67,11 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 - Evict+Reload (auto)
 - Evict+Time | Evict and Time (auto)
 - Hertzbleed (auto)
-- PLATYPUS (auto)
 - Zenbleed (auto)
 - GoFetch (auto)
 - NetSpectre (auto)
 - TLBleed (auto)
 - PortSmash (auto)
-- PACMAN (auto)
-
-## Heisenbug
-- VMSCAPE (auto)
-- Augury (auto)
-- SWAPGS attack (auto)
-- SMoTherSpectre (auto)
-- Spectre-PHT (auto)
-- Branch Privilege Injection (auto)
-- Training Solo (auto)
-- Phantom (auto)
-- Prime+Abort (auto)
-- ret2spec (auto)
-- MeltdownPrime (auto)
-- SpectrePrime (auto)
 
 ## Bit Flip
 - Collide+Power

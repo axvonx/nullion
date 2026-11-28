@@ -1,0 +1,422 @@
+{
+ "off-by-one": {
+  "score": 4.56,
+  "confidence": 0.36
+ },
+ "null pointer dereference": {
+  "score": 4.26,
+  "confidence": 0.4
+ },
+ "memory leak": {
+  "score": 4.28,
+  "confidence": 0.39
+ },
+ "infinite loop": {
+  "score": 3.97,
+  "confidence": 0.24
+ },
+ "segfault": {
+  "score": 3.44,
+  "confidence": 0.09
+ },
+ "race condition": {
+  "score": 3.62,
+  "confidence": 0.2
+ },
+ "buffer overflow": {
+  "score": 3.76,
+  "confidence": 0.25
+ },
+ "deadlock": {
+  "score": 3.01,
+  "confidence": 0.35
+ },
+ "stack overflow": {
+  "score": 3.83,
+  "confidence": 0.19
+ },
+ "Out-of-bounds array index": {
+  "score": 3.59,
+  "confidence": 0.15
+ },
+ "Prompt injection": {
+  "score": 1.98,
+  "confidence": 0.39
+ },
+ "Uncaught exception": {
+  "score": 3.43,
+  "confidence": 0.05
+ },
+ "Divide by zero": {
+  "score": 4.07,
+  "confidence": 0.15
+ },
+ "Use of uninitialized variable": {
+  "score": 3.46,
+  "confidence": 0.12
+ },
+ "Assertion failure": {
+  "score": 2.57,
+  "confidence": 0.14
+ },
+ "Command injection": {
+  "score": 1.77,
+  "confidence": 0.42
+ },
+ "Cross-site scripting": {
+  "score": 3.09,
+  "confidence": 0.22
+ },
+ "SQL injection": {
+  "score": 2.91,
+  "confidence": 0.01
+ },
+ "Code injection": {
+  "score": 2.61,
+  "confidence": 0.14
+ },
+ "Syntax error": {
+  "score": 3.64,
+  "confidence": 0.06
+ },
+ "Logic error": {
+  "score": 4.12,
+  "confidence": 0.3
+ },
+ "Type error": {
+  "score": 3.99,
+  "confidence": 0.19
+ },
+ "Floating-point precision error": {
+  "score": 3.06,
+  "confidence": 0.21
+ },
+ "Out-of-bounds access": {
+  "score": 3.6,
+  "confidence": 0.04
+ },
+ "Livelock": {
+  "score": 2.24,
+  "confidence": 0.44
+ },
+ "Timezone bug": {
+  "score": 3.14,
+  "confidence": 0.3
+ },
+ "Character encoding bug": {
+  "score": 2.7,
+  "confidence": 0.42
+ },
+ "Format string bug": {
+  "score": 2.47,
+  "confidence": 0.51
+ },
+ "use-after-free": {
+  "score": 2.89,
+  "confidence": 0.52
+ },
+ "double free": {
+  "score": 2.52,
+  "confidence": 0.49
+ },
+ "integer overflow": {
+  "score": 3.33,
+  "confidence": 0.18
+ },
+ "Clickjacking": {
+  "score": 1.41,
+  "confidence": 0.58
+ },
+ "Stack-based buffer overflow": {
+  "score": 2.51,
+  "confidence": 0.18
+ },
+ "Heap-based buffer overflow": {
+  "score": 2.26,
+  "confidence": 0.3
+ },
+ "Buffer underwrite": {
+  "score": 3.15,
+  "confidence": 0.41
+ },
+ "Out-of-bounds read": {
+  "score": 2.9,
+  "confidence": 0.32
+ },
+ "Buffer over-read": {
+  "score": 2.5,
+  "confidence": 0.43
+ },
+ "Prototype pollution": {
+  "score": 1.5,
+  "confidence": 0.57
+ },
+ "ReDoS": {
+  "score": 1.74,
+  "confidence": 0.57
+ },
+ "Improper null termination": {
+  "score": 1.78,
+  "confidence": 0.48
+ },
+ "Integer underflow": {
+  "score": 2.6,
+  "confidence": 0.4
+ },
+ "Numeric truncation error": {
+  "score": 1.93,
+  "confidence": 0.45
+ },
+ "Information disclosure": {
+  "score": 2.35,
+  "confidence": 0.22
+ },
+ "Path traversal": {
+  "score": 2.27,
+  "confidence": 0.26
+ },
+ "Unchecked return value": {
+  "score": 2.07,
+  "confidence": 0.36
+ },
+ "Resource exhaustion": {
+  "score": 2.05,
+  "confidence": 0.37
+ },
+ "Resource leak": {
+  "score": 3.43,
+  "confidence": 0.18
+ },
+ "File descriptor leak": {
+  "score": 2.58,
+  "confidence": 0.48
+ },
+ "Deserialization of untrusted data": {
+  "score": 0.98,
+  "confidence": 0.7
+ },
+ "Open redirect": {
+  "score": 1.69,
+  "confidence": 0.38
+ },
+ "XXE": {
+  "score": 1.25,
+  "confidence": 0.57
+ },
+ "Uncontrolled recursion": {
+  "score": 2.63,
+  "confidence": 0.36
+ },
+ "Out-of-bounds write": {
+  "score": 2.83,
+  "confidence": 0.34
+ },
+ "Dangling pointer": {
+  "score": 3.18,
+  "confidence": 0.32
+ },
+ "Server-side request forgery": {
+  "score": 1.15,
+  "confidence": 0.56
+ },
+ "NoSQL injection": {
+  "score": 1.34,
+  "confidence": 0.6
+ },
+ "Remote file inclusion": {
+  "score": 1.5,
+  "confidence": 0.5
+ },
+ "Insecure direct object reference": {
+  "score": 1.13,
+  "confidence": 0.59
+ },
+ "Bit rot": {
+  "score": 2.44,
+  "confidence": 0.5
+ },
+ "TOCTOU": {
+  "score": 1.74,
+  "confidence": 0.5
+ },
+ "priority inversion": {
+  "score": 1.42,
+  "confidence": 0.51
+ },
+ "ABA problem": {
+  "score": 1.48,
+  "confidence": 0.53
+ },
+ "Y2038": {
+  "score": 2.87,
+  "confidence": 0.4
+ },
+ "Bohrbug": {
+  "score": 2.06,
+  "confidence": 0.55
+ },
+ "Tabnabbing": {
+  "score": 0.99,
+  "confidence": 0.72
+ },
+ "HTTP request splitting": {
+  "score": 0.68,
+  "confidence": 0.66
+ },
+ "Log forging": {
+  "score": 0.92,
+  "confidence": 0.55
+ },
+ "Write-what-where condition": {
+  "score": 1.01,
+  "confidence": 0.51
+ },
+ "CSV injection": {
+  "score": 1.11,
+  "confidence": 0.64
+ },
+ "Buffer under-read": {
+  "score": 2.15,
+  "confidence": 0.33
+ },
+ "Cross-site WebSocket hijacking": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "Parser differential": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "ANSI injection": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "Unexpected sign extension": {
+  "score": 1.35,
+  "confidence": 0.54
+ },
+ "Zip Slip": {
+  "score": 1.0,
+  "confidence": 0.71
+ },
+ "Signal handler race condition": {
+  "score": 1.33,
+  "confidence": 0.56
+ },
+ "DLL preloading": {
+  "score": 0.7,
+  "confidence": 0.68
+ },
+ "Dependency confusion": {
+  "score": 1.82,
+  "confidence": 0.46
+ },
+ "Confused deputy": {
+  "score": 0.99,
+  "confidence": 0.52
+ },
+ "HTTP request smuggling": {
+  "score": 0.91,
+  "confidence": 0.7
+ },
+ "Reflection injection": {
+  "score": 0.38,
+  "confidence": 0.84
+ },
+ "HQL injection": {
+  "score": 0.57,
+  "confidence": 0.7
+ },
+ "Double-checked locking": {
+  "score": 1.08,
+  "confidence": 0.49
+ },
+ "XPath injection": {
+  "score": 0.86,
+  "confidence": 0.68
+ },
+ "XQuery injection": {
+  "score": 0.48,
+  "confidence": 0.78
+ },
+ "Algorithm downgrade": {
+  "score": 0.42,
+  "confidence": 0.78
+ },
+ "Mismatched memory management routines": {
+  "score": 1.89,
+  "confidence": 0.45
+ },
+ "Billion laughs attack": {
+  "score": 0.81,
+  "confidence": 0.61
+ },
+ "Type confusion": {
+  "score": 1.92,
+  "confidence": 0.4
+ },
+ "Argument injection": {
+  "score": 1.26,
+  "confidence": 0.38
+ },
+ "LDAP injection": {
+  "score": 1.25,
+  "confidence": 0.66
+ },
+ "XML injection": {
+  "score": 1.58,
+  "confidence": 0.54
+ },
+ "Stale file descriptor": {
+  "score": 2.03,
+  "confidence": 0.36
+ },
+ "Mass assignment": {
+  "score": 0.67,
+  "confidence": 0.7
+ },
+ "EL injection": {
+  "score": 0.72,
+  "confidence": 0.65
+ },
+ "Intent spoofing": {
+  "score": 0.81,
+  "confidence": 0.6
+ },
+ "CRLF injection": {
+  "score": 1.12,
+  "confidence": 0.68
+ },
+ "Eval injection": {
+  "score": 1.6,
+  "confidence": 0.52
+ },
+ "Mandelbug": {
+  "score": 0.72,
+  "confidence": 0.64
+ },
+ "Schrödinbug": {
+  "score": 2.3,
+  "confidence": 0.49
+ },
+ "Hindenbug": {
+  "score": 2.91,
+  "confidence": 0.0
+ },
+ "false sharing": {
+  "score": 1.42,
+  "confidence": 0.57
+ },
+ "torn write": {
+  "score": 1.29,
+  "confidence": 0.59
+ },
+ "Higgs-bugson": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "Loch Ness monster bug": {
+  "score": 0.59,
+  "confidence": 0.7
+ }
+}

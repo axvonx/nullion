@@ -4,8 +4,6 @@ id: http-status-code · domain: os-systems · status: approved
 
 ## Off-by-one
 - 200 OK | 200 | OK (auto)
-- 201 Created | 201 | Created (auto)
-- 204 No Content | 204 | No Content (auto)
 - 301 Moved Permanently | 301 | Moved Permanently (auto)
 - 302 Found | 302 | Found (auto)
 - 400 Bad Request | 400 | Bad Request (auto)
@@ -13,46 +11,44 @@ id: http-status-code · domain: os-systems · status: approved
 - 403 Forbidden | 403 | Forbidden (auto)
 - 429 Too Many Requests | 429 | Too Many Requests (auto)
 - 500 Internal Server Error | 500 | Internal Server Error (auto)
-- 502 Bad Gateway | 502 | Bad Gateway (auto)
-- 503 Service Unavailable | 503 | Service Unavailable (auto)
-- 504 Gateway Timeout | 504 | Gateway Timeout (auto)
+- 404 Not Found | 404 | Not Found (auto)
 
 ## Works on my machine
 - 418 I'm a teapot | 418 | I'm a teapot
   note: RFC 2324's April Fools' coffee-pot error — the #1 'clever' HTTP status code.
 
 ## Null pointer exception
-- 100 Continue | 100 | Continue (auto)
 - 202 Accepted | 202 | Accepted (auto)
-- 307 Temporary Redirect | 307 | Temporary Redirect (auto)
-- 402 Payment Required | 402 | Payment Required (auto)
-- 404 Not Found | 404 | Not Found (auto)
 - 405 Method Not Allowed | 405 | Method Not Allowed (auto)
 - 408 Request Timeout | 408 | Request Timeout (auto)
 - 409 Conflict | 409 | Conflict (auto)
-- 413 Content Too Large | 413 | Content Too Large | Payload Too Large | Request Entity Too Large (auto)
-- 415 Unsupported Media Type | 415 | Unsupported Media Type (auto)
 - 422 Unprocessable Content | 422 | Unprocessable Content | Unprocessable Entity (auto)
 - 501 Not Implemented | 501 | Not Implemented (auto)
+- 201 Created | 201 | Created (auto)
+- 204 No Content | 204 | No Content (auto)
+- 502 Bad Gateway | 502 | Bad Gateway (auto)
+- 503 Service Unavailable | 503 | Service Unavailable (auto)
+- 504 Gateway Timeout | 504 | Gateway Timeout (auto)
+- 206 Partial Content | 206 | Partial Content (auto)
+- 304 Not Modified | 304 | Not Modified (auto)
+- 410 Gone | 410 | Gone (auto)
 
 ## Memory leak
 - 101 Switching Protocols | 101 | Switching Protocols (auto)
-- 206 Partial Content | 206 | Partial Content (auto)
 - 300 Multiple Choices | 300 | Multiple Choices (auto)
-- 303 See Other | 303 | See Other (auto)
-- 304 Not Modified | 304 | Not Modified (auto)
 - 308 Permanent Redirect | 308 | Permanent Redirect (auto)
 - 406 Not Acceptable | 406 | Not Acceptable (auto)
-- 410 Gone | 410 | Gone (auto)
 - 411 Length Required | 411 | Length Required (auto)
 - 412 Precondition Failed | 412 | Precondition Failed (auto)
 - 414 URI Too Long | 414 | URI Too Long (auto)
 - 425 Too Early | 425 | Too Early (auto)
 - 426 Upgrade Required | 426 | Upgrade Required (auto)
-- 451 Unavailable For Legal Reasons | 451 | Unavailable For Legal Reasons (auto)
 - 505 HTTP Version Not Supported | 505 | HTTP Version Not Supported (auto)
-
-## Race condition
+- 100 Continue | 100 | Continue (auto)
+- 307 Temporary Redirect | 307 | Temporary Redirect (auto)
+- 402 Payment Required | 402 | Payment Required (auto)
+- 413 Content Too Large | 413 | Content Too Large | Payload Too Large | Request Entity Too Large (auto)
+- 415 Unsupported Media Type | 415 | Unsupported Media Type (auto)
 - 103 Early Hints | 103 | Early Hints (auto)
 - 203 Non-Authoritative Information | 203 | Non-Authoritative Information (auto)
 - 205 Reset Content | 205 | Reset Content (auto)
@@ -69,12 +65,14 @@ id: http-status-code · domain: os-systems · status: approved
 - 511 Network Authentication Required | 511 | Network Authentication Required (auto)
 - 102 Processing | 102 (auto)
 - 305 Use Proxy | 305 (auto)
-
-## Heisenbug
 - 208 Already Reported | 208 | Already Reported (auto)
 - 506 Variant Also Negotiates | 506 | Variant Also Negotiates (auto)
 - 508 Loop Detected | 508 | Loop Detected (auto)
 - 510 Not Extended | 510 | Not Extended (auto)
+
+## Heisenbug
+- 303 See Other | 303 | See Other (auto)
+- 451 Unavailable For Legal Reasons | 451 | Unavailable For Legal Reasons (auto)
 
 ## Bit Flip
 - 226 IM Used | 226 | IM Used

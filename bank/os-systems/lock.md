@@ -25,7 +25,6 @@ id: lock · domain: os-systems · status: approved
 - global interpreter lock | GIL
 - counting semaphore
 - binary semaphore
-- Fair lock | FIFO lock (auto)
 
 ## Memory leak
 - recursive mutex | reentrant lock | reentrant mutex | recursive lock | ReentrantLock | std::recursive_mutex
@@ -121,6 +120,7 @@ id: lock · domain: os-systems · status: approved
 - ROW SHARE lock | RowShareLock
 - SHARE ROW EXCLUSIVE lock | ShareRowExclusiveLock
 - SHARE UPDATE EXCLUSIVE lock | ShareUpdateExclusiveLock
+- Fair lock | FIFO lock (auto)
 
 ## Bit Flip
 - fissile lock

@@ -6,7 +6,6 @@ id: serialization-format · domain: data-graphics-algorithms · status: approved
 - CSV | Comma-Separated Values
 - JSON | JavaScript Object Notation | json file
 - XML | eXtensible Markup Language | xml file (auto)
-- YAML | YAML Ain't Markup Language | yml (auto)
 
 ## Works on my machine
 - Protocol Buffers | protobuf | protocol buffer | Google Protocol Buffers
@@ -26,16 +25,23 @@ id: serialization-format · domain: data-graphics-algorithms · status: approved
 - INI | INI file (auto)
 - Java properties | properties file | .properties (auto)
 - Plist | property list | Apple property list (auto)
+- YAML | YAML Ain't Markup Language | yml (auto)
+
+## Memory leak
 - Cap'n Proto | Capnp (auto)
 - FlatBuffers | flatbuffer (auto)
 - CBOR | Concise Binary Object Representation (auto)
-- Bencode | BitTorrent bencode (auto)
-- EDN | Extensible Data Notation (auto)
 - S-expressions | S-expression | sexp | Lisp s-expression (auto)
 - ASN.1 | Abstract Syntax Notation One (auto)
-- XDR | External Data Representation (auto)
 - Gob | Go gob | encoding/gob (auto)
 - Hessian | Hessian binary protocol (auto)
+
+## Race condition
+- EDN | Extensible Data Notation (auto)
+- XDR | External Data Representation (auto)
+
+## Heisenbug
+- Bencode | BitTorrent bencode (auto)
 - UBJSON | Universal Binary JSON (auto)
 - Smile | Smile binary JSON (auto)
 

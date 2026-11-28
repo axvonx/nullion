@@ -5,8 +5,6 @@ id: tcp-congestion-control-algorithm · domain: os-systems · status: approved
 ## Off-by-one
 - Reno | TCP Reno (auto)
 - CUBIC | TCP CUBIC | cc_cubic (auto)
-- TCP Tahoe | Tahoe (auto)
-- Compound TCP | CTCP (auto)
 
 ## Works on my machine
 - TCP Vegas | cc_vegas | Vegas
@@ -14,28 +12,12 @@ id: tcp-congestion-control-algorithm · domain: os-systems · status: approved
 
 ## Null pointer exception
 - BBR | TCP BBR | Bottleneck Bandwidth and Round-trip propagation time (auto)
-- TCP Westwood+ | Westwood+ (auto)
-- LEDBAT | Low Extra Delay Background Transport (auto)
-- BBRv2 | BBR2 (auto)
-- BBRv3 | BBR3 (auto)
-- PCC | Performance-oriented Congestion Control | PCC Vivace (auto)
-- Copa (auto)
-- Sprout (auto)
-- TIMELY (auto)
-- Swift | Swift congestion control (auto)
-- TCP Nice (auto)
+- TCP Tahoe | Tahoe (auto)
+- NewReno | cc_newreno | TCP NewReno (auto)
 
 ## Memory leak
-- NewReno | cc_newreno | TCP NewReno (auto)
-- DCTCP | tcp_dctcp | cc_dctcp | Data Center TCP (auto)
-
-## Race condition
-- TCP BIC | BIC | BIC-TCP | Binary Increase Congestion control (auto)
-- HighSpeed TCP | tcp_highspeed | HSTCP (auto)
-- H-TCP | tcp_htcp | cc_htcp | Hamilton TCP (auto)
-- Scalable TCP | tcp_scalable | STCP (auto)
-- TCP Westwood | Westwood (auto)
-- Hybla | TCP Hybla (auto)
+- PCC | Performance-oriented Congestion Control | PCC Vivace (auto)
+- Swift | Swift congestion control (auto)
 
 ## Heisenbug
 - TCP-NV | New Vegas (auto)
@@ -44,6 +26,22 @@ id: tcp-congestion-control-algorithm · domain: os-systems · status: approved
 - YeAH | YeAH-TCP | tcp_yeah (auto)
 - Illinois | TCP-Illinois (auto)
 - CHD | cc_chd (auto)
+- Compound TCP | CTCP (auto)
+- TCP Westwood+ | Westwood+ (auto)
+- LEDBAT | Low Extra Delay Background Transport (auto)
+- BBRv2 | BBR2 (auto)
+- BBRv3 | BBR3 (auto)
+- Copa (auto)
+- Sprout (auto)
+- TIMELY (auto)
+- TCP Nice (auto)
+- DCTCP | tcp_dctcp | cc_dctcp | Data Center TCP (auto)
+- TCP BIC | BIC | BIC-TCP | Binary Increase Congestion control (auto)
+- HighSpeed TCP | tcp_highspeed | HSTCP (auto)
+- H-TCP | tcp_htcp | cc_htcp | Hamilton TCP (auto)
+- Scalable TCP | tcp_scalable | STCP (auto)
+- TCP Westwood | Westwood (auto)
+- Hybla | TCP Hybla (auto)
 
 ## Bit Flip
 - CDG | tcp_cdg | cc_cdg | CAIA Delay-Gradient

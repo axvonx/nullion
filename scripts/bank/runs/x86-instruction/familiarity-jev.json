@@ -1,0 +1,5970 @@
+{
+ "INT": {
+  "score": 3.03,
+  "confidence": 0.66
+ },
+ "NOP": {
+  "score": 4.03,
+  "confidence": 0.4
+ },
+ "POP": {
+  "score": 3.41,
+  "confidence": 0.6
+ },
+ "PUSH": {
+  "score": 4.44,
+  "confidence": 0.58
+ },
+ "mov": {
+  "score": 4.98,
+  "confidence": 0.56
+ },
+ "add": {
+  "score": 4.98,
+  "confidence": 0.53
+ },
+ "sub": {
+  "score": 4.06,
+  "confidence": 0.37
+ },
+ "call": {
+  "score": 3.84,
+  "confidence": 0.46
+ },
+ "ret": {
+  "score": 3.77,
+  "confidence": 0.49
+ },
+ "jmp": {
+  "score": 4.17,
+  "confidence": 0.43
+ },
+ "cmp": {
+  "score": 3.82,
+  "confidence": 0.53
+ },
+ "xor": {
+  "score": 4.47,
+  "confidence": 0.54
+ },
+ "and": {
+  "score": 4.08,
+  "confidence": 0.4
+ },
+ "or": {
+  "score": 3.77,
+  "confidence": 0.45
+ },
+ "lea": {
+  "score": 2.64,
+  "confidence": 0.63
+ },
+ "cpuid": {
+  "score": 2.44,
+  "confidence": 0.59
+ },
+ "CLC": {
+  "score": 1.65,
+  "confidence": 0.57
+ },
+ "CLD": {
+  "score": 1.76,
+  "confidence": 0.56
+ },
+ "FADD": {
+  "score": 1.36,
+  "confidence": 0.68
+ },
+ "FDIV": {
+  "score": 0.87,
+  "confidence": 0.69
+ },
+ "FLD": {
+  "score": 1.23,
+  "confidence": 0.7
+ },
+ "FMUL": {
+  "score": 1.11,
+  "confidence": 0.72
+ },
+ "FSIN": {
+  "score": 0.41,
+  "confidence": 0.79
+ },
+ "FSQRT": {
+  "score": 0.84,
+  "confidence": 0.72
+ },
+ "FST": {
+  "score": 0.99,
+  "confidence": 0.7
+ },
+ "FSTP": {
+  "score": 1.0,
+  "confidence": 0.72
+ },
+ "FSUB": {
+  "score": 1.12,
+  "confidence": 0.69
+ },
+ "MOVAPS": {
+  "score": 1.34,
+  "confidence": 0.68
+ },
+ "MOVD": {
+  "score": 2.07,
+  "confidence": 0.4
+ },
+ "MOVDQA": {
+  "score": 1.34,
+  "confidence": 0.67
+ },
+ "MOVDQU": {
+  "score": 1.33,
+  "confidence": 0.68
+ },
+ "MOVQ": {
+  "score": 2.63,
+  "confidence": 0.52
+ },
+ "MOVUPS": {
+  "score": 1.24,
+  "confidence": 0.68
+ },
+ "PAND": {
+  "score": 1.71,
+  "confidence": 0.52
+ },
+ "PANDN": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "POPCNT": {
+  "score": 1.89,
+  "confidence": 0.51
+ },
+ "POR": {
+  "score": 1.21,
+  "confidence": 0.64
+ },
+ "PXOR": {
+  "score": 1.4,
+  "confidence": 0.64
+ },
+ "STC": {
+  "score": 1.57,
+  "confidence": 0.6
+ },
+ "STD": {
+  "score": 1.92,
+  "confidence": 0.45
+ },
+ "STI": {
+  "score": 1.99,
+  "confidence": 0.44
+ },
+ "SYSENTER": {
+  "score": 1.69,
+  "confidence": 0.58
+ },
+ "XORPD": {
+  "score": 1.17,
+  "confidence": 0.7
+ },
+ "XORPS": {
+  "score": 1.16,
+  "confidence": 0.43
+ },
+ "INT3": {
+  "score": 2.23,
+  "confidence": 0.52
+ },
+ "PREFETCH": {
+  "score": 1.42,
+  "confidence": 0.66
+ },
+ "mul": {
+  "score": 3.11,
+  "confidence": 0.53
+ },
+ "div": {
+  "score": 2.61,
+  "confidence": 0.5
+ },
+ "imul": {
+  "score": 2.39,
+  "confidence": 0.57
+ },
+ "idiv": {
+  "score": 1.96,
+  "confidence": 0.62
+ },
+ "test": {
+  "score": 3.35,
+  "confidence": 0.53
+ },
+ "not": {
+  "score": 3.55,
+  "confidence": 0.17
+ },
+ "inc": {
+  "score": 3.93,
+  "confidence": 0.54
+ },
+ "dec": {
+  "score": 3.29,
+  "confidence": 0.49
+ },
+ "neg": {
+  "score": 2.58,
+  "confidence": 0.54
+ },
+ "hlt": {
+  "score": 2.0,
+  "confidence": 0.45
+ },
+ "rdtsc": {
+  "score": 1.95,
+  "confidence": 0.45
+ },
+ "xchg": {
+  "score": 2.61,
+  "confidence": 0.56
+ },
+ "cmpxchg": {
+  "score": 2.13,
+  "confidence": 0.5
+ },
+ "shl": {
+  "score": 3.13,
+  "confidence": 0.68
+ },
+ "shr": {
+  "score": 2.84,
+  "confidence": 0.66
+ },
+ "leave": {
+  "score": 2.31,
+  "confidence": 0.55
+ },
+ "je": {
+  "score": 3.05,
+  "confidence": 0.6
+ },
+ "jne": {
+  "score": 3.05,
+  "confidence": 0.61
+ },
+ "CLAC": {
+  "score": 0.42,
+  "confidence": 0.82
+ },
+ "CLFLUSH": {
+  "score": 0.8,
+  "confidence": 0.68
+ },
+ "CLI": {
+  "score": 2.3,
+  "confidence": 0.52
+ },
+ "CLWB": {
+  "score": 0.53,
+  "confidence": 0.74
+ },
+ "EMMS": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "ENDBR32": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "ENDBR64": {
+  "score": 0.57,
+  "confidence": 0.7
+ },
+ "FXRSTOR": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "FXSAVE": {
+  "score": 0.94,
+  "confidence": 0.66
+ },
+ "INVD": {
+  "score": 0.61,
+  "confidence": 0.68
+ },
+ "INVEPT": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "INVLPG": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "INVPCID": {
+  "score": 0.34,
+  "confidence": 0.83
+ },
+ "INVVPID": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "MOVNTDQ": {
+  "score": 0.89,
+  "confidence": 0.71
+ },
+ "MOVNTDQA": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "MOVNTI": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "MOVNTPD": {
+  "score": 0.73,
+  "confidence": 0.73
+ },
+ "MOVNTPS": {
+  "score": 0.75,
+  "confidence": 0.7
+ },
+ "PEXTRW": {
+  "score": 0.58,
+  "confidence": 0.73
+ },
+ "PINSRB": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "PINSRD": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "PINSRW": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "PMOVMSKB": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "PREFETCHNTA": {
+  "score": 0.36,
+  "confidence": 0.83
+ },
+ "PREFETCHT1": {
+  "score": 0.73,
+  "confidence": 0.62
+ },
+ "PREFETCHT2": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "PREFETCHW": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "PTEST": {
+  "score": 0.72,
+  "confidence": 0.7
+ },
+ "RDMSR": {
+  "score": 1.21,
+  "confidence": 0.62
+ },
+ "RSM": {
+  "score": 0.56,
+  "confidence": 0.72
+ },
+ "STAC": {
+  "score": 0.99,
+  "confidence": 0.52
+ },
+ "SYSCALL": {
+  "score": 3.11,
+  "confidence": 0.66
+ },
+ "SYSEXIT": {
+  "score": 1.31,
+  "confidence": 0.66
+ },
+ "SYSRET": {
+  "score": 1.33,
+  "confidence": 0.62
+ },
+ "VBROADCASTSD": {
+  "score": 0.59,
+  "confidence": 0.71
+ },
+ "VBROADCASTSS": {
+  "score": 0.53,
+  "confidence": 0.74
+ },
+ "VFMADD132PD": {
+  "score": 0.35,
+  "confidence": 0.83
+ },
+ "VFMADD132PS": {
+  "score": 0.34,
+  "confidence": 0.85
+ },
+ "VFMADD213PD": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "VFMADD213PS": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "VFMADD231PD": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "VFMADD231PS": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VGATHERDPD": {
+  "score": 0.28,
+  "confidence": 0.87
+ },
+ "VGATHERDPS": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "VGATHERQPD": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "VGATHERQPS": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VMCALL": {
+  "score": 0.75,
+  "confidence": 0.7
+ },
+ "VMCLEAR": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "VMLAUNCH": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "VMPTRLD": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VMPTRST": {
+  "score": 0.2,
+  "confidence": 0.9
+ },
+ "VMREAD": {
+  "score": 0.76,
+  "confidence": 0.7
+ },
+ "VMRESUME": {
+  "score": 0.82,
+  "confidence": 0.68
+ },
+ "VMWRITE": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "VMXOFF": {
+  "score": 0.53,
+  "confidence": 0.74
+ },
+ "VMXON": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "VSQRTPD": {
+  "score": 0.55,
+  "confidence": 0.72
+ },
+ "VSQRTPS": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "VSQRTSD": {
+  "score": 0.52,
+  "confidence": 0.74
+ },
+ "VSQRTSS": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "WRMSR": {
+  "score": 1.03,
+  "confidence": 0.67
+ },
+ "XGETBV": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "XRSTOR": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "XSAVE": {
+  "score": 0.8,
+  "confidence": 0.62
+ },
+ "XSETBV": {
+  "score": 0.59,
+  "confidence": 0.7
+ },
+ "ADDPD": {
+  "score": 1.15,
+  "confidence": 0.73
+ },
+ "ADDPS": {
+  "score": 1.28,
+  "confidence": 0.7
+ },
+ "ADDSD": {
+  "score": 1.45,
+  "confidence": 0.67
+ },
+ "ADDSS": {
+  "score": 0.99,
+  "confidence": 0.64
+ },
+ "CMC": {
+  "score": 0.85,
+  "confidence": 0.7
+ },
+ "DIVPD": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "DIVPS": {
+  "score": 0.75,
+  "confidence": 0.63
+ },
+ "DIVSD": {
+  "score": 1.02,
+  "confidence": 0.7
+ },
+ "DIVSS": {
+  "score": 1.02,
+  "confidence": 0.63
+ },
+ "FCOS": {
+  "score": 0.47,
+  "confidence": 0.76
+ },
+ "FNOP": {
+  "score": 0.8,
+  "confidence": 0.69
+ },
+ "FWAIT": {
+  "score": 0.6,
+  "confidence": 0.7
+ },
+ "INT03": {
+  "score": 2.38,
+  "confidence": 0.45
+ },
+ "LAHF": {
+  "score": 1.06,
+  "confidence": 0.68
+ },
+ "LFENCE": {
+  "score": 1.16,
+  "confidence": 0.71
+ },
+ "MFENCE": {
+  "score": 1.02,
+  "confidence": 0.64
+ },
+ "MULPD": {
+  "score": 0.96,
+  "confidence": 0.73
+ },
+ "MULPS": {
+  "score": 0.82,
+  "confidence": 0.6
+ },
+ "MULSD": {
+  "score": 1.22,
+  "confidence": 0.68
+ },
+ "MULSS": {
+  "score": 1.24,
+  "confidence": 0.68
+ },
+ "PADDB": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "PADDD": {
+  "score": 0.68,
+  "confidence": 0.66
+ },
+ "PADDQ": {
+  "score": 0.71,
+  "confidence": 0.73
+ },
+ "PADDW": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "PCMPEQB": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "PCMPGTB": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "PREFETCHT0": {
+  "score": 0.86,
+  "confidence": 0.72
+ },
+ "PSHUFB": {
+  "score": 0.68,
+  "confidence": 0.71
+ },
+ "PSHUFD": {
+  "score": 0.7,
+  "confidence": 0.73
+ },
+ "PSUBB": {
+  "score": 0.54,
+  "confidence": 0.75
+ },
+ "PSUBD": {
+  "score": 0.68,
+  "confidence": 0.66
+ },
+ "PSUBQ": {
+  "score": 0.46,
+  "confidence": 0.79
+ },
+ "PSUBW": {
+  "score": 0.63,
+  "confidence": 0.68
+ },
+ "SAHF": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "SFENCE": {
+  "score": 0.69,
+  "confidence": 0.68
+ },
+ "SQRTPD": {
+  "score": 1.01,
+  "confidence": 0.7
+ },
+ "SQRTPS": {
+  "score": 1.19,
+  "confidence": 0.71
+ },
+ "SQRTSD": {
+  "score": 0.97,
+  "confidence": 0.74
+ },
+ "SQRTSS": {
+  "score": 0.86,
+  "confidence": 0.73
+ },
+ "SUBPD": {
+  "score": 0.9,
+  "confidence": 0.72
+ },
+ "SUBPS": {
+  "score": 0.83,
+  "confidence": 0.7
+ },
+ "SUBSD": {
+  "score": 0.68,
+  "confidence": 0.66
+ },
+ "SUBSS": {
+  "score": 0.86,
+  "confidence": 0.59
+ },
+ "VADDPD": {
+  "score": 1.0,
+  "confidence": 0.72
+ },
+ "VADDPS": {
+  "score": 1.03,
+  "confidence": 0.74
+ },
+ "VMOVAPS": {
+  "score": 1.07,
+  "confidence": 0.72
+ },
+ "VMOVDQA": {
+  "score": 1.07,
+  "confidence": 0.71
+ },
+ "VMOVDQU": {
+  "score": 0.85,
+  "confidence": 0.72
+ },
+ "VPXOR": {
+  "score": 1.3,
+  "confidence": 0.66
+ },
+ "VXORPD": {
+  "score": 0.73,
+  "confidence": 0.7
+ },
+ "VXORPS": {
+  "score": 0.9,
+  "confidence": 0.7
+ },
+ "VZEROALL": {
+  "score": 0.74,
+  "confidence": 0.7
+ },
+ "ANDNPD": {
+  "score": 0.5,
+  "confidence": 0.75
+ },
+ "ANDNPS": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "ANDPD": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "ANDPS": {
+  "score": 0.98,
+  "confidence": 0.54
+ },
+ "CLDEMOTE": {
+  "score": 0.31,
+  "confidence": 0.84
+ },
+ "CMPPD": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "CMPPS": {
+  "score": 0.74,
+  "confidence": 0.7
+ },
+ "CMPSD": {
+  "score": 1.14,
+  "confidence": 0.7
+ },
+ "CMPSS": {
+  "score": 0.56,
+  "confidence": 0.72
+ },
+ "COMISD": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "COMISS": {
+  "score": 0.65,
+  "confidence": 0.66
+ },
+ "CVTDQ2PD": {
+  "score": 0.41,
+  "confidence": 0.81
+ },
+ "CVTDQ2PS": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "CVTPD2DQ": {
+  "score": 0.75,
+  "confidence": 0.7
+ },
+ "CVTPD2PS": {
+  "score": 0.74,
+  "confidence": 0.7
+ },
+ "CVTPS2DQ": {
+  "score": 0.85,
+  "confidence": 0.72
+ },
+ "CVTPS2PD": {
+  "score": 0.79,
+  "confidence": 0.74
+ },
+ "CVTSD2SI": {
+  "score": 0.84,
+  "confidence": 0.71
+ },
+ "CVTSD2SS": {
+  "score": 0.76,
+  "confidence": 0.72
+ },
+ "CVTSI2SD": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "CVTSI2SS": {
+  "score": 0.64,
+  "confidence": 0.68
+ },
+ "CVTSS2SD": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "CVTSS2SI": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "CVTTPD2DQ": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "CVTTPS2DQ": {
+  "score": 0.68,
+  "confidence": 0.68
+ },
+ "CVTTSD2SI": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "CVTTSS2SI": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "ENQCMD": {
+  "score": 0.22,
+  "confidence": 0.91
+ },
+ "ENQCMDS": {
+  "score": 0.23,
+  "confidence": 0.92
+ },
+ "EXTRACTPS": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "F2XM1": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "FCLEX": {
+  "score": 0.26,
+  "confidence": 0.87
+ },
+ "FCOM": {
+  "score": 0.78,
+  "confidence": 0.7
+ },
+ "FCOMI": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "FCOMIP": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "FCOMP": {
+  "score": 0.79,
+  "confidence": 0.72
+ },
+ "FCOMPP": {
+  "score": 0.45,
+  "confidence": 0.8
+ },
+ "FDIVR": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "FDIVRP": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "FFREE": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "FFREEP": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "FIADD": {
+  "score": 0.28,
+  "confidence": 0.86
+ },
+ "FICOM": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "FICOMP": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "FIDIV": {
+  "score": 0.55,
+  "confidence": 0.71
+ },
+ "FIDIVR": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "FILD": {
+  "score": 0.65,
+  "confidence": 0.66
+ },
+ "FIMUL": {
+  "score": 0.28,
+  "confidence": 0.86
+ },
+ "FINIT": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "FIST": {
+  "score": 1.01,
+  "confidence": 0.64
+ },
+ "FISTP": {
+  "score": 0.87,
+  "confidence": 0.72
+ },
+ "FISTTP": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "FISUB": {
+  "score": 0.49,
+  "confidence": 0.75
+ },
+ "FISUBR": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "FLD1": {
+  "score": 0.52,
+  "confidence": 0.74
+ },
+ "FLDCW": {
+  "score": 0.42,
+  "confidence": 0.79
+ },
+ "FLDENV": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "FLDL2E": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "FLDL2T": {
+  "score": 0.28,
+  "confidence": 0.87
+ },
+ "FLDLG2": {
+  "score": 0.28,
+  "confidence": 0.86
+ },
+ "FLDLN2": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "FLDPI": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "FLDZ": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "FNCLEX": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "FNINIT": {
+  "score": 0.52,
+  "confidence": 0.74
+ },
+ "FNSAVE": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "FNSTCW": {
+  "score": 0.47,
+  "confidence": 0.77
+ },
+ "FNSTENV": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "FNSTSW": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "FPATAN": {
+  "score": 0.32,
+  "confidence": 0.85
+ },
+ "FPREM": {
+  "score": 0.42,
+  "confidence": 0.79
+ },
+ "FPREM1": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "FPTAN": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "FRNDINT": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "FRSTOR": {
+  "score": 0.37,
+  "confidence": 0.84
+ },
+ "FSAVE": {
+  "score": 0.54,
+  "confidence": 0.74
+ },
+ "FSCALE": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "FSINCOS": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "FSTCW": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "FSTENV": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "FSTSW": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "FSUBR": {
+  "score": 0.57,
+  "confidence": 0.71
+ },
+ "FSUBRP": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "FTST": {
+  "score": 0.58,
+  "confidence": 0.71
+ },
+ "FUCOM": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "FUCOMI": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "FUCOMIP": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "FUCOMP": {
+  "score": 0.5,
+  "confidence": 0.74
+ },
+ "FUCOMPP": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "FXAM": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "FXTRACT": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "FYL2X": {
+  "score": 0.4,
+  "confidence": 0.82
+ },
+ "FYL2XP1": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "HADDPD": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "HADDPS": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "HRESET": {
+  "score": 0.32,
+  "confidence": 0.84
+ },
+ "HSUBPD": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "HSUBPS": {
+  "score": 0.28,
+  "confidence": 0.86
+ },
+ "ICEBP": {
+  "score": 0.7,
+  "confidence": 0.64
+ },
+ "INSERTPS": {
+  "score": 0.34,
+  "confidence": 0.83
+ },
+ "INTO": {
+  "score": 1.18,
+  "confidence": 0.66
+ },
+ "LDDQU": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "LDMXCSR": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "LDTILECFG": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "LOADALL": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "LOADALL286": {
+  "score": 0.34,
+  "confidence": 0.86
+ },
+ "MASKMOVDQU": {
+  "score": 0.36,
+  "confidence": 0.83
+ },
+ "MASKMOVQ": {
+  "score": 0.32,
+  "confidence": 0.86
+ },
+ "MAXPD": {
+  "score": 0.9,
+  "confidence": 0.74
+ },
+ "MAXPS": {
+  "score": 0.8,
+  "confidence": 0.72
+ },
+ "MAXSD": {
+  "score": 1.15,
+  "confidence": 0.73
+ },
+ "MAXSS": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "MINPD": {
+  "score": 0.77,
+  "confidence": 0.71
+ },
+ "MINPS": {
+  "score": 0.75,
+  "confidence": 0.72
+ },
+ "MINSD": {
+  "score": 1.01,
+  "confidence": 0.75
+ },
+ "MINSS": {
+  "score": 0.78,
+  "confidence": 0.72
+ },
+ "MOVAPD": {
+  "score": 1.12,
+  "confidence": 0.72
+ },
+ "MOVDDUP": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "MOVDQ2Q": {
+  "score": 0.68,
+  "confidence": 0.68
+ },
+ "MOVHLPS": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "MOVHPD": {
+  "score": 0.61,
+  "confidence": 0.69
+ },
+ "MOVHPS": {
+  "score": 0.56,
+  "confidence": 0.72
+ },
+ "MOVLHPS": {
+  "score": 0.54,
+  "confidence": 0.75
+ },
+ "MOVLPD": {
+  "score": 0.75,
+  "confidence": 0.72
+ },
+ "MOVLPS": {
+  "score": 0.77,
+  "confidence": 0.71
+ },
+ "MOVMSKPD": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "MOVMSKPS": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "MOVNTQ": {
+  "score": 0.71,
+  "confidence": 0.7
+ },
+ "MOVQ2DQ": {
+  "score": 0.82,
+  "confidence": 0.68
+ },
+ "MOVSHDUP": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "MOVSLDUP": {
+  "score": 0.55,
+  "confidence": 0.72
+ },
+ "MOVUPD": {
+  "score": 1.07,
+  "confidence": 0.72
+ },
+ "ORPD": {
+  "score": 0.59,
+  "confidence": 0.71
+ },
+ "ORPS": {
+  "score": 0.66,
+  "confidence": 0.67
+ },
+ "PABSB": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "PABSD": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "PABSW": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "PACKSSDW": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "PACKSSWB": {
+  "score": 0.35,
+  "confidence": 0.82
+ },
+ "PACKUSDW": {
+  "score": 0.26,
+  "confidence": 0.89
+ },
+ "PACKUSWB": {
+  "score": 0.55,
+  "confidence": 0.73
+ },
+ "PADDSB": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "PADDSW": {
+  "score": 0.46,
+  "confidence": 0.76
+ },
+ "PADDUSB": {
+  "score": 0.4,
+  "confidence": 0.81
+ },
+ "PADDUSW": {
+  "score": 0.32,
+  "confidence": 0.85
+ },
+ "PAVGB": {
+  "score": 0.61,
+  "confidence": 0.69
+ },
+ "PAVGW": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "PCMPEQD": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "PCMPEQQ": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "PCMPEQW": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "PCMPGTD": {
+  "score": 0.21,
+  "confidence": 0.92
+ },
+ "PCMPGTQ": {
+  "score": 0.42,
+  "confidence": 0.78
+ },
+ "PCMPGTW": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "PMADDWD": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "PMAXSW": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "PMAXUB": {
+  "score": 0.46,
+  "confidence": 0.77
+ },
+ "PMINSW": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "PMINUB": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "PMULHUW": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "PMULHW": {
+  "score": 0.47,
+  "confidence": 0.76
+ },
+ "PMULLW": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "PMULUDQ": {
+  "score": 0.38,
+  "confidence": 0.8
+ },
+ "PSADBW": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "PSHUFHW": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "PSHUFLW": {
+  "score": 0.62,
+  "confidence": 0.71
+ },
+ "PSHUFW": {
+  "score": 0.59,
+  "confidence": 0.7
+ },
+ "PSLLD": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "PSLLDQ": {
+  "score": 0.43,
+  "confidence": 0.78
+ },
+ "PSLLQ": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "PSLLW": {
+  "score": 0.68,
+  "confidence": 0.67
+ },
+ "PSRAD": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "PSRAW": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "PSRLD": {
+  "score": 0.44,
+  "confidence": 0.8
+ },
+ "PSRLDQ": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "PSRLQ": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "PSRLW": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "PSUBSB": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "PSUBSW": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "PSUBUSB": {
+  "score": 0.44,
+  "confidence": 0.8
+ },
+ "PSUBUSW": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "PUNPCKHBW": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "PUNPCKHDQ": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "PUNPCKHQDQ": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "PUNPCKHWD": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "PUNPCKLBW": {
+  "score": 0.48,
+  "confidence": 0.78
+ },
+ "PUNPCKLDQ": {
+  "score": 0.39,
+  "confidence": 0.81
+ },
+ "PUNPCKLQDQ": {
+  "score": 0.32,
+  "confidence": 0.85
+ },
+ "PUNPCKLWD": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "RCPPS": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "RCPSS": {
+  "score": 0.57,
+  "confidence": 0.71
+ },
+ "ROUNDPD": {
+  "score": 1.0,
+  "confidence": 0.71
+ },
+ "ROUNDPS": {
+  "score": 0.71,
+  "confidence": 0.66
+ },
+ "ROUNDSD": {
+  "score": 0.72,
+  "confidence": 0.65
+ },
+ "ROUNDSS": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "RSQRTPS": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "RSQRTSS": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "SALC": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "SERIALIZE": {
+  "score": 0.58,
+  "confidence": 0.71
+ },
+ "SHUFPD": {
+  "score": 0.7,
+  "confidence": 0.73
+ },
+ "SHUFPS": {
+  "score": 0.6,
+  "confidence": 0.72
+ },
+ "STMXCSR": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "STTILECFG": {
+  "score": 0.31,
+  "confidence": 0.84
+ },
+ "TDPBF16PS": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "TILELOADD": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "TILERELEASE": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "TILESTORED": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "TILEZERO": {
+  "score": 0.21,
+  "confidence": 0.92
+ },
+ "UCOMISD": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "UCOMISS": {
+  "score": 0.54,
+  "confidence": 0.74
+ },
+ "UNPCKHPD": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "UNPCKHPS": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "UNPCKLPD": {
+  "score": 0.4,
+  "confidence": 0.82
+ },
+ "UNPCKLPS": {
+  "score": 0.54,
+  "confidence": 0.74
+ },
+ "VADDSD": {
+  "score": 1.04,
+  "confidence": 0.74
+ },
+ "VADDSS": {
+  "score": 0.92,
+  "confidence": 0.74
+ },
+ "VANDNPD": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "VANDNPS": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VANDPD": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "VANDPS": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "VBLENDPD": {
+  "score": 0.76,
+  "confidence": 0.74
+ },
+ "VBLENDPS": {
+  "score": 0.94,
+  "confidence": 0.74
+ },
+ "VBLENDVPD": {
+  "score": 0.48,
+  "confidence": 0.77
+ },
+ "VBLENDVPS": {
+  "score": 0.73,
+  "confidence": 0.74
+ },
+ "VBROADCASTF128": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "VBROADCASTI128": {
+  "score": 0.36,
+  "confidence": 0.83
+ },
+ "VCMPPD": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "VCMPPS": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "VCMPSD": {
+  "score": 0.59,
+  "confidence": 0.72
+ },
+ "VCMPSS": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "VCOMISD": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "VCOMISS": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "VCVTDQ2PD": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VCVTDQ2PS": {
+  "score": 0.48,
+  "confidence": 0.78
+ },
+ "VCVTPD2DQ": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "VCVTPD2PS": {
+  "score": 0.62,
+  "confidence": 0.68
+ },
+ "VCVTPH2PS": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VCVTPS2DQ": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "VCVTPS2PD": {
+  "score": 0.56,
+  "confidence": 0.74
+ },
+ "VCVTPS2PH": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VCVTSD2SI": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "VCVTSD2SS": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "VCVTSI2SD": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "VCVTSI2SS": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "VCVTSS2SD": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VCVTSS2SI": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "VCVTTPD2DQ": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "VCVTTPS2DQ": {
+  "score": 0.49,
+  "confidence": 0.77
+ },
+ "VCVTTSD2SI": {
+  "score": 0.4,
+  "confidence": 0.82
+ },
+ "VCVTTSS2SI": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VDIVPD": {
+  "score": 0.49,
+  "confidence": 0.77
+ },
+ "VDIVPS": {
+  "score": 0.63,
+  "confidence": 0.68
+ },
+ "VDIVSD": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "VDIVSS": {
+  "score": 0.88,
+  "confidence": 0.71
+ },
+ "VEXTRACTF128": {
+  "score": 0.45,
+  "confidence": 0.79
+ },
+ "VEXTRACTI128": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "VEXTRACTPS": {
+  "score": 0.63,
+  "confidence": 0.69
+ },
+ "VFMADD132SD": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VFMADD132SS": {
+  "score": 0.35,
+  "confidence": 0.83
+ },
+ "VFMADD213SD": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "VFMADD213SS": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "VFMADD231SD": {
+  "score": 0.34,
+  "confidence": 0.83
+ },
+ "VFMADD231SS": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VFMSUB132PD": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VFMSUB132PS": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VFMSUB132SD": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VFMSUB132SS": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VFMSUB213PD": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VFMSUB213PS": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VFMSUB213SD": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VFMSUB213SS": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VFMSUB231PD": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VFMSUB231PS": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "VFMSUB231SD": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VFMSUB231SS": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VFNMADD132PD": {
+  "score": 0.26,
+  "confidence": 0.89
+ },
+ "VFNMADD132PS": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "VFNMADD132SD": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VFNMADD132SS": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "VFNMADD213PD": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VFNMADD213PS": {
+  "score": 0.3,
+  "confidence": 0.85
+ },
+ "VFNMADD213SD": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VFNMADD213SS": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VFNMADD231PD": {
+  "score": 0.27,
+  "confidence": 0.86
+ },
+ "VFNMADD231PS": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VFNMADD231SD": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VFNMADD231SS": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VFNMSUB132PD": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VFNMSUB132PS": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VFNMSUB132SD": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VFNMSUB132SS": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VFNMSUB213PD": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VFNMSUB213PS": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VFNMSUB213SD": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VFNMSUB213SS": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VFNMSUB231PD": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VFNMSUB231PS": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VFNMSUB231SD": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VFNMSUB231SS": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VGF2P8AFFINEQB": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VHADDPD": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "VHADDPS": {
+  "score": 0.39,
+  "confidence": 0.81
+ },
+ "VHSUBPD": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "VHSUBPS": {
+  "score": 0.48,
+  "confidence": 0.77
+ },
+ "VINSERTF128": {
+  "score": 0.52,
+  "confidence": 0.75
+ },
+ "VINSERTI128": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "VINSERTPS": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "VLDDQU": {
+  "score": 0.39,
+  "confidence": 0.8
+ },
+ "VLDMXCSR": {
+  "score": 0.27,
+  "confidence": 0.87
+ },
+ "VMASKMOVDQU": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VMASKMOVPD": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VMASKMOVPS": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "VMAXPD": {
+  "score": 0.85,
+  "confidence": 0.71
+ },
+ "VMAXPS": {
+  "score": 0.84,
+  "confidence": 0.71
+ },
+ "VMAXSD": {
+  "score": 0.81,
+  "confidence": 0.72
+ },
+ "VMAXSS": {
+  "score": 0.72,
+  "confidence": 0.72
+ },
+ "VMINPD": {
+  "score": 0.56,
+  "confidence": 0.74
+ },
+ "VMINPS": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "VMINSD": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "VMINSS": {
+  "score": 0.83,
+  "confidence": 0.74
+ },
+ "VMOVAPD": {
+  "score": 0.82,
+  "confidence": 0.72
+ },
+ "VMOVD": {
+  "score": 1.0,
+  "confidence": 0.52
+ },
+ "VMOVDDUP": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "VMOVHLPS": {
+  "score": 0.43,
+  "confidence": 0.79
+ },
+ "VMOVHPD": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "VMOVHPS": {
+  "score": 0.69,
+  "confidence": 0.7
+ },
+ "VMOVLHPS": {
+  "score": 0.53,
+  "confidence": 0.76
+ },
+ "VMOVLPD": {
+  "score": 0.72,
+  "confidence": 0.64
+ },
+ "VMOVLPS": {
+  "score": 0.8,
+  "confidence": 0.72
+ },
+ "VMOVMSKPD": {
+  "score": 0.29,
+  "confidence": 0.88
+ },
+ "VMOVMSKPS": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "VMOVNTDQ": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "VMOVNTDQA": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VMOVNTPD": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "VMOVNTPS": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "VMOVQ": {
+  "score": 1.35,
+  "confidence": 0.67
+ },
+ "VMOVSD": {
+  "score": 1.1,
+  "confidence": 0.72
+ },
+ "VMOVSHDUP": {
+  "score": 0.38,
+  "confidence": 0.81
+ },
+ "VMOVSLDUP": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "VMOVSS": {
+  "score": 1.04,
+  "confidence": 0.75
+ },
+ "VMOVUPD": {
+  "score": 0.86,
+  "confidence": 0.72
+ },
+ "VMOVUPS": {
+  "score": 0.92,
+  "confidence": 0.74
+ },
+ "VMULPD": {
+  "score": 0.87,
+  "confidence": 0.72
+ },
+ "VMULPS": {
+  "score": 1.02,
+  "confidence": 0.73
+ },
+ "VMULSD": {
+  "score": 1.02,
+  "confidence": 0.72
+ },
+ "VMULSS": {
+  "score": 1.15,
+  "confidence": 0.72
+ },
+ "VORPD": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "VORPS": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "VP2INTERSECTD": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VP2INTERSECTQ": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VPABSB": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VPABSD": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "VPABSW": {
+  "score": 0.26,
+  "confidence": 0.89
+ },
+ "VPACKSSDW": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "VPACKSSWB": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "VPACKUSDW": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VPACKUSWB": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VPADDB": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "VPADDD": {
+  "score": 0.73,
+  "confidence": 0.73
+ },
+ "VPADDQ": {
+  "score": 0.81,
+  "confidence": 0.72
+ },
+ "VPADDSB": {
+  "score": 0.45,
+  "confidence": 0.79
+ },
+ "VPADDSW": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "VPADDUSB": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "VPADDUSW": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "VPADDW": {
+  "score": 0.83,
+  "confidence": 0.71
+ },
+ "VPAND": {
+  "score": 0.8,
+  "confidence": 0.7
+ },
+ "VPANDN": {
+  "score": 0.45,
+  "confidence": 0.79
+ },
+ "VPAVGB": {
+  "score": 0.4,
+  "confidence": 0.82
+ },
+ "VPAVGW": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "VPBLENDVB": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VPBLENDW": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "VPBROADCASTB": {
+  "score": 0.47,
+  "confidence": 0.77
+ },
+ "VPBROADCASTD": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "VPBROADCASTQ": {
+  "score": 0.51,
+  "confidence": 0.75
+ },
+ "VPBROADCASTW": {
+  "score": 0.48,
+  "confidence": 0.77
+ },
+ "VPCMPEQB": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "VPCMPEQD": {
+  "score": 0.71,
+  "confidence": 0.71
+ },
+ "VPCMPEQQ": {
+  "score": 0.35,
+  "confidence": 0.83
+ },
+ "VPCMPEQW": {
+  "score": 0.6,
+  "confidence": 0.72
+ },
+ "VPCMPGTB": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "VPCMPGTD": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "VPCMPGTQ": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "VPCMPGTW": {
+  "score": 0.42,
+  "confidence": 0.78
+ },
+ "VPCONFLICTD": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VPCONFLICTQ": {
+  "score": 0.12,
+  "confidence": 0.96
+ },
+ "VPERM2F128": {
+  "score": 0.43,
+  "confidence": 0.78
+ },
+ "VPERM2I128": {
+  "score": 0.53,
+  "confidence": 0.75
+ },
+ "VPERMD": {
+  "score": 0.4,
+  "confidence": 0.81
+ },
+ "VPERMILPD": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "VPERMILPS": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "VPERMPD": {
+  "score": 0.39,
+  "confidence": 0.8
+ },
+ "VPERMPS": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "VPERMQ": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "VPEXTRB": {
+  "score": 0.51,
+  "confidence": 0.75
+ },
+ "VPEXTRD": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "VPEXTRQ": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "VPEXTRW": {
+  "score": 0.4,
+  "confidence": 0.82
+ },
+ "VPGATHERDD": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "VPGATHERDQ": {
+  "score": 0.52,
+  "confidence": 0.75
+ },
+ "VPGATHERQD": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "VPGATHERQQ": {
+  "score": 0.32,
+  "confidence": 0.84
+ },
+ "VPHADDD": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "VPHADDSW": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPHADDW": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "VPHSUBD": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "VPHSUBSW": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VPHSUBW": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VPINSRB": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VPINSRD": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VPINSRQ": {
+  "score": 0.43,
+  "confidence": 0.78
+ },
+ "VPINSRW": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "VPMADDUBSW": {
+  "score": 0.37,
+  "confidence": 0.83
+ },
+ "VPMADDWD": {
+  "score": 0.46,
+  "confidence": 0.77
+ },
+ "VPMASKMOVD": {
+  "score": 0.3,
+  "confidence": 0.87
+ },
+ "VPMASKMOVQ": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "VPMAXSB": {
+  "score": 0.6,
+  "confidence": 0.7
+ },
+ "VPMAXSD": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "VPMAXSW": {
+  "score": 0.54,
+  "confidence": 0.74
+ },
+ "VPMAXUB": {
+  "score": 0.61,
+  "confidence": 0.72
+ },
+ "VPMAXUD": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "VPMAXUW": {
+  "score": 0.39,
+  "confidence": 0.8
+ },
+ "VPMINSB": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "VPMINSD": {
+  "score": 0.64,
+  "confidence": 0.68
+ },
+ "VPMINSW": {
+  "score": 0.57,
+  "confidence": 0.74
+ },
+ "VPMINUB": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "VPMINUD": {
+  "score": 0.49,
+  "confidence": 0.77
+ },
+ "VPMINUW": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "VPMOVSXBD": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VPMOVSXBQ": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VPMOVSXBW": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPMOVSXDQ": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "VPMOVSXWD": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VPMOVSXWQ": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VPMOVZXBD": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VPMOVZXBQ": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "VPMOVZXBW": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "VPMOVZXDQ": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "VPMOVZXWD": {
+  "score": 0.37,
+  "confidence": 0.81
+ },
+ "VPMOVZXWQ": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "VPMULDQ": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "VPMULHRSW": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "VPMULHUW": {
+  "score": 0.46,
+  "confidence": 0.77
+ },
+ "VPMULHW": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "VPMULLD": {
+  "score": 0.76,
+  "confidence": 0.71
+ },
+ "VPMULLW": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "VPMULUDQ": {
+  "score": 0.36,
+  "confidence": 0.83
+ },
+ "VPOR": {
+  "score": 0.79,
+  "confidence": 0.71
+ },
+ "VPSADBW": {
+  "score": 0.53,
+  "confidence": 0.75
+ },
+ "VPSHUFB": {
+  "score": 0.52,
+  "confidence": 0.75
+ },
+ "VPSHUFD": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "VPSHUFHW": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "VPSHUFLW": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "VPSIGNB": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VPSIGND": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VPSIGNW": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPSLLD": {
+  "score": 0.52,
+  "confidence": 0.75
+ },
+ "VPSLLDQ": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "VPSLLQ": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "VPSLLVD": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "VPSLLVQ": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VPSLLW": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "VPSRAD": {
+  "score": 0.53,
+  "confidence": 0.75
+ },
+ "VPSRAVD": {
+  "score": 0.29,
+  "confidence": 0.88
+ },
+ "VPSRAW": {
+  "score": 0.25,
+  "confidence": 0.9
+ },
+ "VPSRLD": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "VPSRLDQ": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "VPSRLQ": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "VPSRLVD": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VPSRLVQ": {
+  "score": 0.16,
+  "confidence": 0.94
+ },
+ "VPSRLW": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "VPSUBB": {
+  "score": 0.64,
+  "confidence": 0.68
+ },
+ "VPSUBD": {
+  "score": 0.88,
+  "confidence": 0.72
+ },
+ "VPSUBQ": {
+  "score": 0.66,
+  "confidence": 0.69
+ },
+ "VPSUBSB": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "VPSUBSW": {
+  "score": 0.57,
+  "confidence": 0.73
+ },
+ "VPSUBUSB": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "VPSUBUSW": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "VPSUBW": {
+  "score": 0.59,
+  "confidence": 0.72
+ },
+ "VPTEST": {
+  "score": 0.75,
+  "confidence": 0.71
+ },
+ "VPUNPCKHBW": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VPUNPCKHDQ": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VPUNPCKHQDQ": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VPUNPCKHWD": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VPUNPCKLBW": {
+  "score": 0.34,
+  "confidence": 0.83
+ },
+ "VPUNPCKLDQ": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VPUNPCKLQDQ": {
+  "score": 0.34,
+  "confidence": 0.83
+ },
+ "VPUNPCKLWD": {
+  "score": 0.37,
+  "confidence": 0.81
+ },
+ "VRCPPS": {
+  "score": 0.5,
+  "confidence": 0.74
+ },
+ "VRCPSS": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "VROUNDPD": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "VROUNDPS": {
+  "score": 0.74,
+  "confidence": 0.72
+ },
+ "VROUNDSD": {
+  "score": 0.7,
+  "confidence": 0.64
+ },
+ "VROUNDSS": {
+  "score": 0.72,
+  "confidence": 0.72
+ },
+ "VRSQRTPS": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "VRSQRTSS": {
+  "score": 0.57,
+  "confidence": 0.74
+ },
+ "VTESTPD": {
+  "score": 0.39,
+  "confidence": 0.8
+ },
+ "VTESTPS": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "VUNPCKHPD": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "VUNPCKHPS": {
+  "score": 0.39,
+  "confidence": 0.81
+ },
+ "VUNPCKLPD": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VUNPCKLPS": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "WBNOINVD": {
+  "score": 0.23,
+  "confidence": 0.89
+ },
+ "XABORT": {
+  "score": 0.46,
+  "confidence": 0.76
+ },
+ "XEND": {
+  "score": 0.39,
+  "confidence": 0.81
+ },
+ "XRSTORS": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "XSAVEC": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "XSAVEOPT": {
+  "score": 0.39,
+  "confidence": 0.81
+ },
+ "XSAVES": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "XTEST": {
+  "score": 0.76,
+  "confidence": 0.63
+ },
+ "AAA": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "AAD": {
+  "score": 0.62,
+  "confidence": 0.69
+ },
+ "AAM": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "AAS": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "AESDEC": {
+  "score": 0.8,
+  "confidence": 0.7
+ },
+ "AESDECLAST": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "AESENC": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "AESENCLAST": {
+  "score": 0.66,
+  "confidence": 0.66
+ },
+ "AESIMC": {
+  "score": 0.46,
+  "confidence": 0.76
+ },
+ "AESKEYGENASSIST": {
+  "score": 0.48,
+  "confidence": 0.78
+ },
+ "CLFLUSHOPT": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "DAA": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "DAS": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "ENCLS": {
+  "score": 0.27,
+  "confidence": 0.87
+ },
+ "ENCLU": {
+  "score": 0.22,
+  "confidence": 0.89
+ },
+ "ENCLV": {
+  "score": 0.27,
+  "confidence": 0.86
+ },
+ "FABS": {
+  "score": 1.01,
+  "confidence": 0.64
+ },
+ "FADDP": {
+  "score": 0.65,
+  "confidence": 0.66
+ },
+ "FCHS": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "FDIVP": {
+  "score": 0.51,
+  "confidence": 0.73
+ },
+ "FMULP": {
+  "score": 0.78,
+  "confidence": 0.69
+ },
+ "FSUBP": {
+  "score": 0.53,
+  "confidence": 0.75
+ },
+ "FXCH": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "GETSEC": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "MOVSD": {
+  "score": 1.81,
+  "confidence": 0.52
+ },
+ "MOVSS": {
+  "score": 1.68,
+  "confidence": 0.58
+ },
+ "PCLMULQDQ": {
+  "score": 0.56,
+  "confidence": 0.72
+ },
+ "PCMPESTRI": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "PCMPESTRM": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "PCMPISTRI": {
+  "score": 0.33,
+  "confidence": 0.86
+ },
+ "PCMPISTRM": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "PEXTRB": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "PEXTRD": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "PEXTRQ": {
+  "score": 0.53,
+  "confidence": 0.74
+ },
+ "PINSRQ": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "RDPKRU": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "SHA1RNDS4": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "SHA256RNDS2": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VPHMINPOSUW": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VPMOVMSKB": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "VSHUFPD": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "VSHUFPS": {
+  "score": 0.72,
+  "confidence": 0.74
+ },
+ "VSTMXCSR": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VSUBPD": {
+  "score": 0.83,
+  "confidence": 0.72
+ },
+ "VSUBPS": {
+  "score": 0.79,
+  "confidence": 0.72
+ },
+ "VSUBSD": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "VSUBSS": {
+  "score": 0.72,
+  "confidence": 0.64
+ },
+ "VUCOMISD": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "VUCOMISS": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "ADDSUBPD": {
+  "score": 0.59,
+  "confidence": 0.7
+ },
+ "ADDSUBPS": {
+  "score": 0.49,
+  "confidence": 0.77
+ },
+ "AESDEC128KL": {
+  "score": 0.35,
+  "confidence": 0.83
+ },
+ "AESDEC256KL": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "AESDECWIDE128KL": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "AESDECWIDE256KL": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "AESENC128KL": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "AESENC256KL": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "AESENCWIDE128KL": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "AESENCWIDE256KL": {
+  "score": 0.17,
+  "confidence": 0.93
+ },
+ "BLENDPD": {
+  "score": 0.7,
+  "confidence": 0.72
+ },
+ "BLENDPS": {
+  "score": 0.92,
+  "confidence": 0.76
+ },
+ "BLENDVPD": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "BLENDVPS": {
+  "score": 0.71,
+  "confidence": 0.75
+ },
+ "BNDCL": {
+  "score": 0.23,
+  "confidence": 0.89
+ },
+ "BNDCN": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "BNDCU": {
+  "score": 0.24,
+  "confidence": 0.88
+ },
+ "BNDLDX": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "BNDMK": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "BNDMOV": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "BNDSTX": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "CLRSSBSY": {
+  "score": 0.65,
+  "confidence": 0.66
+ },
+ "CLUI": {
+  "score": 0.82,
+  "confidence": 0.59
+ },
+ "CVTPD2PI": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "CVTPI2PD": {
+  "score": 0.63,
+  "confidence": 0.68
+ },
+ "CVTPI2PS": {
+  "score": 0.68,
+  "confidence": 0.68
+ },
+ "CVTPS2PI": {
+  "score": 0.48,
+  "confidence": 0.78
+ },
+ "CVTTPD2PI": {
+  "score": 0.3,
+  "confidence": 0.87
+ },
+ "CVTTPS2PI": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "DPPD": {
+  "score": 0.48,
+  "confidence": 0.78
+ },
+ "DPPS": {
+  "score": 0.54,
+  "confidence": 0.72
+ },
+ "ENCODEKEY128": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "ENCODEKEY256": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "ERETS": {
+  "score": 1.92,
+  "confidence": 0.35
+ },
+ "ERETU": {
+  "score": 0.82,
+  "confidence": 0.57
+ },
+ "FBLD": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "FBSTP": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "FCMOVB": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "FCMOVBE": {
+  "score": 0.51,
+  "confidence": 0.75
+ },
+ "FCMOVE": {
+  "score": 0.47,
+  "confidence": 0.79
+ },
+ "FCMOVNB": {
+  "score": 0.3,
+  "confidence": 0.85
+ },
+ "FCMOVNBE": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "FCMOVNE": {
+  "score": 0.63,
+  "confidence": 0.68
+ },
+ "FCMOVNU": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "FCMOVU": {
+  "score": 0.47,
+  "confidence": 0.77
+ },
+ "FDECSTP": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "FDISI": {
+  "score": 0.99,
+  "confidence": 0.51
+ },
+ "FENI": {
+  "score": 0.71,
+  "confidence": 0.68
+ },
+ "FINCSTP": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "FNDISI": {
+  "score": 0.75,
+  "confidence": 0.62
+ },
+ "FNENI": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "FSETPM": {
+  "score": 0.38,
+  "confidence": 0.84
+ },
+ "GF2P8AFFINEINVQB": {
+  "score": 0.09,
+  "confidence": 0.97
+ },
+ "GF2P8AFFINEQB": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "GF2P8MULB": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "INCSSPD": {
+  "score": 0.5,
+  "confidence": 0.78
+ },
+ "INCSSPQ": {
+  "score": 0.3,
+  "confidence": 0.87
+ },
+ "LOADIWKEY": {
+  "score": 0.61,
+  "confidence": 0.67
+ },
+ "MPSADBW": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "PALIGNR": {
+  "score": 0.49,
+  "confidence": 0.78
+ },
+ "PBLENDVB": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "PBLENDW": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "PCLMULHQHQDQ": {
+  "score": 0.24,
+  "confidence": 0.88
+ },
+ "PCLMULHQLQDQ": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "PCLMULLQHQDQ": {
+  "score": 0.27,
+  "confidence": 0.87
+ },
+ "PCLMULLQLQDQ": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "PCOMMIT": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "PCONFIG": {
+  "score": 1.04,
+  "confidence": 0.5
+ },
+ "PHADDD": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "PHADDSW": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "PHADDW": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "PHMINPOSUW": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "PHSUBD": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "PHSUBSW": {
+  "score": 0.3,
+  "confidence": 0.87
+ },
+ "PHSUBW": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "PMADDUBSW": {
+  "score": 0.33,
+  "confidence": 0.86
+ },
+ "PMAXSB": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "PMAXSD": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "PMAXUD": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "PMAXUW": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "PMINSB": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "PMINSD": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "PMINUD": {
+  "score": 0.32,
+  "confidence": 0.86
+ },
+ "PMINUW": {
+  "score": 0.28,
+  "confidence": 0.87
+ },
+ "PMOVSXBD": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "PMOVSXBQ": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "PMOVSXBW": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "PMOVSXDQ": {
+  "score": 0.33,
+  "confidence": 0.86
+ },
+ "PMOVSXWD": {
+  "score": 0.3,
+  "confidence": 0.85
+ },
+ "PMOVSXWQ": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "PMOVZXBD": {
+  "score": 0.29,
+  "confidence": 0.88
+ },
+ "PMOVZXBQ": {
+  "score": 0.35,
+  "confidence": 0.82
+ },
+ "PMOVZXBW": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "PMOVZXDQ": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "PMOVZXWD": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "PMOVZXWQ": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "PMULDQ": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "PMULHRSW": {
+  "score": 0.33,
+  "confidence": 0.86
+ },
+ "PMULLD": {
+  "score": 0.68,
+  "confidence": 0.66
+ },
+ "POP2": {
+  "score": 0.47,
+  "confidence": 0.76
+ },
+ "PREFETCHIT0": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "PREFETCHIT1": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "PREFETCHRST2": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "PREFETCHWT1": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "PSIGNB": {
+  "score": 0.28,
+  "confidence": 0.87
+ },
+ "PSIGND": {
+  "score": 0.35,
+  "confidence": 0.83
+ },
+ "PSIGNW": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "PUSH2": {
+  "score": 0.92,
+  "confidence": 0.57
+ },
+ "RDMSRLIST": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "RDSSPD": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "RDSSPQ": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "RSTORSSP": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "SAVEPREVSSP": {
+  "score": 0.32,
+  "confidence": 0.84
+ },
+ "SENDUIPI": {
+  "score": 0.52,
+  "confidence": 0.74
+ },
+ "SETSSBSY": {
+  "score": 0.21,
+  "confidence": 0.91
+ },
+ "SHA1MSG1": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "SHA1MSG2": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "SHA1NEXTE": {
+  "score": 0.48,
+  "confidence": 0.78
+ },
+ "SHA256MSG1": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "SHA256MSG2": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "STUI": {
+  "score": 1.07,
+  "confidence": 0.49
+ },
+ "T2RPNTLVWZ0": {
+  "score": 0.13,
+  "confidence": 0.97
+ },
+ "T2RPNTLVWZ0RS": {
+  "score": 0.16,
+  "confidence": 0.96
+ },
+ "T2RPNTLVWZ0RST1": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "T2RPNTLVWZ0T1": {
+  "score": 0.19,
+  "confidence": 0.89
+ },
+ "T2RPNTLVWZ1": {
+  "score": 0.15,
+  "confidence": 0.92
+ },
+ "T2RPNTLVWZ1RS": {
+  "score": 0.16,
+  "confidence": 0.9
+ },
+ "T2RPNTLVWZ1RST1": {
+  "score": 0.24,
+  "confidence": 0.86
+ },
+ "T2RPNTLVWZ1T1": {
+  "score": 0.17,
+  "confidence": 0.89
+ },
+ "TCMMIMFP16PS": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "TCMMRLFP16PS": {
+  "score": 0.15,
+  "confidence": 0.95
+ },
+ "TCONJTCMMIMFP16PS": {
+  "score": 0.21,
+  "confidence": 0.91
+ },
+ "TCONJTFP16": {
+  "score": 0.16,
+  "confidence": 0.92
+ },
+ "TCVTROWD2PS": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "TCVTROWPS2BF16H": {
+  "score": 0.09,
+  "confidence": 0.96
+ },
+ "TCVTROWPS2BF16L": {
+  "score": 0.11,
+  "confidence": 0.97
+ },
+ "TCVTROWPS2PHH": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "TCVTROWPS2PHL": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "TDPBF8PS": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "TDPBHF8PS": {
+  "score": 0.14,
+  "confidence": 0.92
+ },
+ "TDPBSSD": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "TDPBSUD": {
+  "score": 0.24,
+  "confidence": 0.91
+ },
+ "TDPBUSD": {
+  "score": 0.28,
+  "confidence": 0.89
+ },
+ "TDPBUUD": {
+  "score": 0.34,
+  "confidence": 0.8
+ },
+ "TDPFP16PS": {
+  "score": 0.17,
+  "confidence": 0.94
+ },
+ "TDPHBF8PS": {
+  "score": 0.11,
+  "confidence": 0.97
+ },
+ "TDPHF8PS": {
+  "score": 0.23,
+  "confidence": 0.91
+ },
+ "TESTUI": {
+  "score": 1.47,
+  "confidence": 0.48
+ },
+ "TILELOADDRS": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "TILELOADDRST1": {
+  "score": 0.07,
+  "confidence": 0.98
+ },
+ "TILELOADDT1": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "TILEMOVROW": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "TMMULTF32PS": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "TTCMMIMFP16PS": {
+  "score": 0.17,
+  "confidence": 0.93
+ },
+ "TTCMMRLFP16PS": {
+  "score": 0.18,
+  "confidence": 0.91
+ },
+ "TTDPBF16PS": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "TTDPFP16PS": {
+  "score": 0.14,
+  "confidence": 0.96
+ },
+ "TTMMULTF32PS": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "TTRANSPOSED": {
+  "score": 0.61,
+  "confidence": 0.68
+ },
+ "UIRET": {
+  "score": 1.15,
+  "confidence": 0.43
+ },
+ "URDMSR": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "UWRMSR": {
+  "score": 0.44,
+  "confidence": 0.77
+ },
+ "V4FMADDPS": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "V4FMADDSS": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "V4FNMADDPS": {
+  "score": 0.21,
+  "confidence": 0.91
+ },
+ "V4FNMADDSS": {
+  "score": 0.23,
+  "confidence": 0.89
+ },
+ "VADDBF16": {
+  "score": 0.46,
+  "confidence": 0.79
+ },
+ "VADDPH": {
+  "score": 0.37,
+  "confidence": 0.84
+ },
+ "VADDSH": {
+  "score": 0.35,
+  "confidence": 0.86
+ },
+ "VADDSUBPD": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "VADDSUBPS": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VAESDEC": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "VAESDECLAST": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VAESENC": {
+  "score": 0.32,
+  "confidence": 0.84
+ },
+ "VAESENCLAST": {
+  "score": 0.25,
+  "confidence": 0.91
+ },
+ "VAESIMC": {
+  "score": 0.41,
+  "confidence": 0.81
+ },
+ "VAESKEYGENASSIST": {
+  "score": 0.2,
+  "confidence": 0.9
+ },
+ "VALIGND": {
+  "score": 0.53,
+  "confidence": 0.76
+ },
+ "VALIGNQ": {
+  "score": 0.48,
+  "confidence": 0.77
+ },
+ "VBCSTNEBF162PS": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VBCSTNEBF16PS": {
+  "score": 0.14,
+  "confidence": 0.95
+ },
+ "VBCSTNESH2PS": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VBITREV": {
+  "score": 0.33,
+  "confidence": 0.86
+ },
+ "VBLENDMPD": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "VBLENDMPS": {
+  "score": 0.62,
+  "confidence": 0.69
+ },
+ "VBMACOR16X16X16": {
+  "score": 0.22,
+  "confidence": 0.88
+ },
+ "VBMACXOR16X16X16": {
+  "score": 0.19,
+  "confidence": 0.93
+ },
+ "VBROADCASTF32X2": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VBROADCASTF32X4": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VBROADCASTF32X8": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VBROADCASTF64X2": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VBROADCASTF64X4": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VBROADCASTI32X2": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VBROADCASTI32X4": {
+  "score": 0.28,
+  "confidence": 0.87
+ },
+ "VBROADCASTI32X8": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VBROADCASTI64X2": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VBROADCASTI64X4": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VCMPBF16": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "VCMPPH": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VCMPSH": {
+  "score": 0.46,
+  "confidence": 0.77
+ },
+ "VCOMISBF16": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VCOMISH": {
+  "score": 0.22,
+  "confidence": 0.88
+ },
+ "VCOMPRESSPD": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "VCOMPRESSPS": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "VCOMXSD": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VCOMXSH": {
+  "score": 0.16,
+  "confidence": 0.92
+ },
+ "VCOMXSS": {
+  "score": 0.24,
+  "confidence": 0.88
+ },
+ "VCVT2PH2BF8": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VCVT2PH2BF8S": {
+  "score": 0.09,
+  "confidence": 0.97
+ },
+ "VCVT2PH2HF8": {
+  "score": 0.15,
+  "confidence": 0.96
+ },
+ "VCVT2PH2HF8S": {
+  "score": 0.17,
+  "confidence": 0.91
+ },
+ "VCVT2PS2PHX": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VCVTBF162IBS": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VCVTBF162IUBS": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VCVTBIASPH2BF8": {
+  "score": 0.09,
+  "confidence": 0.97
+ },
+ "VCVTBIASPH2BF8S": {
+  "score": 0.08,
+  "confidence": 0.97
+ },
+ "VCVTBIASPH2HF8": {
+  "score": 0.07,
+  "confidence": 0.98
+ },
+ "VCVTBIASPH2HF8S": {
+  "score": 0.09,
+  "confidence": 0.98
+ },
+ "VCVTDQ2PH": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VCVTHF82PH": {
+  "score": 0.14,
+  "confidence": 0.95
+ },
+ "VCVTNE2PS2BF16": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VCVTNEEBF162PS": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VCVTNEEPH2PS": {
+  "score": 0.13,
+  "confidence": 0.96
+ },
+ "VCVTNEOBF162PS": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VCVTNEOPH2PS": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VCVTNEPS2BF16": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VCVTPD2PH": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VCVTPD2QQ": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VCVTPD2UDQ": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "VCVTPD2UQQ": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VCVTPH2BF8": {
+  "score": 0.16,
+  "confidence": 0.92
+ },
+ "VCVTPH2BF8S": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VCVTPH2DQ": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VCVTPH2HF8": {
+  "score": 0.2,
+  "confidence": 0.93
+ },
+ "VCVTPH2HF8S": {
+  "score": 0.17,
+  "confidence": 0.94
+ },
+ "VCVTPH2IBS": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VCVTPH2IUBS": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VCVTPH2PD": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "VCVTPH2PSX": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VCVTPH2QQ": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VCVTPH2UDQ": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VCVTPH2UQQ": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "VCVTPH2UW": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VCVTPH2W": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VCVTPS2IBS": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "VCVTPS2IUBS": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VCVTPS2PHX": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VCVTPS2QQ": {
+  "score": 0.22,
+  "confidence": 0.91
+ },
+ "VCVTPS2UDQ": {
+  "score": 0.45,
+  "confidence": 0.79
+ },
+ "VCVTPS2UQQ": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "VCVTQQ2PD": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "VCVTQQ2PH": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VCVTQQ2PS": {
+  "score": 0.25,
+  "confidence": 0.9
+ },
+ "VCVTSD2SH": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VCVTSD2USI": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VCVTSH2SD": {
+  "score": 0.2,
+  "confidence": 0.9
+ },
+ "VCVTSH2SI": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VCVTSH2SS": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VCVTSH2USI": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VCVTSI2SH": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VCVTSS2SH": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VCVTSS2USI": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VCVTTBF162IBS": {
+  "score": 0.09,
+  "confidence": 0.98
+ },
+ "VCVTTBF162IUBS": {
+  "score": 0.1,
+  "confidence": 0.97
+ },
+ "VCVTTPD2DQS": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VCVTTPD2QQ": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VCVTTPD2QQS": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VCVTTPD2UDQ": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VCVTTPD2UDQS": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VCVTTPD2UQQ": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "VCVTTPD2UQQS": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "VCVTTPH2DQ": {
+  "score": 0.33,
+  "confidence": 0.86
+ },
+ "VCVTTPH2IBS": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "VCVTTPH2IUBS": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VCVTTPH2QQ": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VCVTTPH2UDQ": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VCVTTPH2UQQ": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VCVTTPH2UW": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VCVTTPH2W": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VCVTTPS2DQS": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VCVTTPS2IBS": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VCVTTPS2IUBS": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VCVTTPS2QQ": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VCVTTPS2QQS": {
+  "score": 0.21,
+  "confidence": 0.91
+ },
+ "VCVTTPS2UDQ": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VCVTTPS2UDQS": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VCVTTPS2UQQ": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VCVTTPS2UQQS": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VCVTTSD2USI": {
+  "score": 0.31,
+  "confidence": 0.84
+ },
+ "VCVTTSH2SI": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VCVTTSH2USI": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VCVTTSS2USI": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VCVTUDQ2PD": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VCVTUDQ2PH": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "VCVTUDQ2PS": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VCVTUQQ2PD": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "VCVTUQQ2PH": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VCVTUQQ2PS": {
+  "score": 0.27,
+  "confidence": 0.87
+ },
+ "VCVTUSI2SD": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VCVTUSI2SH": {
+  "score": 0.16,
+  "confidence": 0.94
+ },
+ "VCVTUSI2SS": {
+  "score": 0.32,
+  "confidence": 0.86
+ },
+ "VCVTUW2PH": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VCVTW2PH": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VDBPSADBW": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "VDIVBF16": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VDIVPH": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VDIVSH": {
+  "score": 0.31,
+  "confidence": 0.88
+ },
+ "VDPBF16PS": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VDPPD": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "VDPPHPS": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VDPPS": {
+  "score": 0.43,
+  "confidence": 0.79
+ },
+ "VENDSCALEPH": {
+  "score": 0.14,
+  "confidence": 0.93
+ },
+ "VENDSCALESH": {
+  "score": 0.28,
+  "confidence": 0.86
+ },
+ "VEXP2PD": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VEXP2PS": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VEXPANDPD": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VEXPANDPS": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VEXTRACTF32X4": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "VEXTRACTF32X8": {
+  "score": 0.31,
+  "confidence": 0.85
+ },
+ "VEXTRACTF64X2": {
+  "score": 0.32,
+  "confidence": 0.86
+ },
+ "VEXTRACTF64X4": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VEXTRACTI32X4": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "VEXTRACTI32X8": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "VEXTRACTI64X2": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VEXTRACTI64X4": {
+  "score": 0.21,
+  "confidence": 0.91
+ },
+ "VFCMADDCPH": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VFCMADDCSH": {
+  "score": 0.16,
+  "confidence": 0.94
+ },
+ "VFCMULCPH": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VFCMULCSH": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VFIXUPIMMPD": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VFIXUPIMMPS": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VFIXUPIMMSD": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VFIXUPIMMSS": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VFMADD132BF16": {
+  "score": 0.16,
+  "confidence": 0.92
+ },
+ "VFMADD132PH": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VFMADD132SH": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VFMADD213BF16": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VFMADD213PH": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VFMADD213SH": {
+  "score": 0.25,
+  "confidence": 0.9
+ },
+ "VFMADD231BF16": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VFMADD231PH": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VFMADD231SH": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VFMADDCPH": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "VFMADDCSH": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VFMADDSUB132PD": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VFMADDSUB132PH": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VFMADDSUB132PS": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VFMADDSUB213PD": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VFMADDSUB213PH": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VFMADDSUB213PS": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "VFMADDSUB231PD": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VFMADDSUB231PH": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VFMADDSUB231PS": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VFMSUB132BF16": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VFMSUB132PH": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VFMSUB132SH": {
+  "score": 0.16,
+  "confidence": 0.92
+ },
+ "VFMSUB213BF16": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VFMSUB213PH": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VFMSUB213SH": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "VFMSUB231BF16": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VFMSUB231PH": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VFMSUB231SH": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VFMSUBADD132PD": {
+  "score": 0.16,
+  "confidence": 0.92
+ },
+ "VFMSUBADD132PH": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VFMSUBADD132PS": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VFMSUBADD213PD": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VFMSUBADD213PH": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VFMSUBADD213PS": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "VFMSUBADD231PD": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VFMSUBADD231PH": {
+  "score": 0.12,
+  "confidence": 0.96
+ },
+ "VFMSUBADD231PS": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VFMULCPH": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "VFMULCSH": {
+  "score": 0.18,
+  "confidence": 0.93
+ },
+ "VFNMADD132BF16": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VFNMADD132PH": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VFNMADD132SH": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VFNMADD213BF16": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VFNMADD213PH": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VFNMADD213SH": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VFNMADD231BF16": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VFNMADD231PH": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VFNMADD231SH": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VFNMSUB132BF16": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VFNMSUB132PH": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VFNMSUB132SH": {
+  "score": 0.13,
+  "confidence": 0.96
+ },
+ "VFNMSUB213BF16": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VFNMSUB213PH": {
+  "score": 0.12,
+  "confidence": 0.96
+ },
+ "VFNMSUB213SH": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VFNMSUB231BF16": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VFNMSUB231PH": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VFNMSUB231SH": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VFPCLASSBF16": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VFPCLASSPD": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VFPCLASSPH": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VFPCLASSPS": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VFPCLASSSD": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "VFPCLASSSH": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VFPCLASSSS": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VGATHERPF0DPD": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VGATHERPF0DPS": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VGATHERPF0QPD": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VGATHERPF0QPS": {
+  "score": 0.12,
+  "confidence": 0.96
+ },
+ "VGATHERPF1DPD": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VGATHERPF1DPS": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VGATHERPF1QPD": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VGATHERPF1QPS": {
+  "score": 0.08,
+  "confidence": 0.97
+ },
+ "VGETEXPBF16": {
+  "score": 0.08,
+  "confidence": 0.98
+ },
+ "VGETEXPPD": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VGETEXPPH": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VGETEXPPS": {
+  "score": 0.2,
+  "confidence": 0.9
+ },
+ "VGETEXPSD": {
+  "score": 0.13,
+  "confidence": 0.96
+ },
+ "VGETEXPSH": {
+  "score": 0.13,
+  "confidence": 0.96
+ },
+ "VGETEXPSS": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VGETMANTBF16": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VGETMANTPD": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VGETMANTPH": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VGETMANTPS": {
+  "score": 0.23,
+  "confidence": 0.89
+ },
+ "VGETMANTSD": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VGETMANTSH": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VGETMANTSS": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VGF2P8AFFINEINVQB": {
+  "score": 0.09,
+  "confidence": 0.97
+ },
+ "VGF2P8MULB": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VINSERTF32X4": {
+  "score": 0.31,
+  "confidence": 0.85
+ },
+ "VINSERTF32X8": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "VINSERTF64X2": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "VINSERTF64X4": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VINSERTI32X4": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VINSERTI32X8": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "VINSERTI64X2": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VINSERTI64X4": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VMAXBF16": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "VMAXPH": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "VMAXSH": {
+  "score": 0.26,
+  "confidence": 0.89
+ },
+ "VMFUNC": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VMINBF16": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VMINMAXBF16": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VMINMAXPD": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "VMINMAXPH": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VMINMAXPS": {
+  "score": 0.61,
+  "confidence": 0.71
+ },
+ "VMINMAXSD": {
+  "score": 0.71,
+  "confidence": 0.72
+ },
+ "VMINMAXSH": {
+  "score": 0.26,
+  "confidence": 0.89
+ },
+ "VMINMAXSS": {
+  "score": 0.83,
+  "confidence": 0.72
+ },
+ "VMINPH": {
+  "score": 0.37,
+  "confidence": 0.8
+ },
+ "VMINSH": {
+  "score": 0.38,
+  "confidence": 0.84
+ },
+ "VMOVDQA32": {
+  "score": 0.55,
+  "confidence": 0.73
+ },
+ "VMOVDQA64": {
+  "score": 0.6,
+  "confidence": 0.7
+ },
+ "VMOVDQU16": {
+  "score": 0.51,
+  "confidence": 0.74
+ },
+ "VMOVDQU32": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "VMOVDQU64": {
+  "score": 0.48,
+  "confidence": 0.77
+ },
+ "VMOVDQU8": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "VMOVSH": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "VMOVW": {
+  "score": 0.76,
+  "confidence": 0.64
+ },
+ "VMPSADBW": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VMULBF16": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VMULPH": {
+  "score": 0.41,
+  "confidence": 0.82
+ },
+ "VMULSH": {
+  "score": 0.41,
+  "confidence": 0.81
+ },
+ "VP4DPWSSD": {
+  "score": 0.16,
+  "confidence": 0.94
+ },
+ "VP4DPWSSDS": {
+  "score": 0.1,
+  "confidence": 0.97
+ },
+ "VPABSQ": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VPALIGNR": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPANDD": {
+  "score": 0.43,
+  "confidence": 0.79
+ },
+ "VPANDND": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VPANDNQ": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPANDQ": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "VPBLENDD": {
+  "score": 0.49,
+  "confidence": 0.75
+ },
+ "VPBLENDMB": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VPBLENDMD": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "VPBLENDMQ": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VPBLENDMW": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VPBROADCASTMB2Q": {
+  "score": 0.09,
+  "confidence": 0.96
+ },
+ "VPBROADCASTMW2D": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VPCLMULHQHQDQ": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VPCLMULHQLQDQ": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VPCLMULLQHQDQ": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "VPCLMULLQLQDQ": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VPCLMULQDQ": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "VPCMPB": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "VPCMPD": {
+  "score": 0.53,
+  "confidence": 0.74
+ },
+ "VPCMPESTRI": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VPCMPESTRM": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VPCMPISTRI": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VPCMPISTRM": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPCMPQ": {
+  "score": 0.37,
+  "confidence": 0.84
+ },
+ "VPCMPUB": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "VPCMPUD": {
+  "score": 0.5,
+  "confidence": 0.77
+ },
+ "VPCMPUQ": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VPCMPUW": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "VPCMPW": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "VPCOMPRESSB": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "VPCOMPRESSD": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "VPCOMPRESSQ": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "VPCOMPRESSW": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPDPBSSD": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VPDPBSSDS": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "VPDPBSUD": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VPDPBSUDS": {
+  "score": 0.12,
+  "confidence": 0.94
+ },
+ "VPDPBUSD": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VPDPBUSDS": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VPDPBUUD": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VPDPBUUDS": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "VPDPWSSD": {
+  "score": 0.15,
+  "confidence": 0.92
+ },
+ "VPDPWSSDS": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VPDPWSUD": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VPDPWSUDS": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VPDPWUSD": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VPDPWUSDS": {
+  "score": 0.08,
+  "confidence": 0.97
+ },
+ "VPDPWUUD": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VPDPWUUDS": {
+  "score": 0.12,
+  "confidence": 0.96
+ },
+ "VPERMB": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "VPERMI2B": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "VPERMI2D": {
+  "score": 0.32,
+  "confidence": 0.85
+ },
+ "VPERMI2PD": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VPERMI2PS": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VPERMI2Q": {
+  "score": 0.23,
+  "confidence": 0.89
+ },
+ "VPERMI2W": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VPERMT2B": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VPERMT2D": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "VPERMT2PD": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPERMT2PS": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPERMT2Q": {
+  "score": 0.24,
+  "confidence": 0.88
+ },
+ "VPERMT2W": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "VPERMW": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "VPEXPANDB": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VPEXPANDD": {
+  "score": 0.3,
+  "confidence": 0.87
+ },
+ "VPEXPANDQ": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VPEXPANDW": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VPHADDBD": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VPHADDBQ": {
+  "score": 0.2,
+  "confidence": 0.9
+ },
+ "VPHADDBW": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VPHADDDQ": {
+  "score": 0.32,
+  "confidence": 0.86
+ },
+ "VPHADDUBD": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VPHADDUBQ": {
+  "score": 0.2,
+  "confidence": 0.9
+ },
+ "VPHADDUBW": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VPHADDUDQ": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VPHADDUWD": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VPHADDUWQ": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "VPHADDWD": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VPHADDWQ": {
+  "score": 0.32,
+  "confidence": 0.85
+ },
+ "VPHSUBBW": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VPHSUBDQ": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VPHSUBWD": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VPLZCNTD": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "VPLZCNTQ": {
+  "score": 0.39,
+  "confidence": 0.8
+ },
+ "VPMACSDD": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VPMACSDQH": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "VPMACSDQL": {
+  "score": 0.16,
+  "confidence": 0.94
+ },
+ "VPMACSSDD": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VPMACSSDQH": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VPMACSSDQL": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VPMACSSWD": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "VPMACSSWW": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VPMACSWD": {
+  "score": 0.16,
+  "confidence": 0.92
+ },
+ "VPMACSWW": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VPMADCSSWD": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VPMADCSWD": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VPMADD52HUQ": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VPMADD52LUQ": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VPMAXSQ": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "VPMAXUQ": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "VPMINSQ": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "VPMINUQ": {
+  "score": 0.25,
+  "confidence": 0.9
+ },
+ "VPMOVB2M": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VPMOVD2M": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VPMOVDB": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "VPMOVDW": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "VPMOVM2B": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "VPMOVM2D": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VPMOVM2Q": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VPMOVM2W": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VPMOVQ2M": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VPMOVQB": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VPMOVQD": {
+  "score": 0.4,
+  "confidence": 0.82
+ },
+ "VPMOVQW": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VPMOVSDB": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VPMOVSDW": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "VPMOVSQB": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VPMOVSQD": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VPMOVSQW": {
+  "score": 0.24,
+  "confidence": 0.88
+ },
+ "VPMOVSWB": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "VPMOVUSDB": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPMOVUSDW": {
+  "score": 0.41,
+  "confidence": 0.82
+ },
+ "VPMOVUSQB": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VPMOVUSQD": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "VPMOVUSQW": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPMOVUSWB": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "VPMOVW2M": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VPMOVWB": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "VPMULLQ": {
+  "score": 0.39,
+  "confidence": 0.81
+ },
+ "VPMULTISHIFTQB": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VPOPCNTB": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "VPOPCNTD": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "VPOPCNTQ": {
+  "score": 0.68,
+  "confidence": 0.67
+ },
+ "VPOPCNTW": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "VPORD": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "VPORQ": {
+  "score": 0.6,
+  "confidence": 0.7
+ },
+ "VPPERM": {
+  "score": 0.33,
+  "confidence": 0.83
+ },
+ "VPROLD": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPROLQ": {
+  "score": 0.28,
+  "confidence": 0.86
+ },
+ "VPROLVD": {
+  "score": 0.23,
+  "confidence": 0.91
+ },
+ "VPROLVQ": {
+  "score": 0.25,
+  "confidence": 0.9
+ },
+ "VPRORD": {
+  "score": 0.29,
+  "confidence": 0.85
+ },
+ "VPRORQ": {
+  "score": 0.4,
+  "confidence": 0.81
+ },
+ "VPRORVD": {
+  "score": 0.32,
+  "confidence": 0.84
+ },
+ "VPRORVQ": {
+  "score": 0.26,
+  "confidence": 0.87
+ },
+ "VPROTB": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VPROTD": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "VPROTQ": {
+  "score": 0.31,
+  "confidence": 0.87
+ },
+ "VPROTW": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPSCATTERDD": {
+  "score": 0.43,
+  "confidence": 0.79
+ },
+ "VPSCATTERDQ": {
+  "score": 0.46,
+  "confidence": 0.77
+ },
+ "VPSCATTERQD": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VPSCATTERQQ": {
+  "score": 0.17,
+  "confidence": 0.93
+ },
+ "VPSHAB": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VPSHAD": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPSHAQ": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "VPSHAW": {
+  "score": 0.64,
+  "confidence": 0.69
+ },
+ "VPSHLB": {
+  "score": 0.34,
+  "confidence": 0.83
+ },
+ "VPSHLD": {
+  "score": 0.54,
+  "confidence": 0.76
+ },
+ "VPSHLDD": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPSHLDQ": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "VPSHLDVD": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPSHLDVQ": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VPSHLDVW": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VPSHLDW": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPSHLQ": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "VPSHLW": {
+  "score": 0.4,
+  "confidence": 0.81
+ },
+ "VPSHRDD": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "VPSHRDQ": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPSHRDVD": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPSHRDVQ": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VPSHRDVW": {
+  "score": 0.16,
+  "confidence": 0.94
+ },
+ "VPSHRDW": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "VPSHUFBITQMB": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VPSLLVW": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VPSRAQ": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VPSRAVQ": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VPSRAVW": {
+  "score": 0.31,
+  "confidence": 0.84
+ },
+ "VPSRLVW": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPTERNLOGD": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VPTERNLOGQ": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "VPTESTMB": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VPTESTMD": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "VPTESTMQ": {
+  "score": 0.2,
+  "confidence": 0.9
+ },
+ "VPTESTMW": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "VPTESTNMB": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VPTESTNMD": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VPTESTNMQ": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "VPTESTNMW": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VPXORD": {
+  "score": 0.69,
+  "confidence": 0.67
+ },
+ "VPXORQ": {
+  "score": 0.96,
+  "confidence": 0.7
+ },
+ "VRANGEPD": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VRANGEPS": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "VRANGESD": {
+  "score": 0.31,
+  "confidence": 0.87
+ },
+ "VRANGESS": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VRCP14PD": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VRCP14PS": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VRCP14SD": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VRCP14SS": {
+  "score": 0.29,
+  "confidence": 0.88
+ },
+ "VRCP28PD": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VRCP28PS": {
+  "score": 0.28,
+  "confidence": 0.86
+ },
+ "VRCP28SD": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "VRCP28SS": {
+  "score": 0.27,
+  "confidence": 0.87
+ },
+ "VRCPBF16": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VRCPPH": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VRCPSH": {
+  "score": 0.35,
+  "confidence": 0.83
+ },
+ "VREDUCEBF16": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VREDUCEPD": {
+  "score": 0.34,
+  "confidence": 0.85
+ },
+ "VREDUCEPH": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VREDUCEPS": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "VREDUCESD": {
+  "score": 0.32,
+  "confidence": 0.85
+ },
+ "VREDUCESH": {
+  "score": 0.22,
+  "confidence": 0.92
+ },
+ "VREDUCESS": {
+  "score": 0.46,
+  "confidence": 0.76
+ },
+ "VRNDSCALEBF16": {
+  "score": 0.09,
+  "confidence": 0.97
+ },
+ "VRNDSCALEPD": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VRNDSCALEPH": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VRNDSCALEPS": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VRNDSCALESD": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VRNDSCALESH": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VRNDSCALESS": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "VRSQRT14PD": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VRSQRT14PS": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "VRSQRT14SD": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "VRSQRT14SS": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VRSQRT28PD": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VRSQRT28PS": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VRSQRT28SD": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VRSQRT28SS": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VRSQRTBF16": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "VRSQRTPH": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VRSQRTSH": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VSCALEFBF16": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "VSCALEFPD": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "VSCALEFPH": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "VSCALEFPS": {
+  "score": 0.39,
+  "confidence": 0.8
+ },
+ "VSCALEFSD": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "VSCALEFSH": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "VSCALEFSS": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "VSCATTERDPD": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "VSCATTERDPS": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "VSCATTERPF0DPD": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VSCATTERPF0DPS": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VSCATTERPF0QPD": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "VSCATTERPF0QPS": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VSCATTERPF1DPD": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VSCATTERPF1DPS": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "VSCATTERPF1QPD": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "VSCATTERPF1QPS": {
+  "score": 0.12,
+  "confidence": 0.96
+ },
+ "VSCATTERQPD": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "VSCATTERQPS": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "VSHA512MSG1": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "VSHA512MSG2": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VSHA512RNDS2": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "VSHUFF32X4": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "VSHUFF64X2": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "VSHUFI32X4": {
+  "score": 0.26,
+  "confidence": 0.89
+ },
+ "VSHUFI64X2": {
+  "score": 0.27,
+  "confidence": 0.87
+ },
+ "VSM3MSG1": {
+  "score": 0.11,
+  "confidence": 0.98
+ },
+ "VSM3MSG2": {
+  "score": 0.15,
+  "confidence": 0.92
+ },
+ "VSM3RNDS2": {
+  "score": 0.14,
+  "confidence": 0.96
+ },
+ "VSM4KEY4": {
+  "score": 0.21,
+  "confidence": 0.88
+ },
+ "VSM4RNDS4": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "VSQRTBF16": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "VSQRTPH": {
+  "score": 0.32,
+  "confidence": 0.85
+ },
+ "VSQRTSH": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "VSUBBF16": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "VSUBPH": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "VSUBSH": {
+  "score": 0.32,
+  "confidence": 0.87
+ },
+ "VUCOMISH": {
+  "score": 0.54,
+  "confidence": 0.72
+ },
+ "VUCOMXSD": {
+  "score": 0.22,
+  "confidence": 0.88
+ },
+ "VUCOMXSH": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "VUCOMXSS": {
+  "score": 0.33,
+  "confidence": 0.83
+ },
+ "WRMSRLIST": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "WRMSRNS": {
+  "score": 0.45,
+  "confidence": 0.8
+ },
+ "WRPKRU": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "WRSHR": {
+  "score": 0.82,
+  "confidence": 0.6
+ },
+ "WRSSD": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "WRSSQ": {
+  "score": 0.24,
+  "confidence": 0.88
+ },
+ "WRUSSD": {
+  "score": 0.54,
+  "confidence": 0.74
+ },
+ "WRUSSQ": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "XCRYPTCBC": {
+  "score": 0.67,
+  "confidence": 0.69
+ },
+ "XCRYPTCFB": {
+  "score": 0.38,
+  "confidence": 0.8
+ },
+ "XCRYPTCTR": {
+  "score": 0.53,
+  "confidence": 0.75
+ },
+ "XCRYPTECB": {
+  "score": 0.76,
+  "confidence": 0.64
+ },
+ "XCRYPTOFB": {
+  "score": 0.7,
+  "confidence": 0.67
+ },
+ "XRESLDTRK": {
+  "score": 0.39,
+  "confidence": 0.81
+ },
+ "XSHA1": {
+  "score": 0.52,
+  "confidence": 0.72
+ },
+ "XSHA256": {
+  "score": 0.55,
+  "confidence": 0.73
+ },
+ "XSTORE": {
+  "score": 0.59,
+  "confidence": 0.74
+ },
+ "PBNDKB": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "POP2P": {
+  "score": 0.45,
+  "confidence": 0.76
+ },
+ "POPP": {
+  "score": 2.14,
+  "confidence": 0.61
+ },
+ "PUSH2P": {
+  "score": 0.69,
+  "confidence": 0.65
+ },
+ "PUSHP": {
+  "score": 2.6,
+  "confidence": 0.38
+ }
+}

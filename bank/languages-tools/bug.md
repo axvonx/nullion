@@ -8,6 +8,9 @@ id: bug · domain: languages-tools · status: approved
 - memory leak
 - infinite loop | endless loop
 - segfault | segmentation fault
+- SQL injection | SQLi (auto)
+- Syntax error (auto)
+- Logic error (auto)
 
 ## Works on my machine
 - heisenbug
@@ -26,12 +29,8 @@ id: bug · domain: languages-tools · status: approved
 - Divide by zero | Division by zero (auto)
 - Use of uninitialized variable | uninitialized variable | uninitialized memory (auto)
 - Assertion failure | reachable assertion (auto)
-- Command injection | OS command injection | shell injection (auto)
 - Cross-site scripting | XSS | HTML injection (auto)
-- SQL injection | SQLi (auto)
 - Code injection (auto)
-- Syntax error (auto)
-- Logic error (auto)
 - Type error | type mismatch (auto)
 - Floating-point precision error | rounding error | floating point error (auto)
 - Out-of-bounds access | index out of bounds | array out of bounds (auto)
@@ -39,39 +38,27 @@ id: bug · domain: languages-tools · status: approved
 - Timezone bug | DST bug | daylight saving bug (auto)
 - Character encoding bug | mojibake | encoding error (auto)
 - Format string bug | format string vulnerability (auto)
+- Stack-based buffer overflow | stack buffer overflow (auto)
+- Heap-based buffer overflow | heap overflow | heap buffer overflow (auto)
+- Buffer underwrite | buffer underrun | buffer underflow (auto)
+- Buffer over-read (auto)
+- Integer underflow (auto)
+- Path traversal | directory traversal (auto)
+- Resource leak (auto)
+- File descriptor leak (auto)
+- Uncontrolled recursion (auto)
+- Dangling pointer | expired pointer dereference (auto)
+- Bit rot | software rot (auto)
 
 ## Memory leak
 - use-after-free | uaf
 - double free
 - integer overflow | arithmetic overflow
 - Clickjacking | UI Redress Attack | Tapjacking (auto)
-- Stack-based buffer overflow | stack buffer overflow (auto)
-- Heap-based buffer overflow | heap overflow | heap buffer overflow (auto)
-- Buffer underwrite | buffer underrun | buffer underflow (auto)
-- Out-of-bounds read | OOB read (auto)
-- Buffer over-read (auto)
-- Prototype pollution (auto)
-- ReDoS | catastrophic backtracking | inefficient regular expression complexity (auto)
-- Improper null termination (auto)
-- Integer underflow (auto)
-- Numeric truncation error (auto)
-- Information disclosure | information leak (auto)
-- Path traversal | directory traversal (auto)
-- Unchecked return value (auto)
-- Resource exhaustion | uncontrolled resource consumption (auto)
-- Resource leak (auto)
-- File descriptor leak (auto)
-- Deserialization of untrusted data | PHP object injection (auto)
-- Open redirect | cross-site redirect | cross-domain redirect | unvalidated redirect (auto)
-- XXE (auto)
-- Uncontrolled recursion (auto)
 - Out-of-bounds write | memory corruption (auto)
-- Dangling pointer | expired pointer dereference (auto)
-- Server-side request forgery | SSRF | XSPA (auto)
-- NoSQL injection | NoSQLi (auto)
-- Remote file inclusion | remote file include | RFI | local file inclusion (auto)
-- Insecure direct object reference | IDOR (auto)
-- Bit rot | software rot (auto)
+- Command injection | OS command injection | shell injection (auto)
+- Double-checked locking (auto)
+- Mass assignment | AutoBinding (auto)
 
 ## Race condition
 - TOCTOU | time-of-check to time-of-use
@@ -79,6 +66,31 @@ id: bug · domain: languages-tools · status: approved
 - ABA problem | aba
 - Y2038 | year 2038 problem | y2k38
 - Bohrbug
+- Billion laughs attack | XML bomb | XEE (auto)
+- Deserialization of untrusted data | PHP object injection (auto)
+- Open redirect | cross-site redirect | cross-domain redirect | unvalidated redirect (auto)
+- XXE (auto)
+- Server-side request forgery | SSRF | XSPA (auto)
+- Higgs-bugson (auto)
+
+## Heisenbug
+- Mandelbug
+- Schrödinbug | schrodinbug
+- Hindenbug
+- false sharing
+- torn write | torn read
+- Loch Ness monster bug (auto)
+- Out-of-bounds read | OOB read (auto)
+- Prototype pollution (auto)
+- ReDoS | catastrophic backtracking | inefficient regular expression complexity (auto)
+- Improper null termination (auto)
+- Numeric truncation error (auto)
+- Information disclosure | information leak (auto)
+- Unchecked return value (auto)
+- Resource exhaustion | uncontrolled resource consumption (auto)
+- NoSQL injection | NoSQLi (auto)
+- Remote file inclusion | remote file include | RFI | local file inclusion (auto)
+- Insecure direct object reference | IDOR (auto)
 - Tabnabbing (auto)
 - HTTP request splitting | HTTP response splitting (auto)
 - Log forging (auto)
@@ -97,31 +109,19 @@ id: bug · domain: languages-tools · status: approved
 - HTTP request smuggling | HTTP response smuggling | HTTP smuggling (auto)
 - Reflection injection | unsafe reflection (auto)
 - HQL injection (auto)
-- Double-checked locking (auto)
 - XPath injection (auto)
 - XQuery injection (auto)
 - Algorithm downgrade (auto)
 - Mismatched memory management routines (auto)
-- Billion laughs attack | XML bomb | XEE (auto)
 - Type confusion | object type confusion (auto)
 - Argument injection (auto)
 - LDAP injection (auto)
 - XML injection (auto)
 - Stale file descriptor (auto)
-- Mass assignment | AutoBinding (auto)
 - EL injection | expression language injection (auto)
 - Intent spoofing (auto)
 - CRLF injection (auto)
 - Eval injection (auto)
-
-## Heisenbug
-- Mandelbug
-- Schrödinbug | schrodinbug
-- Hindenbug
-- false sharing
-- torn write | torn read
-- Higgs-bugson (auto)
-- Loch Ness monster bug (auto)
 
 ## Bit Flip
 - moth | the moth

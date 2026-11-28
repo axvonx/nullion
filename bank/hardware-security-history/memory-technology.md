@@ -5,24 +5,22 @@ id: memory-technology · domain: hardware-security-history · status: draft
 ## Off-by-one
 - DRAM | dynamic RAM | dram memory | dynamic random access memory (auto)
 - flash memory | flash | flash storage (auto)
-- DDR4 | DDR4 SDRAM | ddr4 memory | DDR4 RAM (auto)
 - RAM | ram memory | random access memory (auto)
 - hard disk drive | HDD | hard disk | hard drive (auto)
+- read-only memory | ROM (auto)
+- DDR | DDR SDRAM | ddr memory | double data rate (auto)
+- DDR5 | DDR5 SDRAM | DDR5 RAM (auto)
+- cache memory | CPU cache | processor cache (auto)
 
 ## Works on my machine
 - persistent memory
 - core memory | magnetic core memory | magnetic core
 
 ## Null pointer exception
-- read-only memory | ROM (auto)
 - VRAM | video RAM | vram memory | video memory (auto)
 - NAND flash | NAND | NAND flash memory (auto)
-- High Bandwidth Memory | HBM | HBM2 | HBM3 (auto)
-- DDR | DDR SDRAM | ddr memory | double data rate (auto)
-- CompactFlash | CF card | CompactFlash card (auto)
 - SRAM | static RAM | static random access memory (auto)
 - SDRAM | synchronous DRAM | synchronous dynamic RAM (auto)
-- DDR5 | DDR5 SDRAM | DDR5 RAM (auto)
 - GDDR | graphics DDR | GDDR6 | GDDR5 (auto)
 - PROM | programmable ROM | programmable read-only memory (auto)
 - EPROM | erasable PROM | erasable programmable ROM (auto)
@@ -32,25 +30,29 @@ id: memory-technology · domain: hardware-security-history · status: draft
 - floppy disk | floppy | floppy drive (auto)
 - CD-ROM | compact disc read-only memory | compact disc (auto)
 - DVD | digital versatile disc | DVD-ROM (auto)
-- cache memory | CPU cache | processor cache (auto)
 - NVRAM | non-volatile RAM (auto)
-- MRAM | magnetoresistive RAM | magnetoresistive random access memory (auto)
-- FRAM | FeRAM | ferroelectric RAM (auto)
-- ReRAM | RRAM | resistive RAM (auto)
-- phase-change memory | PCM | PRAM (auto)
-- 3D XPoint | Optane (auto)
 - SD card | Secure Digital | SD memory card (auto)
 - USB flash drive | thumb drive | USB stick | pen drive (auto)
-- drum memory | magnetic drum | drum storage (auto)
-- bubble memory | magnetic bubble memory (auto)
-
-## Memory leak
+- DDR4 | DDR4 SDRAM | ddr4 memory | DDR4 RAM (auto)
 - NOR flash | NOR | SPI-NOR | NOR flash memory (auto)
 - ECC memory | ECC RAM (auto)
 - serial flash (auto)
+- LPDDR | low-power DDR | LPDDR4 | LPDDR5 (auto)
+
+## Memory leak
+- High Bandwidth Memory | HBM | HBM2 | HBM3 (auto)
+- phase-change memory | PCM | PRAM (auto)
 
 ## Race condition
-- LPDDR | low-power DDR | LPDDR4 | LPDDR5 (auto)
+- CompactFlash | CF card | CompactFlash card (auto)
+
+## Heisenbug
+- MRAM | magnetoresistive RAM | magnetoresistive random access memory (auto)
+- FRAM | FeRAM | ferroelectric RAM (auto)
+- ReRAM | RRAM | resistive RAM (auto)
+- 3D XPoint | Optane (auto)
+- drum memory | magnetic drum | drum storage (auto)
+- bubble memory | magnetic bubble memory (auto)
 - OTP memory | one-time programmable memory (auto)
 
 ## Bit Flip

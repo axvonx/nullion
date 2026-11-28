@@ -1,0 +1,426 @@
+{
+ "mutex": {
+  "score": 4.75,
+  "confidence": 0.61
+ },
+ "spinlock": {
+  "score": 3.74,
+  "confidence": 0.54
+ },
+ "semaphore": {
+  "score": 3.43,
+  "confidence": 0.48
+ },
+ "read-write lock": {
+  "score": 3.85,
+  "confidence": 0.38
+ },
+ "test-and-set lock": {
+  "score": 2.81,
+  "confidence": 0.56
+ },
+ "optimistic lock": {
+  "score": 3.44,
+  "confidence": 0.46
+ },
+ "pessimistic lock": {
+  "score": 3.46,
+  "confidence": 0.48
+ },
+ "two-phase locking": {
+  "score": 2.93,
+  "confidence": 0.58
+ },
+ "shared lock": {
+  "score": 2.98,
+  "confidence": 0.62
+ },
+ "row-level lock": {
+  "score": 3.43,
+  "confidence": 0.54
+ },
+ "table lock": {
+  "score": 2.69,
+  "confidence": 0.62
+ },
+ "file lock": {
+  "score": 3.91,
+  "confidence": 0.4
+ },
+ "distributed lock": {
+  "score": 3.58,
+  "confidence": 0.54
+ },
+ "global interpreter lock": {
+  "score": 3.39,
+  "confidence": 0.46
+ },
+ "counting semaphore": {
+  "score": 2.57,
+  "confidence": 0.4
+ },
+ "binary semaphore": {
+  "score": 2.77,
+  "confidence": 0.4
+ },
+ "Fair lock": {
+  "score": 1.64,
+  "confidence": 0.58
+ },
+ "recursive mutex": {
+  "score": 2.49,
+  "confidence": 0.52
+ },
+ "adaptive mutex": {
+  "score": 1.17,
+  "confidence": 0.64
+ },
+ "ticket lock": {
+  "score": 1.73,
+  "confidence": 0.54
+ },
+ "seqlock": {
+  "score": 1.35,
+  "confidence": 0.6
+ },
+ "futex": {
+  "score": 1.88,
+  "confidence": 0.38
+ },
+ "test-and-test-and-set lock": {
+  "score": 1.36,
+  "confidence": 0.59
+ },
+ "backoff lock": {
+  "score": 1.31,
+  "confidence": 0.65
+ },
+ "Peterson lock": {
+  "score": 1.67,
+  "confidence": 0.51
+ },
+ "bakery lock": {
+  "score": 1.88,
+  "confidence": 0.45
+ },
+ "Dekker's algorithm": {
+  "score": 1.75,
+  "confidence": 0.5
+ },
+ "exclusive lock": {
+  "score": 3.91,
+  "confidence": 0.4
+ },
+ "advisory lock": {
+  "score": 1.53,
+  "confidence": 0.58
+ },
+ "queue lock": {
+  "score": 1.8,
+  "confidence": 0.5
+ },
+ "critical section": {
+  "score": 3.31,
+  "confidence": 0.42
+ },
+ "record lock": {
+  "score": 1.89,
+  "confidence": 0.5
+ },
+ "page lock": {
+  "score": 2.3,
+  "confidence": 0.51
+ },
+ "latch": {
+  "score": 3.57,
+  "confidence": 0.32
+ },
+ "intrinsic lock": {
+  "score": 2.73,
+  "confidence": 0.43
+ },
+ "named mutex": {
+  "score": 2.56,
+  "confidence": 0.39
+ },
+ "MCS lock": {
+  "score": 1.3,
+  "confidence": 0.59
+ },
+ "CLH lock": {
+  "score": 0.71,
+  "confidence": 0.64
+ },
+ "qspinlock": {
+  "score": 1.16,
+  "confidence": 0.6
+ },
+ "big kernel lock": {
+  "score": 1.8,
+  "confidence": 0.44
+ },
+ "Anderson lock": {
+  "score": 0.9,
+  "confidence": 0.67
+ },
+ "filter lock": {
+  "score": 2.05,
+  "confidence": 0.32
+ },
+ "intention lock": {
+  "score": 1.63,
+  "confidence": 0.54
+ },
+ "Redlock": {
+  "score": 1.61,
+  "confidence": 0.52
+ },
+ "biased lock": {
+  "score": 1.71,
+  "confidence": 0.51
+ },
+ "SRW lock": {
+  "score": 1.5,
+  "confidence": 0.6
+ },
+ "IX lock": {
+  "score": 1.46,
+  "confidence": 0.56
+ },
+ "IS lock": {
+  "score": 1.02,
+  "confidence": 0.66
+ },
+ "update lock": {
+  "score": 1.86,
+  "confidence": 0.46
+ },
+ "gap lock": {
+  "score": 1.15,
+  "confidence": 0.63
+ },
+ "next-key lock": {
+  "score": 1.55,
+  "confidence": 0.54
+ },
+ "predicate lock": {
+  "score": 0.69,
+  "confidence": 0.66
+ },
+ "executive spin lock": {
+  "score": 1.24,
+  "confidence": 0.58
+ },
+ "Giant": {
+  "score": 1.11,
+  "confidence": 0.45
+ },
+ "mandatory lock": {
+  "score": 1.66,
+  "confidence": 0.44
+ },
+ "ACCESS EXCLUSIVE lock": {
+  "score": 1.55,
+  "confidence": 0.52
+ },
+ "qrwlock": {
+  "score": 0.68,
+  "confidence": 0.66
+ },
+ "hierarchical backoff lock": {
+  "score": 0.59,
+  "confidence": 0.71
+ },
+ "lock cohorting": {
+  "score": 0.93,
+  "confidence": 0.65
+ },
+ "CNA lock": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "HMCS lock": {
+  "score": 0.72,
+  "confidence": 0.64
+ },
+ "shuffle lock": {
+  "score": 0.85,
+  "confidence": 0.58
+ },
+ "Malthusian lock": {
+  "score": 1.52,
+  "confidence": 0.22
+ },
+ "Hemlock": {
+  "score": 1.62,
+  "confidence": 0.22
+ },
+ "reciprocating lock": {
+  "score": 0.83,
+  "confidence": 0.61
+ },
+ "TWA lock": {
+  "score": 1.0,
+  "confidence": 0.68
+ },
+ "partitioned ticket lock": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "thin lock": {
+  "score": 2.25,
+  "confidence": 0.4
+ },
+ "rw semaphore": {
+  "score": 2.57,
+  "confidence": 0.53
+ },
+ "percpu rwsem": {
+  "score": 0.51,
+  "confidence": 0.74
+ },
+ "local lock": {
+  "score": 2.13,
+  "confidence": 0.3
+ },
+ "rt mutex": {
+  "score": 1.56,
+  "confidence": 0.53
+ },
+ "ww mutex": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "lglock": {
+  "score": 2.46,
+  "confidence": 0.17
+ },
+ "brlock": {
+  "score": 1.45,
+  "confidence": 0.54
+ },
+ "osq lock": {
+  "score": 0.44,
+  "confidence": 0.76
+ },
+ "SIX lock": {
+  "score": 0.59,
+  "confidence": 0.74
+ },
+ "ERESOURCE": {
+  "score": 1.66,
+  "confidence": 0.45
+ },
+ "push lock": {
+  "score": 0.9,
+  "confidence": 0.55
+ },
+ "fast mutex": {
+  "score": 0.84,
+  "confidence": 0.58
+ },
+ "guarded mutex": {
+  "score": 0.41,
+  "confidence": 0.79
+ },
+ "in-stack queued spin lock": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "rmlock": {
+  "score": 0.74,
+  "confidence": 0.62
+ },
+ "sx lock": {
+  "score": 0.88,
+  "confidence": 0.58
+ },
+ "lockmgr lock": {
+  "score": 1.01,
+  "confidence": 0.49
+ },
+ "sleep mutex": {
+  "score": 1.75,
+  "confidence": 0.43
+ },
+ "insert intention lock": {
+  "score": 1.16,
+  "confidence": 0.43
+ },
+ "AUTO-INC lock": {
+  "score": 1.12,
+  "confidence": 0.64
+ },
+ "key-range lock": {
+  "score": 2.09,
+  "confidence": 0.45
+ },
+ "schema lock": {
+  "score": 1.16,
+  "confidence": 0.66
+ },
+ "LWLock": {
+  "score": 1.61,
+  "confidence": 0.49
+ },
+ "StampedLock": {
+  "score": 1.09,
+  "confidence": 0.71
+ },
+ "parking lot lock": {
+  "score": 1.04,
+  "confidence": 0.62
+ },
+ "raw spinlock": {
+  "score": 1.41,
+  "confidence": 0.58
+ },
+ "bit spinlock": {
+  "score": 1.03,
+  "confidence": 0.65
+ },
+ "remove lock": {
+  "score": 1.48,
+  "confidence": 0.25
+ },
+ "interrupt spin lock": {
+  "score": 1.96,
+  "confidence": 0.42
+ },
+ "BPF spin lock": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "spin mutex": {
+  "score": 2.31,
+  "confidence": 0.42
+ },
+ "heavyweight lock": {
+  "score": 2.71,
+  "confidence": 0.41
+ },
+ "relation extension lock": {
+  "score": 0.75,
+  "confidence": 0.62
+ },
+ "ACCESS SHARE lock": {
+  "score": 1.13,
+  "confidence": 0.66
+ },
+ "ROW EXCLUSIVE lock": {
+  "score": 1.79,
+  "confidence": 0.49
+ },
+ "ROW SHARE lock": {
+  "score": 1.42,
+  "confidence": 0.62
+ },
+ "SHARE ROW EXCLUSIVE lock": {
+  "score": 0.98,
+  "confidence": 0.68
+ },
+ "SHARE UPDATE EXCLUSIVE lock": {
+  "score": 0.61,
+  "confidence": 0.69
+ }
+}

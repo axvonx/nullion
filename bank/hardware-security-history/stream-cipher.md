@@ -3,53 +3,35 @@ id: stream-cipher · domain: hardware-security-history · status: approved
 > a named symmetric cipher that generates a keystream to encrypt data bit by bit or byte by byte.
 
 ## Off-by-one
-- One-time pad | OTP | Vernam cipher (auto)
+- RC4 | ARC4 | ARCFOUR (auto)
 
 ## Works on my machine
 - Salsa20 | Salsa
   note: Daniel J. Bernstein's ARX cipher — everyone's go-to pick right beside ChaCha20.
 
 ## Null pointer exception
-- RC4 | ARC4 | ARCFOUR (auto)
 - ChaCha20 | ChaCha | chacha20poly1305 (auto)
-- A5/1 (auto)
-- RC4A (auto)
-- SOBER-128 | SOBER (auto)
-- Shrinking generator (auto)
-- Alternating step generator | ASG (auto)
+- One-time pad | OTP | Vernam cipher (auto)
 
 ## Memory leak
-- XChaCha20 (auto)
-- MICKEY | MICKEY 2.0 (auto)
-- Rabbit (auto)
-- E0 (auto)
-- ZUC | ZUC-128 | ZUC-256 (auto)
+- SNOW 3G | SNOW (auto)
+- Py (auto)
+- Turing (auto)
+- LEX (auto)
 
 ## Race condition
 - XSalsa20 (auto)
 - ChaCha8 (auto)
 - ChaCha12 (auto)
-- Grain | Grain v1 (auto)
-- Grain-128 (auto)
-- Trivium (auto)
-- HC-128 (auto)
-- HC-256 (auto)
-- SOSEMANUK (auto)
-- ISAAC (auto)
-- A5/2 (auto)
-- Crypto1 (auto)
-- SNOW 3G | SNOW (auto)
-- Spritz (auto)
 - Fruit (auto)
-- Content Scramble System | CSS cipher (auto)
+- XChaCha20 (auto)
+- SEAL (auto)
+- Helix (auto)
 
 ## Heisenbug
 - SNOW 2.0 (auto)
-- SEAL (auto)
 - WAKE | Word Auto Key Encryption (auto)
-- Py (auto)
 - Phelix (auto)
-- Helix (auto)
 - LEVIATHAN (auto)
 - Scream (auto)
 - VMPC (auto)
@@ -57,9 +39,7 @@ id: stream-cipher · domain: hardware-security-history · status: approved
 - F-FCSR (auto)
 - DECIM (auto)
 - MUGI (auto)
-- Turing (auto)
 - Dragon (auto)
-- LEX (auto)
 - Plantlet (auto)
 - Lizard (auto)
 - Sprout (auto)
@@ -69,6 +49,26 @@ id: stream-cipher · domain: hardware-security-history · status: approved
 - Hitag2 (auto)
 - SNOW-V (auto)
 - Panama (auto)
+- A5/1 (auto)
+- RC4A (auto)
+- SOBER-128 | SOBER (auto)
+- Shrinking generator (auto)
+- Alternating step generator | ASG (auto)
+- MICKEY | MICKEY 2.0 (auto)
+- Rabbit (auto)
+- E0 (auto)
+- ZUC | ZUC-128 | ZUC-256 (auto)
+- Grain | Grain v1 (auto)
+- Grain-128 (auto)
+- Trivium (auto)
+- HC-128 (auto)
+- HC-256 (auto)
+- SOSEMANUK (auto)
+- ISAAC (auto)
+- A5/2 (auto)
+- Crypto1 (auto)
+- Spritz (auto)
+- Content Scramble System | CSS cipher (auto)
 
 ## Bit Flip
 - Lorenz cipher | SZ40 | SZ42

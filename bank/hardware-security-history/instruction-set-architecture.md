@@ -3,55 +3,43 @@ id: instruction-set-architecture · domain: hardware-security-history · status:
 > a named processor instruction set architecture, past or present.
 
 ## Off-by-one
-- AArch64 | ARM64 | ARMv8 (auto)
 - ARM | ARM32 | ARMv7 (auto)
-- RISC-V | RV64 | RV32 (auto)
 - x86 | i386 | IA-32 | x86-64 | AMD64 | x64 (auto)
-- 6502 | MOS 6502 (auto)
 
 ## Works on my machine
 - IA-64 | Itanium
   note: Intel's famously doomed VLIW Itanium architecture — everyone's favorite trivia flex.
 
 ## Null pointer exception
-- AVR | ATmega (auto)
 - Motorola 68000 | M68k | 68k | 68000 (auto)
 - MIPS | MIPS32 | MIPS64 (auto)
 - PowerPC | ppc | POWER | rs6000 | Power ISA (auto)
-- SPARC | SPARC64 (auto)
-- DEC Alpha | Alpha | Alpha AXP (auto)
-- PDP-11 (auto)
-- VAX (auto)
-- eBPF | BPF (auto)
 - Z80 | Zilog Z80 (auto)
-- 8051 | MCS-51 | Intel 8051 (auto)
 - 8086 | Intel 8086 (auto)
-- PIC | Microchip PIC (auto)
 - WebAssembly | Wasm (auto)
 - JVM bytecode | JVM (auto)
 - System/360 | S/360 (auto)
+- AArch64 | ARM64 | ARMv8 (auto)
+- RISC-V | RV64 | RV32 (auto)
+- 6502 | MOS 6502 (auto)
 
 ## Memory leak
-- z/Architecture | SystemZ | s390x | s390 | System/390 (auto)
-- Xtensa (auto)
 - AMD GCN | GCN | AMDGPU (auto)
 - MicroBlaze (auto)
-- PA-RISC | HPPA (auto)
 - SuperH | sh4 | SH (auto)
 - PTX | NVPTX (auto)
+- AVR | ATmega (auto)
+- SPARC | SPARC64 (auto)
+- DEC Alpha | Alpha | Alpha AXP (auto)
+- eBPF | BPF (auto)
+- 8051 | MCS-51 | Intel 8051 (auto)
+- PIC | Microchip PIC (auto)
+- ARC (auto)
+- MSP430 (auto)
 
 ## Race condition
-- ARC (auto)
-- Qualcomm Hexagon | Hexagon | QDSP6 (auto)
 - LoongArch | LoongArch64 (auto)
-- MSP430 (auto)
-- Blackfin | bfin (auto)
-- CRIS (auto)
-- Hitachi H8 | H8/300 | h8300 (auto)
-- OpenRISC | or1k (auto)
-- TI PRU | PRU (auto)
-- NEC V850 | V850 (auto)
-- Infineon TriCore | TriCore (auto)
+- VAX (auto)
 
 ## Heisenbug
 - C-SKY (auto)
@@ -74,6 +62,18 @@ id: instruction-set-architecture · domain: hardware-security-history · status:
 - Sanyo Xstormy16 | Xstormy16 | stormy16 (auto)
 - Visium (auto)
 - NEC Vector Engine | SX-Aurora | SX-Aurora VE (auto)
+- PDP-11 (auto)
+- z/Architecture | SystemZ | s390x | s390 | System/390 (auto)
+- Xtensa (auto)
+- PA-RISC | HPPA (auto)
+- Qualcomm Hexagon | Hexagon | QDSP6 (auto)
+- Blackfin | bfin (auto)
+- CRIS (auto)
+- Hitachi H8 | H8/300 | h8300 (auto)
+- OpenRISC | or1k (auto)
+- TI PRU | PRU (auto)
+- NEC V850 | V850 (auto)
+- Infineon TriCore | TriCore (auto)
 
 ## Bit Flip
 - MMIX

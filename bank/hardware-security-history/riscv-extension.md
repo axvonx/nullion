@@ -3,55 +3,34 @@ id: riscv-extension · domain: hardware-security-history · status: approved
 > a named RISC-V ISA extension (single-letter or Z/S-prefixed) from the RISC-V specifications.
 
 ## Off-by-one
-- M | Integer Multiplication and Division | RV32M | RV64M (auto)
-- A | Atomic | Atomic Instructions | RV32A | RV64A (auto)
-- F | Single-Precision Floating-Point | RV32F | RV64F (auto)
-- D | Double-Precision Floating-Point | RV32D | RV64D (auto)
 - C | Compressed | Compressed Instructions | RVC (auto)
-- V | Vector | RVV | Vector Extension (auto)
-- B | Bit Manipulation | Bitmanip (auto)
-- G | General-Purpose | IMAFD (auto)
-- H | Hypervisor (auto)
-- Q | Quad-Precision Floating-Point (auto)
+- C extension (auto)
 
 ## Works on my machine
 - V extension
   note: The Vector extension — the headline RISC-V letter almost everyone names first.
 
 ## Null pointer exception
-- Zk | Scalar Cryptography (auto)
-- Zkn | NIST Algorithm Suite (auto)
-- Zks | ShangMi Algorithm Suite (auto)
-
-## Memory leak
+- M | Integer Multiplication and Division | RV32M | RV64M (auto)
+- A | Atomic | Atomic Instructions | RV32A | RV64A (auto)
+- F | Single-Precision Floating-Point | RV32F | RV64F (auto)
+- D | Double-Precision Floating-Point | RV32D | RV64D (auto)
+- V | Vector | RVV | Vector Extension (auto)
+- B | Bit Manipulation | Bitmanip (auto)
+- G | General-Purpose | IMAFD (auto)
 - M extension (auto)
-- A extension (auto)
 - F extension (auto)
 - D extension (auto)
-- C extension (auto)
 - B extension (auto)
-- H extension (auto)
 
-## Race condition
+## Memory leak
+- A extension (auto)
+- H extension (auto)
+- H | Hypervisor (auto)
+- Q | Quad-Precision Floating-Point (auto)
+- Zk | Scalar Cryptography (auto)
 - Q extension (auto)
 - P extension (auto)
-- Zicsr | Control and Status Register (auto)
-- Zifencei | Instruction-Fetch Fence (auto)
-- Zba | Address Generation (auto)
-- Zbb | Basic Bit-Manipulation (auto)
-- Zbc | Carry-less Multiplication (auto)
-- Zbs | Single-Bit Instructions (auto)
-- Zfh | Half-Precision Floating-Point (auto)
-- Zicbom | Cache-Block Management (auto)
-- Zicboz | Cache-Block Zero (auto)
-- Zicbop (auto)
-- Zicntr (auto)
-- Zihpm (auto)
-- Zihintpause (auto)
-- Zicond | Integer Conditional Operations (auto)
-- Ztso (auto)
-- Zmmul (auto)
-- Sstc | Supervisor-mode Timer Interrupts (auto)
 
 ## Heisenbug
 - Zbkb (auto)
@@ -99,6 +78,25 @@ id: riscv-extension · domain: hardware-security-history · status: approved
 - Sdtrig (auto)
 - Zicfilp (auto)
 - Zicfiss (auto)
+- Zkn | NIST Algorithm Suite (auto)
+- Zks | ShangMi Algorithm Suite (auto)
+- Zicsr | Control and Status Register (auto)
+- Zifencei | Instruction-Fetch Fence (auto)
+- Zba | Address Generation (auto)
+- Zbb | Basic Bit-Manipulation (auto)
+- Zbc | Carry-less Multiplication (auto)
+- Zbs | Single-Bit Instructions (auto)
+- Zfh | Half-Precision Floating-Point (auto)
+- Zicbom | Cache-Block Management (auto)
+- Zicboz | Cache-Block Zero (auto)
+- Zicbop (auto)
+- Zicntr (auto)
+- Zihpm (auto)
+- Zihintpause (auto)
+- Zicond | Integer Conditional Operations (auto)
+- Ztso (auto)
+- Zmmul (auto)
+- Sstc | Supervisor-mode Timer Interrupts (auto)
 
 ## Bit Flip
 - Zimop

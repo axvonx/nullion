@@ -18,59 +18,26 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 - ambient occlusion | ssao | AO | Screen-space ambient occlusion
 - physically based rendering | pbr | PBR shading
 - Lambertian shading | Lambertian reflectance | Lambert shading | Lambert | Lambertian (auto)
-- Rim lighting | rim shading (auto)
 - Forward shading | forward rendering (auto)
 - Bump mapping (auto)
-- Displacement mapping (auto)
-- Environment mapping | reflection mapping | cubemap reflection | cubemap shading (auto)
 - Lightmapping | lightmap | baked lighting (auto)
-- Path tracing (auto)
 
 ## Memory leak
 - deferred shading | deferred rendering
 - shadow mapping
 - parallax mapping
-- GGX | Trowbridge-Reitz | Trowbridge-Reitz GGX | GGX shading (auto)
-- Disney BRDF | Disney principled BRDF | principled BSDF (auto)
-- Schlick BRDF | Schlick approximation | Schlick Fresnel (auto)
-- Gooch shading | Gooch technical illustration | Gooch (auto)
-- Hatching | cross-hatching | tonal art maps (auto)
-- Halftone shading | halftoning | Ben-Day shading (auto)
-- MatCap | matcap shading | lit sphere (auto)
-- Forward+ | tiled forward shading (auto)
-- Variable rate shading | VRS | coarse pixel shading (auto)
 - Parallax occlusion mapping | POM (auto)
-- Image-based lighting | IBL (auto)
-- Radiosity (auto)
-- Photon mapping (auto)
 - Screen-space reflections | SSR (auto)
-- Procedural shading (auto)
-- Hemisphere lighting (auto)
 
 ## Race condition
 - subsurface scattering | sss
 - Cook-Torrance | Cook-Torrance shading
 - Oren-Nayar | Oren-Nayar shading
 - clustered shading | clustered forward shading
-- Half-Lambert | half-Lambert shading (auto)
-- Ward BRDF | Ward reflectance model | Ward shading | Ward anisotropic shading (auto)
-- Beckmann | Beckmann distribution | Beckmann microfacet (auto)
-- Torrance-Sparrow | Torrance-Sparrow BRDF (auto)
-- Kajiya-Kay | Kajiya-Kay hair shading | Kajiya-Kay model (auto)
-- Burley diffuse | Disney diffuse (auto)
-- Stipple shading (auto)
-- Wrap lighting | wrap shading | wrapped diffuse (auto)
-- Tiled deferred shading | tile-based deferred shading (auto)
-- Deferred lighting | light pre-pass (auto)
-- Texture-space shading (auto)
-- Relief mapping (auto)
-- Voxel cone tracing | VXGI (auto)
-- Screen-space global illumination | SSGI (auto)
-- Virtual point lights | instant radiosity | VPL (auto)
-- ReSTIR | reservoir resampling (auto)
-- Neural shading | neural deferred shading (auto)
-- Relief shading | hillshading | cartographic relief shading (auto)
 - Thin-film interference (auto)
+- Hatching | cross-hatching | tonal art maps (auto)
+- Halftone shading | halftoning | Ben-Day shading (auto)
+- Reflective shadow maps | RSM (auto)
 
 ## Heisenbug
 - visibility buffer | vbuffer
@@ -89,11 +56,44 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 - Decoupled deferred shading | decoupled sampling (auto)
 - Reyes shading | micropolygon shading (auto)
 - Precomputed radiance transfer | PRT (auto)
-- Reflective shadow maps | RSM (auto)
 - Light propagation volumes | LPV (auto)
 - Linearly transformed cosines | LTC (auto)
 - Spherical Gaussian lighting | SG lighting (auto)
 - Ambient cube | ambient dice (auto)
+- Rim lighting | rim shading (auto)
+- Displacement mapping (auto)
+- Environment mapping | reflection mapping | cubemap reflection | cubemap shading (auto)
+- Path tracing (auto)
+- GGX | Trowbridge-Reitz | Trowbridge-Reitz GGX | GGX shading (auto)
+- Disney BRDF | Disney principled BRDF | principled BSDF (auto)
+- Schlick BRDF | Schlick approximation | Schlick Fresnel (auto)
+- Gooch shading | Gooch technical illustration | Gooch (auto)
+- MatCap | matcap shading | lit sphere (auto)
+- Forward+ | tiled forward shading (auto)
+- Variable rate shading | VRS | coarse pixel shading (auto)
+- Image-based lighting | IBL (auto)
+- Radiosity (auto)
+- Photon mapping (auto)
+- Procedural shading (auto)
+- Hemisphere lighting (auto)
+- Half-Lambert | half-Lambert shading (auto)
+- Ward BRDF | Ward reflectance model | Ward shading | Ward anisotropic shading (auto)
+- Beckmann | Beckmann distribution | Beckmann microfacet (auto)
+- Torrance-Sparrow | Torrance-Sparrow BRDF (auto)
+- Kajiya-Kay | Kajiya-Kay hair shading | Kajiya-Kay model (auto)
+- Burley diffuse | Disney diffuse (auto)
+- Stipple shading (auto)
+- Wrap lighting | wrap shading | wrapped diffuse (auto)
+- Tiled deferred shading | tile-based deferred shading (auto)
+- Deferred lighting | light pre-pass (auto)
+- Texture-space shading (auto)
+- Relief mapping (auto)
+- Voxel cone tracing | VXGI (auto)
+- Screen-space global illumination | SSGI (auto)
+- Virtual point lights | instant radiosity | VPL (auto)
+- ReSTIR | reservoir resampling (auto)
+- Neural shading | neural deferred shading (auto)
+- Relief shading | hillshading | cartographic relief shading (auto)
 
 ## Bit Flip
 - Lommel-Seeliger

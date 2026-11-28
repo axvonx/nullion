@@ -12,16 +12,10 @@ id: memory-allocator · domain: os-systems · status: approved
 ## Null pointer exception
 - first-fit allocator | first fit (auto)
 - Free list allocator | freelist (auto)
-- PartitionAlloc (auto)
-- libumem | umem (auto)
 - kmalloc (auto)
 - vmalloc (auto)
-- vmem | vmem allocator (auto)
-
-## Memory leak
 - buddy allocator | buddy memory allocation (auto)
 - slab allocator | SLAB (auto)
-- Contiguous Memory Allocator | CMA | cma allocator (auto)
 - Arena allocator | region allocator | zone allocator (auto)
 - Pool allocator | memory pool | fixed-size block allocator (auto)
 - ptmalloc | ptmalloc2 | glibc malloc (auto)
@@ -31,23 +25,17 @@ id: memory-allocator · domain: os-systems · status: approved
 - best-fit allocator | best fit (auto)
 - next-fit allocator | next fit (auto)
 - stack allocator (auto)
-- Electric Fence (auto)
+- BumpPtrAllocator | bump allocator | bump pointer allocator | linear allocator | monotonic allocator (auto)
+- SLUB allocator | SLUB (auto)
+- bitmap allocator (auto)
+
+## Memory leak
+- talloc | Samba talloc (auto)
+- Mesh | Mesh allocator (auto)
 
 ## Race condition
-- BumpPtrAllocator | bump allocator | bump pointer allocator | linear allocator | monotonic allocator (auto)
-- Hoard | Hoard memory allocator (auto)
-- snmalloc (auto)
-- rpmalloc (auto)
-- TLSF | two-level segregated fit (auto)
-- omalloc | OpenBSD malloc (auto)
-- Low Fragmentation Heap (auto)
-- Segment Heap (auto)
-- SLUB allocator | SLUB (auto)
-- SLOB allocator | SLOB (auto)
-- segregated free list allocator | segregated fit (auto)
-- bitmap allocator (auto)
-- pymalloc (auto)
-- talloc | Samba talloc (auto)
+- Electric Fence (auto)
+- DieHarder (auto)
 
 ## Heisenbug
 - zsmalloc (auto)
@@ -59,14 +47,26 @@ id: memory-allocator · domain: os-systems · status: approved
 - Scalloc (auto)
 - Streamflow (auto)
 - LFMalloc (auto)
-- Mesh | Mesh allocator (auto)
 - memblock (auto)
 - genalloc | gen_pool (auto)
 - bootmem (auto)
 - DieHard (auto)
-- DieHarder (auto)
 - Zend MM (auto)
 - half-fit (auto)
+- PartitionAlloc (auto)
+- libumem | umem (auto)
+- vmem | vmem allocator (auto)
+- Contiguous Memory Allocator | CMA | cma allocator (auto)
+- Hoard | Hoard memory allocator (auto)
+- snmalloc (auto)
+- rpmalloc (auto)
+- TLSF | two-level segregated fit (auto)
+- omalloc | OpenBSD malloc (auto)
+- Low Fragmentation Heap (auto)
+- Segment Heap (auto)
+- SLOB allocator | SLOB (auto)
+- segregated free list allocator | segregated fit (auto)
+- pymalloc (auto)
 
 ## Bit Flip
 - Scudo | Scudo Hardened Allocator

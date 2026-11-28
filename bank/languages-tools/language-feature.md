@@ -11,15 +11,22 @@ id: language-feature · domain: languages-tools · status: draft
 - inheritance | class inheritance | subclassing (auto)
 - polymorphism | polymorphic | subtype polymorphism (auto)
 - interface | interfaces (auto)
-- async await | async | await (auto)
 - ternary operator | ternary | conditional expression (auto)
 - switch statement | switch | case statement (auto)
 - enum | enums | enumeration | enumerated type (auto)
 - struct | structs | structure (auto)
 - pointers | pointer | raw pointers (auto)
-- tuple | tuples (auto)
 - modules | module system | import system (auto)
-- goto | goto statement (auto)
+- static typing | static types | statically typed | type checking (auto)
+- dynamic typing | dynamic types | dynamically typed (auto)
+- abstract class | abstract classes | abstract base class (auto)
+- iterator | iterators (auto)
+- function overloading | method overloading | overloading (auto)
+- default arguments | default parameters | default values (auto)
+- multithreading | threads (auto)
+- namespace | namespaces (auto)
+- string interpolation | f-strings | template literals (auto)
+- const | constants | final (auto)
 
 ## Works on my machine
 - dynamic dispatch
@@ -32,37 +39,28 @@ id: language-feature · domain: languages-tools · status: draft
 - preprocessor macro | macros | macro | C macros (auto)
 - set comprehension | set comprehensions (auto)
 - dictionary comprehension | dict comprehension | dictionary comprehensions (auto)
-- static typing | static types | statically typed | type checking (auto)
 - coroutine | coroutines (auto)
-- dynamic typing | dynamic types | dynamically typed (auto)
-- abstract class | abstract classes | abstract base class (auto)
 - multiple inheritance | multiple base classes (auto)
 - generator | generators | generator function | yield (auto)
-- iterator | iterators (auto)
 - operator overloading | operator overload | overloaded operators (auto)
-- function overloading | method overloading | overloading (auto)
-- default arguments | default parameters | default values (auto)
 - variadic functions | variadic | varargs (auto)
 - reflection | runtime reflection | introspection (auto)
 - decorators | decorator | function decorators (auto)
 - pattern matching | match statement | match expression (auto)
 - destructuring | destructuring assignment | unpacking (auto)
 - lazy evaluation | lazy | laziness (auto)
-- multithreading | threads (auto)
-- namespace | namespaces (auto)
-- string interpolation | f-strings | template literals (auto)
-- const | constants | final (auto)
 - tail call optimization | tail call | tail recursion (auto)
 - first-class functions | higher-order functions (auto)
 - destructor | destructors | finalizer (auto)
 - assertion | assert | assertions (auto)
-
-## Memory leak
+- async await | async | await (auto)
+- tuple | tuples (auto)
+- goto | goto statement (auto)
 - function-like macro (auto)
+
+## Heisenbug
 - derive macro (auto)
 - attribute macro (auto)
-
-## Race condition
 - concept-based polymorphism (auto)
 
 ## Bit Flip

@@ -1,0 +1,718 @@
+{
+ "strace": {
+  "score": 4.34,
+  "confidence": 0.62
+ },
+ "tcpdump": {
+  "score": 3.64,
+  "confidence": 0.48
+ },
+ "profile": {
+  "score": 1.88,
+  "confidence": 0.42
+ },
+ "ltrace": {
+  "score": 2.65,
+  "confidence": 0.72
+ },
+ "Valgrind": {
+  "score": 3.38,
+  "confidence": 0.52
+ },
+ "rr": {
+  "score": 1.88,
+  "confidence": 0.64
+ },
+ "fatrace": {
+  "score": 0.98,
+  "confidence": 0.74
+ },
+ "auditd": {
+  "score": 2.42,
+  "confidence": 0.65
+ },
+ "OProfile": {
+  "score": 1.67,
+  "confidence": 0.62
+ },
+ "gprof": {
+  "score": 2.13,
+  "confidence": 0.62
+ },
+ "ply": {
+  "score": 1.96,
+  "confidence": 0.4
+ },
+ "ktap": {
+  "score": 0.92,
+  "confidence": 0.7
+ },
+ "pwru": {
+  "score": 0.86,
+  "confidence": 0.59
+ },
+ "retsnoop": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "apitrace": {
+  "score": 1.41,
+  "confidence": 0.72
+ },
+ "eBPF": {
+  "score": 2.91,
+  "confidence": 0.68
+ },
+ "tracepoints": {
+  "score": 1.49,
+  "confidence": 0.63
+ },
+ "bashreadline": {
+  "score": 0.53,
+  "confidence": 0.74
+ },
+ "biolatency": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "biosnoop": {
+  "score": 1.21,
+  "confidence": 0.68
+ },
+ "biotop": {
+  "score": 1.45,
+  "confidence": 0.55
+ },
+ "cachestat": {
+  "score": 1.52,
+  "confidence": 0.62
+ },
+ "deadlock": {
+  "score": 0.68,
+  "confidence": 0.66
+ },
+ "execsnoop": {
+  "score": 2.01,
+  "confidence": 0.66
+ },
+ "funccount": {
+  "score": 1.96,
+  "confidence": 0.45
+ },
+ "funcgraph": {
+  "score": 1.5,
+  "confidence": 0.6
+ },
+ "funclatency": {
+  "score": 0.96,
+  "confidence": 0.64
+ },
+ "functrace": {
+  "score": 1.35,
+  "confidence": 0.5
+ },
+ "iolatency": {
+  "score": 2.27,
+  "confidence": 0.54
+ },
+ "iosnoop": {
+  "score": 1.18,
+  "confidence": 0.58
+ },
+ "killsnoop": {
+  "score": 0.93,
+  "confidence": 0.56
+ },
+ "kprobe": {
+  "score": 2.36,
+  "confidence": 0.6
+ },
+ "memleak": {
+  "score": 1.1,
+  "confidence": 0.6
+ },
+ "offcputime": {
+  "score": 1.2,
+  "confidence": 0.41
+ },
+ "oomkill": {
+  "score": 0.79,
+  "confidence": 0.62
+ },
+ "opensnoop": {
+  "score": 1.85,
+  "confidence": 0.64
+ },
+ "runqlat": {
+  "score": 1.68,
+  "confidence": 0.55
+ },
+ "sslsniff": {
+  "score": 0.92,
+  "confidence": 0.68
+ },
+ "stackcount": {
+  "score": 1.34,
+  "confidence": 0.64
+ },
+ "syscount": {
+  "score": 0.69,
+  "confidence": 0.66
+ },
+ "tcpaccept": {
+  "score": 0.95,
+  "confidence": 0.53
+ },
+ "tcpconnect": {
+  "score": 1.4,
+  "confidence": 0.52
+ },
+ "tcpdrop": {
+  "score": 0.54,
+  "confidence": 0.76
+ },
+ "tcplife": {
+  "score": 1.33,
+  "confidence": 0.69
+ },
+ "tcpretrans": {
+  "score": 1.09,
+  "confidence": 0.46
+ },
+ "tcptop": {
+  "score": 1.96,
+  "confidence": 0.5
+ },
+ "trace": {
+  "score": 2.19,
+  "confidence": 0.24
+ },
+ "uprobe": {
+  "score": 1.85,
+  "confidence": 0.5
+ },
+ "perf": {
+  "score": 3.54,
+  "confidence": 0.66
+ },
+ "ftrace": {
+  "score": 2.71,
+  "confidence": 0.74
+ },
+ "LTTng": {
+  "score": 2.17,
+  "confidence": 0.66
+ },
+ "bpftrace": {
+  "score": 2.58,
+  "confidence": 0.73
+ },
+ "BCC": {
+  "score": 2.48,
+  "confidence": 0.67
+ },
+ "trace-cmd": {
+  "score": 2.08,
+  "confidence": 0.64
+ },
+ "kprobes": {
+  "score": 2.4,
+  "confidence": 0.62
+ },
+ "sysdig": {
+  "score": 2.7,
+  "confidence": 0.74
+ },
+ "DTrace": {
+  "score": 2.02,
+  "confidence": 0.61
+ },
+ "argdist": {
+  "score": 1.03,
+  "confidence": 0.68
+ },
+ "bindsnoop": {
+  "score": 1.25,
+  "confidence": 0.71
+ },
+ "biostacks": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "bitesize": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "bpflist": {
+  "score": 0.77,
+  "confidence": 0.64
+ },
+ "btrfsdist": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "btrfsslower": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "cachetop": {
+  "score": 1.23,
+  "confidence": 0.62
+ },
+ "capable": {
+  "score": 1.26,
+  "confidence": 0.4
+ },
+ "cpudist": {
+  "score": 1.35,
+  "confidence": 0.64
+ },
+ "dbslower": {
+  "score": 1.19,
+  "confidence": 0.4
+ },
+ "dbstat": {
+  "score": 0.32,
+  "confidence": 0.85
+ },
+ "dcsnoop": {
+  "score": 1.5,
+  "confidence": 0.52
+ },
+ "dcstat": {
+  "score": 1.02,
+  "confidence": 0.52
+ },
+ "dirtop": {
+  "score": 1.78,
+  "confidence": 0.08
+ },
+ "exitsnoop": {
+  "score": 1.35,
+  "confidence": 0.62
+ },
+ "ext4dist": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "ext4slower": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "filelife": {
+  "score": 0.63,
+  "confidence": 0.69
+ },
+ "fileslower": {
+  "score": 0.72,
+  "confidence": 0.64
+ },
+ "filetop": {
+  "score": 1.04,
+  "confidence": 0.49
+ },
+ "funcslower": {
+  "score": 1.13,
+  "confidence": 0.43
+ },
+ "gethostlatency": {
+  "score": 0.49,
+  "confidence": 0.78
+ },
+ "klockstat": {
+  "score": 1.01,
+  "confidence": 0.5
+ },
+ "llcstat": {
+  "score": 1.73,
+  "confidence": 0.41
+ },
+ "mountsnoop": {
+  "score": 0.82,
+  "confidence": 0.6
+ },
+ "nfsdist": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "nfsslower": {
+  "score": 0.81,
+  "confidence": 0.6
+ },
+ "offwaketime": {
+  "score": 0.79,
+  "confidence": 0.62
+ },
+ "pidpersec": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "pythoncalls": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "pythonflow": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "pythongc": {
+  "score": 1.01,
+  "confidence": 0.48
+ },
+ "pythonstat": {
+  "score": 1.26,
+  "confidence": 0.37
+ },
+ "runqlen": {
+  "score": 1.12,
+  "confidence": 0.66
+ },
+ "runqslower": {
+  "score": 1.61,
+  "confidence": 0.56
+ },
+ "ssllatency": {
+  "score": 0.7,
+  "confidence": 0.68
+ },
+ "sslsnoop": {
+  "score": 0.93,
+  "confidence": 0.54
+ },
+ "stacksnoop": {
+  "score": 1.15,
+  "confidence": 0.68
+ },
+ "statsnoop": {
+  "score": 1.57,
+  "confidence": 0.59
+ },
+ "swapin": {
+  "score": 1.14,
+  "confidence": 0.45
+ },
+ "syncsnoop": {
+  "score": 0.91,
+  "confidence": 0.56
+ },
+ "tcpconnlat": {
+  "score": 1.25,
+  "confidence": 0.66
+ },
+ "tcprtt": {
+  "score": 1.28,
+  "confidence": 0.34
+ },
+ "tcpstates": {
+  "score": 0.94,
+  "confidence": 0.52
+ },
+ "tcptracer": {
+  "score": 1.47,
+  "confidence": 0.52
+ },
+ "threadsnoop": {
+  "score": 1.11,
+  "confidence": 0.68
+ },
+ "tplist": {
+  "score": 0.81,
+  "confidence": 0.6
+ },
+ "tpoint": {
+  "score": 0.65,
+  "confidence": 0.69
+ },
+ "ttysnoop": {
+  "score": 1.3,
+  "confidence": 0.68
+ },
+ "vfscount": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "vfsstat": {
+  "score": 1.26,
+  "confidence": 0.39
+ },
+ "wakeuptime": {
+  "score": 1.08,
+  "confidence": 0.46
+ },
+ "xfsdist": {
+  "score": 0.78,
+  "confidence": 0.64
+ },
+ "xfsslower": {
+  "score": 0.97,
+  "confidence": 0.53
+ },
+ "zfsdist": {
+  "score": 0.23,
+  "confidence": 0.88
+ },
+ "zfsslower": {
+  "score": 0.82,
+  "confidence": 0.6
+ },
+ "KernelShark": {
+  "score": 1.6,
+  "confidence": 0.63
+ },
+ "blktrace": {
+  "score": 1.51,
+  "confidence": 0.63
+ },
+ "uftrace": {
+  "score": 1.34,
+  "confidence": 0.71
+ },
+ "Perfetto": {
+  "score": 2.13,
+  "confidence": 0.68
+ },
+ "biolatpcts": {
+  "score": 1.04,
+  "confidence": 0.49
+ },
+ "biopattern": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "cobjnew": {
+  "score": 0.45,
+  "confidence": 0.8
+ },
+ "compactsnoop": {
+  "score": 0.88,
+  "confidence": 0.58
+ },
+ "cpuunclaimed": {
+  "score": 0.37,
+  "confidence": 0.84
+ },
+ "cpuwalk": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "drsnoop": {
+  "score": 1.21,
+  "confidence": 0.66
+ },
+ "f2fsslower": {
+  "score": 0.87,
+  "confidence": 0.59
+ },
+ "filegone": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "funcinterval": {
+  "score": 0.5,
+  "confidence": 0.78
+ },
+ "hardirqs": {
+  "score": 0.75,
+  "confidence": 0.63
+ },
+ "javacalls": {
+  "score": 0.42,
+  "confidence": 0.81
+ },
+ "javaflow": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "javagc": {
+  "score": 0.68,
+  "confidence": 0.69
+ },
+ "javaobjnew": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "javastat": {
+  "score": 0.53,
+  "confidence": 0.74
+ },
+ "javathreads": {
+  "score": 0.29,
+  "confidence": 0.88
+ },
+ "kvmexit": {
+  "score": 0.5,
+  "confidence": 0.75
+ },
+ "loads": {
+  "score": 1.86,
+  "confidence": 0.06
+ },
+ "mdflush": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "mysqld_qslower": {
+  "score": 1.11,
+  "confidence": 0.66
+ },
+ "naptime": {
+  "score": 0.54,
+  "confidence": 0.76
+ },
+ "netqtop": {
+  "score": 1.79,
+  "confidence": 0.37
+ },
+ "nodegc": {
+  "score": 0.31,
+  "confidence": 0.87
+ },
+ "nodestat": {
+  "score": 1.42,
+  "confidence": 0.54
+ },
+ "numasched": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "perf-stat-hist": {
+  "score": 1.23,
+  "confidence": 0.4
+ },
+ "perlcalls": {
+  "score": 0.74,
+  "confidence": 0.63
+ },
+ "perlflow": {
+  "score": 0.44,
+  "confidence": 0.81
+ },
+ "perlstat": {
+  "score": 0.96,
+  "confidence": 0.52
+ },
+ "phpcalls": {
+  "score": 0.41,
+  "confidence": 0.79
+ },
+ "phpflow": {
+  "score": 0.26,
+  "confidence": 0.89
+ },
+ "phpstat": {
+  "score": 0.94,
+  "confidence": 0.55
+ },
+ "ppchcalls": {
+  "score": 0.89,
+  "confidence": 0.53
+ },
+ "rdmaucma": {
+  "score": 0.15,
+  "confidence": 0.92
+ },
+ "readahead": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "rubycalls": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "rubyflow": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "rubygc": {
+  "score": 0.15,
+  "confidence": 0.95
+ },
+ "rubyobjnew": {
+  "score": 0.22,
+  "confidence": 0.92
+ },
+ "rubystat": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "setuids": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "shmsnoop": {
+  "score": 0.72,
+  "confidence": 0.64
+ },
+ "slabratetop": {
+  "score": 1.2,
+  "confidence": 0.62
+ },
+ "sofdsnoop": {
+  "score": 1.2,
+  "confidence": 0.64
+ },
+ "softirqs": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "softirqslower": {
+  "score": 0.31,
+  "confidence": 0.85
+ },
+ "solisten": {
+  "score": 1.13,
+  "confidence": 0.44
+ },
+ "tclcalls": {
+  "score": 0.62,
+  "confidence": 0.72
+ },
+ "tclflow": {
+  "score": 0.33,
+  "confidence": 0.86
+ },
+ "tclobjnew": {
+  "score": 0.33,
+  "confidence": 0.86
+ },
+ "tclstat": {
+  "score": 1.05,
+  "confidence": 0.5
+ },
+ "tcpcong": {
+  "score": 0.4,
+  "confidence": 0.83
+ },
+ "tcpsubnet": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "tcpsynbl": {
+  "score": 1.15,
+  "confidence": 0.42
+ },
+ "undump": {
+  "score": 0.26,
+  "confidence": 0.87
+ },
+ "virtiostat": {
+  "score": 1.66,
+  "confidence": 0.18
+ },
+ "wqlat": {
+  "score": 1.96,
+  "confidence": 0.02
+ },
+ "writeback": {
+  "score": 0.55,
+  "confidence": 0.75
+ },
+ "uprobes": {
+  "score": 1.99,
+  "confidence": 0.62
+ },
+ "Tracee": {
+  "score": 1.06,
+  "confidence": 0.7
+ }
+}

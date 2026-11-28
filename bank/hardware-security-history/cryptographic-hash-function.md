@@ -6,6 +6,7 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - MD5 (auto)
 - SHA-1 (auto)
 - SHA-256 (auto)
+- SHA-2 (auto)
 
 ## Works on my machine
 - Whirlpool | wp512 | whrlpool
@@ -14,35 +15,23 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 ## Null pointer exception
 - SHA-512 (auto)
 - SHA-3 | Keccak (auto)
-- SHA-2 (auto)
-- BLAKE3 (auto)
 - SHA3-256 (auto)
 - SHA3-512 (auto)
-- SHAKE128 (auto)
-- SHAKE256 (auto)
+- SHA-224 (auto)
 
 ## Memory leak
-- BLAKE2b | BLAKE2 (auto)
-- RIPEMD-160 | RIPEMD | rmd160 (auto)
-- MD4 (auto)
-- SHA-224 (auto)
 - SHA-384 (auto)
-- BLAKE | BLAKE-256 | BLAKE-512 (auto)
-- BLAKE2s (auto)
+- BLAKE3 (auto)
+- SHA-512/256 (auto)
+- ECHO (auto)
 
 ## Race condition
-- MD2 (auto)
-- SM3 (auto)
 - SHA-0 (auto)
-- MD6 (auto)
-- Tiger (auto)
-- HAVAL (auto)
-- Skein (auto)
-- Groestl | Grøstl (auto)
-- JH (auto)
-- GOST R 34.11-94 (auto)
-- RIPEMD-128 (auto)
-- SHA-512/256 (auto)
+- SHAKE128 (auto)
+- SHAKE256 (auto)
+- BLAKE2b | BLAKE2 (auto)
+- BLAKE | BLAKE-256 | BLAKE-512 (auto)
+- BLAKE2s (auto)
 
 ## Heisenbug
 - Streebog | streebog_generic | GOST R 34.11-2012 (auto)
@@ -55,7 +44,6 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - Hamsi (auto)
 - Luffa (auto)
 - CubeHash (auto)
-- ECHO (auto)
 - Shabal (auto)
 - SHAvite-3 (auto)
 - Blue Midnight Wish (auto)
@@ -66,6 +54,18 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - Ascon-Hash | Ascon (auto)
 - Xoodyak (auto)
 - RIPEMD-320 (auto)
+- RIPEMD-160 | RIPEMD | rmd160 (auto)
+- MD4 (auto)
+- MD2 (auto)
+- SM3 (auto)
+- MD6 (auto)
+- Tiger (auto)
+- HAVAL (auto)
+- Skein (auto)
+- Groestl | Grøstl (auto)
+- JH (auto)
+- GOST R 34.11-94 (auto)
+- RIPEMD-128 (auto)
 
 ## Bit Flip
 - RadioGatun
