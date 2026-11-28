@@ -508,6 +508,34 @@ describe('end card', () => {
     expect(h.$('[data-el=secs]').textContent).toBe('7s');
   });
 
+  it('Endless history: the last 14 rounds as tier icons; past 14, a dropdown pages back by number', () => {
+    const h = setup();
+    const g = new Game(SET, 7, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless', seed: 11 });
+    h.hud.setGame(g, '2026-11-26');
+    let now = 0;
+    g.start(now);
+    for (let i = 0; i < 20; i++) {
+      now += READ_MS + 1;
+      g.tick(now);
+      const name = SET.entries(g.current()!.question.id).find((e) => e.tier === 'npe')!.name;
+      expect(g.submit(name, now).kind).toBe('accepted');
+      g.advance(now);
+    }
+    h.hud.update(now, g.depth);
+    const icons = () => [...h.mount.querySelectorAll<HTMLElement>('.slots .slot[data-tier]')];
+    // 21 rounds: the 21st is being read, so the last 14 are rounds 8-21 (13 answers and the open round's dash).
+    expect(icons()).toHaveLength(13);
+    expect(icons()[0]!.getAttribute('aria-label')).toMatch(/^#8 /);
+    expect(h.mount.querySelectorAll('.slots .slot.pending')).toHaveLength(1);
+    const sel = h.$<HTMLSelectElement>('.slots .history-page');
+    expect([...sel.options].map((o) => o.text)).toEqual(['last 14', '1–14', '15–21']);
+    sel.value = '0';
+    sel.dispatchEvent(new Event('change'));
+    expect(icons()[0]!.getAttribute('aria-label')).toMatch(/^#1 /);
+    expect(icons()).toHaveLength(14);
+    expect(h.$('.slots .endless-round').textContent).toBe('#21');
+  });
+
   it('shows 3 hearts in Endless mode and KERNEL PANIC when the last is lost', () => {
     const h = setup();
     const endless = new Game(SET, 7, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });

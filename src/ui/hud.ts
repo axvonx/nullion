@@ -4,7 +4,7 @@ import { ALL_LAYER_IDS, PROMPTS_PER_DAY, TRUE_ENDLESS_LAYERS, type LayerId } fro
 import { layerAt, rulesFor } from '../core/modes';
 import { TIER_IDS, TIERS, type TierId } from '../core/tiers';
 import { ANSWER_MS } from '../core/modes';
-import { READ_MS, type Game, type SubmitResult } from '../game/game';
+import { READ_MS, type Game, type Round, type SubmitResult } from '../game/game';
 import type { Stats, StatsOutcome } from '../game/stats';
 import { look, reducedMotion } from '../looks';
 import type { Scene } from '../render/scene';
@@ -39,6 +39,10 @@ function answerPlaceholder(): string {
 
 /** What each layer is (`LAYER_ART[id].blurb`), for the stack's tooltips. */
 const LAYER_BLURBS = Object.fromEntries(ALL_LAYER_IDS.map((id) => [id, LAYER_ART[id].blurb])) as Record<LayerId, string>;
+
+/** Rounds Endless's history bar shows at once. */
+const HISTORY_DESKTOP = 14;
+const HISTORY_PHONE = 7;
 
 /** How long the teleport card into Endless stays up (reduced motion: shorter, no flash). */
 const TELEPORT_MS = 1800;
@@ -76,6 +80,8 @@ export class Hud {
   /** A teleport into Endless is playing: the title stays hidden while the game waits to start. */
   private teleporting = false;
   private teleportTimer = 0;
+  /** Which rounds Endless's history bar shows: the latest, or a page of older ones (picked in its dropdown). */
+  private historyPage: number | 'latest' = 'latest';
   /** Endless from the end card (set by main.ts); null where it isn't offered. */
   endless: () => EndlessHook | null = () => null;
   private titleLogo: TitleLogo;
@@ -387,6 +393,7 @@ ${REVEAL_HTML}`;
 
   setGame(g: Game, dateLabel: string, statsSource?: () => StatsOutcome) {
     this.game = g;
+    this.historyPage = 'latest';
     // The watchdog submits whatever is typed when it fires (Game.tick).
     g.draft = () => (this.input.disabled ? '' : this.input.value);
     this.els.notice!.hidden = true;
@@ -455,84 +462,114 @@ ${REVEAL_HTML}`;
     sel.onchange = () => onChange(sel.value as 'off' | 'endless' | 'true-endless');
   }
 
-  /** Render the 7 round score slots (Daily) or the hearts + round counter (Endless). */
+  /** Render the 7 round score slots (Daily), or the hearts, the answer history and the round counter (Endless). */
   private syncSlots(g: Game) {
-    if (g.rules.roundCounter === 'hearts') {
-      const hearts = g.rules.hearts;
-      enforce(hearts, `mode ${g.mode} counts hearts but has no heart rules`);
-      const left = g.hearts;
-      const sig = `endless|${left}|${g.rounds.length}`;
-      if (sig === this.slotsSig) return;
-      this.slotsSig = sig;
-      const wrap = this.els.slots!;
-      wrap.replaceChildren();
-      wrap.setAttribute('aria-label', `${left} of ${hearts.max} hearts`);
-      for (let i = 0; i < hearts.max; i++) {
-        const alive = i < left;
-        const f = document.createElement('span');
-        f.className = alive ? 'slot heart' : 'slot heart lost';
-        f.textContent = alive ? '♥' : '♡';
-        f.title = alive ? 'Heart: a timeout or skip costs one' : 'Heart lost: a Bit Flip or more frames win it back';
-        wrap.append(f);
-      }
-      const rc = document.createElement('span');
-      rc.className = 'slot endless-round';
-      rc.textContent = `#${g.rounds.length}`;
-      rc.title = `Endless round ${g.rounds.length}`;
-      wrap.append(rc);
-      return;
-    }
     const active = g.phase.kind === 'reading' || g.phase.kind === 'answering' || g.phase.kind === 'between' ? g.phase.round : -1;
     // Hold the current round's slot at '-' while its dive is still sinking so we never spoil the tier/score early.
     const pendingSink =
       g.phase.kind === 'between' && (Boolean(this.scene?.diving) || this.reveal.shownRound < g.phase.round) ? g.phase.round : -1;
-    const sig =
-      `${active}|${pendingSink}|` +
-      g.rounds
-        .map((r, i) =>
-          i === pendingSink
-            ? '-'
-            : r.locked
-              ? `${r.locked.entry.tier}:${r.locked.pushed}`
-              : r.timedOut || (g.phase.kind === 'done' && !r.locked) || (active > i && !r.locked)
-                ? '0'
-                : '-',
-        )
-        .join(',');
+    const state = (i: number): string => {
+      const r = g.rounds[i]!;
+      if (i === pendingSink) return '-';
+      if (r.locked) return `${r.locked.entry.tier}:${r.locked.pushed}`;
+      return r.timedOut || g.phase.kind === 'done' || (active > i && !r.locked) ? '0' : '-';
+    };
+    if (g.rules.roundCounter === 'hearts') return this.syncEndlessBar(g, active, state);
+    const sig = `${active}|${pendingSink}|` + g.rounds.map((_, i) => state(i)).join(',');
+    if (sig === this.slotsSig) return;
+    this.slotsSig = sig;
+    const wrap = this.els.slots!;
+    wrap.replaceChildren(...g.rounds.map((r, i) => this.roundSlot(r, i, state(i), active)));
+  }
+
+  /**
+   * One round's slot. A played round shows the cursor in its tier's pose; hover, focus or tap expands it to the
+   * answer, the tier and the frames it pushed. Rounds still to come are a dim dash.
+   */
+  private roundSlot(r: Round, i: number, state: string, active: number): HTMLElement {
+    const s = document.createElement('span');
+    s.className = 'slot';
+    const expand = (label: string) => {
+      s.tabIndex = 0;
+      s.setAttribute('aria-label', label);
+      const x = document.createElement('span');
+      x.className = 'slot-x';
+      x.textContent = label;
+      s.append(x);
+    };
+    if (state !== '-' && r.locked) {
+      const t = TIERS[r.locked.entry.tier];
+      s.dataset.tier = t.id;
+      s.append(tierIcon(t.id));
+      expand(`#${i + 1} ${r.locked.entry.name} · ${t.name} · +${r.locked.pushed}`);
+    } else if (state === '0') {
+      s.classList.add('miss');
+      s.append(tierIcon('timeout'));
+      expand(`#${i + 1} ${r.timedOut ? 'timed out' : 'skipped'} · +0`);
+    } else {
+      s.classList.add('pending');
+      s.textContent = '-';
+      if (i === active) s.classList.add('active');
+      s.title = `Round ${i + 1}`;
+    }
+    return s;
+  }
+
+  /**
+   * Endless's bar: the hearts, then the answer history (the last 14 rounds, 7 on a phone; once a run is longer, a
+   * dropdown on the left picks older ones by number: "1–14", "15–28", …), then the round counter.
+   */
+  private syncEndlessBar(g: Game, active: number, state: (i: number) => string) {
+    const hearts = g.rules.hearts;
+    enforce(hearts, `mode ${g.mode} counts hearts but has no heart rules`);
+    const per = window.matchMedia('(max-width: 480px)').matches ? HISTORY_PHONE : HISTORY_DESKTOP;
+    const n = g.rounds.length;
+    const pages = Math.ceil(n / per);
+    if (this.historyPage !== 'latest' && this.historyPage >= pages) this.historyPage = 'latest';
+    const from = this.historyPage === 'latest' ? Math.max(0, n - per) : this.historyPage * per;
+    const to = Math.min(n, from + per);
+    const left = g.hearts;
+    const shown: number[] = [];
+    for (let i = from; i < to; i++) shown.push(i);
+    const sig = `endless|${left}|${n}|${per}|${this.historyPage}|${active}|` + shown.map(state).join(',');
     if (sig === this.slotsSig) return;
     this.slotsSig = sig;
     const wrap = this.els.slots!;
     wrap.replaceChildren();
-    // Each played round shows the cursor in its tier's pose; hover, focus or tap expands it to the answer, the tier
-    // and the frames it pushed. Rounds still to come are a dim dash.
-    g.rounds.forEach((r, i) => {
-      const s = document.createElement('span');
-      s.className = 'slot';
-      const expand = (label: string) => {
-        s.tabIndex = 0;
-        s.setAttribute('aria-label', label);
-        const x = document.createElement('span');
-        x.className = 'slot-x';
-        x.textContent = label;
-        s.append(x);
+    wrap.setAttribute('aria-label', `${left} of ${hearts.max} hearts; rounds ${from + 1} to ${to} of ${n}`);
+    for (let i = 0; i < hearts.max; i++) {
+      const alive = i < left;
+      const f = document.createElement('span');
+      f.className = alive ? 'slot heart' : 'slot heart lost';
+      f.textContent = alive ? '♥' : '♡';
+      f.title = alive ? 'Heart: a timeout or skip costs one' : 'Heart lost: a Bit Flip or more frames win it back';
+      wrap.append(f);
+    }
+    if (n > per) {
+      const sel = document.createElement('select');
+      sel.className = 'history-page';
+      sel.setAttribute('aria-label', 'Which rounds the history shows');
+      const option = (label: string, value: string) => {
+        const o = document.createElement('option');
+        o.textContent = label;
+        o.value = value;
+        return o;
       };
-      if (i !== pendingSink && r.locked) {
-        const t = TIERS[r.locked.entry.tier];
-        s.dataset.tier = t.id;
-        s.append(tierIcon(t.id));
-        expand(`#${i + 1} ${r.locked.entry.name} · ${t.name} · +${r.locked.pushed}`);
-      } else if (i !== pendingSink && (r.timedOut || g.phase.kind === 'done' || (active > i && !r.locked))) {
-        s.classList.add('miss');
-        s.append(tierIcon('timeout'));
-        expand(`#${i + 1} ${r.timedOut ? 'timed out' : 'skipped'} · +0`);
-      } else {
-        s.classList.add('pending');
-        s.textContent = '-';
-        if (i === active) s.classList.add('active');
-        s.title = `Round ${i + 1}`;
-      }
-      wrap.append(s);
-    });
+      sel.append(option(`last ${per}`, 'latest'));
+      for (let p = 0; p < pages; p++) sel.append(option(`${p * per + 1}–${Math.min(n, (p + 1) * per)}`, String(p)));
+      sel.value = String(this.historyPage);
+      sel.addEventListener('change', () => {
+        this.historyPage = sel.value === 'latest' ? 'latest' : Number(sel.value);
+        this.syncSlots(g);
+      });
+      wrap.append(sel);
+    }
+    for (const i of shown) wrap.append(this.roundSlot(g.rounds[i]!, i, state(i), active));
+    const rc = document.createElement('span');
+    rc.className = 'slot endless-round';
+    rc.textContent = `#${n}`;
+    rc.title = `Endless round ${n}`;
+    wrap.append(rc);
   }
 
   setScrollMode(on: boolean) {
