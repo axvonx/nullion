@@ -19,23 +19,22 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 - PSPACE | polynomial space (auto)
 
 ## Memory leak
-- AP | alternating polynomial time (auto)
-- ER | iterated exponential time (auto)
-- RE | recursively enumerable | Recursively Enumerable Languages (auto)
+- SZK | statistical zero knowledge (auto)
 - EXP | EXPTIME | exponential time (auto)
-- R | recursive languages | cocap-RE | Computable languages | recursive | decidable (auto)
+- AP | alternating polynomial time (auto)
 - IP | interactive proof | interactive proofs (auto)
 - NC | Nick's class (auto)
 - SPP | stoic PP (auto)
 - IPP | unbounded interactive proof (auto)
 - P^PP | P with PP oracle (auto)
-- coRE (auto)
+- PP | probabilistic polynomial time (auto)
 
 ## Race condition
-- SZK | statistical zero knowledge (auto)
 - RL | randomized logspace (auto)
-- PP | probabilistic polynomial time (auto)
+- AH | arithmetic hierarchy (auto)
 - BPP | bounded-error probabilistic polynomial time (auto)
+- CH | counting hierarchy (auto)
+- NL | NLOGSPACE | nondeterministic log space (auto)
 
 ## Heisenbug
 - QCMA | quantum classical MA (auto)
@@ -61,8 +60,6 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 - RG(3) | three-turn refereed games (auto)
 - NP/poly | NP with advice (auto)
 - ALL (auto)
-- AH | arithmetic hierarchy (auto)
-- CH | counting hierarchy (auto)
 - P^Sharp-P | P^#P | P with Sharp-P oracle (auto)
 - Delta_2P | P with NP oracle (auto)
 - Delta_3P | P with Sigma_2P oracle (auto)
@@ -74,7 +71,6 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 - PPAD (auto)
 - ZPP | zero-error probabilistic polynomial time | cocap-RP (auto)
 - L | LOGSPACE (auto)
-- NL | NLOGSPACE | nondeterministic log space (auto)
 - EXPSPACE | exponential space (auto)
 - AC0 (auto)
 - TC0 (auto)
@@ -117,6 +113,10 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 - UP | unambiguous polynomial time (auto)
 - Sigma_2P | NP with NP oracle (auto)
 - MP | middle-bit P (auto)
+- ER | iterated exponential time (auto)
+- RE | recursively enumerable | Recursively Enumerable Languages (auto)
+- coRE (auto)
+- R | recursive languages | cocap-RE | Computable languages | recursive | decidable (auto)
 
 ## Bit Flip
 - A_0PP

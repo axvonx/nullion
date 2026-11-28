@@ -35,29 +35,29 @@ id: terminal-emulator · domain: languages-tools · status: draft
 - SecureCRT (auto)
 - Xshell (auto)
 - Cmder (auto)
+- Ghostty | Ghostty terminal (auto)
+- Tabby | Terminus | Tabby terminal (auto)
 
 ## Memory leak
-- Terminator | terminator terminal (auto)
-- Contour | contour-terminal (auto)
-- Terminology (auto)
 - Console2 (auto)
 
 ## Race condition
 - Yakuake | Yakuake terminal (auto)
 - foot | foot terminal (auto)
-- VTE | vte3 | VteTerminal (auto)
 - Ptyxis (auto)
 - Tilda | Tilda terminal (auto)
-- Ghostty | Ghostty terminal (auto)
 - Sakura | sakura terminal (auto)
 - QTerminal (auto)
 - MATE Terminal (auto)
 - GNOME Console (auto)
 - QTermWidget | qtermwidget6 (auto)
 - kmscon (auto)
+- Terminator | terminator terminal (auto)
+- Contour | contour-terminal (auto)
+- Terminology (auto)
+- libvterm | emacs-libvterm (auto)
 
 ## Heisenbug
-- libvterm | emacs-libvterm (auto)
 - mlterm (auto)
 - xst (auto)
 - Zutty (auto)
@@ -82,13 +82,13 @@ id: terminal-emulator · domain: languages-tools · status: draft
 - fbterm (auto)
 - mrxvt (auto)
 - Deepin Terminal (auto)
-- Tabby | Terminus | Tabby terminal (auto)
 - Eterm (auto)
 - aterm (auto)
 - Rio (auto)
 - COSMIC Terminal | cosmic-term (auto)
 - Pantheon Terminal (auto)
 - ROXTerm (auto)
+- VTE | vte3 | VteTerminal (auto)
 
 ## Bit Flip
 - x3270

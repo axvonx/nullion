@@ -46,16 +46,16 @@ id: linux-device-node · domain: os-systems · status: approved
 
 ## Memory leak
 - /dev/ppp (auto)
-- /dev/rfcomm0 | /dev/rfcomm1 (auto)
 - /dev/uinput | uinput (auto)
-
-## Race condition
 - /dev/btrfs-control (auto)
 - /dev/infiniband/uverbs0 | /dev/infiniband/uverbs1 (auto)
-- /dev/agpgart (auto)
 - /dev/tpm (auto)
 - /dev/psaux (auto)
 - /dev/3dfx (auto)
+
+## Race condition
+- /dev/agpgart (auto)
+- /dev/dri/card0 | /dev/dri/card1 | card0 (auto)
 
 ## Heisenbug
 - /dev/crash (auto)
@@ -88,7 +88,6 @@ id: linux-device-node · domain: os-systems · status: approved
 - /dev/lp0 | /dev/lp1 (auto)
 - /dev/net/tun | net/tun (auto)
 - /dev/mapper/control (auto)
-- /dev/dri/card0 | /dev/dri/card1 | card0 (auto)
 - /dev/i2c-0 | /dev/i2c-1 (auto)
 - /dev/watchdog (auto)
 - /dev/rtc (auto)
@@ -130,6 +129,7 @@ id: linux-device-node · domain: os-systems · status: approved
 - /dev/can0 | /dev/can1 (auto)
 - /dev/spi0 | /dev/spi1 (auto)
 - /dev/perfctr (auto)
+- /dev/rfcomm0 | /dev/rfcomm1 (auto)
 
 ## Bit Flip
 - /dev/scanners/cuecat

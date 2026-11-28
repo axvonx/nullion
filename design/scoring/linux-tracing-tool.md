@@ -1,35 +1,35 @@
 # Scoring: linux-tracing-tool (Name a Linux tracing tool)
 
-179 answers (Bit Flip and Works on my machine left out); 9 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (10000, 50, None), some (3000, 20, 20) (clicks/month, Stack Exchange questions, distro families).
+179 answers (Bit Flip and Works on my machine left out); 9 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (5000, 30, None), some (1500, 10, 20) (clicks/month, Stack Exchange questions, distro families).
 
 | tier | new | bank today | of the new, confirmed lines that disagree |
 |---|---|---|---|
 | off-by-one | 2 (1%) | 2 | 0 |
 | npe | 19 (11%) | 19 | 0 |
-| leak | 2 (1%) | 4 | 0 |
-| race | 1 (1%) | 3 | 0 |
-| heisenbug | 155 (87%) | 151 | 0 |
+| leak | 2 (1%) | 2 | 0 |
+| race | 8 (4%) | 8 | 0 |
+| heisenbug | 148 (83%) | 148 | 0 |
 
-Same tier as today: 173/179 (97%).
+Same tier as today: 179/179 (100%).
 
 ## Off-by-one (2)
 
-strace 4.3 [509c 836q 43f], tcpdump 3.6 [994c 2014q 47f]
+strace 4.3 [509c 836q 43f 2729s], tcpdump 3.6 [994c 2014q 47f 0s]
 
 ## Null pointer exception (19)
 
-perf 3.5 [707c 1202q 0f], Valgrind 3.4 [1648c 4188q 45f], eBPF 2.9 [0c 761q 0f], ftrace 2.7 [184c 148q 0f], sysdig 2.7 [0c 26q 14f], ltrace 2.6 [115c 67q 30f], bpftrace 2.6 [0c 18q 15f], BCC 2.5 [0c 215q 0f], auditd 2.4 [0c 313q 0f], kprobes 2.4 [0c 0q 0f], kprobe 2.4 [0c 89q 0f], iolatency 2.3 [0c 0q 0f], LTTng 2.2 [99c 93q 0f], gprof 2.1 [283c 324q 0f], Perfetto 2.1 [0c 20q 9f], trace-cmd 2.1 [0c 0q 17f], DTrace 2.0 [0c 307q 3f], execsnoop 2.0 [0c 0q 0f], trace 2.0* [0c 0q 1f]
+perf 3.5 [707c 1202q 0f 0s], Valgrind 3.4 [1648c 4188q 45f 0s], eBPF 2.9 [0c 761q 0f 0s], ftrace 2.7 [184c 148q 0f 0s], sysdig 2.7 [0c 26q 14f 8325s], ltrace 2.6 [115c 67q 30f 0s], bpftrace 2.6 [0c 18q 15f 10445s], BCC 2.5 [0c 0q 0f 0s], auditd 2.4 [0c 313q 0f 0s], kprobes 2.4 [0c 0q 0f 0s], kprobe 2.4 [0c 89q 0f 0s], iolatency 2.3 [0c 0q 0f 0s], LTTng 2.2 [99c 93q 0f 0s], gprof 2.1 [283c 324q 0f 0s], Perfetto 2.1 [0c 20q 9f 6857s], trace-cmd 2.1 [0c 0q 17f 0s], DTrace 2.0 [0c 307q 3f 196s], execsnoop 2.0 [0c 0q 0f 0s], trace 2.0* [0c 0q 1f 0s]
 
 ## Memory leak (2)
 
-OProfile 1.7 [59c 78q 18f], javathreads 0.3 [0c 1065q 0f]
+OProfile 1.7 [59c 78q 18f 0s], javathreads 0.3 [0c 1065q 0f 0s]
 
-## Race condition (1)
+## Race condition (8)
 
-rr 1.9 [0c 33q 0f]
+ply 2.0 [0c 0q 0f 1033s], uprobe 1.9 [0c 10q 0f 0s], blktrace 1.5 [0c 17q 17f 0s], apitrace 1.4 [0c 0q 19f 2887s], uftrace 1.3 [0c 0q 12f 3499s], Tracee 1.1 [0c 0q 2f 4690s], pwru 0.9 [0c 0q 5f 3857s], javaflow 0.5 [0c 12q 0f 0s]
 
-## Heisenbug (155)
+## Heisenbug (148)
 
-uprobes 2.0 [0c 0q 0f], ply 2.0 [0c 0q 7f], funccount 2.0 [0c 0q 0f], tcptop 2.0 [0c 0q 0f], profile 1.9 [0c 0q 0f], opensnoop 1.9 [0c 0q 0f], uprobe 1.9 [0c 10q 0f], llcstat 1.7 [0c 0q 0f], runqlat 1.7 [0c 0q 0f], runqslower 1.6 [0c 0q 0f], KernelShark 1.6 [0c 0q 10f], statsnoop 1.6 [0c 0q 0f], cachestat 1.5 [0c 0q 0f], blktrace 1.5 [0c 17q 17f], funcgraph 1.5 [0c 0q 0f], dcsnoop 1.5 [0c 0q 0f], tracepoints 1.5 [0c 0q 0f], tcptracer 1.5 [0c 0q 0f], biotop 1.4 [0c 0q 0f], nodestat 1.4 [0c 0q 0f], apitrace 1.4 [0c 0q 19f], tcpconnect 1.4 [0c 0q 0f], functrace 1.4 [0c 0q 0f], cpudist 1.4 [0c 0q 0f], exitsnoop 1.4 [0c 0q 0f], uftrace 1.3 [0c 0q 12f], stackcount 1.3 [0c 0q 0f], tcplife 1.3 [0c 0q 0f], ttysnoop 1.3 [0c 0q 4f], capable 1.3 [0c 0q 0f], bindsnoop 1.2 [0c 0q 0f], tcpconnlat 1.2 [0c 0q 0f], perf-stat-hist 1.2 [0c 0q 0f], cachetop 1.2 [0c 0q 0f], drsnoop 1.2 [0c 0q 0f], biosnoop 1.2 [0c 0q 0f], slabratetop 1.2 [0c 0q 0f], sofdsnoop 1.2 [0c 0q 0f], offcputime 1.2 [0c 0q 0f], dbslower 1.2 [0c 0q 0f], iosnoop 1.2 [0c 0q 0f], tcpsynbl 1.1 [0c 0q 0f], stacksnoop 1.1 [0c 0q 0f], swapin 1.1 [0c 0q 0f], solisten 1.1 [0c 0q 0f], funcslower 1.1 [0c 0q 0f], runqlen 1.1 [0c 0q 0f], mysqld_qslower 1.1 [0c 0q 0f], threadsnoop 1.1 [0c 0q 0f], memleak 1.1 [0c 0q 0f], tcpretrans 1.1 [0c 0q 0f], wakeuptime 1.1 [0c 0q 0f], Tracee 1.1 [0c 0q 2f], tclstat 1.1 [0c 0q 0f], biolatpcts 1.0 [0c 0q 0f], filetop 1.0 [0c 0q 0f], argdist 1.0 [0c 0q 0f], dcstat 1.0 [0c 0q 0f], klockstat 1.0 [0c 0q 0f], pythongc 1.0 [0c 0q 0f] ...
+uprobes 2.0 [0c 0q 0f 0s], funccount 2.0 [0c 0q 0f 0s], tcptop 2.0 [0c 0q 0f 0s], profile 1.9 [0c 0q 0f 0s], rr 1.9 [0c 0q 0f 0s], opensnoop 1.9 [0c 0q 0f 0s], llcstat 1.7 [0c 0q 0f 0s], runqlat 1.7 [0c 0q 0f 0s], runqslower 1.6 [0c 0q 0f 0s], KernelShark 1.6 [0c 0q 10f 0s], statsnoop 1.6 [0c 0q 0f 0s], cachestat 1.5 [0c 0q 0f 0s], funcgraph 1.5 [0c 0q 0f 0s], dcsnoop 1.5 [0c 0q 0f 0s], tracepoints 1.5 [0c 0q 0f 0s], tcptracer 1.5 [0c 0q 0f 0s], biotop 1.4 [0c 0q 0f 0s], nodestat 1.4 [0c 0q 0f 0s], tcpconnect 1.4 [0c 0q 0f 0s], functrace 1.4 [0c 0q 0f 0s], cpudist 1.4 [0c 0q 0f 0s], exitsnoop 1.4 [0c 0q 0f 0s], stackcount 1.3 [0c 0q 0f 0s], tcplife 1.3 [0c 0q 0f 0s], ttysnoop 1.3 [0c 0q 4f 0s], capable 1.3 [0c 0q 0f 0s], bindsnoop 1.2 [0c 0q 0f 0s], tcpconnlat 1.2 [0c 0q 0f 0s], perf-stat-hist 1.2 [0c 0q 0f 0s], cachetop 1.2 [0c 0q 0f 0s], drsnoop 1.2 [0c 0q 0f 0s], biosnoop 1.2 [0c 0q 0f 0s], slabratetop 1.2 [0c 0q 0f 0s], sofdsnoop 1.2 [0c 0q 0f 0s], offcputime 1.2 [0c 0q 0f 0s], dbslower 1.2 [0c 0q 0f 0s], iosnoop 1.2 [0c 0q 0f 0s], tcpsynbl 1.1 [0c 0q 0f 0s], stacksnoop 1.1 [0c 0q 0f 0s], swapin 1.1 [0c 0q 0f 0s], solisten 1.1 [0c 0q 0f 0s], funcslower 1.1 [0c 0q 0f 0s], runqlen 1.1 [0c 0q 0f 0s], mysqld_qslower 1.1 [0c 0q 0f 0s], threadsnoop 1.1 [0c 0q 0f 0s], memleak 1.1 [0c 0q 0f 0s], tcpretrans 1.1 [0c 0q 0f 0s], wakeuptime 1.1 [0c 0q 0f 0s], tclstat 1.1 [0c 0q 0f 0s], biolatpcts 1.0 [0c 0q 0f 0s], filetop 1.0 [0c 0q 0f 0s], argdist 1.0 [0c 0q 0f 0s], dcstat 1.0 [0c 0q 0f 0s], klockstat 1.0 [0c 0q 0f 0s], pythongc 1.0 [0c 0q 0f 0s], fatrace 1.0 [0c 0q 13f 0s], xfsslower 1.0 [0c 0q 0f 0s], perlstat 1.0 [0c 0q 0f 0s], funclatency 1.0 [0c 0q 0f 0s], tcpaccept 0.9 [0c 0q 0f 0s] ...
 
-`*` = Haiku's level (Jev's confidence was low). [clicks/month, Stack Exchange questions, distro families]
+`*` = Haiku's level (Jev's confidence was low); `^` = lifted into Null pointer exception by evidence {'clicks': 30000, 'se': 1000, 'stars': 20000}. [clicks/month, Stack Exchange questions, distro families, GitHub stars]

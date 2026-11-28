@@ -24,15 +24,17 @@ id: video-codec · domain: data-graphics-algorithms · status: draft
 - VP8 | VP08 (auto)
 
 ## Memory leak
+- VVC | H.266 | Versatile Video Coding | h266 | libvvenc (auto)
 - DFA (auto)
-- Argo (auto)
 - AGM | AmuseGraphics Movie (auto)
 
 ## Race condition
 - DV | Digital Video | DV25 (auto)
-- VVC | H.266 | Versatile Video Coding | h266 | libvvenc (auto)
 - Bink Video | Bink (auto)
+- ProRes | Apple ProRes (auto)
+- Fraps (auto)
 - AVS | Audio Video Standard | cavs | Chinese AVS (auto)
+- EVC | Essential Video Coding | MPEG-5 Part 1 | MPEG-5 EVC | MPEG-5 (auto)
 
 ## Heisenbug
 - 4X Movie | 4XM (auto)
@@ -85,14 +87,12 @@ id: video-codec · domain: data-graphics-algorithms · status: draft
 - EA TGQ (auto)
 - EA TQI (auto)
 - Escape 124 (auto)
-- ProRes | Apple ProRes (auto)
 - Indeo | Intel Indeo (auto)
 - RealVideo | RV40 (auto)
 - Sorenson Video | Sorenson | SVQ1 (auto)
 - Ut Video (auto)
 - DNxHD | Avid DNxHD (auto)
 - FFV1 (auto)
-- Fraps (auto)
 - H.263 | intelh263 | ituh263 (auto)
 - Huffyuv (auto)
 - Lagarith (auto)
@@ -102,7 +102,6 @@ id: video-codec · domain: data-graphics-algorithms · status: draft
 - AVS3 | libuavs3d (auto)
 - Dxtory (auto)
 - DXV | Resolume DXV (auto)
-- EVC | Essential Video Coding | MPEG-5 Part 1 | MPEG-5 EVC | MPEG-5 (auto)
 - Flash Screen Video | FlashSV (auto)
 - FLIC | Autodesk FLIC | FLI | FLC (auto)
 - H.261 (auto)
@@ -122,6 +121,7 @@ id: video-codec · domain: data-graphics-algorithms · status: draft
 - LEAD Video (auto)
 - AVS2 | davs2 | libxavs2 (auto)
 - Mimic (auto)
+- Argo (auto)
 
 ## Bit Flip
 - Escape 130

@@ -60,27 +60,31 @@ id: git-subcommand · domain: languages-tools · status: approved
 - last-modified | git-last-modified (auto)
 - repo | git-repo (auto)
 - url-parse | git-url-parse (auto)
-- var | git-var (auto)
 - shell | git-shell (auto)
 - archive | git-archive (auto)
 - reflog | git-reflog (auto)
 - notes | git-notes (auto)
 - rev-list | git-rev-list (auto)
 - history | git-history (auto)
-
-## Race condition
 - daemon | git-daemon (auto)
-- send-email | git-send-email (auto)
 - format-patch | git-format-patch (auto)
 - apply | git-apply (auto)
 - describe | git-describe (auto)
 - ls-files | git-ls-files (auto)
 - am | git-am (auto)
 - bundle | git-bundle (auto)
+- fast-import | git-fast-import (auto)
+
+## Race condition
+- send-email | git-send-email (auto)
 - cherry | git-cherry (auto)
 - diff-tree | git-diff-tree (auto)
 - fast-export | git-fast-export (auto)
-- fast-import | git-fast-import (auto)
+- cvsimport | git-cvsimport (auto)
+- ls-remote | git-ls-remote (auto)
+- ls-tree | git-ls-tree (auto)
+- rev-parse | git-rev-parse (auto)
+- merge-file | git-merge-file (auto)
 
 ## Heisenbug
 - archimport | git-archimport (auto)
@@ -88,7 +92,6 @@ id: git-subcommand · domain: languages-tools · status: approved
 - check-mailmap | git-check-mailmap (auto)
 - column | git-column (auto)
 - cvsexportcommit | git-cvsexportcommit (auto)
-- cvsimport | git-cvsimport (auto)
 - cvsserver | git-cvsserver (auto)
 - diff-pairs | git-diff-pairs (auto)
 - fetch-pack | git-fetch-pack (auto)
@@ -131,12 +134,9 @@ id: git-subcommand · domain: languages-tools · status: approved
 - check-ignore | git-check-ignore (auto)
 - for-each-ref | git-for-each-ref (auto)
 - hash-object | git-hash-object (auto)
-- ls-remote | git-ls-remote (auto)
-- ls-tree | git-ls-tree (auto)
 - merge-base | git-merge-base (auto)
 - range-diff | git-range-diff (auto)
 - replace | git-replace (auto)
-- rev-parse | git-rev-parse (auto)
 - shortlog | git-shortlog (auto)
 - show-ref | git-show-ref (auto)
 - symbolic-ref | git-symbolic-ref (auto)
@@ -159,7 +159,6 @@ id: git-subcommand · domain: languages-tools · status: approved
 - diff-index | git-diff-index (auto)
 - instaweb | git-instaweb (auto)
 - maintenance | git-maintenance (auto)
-- merge-file | git-merge-file (auto)
 - merge-tree | git-merge-tree (auto)
 - name-rev | git-name-rev (auto)
 - pack-objects | git-pack-objects (auto)
@@ -174,6 +173,7 @@ id: git-subcommand · domain: languages-tools · status: approved
 - verify-commit | git-verify-commit (auto)
 - verify-tag | git-verify-tag (auto)
 - write-tree | git-write-tree (auto)
+- var | git-var (auto)
 
 ## Bit Flip
 - stripspace | git-stripspace

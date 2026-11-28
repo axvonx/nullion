@@ -85,32 +85,28 @@ id: design-pattern · domain: languages-tools · status: draft
 
 ## Memory leak
 - Double-Checked Locking (auto)
-- Anti-Corruption Layer | ACL (auto)
 - Front Controller (auto)
-- Write-Ahead Log | WAL (auto)
-- Flux (auto)
 - Hexagonal Architecture (auto)
 - View Helper (auto)
-- BLoC (auto)
-- Servant (auto)
-- Ambassador (auto)
 - Double Dispatch (auto)
+- Presentation Model (auto)
 
 ## Race condition
 - Identity Map (auto)
-- Presentation Model (auto)
+- Extension Object | Extension Objects (auto)
+- Parameter Object (auto)
+- Model-View-Intent | MVI (auto)
+- Naked Objects (auto)
+- Write-Ahead Log | WAL (auto)
 
 ## Heisenbug
-- Extension Object | Extension Objects (auto)
 - Factory Kit (auto)
 - Private Class Data (auto)
 - Role Object (auto)
 - Serialized LOB (auto)
 - Service to Worker (auto)
 - Event-Based Asynchronous Pattern (auto)
-- Parameter Object (auto)
 - Active Object (auto)
-- Model-View-Intent | MVI (auto)
 - Transaction Script (auto)
 - Spatial Partition (auto)
 - Strangler Fig | Strangler (auto)
@@ -118,7 +114,6 @@ id: design-pattern · domain: languages-tools · status: draft
 - Transactional Outbox (auto)
 - Virtual Proxy (auto)
 - Load Shedding (auto)
-- Naked Objects (auto)
 - Acyclic Visitor (auto)
 - Balking (auto)
 - Business Delegate (auto)
@@ -156,6 +151,11 @@ id: design-pattern · domain: languages-tools · status: draft
 - Idempotent Consumer (auto)
 - Self Registration (auto)
 - Queue-Based Load Leveling (auto)
+- Flux (auto)
+- BLoC (auto)
+- Servant (auto)
+- Ambassador (auto)
+- Anti-Corruption Layer | ACL (auto)
 
 ## Bit Flip
 - Twin

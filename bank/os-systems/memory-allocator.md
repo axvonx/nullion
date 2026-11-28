@@ -29,11 +29,14 @@ id: memory-allocator · domain: os-systems · status: approved
 - SLUB allocator | SLUB (auto)
 - bitmap allocator (auto)
 
-## Memory leak
-- Mesh | Mesh allocator (auto)
-
 ## Race condition
 - talloc | Samba talloc (auto)
+- Mesh | Mesh allocator (auto)
+- hardened_malloc (auto)
+- snmalloc (auto)
+- rpmalloc (auto)
+- TLSF | two-level segregated fit (auto)
+- Electric Fence (auto)
 
 ## Heisenbug
 - zsmalloc (auto)
@@ -41,7 +44,6 @@ id: memory-allocator · domain: os-systems · status: approved
 - nedmalloc (auto)
 - phkmalloc (auto)
 - mallocng | musl mallocng (auto)
-- hardened_malloc (auto)
 - Scalloc (auto)
 - Streamflow (auto)
 - LFMalloc (auto)
@@ -56,16 +58,12 @@ id: memory-allocator · domain: os-systems · status: approved
 - vmem | vmem allocator (auto)
 - Contiguous Memory Allocator | CMA | cma allocator (auto)
 - Hoard | Hoard memory allocator (auto)
-- snmalloc (auto)
-- rpmalloc (auto)
-- TLSF | two-level segregated fit (auto)
 - omalloc | OpenBSD malloc (auto)
 - Low Fragmentation Heap (auto)
 - Segment Heap (auto)
 - SLOB allocator | SLOB (auto)
 - segregated free list allocator | segregated fit (auto)
 - pymalloc (auto)
-- Electric Fence (auto)
 - DieHarder (auto)
 
 ## Bit Flip

@@ -27,12 +27,9 @@ id: garbage-collection-algorithm · domain: languages-tools · status: approved
 
 ## Memory leak
 - Boehm GC | Boehm-Demers-Weiser (auto)
-- Epsilon GC | Epsilon | Epsilon Garbage Collector | no-op GC (auto)
-- C4 | Pauseless GC | Continuously Concurrent Compacting Collector (auto)
-- deferred reference counting | DRC (auto)
 
 ## Race condition
-- Metronome (auto)
+- Shenandoah | Shenandoah GC (auto)
 
 ## Heisenbug
 - Immix | mark-region | Immix GC | mark-region GC (auto)
@@ -49,7 +46,6 @@ id: garbage-collection-algorithm · domain: languages-tools · status: approved
 - snapshot-at-the-beginning (auto)
 - Brooks forwarding pointer (auto)
 - Mostly Parallel GC (auto)
-- LXR | Low-Latency, High-Throughput Garbage Collector (auto)
 - RC Immix (auto)
 - Ulterior reference counting | URC (auto)
 - Bacon-Rajan cycle collector (auto)
@@ -57,10 +53,14 @@ id: garbage-collection-algorithm · domain: languages-tools · status: approved
 - Trial deletion | cycle collection (auto)
 - Oilpan | Blink Oilpan (auto)
 - accurate garbage collection | precise garbage collection | exact garbage collection (auto)
-- Shenandoah | Shenandoah GC (auto)
 - tri-color marking | tri-color abstraction (auto)
 - Orinoco | V8 Orinoco (auto)
 - Generational ZGC (auto)
+- Epsilon GC | Epsilon | Epsilon Garbage Collector | no-op GC (auto)
+- Metronome (auto)
+- C4 | Pauseless GC | Continuously Concurrent Compacting Collector (auto)
+- deferred reference counting | DRC (auto)
+- LXR | Low-Latency, High-Throughput Garbage Collector (auto)
 
 ## Bit Flip
 - Train algorithm | Mature Object Space

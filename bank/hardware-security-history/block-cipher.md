@@ -15,16 +15,13 @@ id: block-cipher · domain: hardware-security-history · status: approved
 - Triple DES | 3DES | TDEA (auto)
 
 ## Memory leak
-- ARIA | aria_generic (auto)
-- IDEA | International Data Encryption Algorithm (auto)
-- SEED (auto)
-- Square (auto)
-- Magenta (auto)
 - REDOC (auto)
+- MARS (auto)
 
 ## Race condition
-- GOST 28147-89 | Magma | GOST (auto)
-- MARS (auto)
+- RC2 | ARC2 (auto)
+- XTEA | eXtended TEA (auto)
+- XXTEA | Corrected Block TEA (auto)
 
 ## Heisenbug
 - Anubis (auto)
@@ -41,7 +38,6 @@ id: block-cipher · domain: hardware-security-history · status: approved
 - Deoxys (auto)
 - GIFT (auto)
 - Adiantum (auto)
-- RC2 | ARC2 (auto)
 - RC5 (auto)
 - TEA | Tiny Encryption Algorithm (auto)
 - Camellia | camellia_generic (auto)
@@ -65,10 +61,14 @@ id: block-cipher · domain: hardware-security-history · status: approved
 - HIGHT (auto)
 - CLEFIA (auto)
 - Lucifer (auto)
-- XTEA | eXtended TEA (auto)
-- XXTEA | Corrected Block TEA (auto)
 - SKINNY (auto)
 - KASUMI | A5/3 (auto)
+- ARIA | aria_generic (auto)
+- IDEA | International Data Encryption Algorithm (auto)
+- SEED (auto)
+- Square (auto)
+- Magenta (auto)
+- GOST 28147-89 | Magma | GOST (auto)
 
 ## Bit Flip
 - Khufu

@@ -29,6 +29,7 @@ import gzip
 import os
 import json
 import pathlib
+import re
 import shutil
 import subprocess
 import sys
@@ -405,6 +406,77 @@ def fetch_repology() -> None:
     dump = d / "repology-dump.sql.zst"
     download("https://dumps.repology.org/repology-database-dump-latest.sql.zst", dump)
     repology_extract(dump, d)
+    repology_github(dump, d)
+
+
+GITHUB_REPO = re.compile(r"^https?://(?:www\.)?github\.com/([A-Za-z0-9_.-]+)/([A-Za-z0-9_.-]+?)(?:\.git)?/?(?:[#?].*)?$")
+
+
+def repology_github(dump: pathlib.Path, d: pathlib.Path) -> None:
+    """effname -> its upstream GitHub repo, from the dump's links table (a project's homepage and repository URLs)
+    joined through packages.links. A project whose packages point at several repos keeps the one most packages name
+    (ties: listed, not guessed). Writes github-repos.tsv.gz: effname, owner/repo, packages naming it, packages."""
+    out = d / "github-repos.tsv.gz"
+    if out.exists():
+        print(f"  have {out.relative_to(CORPORA)}")
+        return
+    repo_of: dict[int, str] = {}
+    votes: dict[str, dict[str, int]] = {}
+    pkgs: dict[str, int] = {}
+    proc = subprocess.Popen(["zstd", "-dc", str(dump)], stdout=subprocess.PIPE)
+    seen = set()
+    try:
+        cur, idx = None, None
+        for raw in proc.stdout:
+            if cur is None:
+                if raw.startswith(b"COPY repology.links ") or raw.startswith(b"COPY repology.packages "):
+                    head = raw.decode()
+                    cols = [c.strip().strip('"') for c in head[head.index("(") + 1:head.index(")")].split(",")]
+                    cur = head.split()[1]
+                    idx = [cols.index("id"), cols.index("url")] if cur == "repology.links" else [cols.index("effname"), cols.index("links")]
+                    if cur == "repology.packages" and "repology.links" not in seen:
+                        raise RuntimeError("Repology dump: packages come before links (dump order changed)")
+                continue
+            if raw == b"\\.\n":
+                seen.add(cur)
+                cur = None
+                continue
+            f = raw.rstrip(b"\n").decode(errors="replace").split("\t")
+            if cur == "repology.links":
+                m = GITHUB_REPO.match(f[idx[1]])
+                if m and m.group(2).lower() not in ("issues", "releases"):
+                    repo_of[int(f[idx[0]])] = f"{m.group(1)}/{m.group(2)}".lower()
+            else:
+                eff, links = f[idx[0]], f[idx[1]]
+                pkgs[eff] = pkgs.get(eff, 0) + 1
+                if links == "\\N":
+                    continue
+                named = {repo_of[int(i)] for i in re.findall(r"\[\s*\d+\s*,\s*(\d+)", links) if int(i) in repo_of}
+                for r in named:
+                    v = votes.setdefault(eff, {})
+                    v[r] = v.get(r, 0) + 1
+        if proc.wait() != 0:
+            raise RuntimeError(f"zstd -dc {dump.name} exited {proc.returncode}: truncated or corrupt dump")
+        if seen != {"repology.links", "repology.packages"}:
+            raise RuntimeError(f"Repology dump: links/packages missing or unterminated (saw {sorted(seen)})")
+    except BaseException:
+        proc.kill()
+        raise
+    if len(votes) < 10000:
+        raise RuntimeError(f"only {len(votes)} projects with a GitHub link: the packages.links format changed?")
+    tmp = out.with_name(out.name + ".part")
+    n = 0
+    with gzip.open(tmp, "wt") as g:
+        g.write("effname\trepo\tvotes\tpackages\n")
+        for eff, v in sorted(votes.items()):
+            best = sorted(v.items(), key=lambda kv: -kv[1])
+            if len(best) > 1 and best[0][1] == best[1][1]:
+                continue  # a tie: two upstream repos, neither more named; no star count rather than a guess
+            g.write(f"{eff}\t{best[0][0]}\t{best[0][1]}\t{pkgs[eff]}\n")
+            n += 1
+    tmp.replace(out)
+    stamp(out, f"extracted from {dump.name}: links (GitHub URLs) joined through packages.links", f"{n} projects")
+    print(f"  got  {out.relative_to(CORPORA)} ({n:,} projects)")
 
 
 SOURCES = {"debian": fetch_debian, "homebrew": fetch_homebrew, "stackexchange": fetch_stackexchange,

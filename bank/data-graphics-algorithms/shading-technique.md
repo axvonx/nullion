@@ -26,8 +26,6 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 - deferred shading | deferred rendering
 - shadow mapping
 - parallax mapping
-- Parallax occlusion mapping | POM (auto)
-- Screen-space reflections | SSR (auto)
 
 ## Race condition
 - subsurface scattering | sss
@@ -37,6 +35,8 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 - Thin-film interference (auto)
 - Hatching | cross-hatching | tonal art maps (auto)
 - Halftone shading | halftoning | Ben-Day shading (auto)
+- Path tracing (auto)
+- Stipple shading (auto)
 
 ## Heisenbug
 - visibility buffer | vbuffer
@@ -62,7 +62,6 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 - Rim lighting | rim shading (auto)
 - Displacement mapping (auto)
 - Environment mapping | reflection mapping | cubemap reflection | cubemap shading (auto)
-- Path tracing (auto)
 - GGX | Trowbridge-Reitz | Trowbridge-Reitz GGX | GGX shading (auto)
 - Disney BRDF | Disney principled BRDF | principled BSDF (auto)
 - Schlick BRDF | Schlick approximation | Schlick Fresnel (auto)
@@ -81,7 +80,6 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 - Torrance-Sparrow | Torrance-Sparrow BRDF (auto)
 - Kajiya-Kay | Kajiya-Kay hair shading | Kajiya-Kay model (auto)
 - Burley diffuse | Disney diffuse (auto)
-- Stipple shading (auto)
 - Wrap lighting | wrap shading | wrapped diffuse (auto)
 - Tiled deferred shading | tile-based deferred shading (auto)
 - Deferred lighting | light pre-pass (auto)
@@ -93,6 +91,8 @@ id: shading-technique · domain: data-graphics-algorithms · status: approved
 - ReSTIR | reservoir resampling (auto)
 - Neural shading | neural deferred shading (auto)
 - Relief shading | hillshading | cartographic relief shading (auto)
+- Parallax occlusion mapping | POM (auto)
+- Screen-space reflections | SSR (auto)
 - Reflective shadow maps | RSM (auto)
 
 ## Bit Flip

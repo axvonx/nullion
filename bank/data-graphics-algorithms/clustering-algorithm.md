@@ -19,13 +19,10 @@ id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
 - HDBSCAN | Hierarchical DBSCAN (auto)
 
 ## Memory leak
-- Affinity Propagation | AP (auto)
-- k-medoids | PAM | partitioning around medoids (auto)
 - fuzzy c-means | FCM (auto)
+
+## Race condition
 - self-organizing map | SOM | Kohonen map | Kohonen network (auto)
-- CHAMELEON (auto)
-- canopy clustering | Canopy (auto)
-- CLIQUE | Clustering In Quest (auto)
 
 ## Heisenbug
 - Elkan's k-means | Elkan k-means (auto)
@@ -50,7 +47,6 @@ id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
 - single-linkage clustering | single linkage (auto)
 - complete-linkage clustering | complete linkage (auto)
 - UPGMA | average linkage (auto)
-- Markov clustering | MCL (auto)
 - kernel k-means (auto)
 - spherical k-means (auto)
 - bisecting k-means (auto)
@@ -63,6 +59,12 @@ id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
 - G-means (auto)
 - Ward's method | Ward linkage | Ward clustering (auto)
 - growing neural gas (auto)
+- CHAMELEON (auto)
+- canopy clustering | Canopy (auto)
+- CLIQUE | Clustering In Quest (auto)
+- Affinity Propagation | AP (auto)
+- k-medoids | PAM | partitioning around medoids (auto)
+- Markov clustering | MCL (auto)
 
 ## Bit Flip
 - BIRCH | Balanced Iterative Reducing and Clustering using Hierarchies

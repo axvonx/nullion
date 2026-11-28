@@ -24,15 +24,11 @@ id: lossless-compression-algorithm · domain: data-graphics-algorithms · status
 - Snappy | Zippy (auto)
 - bzip2 (auto)
 
-## Memory leak
-- PPM | prediction by partial matching (auto)
-- LZO | Lempel-Ziv-Oberhumer (auto)
-- LZX (auto)
-
 ## Race condition
 - LZFSE (auto)
 - Zopfli (auto)
 - ZPAQ (auto)
+- asymmetric numeral systems | ANS | rANS | tANS (auto)
 
 ## Heisenbug
 - LZRW (auto)
@@ -51,17 +47,19 @@ id: lossless-compression-algorithm · domain: data-graphics-algorithms · status
 - CABAC | Context-adaptive binary arithmetic coding (auto)
 - LZSS | Lempel-Ziv-Storer-Szymanski (auto)
 - range coding | range encoding (auto)
-- asymmetric numeral systems | ANS | rANS | tANS (auto)
 - Shannon-Fano coding | Shannon-Fano (auto)
 - Golomb coding | Golomb-Rice coding (auto)
 - move-to-front transform | MTF (auto)
 - PAQ | PAQ8 (auto)
 - Elias gamma coding | Elias gamma (auto)
-- LZF (auto)
 - LZJB (auto)
 - LZMA2 (auto)
 - PPMd (auto)
 - LZ4HC (auto)
+- PPM | prediction by partial matching (auto)
+- LZO | Lempel-Ziv-Oberhumer (auto)
+- LZX (auto)
+- LZF (auto)
 
 ## Bit Flip
 - Tunstall coding

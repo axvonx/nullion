@@ -33,15 +33,13 @@ id: kubernetes-resource-kind · domain: os-systems · status: approved
 - Role | role-v1 (auto)
 
 ## Memory leak
-- CertificateSigningRequest | CSR | certificate-signing-request-v1 (auto)
 - Endpoints | endpoints-v1 | ep (auto)
-- Event | event-v1 | ev (auto)
 - LimitRange | limit-range-v1 | limits (auto)
 - IPAddress | ip-address-v1 (auto)
-- Workload | workload-v1beta1 (auto)
 
 ## Race condition
 - CSIDriver | csi-driver-v1 (auto)
+- CertificateSigningRequest | CSR | certificate-signing-request-v1 (auto)
 
 ## Heisenbug
 - MutatingAdmissionPolicyBinding | mutating-admission-policy-binding-v1 (auto)
@@ -79,6 +77,8 @@ id: kubernetes-resource-kind · domain: os-systems · status: approved
 - PodGroup | pod-group-v1beta1 (auto)
 - CSINode | csi-node-v1 (auto)
 - VolumeAttachment | volume-attachment-v1 (auto)
+- Event | event-v1 | ev (auto)
+- Workload | workload-v1beta1 (auto)
 - StorageClass | storage-class-v1 | sc (auto)
 
 ## Bit Flip

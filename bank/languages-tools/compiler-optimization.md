@@ -34,8 +34,11 @@ id: compiler-optimization · domain: languages-tools · status: approved
 - full unrolling | full loop unrolling (auto)
 - partial unrolling | partial loop unrolling (auto)
 
-## Race condition
+## Memory leak
 - Escape analysis (auto)
+
+## Race condition
+- whole-program devirtualization | devirtualization | WholeProgramDevirt (auto)
 
 ## Heisenbug
 - argument promotion (auto)
@@ -74,7 +77,6 @@ id: compiler-optimization · domain: languages-tools · status: approved
 - mem2reg | memory-to-register promotion | PromoteMemoryToRegister (auto)
 - scalar replacement of aggregates | SROA (auto)
 - sparse conditional constant propagation | SCCP | conditional constant propagation (auto)
-- whole-program devirtualization | devirtualization | WholeProgramDevirt (auto)
 - constant merging | ConstantMerge (auto)
 - constraint elimination (auto)
 - correlated value propagation | CVP (auto)
@@ -91,7 +93,6 @@ id: compiler-optimization · domain: languages-tools · status: approved
 - loop rotation (auto)
 - memcpy optimization | MemCpyOptimizer (auto)
 - partial inlining (auto)
-- superword-level parallelism | SLP vectorization | SLP | SLPVectorizer (auto)
 - unroll-and-jam | loop unroll and jam | LoopUnrollAndJamPass (auto)
 - CFG flattening (auto)
 - code sinking (auto)
@@ -101,6 +102,7 @@ id: compiler-optimization · domain: languages-tools · status: approved
 - loop versioning (auto)
 - scalarization (auto)
 - critical edge splitting | BreakCriticalEdges (auto)
+- superword-level parallelism | SLP vectorization | SLP | SLPVectorizer (auto)
 
 ## Bit Flip
 - DFA jump threading

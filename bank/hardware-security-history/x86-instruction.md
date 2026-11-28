@@ -51,15 +51,12 @@ id: x86-instruction · domain: hardware-security-history · status: draft
 - POPP (auto)
 
 ## Memory leak
-- STD (auto)
-- STI (auto)
 - PREFETCH (auto)
 - rdtsc | read time stamp counter (auto)
-- SERIALIZE (auto)
 
 ## Race condition
-- FST (auto)
-- DAS (auto)
+- SYSENTER (auto)
+- CLFLUSH (auto)
 
 ## Heisenbug
 - ADDSUBPD (auto)
@@ -832,12 +829,10 @@ id: x86-instruction · domain: hardware-security-history · status: draft
 - POPCNT (auto)
 - POR (auto)
 - PXOR (auto)
-- SYSENTER (auto)
 - XORPD (auto)
 - XORPS (auto)
 - idiv | signed divide (auto)
 - CLAC (auto)
-- CLFLUSH (auto)
 - CLWB (auto)
 - EMMS (auto)
 - ENDBR32 (auto)
@@ -1457,7 +1452,6 @@ id: x86-instruction · domain: hardware-security-history · status: draft
 - XSAVEOPT | XSAVEOPT64 (auto)
 - XSAVES | XSAVES64 (auto)
 - XTEST (auto)
-- AAA (auto)
 - AAD (auto)
 - AAM (auto)
 - AAS (auto)
@@ -1507,6 +1501,12 @@ id: x86-instruction · domain: hardware-security-history · status: draft
 - VUCOMISS (auto)
 - STUI (auto)
 - STC (auto)
+- SERIALIZE (auto)
+- DAS (auto)
+- STD (auto)
+- STI (auto)
+- FST (auto)
+- AAA (auto)
 - RSM (auto)
 
 ## Bit Flip

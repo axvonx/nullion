@@ -17,20 +17,20 @@ id: graphics-api · domain: data-graphics-algorithms · status: draft
 - CUDA | NVIDIA CUDA | CUDA C (auto)
 - Vulkan | Khronos Vulkan | Vulkan API (auto)
 - WebGL | WebGL 2 (auto)
+- OpenCL | Open Computing Language (auto)
 
 ## Memory leak
 - WebGPU | wgpu | WebGPU API (auto)
-- OpenCL | Open Computing Language (auto)
 - Direct2D | D2D (auto)
 - SYCL | Khronos SYCL (auto)
 - RenderScript | Android RenderScript (auto)
 - Stage3D | Flash Stage3D | Adobe Stage3D (auto)
 - DirectCompute | DirectX Compute (auto)
 - DirectDraw | DirectDraw API | DDraw (auto)
+- OptiX | NVIDIA OptiX (auto)
 
 ## Race condition
-- HIP | AMD HIP | ROCm HIP (auto)
-- OptiX | NVIDIA OptiX (auto)
+- SDL_gpu | SDL3 GPU (auto)
 
 ## Heisenbug
 - GX2 | Wii U GX2 | Nintendo GX2 (auto)
@@ -40,10 +40,10 @@ id: graphics-api · domain: data-graphics-algorithms · status: draft
 - LibGCM | PS3 LibGCM (auto)
 - GXM | libgxm | sceGxm | Vita GXM | PS Vita GXM (auto)
 - GX | libogc GX (auto)
-- SDL_gpu | SDL3 GPU (auto)
 - DispmanX (auto)
 - Mantle | AMD Mantle (auto)
 - SDL_Renderer (auto)
+- HIP | AMD HIP | ROCm HIP (auto)
 
 ## Bit Flip
 - deko3d

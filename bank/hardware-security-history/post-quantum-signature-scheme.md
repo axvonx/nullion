@@ -13,13 +13,8 @@ id: post-quantum-signature-scheme · domain: hardware-security-history · status
 ## Null pointer exception
 - Lamport signature | Lamport OTS | Lamport one-time signature (auto)
 
-## Memory leak
-- LESS (auto)
-- Wave (auto)
-- LMS | Leighton-Micali Signature (auto)
-
 ## Race condition
-- Merkle signature scheme | MSS (auto)
+- LESS (auto)
 
 ## Heisenbug
 - CROSS (auto)
@@ -59,6 +54,9 @@ id: post-quantum-signature-scheme · domain: hardware-security-history · status
 - BLISS | Bimodal Lattice Signature Scheme (auto)
 - HAWK (auto)
 - MEDS (auto)
+- Wave (auto)
+- LMS | Leighton-Micali Signature (auto)
+- Merkle signature scheme | MSS (auto)
 
 ## Bit Flip
 - SQIsign

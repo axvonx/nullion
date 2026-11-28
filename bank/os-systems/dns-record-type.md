@@ -25,26 +25,17 @@ id: dns-record-type · domain: os-systems · status: approved
 - SPF | sender policy framework | SPF record (auto)
 
 ## Memory leak
-- CDS | child DS | child delegation signer (auto)
 - HTTPS | HTTPS binding | HTTPS RR | HTTPS record (auto)
+- EUI48 | MAC address (auto)
+- TLSA | TLS association | DANE (auto)
+- CDS | child DS | child delegation signer (auto)
 - URI | uniform resource identifier | URI record (auto)
 - APL (auto)
-- EUI48 | MAC address (auto)
 - RT (auto)
-- WALLET (auto)
-- KEY (auto)
 - LP (auto)
+- CAA | certification authority authorization | CA authorization (auto)
 
 ## Race condition
-- TLSA | TLS association | DANE (auto)
-- DNSKEY | DNS public key (auto)
-- DS | delegation signer | delegation signer record (auto)
-- RRSIG | resource record signature | RR signature (auto)
-- NSEC | next secure (auto)
-- NSEC3 | NSEC version 3 | hashed NSEC (auto)
-- DNAME | delegation name | DNAME record (auto)
-- CAA | certification authority authorization | CA authorization (auto)
-- HIP (auto)
 - CERT | certificate | CERT record (auto)
 - DLV (auto)
 
@@ -83,6 +74,15 @@ id: dns-record-type · domain: os-systems · status: approved
 - CSYNC (auto)
 - RP (auto)
 - SSHFP | SSH fingerprint | SSH host key fingerprint (auto)
+- WALLET (auto)
+- KEY (auto)
+- DNSKEY | DNS public key (auto)
+- DS | delegation signer | delegation signer record (auto)
+- RRSIG | resource record signature | RR signature (auto)
+- NSEC | next secure (auto)
+- NSEC3 | NSEC version 3 | hashed NSEC (auto)
+- DNAME | delegation name | DNAME record (auto)
+- HIP (auto)
 
 ## Bit Flip
 - X25

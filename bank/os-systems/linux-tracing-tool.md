@@ -36,7 +36,14 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 - javathreads (auto)
 
 ## Race condition
-- rr (auto)
+- javaflow (auto)
+- Tracee (auto)
+- ply (auto)
+- pwru | Packet, where are you? (auto)
+- uprobe (auto)
+- apitrace (auto)
+- blktrace (auto)
+- uftrace (auto)
 
 ## Heisenbug
 - biolatpcts (auto)
@@ -51,7 +58,6 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 - funcinterval (auto)
 - hardirqs (auto)
 - javacalls (auto)
-- javaflow (auto)
 - javagc (auto)
 - javaobjnew (auto)
 - javastat (auto)
@@ -98,11 +104,8 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 - wqlat (auto)
 - writeback (auto)
 - uprobes (auto)
-- Tracee (auto)
 - profile (auto)
-- ply (auto)
 - ktap (auto)
-- pwru | Packet, where are you? (auto)
 - retsnoop (auto)
 - tracepoints | kernel tracepoints (auto)
 - bashreadline (auto)
@@ -131,7 +134,6 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 - tcplife (auto)
 - tcpretrans (auto)
 - tcptop (auto)
-- uprobe (auto)
 - argdist (auto)
 - bindsnoop (auto)
 - biostacks (auto)
@@ -189,11 +191,9 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 - xfsslower (auto)
 - zfsdist (auto)
 - zfsslower (auto)
-- apitrace (auto)
-- blktrace (auto)
 - KernelShark (auto)
-- uftrace (auto)
 - fatrace (auto)
+- rr (auto)
 
 ## Bit Flip
 - criticalstat

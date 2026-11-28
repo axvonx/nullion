@@ -49,6 +49,12 @@ id: database · domain: data-graphics-algorithms · status: approved
 - FoxPro (auto)
 - etcd (auto)
 - LevelDB (auto)
+- Teradata (auto)
+- TimescaleDB (auto)
+- TiDB (auto)
+- TDengine (auto)
+- RethinkDB (auto)
+- ArangoDB (auto)
 
 ## Memory leak
 - Couchbase | Couchbase Server (auto)
@@ -56,12 +62,9 @@ id: database · domain: data-graphics-algorithms · status: approved
 - Greenplum (auto)
 - MonetDB (auto)
 - Sybase | Sybase ASE | SAP ASE (auto)
-- Teradata (auto)
-- TimescaleDB (auto)
 - Vertica (auto)
 - Riak (auto)
 - Informix (auto)
-- TiDB (auto)
 - Apache Derby | Derby (auto)
 - CrateDB | Crate (auto)
 - Apache IoTDB | IoTDB (auto)
@@ -70,23 +73,20 @@ id: database · domain: data-graphics-algorithms · status: approved
 - IBM Netezza | Netezza (auto)
 - Apache Phoenix | Phoenix (auto)
 - SingleStore | MemSQL (auto)
-- TDengine (auto)
 - YugabyteDB (auto)
 - Apache Ignite | Ignite (auto)
 - Google Cloud Datastore | Cloud Datastore | Datastore (auto)
 - ScyllaDB (auto)
-- RethinkDB (auto)
-- ArangoDB (auto)
 - Ingres (auto)
 - Datomic (auto)
 - LMDB (auto)
 - VoltDB (auto)
 - Exasol (auto)
-- IMS (auto)
-
-## Race condition
 - FoundationDB (auto)
 - Apache Pinot | Pinot (auto)
+
+## Race condition
+- StarRocks (auto)
 
 ## Heisenbug
 - Hologres (auto)
@@ -97,9 +97,9 @@ id: database · domain: data-graphics-algorithms · status: approved
 - Firebolt (auto)
 - OceanBase (auto)
 - RisingWave (auto)
-- StarRocks (auto)
 - YDB (auto)
 - Cloudflare D1 (auto)
+- IMS (auto)
 
 ## Bit Flip
 - Ocient

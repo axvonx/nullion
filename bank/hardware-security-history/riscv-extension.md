@@ -24,13 +24,7 @@ id: riscv-extension · domain: hardware-security-history · status: approved
 - B extension (auto)
 
 ## Memory leak
-- A extension (auto)
-- H extension (auto)
 - H | Hypervisor (auto)
-- Q | Quad-Precision Floating-Point (auto)
-- Zk | Scalar Cryptography (auto)
-- Q extension (auto)
-- P extension (auto)
 
 ## Heisenbug
 - Zbkb (auto)
@@ -97,6 +91,12 @@ id: riscv-extension · domain: hardware-security-history · status: approved
 - Ztso (auto)
 - Zmmul (auto)
 - Sstc | Supervisor-mode Timer Interrupts (auto)
+- A extension (auto)
+- H extension (auto)
+- Q | Quad-Precision Floating-Point (auto)
+- Q extension (auto)
+- P extension (auto)
+- Zk | Scalar Cryptography (auto)
 
 ## Bit Flip
 - Zimop

@@ -20,21 +20,10 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - SHA-224 (auto)
 
 ## Memory leak
-- SHA-384 (auto)
-- SHA-512/256 (auto)
-- ECHO (auto)
+- BLAKE3 (auto)
 
 ## Race condition
-- SHA-0 (auto)
-- SHAKE128 (auto)
-- SHAKE256 (auto)
-- BLAKE2b | BLAKE2 (auto)
-- BLAKE | BLAKE-256 | BLAKE-512 (auto)
-- BLAKE2s (auto)
-- BLAKE3 (auto)
-- LSH (auto)
 - RIPEMD-160 | RIPEMD | rmd160 (auto)
-- Tiger (auto)
 
 ## Heisenbug
 - Streebog | streebog_generic | GOST R 34.11-2012 (auto)
@@ -66,6 +55,17 @@ id: cryptographic-hash-function · domain: hardware-security-history · status: 
 - JH (auto)
 - GOST R 34.11-94 (auto)
 - RIPEMD-128 (auto)
+- SHA-384 (auto)
+- SHA-512/256 (auto)
+- ECHO (auto)
+- SHA-0 (auto)
+- SHAKE128 (auto)
+- SHAKE256 (auto)
+- BLAKE2b | BLAKE2 (auto)
+- BLAKE | BLAKE-256 | BLAKE-512 (auto)
+- BLAKE2s (auto)
+- Tiger (auto)
+- LSH (auto)
 
 ## Bit Flip
 - RadioGatun

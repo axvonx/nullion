@@ -23,17 +23,12 @@ id: color-space · domain: data-graphics-algorithms · status: draft
 
 ## Memory leak
 - PAL/SECAM | pal_secam (auto)
-- HSI | Hue Saturation Intensity (auto)
+- NTSC | NTSC color | NTSC 1953 (auto)
 
 ## Race condition
-- Display P3 (auto)
 - Rec. 2020 | BT.2020 | ITU-R BT.2020 | itur_bt_2020 (auto)
 - Rec. 709 | BT.709 | ITU-R BT.709 | itur_bt_709 (auto)
-- NTSC | NTSC color | NTSC 1953 (auto)
-- CIE RGB | CIE 1931 RGB (auto)
-- CIE xyY | xyY | CIE xyY color | Yxy (auto)
-- Hunter Lab (auto)
-- P3-D65 (auto)
+- YPbPr | YPrPb (auto)
 
 ## Heisenbug
 - Best RGB (auto)
@@ -56,7 +51,6 @@ id: color-space · domain: data-graphics-algorithms · status: draft
 - Yrg (auto)
 - Adobe RGB (1998) | Adobe RGB | adobe_rgb_1998 (auto)
 - ProPhoto RGB | ROMM RGB | RIMM RGB | rimm_romm_rgb | ProPhoto | ROMM (auto)
-- YPbPr | YPrPb (auto)
 - YIQ | YIQ color (auto)
 - HWB | Hue Whiteness Blackness (auto)
 - Rec. 601 | BT.601 | ITU-R BT.601 (auto)
@@ -85,6 +79,12 @@ id: color-space · domain: data-graphics-algorithms · status: draft
 - Apple Wide Gamut RGB | Apple Wide Gamut (auto)
 - DJI D-Gamut | D-Gamut (auto)
 - ITU-R BT.470 | BT.470 | itur_bt_470 (auto)
+- HSI | Hue Saturation Intensity (auto)
+- Display P3 (auto)
+- CIE RGB | CIE 1931 RGB (auto)
+- CIE xyY | xyY | CIE xyY color | Yxy (auto)
+- Hunter Lab (auto)
+- P3-D65 (auto)
 
 ## Bit Flip
 - IgPgTg

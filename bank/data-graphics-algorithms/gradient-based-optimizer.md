@@ -21,17 +21,16 @@ id: gradient-based-optimizer · domain: data-graphics-algorithms · status: appr
 - Nesterov accelerated gradient | NAG | Nesterov momentum (auto)
 
 ## Memory leak
-- Conjugate gradient | CG (auto)
-- Levenberg-Marquardt | LM | damped least-squares (auto)
 - Lookahead (auto)
-- Ranger (auto)
-- SOAP (auto)
 - Apollo (auto)
+- Levenberg-Marquardt | LM | damped least-squares (auto)
 
 ## Race condition
 - BFGS | Broyden-Fletcher-Goldfarb-Shanno (auto)
 - Gauss-Newton | Gauss-Newton algorithm (auto)
 - LARS | Layer-wise Adaptive Rate Scaling (auto)
+- Ranger (auto)
+- Conjugate gradient | CG (auto)
 
 ## Heisenbug
 - Schedule-Free AdamW (auto)
@@ -71,6 +70,7 @@ id: gradient-based-optimizer · domain: data-graphics-algorithms · status: appr
 - AdaBound (auto)
 - Yogi (auto)
 - natural gradient | Natural gradient descent | NGD (auto)
+- SOAP (auto)
 
 ## Bit Flip
 - Shampoo

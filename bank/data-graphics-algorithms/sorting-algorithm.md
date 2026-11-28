@@ -28,6 +28,9 @@ id: sorting-algorithm · domain: data-graphics-algorithms · status: approved
 - introsort | introspective sort
 - cocktail shaker sort | cocktail sort | shaker sort | bidirectional bubble sort
 - comb sort
+- cycle sort (auto)
+- Powersort (auto)
+- pancake sorting | Pancake sort (auto)
 
 ## Heisenbug
 - pdqsort | pattern-defeating quicksort
@@ -37,7 +40,6 @@ id: sorting-algorithm · domain: data-graphics-algorithms · status: approved
 - slowsort (auto)
 - Batcher odd–even mergesort (auto)
 - Burstsort (auto)
-- cycle sort (auto)
 - merge-insertion sort | Ford–Johnson algorithm | merge insertion (auto)
 - tournament sort (auto)
 - oscillating merge sort | oscillating sort (auto)
@@ -51,12 +53,10 @@ id: sorting-algorithm · domain: data-graphics-algorithms · status: approved
 - swapsort (auto)
 - exchange sort (auto)
 - pairwise sorting network (auto)
-- Powersort (auto)
 - Stalin sort (auto)
 - Block sort | block merge sort (auto)
 - gnome sort (auto)
 - odd–even sort | brick sort | odd–even transposition sort | parity sort (auto)
-- pancake sorting | Pancake sort (auto)
 - stooge sort (auto)
 - pigeonhole sort (auto)
 - bead sort | gravity sort (auto)

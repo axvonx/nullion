@@ -25,14 +25,13 @@ id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 
 ## Memory leak
 - Hungarian algorithm | Kuhn-Munkres (auto)
+- Edmonds-Karp algorithm | Edmonds-Karp (auto)
 
 ## Race condition
-- Hierholzer's algorithm | Hierholzer (auto)
-- Fleury's algorithm | Fleury (auto)
-- d-separation (auto)
-- Kahn's algorithm | Kahn (auto)
-- Welsh-Powell algorithm (auto)
-- Edmonds-Karp algorithm | Edmonds-Karp (auto)
+- Kosaraju's algorithm | Kosaraju (auto)
+- push-relabel algorithm | Goldberg-Tarjan | Push-relabel (auto)
+- Louvain method (auto)
+- Karger's algorithm | Karger (auto)
 
 ## Heisenbug
 - Christofides algorithm (auto)
@@ -53,22 +52,23 @@ id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 - Hopcroft-Tarjan planarity testing (auto)
 - SPFA | Shortest Path Faster Algorithm (auto)
 - Borůvka's algorithm | Boruvka (auto)
-- Kosaraju's algorithm | Kosaraju (auto)
 - Dinic's algorithm | Dinic | Dinitz's algorithm (auto)
-- push-relabel algorithm | Goldberg-Tarjan | Push-relabel (auto)
 - Hopcroft-Karp algorithm | Hopcroft-Karp (auto)
-- Louvain method (auto)
 - IDA* (auto)
 - Edmonds' blossom algorithm | blossom algorithm (auto)
 - Johnson's algorithm | Johnson (auto)
 - Held-Karp algorithm (auto)
 - Stoer-Wagner algorithm | Stoer-Wagner (auto)
-- Karger's algorithm | Karger (auto)
 - Chu-Liu/Edmonds algorithm (auto)
 - Bron-Kerbosch algorithm | Bron-Kerbosch (auto)
 - Girvan-Newman algorithm (auto)
 - HITS algorithm (auto)
 - Lexicographic breadth-first search (auto)
+- Hierholzer's algorithm | Hierholzer (auto)
+- Fleury's algorithm | Fleury (auto)
+- d-separation (auto)
+- Kahn's algorithm | Kahn (auto)
+- Welsh-Powell algorithm (auto)
 
 ## Bit Flip
 - Gomory-Hu tree

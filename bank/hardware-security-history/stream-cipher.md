@@ -14,18 +14,7 @@ id: stream-cipher · domain: hardware-security-history · status: approved
 - One-time pad | OTP | Vernam cipher (auto)
 
 ## Memory leak
-- SNOW 3G | SNOW (auto)
-- Py (auto)
 - Turing (auto)
-- LEX (auto)
-- SEAL (auto)
-- Helix (auto)
-
-## Race condition
-- XSalsa20 (auto)
-- ChaCha8 (auto)
-- ChaCha12 (auto)
-- XChaCha20 (auto)
 
 ## Heisenbug
 - SNOW 2.0 (auto)
@@ -69,6 +58,15 @@ id: stream-cipher · domain: hardware-security-history · status: approved
 - Spritz (auto)
 - Content Scramble System | CSS cipher (auto)
 - Fruit (auto)
+- SNOW 3G | SNOW (auto)
+- SEAL (auto)
+- Helix (auto)
+- XSalsa20 (auto)
+- ChaCha8 (auto)
+- ChaCha12 (auto)
+- XChaCha20 (auto)
+- Py (auto)
+- LEX (auto)
 
 ## Bit Flip
 - Lorenz cipher | SZ40 | SZ42

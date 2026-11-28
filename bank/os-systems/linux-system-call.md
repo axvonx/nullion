@@ -110,22 +110,22 @@ id: linux-system-call · domain: os-systems · status: approved
 - syslog (auto)
 - umask (auto)
 - _sysctl (auto)
-- ipc (auto)
 - sysfs (auto)
 - stty (auto)
 - setgid (auto)
 - unshare (auto)
-
-## Race condition
-- brk (auto)
-- socketpair (auto)
 - vfork (auto)
 - getrusage (auto)
 - msgrcv (auto)
+
+## Race condition
+- socketpair (auto)
 - setitimer (auto)
 - setsid (auto)
 - sigprocmask (auto)
 - sysinfo (auto)
+- fallocate (auto)
+- tee (auto)
 
 ## Heisenbug
 - afs_syscall (auto)
@@ -256,7 +256,6 @@ id: linux-system-call · domain: os-systems · status: approved
 - eventfd (auto)
 - exit_group (auto)
 - faccessat (auto)
-- fallocate (auto)
 - fchdir (auto)
 - fchmodat (auto)
 - fchown (auto)
@@ -443,7 +442,6 @@ id: linux-system-call · domain: os-systems · status: approved
 - stime (auto)
 - sync_file_range | sync_file_range2 (auto)
 - syncfs (auto)
-- tee (auto)
 - tgkill (auto)
 - timer_getoverrun (auto)
 - timerfd_gettime (auto)
@@ -453,6 +451,8 @@ id: linux-system-call · domain: os-systems · status: approved
 - acct (auto)
 - adjtimex (auto)
 - setup (auto)
+- ipc (auto)
+- brk (auto)
 
 ## Bit Flip
 - subpage_prot

@@ -1,35 +1,35 @@
 # Scoring: dns-record-type (Name a DNS record type)
 
-64 answers (Bit Flip and Works on my machine left out); 3 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (10000, 50, None), some (3000, 20, 20) (clicks/month, Stack Exchange questions, distro families).
+64 answers (Bit Flip and Works on my machine left out); 3 routed to Haiku (Jev confidence < 0.4). Head: familiarity >= {'off-by-one': 4.4, 'npe': 2.0}. Tail by evidence: strong (5000, 30, None), some (1500, 10, 20) (clicks/month, Stack Exchange questions, distro families).
 
 | tier | new | bank today | of the new, confirmed lines that disagree |
 |---|---|---|---|
 | off-by-one | 2 (3%) | 2 | 0 |
 | npe | 8 (12%) | 8 | 0 |
-| leak | 9 (14%) | 8 | 0 |
-| race | 11 (17%) | 8 | 0 |
-| heisenbug | 34 (53%) | 38 | 0 |
+| leak | 9 (14%) | 3 | 0 |
+| race | 2 (3%) | 1 | 0 |
+| heisenbug | 43 (67%) | 50 | 0 |
 
-Same tier as today: 59/64 (92%).
+Same tier as today: 57/64 (89%).
 
 ## Off-by-one (2)
 
-A 5.4 [7848c 147q 1f], CNAME 4.5 [3802c 1740q 0f]
+A 5.4 [0c 0q 0f 0s], CNAME 4.5 [3802c 1740q 0f 0s]
 
 ## Null pointer exception (8)
 
-MX 4.3 [1166c 775q 0f], TXT 3.8 [1270c 1589q 2f], NS 3.3 [7848c 1027q 1f], PTR 3.1 [7848c 56873q 0f], AAAA 3.1 [7848c 0q 1f], SPF 2.7 [16543c 1515q 1f], SOA 2.7 [1531c 1955q 0f], SRV 2.6 [1628c 424q 1f]
+MX 4.3 [1166c 775q 0f 0s], TXT 3.8 [1270c 1589q 0f 0s], NS 3.3 [0c 1027q 0f 0s], PTR 3.1 [0c 56873q 0f 0s], AAAA 3.1 [0c 0q 1f 0s], SPF 2.7 [16543c 1515q 0f 0s], SOA 2.7 [1531c 1955q 0f 0s], SRV 2.6 [1628c 424q 1f 0s]
 
 ## Memory leak (9)
 
-HTTPS 1.6 [0c 28890q 0f], KEY 0.9 [0c 9497q 2f], LP 0.8 [0c 52q 0f], URI 0.7 [0c 6238q 1f], RT 0.6 [0c 136q 0f], WALLET 0.3 [0c 465q 1f], CDS 0.3 [0c 190q 1f], EUI48 0.2 [0c 2001q 0f], APL 0.0* [0c 364q 17f]
+HTTPS 1.6 [36764c 28890q 0f 0s], CAA 1.4 [1481c 39q 0f 0s], TLSA 0.9 [6729c 13q 0f 0s], LP 0.8 [0c 52q 0f 0s], URI 0.7 [0c 6238q 0f 0s], RT 0.6 [0c 136q 0f 0s], CDS 0.3 [0c 190q 0f 0s], EUI48 0.2 [0c 2001q 0f 0s], APL 0.0* [0c 364q 0f 0s]
 
-## Race condition (11)
+## Race condition (2)
 
-DNSKEY 1.6 [7848c 0q 0f], CAA 1.4 [1481c 39q 0f], TLSA 0.9 [6729c 13q 0f], RRSIG 0.9 [7848c 0q 0f], HIP 0.9 [0c 25q 2f], DNAME 0.9 [7848c 0q 0f], NSEC 0.8 [7848c 0q 0f], DS 0.7 [7848c 0q 2f], CERT 0.5 [0c 22q 1f], NSEC3 0.5 [7848c 0q 0f], DLV 0.4 [0c 22q 1f]
+CERT 0.5 [0c 22q 1f 0s], DLV 0.4 [0c 22q 0f 0s]
 
-## Heisenbug (34)
+## Heisenbug (43)
 
-RESINFO 1.1 [0c 0q 0f], HHIT 1.0 [0c 0q 0f], DSYNC 0.9 [0c 0q 0f], SSHFP 0.9 [531c 0q 4f], SVCB 0.9 [0c 0q 0f], TSIG 0.8 [329c 0q 0f], RP 0.8 [0c 0q 3f], OPT 0.8 [0c 3q 1f], L32 0.7 [0c 0q 0f], ISDN 0.7 [0c 6q 0f], KX 0.7 [0c 0q 0f], CSYNC 0.7 [0c 0q 0f], OPENPGPKEY 0.6 [0c 0q 0f], L64 0.6 [0c 0q 0f], CDNSKEY 0.6 [0c 0q 0f], SIG 0.5 [0c 0q 4f], SMIMEA 0.5 [0c 0q 0f], IPSECKEY 0.5 [0c 0q 0f], TKEY 0.5 [0c 0q 0f], BRID 0.5 [0c 0q 0f], DHCID 0.5 [0c 0q 0f], WKS 0.4 [0c 0q 0f], NSAP 0.4 [0c 0q 0f], AFSDB 0.4 [0c 0q 0f], EUI64 0.3 [0c 0q 0f], ZONEMD 0.3 [0c 0q 0f], AMTRELAY 0.3 [0c 0q 0f], NSEC3PARAM 0.3 [0c 0q 0f], PX 0.3 [0c 0q 4f], GPOS 0.3 [0c 0q 0f], NSAP-PTR 0.3 [0c 0q 0f], NID 0.3 [0c 0q 0f], AVC 0.0* [0c 0q 1f], NINFO 0.0* [0c 0q 0f]
+DNSKEY 1.6 [0c 0q 0f 0s], RESINFO 1.1 [0c 0q 0f 0s], HHIT 1.0 [0c 0q 0f 0s], DSYNC 0.9 [0c 0q 0f 0s], SSHFP 0.9 [531c 0q 4f 0s], RRSIG 0.9 [0c 0q 0f 0s], HIP 0.9 [0c 0q 0f 0s], SVCB 0.9 [0c 0q 0f 0s], KEY 0.9 [0c 0q 0f 0s], DNAME 0.9 [0c 0q 0f 0s], TSIG 0.8 [329c 0q 0f 0s], RP 0.8 [0c 0q 0f 0s], NSEC 0.8 [0c 0q 0f 0s], OPT 0.8 [0c 0q 0f 0s], DS 0.7 [0c 0q 0f 0s], L32 0.7 [0c 0q 0f 0s], ISDN 0.7 [0c 6q 0f 0s], KX 0.7 [0c 0q 0f 0s], CSYNC 0.7 [0c 0q 0f 0s], OPENPGPKEY 0.6 [0c 0q 0f 0s], L64 0.6 [0c 0q 0f 0s], CDNSKEY 0.6 [0c 0q 0f 0s], SIG 0.5 [0c 0q 0f 0s], SMIMEA 0.5 [0c 0q 0f 0s], IPSECKEY 0.5 [0c 0q 0f 0s], TKEY 0.5 [0c 0q 0f 0s], NSEC3 0.5 [0c 0q 0f 0s], BRID 0.5 [0c 0q 0f 0s], DHCID 0.5 [0c 0q 0f 0s], WKS 0.4 [0c 0q 0f 0s], NSAP 0.4 [0c 0q 0f 0s], AFSDB 0.4 [0c 0q 0f 0s], EUI64 0.3 [0c 0q 0f 0s], ZONEMD 0.3 [0c 0q 0f 0s], AMTRELAY 0.3 [0c 0q 0f 0s], WALLET 0.3 [0c 0q 1f 0s], NSEC3PARAM 0.3 [0c 0q 0f 0s], PX 0.3 [0c 0q 0f 0s], GPOS 0.3 [0c 0q 0f 0s], NSAP-PTR 0.3 [0c 0q 0f 0s], NID 0.3 [0c 0q 0f 0s], AVC 0.0* [0c 0q 0f 0s], NINFO 0.0* [0c 0q 0f 0s]
 
-`*` = Haiku's level (Jev's confidence was low). [clicks/month, Stack Exchange questions, distro families]
+`*` = Haiku's level (Jev's confidence was low); `^` = lifted into Null pointer exception by evidence {'clicks': 30000, 'se': 1000, 'stars': 20000}. [clicks/month, Stack Exchange questions, distro families, GitHub stars]

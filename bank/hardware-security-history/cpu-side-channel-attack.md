@@ -21,15 +21,11 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 - Spectre v2 (auto)
 
 ## Memory leak
-- Microarchitectural Data Sampling | MDS (auto)
 - PACMAN (auto)
 - Special Register Buffer Data Sampling | SRBDS | CrossTalk (auto)
-- PLATYPUS (auto)
 
 ## Race condition
-- Spectre v4 | Speculative store bypass | SSB (auto)
-- Branch target injection | BTI (auto)
-- Bounds check bypass | BCB (auto)
+- Speculative Return Stack Overflow | SRSO | Inception (auto)
 
 ## Heisenbug
 - VMSCAPE (auto)
@@ -50,7 +46,6 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 - GhostRace (auto)
 - Gather Data Sampling | Downfall | GDS (auto)
 - TSX Async Abort | TAA | TSX Asynchronous Abort (auto)
-- Speculative Return Stack Overflow | SRSO | Inception (auto)
 - Processor MMIO Stale Data | MMIO Stale Data (auto)
 - Register File Data Sampling | RFDS | reg-file-data-sampling (auto)
 - Indirect Target Selection | ITS (auto)
@@ -72,6 +67,11 @@ id: cpu-side-channel-attack · domain: hardware-security-history · status: appr
 - NetSpectre (auto)
 - TLBleed (auto)
 - PortSmash (auto)
+- PLATYPUS (auto)
+- Spectre v4 | Speculative store bypass | SSB (auto)
+- Branch target injection | BTI (auto)
+- Bounds check bypass | BCB (auto)
+- Microarchitectural Data Sampling | MDS (auto)
 
 ## Bit Flip
 - Collide+Power

@@ -24,34 +24,34 @@ id: historical-cipher · domain: hardware-security-history · status: approved
 - Polybius square | polybius | Polybius checkerboard | Polybius cipher (auto)
 
 ## Memory leak
-- Gronsfeld cipher | gronsfeld (auto)
 - Autokey cipher | autokey (auto)
+- Pigpen cipher | pigpen | Freemason cipher (auto)
+- Lorenz cipher | Lorenz machine | Lorenz SZ40 | Tunny (auto)
 
 ## Race condition
-- Pigpen cipher | pigpen | Freemason cipher (auto)
 - Baconian cipher | Bacon's cipher | Bacon cipher (auto)
-- Lorenz cipher | Lorenz machine | Lorenz SZ40 | Tunny (auto)
+- Scytale | Skytale | Spartan scytale (auto)
+- Hill cipher | Hill (auto)
+- Purple cipher | Purple machine | Angooki Taipu B (auto)
+- Book cipher | book code (auto)
 
 ## Heisenbug
 - Fractionated Morse | fracmorse | Fractionated Morse cipher (auto)
 - Porta cipher | porta (auto)
 - patristocrat (auto)
-- Scytale | Skytale | Spartan scytale (auto)
-- Hill cipher | Hill (auto)
 - Alberti cipher | Alberti disk | Alberti cipher disk (auto)
-- Purple cipher | Purple machine | Angooki Taipu B (auto)
 - Nihilist cipher | Nihilist (auto)
 - Running key cipher | running key (auto)
 - Hebern machine | Hebern rotor machine | Hebern (auto)
 - Jefferson wheel cipher | Jefferson disk | Jefferson cipher (auto)
 - Bazeries cylinder | Bazeries (auto)
 - Cardan grille | Cardano grille | grille cipher (auto)
-- Book cipher | book code (auto)
 - VIC cipher | VIC (auto)
 - ADFGX | ADFGX cipher (auto)
 - Beaufort cipher | beaufort (auto)
 - Bifid cipher | bifid (auto)
 - Four-square cipher | foursquare (auto)
+- Gronsfeld cipher | gronsfeld (auto)
 
 ## Bit Flip
 - M-209 | Hagelin M-209 | Hagelin cipher machine

@@ -33,7 +33,11 @@ id: http-status-code · domain: os-systems · status: approved
 - 304 Not Modified | 304 | Not Modified (auto)
 - 410 Gone | 410 | Gone (auto)
 
-## Memory leak
+## Race condition
+- 451 Unavailable For Legal Reasons | 451 | Unavailable For Legal Reasons (auto)
+
+## Heisenbug
+- 303 See Other | 303 | See Other (auto)
 - 101 Switching Protocols | 101 | Switching Protocols (auto)
 - 300 Multiple Choices | 300 | Multiple Choices (auto)
 - 308 Permanent Redirect | 308 | Permanent Redirect (auto)
@@ -69,10 +73,6 @@ id: http-status-code · domain: os-systems · status: approved
 - 506 Variant Also Negotiates | 506 | Variant Also Negotiates (auto)
 - 508 Loop Detected | 508 | Loop Detected (auto)
 - 510 Not Extended | 510 | Not Extended (auto)
-
-## Heisenbug
-- 303 See Other | 303 | See Other (auto)
-- 451 Unavailable For Legal Reasons | 451 | Unavailable For Legal Reasons (auto)
 
 ## Bit Flip
 - 226 IM Used | 226 | IM Used

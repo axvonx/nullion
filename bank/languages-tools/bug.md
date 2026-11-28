@@ -56,10 +56,8 @@ id: bug · domain: languages-tools · status: approved
 - integer overflow | arithmetic overflow
 - Clickjacking | UI Redress Attack | Tapjacking (auto)
 - Out-of-bounds write | memory corruption (auto)
-- Command injection | OS command injection | shell injection (auto)
 - Double-checked locking (auto)
 - Mass assignment | AutoBinding (auto)
-- XXE (auto)
 
 ## Race condition
 - TOCTOU | time-of-check to time-of-use
@@ -68,11 +66,12 @@ id: bug · domain: languages-tools · status: approved
 - Y2038 | year 2038 problem | y2k38
 - Bohrbug
 - Billion laughs attack | XML bomb | XEE (auto)
-- Deserialization of untrusted data | PHP object injection (auto)
-- Open redirect | cross-site redirect | cross-domain redirect | unvalidated redirect (auto)
 - Server-side request forgery | SSRF | XSPA (auto)
-- Higgs-bugson (auto)
 - Remote file inclusion | remote file include | RFI | local file inclusion (auto)
+- Command injection | OS command injection | shell injection (auto)
+- NoSQL injection | NoSQLi (auto)
+- Log forging (auto)
+- Confused deputy (auto)
 
 ## Heisenbug
 - Mandelbug
@@ -89,11 +88,9 @@ id: bug · domain: languages-tools · status: approved
 - Information disclosure | information leak (auto)
 - Unchecked return value (auto)
 - Resource exhaustion | uncontrolled resource consumption (auto)
-- NoSQL injection | NoSQLi (auto)
 - Insecure direct object reference | IDOR (auto)
 - Tabnabbing (auto)
 - HTTP request splitting | HTTP response splitting (auto)
-- Log forging (auto)
 - Write-what-where condition | write-what-where (auto)
 - CSV injection | formula injection | Excel macro injection (auto)
 - Buffer under-read (auto)
@@ -105,7 +102,6 @@ id: bug · domain: languages-tools · status: approved
 - Signal handler race condition (auto)
 - DLL preloading | binary planting (auto)
 - Dependency confusion (auto)
-- Confused deputy (auto)
 - HTTP request smuggling | HTTP response smuggling | HTTP smuggling (auto)
 - Reflection injection | unsafe reflection (auto)
 - HQL injection (auto)
@@ -122,6 +118,10 @@ id: bug · domain: languages-tools · status: approved
 - Intent spoofing (auto)
 - CRLF injection (auto)
 - Eval injection (auto)
+- Deserialization of untrusted data | PHP object injection (auto)
+- Open redirect | cross-site redirect | cross-domain redirect | unvalidated redirect (auto)
+- Higgs-bugson (auto)
+- XXE (auto)
 
 ## Bit Flip
 - moth | the moth

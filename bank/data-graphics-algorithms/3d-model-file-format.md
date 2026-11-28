@@ -21,27 +21,24 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
 
 ## Memory leak
 - C4D | Cinema 4D (auto)
-- X3D (auto)
 - COLLADA | DAE (auto)
-- PLY | Stanford Triangle Format | Polygon File Format (auto)
-- STEP | ISO 10303 | STP (auto)
 - USD | Universal Scene Description | USDZ | USDA | USDC (auto)
+- IrrMesh | Irr | Irrlicht (auto)
+- Q3BSP | BSP (auto)
+- 3DM | Rhino 3D | OpenNURBS (auto)
 - Alembic | ABC (auto)
 - DWG (auto)
-- AMF | Additive Manufacturing File Format (auto)
 - IFC | Industry Foundation Classes (auto)
-- IrrMesh | Irr | Irrlicht (auto)
-- MD5 | MD5mesh | id Tech 4 model (auto)
-- Q3BSP | BSP (auto)
 - PMX | PMD | MikuMikuDance (auto)
+- X3D (auto)
+- STEP | ISO 10303 | STP (auto)
+- AMF | Additive Manufacturing File Format (auto)
+- MD5 | MD5mesh | id Tech 4 model (auto)
 - MDC (auto)
-- RAW (auto)
-- ASE | ASCII Scene Exporter (auto)
-- 3DM | Rhino 3D | OpenNURBS (auto)
 
 ## Race condition
-- MA | Maya ASCII (auto)
-- MB | Maya Binary (auto)
+- Ogre XML (auto)
+- SMD | Studiomdl Data (auto)
 
 ## Heisenbug
 - Assbin (auto)
@@ -69,10 +66,13 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
 - MS3D | MilkShape 3D (auto)
 - OFF | Object File Format (auto)
 - OpenGEX | OGEX | Open Game Engine Exchange (auto)
-- SMD | Studiomdl Data (auto)
-- Ogre XML (auto)
 - TER | Terragen (auto)
 - Unreal 3D (auto)
+- PLY | Stanford Triangle Format | Polygon File Format (auto)
+- RAW (auto)
+- ASE | ASCII Scene Exporter (auto)
+- MA | Maya ASCII (auto)
+- MB | Maya Binary (auto)
 
 ## Bit Flip
 - NDO | Nendo

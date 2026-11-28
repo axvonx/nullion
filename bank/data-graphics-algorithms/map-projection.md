@@ -17,22 +17,20 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 - Web Mercator | Pseudo-Mercator | Spherical Mercator | EPSG:3857 (auto)
 - Transverse Mercator | Gauss-Kruger (auto)
 - Universal Transverse Mercator | UTM (auto)
+- Equal Earth projection | eqearth | Equal Earth (auto)
 
 ## Memory leak
-- Equal Earth projection | eqearth | Equal Earth (auto)
 - Gall-Peters | Peters projection | Peters (auto)
 - Cassini | Cassini-Soldner (auto)
 - Geostationary satellite view projection | geos (auto)
-- Space Oblique Mercator projection | som (auto)
-- Transverse Central Cylindrical projection | tcc (auto)
+- Robinson projection | robin | Robinson (auto)
 
 ## Race condition
-- Robinson projection | robin | Robinson (auto)
 - Winkel tripel | Winkel III (auto)
-- Azimuthal equidistant projection | aeqd (auto)
-- Azimuthal equidistant (auto)
-- Dymaxion | Fuller projection | Fuller (auto)
 - Miller cylindrical | Miller (auto)
+- Gnomonic projection | gnom | Gnomonic (auto)
+- Lambert conformal conic projection | lcc | Lambert conformal conic (auto)
+- Mollweide projection | Mollweide (auto)
 
 ## Heisenbug
 - Adams projection | adams | Adams hemisphere-in-a-square projection (auto)
@@ -102,10 +100,8 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 - Albers equal-area conic | aea | Albers equal-area conic projection | Albers | Albers projection (auto)
 - Cylindrical equal-area projection | cea (auto)
 - Sinusoidal projection | gn_sinu (auto)
-- Gnomonic projection | gnom | Gnomonic (auto)
 - Goode homolosine projection | goode | igh | igh_o (auto)
 - Lambert azimuthal equal-area projection | laea | Lambert azimuthal equal-area (auto)
-- Lambert conformal conic projection | lcc | Lambert conformal conic (auto)
 - Miller cylindrical projection | mill (auto)
 - Sinusoidal | Sanson-Flamsteed (auto)
 - Goode homolosine | interrupted Goode homolosine | Goode's homolosine (auto)
@@ -123,7 +119,6 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 - Oblique Mercator projection | omerc (auto)
 - Polyconic projection | poly | American polyconic projection (auto)
 - Van der Grinten projection | vandg (auto)
-- Mollweide projection | Mollweide (auto)
 - Aitoff projection | aitoff (auto)
 - Cassini projection | cass | Cassini-Soldner projection (auto)
 - Central cylindrical projection (auto)
@@ -139,6 +134,11 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 - Simple conic projection (auto)
 - S2 projection (auto)
 - HEALPix projection | healpix (auto)
+- Azimuthal equidistant projection | aeqd (auto)
+- Azimuthal equidistant (auto)
+- Dymaxion | Fuller projection | Fuller (auto)
+- Space Oblique Mercator projection | som (auto)
+- Transverse Central Cylindrical projection | tcc (auto)
 
 ## Bit Flip
 - Spilhaus world ocean projection | spilhaus | Spilhaus projection

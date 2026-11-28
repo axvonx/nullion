@@ -35,17 +35,15 @@ id: scheduling-algorithm · domain: os-systems · status: draft
 - Backfilling (auto)
 
 ## Memory leak
-- Deadline-monotonic scheduling | DMS | deadline monotonic (auto)
-- Dominant resource fairness | DRF (auto)
-- CAKE | sch_cake (auto)
-- Stack resource policy | SRP (auto)
-- Energy aware scheduling | EAS (auto)
-- Enhanced Transmission Selection | ETS | sch_ets (auto)
 - Tetris (auto)
 - Cilk (auto)
 
 ## Race condition
-- Hierarchical token bucket | HTB | sch_htb (auto)
+- scx_rusty (auto)
+- scx_bpfland (auto)
+- scx_lavd (auto)
+- scx_layered (auto)
+- SCHED_DEADLINE (auto)
 
 ## Heisenbug
 - Proportional-fair scheduling (auto)
@@ -66,13 +64,9 @@ id: scheduling-algorithm · domain: os-systems · status: draft
 - TAPRIO | sch_taprio (auto)
 - Heterogeneous earliest finish time | HEFT (auto)
 - YDS algorithm (auto)
-- scx_rusty (auto)
-- scx_bpfland (auto)
 - scx_cake (auto)
 - scx_chaos (auto)
 - scx_cosmos (auto)
-- scx_lavd (auto)
-- scx_layered (auto)
 - scx_mitosis (auto)
 - scx_p2dq (auto)
 - scx_pandemonium (auto)
@@ -102,7 +96,6 @@ id: scheduling-algorithm · domain: os-systems · status: draft
 - Deficit Weighted Round Robin (auto)
 - Credit Scheduler (auto)
 - Gang scheduling | Coscheduling | gang (auto)
-- SCHED_DEADLINE (auto)
 - Deficit round robin | DRR (auto)
 - Proportional share scheduling | Fair-share scheduling | fair share (auto)
 - Completely fair queueing | CFQ | completely fair queuing (auto)
@@ -125,6 +118,13 @@ id: scheduling-algorithm · domain: os-systems · status: draft
 - Multifit algorithm | MULTIFIT (auto)
 - GMP scheduler (auto)
 - Global EDF (auto)
+- CAKE | sch_cake (auto)
+- Deadline-monotonic scheduling | DMS | deadline monotonic (auto)
+- Dominant resource fairness | DRF (auto)
+- Stack resource policy | SRP (auto)
+- Energy aware scheduling | EAS (auto)
+- Enhanced Transmission Selection | ETS | sch_ets (auto)
+- Hierarchical token bucket | HTB | sch_htb (auto)
 
 ## Bit Flip
 - Interleaved polling with adaptive cycle time | IPACT

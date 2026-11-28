@@ -35,31 +35,29 @@ id: filesystem · domain: os-systems · status: approved
 - EFS (auto)
 
 ## Memory leak
-- UDF | udfs | Universal Disk Format (auto)
-- Coda (auto)
 - SquashFS (auto)
 - autofs (auto)
 - ReFS | Resilient File System (auto)
 - Minix FS | minix (auto)
 - GlusterFS | Gluster (auto)
 - ADFS | filecorefs (auto)
-- BeFS | bfs (auto)
 - eCryptfs (auto)
 - unionfs | union (auto)
-- Fossil (auto)
 - OCFS2 (auto)
 - Lustre (auto)
 - UBIFS (auto)
+- CephFS (auto)
+- debugfs (auto)
+- JFFS2 (auto)
 
 ## Race condition
 - GFS2 (auto)
-- JFS | Journaled File System (auto)
-- HAMMER (auto)
-- AFS | Andrew File System (auto)
-- CephFS (auto)
-- debugfs (auto)
 - F2FS | Flash-Friendly File System (auto)
-- JFFS2 (auto)
+- Fossil (auto)
+- 9P | v9fs | p9fs (auto)
+- bcachefs (auto)
+- UDF | udfs | Universal Disk Format (auto)
+- BeFS | bfs (auto)
 
 ## Heisenbug
 - ntfs3 (auto)
@@ -75,7 +73,6 @@ id: filesystem · domain: os-systems · status: approved
 - ROMFS (auto)
 - zonefs (auto)
 - NILFS2 | nilfs (auto)
-- 9P | v9fs | p9fs (auto)
 - hostfs (auto)
 - OpenPROM FS | openpromfs (auto)
 - pstore (auto)
@@ -101,7 +98,6 @@ id: filesystem · domain: os-systems · status: approved
 - packagefs (auto)
 - websearchfs (auto)
 - tapefs (auto)
-- bcachefs (auto)
 - WAFL | Write Anywhere File Layout (auto)
 - devpts (auto)
 - ramfs (auto)
@@ -114,6 +110,10 @@ id: filesystem · domain: os-systems · status: approved
 - GPFS | IBM Spectrum Scale | Spectrum Scale (auto)
 - bindfs (auto)
 - cramfs (auto)
+- Coda (auto)
+- HAMMER (auto)
+- JFS | Journaled File System (auto)
+- AFS | Andrew File System (auto)
 
 ## Bit Flip
 - spufs
