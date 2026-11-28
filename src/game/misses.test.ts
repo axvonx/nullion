@@ -53,7 +53,11 @@ describe('missed-guesses log', () => {
 
   it('drops the oldest past the cap, and reports (and clears) a log it cannot read', () => {
     const s = new MemStorage();
-    for (let i = 0; i < MAX_MISSES + 3; i++) recordMiss(s, { q: 'q', prompt: 'p', guess: `g${i}`, at: i });
+    // A full log (written directly: recording 5,000 one by one rewrites the log each time), then three more.
+    const full = Array.from({ length: MAX_MISSES }, (_, i) => ({ q: 'q', prompt: 'p', guess: `g${i}`, n: 1, at: i }));
+    s.setItem('nullion.debug.misses', JSON.stringify(full));
+    s.setItem('nullion.misses', JSON.stringify(full));
+    for (let i = MAX_MISSES; i < MAX_MISSES + 3; i++) recordMiss(s, { q: 'q', prompt: 'p', guess: `g${i}`, at: i });
     const l = loadMisses(s);
     expect(l.kind === 'ok' && [l.misses.length, l.misses[0]!.guess]).toEqual([MAX_MISSES, 'g3']);
     for (const k of s.m.keys()) s.m.set(k, '{nope');
