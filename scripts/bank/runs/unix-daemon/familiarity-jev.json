@@ -1,0 +1,4818 @@
+{
+ "cron": {
+  "score": 4.68,
+  "confidence": 0.66
+ },
+ "sendmail": {
+  "score": 3.59,
+  "confidence": 0.6
+ },
+ "syslogd": {
+  "score": 3.52,
+  "confidence": 0.62
+ },
+ "sshd": {
+  "score": 4.6,
+  "confidence": 0.62
+ },
+ "httpd": {
+  "score": 4.83,
+  "confidence": 0.68
+ },
+ "nginx": {
+  "score": 4.48,
+  "confidence": 0.65
+ },
+ "systemd": {
+  "score": 3.22,
+  "confidence": 0.49
+ },
+ "init": {
+  "score": 4.27,
+  "confidence": 0.6
+ },
+ "openvpn": {
+  "score": 2.49,
+  "confidence": 0.65
+ },
+ "pulseaudio": {
+  "score": 2.68,
+  "confidence": 0.54
+ },
+ "prometheus": {
+  "score": 3.27,
+  "confidence": 0.58
+ },
+ "haproxy": {
+  "score": 2.89,
+  "confidence": 0.7
+ },
+ "lighttpd": {
+  "score": 1.98,
+  "confidence": 0.66
+ },
+ "keyboxd": {
+  "score": 1.24,
+  "confidence": 0.7
+ },
+ "mosquitto": {
+  "score": 1.65,
+  "confidence": 0.62
+ },
+ "apache2": {
+  "score": 3.93,
+  "confidence": 0.41
+ },
+ "dnsmasq": {
+  "score": 2.37,
+  "confidence": 0.62
+ },
+ "nfsd": {
+  "score": 2.35,
+  "confidence": 0.64
+ },
+ "tftpd": {
+  "score": 2.17,
+  "confidence": 0.54
+ },
+ "unbound": {
+  "score": 1.59,
+  "confidence": 0.61
+ },
+ "named": {
+  "score": 3.21,
+  "confidence": 0.7
+ },
+ "xinetd": {
+  "score": 2.38,
+  "confidence": 0.62
+ },
+ "atd": {
+  "score": 2.25,
+  "confidence": 0.56
+ },
+ "lpd": {
+  "score": 2.7,
+  "confidence": 0.66
+ },
+ "cupsd": {
+  "score": 2.82,
+  "confidence": 0.71
+ },
+ "ntpd": {
+  "score": 3.09,
+  "confidence": 0.76
+ },
+ "chronyd": {
+  "score": 2.48,
+  "confidence": 0.68
+ },
+ "dhcpd": {
+  "score": 2.65,
+  "confidence": 0.72
+ },
+ "smbd": {
+  "score": 2.65,
+  "confidence": 0.71
+ },
+ "mysqld": {
+  "score": 4.35,
+  "confidence": 0.6
+ },
+ "postgres": {
+  "score": 3.84,
+  "confidence": 0.4
+ },
+ "redis-server": {
+  "score": 3.36,
+  "confidence": 0.48
+ },
+ "memcached": {
+  "score": 3.06,
+  "confidence": 0.6
+ },
+ "dockerd": {
+  "score": 3.64,
+  "confidence": 0.3
+ },
+ "rsyslogd": {
+  "score": 2.95,
+  "confidence": 0.7
+ },
+ "dovecot": {
+  "score": 2.3,
+  "confidence": 0.6
+ },
+ "exim": {
+  "score": 2.19,
+  "confidence": 0.54
+ },
+ "vsftpd": {
+  "score": 2.77,
+  "confidence": 0.72
+ },
+ "telnetd": {
+  "score": 3.15,
+  "confidence": 0.63
+ },
+ "avahi-daemon": {
+  "score": 1.95,
+  "confidence": 0.66
+ },
+ "dbus-daemon": {
+  "score": 2.59,
+  "confidence": 0.62
+ },
+ "acpid": {
+  "score": 1.68,
+  "confidence": 0.6
+ },
+ "launchd": {
+  "score": 2.31,
+  "confidence": 0.54
+ },
+ "Postfix": {
+  "score": 2.75,
+  "confidence": 0.73
+ },
+ "freeradius": {
+  "score": 1.44,
+  "confidence": 0.64
+ },
+ "ejabberd": {
+  "score": 1.45,
+  "confidence": 0.7
+ },
+ "lightdm": {
+  "score": 2.24,
+  "confidence": 0.56
+ },
+ "preload": {
+  "score": 1.22,
+  "confidence": 0.62
+ },
+ "monit": {
+  "score": 2.0,
+  "confidence": 0.44
+ },
+ "prometheus-node-exporter": {
+  "score": 2.04,
+  "confidence": 0.47
+ },
+ "docker-registry": {
+  "score": 2.14,
+  "confidence": 0.39
+ },
+ "xrdp": {
+  "score": 1.72,
+  "confidence": 0.61
+ },
+ "gpg-agent": {
+  "score": 1.74,
+  "confidence": 0.56
+ },
+ "slim": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "sddm": {
+  "score": 1.64,
+  "confidence": 0.61
+ },
+ "corosync": {
+  "score": 1.25,
+  "confidence": 0.68
+ },
+ "keepalived": {
+  "score": 1.98,
+  "confidence": 0.48
+ },
+ "opendkim": {
+  "score": 1.54,
+  "confidence": 0.62
+ },
+ "plymouth": {
+  "score": 1.12,
+  "confidence": 0.68
+ },
+ "lxc-monitord": {
+  "score": 1.13,
+  "confidence": 0.68
+ },
+ "ssh-agent": {
+  "score": 2.58,
+  "confidence": 0.5
+ },
+ "mpd": {
+  "score": 2.3,
+  "confidence": 0.54
+ },
+ "etcd": {
+  "score": 2.04,
+  "confidence": 0.62
+ },
+ "sssd": {
+  "score": 1.79,
+  "confidence": 0.52
+ },
+ "gpsd": {
+  "score": 1.27,
+  "confidence": 0.74
+ },
+ "wpa_supplicant": {
+  "score": 1.76,
+  "confidence": 0.57
+ },
+ "coturn": {
+  "score": 0.9,
+  "confidence": 0.71
+ },
+ "pgbouncer": {
+  "score": 1.63,
+  "confidence": 0.62
+ },
+ "containerd": {
+  "score": 2.34,
+  "confidence": 0.57
+ },
+ "snmpd": {
+  "score": 2.32,
+  "confidence": 0.64
+ },
+ "winbind": {
+  "score": 1.45,
+  "confidence": 0.64
+ },
+ "privoxy": {
+  "score": 1.85,
+  "confidence": 0.54
+ },
+ "xscreensaver": {
+  "score": 1.98,
+  "confidence": 0.48
+ },
+ "beanstalkd": {
+  "score": 1.45,
+  "confidence": 0.68
+ },
+ "prometheus-alertmanager": {
+  "score": 2.15,
+  "confidence": 0.5
+ },
+ "pure-ftpd": {
+  "score": 1.94,
+  "confidence": 0.5
+ },
+ "gdm3": {
+  "score": 2.41,
+  "confidence": 0.6
+ },
+ "pppd": {
+  "score": 1.94,
+  "confidence": 0.48
+ },
+ "collectd": {
+  "score": 1.58,
+  "confidence": 0.6
+ },
+ "syncthing": {
+  "score": 1.95,
+  "confidence": 0.64
+ },
+ "slapd": {
+  "score": 1.35,
+  "confidence": 0.62
+ },
+ "libvirtd": {
+  "score": 1.81,
+  "confidence": 0.55
+ },
+ "rspamd": {
+  "score": 1.41,
+  "confidence": 0.67
+ },
+ "redis-sentinel": {
+  "score": 1.54,
+  "confidence": 0.66
+ },
+ "icinga2": {
+  "score": 1.8,
+  "confidence": 0.56
+ },
+ "hostapd": {
+  "score": 1.21,
+  "confidence": 0.74
+ },
+ "kamailio": {
+  "score": 0.64,
+  "confidence": 0.7
+ },
+ "nsd": {
+  "score": 1.42,
+  "confidence": 0.52
+ },
+ "pptpd": {
+  "score": 1.88,
+  "confidence": 0.52
+ },
+ "suricata": {
+  "score": 1.53,
+  "confidence": 0.64
+ },
+ "shiny-server": {
+  "score": 0.81,
+  "confidence": 0.78
+ },
+ "gnome-keyring-daemon": {
+  "score": 1.64,
+  "confidence": 0.64
+ },
+ "prometheus-blackbox-exporter": {
+  "score": 1.64,
+  "confidence": 0.55
+ },
+ "speech-dispatcher": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "pgpool": {
+  "score": 0.82,
+  "confidence": 0.77
+ },
+ "distcc": {
+  "score": 1.31,
+  "confidence": 0.67
+ },
+ "ipmievd": {
+  "score": 0.76,
+  "confidence": 0.63
+ },
+ "systemd-networkd": {
+  "score": 2.2,
+  "confidence": 0.52
+ },
+ "wdm": {
+  "score": 0.77,
+  "confidence": 0.6
+ },
+ "proftpd": {
+  "score": 2.39,
+  "confidence": 0.61
+ },
+ "lxd": {
+  "score": 1.75,
+  "confidence": 0.54
+ },
+ "lsyncd": {
+  "score": 1.19,
+  "confidence": 0.72
+ },
+ "radvd": {
+  "score": 0.9,
+  "confidence": 0.7
+ },
+ "netatalk": {
+  "score": 0.79,
+  "confidence": 0.73
+ },
+ "wireplumber": {
+  "score": 0.87,
+  "confidence": 0.72
+ },
+ "prometheus-pushgateway": {
+  "score": 1.19,
+  "confidence": 0.68
+ },
+ "apcupsd": {
+  "score": 1.07,
+  "confidence": 0.72
+ },
+ "powerline-daemon": {
+  "score": 0.83,
+  "confidence": 0.58
+ },
+ "systemd-resolved": {
+  "score": 2.11,
+  "confidence": 0.62
+ },
+ "saslauthd": {
+  "score": 1.36,
+  "confidence": 0.65
+ },
+ "zabbix_agentd": {
+  "score": 1.82,
+  "confidence": 0.55
+ },
+ "InternetSharing": {
+  "score": 0.96,
+  "confidence": 0.52
+ },
+ "snmptrapd": {
+  "score": 1.52,
+  "confidence": 0.63
+ },
+ "opensmtpd": {
+  "score": 1.32,
+  "confidence": 0.72
+ },
+ "gpm": {
+  "score": 1.3,
+  "confidence": 0.66
+ },
+ "fwupd": {
+  "score": 1.09,
+  "confidence": 0.72
+ },
+ "ibus-daemon": {
+  "score": 0.93,
+  "confidence": 0.76
+ },
+ "getty": {
+  "score": 2.35,
+  "confidence": 0.6
+ },
+ "transmission-daemon": {
+  "score": 1.8,
+  "confidence": 0.56
+ },
+ "realmd": {
+  "score": 1.06,
+  "confidence": 0.67
+ },
+ "systemd-timesyncd": {
+  "score": 1.92,
+  "confidence": 0.5
+ },
+ "victoria-metrics": {
+  "score": 1.42,
+  "confidence": 0.61
+ },
+ "mds": {
+  "score": 1.14,
+  "confidence": 0.46
+ },
+ "upower": {
+  "score": 1.29,
+  "confidence": 0.7
+ },
+ "kdamond": {
+  "score": 0.8,
+  "confidence": 0.6
+ },
+ "opendmarc": {
+  "score": 1.07,
+  "confidence": 0.72
+ },
+ "smtpd": {
+  "score": 2.88,
+  "confidence": 0.74
+ },
+ "incrond": {
+  "score": 0.79,
+  "confidence": 0.73
+ },
+ "logind": {
+  "score": 2.72,
+  "confidence": 0.64
+ },
+ "iwd": {
+  "score": 0.88,
+  "confidence": 0.74
+ },
+ "connmand": {
+  "score": 1.06,
+  "confidence": 0.72
+ },
+ "sympa": {
+  "score": 1.06,
+  "confidence": 0.66
+ },
+ "lxdm": {
+  "score": 1.78,
+  "confidence": 0.53
+ },
+ "power-profiles-daemon": {
+  "score": 1.12,
+  "confidence": 0.72
+ },
+ "notify-osd": {
+  "score": 1.2,
+  "confidence": 0.72
+ },
+ "packagekitd": {
+  "score": 1.44,
+  "confidence": 0.68
+ },
+ "xfce4-notifyd": {
+  "score": 0.78,
+  "confidence": 0.78
+ },
+ "openntpd": {
+  "score": 2.09,
+  "confidence": 0.48
+ },
+ "psad": {
+  "score": 0.56,
+  "confidence": 0.72
+ },
+ "xsettingsd": {
+  "score": 0.72,
+  "confidence": 0.72
+ },
+ "epmd": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "tor": {
+  "score": 2.7,
+  "confidence": 0.49
+ },
+ "prometheus-postgres-exporter": {
+  "score": 1.03,
+  "confidence": 0.7
+ },
+ "fprintd": {
+  "score": 1.13,
+  "confidence": 0.6
+ },
+ "rasdaemon": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "ocserv": {
+  "score": 1.01,
+  "confidence": 0.74
+ },
+ "tincd": {
+  "score": 1.1,
+  "confidence": 0.73
+ },
+ "kdc": {
+  "score": 1.53,
+  "confidence": 0.58
+ },
+ "mate-settings-daemon": {
+  "score": 0.62,
+  "confidence": 0.69
+ },
+ "ipp-usb": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "usbguard": {
+  "score": 0.89,
+  "confidence": 0.72
+ },
+ "v2ray": {
+  "score": 1.4,
+  "confidence": 0.66
+ },
+ "jackd": {
+  "score": 0.69,
+  "confidence": 0.72
+ },
+ "xdm": {
+  "score": 2.25,
+  "confidence": 0.53
+ },
+ "haveged": {
+  "score": 0.98,
+  "confidence": 0.71
+ },
+ "ModemManager": {
+  "score": 1.34,
+  "confidence": 0.69
+ },
+ "seatd": {
+  "score": 0.54,
+  "confidence": 0.74
+ },
+ "irqbalance": {
+  "score": 1.41,
+  "confidence": 0.63
+ },
+ "imapd": {
+  "score": 1.92,
+  "confidence": 0.52
+ },
+ "dunst": {
+  "score": 1.38,
+  "confidence": 0.72
+ },
+ "caddy": {
+  "score": 2.48,
+  "confidence": 0.45
+ },
+ "dirmngr": {
+  "score": 0.9,
+  "confidence": 0.7
+ },
+ "lxcfs": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "dnsdist": {
+  "score": 0.94,
+  "confidence": 0.74
+ },
+ "jabberd": {
+  "score": 1.14,
+  "confidence": 0.74
+ },
+ "squid": {
+  "score": 2.83,
+  "confidence": 0.75
+ },
+ "knockd": {
+  "score": 0.75,
+  "confidence": 0.72
+ },
+ "certmonger": {
+  "score": 1.31,
+  "confidence": 0.65
+ },
+ "swupdate": {
+  "score": 0.52,
+  "confidence": 0.74
+ },
+ "pipewire-pulse": {
+  "score": 1.32,
+  "confidence": 0.68
+ },
+ "tinydns": {
+  "score": 1.24,
+  "confidence": 0.68
+ },
+ "ksmd": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "dmeventd": {
+  "score": 0.93,
+  "confidence": 0.7
+ },
+ "thermald": {
+  "score": 1.02,
+  "confidence": 0.7
+ },
+ "greetd": {
+  "score": 0.8,
+  "confidence": 0.7
+ },
+ "lldpd": {
+  "score": 0.75,
+  "confidence": 0.63
+ },
+ "inspircd": {
+  "score": 1.58,
+  "confidence": 0.52
+ },
+ "cyrus-imapd": {
+  "score": 1.52,
+  "confidence": 0.62
+ },
+ "earlyoom": {
+  "score": 0.91,
+  "confidence": 0.74
+ },
+ "pcscd": {
+  "score": 0.67,
+  "confidence": 0.68
+ },
+ "usbmuxd": {
+  "score": 0.73,
+  "confidence": 0.74
+ },
+ "watchdog": {
+  "score": 2.32,
+  "confidence": 0.27
+ },
+ "arpwatch": {
+  "score": 1.67,
+  "confidence": 0.6
+ },
+ "avahi-autoipd": {
+  "score": 0.9,
+  "confidence": 0.72
+ },
+ "prometheus-process-exporter": {
+  "score": 1.48,
+  "confidence": 0.62
+ },
+ "prosody": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "tpm2-abrmd": {
+  "score": 0.31,
+  "confidence": 0.84
+ },
+ "dictd": {
+  "score": 1.4,
+  "confidence": 0.64
+ },
+ "brltty": {
+  "score": 0.72,
+  "confidence": 0.64
+ },
+ "dnscrypt-proxy": {
+  "score": 1.45,
+  "confidence": 0.68
+ },
+ "munge": {
+  "score": 0.64,
+  "confidence": 0.7
+ },
+ "at-spi2-registryd": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "rygel": {
+  "score": 0.39,
+  "confidence": 0.8
+ },
+ "rtkit-daemon": {
+  "score": 0.97,
+  "confidence": 0.7
+ },
+ "minissdpd": {
+  "score": 0.76,
+  "confidence": 0.7
+ },
+ "thinkfan": {
+  "score": 0.72,
+  "confidence": 0.74
+ },
+ "dbus-broker": {
+  "score": 1.23,
+  "confidence": 0.66
+ },
+ "ircd": {
+  "score": 2.57,
+  "confidence": 0.6
+ },
+ "colord": {
+  "score": 1.2,
+  "confidence": 0.6
+ },
+ "klogd": {
+  "score": 1.81,
+  "confidence": 0.52
+ },
+ "mountd": {
+  "score": 1.78,
+  "confidence": 0.52
+ },
+ "nscd": {
+  "score": 1.58,
+  "confidence": 0.61
+ },
+ "rpcbind": {
+  "score": 2.19,
+  "confidence": 0.55
+ },
+ "ypbind": {
+  "score": 1.36,
+  "confidence": 0.63
+ },
+ "ypserv": {
+  "score": 1.32,
+  "confidence": 0.64
+ },
+ "tcpd": {
+  "score": 2.29,
+  "confidence": 0.56
+ },
+ "kswapd": {
+  "score": 1.16,
+  "confidence": 0.61
+ },
+ "udevd": {
+  "score": 2.28,
+  "confidence": 0.57
+ },
+ "syslog-ng": {
+  "score": 2.46,
+  "confidence": 0.64
+ },
+ "NetworkManager": {
+  "score": 2.74,
+  "confidence": 0.56
+ },
+ "PipeWire": {
+  "score": 1.64,
+  "confidence": 0.59
+ },
+ "webdis": {
+  "score": 0.81,
+  "confidence": 0.7
+ },
+ "notification-daemon": {
+  "score": 1.46,
+  "confidence": 0.62
+ },
+ "feedbackd": {
+  "score": 0.82,
+  "confidence": 0.6
+ },
+ "crowdsec": {
+  "score": 1.63,
+  "confidence": 0.62
+ },
+ "zfs-fuse": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "ptpd": {
+  "score": 0.68,
+  "confidence": 0.67
+ },
+ "clamav-daemon": {
+  "score": 1.76,
+  "confidence": 0.57
+ },
+ "nats-server": {
+  "score": 1.08,
+  "confidence": 0.72
+ },
+ "gerbera": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "sshguard": {
+  "score": 1.26,
+  "confidence": 0.74
+ },
+ "motion": {
+  "score": 1.22,
+  "confidence": 0.41
+ },
+ "i2pd": {
+  "score": 0.44,
+  "confidence": 0.8
+ },
+ "fastnetmon": {
+  "score": 0.67,
+  "confidence": 0.68
+ },
+ "mbpfan": {
+  "score": 0.6,
+  "confidence": 0.72
+ },
+ "rrdcached": {
+  "score": 1.17,
+  "confidence": 0.7
+ },
+ "znc": {
+  "score": 1.26,
+  "confidence": 0.76
+ },
+ "spice-vdagent": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "varnishncsa": {
+  "score": 0.93,
+  "confidence": 0.74
+ },
+ "espeakup": {
+  "score": 0.57,
+  "confidence": 0.73
+ },
+ "apt-cacher-ng": {
+  "score": 1.69,
+  "confidence": 0.57
+ },
+ "uptimed": {
+  "score": 1.4,
+  "confidence": 0.64
+ },
+ "adbd": {
+  "score": 1.64,
+  "confidence": 0.17
+ },
+ "iodine": {
+  "score": 0.6,
+  "confidence": 0.69
+ },
+ "fapolicyd": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "dlt-daemon": {
+  "score": 0.29,
+  "confidence": 0.88
+ },
+ "dnscache": {
+  "score": 2.42,
+  "confidence": 0.5
+ },
+ "ledmon": {
+  "score": 0.51,
+  "confidence": 0.74
+ },
+ "keyd": {
+  "score": 0.47,
+  "confidence": 0.8
+ },
+ "fcgiwrap": {
+  "score": 1.06,
+  "confidence": 0.74
+ },
+ "accounts-daemon": {
+  "score": 0.98,
+  "confidence": 0.75
+ },
+ "opensm": {
+  "score": 0.6,
+  "confidence": 0.72
+ },
+ "cdemu-daemon": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "powerman": {
+  "score": 0.75,
+  "confidence": 0.62
+ },
+ "ser2net": {
+  "score": 0.8,
+  "confidence": 0.74
+ },
+ "leafnode": {
+  "score": 1.01,
+  "confidence": 0.7
+ },
+ "sslh": {
+  "score": 0.92,
+  "confidence": 0.76
+ },
+ "burp": {
+  "score": 1.52,
+  "confidence": 0.22
+ },
+ "vdr": {
+  "score": 0.65,
+  "confidence": 0.67
+ },
+ "bitlbee": {
+  "score": 0.76,
+  "confidence": 0.78
+ },
+ "shairport-sync": {
+  "score": 1.45,
+  "confidence": 0.7
+ },
+ "nsca": {
+  "score": 1.08,
+  "confidence": 0.62
+ },
+ "miredo": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "nslcd": {
+  "score": 1.09,
+  "confidence": 0.7
+ },
+ "bird": {
+  "score": 1.87,
+  "confidence": 0.48
+ },
+ "milter-greylist": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "darkstat": {
+  "score": 0.98,
+  "confidence": 0.75
+ },
+ "miniflux": {
+  "score": 1.12,
+  "confidence": 0.76
+ },
+ "c-icap": {
+  "score": 0.52,
+  "confidence": 0.74
+ },
+ "pound": {
+  "score": 2.95,
+  "confidence": 0.5
+ },
+ "bamfdaemon": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "ksmbd": {
+  "score": 1.16,
+  "confidence": 0.66
+ },
+ "unscd": {
+  "score": 1.63,
+  "confidence": 0.5
+ },
+ "mini-httpd": {
+  "score": 1.27,
+  "confidence": 0.65
+ },
+ "evinced": {
+  "score": 0.45,
+  "confidence": 0.77
+ },
+ "numad": {
+  "score": 0.57,
+  "confidence": 0.71
+ },
+ "hdapsd": {
+  "score": 1.16,
+  "confidence": 0.42
+ },
+ "smcroute": {
+  "score": 0.51,
+  "confidence": 0.75
+ },
+ "ngircd": {
+  "score": 1.34,
+  "confidence": 0.68
+ },
+ "ksmtuned": {
+  "score": 0.88,
+  "confidence": 0.68
+ },
+ "fnott": {
+  "score": 1.84,
+  "confidence": 0.1
+ },
+ "corosync-qdevice": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "gssproxy": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "seahorse-daemon": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "wsdd2": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "tayga": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "swapspace": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "snapd": {
+  "score": 2.19,
+  "confidence": 0.54
+ },
+ "sudo_logsrvd": {
+  "score": 0.48,
+  "confidence": 0.78
+ },
+ "tracd": {
+  "score": 1.19,
+  "confidence": 0.42
+ },
+ "spamass-milter": {
+  "score": 1.41,
+  "confidence": 0.67
+ },
+ "crowdsec-firewall-bouncer": {
+  "score": 0.78,
+  "confidence": 0.72
+ },
+ "rinetd": {
+  "score": 1.3,
+  "confidence": 0.64
+ },
+ "pure-ftpd-mysql": {
+  "score": 0.84,
+  "confidence": 0.68
+ },
+ "tntnet": {
+  "score": 1.3,
+  "confidence": 0.56
+ },
+ "samhain": {
+  "score": 1.04,
+  "confidence": 0.63
+ },
+ "socklog": {
+  "score": 1.01,
+  "confidence": 0.7
+ },
+ "popa3d": {
+  "score": 1.41,
+  "confidence": 0.57
+ },
+ "redsocks": {
+  "score": 0.72,
+  "confidence": 0.63
+ },
+ "yubikey-touch-detector": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "rbldnsd": {
+  "score": 0.96,
+  "confidence": 0.68
+ },
+ "upowerd": {
+  "score": 1.16,
+  "confidence": 0.7
+ },
+ "portsentry": {
+  "score": 1.13,
+  "confidence": 0.72
+ },
+ "saned": {
+  "score": 0.9,
+  "confidence": 0.7
+ },
+ "ndppd": {
+  "score": 0.46,
+  "confidence": 0.79
+ },
+ "mpdscribble": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "systemd-localed": {
+  "score": 1.12,
+  "confidence": 0.7
+ },
+ "systemd-logind": {
+  "score": 2.37,
+  "confidence": 0.57
+ },
+ "v86d": {
+  "score": 0.52,
+  "confidence": 0.74
+ },
+ "ntfy": {
+  "score": 0.94,
+  "confidence": 0.71
+ },
+ "vblade": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "aprx": {
+  "score": 0.83,
+  "confidence": 0.59
+ },
+ "cwdaemon": {
+  "score": 0.44,
+  "confidence": 0.8
+ },
+ "ayatana-indicator-sound": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "clamav-milter": {
+  "score": 1.03,
+  "confidence": 0.74
+ },
+ "inetutils-inetd": {
+  "score": 1.35,
+  "confidence": 0.6
+ },
+ "oidentd": {
+  "score": 1.61,
+  "confidence": 0.59
+ },
+ "e2guardian": {
+  "score": 0.59,
+  "confidence": 0.72
+ },
+ "gvfs-daemon": {
+  "score": 1.11,
+  "confidence": 0.75
+ },
+ "gvfsd": {
+  "score": 1.16,
+  "confidence": 0.74
+ },
+ "lvmpolld": {
+  "score": 0.67,
+  "confidence": 0.68
+ },
+ "speech-dispatcherd": {
+  "score": 0.55,
+  "confidence": 0.73
+ },
+ "lldpad": {
+  "score": 0.4,
+  "confidence": 0.79
+ },
+ "gvfsd-dnssd": {
+  "score": 0.37,
+  "confidence": 0.83
+ },
+ "gvfsd-wsdd": {
+  "score": 0.22,
+  "confidence": 0.88
+ },
+ "avahi-dnsconfd": {
+  "score": 0.64,
+  "confidence": 0.7
+ },
+ "mptcpd": {
+  "score": 0.25,
+  "confidence": 0.88
+ },
+ "uuidd": {
+  "score": 0.89,
+  "confidence": 0.72
+ },
+ "auditd": {
+  "score": 1.93,
+  "confidence": 0.49
+ },
+ "blacklistd": {
+  "score": 1.22,
+  "confidence": 0.7
+ },
+ "bootpd": {
+  "score": 1.51,
+  "confidence": 0.64
+ },
+ "ftp-proxy": {
+  "score": 0.81,
+  "confidence": 0.69
+ },
+ "gssd": {
+  "score": 0.69,
+  "confidence": 0.65
+ },
+ "powerd": {
+  "score": 1.42,
+  "confidence": 0.62
+ },
+ "rarpd": {
+  "score": 0.69,
+  "confidence": 0.64
+ },
+ "rpc.lockd": {
+  "score": 1.01,
+  "confidence": 0.66
+ },
+ "rpc.statd": {
+  "score": 0.89,
+  "confidence": 0.68
+ },
+ "rtadvd": {
+  "score": 0.66,
+  "confidence": 0.67
+ },
+ "rtsold": {
+  "score": 0.75,
+  "confidence": 0.62
+ },
+ "rwhod": {
+  "score": 1.25,
+  "confidence": 0.63
+ },
+ "iscsid": {
+  "score": 0.69,
+  "confidence": 0.66
+ },
+ "watchdogd": {
+  "score": 1.2,
+  "confidence": 0.62
+ },
+ "moused": {
+  "score": 1.19,
+  "confidence": 0.64
+ },
+ "runit": {
+  "score": 1.76,
+  "confidence": 0.56
+ },
+ "Upstart": {
+  "score": 1.98,
+  "confidence": 0.48
+ },
+ "smartd": {
+  "score": 1.54,
+  "confidence": 0.6
+ },
+ "mDNSResponder": {
+  "score": 1.52,
+  "confidence": 0.64
+ },
+ "kthreadd": {
+  "score": 0.96,
+  "confidence": 0.53
+ },
+ "khugepaged": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "svc.startd": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "qmail": {
+  "score": 2.0,
+  "confidence": 0.64
+ },
+ "anacron": {
+  "score": 2.25,
+  "confidence": 0.56
+ },
+ "systemd-journald": {
+  "score": 2.33,
+  "confidence": 0.56
+ },
+ "devd": {
+  "score": 1.38,
+  "confidence": 0.62
+ },
+ "polkitd": {
+  "score": 1.58,
+  "confidence": 0.62
+ },
+ "configd": {
+  "score": 0.74,
+  "confidence": 0.65
+ },
+ "ksoftirqd": {
+  "score": 0.81,
+  "confidence": 0.61
+ },
+ "pdflush": {
+  "score": 1.13,
+  "confidence": 0.61
+ },
+ "fprobe": {
+  "score": 0.42,
+  "confidence": 0.81
+ },
+ "qemu-vmsr-helper": {
+  "score": 0.27,
+  "confidence": 0.86
+ },
+ "soju": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "ratbagd": {
+  "score": 0.46,
+  "confidence": 0.76
+ },
+ "bacula-fd": {
+  "score": 0.77,
+  "confidence": 0.69
+ },
+ "smartdns": {
+  "score": 0.84,
+  "confidence": 0.74
+ },
+ "ceph-mon": {
+  "score": 0.81,
+  "confidence": 0.6
+ },
+ "lcdproc": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "inetutils-syslogd": {
+  "score": 1.3,
+  "confidence": 0.59
+ },
+ "charon-systemd": {
+  "score": 1.57,
+  "confidence": 0.22
+ },
+ "nodm": {
+  "score": 0.71,
+  "confidence": 0.65
+ },
+ "softflowd": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "gsd-keyboard": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "gsd-smartcard": {
+  "score": 0.51,
+  "confidence": 0.74
+ },
+ "gsd-sound": {
+  "score": 0.54,
+  "confidence": 0.73
+ },
+ "prometheus-exporter-exporter": {
+  "score": 1.13,
+  "confidence": 0.6
+ },
+ "goa-daemon": {
+  "score": 0.57,
+  "confidence": 0.74
+ },
+ "radsecproxy": {
+  "score": 0.42,
+  "confidence": 0.79
+ },
+ "xfconfd": {
+  "score": 0.71,
+  "confidence": 0.76
+ },
+ "readsb": {
+  "score": 0.97,
+  "confidence": 0.49
+ },
+ "bpftune": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "plymouthd": {
+  "score": 1.08,
+  "confidence": 0.7
+ },
+ "blkmapd": {
+  "score": 0.46,
+  "confidence": 0.77
+ },
+ "nfs-idmapd": {
+  "score": 1.01,
+  "confidence": 0.69
+ },
+ "rpc-gssd": {
+  "score": 0.68,
+  "confidence": 0.67
+ },
+ "rpc-svcgssd": {
+  "score": 0.47,
+  "confidence": 0.76
+ },
+ "rpc.idmapd": {
+  "score": 0.74,
+  "confidence": 0.63
+ },
+ "sniproxy": {
+  "score": 1.01,
+  "confidence": 0.74
+ },
+ "mimedefang": {
+  "score": 1.01,
+  "confidence": 0.74
+ },
+ "restic-rest-server": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "winbindd": {
+  "score": 1.21,
+  "confidence": 0.68
+ },
+ "plasma-kded": {
+  "score": 0.74,
+  "confidence": 0.75
+ },
+ "bip": {
+  "score": 0.88,
+  "confidence": 0.54
+ },
+ "plasma-kactivitymanagerd": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "openbsd-inetd": {
+  "score": 1.35,
+  "confidence": 0.66
+ },
+ "spice-webdavd": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "spacenavd": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "atftpd": {
+  "score": 1.53,
+  "confidence": 0.6
+ },
+ "valkey-server": {
+  "score": 1.51,
+  "confidence": 0.61
+ },
+ "tumblerd": {
+  "score": 0.65,
+  "confidence": 0.7
+ },
+ "ctdb": {
+  "score": 0.56,
+  "confidence": 0.74
+ },
+ "courier-authdaemon": {
+  "score": 0.63,
+  "confidence": 0.69
+ },
+ "gearmand": {
+  "score": 0.81,
+  "confidence": 0.76
+ },
+ "nbd-server": {
+  "score": 0.84,
+  "confidence": 0.72
+ },
+ "yubikey-agent": {
+  "score": 0.86,
+  "confidence": 0.74
+ },
+ "fwlogwatch": {
+  "score": 0.73,
+  "confidence": 0.64
+ },
+ "usbguard-notifier": {
+  "score": 0.49,
+  "confidence": 0.77
+ },
+ "boltd": {
+  "score": 1.04,
+  "confidence": 0.5
+ },
+ "p910nd": {
+  "score": 0.81,
+  "confidence": 0.6
+ },
+ "biboumi": {
+  "score": 0.29,
+  "confidence": 0.84
+ },
+ "rdnssd": {
+  "score": 1.58,
+  "confidence": 0.45
+ },
+ "hv-kvp-daemon": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "hv-vss-daemon": {
+  "score": 0.26,
+  "confidence": 0.87
+ },
+ "bacula-sd": {
+  "score": 1.02,
+  "confidence": 0.7
+ },
+ "ayatana-indicator-keyboard": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "nullidentd": {
+  "score": 1.17,
+  "confidence": 0.42
+ },
+ "systemd-mountfsd": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "systemd-nsresourced": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "jitterentropy-rngd": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "opentracker": {
+  "score": 0.61,
+  "confidence": 0.71
+ },
+ "nmbd": {
+  "score": 1.75,
+  "confidence": 0.56
+ },
+ "scanbd": {
+  "score": 0.67,
+  "confidence": 0.68
+ },
+ "sndiod": {
+  "score": 0.97,
+  "confidence": 0.53
+ },
+ "minidlnad": {
+  "score": 1.06,
+  "confidence": 0.76
+ },
+ "slurmd": {
+  "score": 1.07,
+  "confidence": 0.68
+ },
+ "sanlock": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "virtlogd": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "scanlogd": {
+  "score": 0.8,
+  "confidence": 0.61
+ },
+ "kea-ctrl-agent": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "virtlockd": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "gdomap": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "ziproxy": {
+  "score": 1.18,
+  "confidence": 0.7
+ },
+ "prometheus-nginx-exporter": {
+  "score": 1.24,
+  "confidence": 0.66
+ },
+ "gnome-remote-desktop-daemon": {
+  "score": 0.7,
+  "confidence": 0.72
+ },
+ "nfsdcld": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "rpc.mountd": {
+  "score": 1.24,
+  "confidence": 0.66
+ },
+ "rpc.nfsd": {
+  "score": 1.6,
+  "confidence": 0.58
+ },
+ "gkrellmd": {
+  "score": 0.73,
+  "confidence": 0.72
+ },
+ "clamd": {
+  "score": 1.9,
+  "confidence": 0.52
+ },
+ "hitch": {
+  "score": 0.83,
+  "confidence": 0.59
+ },
+ "g15daemon": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "knxd": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "bluetoothd": {
+  "score": 1.95,
+  "confidence": 0.49
+ },
+ "mpris-proxy": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "ladvd": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "arpalert": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "icingadb": {
+  "score": 0.78,
+  "confidence": 0.62
+ },
+ "prometheus-postfix-exporter": {
+  "score": 0.8,
+  "confidence": 0.6
+ },
+ "conntrackd": {
+  "score": 0.9,
+  "confidence": 0.7
+ },
+ "endlessh": {
+  "score": 0.79,
+  "confidence": 0.64
+ },
+ "svxlink": {
+  "score": 0.2,
+  "confidence": 0.9
+ },
+ "yggdrasil": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "prometheus-snmp-exporter": {
+  "score": 1.46,
+  "confidence": 0.64
+ },
+ "knotd": {
+  "score": 0.77,
+  "confidence": 0.61
+ },
+ "prometheus-varnish-exporter": {
+  "score": 0.74,
+  "confidence": 0.62
+ },
+ "conserver": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "anope": {
+  "score": 1.24,
+  "confidence": 0.69
+ },
+ "zabbix_agent2": {
+  "score": 1.66,
+  "confidence": 0.6
+ },
+ "gammu-smsd": {
+  "score": 0.28,
+  "confidence": 0.87
+ },
+ "sysprofd": {
+  "score": 0.74,
+  "confidence": 0.65
+ },
+ "systemd-userdbd": {
+  "score": 0.7,
+  "confidence": 0.64
+ },
+ "slurmctld": {
+  "score": 0.9,
+  "confidence": 0.56
+ },
+ "stubby": {
+  "score": 0.88,
+  "confidence": 0.68
+ },
+ "ibacm": {
+  "score": 0.5,
+  "confidence": 0.77
+ },
+ "dhcp-helper": {
+  "score": 0.9,
+  "confidence": 0.56
+ },
+ "restorecond": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "prometheus-libvirt-exporter": {
+  "score": 0.95,
+  "confidence": 0.68
+ },
+ "mdnsd": {
+  "score": 1.18,
+  "confidence": 0.72
+ },
+ "quota_nld": {
+  "score": 0.72,
+  "confidence": 0.64
+ },
+ "postsrsd": {
+  "score": 1.17,
+  "confidence": 0.68
+ },
+ "lxsettings-daemon": {
+  "score": 0.64,
+  "confidence": 0.73
+ },
+ "krb5-kpropd": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "ircd-hybrid": {
+  "score": 1.24,
+  "confidence": 0.7
+ },
+ "perdition": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "zeitgeist-daemon": {
+  "score": 0.57,
+  "confidence": 0.73
+ },
+ "arpon": {
+  "score": 0.82,
+  "confidence": 0.62
+ },
+ "monopd": {
+  "score": 0.91,
+  "confidence": 0.55
+ },
+ "systemd-journal-upload": {
+  "score": 0.92,
+  "confidence": 0.7
+ },
+ "atalkd": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "papd": {
+  "score": 0.42,
+  "confidence": 0.82
+ },
+ "in.tftpd": {
+  "score": 2.01,
+  "confidence": 0.48
+ },
+ "snapserver": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "systemd-oomd": {
+  "score": 1.03,
+  "confidence": 0.7
+ },
+ "svxreflector": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "tqftpserv": {
+  "score": 0.97,
+  "confidence": 0.52
+ },
+ "diskd": {
+  "score": 0.91,
+  "confidence": 0.54
+ },
+ "unlinkd": {
+  "score": 0.84,
+  "confidence": 0.58
+ },
+ "hwlatd": {
+  "score": 0.92,
+  "confidence": 0.55
+ },
+ "lxd-agent": {
+  "score": 0.72,
+  "confidence": 0.7
+ },
+ "upsd": {
+  "score": 1.08,
+  "confidence": 0.68
+ },
+ "gamemoded": {
+  "score": 0.88,
+  "confidence": 0.76
+ },
+ "corosync-qnetd": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "krb5kdc": {
+  "score": 1.17,
+  "confidence": 0.69
+ },
+ "aprsdigi": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "pommed": {
+  "score": 0.47,
+  "confidence": 0.76
+ },
+ "openhpid": {
+  "score": 0.99,
+  "confidence": 0.52
+ },
+ "iscsiuio": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "istgt": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "poppassd": {
+  "score": 0.79,
+  "confidence": 0.62
+ },
+ "evremap": {
+  "score": 0.99,
+  "confidence": 0.51
+ },
+ "systemd-hostnamed": {
+  "score": 1.46,
+  "confidence": 0.63
+ },
+ "systemd-socket-proxyd": {
+  "score": 0.56,
+  "confidence": 0.72
+ },
+ "systemd-timedated": {
+  "score": 1.72,
+  "confidence": 0.57
+ },
+ "snapperd": {
+  "score": 0.84,
+  "confidence": 0.59
+ },
+ "kadmind": {
+  "score": 0.72,
+  "confidence": 0.64
+ },
+ "bfdd": {
+  "score": 0.39,
+  "confidence": 0.84
+ },
+ "bgpd": {
+  "score": 1.06,
+  "confidence": 0.7
+ },
+ "eigrpd": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "fabricd": {
+  "score": 0.5,
+  "confidence": 0.78
+ },
+ "isisd": {
+  "score": 0.53,
+  "confidence": 0.76
+ },
+ "lcd4linux": {
+  "score": 0.39,
+  "confidence": 0.81
+ },
+ "ldpd": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "mgmtd": {
+  "score": 0.59,
+  "confidence": 0.72
+ },
+ "nhrpd": {
+  "score": 0.98,
+  "confidence": 0.5
+ },
+ "ospf6d": {
+  "score": 0.64,
+  "confidence": 0.68
+ },
+ "ospfd": {
+  "score": 1.06,
+  "confidence": 0.7
+ },
+ "pathd": {
+  "score": 0.83,
+  "confidence": 0.57
+ },
+ "pbrd": {
+  "score": 0.94,
+  "confidence": 0.52
+ },
+ "pim6d": {
+  "score": 0.39,
+  "confidence": 0.81
+ },
+ "pimd": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "ripd": {
+  "score": 0.75,
+  "confidence": 0.64
+ },
+ "ripngd": {
+  "score": 0.9,
+  "confidence": 0.67
+ },
+ "staticd": {
+  "score": 0.84,
+  "confidence": 0.6
+ },
+ "vrrpd": {
+  "score": 0.79,
+  "confidence": 0.61
+ },
+ "valkey-sentinel": {
+  "score": 1.18,
+  "confidence": 0.69
+ },
+ "rmtfs": {
+  "score": 0.89,
+  "confidence": 0.57
+ },
+ "bandwidthd": {
+  "score": 0.99,
+  "confidence": 0.75
+ },
+ "prometheus-bind-exporter": {
+  "score": 1.2,
+  "confidence": 0.68
+ },
+ "eg25-manager": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "multipathd": {
+  "score": 0.93,
+  "confidence": 0.68
+ },
+ "vnstatd": {
+  "score": 1.04,
+  "confidence": 0.73
+ },
+ "atopacctd": {
+  "score": 0.43,
+  "confidence": 0.78
+ },
+ "oomd": {
+  "score": 1.81,
+  "confidence": 0.45
+ },
+ "ofonod": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "osspd": {
+  "score": 0.9,
+  "confidence": 0.56
+ },
+ "kresd": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "owserver": {
+  "score": 1.51,
+  "confidence": 0.23
+ },
+ "xmms2d": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "gdnsd": {
+  "score": 1.0,
+  "confidence": 0.71
+ },
+ "nftlb": {
+  "score": 0.33,
+  "confidence": 0.82
+ },
+ "prometheus-bird-exporter": {
+  "score": 1.07,
+  "confidence": 0.61
+ },
+ "lircd": {
+  "score": 0.74,
+  "confidence": 0.75
+ },
+ "lircmd": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "prometheus-smokeping-prober": {
+  "score": 1.06,
+  "confidence": 0.62
+ },
+ "infnoise": {
+  "score": 1.02,
+  "confidence": 0.49
+ },
+ "cvsd": {
+  "score": 1.01,
+  "confidence": 0.71
+ },
+ "ipmidetectd": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "ctdbd": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "ovs-vswitchd": {
+  "score": 0.98,
+  "confidence": 0.7
+ },
+ "slurmdbd": {
+  "score": 0.79,
+  "confidence": 0.68
+ },
+ "binkd": {
+  "score": 0.51,
+  "confidence": 0.75
+ },
+ "prometheus-mysqld-exporter": {
+  "score": 1.21,
+  "confidence": 0.65
+ },
+ "openbgpd": {
+  "score": 0.75,
+  "confidence": 0.72
+ },
+ "dbskkd-cdb": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "owhttpd": {
+  "score": 0.83,
+  "confidence": 0.58
+ },
+ "kea-dhcp4": {
+  "score": 0.87,
+  "confidence": 0.73
+ },
+ "owftpd": {
+  "score": 2.1,
+  "confidence": 0.0
+ },
+ "armagetronad-dedicated": {
+  "score": 0.28,
+  "confidence": 0.85
+ },
+ "bumblebeed": {
+  "score": 0.53,
+  "confidence": 0.76
+ },
+ "iwpmd": {
+  "score": 0.74,
+  "confidence": 0.66
+ },
+ "rdma-ndd": {
+  "score": 0.24,
+  "confidence": 0.88
+ },
+ "babeld": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "olad": {
+  "score": 0.7,
+  "confidence": 0.67
+ },
+ "ceph-crash": {
+  "score": 0.38,
+  "confidence": 0.83
+ },
+ "pure-authd": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "pure-certd": {
+  "score": 0.67,
+  "confidence": 0.68
+ },
+ "amuled": {
+  "score": 0.53,
+  "confidence": 0.76
+ },
+ "oxenstored": {
+  "score": 0.64,
+  "confidence": 0.69
+ },
+ "xen-kdd": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "xen-lowmemd": {
+  "score": 0.23,
+  "confidence": 0.89
+ },
+ "xenconsoled": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "xenpmd": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "xenstored": {
+  "score": 0.59,
+  "confidence": 0.71
+ },
+ "xenwatchdogd": {
+  "score": 0.31,
+  "confidence": 0.85
+ },
+ "munged": {
+  "score": 1.27,
+  "confidence": 0.59
+ },
+ "prometheus-ipmi-exporter": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "cyrus": {
+  "score": 1.71,
+  "confidence": 0.55
+ },
+ "swaync": {
+  "score": 0.37,
+  "confidence": 0.83
+ },
+ "unicorn": {
+  "score": 0.96,
+  "confidence": 0.5
+ },
+ "mailutils-pop3d": {
+  "score": 1.51,
+  "confidence": 0.55
+ },
+ "pdns_server": {
+  "score": 1.08,
+  "confidence": 0.71
+ },
+ "prometheus-redis-exporter": {
+  "score": 1.12,
+  "confidence": 0.68
+ },
+ "lvmlockd": {
+  "score": 0.34,
+  "confidence": 0.83
+ },
+ "pdns_recursor": {
+  "score": 0.86,
+  "confidence": 0.74
+ },
+ "tcsd": {
+  "score": 0.36,
+  "confidence": 0.82
+ },
+ "nullmailer-send": {
+  "score": 0.5,
+  "confidence": 0.77
+ },
+ "nullmailer-smtpd": {
+  "score": 0.68,
+  "confidence": 0.65
+ },
+ "kea-dhcp-ddns": {
+  "score": 0.43,
+  "confidence": 0.79
+ },
+ "kea-dhcp6": {
+  "score": 0.77,
+  "confidence": 0.72
+ },
+ "ipwatchd": {
+  "score": 0.61,
+  "confidence": 0.7
+ },
+ "openiked": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "stayrtr": {
+  "score": 1.32,
+  "confidence": 0.33
+ },
+ "kpropd": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "mailutils-imap4d": {
+  "score": 0.98,
+  "confidence": 0.66
+ },
+ "ekeyd": {
+  "score": 1.11,
+  "confidence": 0.46
+ },
+ "rblsmtpd": {
+  "score": 0.67,
+  "confidence": 0.68
+ },
+ "oddjobd": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "prometheus-elasticsearch-exporter": {
+  "score": 1.03,
+  "confidence": 0.7
+ },
+ "bluealsa": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "authdaemond": {
+  "score": 1.25,
+  "confidence": 0.67
+ },
+ "quasselcore": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "cf-execd": {
+  "score": 1.63,
+  "confidence": 0.54
+ },
+ "cf-monitord": {
+  "score": 1.09,
+  "confidence": 0.64
+ },
+ "cf-serverd": {
+  "score": 0.84,
+  "confidence": 0.67
+ },
+ "repowerd": {
+  "score": 0.9,
+  "confidence": 0.56
+ },
+ "zabbix_web_service": {
+  "score": 0.96,
+  "confidence": 0.64
+ },
+ "seaf-daemon": {
+  "score": 0.58,
+  "confidence": 0.73
+ },
+ "glusterd": {
+  "score": 0.91,
+  "confidence": 0.76
+ },
+ "glustereventsd": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "in.uucpd": {
+  "score": 0.72,
+  "confidence": 0.65
+ },
+ "uusched": {
+  "score": 0.99,
+  "confidence": 0.5
+ },
+ "yadifa": {
+  "score": 1.16,
+  "confidence": 0.66
+ },
+ "pacemaker-attrd": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "pacemaker-based": {
+  "score": 0.84,
+  "confidence": 0.57
+ },
+ "pacemaker-controld": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "pacemaker-execd": {
+  "score": 0.6,
+  "confidence": 0.72
+ },
+ "pacemaker-fenced": {
+  "score": 0.4,
+  "confidence": 0.82
+ },
+ "pacemaker-schedulerd": {
+  "score": 0.55,
+  "confidence": 0.72
+ },
+ "pacemakerd": {
+  "score": 1.03,
+  "confidence": 0.71
+ },
+ "pgqd": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "merecat": {
+  "score": 2.6,
+  "confidence": 0.26
+ },
+ "tmate-ssh-server": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "conman": {
+  "score": 1.01,
+  "confidence": 0.49
+ },
+ "pure-ftpd-ldap": {
+  "score": 0.52,
+  "confidence": 0.74
+ },
+ "rtpengine": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "snowflake-proxy": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "svlogd": {
+  "score": 1.2,
+  "confidence": 0.7
+ },
+ "osmo-mgw": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "prometheus-nextcloud-exporter": {
+  "score": 0.82,
+  "confidence": 0.58
+ },
+ "ha_logd": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "logd": {
+  "score": 1.45,
+  "confidence": 0.55
+ },
+ "lrmd": {
+  "score": 0.51,
+  "confidence": 0.75
+ },
+ "distccd": {
+  "score": 1.15,
+  "confidence": 0.7
+ },
+ "ftpd": {
+  "score": 3.41,
+  "confidence": 0.57
+ },
+ "usbguard-daemon": {
+  "score": 0.57,
+  "confidence": 0.73
+ },
+ "osmo-bsc": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "osmo-hlr": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "osmo-msc": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "osmo-sgsn": {
+  "score": 0.08,
+  "confidence": 0.97
+ },
+ "j1939acd": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "slcand": {
+  "score": 0.97,
+  "confidence": 0.52
+ },
+ "carbon-c-relay": {
+  "score": 0.81,
+  "confidence": 0.7
+ },
+ "biometryd": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "spice-vdagentd": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "srp_daemon": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "osmo-ggsn": {
+  "score": 0.13,
+  "confidence": 0.94
+ },
+ "osmo-pcu": {
+  "score": 0.12,
+  "confidence": 0.94
+ },
+ "vip-manager": {
+  "score": 0.79,
+  "confidence": 0.62
+ },
+ "eiskaltdcpp-daemon": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "cfingerd": {
+  "score": 1.64,
+  "confidence": 0.58
+ },
+ "hd-idle": {
+  "score": 1.13,
+  "confidence": 0.67
+ },
+ "systemd-importd": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "systemd-machined": {
+  "score": 0.91,
+  "confidence": 0.72
+ },
+ "systemd-portabled": {
+  "score": 0.68,
+  "confidence": 0.65
+ },
+ "nsca-ng": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "tgtd": {
+  "score": 0.82,
+  "confidence": 0.71
+ },
+ "iceccd": {
+  "score": 0.4,
+  "confidence": 0.82
+ },
+ "iodined": {
+  "score": 0.8,
+  "confidence": 0.61
+ },
+ "glewlwyd": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "iiod": {
+  "score": 0.84,
+  "confidence": 0.58
+ },
+ "ngetty": {
+  "score": 2.27,
+  "confidence": 0.57
+ },
+ "prometheus-apache-exporter": {
+  "score": 1.09,
+  "confidence": 0.68
+ },
+ "auditdistd": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "bootparamd": {
+  "score": 1.05,
+  "confidence": 0.64
+ },
+ "bsnmpd": {
+  "score": 1.0,
+  "confidence": 0.68
+ },
+ "comsat": {
+  "score": 0.56,
+  "confidence": 0.72
+ },
+ "ctld": {
+  "score": 1.71,
+  "confidence": 0.12
+ },
+ "nfscbd": {
+  "score": 0.69,
+  "confidence": 0.66
+ },
+ "nfsuserd": {
+  "score": 1.79,
+  "confidence": 0.52
+ },
+ "pppoed": {
+  "score": 1.03,
+  "confidence": 0.65
+ },
+ "rbootd": {
+  "score": 0.72,
+  "confidence": 0.66
+ },
+ "route6d": {
+  "score": 1.4,
+  "confidence": 0.6
+ },
+ "rpc.rquotad": {
+  "score": 0.88,
+  "confidence": 0.55
+ },
+ "rpc.rstatd": {
+  "score": 0.96,
+  "confidence": 0.52
+ },
+ "rpc.rusersd": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "rpc.rwalld": {
+  "score": 0.87,
+  "confidence": 0.56
+ },
+ "rpc.tlsclntd": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "rpc.tlsservd": {
+  "score": 0.55,
+  "confidence": 0.73
+ },
+ "rpc.yppasswdd": {
+  "score": 0.81,
+  "confidence": 0.62
+ },
+ "rpc.ypupdated": {
+  "score": 0.59,
+  "confidence": 0.72
+ },
+ "rpc.ypxfrd": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "rrenumd": {
+  "score": 1.39,
+  "confidence": 0.29
+ },
+ "tftp-proxy": {
+  "score": 0.64,
+  "confidence": 0.68
+ },
+ "ypldap": {
+  "score": 0.79,
+  "confidence": 0.62
+ },
+ "dma": {
+  "score": 2.03,
+  "confidence": 0.0
+ },
+ "s6-svscan": {
+  "score": 0.69,
+  "confidence": 0.66
+ },
+ "supervise-daemon": {
+  "score": 0.92,
+  "confidence": 0.55
+ },
+ "cups-browsed": {
+  "score": 1.15,
+  "confidence": 0.7
+ },
+ "lpsched": {
+  "score": 1.25,
+  "confidence": 0.58
+ },
+ "coreaudiod": {
+  "score": 0.55,
+  "confidence": 0.72
+ },
+ "cfprefsd": {
+  "score": 0.83,
+  "confidence": 0.59
+ },
+ "kcompactd": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "bdflush": {
+  "score": 1.28,
+  "confidence": 0.56
+ },
+ "direvent": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "gnupg-pkcs11-scd-proxy": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "afpd": {
+  "score": 1.37,
+  "confidence": 0.64
+ },
+ "cnid_dbd": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "cnid_metad": {
+  "score": 0.22,
+  "confidence": 0.89
+ },
+ "mako": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "yppasswdd": {
+  "score": 1.06,
+  "confidence": 0.67
+ },
+ "ypxfrd": {
+  "score": 0.4,
+  "confidence": 0.8
+ },
+ "parsec": {
+  "score": 0.81,
+  "confidence": 0.6
+ },
+ "ampr-ripd": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "solid-pop3d": {
+  "score": 0.87,
+  "confidence": 0.57
+ },
+ "i8kmon": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "dicod": {
+  "score": 0.83,
+  "confidence": 0.58
+ },
+ "ipmiseld": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "lomiri-url-dispatcher": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "mailutils-comsatd": {
+  "score": 0.69,
+  "confidence": 0.68
+ },
+ "powermand": {
+  "score": 1.17,
+  "confidence": 0.42
+ },
+ "budgie-extras-daemon": {
+  "score": 0.28,
+  "confidence": 0.86
+ },
+ "connman-vpnd": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "nfcapd": {
+  "score": 0.88,
+  "confidence": 0.7
+ },
+ "nfpcapd": {
+  "score": 1.06,
+  "confidence": 0.72
+ },
+ "approx": {
+  "score": 1.26,
+  "confidence": 0.39
+ },
+ "slurmrestd": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "sogod": {
+  "score": 1.45,
+  "confidence": 0.46
+ },
+ "mtail": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "prometheus-haproxy-exporter": {
+  "score": 1.09,
+  "confidence": 0.68
+ },
+ "hfaxd": {
+  "score": 0.75,
+  "confidence": 0.64
+ },
+ "renderd": {
+  "score": 1.01,
+  "confidence": 0.64
+ },
+ "lttng-sessiond": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "sbd": {
+  "score": 1.08,
+  "confidence": 0.48
+ },
+ "crossfire-server": {
+  "score": 0.71,
+  "confidence": 0.66
+ },
+ "systemd-homed": {
+  "score": 0.94,
+  "confidence": 0.71
+ },
+ "webfsd": {
+  "score": 0.71,
+  "confidence": 0.64
+ },
+ "contactsd": {
+  "score": 1.23,
+  "confidence": 0.62
+ },
+ "fwknopd": {
+  "score": 0.56,
+  "confidence": 0.74
+ },
+ "ckb-next-daemon": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "chasquid": {
+  "score": 0.64,
+  "confidence": 0.7
+ },
+ "pgagroal": {
+  "score": 1.72,
+  "confidence": 0.12
+ },
+ "prometheus-dnsmasq-exporter": {
+  "score": 0.68,
+  "confidence": 0.66
+ },
+ "logid": {
+  "score": 0.67,
+  "confidence": 0.68
+ },
+ "yubihsm-connector": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "imap4d": {
+  "score": 2.05,
+  "confidence": 0.47
+ },
+ "nutcracker": {
+  "score": 0.87,
+  "confidence": 0.55
+ },
+ "clamsmtpd": {
+  "score": 0.78,
+  "confidence": 0.71
+ },
+ "isnsdd": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "pmcd": {
+  "score": 0.87,
+  "confidence": 0.57
+ },
+ "pmie": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "pmlogger": {
+  "score": 0.83,
+  "confidence": 0.68
+ },
+ "systemd-journal-gatewayd": {
+  "score": 0.77,
+  "confidence": 0.71
+ },
+ "partimaged": {
+  "score": 0.76,
+  "confidence": 0.63
+ },
+ "smcrouted": {
+  "score": 0.44,
+  "confidence": 0.8
+ },
+ "argus": {
+  "score": 0.7,
+  "confidence": 0.64
+ },
+ "shibd": {
+  "score": 0.45,
+  "confidence": 0.8
+ },
+ "afsd": {
+  "score": 1.01,
+  "confidence": 0.62
+ },
+ "couriertcpd": {
+  "score": 1.01,
+  "confidence": 0.69
+ },
+ "gotd": {
+  "score": 1.16,
+  "confidence": 0.4
+ },
+ "receptor": {
+  "score": 0.39,
+  "confidence": 0.79
+ },
+ "srcpd": {
+  "score": 1.63,
+  "confidence": 0.4
+ },
+ "isnsd": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "amidxtaped": {
+  "score": 0.49,
+  "confidence": 0.8
+ },
+ "amindexd": {
+  "score": 0.56,
+  "confidence": 0.74
+ },
+ "smsd": {
+  "score": 0.48,
+  "confidence": 0.78
+ },
+ "prometheus-squid-exporter": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "garbd": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "ksmbd.mountd": {
+  "score": 0.63,
+  "confidence": 0.71
+ },
+ "nfacctd": {
+  "score": 0.79,
+  "confidence": 0.7
+ },
+ "pmacctd": {
+  "score": 0.55,
+  "confidence": 0.72
+ },
+ "pmbgpd": {
+  "score": 1.79,
+  "confidence": 0.12
+ },
+ "pmbmpd": {
+  "score": 1.25,
+  "confidence": 0.39
+ },
+ "pmtelemetryd": {
+  "score": 0.3,
+  "confidence": 0.85
+ },
+ "sfacctd": {
+  "score": 0.63,
+  "confidence": 0.69
+ },
+ "uacctd": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "ns-slapd": {
+  "score": 1.03,
+  "confidence": 0.74
+ },
+ "onak": {
+  "score": 1.49,
+  "confidence": 0.25
+ },
+ "atheme-services": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "swayosd-libinput-backend": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "Orthanc": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "ergochat": {
+  "score": 0.66,
+  "confidence": 0.66
+ },
+ "gobgpd": {
+  "score": 2.14,
+  "confidence": 0.0
+ },
+ "robustirc-bridge": {
+  "score": 0.35,
+  "confidence": 0.83
+ },
+ "in.fingerd": {
+  "score": 1.85,
+  "confidence": 0.49
+ },
+ "dibbler-server": {
+  "score": 0.32,
+  "confidence": 0.84
+ },
+ "sympa-archived": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "sympa-bounced": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "comsatd": {
+  "score": 0.41,
+  "confidence": 0.79
+ },
+ "curvedns": {
+  "score": 2.05,
+  "confidence": 0.0
+ },
+ "mon": {
+  "score": 1.76,
+  "confidence": 0.12
+ },
+ "fwcheck_psad": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "kmsgsd": {
+  "score": 0.68,
+  "confidence": 0.68
+ },
+ "psadwatchd": {
+  "score": 0.52,
+  "confidence": 0.75
+ },
+ "remctld": {
+  "score": 0.43,
+  "confidence": 0.78
+ },
+ "corosync-notifyd": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "serf": {
+  "score": 1.05,
+  "confidence": 0.49
+ },
+ "ixfrdist": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "efingerd": {
+  "score": 1.38,
+  "confidence": 0.64
+ },
+ "LCDd": {
+  "score": 0.6,
+  "confidence": 0.7
+ },
+ "atmarpd": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "atmsigd": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "ilmid": {
+  "score": 1.32,
+  "confidence": 0.34
+ },
+ "mpcd": {
+  "score": 1.19,
+  "confidence": 0.4
+ },
+ "ukui-settings-daemon": {
+  "score": 0.27,
+  "confidence": 0.86
+ },
+ "dnsproxy": {
+  "score": 1.41,
+  "confidence": 0.62
+ },
+ "mimedefang-multiplexor": {
+  "score": 0.37,
+  "confidence": 0.83
+ },
+ "opennds": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "tlshd": {
+  "score": 0.2,
+  "confidence": 0.9
+ },
+ "alertmanager-irc-relay": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "mirrorbits": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "cyclades-serial-client": {
+  "score": 0.18,
+  "confidence": 0.92
+ },
+ "axfrdns": {
+  "score": 0.39,
+  "confidence": 0.84
+ },
+ "varnishd": {
+  "score": 1.93,
+  "confidence": 0.67
+ },
+ "prometheus-mqtt-exporter": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "tcpsvd": {
+  "score": 1.49,
+  "confidence": 0.62
+ },
+ "udpsvd": {
+  "score": 1.04,
+  "confidence": 0.5
+ },
+ "wdmd": {
+  "score": 0.46,
+  "confidence": 0.76
+ },
+ "anytun": {
+  "score": 0.32,
+  "confidence": 0.86
+ },
+ "batmand": {
+  "score": 0.73,
+  "confidence": 0.65
+ },
+ "vzlogger": {
+  "score": 0.47,
+  "confidence": 0.79
+ },
+ "mactelnetd": {
+  "score": 0.54,
+  "confidence": 0.74
+ },
+ "natd": {
+  "score": 0.87,
+  "confidence": 0.66
+ },
+ "timed": {
+  "score": 1.28,
+  "confidence": 0.6
+ },
+ "dlm_controld": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "icegridnode": {
+  "score": 0.3,
+  "confidence": 0.85
+ },
+ "icegridregistry": {
+  "score": 0.16,
+  "confidence": 0.92
+ },
+ "ovn-controller": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "glacier2router": {
+  "score": 0.19,
+  "confidence": 0.91
+ },
+ "in.nnrpd": {
+  "score": 0.94,
+  "confidence": 0.53
+ },
+ "innd": {
+  "score": 2.42,
+  "confidence": 0.34
+ },
+ "in.ntalkd": {
+  "score": 1.08,
+  "confidence": 0.66
+ },
+ "in.talkd": {
+  "score": 0.8,
+  "confidence": 0.6
+ },
+ "ovn-northd": {
+  "score": 0.27,
+  "confidence": 0.87
+ },
+ "osmo-stp": {
+  "score": 0.31,
+  "confidence": 0.85
+ },
+ "rtpengine-recording": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "courieresmtpd": {
+  "score": 1.93,
+  "confidence": 0.48
+ },
+ "qrtr-ns": {
+  "score": 0.22,
+  "confidence": 0.91
+ },
+ "conmand": {
+  "score": 1.26,
+  "confidence": 0.35
+ },
+ "netplugd": {
+  "score": 0.98,
+  "confidence": 0.73
+ },
+ "ovn-controller-vtep": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "tiny-dfr": {
+  "score": 0.54,
+  "confidence": 0.72
+ },
+ "acpi_fakekeyd": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "farpd": {
+  "score": 1.72,
+  "confidence": 0.38
+ },
+ "l2tpns": {
+  "score": 0.3,
+  "confidence": 0.84
+ },
+ "fence_virtd": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "blahpd_daemon": {
+  "score": 0.92,
+  "confidence": 0.54
+ },
+ "condor_credd": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "condor_had": {
+  "score": 0.71,
+  "confidence": 0.64
+ },
+ "condor_procd": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "condor_schedd": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "condor_startd": {
+  "score": 0.53,
+  "confidence": 0.74
+ },
+ "udevmon": {
+  "score": 0.47,
+  "confidence": 0.78
+ },
+ "pacemaker-remoted": {
+  "score": 0.59,
+  "confidence": 0.71
+ },
+ "mailfromd": {
+  "score": 0.78,
+  "confidence": 0.68
+ },
+ "lomiri-history-daemon": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "lomiri-telephony-service-approver": {
+  "score": 0.08,
+  "confidence": 0.97
+ },
+ "lomiri-telephony-service-handler": {
+  "score": 0.12,
+  "confidence": 0.95
+ },
+ "nextcloud-spreed-signaling-proxy": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "ktimers": {
+  "score": 0.68,
+  "confidence": 0.65
+ },
+ "rngd": {
+  "score": 0.88,
+  "confidence": 0.72
+ },
+ "rbldns": {
+  "score": 0.91,
+  "confidence": 0.71
+ },
+ "walldns": {
+  "score": 1.0,
+  "confidence": 0.51
+ },
+ "ulogd": {
+  "score": 0.66,
+  "confidence": 0.72
+ },
+ "prometheus-phpfpm-exporter": {
+  "score": 0.81,
+  "confidence": 0.6
+ },
+ "courierldapaliasd": {
+  "score": 0.35,
+  "confidence": 0.84
+ },
+ "openvpn3-autoload": {
+  "score": 0.75,
+  "confidence": 0.73
+ },
+ "bbstored": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "sackd": {
+  "score": 0.61,
+  "confidence": 0.72
+ },
+ "bbackupd": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "mcstransd": {
+  "score": 0.52,
+  "confidence": 0.75
+ },
+ "miredo-server": {
+  "score": 0.43,
+  "confidence": 0.78
+ },
+ "lomiri-location-service-trust-stored": {
+  "score": 0.13,
+  "confidence": 0.95
+ },
+ "ovn-ic": {
+  "score": 0.18,
+  "confidence": 0.91
+ },
+ "prometheus-pgbouncer-exporter": {
+  "score": 0.74,
+  "confidence": 0.63
+ },
+ "stenographer": {
+  "score": 0.83,
+  "confidence": 0.6
+ },
+ "ircd-ircu": {
+  "score": 0.68,
+  "confidence": 0.68
+ },
+ "dnssec-triggerd": {
+  "score": 0.65,
+  "confidence": 0.69
+ },
+ "speakersafetyd": {
+  "score": 0.35,
+  "confidence": 0.86
+ },
+ "iked": {
+  "score": 1.13,
+  "confidence": 0.46
+ },
+ "yadifad": {
+  "score": 0.4,
+  "confidence": 0.82
+ },
+ "deepin-log-viewer-daemon": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "in.telnetd": {
+  "score": 1.67,
+  "confidence": 0.52
+ },
+ "prometheus-mongodb-exporter": {
+  "score": 0.96,
+  "confidence": 0.69
+ },
+ "inputlircd": {
+  "score": 0.48,
+  "confidence": 0.77
+ },
+ "ha_cluster_exporter": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "tcmu-runner": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "globus-gatekeeper": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "goiardi": {
+  "score": 1.42,
+  "confidence": 0.5
+ },
+ "rpc.bootparamd": {
+  "score": 0.67,
+  "confidence": 0.67
+ },
+ "pkcs11-daemon": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "bcron-sched": {
+  "score": 0.93,
+  "confidence": 0.68
+ },
+ "dibbler-relay": {
+  "score": 0.27,
+  "confidence": 0.87
+ },
+ "hexagonrpcd": {
+  "score": 0.15,
+  "confidence": 0.93
+ },
+ "rplayd": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "zephyrd": {
+  "score": 0.59,
+  "confidence": 0.72
+ },
+ "siridb-server": {
+  "score": 0.49,
+  "confidence": 0.76
+ },
+ "sxmo_daemons.sh": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "dlt-dbus": {
+  "score": 0.67,
+  "confidence": 0.67
+ },
+ "dlt-system": {
+  "score": 0.29,
+  "confidence": 0.88
+ },
+ "osmo-gtphub": {
+  "score": 0.21,
+  "confidence": 0.91
+ },
+ "oar-server": {
+  "score": 0.4,
+  "confidence": 0.77
+ },
+ "tirex-backend-manager": {
+  "score": 0.14,
+  "confidence": 0.94
+ },
+ "tirex-master": {
+  "score": 0.45,
+  "confidence": 0.79
+ },
+ "pd-mapper": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "garagemq": {
+  "score": 1.35,
+  "confidence": 0.61
+ },
+ "gfmd": {
+  "score": 0.63,
+  "confidence": 0.68
+ },
+ "oar_meta_sched": {
+  "score": 0.64,
+  "confidence": 0.7
+ },
+ "myproxy-server": {
+  "score": 0.61,
+  "confidence": 0.72
+ },
+ "lyskomd": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "accountsd": {
+  "score": 0.9,
+  "confidence": 0.56
+ },
+ "AirPlayXPCHelper": {
+  "score": 0.24,
+  "confidence": 0.88
+ },
+ "airportd": {
+  "score": 1.1,
+  "confidence": 0.66
+ },
+ "akd": {
+  "score": 0.51,
+  "confidence": 0.74
+ },
+ "alwaysonexclavesd": {
+  "score": 1.1,
+  "confidence": 0.42
+ },
+ "amfid": {
+  "score": 0.73,
+  "confidence": 0.64
+ },
+ "amsaccountsd": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "amsengagementd": {
+  "score": 0.46,
+  "confidence": 0.76
+ },
+ "amsondevicestoraged": {
+  "score": 0.27,
+  "confidence": 0.9
+ },
+ "analyticsd": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "apfsd": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "appinstalld": {
+  "score": 0.93,
+  "confidence": 0.52
+ },
+ "AppleCredentialManagerDaemon": {
+  "score": 0.28,
+  "confidence": 0.87
+ },
+ "appleeventsd": {
+  "score": 0.84,
+  "confidence": 0.7
+ },
+ "appleh13camerad": {
+  "score": 0.2,
+  "confidence": 0.92
+ },
+ "appleh16camerad": {
+  "score": 0.16,
+  "confidence": 0.93
+ },
+ "appleidsetupd": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "applekeystored": {
+  "score": 0.84,
+  "confidence": 0.6
+ },
+ "applessdstatistics": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "appstorecomponentsd": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "apsd": {
+  "score": 1.03,
+  "confidence": 0.5
+ },
+ "askpermissiond": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "AssetCache": {
+  "score": 0.75,
+  "confidence": 0.64
+ },
+ "AssetCacheLocatorService": {
+  "score": 0.32,
+  "confidence": 0.85
+ },
+ "AssetCacheManagerService": {
+  "score": 0.45,
+  "confidence": 0.77
+ },
+ "AssetCacheTetheratorService": {
+  "score": 0.25,
+  "confidence": 0.89
+ },
+ "assistant_cdmd": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "assistantd": {
+  "score": 0.81,
+  "confidence": 0.58
+ },
+ "attentionawarenessd": {
+  "score": 0.47,
+  "confidence": 0.77
+ },
+ "audioaccessoryd": {
+  "score": 0.48,
+  "confidence": 0.78
+ },
+ "AudioComponentRegistrar": {
+  "score": 0.13,
+  "confidence": 0.96
+ },
+ "audiomxd": {
+  "score": 0.59,
+  "confidence": 0.7
+ },
+ "autofsd": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "automountd": {
+  "score": 1.75,
+  "confidence": 0.52
+ },
+ "autounmountd": {
+  "score": 1.01,
+  "confidence": 0.64
+ },
+ "avatarsd": {
+  "score": 0.53,
+  "confidence": 0.76
+ },
+ "avbdeviced": {
+  "score": 0.39,
+  "confidence": 0.84
+ },
+ "avconferenced": {
+  "score": 0.42,
+  "confidence": 0.79
+ },
+ "axassetsd": {
+  "score": 0.25,
+  "confidence": 0.9
+ },
+ "backgroundtaskmanagementd": {
+  "score": 0.75,
+  "confidence": 0.59
+ },
+ "backupd": {
+  "score": 1.58,
+  "confidence": 0.58
+ },
+ "betaenrollmentd": {
+  "score": 0.32,
+  "confidence": 0.84
+ },
+ "biomesyncd": {
+  "score": 0.29,
+  "confidence": 0.88
+ },
+ "biometrickitd": {
+  "score": 0.27,
+  "confidence": 0.89
+ },
+ "bluetoothaudiod": {
+  "score": 0.84,
+  "confidence": 0.68
+ },
+ "BluetoothUIService": {
+  "score": 0.33,
+  "confidence": 0.85
+ },
+ "bluetoothuserd": {
+  "score": 1.16,
+  "confidence": 0.66
+ },
+ "bookassetd": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "bookdatastored": {
+  "score": 0.26,
+  "confidence": 0.9
+ },
+ "bootinstalld": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "bthidd": {
+  "score": 0.94,
+  "confidence": 0.66
+ },
+ "BTLEServer": {
+  "score": 0.21,
+  "confidence": 0.92
+ },
+ "btpand": {
+  "score": 0.87,
+  "confidence": 0.58
+ },
+ "businessservicesd": {
+  "score": 0.45,
+  "confidence": 0.78
+ },
+ "calaccessd": {
+  "score": 0.37,
+  "confidence": 0.83
+ },
+ "callhistoryd": {
+  "score": 0.4,
+  "confidence": 0.84
+ },
+ "callintelligenced": {
+  "score": 0.55,
+  "confidence": 0.71
+ },
+ "callservicesd": {
+  "score": 0.7,
+  "confidence": 0.65
+ },
+ "cameracaptured": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "captiveagent": {
+  "score": 0.8,
+  "confidence": 0.62
+ },
+ "cdpd": {
+  "score": 1.51,
+  "confidence": 0.22
+ },
+ "CFNetworkAgent": {
+  "score": 0.49,
+  "confidence": 0.75
+ },
+ "chronod": {
+  "score": 2.18,
+  "confidence": 0.21
+ },
+ "ckdiscretionaryd": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "cloudd": {
+  "score": 0.87,
+  "confidence": 0.56
+ },
+ "cloudphotod": {
+  "score": 0.21,
+  "confidence": 0.92
+ },
+ "colorsyncd": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "com.apple.cmio.registerassistantservice": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "com.apple.ifdreader": {
+  "score": 0.37,
+  "confidence": 0.81
+ },
+ "com.apple.speech.speechsynthesisd": {
+  "score": 0.6,
+  "confidence": 0.71
+ },
+ "communicationtrustd": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "companiond": {
+  "score": 0.74,
+  "confidence": 0.62
+ },
+ "containermanagerd": {
+  "score": 1.04,
+  "confidence": 0.47
+ },
+ "containermanagerd_system": {
+  "score": 0.54,
+  "confidence": 0.72
+ },
+ "contentlinkingd": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "contextstored": {
+  "score": 0.32,
+  "confidence": 0.83
+ },
+ "coreauthd": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "corebrightnessd": {
+  "score": 0.56,
+  "confidence": 0.72
+ },
+ "corecaptured": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "coredatad": {
+  "score": 0.71,
+  "confidence": 0.63
+ },
+ "coreduetd": {
+  "score": 0.73,
+  "confidence": 0.63
+ },
+ "coreidvd": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "coreimportd": {
+  "score": 0.81,
+  "confidence": 0.6
+ },
+ "coreservicesd": {
+  "score": 0.81,
+  "confidence": 0.59
+ },
+ "corespeechd": {
+  "score": 0.64,
+  "confidence": 0.69
+ },
+ "corespotlightd": {
+  "score": 0.92,
+  "confidence": 0.7
+ },
+ "corestoraged": {
+  "score": 0.68,
+  "confidence": 0.68
+ },
+ "coresymbolicationd": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "countryd": {
+  "score": 0.75,
+  "confidence": 0.64
+ },
+ "cryptexd": {
+  "score": 0.39,
+  "confidence": 0.81
+ },
+ "ctkahp": {
+  "score": 1.13,
+  "confidence": 0.42
+ },
+ "ctkd": {
+  "score": 0.9,
+  "confidence": 0.53
+ },
+ "cups-lpd": {
+  "score": 1.86,
+  "confidence": 0.5
+ },
+ "dasd": {
+  "score": 0.63,
+  "confidence": 0.67
+ },
+ "dataaccessd": {
+  "score": 0.52,
+  "confidence": 0.74
+ },
+ "DataDetectorsSourceAccess": {
+  "score": 0.22,
+  "confidence": 0.9
+ },
+ "devicecheckd": {
+  "score": 0.38,
+  "confidence": 0.82
+ },
+ "digest-service": {
+  "score": 0.58,
+  "confidence": 0.71
+ },
+ "dirhelper": {
+  "score": 0.33,
+  "confidence": 0.86
+ },
+ "diskarbitrationd": {
+  "score": 0.98,
+  "confidence": 0.51
+ },
+ "diskimagesiod": {
+  "score": 0.57,
+  "confidence": 0.76
+ },
+ "distnoted": {
+  "score": 1.39,
+  "confidence": 0.55
+ },
+ "dlm_recoverd": {
+  "score": 0.31,
+  "confidence": 0.86
+ },
+ "donotdisturbd": {
+  "score": 0.97,
+  "confidence": 0.53
+ },
+ "dprivacyd": {
+  "score": 0.47,
+  "confidence": 0.76
+ },
+ "duetexpertd": {
+  "score": 0.5,
+  "confidence": 0.78
+ },
+ "dynamic_pager": {
+  "score": 1.31,
+  "confidence": 0.36
+ },
+ "ecryptfs-kthread": {
+  "score": 0.54,
+  "confidence": 0.73
+ },
+ "endpointsecurityd": {
+  "score": 0.76,
+  "confidence": 0.66
+ },
+ "enhancedloggingd": {
+  "score": 0.52,
+  "confidence": 0.74
+ },
+ "exchangesyncd": {
+  "score": 0.44,
+  "confidence": 0.8
+ },
+ "f2fs_discard": {
+  "score": 0.17,
+  "confidence": 0.93
+ },
+ "facetimemessagestored": {
+  "score": 0.09,
+  "confidence": 0.98
+ },
+ "fairplayd": {
+  "score": 0.66,
+  "confidence": 0.7
+ },
+ "familycircled": {
+  "score": 0.45,
+  "confidence": 0.8
+ },
+ "familynotificationd": {
+  "score": 0.44,
+  "confidence": 0.79
+ },
+ "filecoordinationd": {
+  "score": 0.53,
+  "confidence": 0.74
+ },
+ "fileproviderd": {
+  "score": 0.47,
+  "confidence": 0.76
+ },
+ "filevaultd": {
+  "score": 0.83,
+  "confidence": 0.68
+ },
+ "financed": {
+  "score": 0.51,
+  "confidence": 0.74
+ },
+ "findmybeaconingd": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "findmydeviced": {
+  "score": 0.8,
+  "confidence": 0.61
+ },
+ "firmwaresyncd": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "followupd": {
+  "score": 0.7,
+  "confidence": 0.66
+ },
+ "frauddefensed": {
+  "score": 0.29,
+  "confidence": 0.88
+ },
+ "fseventsd": {
+  "score": 0.89,
+  "confidence": 0.7
+ },
+ "fskitd": {
+  "score": 2.19,
+  "confidence": 0.35
+ },
+ "gamecontrolleragentd": {
+  "score": 0.32,
+  "confidence": 0.86
+ },
+ "gamecontrollerd": {
+  "score": 0.69,
+  "confidence": 0.66
+ },
+ "gamed": {
+  "score": 1.27,
+  "confidence": 0.36
+ },
+ "gamepolicyd": {
+  "score": 0.49,
+  "confidence": 0.77
+ },
+ "generativeexperiencesd": {
+  "score": 0.2,
+  "confidence": 0.88
+ },
+ "geoanalyticsd": {
+  "score": 0.49,
+  "confidence": 0.73
+ },
+ "gfs2_logd": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "gfs2_quotad": {
+  "score": 0.21,
+  "confidence": 0.9
+ },
+ "ggated": {
+  "score": 1.34,
+  "confidence": 0.31
+ },
+ "gputoolsserviced": {
+  "score": 0.42,
+  "confidence": 0.8
+ },
+ "GSSCred": {
+  "score": 0.44,
+  "confidence": 0.78
+ },
+ "hastd": {
+  "score": 1.5,
+  "confidence": 0.29
+ },
+ "hcsecd": {
+  "score": 0.82,
+  "confidence": 0.6
+ },
+ "helpd": {
+  "score": 1.28,
+  "confidence": 0.36
+ },
+ "hidd": {
+  "score": 0.97,
+  "confidence": 0.5
+ },
+ "homed": {
+  "score": 0.89,
+  "confidence": 0.54
+ },
+ "homeenergyd": {
+  "score": 0.32,
+  "confidence": 0.86
+ },
+ "homeeventsd": {
+  "score": 0.38,
+  "confidence": 0.83
+ },
+ "iCloudUserNotificationsd": {
+  "score": 0.29,
+  "confidence": 0.87
+ },
+ "iconservicesd": {
+  "score": 0.52,
+  "confidence": 0.76
+ },
+ "identityservicesd": {
+  "score": 1.05,
+  "confidence": 0.62
+ },
+ "inputanalyticsd": {
+  "score": 0.27,
+  "confidence": 0.89
+ },
+ "installcoordinationd": {
+  "score": 0.34,
+  "confidence": 0.84
+ },
+ "installd": {
+  "score": 1.01,
+  "confidence": 0.51
+ },
+ "jffs2_gcd_mtd": {
+  "score": 0.11,
+  "confidence": 0.96
+ },
+ "kauditd": {
+  "score": 1.86,
+  "confidence": 0.5
+ },
+ "kbnepd": {
+  "score": 1.04,
+  "confidence": 0.45
+ },
+ "KernelEventAgent": {
+  "score": 0.73,
+  "confidence": 0.66
+ },
+ "kernelmanagerd": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "keyboardservicesd": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "keychainsharingmessagingd": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "khidpd": {
+  "score": 0.94,
+  "confidence": 0.54
+ },
+ "khungtaskd": {
+  "score": 1.46,
+  "confidence": 0.27
+ },
+ "kmmpd": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "knowledgeconstructiond": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "kpasswdd": {
+  "score": 1.03,
+  "confidence": 0.5
+ },
+ "kpktgend": {
+  "score": 0.91,
+  "confidence": 0.56
+ },
+ "krfcommd": {
+  "score": 0.53,
+  "confidence": 0.74
+ },
+ "krxrpcio": {
+  "score": 0.35,
+  "confidence": 0.82
+ },
+ "ksmbd-durable-scavenger": {
+  "score": 0.1,
+  "confidence": 0.96
+ },
+ "kupdated": {
+  "score": 0.66,
+  "confidence": 0.68
+ },
+ "languageassetd": {
+  "score": 0.42,
+  "confidence": 0.79
+ },
+ "launchservicesd": {
+  "score": 0.62,
+  "confidence": 0.7
+ },
+ "localizationswitcherd": {
+  "score": 0.5,
+  "confidence": 0.78
+ },
+ "locationaccessstored": {
+  "score": 0.26,
+  "confidence": 0.88
+ },
+ "locationd": {
+  "score": 1.15,
+  "confidence": 0.68
+ },
+ "lockdownmoded": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "logd_helper": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "loginitemregisterd": {
+  "score": 0.23,
+  "confidence": 0.9
+ },
+ "loginwindow": {
+  "score": 0.83,
+  "confidence": 0.6
+ },
+ "managedappdistributiond": {
+  "score": 0.32,
+  "confidence": 0.86
+ },
+ "ManagedClient": {
+  "score": 0.36,
+  "confidence": 0.85
+ },
+ "mapspushd": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "mapssyncd": {
+  "score": 0.55,
+  "confidence": 0.74
+ },
+ "master": {
+  "score": 2.2,
+  "confidence": 0.24
+ },
+ "mdmclient": {
+  "score": 0.63,
+  "confidence": 0.7
+ },
+ "mDNSResponderHelper": {
+  "score": 0.67,
+  "confidence": 0.68
+ },
+ "mds_stores": {
+  "score": 0.66,
+  "confidence": 0.69
+ },
+ "mdworker": {
+  "score": 0.85,
+  "confidence": 0.58
+ },
+ "mdworker_shared": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "mediaanalysisd": {
+  "score": 0.36,
+  "confidence": 0.84
+ },
+ "mediacontinuityd": {
+  "score": 0.33,
+  "confidence": 0.86
+ },
+ "mediaremoted": {
+  "score": 0.82,
+  "confidence": 0.57
+ },
+ "mediasharingd": {
+  "score": 0.58,
+  "confidence": 0.74
+ },
+ "misagent": {
+  "score": 1.07,
+  "confidence": 0.46
+ },
+ "mlhostd": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "mobile_obliterator": {
+  "score": 0.28,
+  "confidence": 0.88
+ },
+ "mobile_storage_proxy": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "mobileactivationd": {
+  "score": 0.3,
+  "confidence": 0.84
+ },
+ "mobileassetd": {
+  "score": 0.27,
+  "confidence": 0.88
+ },
+ "MobileGestaltHelper": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "MobileStorageMounter": {
+  "score": 0.31,
+  "confidence": 0.88
+ },
+ "mobiletimerd": {
+  "score": 0.3,
+  "confidence": 0.88
+ },
+ "naturallanguaged": {
+  "score": 1.39,
+  "confidence": 0.31
+ },
+ "nearbyd": {
+  "score": 0.96,
+  "confidence": 0.52
+ },
+ "nehelper": {
+  "score": 0.87,
+  "confidence": 0.56
+ },
+ "nesessionmanager": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "NetAuthAgent": {
+  "score": 0.79,
+  "confidence": 0.61
+ },
+ "NetAuthSysAgent": {
+  "score": 0.56,
+  "confidence": 0.73
+ },
+ "nfcd": {
+  "score": 0.57,
+  "confidence": 0.7
+ },
+ "notifyd": {
+  "score": 0.93,
+  "confidence": 0.54
+ },
+ "nsurlsessiond": {
+  "score": 0.76,
+  "confidence": 0.63
+ },
+ "ntalkd": {
+  "score": 0.95,
+  "confidence": 0.66
+ },
+ "oahd": {
+  "score": 0.82,
+  "confidence": 0.62
+ },
+ "oahd-root-helper": {
+  "score": 0.26,
+  "confidence": 0.87
+ },
+ "ocspd": {
+  "score": 0.65,
+  "confidence": 0.68
+ },
+ "odproxyd": {
+  "score": 0.41,
+  "confidence": 0.8
+ },
+ "online-auth-agent": {
+  "score": 0.94,
+  "confidence": 0.53
+ },
+ "opendirectoryd": {
+  "score": 1.14,
+  "confidence": 0.68
+ },
+ "osanalyticshelper": {
+  "score": 0.15,
+  "confidence": 0.94
+ },
+ "ospredictiond": {
+  "score": 0.37,
+  "confidence": 0.81
+ },
+ "parentalcontrolsd": {
+  "score": 0.75,
+  "confidence": 0.64
+ },
+ "parsecd": {
+  "score": 0.79,
+  "confidence": 0.63
+ },
+ "passd": {
+  "score": 1.27,
+  "confidence": 0.38
+ },
+ "pboard": {
+  "score": 0.88,
+  "confidence": 0.55
+ },
+ "pcapd": {
+  "score": 0.67,
+  "confidence": 0.66
+ },
+ "peakpowermanagerd": {
+  "score": 0.44,
+  "confidence": 0.8
+ },
+ "peopled": {
+  "score": 1.21,
+  "confidence": 0.39
+ },
+ "perfpowermetricd": {
+  "score": 0.42,
+  "confidence": 0.81
+ },
+ "PerfPowerServices": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "PerfPowerServicesExtended": {
+  "score": 0.2,
+  "confidence": 0.91
+ },
+ "pflogd": {
+  "score": 1.01,
+  "confidence": 0.62
+ },
+ "photoanalysisd": {
+  "score": 0.3,
+  "confidence": 0.88
+ },
+ "photolibraryd": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "powerexperienced": {
+  "score": 0.76,
+  "confidence": 0.62
+ },
+ "powerlogHelperd": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "PowerUIAgent": {
+  "score": 0.17,
+  "confidence": 0.92
+ },
+ "proactived": {
+  "score": 1.26,
+  "confidence": 0.4
+ },
+ "proactiveeventtrackerd": {
+  "score": 0.6,
+  "confidence": 0.7
+ },
+ "progressd": {
+  "score": 0.86,
+  "confidence": 0.58
+ },
+ "promotedcontentd": {
+  "score": 0.3,
+  "confidence": 0.86
+ },
+ "ptpcamerad": {
+  "score": 0.29,
+  "confidence": 0.86
+ },
+ "quicklookd": {
+  "score": 0.88,
+  "confidence": 0.7
+ },
+ "racoon": {
+  "score": 0.84,
+  "confidence": 0.57
+ },
+ "rapportd": {
+  "score": 1.07,
+  "confidence": 0.48
+ },
+ "recentsd": {
+  "score": 0.86,
+  "confidence": 0.56
+ },
+ "remindd": {
+  "score": 1.16,
+  "confidence": 0.67
+ },
+ "remotemanagementd": {
+  "score": 0.95,
+  "confidence": 0.53
+ },
+ "replayd": {
+  "score": 0.79,
+  "confidence": 0.64
+ },
+ "ReportCrash": {
+  "score": 1.17,
+  "confidence": 0.68
+ },
+ "ReportMemoryException": {
+  "score": 0.25,
+  "confidence": 0.9
+ },
+ "revisiond": {
+  "score": 1.07,
+  "confidence": 0.49
+ },
+ "routined": {
+  "score": 1.22,
+  "confidence": 0.4
+ },
+ "rtcreportingd": {
+  "score": 0.37,
+  "confidence": 0.82
+ },
+ "runningboardd": {
+  "score": 0.66,
+  "confidence": 0.67
+ },
+ "sandboxd": {
+  "score": 0.59,
+  "confidence": 0.72
+ },
+ "screensharingd": {
+  "score": 0.74,
+  "confidence": 0.64
+ },
+ "sdpd": {
+  "score": 0.7,
+  "confidence": 0.68
+ },
+ "searchpartyd": {
+  "score": 0.53,
+  "confidence": 0.73
+ },
+ "secd": {
+  "score": 0.88,
+  "confidence": 0.56
+ },
+ "secinitd": {
+  "score": 0.47,
+  "confidence": 0.79
+ },
+ "securityd": {
+  "score": 1.07,
+  "confidence": 0.64
+ },
+ "securityuploadd": {
+  "score": 0.34,
+  "confidence": 0.86
+ },
+ "sharedfilelistd": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "sharingd": {
+  "score": 0.76,
+  "confidence": 0.64
+ },
+ "siriactionsd": {
+  "score": 1.48,
+  "confidence": 0.25
+ },
+ "siriinferenced": {
+  "score": 0.19,
+  "confidence": 0.92
+ },
+ "siriknowledged": {
+  "score": 1.69,
+  "confidence": 0.16
+ },
+ "sirittsd": {
+  "score": 1.57,
+  "confidence": 0.22
+ },
+ "softwareupdated": {
+  "score": 1.58,
+  "confidence": 0.54
+ },
+ "sportsd": {
+  "score": 0.39,
+  "confidence": 0.82
+ },
+ "spotlightknowledged": {
+  "score": 0.73,
+  "confidence": 0.63
+ },
+ "srp-mdns-proxy": {
+  "score": 0.24,
+  "confidence": 0.89
+ },
+ "storagekitd": {
+  "score": 0.48,
+  "confidence": 0.76
+ },
+ "storeaccountd": {
+  "score": 0.43,
+  "confidence": 0.8
+ },
+ "storeassetd": {
+  "score": 0.42,
+  "confidence": 0.82
+ },
+ "storedownloadd": {
+  "score": 0.62,
+  "confidence": 0.69
+ },
+ "suggestd": {
+  "score": 1.18,
+  "confidence": 0.41
+ },
+ "svc.configd": {
+  "score": 0.58,
+  "confidence": 0.72
+ },
+ "swcd": {
+  "score": 0.33,
+  "confidence": 0.87
+ },
+ "swtransparencyd": {
+  "score": 0.33,
+  "confidence": 0.84
+ },
+ "symptomsd": {
+  "score": 0.75,
+  "confidence": 0.65
+ },
+ "sysdiagnosed": {
+  "score": 0.77,
+  "confidence": 0.62
+ },
+ "sysextd": {
+  "score": 1.12,
+  "confidence": 0.59
+ },
+ "sysmond": {
+  "score": 1.29,
+  "confidence": 0.34
+ },
+ "syspolicyd": {
+  "score": 0.58,
+  "confidence": 0.74
+ },
+ "system_installd": {
+  "score": 1.46,
+  "confidence": 0.51
+ },
+ "systemsoundserverd": {
+  "score": 0.62,
+  "confidence": 0.68
+ },
+ "taskgated": {
+  "score": 0.57,
+  "confidence": 0.72
+ },
+ "taskgated-helper": {
+  "score": 0.51,
+  "confidence": 0.76
+ },
+ "tccd": {
+  "score": 0.73,
+  "confidence": 0.64
+ },
+ "testmanagerd": {
+  "score": 0.33,
+  "confidence": 0.87
+ },
+ "thermalmonitord": {
+  "score": 0.94,
+  "confidence": 0.55
+ },
+ "threadradiod": {
+  "score": 0.71,
+  "confidence": 0.64
+ },
+ "TouchBarServer": {
+  "score": 0.21,
+  "confidence": 0.89
+ },
+ "translationd": {
+  "score": 0.7,
+  "confidence": 0.64
+ },
+ "transparencyd": {
+  "score": 0.6,
+  "confidence": 0.7
+ },
+ "triald": {
+  "score": 1.47,
+  "confidence": 0.26
+ },
+ "trustd": {
+  "score": 0.92,
+  "confidence": 0.55
+ },
+ "trustevaluationagent": {
+  "score": 0.46,
+  "confidence": 0.78
+ },
+ "uarpassetmanagerd": {
+  "score": 0.85,
+  "confidence": 0.56
+ },
+ "uarpd": {
+  "score": 0.83,
+  "confidence": 0.59
+ },
+ "universalaccessd": {
+  "score": 0.54,
+  "confidence": 0.74
+ },
+ "update": {
+  "score": 2.33,
+  "confidence": 0.19
+ },
+ "usbsmartcardreaderd": {
+  "score": 0.24,
+  "confidence": 0.9
+ },
+ "useractivityd": {
+  "score": 0.7,
+  "confidence": 0.65
+ },
+ "UserEventAgent": {
+  "score": 0.98,
+  "confidence": 0.66
+ },
+ "usernoted": {
+  "score": 1.44,
+  "confidence": 0.47
+ },
+ "VDCAssistant": {
+  "score": 0.49,
+  "confidence": 0.75
+ },
+ "videosubscriptionsd": {
+  "score": 0.3,
+  "confidence": 0.85
+ },
+ "virtual_oss": {
+  "score": 0.5,
+  "confidence": 0.76
+ },
+ "webinspectord": {
+  "score": 0.73,
+  "confidence": 0.62
+ },
+ "WindowServer": {
+  "score": 1.18,
+  "confidence": 0.66
+ },
+ "xartstorageremoted": {
+  "score": 0.41,
+  "confidence": 0.82
+ },
+ "xfsaild": {
+  "score": 0.59,
+  "confidence": 0.7
+ },
+ "xpcroleaccountd": {
+  "score": 0.26,
+  "confidence": 0.87
+ },
+ "xprotectd": {
+  "score": 1.02,
+  "confidence": 0.5
+ },
+ "xsand": {
+  "score": 0.5,
+  "confidence": 0.75
+ },
+ "xscertd": {
+  "score": 0.54,
+  "confidence": 0.74
+ },
+ "zfsd": {
+  "score": 0.68,
+  "confidence": 0.67
+ }
+}
