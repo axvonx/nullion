@@ -10,8 +10,18 @@ Sources:
                  Fault and Super User. Stack Overflow's tags come from the archive.org dump (one small file); the
                  others' tags and every site's synonyms from the API, which allows ~300 requests a day without a
                  key: a run that would exceed the quota stops loudly and the next run continues. stackexchange/
+  repology       the daily PostgreSQL dump (~2.6 GB .sql.zst, kept) and gzipped TSV extracts of its packages
+                 (repo, names, category, summary) and metapackages (repo and family counts) tables. repology/
+  wikidata       per-class SPARQL extracts (label, English aliases, sitelinks, enwiki title, P31 type labels) for
+                 WD_CLASSES; each QID's label is checked first. Sequential, paced, Retry-After honoured. wikidata/
+  kernel-src     shallow blob-less sparse clone of torvalds/linux: mm/kernel/fs/block/init/lib/net *.c (kernel
+                 threads) plus registry headers and every Kconfig* (KERNEL_SRC_PATTERNS). kernel/linux-src/
+  freebsd-daemons sparse clone of freebsd-src: libexec/rc/rc.d and the usr.sbin/libexec section-8 pages.
+                 src/freebsd-daemons/
+  macos          this Mac's /System/Library/LaunchDaemons and LaunchAgents: label and program per plist.
+                 macos/
 
-Each file lands next to a <name>.source.json saying where and when it came from. A file that is already there is
+Each file lands next to a <name>.source.json (a clone: its DONE file) saying where and when it came from. A file that is already there is
 kept (delete it to refetch). Every failure raises: a partial download is removed, never left looking complete.
 Requests carry a generic client name and nothing about the user.
 """
@@ -140,7 +150,249 @@ def fetch_stackexchange() -> None:
         se_pages("/tags", site, d / f"{site}-tags.json", {"order": "desc", "sort": "popular"})
 
 
-SOURCES = {"debian": fetch_debian, "homebrew": fetch_homebrew, "stackexchange": fetch_stackexchange}
+WDQS = "https://query.wikidata.org/sparql"
+# (file slug, QID, its English label). The label is checked against Wikidata before the class is queried: a wrong
+# QID (research/answer-games-and-aliases.md §3.1 found two) fails loudly instead of fetching the wrong class.
+WD_CLASSES = [
+    ("text-editor", "Q131212", "text editor"),
+    ("source-code-editor", "Q522972", "source code editor"),
+    ("line-editor", "Q184900", "line editor"),
+    ("daemon", "Q308980", "daemon"),
+    ("init", "Q261918", "init"),
+    ("web-server", "Q11288", "web server"),
+    ("message-transfer-agent", "Q859477", "message transfer agent"),
+    ("name-server", "Q41494", "name server"),
+]
+# One query for every missing class (WDQS answered this machine's second query in a run with a 1,000 s
+# Retry-After, so the fetch asks once): the class's own English label comes back with its items and is checked.
+WD_QUERY = """SELECT ?cls ?cl ?i ?label ?sl ?enwiki (GROUP_CONCAT(DISTINCT ?alias; separator="\\t") AS ?aliases)
+       (GROUP_CONCAT(DISTINCT ?tl; separator="\\t") AS ?types) WHERE {
+  VALUES ?cls { %s }
+  ?cls rdfs:label ?cl FILTER(LANG(?cl) = "en")
+  ?i wdt:P31/wdt:P279* ?cls .
+  ?i wikibase:sitelinks ?sl .
+  OPTIONAL { ?i rdfs:label ?label FILTER(LANG(?label) = "en") }
+  OPTIONAL { ?i skos:altLabel ?alias FILTER(LANG(?alias) = "en") }
+  OPTIONAL { ?i wdt:P31 ?t . ?t rdfs:label ?tl FILTER(LANG(?tl) = "en") }
+  OPTIONAL { ?enwiki schema:about ?i ; schema:isPartOf <https://en.wikipedia.org/> }
+} GROUP BY ?cls ?cl ?i ?label ?sl ?enwiki"""
+
+
+def sparql(query: str) -> list[dict]:
+    """One WDQS query, gently: sequential callers, a pause after every call, Retry-After honoured on 429/503."""
+    data = urllib.parse.urlencode({"query": query}).encode()
+    for attempt in range(6):
+        req = urllib.request.Request(WDQS, data=data, headers={
+            "User-Agent": UA, "Accept": "application/sparql-results+json",
+            "Content-Type": "application/x-www-form-urlencoded"})
+        try:
+            with urllib.request.urlopen(req, timeout=300) as r:
+                body = json.loads(r.read())
+            time.sleep(3)
+            return body["results"]["bindings"]
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 503) or attempt == 5:
+                raise RuntimeError(f"Wikidata SPARQL: HTTP {e.code}: {e.read()[:300]!r}") from e
+            wait = int(e.headers.get("Retry-After") or 30 * 2 ** attempt)
+            print(f"  WDQS HTTP {e.code}: waiting {wait}s", flush=True)
+            time.sleep(wait)
+    raise AssertionError("unreachable")
+
+
+def fetch_wikidata() -> None:
+    d = CORPORA / "wikidata"
+    out = {qid: d / f"class-{slug}-{qid}.json" for slug, qid, _ in WD_CLASSES}
+    todo = [(slug, qid, label) for slug, qid, label in WD_CLASSES if not out[qid].exists()]
+    for slug, qid, _ in WD_CLASSES:
+        if out[qid].exists():
+            print(f"  have {out[qid].relative_to(CORPORA)}")
+    if not todo:
+        return
+    rows: dict[str, list[dict]] = {qid: [] for _, qid, _ in todo}
+    labels: dict[str, str] = {}
+    for b in sparql(WD_QUERY % " ".join(f"wd:{qid}" for _, qid, _ in todo)):
+        v = lambda k: b[k]["value"] if k in b else None  # noqa: E731
+        cls = v("cls").rsplit("/", 1)[1]
+        labels[cls] = v("cl")
+        rows[cls].append({"qid": v("i").rsplit("/", 1)[1], "label": v("label"), "sitelinks": int(v("sl")),
+                          "enwiki": urllib.parse.unquote(v("enwiki").rsplit("/", 1)[1]).replace("_", " ") if v("enwiki") else None,
+                          "aliases": sorted(filter(None, (v("aliases") or "").split("\t"))),
+                          "types": sorted(filter(None, (v("types") or "").split("\t")))})
+    for slug, qid, label in todo:
+        if labels.get(qid) != label:
+            raise RuntimeError(f"Wikidata {qid}: expected the label {label!r}, got {labels.get(qid)!r} "
+                               "(no items, or the wrong class): fix WD_CLASSES")
+    for slug, qid, label in todo:
+        rs = sorted(rows[qid], key=lambda r: (-r["sitelinks"], r["qid"]))
+        tmp = out[qid].with_name(out[qid].name + ".part")
+        tmp.parent.mkdir(parents=True, exist_ok=True)
+        tmp.write_text(json.dumps(rs, ensure_ascii=False, indent=0) + "\n")
+        tmp.replace(out[qid])
+        stamp(out[qid], f"{WDQS} (P31/P279* {qid} '{label}': label, en aliases, sitelinks, enwiki title, P31 type labels)",
+              f"{len(rs)} items")
+        print(f"  got  {out[qid].relative_to(CORPORA)} ({len(rs)} items)")
+
+
+KERNEL_SRC_PATTERNS = [
+    # kernel threads: the names passed to kthread_run/kthread_create (drivers/ and arch/ left out: thousands of
+    # files whose threads are per-device helpers, not daemons anyone names)
+    "/mm/**/*.c", "/kernel/**/*.c", "/fs/**/*.c", "/block/**/*.c", "/init/*.c", "/lib/*.c", "/net/**/*.c",
+    "/include/linux/kthread.h",
+    # registries for os-systems categories (syscalls, errnos, capabilities, CPU flags, ioctls/sockets/signals,
+    # NVMe commands, ACPI tables, config options)
+    "/arch/x86/entry/syscalls/", "/include/uapi/asm-generic/", "/include/uapi/linux/",
+    "/arch/x86/include/asm/cpufeatures.h", "/arch/x86/include/uapi/asm/", "/include/linux/nvme.h",
+    "/include/acpi/actbl*.h", "Kconfig*",
+]
+
+
+def sparse_clone(dest: pathlib.Path, url: str, patterns: list[str]) -> None:
+    """A shallow, blob-less, sparse (non-cone) clone holding only `patterns`, built in <dest>.part and moved into
+    place with a DONE stamp, so an interrupted clone never looks complete."""
+    if (dest / "DONE").exists():
+        print(f"  have {dest.relative_to(CORPORA)}")
+        return
+    tmp = dest.with_name(dest.name + ".part")
+    shutil.rmtree(tmp, ignore_errors=True)
+    git = lambda *a: subprocess.run(["git", *a], check=True, capture_output=True, text=True)  # noqa: E731
+    try:
+        git("clone", "--depth", "1", "--filter=blob:none", "--no-checkout", url, str(tmp))
+        git("-C", str(tmp), "sparse-checkout", "set", "--no-cone", *patterns)
+        git("-C", str(tmp), "checkout")
+        head = git("-C", str(tmp), "log", "-1", "--format=%H %cI").stdout.strip()
+    except BaseException:
+        shutil.rmtree(tmp, ignore_errors=True)
+        raise
+    shutil.rmtree(dest, ignore_errors=True)
+    tmp.replace(dest)
+    files = sum(1 for p in dest.rglob("*") if p.is_file() and ".git" not in p.parts)
+    size = sum(p.stat().st_size for p in dest.rglob("*") if p.is_file())
+    (dest / "DONE").write_text(head + "\n")
+    stamp(dest / "DONE", url, f"commit {head}; sparse {patterns}; {files} files, {size / 1e6:.0f} MB with .git")
+    print(f"  got  {dest.relative_to(CORPORA)} ({files} files, {size / 1e6:.0f} MB, {head})")
+
+
+def fetch_kernel_src() -> None:
+    """Linux source for kernel threads and os-systems registries. The Documentation clone in kernel/linux
+    (indexed by index-corpora.py) is a separate clone and left alone."""
+    sparse_clone(CORPORA / "kernel" / "linux-src", "https://github.com/torvalds/linux.git", KERNEL_SRC_PATTERNS)
+
+
+def fetch_freebsd_daemons() -> None:
+    """FreeBSD base: rc.d scripts (each names its daemon's `command=`) and the usr.sbin / libexec man pages (whose
+    `.Nd` line says "daemon" or "server")."""
+    sparse_clone(CORPORA / "src" / "freebsd-daemons", "https://github.com/freebsd/freebsd-src.git",
+                 ["/libexec/rc/rc.d/", "/usr.sbin/**/*.8", "/libexec/**/*.8"])
+
+
+# What we keep of the Repology dump's tables (pg_dump COPY blocks), as gzipped TSV with a header row.
+REPOLOGY_KEEP = {
+    "repology.packages": ["repo", "family", "srcname", "binname", "binnames", "visiblename", "projectname_seed",
+                          "effname", "category", "comment", "shadow"],
+    "repology.metapackages": ["effname", "num_repos", "num_repos_nonshadow", "num_families"],
+}
+
+
+def repology_extract(dump: pathlib.Path, d: pathlib.Path) -> None:
+    """Stream the dump once (zstd -dc) and write <table>.tsv.gz for REPOLOGY_KEEP. COPY rows are tab-separated with
+    \\N for NULL and backslash escapes; values are kept as COPY wrote them (arrays as {a,b}). Every wanted table
+    must be found and end with its `\\.` terminator, or nothing is written."""
+    outs = {t: d / f"{t.split('.')[1]}.tsv.gz" for t in REPOLOGY_KEEP}
+    if all(o.exists() for o in outs.values()):
+        for o in outs.values():
+            print(f"  have {o.relative_to(CORPORA)}")
+        return
+    tmps = {t: o.with_name(o.name + ".part") for t, o in outs.items()}
+    counts, done = {t: 0 for t in outs}, set()
+    proc = subprocess.Popen(["zstd", "-dc", str(dump)], stdout=subprocess.PIPE)
+    files = {t: gzip.open(tmps[t], "wt", compresslevel=6) for t in outs}
+    try:
+        cur, idx = None, None
+        for raw in proc.stdout:
+            if cur is None:
+                if raw.startswith(b"COPY "):
+                    head = raw.decode()
+                    table = head.split()[1]
+                    if table in REPOLOGY_KEEP:
+                        cols = [c.strip().strip('"') for c in head[head.index("(") + 1:head.index(")")].split(",")]
+                        missing = [c for c in REPOLOGY_KEEP[table] if c not in cols]
+                        if missing:
+                            raise RuntimeError(f"Repology dump: {table} has no columns {missing} (schema changed)")
+                        cur, idx = table, [cols.index(c) for c in REPOLOGY_KEEP[table]]
+                        files[cur].write("\t".join(REPOLOGY_KEEP[table]) + "\n")
+                continue
+            if raw == b"\\.\n":
+                done.add(cur)
+                cur = None
+                continue
+            f = raw.rstrip(b"\n").decode(errors="replace").split("\t")
+            files[cur].write("\t".join(f[i] for i in idx) + "\n")
+            counts[cur] += 1
+        if proc.wait() != 0:
+            raise RuntimeError(f"zstd -dc {dump.name} exited {proc.returncode}: truncated or corrupt dump")
+        if done != set(outs):
+            raise RuntimeError(f"Repology dump: tables {sorted(set(outs) - done)} missing or unterminated")
+    except BaseException:
+        proc.kill()
+        for t, fh in files.items():
+            fh.close()
+            tmps[t].unlink(missing_ok=True)
+        raise
+    for t, fh in files.items():
+        fh.close()
+        tmps[t].replace(outs[t])
+        stamp(outs[t], f"extracted from {dump.name}: COPY {t} columns {REPOLOGY_KEEP[t]}", f"{counts[t]} rows")
+        print(f"  got  {outs[t].relative_to(CORPORA)} ({counts[t]:,} rows)")
+
+
+def fetch_macos() -> None:
+    """This Mac's launchd jobs: for every plist in /System/Library/LaunchDaemons and LaunchAgents, its Label and the
+    program it runs (Program, else ProgramArguments[0]). Only on macOS; the snapshot records the OS build."""
+    out = CORPORA / "macos" / "launchd-jobs.json"
+    if out.exists():
+        print(f"  have {out.relative_to(CORPORA)}")
+        return
+    import platform
+    import plistlib
+    if platform.system() != "Darwin":
+        raise RuntimeError("the macos source reads /System/Library on a Mac; run it there")
+    build = subprocess.run(["sw_vers"], check=True, capture_output=True, text=True).stdout
+    rows = []
+    for kind in ("LaunchDaemons", "LaunchAgents"):
+        for f in sorted(pathlib.Path(f"/System/Library/{kind}").glob("*.plist")):
+            try:
+                pl = plistlib.loads(f.read_bytes())
+            except Exception:  # a few system plists trip Python's parser; Apple's own converter is the arbiter
+                xml = subprocess.run(["plutil", "-convert", "xml1", "-o", "-", str(f)], capture_output=True)
+                if xml.returncode != 0:
+                    raise RuntimeError(f"{f}: unreadable plist: {xml.stderr.decode(errors='replace')[:200]}")
+                pl = plistlib.loads(xml.stdout)
+            prog = pl.get("Program") or (pl.get("ProgramArguments") or [None])[0]
+            rows.append({"kind": kind, "file": f.name, "label": pl.get("Label"), "program": prog})
+    if len(rows) < 100:
+        raise RuntimeError(f"only {len(rows)} launchd plists found: not a normal macOS install")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    tmp = out.with_name(out.name + ".part")
+    tmp.write_text(json.dumps(rows, indent=0) + "\n")
+    tmp.replace(out)
+    stamp(out, "/System/Library/LaunchDaemons + LaunchAgents (local)",
+          f"{len(rows)} plists; " + " ".join(l.split(":", 1)[1].strip() for l in build.splitlines()))
+    print(f"  got  {out.relative_to(CORPORA)} ({len(rows)} plists)")
+
+
+def fetch_repology() -> None:
+    """The daily Repology PostgreSQL dump (~2.6 GB zstd), kept as downloaded, plus compact TSV extracts of the
+    package and project tables. Repology's code is GPLv3; the dump's data licence is not stated in its README."""
+    d = CORPORA / "repology"
+    download("https://dumps.repology.org/README.txt", d / "README.txt")
+    dump = d / "repology-dump.sql.zst"
+    download("https://dumps.repology.org/repology-database-dump-latest.sql.zst", dump)
+    repology_extract(dump, d)
+
+
+SOURCES = {"debian": fetch_debian, "homebrew": fetch_homebrew, "stackexchange": fetch_stackexchange,
+           "repology": fetch_repology, "wikidata": fetch_wikidata, "kernel-src": fetch_kernel_src,
+           "freebsd-daemons": fetch_freebsd_daemons, "macos": fetch_macos}
 
 
 def main() -> int:

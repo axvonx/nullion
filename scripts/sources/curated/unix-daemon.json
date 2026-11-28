@@ -1,0 +1,16 @@
+[
+ {"name": "init", "aliases": ["sysvinit", "System V init"], "why": "PID 1 on every Unix; Debian ships it as sysvinit-core's /sbin/init, which no daemon rule picks up"},
+ {"name": "launchd", "aliases": [], "why": "macOS PID 1: it has no plist of its own in /System/Library/LaunchDaemons"},
+ {"name": "runit", "aliases": ["runsvdir", "runsv"], "why": "init and supervision suite; Debian's runit package ships no daemon-tagged or service-unit binary named runit"},
+ {"name": "postgres", "aliases": ["postmaster", "postgresql server"], "why": "PostgreSQL's server process; Debian installs it under usr/lib/postgresql/<version>/bin, outside every program rule"},
+ {"name": "s6-svscan", "aliases": ["s6"], "why": "the s6 supervision tree's root daemon (skarnet s6)"},
+ {"name": "upstart", "aliases": [], "why": "Ubuntu's init from 2006 to 2014; no longer packaged"},
+ {"name": "supervise-daemon", "aliases": [], "why": "OpenRC's process supervisor"},
+ {"name": "svc.startd", "aliases": [], "why": "Solaris/illumos SMF master restarter daemon (svc.startd(8))"},
+ {"name": "svc.configd", "aliases": [], "why": "Solaris/illumos SMF repository daemon (svc.configd(8))"},
+ {"name": "lpsched", "aliases": [], "why": "the System V / Solaris print service scheduler"},
+ {"name": "pdflush", "aliases": [], "why": "Linux 2.6.0 to 2.6.31 writeback kernel thread, replaced by per-bdi flusher threads"},
+ {"name": "bdflush", "aliases": [], "why": "Linux 2.4 buffer-flush kernel daemon, before pdflush"},
+ {"name": "kupdated", "aliases": ["kupdate"], "why": "Linux 2.4 kernel thread that flushed old dirty buffers"},
+ {"name": "update", "aliases": [], "why": "the historical Unix daemon that called sync(2) every 30 seconds (V7 to 4.4BSD update(8))"}
+]
