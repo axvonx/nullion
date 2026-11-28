@@ -1,0 +1,183 @@
+{
+ "id": "terminal-emulator",
+ "stages": {
+  "plan": {
+   "status": "done",
+   "started": "2026-11-28T09:13:06+00:00",
+   "seconds": 159,
+   "finished": "2026-11-28T09:15:44+00:00"
+  },
+  "harvest": {
+   "status": "done",
+   "started": "2026-11-28T09:15:44+00:00",
+   "seconds": 401,
+   "finished": "2026-11-28T09:22:25+00:00"
+  },
+  "filter": {
+   "status": "done",
+   "started": "2026-11-28T09:22:25+00:00",
+   "seconds": 159,
+   "finished": "2026-11-28T09:25:04+00:00"
+  },
+  "compare": {
+   "status": "done",
+   "started": "2026-11-28T09:25:04+00:00",
+   "seconds": 0,
+   "finished": "2026-11-28T09:25:04+00:00"
+  },
+  "escalate": {
+   "status": "done",
+   "started": "2026-11-28T09:25:04+00:00",
+   "seconds": 60,
+   "finished": "2026-11-28T09:26:05+00:00"
+  },
+  "merge": {
+   "status": "done",
+   "started": "2026-11-28T09:26:05+00:00",
+   "seconds": 9,
+   "finished": "2026-11-28T09:26:14+00:00"
+  },
+  "obvious": {
+   "status": "done",
+   "started": "2026-11-28T09:26:14+00:00",
+   "seconds": 26,
+   "finished": "2026-11-28T09:26:39+00:00"
+  },
+  "recall": {
+   "status": "done",
+   "started": "2026-11-28T09:28:14+00:00",
+   "seconds": 0,
+   "finished": "2026-11-28T09:28:14+00:00"
+  },
+  "dupes": {
+   "status": "done",
+   "started": "2026-11-28T09:28:14+00:00",
+   "seconds": 0,
+   "finished": "2026-11-28T09:28:14+00:00"
+  },
+  "links": {
+   "status": "done",
+   "started": "2026-11-28T09:28:14+00:00",
+   "seconds": 31,
+   "finished": "2026-11-28T09:28:45+00:00"
+  },
+  "precision": {
+   "status": "done",
+   "started": "2026-11-28T09:28:45+00:00",
+   "seconds": 41,
+   "finished": "2026-11-28T09:29:26+00:00"
+  },
+  "report": {
+   "status": "done",
+   "started": "2026-11-28T09:29:26+00:00",
+   "seconds": 0,
+   "finished": "2026-11-28T09:29:26+00:00"
+  }
+ },
+ "gates": {
+  "filter kept": {
+   "stage": "filter",
+   "level": "pass",
+   "detail": "pass A kept 57, pass B kept 53 of 15625 harvested lines"
+  },
+  "obvious coverage": {
+   "stage": "obvious",
+   "level": "pass",
+   "detail": "31/31 obvious answers accepted"
+  },
+  "head recall": {
+   "stage": "recall",
+   "level": "pass",
+   "detail": "60/60 real probe answers playable (100%); 0 Inbox-only, 0 added to the Inbox; misses:  (design/recall/terminal-emulator-probe.md)"
+  },
+  "duplicates": {
+   "stage": "dupes",
+   "level": "pass",
+   "detail": "0 likely duplicate pairs"
+  },
+  "link coverage": {
+   "stage": "links",
+   "level": "pass",
+   "detail": "40/77 answers have a verified link (52%); prompt link yes"
+  },
+  "precision": {
+   "stage": "precision",
+   "level": "pass",
+   "detail": "20/20 sampled answers are members (100%), 20/20 with acceptable tier"
+  }
+ },
+ "warnings": [
+  {
+   "stage": "plan",
+   "text": "scripts/bank/plans/terminal-emulator.json was DRAFTED BY AN LLM: the owner may veto or edit it (rerun with --from harvest after editing)"
+  },
+  {
+   "stage": "merge",
+   "text": "Bit Flip / Works on my machine PINNED BY AN LLM (x3270; st, rxvt-unicode, cool-retro-term): the owner vets them"
+  },
+  {
+   "stage": "obvious",
+   "text": "scripts/bank/obvious-draft/terminal-emulator.json was drafted by an LLM: glance at it (approval moves it to scripts/bank/obvious/)"
+  }
+ ],
+ "plan_origin": "llm-drafted",
+ "harvest": {
+  "batches": 12,
+  "lines": 15625,
+  "summary": "terminal-emulator: 15605 mined lines from 17 sources -> 12 batches in scripts/bank/mined/terminal-emulator"
+ },
+ "filter": [
+  "batch-00.a: 44 kept",
+  "batch-00.b: 48 kept",
+  "batch-01.a: 0 kept",
+  "batch-01.b: 0 kept",
+  "batch-02.a: 0 kept",
+  "batch-02.b: 0 kept",
+  "batch-03.a: 0 kept",
+  "batch-03.b: 0 kept",
+  "batch-04.a: 0 kept",
+  "batch-04.b: 0 kept",
+  "batch-05.a: 0 kept",
+  "batch-05.b: 1 kept",
+  "batch-06.a: 0 kept",
+  "batch-06.b: 0 kept",
+  "batch-07.a: 0 kept",
+  "batch-07.b: 0 kept",
+  "batch-08.a: 1 kept",
+  "batch-08.b: 0 kept",
+  "batch-09.a: 0 kept",
+  "batch-09.b: 0 kept",
+  "batch-10.a: 0 kept",
+  "batch-10.b: 0 kept",
+  "batch-11.a: 12 kept",
+  "batch-11.b: 4 kept"
+ ],
+ "compare": "terminal-emulator: 39 agreed, 32 disputed (45%) across 12 batches",
+ "escalate": "32 disputes -> 27 kept (5 low-confidence -> Inbox), 5 dropped",
+ "pins": {
+  "bitflip": "x3270",
+  "womm": [
+   "st",
+   "rxvt-unicode",
+   "cool-retro-term"
+  ]
+ },
+ "merge": "53 tiered answers, 6 in the Inbox",
+ "obvious_origin": "llm-drafted",
+ "obvious": "terminal-emulator: 28 aliases, 3 new answers, 1 promoted from the Inbox",
+ "recall": {
+  "playable": 60,
+  "real": 60,
+  "inbox_only": 0,
+  "added": 0,
+  "not_members": 0,
+  "report": "design/recall/terminal-emulator-probe.md"
+ },
+ "dupes": [],
+ "links": [
+  "40/77 answers linked across 1 categories",
+  "dropped as broken: {'wikipedia missing': 4}",
+  "28 links on other hosts left out → design/links/review.txt"
+ ],
+ "report": "bank/reports/terminal-emulator.md"
+}

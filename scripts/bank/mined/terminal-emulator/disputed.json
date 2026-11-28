@@ -1,0 +1,394 @@
+[
+ {
+  "name": "kmscon",
+  "a": {
+   "name": "kmscon",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Repology altsisyphus Terminals: kmscon",
+   "why": "userspace KMS console emulator"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Tym",
+  "a": {
+   "name": "Tym",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "liguros x11-terms/tym",
+   "why": "small VTE-based terminal"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Blackbox Terminal",
+  "a": {
+   "name": "Blackbox Terminal",
+   "aliases": [
+    "blackbox-terminal"
+   ],
+   "judge": "race",
+   "evidence": "Repology altsisyphus Terminals: blackbox-terminal",
+   "why": "GTK4 terminal for GNOME"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ZTerm",
+  "a": {
+   "name": "ZTerm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Wikipedia Category:MacOS: ZTerm",
+   "why": "classic Mac serial and dial-up terminal"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "pw3270",
+  "a": {
+   "name": "pw3270",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "opensuse System/X11/Terminals: pw3270",
+   "why": "3270 emulator with a GTK front end"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "suite3270",
+  "a": {
+   "name": "suite3270",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Repology altsisyphus Terminals: suite3270",
+   "why": "3270 emulator suite"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "yeahconsole",
+  "a": {
+   "name": "yeahconsole",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "liguros x11-terms/yeahconsole",
+   "why": "drop-down xterm wrapper"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "GTKTerm",
+  "a": {
+   "name": "GTKTerm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "Repology altsisyphus Terminals: gtkterm",
+   "why": "GTK serial terminal program"
+  },
+  "b": null,
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Terminal.app",
+  "a": null,
+  "b": {
+   "name": "Terminal.app",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "macOS default terminal"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "iTerm2",
+  "a": null,
+  "b": {
+   "name": "iTerm2",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "popular macOS terminal"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Tilix",
+  "a": null,
+  "b": {
+   "name": "Tilix",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "tiling GTK terminal"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "mintty",
+  "a": null,
+  "b": {
+   "name": "mintty",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "Cygwin/MSYS terminal"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Windows Terminal",
+  "a": null,
+  "b": {
+   "name": "Windows Terminal",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "Microsoft's Windows terminal"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "rxvt-unicode",
+  "a": null,
+  "b": {
+   "name": "rxvt-unicode",
+   "aliases": [
+    "urxvt"
+   ],
+   "judge": "leak",
+   "evidence": "altsisyphus Terminals: rxvt-unicode",
+   "why": "Unicode rxvt fork"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Eterm",
+  "a": null,
+  "b": {
+   "name": "Eterm",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Enlightenment X terminal"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Hyper",
+  "a": null,
+  "b": {
+   "name": "Hyper",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Electron terminal"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "ConEmu",
+  "a": null,
+  "b": {
+   "name": "ConEmu",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Windows console emulator"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "PuTTY",
+  "a": null,
+  "b": {
+   "name": "PuTTY",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "named as a terminal emulator"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "xterm.js",
+  "a": null,
+  "b": {
+   "name": "xterm.js",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "web terminal, VS Code's engine"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "Blackbox",
+  "a": null,
+  "b": {
+   "name": "Blackbox",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: blackbox-terminal",
+   "why": "GNOME terminal, niche"
+  },
+  "batch": "batch-00.txt"
+ },
+ {
+  "name": "HyperACCESS",
+  "a": null,
+  "b": {
+   "name": "HyperACCESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "\"HyperACCESS\" line, Windows software list",
+   "why": "Hilgraeve serial terminal-emulation program"
+  },
+  "batch": "batch-05.txt"
+ },
+ {
+  "name": "RUMBA",
+  "a": {
+   "name": "RUMBA",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "RUMBA",
+   "why": "Windows terminal emulator for IBM mainframe 3270/5250 access; known mainly to mainframe specialists"
+  },
+  "b": null,
+  "batch": "batch-08.txt"
+ },
+ {
+  "name": "Alacritty",
+  "a": {
+   "name": "Alacritty",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "## source: src/alacritty-docs (directory with no phrases mined)",
+   "why": "named GPU terminal program, a scope example for off-by-one"
+  },
+  "b": null,
+  "batch": "batch-11.txt"
+ },
+ {
+  "name": "WezTerm",
+  "a": {
+   "name": "WezTerm",
+   "aliases": [
+    "wezterm-docs"
+   ],
+   "judge": "race",
+   "evidence": "## source: src/wezterm-docs (3 into terminal)",
+   "why": "named GPU terminal program, a scope example for race"
+  },
+  "b": null,
+  "batch": "batch-11.txt"
+ },
+ {
+  "name": "Hyper",
+  "a": {
+   "name": "Hyper",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "## source: src/hyper (no phrases mined)",
+   "why": "Electron terminal, a scope example for leak"
+  },
+  "b": null,
+  "batch": "batch-11.txt"
+ },
+ {
+  "name": "Guake",
+  "a": {
+   "name": "Guake",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "## source: src/guake (no phrases mined)",
+   "why": "drop-down terminal, a scope example for npe"
+  },
+  "b": null,
+  "batch": "batch-11.txt"
+ },
+ {
+  "name": "Konsole",
+  "a": {
+   "name": "Konsole",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "## source: src/konsole (no phrases mined)",
+   "why": "KDE terminal emulator, named in scope"
+  },
+  "b": null,
+  "batch": "batch-11.txt"
+ },
+ {
+  "name": "ConEmu",
+  "a": {
+   "name": "ConEmu",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "## source: src/conemu (no phrases mined)",
+   "why": "Windows console emulator, a scope example for leak"
+  },
+  "b": null,
+  "batch": "batch-11.txt"
+ },
+ {
+  "name": "pyte",
+  "a": {
+   "name": "pyte",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "## source: src/pyte (no phrases mined)",
+   "why": "Python terminal emulator library, named in scope"
+  },
+  "b": null,
+  "batch": "batch-11.txt"
+ },
+ {
+  "name": "cool-retro-term",
+  "a": {
+   "name": "cool-retro-term",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "## source: src/cool-retro-term (head nouns: terminal emulator, terminal)",
+   "why": "retro novelty terminal, named in scope"
+  },
+  "b": null,
+  "batch": "batch-11.txt"
+ },
+ {
+  "name": "xterm.js",
+  "a": {
+   "name": "xterm.js",
+   "aliases": [
+    "xtermjs"
+   ],
+   "judge": "race",
+   "evidence": "## source: src/xtermjs (15 const terminal)",
+   "why": "web terminal emulator (VS Code), a scope example for race"
+  },
+  "b": null,
+  "batch": "batch-11.txt"
+ },
+ {
+  "name": "iTerm2",
+  "a": null,
+  "b": {
+   "name": "iTerm2",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "iterm2 terminal (src/kitty-docs)",
+   "why": "macOS terminal, scope off-by-one"
+  },
+  "batch": "batch-11.txt"
+ }
+]

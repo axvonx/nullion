@@ -1,0 +1,360 @@
+{
+ "terminal-emulator": [
+  {
+   "name": "xterm",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "altsisyphus Terminals: xterm",
+   "why": "original X terminal emulator"
+  },
+  {
+   "name": "GNOME Terminal",
+   "aliases": [
+    "gnome-terminal"
+   ],
+   "judge": "off-by-one",
+   "evidence": "liguros x11-terms: gnome-terminal",
+   "why": "default GNOME terminal"
+  },
+  {
+   "name": "Alacritty",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "altsisyphus Terminals: alacritty",
+   "why": "well-known GPU terminal"
+  },
+  {
+   "name": "kitty",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "altsisyphus Terminals: kitty",
+   "why": "well-known GPU terminal"
+  },
+  {
+   "name": "Konsole",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "altsisyphus Terminals: konsole",
+   "why": "KDE's terminal emulator"
+  },
+  {
+   "name": "Terminal.app",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "macOS default terminal"
+  },
+  {
+   "name": "iTerm2",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "memory (no source)",
+   "why": "popular macOS terminal"
+  },
+  {
+   "name": "Terminator",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "altsisyphus Terminals: terminator",
+   "why": "tiling GTK terminal"
+  },
+  {
+   "name": "Tilix",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "tiling GTK terminal"
+  },
+  {
+   "name": "st",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "altsisyphus Terminals: st",
+   "why": "suckless simple terminal"
+  },
+  {
+   "name": "mintty",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "Cygwin/MSYS terminal"
+  },
+  {
+   "name": "Guake",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "altsisyphus Terminals: guake",
+   "why": "drop-down terminal"
+  },
+  {
+   "name": "Windows Terminal",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "memory (no source)",
+   "why": "Microsoft's Windows terminal"
+  },
+  {
+   "name": "rxvt-unicode",
+   "aliases": [
+    "urxvt"
+   ],
+   "judge": "leak",
+   "evidence": "altsisyphus Terminals: rxvt-unicode",
+   "why": "Unicode rxvt fork"
+  },
+  {
+   "name": "Eterm",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Enlightenment X terminal"
+  },
+  {
+   "name": "Hyper",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Electron terminal"
+  },
+  {
+   "name": "ConEmu",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "Windows console emulator"
+  },
+  {
+   "name": "PuTTY",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "memory (no source)",
+   "why": "named as a terminal emulator"
+  },
+  {
+   "name": "Yakuake",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: yakuake",
+   "why": "KDE drop-down terminal"
+  },
+  {
+   "name": "Tilda",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: tilda",
+   "why": "GTK drop-down terminal"
+  },
+  {
+   "name": "foot",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: foot",
+   "why": "Wayland terminal"
+  },
+  {
+   "name": "Contour",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "liguros/altsisyphus: contour-terminal",
+   "why": "GPU terminal, specialist name"
+  },
+  {
+   "name": "Rio",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: rio",
+   "why": "GPU terminal, specialist name"
+  },
+  {
+   "name": "WezTerm",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "liguros x11-terms: wezterm",
+   "why": "GPU terminal, specialist name"
+  },
+  {
+   "name": "Ghostty",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: ghostty",
+   "why": "GPU terminal, specialist name"
+  },
+  {
+   "name": "xterm.js",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "memory (no source)",
+   "why": "web terminal, VS Code's engine"
+  },
+  {
+   "name": "Blackbox",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: blackbox-terminal",
+   "why": "GNOME terminal, niche"
+  },
+  {
+   "name": "GNOME Console",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: gnome-console",
+   "why": "GNOME's console terminal"
+  },
+  {
+   "name": "COSMIC Terminal",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: cosmic-term",
+   "why": "System76 desktop terminal"
+  },
+  {
+   "name": "Ptyxis",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "liguros x11-terms: ptyxis",
+   "why": "GNOME container-aware terminal"
+  },
+  {
+   "name": "Pantheon Terminal",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: pantheon-terminal",
+   "why": "elementary OS terminal"
+  },
+  {
+   "name": "Deepin Terminal",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "altsisyphus Terminals: deepin-terminal",
+   "why": "Deepin desktop terminal"
+  },
+  {
+   "name": "Terminology",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: terminology",
+   "why": "Enlightenment terminal"
+  },
+  {
+   "name": "Sakura",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: sakura",
+   "why": "small GTK VTE terminal"
+  },
+  {
+   "name": "Termit",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "altsisyphus Terminals: termit",
+   "why": "small VTE terminal"
+  },
+  {
+   "name": "xfce4-terminal",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "altsisyphus Terminals: xfce4-terminal",
+   "why": "Xfce's terminal"
+  },
+  {
+   "name": "MATE Terminal",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "liguros x11-terms: mate-terminal",
+   "why": "MATE desktop terminal"
+  },
+  {
+   "name": "QTerminal",
+   "aliases": [],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: qterminal",
+   "why": "Qt terminal, LXQt"
+  },
+  {
+   "name": "qtermwidget",
+   "aliases": [
+    "qtermwidget6"
+   ],
+   "judge": "heisenbug",
+   "evidence": "altsisyphus Terminals: qtermwidget",
+   "why": "Qt terminal emulation widget"
+  },
+  {
+   "name": "cool-retro-term",
+   "aliases": [],
+   "judge": "leak",
+   "evidence": "altsisyphus Terminals: cool-retro-term",
+   "why": "retro CRT-style terminal"
+  },
+  {
+   "name": "Tabby",
+   "aliases": [
+    "Terminus"
+   ],
+   "judge": "leak",
+   "evidence": "liguros x11-terms: tabby-bin; openSUSE: terminus",
+   "why": "Electron terminal, once named Terminus"
+  },
+  {
+   "name": "zutty",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "altsisyphus Terminals: zutty",
+   "why": "GPU terminal, deep cut"
+  },
+  {
+   "name": "xst",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "altsisyphus Terminals: xst",
+   "why": "xterm-like st fork"
+  },
+  {
+   "name": "kterm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "liguros x11-terms: kterm",
+   "why": "Kanji X terminal"
+  },
+  {
+   "name": "mlterm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "liguros x11-terms: mlterm",
+   "why": "multilingual CJK terminal"
+  },
+  {
+   "name": "x3270",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "openSUSE: x3270",
+   "why": "IBM 3270 terminal emulator"
+  },
+  {
+   "name": "libvterm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "evidence": "memory (no source)",
+   "why": "Neovim's terminal engine"
+  },
+  {
+   "name": "VTE",
+   "aliases": [
+    "vte3"
+   ],
+   "judge": "race",
+   "evidence": "altsisyphus Terminals: vte",
+   "why": "GNOME terminal widget"
+  }
+ ],
+ "womm_candidates": [
+  "st",
+  "rxvt-unicode",
+  "Eterm"
+ ],
+ "bitflip_candidates": [
+  "kterm",
+  "x3270",
+  "zutty"
+ ]
+}

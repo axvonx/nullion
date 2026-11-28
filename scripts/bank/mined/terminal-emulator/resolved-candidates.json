@@ -1,0 +1,31 @@
+{
+ "terminal-emulator": [
+  {"name": "Terminal.app", "aliases": [], "judge": "off-by-one", "why": "macOS default terminal; scope example"},
+  {"name": "iTerm2", "aliases": [], "judge": "off-by-one", "why": "popular macOS terminal; scope example"},
+  {"name": "Konsole", "aliases": [], "judge": "off-by-one", "why": "KDE terminal emulator; scope example"},
+  {"name": "Alacritty", "aliases": [], "judge": "off-by-one", "why": "GPU terminal emulator; scope example, in Repology terminals"},
+  {"name": "Tilix", "aliases": [], "judge": "npe", "why": "tiling GTK terminal emulator; scope example"},
+  {"name": "mintty", "aliases": [], "judge": "npe", "why": "Cygwin and MSYS terminal emulator; scope example"},
+  {"name": "Windows Terminal", "aliases": [], "judge": "npe", "why": "Microsoft's terminal emulator; scope example"},
+  {"name": "Guake", "aliases": [], "judge": "npe", "why": "drop-down terminal emulator; scope example"},
+  {"name": "Hyper", "aliases": [], "judge": "leak", "why": "Electron terminal emulator; scope example"},
+  {"name": "ConEmu", "aliases": [], "judge": "leak", "why": "Windows console emulator; scope example"},
+  {"name": "PuTTY", "aliases": [], "judge": "leak", "why": "named as a terminal emulator in scope In"},
+  {"name": "rxvt-unicode", "aliases": ["urxvt"], "judge": "leak", "why": "Unicode rxvt fork; in Repology x11-terms"},
+  {"name": "Eterm", "aliases": [], "judge": "leak", "why": "Enlightenment X terminal; scope example"},
+  {"name": "xterm.js", "aliases": [], "judge": "race", "why": "web terminal emulator (VS Code); scope example"},
+  {"name": "WezTerm", "aliases": [], "judge": "race", "why": "GPU terminal emulator; scope example, in Repology x11-terms"},
+  {"name": "cool-retro-term", "aliases": [], "judge": "leak", "why": "retro novelty terminal emulator; scope sub-kind"},
+  {"name": "pyte", "aliases": [], "judge": "heisenbug", "why": "Python terminal emulator library; scope sub-kind"},
+  {"name": "Tym", "aliases": [], "judge": "heisenbug", "why": "small VTE-based terminal; in Repology liguros x11-terms"},
+  {"name": "pw3270", "aliases": [], "judge": "heisenbug", "why": "3270 terminal emulator with GTK front end; in openSUSE terminals"},
+  {"name": "suite3270", "aliases": [], "judge": "heisenbug", "why": "3270 terminal emulator suite; in Repology terminals"},
+  {"name": "RUMBA", "aliases": [], "judge": "heisenbug", "why": "Windows 3270/5250 terminal emulator; Wikipedia Windows software"},
+  {"name": "Blackbox Terminal", "aliases": [], "judge": "heisenbug", "why": "GTK4 terminal for GNOME; niche, in Repology terminals"},
+  {"name": "kmscon", "aliases": [], "judge": "heisenbug", "confidence": "low", "why": "userspace VT emulator on KMS; borders the Out'd Linux console, so a person should rule on it"},
+  {"name": "yeahconsole", "aliases": [], "judge": "heisenbug", "confidence": "low", "why": "drop-down xterm wrapper; may be a script hosting an emulator rather than one"},
+  {"name": "GTKTerm", "aliases": [], "judge": "heisenbug", "confidence": "low", "why": "GTK serial terminal; serial rather than pty, so outside the scope's core definition"},
+  {"name": "HyperACCESS", "aliases": [], "judge": "heisenbug", "confidence": "low", "why": "Windows serial terminal-emulation program; serial rather than pty"},
+  {"name": "ZTerm", "aliases": [], "judge": "heisenbug", "confidence": "low", "why": "classic Mac dial-up terminal emulator; modem rather than pty"}
+ ]
+}

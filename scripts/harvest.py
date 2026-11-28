@@ -12,6 +12,8 @@ Reads scripts/bank/plans/<id>.json:
                                               (type "dir" or "file"; file names lose their extension)
     "wiki":     ["Category:Scheduling algorithms"],  Wikipedia category members (articles in it and its direct
                                               subcategories, via scripts/bank/recall.py's members())
+    "repology": [{"repo": "gentoo", "category": "x11-terms"}],  a distro's package category in the local Repology
+                                              extract: its package names are candidates
     "covers":   {"<scope sub-kind>": ["<source>"]}   which source covers each sub-kind of the scope (pipeline check)
     "context":  ["file system"]               optional: counts must co-occur with one of these (scorer)
   }
@@ -27,6 +29,41 @@ import sys
 REPO = pathlib.Path(__file__).resolve().parent.parent
 CORPORA = pathlib.Path("~/nullion-corpora").expanduser()
 BATCH = 1400
+
+
+def repology_index() -> dict[str, list[str]]:
+    """"<repo>\t<category>" -> the project names packaged there (visible names), from the local Repology extract
+    (~/nullion-corpora/repology/packages.tsv.gz, scripts/fetch-corpora.py repology). Built once (about half a
+    minute), cached in ~/nullion-corpora/derived/repology-categories.json.gz next to the extract it came from."""
+    import gzip
+    src = CORPORA / "repology" / "packages.tsv.gz"
+    if not src.exists():
+        raise RuntimeError("no Repology extract: python3 -I scripts/fetch-corpora.py repology")
+    cache = CORPORA / "derived" / "repology-categories.json.gz"
+    if cache.exists() and cache.stat().st_mtime >= src.stat().st_mtime:
+        return json.loads(gzip.decompress(cache.read_bytes()))
+    idx: dict[str, set[str]] = {}
+    with gzip.open(src, "rt", errors="replace") as f:
+        head = f.readline().rstrip("\n").split("\t")
+        ri, ci, vi = head.index("repo"), head.index("category"), head.index("visiblename")
+        for line in f:
+            p = line.rstrip("\n").split("\t")
+            if len(p) > max(ri, ci, vi) and p[ci] not in ("", "\\N") and p[vi] not in ("", "\\N"):
+                idx.setdefault(f"{p[ri]}\t{p[ci]}", set()).add(p[vi])
+    out = {k: sorted(v) for k, v in idx.items()}
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    tmp = cache.with_name(cache.name + ".part")
+    tmp.write_bytes(gzip.compress(json.dumps(out).encode()))
+    tmp.replace(cache)
+    return out
+
+
+def repology_members(spec: dict) -> list[str]:
+    key = f"{spec['repo']}\t{spec['category']}"
+    idx = repology_index()
+    if key not in idx:
+        raise RuntimeError(f"Repology has no category {spec['category']!r} in repo {spec['repo']!r}")
+    return idx[key]
 
 
 def wiki_members(category: str) -> list[str]:
@@ -80,8 +117,8 @@ def main() -> None:
     cid = sys.argv[1]
     plan_path = REPO / "scripts" / "bank" / "plans" / f"{cid}.json"
     plan = json.loads(plan_path.read_text())
-    if not plan.get("heads") and not plan.get("listings") and not plan.get("extract") and not plan.get("wiki"):
-        raise RuntimeError(f"{plan_path}: needs heads (with trees), listings, extract or wiki")
+    if not any(plan.get(k) for k in ("heads", "listings", "extract", "wiki", "repology")):
+        raise RuntimeError(f"{plan_path}: needs heads (with trees), listings, extract, wiki or repology")
     bank = [h for h in (REPO / "bank").glob(f"*/{cid}.md") if h.parent.name != "reports"]
     if len(bank) != 1:
         raise RuntimeError(f"{cid}: expected one bank file, found {len(bank)}")
@@ -92,6 +129,11 @@ def main() -> None:
     sections: list[tuple[str, list[str]]] = []
     for spec in plan.get("listings", []):
         sections.append((f"{spec['repo']}/{spec['path']} ({spec.get('type', 'dir')} names)", listing(spec)))
+    for spec in plan.get("repology", []):
+        names = repology_members(spec)
+        if len(names) < 8:
+            raise RuntimeError(f"Repology {spec} has only {len(names)} projects: not a useful source")
+        sections.append((f"Repology {spec['repo']} category {spec['category']} (package names)", names))
     for cat in plan.get("wiki", []):
         names = wiki_members(cat)
         if len(names) < 8:

@@ -1,0 +1,239 @@
+--- haiku call, 14s, exit 0, prompt 37423 chars, stdout 117 chars
+[03:09:16] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 19s, exit 0, prompt 7338 chars, stdout 424 chars
+[03:09:22] 1
+
+I wrote both files, but I could not run the `python3 -I -c "import json;..."` validation because this session has no shell tool. I checked the JSON by reading it back; it looks well-formed.
+
+- `batch-00.a-candidates.json`: one kept name (ZTerm, judge heisenbug). `womm_candidates` and `bitflip_candidates` are empty, because the batch has no other names that pass the rules.
+- `batch-00.a-aliases.json`: `{}`.
+
+
+--- gemini via claude:claude-haiku-5-5 call, 20s, exit 0, prompt 7338 chars, stdout 181 chars
+[03:09:23] 0
+
+I couldn't run the `python3 -I -c` validation because this session has no shell tool. Both files are written, and I checked them by reading them: they are valid JSON.
+
+
+--- haiku call, 21s, exit 0, prompt 13426 chars, stdout 280 chars
+[03:09:24] {"candidates": {"terminal-emulator": [{"name": "ZTerm", "aliases": [], "judge": "heisenbug", "evidence": "Wikipedia Category:MacOS article titles: ZTerm", "why": "classic Mac terminal/dial-up program"}], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 15s, exit 0, prompt 7338 chars, stdout 160 chars
+[03:09:32] 0
+
+Validation not run: this session has no shell tool, so I could not run the `json.load` check. Both files are hand-checked, short, and valid JSON.
+
+
+--- haiku call, 11s, exit 0, prompt 37928 chars, stdout 117 chars
+[03:09:33] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 14s, exit 0, prompt 7338 chars, stdout 174 chars
+[03:09:37] 0
+
+I could not run the `json.load` validation: this session has no shell tool. I checked both files by reading them back. They are valid JSON with empty contents.
+
+
+--- haiku call, 13s, exit 0, prompt 37129 chars, stdout 117 chars
+[03:09:37] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- haiku call, 10s, exit 0, prompt 35611 chars, stdout 117 chars
+[03:09:43] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 18s, exit 0, prompt 7338 chars, stdout 145 chars
+[03:09:50] 0
+
+Note: I couldn't run the JSON validation step because Bash is disabled in this session. Both files are hand-checked, minimal JSON.
+
+
+--- gemini via claude:claude-haiku-5-5 call, 15s, exit 0, prompt 7338 chars, stdout 598 chars
+[03:09:51] 0
+
+The batch has no terminal-emulator names. It is almost entirely Wikipedia video-game titles, and none of the emulator names in the Inbox (xterm, iTerm2, GNOME Terminal, rxvt, mintty, st, Eterm) appear in it, so there was nothing to keep. Both files are written: the candidates file has empty lists for `terminal-emulator`, `womm_candidates` and `bitflip_candidates`, and the aliases file is `{}`.
+
+I could not run the `python3 -I -c "import json..."` validation because this session has no shell tool. Both files are simple JSON, and I read the candidates file back and confirmed it.
+
+
+--- gemini via claude:claude-haiku-5-5 call, 12s, exit 0, prompt 7338 chars, stdout 180 chars
+[03:09:56] 0
+
+(Validation was not run: the Bash tool is disabled in this session. Both files are trivially valid JSON as written, but the `json.load` check has not been executed.)
+
+
+--- haiku call, 22s, exit 0, prompt 37937 chars, stdout 291 chars
+[03:09:59] {"candidates": {"terminal-emulator": [{"name": "HyperACCESS", "aliases": [], "judge": "heisenbug", "evidence": "batch line 'HyperACCESS', Windows software list", "why": "Windows serial terminal emulator product"}], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- haiku call, 14s, exit 0, prompt 36939 chars, stdout 117 chars
+[03:10:03] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 15s, exit 0, prompt 7338 chars, stdout 13 chars
+[03:10:07] 0
+
+
+--- haiku call, 14s, exit 0, prompt 36333 chars, stdout 117 chars
+[03:10:09] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 15s, exit 0, prompt 7338 chars, stdout 395 chars
+[03:10:14] 0
+
+I could not run the JSON validation: this session has no shell tool, so I checked the two files by writing them as plain JSON. Batch 08 is a list of Windows software and video game titles, and none of its lines name a terminal emulator from the scope, so nothing was kept. The `womm_candidates` and `bitflip_candidates` arrays are empty because they can only come from kept names.
+
+
+--- haiku call, 12s, exit 0, prompt 36887 chars, stdout 117 chars
+[03:10:15] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- haiku call, 13s, exit 0, prompt 39191 chars, stdout 117 chars
+[03:10:23] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 21s, exit 0, prompt 7338 chars, stdout 182 chars
+[03:10:27] 0
+
+Validation not run: this session has no shell tool, so I could not execute the `json.load` check. I checked both files by reading them back; they are plain valid JSON.
+
+
+--- gemini via claude:claude-haiku-5-5 call, 16s, exit 0, prompt 7338 chars, stdout 539 chars
+[03:10:29] 0
+
+The validation step didn't run: Bash is disabled in this session. Both files are trivially valid JSON by inspection (`{"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}` and `{}`), but I haven't parsed them.
+
+The batch is almost entirely Wikipedia game and software titles with no terminal emulators in it, so nothing was kept. The `womm_candidates` and `bitflip_candidates` lists are empty too, because the bank is a fresh draft and the spec asks for three of each. I didn't invent any to fill them.
+
+
+--- haiku call, 15s, exit 0, prompt 41067 chars, stdout 117 chars
+[03:10:30] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 19s, exit 0, prompt 7338 chars, stdout 174 chars
+[03:10:41] 0
+
+I couldn't run the `python3 -I -c "import json;…"` validation because this session has no shell tool. I read both files back: each is valid JSON by inspection.
+
+
+--- haiku call, 23s, exit 0, prompt 29516 chars, stdout 1125 chars
+[03:10:50] {"candidates": {"terminal-emulator": [{"name": "xterm", "aliases": [], "judge": "off-by-one", "evidence": "memory (no source)", "why": "X11 reference terminal emulator"}, {"name": "iTerm2", "aliases": ["iTerm"], "judge": "off-by-one", "evidence": "memory (no source)", "why": "Popular macOS terminal emulator"}, {"name": "GNOME Terminal", "aliases": ["gnome-terminal"], "judge": "off-by-one", "evidence": "memory (no source)", "why": "Default GNOME desktop terminal emulator"}, {"name": "rxvt", "aliases": [], "judge": "leak", "evidence": "memory (no source)", "why": "Original rxvt, ancestor of urxvt"}, {"name": "mintty", "aliases": [], "judge": "npe", "evidence": "memory (no source)", "why": "Cygwin and MSYS terminal emulator"}, {"name": "st", "aliases": ["simple terminal"], "judge": "npe", "evidence": "memory (no source)", "why": "Suckless simple terminal emulator"}, {"name": "Eterm", "aliases": [], "judge": "leak", "evidence": "memory (no source)", "why": "Enlightenment terminal emulator"}], "womm_candidates": ["st", "mintty", "rxvt"], "bitflip_candidates": ["Eterm", "mintty", "st"]}, "aliases": {}}
+
+
+--- haiku call, 30s, exit 0, prompt 37423 chars, stdout 117 chars
+[03:22:53] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 49s, exit 0, prompt 7338 chars, stdout 13 chars
+[03:23:14] 0
+
+
+--- haiku call, 61s, exit 0, prompt 15390 chars, stdout 6636 chars
+e": "qtermwidget", "aliases": ["qtermwidget6"], "judge": "heisenbug", "evidence": "altsisyphus Terminals: qtermwidget", "why": "Qt terminal emulation widget"}, {"name": "cool-retro-term", "aliases": [], "judge": "leak", "evidence": "altsisyphus Terminals: cool-retro-term", "why": "retro CRT-style terminal"}, {"name": "Tabby", "aliases": ["Terminus"], "judge": "leak", "evidence": "liguros x11-terms: tabby-bin; openSUSE: terminus", "why": "Electron terminal, once named Terminus"}, {"name": "zutty", "aliases": [], "judge": "heisenbug", "evidence": "altsisyphus Terminals: zutty", "why": "GPU terminal, deep cut"}, {"name": "xst", "aliases": [], "judge": "heisenbug", "evidence": "altsisyphus Terminals: xst", "why": "xterm-like st fork"}, {"name": "kterm", "aliases": [], "judge": "heisenbug", "evidence": "liguros x11-terms: kterm", "why": "Kanji X terminal"}, {"name": "mlterm", "aliases": [], "judge": "heisenbug", "evidence": "liguros x11-terms: mlterm", "why": "multilingual CJK terminal"}, {"name": "x3270", "aliases": [], "judge": "heisenbug", "evidence": "openSUSE: x3270", "why": "IBM 3270 terminal emulator"}, {"name": "libvterm", "aliases": [], "judge": "heisenbug", "evidence": "memory (no source)", "why": "Neovim's terminal engine"}, {"name": "VTE", "aliases": ["vte3"], "judge": "race", "evidence": "altsisyphus Terminals: vte", "why": "GNOME terminal widget"}], "womm_candidates": ["st", "rxvt-unicode", "Eterm"], "bitflip_candidates": ["kterm", "x3270", "zutty"]}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 37s, exit 0, prompt 7338 chars, stdout 197 chars
+[03:23:32] 0
+
+Both files are written, but I could not run the `python3 -I -c "import json..."` check because I have no shell tool here. Both are short, hand-checked JSON that parses by inspection.
+
+
+--- haiku call, 20s, exit 0, prompt 37928 chars, stdout 117 chars
+[03:23:34] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- haiku call, 12s, exit 0, prompt 37129 chars, stdout 117 chars
+[03:23:44] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 20s, exit 0, prompt 7338 chars, stdout 211 chars
+[03:23:46] 0
+
+Note: I couldn't run the `python3 -I -c "import json;..."` validation because this session has no shell tool. Both files are hand-written minimal JSON and I read them back to confirm the contents.
+
+
+--- gemini via claude:claude-haiku-5-5 call, 13s, exit 0, prompt 7338 chars, stdout 209 chars
+[03:23:47] 0
+
+The two files are written with empty results. I couldn't run the JSON validation because this session has no shell. Both files are single-object JSON that I wrote directly, so they should parse.
+
+
+--- haiku call, 10s, exit 0, prompt 35611 chars, stdout 117 chars
+[03:23:54] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 18s, exit 0, prompt 7338 chars, stdout 225 chars
+[03:24:04] 0
+
+I couldn't run the `json.load` check: this session has no shell tool. Both files are hand-checked and well-formed JSON: `batch-05.a-candidates.json` has three empty lists, and `batch-05.a-aliases.json` is `{}`.
+
+
+--- haiku call, 17s, exit 0, prompt 37937 chars, stdout 303 chars
+[03:24:04] {"candidates": {"terminal-emulator": [{"name": "HyperACCESS", "aliases": [], "judge": "heisenbug", "evidence": "\"HyperACCESS\" line, Windows software list", "why": "Hilgraeve serial terminal-emulation program"}], "womm_candidates": [], "bitflip_candidates": ["HyperACCESS"]}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 101s, exit 0, prompt 7338 chars, stdout 239 chars
+[03:24:06] 44
+
+I could not run the `json.load` validation: this session has no shell tool, so both files are unvalidated. I checked the JSON by reading it, but it should be run once with `python3 -I -c "import json;json.load(open(...))"`.
+
+
+--- gemini via claude:claude-haiku-5-5 call, 13s, exit 0, prompt 7338 chars, stdout 13 chars
+[03:24:07] 0
+
+
+--- haiku call, 10s, exit 0, prompt 36333 chars, stdout 117 chars
+[03:24:15] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- haiku call, 13s, exit 0, prompt 36939 chars, stdout 117 chars
+[03:24:16] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 16s, exit 0, prompt 7338 chars, stdout 149 chars
+[03:24:19] 0
+
+I couldn't run the `json.load` validation because Bash is disabled in this session. Both files are trivially valid JSON by inspection.
+
+
+--- gemini via claude:claude-haiku-5-5 call, 20s, exit 0, prompt 7338 chars, stdout 182 chars
+[03:24:26] 1
+
+I could not run the JSON validation: Bash is disabled in this session. I wrote both files by hand and they are simple, but they have not been checked with `json.load`.
+
+
+--- haiku call, 12s, exit 0, prompt 36887 chars, stdout 117 chars
+[03:24:27] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 14s, exit 0, prompt 7338 chars, stdout 13 chars
+[03:24:30] 0
+
+
+--- haiku call, 13s, exit 0, prompt 39191 chars, stdout 117 chars
+[03:24:32] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- haiku call, 10s, exit 0, prompt 41067 chars, stdout 117 chars
+[03:24:37] {"candidates": {"terminal-emulator": [], "womm_candidates": [], "bitflip_candidates": []}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 17s, exit 0, prompt 7338 chars, stdout 194 chars
+[03:24:43] 0
+
+I couldn't run the `python3 -I -c` validation because this session has no shell tool. Both files are simple JSON that I checked by reading them back, but they haven't been parsed.
+
+
+--- haiku call, 28s, exit 0, prompt 31759 chars, stdout 795 chars
+[03:25:00] {"candidates": {"terminal-emulator": [{"name": "kitty", "aliases": [], "judge": "off-by-one", "evidence": "kitty terminal (src/kitty-docs)", "why": "named GPU terminal project, scope off-by-one"}, {"name": "iTerm2", "aliases": [], "judge": "off-by-one", "evidence": "iterm2 terminal (src/kitty-docs)", "why": "macOS terminal, scope off-by-one"}, {"name": "Windows Terminal", "aliases": [], "judge": "npe", "evidence": "windows terminal (src/microsoft-terminal)", "why": "Microsoft's terminal app, scope npe"}, {"name": "VTE", "aliases": ["VteTerminal"], "judge": "race", "evidence": "VteTerminal (src/vte)", "why": "GNOME emulation widget, specialist-known"}], "womm_candidates": ["kitty", "iTerm2", "VTE"], "bitflip_candidates": ["VTE", "Windows Terminal", "kitty"]}, "aliases": {}}
+
+
+--- gemini via claude:claude-haiku-5-5 call, 33s, exit 0, prompt 7338 chars, stdout 236 chars
+[03:25:04] 12
+
+I could not run the `json.load` validation: this session has no shell tool. I checked the two files by reading them back, and the candidates file's JSON is well-formed on inspection, but it hasn't been machine-validated.
+
+

@@ -1,0 +1,82 @@
+{
+ "repology": [
+  {
+   "repo": "altsisyphus",
+   "category": "Terminals"
+  },
+  {
+   "repo": "liguros_develop",
+   "category": "x11-terms"
+  },
+  {
+   "repo": "opensuse_leap_15_6",
+   "category": "System/X11/Terminals"
+  }
+ ],
+ "wiki": [
+  "Category:MacOS",
+  "Category:Windows software"
+ ],
+ "heads": [
+  "terminal emulator",
+  "terminal"
+ ],
+ "trees": [
+  "src/cool-retro-term",
+  "src/vte",
+  "src/xtermjs",
+  "src/alacritty-docs",
+  "src/kitty-docs",
+  "src/wezterm-docs",
+  "src/hyper",
+  "src/guake",
+  "src/konsole",
+  "src/conemu",
+  "src/microsoft-terminal",
+  "src/pyte"
+ ],
+ "covers": {
+  "X11 classics": [
+   "liguros_develop/x11-terms",
+   "opensuse_leap_15_6/System/X11/Terminals"
+  ],
+  "GTK and desktop terminals": [
+   "altsisyphus/Terminals",
+   "src/vte",
+   "src/konsole"
+  ],
+  "Drop-down terminals": [
+   "src/guake",
+   "altsisyphus/Terminals"
+  ],
+  "macOS": [
+   "Category:MacOS"
+  ],
+  "Windows": [
+   "Category:Windows software",
+   "src/microsoft-terminal",
+   "src/conemu",
+   "src/hyper"
+  ],
+  "GPU-accelerated": [
+   "src/alacritty-docs",
+   "src/kitty-docs",
+   "src/wezterm-docs"
+  ],
+  "Embedded and web": [
+   "src/xtermjs",
+   "src/pyte",
+   "src/hyper"
+  ],
+  "Emulation libraries": [
+   "src/vte",
+   "src/xtermjs"
+  ],
+  "Retro and novelty": [
+   "src/cool-retro-term"
+  ]
+ },
+ "context": [
+  "terminal"
+ ]
+}

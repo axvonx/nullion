@@ -148,7 +148,7 @@
 | static-analysis-tool | Name a static analysis tool | languages-tools | draft | 0 | 0 | 7 |
 | static-site-generator | Name a static site generator | languages-tools | draft | 368 | 366 | 3 |
 | template-engine | Name a template engine | languages-tools | draft | 0 | 0 | 7 |
-| terminal-emulator | Name a terminal emulator | languages-tools | draft | 0 | 0 | 7 |
+| terminal-emulator | Name a terminal emulator | languages-tools | draft | 77 | 73 | 0 |
 | test-framework | Name a test framework | languages-tools | draft | 0 | 0 | 7 |
 | testing-technique | Name a software testing technique | languages-tools | draft | 0 | 0 | 7 |
 | text-editor | Name a text editor | languages-tools | approved | 150 | 147 | 0 |

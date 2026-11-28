@@ -1,0 +1,29 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py terminal-emulator /Users/axvon/nullion/scripts/bank/mined/terminal-emulator/final.json /Users/axvon/nullion/scripts/bank/mined/terminal-emulator/agreed /Users/axvon/nullion/scripts/bank/mined/terminal-emulator/resolved  [0s, exit 0]
+terminal-emulator: 9 new candidates -> /Users/axvon/nullion/scripts/bank/mined/terminal-emulator/final.json; 0 aliases added to bank/languages-tools/terminal-emulator.md
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/merge-mined.py terminal-emulator /Users/axvon/nullion/scripts/bank/mined/terminal-emulator/final.json /Users/axvon/nullion/scripts/bank/mined/terminal-emulator/agreed /Users/axvon/nullion/scripts/bank/mined/terminal-emulator/resolved  [0s, exit 0]
+terminal-emulator: 58 new candidates -> /Users/axvon/nullion/scripts/bank/mined/terminal-emulator/final.json; 0 aliases added to bank/languages-tools/terminal-emulator.md
+
+--- haiku call, 8s, exit 0, prompt 4826 chars, stdout 83 chars
+[03:26:12] {"bitflip": "x3270", "womm": ["st", "rxvt-unicode", "cool-retro-term"]}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/score-candidates.py /Users/axvon/nullion/scripts/bank/mined/terminal-emulator/final.json /Users/axvon/nullion-corpora  [0s, exit 0]
+terminal-emulator: filled 58 answers
+then: npm run bank:index && npm test
+
+$ npm run bank:index  [0s, exit 0]
+
+> nullion@0.3.0-alpha bank:index
+> UPDATE_BANK_INDEX=1 vitest run src/data/bank-index.test.ts
+
+
+ RUN  v5.1.2 /Users/axvon/nullion
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  03:26:13
+   Duration  221ms (transform 69%, tests 15%, import 14%, worker 1%)
+
+

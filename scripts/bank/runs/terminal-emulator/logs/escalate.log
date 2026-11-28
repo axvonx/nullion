@@ -1,0 +1,30 @@
+--- gemini via claude:claude-haiku-5-5 call, 32s, exit 0, prompt 4429 chars, stdout 1472 chars
+[03:11:22] Kept 7, low 1, dropped 0.
+
+- **Kept (7):** xterm, iTerm2 (alias "iTerm"), GNOME Terminal, rxvt, mintty, st (alias "simple terminal"), Eterm. All are named in the scope's sub-kinds, and the judge tiers match the scope's examples.
+- **Low (1):** HyperACCESS, heisenbug. It is a Windows serial terminal program, which the scope's pty definition doesn't obviously cover. Its batch line is real (batch-05.txt, line 331), so it goes to the Inbox for a person to decide.
+
+Files written:
+- `scripts/bank/mined/terminal-emulator/resolved-candidates.json`
+- `scripts/bank/mined/terminal-emulator/resolved-aliases.json` (`{}`, since no existing bank answers changed)
+
+Things you should know:
+- **I dropped the "gnome-terminal" alias** on GNOME Terminal. It differs only by hyphen and case, which the matcher already normalises.
+- **The batch attribution in disputed.json is wrong.** None of the seven memory-sourced names appear in batch-11.txt, which is a Wikipedia game-title list. The terminal-emulator source sections are empty, apart from one stray `query terminal emulator` line. So all seven rest on "memory (no source)", which the filter prompt allows for certain real names. Nothing here comes from the mined sources, which matters for the source-first direction.
+- **I didn't validate the JSON.** This session has no shell tool, so I couldn't run the `python3 -I -c "import json…"` check. Both files are hand-written and should parse, but please run that check.
+
+
+--- gemini via claude:claude-haiku-5-5 call, 60s, exit 0, prompt 4430 chars, stdout 1471 chars
+[03:26:04] Resolved all 32 disputes for `terminal-emulator`. Both files are written.
+
+**Kept: 22 · Low (to Inbox): 5 · Dropped: 5**
+
+- **Files:** `scripts/bank/mined/terminal-emulator/resolved-candidates.json` and `resolved-aliases.json` (`{}`, since this is a fresh draft with no tiered answers to alias).
+- **Low-confidence (for a person):** kmscon, yeahconsole, GTKTerm, HyperACCESS, ZTerm. The first two are borderline on scope: kmscon sits near the Out'd Linux console, and yeahconsole may be a wrapper script rather than an emulator. The other three are serial or modem terminal programs, which don't fit the scope's pty definition.
+- **Dropped:** "Blackbox" on its own (ambiguous with the Blackbox window manager; the "Blackbox Terminal" entry covers it). Four were duplicates of kept entries: the second Hyper, ConEmu, xterm.js and iTerm2 disputes.
+- **Aliases:** only "urxvt" for rxvt-unicode. I left out "xtermjs" and "blackbox-terminal" because the matcher already ignores punctuation and case, so they would normalise to the same name. I also left out "wezterm-docs" because it is a source directory name, not something a player would type.
+- **Tiers:** the scope's example tiers were applied for the named programs. Blackbox Terminal was moved to heisenbug as niche, not race.
+
+I could not run `python3 -I -c "import json..."` to validate the JSON, because I have no shell tool in this session. I checked the files by reading them, and both are well-formed.
+
+

@@ -1,0 +1,327 @@
+{
+ "terminal-emulator": [
+  {
+   "name": "xterm",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "GNOME Terminal",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Konsole",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Alacritty",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "kitty",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Terminator",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "st",
+   "aliases": [],
+   "judge": "npe",
+   "pin": "womm"
+  },
+  {
+   "name": "Guake",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Xfce Terminal",
+   "aliases": [
+    "xfce4-terminal"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Tilda",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Yakuake",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "WezTerm",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "foot",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Ghostty",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Rio",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Contour",
+   "aliases": [
+    "contour-terminal"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "cool-retro-term",
+   "aliases": [],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "VTE",
+   "aliases": [
+    "vte3",
+    "VteTerminal"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "libvterm",
+   "aliases": [
+    "emacs-libvterm"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "mlterm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "xst",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Zutty",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Termit",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Sakura",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Terminology",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "QTerminal",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "MATE Terminal",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "GNOME Console",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "Ptyxis",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Deepin Terminal",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "COSMIC Terminal",
+   "aliases": [
+    "cosmic-term"
+   ],
+   "judge": "race"
+  },
+  {
+   "name": "Pantheon Terminal",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "Tabby",
+   "aliases": [
+    "Terminus"
+   ],
+   "judge": "leak"
+  },
+  {
+   "name": "x3270",
+   "aliases": [],
+   "judge": "heisenbug",
+   "pin": "bitflip"
+  },
+  {
+   "name": "kterm",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "QTermWidget",
+   "aliases": [
+    "qtermwidget6"
+   ],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Windows Terminal",
+   "aliases": [
+    "microsoft-terminal"
+   ],
+   "judge": "npe"
+  },
+  {
+   "name": "Terminal.app",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "iTerm2",
+   "aliases": [],
+   "judge": "off-by-one"
+  },
+  {
+   "name": "Tilix",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "mintty",
+   "aliases": [],
+   "judge": "npe"
+  },
+  {
+   "name": "Hyper",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "ConEmu",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "PuTTY",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "rxvt-unicode",
+   "aliases": [
+    "urxvt"
+   ],
+   "judge": "leak",
+   "pin": "womm"
+  },
+  {
+   "name": "Eterm",
+   "aliases": [],
+   "judge": "leak"
+  },
+  {
+   "name": "xterm.js",
+   "aliases": [],
+   "judge": "race"
+  },
+  {
+   "name": "pyte",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Tym",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "pw3270",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "suite3270",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "RUMBA",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "Blackbox Terminal",
+   "aliases": [],
+   "judge": "heisenbug"
+  },
+  {
+   "name": "kmscon",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  },
+  {
+   "name": "yeahconsole",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  },
+  {
+   "name": "GTKTerm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  },
+  {
+   "name": "HyperACCESS",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  },
+  {
+   "name": "ZTerm",
+   "aliases": [],
+   "judge": "heisenbug",
+   "confidence": "low"
+  }
+ ],
+ "_context": {
+  "terminal-emulator": [
+   "terminal"
+  ]
+ }
+}

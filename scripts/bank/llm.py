@@ -122,3 +122,28 @@ def call(model: str, prompt: str, validate: Callable[[Any], Any], *, out_path: p
             err = str(e)[:600]
             _log(log, f"!!! attempt {attempt + 1} failed: {err}")
     raise LLMError(f"{model} failed after {retries + 1} attempts: {err}")
+
+
+def call_text(model: str, prompt: str, validate: Callable[[str], Any], *, log: pathlib.Path | None = None,
+              retries: int = 1) -> Any:
+    """Like call(), for a prose reply: validate() gets the reply text (the claude CLI's timestamp prefix stripped),
+    raises ValueError on a bad one (retried once with the complaint), and returns what the caller keeps."""
+    if model != "haiku":
+        raise LLMError("call_text supports the haiku backend (claude -p) only")
+    err = ""
+    for attempt in range(retries + 1):
+        p = prompt if not err else f"{prompt}\n\nYOUR PREVIOUS ANSWER WAS REJECTED: {err}\nFix exactly that and answer again."
+        t0 = time.time()
+        r = run_group(["claude", "-p", "--model", HAIKU_MODEL, "--tools", "", "--no-session-persistence",
+                       "--disable-slash-commands"], stdin=p)
+        _log(log, f"--- haiku text call, {time.time() - t0:.0f}s, exit {r.returncode}\n{r.stdout[-1500:]}")
+        if r.returncode != 0:
+            err = f"exit {r.returncode}: {(r.stderr or r.stdout).strip()[-300:]}"
+            continue
+        text = re.sub(r"^\[\d\d:\d\d:\d\d\] ", "", r.stdout.strip())
+        try:
+            return validate(text)
+        except ValueError as e:
+            err = str(e)[:600]
+            _log(log, f"!!! attempt {attempt + 1} rejected: {err}")
+    raise LLMError(f"{model} failed after {retries + 1} attempts: {err}")

@@ -14,7 +14,8 @@
     "typecheck": "tsc --noEmit",
     "naming": "node scripts/naming-desk.mjs",
     "review": "node scripts/review-desk.mjs",
-    "writing:report": "node scripts/writing-report.mjs"
+    "writing:report": "node scripts/writing-report.mjs",
+    "bank:build": "python3 -I scripts/bank/build.py"
   },
   "devDependencies": {
     "happy-dom": "^21.0.4",

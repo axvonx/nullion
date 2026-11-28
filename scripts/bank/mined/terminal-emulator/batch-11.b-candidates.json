@@ -1,0 +1,44 @@
+{
+ "terminal-emulator": [
+  {
+   "name": "kitty",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "kitty terminal (src/kitty-docs)",
+   "why": "named GPU terminal project, scope off-by-one"
+  },
+  {
+   "name": "iTerm2",
+   "aliases": [],
+   "judge": "off-by-one",
+   "evidence": "iterm2 terminal (src/kitty-docs)",
+   "why": "macOS terminal, scope off-by-one"
+  },
+  {
+   "name": "Windows Terminal",
+   "aliases": [],
+   "judge": "npe",
+   "evidence": "windows terminal (src/microsoft-terminal)",
+   "why": "Microsoft's terminal app, scope npe"
+  },
+  {
+   "name": "VTE",
+   "aliases": [
+    "VteTerminal"
+   ],
+   "judge": "race",
+   "evidence": "VteTerminal (src/vte)",
+   "why": "GNOME emulation widget, specialist-known"
+  }
+ ],
+ "womm_candidates": [
+  "kitty",
+  "iTerm2",
+  "VTE"
+ ],
+ "bitflip_candidates": [
+  "VTE",
+  "Windows Terminal",
+  "kitty"
+ ]
+}

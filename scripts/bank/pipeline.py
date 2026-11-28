@@ -268,6 +268,8 @@ PLAN_SCHEMA = """A plan is JSON: {
                                           (type "dir" lists subdirectories; type "file" lists files, extension dropped)
   "extract":  [{"tree": "src/complexity-zoology", "file": "data/classes.txt", "regex": "^(\\\\S+) : (.+?) :"}],
                                           a registry FILE in a local tree: one candidate per line matching the regex (groups joined with " - ")
+  "repology": [{"repo": "gentoo", "category": "x11-terms"}],   a distro's package category (local Repology extract):
+                                          its package names are candidates; best for software kinds; at least 8 projects
   "wiki":     ["Category:Disk scheduling algorithms"],   Wikipedia categories: their article titles are candidates
                                           (articles in the category and its direct subcategories; each must hold at least 8)
   "covers":   {"<sub-kind>": ["<source>", ...]}   required when the category has a scope spec: for EVERY sub-kind, the
@@ -280,11 +282,11 @@ canonical project or registry repo. Several listings are fine. Mixed plans (list
 
 
 def check_plan(plan, run: Run) -> None:
-    keys = {"sparse", "heads", "trees", "listings", "extract", "wiki", "covers", "context", "reference"}
+    keys = {"sparse", "heads", "trees", "listings", "extract", "wiki", "repology", "covers", "context", "reference"}
     if not isinstance(plan, dict) or not set(plan) <= keys:
         raise ValueError(f"plan must be an object with only the keys {sorted(keys)}")
-    if not plan.get("listings") and not plan.get("extract") and not plan.get("wiki") and not (plan.get("heads") and plan.get("trees")):
-        raise ValueError("plan needs listings, extract, wiki, or heads together with trees")
+    if not any(plan.get(k) for k in ("listings", "extract", "wiki", "repology")) and not (plan.get("heads") and plan.get("trees")):
+        raise ValueError("plan needs listings, extract, wiki, repology, or heads together with trees")
     scope = scope_text(run.cid)
     if scope is not None:
         cov = plan.get("covers")
@@ -294,11 +296,23 @@ def check_plan(plan, run: Run) -> None:
         if missing:
             raise ValueError(f"covers names no source for these scope sub-kinds: {missing}. Add a source that lists them "
                              f"(a listing, a Wikipedia category, head nouns over a tree) and map it in covers")
+    if plan.get("repology"):
+        idx = load_module("harvest", REPO / "scripts" / "harvest.py").repology_index()
+        for spec in plan["repology"]:
+            if not (isinstance(spec, dict) and set(spec) == {"repo", "category"}):
+                raise ValueError(f"repology entries are {{repo, category}}, got {spec!r}")
+            n = len(idx.get(f"{spec['repo']}\t{spec['category']}", []))
+            if n < 8:
+                raise ValueError(f"Repology {spec} has {n} projects (needs 8): use one from the suggested list")
     for cat in plan.get("wiki", []):
         if not (isinstance(cat, str) and cat.startswith("Category:")):
             raise ValueError(f"wiki entries are Wikipedia category titles starting with 'Category:', got {cat!r}")
         recall_mod = load_module("recall", HERE / "recall.py")
-        n = len(recall_mod.members(cat)[0])
+        # One categoryinfo call (its direct article count), not a member listing: listing a category and its
+        # subcategories took minutes per plan check under Wikimedia's rate limits. Harvest lists the members.
+        info = recall_mod.api({"action": "query", "prop": "categoryinfo", "titles": cat})
+        pages = info.get("query", {}).get("pages", [{}])
+        n = (pages[0].get("categoryinfo") or {}).get("pages", 0) if pages else 0
         if n < 8:
             raise ValueError(f"wiki category {cat!r} has {n} articles (needs 8; check the exact title on Wikipedia)")
     for l in plan.get("listings", []):
@@ -344,6 +358,32 @@ def wiki_suggestions(cid: str, prompt: str) -> str:
     return "\n".join(lines)
 
 
+def repology_suggestions(cid: str, prompt: str) -> str:
+    """Local Repology package categories whose name shares a word with the prompt's subject or a scope sub-kind, with
+    project counts (local, instant): software kinds are listed by distros, so no repository path has to be guessed."""
+    idx = load_module("harvest", REPO / "scripts" / "harvest.py").repology_index()
+    subject = re.sub(r"^name (?:an?|the)\s+(?:(?:type|kind|sort|form) of\s+)?", "", prompt, flags=re.I).rstrip(".?!").lower()
+    def match(text: str) -> set[str]:
+        return {w[:4] for w in re.findall(r"[a-z]{4,}", text.lower())}
+    # The prompt's own subject first ("terminal emulator" -> term, emul); sub-kind words only if that finds nothing.
+    # Grouped by category NAME across distros: a naming convention many distros share (x11-terms, Terminals) is the
+    # signal. Ranked by subject words matched, then by how many distros use the name; each shown with its largest repo.
+    groups: dict[str, list[tuple[int, str, str]]] = {}
+    for stems in (match(subject), match(" ".join(scope_subkinds(scope_text(cid) or "")))):
+        for key, names in idx.items():
+            repo, cat = key.split("\t", 1)
+            if len(names) >= 8 and match(cat) & stems:
+                groups.setdefault(cat.lower(), []).append((len(names), repo, cat))
+        if groups:
+            break
+    ranked = sorted(groups.values(), key=lambda g: (-len(match(g[0][2]) & match(subject)), -len(g)))
+    lines = []
+    for g in ranked[:25]:
+        n, r, c = max(g)
+        lines.append(f'- {{"repo": "{r}", "category": "{c}"}} ({n} projects; {len(g)} distros use this category name)')
+    return "\n".join(lines) or "- none found"
+
+
 def stage_plan(run: Run) -> None:
     path = PLANS / f"{run.cid}.json"
     if path.exists():
@@ -384,7 +424,10 @@ list leaves the rest of the category out), so use as many sources as the scope's
 every sub-kind of the scope spec mapped to the sources that name its members. Wikipedia categories ("wiki") are good for
 kinds no single repo lists, but use ONLY titles from this verified list (searched just now; any other title fails):
 {wiki_suggestions(run.cid, b['prompt'])}
-Category membership is noisy (people, companies, concepts): the filter passes remove those, so a broad category is fine.{scope_block(run.cid)}
+Category membership is noisy (people, companies, concepts): the filter passes remove those, so a broad category is fine.
+For SOFTWARE kinds prefer local Repology package categories ("repology"): distros already list them, nothing is guessed.
+Use ONLY entries from this verified local list (any other fails):
+{repology_suggestions(run.cid, b['prompt'])}{scope_block(run.cid)}
 Write ONLY the plan JSON to the file {out.relative_to(REPO)}. Reply with only "done"."""
 
     def validate(obj):

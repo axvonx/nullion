@@ -1,0 +1,26 @@
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py terminal-emulator sample  [0s, exit 0]
+terminal-emulator: sampled 20 of 73 unconfirmed answers -> scripts/bank/mined/terminal-emulator/sample.json
+
+--- haiku call, 24s, exit 0, prompt 6825 chars, stdout 3327 chars
+ less-known GNOME app."},
+  "Tabby (aliases: Terminus, Tabby terminal)": {"member": true, "tier_ok": true, "why": "Electron terminal emulator. Terminus is its earlier name, so the alias is the same project."},
+  "Terminal.app (aliases: Apple Terminal, macOS Terminal)": {"member": true, "tier_ok": true, "why": "macOS built-in terminal emulator, in scope examples as Off-by-one. Both aliases name the same app."},
+  "kitty (aliases: kitty terminal)": {"member": true, "tier_ok": true, "why": "GPU-accelerated terminal, in scope examples as Off-by-one."},
+  "PuTTY (aliases: putty terminal)": {"member": true, "tier_ok": true, "why": "Named in scope as In (an emulator, not the ssh command). Memory leak per scope examples."},
+  "Terminology": {"member": true, "tier_ok": true, "why": "Enlightenment (EFL) terminal emulator. Race condition fits a specialist-known program."},
+  "Blackbox Terminal": {"member": true, "tier_ok": true, "why": "GNOME-family VTE terminal app. Heisenbug fits a niche app."},
+  "xst": {"member": true, "tier_ok": true, "why": "Xft-based st fork (suckless lineage), a simple X11 terminal emulator. Heisenbug fits."},
+  "ZOC": {"member": true, "tier_ok": true, "why": "Commercial terminal emulator (serial and SSH). Named as a terminal emulator; niche, so Heisenbug fits."},
+  "iTerm2 (aliases: iTerm)": {"member": true, "tier_ok": true, "why": "macOS terminal emulator, in scope examples as Off-by-one. iTerm is an abbreviation of the same app, so it stays an alias."}
+}
+```
+
+
+!!! attempt 1 rejected: ValueError: 'Warp': needs {member: bool, tier_ok: bool, why: str}
+--- haiku call, 17s, exit 0, prompt 6981 chars, stdout 3166 chars
+E Console": {"member": true, "tier_ok": true, "why": "GNOME's terminal app (kgx), a VTE-based desktop terminal. Known to GNOME users, so Memory leak fits."}, "Tabby": {"member": true, "tier_ok": true, "why": "Electron-based terminal app, formerly Terminus. Named program with a project name. Memory leak fits."}, "Terminal.app": {"member": true, "tier_ok": true, "why": "macOS built-in terminal emulator, named in scope. Nearly everyone on a Mac names it first."}, "kitty": {"member": true, "tier_ok": true, "why": "GPU-accelerated terminal emulator, named in scope by project name. Widely known, so Off-by-one fits."}, "PuTTY": {"member": true, "tier_ok": true, "why": "Named terminal emulator and SSH client, which scope keeps In. Widely known, so Memory leak fits."}, "Terminology": {"member": true, "tier_ok": true, "why": "Enlightenment's EFL terminal emulator. Specialist knowledge, so Race condition fits."}, "Blackbox Terminal": {"member": true, "tier_ok": true, "why": "GNOME terminal emulator app by its project name. Niche, so Heisenbug fits."}, "xst": {"member": true, "tier_ok": true, "why": "Named extended fork of suckless st, a terminal emulator in its own right. Deep cut, so Heisenbug fits."}, "ZOC": {"member": true, "tier_ok": true, "why": "Commercial terminal emulator and SSH client by name. Niche, so Heisenbug fits."}, "iTerm2": {"member": true, "tier_ok": true, "why": "macOS terminal emulator, named in scope. Nearly everyone on a Mac names it first, so Off-by-one fits."}}
+
+
+$ /opt/homebrew/opt/python@3.15/bin/python3.15 -I /Users/axvon/nullion/scripts/sample-precision.py terminal-emulator score  [0s, exit 0]
+terminal-emulator: precision 100% (20/20), tier ok 20/20
+

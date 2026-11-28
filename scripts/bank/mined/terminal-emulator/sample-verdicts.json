@@ -1,0 +1,102 @@
+{
+ "kmscon": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Userspace KMS console emulator that draws a terminal on the framebuffer. Full-screen display counts; deep cut suits Heisenbug."
+ },
+ "Zutty": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named X11 terminal emulator with a GPU renderer. Specialist knowledge, so Heisenbug fits."
+ },
+ "Warp": {
+  "member": true,
+  "tier_ok": true,
+  "why": "GPU-accelerated terminal app known by its project name, which the scope's In rule covers. Developers know it well but it is not universal, so Null pointer exception fits."
+ },
+ "GNOME Terminal": {
+  "member": true,
+  "tier_ok": true,
+  "why": "VTE-based GNOME desktop terminal, named in scope. Nearly everyone on GNOME names it first."
+ },
+ "Tilix": {
+  "member": true,
+  "tier_ok": true,
+  "why": "GTK tiling terminal emulator, named in scope. Many Linux users know it, so Null pointer exception fits."
+ },
+ "Sakura": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Lightweight GTK/VTE terminal emulator. Domain users know it, so Memory leak fits."
+ },
+ "pyte": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Python terminal emulator library, named in scope as an emulation library. Specialist knowledge, so Heisenbug fits."
+ },
+ "kterm": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Historical Japanese X11 terminal emulator (Kanji terminal). Scope allows historical programs. Deep cut, so Heisenbug fits."
+ },
+ "Eterm": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Enlightenment X11 terminal emulator, named in scope. Domain users know it, so Memory leak fits."
+ },
+ "hterm": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Chrome OS web terminal, named in scope as embedded and web. Specialist knowledge, so Heisenbug fits."
+ },
+ "GNOME Console": {
+  "member": true,
+  "tier_ok": true,
+  "why": "GNOME's terminal app (kgx), a VTE-based desktop terminal. Known to GNOME users, so Memory leak fits."
+ },
+ "Tabby": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Electron-based terminal app, formerly Terminus. Named program with a project name. Memory leak fits."
+ },
+ "Terminal.app": {
+  "member": true,
+  "tier_ok": true,
+  "why": "macOS built-in terminal emulator, named in scope. Nearly everyone on a Mac names it first."
+ },
+ "kitty": {
+  "member": true,
+  "tier_ok": true,
+  "why": "GPU-accelerated terminal emulator, named in scope by project name. Widely known, so Off-by-one fits."
+ },
+ "PuTTY": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named terminal emulator and SSH client, which scope keeps In. Widely known, so Memory leak fits."
+ },
+ "Terminology": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Enlightenment's EFL terminal emulator. Specialist knowledge, so Race condition fits."
+ },
+ "Blackbox Terminal": {
+  "member": true,
+  "tier_ok": true,
+  "why": "GNOME terminal emulator app by its project name. Niche, so Heisenbug fits."
+ },
+ "xst": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Named extended fork of suckless st, a terminal emulator in its own right. Deep cut, so Heisenbug fits."
+ },
+ "ZOC": {
+  "member": true,
+  "tier_ok": true,
+  "why": "Commercial terminal emulator and SSH client by name. Niche, so Heisenbug fits."
+ },
+ "iTerm2": {
+  "member": true,
+  "tier_ok": true,
+  "why": "macOS terminal emulator, named in scope. Nearly everyone on a Mac names it first, so Off-by-one fits."
+ }
+}

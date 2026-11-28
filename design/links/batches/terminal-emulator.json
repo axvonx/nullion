@@ -1,0 +1,464 @@
+{
+ "id": "terminal-emulator",
+ "prompt": "Name a terminal emulator",
+ "accepts": "Any named program that emulates a text terminal inside a graphical desktop, current or historical.",
+ "answers": [
+  {
+   "name": "xterm",
+   "aliases": [
+    "X Terminal",
+    "X Window terminal"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "GNOME Terminal",
+   "aliases": [
+    "Gnome terminal app"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Konsole",
+   "aliases": [
+    "KDE Konsole"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Alacritty",
+   "aliases": [
+    "Alacritty terminal"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "kitty",
+   "aliases": [
+    "kitty terminal"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Terminator",
+   "aliases": [
+    "terminator terminal"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "Terminal.app",
+   "aliases": [
+    "Apple Terminal",
+    "macOS Terminal"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "iTerm2",
+   "aliases": [
+    "iTerm"
+   ],
+   "tier": "Off-by-one"
+  },
+  {
+   "name": "st",
+   "aliases": [
+    "suckless st",
+    "simple terminal"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "cool-retro-term",
+   "aliases": [
+    "Cool Retro Term app"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "rxvt-unicode",
+   "aliases": [
+    "urxvt"
+   ],
+   "tier": "Works on my machine"
+  },
+  {
+   "name": "Guake",
+   "aliases": [
+    "Guake terminal"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Xfce Terminal",
+   "aliases": [
+    "xfce4-terminal"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Windows Terminal",
+   "aliases": [
+    "microsoft-terminal",
+    "wt.exe",
+    "Microsoft Windows Terminal"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Tilix",
+   "aliases": [
+    "tilix terminal"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "mintty",
+   "aliases": [
+    "Cygwin mintty"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "rxvt",
+   "aliases": [
+    "rxvt terminal"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "LXTerminal",
+   "aliases": [],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Warp",
+   "aliases": [
+    "Warp terminal"
+   ],
+   "tier": "Null pointer exception"
+  },
+  {
+   "name": "Tilda",
+   "aliases": [
+    "Tilda terminal"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Ghostty",
+   "aliases": [
+    "Ghostty terminal"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Sakura",
+   "aliases": [
+    "sakura terminal"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "QTerminal",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "MATE Terminal",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "GNOME Console",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Deepin Terminal",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Tabby",
+   "aliases": [
+    "Terminus",
+    "Tabby terminal"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Hyper",
+   "aliases": [
+    "Hyper terminal",
+    "Hyper.js"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "ConEmu",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "PuTTY",
+   "aliases": [
+    "putty terminal"
+   ],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Eterm",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "aterm",
+   "aliases": [],
+   "tier": "Memory leak"
+  },
+  {
+   "name": "Yakuake",
+   "aliases": [
+    "Yakuake terminal"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "WezTerm",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "foot",
+   "aliases": [
+    "foot terminal"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Rio",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Contour",
+   "aliases": [
+    "contour-terminal"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "VTE",
+   "aliases": [
+    "vte3",
+    "VteTerminal"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Terminology",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Ptyxis",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "COSMIC Terminal",
+   "aliases": [
+    "cosmic-term"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Pantheon Terminal",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "xterm.js",
+   "aliases": [
+    "VS Code terminal"
+   ],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Tera Term",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "MobaXterm",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "SecureCRT",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Xshell",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "ROXTerm",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "Cmder",
+   "aliases": [],
+   "tier": "Race condition"
+  },
+  {
+   "name": "libvterm",
+   "aliases": [
+    "emacs-libvterm"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mlterm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "xst",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Zutty",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Termit",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "kterm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "QTermWidget",
+   "aliases": [
+    "qtermwidget6"
+   ],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pyte",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Tym",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "pw3270",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "suite3270",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "RUMBA",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Blackbox Terminal",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "kmscon",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "yeahconsole",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "GTKTerm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "HyperACCESS",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ZTerm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "hterm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "xvt",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Wterm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "ZOC",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Console2",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "Fluent Terminal",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "yaft",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "fbterm",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "mrxvt",
+   "aliases": [],
+   "tier": "Heisenbug"
+  },
+  {
+   "name": "x3270",
+   "aliases": [],
+   "tier": "Bit Flip"
+  }
+ ]
+}

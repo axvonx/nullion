@@ -1,0 +1,26 @@
+{
+  "terminal-emulator": [
+    {"name": "Windows Terminal", "aliases": ["microsoft-terminal"], "judge": "npe", "evidence": "## source: src/microsoft-terminal (6 windows terminal)", "why": "Microsoft's named terminal emulator, a scope example for npe"},
+    {"name": "VTE", "aliases": [], "judge": "race", "evidence": "## source: src/vte (13 VteTerminal)", "why": "GNOME's emulation widget, named as an engine in scope"},
+    {"name": "kitty", "aliases": [], "judge": "off-by-one", "evidence": "## source: src/kitty-docs (6 kitty terminal)", "why": "named GPU terminal program, a scope example for off-by-one"},
+    {"name": "Alacritty", "aliases": [], "judge": "off-by-one", "evidence": "## source: src/alacritty-docs (directory with no phrases mined)", "why": "named GPU terminal program, a scope example for off-by-one"},
+    {"name": "WezTerm", "aliases": ["wezterm-docs"], "judge": "race", "evidence": "## source: src/wezterm-docs (3 into terminal)", "why": "named GPU terminal program, a scope example for race"},
+    {"name": "Hyper", "aliases": [], "judge": "leak", "evidence": "## source: src/hyper (no phrases mined)", "why": "Electron terminal, a scope example for leak"},
+    {"name": "Guake", "aliases": [], "judge": "npe", "evidence": "## source: src/guake (no phrases mined)", "why": "drop-down terminal, a scope example for npe"},
+    {"name": "Konsole", "aliases": [], "judge": "off-by-one", "evidence": "## source: src/konsole (no phrases mined)", "why": "KDE terminal emulator, named in scope"},
+    {"name": "ConEmu", "aliases": [], "judge": "leak", "evidence": "## source: src/conemu (no phrases mined)", "why": "Windows console emulator, a scope example for leak"},
+    {"name": "pyte", "aliases": [], "judge": "heisenbug", "evidence": "## source: src/pyte (no phrases mined)", "why": "Python terminal emulator library, named in scope"},
+    {"name": "cool-retro-term", "aliases": [], "judge": "leak", "evidence": "## source: src/cool-retro-term (head nouns: terminal emulator, terminal)", "why": "retro novelty terminal, named in scope"},
+    {"name": "xterm.js", "aliases": ["xtermjs"], "judge": "race", "evidence": "## source: src/xtermjs (15 const terminal)", "why": "web terminal emulator (VS Code), a scope example for race"}
+  ],
+  "womm_candidates": [
+    {"name": "cool-retro-term", "aliases": [], "judge": "leak", "evidence": "## source: src/cool-retro-term", "why": "the retro novelty pick people reach for as a clever choice"},
+    {"name": "xterm.js", "aliases": ["xtermjs"], "judge": "race", "evidence": "## source: src/xtermjs", "why": "a web-embedded emulator that sounds like a deep pick"},
+    {"name": "kitty", "aliases": [], "judge": "off-by-one", "evidence": "## source: src/kitty-docs (6 kitty terminal)", "why": "the modern GPU terminal many reach for to look clever"}
+  ],
+  "bitflip_candidates": [
+    {"name": "pyte", "aliases": [], "judge": "heisenbug", "evidence": "## source: src/pyte", "why": "a small Python library that emulates a terminal with no window"},
+    {"name": "VTE", "aliases": [], "judge": "race", "evidence": "## source: src/vte (13 VteTerminal)", "why": "the engine under GNOME Terminal, rarely named by users"},
+    {"name": "ConEmu", "aliases": [], "judge": "leak", "evidence": "## source: src/conemu", "why": "an old Windows console wrapper most people have never heard of"}
+  ]
+}
