@@ -86,16 +86,36 @@ export function setLineWithStackFrames(el: HTMLElement, line: string) {
 }
 
 const GLITCH_RE = /\{gl:([^|{}]*)\|([^{}]*)\}/g;
+const GLITCH_FX = ['scan', 'sparkle', 'slice', 'invert', 'step'] as const;
+const SPARK_COLORS = ['#5fd3e0', '#ff6ad5', '#ffe25a', '#ffffff'];
+const GLITCH_MS = 550;
 
 /** Strip `{gl:base|glitch}` markers down to their clean `base` text. */
 export function stripGlitch(template: string): string {
   return template.replace(GLITCH_RE, '$1');
 }
 
+function spawnSparks(host: HTMLElement) {
+  const w = Math.max(24, host.offsetWidth);
+  const h = Math.max(14, host.offsetHeight);
+  for (let k = 0; k < 6; k++) {
+    const p = document.createElement('span');
+    p.className = 'tx-spark';
+    const angle = (k / 6) * Math.PI * 2 + (Math.random() - 0.5) * 0.6;
+    const reach = 10 + Math.random() * 14;
+    p.style.left = `${Math.round(Math.random() * w)}px`;
+    p.style.top = `${Math.round(Math.random() * h)}px`;
+    p.style.setProperty('--dx', `${Math.round(Math.cos(angle) * reach)}px`);
+    p.style.setProperty('--dy', `${Math.round(Math.sin(angle) * reach)}px`);
+    p.style.setProperty('--pop', SPARK_COLORS[k % SPARK_COLORS.length]!);
+    p.addEventListener('animationend', () => p.remove());
+    host.append(p);
+  }
+}
+
 /**
- * Render `template` into `el`, animating `{gl:base|glitch}` spans with stepped chroma/shear flickers.
- * Returns a cleanup function that cancels pending timers. Under `reduced` motion (or without `force`),
- * `base` stays static.
+ * Render `template` into `el`, animating `{gl:base|glitch}` spans with varied stepped scanline, sparkle,
+ * slice, invert, and materialize effects (550ms burst). Returns a cleanup function that cancels pending timers.
  */
 export function renderGlitchLine(
   el: HTMLElement,
@@ -127,17 +147,21 @@ export function renderGlitchLine(
 
   const timers: number[] = [];
   const later = (ms: number, fn: () => void) => timers.push(window.setTimeout(fn, ms));
+  const fx = GLITCH_FX[Math.floor(Math.random() * GLITCH_FX.length)]!;
   const fire = (on: boolean) => {
     for (const s of spans) {
       s.span.textContent = on ? s.glitch : s.base;
+      s.span.dataset.text = on ? s.glitch : s.base;
+      s.span.dataset.fx = on ? fx : '';
       s.span.classList.toggle('is-on', on);
+      if (on && (fx === 'sparkle' || fx === 'scan')) spawnSparks(s.span);
     }
   };
-  // Brief initial settle, then a two-beat glitch flicker before returning to base.
-  later(360, () => fire(true));
-  later(740, () => fire(false));
-  later(900, () => fire(true));
-  later(1120, () => fire(false));
+  // Brief initial settle, then a 550ms glitch burst and a quick echo before returning to base.
+  later(320, () => fire(true));
+  later(320 + GLITCH_MS, () => fire(false));
+  later(320 + GLITCH_MS + 140, () => fire(true));
+  later(320 + GLITCH_MS + 140 + 220, () => fire(false));
   return () => {
     for (const t of timers) clearTimeout(t);
   };
