@@ -590,6 +590,8 @@ ${REVEAL_HTML}`;
     enforce(g, 'Hud.teleportIn before setGame()');
     clearTimeout(this.teleportTimer);
     this.mountEl.querySelector('.teleport')?.remove();
+    // The end card's white-out hands over to the teleport's flash, which starts white.
+    for (const w of document.querySelectorAll('.endless-whiteout')) w.remove();
     const still = reducedMotion();
     const card = document.createElement('div');
     card.className = still ? 'teleport still-tp' : 'teleport';

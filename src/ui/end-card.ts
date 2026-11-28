@@ -98,8 +98,22 @@ export interface EndlessHook {
   back(): void;
 }
 
-/** How long the Enter button's light-up plays before the run starts. */
+/** How long the Enter button's white-out takes (the button turns white, then the white fills the screen). */
 const ENTER_GLOW_MS = 650;
+
+/**
+ * The white-out: a white box over the pressed button that grows to fill the screen. It stays until the teleport's
+ * own flash (which starts white) takes over: `Hud.teleportIn` removes it.
+ */
+function whiteOutFrom(el: HTMLElement) {
+  const r = el.getBoundingClientRect();
+  const w = document.createElement('div');
+  w.className = 'endless-whiteout';
+  Object.assign(w.style, { left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
+  document.body.append(w);
+  // Next frame: grow to the viewport (the transition does the rest).
+  requestAnimationFrame(() => requestAnimationFrame(() => w.classList.add('full')));
+}
 
 /**
  * The end-of-day card: the day's backtrace (rows, answer sheets), the share text and button, the lifetime stats,
@@ -424,11 +438,15 @@ export class EndCard {
     const daily = g.rules.persistsDaily;
     if (daily || g.rules.persistsRun) {
       btn.textContent = !daily ? text('end-card.endless.reenter') : hook.resume ? text('end-card.endless.resume') : text('end-card.endless.enter');
+      // The label rides along for the glitch's offset copy (CSS `attr(data-text)`).
+      btn.dataset.text = btn.textContent;
       btn.onclick = () => {
-        // Just for fun: the button lights up, then the run starts (straight away under reduced motion).
+        // Just for fun: the button fades to white and the white grows from it to fill the screen, then the run
+        // starts (straight away under reduced motion).
         btn.disabled = true;
         if (reducedMotion()) return hook.enter();
         btn.classList.add('lit');
+        window.setTimeout(() => whiteOutFrom(btn), ENTER_GLOW_MS * 0.4);
         window.setTimeout(() => hook.enter(), ENTER_GLOW_MS);
       };
       btn.hidden = false;
