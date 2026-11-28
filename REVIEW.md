@@ -59,6 +59,7 @@ proposed name as a write-in. Named entities get draft Field Manual pages from `p
 - The end card on a phone: long prompts in the backtrace; the stack flying into the summary card; hide/show.
 - The cursor's lean toward the mouse (up to 3 px): subtle enough?
 - The reached layer's glow on the end card.
+- Endless (released): the pacing (the curve's two numbers live in `ENDLESS_FRAME_CURVE`, `src/core/modes.ts`), the teleport card (the empty console shows under it), the button's glow and pixel pops, the history bar past 14 rounds, hearts under it.
 
 ## Reference: what links out on hover (end card and title)
 

@@ -101,6 +101,53 @@ export interface EndlessHook {
 /** How long the Enter button's white-out takes (the button turns white, then the white fills the screen). */
 const ENTER_GLOW_MS = 650;
 
+/** Pixel pops while the Endless button is hovered: how often, and their colours (the button's green and yellow). */
+const POP_EVERY_MS = 90;
+const POP_COLORS = ['#d6f04a', '#ffd84a', '#9be84a', '#eaffc2'];
+
+/**
+ * Square pixels popping off the button's edges while it's hovered or focused (none under reduced motion). Each pop
+ * starts on a random point of the edge and flies outward; the CSS animation fades it and it removes itself.
+ */
+function popPixels(btn: HTMLElement) {
+  let timer = 0;
+  const pop = () => {
+    const w = btn.clientWidth;
+    const h = btn.clientHeight;
+    for (let k = 0; k < 2; k++) {
+      const side = Math.floor(Math.random() * 4);
+      const along = Math.random();
+      const [x, y, dx, dy] =
+        side === 0 ? [along * w, 0, 0, -1] : side === 1 ? [w, along * h, 1, 0] : side === 2 ? [along * w, h, 0, 1] : [0, along * h, -1, 0];
+      const p = document.createElement('span');
+      p.className = 'endless-pop';
+      const reach = 10 + Math.random() * 14;
+      const drift = (Math.random() - 0.5) * 12;
+      p.style.left = `${Math.round(x - 2)}px`;
+      p.style.top = `${Math.round(y - 2)}px`;
+      p.style.setProperty('--dx', `${Math.round(dx * reach + (dy ? drift : 0))}px`);
+      p.style.setProperty('--dy', `${Math.round(dy * reach + (dx ? drift : 0))}px`);
+      p.style.setProperty('--pop', POP_COLORS[Math.floor(Math.random() * POP_COLORS.length)]!);
+      p.addEventListener('animationend', () => p.remove());
+      btn.append(p);
+    }
+  };
+  const start = () => {
+    if (timer || reducedMotion() || btn.classList.contains('lit')) return;
+    pop();
+    timer = window.setInterval(pop, POP_EVERY_MS);
+  };
+  const stop = () => {
+    clearInterval(timer);
+    timer = 0;
+  };
+  btn.addEventListener('pointerenter', start);
+  btn.addEventListener('focus', start);
+  btn.addEventListener('pointerleave', stop);
+  btn.addEventListener('blur', stop);
+  btn.addEventListener('click', stop);
+}
+
 /**
  * The white-out: a white box over the pressed button that grows to fill the screen. It stays until the teleport's
  * own flash (which starts white) takes over: `Hud.teleportIn` removes it.
@@ -157,6 +204,7 @@ export class EndCard {
     manualStore.subscribe(syncManualBadges);
     this.els.eodHide!.addEventListener('click', () => this.stow(true));
     this.els.eodShow!.addEventListener('click', () => this.stow(false));
+    popPixels(this.els.endlessBtn!);
     this.els.copy!.addEventListener('click', () => {
       // Native share where it exists, the clipboard otherwise. No way to do either is an expected condition: say so.
       void deliverShare(this.shareText, navigator).then((res) => {

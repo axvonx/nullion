@@ -88,9 +88,6 @@ async function boot() {
     if (persistingRun && saveRun(storage, game, clock())) newBest = true;
     savedRev = game.rev;
   };
-  // Endless is offered on the end card once the day is done. Debug builds only for now: production waits for the
-  // teleport to the top, the ENDLESS wordmark and the answer history bar (ENDLESS-PLAN.md).
-  const ENDLESS_OFFERED = DEBUG;
   // Entering Endless from the end card teleports into the run (no title screen); set until that game is up.
   let teleport = false;
   // The `?endless=` URL param and the debug dropdown name a mode by string: identity, not a rule, so compared here.
@@ -152,8 +149,8 @@ async function boot() {
       const best = loadBest(storage);
       if (best.kind === 'invalid') notice = { text: text('notices.endless.invalid', { reason: best.reason }), kind: 'error' };
     }
+    // Endless is offered on the end card once the day is done (released 2026-11-27).
     hud.endless = () => {
-      if (!ENDLESS_OFFERED) return null;
       const best = loadBest(storage);
       return {
         resume: hasRun(storage),
