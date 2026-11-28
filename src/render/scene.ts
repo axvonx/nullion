@@ -302,13 +302,13 @@ export class Scene {
     maxBlock: 8,
     cxFrac: 0.5,
     cyFrac: null as number | null,
-    bar: false,
-    barAlpha: 0,
-    barLeft: 0.14,
-    barRight: 0.86,
-    dotCx: 1.1,
-    dotCy: 0.46,
-    dotAlpha: 0,
+    blob: false,
+    blobAlpha: 0,
+    blobHalfW: 0.15,
+    blobHalfH: 0.16,
+    bridgeL: 0.5,
+    bridgeR: 0.5,
+    bridgeH: 0.1,
   };
   private cursorHidden = false;
   /**
@@ -587,13 +587,13 @@ export class Scene {
     opts?: {
       maxBlock?: number;
       cyFrac?: number;
-      bar?: boolean;
-      barAlpha?: number;
-      barLeft?: number;
-      barRight?: number;
-      dotCx?: number;
-      dotCy?: number;
-      dotAlpha?: number;
+      blob?: boolean;
+      blobAlpha?: number;
+      blobHalfW?: number;
+      blobHalfH?: number;
+      bridgeL?: number;
+      bridgeR?: number;
+      bridgeH?: number;
     },
   ) {
     if (on) {
@@ -601,13 +601,13 @@ export class Scene {
         maxBlock: opts?.maxBlock ?? 8,
         cxFrac: 0.5,
         cyFrac: opts?.cyFrac ?? null,
-        bar: opts?.bar ?? false,
-        barAlpha: opts?.barAlpha ?? 1,
-        barLeft: opts?.barLeft ?? 0.14,
-        barRight: opts?.barRight ?? 0.86,
-        dotCx: opts?.dotCx ?? 0.5,
-        dotCy: opts?.dotCy ?? 0.46,
-        dotAlpha: opts?.dotAlpha ?? 0,
+        blob: opts?.blob ?? false,
+        blobAlpha: opts?.blobAlpha ?? 1,
+        blobHalfW: opts?.blobHalfW ?? 0.15,
+        blobHalfH: opts?.blobHalfH ?? 0.16,
+        bridgeL: opts?.bridgeL ?? 0.5,
+        bridgeR: opts?.bridgeR ?? 0.5,
+        bridgeH: opts?.bridgeH ?? 0.1,
       };
       if (this.vignette.on) {
         this.vignetteCfg = next;
@@ -625,12 +625,14 @@ export class Scene {
     this.vignette = { on, at: now - (1 - k) * VIGNETTE_MS };
   }
 
-  /** Update the stage bar and Dottybase's smooth lagging personal shadow without restarting the vignette fade. */
-  setVignetteStage(barAlpha: number, dotCx: number, dotCy: number, dotAlpha: number) {
-    this.vignetteCfg.barAlpha = barAlpha;
-    this.vignetteCfg.dotCx = dotCx;
-    this.vignetteCfg.dotCy = dotCy;
-    this.vignetteCfg.dotAlpha = dotAlpha;
+  /** Update Dottybase's unified morphing shadow blob (size, protrusion/bridge span, and overall alpha). */
+  setVignetteBlob(blobAlpha: number, blobHalfW: number, blobHalfH: number, bridgeL: number, bridgeR: number, bridgeH = 0.1) {
+    this.vignetteCfg.blobAlpha = blobAlpha;
+    this.vignetteCfg.blobHalfW = blobHalfW;
+    this.vignetteCfg.blobHalfH = blobHalfH;
+    this.vignetteCfg.bridgeL = bridgeL;
+    this.vignetteCfg.bridgeR = bridgeR;
+    this.vignetteCfg.bridgeH = bridgeH;
   }
 
   /** Temporarily hide the scrolling virtual cursor (e.g. while Dottybase takes center stage). */
@@ -713,25 +715,30 @@ export class Scene {
     const live = this.revealLive;
     const cx = Math.round(W * cfg.cxFrac);
     const cy = cfg.cyFrac !== null ? Math.round(H * cfg.cyFrac) : Math.round(this.cursorY);
-    // Bar mode (Dottybase): a modest centered stage band with side margins + her own smooth lagging shadow.
+    // Unified morphing blob mode (Dottybase): one smooth-union SDF shadow that fits the message width
+    // in the center and organically grows a right-side protrusion (intro) and left-side bridge (exit).
     const innerW = Math.min(Math.round(W * 0.28), 118);
-    const innerH = cfg.bar ? Math.round(H * 0.23) : Math.round(H * 0.19);
-    const featherX = cfg.bar ? Math.max(36, Math.round(W * 0.15)) : Math.max(32, Math.round(W * 0.16));
-    const featherY = cfg.bar ? Math.max(26, Math.round(H * 0.13)) : Math.max(26, Math.round(H * 0.15));
-    const barXL = cfg.barLeft * W;
-    const barXR = cfg.barRight * W;
-    const dotX = cfg.dotCx * W;
-    const dotY = cfg.dotCy * H;
-    const dotRx = Math.min(Math.round(W * 0.12), 54);
-    const dotRy = Math.round(H * 0.14);
-    const dotFx = Math.max(24, Math.round(W * 0.1));
-    const dotFy = Math.max(22, Math.round(H * 0.1));
-    const outerDim = cfg.bar ? 0.08 : 0.12;
+    const innerH = Math.round(H * 0.19);
+    const featherX = Math.max(32, Math.round(W * 0.16));
+    const featherY = Math.max(26, Math.round(H * 0.15));
+    const bodyRx = Math.max(24, Math.round(W * cfg.blobHalfW));
+    const bodyRy = Math.max(22, Math.round(H * cfg.blobHalfH));
+    const cornerR = Math.min(bodyRx, bodyRy) * 0.45;
+    const boxX = Math.max(0, bodyRx - cornerR);
+    const boxY = Math.max(0, bodyRy - cornerR);
+    const brL = cfg.bridgeL * W;
+    const brR = cfg.bridgeR * W;
+    const brRy = Math.max(14, Math.round(H * cfg.bridgeH));
+    const hasBridge = cfg.blob && brR - brL > 2;
+    const blendK = Math.max(14, Math.round(Math.min(W, H) * 0.12));
+    const blobFeather = Math.max(18, Math.round(Math.min(W, H) * 0.1));
+    const outerDim = cfg.blob ? 0.06 : 0.12;
     const quantised = look('palette') === 'per-layer';
     for (let y = 0; y < H; y++) {
       const sy = Math.min(H - 1, y - (y % bs) + (bs >> 1));
       const dy = Math.max(0, (Math.abs(y - cy) - innerH) / featherY);
-      const ddy = cfg.bar && cfg.dotAlpha > 0 ? Math.max(0, (Math.abs(y - dotY) - dotRy) / dotFy) : 1;
+      const qy = Math.abs(y - cy) - boxY;
+      const qyPos = Math.max(qy, 0);
       const bRow = (y & 3) * 4;
       for (let x = 0; x < W; x++) {
         const sx = Math.min(W - 1, x - (x % bs) + (bs >> 1));
@@ -739,20 +746,18 @@ export class Scene {
         const i = (y * W + x) * 4;
         let smooth: number;
         let dark: number;
-        if (cfg.bar) {
-          const bdx = Math.max(x < barXL ? (barXL - x) / featherX : 0, x > barXR ? (x - barXR) / featherX : 0);
-          const bt = Math.min(1, Math.hypot(bdx, dy));
-          const bSmooth = bt * bt * (3 - 2 * bt);
-          const barDark = (1 - bSmooth * (1 - outerDim)) * cfg.barAlpha;
-          let dotDark = 0;
-          if (cfg.dotAlpha > 0) {
-            const ddx = Math.max(0, (Math.abs(x - dotX) - dotRx) / dotFx);
-            const dt = Math.min(1, Math.hypot(ddx, ddy));
-            const dSmooth = dt * dt * (3 - 2 * dt);
-            dotDark = (1 - dSmooth) * cfg.dotAlpha;
+        if (cfg.blob) {
+          const qx = Math.abs(x - cx) - boxX;
+          let dist = Math.hypot(Math.max(qx, 0), qyPos) + Math.min(Math.max(qx, qy), 0) - cornerR;
+          if (hasBridge) {
+            const px = x < brL ? brL : x > brR ? brR : x;
+            const dBr = Math.hypot(x - px, y - cy) - brRy;
+            const h = Math.max(blendK - Math.abs(dist - dBr), 0) / blendK;
+            dist = Math.min(dist, dBr) - h * h * blendK * 0.25;
           }
-          dark = Math.max(barDark, dotDark) * a;
-          smooth = 1 - Math.max(barDark, dotDark);
+          const bt = Math.max(0, Math.min(1, dist / blobFeather));
+          smooth = bt * bt * (3 - 2 * bt);
+          dark = (1 - smooth * (1 - outerDim)) * cfg.blobAlpha * a;
         } else {
           const dx = Math.max(0, (Math.abs(x - cx) - innerW) / featherX);
           const t = Math.min(1, Math.hypot(dx, dy));

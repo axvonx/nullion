@@ -11,6 +11,8 @@ export interface TableCheckOpts {
   checkLine: string;
   verdictLine: string;
   guess?: string;
+  /** Walk-cycle frame rate in fps (default 6 = classic on-fours). */
+  fps?: number;
   onDone?: () => void;
 }
 
@@ -109,33 +111,33 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
         <rect x="41" y="30" width="1" height="1" fill="#ffb000"/>
       </g>
 
-      <!-- Extended far leg (behind) -->
+      <!-- Extended far leg (behind; shares hip axis with near leg for clean 3D passing gait) -->
       <g class="tc-sleg-b">
-        <rect x="24" y="34" width="5" height="10" fill="#000"/>
-        <rect x="25" y="35" width="3" height="8" fill="#322d40"/>
-        <rect x="26" y="38" width="1" height="1" fill="#544e66"/>
-        <rect x="20" y="42" width="9" height="4" fill="#000"/>
-        <rect x="21" y="43" width="7" height="2" fill="#1e1a29"/>
-        <rect x="21" y="43" width="2" height="1" fill="#b87600"/>
+        <rect x="22" y="34" width="5" height="10" fill="#000"/>
+        <rect x="23" y="35" width="3" height="8" fill="#322d40"/>
+        <rect x="24" y="38" width="1" height="1" fill="#544e66"/>
+        <rect x="18" y="42" width="9" height="4" fill="#000"/>
+        <rect x="19" y="43" width="7" height="2" fill="#1e1a29"/>
+        <rect x="19" y="43" width="2" height="1" fill="#b87600"/>
       </g>
 
       <!-- Extended near leg (front) -->
       <g class="tc-sleg-f">
-        <rect x="19" y="34" width="5" height="10" fill="#000"/>
-        <rect x="20" y="35" width="3" height="8" fill="#4f4861"/>
-        <rect x="21" y="38" width="1" height="1" fill="#8b8598"/>
-        <rect x="15" y="42" width="9" height="4" fill="#000"/>
-        <rect x="16" y="43" width="7" height="2" fill="#2a2538"/>
-        <rect x="16" y="43" width="2" height="1" fill="#ffb000"/>
+        <rect x="20" y="34" width="5" height="10" fill="#000"/>
+        <rect x="21" y="35" width="3" height="8" fill="#4f4861"/>
+        <rect x="22" y="38" width="1" height="1" fill="#8b8598"/>
+        <rect x="16" y="42" width="9" height="4" fill="#000"/>
+        <rect x="17" y="43" width="7" height="2" fill="#2a2538"/>
+        <rect x="17" y="43" width="2" height="1" fill="#ffb000"/>
       </g>
 
       <g class="tc-side-upper">
-        <!-- Extended far arm -->
+        <!-- Extended far arm (seated at shoulder height y=28 behind torso) -->
         <g class="tc-sarm-b">
-          <rect x="11" y="26" width="6" height="10" fill="#000"/>
-          <rect x="12" y="27" width="4" height="7" fill="#2a2538"/>
-          <rect x="11" y="33" width="4" height="3" fill="#000"/>
-          <rect x="12" y="34" width="3" height="2" fill="#cfcbd8"/>
+          <rect x="20" y="28" width="5" height="10" fill="#000"/>
+          <rect x="21" y="29" width="3" height="7" fill="#39334a"/>
+          <rect x="20" y="35" width="5" height="3" fill="#000"/>
+          <rect x="21" y="36" width="3" height="2" fill="#cfcbd8"/>
         </g>
 
         <!-- Side torso -->
@@ -190,13 +192,13 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
           </g>
         </g>
 
-        <!-- Extended near swinging arm -->
+        <!-- Extended near swinging arm (seated at shoulder height y=28 with crisp sleeve/glove contrast) -->
         <g class="tc-sarm-f">
-          <rect x="22" y="26" width="6" height="11" fill="#000"/>
-          <rect x="23" y="27" width="4" height="8" fill="#39334a"/>
-          <rect x="24" y="28" width="2" height="2" fill="#544e66"/>
-          <rect x="22" y="34" width="5" height="3" fill="#000"/>
-          <rect x="23" y="35" width="3" height="2" fill="#ebe6d6"/>
+          <rect x="21" y="28" width="6" height="10" fill="#000"/>
+          <rect x="22" y="29" width="4" height="7" fill="#544e66"/>
+          <rect x="23" y="30" width="2" height="2" fill="#78708f"/>
+          <rect x="21" y="35" width="5" height="3" fill="#000"/>
+          <rect x="22" y="36" width="3" height="2" fill="#ebe6d6"/>
         </g>
       </g>
     </g>
@@ -232,9 +234,9 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
 
       <g class="tc-upper">
         <g class="tc-arm tc-arm-l">
-          <rect x="8" y="26" width="6" height="11" fill="#000"/>
-          <rect x="9" y="27" width="4" height="8" fill="#39334a"/>
-          <rect x="10" y="28" width="2" height="2" fill="#544e66"/>
+          <rect x="8" y="27" width="6" height="10" fill="#000"/>
+          <rect x="9" y="28" width="4" height="7" fill="#39334a"/>
+          <rect x="10" y="29" width="2" height="2" fill="#544e66"/>
           <rect x="8" y="34" width="5" height="3" fill="#000"/>
           <rect x="9" y="35" width="3" height="2" fill="#ebe6d6"/>
         </g>
@@ -253,9 +255,9 @@ function dottybaseSvg(anim: TableCheckAnim): SVGSVGElement {
         </g>
 
         <g class="tc-arm tc-arm-r">
-          <rect x="34" y="26" width="6" height="11" fill="#000"/>
-          <rect x="35" y="27" width="4" height="8" fill="#39334a"/>
-          <rect x="36" y="28" width="2" height="2" fill="#544e66"/>
+          <rect x="34" y="27" width="6" height="10" fill="#000"/>
+          <rect x="35" y="28" width="4" height="7" fill="#39334a"/>
+          <rect x="36" y="29" width="2" height="2" fill="#544e66"/>
           <rect x="35" y="34" width="5" height="3" fill="#000"/>
           <rect x="36" y="35" width="3" height="2" fill="#ebe6d6"/>
         </g>
@@ -391,8 +393,17 @@ export class TableCheck {
     this.active = true;
     const still = reducedMotion();
     const scene = this.getScene();
+    const fps = Math.max(2, Math.min(24, opts.fps ?? 6));
+    const frameMs = Math.round(1000 / fps);
+    const walkMs = frameMs * 12; // 12 discrete walk frames (3 steps × 4 frames)
+    const squintAt = walkMs;
+    const checkAt = squintAt + 1100;
+    const verdictAt = checkAt + 1900;
+    const exitAt = verdictAt + 1550;
+    const doneAt = exitAt + walkMs + 220;
 
     this.root.hidden = false;
+    this.root.style.setProperty('--tc-frame', `${frameMs}ms`);
     this.root.dataset.anim = opts.anim;
     this.root.dataset.stage = still ? 'checking' : 'enter';
     delete this.root.dataset.outcome;
@@ -405,43 +416,72 @@ export class TableCheck {
 
     scene?.setCursorHidden(true);
     scene?.setTimeScale(still ? 1 : 0.12);
+
+    const vw = Math.max(320, window.innerWidth);
+    const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+    const measureBlobTarget = (showText: boolean): { halfW: number; halfH: number } => {
+      const headW = this.head.hidden ? 0 : this.head.getBoundingClientRect().width;
+      const capRect = this.caption.hidden ? null : this.caption.getBoundingClientRect();
+      const capW = capRect ? capRect.width : 0;
+      const contentCssW = Math.max(156, headW, showText ? capW : 0);
+      const halfW = clamp((contentCssW * 0.5 + 34) / vw, 0.11, 0.34);
+      const multiline = capRect ? capRect.height > 44 : false;
+      const halfH = showText ? (multiline ? 0.23 : 0.2) : 0.15;
+      return { halfW, halfH };
+    };
+
     scene?.setVignette(true, {
       maxBlock: 2,
-      bar: true,
+      blob: true,
       cyFrac: 0.46,
-      barLeft: 0.14,
-      barRight: 0.86,
-      barAlpha: still ? 1 : 0,
-      dotCx: still ? 0.5 : 1.12,
-      dotCy: 0.46,
-      dotAlpha: still ? 0 : 0.92,
+      blobAlpha: still ? 1 : 0,
+      blobHalfW: still ? 0.22 : 0.11,
+      blobHalfH: still ? 0.2 : 0.14,
+      bridgeL: 0.5,
+      bridgeR: still ? 0.5 : 1.06,
+      bridgeH: 0.095,
     });
 
-    // Smooth, continuous lagging shadow curve (never jumps with Dottybase's stepped skip poses),
-    // paired with the softer, side-padded center bar fading in on arrival and out on exit.
+    // Unified morphing shadow blob:
+    // - Intro: fades in quickly while morphing a right-side protrusion so Dotty is backed as she walks in,
+    //   then smoothly retracts the protrusion into a snug center blob sized to the actual message width.
+    // - Exit: morphs a left-side bridge out from the center blob for Dotty to cross, holding dark longer
+    //   before fading out smoothly as one unified blob.
     if (!still) {
       const startAt = performance.now();
       const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
+      const smoothstep = (t: number) => t * t * (3 - 2 * t);
       const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
-      const easeInOutQuad = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
+      const fadeOutStart = exitAt + Math.round(walkMs * 0.58);
+      const fadeOutDur = Math.max(460, doneAt - fadeOutStart);
+      let curHalfW = 0.11;
+      let curHalfH = 0.14;
       const tickShadow = (now: number) => {
         if (!this.active) return;
         const el = now - startAt;
 
-        let dotCx = 0.5;
-        if (el < 1720) {
-          const p = clamp01((el - 40) / 1680);
-          dotCx = 1.08 - 0.58 * easeOutCubic(p);
-        } else if (el >= 6200) {
-          const p = clamp01((el - 6200) / 1620);
-          dotCx = 0.5 - 0.68 * easeInOutQuad(p);
+        const showText = el >= checkAt && el < exitAt;
+        const target = measureBlobTarget(showText);
+        curHalfW += (target.halfW - curHalfW) * 0.12;
+        curHalfH += (target.halfH - curHalfH) * 0.12;
+
+        // Morphing protrusion (intro: right side -> center) and bridge (exit: center -> left side)
+        let bridgeL = 0.5;
+        let bridgeR = 0.5;
+        if (el < walkMs + 180) {
+          // Protrusion starts extended on right, then pulls smoothly into the center body as Dotty arrives
+          const retract = smoothstep(clamp01((el - walkMs * 0.18) / (walkMs * 0.85)));
+          bridgeR = 1.06 - (1.06 - 0.5) * retract;
+        } else if (el >= exitAt - 140) {
+          // Bridge stretches smoothly leftward out of the center blob for Dotty to cross out
+          const extend = easeOutCubic(clamp01((el - (exitAt - 140)) / (walkMs * 0.72)));
+          bridgeL = 0.5 - 0.58 * extend;
         }
 
-        const barIn = clamp01((el - 180) / 380);
-        const barOut = 1 - clamp01((el - 6950) / 680);
-        const barAlpha = Math.min(barIn, barOut);
-        const dotAlpha = el > 7720 ? Math.max(0, 1 - (el - 7720) / 280) * 0.92 : 0.92;
-        scene?.setVignetteStage(barAlpha, dotCx, 0.46, dotAlpha);
+        const fadeIn = smoothstep(clamp01((el - 60) / 360));
+        const fadeOut = 1 - smoothstep(clamp01((el - fadeOutStart) / fadeOutDur));
+        const blobAlpha = Math.min(fadeIn, fadeOut);
+        scene?.setVignetteBlob(blobAlpha, curHalfW, curHalfH, bridgeL, bridgeR, 0.095);
         this.rafId = requestAnimationFrame(tickShadow);
       };
       this.rafId = requestAnimationFrame(tickShadow);
@@ -491,21 +531,21 @@ export class TableCheck {
       return;
     }
 
-    // 1. Slower, higher side-profile skipping entrance -> snap head-on, eyeball-spring double-take & squint.
-    later(1650, () => {
+    // 1. Grounded side-profile walk (with occasional skip) -> snap head-on, eyeball-spring double-take & squint.
+    later(squintAt, () => {
       this.root.dataset.stage = 'squint';
       this.head.hidden = false;
     });
 
     // 2. Checking beat: typed text + WOMM hourglass appear below on the dark backdrop.
-    later(2750, () => {
+    later(checkAt, () => {
       this.root.dataset.stage = 'checking';
       this.caption.hidden = false;
       typeOut(opts.checkLine);
     });
 
     // 3. Verdict beat: accept/reject pose + verdict quip.
-    later(4650, () => {
+    later(verdictAt, () => {
       this.root.dataset.stage = 'verdict';
       this.root.dataset.outcome = opts.outcome;
       this.badge.textContent = opts.outcome === 'accept' ? 'OK' : '?';
@@ -513,15 +553,15 @@ export class TableCheck {
       typeOut(opts.verdictLine);
     });
 
-    // 4. Exit: hide text, snap back to side-profile, higher slower skips off the left edge while shadow trails behind.
-    later(6200, () => {
+    // 4. Exit: hide text, snap back to side-profile, walk off left while trailing shadow follows.
+    later(exitAt, () => {
       this.root.dataset.stage = 'exit';
       this.head.hidden = true;
       this.caption.hidden = true;
     });
 
     // 5. Restore world only after Dottybase and her trailing shadow have exited.
-    later(8020, () => {
+    later(doneAt, () => {
       this.close();
       opts.onDone?.();
     });
