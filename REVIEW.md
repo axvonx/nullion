@@ -14,6 +14,10 @@ Left from the approvals:
 - Settled 2026-11-27: M-209 dropped from historical-cipher's obvious list; the compiler edits kept; HTTPS is an alias
   of HTTP.
 
+**Missed guesses:** `design/misses/2026-11-27-seed.triage.md` put 13 missing databases (ScyllaDB, Riak, RethinkDB, …)
+into `database`'s Inbox with suggested tiers; promote them (or tell Claude to). Keep copying Settings → Missed guesses
+into `design/misses/` as you play.
+
 ## 1. Triage: the bottom of the keep list
 
 `design/triage/ranked.md` is the harvesting order for the remaining drafts (Gemini hydrogen-low; lenient). Skim the

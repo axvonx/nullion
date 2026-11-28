@@ -29,6 +29,8 @@ import { enforce } from '../core/enforce';
 import { wordmarkCanvas } from './wordmark';
 import { browserFetchJson, checkOutside } from '../game/outside-check';
 import { mountUiScale, toCss } from './ui-scale';
+import { recordMiss } from '../game/misses';
+import { browserStorage } from '../game/daily-save';
 
 /** Below this share of the answer time left, the watchdog goes into its low-time state. */
 export const LOW_TIME = 0.25;
@@ -791,6 +793,7 @@ ${REVEAL_HTML}`;
         this.input.value = '';
         this.input.classList.remove('corrected');
         const lk = r!.locked;
+        if (!r!.buzzer.accepted) recordMiss(browserStorage(), { q: r!.question.id, prompt: r!.question.prompt, guess: r!.buzzer.guess, at: this.clock() });
         if (r!.buzzer.accepted && lk && this.scene) {
           this.els.feedback!.className = 'feedback ok';
           this.els.feedback!.textContent = lk.corrected ? text('console.corrected', { name: lk.entry.name }) : '';
@@ -1016,6 +1019,7 @@ ${REVEAL_HTML}`;
         replay(this.els.console!, 'reject');
         scene.rejectNudge();
         sound.reject(layerAt(scene.displayDepth).id);
+        if (cur) recordMiss(browserStorage(), { q: cur.question.id, prompt: cur.question.prompt, guess: res.guess, at: this.clock() });
         if (this.outsideTier) this.lookOutside(res.guess, this.outsideTier, scene, g);
         return;
       }

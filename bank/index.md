@@ -21,7 +21,7 @@
 | consensus-protocol | Name a consensus protocol | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | cryptographic-hardness-assumption | Name a cryptographic hardness assumption | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | data-structure | Name a data structure | data-graphics-algorithms | approved | 181 | 2 | 0 |
-| database | Name a database | data-graphics-algorithms | approved | 66 | 62 | 4 |
+| database | Name a database | data-graphics-algorithms | approved | 66 | 62 | 17 |
 | distributed-hash-table | Name a distributed hash table | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | dynamic-programming-problem | Name a dynamic programming problem | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | fft-algorithm | Name an FFT algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |

@@ -2,6 +2,8 @@ import { VERSION_LABEL } from '../version';
 import { enforce } from '../core/enforce';
 import { prefs, type Prefs } from '../prefs';
 import { sound } from '../audio/sound';
+import { clearMisses, loadMisses, missesMarkdown } from '../game/misses';
+import { browserStorage } from '../game/daily-save';
 
 /**
  * Player settings (in production, unlike the 🐞 debug menu): a gear chip and quick mute button in the header.
@@ -182,6 +184,55 @@ export function mountPrefsMenu(root: HTMLElement, slot: HTMLElement) {
     sync();
     prefs.subscribe(sync);
   }
+  // Missed guesses: the device's log of rejected guesses (src/game/misses.ts), copied out for scripts/bank/misses.py.
+  const misses = document.createElement('fieldset');
+  misses.className = 'prefs-group prefs-misses';
+  const mLegend = document.createElement('legend');
+  mLegend.textContent = 'Missed guesses';
+  const mCount = document.createElement('p');
+  mCount.className = 'prefs-hint';
+  const mCopy = document.createElement('button');
+  mCopy.type = 'button';
+  mCopy.className = 'prefs-action';
+  mCopy.textContent = 'Copy';
+  const mClear = document.createElement('button');
+  mClear.type = 'button';
+  mClear.className = 'prefs-action';
+  mClear.textContent = 'Clear';
+  const syncMisses = () => {
+    const l = loadMisses(browserStorage());
+    if (l.kind === 'invalid') {
+      mCount.textContent = `Log reset: ${l.reason}.`;
+      return [];
+    }
+    const total = l.misses.reduce((n, m) => n + m.n, 0);
+    mCount.textContent = l.misses.length
+      ? `${l.misses.length} distinct (${total} guesses) kept on this device. Copy them to report answers the game missed.`
+      : 'None yet: guesses the game rejects are kept here, on this device only.';
+    mCopy.disabled = mClear.disabled = l.misses.length === 0;
+    return l.misses;
+  };
+  mCopy.addEventListener('click', async () => {
+    const md = missesMarkdown(syncMisses(), new Date());
+    try {
+      await navigator.clipboard.writeText(md);
+      mCopy.textContent = 'Copied ✓';
+    } catch (e) {
+      mCopy.textContent = 'Copy failed';
+      mCount.textContent = `Could not copy (${e instanceof Error ? e.message : String(e)}).`;
+    }
+    window.setTimeout(() => (mCopy.textContent = 'Copy'), 1600);
+  });
+  mClear.addEventListener('click', () => {
+    clearMisses(browserStorage());
+    syncMisses();
+  });
+  const mRow = document.createElement('div');
+  mRow.className = 'prefs-actions';
+  mRow.append(mCopy, mClear);
+  misses.append(mLegend, mCount, mRow);
+  pop.append(misses);
+
   const build = document.createElement('div');
   build.className = 'build-tag prefs-build';
   build.textContent = VERSION_LABEL;
@@ -190,6 +241,7 @@ export function mountPrefsMenu(root: HTMLElement, slot: HTMLElement) {
   const setOpen = (open: boolean) => {
     pop.hidden = !open;
     btn.setAttribute('aria-expanded', String(open));
+    if (open) syncMisses();
     if (open) pop.querySelector<HTMLInputElement>('input:checked')?.focus();
   };
   btn.addEventListener('click', () => setOpen(pop.hidden !== false));

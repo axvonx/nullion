@@ -1760,3 +1760,9 @@ html.kb-open .still .console.low { animation: none; }
 .teleport.still-tp { animation: tp-still 900ms linear forwards; }
 .teleport.still-tp .wordmark-cv { animation: none; }
 @keyframes tp-still { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
+
+/* Settings → Missed guesses: a count and two small buttons. */
+.prefs-actions { display: flex; gap: 8px; margin-top: 4px; }
+.prefs-action { font: inherit; font-size: 15px; padding: 2px 10px; color: var(--ink); background: rgba(0, 0, 0, 0.35); border: 1px solid var(--rule); cursor: pointer; }
+.prefs-action:disabled { opacity: 0.45; cursor: default; }
+.prefs-action:not(:disabled):is(:hover, :focus-visible) { border-color: var(--ink); }
