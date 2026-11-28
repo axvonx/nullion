@@ -2091,13 +2091,14 @@ html.kb-open .still .console.low { animation: none; }
 .teleport.still-tp .wordmark-cv { animation: none; }
 @keyframes tp-still { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
 
-/* Crisp pixel square separator ({sq} in writing/*.md, sqSep() in DOM) */
+/* Crisp pixel square separator ({sq} in writing/*.md, sqSep() in DOM);
+ * vertical-align places its center at 0.61ex (0.244em in VT323 vs · at 0.240em; 0.305em in Silkscreen vs · at 0.312em). */
 .sq-sep {
   display: inline-block;
-  width: 0.28em;
-  height: 0.28em;
-  margin: 0 0.46em 0 0.38em;
-  vertical-align: middle;
+  width: 0.24em;
+  height: 0.24em;
+  margin: 0 0.42em;
+  vertical-align: calc(0.61ex - 0.12em);
   background: currentColor;
   opacity: 0.72;
   box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.75);
