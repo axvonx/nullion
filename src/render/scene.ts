@@ -348,7 +348,11 @@ export class Scene {
   /** Floating in-world toasts when a player clicks & logs a Field Manual character. */
   private manualToasts: { key: string; x: number; y: number; text: string; color: string; at: number; repeat?: boolean }[] = [];
   /** Snapshots: the photo of a prop taken when it is first logged (a frozen copy of its pixels), and when. */
-  private snaps: { x: number; y: number; w: number; h: number; img: HTMLCanvasElement; at: number }[] = [];
+  private snaps: { entryId: string; x: number; y: number; w: number; h: number; img: HTMLCanvasElement; at: number }[] = [];
+  /** Live screen-to-scene target for flying prop snapshots (wired by Hud to the top-left Book icon). */
+  snapTarget: (() => { x: number; y: number } | null) | undefined;
+  /** Fired once when a first-sighting prop snapshot finishes flying into the Field Manual book. */
+  onSnapLanded: ((entryId: string) => void) | undefined;
   /** When each (entry, layer) was last acknowledged this visit: repeats say "Already seen", spam is ignored. */
   private toastAckAt = new Map<string, number>();
 
@@ -439,7 +443,7 @@ export class Scene {
   }
 
   /** Copy a prop's pixels off the frame for its snapshot (see the catch-toast pass in drawOverlays). */
-  private snapProp(hit: { x: number; y: number; w: number; h: number }, now: number) {
+  private snapProp(hit: { entryId: string; x: number; y: number; w: number; h: number }, now: number) {
     const x = Math.max(0, Math.round(hit.x));
     const y = Math.max(0, Math.round(hit.y));
     const w = Math.max(1, Math.min(this.W - x, Math.round(hit.w)));
@@ -448,7 +452,7 @@ export class Scene {
     img.width = w;
     img.height = h;
     get2d(img).drawImage(this.canvas, x, y, w, h, 0, 0, w, h);
-    this.snaps = [...this.snaps.slice(-3), { x, y, w, h, img, at: now }];
+    this.snaps = [...this.snaps.slice(-3), { entryId: hit.entryId, x, y, w, h, img, at: now }];
   }
 
   private started = false;
@@ -1617,12 +1621,15 @@ export class Scene {
     }
 
     // Snapshots of first sightings: a white flash inside closing shutter brackets, then the photo (white frame, dark
-    // edge) lifts off toward the top-left, shrinking, where the Field Manual lives. Reduced motion: just the photo, briefly.
+    // edge) lifts off toward the top-left Field Manual book, shrinking as it lands. Reduced motion: brief photo fade.
+    const snapDur = reduced ? 480 : SNAP_MS;
+    const target = this.snapTarget?.() ?? { x: 10, y: 10 };
     for (let i = this.snaps.length - 1; i >= 0; i--) {
       const s = this.snaps[i]!;
       const age = now - s.at;
-      if (age > SNAP_MS) {
+      if (age > snapDur) {
         this.snaps.splice(i, 1);
+        this.onSnapLanded?.(s.entryId);
         continue;
       }
       ctx.save();
@@ -1644,9 +1651,11 @@ export class Scene {
         const scale = 1 - 0.7 * e;
         const w = Math.max(2, Math.round(s.w * scale));
         const h = Math.max(2, Math.round(s.h * scale));
-        const x = Math.round(s.x + (6 - s.x) * e);
-        const y = Math.round(s.y - 6 + (6 - s.y) * e);
-        ctx.globalAlpha = reduced ? Math.max(0, 1 - age / SNAP_MS) : t > 0.8 ? (1 - t) / 0.2 : 1;
+        const destX = target.x - w / 2;
+        const destY = target.y - h / 2;
+        const x = Math.round(s.x + (destX - s.x) * e);
+        const y = Math.round(s.y - 6 + (destY - (s.y - 6)) * e);
+        ctx.globalAlpha = reduced ? Math.max(0, 1 - age / snapDur) : t > 0.8 ? (1 - t) / 0.2 : 1;
         ctx.fillStyle = '#0c0a12';
         ctx.fillRect(x - 3, y - 3, w + 6, h + 8);
         ctx.fillStyle = '#f4f1e8';

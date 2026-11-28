@@ -50,7 +50,7 @@ const PIPS_LIT: Record<TierId, number> = {
 export const REVEAL_HTML = `
       <div class="reveal" data-el="reveal" hidden role="status" aria-live="polite">
         <div class="rv-name" data-el="rvName"></div>
-        <div class="rv-body"><div class="rv-pips" data-el="rvPips" aria-hidden="true"></div><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div><div class="rv-reached" data-el="rvReached" hidden><span class="rv-reached-label">Reached</span><div class="rv-reached-list" data-el="rvReachedList"></div></div><button type="button" class="rv-hide" data-el="rvHide" hidden aria-label="Hide the reveal to look around and collect props">hide ▾</button></div>
+        <div class="rv-body"><div class="rv-pips" data-el="rvPips" aria-hidden="true"></div><div class="rv-answer" data-el="rvAnswer"></div><div class="rv-line" data-el="rvLine"></div><div class="rv-reached" data-el="rvReached" hidden><span class="rv-reached-label">Reached</span><div class="rv-reached-list" data-el="rvReachedList"></div></div><button type="button" class="ui-key ui-key--quiet rv-hide" data-el="rvHide" hidden aria-label="Hide the reveal to look around and collect props">hide ▾</button></div>
       </div>`;
 
 /** What the reveal reads from the HUD around it. */

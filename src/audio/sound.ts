@@ -17,9 +17,19 @@ import type { TitleGlitchKind } from '../ui/title-logo';
  * - Optional custom audio override slots (`sounds/<id>.wav`) + OfflineAudioContext WAV export helper
  */
 
-export type VolumeLevel = 'low' | 'medium' | 'high';
+export type VolumeLevel = 1 | 2 | 3 | 4;
+export type LegacyVolumeLevel = 'low' | 'medium' | 'high';
 export type SoundMode = 'full' | 'sfx' | 'off';
-const VOLUME_GAIN: Record<VolumeLevel, number> = { low: 0.3, medium: 0.62, high: 0.95 };
+
+export function normalizeVolume(level: unknown): VolumeLevel {
+  if (level === 1 || level === 2 || level === 3 || level === 4) return level;
+  if (level === 'low') return 1;
+  if (level === 'medium') return 3;
+  if (level === 'high') return 4;
+  return 3;
+}
+
+const VOLUME_GAIN: Record<VolumeLevel, number> = { 1: 0.25, 2: 0.5, 3: 0.72, 4: 0.96 };
 
 export type Timbre = {
   wave: OscillatorType | 'pulse25' | 'pulse12';
@@ -232,7 +242,7 @@ export class SoundEngine {
   private duckTimer = 0;
   private lastEventAt = 0;
   private unlocked = false;
-  private volume: VolumeLevel = 'medium';
+  private volume: VolumeLevel = 3;
   mode: SoundMode = 'full';
   enabled = true;
 
@@ -353,8 +363,8 @@ export class SoundEngine {
     };
   }
 
-  setVolume(level: VolumeLevel) {
-    this.volume = level;
+  setVolume(level: VolumeLevel | LegacyVolumeLevel) {
+    this.volume = normalizeVolume(level);
     this.applyMasterGain();
   }
 
@@ -900,6 +910,28 @@ export class SoundEngine {
 
   // -------------------------------------------------------------------------------------------
   // UI & Gameplay micro-SFX
+
+  /** Crisp chiptune keycap click for Debugger Chrome `.ui-key` & binder buttons. */
+  uiClick() {
+    if (this.tryPlayCustom('uiClick')) return;
+    const ctx = this.ensureCtx();
+    if (!ctx) return;
+    const t = ctx.currentTime;
+    this.noiseBurst(ctx, { at: t, dur: 0.014, type: 'highpass', filterHz: 3200, gain: 0.14, reverb: 0 });
+    this.voice(ctx, { freq: 740, toFreq: 480, at: t, dur: 0.028, wave: 'triangle', filterHz: 2400, gain: 0.15, reverb: 0 });
+  }
+
+  /** Pitched detent tick for Settings status switches (0..2) and 4-bar volume steps (0..3). */
+  uiSwitch(stop: number) {
+    if (this.tryPlayCustom('uiSwitch')) return;
+    const ctx = this.ensureCtx();
+    if (!ctx) return;
+    const t = ctx.currentTime;
+    const freqs = [440, 587.33, 740, 880];
+    const freq = freqs[Math.max(0, Math.min(freqs.length - 1, Math.round(stop)))]!;
+    this.noiseBurst(ctx, { at: t, dur: 0.011, type: 'bandpass', filterHz: 2800, gain: 0.13, reverb: 0 });
+    this.voice(ctx, { freq, toFreq: freq * 1.06, at: t, dur: 0.032, wave: 'pulse25', filterHz: 2600, gain: 0.14, reverb: 0 });
+  }
 
   /** Title "Unwind the stack" dive: layered descending plunge + FM shimmer + air rush. */
   diveStart() {

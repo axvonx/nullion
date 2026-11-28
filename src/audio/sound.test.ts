@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { ALL_LAYER_IDS } from '../core/layers';
 import { TIER_IDS } from '../core/tiers';
 import { LAYER_ART } from '../layers';
-import { SoundEngine, encodeWav } from './sound';
+import { SoundEngine, encodeWav, normalizeVolume } from './sound';
 
 function makeMockAudioContext() {
   let oscCount = 0;
@@ -137,7 +137,14 @@ describe('sound engine', () => {
       }
       engine.setPuzzleSeed(42);
       engine.playMorph('kernel');
+      engine.setVolume(4);
       engine.setVolume('high');
+      expect(normalizeVolume('low')).toBe(1);
+      expect(normalizeVolume('medium')).toBe(3);
+      expect(normalizeVolume('high')).toBe(4);
+      expect(normalizeVolume(2)).toBe(2);
+      engine.uiClick();
+      engine.uiSwitch(2);
       engine.playTitleGlitch('mirror-flip');
       engine.playTitleGlitch('bitflip');
       engine.playTitleGlitch('mini-ghosts');

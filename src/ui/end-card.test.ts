@@ -263,6 +263,23 @@ describe('EndCard', () => {
     expect(t.card.isShown).toBe(false);
   });
 
+  it('toggles .has-result on an enclosing .console so data-form never leaks into the End Card', () => {
+    document.body.innerHTML = `<div id="app"><section class="console" data-form="bios">${END_CARD_HTML}</section></div>`;
+    const consoleEl = document.querySelector<HTMLElement>('.console')!;
+    const card = new EndCard(consoleEl.querySelector<HTMLElement>('[data-el="result"]')!, {
+      game: () => undefined,
+      clock: () => T0,
+      notify: () => undefined,
+      openManual: () => undefined,
+      endless: () => null,
+    });
+    expect(consoleEl.classList.contains('has-result')).toBe(false);
+    card.show(ROWS, 35, 1);
+    expect(consoleEl.classList.contains('has-result')).toBe(true);
+    card.hide();
+    expect(consoleEl.classList.contains('has-result')).toBe(false);
+  });
+
   it('counts down to local midnight for a live daily, then offers a reload', () => {
     const game = new Game(SET, 1, { timer: true, unlimited: false, autocorrect: 'confirm' }); // puzzle #1: the epoch day
     const t = setup(game);

@@ -3,12 +3,14 @@
   right: 16px;
   bottom: calc(16px + var(--kb, 0px));
   z-index: 20;
+  font-family: var(--display);
   font-size: 18px;
   width: 36px;
   height: 36px;
   padding: 0;
   background: var(--panel);
   border: 1px solid var(--rule);
+  cursor: pointer;
 }
 
 .dbg-panel {
@@ -40,7 +42,7 @@
 .dbg-row select, .dbg-row input[type='date'] { font: inherit; font-size: 16px; background: var(--bezel); color: var(--ink); border: 1px solid var(--rule); max-width: 60%; }
 .dbg-row input[type='range'] { flex: 1; }
 .dbg-buttons { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
-.dbg-buttons button, .dbg-panel > section > button { font-size: 9px; padding: 6px 8px; background: var(--bezel); color: var(--ink); border: 1px solid var(--rule); }
+.dbg-buttons button, .dbg-panel > section > button { font-family: var(--display); font-size: 9px; padding: 6px 8px; background: var(--bezel); color: var(--ink); border: 1px solid var(--rule); cursor: pointer; }
 .dbg-buttons button:hover { border-color: var(--signal); }
 .dbg-panel pre { font-family: var(--body); font-size: 16px; white-space: pre-wrap; max-height: 140px; overflow-y: auto; background: var(--bezel); padding: 6px; margin: 0 0 6px; }
 .dbg-panel ul { list-style: none; padding: 0; margin: 6px 0 0; font-size: 16px; }
@@ -67,6 +69,7 @@
   background: var(--panel);
   border: 1px solid var(--rule);
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
+  cursor: pointer;
 }
 .dbg-rail-btn:hover, .dbg-rail-btn:focus-visible { border-color: var(--signal); }
 .dbg-rail-btn:active { translate: 1px 1px; box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6); }

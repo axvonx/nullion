@@ -51,10 +51,27 @@
 .bd-sticky-l { display: block; font-family: var(--hand); font-size: 24px; line-height: 1; }
 .bd-sticky-s { display: block; font-family: var(--hand); font-size: 15px; line-height: 1.05; opacity: 0.8; }
 
-.bd-edge { position: absolute; bottom: 20px; width: 28px; height: 28px; border: 0; background: var(--slate-hi); color: var(--bond); cursor: pointer; font-size: 12px; z-index: 2; }
+.bd-edge {
+  position: absolute; bottom: 20px; width: 28px; height: 28px; border: 1px solid var(--slate-lo);
+  background: var(--slate-hi); color: var(--bond); cursor: pointer; font-size: 12px; z-index: 2;
+  box-shadow: 0 2px 0 var(--slate-lo), 0 3px 0 var(--slate), 0 5px 0 var(--slate-lo);
+  transition: transform 60ms steps(2), box-shadow 60ms steps(2), background-color 80ms;
+}
+.bd-edge:hover:not(:disabled) { transform: translateY(-1px); background: #556173; }
+.bd-edge:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 var(--slate-lo); }
 .bd-prev { left: 2px; } .bd-next { right: 2px; bottom: 20px; }
-.bd-edge:disabled { opacity: 0.3; cursor: default; }
-.bd-close { position: absolute; top: -12px; right: -12px; width: 28px; height: 28px; border: 2px solid var(--slate-lo); background: var(--bond); color: var(--toner); font-size: 18px; line-height: 1; cursor: pointer; z-index: 3; }
+.bd-edge:disabled { opacity: 0.3; cursor: default; box-shadow: none; }
+.bd-close {
+  position: absolute; top: -12px; right: -12px; width: 28px; height: 28px;
+  border: 2px solid var(--slate-lo); background: var(--bond); color: var(--toner);
+  font-size: 18px; line-height: 1; cursor: pointer; z-index: 3;
+  box-shadow: 0 2px 0 var(--slate-lo), 0 4px 0 var(--slate-hi), 0 6px 0 var(--slate-lo);
+  transition: transform 60ms steps(2), box-shadow 60ms steps(2);
+}
+.bd-close:hover { transform: translateY(-1px); }
+.bd-close:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--slate-lo); }
+.still .bd-edge, .still .bd-close { transition: none; }
+.still .bd-edge:hover, .still .bd-edge:active, .still .bd-close:hover, .still .bd-close:active { transform: none; }
 
 .bd-mhead { flex: none; display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; gap: 8px; font-size: 13px; margin-bottom: 12px; min-height: 1.2em; }
 .bd-mhead > :nth-child(2) { text-align: center; }

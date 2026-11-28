@@ -16,9 +16,11 @@ import { $, elementsOf, framesLabel, refLink, replay, setText } from './dom';
 import { END_CARD_HTML, EndCard, rowsOf, type RecordRow , type EndlessHook } from './end-card';
 import { REVEAL_HTML, REVEAL_MS, Reveal } from './reveal';
 import { mountPrefsMenu } from './prefs-menu';
+import { createModal, type ModalHandle } from './modal';
+import { mountTactileChrome } from './tactile';
 import { TitleLogo } from './title-logo';
 import { LayerStack, makeLayerIcon } from './layer-stack';
-import { manualBookIcon } from './manual-icon';
+import { hudBookSvg } from './manual-icon';
 import { FieldManualBinder } from './binder/binder';
 import { manualStore } from '../game/manual';
 import { sound } from '../audio/sound';
@@ -54,6 +56,27 @@ const HISTORY_PHONE = 7;
 /** How long the teleport card into Endless stays up (reduced motion: shorter, no flash). */
 const TELEPORT_MS = 1800;
 const TELEPORT_STILL_MS = 900;
+
+/** 9×8 Specular Pixel Heart SVG for Endless lives (alive vs empty dark socket; UI-STYLE.md §9.4). */
+export function pixelHeartSvg(alive: boolean): SVGSVGElement {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 9 8');
+  svg.setAttribute('width', '18');
+  svg.setAttribute('height', '16');
+  svg.setAttribute('shape-rendering', 'crispEdges');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.classList.add('heart-svg');
+  svg.innerHTML = alive
+    ? '<path fill="#000" d="M1 0h3v1h1V0h3v1h1v3H8v1H7v1H6v1H5v1H4V7H3V6H2V5H1V4H0V1h1z"/>' +
+      '<path fill="#ff4d6d" d="M1 1h3v1h1V1h3v3H7v1H6v1H5v1H4V6H3V5H2V4H1z"/>' +
+      '<path fill="#ffccd5" d="M2 2h1v1H2z"/>' +
+      '<path fill="#c9184a" d="M7 3h1v1H7zM6 4h1v1H6zM5 5h1v1H5z"/>'
+    : '<path fill="#000" d="M1 0h3v1h1V0h3v1h1v3H8v1H7v1H6v1H5v1H4V7H3V6H2V5H1V4H0V1h1z"/>' +
+      '<path fill="#2c2838" d="M1 1h3v1h1V1h3v3H7v1H6v1H5v1H4V6H3V5H2V4H1z"/>' +
+      '<path fill="#544e66" d="M1 1h3v1H2v2H1z"/>';
+  return svg;
+}
 
 export class Hud {
   readonly root: HTMLElement;
@@ -100,6 +123,7 @@ export class Hud {
   private topicKey = '';
   private readonly reveal: Reveal;
   private readonly card: EndCard;
+  private readonly howModal: ModalHandle;
 
   /**
    * Debug hooks. `watchdogOverride` shows this share of time left instead of the game's (the rail's timer demo);
@@ -114,32 +138,19 @@ export class Hud {
     mount.innerHTML = `
       <canvas class="scene" aria-label="Your cursor descending through the software stack"></canvas>
       <header class="bar" data-el="bar">
-        <span class="bar-left" data-el="barLeft"><span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span></span>
+        <span class="bar-left" data-el="barLeft"><button type="button" class="hud-book float" data-el="hudBook" aria-label="Field Manual"><span class="hud-book-badge" data-el="hudBookBadge" hidden></span></button></span>
         <span class="bar-mid"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span><span class="chip hearts float" data-el="hearts" hidden></span></span>
-        <span class="bar-right"><span class="chip depth float" data-el="depth"></span><select class="chip endless-select float" data-el="endlessSelect" hidden aria-label="Endless mode" title="Switch Daily / Endless / True Endless (debug)"><option value="off">Endless: Off</option><option value="endless">Endless: On</option><option value="true-endless">True Endless</option></select></span>
+        <span class="bar-right" data-el="barRight"><select class="chip endless-select float" data-el="endlessSelect" hidden aria-label="Endless mode" title="Switch Daily / Endless / True Endless (debug)"><option value="off">Endless: Off</option><option value="endless">Endless: On</option><option value="true-endless">True Endless</option></select><span class="chip depth float" data-el="depth"></span><button type="button" class="ui-key ui-key--icon help-btn float" data-el="helpBtn" aria-label="How to play" aria-haspopup="dialog" aria-expanded="false" aria-controls="title-how">?</button></span>
       </header>
-      <div class="notice" data-el="notice" role="alert" hidden><span data-el="noticeText"></span><button type="button" data-el="noticeClose" aria-label="Dismiss">×</button></div>
+      <div class="notice" data-el="notice" role="alert" hidden><span data-el="noticeText"></span><button type="button" class="ui-key ui-key--icon notice-close" data-el="noticeClose" aria-label="Dismiss">×</button></div>
       <nav class="chip te-nav float" data-el="teNav" hidden aria-label="True Endless realms"></nav>
       <section class="title-screen" data-el="titleScreen" aria-label="Nullion" hidden>
         <div class="title-head" data-el="titleHead"></div>
         <div class="title-foot">
           <p class="title-tag" data-el="titleTag"></p>
-          <button type="button" class="title-start" data-el="titleStart"><span data-el="titleStartText"></span><span class="title-arrow" aria-hidden="true">▾</span></button>
-          <div class="title-foot-links">
-            <button type="button" class="title-how-btn" data-el="titleHowBtn" aria-expanded="false" aria-controls="title-how">How to play</button>
-            <button type="button" class="title-how-btn title-manual-btn" data-el="titleManualBtn"><span data-el="titleManualLabel">Field Manual</span></button>
-          </div>
+          <button type="button" class="ui-key ui-key--primary title-start" data-el="titleStart"><span data-el="titleStartText"></span><span class="title-arrow" aria-hidden="true">▾</span></button>
+          <button type="button" class="ui-key ui-key--secondary title-how-btn" data-el="titleHowBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="title-how">How to play</button>
           <div class="build-tag title-build" aria-label="Version">${VERSION_LABEL}</div>
-        </div>
-        <div id="title-how" class="title-how" data-el="titleHow" role="dialog" aria-label="How to play" hidden>
-          <div class="title-how-bar">
-            <span class="title-how-title">How to play</span>
-            <button type="button" class="title-how-close" data-el="titleHowClose" aria-label="Close">×</button>
-          </div>
-          <ul class="title-rules" data-el="titleRules"></ul>
-          <div class="title-how-title title-how-sub" data-el="titleTiersHeading"></div>
-          <p class="title-how-note" data-el="titleTiersNote"></p>
-          <ol class="title-tiers" data-el="titleTiers"></ol>
         </div>
       </section>
       <section class="console panel float" data-el="console" aria-label="Prompt">
@@ -152,8 +163,8 @@ export class Hud {
           <span class="wd-secs" data-el="secs" aria-hidden="true"></span>
           <span class="bracket" aria-hidden="true">]</span>
           <button type="submit" class="ok-btn">OK</button>
-          <button type="button" class="rv-show" data-el="rvShow" hidden aria-label="Show the reveal again">show ▴</button>
-          <button type="button" class="rv-next" data-el="rvNext">Unwind further ▾</button>
+          <button type="button" class="ui-key ui-key--primary rv-show" data-el="rvShow" hidden aria-label="Show the reveal again">show ▴</button>
+          <button type="button" class="ui-key ui-key--primary rv-next" data-el="rvNext">Unwind further ▾</button>
         </form>
         <div class="bios-footer" aria-hidden="true"><b>F10</b> Save · <b>Enter</b> Select · <b>ESC</b> Exit</div>
         <output class="feedback" data-el="feedback" aria-live="polite"></output>
@@ -164,6 +175,26 @@ ${REVEAL_HTML}`;
     this.root = mount;
     this.canvas = $(mount, 'canvas');
     this.input = $(mount, '#guess');
+    // Unified Windowed Modal for How to Play (accessible from both Title and header `?` key anytime).
+    this.howModal = createModal(mount, {
+      id: 'title-how',
+      title: 'How to play',
+      backdropDataEl: 'titleHow',
+      dialogClass: 'title-how-modal',
+      onOpen: () => {
+        this.els.titleHowBtn?.setAttribute('aria-expanded', 'true');
+        this.els.helpBtn?.setAttribute('aria-expanded', 'true');
+      },
+      onClose: () => {
+        this.els.titleHowBtn?.setAttribute('aria-expanded', 'false');
+        this.els.helpBtn?.setAttribute('aria-expanded', 'false');
+      },
+    });
+    this.howModal.body.innerHTML = `
+      <ul class="title-rules" data-el="titleRules"></ul>
+      <div class="title-how-title title-how-sub" data-el="titleTiersHeading"></div>
+      <p class="title-how-note" data-el="titleTiersNote"></p>
+      <ol class="title-tiers" data-el="titleTiers"></ol>`;
     this.els = elementsOf(mount);
     this.titleLogo = new TitleLogo();
     this.els.titleHead!.append(this.titleLogo.canvas);
@@ -185,12 +216,14 @@ ${REVEAL_HTML}`;
       endless: () => this.endless(),
     });
     this.binder = new FieldManualBinder(document.body); // above the HUD's stacking context (and the debug rail)
-    this.els.titleManualBtn!.prepend(manualBookIcon(13));
-    this.els.titleManualBtn!.addEventListener('click', () => this.openManual());
+    this.els.hudBook!.prepend(hudBookSvg(32));
+    this.els.hudBook!.addEventListener('click', () => this.openManual());
     const syncManualBadges = () => {
       const unread = manualStore.unreadCount();
-      this.els.titleManualLabel!.textContent = unread > 0 ? `Field Manual · ${unread} new` : 'Field Manual';
-      this.els.titleManualBtn!.classList.toggle('has-unread', unread > 0);
+      this.els.hudBookBadge!.textContent = String(unread);
+      this.els.hudBookBadge!.hidden = unread === 0;
+      this.els.hudBook!.classList.toggle('has-unread', unread > 0);
+      this.els.hudBook!.setAttribute('aria-label', unread > 0 ? `Field Manual (${unread} new)` : 'Field Manual');
     };
     syncManualBadges();
     manualStore.subscribe(syncManualBadges);
@@ -200,7 +233,8 @@ ${REVEAL_HTML}`;
     this.els.titleTiersNote!.textContent = text('title.tiers.note');
     this.buildTitleRules();
     this.buildTitleTiers();
-    mountPrefsMenu(mount, this.els.barLeft!);
+    mountPrefsMenu(mount, this.els.barRight!);
+    mountTactileChrome(mount);
     // Lives as long as the page (one Hud per page), so its cleanup is never needed.
     // The zoom first: the viewport tracker converts its pixels with it (and its resize listener runs after).
     mountUiScale();
@@ -291,22 +325,22 @@ ${REVEAL_HTML}`;
     this.els.titleStart!.addEventListener('click', () => this.startFromTitle(now()));
     this.els.titleStart!.addEventListener('pointerenter', () => this.titleLogo.pulse('bitflip'));
     this.titleLogo.canvas.addEventListener('click', () => this.titleLogo.pulse());
-    const setHowOpen = (open: boolean) => {
-      this.els.titleHow!.hidden = !open;
-      this.els.titleHowBtn!.setAttribute('aria-expanded', String(open));
-      this.els.titleHowBtn!.textContent = open ? 'Hide rules' : 'How to play';
+    this.els.titleHowBtn!.addEventListener('click', () => this.howModal.toggle(this.els.titleHowBtn!));
+    this.els.helpBtn!.addEventListener('click', () => this.howModal.toggle(this.els.helpBtn!));
+
+    // Smart-Context prop-snap loop (UI-STYLE.md §7.3): fly photos directly to the top-left Book icon.
+    scene.snapTarget = () => {
+      const book = this.els.hudBook;
+      if (!book || this.canvas.width <= 0 || this.canvas.height <= 0) return null;
+      const br = book.getBoundingClientRect();
+      const cr = this.canvas.getBoundingClientRect();
+      if (br.width <= 0 || cr.width <= 0 || cr.height <= 0) return null;
+      return {
+        x: ((br.left + br.width / 2 - cr.left) / cr.width) * this.canvas.width,
+        y: ((br.top + br.height / 2 - cr.top) / cr.height) * this.canvas.height,
+      };
     };
-    this.els.titleHowBtn!.addEventListener('click', () => setHowOpen(this.els.titleHow!.hidden !== false));
-    this.els.titleHowClose!.addEventListener('click', () => {
-      setHowOpen(false);
-      this.els.titleHowBtn!.focus();
-    });
-    window.addEventListener('keydown', (ev) => {
-      if (ev.key === 'Escape' && !this.els.titleHow!.hidden) {
-        setHowOpen(false);
-        this.els.titleHowBtn!.focus();
-      }
-    });
+    scene.onSnapLanded = (entryId) => this.onPropSnapLanded(entryId);
 
     // Scroll-only mode: fast, responsive free movement through the entire Daily or Endless stack.
     let scrollTarget = 0;
@@ -326,7 +360,7 @@ ${REVEAL_HTML}`;
         if (!this.scrollMode || ev.target instanceof HTMLInputElement || ev.target instanceof HTMLSelectElement) return;
         // Panels scroll themselves, as does anything marked `data-own-scroll` (the debug menu and rail: production code
         // never names debug classes, which the deploy's leak check enforces).
-        if (ev.target instanceof Element && ev.target.closest('.panel, [data-own-scroll], .bd-backdrop, .prefs-pop')) return;
+        if (ev.target instanceof Element && ev.target.closest('.panel, [data-own-scroll], .bd-backdrop, .ui-modal-backdrop')) return;
         ev.preventDefault();
         const mult = ev.shiftKey ? 3 : 1;
         nudge((ev.deltaY / rulesFor(this.game?.mode ?? 'daily').scroll.wheelDivisor) * mult);
@@ -346,7 +380,7 @@ ${REVEAL_HTML}`;
         const target = ev.target;
         if (
           target instanceof Element &&
-          target.closest('.panel, [data-own-scroll], .bd-backdrop, .prefs-pop, .layer-stack, .bar, .te-nav, input, select, button, a')
+          target.closest('.panel, [data-own-scroll], .bd-backdrop, .ui-modal-backdrop, .layer-stack, .bar, .te-nav, input, select, button, a')
         ) {
           touchActive = false;
           return;
@@ -401,7 +435,27 @@ ${REVEAL_HTML}`;
     });
   }
 
-  setGame(g: Game, dateLabel: string, statsSource?: () => StatsOutcome) {
+  /**
+   * Smart-Context catch rule when a first-sighting prop photo reaches the top-left Book icon:
+   * - Always bounce the book icon (except under reduced motion).
+   * - Never interrupt an active prompt clock (`reading` / `answering`).
+   * - When idle/exploring (stowed Reveal, End Card, Title, Scroll mode), swing the binder open to the new entry.
+   */
+  private onPropSnapLanded(entryId: string) {
+    const book = this.els.hudBook;
+    if (book && !reducedMotion()) {
+      book.classList.remove('is-catching');
+      void book.offsetWidth;
+      book.classList.add('is-catching');
+    }
+    const phase = this.game?.phase.kind;
+    const timerActive = phase === 'reading' || phase === 'answering';
+    if (!timerActive) {
+      this.openManual(entryId);
+    }
+  }
+
+  setGame(g: Game, _dateLabel: string, statsSource?: () => StatsOutcome) {
     this.game = g;
     this.historyPage = 'latest';
     // The watchdog submits whatever is typed when it fires (Game.tick).
@@ -420,11 +474,7 @@ ${REVEAL_HTML}`;
     this.promptKey = '';
     this.card.reset(g, statsSource);
     this.els.feedback!.textContent = '';
-    this.els.metaText!.textContent = `#${g.puzzle}`;
-    this.els.meta!.title = `Puzzle #${g.puzzle} · ${dateLabel}`;
-    this.els.titleHow!.hidden = true;
-    this.els.titleHowBtn!.setAttribute('aria-expanded', 'false');
-    this.els.titleHowBtn!.textContent = 'How to play';
+    this.howModal.setOpen(false);
     this.layerStack.flushTo(g.depth, g.mode);
     this.syncSlots(g);
     this.syncTrueEndlessNav(g.rules.realmNav);
@@ -548,7 +598,7 @@ ${REVEAL_HTML}`;
     const wrap = this.els.slots!;
     wrap.replaceChildren();
     wrap.setAttribute('aria-label', `Rounds ${from + 1} to ${to} of ${n}`);
-    // The hearts sit in their own chip under the history.
+    // The hearts sit in their own chip under the history (9×8 Specular Pixel Hearts).
     const heartsEl = this.els.hearts!;
     heartsEl.replaceChildren();
     heartsEl.setAttribute('aria-label', `${left} of ${hearts.max} hearts`);
@@ -556,28 +606,51 @@ ${REVEAL_HTML}`;
       const alive = i < left;
       const f = document.createElement('span');
       f.className = alive ? 'slot heart' : 'slot heart lost';
-      f.textContent = alive ? '♥' : '♡';
+      f.dataset.alive = String(alive);
+      f.append(pixelHeartSvg(alive));
       f.title = alive ? 'Heart: a timeout or skip costs one' : 'Heart lost: a Bit Flip or more frames win it back';
       heartsEl.append(f);
     }
     if (n > per) {
-      const sel = document.createElement('select');
-      sel.className = 'history-page';
-      sel.setAttribute('aria-label', 'Which rounds the history shows');
-      const option = (label: string, value: string) => {
-        const o = document.createElement('option');
-        o.textContent = label;
-        o.value = value;
-        return o;
-      };
-      sel.append(option(`last ${per}`, 'latest'));
-      for (let p = 0; p < pages; p++) sel.append(option(`${p * per + 1}–${Math.min(n, (p + 1) * per)}`, String(p)));
-      sel.value = String(this.historyPage);
-      sel.addEventListener('change', () => {
-        this.historyPage = sel.value === 'latest' ? 'latest' : Number(sel.value);
+      const pager = document.createElement('span');
+      pager.className = 'history-pager';
+      pager.setAttribute('role', 'group');
+      pager.setAttribute('aria-label', 'Round history pages');
+
+      const prevBtn = document.createElement('button');
+      prevBtn.type = 'button';
+      prevBtn.className = 'ui-key ui-key--quiet history-prev';
+      prevBtn.textContent = '◀';
+      prevBtn.setAttribute('aria-label', 'Earlier rounds');
+      prevBtn.disabled = this.historyPage === 0;
+      prevBtn.addEventListener('click', () => {
+        if (this.historyPage === 'latest') {
+          this.historyPage = Math.max(0, Math.floor((from - 1) / per));
+        } else {
+          this.historyPage = Math.max(0, this.historyPage - 1);
+        }
         this.syncSlots(g);
       });
-      wrap.append(sel);
+
+      const range = document.createElement('span');
+      range.className = 'history-range';
+      range.textContent = `${from + 1}–${to}`;
+
+      const nextBtn = document.createElement('button');
+      nextBtn.type = 'button';
+      nextBtn.className = 'ui-key ui-key--quiet history-next';
+      nextBtn.textContent = '▶';
+      nextBtn.setAttribute('aria-label', 'Later rounds');
+      nextBtn.disabled = this.historyPage === 'latest';
+      nextBtn.addEventListener('click', () => {
+        if (this.historyPage === 'latest') return;
+        const nextPage = this.historyPage + 1;
+        this.historyPage = nextPage >= pages - 1 ? 'latest' : nextPage;
+        this.syncSlots(g);
+      });
+
+      pager.append(prevBtn, range, nextBtn);
+      wrap.append(pager);
     }
     for (const i of shown) wrap.append(this.roundSlot(g.rounds[i]!, i, state(i), active));
     const rc = document.createElement('span');
@@ -673,7 +746,7 @@ ${REVEAL_HTML}`;
     this.titleOpen = false;
     this.titleLogo.stop();
     this.scene?.clearTitleGlitches();
-    this.els.titleHow!.hidden = true;
+    this.howModal.setOpen(false);
     const el = this.els.titleScreen!;
     el.classList.add('out');
     clearTimeout(this.titleTimer);
@@ -935,7 +1008,7 @@ ${REVEAL_HTML}`;
     } else if (this.root.style.transform) {
       this.root.style.transform = '';
     }
-    const panels = [this.els.console!, this.els.meta!, this.els.depth!];
+    const panels = [this.els.console!, this.els.hudBook!, this.els.depth!];
     panels.forEach((el, i) => {
       if (fx.jiggle <= 0) {
         if (el.style.translate) el.style.translate = '';
@@ -1061,6 +1134,10 @@ ${REVEAL_HTML}`;
   endOfDay(rows: RecordRow[], depth: number, puzzle: number) {
     if (!this.scene) throw new Error('Hud.endOfDay before bind()');
     sound.endOfDay();
+    // Clear transient info notices so they never overlap the End Card wordmark.
+    if (this.els.notice && !this.els.notice.hidden && this.els.notice.classList.contains('info')) {
+      this.els.notice.hidden = true;
+    }
     // The right-hand stack folds into the summary card: note where its blocks are before the card hides it.
     const mode = this.game?.mode ?? 'daily';
     this.layerStack.flushTo(depth, mode);

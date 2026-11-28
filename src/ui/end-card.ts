@@ -64,14 +64,14 @@ export const END_CARD_HTML = `
           </section>
           <div class="eod-h" data-el="backtraceHeading"></div>
           <ol class="record" data-el="record"></ol>
-          <div class="result-share"><button type="button" class="share-big" data-el="copy">Copy result</button><div class="next-day" data-el="nextDay"></div><div class="endless-best" data-el="endlessBest" hidden></div><button type="button" class="endless-go" data-el="endlessBtn" hidden></button><button type="button" class="endless-back" data-el="endlessBack" hidden></button></div>
+          <div class="result-share"><button type="button" class="ui-key ui-key--primary share-big" data-el="copy">Copy result</button><div class="next-day" data-el="nextDay"></div><div class="endless-best" data-el="endlessBest" hidden></div><button type="button" class="ui-key ui-key--endless endless-go" data-el="endlessBtn" hidden></button><button type="button" class="ui-key ui-key--secondary endless-back" data-el="endlessBack" hidden></button></div>
           <div class="stats" data-el="stats" hidden></div>
-          <div class="result-manual"><button type="button" class="fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
+          <div class="result-manual"><button type="button" class="ui-key ui-key--secondary fm-end-btn" data-el="manualEndBtn"><span class="fm-end-text"><strong data-el="manualEndTitle">Field Manual</strong><span class="fm-end-sub" data-el="manualEndSub"></span></span><span class="fm-end-badge" data-el="manualEndBadge" hidden></span></button></div>
           <div class="result-links" data-el="resultLinks"></div>
-          <button type="button" class="eod-hide" data-el="eodHide" aria-label="Hide this card to look at the world behind it">hide ▾</button>
+          <button type="button" class="ui-key ui-key--quiet eod-hide" data-el="eodHide" aria-label="Hide this card to look at the world behind it">hide ▾</button>
           <div class="build-tag" data-el="buildTag"><span class="build-wm" data-wm="nullion">nullion</span> v${VERSION}</div>
           </div>
-          <button type="button" class="eod-show" data-el="eodShow" hidden aria-label="Show the end-of-day card again">show ▴</button>
+          <button type="button" class="ui-key ui-key--primary eod-show" data-el="eodShow" hidden aria-label="Show the end-of-day card again">show ▴</button>
         </div>`;
 
 /** What the end card reads from the HUD around it. */
@@ -285,6 +285,7 @@ export class EndCard {
     this.unstow();
     this.shownNow = false;
     this.els.result!.hidden = true;
+    this.els.result!.closest('.console')?.classList.remove('has-result');
   }
 
   /** End of day: the result card, straight away (no replay): the day's backtrace, most recent frame first. */
@@ -294,6 +295,7 @@ export class EndCard {
     this.build(rows, depth, puzzle);
     this.buildEndless();
     this.els.result!.hidden = false;
+    this.els.result!.closest('.console')?.classList.add('has-result');
     replay(this.els.result!, 'settle-in');
     this.els.copy!.focus({ preventScroll: true });
   }
@@ -592,7 +594,7 @@ export class EndCard {
       if (g.total > g.shown.length) {
         const more = document.createElement('button');
         more.type = 'button';
-        more.className = 'sheet-more';
+        more.className = 'ui-key ui-key--quiet sheet-more';
         more.setAttribute('aria-expanded', 'false');
         const rest = g.total - g.shown.length;
         more.textContent = `+${rest} more`;
@@ -710,7 +712,7 @@ export class EndCard {
       this.nextDaySig = 'new';
       const b = document.createElement('button');
       b.type = 'button';
-      b.className = 'next-day-reload';
+      b.className = 'ui-key ui-key--secondary next-day-reload';
       b.textContent = text('end-card.next.reload');
       b.addEventListener('click', () => location.reload());
       el.replaceChildren(b);

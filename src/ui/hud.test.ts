@@ -38,6 +38,8 @@ class FakeScene {
   introDives = 0;
   rejectNudges = 0;
   lowTimes: boolean[] = [];
+  snapTarget?: () => { x: number; y: number } | null;
+  onSnapLanded?: (entryId: string) => void;
   introDive() {
     this.introDives++;
   }
@@ -110,7 +112,7 @@ function setup(opts: Partial<{ unlimited: boolean; autocorrect: 'confirm' | 'aut
 
 beforeEach(() => {
   looks.set({ motion: 'full' });
-  prefs.set({ autocorrect: 'confirm', sound: 'full', volume: 'medium', motion: 'system' });
+  prefs.set({ autocorrect: 'confirm', sound: 'full', volume: 3, motion: 'system' });
 });
 
 describe('HUD flow', () => {
@@ -352,23 +354,84 @@ describe('typo correction', () => {
     expect(h.$('[data-el="feedback"]').textContent).toBe(`read as '${name}'`);
   });
 
-  it('the settings popover switches the preference and the header mute button toggles sound', () => {
+  it('the Settings modal opens from the top-right gear key, updates switches and 4-bar volume, and closes on Escape or backdrop click', () => {
     const h = setup();
-    h.$<HTMLButtonElement>('.prefs-btn').click();
-    expect(h.$('.prefs-pop').hidden).toBe(false);
-    const auto = h.mount.querySelector<HTMLInputElement>('input[name="pref-autocorrect"][value="auto"]')!;
-    auto.checked = true;
-    auto.dispatchEvent(new Event('change'));
+    const gear = h.$<HTMLButtonElement>('.bar-right .prefs-btn');
+    const modal = h.$<HTMLElement>('.prefs-modal');
+    expect(modal.hidden).toBe(true);
+    // Standalone header mute chip and top-left puzzle chip are retired.
+    expect(h.mount.querySelector('.sound-btn')).toBeNull();
+    expect(h.mount.querySelector('.meta')).toBeNull();
+
+    gear.click();
+    expect(modal.hidden).toBe(false);
+    expect(gear.getAttribute('aria-expanded')).toBe('true');
+
+    // Typo correction switch: ASK -> AUTO
+    const autoStop = h.$<HTMLButtonElement>('.ui-switch[data-pref="autocorrect"] .ks-stop[data-value="auto"]');
+    autoStop.click();
     expect(prefs.get().autocorrect).toBe('auto');
 
-    const muteBtn = h.$<HTMLButtonElement>('.sound-btn');
-    expect(prefs.get().sound).toBe('full');
-    muteBtn.click();
+    // Sound switch: FULL -> MUTE dims volume meter, MUTE -> SFX restores it
+    const volMeter = h.$<HTMLElement>('.ui-vol-meter');
+    expect(volMeter.classList.contains('is-muted')).toBe(false);
+    h.$<HTMLButtonElement>('.ui-switch[data-pref="sound"] .ks-stop[data-value="off"]').click();
     expect(prefs.get().sound).toBe('off');
-    expect(muteBtn.getAttribute('aria-pressed')).toBe('true');
-    muteBtn.click();
-    expect(prefs.get().sound).toBe('full');
-    expect(muteBtn.getAttribute('aria-pressed')).toBe('false');
+    expect(volMeter.classList.contains('is-muted')).toBe(true);
+    h.$<HTMLButtonElement>('.ui-switch[data-pref="sound"] .ks-stop[data-value="sfx"]').click();
+    expect(prefs.get().sound).toBe('sfx');
+    expect(volMeter.classList.contains('is-muted')).toBe(false);
+
+    // 4-bar stepped hardware volume meter
+    h.$<HTMLButtonElement>('.ui-vol-meter .vol-bar[data-lvl="4"]').click();
+    expect(prefs.get().volume).toBe(4);
+    expect(h.$('.ui-vol-meter .vol-pct').textContent).toBe('100%');
+
+    // Escape closes the modal
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    expect(modal.hidden).toBe(true);
+
+    // Reopen and close via backdrop click
+    gear.click();
+    expect(modal.hidden).toBe(false);
+    modal.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+    expect(modal.hidden).toBe(true);
+  });
+
+  it('decouples End Card from console data-form and wires top-left Book + Smart-Context prop snap + header ? Help key', () => {
+    const h = setup();
+    const book = h.$<HTMLButtonElement>('[data-el="hudBook"]');
+    expect(book.querySelector('svg.hud-book-svg')).not.toBeNull();
+
+    // Header `?` opens the unified How-to-Play modal mid-game too
+    const helpBtn = h.$<HTMLButtonElement>('[data-el="helpBtn"]');
+    const howBackdrop = h.$<HTMLElement>('[data-el="titleHow"]');
+    expect(howBackdrop.hidden).toBe(true);
+    helpBtn.click();
+    expect(howBackdrop.hidden).toBe(false);
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    expect(howBackdrop.hidden).toBe(true);
+
+    // Smart-Context prop snap: during active answering timer, catches quietly (never opens binder)
+    h.toAnswering();
+    const openSpy = vi.spyOn(h.hud, 'openManual').mockImplementation(() => {});
+    h.scene.onSnapLanded?.('test-entry');
+    expect(book.classList.contains('is-catching')).toBe(true);
+    expect(openSpy).not.toHaveBeenCalled();
+
+    // When idle/between rounds (stowed Reveal / End Card), landing opens the binder straight to that entry
+    h.submit(h.answerFor());
+    expect(h.game.phase.kind).toBe('between');
+    h.scene.onSnapLanded?.('test-entry');
+    expect(openSpy).toHaveBeenCalledWith('test-entry');
+    openSpy.mockRestore();
+
+    // End Card marks `.console.has-result` regardless of landing layer form (gui / bios / raw)
+    const consoleEl = h.$<HTMLElement>('[data-el="console"]');
+    consoleEl.dataset.form = 'bios';
+    h.hud.endOfDay([{ tier: 'race', name: 'mutex' }], 35, 1);
+    expect(consoleEl.classList.contains('has-result')).toBe(true);
+    expect(consoleEl.dataset.form).toBe('bios');
   });
 });
 
@@ -525,7 +588,7 @@ describe('end card', () => {
     }
   });
 
-  it('Endless history: the last 14 rounds as tier icons; past 14, a dropdown pages back by number', () => {
+  it('Endless history: the last 14 rounds as tier icons; past 14, stacked pager steps back and forward', () => {
     const h = setup();
     const g = new Game(SET, 7, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless', seed: 11 });
     h.hud.setGame(g, '2026-11-26');
@@ -544,16 +607,19 @@ describe('end card', () => {
     expect(icons()).toHaveLength(13);
     expect(icons()[0]!.getAttribute('aria-label')).toMatch(/^#8 /);
     expect(h.mount.querySelectorAll('.slots .slot.pending')).toHaveLength(1);
-    const sel = h.$<HTMLSelectElement>('.slots .history-page');
-    expect([...sel.options].map((o) => o.text)).toEqual(['last 14', '1–14', '15–21']);
-    sel.value = '0';
-    sel.dispatchEvent(new Event('change'));
+    expect(h.$('.slots .history-range').textContent).toBe('8–21');
+    expect(h.$<HTMLButtonElement>('.slots .history-next').disabled).toBe(true);
+    h.$<HTMLButtonElement>('.slots .history-prev').click();
+    expect(h.$('.slots .history-range').textContent).toBe('1–14');
     expect(icons()[0]!.getAttribute('aria-label')).toMatch(/^#1 /);
     expect(icons()).toHaveLength(14);
+    expect(h.$<HTMLButtonElement>('.slots .history-prev').disabled).toBe(true);
+    h.$<HTMLButtonElement>('.slots .history-next').click();
+    expect(h.$('.slots .history-range').textContent).toBe('8–21');
     expect(h.$('.slots .endless-round').textContent).toBe('#21');
   });
 
-  it('shows 3 hearts in Endless mode and KERNEL PANIC when the last is lost', () => {
+  it('shows 3 specular pixel hearts in Endless mode and KERNEL PANIC when the last is lost', () => {
     const h = setup();
     const endless = new Game(SET, 7, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless' });
     h.hud.setGame(endless, '2026-11-26');
@@ -571,8 +637,9 @@ describe('end card', () => {
     let now = 0;
     endless.start(now);
     h.hud.update(now, 0);
-    const hearts = () => [...h.mount.querySelectorAll<HTMLElement>('.bar-mid .hearts .heart')].map((f) => f.textContent);
-    expect(hearts()).toEqual(['♥', '♥', '♥']);
+    const hearts = () => [...h.mount.querySelectorAll<HTMLElement>('.bar-mid .hearts .heart')];
+    expect(hearts().map((f) => f.dataset.alive)).toEqual(['true', 'true', 'true']);
+    expect(hearts().every((f) => f.querySelector('svg.heart-svg') !== null)).toBe(true);
 
     // The watchdog takes every heart
     for (let s = 1; s <= 3; s++) {
@@ -582,7 +649,7 @@ describe('end card', () => {
       now += endless.answerMs + 1;
       endless.tick(now);
       h.hud.update(now, endless.depth);
-      expect(hearts().filter((c) => c === '♡')).toHaveLength(s);
+      expect(hearts().filter((f) => f.dataset.alive === 'false')).toHaveLength(s);
       endless.advance(now);
       h.hud.update(now, endless.depth);
     }
