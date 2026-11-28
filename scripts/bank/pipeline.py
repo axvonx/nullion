@@ -329,15 +329,17 @@ def wiki_suggestions(cid: str, prompt: str) -> str:
     for kind in scope_subkinds(scope_text(cid) or ""):
         found = []
         for q in (f"{kind} {subject}", kind):
+            # One search plus one categoryinfo call per query (page counts, no member listing): Wikimedia rate-limits.
             r = recall_mod.api({"action": "query", "list": "search", "srsearch": q, "srnamespace": "14", "srlimit": "6"})
-            for hit in r.get("query", {}).get("search", []):
-                t = hit["title"]
-                if t in seen:
-                    continue
-                seen.add(t)
-                n = len(recall_mod.members(t)[0])
+            titles = [h["title"] for h in r.get("query", {}).get("search", []) if h["title"] not in seen]
+            seen.update(titles)
+            if not titles:
+                continue
+            info = recall_mod.api({"action": "query", "prop": "categoryinfo", "titles": "|".join(titles)})
+            for page in info.get("query", {}).get("pages", []):
+                n = page.get("categoryinfo", {}).get("pages", 0)
                 if n >= 8:
-                    found.append(f"{t} ({n} articles)")
+                    found.append(f"{page['title']} ({n} articles)")
         lines.append(f"- {kind}: {'; '.join(found[:5]) or 'none found: use a listing or head nouns'}")
     return "\n".join(lines)
 
