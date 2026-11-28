@@ -1,5 +1,5 @@
 // @vitest-environment happy-dom
-import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { buildAnswerSet } from '../core/answers';
 import { PROMPTS_PER_DAY } from '../core/layers';
 import { TIERS, TIER_IDS } from '../core/tiers';
@@ -508,6 +508,23 @@ describe('end card', () => {
     expect(h.$('[data-el=secs]').textContent).toBe('7s');
   });
 
+  it('an info notice fades out by itself; an error stays until it is closed', () => {
+    vi.useFakeTimers();
+    try {
+      const h = setup();
+      const bar = h.$('[data-el="notice"]');
+      h.hud.notify('Resumed.', 'info');
+      expect(bar.hidden).toBe(false);
+      vi.advanceTimersByTime(7000);
+      expect(bar.hidden).toBe(true);
+      h.hud.notify('Your save was unreadable.', 'error');
+      vi.advanceTimersByTime(60000);
+      expect(bar.hidden).toBe(false);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('Endless history: the last 14 rounds as tier icons; past 14, a dropdown pages back by number', () => {
     const h = setup();
     const g = new Game(SET, 7, { timer: true, unlimited: false, autocorrect: 'confirm', mode: 'endless', seed: 11 });
@@ -554,7 +571,7 @@ describe('end card', () => {
     let now = 0;
     endless.start(now);
     h.hud.update(now, 0);
-    const hearts = () => [...h.mount.querySelectorAll<HTMLElement>('.slots .heart')].map((f) => f.textContent);
+    const hearts = () => [...h.mount.querySelectorAll<HTMLElement>('.bar-mid .hearts .heart')].map((f) => f.textContent);
     expect(hearts()).toEqual(['♥', '♥', '♥']);
 
     // The watchdog takes every heart

@@ -125,7 +125,9 @@ body {
 @keyframes led { 0%, 70% { opacity: 1; } 75% { opacity: 0.25; } 85% { opacity: 1; } 90% { opacity: 0.3; } }
 .bar-right { display: inline-flex; gap: 6px; align-items: flex-start; flex-wrap: wrap; justify-content: flex-end; }
 /* The round score slots sit in the middle of the header: each played round is its tier's cursor icon. */
-.bar-mid { position: absolute; left: 50%; top: 0; transform: translateX(-50%); display: flex; pointer-events: none; }
+.bar-mid { position: absolute; left: 50%; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 4px; pointer-events: none; }
+.hearts { display: inline-flex; align-items: center; gap: 5px; min-height: 18px; padding-top: 2px; padding-bottom: 2px; }
+.hearts[hidden] { display: none; }
 .slots { display: inline-flex; align-items: center; gap: 6px; font-size: 17px; white-space: nowrap; min-height: 22px; }
 .slot { position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 1.2ch; color: var(--dim); outline: none; }
 .slot .tier-icon { display: block; width: 24px; height: 18px; image-rendering: pixelated; }
@@ -1120,6 +1122,8 @@ html.kb-open .still .console.low { animation: none; }
 .notice button { font: inherit; color: var(--dim); background: transparent; border: 0; cursor: pointer; padding: 0 2px; }
 .next-day-reload { font: inherit; font-size: 17px; }
 .notice.info { border-color: var(--rule); }
+.notice.fading { opacity: 0; transition: opacity 400ms linear; }
+.still .notice.fading { transition: none; }
 
 /* ---------------------------------------------------------------------------------------------
  * RHS top-down application stack: builds layer by layer under the score chips, color-matched

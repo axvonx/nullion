@@ -40,6 +40,10 @@ function answerPlaceholder(): string {
 /** What each layer is (`LAYER_ART[id].blurb`), for the stack's tooltips. */
 const LAYER_BLURBS = Object.fromEntries(ALL_LAYER_IDS.map((id) => [id, LAYER_ART[id].blurb])) as Record<LayerId, string>;
 
+/** How long an info notice stays before it fades (errors stay until closed). */
+const NOTICE_INFO_MS = 6000;
+const NOTICE_FADE_MS = 400;
+
 /** Rounds Endless's history bar shows at once. */
 const HISTORY_DESKTOP = 14;
 const HISTORY_PHONE = 7;
@@ -80,6 +84,7 @@ export class Hud {
   /** A teleport into Endless is playing: the title stays hidden while the game waits to start. */
   private teleporting = false;
   private teleportTimer = 0;
+  private noticeTimer = 0;
   /** Which rounds Endless's history bar shows: the latest, or a page of older ones (picked in its dropdown). */
   private historyPage: number | 'latest' = 'latest';
   /** Endless from the end card (set by main.ts); null where it isn't offered. */
@@ -107,7 +112,7 @@ export class Hud {
       <canvas class="scene" aria-label="Your cursor descending through the software stack"></canvas>
       <header class="bar" data-el="bar">
         <span class="bar-left" data-el="barLeft"><span class="chip meta float" data-el="meta"><span class="led" aria-hidden="true"></span><span data-el="metaText"></span></span></span>
-        <span class="bar-mid"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span></span>
+        <span class="bar-mid"><span class="chip slots float" data-el="slots" aria-label="Round scores"></span><span class="chip hearts float" data-el="hearts" hidden></span></span>
         <span class="bar-right"><span class="chip depth float" data-el="depth"></span><select class="chip endless-select float" data-el="endlessSelect" hidden aria-label="Endless mode" title="Switch Daily / Endless / True Endless (debug)"><option value="off">Endless: Off</option><option value="endless">Endless: On</option><option value="true-endless">True Endless</option></select></span>
       </header>
       <div class="notice" data-el="notice" role="alert" hidden><span data-el="noticeText"></span><button type="button" data-el="noticeClose" aria-label="Dismiss">×</button></div>
@@ -474,6 +479,7 @@ ${REVEAL_HTML}`;
       if (r.locked) return `${r.locked.entry.tier}:${r.locked.pushed}`;
       return r.timedOut || g.phase.kind === 'done' || (active > i && !r.locked) ? '0' : '-';
     };
+    this.els.hearts!.hidden = g.rules.roundCounter !== 'hearts';
     if (g.rules.roundCounter === 'hearts') return this.syncEndlessBar(g, active, state);
     const sig = `${active}|${pendingSink}|` + g.rounds.map((_, i) => state(i)).join(',');
     if (sig === this.slotsSig) return;
@@ -536,14 +542,18 @@ ${REVEAL_HTML}`;
     this.slotsSig = sig;
     const wrap = this.els.slots!;
     wrap.replaceChildren();
-    wrap.setAttribute('aria-label', `${left} of ${hearts.max} hearts; rounds ${from + 1} to ${to} of ${n}`);
+    wrap.setAttribute('aria-label', `Rounds ${from + 1} to ${to} of ${n}`);
+    // The hearts sit in their own chip under the history.
+    const heartsEl = this.els.hearts!;
+    heartsEl.replaceChildren();
+    heartsEl.setAttribute('aria-label', `${left} of ${hearts.max} hearts`);
     for (let i = 0; i < hearts.max; i++) {
       const alive = i < left;
       const f = document.createElement('span');
       f.className = alive ? 'slot heart' : 'slot heart lost';
       f.textContent = alive ? '♥' : '♡';
       f.title = alive ? 'Heart: a timeout or skip costs one' : 'Heart lost: a Bit Flip or more frames win it back';
-      wrap.append(f);
+      heartsEl.append(f);
     }
     if (n > per) {
       const sel = document.createElement('select');
@@ -806,10 +816,20 @@ ${REVEAL_HTML}`;
   }
 
   /** A visible message for things the player should know (a save that could not be restored, a resume). */
+  /** A notice bar. Info ("Resumed your run") fades out by itself; an error stays until it is closed. */
   notify(message: string, kind: 'info' | 'error' = 'error') {
-    this.els.notice!.classList.toggle('info', kind === 'info');
+    clearTimeout(this.noticeTimer);
+    const el = this.els.notice!;
+    el.classList.toggle('info', kind === 'info');
+    el.classList.remove('fading');
     this.els.noticeText!.textContent = message;
-    this.els.notice!.hidden = false;
+    el.hidden = false;
+    if (kind === 'info') {
+      this.noticeTimer = window.setTimeout(() => {
+        el.classList.add('fading');
+        this.noticeTimer = window.setTimeout(() => (el.hidden = true), reducedMotion() ? 0 : NOTICE_FADE_MS);
+      }, NOTICE_INFO_MS);
+    }
   }
 
   /** Show the question in the current form, typed in over `elapsed` ms (all at once under reduced motion). */
