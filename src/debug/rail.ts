@@ -11,6 +11,8 @@ import { manualBookIcon } from '../ui/manual-icon';
 import { manualStore } from '../game/manual';
 import { computeStats } from '../game/stats';
 import glitchMd from '../../writing/debug/glitch.md?raw';
+import tableCheckMd from '../../writing/debug/table-check.md?raw';
+import type { TableCheckAnim } from '../ui/table-check';
 import type { DebugHooks } from './menu';
 
 /**
@@ -94,6 +96,7 @@ const ICONS: Record<string, string[]> = {
   heisenbug: ['  #####  ', ' #     # ', '#  + +  #', '#       #', '#       #', '#       #', '#       #', '# # # # #', ' # # # # '],
   bitflip: ['    ###  ', '   ###   ', '  ###    ', ' ####### ', '    ###  ', '   ###   ', '  ##     ', ' #       ', '         '],
   glitch: ['  ###### ', ' #      #', ' #  ++   ', ' #   ++  ', ' #  ++++ ', ' #      #', '  ###### ', '   +   + ', '         '],
+  tableCheck: ['  #####  ', ' #  +  # ', ' # +++ # ', '  #####  ', '    #    ', '   ###   ', '    #    ', '  #####  ', '         '],
 };
 
 function icon(rows: string[], accent: string): SVGSVGElement {
@@ -363,6 +366,41 @@ export function mountRail(h: DebugHooks) {
       ev.preventDefault();
       showGlitch();
     }
+  });
+
+  // Table-check easter egg demo: cycles 3 animations and accept/reject verdicts from writing/debug/table-check.md.
+  const tcSection = (name: string) => {
+    const m = new RegExp(`## ${name}\\n([\\s\\S]*?)(?=\\n## |$)`).exec(tableCheckMd);
+    return (m?.[1] ?? '')
+      .split('\n')
+      .filter((l) => l.startsWith('- '))
+      .map((l) => l.slice(2).trim())
+      .filter(Boolean);
+  };
+  const tcChecking = tcSection('checking');
+  const tcAccept = tcSection('accept');
+  const tcReject = tcSection('reject');
+  const tcAnims: readonly TableCheckAnim[] = ['squint', 'ledger', 'wiretap'];
+  let tcStep = 0;
+  const tcBtn = add('tableCheck', 'Table check demo: cycles squint / ledger / wiretap & accept / reject', 'var(--signal)', () => {
+    cancel();
+    const anim = tcAnims[tcStep % tcAnims.length]!;
+    const outcome = tcStep % 2 === 0 ? 'accept' : 'reject';
+    const checkLine = tcChecking[tcStep % tcChecking.length] ?? 'Hold on. Let me {gl:check|re-read} the table.';
+    const pool = outcome === 'accept' ? tcAccept : tcReject;
+    const verdictLine = pool[Math.floor(tcStep / 2) % pool.length] ?? (outcome === 'accept' ? 'Valid.' : 'Not in there.');
+    tcStep++;
+    tcBtn.dataset.tip = `Table check: ${anim} (${outcome}) — click again to cycle`;
+    h.hud.demoTableCheck({
+      anim,
+      outcome,
+      checkLine,
+      verdictLine,
+      guess: outcome === 'accept' ? 'futex' : 'quantum mutex',
+      onDone: () => {
+        if (outcome === 'reject') h.scene.rejectNudge();
+      },
+    });
   });
 
   // Each tier: the full sequence. A dive by its frames, the cursor's reaction and the screen's mirror, then the reveal.

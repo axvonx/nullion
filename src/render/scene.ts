@@ -290,6 +290,7 @@ export class Scene {
   private tearUntil = 0;
   private tearStrength = 0;
   private artTime = 0;
+  private timeScale = 1;
   private lastNow = 0;
   private trail: { x: number; y: number }[] = [];
   private cursorLead = 0;
@@ -580,6 +581,11 @@ export class Scene {
     this.vignette = { on, at: now - (1 - k) * VIGNETTE_MS };
   }
 
+  /** Scale background simulation delta-time (e.g. 0.12 for bullet-time during table-check). */
+  setTimeScale(scale: number) {
+    this.timeScale = Math.max(0, scale);
+  }
+
   /**
    * Hold the current tier reaction while the reveal is open: after its first play-through each reaction loops or
    * holds calmly (off-by-one toggles a cell, the hang and black-out hold, leaks keep accumulating up to a cap,
@@ -865,7 +871,7 @@ export class Scene {
   private frame(now: number) {
     const { W, H } = this;
     if (W === 0) return;
-    const dt = Math.min(0.1, this.lastNow ? (now - this.lastNow) / 1000 : 0);
+    const dt = Math.min(0.1, this.lastNow ? (now - this.lastNow) / 1000 : 0) * this.timeScale;
     this.lastNow = now;
     const reduced = reducedMotion();
     ensureWorldV4(this.worldSpec());

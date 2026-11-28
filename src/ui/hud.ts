@@ -15,6 +15,7 @@ import { text } from '../text';
 import { $, elementsOf, framesLabel, refLink, replay, setSqText, setText, sqSep } from './dom';
 import { END_CARD_HTML, EndCard, rowsOf, type RecordRow , type EndlessHook } from './end-card';
 import { REVEAL_HTML, REVEAL_MS, Reveal } from './reveal';
+import { TableCheck, type TableCheckOpts } from './table-check';
 import { mountPrefsMenu } from './prefs-menu';
 import { createModal, type ModalHandle } from './modal';
 import { mountTactileChrome } from './tactile';
@@ -123,6 +124,7 @@ export class Hud {
   private topicKey = '';
   private readonly reveal: Reveal;
   private readonly card: EndCard;
+  private readonly tableCheck: TableCheck;
   private readonly howModal: ModalHandle;
 
   /**
@@ -215,6 +217,7 @@ ${REVEAL_HTML}`;
       openManual: () => this.openManual(),
       endless: () => this.endless(),
     });
+    this.tableCheck = new TableCheck(mount, () => this.scene);
     this.binder = new FieldManualBinder(document.body); // above the HUD's stacking context (and the debug rail)
     this.els.hudBook!.prepend(hudBookSvg(32));
     this.els.hudBook!.addEventListener('click', () => this.openManual());
@@ -1179,6 +1182,10 @@ ${REVEAL_HTML}`;
    */
   demoReveal(tier: TierId, name: string, frames: number, autoMs = REVEAL_MS, then?: () => void, opts?: { note?: string; glitchForce?: boolean }) {
     this.reveal.demo(tier, name, frames, autoMs, then, opts);
+  }
+
+  demoTableCheck(opts: TableCheckOpts) {
+    this.tableCheck.run(opts);
   }
 
   private endDemo() {
