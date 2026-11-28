@@ -224,6 +224,23 @@ interface Frame {
   art: typeof LAYER_ART_V4;
 }
 
+/** Seen props: their hover pill's quiet gray. */
+const SEEN_GRAY_TEXT = '#8b8799';
+const SEEN_GRAY_EDGE = '#4a4656';
+/** How long a first sighting's snapshot plays (flash, then the photo flying off). */
+const SNAP_MS = 1100;
+
+/**
+ * Colours for an unseen prop's pill: its layer's own stack colours (accent, highlight, border) plus white, each letter
+ * (and the outline, i = 99) changing colour every 140 ms on its own, deterministically from the clock.
+ */
+function unseenColors(layer: LayerId, now: number): (i: number) => string {
+  const t = LAYER_ART[layer].stackTheme;
+  const set = [t.accent, t.hi, t.border, '#ffffff'];
+  const step = Math.floor(now / 140);
+  return (i) => set[Math.floor(hash(step * 31 + i * 7 + 5) * set.length)]!;
+}
+
 /** Clicks on the same prop closer together than this are ignored (no toast pile-up). */
 const TOAST_COOLDOWN_MS = 700;
 /** "Already seen": the fault red the console uses for a rejected guess. */
@@ -330,6 +347,8 @@ export class Scene {
   private nudge = { x: 0, y: 0 };
   /** Floating in-world toasts when a player clicks & logs a Field Manual character. */
   private manualToasts: { key: string; x: number; y: number; text: string; color: string; at: number; repeat?: boolean }[] = [];
+  /** Snapshots: the photo of a prop taken when it is first logged (a frozen copy of its pixels), and when. */
+  private snaps: { x: number; y: number; w: number; h: number; img: HTMLCanvasElement; at: number }[] = [];
   /** When each (entry, layer) was last acknowledged this visit: repeats say "Already seen", spam is ignored. */
   private toastAckAt = new Map<string, number>();
 
@@ -394,16 +413,16 @@ export class Scene {
       const res = manualStore.log(hit.entryId, hit.layer);
       const meta = MANUAL_RARITIES[entry.rarity];
       const fresh = res.isNewEntry || res.isNewLayer;
-      // Already logged and already acknowledged this visit: a red, wobbling "Already seen", in place of any toast of
+      // Already logged here: a red, wobbling "Already seen" (no name: the hover pill names it), in place of any toast of
       // this prop still on screen rather than one more on top.
-      const repeat = !fresh && last !== undefined;
+      const repeat = !fresh;
       const msg = res.isNewEntry
         ? text('world.toast.new-entry', { name: entry.name })
         : res.isNewLayer
           ? text('world.toast.new-layer', { name: entry.name })
-          : repeat
-            ? text('world.toast.already-seen')
-            : text('world.toast.logged', { name: entry.name });
+          : text('world.toast.already-seen');
+      // A first sighting takes a snapshot: the prop's pixels as they are now, framed like a photo.
+      if (fresh) this.snapProp(hit, now);
       this.manualToasts = this.manualToasts.filter((t) => t.key !== key);
       this.manualToasts.push({
         key,
@@ -417,6 +436,19 @@ export class Scene {
       });
       if (res.isNewEntry || res.isNewLayer) sound.suggest(hit.layer);
     });
+  }
+
+  /** Copy a prop's pixels off the frame for its snapshot (see the catch-toast pass in drawOverlays). */
+  private snapProp(hit: { x: number; y: number; w: number; h: number }, now: number) {
+    const x = Math.max(0, Math.round(hit.x));
+    const y = Math.max(0, Math.round(hit.y));
+    const w = Math.max(1, Math.min(this.W - x, Math.round(hit.w)));
+    const h = Math.max(1, Math.min(this.H - y, Math.round(hit.h)));
+    const img = document.createElement('canvas');
+    img.width = w;
+    img.height = h;
+    get2d(img).drawImage(this.canvas, x, y, w, h, 0, 0, w, h);
+    this.snaps = [...this.snaps.slice(-3), { x, y, w, h, img, at: now }];
   }
 
   private started = false;
@@ -1512,12 +1544,25 @@ export class Scene {
       ctx.fillStyle = textCol;
       ctx.fillText(text, px + 4, py + 8);
     };
+    /** A pill whose outline and every letter take their own colour from `color(i)` (the outline is i = 99). */
+    const drawFlashPill = (cx: number, y: number, label: string, color: (i: number) => string) => {
+      drawPill(cx, y, label, color(99), 'rgba(0,0,0,0)');
+      ctx.font = FONT;
+      const pw = Math.ceil(ctx.measureText(label).width) + 8;
+      const px = Math.max(4, Math.min(W - pw - 4, Math.round(cx - pw / 2)));
+      const py = Math.max(4, Math.min(H - 11 - 4, Math.round(y)));
+      let x = px + 4;
+      [...label].forEach((ch, i) => {
+        ctx.fillStyle = color(i);
+        ctx.fillText(ch, x, py + 8);
+        x += ctx.measureText(ch).width;
+      });
+    };
 
     const hit = this.hoverScene ? this.collectibles.hit(this.hoverScene.x, this.hoverScene.y, this.vignette.on) : undefined;
     if (hit) {
       const entry = manualEntryById(hit.entryId);
       if (entry) {
-        const meta = MANUAL_RARITIES[entry.rarity];
         const found = manualStore.isFound(entry.id);
         const hasLayer = manualStore.hasLayer(entry.id, hit.layer);
         // Crisp 3px pixel corner brackets around the hovered specimen
@@ -1525,7 +1570,8 @@ export class Scene {
         const by = Math.round(hit.y) - 2;
         const bw = Math.round(hit.w) + 4;
         const bh = Math.round(hit.h) + 4;
-        ctx.fillStyle = hasLayer ? '#8ea8c3' : meta.color;
+        const flash = unseenColors(hit.layer, now);
+        ctx.fillStyle = hasLayer ? SEEN_GRAY_EDGE : flash(99);
         ctx.fillRect(bx, by, 4, 1);
         ctx.fillRect(bx, by, 1, 4);
         ctx.fillRect(bx + bw - 4, by, 4, 1);
@@ -1535,10 +1581,14 @@ export class Scene {
         ctx.fillRect(bx + bw - 4, by + bh - 1, 4, 1);
         ctx.fillRect(bx + bw - 1, by + bh - 4, 1, 4);
 
-        // No % on the hover pill: the measured rate lives in the Field Manual (FIELD-MANUAL-PLAN.md).
-        const label = hasLayer ? `${entry.name} · logged` : found ? `${entry.name} · new layer!` : `??? · ${meta.label} · click`;
+        // Seen here: its name in a quiet gray (hidden while its "Already seen" is up, so they never stack). Not seen
+        // here: "???" (or, for an entry found in another layer, its name) flashing in the layer's own colours, letter by
+        // letter; no rarity, no "click". The measured rate lives in the Field Manual (FIELD-MANUAL-PLAN.md).
         const pillY = by > 18 ? by - 13 : by + bh + 3;
-        drawPill(bx + bw / 2, pillY, label, hasLayer ? '#68768a' : meta.color, hasLayer ? '#cfcbd8' : '#ffffff');
+        const key = `${entry.id}|${hit.layer}`;
+        if (hasLayer) {
+          if (!this.manualToasts.some((t) => t.key === key)) drawPill(bx + bw / 2, pillY, entry.name, SEEN_GRAY_EDGE, SEEN_GRAY_TEXT);
+        } else drawFlashPill(bx + bw / 2, pillY, found ? entry.name : '???', flash);
       }
     } else if (this.collectibles.targets().length > 0 && !this.rf.banner) {
       // Gentle occasional "click me!" breadcrumb above one visible uncollected prop (less frequent once player knows).
@@ -1560,11 +1610,50 @@ export class Scene {
           const entry = manualEntryById(pick.entryId);
           if (entry) {
             const bob = reduced ? 0 : Math.round(Math.sin(now / 260) * 1.5);
-            const tag = foundTotal < 3 ? 'click me!' : '?';
-            drawPill(pick.x + pick.w / 2, pick.y - 14 + bob, tag, MANUAL_RARITIES[entry.rarity].color, '#ffe25a');
+            drawFlashPill(pick.x + pick.w / 2, pick.y - 14 + bob, '???', unseenColors(pick.layer, now));
           }
         }
       }
+    }
+
+    // Snapshots of first sightings: a white flash inside closing shutter brackets, then the photo (white frame, dark
+    // edge) lifts off toward the top-left, shrinking, where the Field Manual lives. Reduced motion: just the photo, briefly.
+    for (let i = this.snaps.length - 1; i >= 0; i--) {
+      const s = this.snaps[i]!;
+      const age = now - s.at;
+      if (age > SNAP_MS) {
+        this.snaps.splice(i, 1);
+        continue;
+      }
+      ctx.save();
+      if (!reduced && age < 160) {
+        const k = age / 160;
+        ctx.globalAlpha = 1 - k;
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(s.x, s.y, s.w, s.h);
+        ctx.globalAlpha = 1;
+        const inset = Math.round(k * Math.min(s.w, s.h) * 0.3);
+        ctx.fillStyle = '#ffffff';
+        for (const [cx, cy, dx, dy] of [[s.x + inset, s.y + inset, 1, 1], [s.x + s.w - inset, s.y + inset, -1, 1], [s.x + inset, s.y + s.h - inset, 1, -1], [s.x + s.w - inset, s.y + s.h - inset, -1, -1]] as const) {
+          ctx.fillRect(dx > 0 ? cx : cx - 5, dy > 0 ? cy : cy - 1, 5, 1);
+          ctx.fillRect(dx > 0 ? cx : cx - 1, dy > 0 ? cy : cy - 5, 1, 5);
+        }
+      } else {
+        const t = reduced ? 0 : Math.min(1, (age - 160) / (SNAP_MS - 160));
+        const e = t * t;
+        const scale = 1 - 0.7 * e;
+        const w = Math.max(2, Math.round(s.w * scale));
+        const h = Math.max(2, Math.round(s.h * scale));
+        const x = Math.round(s.x + (6 - s.x) * e);
+        const y = Math.round(s.y - 6 + (6 - s.y) * e);
+        ctx.globalAlpha = reduced ? Math.max(0, 1 - age / SNAP_MS) : t > 0.8 ? (1 - t) / 0.2 : 1;
+        ctx.fillStyle = '#0c0a12';
+        ctx.fillRect(x - 3, y - 3, w + 6, h + 8);
+        ctx.fillStyle = '#f4f1e8';
+        ctx.fillRect(x - 2, y - 2, w + 4, h + 6);
+        ctx.drawImage(s.img, 0, 0, s.img.width, s.img.height, x, y, w, h);
+      }
+      ctx.restore();
     }
 
     // Floating catch toasts
