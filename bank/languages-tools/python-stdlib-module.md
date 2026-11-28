@@ -207,6 +207,7 @@ id: python-stdlib-module · domain: languages-tools · status: approved
 - zipimport (auto)
 - telnetlib (auto)
 - copyreg (auto)
+- concurrent (auto)
 
 ## Race condition
 - curses (auto)
@@ -276,13 +277,10 @@ id: python-stdlib-module · domain: languages-tools · status: approved
 - string.templatelib (auto)
 - email.contentmanager (auto)
 - tkinter.dnd (auto)
+- math.integer (auto)
+- tkinter.fontchooser (auto)
+- tkinter.systray (auto)
 
 ## Bit Flip
 - tabnanny
   note: Python's built-in indentation checker that flags ambiguous mixed tabs and spaces.
-
-## Inbox
-- concurrent (suggested: leak)
-- math.integer (suggested: heisenbug)
-- tkinter.fontchooser (suggested: heisenbug)
-- tkinter.systray (suggested: heisenbug)

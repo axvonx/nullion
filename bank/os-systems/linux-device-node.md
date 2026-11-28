@@ -129,10 +129,8 @@ id: linux-device-node · domain: os-systems · status: approved
 - /dev/ipath_diag (auto)
 - /dev/bus/vme/ctl (auto)
 - /dev/ussp_ctl (auto)
+- /dev/userfaultfd (auto)
 
 ## Bit Flip
 - /dev/scanners/cuecat
   note: devices.txt's misc minor 206, reserved for the CueCat, a free barcode wand from 2000.
-
-## Inbox
-- /dev/userfaultfd (suggested: heisenbug)

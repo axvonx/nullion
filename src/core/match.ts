@@ -113,6 +113,11 @@ export interface CategoryEntry {
   keys: string[];
   /** Optional note shown after landing it. */
   note?: string;
+  /**
+   * The name and aliases as written (before normalizing), so the index can also answer to each without the prompt's
+   * noun ("Lorenz" for "Lorenz cipher"). Optional: an entry without them only answers to its keys.
+   */
+  forms?: string[];
 }
 
 export type CheckResult =
@@ -123,6 +128,11 @@ export type CheckResult =
 /** Fast lookup over one category's entries. Duplicate keys within a category are a data bug. */
 export class CategoryIndex {
   private byKey = new Map<string, CategoryEntry>();
+  /**
+   * Each entry's names with the prompt's noun or a generic one dropped off the end ("lorenz" for "Lorenz cipher"),
+   * where that is no entry's own key and only one entry shortens to it (null: two do, so it is ambiguous).
+   */
+  private byShort = new Map<string, CategoryEntry | null>();
   /** Nouns stripped off the end of a guess: the prompt's subject ("lock", "memory allocator") and generic ones. */
   private readonly tails: readonly string[];
 
@@ -143,6 +153,26 @@ export class CategoryIndex {
         this.byKey.set(k, e);
       }
     }
+    for (const e of entries) {
+      for (const form of e.forms ?? []) {
+        for (const k of phrasings(form, this.tails)[1]) {
+          if (k.length < 3 || this.byKey.has(k)) continue;
+          const prior = this.byShort.get(k);
+          this.byShort.set(k, prior === undefined || prior === e ? e : null);
+        }
+      }
+    }
+  }
+
+  /** The short-form entry for a normalized key, or undefined when there is none or it is ambiguous. */
+  private short(k: string): CategoryEntry | undefined {
+    return this.byShort.get(k) ?? undefined;
+  }
+
+  /** Every key a typo may be measured against: the entries' own keys, then their unambiguous short forms. */
+  private *candidates(): Iterable<[string, CategoryEntry]> {
+    yield* this.byKey;
+    for (const [k, e] of this.byShort) if (e) yield [k, e];
   }
 
   check(guess: string): CheckResult {
@@ -163,10 +193,27 @@ export class CategoryIndex {
       if (hits.size > 1) return { kind: 'rejected', normalized: n };
     }
 
+    // An answer's name without the prompt's noun ("Lorenz" for "Lorenz cipher"), after every phrasing of an answer's
+    // own name, so "MVS system" stays MVS rather than the short form of "MVS System Extension". A short form two
+    // answers share is rejected, not guessed.
+    const [light, heavy] = phrasings(guess, this.tails);
+    for (const round of [[n], light, heavy]) {
+      const hits = new Set<CategoryEntry>();
+      let shared = false;
+      for (const f of round) {
+        if (!this.byShort.has(f)) continue;
+        const e = this.short(f);
+        if (e) hits.add(e);
+        else shared = true;
+      }
+      if (shared || hits.size > 1) return { kind: 'rejected', normalized: n };
+      if (hits.size === 1) return { kind: 'accepted', entry: [...hits][0]!, corrected: false };
+    }
+
     if (n.length === 4) {
       // Four letters: only an adjacent swap, and only if it names one entry.
       const swaps = new Set<CategoryEntry>();
-      for (const [k, e] of this.byKey) if (isAdjacentSwap(n, k)) swaps.add(e);
+      for (const [k, e] of this.candidates()) if (isAdjacentSwap(n, k)) swaps.add(e);
       return swaps.size === 1 ? { kind: 'accepted', entry: [...swaps][0]!, corrected: true } : { kind: 'rejected', normalized: n };
     }
 
@@ -174,7 +221,7 @@ export class CategoryIndex {
     if (budget === 0) return { kind: 'rejected', normalized: n };
     let best: { entry: CategoryEntry; d: number } | undefined;
     let tie = false;
-    for (const [k, e] of this.byKey) {
+    for (const [k, e] of this.candidates()) {
       if (Math.abs(k.length - n.length) > budget) continue;
       const d = editDistance(n, k);
       if (d > budget) continue;

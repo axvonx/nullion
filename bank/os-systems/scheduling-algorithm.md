@@ -40,6 +40,7 @@ id: scheduling-algorithm · domain: os-systems · status: draft
 - Weighted fair queueing | WFQ | weighted fair queuing (auto)
 - SCHED_FIFO (auto)
 - Token bucket | TBF (auto)
+- C-LOOK (auto)
 
 ## Race condition
 - EEVDF | Earliest eligible virtual deadline first | scx_eevdf | Earliest eligible virtual deadline first scheduling (auto)
@@ -61,6 +62,10 @@ id: scheduling-algorithm · domain: os-systems · status: draft
 - Credit-based shaper | CBS | sch_cbs (auto)
 - Multifit algorithm | MULTIFIT (auto)
 - Priority queueing | sch_prio (auto)
+- Backfilling (auto)
+- GMP scheduler (auto)
+- Cilk (auto)
+- Global EDF (auto)
 
 ## Heisenbug
 - Proportional-fair scheduling (auto)
@@ -108,25 +113,18 @@ id: scheduling-algorithm · domain: os-systems · status: draft
 - CHOKe (auto)
 - ALTQ (auto)
 - Core scheduling (auto)
+- Borrowed virtual time (auto)
+- scx_cpu0 (auto)
+- scx_sdt (auto)
+- MuQSS (auto)
+- Anticipatory scheduler (auto)
+- Pfair scheduling (auto)
+- Tetris (auto)
+- Virtual Clock (auto)
+- Least Attained Service (auto)
+- Self-Clocked Fair Queueing (auto)
+- Deficit Weighted Round Robin (auto)
+- Credit Scheduler (auto)
 
 ## Bit Flip
 - Interleaved polling with adaptive cycle time | IPACT
-
-## Inbox
-- Borrowed virtual time (suggested: heisenbug)
-- scx_cpu0 (suggested: heisenbug)
-- scx_sdt (suggested: heisenbug)
-- C-LOOK (suggested: leak)
-- Backfilling (suggested: race)
-- GMP scheduler (suggested: race)
-- MuQSS (suggested: heisenbug)
-- Anticipatory scheduler (suggested: heisenbug)
-- Pfair scheduling (suggested: heisenbug)
-- Tetris (suggested: heisenbug)
-- Cilk (suggested: race)
-- Virtual Clock (suggested: heisenbug)
-- Least Attained Service (suggested: heisenbug)
-- Global EDF (suggested: race)
-- Self-Clocked Fair Queueing (suggested: heisenbug)
-- Deficit Weighted Round Robin (suggested: heisenbug)
-- Credit Scheduler (suggested: heisenbug)

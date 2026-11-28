@@ -51,6 +51,7 @@ id: historical-cipher · domain: hardware-security-history · status: approved
 - Fractionated Morse | fracmorse | Fractionated Morse cipher (auto)
 - Gronsfeld cipher | gronsfeld (auto)
 - Porta cipher | porta (auto)
+- patristocrat (auto)
 
 ## Bit Flip
 - M-209 | Hagelin M-209 | Hagelin cipher machine

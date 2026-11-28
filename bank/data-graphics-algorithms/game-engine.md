@@ -75,11 +75,9 @@ id: game-engine · domain: data-graphics-algorithms · status: approved
 - HUGO (auto)
 - Parallaction (auto)
 - DGDS (auto)
+- Tetraedge (auto)
+- NGI (auto)
 
 ## Bit Flip
 - Tinsel
   note: Perfect Entertainment's engine behind the Discworld adventure games, now playable in ScummVM.
-
-## Inbox
-- Tetraedge (suggested: heisenbug)
-- NGI (suggested: heisenbug)

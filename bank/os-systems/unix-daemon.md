@@ -9,6 +9,8 @@ id: unix-daemon · domain: os-systems · status: approved
 - sshd | openssh | ssh daemon (auto)
 - httpd | apache | apache httpd (auto)
 - nginx | nginx server (auto)
+- systemd (auto)
+- init (auto)
 
 ## Works on my machine
 - inetd | internet daemon
@@ -44,6 +46,8 @@ id: unix-daemon · domain: os-systems · status: approved
 - avahi-daemon | avahi (auto)
 - dbus-daemon | dbus (auto)
 - acpid | acpi daemon (auto)
+- launchd (auto)
+- Postfix (auto)
 
 ## Memory leak
 - klogd (auto)
@@ -53,6 +57,11 @@ id: unix-daemon · domain: os-systems · status: approved
 - ypbind (auto)
 - ypserv (auto)
 - tcpd (auto)
+- kswapd (auto)
+- udevd (auto)
+- syslog-ng (auto)
+- NetworkManager (auto)
+- PipeWire (auto)
 
 ## Race condition
 - auditd (auto)
@@ -70,6 +79,21 @@ id: unix-daemon · domain: os-systems · status: approved
 - iscsid (auto)
 - watchdogd (auto)
 - moused (auto)
+- runit (auto)
+- Upstart (auto)
+- smartd (auto)
+- mDNSResponder (auto)
+- kthreadd (auto)
+- khugepaged (auto)
+- svc.startd (auto)
+- qmail (auto)
+- anacron (auto)
+- systemd-journald (auto)
+- devd (auto)
+- polkitd (auto)
+- configd (auto)
+- ksoftirqd (auto)
+- pdflush (auto)
 
 ## Heisenbug
 - auditdistd (auto)
@@ -94,42 +118,16 @@ id: unix-daemon · domain: os-systems · status: approved
 - rrenumd (auto)
 - tftp-proxy (auto)
 - ypldap (auto)
+- dma (auto)
+- s6-svscan (auto)
+- supervise-daemon (auto)
+- cups-browsed (auto)
+- lpsched (auto)
+- coreaudiod (auto)
+- cfprefsd (auto)
+- kcompactd (auto)
+- bdflush (auto)
 
 ## Bit Flip
 - rpc.sprayd
   note: Answers the spray RPC, which floods a host with packets to measure network throughput.
-
-## Inbox
-- dma (suggested: heisenbug)
-- systemd (suggested: off-by-one)
-- init (suggested: off-by-one)
-- launchd (suggested: npe)
-- kswapd (suggested: leak)
-- Postfix (suggested: npe)
-- runit (suggested: race)
-- Upstart (suggested: race)
-- udevd (suggested: leak)
-- smartd (suggested: race)
-- mDNSResponder (suggested: race)
-- kthreadd (suggested: race)
-- khugepaged (suggested: race)
-- s6-svscan (suggested: heisenbug)
-- supervise-daemon (suggested: heisenbug)
-- svc.startd (suggested: race)
-- qmail (suggested: race)
-- anacron (suggested: race)
-- syslog-ng (suggested: leak)
-- systemd-journald (suggested: race)
-- devd (suggested: race)
-- cups-browsed (suggested: heisenbug)
-- lpsched (suggested: heisenbug)
-- polkitd (suggested: race)
-- NetworkManager (suggested: leak)
-- PipeWire (suggested: leak)
-- configd (suggested: race)
-- coreaudiod (suggested: heisenbug)
-- cfprefsd (suggested: heisenbug)
-- ksoftirqd (suggested: race)
-- kcompactd (suggested: heisenbug)
-- pdflush (suggested: race)
-- bdflush (suggested: heisenbug)

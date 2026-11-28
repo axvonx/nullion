@@ -1,5 +1,5 @@
 # Scope: Name a Unix daemon
-id: unix-daemon · by: claude (draft: the owner may veto any line)
+id: unix-daemon · by: claude, rulings approved by the owner 2026-11-27
 
 A long-running background program (or kernel thread called a daemon) on any Unix-like system: Linux, macOS, the BSDs,
 Solaris/illumos, AIX, historical Unix. Not only FreeBSD's base system.
@@ -26,7 +26,7 @@ Solaris/illumos, AIX, historical Unix. Not only FreeBSD's base system.
 - Client programs and one-shot commands (ssh, ls, crontab): the daemon is sshd, crond.
 - Per-instance names (kworker/0:1, getty@tty1): name the daemon, not an instance.
 - Unit files, sockets and config names (sshd.service, sshd_config).
-- Windows services. OWNER RULING PENDING: none expected.
+- Windows services. Ruled by the owner, 2026-11-27.
 
 ## Examples
 - off-by-one: cron, sshd, systemd, init, httpd

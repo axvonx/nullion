@@ -1,5 +1,5 @@
 # Scope: Name a scheduling algorithm
-id: scheduling-algorithm · by: claude (draft: the owner may veto any line)
+id: scheduling-algorithm · by: claude, rulings approved by the owner 2026-11-27
 
 Computing schedulers: whatever decides which task, request, packet or job runs or is served next, in an OS kernel, a
 runtime, a cluster or a network stack, plus the named textbook and research algorithms for doing so.
@@ -20,11 +20,11 @@ runtime, a cluster or a network stack, plus the named textbook and research algo
 - Common spellings and abbreviations are aliases, not new answers (RR = round robin; CFS = Completely Fair Scheduler).
 
 ## Out
-- Load-tracking and frequency signals that feed a scheduler but do not schedule: PELT, WALT, schedutil (a cpufreq governor). OWNER RULING PENDING: the owner said "maybe" to WALT and PELT.
+- Load-tracking and frequency signals that feed a scheduler but do not schedule: PELT, WALT, schedutil (a cpufreq governor). Ruled out by the owner, 2026-11-27.
 - Schedulers that are products, not algorithms: Slurm, Kubernetes' kube-scheduler, cron, Windows Task Scheduler, Airflow (they are job runners; their algorithms count, their names do not).
-- Operations-research scheduling with no computing use (job-shop heuristics such as Johnson's rule). OWNER RULING PENDING.
+- Operations-research scheduling with no computing use (job-shop heuristics such as Johnson's rule). Ruled by the owner, 2026-11-27.
 - Generic words with no named policy ("preemptive", "cooperative", "time slicing").
-- Instruction scheduling in compilers (list scheduling, modulo scheduling): a different meaning of the word. OWNER RULING PENDING.
+- Instruction scheduling in compilers (list scheduling, modulo scheduling): a different meaning of the word. Ruled by the owner, 2026-11-27.
 
 ## Examples
 - off-by-one: round robin, first come first served, shortest job first, priority scheduling

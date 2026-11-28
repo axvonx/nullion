@@ -24,6 +24,8 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 - pwru | Packet, where are you? (auto)
 - retsnoop (auto)
 - apitrace (auto)
+- eBPF | BPF (auto)
+- tracepoints | kernel tracepoints (auto)
 
 ## Memory leak
 - bashreadline (auto)
@@ -65,6 +67,7 @@ id: linux-tracing-tool · domain: os-systems · status: approved
 - trace-cmd (auto)
 - kprobes (auto)
 - sysdig (auto)
+- DTrace | DTrace for Linux | dtrace4linux (auto)
 
 ## Race condition
 - argdist (auto)

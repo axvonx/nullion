@@ -62,10 +62,8 @@ id: clustering-algorithm · domain: data-graphics-algorithms · status: approved
 - Chinese whispering (auto)
 - Leader algorithm (auto)
 - CLINK (auto)
+- feature agglomeration (auto)
 
 ## Bit Flip
 - BIRCH | Balanced Iterative Reducing and Clustering using Hierarchies
   note: Balanced Iterative Reducing and Clustering using Hierarchies — builds a CF-tree in a single pass.
-
-## Inbox
-- feature agglomeration (suggested: heisenbug)

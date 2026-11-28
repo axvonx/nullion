@@ -57,7 +57,7 @@ id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 - Yen's algorithm (auto)
 - Eppstein's algorithm (auto)
 - contraction hierarchies (auto)
-- Jump Point Search (auto)
+- Jump Point Search | JPS (auto)
 - D* Lite (auto)
 - Cuthill-McKee algorithm (auto)
 - Welsh-Powell algorithm (auto)
@@ -67,11 +67,9 @@ id: graph-algorithm · domain: data-graphics-algorithms · status: approved
 - Boykov-Kolmogorov algorithm (auto)
 - Gabow's algorithm (auto)
 - Dial's algorithm (auto)
+- Gabow's path-based SCC algorithm (auto)
+- Hopcroft-Tarjan planarity testing (auto)
 
 ## Bit Flip
 - Gomory-Hu tree
   note: Encodes all pairwise minimum s-t cuts of an undirected graph in a single weighted tree.
-
-## Inbox
-- Gabow's path-based SCC algorithm (suggested: heisenbug)
-- Hopcroft-Tarjan planarity testing (suggested: heisenbug)

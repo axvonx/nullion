@@ -6,14 +6,14 @@
 
 | id | prompt | domain | status | answers | unconfirmed | inbox |
 |---|---|---|---|---|---|---|
-| 3d-model-file-format | Name a 3D model file format | data-graphics-algorithms | approved | 59 | 57 | 1 |
+| 3d-model-file-format | Name a 3D model file format | data-graphics-algorithms | approved | 60 | 58 | 0 |
 | approximate-nearest-neighbor-index | Name an approximate nearest neighbor index | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| clustering-algorithm | Name a clustering algorithm | data-graphics-algorithms | approved | 51 | 49 | 1 |
+| clustering-algorithm | Name a clustering algorithm | data-graphics-algorithms | approved | 52 | 50 | 0 |
 | collision-detection-algorithm | Name a collision detection algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | color-space | Name a color space | data-graphics-algorithms | draft | 73 | 70 | 1 |
 | column-encoding-scheme | Name a column encoding scheme | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | combinatorial-optimization-heuristic | Name a combinatorial optimization heuristic | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| complexity-class | Name a complexity class | data-graphics-algorithms | approved | 101 | 97 | 1 |
+| complexity-class | Name a complexity class | data-graphics-algorithms | approved | 102 | 98 | 0 |
 | computational-geometry-algorithm | Name a computational geometry algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | computational-model | Name a computational model | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | concurrency-control-protocol | Name a concurrency control protocol | data-graphics-algorithms | draft | 0 | 0 | 7 |
@@ -21,24 +21,24 @@
 | consensus-protocol | Name a consensus protocol | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | cryptographic-hardness-assumption | Name a cryptographic hardness assumption | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | data-structure | Name a data structure | data-graphics-algorithms | approved | 181 | 2 | 0 |
-| database | Name a database | data-graphics-algorithms | approved | 66 | 62 | 17 |
+| database | Name a database | data-graphics-algorithms | approved | 84 | 79 | 0 |
 | distributed-hash-table | Name a distributed hash table | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | dynamic-programming-problem | Name a dynamic programming problem | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | fft-algorithm | Name an FFT algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | game-ai-technique | Name a game AI technique | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| game-engine | Name a game engine | data-graphics-algorithms | approved | 62 | 58 | 2 |
+| game-engine | Name a game engine | data-graphics-algorithms | approved | 64 | 60 | 0 |
 | gradient-based-optimizer | Name a gradient-based optimizer | data-graphics-algorithms | approved | 58 | 56 | 0 |
-| graph-algorithm | Name a graph algorithm | data-graphics-algorithms | approved | 54 | 52 | 2 |
+| graph-algorithm | Name a graph algorithm | data-graphics-algorithms | approved | 56 | 54 | 0 |
 | graphics-api | Name a graphics API | data-graphics-algorithms | draft | 32 | 28 | 1 |
 | image-filter | Name an image filter | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | join-algorithm | Name a join algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| lossless-compression-algorithm | Name a lossless compression algorithm | data-graphics-algorithms | approved | 48 | 46 | 1 |
-| map-projection | Name a map projection | data-graphics-algorithms | approved | 122 | 120 | 4 |
+| lossless-compression-algorithm | Name a lossless compression algorithm | data-graphics-algorithms | approved | 49 | 47 | 0 |
+| map-projection | Name a map projection | data-graphics-algorithms | approved | 126 | 124 | 0 |
 | matrix-factorization | Name a matrix factorization | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | mcmc-sampling-algorithm | Name an MCMC sampling algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | mesh-simplification-algorithm | Name a mesh simplification algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | multiplication-algorithm | Name a multiplication algorithm | data-graphics-algorithms | draft | 0 | 0 | 7 |
-| non-cryptographic-hash-function | Name a non-cryptographic hash function | data-graphics-algorithms | approved | 74 | 72 | 1 |
+| non-cryptographic-hash-function | Name a non-cryptographic hash function | data-graphics-algorithms | approved | 75 | 73 | 0 |
 | numerical-quadrature-rule | Name a numerical quadrature rule | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | numerical-root-finding-method | Name a numerical root-finding method | data-graphics-algorithms | draft | 0 | 0 | 7 |
 | ode-solver | Name an ODE solver | data-graphics-algorithms | draft | 0 | 0 | 7 |
@@ -81,7 +81,7 @@
 | fuzzer | Name a fuzzer | hardware-security-history | draft | 0 | 0 | 7 |
 | gpu-microarchitecture | Name a GPU microarchitecture | hardware-security-history | draft | 0 | 0 | 7 |
 | hardware-description-language | Name a hardware description language | hardware-security-history | draft | 0 | 0 | 7 |
-| historical-cipher | Name a historical cipher | hardware-security-history | approved | 36 | 32 | 0 |
+| historical-cipher | Name a historical cipher | hardware-security-history | approved | 37 | 33 | 0 |
 | home-computer-1980s | Name a home computer from the 1980s | hardware-security-history | draft | 0 | 0 | 7 |
 | hypervisor | Name a hypervisor | hardware-security-history | draft | 0 | 0 | 7 |
 | instruction-set-architecture | Name an instruction set architecture | hardware-security-history | approved | 61 | 59 | 0 |
@@ -115,8 +115,8 @@
 | ci-service | Name a continuous integration service | languages-tools | draft | 0 | 0 | 7 |
 | code-formatter | Name a code formatter | languages-tools | draft | 0 | 0 | 7 |
 | code-smell | Name a code smell | languages-tools | draft | 0 | 0 | 7 |
-| compiler | Name a compiler | languages-tools | approved | 66 | 61 | 4 |
-| compiler-optimization | Name a compiler optimization | languages-tools | approved | 88 | 86 | 2 |
+| compiler | Name a compiler | languages-tools | approved | 70 | 65 | 0 |
+| compiler-optimization | Name a compiler optimization | languages-tools | approved | 90 | 88 | 0 |
 | css-framework | Name a CSS framework | languages-tools | draft | 0 | 0 | 7 |
 | debugger | Name a debugger | languages-tools | draft | 0 | 0 | 7 |
 | dependency-injection-framework | Name a dependency injection framework | languages-tools | draft | 0 | 0 | 7 |
@@ -125,7 +125,7 @@
 | documentation-generator | Name a documentation generator | languages-tools | draft | 0 | 0 | 7 |
 | domain-specific-language | Name a domain-specific language | languages-tools | draft | 0 | 0 | 7 |
 | frontend-ui-library | Name a front-end UI library | languages-tools | draft | 0 | 0 | 7 |
-| garbage-collection-algorithm | Name a garbage collection algorithm | languages-tools | approved | 46 | 44 | 2 |
+| garbage-collection-algorithm | Name a garbage collection algorithm | languages-tools | approved | 48 | 46 | 0 |
 | git-hosting-service | Name a git hosting service | languages-tools | draft | 0 | 0 | 7 |
 | git-subcommand | Name a git subcommand | languages-tools | approved | 161 | 159 | 0 |
 | ide | Name an IDE | languages-tools | draft | 0 | 0 | 7 |
@@ -139,7 +139,7 @@
 | profiler | Name a profiler | languages-tools | draft | 0 | 0 | 7 |
 | programming-language | Name a programming language | languages-tools | approved | 1875 | 1854 | 0 |
 | programming-paradigm | Name a programming paradigm | languages-tools | draft | 0 | 0 | 7 |
-| python-stdlib-module | Name a Python standard library module | languages-tools | approved | 263 | 261 | 4 |
+| python-stdlib-module | Name a Python standard library module | languages-tools | approved | 267 | 265 | 0 |
 | refactoring | Name a refactoring | languages-tools | draft | 0 | 0 | 7 |
 | rust-crate | Name a Rust crate | languages-tools | draft | 0 | 0 | 7 |
 | software-license | Name a software license | languages-tools | approved | 432 | 430 | 0 |
@@ -151,7 +151,7 @@
 | terminal-emulator | Name a terminal emulator | languages-tools | draft | 0 | 0 | 7 |
 | test-framework | Name a test framework | languages-tools | draft | 0 | 0 | 7 |
 | testing-technique | Name a software testing technique | languages-tools | draft | 0 | 0 | 7 |
-| text-editor | Name a text editor | languages-tools | approved | 76 | 73 | 1 |
+| text-editor | Name a text editor | languages-tools | approved | 78 | 75 | 0 |
 | version-control-system | Name a version control system | languages-tools | draft | 0 | 0 | 7 |
 | vim-plugin | Name a Vim plugin | languages-tools | draft | 0 | 0 | 7 |
 | web-framework | Name a web framework | languages-tools | draft | 126 | 122 | 4 |
@@ -170,7 +170,7 @@
 | kubernetes-resource-kind | Name a Kubernetes resource kind | os-systems | approved | 67 | 65 | 0 |
 | linux-boot-parameter | Name a Linux kernel boot parameter | os-systems | draft | 0 | 0 | 7 |
 | linux-capability | Name a Linux capability | os-systems | draft | 0 | 0 | 7 |
-| linux-device-node | Name a Linux device node | os-systems | approved | 113 | 108 | 1 |
+| linux-device-node | Name a Linux device node | os-systems | approved | 114 | 109 | 0 |
 | linux-errno | Name a Linux errno value | os-systems | draft | 0 | 0 | 7 |
 | linux-ioctl-request | Name a Linux ioctl request | os-systems | draft | 0 | 0 | 7 |
 | linux-kernel-config-option | Name a Linux kernel config option | os-systems | draft | 0 | 0 | 7 |
@@ -179,23 +179,23 @@
 | linux-perf-event | Name a Linux perf event | os-systems | draft | 0 | 0 | 7 |
 | linux-sysctl-key | Name a Linux sysctl key | os-systems | draft | 0 | 0 | 7 |
 | linux-system-call | Name a Linux system call | os-systems | approved | 440 | 438 | 0 |
-| linux-tracing-tool | Name a Linux tracing tool | os-systems | approved | 178 | 176 | 0 |
+| linux-tracing-tool | Name a Linux tracing tool | os-systems | approved | 181 | 179 | 0 |
 | lock | Name a type of lock | os-systems | approved | 108 | 1 | 0 |
 | macho-load-command | Name a Mach-O load command | os-systems | draft | 0 | 0 | 7 |
-| memory-allocator | Name a memory allocator | os-systems | approved | 52 | 50 | 0 |
+| memory-allocator | Name a memory allocator | os-systems | approved | 54 | 52 | 0 |
 | memory-consistency-model | Name a memory consistency model | os-systems | draft | 0 | 0 | 7 |
 | monitoring-system | Name a monitoring system | os-systems | draft | 0 | 0 | 7 |
-| network-protocol | Name a network protocol | os-systems | approved | 149 | 145 | 7 |
+| network-protocol | Name a network protocol | os-systems | approved | 156 | 152 | 0 |
 | nvme-command | Name an NVMe command | os-systems | draft | 0 | 0 | 7 |
 | operating-system | Name an operating system | os-systems | approved | 2260 | 2239 | 0 |
 | routing-protocol | Name a routing protocol | os-systems | draft | 0 | 0 | 7 |
-| scheduling-algorithm | Name a scheduling algorithm | os-systems | draft | 96 | 92 | 17 |
+| scheduling-algorithm | Name a scheduling algorithm | os-systems | draft | 113 | 109 | 0 |
 | socket-address-family | Name a socket address family | os-systems | draft | 0 | 0 | 7 |
 | systemd-directive | Name a systemd unit directive | os-systems | draft | 0 | 0 | 7 |
 | tcp-congestion-control-algorithm | Name a TCP congestion control algorithm | os-systems | approved | 31 | 29 | 0 |
 | tls-extension | Name a TLS extension | os-systems | draft | 0 | 0 | 7 |
-| unix-command | Name a Unix command | os-systems | approved | 415 | 413 | 4 |
-| unix-daemon | Name a Unix daemon | os-systems | approved | 79 | 75 | 33 |
+| unix-command | Name a Unix command | os-systems | approved | 419 | 417 | 0 |
+| unix-daemon | Name a Unix daemon | os-systems | approved | 112 | 108 | 0 |
 | unix-shell | Name a Unix shell | os-systems | draft | 0 | 0 | 7 |
 | unix-signal | Name a Unix signal | os-systems | draft | 0 | 0 | 7 |
 | window-manager | Name a window manager | os-systems | draft | 0 | 0 | 7 |

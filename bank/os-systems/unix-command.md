@@ -319,6 +319,9 @@ id: unix-command · domain: os-systems · status: approved
 - bzip2recover (auto)
 - getaddrinfo (auto)
 - lzmainfo (auto)
+- coreutils (auto)
+- beep (auto)
+- perror (auto)
 
 ## Race condition
 - choom (auto)
@@ -428,13 +431,8 @@ id: unix-command · domain: os-systems · status: approved
 - xolint (auto)
 - xopo (auto)
 - xstr (auto)
+- chrt (auto)
 
 ## Bit Flip
 - pom
   note: Phase of the Moon — a classic BSD games utility that prints the current lunar phase.
-
-## Inbox
-- chrt (suggested: heisenbug)
-- coreutils (suggested: leak)
-- beep (suggested: leak)
-- perror (suggested: leak)

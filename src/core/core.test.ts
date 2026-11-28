@@ -156,6 +156,29 @@ describe('matching', () => {
       expect(new CategoryIndex([{ name: 'ab cd', tier: 'npe', keys: ['abcd'] }, { name: 'ab', tier: 'npe', keys: ['ab'] }], 'Name a type of cd').check('ab cds').kind).toBe('accepted');
     });
 
+    it("an answer's name without the prompt's noun is that answer: \"Lorenz\" is the Lorenz cipher", () => {
+      const ciphers = new CategoryIndex(
+        [
+          { name: 'Lorenz cipher', tier: 'npe', keys: ['lorenzcipher', 'tunny'], forms: ['Lorenz cipher', 'Tunny'] },
+          { name: 'Purple cipher', tier: 'npe', keys: ['purplecipher', 'purplemachine'], forms: ['Purple cipher', 'Purple machine'] },
+          { name: 'Hill cipher', tier: 'npe', keys: ['hillcipher'], forms: ['Hill cipher'] },
+          { name: 'Hill', tier: 'race', keys: ['hill'], forms: ['Hill'] },
+          { name: 'Red cipher', tier: 'npe', keys: ['redcipher'], forms: ['Red cipher'] },
+          { name: 'Red algorithm', tier: 'npe', keys: ['redalgorithm'], forms: ['Red algorithm'] },
+        ],
+        'Name a historical cipher',
+      );
+      const name = (g: string) => {
+        const r = ciphers.check(g);
+        return r.kind === 'accepted' && !r.corrected ? r.entry.name : r.kind;
+      };
+      expect(name('Lorenz')).toBe('Lorenz cipher');
+      expect(name('purple')).toBe('Purple cipher');
+      expect(name('Hill')).toBe('Hill'); // another answer's own name always wins
+      expect(name('Red')).toBe('rejected'); // two answers shorten to it: ambiguous, rejected
+      expect(ciphers.check('Lorenzz')).toMatchObject({ kind: 'accepted', corrected: true }); // typo of the full key
+    });
+
     it('two entries in the same round is ambiguous and rejected', () => {
       const amb = new CategoryIndex(
         [

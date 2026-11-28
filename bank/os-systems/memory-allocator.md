@@ -2,6 +2,9 @@
 id: memory-allocator · domain: os-systems · status: approved
 > Any named general-purpose or specialised dynamic memory allocator implementation or allocation algorithm for C-style heaps.
 
+## Off-by-one
+- malloc | C malloc (auto)
+
 ## Works on my machine
 - jemalloc
   note: Jason Evans's arena allocator (Firefox, FreeBSD, Redis) — everyone's go-to beyond malloc.
@@ -44,6 +47,7 @@ id: memory-allocator · domain: os-systems · status: approved
 - segregated free list allocator | segregated fit (auto)
 - bitmap allocator (auto)
 - pymalloc (auto)
+- talloc | Samba talloc (auto)
 
 ## Heisenbug
 - zsmalloc (auto)

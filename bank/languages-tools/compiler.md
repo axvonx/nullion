@@ -82,13 +82,11 @@ id: compiler · domain: languages-tools · status: approved
 - PAKCS (auto)
 - Mezzo (auto)
 - RML (auto)
+- lcc (auto)
+- cproc (auto)
+- chibicc (auto)
+- Open64 (auto)
 
 ## Bit Flip
 - mrustc
   note: A Rust compiler written in C++ that emits C, used to bootstrap rustc without an existing Rust.
-
-## Inbox
-- lcc (suggested: heisenbug)
-- cproc (suggested: heisenbug)
-- chibicc (suggested: heisenbug)
-- Open64 (suggested: heisenbug)

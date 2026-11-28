@@ -72,10 +72,8 @@ id: 3d-model-file-format · domain: data-graphics-algorithms · status: approved
 - Q3D | Quick3D (auto)
 - SIB | Silo (auto)
 - XGL (auto)
+- RAW (auto)
 
 ## Bit Flip
 - NDO | Nendo
   note: Nendo's winged-edge polygon format — beloved by early low-poly modelers and Wings 3D.
-
-## Inbox
-- RAW (suggested: heisenbug)

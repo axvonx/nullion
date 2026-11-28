@@ -10,6 +10,7 @@ id: non-cryptographic-hash-function · domain: data-graphics-algorithms · statu
 - FNV-1a | FNV | Fowler-Noll-Vo (auto)
 - djb2 | Bernstein hash (auto)
 - Adler-32 (auto)
+- SHA-256 (auto)
 
 ## Works on my machine
 - MurmurHash | MurmurHash1 | MurmurHash2 | MurmurHash3 | PMurHash | Murmur | Murmur3 | Murmur2
@@ -91,6 +92,3 @@ id: non-cryptographic-hash-function · domain: data-graphics-algorithms · statu
 ## Bit Flip
 - MeowHash | meow_hash_x64_aesni
   note: Casey Muratori's AES-NI throughput monster designed to saturate memory bandwidth.
-
-## Inbox
-- SHA-256 (suggested: off-by-one)

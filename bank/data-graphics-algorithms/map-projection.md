@@ -70,6 +70,7 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 - Two-Point Equidistant projection | tpeqd (auto)
 - Interrupted Mollweide projection (auto)
 - Simple conic projection (auto)
+- S2 projection (auto)
 
 ## Heisenbug
 - Adams projection | adams | Adams hemisphere-in-a-square projection (auto)
@@ -135,13 +136,10 @@ id: map-projection · domain: data-graphics-algorithms · status: approved
 - Winkel I projection | wink1 (auto)
 - Winkel II projection | wink2 (auto)
 - August projection | August epicycloidal projection (auto)
+- Peirce quincuncial projection (auto)
+- Spherical Cross-track Height projection | SCH (auto)
+- CalCOFI grid (auto)
 
 ## Bit Flip
 - Spilhaus world ocean projection | spilhaus | Spilhaus projection
   note: Athelstan Spilhaus's 1942 projection that keeps the world's oceans connected as one body of water.
-
-## Inbox
-- Peirce quincuncial projection (suggested: heisenbug)
-- Spherical Cross-track Height projection | SCH (suggested: heisenbug)
-- CalCOFI grid (suggested: heisenbug)
-- S2 projection (suggested: race)

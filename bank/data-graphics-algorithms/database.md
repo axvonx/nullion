@@ -12,6 +12,8 @@ id: database · domain: data-graphics-algorithms · status: approved
   note: An in-process analytical SQL database, often called SQLite for analytics.
 - Firebird
   note: The open-source relational database forked from Borland's InterBase in 2000.
+- Microsoft Excel | Excel
+  note: Not a database, says every DBA; the database half the world actually runs on, says everyone else.
 
 ## Null pointer exception
 - Amazon Aurora | Aurora (auto)
@@ -53,6 +55,9 @@ id: database · domain: data-graphics-algorithms · status: approved
 - Vertica (auto)
 - OpenSearch (auto)
 - MariaDB | Maria (auto)
+- Apache Solr | Solr (auto)
+- Riak (auto)
+- Informix (auto)
 
 ## Race condition
 - ClickHouse (auto)
@@ -77,30 +82,25 @@ id: database · domain: data-graphics-algorithms · status: approved
 - Apache Ignite | Ignite (auto)
 - Cloudflare D1 (auto)
 - Google Cloud Datastore | Cloud Datastore | Datastore (auto)
+- ScyllaDB (auto)
+- RethinkDB (auto)
+- ArangoDB (auto)
+- Ingres (auto)
+- dBase (auto)
+- FoxPro (auto)
+- IMS (auto)
 
 ## Heisenbug
 - Hologres (auto)
 - MaxCompute | ODPS (auto)
+- Umbra (auto)
+- FoundationDB (auto)
+- Datomic (auto)
+- etcd (auto)
+- LevelDB (auto)
+- LMDB (auto)
+- VoltDB (auto)
 
 ## Bit Flip
 - Ocient
   note: A hyperscale SQL data warehouse from the Chicago startup founded by Cleversafe's creator.
-
-## Inbox
-- Umbra (suggested: heisenbug)
-- FoundationDB (suggested: heisenbug)
-- Datomic (suggested: heisenbug)
-- Apache Solr | Solr (suggested: leak)
-- ScyllaDB (suggested: race)
-- Riak (suggested: leak)
-- RethinkDB (suggested: race)
-- ArangoDB (suggested: race)
-- etcd (suggested: heisenbug)
-- LevelDB (suggested: heisenbug)
-- LMDB (suggested: heisenbug)
-- Informix (suggested: leak)
-- Ingres (suggested: race)
-- dBase (suggested: race)
-- FoxPro (suggested: race)
-- IMS (suggested: race)
-- VoltDB (suggested: heisenbug)

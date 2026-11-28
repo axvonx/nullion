@@ -61,10 +61,8 @@ id: lossless-compression-algorithm · domain: data-graphics-algorithms · status
 - ZPAQ (auto)
 - cmix (auto)
 - Lizard (auto)
+- Finite State Entropy (auto)
 
 ## Bit Flip
 - Tunstall coding
   note: Variable-to-fixed-length prefix-free coding — the dual of Huffman coding.
-
-## Inbox
-- Finite State Entropy (suggested: heisenbug)

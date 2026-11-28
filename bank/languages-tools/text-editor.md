@@ -37,6 +37,7 @@ id: text-editor · domain: languages-tools · status: approved
 - Bluefish | Bluefish editor (auto)
 - Brackets | Adobe Brackets (auto)
 - Textpad (auto)
+- ex | ex editor (auto)
 
 ## Memory leak
 - JOE | Joe's Own Editor (auto)
@@ -90,10 +91,8 @@ id: text-editor · domain: languages-tools · status: approved
 - retext (auto)
 - ghostwriter (auto)
 - orbiton (auto)
+- Acme (auto)
 
 ## Bit Flip
 - SciTECO
   note: A modern revival of TECO, the editor language Emacs began as macros for, built on Scintilla.
-
-## Inbox
-- Acme (suggested: heisenbug)

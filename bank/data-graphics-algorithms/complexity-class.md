@@ -116,10 +116,8 @@ id: complexity-class · domain: data-graphics-algorithms · status: approved
 - PostBQP | BQP with postselection (auto)
 - QIP | quantum IP (auto)
 - QSZK | quantum SZK (auto)
+- PPAD (auto)
 
 ## Bit Flip
 - A_0PP
   note: A Complexity Zoo oddity from Vyalyi's work on QMA, later proved equal to PP by Kuperberg.
-
-## Inbox
-- PPAD (suggested: heisenbug)

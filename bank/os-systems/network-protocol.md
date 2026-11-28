@@ -78,6 +78,10 @@ id: network-protocol · domain: os-systems · status: approved
 - ZMODEM (auto)
 - GOOSE (auto)
 - Banana (auto)
+- I2C (auto)
+- SPI (auto)
+- SMBus (auto)
+- FlexRay (auto)
 
 ## Race condition
 - AMQP (auto)
@@ -150,6 +154,9 @@ id: network-protocol · domain: os-systems · status: approved
 - High-availability Seamless Redundancy | HSR (auto)
 - Data Center Bridging Exchange | DCBX (auto)
 - Witness protocol (auto)
+- ISOBUS (auto)
+- CANopen (auto)
+- FUSE protocol (auto)
 
 ## Heisenbug
 - ES-IS (auto)
@@ -168,12 +175,3 @@ id: network-protocol · domain: os-systems · status: approved
 ## Bit Flip
 - EtherIP
   note: RFC 3378's tunnel of whole Ethernet frames inside IP packets, as IP protocol 97.
-
-## Inbox
-- I2C (suggested: leak)
-- SPI (suggested: leak)
-- SMBus (suggested: leak)
-- ISOBUS (suggested: race)
-- CANopen (suggested: race)
-- FlexRay (suggested: leak)
-- FUSE protocol (suggested: race)

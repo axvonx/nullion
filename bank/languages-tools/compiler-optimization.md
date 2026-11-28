@@ -101,11 +101,9 @@ id: compiler-optimization · domain: languages-tools · status: approved
 - n-ary reassociation (auto)
 - vector combining | VectorCombine (auto)
 - loop-closed SSA | LCSSA (auto)
+- lazy code motion (auto)
+- shrink wrapping (auto)
 
 ## Bit Flip
 - DFA jump threading
   note: Uses a finite automaton over control-flow paths to thread redundant conditional branches.
-
-## Inbox
-- lazy code motion (suggested: heisenbug)
-- shrink wrapping (suggested: heisenbug)

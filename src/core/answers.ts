@@ -58,7 +58,7 @@ export function buildAnswerSet(id: string, label: string, terms: readonly Term[]
       enforce(tier, `term ${t.name} has empty tier for ${tag}`);
       const keys = [...new Set([t.name, ...(t.aliases ?? [])].map(normalize))];
       const list = byTag.get(tag) ?? [];
-      list.push({ name: t.name, tier, keys, ...(t.note ? { note: t.note } : {}) });
+      list.push({ name: t.name, tier, keys, forms: [t.name, ...(t.aliases ?? [])], ...(t.note ? { note: t.note } : {}) });
       byTag.set(tag, list);
     }
   }

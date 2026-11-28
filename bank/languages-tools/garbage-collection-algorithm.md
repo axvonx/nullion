@@ -5,6 +5,7 @@ id: garbage-collection-algorithm · domain: languages-tools · status: approved
 ## Off-by-one
 - Copying garbage collection | stop-and-copy | semispace GC | semi-space (auto)
 - Concurrent garbage collection | concurrent GC (auto)
+- generational (auto)
 
 ## Works on my machine
 - ZGC | Z Garbage Collector
@@ -59,11 +60,8 @@ id: garbage-collection-algorithm · domain: languages-tools · status: approved
 - LXR | Low-Latency, High-Throughput Garbage Collector (auto)
 - RC Immix (auto)
 - Ulterior reference counting | URC (auto)
+- Bacon-Rajan cycle collector (auto)
 
 ## Bit Flip
 - Train algorithm | Mature Object Space
   note: Hudson and Moss's mature-object-space collector that evacuates cyclic garbage car by car.
-
-## Inbox
-- generational (suggested: off-by-one)
-- Bacon-Rajan cycle collector (suggested: heisenbug)
