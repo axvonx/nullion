@@ -2333,24 +2333,24 @@ html.kb-open .still .console.low { animation: none; }
 
 /* Stage 1: Frame-locked side-profile walk with occasional skip (12 frames = calc(var(--tc-frame) * 12)) */
 .tc-backdrop[data-stage='enter'] .tc-actor {
-  animation: tc-skip-in calc(var(--tc-frame, 167ms) * 12) steps(1, end) forwards;
+  animation: tc-skip-in calc(var(--tc-frame, 125ms) * 12) steps(1, end) forwards;
 }
 .tc-backdrop[data-stage='enter'] .tc-shadow,
-.tc-backdrop[data-stage='exit'] .tc-shadow { animation: tc-shadow-walk calc(var(--tc-frame, 167ms) * 12) steps(1, end) forwards; }
+.tc-backdrop[data-stage='exit'] .tc-shadow { animation: tc-shadow-walk calc(var(--tc-frame, 125ms) * 12) steps(1, end) forwards; }
 .tc-backdrop[data-stage='enter'] .tc-side-upper,
-.tc-backdrop[data-stage='exit'] .tc-side-upper { animation: tc-skip-body calc(var(--tc-frame, 167ms) * 4) steps(1, end) infinite; }
+.tc-backdrop[data-stage='exit'] .tc-side-upper { animation: tc-skip-body calc(var(--tc-frame, 125ms) * 4) steps(1, end) infinite; }
 .tc-backdrop[data-stage='enter'] .tc-sleg-f,
-.tc-backdrop[data-stage='exit'] .tc-sleg-f { animation: tc-skip-leg-f calc(var(--tc-frame, 167ms) * 8) steps(1, end) infinite; }
+.tc-backdrop[data-stage='exit'] .tc-sleg-f { animation: tc-skip-leg-f calc(var(--tc-frame, 125ms) * 8) steps(1, end) infinite; }
 .tc-backdrop[data-stage='enter'] .tc-sleg-b,
-.tc-backdrop[data-stage='exit'] .tc-sleg-b { animation: tc-skip-leg-b calc(var(--tc-frame, 167ms) * 8) steps(1, end) infinite; }
+.tc-backdrop[data-stage='exit'] .tc-sleg-b { animation: tc-skip-leg-b calc(var(--tc-frame, 125ms) * 8) steps(1, end) infinite; }
 .tc-backdrop[data-stage='enter'] .tc-sarm-f,
-.tc-backdrop[data-stage='exit'] .tc-sarm-f { animation: tc-skip-arm-f calc(var(--tc-frame, 167ms) * 8) steps(1, end) infinite; }
+.tc-backdrop[data-stage='exit'] .tc-sarm-f { animation: tc-skip-arm-f calc(var(--tc-frame, 125ms) * 8) steps(1, end) infinite; }
 .tc-backdrop[data-stage='enter'] .tc-sarm-b,
-.tc-backdrop[data-stage='exit'] .tc-sarm-b { animation: tc-skip-arm-b calc(var(--tc-frame, 167ms) * 8) steps(1, end) infinite; }
+.tc-backdrop[data-stage='exit'] .tc-sarm-b { animation: tc-skip-arm-b calc(var(--tc-frame, 125ms) * 8) steps(1, end) infinite; }
 .tc-backdrop[data-stage='enter'] .tc-tail,
-.tc-backdrop[data-stage='exit'] .tc-tail { animation: tc-tail-snap calc(var(--tc-frame, 167ms) * 4) steps(1, end) infinite; }
+.tc-backdrop[data-stage='exit'] .tc-tail { animation: tc-tail-snap calc(var(--tc-frame, 125ms) * 4) steps(1, end) infinite; }
 .tc-backdrop[data-stage='enter'] .tc-dust,
-.tc-backdrop[data-stage='exit'] .tc-dust { opacity: 1; animation: tc-dust-snap calc(var(--tc-frame, 167ms) * 4) steps(1, end) infinite; }
+.tc-backdrop[data-stage='exit'] .tc-dust { opacity: 1; animation: tc-dust-snap calc(var(--tc-frame, 125ms) * 4) steps(1, end) infinite; }
 
 /* Stage 2: Snap head-on -> Eyeballs SPRING OUT on double-take, then lean deep into a fourth-wall squint */
 .tc-backdrop[data-stage='squint'] .tc-actor {
@@ -2411,7 +2411,7 @@ html.kb-open .still .console.low { animation: none; }
 
 /* Stage 5: Pivot to side-profile -> grounded walk with occasional skip off left edge */
 .tc-backdrop[data-stage='exit'] .tc-actor {
-  animation: tc-skip-out calc(var(--tc-frame, 167ms) * 12) steps(1, end) forwards;
+  animation: tc-skip-out calc(var(--tc-frame, 125ms) * 12) steps(1, end) forwards;
 }
 
 @keyframes tc-hg-flip { 0%, 49% { transform: none; } 50%, 100% { transform: rotate(180deg); } }

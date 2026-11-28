@@ -55,12 +55,6 @@
   z-index: 20;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-}
-.dbg-rail-row {
-  display: flex;
-  align-items: center;
   gap: 4px;
 }
 .dbg-rail-btn {
@@ -76,16 +70,6 @@
   border: 1px solid var(--rule);
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
   cursor: pointer;
-}
-.dbg-rail-btn--fps {
-  width: 28px;
-  font-family: var(--display);
-  font-size: 10px;
-  color: var(--dim);
-}
-.dbg-rail-btn--fps.active {
-  color: var(--signal);
-  border-color: var(--signal);
 }
 .dbg-rail-btn:hover, .dbg-rail-btn:focus-visible { border-color: var(--signal); }
 .dbg-rail-btn:active { translate: 1px 1px; box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6); }
@@ -106,13 +90,6 @@
   border: 1px solid var(--signal);
   pointer-events: none;
   opacity: 0;
-}
-.dbg-rail-row .dbg-rail-btn::after {
-  right: auto;
-  left: 50%;
-  top: auto;
-  bottom: calc(100% + 6px);
-  translate: -50% 0;
 }
 .dbg-rail-btn:hover::after, .dbg-rail-btn:focus-visible::after { opacity: 1; }
 /* The menu panel covers the rail when open. */

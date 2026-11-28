@@ -11,7 +11,7 @@ export interface TableCheckOpts {
   checkLine: string;
   verdictLine: string;
   guess?: string;
-  /** Walk-cycle frame rate in fps (default 6 = classic on-fours). */
+  /** Walk-cycle frame rate in fps (default 8 = 125ms/frame). */
   fps?: number;
   onDone?: () => void;
 }
@@ -393,7 +393,7 @@ export class TableCheck {
     this.active = true;
     const still = reducedMotion();
     const scene = this.getScene();
-    const fps = Math.max(2, Math.min(24, opts.fps ?? 6));
+    const fps = Math.max(2, Math.min(24, opts.fps ?? 8));
     const frameMs = Math.round(1000 / fps);
     const walkMs = frameMs * 12; // 12 discrete walk frames (3 steps × 4 frames)
     const squintAt = walkMs;

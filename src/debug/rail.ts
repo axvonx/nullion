@@ -368,7 +368,7 @@ export function mountRail(h: DebugHooks) {
     }
   });
 
-  // Table-check easter egg demo: cycles 3 animations and accept/reject verdicts, with FPS test buttons to the left.
+  // Table-check easter egg demo: cycles 3 animations and accept/reject verdicts from writing/debug/table-check.md.
   const tcSection = (name: string) => {
     const m = new RegExp(`## ${name}\\n([\\s\\S]*?)(?=\\n## |$)`).exec(tableCheckMd);
     return (m?.[1] ?? '')
@@ -381,58 +381,27 @@ export function mountRail(h: DebugHooks) {
   const tcAccept = tcSection('accept');
   const tcReject = tcSection('reject');
   const tcAnims: readonly TableCheckAnim[] = ['squint', 'ledger', 'wiretap'];
-  const tcFpsChoices = [4, 6, 8, 12] as const;
-  let tcFps: number = 6;
   let tcStep = 0;
-
-  const tcRow = document.createElement('div');
-  tcRow.className = 'dbg-rail-row';
-  rail.append(tcRow);
-
-  const runTableCheck = (fps: number) => {
+  const tcBtn = add('tableCheck', 'Table check demo: cycles squint / ledger / wiretap & accept / reject', 'var(--signal)', () => {
     cancel();
-    tcFps = fps;
-    for (const btn of fpsBtns) btn.classList.toggle('active', Number(btn.dataset.fps) === fps);
     const anim = tcAnims[tcStep % tcAnims.length]!;
     const outcome = tcStep % 2 === 0 ? 'accept' : 'reject';
     const checkLine = tcChecking[tcStep % tcChecking.length] ?? 'Hold on. Let me {gl:check|re-read} the table.';
     const pool = outcome === 'accept' ? tcAccept : tcReject;
     const verdictLine = pool[Math.floor(tcStep / 2) % pool.length] ?? (outcome === 'accept' ? 'Valid.' : 'Not in there.');
     tcStep++;
-    tcBtn.dataset.tip = `Table check: ${anim} (${outcome}, ${fps} fps) — click again to cycle`;
+    tcBtn.dataset.tip = `Table check: ${anim} (${outcome}) — click again to cycle`;
     h.hud.demoTableCheck({
       anim,
       outcome,
       checkLine,
       verdictLine,
-      fps,
       guess: outcome === 'accept' ? 'futex' : 'quantum mutex',
       onDone: () => {
         if (outcome === 'reject') h.scene.rejectNudge();
       },
     });
-  };
-
-  const fpsBtns: HTMLButtonElement[] = tcFpsChoices.map((fps) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'dbg-rail-btn dbg-rail-btn--fps';
-    b.dataset.fps = String(fps);
-    b.textContent = String(fps);
-    const tip = `Table check at ${fps} fps (${Math.round(1000 / fps)}ms/frame)`;
-    b.title = tip;
-    b.setAttribute('aria-label', tip);
-    b.dataset.tip = tip;
-    if (fps === tcFps) b.classList.add('active');
-    b.addEventListener('click', () => runTableCheck(fps));
-    tcRow.append(b);
-    return b;
   });
-
-  const tcBtn = add('tableCheck', 'Table check demo: cycles squint / ledger / wiretap & accept / reject', 'var(--signal)', () => {
-    runTableCheck(tcFps);
-  });
-  tcRow.append(tcBtn);
 
   // Each tier: the full sequence. A dive by its frames, the cursor's reaction and the screen's mirror, then the reveal.
   for (const id of TIER_IDS) {
