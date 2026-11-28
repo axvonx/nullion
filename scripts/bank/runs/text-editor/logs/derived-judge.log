@@ -1,0 +1,117 @@
+--- haiku call, 19s, exit 0, prompt 3448 chars, stdout 3523 chars
+ote apps."}, {"guess": "Notepadqq", "member": true, "name": "Notepadqq", "tier": "leak", "why": "A Notepad++-style GUI text editor for Linux."}, {"guess": "Typora", "member": true, "name": "Typora", "tier": "leak", "why": "A Markdown editor that edits plain-text Markdown in a GUI."}, {"guess": "remarkable", "member": false, "name": "remarkable", "tier": "", "why": "Ambiguous: it names a tablet and a library, not a text editor I can confirm."}, {"guess": "Personal Editor", "member": false, "name": "Personal Editor", "tier": "", "why": "I'm not confident enough in this DOS editor to name it as a real instance."}, {"guess": "TheDraw", "member": false, "name": "TheDraw", "tier": "", "why": "An ANSI art editor, not a plain-text editor."}, {"guess": "gPHPedit", "member": true, "name": "gPHPedit", "tier": "race", "why": "A GTK text editor aimed at PHP and web code."}, {"guess": "bluegriffon", "member": false, "name": "bluegriffon", "tier": "", "why": "A WYSIWYG HTML editor, which the scope excludes."}, {"guess": "QED", "member": true, "name": "QED", "tier": "race", "why": "A historical line editor, the ancestor of ed."}, {"guess": "Athas", "member": false, "name": "Athas", "tier": "", "why": "I can't identify a text editor by this name."}, {"guess": "dit", "member": false, "name": "dit", "tier": "", "why": "I can't identify a text editor by this name."}, {"guess": "FVim", "member": true, "name": "FVim", "tier": "heisenbug", "why": "A GUI frontend for Neovim, a Vim-family editor."}]
+
+
+--- haiku call, 20s, exit 0, prompt 3477 chars, stdout 3633 chars
+ editor, listed in the scope."},
+{"guess": "ISPF", "member": true, "name": "ISPF", "tier": "heisenbug", "why": "A named IBM mainframe editor; it is an environment as well, so this is borderline."},
+{"guess": "Spacemacs", "member": false, "name": "Spacemacs", "tier": "", "why": "A configuration distribution of Emacs, which is out of scope."},
+{"guess": "abiword", "member": false, "name": "AbiWord", "tier": "", "why": "A word processor, which is out of scope."},
+{"guess": "Aquamacs", "member": true, "name": "Aquamacs", "tier": "race", "why": "A named macOS distribution of GNU Emacs, which counts as an Emacs-family editor."},
+{"guess": "LEd", "member": false, "name": "LEd", "tier": "", "why": "Unsure whether this is a named editor, so it does not count."},
+{"guess": "Kile", "member": true, "name": "Kile", "tier": "heisenbug", "why": "A named KDE LaTeX source editor; it is close to an IDE, so this is borderline."},
+{"guess": "deepin-editor", "member": true, "name": "deepin-editor", "tier": "heisenbug", "why": "A named desktop text editor from the deepin Linux distribution."},
+{"guess": "em", "member": false, "name": "em", "tier": "", "why": "Unsure whether this is a named editor, so it does not count."},
+{"guess": "PSPad", "member": true, "name": "PSPad", "tier": "heisenbug", "why": "A named Windows text and code editor."},
+{"guess": "GNU TeXmacs", "member": false, "name": "GNU TeXmacs", "tier": "", "why": "A structured scientific document editor, not a plain-text editor."}]
+```
+
+
+--- haiku call, 20s, exit 0, prompt 3464 chars, stdout 3843 chars
+"A real GTK plain-text editor, a fork of Leafpad."}, {"guess": "amp-editor", "member": true, "name": "amp", "tier": "heisenbug", "why": "A real terminal text editor (amp, by Jason Ouyang's project), usually spelled 'amp'."}, {"guess": "Gram", "member": false, "name": "Gram", "tier": "", "why": "I can't identify a specific text-editor program by this name, so I'm not counting it."}, {"guess": "pulsar-edit", "member": true, "name": "Pulsar", "tier": "leak", "why": "A real hackable text editor, a community fork of Atom."}, {"guess": "VimR", "member": true, "name": "VimR", "tier": "race", "why": "A real macOS GUI front end for Vim and Neovim, a named editor."}, {"guess": "Yi", "member": true, "name": "Yi", "tier": "heisenbug", "why": "A real Vim-like text editor written in Haskell (yi-editor)."}, {"guess": "CodeMirror 5", "member": false, "name": "CodeMirror 5", "tier": "", "why": "A code editor component library, which the scope puts Out."}, {"guess": "dhex", "member": false, "name": "dhex", "tier": "", "why": "A hex editor, which the scope puts Out."}, {"guess": "QOwnNotes", "member": false, "name": "QOwnNotes", "tier": "", "why": "A note-taking and Markdown app, which the scope puts Out."}, {"guess": "Elvis", "member": true, "name": "elvis", "tier": "race", "why": "A real vi clone named in the scope's modal editor list."}, {"guess": "beaver", "member": false, "name": "beaver", "tier": "", "why": "I can't identify a specific text editor by this name, so I'm not counting it."}]
+
+
+--- haiku call, 20s, exit 0, prompt 3502 chars, stdout 3797 chars
+mber": true, "name": "RText", "tier": "heisenbug", "why": "A Windows programmer's text editor, RText Editor."},
+{"guess": "vis-editor", "member": true, "name": "vis", "tier": "heisenbug", "why": "The vis modal editor under another name, in the scope's vi family."},
+{"guess": "kimagemapeditor", "member": false, "name": "kimagemapeditor", "tier": "", "why": "An image-map editor for graphics, not text."},
+{"guess": "ne-nice-editor", "member": true, "name": "ne", "tier": "heisenbug", "why": "ne, the Nice Editor, a modeless terminal editor in the scope's list."},
+{"guess": "Pulsar", "member": true, "name": "Pulsar", "tier": "heisenbug", "why": "A community fork of Atom, a hackable source-code editor."},
+{"guess": "Zim Desktop Wiki", "member": false, "name": "Zim Desktop Wiki", "tier": "", "why": "A wiki and note-taking app, which the scope excludes."},
+{"guess": "Mozilla Skywriter", "member": true, "name": "Skywriter", "tier": "heisenbug", "why": "Mozilla's browser-based code editor, formerly Bespin, now defunct."},
+{"guess": "fresh-editor", "member": false, "name": "fresh-editor", "tier": "", "why": "Unsure whether this is a real, named editor I can confirm."},
+{"guess": "TeXShop", "member": true, "name": "TeXShop", "tier": "heisenbug", "why": "A macOS TeX source editor and front-end."},
+{"guess": "feathernotes", "member": false, "name": "feathernotes", "tier": "", "why": "Unsure: it reads as a note app, which the scope excludes, and I cannot confirm it as a named editor."}]
+```
+
+
+--- haiku call, 24s, exit 0, prompt 3456 chars, stdout 4036 chars
+name": "Alphatk", "tier": "heisenbug", "why": "Alphatk is a real Tcl-based programmer's text editor for Mac OS (the Alpha editor)."},
+{"guess": "CintaNotes", "member": false, "name": "CintaNotes", "tier": "", "why": "CintaNotes is a note-taking app, which is out of scope."},
+{"guess": "Hackpad", "member": false, "name": "Hackpad", "tier": "", "why": "Hackpad was a collaborative wiki and document service, not a plain-text editor."},
+{"guess": "Hemlock", "member": true, "name": "Hemlock", "tier": "heisenbug", "why": "Hemlock is a real Emacs-style editor written in Common Lisp at CMU."},
+{"guess": "Language-Sensitive Editor", "member": true, "name": "Language-Sensitive Editor", "tier": "heisenbug", "why": "The Language-Sensitive Editor is a real research editor from Cornell, described in a 1981 paper."},
+{"guess": "Meadow", "member": true, "name": "Meadow", "tier": "heisenbug", "why": "Meadow is a real Emacs port for Windows, developed in Japan."},
+{"guess": "MoonEdit", "member": false, "name": "MoonEdit", "tier": "", "why": "I can't confirm a specific text editor by this name, so I'm not certain it's real."},
+{"guess": "Multi-Edit", "member": true, "name": "MultiEdit", "tier": "race", "why": "MultiEdit is a real commercial programmer's text editor from American Cybernetics, for DOS and Windows."},
+{"guess": "Multics Emacs", "member": true, "name": "Multics Emacs", "tier": "heisenbug", "why": "Multics Emacs is a real Emacs implementation for the Multics operating system."}]
+```
+
+
+--- haiku call, 26s, exit 0, prompt 3455 chars, stdout 3695 chars
+{"guess": "jupp", "member": true, "name": "JUPP", "tier": "heisenbug", "why": "JUPP is a real Unix text editor in the JOE family."},
+{"guess": "EDT", "member": true, "name": "EDT", "tier": "race", "why": "EDT is DEC's historical line-and-screen text editor for VMS."},
+{"guess": "Smultron", "member": true, "name": "Smultron", "tier": "race", "why": "Smultron is a real macOS plain-text and code editor."},
+{"guess": "hexedit", "member": false, "name": "hexedit", "tier": "", "why": "hexedit is a hex editor, which is out of scope."},
+{"guess": "formiko", "member": true, "name": "Formiko", "tier": "heisenbug", "why": "Formiko is a real GTK editor for reStructuredText plain-text files."},
+{"guess": "massren", "member": false, "name": "massren", "tier": "", "why": "massren is a bulk file-rename tool, not a text editor."},
+{"guess": "GNU moe", "member": true, "name": "GNU moe", "tier": "race", "why": "GNU moe is a real GNU terminal text editor."},
+{"guess": "Microsoft Visual Studio Code Insiders", "member": true, "name": "Visual Studio Code Insiders", "tier": "npe", "why": "This is the Insiders preview channel of VS Code, a source-code editor in scope."},
+{"guess": "AppleScript Editor", "member": true, "name": "Script Editor", "tier": "race", "why": "Script Editor (formerly AppleScript Editor) is a macOS app for editing plain-text AppleScript files."},
+{"guess": "CygnusEd", "member": true, "name": "CygnusEd", "tier": "race", "why": "CygnusEd was a well-known Amiga text editor."}]
+```
+
+
+--- haiku call, 7s, exit 0, prompt 3211 chars, stdout 238 chars
+[23:23:20] [{"guess": "Zed Preview", "member": true, "name": "Zed", "tier": "race", "why": "Zed Preview is the preview release channel of the Zed source-code editor, which the scope lists as in scope, and it is not a separate program."}]
+
+
+--- haiku call, 17s, exit 0, prompt 3480 chars, stdout 3783 chars
+t editor by this name; ROX is a file manager, not an editor."}, {"guess": "vitmp", "member": false, "name": "vitmp", "tier": "", "why": "I can't identify a text editor by this name."}, {"guess": "bibledit-cloud", "member": false, "name": "bibledit-cloud", "tier": "", "why": "A Bible translation web tool, not a general plain-text editor."}, {"guess": "gecrit", "member": false, "name": "gecrit", "tier": "", "why": "I can't identify a text editor by this name."}, {"guess": "chr", "member": false, "name": "chr", "tier": "", "why": "Not a text editor; it reads as a fragment or an unrelated tool."}, {"guess": "NoteTab", "member": true, "name": "NoteTab", "tier": "leak", "why": "NoteTab is a real Windows text editor by Fookes Software, a plain-text editor rather than a note app."}, {"guess": "kilo", "member": true, "name": "kilo", "tier": "race", "why": "kilo is a real minimal terminal text editor in about 1,000 lines of C by antirez."}, {"guess": "mg2a", "member": false, "name": "mg2a", "tier": "", "why": "I'm not confident this is a distinct real editor, not just a variant of mg."}, {"guess": "ng-cjk-canna", "member": false, "name": "ng-cjk-canna", "tier": "", "why": "I can't identify a text editor by this name."}, {"guess": "010 Editor", "member": false, "name": "010 Editor", "tier": "", "why": "A real product, but a hex and binary editor, which is out of scope."}, {"guess": "Noto", "member": false, "name": "Noto", "tier": "", "why": "Noto is a font family, not a text editor."}]
+
+
+--- haiku call, 20s, exit 0, prompt 3459 chars, stdout 3275 chars
+: true, "name": "Metapad", "tier": "leak", "why": "Lightweight Windows Notepad alternative."},
+{"guess": "sciteproj", "member": false, "name": "sciteproj", "tier": "", "why": "Not confidently a distinct known editor."},
+{"guess": "ng-cjk", "member": false, "name": "ng-cjk", "tier": "", "why": "Not a known text editor."},
+{"guess": "Jedit Ω", "member": true, "name": "jEdit", "tier": "leak", "why": "The jEdit programmer's editor; the Ω is a stylised spelling."},
+{"guess": "ng-latin", "member": false, "name": "ng-latin", "tier": "", "why": "Not a known text editor."},
+{"guess": "pyroom", "member": false, "name": "pyroom", "tier": "", "why": "A distraction-free writing app, closer to the out-of-scope writing and note apps."},
+{"guess": "iA Writer", "member": true, "name": "iA Writer", "tier": "race", "why": "Plain-text and Markdown editor for macOS, iOS and Windows."},
+{"guess": "MarkEdit", "member": true, "name": "MarkEdit", "tier": "heisenbug", "why": "Markdown and plain-text editor for macOS."},
+{"guess": "Pe", "member": false, "name": "Pe", "tier": "", "why": "Too ambiguous to identify a specific editor."},
+{"guess": "manedit", "member": false, "name": "manedit", "tier": "", "why": "Not confidently a known text editor."},
+{"guess": "Alpha", "member": true, "name": "Alpha", "tier": "race", "why": "Tcl-based programmer's text editor for macOS."},
+{"guess": "ce-chets-editor", "member": false, "name": "ce-chets-editor", "tier": "", "why": "Not a recognisable program name."}]
+```
+
+
+--- haiku call, 25s, exit 0, prompt 3459 chars, stdout 3724 chars
+ "tea-unclassified", "tier": "", "why": "Not confidently identifiable as a named text editor, so treated as unsure."},
+{"guess": "ve", "member": false, "name": "ve", "tier": "", "why": "Not confidently identifiable as a named text editor."},
+{"guess": "winc", "member": false, "name": "winc", "tier": "", "why": "Not confidently identifiable as a named text editor."},
+{"guess": "Scribes", "member": true, "name": "Scribes", "tier": "heisenbug", "why": "A GNOME text editor for Linux and Unix."},
+{"guess": "XML Notepad", "member": false, "name": "XML Notepad", "tier": "", "why": "A structured XML editor, which is out of scope as a structured-data editor."},
+{"guess": "Editra", "member": true, "name": "Editra", "tier": "heisenbug", "why": "A cross-platform programmer's text editor written in Python."},
+{"guess": "SimpleText", "member": true, "name": "SimpleText", "tier": "npe", "why": "The classic Mac OS plain-text editor."},
+{"guess": "gnuserv", "member": false, "name": "gnuserv", "tier": "", "why": "An Emacs client/server utility, not an editor."},
+{"guess": "tetradraw", "member": false, "name": "tetradraw", "tier": "", "why": "An ASCII-art drawing tool, not a text editor."},
+{"guess": "encryptpad", "member": false, "name": "encryptpad", "tier": "", "why": "Its main purpose is encrypting text files, not editing plain text files."},
+{"guess": "turbo", "member": false, "name": "turbo", "tier": "", "why": "Not a specific named editor; it is a family prefix for Borland tools."}]
+```
+
+
+--- haiku call, 29s, exit 0, prompt 3470 chars, stdout 3956 chars
+d++, the real Windows source-code editor."},
+{"guess": "Programmer's File Editor", "member": true, "name": "Programmer's File Editor", "tier": "heisenbug", "why": "PFE is a real Windows programmer's text editor by Alpha Software."},
+{"guess": "Stevie", "member": true, "name": "Stevie", "tier": "heisenbug", "why": "Stevie (ST Editor for Vi Enhanced Implementation) is a real vi clone for Atari, Amiga and Unix."},
+{"guess": "TeachText", "member": true, "name": "TeachText", "tier": "race", "why": "TeachText was Apple's classic bundled Mac text editor."},
+{"guess": "TED Notepad", "member": false, "name": "TED Notepad", "tier": null, "why": "I'm not confident enough that this is a real named editor, so I'm treating it as unsure."},
+{"guess": "VEDIT", "member": true, "name": "VEDIT", "tier": "race", "why": "VEDIT is a real commercial DOS and Windows text editor."},
+{"guess": "Verbosus", "member": false, "name": "Verbosus", "tier": null, "why": "I can't confirm it as a text editor, so I'm treating it as unsure."},
+{"guess": "VZ Editor", "member": true, "name": "VZ Editor", "tier": "heisenbug", "why": "VZ Editor is a real freeware Windows text editor."},
+{"guess": "ZWEI", "member": true, "name": "ZWEI", "tier": "heisenbug", "why": "ZWEI is the historical Lisp-machine Emacs-style editor (Zwei Was Eine When I Was Eine)."},
+{"guess": "SETEDIT", "member": false, "name": "SETEDIT", "tier": null, "why": "I can't confirm a named text editor by this name, so I'm treating it as unsure."}]
+```
+
+

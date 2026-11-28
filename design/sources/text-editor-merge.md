@@ -1,0 +1,301 @@
+# Merge of the derived text-editor list into the bank
+
+329 derived; 78 already playable; 109 judged members and merged as (auto); 142 judged not members and left out (membership by Haiku against the scope spec; tiers from the familiarity score).
+
+```
+text-editor: added 109 (off-by-one 0, npe 18, leak 13, race 9, heisenbug 69)
+```
+
+## Merged
+- MacVim (npe; homebrew:cask): A macOS GUI build of Vim, a named plain-text editor.
+- Texmaker (npe; wikidata): A named LaTeX source editor; it is close to an IDE, so this is borderline.
+- TeXstudio (npe; debian, wikidata): A named LaTeX source editor; it is close to an IDE, so this is borderline.
+- XEmacs (npe; wikidata): A named Emacs-family editor, listed in the scope.
+- TextWrangler (npe; wikidata): A named macOS plain-text editor from Bare Bones Software, BBEdit's predecessor.
+- EmEditor (npe; wikidata): A named Windows text editor.
+- UltraEdit (npe; wikidata): A named Windows text and code editor, listed in the scope.
+- ISPF (npe; wikidata): A named IBM mainframe editor; it is an environment as well, so this is borderline.
+- Aquamacs (npe; homebrew:cask, wikidata): A named macOS distribution of GNU Emacs, which counts as an Emacs-family editor.
+- Kile (npe; wikidata): A named KDE LaTeX source editor; it is close to an IDE, so this is borderline.
+- deepin-editor (npe; repology): A named desktop text editor from the deepin Linux distribution.
+- PSPad (npe; wikidata): A named Windows text and code editor.
+- tilde (npe; repology): A console text editor for Unix-like systems, packaged as tilde in Debian.
+- KWrite (npe; debian, wikidata): KDE's plain text editor, the simpler sibling of Kate.
+- Programmer's Notepad (npe; wikidata): A Windows source-code editor, a notepad-style programmer's editor.
+- EditPad (npe; wikidata): A Windows text editor from Just Great Software (EditPad Lite and Pro).
+- ConTEXT (npe; wikidata): A Windows programmer's text editor by Helge Keck.
+- TeXworks (npe; debian, wikidata): A TeX source editor front-end, with an editor at its core rather than a full project IDE.
+- SlickEdit (leak; wikidata): A commercial programmer's text editor with IDE-style features.
+- SAKURA Editor (leak; wikidata): A Windows programmer's text editor, popular in Japan.
+- EditPlus (leak; wikidata): A Windows text and code editor from ES-Computing.
+- Panic Nova (leak; homebrew:cask): Panic's macOS code editor, a source-code editor for web and programming work.
+- RText (leak; wikidata): A Windows programmer's text editor, RText Editor.
+- vis-editor (leak; repology): The vis modal editor under another name, in the scope's vi family.
+- ne-nice-editor (leak; repology): ne, the Nice Editor, a modeless terminal editor in the scope's list.
+- Pulsar (leak; homebrew:cask): A community fork of Atom, a hackable source-code editor.
+- Mozilla Skywriter (leak; wikidata): Mozilla's browser-based code editor, formerly Bespin, now defunct.
+- TeXShop (leak; wikidata): A macOS TeX source editor and front-end.
+- Frescobaldi (leak; debian, wikidata): A real source editor for LilyPond text files with a music preview; a specialised code editor, so In.
+- qemacs (leak; repology): A real small Emacs-style terminal and GUI text editor by Fabrice Bellard.
+- kiro-editor (leak; repology): A real terminal text editor written in Rust (kiro-editor).
+- Crimson Editor (race; wikidata): A real Windows source and text editor, a named program in its own right.
+- Gosling Emacs (race; wikidata): A real early Emacs implementation in C by James Gosling, a named historical editor.
+- XEDIT (race; wikidata): A real IBM VM/CMS full-screen text editor, listed in the scope's line and historical editors.
+- Gummi (race; wikidata): A real GTK LaTeX source editor, a text editor for TeX files.
+- l3afpad (race; debian, repology): A real GTK plain-text editor, a fork of Leafpad.
+- amp-editor (race; repology): A real terminal text editor (amp, by Jason Ouyang's project), usually spelled 'amp'.
+- pulsar-edit (race; repology): A real hackable text editor, a community fork of Atom.
+- VimR (race; homebrew:cask): A real macOS GUI front end for Vim and Neovim, a named editor.
+- Yi (race; wikidata): A real Vim-like text editor written in Haskell (yi-editor).
+- Elvis (heisenbug; wikidata): A real vi clone named in the scope's modal editor list.
+- fte (heisenbug; debian, repology): FTE (Folding Text Editor) is a real, long-running programmer's text editor.
+- xwpe (heisenbug; debian, repology): xwpe (X Window Programmer's Editor) is a real text editor packaged in Debian.
+- enki (heisenbug; repology): Enki is a real Qt-based plain-text and code editor for Linux.
+- neatvi (heisenbug; repology): neatvi is a real vi-like text editor, a small clone of nvi.
+- jupp (heisenbug; debian, repology): JUPP is a real Unix text editor in the JOE family.
+- EDT (heisenbug; repology, wikidata): EDT is DEC's historical line-and-screen text editor for VMS.
+- Smultron (heisenbug; homebrew:cask, wikidata): Smultron is a real macOS plain-text and code editor.
+- formiko (heisenbug; repology): Formiko is a real GTK editor for reStructuredText plain-text files.
+- GNU moe (heisenbug; homebrew:formula, repology, wikidata): GNU moe is a real GNU terminal text editor.
+- Microsoft Visual Studio Code Insiders (heisenbug; homebrew:cask): This is the Insiders preview channel of VS Code, a source-code editor in scope.
+- AppleScript Editor (heisenbug; wikidata): Script Editor (formerly AppleScript Editor) is a macOS app for editing plain-text AppleScript files.
+- CygnusEd (heisenbug; wikidata): CygnusEd was a well-known Amiga text editor.
+- RJ TextEd (heisenbug; wikidata): A historical DOS/Windows plain-text editor from RJ Software.
+- efte (heisenbug; debian, repology): Easy Free Text Editor, a real small plain-text editor for DOS and Linux.
+- Apostrophe (heisenbug; repology, wikidata): A GNOME distraction-free Markdown plain-text editor.
+- EVE (heisenbug; wikidata): Extensible Versatile Editor, a historical editor for VMS.
+- Notepadqq (heisenbug; repology, wikidata): A Notepad++-style GUI text editor for Linux.
+- Typora (heisenbug; repology, wikidata): A Markdown editor that edits plain-text Markdown in a GUI.
+- gPHPedit (heisenbug; wikidata): A GTK text editor aimed at PHP and web code.
+- QED (heisenbug; wikidata): A historical line editor, the ancestor of ed.
+- FVim (heisenbug; homebrew:cask): A GUI frontend for Neovim, a Vim-family editor.
+- kilo-editor (heisenbug; repology): Kilo is a small terminal text editor in C by antirez, under 1000 lines, on GitHub.
+- Void (heisenbug; homebrew:cask): Void is an open-source VS Code-based code editor, a real named program.
+- JuffEd (heisenbug; debian, repology, wikidata): JuffEd is a real open-source GTK text editor for Linux and Windows.
+- WinEdt (heisenbug; wikidata): WinEdt is a real Windows text editor specialised for TeX and LaTeX source.
+- ee (heisenbug; repology): ee (Easy Editor) is a real, classic Unix terminal text editor.
+- Alphatk (heisenbug; wikidata): Alphatk is a real Tcl-based programmer's text editor for Mac OS (the Alpha editor).
+- Hemlock (heisenbug; wikidata): Hemlock is a real Emacs-style editor written in Common Lisp at CMU.
+- Language-Sensitive Editor (heisenbug; wikidata): The Language-Sensitive Editor is a real research editor from Cornell, described in a 1981 paper.
+- Meadow (heisenbug; wikidata): Meadow is a real Emacs port for Windows, developed in Japan.
+- Multi-Edit (heisenbug; wikidata): MultiEdit is a real commercial programmer's text editor from American Cybernetics, for DOS and Windows.
+- Multics Emacs (heisenbug; wikidata): Multics Emacs is a real Emacs implementation for the Multics operating system.
+- Sysedit (heisenbug; wikidata): Windows 3.x's SYSEDIT.EXE is a text editor for system files such as win.ini and autoexec.bat.
+- Wily (heisenbug; debian, repology, wikidata): A Plan 9 research editor in the scope's examples, the Acme family.
+- Zmacs (heisenbug; wikidata): The Emacs-style editor on Symbolics Lisp Machines.
+- SPFPC (heisenbug; wikidata): A DOS full-screen editor in the ISPF/SPF style, from Command Technology.
+- ne-unclassified (heisenbug; repology): The suffix is not part of the name; 'ne' is the Nice Editor, a modeless terminal editor in scope.
+- pico-alpine (heisenbug; repology): The suffix is not part of the name; Pico is the modeless terminal editor from the Alpine mail suite.
+- Scribes (heisenbug; repology, wikidata): A GNOME text editor for Linux and Unix.
+- Editra (heisenbug; repology, wikidata): A cross-platform programmer's text editor written in Python.
+- SimpleText (heisenbug; wikidata): The classic Mac OS plain-text editor.
+- TEA (heisenbug; debian, wikidata): TEA is a real Linux and Mac GUI text editor (the Tea editor).
+- levee (heisenbug; debian): Levee is a small vi-clone Unix text editor packaged in Debian.
+- hx (heisenbug; debian): hx is the binary name of the Helix modal editor.
+- SubEthaEdit (heisenbug; wikidata): A real macOS collaborative text and code editor.
+- xnedit (heisenbug; repology): XNEdit is a real X11 text editor in the NEdit lineage.
+- EINE (heisenbug; wikidata): EINE (EINE Is Not EMACS) is a historical Lisp-machine and MIT editor.
+- Notepad+ (heisenbug; wikidata): A short form of Notepad++, the real Windows source-code editor.
+- Programmer's File Editor (heisenbug; wikidata): PFE is a real Windows programmer's text editor by Alpha Software.
+- Stevie (heisenbug; wikidata): Stevie (ST Editor for Vi Enhanced Implementation) is a real vi clone for Atari, Amiga and Unix.
+- TeachText (heisenbug; wikidata): TeachText was Apple's classic bundled Mac text editor.
+- VEDIT (heisenbug; wikidata): VEDIT is a real commercial DOS and Windows text editor.
+- VZ Editor (heisenbug; wikidata): VZ Editor is a real freeware Windows text editor.
+- ZWEI (heisenbug; wikidata): ZWEI is the historical Lisp-machine Emacs-style editor (Zwei Was Eine When I Was Eine).
+- xjed (heisenbug; debian, repology): X11 front end of the jed editor, packaged under its own name.
+- deforaos-editor (heisenbug; repology): Text editor component of the DeforaOS desktop project.
+- Phoenix Code (heisenbug; homebrew:cask): Open-source browser-based code editor, a Brackets fork.
+- pnana (heisenbug; repology): Small nano-style terminal and GTK text editor with its own name.
+- CotEditor (heisenbug; homebrew:cask, wikidata): Plain-text editor for macOS.
+- Metapad (heisenbug; wikidata): Lightweight Windows Notepad alternative.
+- Jedit Ω (heisenbug; homebrew:cask): The jEdit programmer's editor; the Ω is a stylised spelling.
+- iA Writer (heisenbug; wikidata): Plain-text and Markdown editor for macOS, iOS and Windows.
+- MarkEdit (heisenbug; wikidata): Markdown and plain-text editor for macOS.
+- Alpha (heisenbug; homebrew:cask): Tcl-based programmer's text editor for macOS.
+- CodeEdit (heisenbug; homebrew:cask): CodeEdit is an open-source macOS source-code editor, which is in scope, but few players would think of it.
+- NoteTab (heisenbug; wikidata): NoteTab is a real Windows text editor by Fookes Software, a plain-text editor rather than a note app.
+- kilo (heisenbug; debian): kilo is a real minimal terminal text editor in about 1,000 lines of C by antirez.
+- Zed Preview (heisenbug; homebrew:cask): Zed Preview is the preview release channel of the Zed source-code editor, which the scope lists as in scope, and it is not a separate program.
+
+## Left out
+- pretty-printing (npe; wikidata): A technique for formatting output, not a named editor.
+- scratch-text-editor (npe; repology): A generic description, not a named program.
+- Freemacs (npe; wikidata): Unsure whether this is a named editor, so it does not count.
+- ACE (npe; wikidata): Ace is an editor component library, which is out of scope.
+- flow-control (npe; homebrew:formula): A programming concept, not a program.
+- janus (npe; repology): A Vim configuration distribution, which is out of scope.
+- Adobe FrameMaker (npe; wikidata): A document publishing tool, which is out of scope.
+- lyx (npe; debian): A document processor (WYSIWYM), not a plain-text editor.
+- Spacemacs (npe; wikidata): A configuration distribution of Emacs, which is out of scope.
+- abiword (npe; debian): A word processor, which is out of scope.
+- LEd (npe; wikidata): Unsure whether this is a named editor, so it does not count.
+- em (npe; repology): Unsure whether this is a named editor, so it does not count.
+- GNU TeXmacs (npe; repology, wikidata): A structured scientific document editor, not a plain-text editor.
+- xxd (npe; debian): A hex dump and reverse tool, not a program whose main purpose is editing text files.
+- sigil (npe; debian): An EPUB and HTML ebook editor, not a plain text editor.
+- ledit (npe; debian, repology): A readline wrapper for line-based programs, not a file editor.
+- Keynote (npe; wikidata): A presentation app, not a text editor.
+- yed (npe; repology): Unsure: yEd is a graph diagram editor, and the Unix line editor yed is not documented enough to confirm.
+- kimagemapeditor (leak; debian): An image-map editor for graphics, not text.
+- Zim Desktop Wiki (leak; wikidata): A wiki and note-taking app, which the scope excludes.
+- fresh-editor (leak; homebrew:formula): Unsure whether this is a real, named editor I can confirm.
+- feathernotes (leak; debian): Unsure: it reads as a note app, which the scope excludes, and I cannot confirm it as a named editor.
+- cherrytree (leak; debian): CherryTree is a hierarchical note-taking app, which the scope puts Out.
+- E (leak; wikidata): A single letter with no identifiable editor behind it, so I can't confirm it's a real program.
+- focuswriter (leak; debian): A distraction-free word processor, which the scope puts Out.
+- arduino-ctags (race; debian): A ctags tag generator for Arduino code, not an editor.
+- Enter TeX (race; wikidata): I can't confirm it's a real named editor, so I'm not counting it.
+- ecrire (race; repology): It's a French word meaning 'to write', and I can't identify a specific editor with that name.
+- bvi (race; debian, repology): Binary vi is a hex and binary editor, which the scope puts Out.
+- Gram (race; homebrew:cask, repology): I can't identify a specific text-editor program by this name, so I'm not counting it.
+- CodeMirror 5 (race; wikidata): A code editor component library, which the scope puts Out.
+- dhex (race; debian): A hex editor, which the scope puts Out.
+- QOwnNotes (race; wikidata): A note-taking and Markdown app, which the scope puts Out.
+- beaver (heisenbug; repology): I can't identify a specific text editor by this name, so I'm not counting it.
+- poke (heisenbug; debian): GNU poke is an extensible editor for binary data, not a plain-text editor.
+- ht (heisenbug; repology): HT is a hex and binary file editor, which is out of scope.
+- Medit (heisenbug; repology, wikidata): I could not confirm a specific text editor by this name, so I am not counting it.
+- bbe (heisenbug; debian, repology): bbe (Binary Block Editor) edits binary files, which is out of scope.
+- pageedit (heisenbug; debian): I could not confirm a real text editor by this name.
+- treesheets (heisenbug; debian): TreeSheets is a hierarchical note and data tool, which is out of scope.
+- durdraw (heisenbug; homebrew:formula): Durdraw is an ASCII and ANSI art editor, not a plain-text editor.
+- WPCleaner (heisenbug; wikidata): WPCleaner is a Wikipedia maintenance tool, not a general text editor.
+- aewan (heisenbug; repology): I could not confirm a specific text editor by this name, so I am not counting it.
+- sandy (heisenbug; repology): I could not identify a text editor by this name.
+- ad (heisenbug; homebrew:formula): I could not identify a text editor called ad.
+- hexedit (heisenbug; debian): hexedit is a hex editor, which is out of scope.
+- massren (heisenbug; homebrew:formula): massren is a bulk file-rename tool, not a text editor.
+- Expensive Typewriter (heisenbug; wikidata): I can't identify a text editor by this name, so I'm treating it as unknown.
+- xtrkcad (heisenbug; debian): A track-layout CAD program for model railways, not a text editor.
+- dav (heisenbug; repology): I can't identify a text editor by this name, so I'm treating it as unknown.
+- fe (heisenbug; repology): A file-manager-style tool, not a text editor I can name with confidence.
+- Cream (heisenbug; wikidata): A configuration distribution of Vim, which the scope excludes.
+- hyx (heisenbug; debian): A hex editor, which the scope excludes.
+- tweak (heisenbug; debian): A system-settings tweaking tool, not a text editor.
+- mp (heisenbug; repology): Too ambiguous to identify as a named text editor.
+- pipe-rename (heisenbug; homebrew:formula): A utility for bulk renaming files via an editor, not an editor itself.
+- novelWriter (heisenbug; repology, wikidata): A novel-writing app, which the scope puts under writing and note apps.
+- remarkable (heisenbug; repology): Ambiguous: it names a tablet and a library, not a text editor I can confirm.
+- Personal Editor (heisenbug; wikidata): I'm not confident enough in this DOS editor to name it as a real instance.
+- TheDraw (heisenbug; wikidata): An ANSI art editor, not a plain-text editor.
+- bluegriffon (heisenbug; repology): A WYSIWYG HTML editor, which the scope excludes.
+- Athas (heisenbug; homebrew:cask): I can't identify a text editor by this name.
+- dit (heisenbug; repology): I can't identify a text editor by this name.
+- ng (heisenbug; repology): I don't know of a text editor called ng, so I can't confirm it is a real named program.
+- sam-unclassified (heisenbug; repology): It isn't a program name; sam is a real editor, but this string is not a named instance.
+- tpad (heisenbug; repology): I can't identify a specific text editor by this name, so I'm not confident it's real.
+- J (heisenbug; wikidata): A single letter; J is a programming language, not an editor I can identify.
+- dex (heisenbug; homebrew:formula): I can't identify a text editor called dex, so I'm not confident it's real.
+- mi (heisenbug; homebrew:cask): Too short to match a specific Unix editor I can confirm, so I'm not certain it's real.
+- jeex (heisenbug; repology): I can't identify a text editor called jeex, so I'm not confident it's real.
+- noblenote (heisenbug; debian): Noble Note is a note-taking app, which is out of scope.
+- plume-creator (heisenbug; debian): Plume Creator is a manuscript-writing app, which is out of scope.
+- aoeui (heisenbug; debian, homebrew:formula, repology): I can't confirm a specific text editor by this name, so I'm not certain it's real.
+- lpe (heisenbug; debian, repology): I can't identify a text editor called lpe, so I'm not confident it's real.
+- CintaNotes (heisenbug; wikidata): CintaNotes is a note-taking app, which is out of scope.
+- Hackpad (heisenbug; wikidata): Hackpad was a collaborative wiki and document service, not a plain-text editor.
+- MoonEdit (heisenbug; wikidata): I can't confirm a specific text editor by this name, so I'm not certain it's real.
+- Scientific WorkPlace (heisenbug; wikidata): A math-oriented word processor, which the scope puts out.
+- Ulysses (heisenbug; wikidata): A long-form writing and notes app, closer to a word processor than a plain-text editor.
+- UniRed (heisenbug; wikidata): Not confidently identifiable as a named text editor, so treated as unsure.
+- aee (heisenbug; repology): Not confidently identifiable as a named text editor, so treated as unsure.
+- biew (heisenbug; repology): A binary file viewer, which is out of scope.
+- ait (heisenbug; repology): Not identifiable as a named text editor.
+- exe (heisenbug; repology): A file extension for executables, not a program name.
+- fb2edit (heisenbug; repology): A structured FictionBook XML editor, which is out of scope as a structured-data editor.
+- tea-unclassified (heisenbug; repology): Not confidently identifiable as a named text editor, so treated as unsure.
+- ve (heisenbug; repology): Not confidently identifiable as a named text editor.
+- winc (heisenbug; repology): Not confidently identifiable as a named text editor.
+- XML Notepad (heisenbug; wikidata): A structured XML editor, which is out of scope as a structured-data editor.
+- gnuserv (heisenbug; debian): An Emacs client/server utility, not an editor.
+- tetradraw (heisenbug; debian, repology): An ASCII-art drawing tool, not a text editor.
+- encryptpad (heisenbug; repology): Its main purpose is encrypting text files, not editing plain text files.
+- turbo (heisenbug; repology): Not a specific named editor; it is a family prefix for Borland tools.
+- nano-tiny (heisenbug; debian): A Debian build variant of nano with features stripped out, not a separately named program.
+- hexwalk (heisenbug; debian): A hex-pattern search tool, not a text editor.
+- cpeditor (heisenbug; repology): A competitive-programming IDE that compiles and runs code, closer to an IDE than an editor.
+- notedeln (heisenbug; debian): I don't recognise this as a named editor, so I'm treating it as unsure.
+- nao (heisenbug; homebrew:cask): I can't confirm a named text editor by this name, so I'm treating it as unsure.
+- Colossal Typewriter (heisenbug; wikidata): I can't confirm a named text editor by this name, so I'm treating it as unsure.
+- DEC SED (heisenbug; wikidata): SED is the stream editor, not an interactive DEC text editor; DEC's own editor was EDT.
+- Framapad (heisenbug; wikidata): An online collaborative pad service, which the scope excludes.
+- Jedit X (heisenbug; wikidata): I can't confirm a distinct program by this name beyond jEdit, so I'm treating it as unsure.
+- TED Notepad (heisenbug; wikidata): I'm not confident enough that this is a real named editor, so I'm treating it as unsure.
+- Verbosus (heisenbug; wikidata): I can't confirm it as a text editor, so I'm treating it as unsure.
+- SETEDIT (heisenbug; wikidata): I can't confirm a named text editor by this name, so I'm treating it as unsure.
+- babi (heisenbug; repology): Not confidently a known text editor.
+- gwrite (heisenbug; repology): Not confidently a known text editor.
+- kkedit (heisenbug; repology): Not confidently a known text editor.
+- pico-unclassified (heisenbug; repology): Not a program name; pico is the Pine editor, this is not a distinct entry.
+- redox (heisenbug; repology): Redox is an operating system, not an editor.
+- SideX (heisenbug; homebrew:cask): Not confidently a known text editor.
+- teagtk (heisenbug; repology): Not confidently a distinct known editor name.
+- Kupu (heisenbug; wikidata): A WYSIWYG HTML rich-text editor, which is out of scope.
+- sciteproj (heisenbug; debian): Not confidently a distinct known editor.
+- ng-cjk (heisenbug; debian): Not a known text editor.
+- ng-latin (heisenbug; debian): Not a known text editor.
+- pyroom (heisenbug; repology): A distraction-free writing app, closer to the out-of-scope writing and note apps.
+- Pe (heisenbug; wikidata): Too ambiguous to identify a specific editor.
+- manedit (heisenbug; repology): Not confidently a known text editor.
+- ce-chets-editor (heisenbug; repology): Not a recognisable program name.
+- CodeBolt (heisenbug; homebrew:cask): I can't identify a text editor by this name, so I can't confirm it exists.
+- cryptote (heisenbug; repology): I'm not confident a text editor by this name exists.
+- Editaro (heisenbug; homebrew:cask): I can't identify a text editor by this name.
+- edt-o3one (heisenbug; repology): This doesn't match any editor I can identify; EDT is DEC's editor, but this name isn't it.
+- ersatz-emacs (heisenbug; repology): I can't confirm an editor by this name; the Emacs family members I know use other names.
+- gate-text-gatherer (heisenbug; repology): This is not a text editor I can identify.
+- gice (heisenbug; repology): I can't identify a text editor by this name.
+- gvim-classic (heisenbug; repology): Not a real program name; gVim is just the GUI build of Vim, which is already in the bank.
+- Lumide (heisenbug; homebrew:cask): I can't confirm a text editor by this name; it may be an IDE or a cloud product.
+- mflteco (heisenbug; repology): I can't confirm this as a real TECO implementation.
+- ne-new-e (heisenbug; repology): Not a real program name; ne is the nice editor, and this doesn't match it.
+- Neon Vision Editor (heisenbug; homebrew:cask): I think this is a real open-source editor, but I'm not confident enough to accept it.
+- reovim (heisenbug; repology): I can't identify a text editor by this name.
+- rox-edit (heisenbug; repology): I can't identify a text editor by this name; ROX is a file manager, not an editor.
+- vitmp (heisenbug; repology): I can't identify a text editor by this name.
+- bibledit-cloud (heisenbug; debian): A Bible translation web tool, not a general plain-text editor.
+- gecrit (heisenbug; repology): I can't identify a text editor by this name.
+- chr (heisenbug; debian): Not a text editor; it reads as a fragment or an unrelated tool.
+- mg2a (heisenbug; repology): I'm not confident this is a distinct real editor, not just a variant of mg.
+- ng-cjk-canna (heisenbug; debian): I can't identify a text editor by this name.
+- 010 Editor (heisenbug; homebrew:cask): A real product, but a hex and binary editor, which is out of scope.
+- Noto (heisenbug; homebrew:cask): Noto is a font family, not a text editor.
+
+## Removed after an independent Sonnet review (all 109 merged)
+- Texmaker: LaTeX IDE
+- TeXstudio: LaTeX IDE
+- ISPF: IBM mainframe dialog manager, not a general text editor
+- Kile: LaTeX front-end
+- TeXworks: TeX front-end
+- RText: Ruby-oriented hobby editor, not widely established
+- vis-editor: Slug form of vis, not a name players would give
+- ne-nice-editor: Expanded form of ne, not its name
+- Mozilla Skywriter: Editor component that became Ace
+- TeXShop: TeX front-end
+- Frescobaldi: LilyPond music editor
+- kiro-editor: Hobby project, not established
+- Gummi: LaTeX editor
+- amp-editor: Obscure hobby editor, slug form
+- pulsar-edit: Repo slug duplicating Pulsar
+- xwpe: Window Programming Environment, an IDE-style Turbo-like tool
+- formiko: niche reST/Markdown preview editor, can't confirm it as an established general editor
+- Microsoft Visual Studio Code Insiders: build channel of VS Code
+- AppleScript Editor: script IDE, not a general text editor
+- Apostrophe: Markdown-specific writing app, closer to a note/writing app
+- Typora: WYSIWYG Markdown editor, not a plain text editor
+- FVim: GUI front-end for Neovim, not its own editor
+- kilo-editor: hobby project name that can't be confirmed as established
+- Void: AI-focused VS Code fork, not confirmed as established
+- WinEdt: primarily a TeX/LaTeX front-end
+- Sysedit: Windows utility for editing system config files, not a general text editor
+- ne-unclassified: not a real name, an artifact label
+- pico-alpine: not a name; it conflates pico with the Alpine mail client
+- hx: Command name of Helix, an alias and not its own program
+- Notepad+: Obscure, cannot be confirmed as established
+- xjed: X Window build of jed, not its own editor
+- deforaos-editor: Hobby project that cannot be confirmed as established
+- pnana: Recent hobby terminal editor that cannot be confirmed as established
+- iA Writer: Markdown writing app, closer to a writing or note app
+- MarkEdit: Markdown-focused writing app, not a general text editor
+- CodeEdit: Xcode-style IDE alternative
+- Zed Preview: Build channel of Zed

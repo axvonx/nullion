@@ -151,7 +151,7 @@
 | terminal-emulator | Name a terminal emulator | languages-tools | draft | 0 | 0 | 7 |
 | test-framework | Name a test framework | languages-tools | draft | 0 | 0 | 7 |
 | testing-technique | Name a software testing technique | languages-tools | draft | 0 | 0 | 7 |
-| text-editor | Name a text editor | languages-tools | approved | 78 | 75 | 0 |
+| text-editor | Name a text editor | languages-tools | approved | 150 | 147 | 0 |
 | version-control-system | Name a version control system | languages-tools | draft | 0 | 0 | 7 |
 | vim-plugin | Name a Vim plugin | languages-tools | draft | 0 | 0 | 7 |
 | web-framework | Name a web framework | languages-tools | draft | 126 | 122 | 4 |
@@ -195,7 +195,7 @@
 | tcp-congestion-control-algorithm | Name a TCP congestion control algorithm | os-systems | approved | 31 | 29 | 0 |
 | tls-extension | Name a TLS extension | os-systems | draft | 0 | 0 | 7 |
 | unix-command | Name a Unix command | os-systems | approved | 419 | 417 | 0 |
-| unix-daemon | Name a Unix daemon | os-systems | approved | 112 | 108 | 0 |
+| unix-daemon | Name a Unix daemon | os-systems | approved | 1208 | 1204 | 0 |
 | unix-shell | Name a Unix shell | os-systems | draft | 0 | 0 | 7 |
 | unix-signal | Name a Unix signal | os-systems | draft | 0 | 0 | 7 |
 | window-manager | Name a window manager | os-systems | draft | 0 | 0 | 7 |

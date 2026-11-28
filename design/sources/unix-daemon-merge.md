@@ -1,0 +1,1774 @@
+# Merge of the derived unix-daemon list into the bank
+
+1875 derived; 112 already playable; 1096 judged members and merged as (auto); 667 judged not members and left out (membership by Haiku against the scope spec; tiers from the familiarity score).
+
+```
+unix-daemon: added 1096 (off-by-one 9, npe 155, leak 107, race 302, heisenbug 523)
+```
+
+## Merged
+- openvpn (off-by-one; debian:debtags): The openvpn program runs as a background VPN daemon, with a documented --daemon mode and systemd units.
+- pulseaudio (off-by-one; debian:debtags): The PulseAudio sound server runs as a per-user daemon, listed in the scope's desktop and IPC sub-kinds.
+- prometheus (off-by-one; debian:service-unit): The Prometheus server is a long-running monitoring daemon, one of the scope's servers run as daemons.
+- haproxy (off-by-one; debian:debtags): The HAProxy load balancer runs as a long-lived server daemon.
+- lighttpd (off-by-one; debian:debtags): The lighttpd web server runs as a background HTTP daemon.
+- keyboxd (off-by-one; debian:service-unit): GnuPG's keyboxd is a documented background daemon that manages the keybox store.
+- mosquitto (off-by-one; debian:service-unit): The Mosquitto MQTT broker is a long-running server daemon.
+- apache2 (off-by-one; debian:debtags): apache2 is the Debian and Ubuntu service name for the Apache httpd daemon.
+- dnsmasq (off-by-one; debian:debtags): dnsmasq is a lightweight DNS and DHCP daemon that runs in the background.
+- freeradius (npe; debian:debtags): FreeRADIUS is a RADIUS server daemon (radiusd) that runs in the background.
+- ejabberd (npe; debian:service-unit): ejabberd is a long-running XMPP server daemon.
+- lightdm (npe; debian:service-unit): LightDM is a display manager that runs as a system daemon.
+- preload (npe; debian:debtags): preload is an adaptive readahead daemon for Linux that runs in the background.
+- monit (npe; debian:debtags): Monit is a process supervision and monitoring daemon.
+- prometheus-node-exporter (npe; debian:service-unit): node_exporter, packaged as prometheus-node-exporter, is a long-running metrics daemon.
+- docker-registry (npe; debian:service-unit): The Docker Registry is a long-running image-storage server (the docker-registry project, now distribution) that runs as a daemon.
+- xrdp (npe; debian:debtags): xrdp is a long-running RDP server daemon for Linux and other Unix-like systems.
+- gpg-agent (npe; debian:service-unit): gpg-agent is GnuPG's background daemon that holds keys and handles passphrase requests.
+- slim (npe; debian:debtags): SLiM (Simple Login Manager) is a display-manager daemon that runs at boot to show the login screen.
+- sddm (npe; debian:service-unit): SDDM (Simple Desktop Display Manager) is a login-screen daemon used by KDE and others.
+- corosync (npe; debian:service-unit): Corosync is the cluster messaging daemon used by Pacemaker and similar high-availability stacks.
+- keepalived (npe; debian:debtags): Keepalived is a long-running VRRP and load-balancing health-check daemon for Linux.
+- opendkim (npe; debian:service-unit): OpenDKIM is a long-running DKIM signing and verification milter daemon for mail servers.
+- plymouth (npe; debian:service-unit): Plymouth is the boot-splash daemon (plymouthd) that runs during early boot on Linux.
+- lxc-monitord (npe; debian:service-unit): lxc-monitord is the LXC container monitor daemon that tracks container state.
+- ssh-agent (npe; debian:service-unit): ssh-agent is a background key-holding process that forks into the background and serves ssh clients.
+- mpd (npe; debian:debtags): MPD (Music Player Daemon) is a long-running music server that is named after being a daemon.
+- etcd (npe; debian:service-unit): etcd is a long-running distributed key-value server, commonly run as a daemon with Kubernetes.
+- sssd (npe; debian:service-unit): SSSD (System Security Services Daemon) is a long-running daemon that provides identity and authentication services.
+- gpsd (npe; debian:debtags): gpsd is a daemon that reads GPS receivers and serves their data to clients over the network.
+- wpa_supplicant (npe; debian:debtags): wpa_supplicant is a long-running wireless authentication daemon that manages Wi-Fi connections.
+- coturn (npe; debian:service-unit): coturn is a long-running TURN and STUN relay server (turnserver) used for WebRTC.
+- pgbouncer (npe; debian:service-unit): PgBouncer is a long-running PostgreSQL connection-pooling daemon.
+- containerd (npe; debian:service-unit): containerd is a long-running container runtime daemon that Docker and Kubernetes build on.
+- snmpd (npe; debian:debtags, macos:LaunchDaemons): The Net-SNMP agent daemon, which answers SNMP queries on Unix-like systems.
+- winbind (npe; debian:debtags): Samba's daemon that resolves Windows users and groups for Unix, usually called winbind.
+- privoxy (npe; debian:debtags): A privacy-focused filtering web proxy that runs as a daemon.
+- xscreensaver (npe; debian:service-unit): Its man page calls it a daemon for the X11 screen saver, which runs in the background.
+- beanstalkd (npe; debian:debtags): A work-queue server daemon, documented as a daemon on its project page.
+- prometheus-alertmanager (npe; debian:service-unit): The long-running alert routing service of the Prometheus monitoring stack, whose binary is alertmanager.
+- pure-ftpd (npe; debian:debtags): An FTP server daemon, typically run in the background to accept connections.
+- gdm3 (npe; debian:service-unit): The GNOME Display Manager daemon that runs the login screen on many Linux systems.
+- pppd (npe; debian:debtags): The PPP daemon that manages point-to-point dial-up and VPN links on Unix-like systems.
+- collectd (npe; debian:debtags): A system statistics collection daemon, documented as running as a background daemon.
+- syncthing (npe; debian:debtags): A continuous file synchronisation program that runs as a background daemon.
+- slapd (npe; debian:debtags, macos:LaunchDaemons): The OpenLDAP standalone LDAP server daemon.
+- libvirtd (npe; debian:debtags): The libvirt daemon that manages virtual machines on a host.
+- rspamd (npe; debian:service-unit): A spam-filtering daemon used with mail servers.
+- redis-sentinel (npe; debian:service-unit): Redis's high-availability monitor, run as its own long-lived daemon process.
+- icinga2 (npe; debian:debtags): A monitoring daemon that runs continuously to check hosts and services.
+- hostapd (npe; debian:debtags): The user-space daemon that runs Wi-Fi access points and authentication servers.
+- kamailio (npe; debian:service-unit): A SIP server that runs as a long-lived daemon.
+- nsd (npe; debian:debtags): The NLnet Labs authoritative name server, whose name stands for Name Server Daemon.
+- pptpd (npe; debian:debtags): A PPTP VPN server daemon that accepts incoming tunnel connections.
+- suricata (npe; debian:service-unit): An intrusion detection and prevention engine that runs as a long-lived daemon.
+- shiny-server (npe; debian:service-unit): RStudio's server runs as a long-lived daemon serving R Shiny apps.
+- gnome-keyring-daemon (npe; debian:debtags): A long-running D-Bus secrets service started by the GNOME session.
+- prometheus-blackbox-exporter (npe; debian:service-unit): A long-running HTTP exporter daemon from the Prometheus project.
+- speech-dispatcher (npe; debian:debtags): The speechd daemon that queues text-to-speech requests for Linux accessibility tools.
+- pgpool (npe; debian:debtags): A PostgreSQL connection pooler and proxy that runs as a daemon.
+- distcc (npe; debian:debtags): The distcc project's server side is the distccd daemon, and the project is commonly named for it.
+- ipmievd (npe; debian:service-unit): An OpenIPMI daemon that watches and logs hardware management events.
+- systemd-networkd (npe; debian:debtags): The long-running systemd daemon that configures network interfaces.
+- wdm (npe; debian:debtags): The Window Display Manager, a long-running X login daemon.
+- proftpd (npe; debian:service-unit): An FTP server that runs as a long-lived daemon.
+- lxd (npe; debian:service-unit): The lxd daemon that manages Linux containers and VMs.
+- lsyncd (npe; debian:debtags): The Live Syncing daemon that watches directories and runs rsync.
+- radvd (npe; debian:debtags): The IPv6 Router Advertisement Daemon.
+- netatalk (npe; debian:service-unit): An Apple Filing Protocol file server whose afpd runs as a daemon.
+- wireplumber (npe; debian:service-unit): The session-manager daemon for PipeWire.
+- prometheus-pushgateway (npe; debian:service-unit): A long-running Prometheus server that accepts pushed metrics.
+- apcupsd (npe; debian:debtags): The APC UPS monitoring daemon, a real long-running hardware service.
+- powerline-daemon (npe; debian:service-unit): The long-running prompt-segment daemon of the powerline project, named in its docs.
+- systemd-resolved (npe; debian:service-unit): systemd's DNS stub resolver daemon, common on Linux distributions.
+- saslauthd (npe; debian:service-unit): The Cyrus SASL authentication daemon, a real long-running service.
+- zabbix_agentd (npe; debian:debtags): The Zabbix monitoring agent daemon, named by its binary in its docs.
+- InternetSharing (npe; macos:LaunchDaemons): The macOS Internet Sharing daemon (/usr/libexec/InternetSharing), a launchd job.
+- snmptrapd (npe; debian:service-unit): The Net-SNMP trap receiver daemon.
+- opensmtpd (npe; debian:service-unit): The OpenBSD mail transfer daemon, a real named mail service.
+- gpm (npe; debian:debtags): The General Purpose Mouse daemon for the Linux console, listed in the scope.
+- fwupd (npe; debian:service-unit): The firmware update daemon from fwupd, a real long-running service.
+- ibus-daemon (npe; debian:service-unit): The IBus input method daemon, named by its program in its docs.
+- getty (npe; macos:LaunchDaemons): The tty login program that init spawns and respawns as a long-running process.
+- transmission-daemon (npe; debian:debtags): The headless Transmission BitTorrent daemon.
+- realmd (npe; debian:service-unit): The Linux realm discovery and join daemon from the realmd project.
+- systemd-timesyncd (npe; debian:service-unit): systemd's SNTP time synchronisation daemon.
+- victoria-metrics (npe; debian:service-unit): The VictoriaMetrics time-series database server, run as a daemon.
+- mds (npe; macos:LaunchDaemons): The macOS Spotlight metadata server daemon, listed in the scope.
+- upower (npe; debian:debtags): UPower's daemon (upowerd), which the project name refers to.
+- kdamond (npe; kernel:kthread): DAMON's kernel thread (kdamond.N), named like the kswapd family and documented in the kernel's DAMON docs.
+- opendmarc (npe; debian:service-unit): A DMARC milter that runs as the opendmarc daemon, used with Postfix and Sendmail.
+- smtpd (npe; debian:service-unit): The OpenSMTPD daemon on OpenBSD and other systems, the program that accepts mail.
+- incrond (npe; debian:debtags): The inotify cron daemon, which runs commands when filesystem events occur.
+- logind (npe; macos:LaunchDaemons): systemd's login and seat manager daemon, a standard service on systemd Linux systems.
+- iwd (npe; debian:service-unit): Intel's iNet Wireless Daemon, the wireless network daemon used by some Linux distributions.
+- connmand (npe; debian:debtags): The ConnMan connection manager daemon, used on embedded Linux and some desktops.
+- sympa (npe; debian:service-unit): The Sympa mailing list manager, which runs a sympa daemon for list processing.
+- lxdm (npe; debian:service-unit): The LXDE display manager, a login daemon that runs as lxdm.
+- power-profiles-daemon (npe; debian:debtags): The freedesktop daemon that switches system power profiles, used by GNOME and others.
+- notify-osd (npe; debian:debtags): Ubuntu's notification daemon for Unity and early GNOME-based desktops.
+- packagekitd (npe; debian:service-unit): The PackageKit daemon that does package management for GNOME and KDE software tools.
+- xfce4-notifyd (npe; debian:service-unit): The notification daemon for the Xfce desktop.
+- openntpd (npe; debian:debtags): The OpenBSD project's NTP time daemon, ntpd's alternative.
+- psad (npe; debian:debtags): Port Scan Attack Detector, a daemon that watches firewall logs for attacks.
+- xsettingsd (npe; debian:debtags): A lightweight daemon that publishes XSETTINGS for X11 desktops.
+- epmd (npe; debian:service-unit): The Erlang Port Mapper Daemon, which maps node names to ports for distributed Erlang.
+- tor (npe; debian:debtags): The Tor anonymity network, run as a tor daemon by Linux and BSD systems.
+- prometheus-postgres-exporter (npe; debian:service-unit): The Prometheus exporter for PostgreSQL, a daemon Debian packages as prometheus-postgres-exporter.
+- fprintd (npe; debian:service-unit): The fingerprint daemon that handles fprint devices for login and sudo on Linux.
+- rasdaemon (npe; debian:service-unit): The Linux daemon that logs reliability, availability and serviceability (RAS) error events.
+- ocserv (npe; debian:debtags): OpenConnect VPN server daemon, documented in its own project and man page.
+- tincd (npe; debian:debtags): The tinc VPN daemon, named in its man page and project docs.
+- kdc (npe; macos:LaunchDaemons): The Kerberos Key Distribution Center daemon, which MIT Kerberos ships as krb5kdc.
+- mate-settings-daemon (npe; debian:debtags): The MATE desktop's settings daemon, a long-running session service.
+- ipp-usb (npe; debian:service-unit): OpenPrinting's daemon that exposes USB printers over IPP, documented in its project.
+- usbguard (npe; debian:service-unit): The usbguard-daemon that enforces USB device authorization policy.
+- v2ray (npe; debian:service-unit): A long-running proxy server core usually run as a system service.
+- jackd (npe; debian:debtags): The JACK audio connection kit server daemon, named in its docs and man page.
+- xdm (npe; debian:debtags): The X Display Manager, a long-running daemon that starts X sessions.
+- haveged (npe; debian:debtags): The HAVEGE entropy-gathering daemon, documented in its project and man page.
+- ModemManager (npe; debian:debtags): The ModemManager daemon that manages mobile broadband modems on Linux.
+- seatd (npe; debian:service-unit): The seat management daemon used by wlroots compositors such as sway.
+- irqbalance (npe; debian:debtags): The irqbalance daemon that distributes hardware interrupts across CPUs.
+- imapd (npe; debian:debtags): A long-running IMAP server daemon, shipped with UW IMAP and Cyrus IMAP.
+- dunst (npe; debian:service-unit): A notification daemon for X and Wayland desktops, documented in its project.
+- caddy (npe; debian:service-unit): The Caddy web server, normally run as a long-running daemon.
+- dirmngr (npe; debian:debtags): GnuPG's certificate and OpenPGP keyserver daemon, documented in its man page.
+- lxcfs (npe; debian:service-unit): A FUSE daemon that provides container-aware /proc files for LXC, named in its project.
+- dnsdist (npe; debian:service-unit): PowerDNS's DNS load balancer, a long-running daemon documented in its project.
+- jabberd (npe; debian:service-unit): The jabberd XMPP (Jabber) server daemon, documented in the jabberd2 project.
+- squid (npe; debian:service-unit): The Squid caching proxy server, run as a long-running daemon and named in its man page.
+- knockd (npe; debian:debtags): Port-knocking daemon from Judd Vinet's knockd project, packaged in Debian and most distros.
+- certmonger (npe; debian:service-unit): Certificate-tracking and renewal daemon in Fedora and RHEL, with its own certmonger(8) man page.
+- swupdate (npe; debian:service-unit): Embedded software-update agent that runs as a daemon in its documented mode.
+- pipewire-pulse (npe; debian:service-unit): PipeWire's PulseAudio-compatible server, a daemon binary run as a user service.
+- tinydns (npe; debian:service-unit): The DNS server from djbdns, run as a long-lived daemon under daemontools.
+- ksmd (npe; kernel:kthread): Linux Kernel Samepage Merging kernel thread, described as a daemon in the kernel's own admin docs.
+- dmeventd (npe; debian:service-unit): Device-mapper event daemon used by LVM, with its own man page.
+- thermald (npe; debian:service-unit, macos:LaunchDaemons): Linux thermal management daemon, mainly for Intel platforms.
+- greetd (npe; debian:service-unit): Minimal login-manager daemon used with Wayland greeters such as tuigreet.
+- lldpd (npe; debian:debtags): LLDP (link-layer discovery) daemon with its own man page.
+- inspircd (npe; debian:debtags): IRC server daemon, a named open-source project run as a long-lived server.
+- cyrus-imapd (npe; debian:service-unit): The Cyrus IMAP mail server, run as a daemon (master process with child imapd processes).
+- earlyoom (npe; debian:service-unit): Early out-of-memory killer daemon for Linux, with its own project and man page.
+- pcscd (npe; debian:debtags): PC/SC smart-card resource manager daemon from pcsc-lite.
+- usbmuxd (npe; debian:debtags): USB multiplexing daemon for iOS devices, part of libimobiledevice.
+- watchdog (npe; debian:debtags): The watchdog(8) daemon that pings the hardware watchdog and monitors system health.
+- arpwatch (npe; debian:debtags): ARP-monitoring daemon that logs ethernet/IP address pairings, with its own man page.
+- avahi-autoipd (npe; debian:debtags): Avahi's IPv4 link-local (zeroconf) address daemon, with its own man page.
+- prometheus-process-exporter (npe; debian:service-unit): The ncabatoff process-exporter, a long-running Prometheus exporter; the usual project name drops the prefix.
+- prosody (npe; debian:service-unit): XMPP server daemon, a named open-source project run as a long-lived server.
+- tpm2-abrmd (npe; debian:service-unit): The TPM2 Access Broker and Resource Manager daemon, a long-running service for TPM access on Linux.
+- dictd (npe; debian:debtags): The DICT protocol dictionary server daemon, documented in its project and Debian packages.
+- brltty (npe; debian:service-unit): The braille terminal daemon that drives refreshable braille displays on Linux and other Unix-likes.
+- dnscrypt-proxy (npe; debian:service-unit): A local DNS proxy daemon that encrypts DNS queries, run as a long-lived service.
+- munge (npe; debian:service-unit): MUNGE, the authentication daemon (munged) used on HPC clusters, usually called by its project name.
+- at-spi2-registryd (npe; debian:service-unit): The AT-SPI accessibility registry daemon in GNOME's assistive technology stack.
+- rygel (npe; debian:service-unit): GNOME's UPnP/DLNA media server daemon, documented in its project.
+- rtkit-daemon (npe; debian:service-unit): The RealtimeKit daemon that grants realtime scheduling to audio clients on Linux.
+- minissdpd (npe; debian:debtags): The MiniSSDP daemon from miniupnp that answers UPnP discovery requests for local clients.
+- thinkfan (npe; debian:service-unit): A fan-control daemon for ThinkPad laptops that runs in the background.
+- dbus-broker (npe; debian:service-unit): The D-Bus message broker daemon from the systemd project, an alternative to dbus-daemon.
+- ircd (npe; debian:debtags): The generic name for an IRC server daemon, with several real implementations such as ircd-hybrid.
+- colord (npe; debian:debtags): The colour management daemon on Linux desktops, documented by its project.
+- webdis (leak; debian:service-unit): A daemon that exposes Redis over HTTP, documented in its own project.
+- notification-daemon (leak; debian:debtags): The GNOME desktop notification daemon, a long-running D-Bus service.
+- feedbackd (leak; debian:service-unit, macos:LaunchAgents): The feedback daemon for mobile Linux that coordinates haptic, LED and sound feedback.
+- crowdsec (leak; debian:service-unit): The CrowdSec security engine, a long-running daemon that analyses logs and blocks threats.
+- zfs-fuse (leak; debian:service-unit): A userspace ZFS implementation that runs as a FUSE daemon, documented in its project.
+- ptpd (leak; debian:debtags): A Precision Time Protocol daemon for clock synchronisation on Unix-like systems.
+- clamav-daemon (leak; debian:debtags): ClamAV's daemon is clamd; clamav-daemon is the Debian package name for it.
+- nats-server (leak; debian:service-unit): The NATS messaging server, a long-running daemon named nats-server in its project.
+- gerbera (leak; debian:service-unit): The Gerbera UPnP media server, which runs as a daemon and is documented in its project.
+- sshguard (leak; debian:service-unit): Log-watching daemon that blocks brute-force SSH attackers, a real service on Linux and BSD.
+- motion (leak; debian:service-unit): Motion-project video-surveillance program that runs as a daemon (its config has a daemon option).
+- i2pd (leak; debian:service-unit): C++ I2P router that runs as a background daemon on Unix-like systems.
+- fastnetmon (leak; debian:service-unit): DDoS detection daemon for network traffic, run as a long-lived service.
+- mbpfan (leak; debian:service-unit): Linux fan-control daemon for MacBooks, run as a background service.
+- rrdcached (leak; debian:debtags): RRDtool's caching daemon, a long-running background service.
+- znc (leak; debian:service-unit): IRC bouncer that runs as a background daemon (znc --daemon).
+- spice-vdagent (leak; debian:service-unit): SPICE guest agent that runs as a background service in virtual machines (paired with spice-vdagentd).
+- varnishncsa (leak; debian:debtags): Varnish access-log tool that runs continuously and can daemonize with -D.
+- espeakup (leak; debian:debtags): Daemon that connects the speakup screen reader to espeak speech synthesis.
+- apt-cacher-ng (leak; debian:debtags): Caching proxy for apt packages that runs as a daemon.
+- uptimed (leak; debian:debtags): Daemon that records system uptime records over time.
+- adbd (leak; debian:service-unit): Android Debug Bridge daemon running on Android devices, which are Linux-based.
+- iodine (leak; debian:debtags): The iodine project's server daemon is iodined, which runs in the background; the client iodine is not a daemon.
+- fapolicyd (leak; debian:service-unit): File Access Policy Daemon on RHEL and Fedora systems.
+- dlt-daemon (leak; debian:debtags): COVESA DLT daemon that collects diagnostic log and trace messages, run as a service.
+- dnscache (leak; debian:service-unit): Caching DNS server from djbdns, run as a long-lived service under daemontools.
+- ledmon (leak; debian:service-unit): Enclosure LED monitoring daemon for storage devices on Linux.
+- keyd (leak; debian:debtags, debian:service-unit): Linux key remapping daemon that runs in the background.
+- fcgiwrap (leak; debian:service-unit): FastCGI wrapper that runs as a socket-activated daemon for web servers.
+- accounts-daemon (leak; debian:debtags): AccountsService's daemon on Linux desktops, run as a background service.
+- opensm (leak; debian:service-unit): InfiniBand subnet manager daemon, a long-running service on Linux clusters.
+- cdemu-daemon (leak; debian:debtags): CDEmu daemon that manages virtual optical drives in the background.
+- powerman (leak; debian:service-unit): PowerMan is the cluster power-management project whose daemon is powermand.
+- ser2net (leak; debian:debtags): A daemon that exposes serial ports over the network.
+- leafnode (leak; debian:debtags): A small NNTP news server that runs as a daemon.
+- sslh (leak; debian:debtags): A daemon that multiplexes SSH and SSL/TLS on one port.
+- burp (leak; debian:service-unit): The Burp backup system's server runs as a daemon; the name also means Burp Suite, which is not a Unix daemon.
+- vdr (leak; debian:service-unit): Video Disk Recorder, a DVB recording daemon that runs in the background.
+- bitlbee (leak; debian:debtags): An IRC-to-chat-network gateway that runs as a daemon.
+- shairport-sync (leak; debian:service-unit): An AirPlay audio receiver that runs as a daemon.
+- nsca (leak; debian:debtags): The Nagios Service Check Acceptor, a daemon that receives passive check results.
+- miredo (leak; debian:debtags): A Teredo IPv6 tunnelling daemon.
+- nslcd (leak; debian:debtags): The LDAP name service daemon from nss-pam-ldapd.
+- bird (leak; debian:service-unit, macos:LaunchAgents): The BIRD Internet Routing Daemon.
+- milter-greylist (leak; debian:debtags): A milter daemon that applies greylisting to mail.
+- darkstat (leak; debian:service-unit): A network traffic analyser that runs as a daemon serving its own web interface.
+- miniflux (leak; debian:service-unit): A self-hosted feed-reader server run as a long-lived background service; it is a web app rather than a classic Unix daemon, so this is borderline.
+- c-icap (leak; debian:debtags): The c-icap ICAP server runs as a background daemon (c-icap).
+- pound (leak; debian:debtags): Pound is a reverse proxy and load balancer that runs as a daemon.
+- bamfdaemon (leak; debian:service-unit): bamfdaemon is the background daemon that maps windows to desktop applications on GNOME/Ubuntu desktops.
+- ksmbd (leak; debian:debtags, kernel:kthread): ksmbd is the Linux kernel SMB server, with the userspace ksmbd.mountd daemon; the project name is how people refer to it.
+- unscd (leak; debian:debtags): unscd is a name-service cache daemon, an alternative to nscd.
+- mini-httpd (leak; debian:service-unit): mini_httpd is a small web server by ACME Labs that runs as a daemon.
+- evinced (leak; debian:service-unit): evinced is GNOME Evince's background daemon for document handling.
+- numad (leak; debian:service-unit): numad is the Red Hat NUMA affinity management daemon.
+- hdapsd (leak; debian:debtags): hdapsd is the ThinkPad hard disk active protection daemon.
+- smcroute (leak; debian:debtags): smcroute is a static multicast routing project whose daemon, smcrouted, runs in the background.
+- ngircd (leak; debian:debtags): ngircd is a lightweight IRC server that runs as a daemon.
+- ksmtuned (leak; debian:service-unit): ksmtuned is the Red Hat daemon that tunes Kernel Samepage Merging.
+- fnott (leak; debian:service-unit): fnott is a lightweight Wayland notification daemon.
+- corosync-qdevice (leak; debian:service-unit): corosync-qdevice is the quorum device daemon for corosync clusters.
+- gssproxy (leak; debian:service-unit): gssproxy is a GSS-API proxy daemon that runs in the background.
+- seahorse-daemon (leak; debian:debtags): seahorse-daemon is the GNOME Seahorse background daemon for keyring and SSH key handling.
+- wsdd2 (leak; debian:service-unit): wsdd2 is a WS-Discovery daemon that makes Linux hosts visible to Windows networks.
+- tayga (leak; debian:service-unit): TAYGA is a NAT64 daemon for Linux.
+- swapspace (leak; debian:debtags): swapspace is a daemon that dynamically manages swap files.
+- snapd (leak; debian:service-unit): snapd is the background daemon that manages Snap packages.
+- sudo_logsrvd (leak; debian:service-unit): sudo_logsrvd is the sudo log server daemon that receives remote session logs.
+- tracd (leak; macos:LaunchDaemons): Trac's standalone long-running web server, named in the Trac documentation.
+- spamass-milter (leak; debian:debtags): A long-running sendmail milter daemon that filters mail through SpamAssassin.
+- crowdsec-firewall-bouncer (leak; debian:service-unit): A CrowdSec component that runs as a background service and updates firewall rules.
+- rinetd (leak; debian:debtags): A TCP port-redirection daemon, documented as a long-running service.
+- pure-ftpd-mysql (leak; debian:debtags): The MySQL-authentication build of the Pure-FTPd FTP daemon, so it is the same daemon under a variant name.
+- tntnet (leak; debian:debtags): A standalone C++ web server daemon from the Tntnet project.
+- samhain (leak; debian:debtags): A host-based intrusion detection system whose samhaind process runs as a daemon.
+- socklog (leak; debian:debtags): A logging suite from the runit family whose socklog-unix and klog services run as daemons.
+- popa3d (leak; debian:debtags): A POP3 mail server daemon by Solar Designer.
+- redsocks (leak; debian:debtags): A transparent SOCKS redirector daemon for Linux.
+- yubikey-touch-detector (leak; debian:service-unit): A background user service that notifies when a YubiKey awaits touch.
+- rbldnsd (leak; debian:debtags): A small DNS daemon that serves DNSBL zones.
+- upowerd (leak; debian:debtags): The UPower power-management daemon, named in the scope spec as a hardware daemon.
+- portsentry (leak; debian:debtags): A port-scan detection daemon from Psionic, run as a long-lived process.
+- saned (leak; debian:debtags): The SANE network scanner daemon, which serves scanners over the network.
+- ndppd (leak; debian:debtags): NDP proxy daemon for Linux and BSD, a real long-running service.
+- mpdscribble (leak; debian:debtags): Long-running Music Player Daemon scrobbler service.
+- systemd-localed (leak; debian:debtags): systemd's locale and keymap D-Bus daemon.
+- systemd-logind (leak; debian:debtags): systemd's login and seat manager daemon.
+- v86d (leak; debian:debtags): User-space helper daemon for the Linux uvesafb video driver.
+- ntfy (leak; debian:service-unit): The ntfy notification server runs as a long-lived service daemon.
+- vblade (leak; debian:service-unit): ATA-over-Ethernet target server that runs continuously to export disks.
+- aprx (leak; debian:service-unit): APRS internet gateway daemon, run as a long-lived service.
+- cwdaemon (leak; debian:debtags): Daemon that keys CW (Morse) output for amateur radio software.
+- ayatana-indicator-sound (leak; debian:service-unit): Long-running Ayatana sound indicator service started in the user session.
+- clamav-milter (leak; debian:debtags): ClamAV mail filter daemon that runs under Sendmail or Postfix.
+- inetutils-inetd (leak; debian:debtags): The inetd super-server from GNU inetutils; same daemon as inetd.
+- oidentd (leak; debian:debtags): An RFC 1413 ident server daemon for Unix-like systems, documented in its own project and packaged by distros.
+- e2guardian (leak; debian:service-unit): A content-filtering web proxy that runs as a daemon, with its own project and packages.
+- gvfs-daemon (leak; debian:service-unit): The GNOME GVFS daemon binary, a long-running process that serves virtual filesystems.
+- gvfsd (leak; debian:service-unit): The GVFS daemon that manages mounts and backends in GNOME's virtual filesystem layer.
+- lvmpolld (leak; debian:service-unit): The LVM polling daemon that tracks background LVM operations, shipped in lvm2.
+- speech-dispatcherd (leak; debian:debtags): Speech Dispatcher's daemon is speech-dispatcher; the typed 'd' suffix is an extra letter, not a different program.
+- lldpad (leak; debian:service-unit): The Linux LLDP agent daemon from open-lldp, which runs as a long-lived process.
+- gvfsd-dnssd (leak; debian:service-unit): A GVFS backend daemon in GNOME's gvfs source that handles DNS-SD network browsing.
+- gvfsd-wsdd (leak; debian:service-unit): A GVFS backend daemon in GNOME's gvfs source that handles WS-Discovery browsing.
+- avahi-dnsconfd (leak; debian:debtags): Avahi's DNS configuration helper daemon, which is shipped with avahi.
+- mptcpd (leak; debian:service-unit): The Multipath TCP path-manager daemon from the mptcpd project, which runs as a service.
+- uuidd (leak; debian:service-unit): The UUID generation daemon shipped in util-linux, documented in its man page.
+- fprobe (race; debian:debtags): A NetFlow probe that runs as a daemon and is packaged on Debian and other distros.
+- qemu-vmsr-helper (race; debian:service-unit): A QEMU helper daemon that performs MSR access for VMs, shipped with QEMU 7.2 and later.
+- soju (race; debian:service-unit): An IRC bouncer that runs as a long-lived daemon, documented in its project.
+- ratbagd (race; debian:debtags): The libratbag D-Bus daemon that configures gaming mice, part of the libratbag project.
+- bacula-fd (race; debian:debtags): The Bacula File Daemon, a long-running backup agent documented in the Bacula manual.
+- smartdns (race; debian:service-unit): smartdns is a DNS server daemon from the pymumu project that runs as a long-lived service.
+- ceph-mon (race; debian:service-unit): ceph-mon is the Ceph cluster monitor daemon, named in Ceph's docs and source.
+- lcdproc (race; debian:debtags): LCDproc is the project whose server, LCDd, is a daemon driving LCD displays.
+- inetutils-syslogd (race; debian:debtags): It is GNU inetutils' syslog daemon, whose program is syslogd; inetutils-syslogd is the Debian package name.
+- charon-systemd (race; debian:service-unit): charon is strongSwan's IKE daemon; charon-systemd is the Debian package build of it.
+- nodm (race; debian:debtags): nodm is the 'no display manager' daemon that starts an X session automatically at boot.
+- softflowd (race; debian:service-unit): softflowd is a daemon that captures traffic and exports NetFlow records.
+- gsd-keyboard (race; debian:debtags): gsd-keyboard is the keyboard plugin of GNOME Settings Daemon, which runs as a background process.
+- gsd-smartcard (race; debian:debtags): gsd-smartcard is the smartcard plugin of GNOME Settings Daemon, which runs as a background process.
+- gsd-sound (race; debian:debtags): gsd-sound is the sound plugin of GNOME Settings Daemon, which runs as a background process.
+- prometheus-exporter-exporter (race; debian:service-unit): exporter_exporter is a long-running proxy daemon for Prometheus exporters; the guess is a loose form of its name.
+- goa-daemon (race; debian:debtags): goa-daemon is the GNOME Online Accounts D-Bus daemon.
+- radsecproxy (race; debian:service-unit): radsecproxy is a daemon that proxies RADIUS traffic over TLS.
+- xfconfd (race; debian:service-unit): xfconfd is the Xfce configuration daemon that serves settings over D-Bus.
+- readsb (race; debian:service-unit): readsb is an ADS-B decoder that runs as a daemon, a fork of dump1090.
+- bpftune (race; debian:service-unit): bpftune is Oracle's daemon that auto-tunes Linux kernel settings using BPF.
+- plymouthd (race; debian:service-unit): plymouthd is the Plymouth boot splash daemon, which runs during boot.
+- blkmapd (race; debian:debtags): blkmapd is the pNFS block-layout mapping daemon shipped in nfs-utils.
+- nfs-idmapd (race; debian:debtags): The NFSv4 ID-mapping daemon, usually called rpc.idmapd and started as nfs-idmapd on many Linux systems.
+- rpc-gssd (race; debian:debtags): The client-side Kerberos GSS-API daemon for NFS, from nfs-utils.
+- rpc-svcgssd (race; debian:debtags): The server-side Kerberos GSS-API daemon for NFS, from nfs-utils.
+- rpc.idmapd (race; debian:debtags): The NFSv4 ID-mapping daemon from nfs-utils.
+- sniproxy (race; debian:service-unit): A daemon that proxies TLS and HTTP by reading the SNI or Host name.
+- mimedefang (race; debian:service-unit): A mail-filter daemon that runs with sendmail or Postfix.
+- restic-rest-server (race; debian:service-unit): A daemon that serves restic backup repositories over HTTP.
+- winbindd (race; debian:debtags): Samba's daemon that maps Windows domain users and groups to Unix IDs.
+- plasma-kded (race; debian:service-unit): The KDE Daemon (kded5 or kded6) that runs in the background of KDE Plasma; the guess is a prefixed name for it.
+- bip (race; debian:debtags): An IRC bouncer that runs as a background daemon to keep connections open.
+- plasma-kactivitymanagerd (race; debian:service-unit): The KDE Activities manager daemon that runs with Plasma.
+- openbsd-inetd (race; debian:debtags): Debian's package for OpenBSD's inetd, which runs as the inetd super-server daemon.
+- spice-webdavd (race; debian:service-unit): The SPICE guest daemon that exposes shared folders over WebDAV.
+- spacenavd (race; debian:debtags): The Linux daemon that reads 3Dconnexion SpaceMouse devices.
+- atftpd (race; debian:debtags): A TFTP server daemon.
+- valkey-server (race; debian:service-unit): The server daemon of Valkey, the Redis fork.
+- tumblerd (race; debian:service-unit): Xfce's thumbnail-generation daemon.
+- ctdb (race; debian:debtags): The clustered-database daemon (CTDB) used by Samba clusters.
+- courier-authdaemon (race; debian:debtags): The Courier mail suite's authentication daemon, started as courier-authdaemon on Debian.
+- gearmand (race; debian:debtags): The Gearman job-server daemon.
+- nbd-server (race; debian:debtags): Network Block Device server daemon shipped with nbd-tools and used on Linux systems.
+- yubikey-agent (race; debian:service-unit): Background ssh-agent-style daemon that holds keys on a YubiKey, by Filippo Valsorda.
+- fwlogwatch (race; debian:debtags): Firewall log watcher that runs as a background daemon and reads syslog.
+- usbguard-notifier (race; debian:service-unit): Background notifier service from the USBGuard project that runs in the user session.
+- boltd (race; debian:service-unit): The bolt daemon that manages Thunderbolt device authorization on Linux.
+- p910nd (race; debian:debtags): Printer port daemon that serves HP printers over a raw TCP port, used on Linux.
+- biboumi (race; debian:service-unit): XMPP-to-IRC gateway that runs as a long-lived server daemon.
+- rdnssd (race; debian:debtags): IPv6 router advertisement DNS daemon that configures resolvers on Linux.
+- hv-kvp-daemon (race; debian:service-unit): Hyper-V Key-Value Pair daemon run inside Linux guests, documented in the kernel's Hyper-V tools.
+- hv-vss-daemon (race; debian:service-unit): Hyper-V Volume Shadow Copy daemon run inside Linux guests, from the kernel's Hyper-V tools.
+- bacula-sd (race; debian:debtags): Bacula Storage Daemon, a background backup-storage server.
+- ayatana-indicator-keyboard (race; debian:service-unit): Ayatana indicator service that runs as a background user service on Linux desktops.
+- nullidentd (race; debian:debtags): A fake ident (RFC 1413) server daemon that answers identd queries without real lookups.
+- systemd-mountfsd (race; debian:service-unit): systemd helper daemon for mounting disk images on behalf of unprivileged users, in recent systemd releases.
+- systemd-nsresourced (race; debian:service-unit): systemd daemon that allocates user namespace resources, in recent systemd releases.
+- jitterentropy-rngd (race; debian:service-unit): Random-number daemon from the jitterentropy project that feeds entropy to the kernel.
+- opentracker (race; debian:service-unit): BitTorrent tracker server that runs as a long-lived daemon.
+- nmbd (race; debian:debtags): Samba's NetBIOS name service daemon.
+- scanbd (race; debian:service-unit): Scanner button daemon that watches scanner buttons on Linux and runs actions.
+- sndiod (race; debian:service-unit): OpenBSD's audio server daemon.
+- minidlnad (race; debian:debtags): MiniDLNA media server daemon serving DLNA/UPnP clients.
+- slurmd (race; debian:service-unit): Slurm node daemon that runs on compute nodes of the Slurm workload manager.
+- sanlock (race; debian:service-unit): A lock-manager daemon for shared storage, shipped with oVirt and Red Hat's virtualization stack.
+- virtlogd (race; debian:debtags): libvirt's logging daemon, which runs alongside libvirtd to handle guest console logs.
+- scanlogd (race; debian:debtags): A port-scan detection daemon by Solar Designer that logs TCP scans.
+- kea-ctrl-agent (race; debian:service-unit): The control agent daemon of ISC's Kea DHCP suite, which serves a REST API.
+- virtlockd (race; debian:debtags): libvirt's lock manager daemon, which guards disk images against concurrent use.
+- gdomap (race; debian:service-unit): GNUstep's port-mapper daemon for distributed objects.
+- ziproxy (race; debian:service-unit): A long-running HTTP proxy that recompresses images on the fly.
+- prometheus-nginx-exporter (race; debian:service-unit): A long-running HTTP exporter that serves nginx metrics to Prometheus.
+- gnome-remote-desktop-daemon (race; debian:service-unit): The GNOME Remote Desktop session daemon that serves RDP and VNC.
+- nfsdcld (race; debian:debtags): The Linux NFSv4 client-tracking daemon from nfs-utils.
+- rpc.mountd (race; debian:debtags): The NFS mount daemon from nfs-utils that answers mount requests.
+- rpc.nfsd (race; debian:debtags): The user-space NFS server daemon from nfs-utils.
+- gkrellmd (race; debian:debtags): The gkrellm system-monitor server daemon that serves metrics to remote clients.
+- clamd (race; debian:debtags): The ClamAV antivirus scanning daemon.
+- hitch (race; debian:service-unit): A TLS termination proxy daemon written by the Varnish project.
+- g15daemon (race; debian:service-unit): The daemon that drives Logitech G15 keyboard LCDs on Linux.
+- knxd (race; debian:service-unit): A KNX building-automation gateway daemon for Linux.
+- bluetoothd (race; debian:service-unit, macos:LaunchDaemons): The BlueZ Bluetooth daemon on Linux and BSD.
+- mpris-proxy (race; debian:service-unit): A BlueZ background proxy that bridges Bluetooth media controls to MPRIS, run as a long-lived process.
+- ladvd (race; debian:debtags): A Link Layer Advertisement Discovery (LLDP/CDP) daemon documented in ladvd(8).
+- arpalert (race; debian:debtags): An ARP-monitoring daemon that watches the network and raises alerts.
+- icingadb (race; debian:service-unit): The long-running Icinga DB daemon that syncs monitoring data from Icinga 2 into a database.
+- prometheus-postfix-exporter (race; debian:service-unit): A long-running Prometheus exporter daemon for Postfix (kumina/postfix_exporter).
+- conntrackd (race; debian:debtags): The conntrack-tools daemon that synchronises netfilter connection tracking state between firewalls.
+- endlessh (race; debian:service-unit): An SSH tarpit daemon documented in endlessh(1) that slowly stalls connecting clients.
+- svxlink (race; debian:service-unit): A long-running amateur-radio voice repeater and linking daemon that runs in the background.
+- yggdrasil (race; debian:service-unit): The yggdrasil mesh-networking daemon that runs as a background service on Unix-like systems.
+- prometheus-snmp-exporter (race; debian:service-unit): A Prometheus exporter daemon that polls SNMP devices and serves their metrics.
+- knotd (race; debian:service-unit): The Knot DNS authoritative server daemon, documented in knotd(8).
+- prometheus-varnish-exporter (race; debian:service-unit): A Prometheus exporter daemon for Varnish Cache metrics.
+- conserver (race; debian:debtags): The conserver console-server daemon that multiplexes serial and console connections, documented in conserver(8).
+- anope (race; debian:service-unit): The Anope IRC services daemon, which runs as a long-lived server process on IRC networks.
+- zabbix_agent2 (race; debian:service-unit): The Zabbix Agent 2 monitoring daemon, a long-running agent process.
+- gammu-smsd (race; debian:debtags): The Gammu SMS daemon (smsd) that queues and sends SMS messages through a modem in the background.
+- sysprofd (race; debian:service-unit): The Sysprof profiling daemon, which runs in the background as a D-Bus-activated service.
+- systemd-userdbd (race; debian:service-unit): A systemd daemon that provides user and group records to NSS, documented in systemd-userdbd.service(8).
+- slurmctld (race; debian:service-unit): The Slurm controller daemon, a long-running HPC scheduler service named in Slurm's own docs.
+- stubby (race; debian:service-unit): A DNS privacy stub resolver that runs as a background daemon, from the getdns project.
+- ibacm (race; debian:service-unit): The InfiniBand Communication Manager Assistant daemon, shipped in rdma-core.
+- dhcp-helper (race; debian:service-unit): A DHCP/BOOTP relay daemon that forwards requests between subnets.
+- restorecond (race; debian:service-unit): The SELinux daemon that watches files and restores their security contexts, shipped in policycoreutils.
+- prometheus-libvirt-exporter (race; debian:service-unit): A long-running metrics exporter service that serves libvirt stats over HTTP for Prometheus.
+- mdnsd (race; debian:service-unit): A multicast DNS responder daemon, the mDNS service in the mdnsd implementation.
+- quota_nld (race; debian:service-unit): The Linux quota netlink daemon, shipped in the quota package.
+- postsrsd (race; debian:service-unit): The Postfix Sender Rewriting Scheme daemon, a long-running mail helper.
+- lxsettings-daemon (race; debian:debtags): The LXDE settings daemon from lxsession, a background service.
+- krb5-kpropd (race; debian:service-unit): The Kerberos propagation daemon, packaged as krb5-kpropd on Debian.
+- ircd-hybrid (race; debian:debtags): An IRC server daemon, the ircd-hybrid project's long-running server.
+- perdition (race; debian:debtags): A POP3 and IMAP proxy daemon that routes mail sessions to backend servers.
+- zeitgeist-daemon (race; debian:debtags): Zeitgeist's activity-logging daemon, shipped as zeitgeist-daemon in GNOME-era desktops.
+- arpon (race; debian:service-unit): ARPON is an ARP-monitoring daemon packaged in Debian.
+- monopd (race; debian:debtags): The game server daemon for GNU Monopoly.
+- systemd-journal-upload (race; debian:service-unit): systemd's background service that ships journal entries to a remote receiver.
+- atalkd (race; debian:service-unit): The AppleTalk routing daemon from netatalk.
+- papd (race; debian:service-unit): The AppleTalk Printer Access Protocol daemon from netatalk.
+- in.tftpd (race; debian:debtags): The classic TFTP server daemon, run from inetd or standalone on BSD and Linux.
+- snapserver (race; debian:service-unit): The Snapcast server daemon that streams synchronized audio.
+- systemd-oomd (race; debian:service-unit): systemd's userspace out-of-memory killer daemon.
+- svxreflector (race; debian:service-unit): The reflector server daemon in the SvxLink project.
+- tqftpserv (race; debian:service-unit): Qualcomm's TFTP server daemon used on Linux devices with remote processors.
+- diskd (race; debian:service-unit): Squid's disk I/O helper daemon.
+- unlinkd (race; debian:service-unit): Squid's helper daemon that deletes cached files from disk.
+- hwlatd (race; kernel:kthread): The Linux kernel thread for the hardware latency detector.
+- lxd-agent (race; debian:service-unit): The LXD guest agent runs as a background service inside virtual machines.
+- upsd (race; debian:debtags): The Network UPS Tools server daemon that serves UPS status over the network.
+- gamemoded (race; debian:debtags): Feral GameMode's background daemon for Linux game performance tuning.
+- corosync-qnetd (race; debian:service-unit): The corosync QDevice network daemon used in Pacemaker cluster quorum.
+- krb5kdc (race; debian:debtags): The MIT Kerberos Key Distribution Center daemon.
+- aprsdigi (race; debian:debtags): An APRS digipeater program from the Linux AX.25 ham radio suite that runs as a background process.
+- pommed (race; debian:debtags): A Linux daemon that handles Apple laptop hotkeys and backlight control.
+- openhpid (race; debian:debtags): The OpenHPI daemon that serves the Hardware Platform Interface.
+- iscsiuio (race; debian:service-unit): The open-iscsi userspace daemon that works with iSCSI offload NICs.
+- istgt (race; debian:debtags): An iSCSI target daemon for Unix-like systems.
+- poppassd (race; debian:debtags): A Unix daemon that lets users change their mail passwords over the network.
+- evremap (race; debian:service-unit): A Linux key remapping program that runs continuously in the background.
+- systemd-hostnamed (race; debian:debtags): systemd's hostname daemon, documented as a daemon in its man pages.
+- systemd-socket-proxyd (race; debian:debtags): systemd's socket proxy daemon, documented as a daemon in its man pages.
+- systemd-timedated (race; debian:debtags): systemd's time and date daemon, documented as a daemon in its man pages.
+- snapperd (race; debian:service-unit): The snapper D-Bus daemon that manages Btrfs and LVM snapshots, used on openSUSE.
+- kadmind (race; debian:debtags, macos:LaunchDaemons): The MIT Kerberos administration daemon.
+- bfdd (race; debian:service-unit): FRR's BFD (Bidirectional Forwarding Detection) routing daemon.
+- bgpd (race; debian:service-unit): The BGP routing daemon in Quagga and FRR.
+- eigrpd (race; debian:service-unit): Quagga and FRR's EIGRP routing daemon.
+- fabricd (race; debian:service-unit): FRR's OpenFabric routing daemon.
+- isisd (race; debian:service-unit): The IS-IS routing daemon in Quagga and FRR.
+- lcd4linux (race; debian:service-unit): A program that runs as a background daemon to drive LCD displays on Linux.
+- ldpd (race; debian:service-unit): The LDP (Label Distribution Protocol) daemon in FRR and OpenBSD.
+- mgmtd (race; debian:service-unit): FRR's management daemon that holds the configuration datastore.
+- nhrpd (race; debian:service-unit): FRR's NHRP (Next Hop Resolution Protocol) daemon.
+- ospf6d (race; debian:service-unit): The OSPFv3 (IPv6) routing daemon in Quagga and FRR.
+- ospfd (race; debian:service-unit): The OSPF routing daemon in Quagga and FRR.
+- pathd (race; debian:service-unit): FRR's segment-routing path daemon.
+- pbrd (race; debian:service-unit): FRR's policy-based routing daemon.
+- pim6d (race; debian:service-unit): FRR's PIM for IPv6 multicast daemon.
+- pimd (race; debian:debtags, debian:service-unit): FRR's PIM (Protocol Independent Multicast) daemon.
+- ripd (race; debian:service-unit): The RIP routing daemon in Quagga and FRR.
+- ripngd (race; debian:service-unit): The RIPng (IPv6 RIP) routing daemon in Quagga and FRR.
+- staticd (race; debian:service-unit): FRR's static route daemon.
+- vrrpd (race; debian:service-unit): FRR's VRRP (Virtual Router Redundancy Protocol) daemon.
+- valkey-sentinel (race; debian:service-unit): Valkey's sentinel monitoring server, a fork of redis-sentinel, run as a daemon.
+- rmtfs (race; debian:service-unit): Qualcomm's remote filesystem service daemon for modem firmware storage, shipped on Linux and Android devices.
+- bandwidthd (race; debian:debtags): A long-running Linux daemon that records bandwidth usage per host and serves graphs.
+- prometheus-bind-exporter (race; debian:service-unit): A long-running Prometheus exporter daemon for BIND, known upstream as bind_exporter (Debian packages it as prometheus-bind-exporter).
+- eg25-manager (race; debian:service-unit): A daemon from the PinePhone and postmarketOS ecosystem that powers and manages the Quectel EG25 modem.
+- multipathd (race; debian:service-unit): The device-mapper multipath daemon from multipath-tools on Linux.
+- vnstatd (race; debian:service-unit): The vnStat network traffic monitor's background daemon on Linux and BSD.
+- atopacctd (race; debian:service-unit): The process-accounting daemon shipped with the atop system monitor on Linux.
+- oomd (race; debian:service-unit): Meta's userspace out-of-memory killer daemon, open-sourced as facebookincubator/oomd.
+- ofonod (race; debian:service-unit): The oFono telephony daemon binary on Linux.
+- osspd (race; debian:service-unit): The OSS proxy daemon that gives OSS4 audio clients access on Linux.
+- kresd (race; debian:service-unit): The Knot Resolver daemon, a long-running recursive DNS resolver.
+- owserver (race; debian:service-unit): The 1-Wire network server daemon from the OWFS project.
+- xmms2d (race; debian:debtags): The XMMS2 music player's background daemon, which runs the playback core.
+- gdnsd (race; debian:service-unit): The authoritative DNS server daemon from the gdnsd project.
+- nftlb (race; debian:service-unit): The nftables load-balancer daemon from the Zevenet project.
+- prometheus-bird-exporter (race; debian:service-unit): A long-running Prometheus exporter daemon for the BIRD routing daemon, known upstream as bird_exporter.
+- lircd (race; debian:service-unit): The Linux Infrared Remote Control daemon, lircd.
+- lircmd (race; debian:service-unit): The LIRC daemon that turns infrared remote presses into mouse events.
+- prometheus-smokeping-prober (race; debian:service-unit): A long-running Prometheus exporter that sends ICMP probes, known upstream as smokeping_prober.
+- infnoise (race; debian:service-unit): The infnoised daemon from the Infinite Noise TRNG project, which feeds random numbers to the kernel.
+- cvsd (race; debian:debtags): The chroot-jailed CVS server daemon packaged for Debian and Ubuntu.
+- ipmidetectd (race; debian:service-unit): Daemon from LLNL's ipmidetect package that monitors nodes over IPMI.
+- ctdbd (race; debian:debtags): The CTDB cluster daemon used with Samba on clustered file servers.
+- ovs-vswitchd (race; debian:service-unit): The Open vSwitch forwarding daemon, documented in its man pages.
+- slurmdbd (race; debian:service-unit): The Slurm accounting database daemon, documented in the Slurm man pages.
+- binkd (race; debian:debtags): A long-running FidoNet mailer daemon for Unix systems.
+- prometheus-mysqld-exporter (race; debian:service-unit): The Prometheus MySQL metrics exporter, a long-running HTTP server.
+- openbgpd (race; debian:service-unit): The OpenBGPD project, whose bgpd daemon is the BGP routing service.
+- dbskkd-cdb (race; debian:debtags): A dictionary server daemon for the SKK Japanese input method.
+- owhttpd (race; debian:service-unit): The HTTP daemon of the OWFS One-Wire File System suite.
+- kea-dhcp4 (race; debian:service-unit): The ISC Kea DHCPv4 server daemon, documented in its own manual.
+- owftpd (race; debian:service-unit): The FTP daemon of the OWFS One-Wire File System suite.
+- armagetronad-dedicated (race; debian:service-unit): The dedicated server binary for Armagetron Advanced, a background game server.
+- bumblebeed (race; debian:service-unit): The Bumblebee daemon that manages NVIDIA Optimus graphics on Linux.
+- iwpmd (race; debian:service-unit): The iWARP port mapper daemon from the rdma-core project.
+- rdma-ndd (race; debian:service-unit): The RDMA node-description daemon from the rdma-core project.
+- babeld (race; debian:service-unit): The Babel distance-vector routing daemon, documented in its man page.
+- olad (race; debian:debtags): The OLA (Open Lighting Architecture) server daemon for DMX lighting control.
+- ceph-crash (race; debian:service-unit): Ceph's crash-report collector daemon, which runs on each cluster node.
+- pure-authd (race; debian:debtags): Pure-FTPd's authentication daemon, which checks logins against external backends.
+- pure-certd (race; debian:debtags): Pure-FTPd's TLS certificate daemon, which handles SSL certificates for the FTP server.
+- amuled (race; debian:debtags): The headless, daemon build of the aMule peer-to-peer client.
+- oxenstored (race; debian:service-unit): The OCaml implementation of the Xen XenStore daemon.
+- xen-kdd (race; debian:service-unit): Xen's kernel debugger daemon, shipped in the Xen tools.
+- xen-lowmemd (race; debian:service-unit): Xen's low-memory daemon, which balances memory between domains.
+- xenconsoled (race; debian:service-unit): The Xen daemon that provides guest console access.
+- xenpmd (race; debian:service-unit): Xen's power management daemon, which reports ACPI power events.
+- xenstored (race; debian:service-unit): The Xen daemon that runs the XenStore configuration database.
+- xenwatchdogd (race; debian:service-unit): Xen's watchdog daemon, which monitors and restarts guest domains.
+- munged (race; debian:service-unit): The MUNGE authentication daemon used by Slurm and other HPC systems.
+- prometheus-ipmi-exporter (race; debian:service-unit): A Prometheus exporter daemon for IPMI hardware sensors (ipmi_exporter, packaged under this name).
+- cyrus (race; debian:service-unit): The Cyrus IMAP mail server, whose master daemon is how people name the project.
+- swaync (race; debian:service-unit): Sway Notification Center, a notification daemon for Sway and wlroots desktops.
+- unicorn (race; debian:service-unit): The Unicorn Rack HTTP server, which runs as a long-lived daemon behind a reverse proxy.
+- mailutils-pop3d (race; debian:debtags): The POP3 server daemon from GNU Mailutils, packaged under this name.
+- pdns_server (race; debian:debtags): The PowerDNS authoritative DNS server daemon, binary pdns_server.
+- prometheus-redis-exporter (race; debian:service-unit): A long-running Prometheus exporter service for Redis, packaged as a daemon in Debian.
+- lvmlockd (race; debian:service-unit): The LVM lock manager daemon, documented in its own lvmlockd(8) man page.
+- pdns_recursor (race; debian:debtags): The PowerDNS Recursor DNS resolver, run as a long-lived server daemon.
+- tcsd (race; debian:service-unit): The TrouSerS TCS daemon that mediates access to the TPM.
+- nullmailer-send (race; debian:debtags): The nullmailer queue-runner daemon, documented in nullmailer-send(8).
+- nullmailer-smtpd (race; debian:debtags): The nullmailer SMTP listener daemon, documented in nullmailer-smtpd(8).
+- kea-dhcp-ddns (race; debian:service-unit): The DHCP-DDNS update daemon from ISC's Kea suite.
+- kea-dhcp6 (race; debian:service-unit): The DHCPv6 server daemon from ISC's Kea suite.
+- ipwatchd (race; debian:debtags): A daemon that watches ARP traffic for IP address conflicts, packaged in Debian.
+- openiked (race; debian:service-unit): The portable OpenBSD IKEv2 key-exchange daemon (iked).
+- stayrtr (race; debian:service-unit): An RPKI-to-Router (RTR) cache server run as a long-lived service.
+- kpropd (race; debian:service-unit): The Kerberos database propagation daemon, documented in kpropd(8).
+- mailutils-imap4d (race; debian:debtags): The IMAP server daemon from GNU Mailutils, usually named imap4d.
+- ekeyd (race; debian:debtags): The Entropy Key daemon that feeds hardware random numbers to the system.
+- rblsmtpd (race; debian:debtags): An SMTP proxy that checks RBL blocklists, run as a network service under tcpserver.
+- oddjobd (race; debian:service-unit): Red Hat's oddjob daemon that runs privileged helper tasks over D-Bus.
+- prometheus-elasticsearch-exporter (race; debian:service-unit): A long-running Prometheus exporter service for Elasticsearch.
+- bluealsa (race; debian:service-unit): The BlueALSA daemon that exposes Bluetooth audio to ALSA.
+- authdaemond (race; debian:debtags): The Courier authentication daemon, documented in the courier-authlib package.
+- quasselcore (race; debian:service-unit): The Quassel IRC core, a long-running server daemon that keeps connections alive.
+- cf-execd (race; debian:service-unit): CFEngine's executor daemon, which runs scheduled agent jobs; a specialist name most players won't know.
+- cf-monitord (race; debian:service-unit): CFEngine's monitoring daemon, which records system metrics; known mainly to CFEngine users.
+- cf-serverd (race; debian:service-unit): CFEngine's server daemon, which handles remote agent connections; a specialist name.
+- repowerd (race; debian:service-unit): The power-management daemon in Ubuntu Touch (ubports/repowerd), known only to that platform's developers.
+- zabbix_web_service (race; debian:service-unit): Zabbix's web service component, a long-running process that generates reports; the program name is zabbix_web_service.
+- seaf-daemon (race; debian:debtags): The background sync daemon of the Seafile desktop client, named in its source.
+- glusterd (race; debian:service-unit): The GlusterFS management daemon, the main process on every Gluster server node; fairly well known in storage circles.
+- glustereventsd (race; debian:service-unit): The GlusterFS events daemon, which forwards cluster events; a niche name from the Gluster source.
+- in.uucpd (race; debian:debtags): The UUCP server daemon from BSD and netkit networking, launched by inetd; a historical name.
+- uusched (race; debian:debtags): The UUCP scheduler daemon of historical Unix, which starts queued transfers; a historical name.
+- yadifa (race; debian:service-unit): Project name of the authoritative DNS server by .eu (its daemon is yadifad), named as the project.
+- pacemaker-attrd (race; debian:debtags): Pacemaker's attribute manager daemon, a component of the high-availability cluster stack.
+- pacemaker-based (race; debian:debtags): Pacemaker's cluster information base daemon, which holds the cluster configuration.
+- pacemaker-controld (race; debian:debtags): Pacemaker's cluster controller daemon, a component of the high-availability cluster stack.
+- pacemaker-execd (race; debian:debtags): Pacemaker's local resource executor daemon, a component of the high-availability cluster stack.
+- pacemaker-fenced (race; debian:debtags): Pacemaker's fencing daemon, which isolates failed nodes; a component of the cluster stack.
+- pacemaker-schedulerd (race; debian:debtags): Pacemaker's policy engine daemon, which computes cluster actions; a component of the cluster stack.
+- pacemakerd (race; debian:debtags): The Pacemaker master process that launches and supervises the other cluster daemons; known to HA administrators.
+- pgqd (race; debian:service-unit): The PgQ ticker daemon from Skytools, which advances PostgreSQL event queues; a niche name.
+- merecat (race; debian:service-unit): A small Unix HTTP server by Jef Poskanzer, run as a daemon; a niche name.
+- tmate-ssh-server (race; debian:service-unit): The SSH server component of the tmate.io terminal-sharing service, a long-running server process.
+- conman (race; debian:service-unit): LLNL's console management project, whose daemon is conmand; named as the project.
+- pure-ftpd-ldap (race; debian:debtags): The LDAP-enabled build of the Pure-FTPd FTP server daemon, shipped as its own binary.
+- rtpengine (race; debian:debtags): The Sipwise RTP media proxy daemon used with Kamailio and OpenSIPS.
+- snowflake-proxy (race; debian:service-unit): The Tor Project's long-running volunteer proxy program, documented in the Snowflake project.
+- svlogd (race; debian:debtags): runit's logging daemon, documented in its svlogd(8) man page.
+- osmo-mgw (race; debian:service-unit): OsmoMGW, the Osmocom media gateway daemon.
+- prometheus-nextcloud-exporter (race; debian:service-unit): A long-running metrics exporter daemon for Nextcloud, packaged under this name.
+- ha_logd (race; debian:service-unit): The Linux-HA Heartbeat logging daemon.
+- logd (race; debian:service-unit, macos:LaunchDaemons): The Linux-HA/Pacemaker logging daemon.
+- lrmd (race; debian:service-unit): The Pacemaker local resource manager daemon.
+- distccd (race; debian:debtags): The distcc compile-server daemon, documented in its distccd(1) man page.
+- ftpd (race; debian:debtags): The generic FTP server daemon named in the BSD and other Unix ftpd(8) man pages.
+- usbguard-daemon (race; debian:service-unit): The USBGuard daemon, documented as usbguard-daemon(8).
+- osmo-bsc (race; debian:service-unit): OsmoBSC, the Osmocom base station controller daemon.
+- osmo-hlr (race; debian:service-unit): OsmoHLR, the Osmocom home location register daemon.
+- osmo-msc (race; debian:service-unit): OsmoMSC, the Osmocom mobile switching centre daemon.
+- osmo-sgsn (race; debian:service-unit): OsmoSGSN, the Osmocom serving GPRS support node daemon.
+- j1939acd (race; debian:debtags): The J1939 address claiming daemon from can-utils.
+- slcand (race; debian:debtags): The can-utils daemon that attaches serial lines as CAN interfaces.
+- carbon-c-relay (race; debian:service-unit): A long-running Graphite metric relay daemon with its own project and documentation.
+- biometryd (race; debian:service-unit): The biometry service daemon in the UBports (Ubuntu Touch) stack.
+- spice-vdagentd (race; debian:service-unit): The SPICE guest-side system daemon that works with vdagent for clipboard and display integration.
+- srp_daemon (race; debian:service-unit): The InfiniBand SRP discovery daemon shipped with OFED and rdma-core.
+- osmo-ggsn (race; debian:service-unit): The Osmocom GPRS gateway support node daemon, documented in the Osmocom project.
+- osmo-pcu (race; debian:service-unit): The Osmocom packet control unit daemon, documented in the Osmocom project.
+- vip-manager (race; debian:service-unit): A daemon that moves a virtual IP to the current leader in Patroni clusters, from Cybertec.
+- eiskaltdcpp-daemon (race; debian:debtags): The headless daemon build of the EiskaltDC++ Direct Connect client.
+- cfingerd (race; debian:debtags): A configurable finger daemon that answers finger queries on Unix systems.
+- hd-idle (race; debian:service-unit): A daemon that spins down idle hard disks, distributed as a Linux utility.
+- systemd-importd (race; debian:service-unit): The systemd daemon that imports machine and disk images, documented in systemd's man pages.
+- systemd-machined (race; debian:service-unit): The systemd daemon that tracks virtual machines and containers, documented in systemd's man pages.
+- systemd-portabled (race; debian:service-unit): The systemd daemon that manages portable service images, documented in systemd's man pages.
+- nsca-ng (race; debian:service-unit): The next-generation Nagios passive check acceptor daemon, a documented project.
+- tgtd (race; debian:service-unit): The SCSI target daemon of the tgt framework, documented in its project.
+- iceccd (race; debian:debtags): The Icecream distributed compiler daemon that runs on build hosts.
+- iodined (race; debian:debtags): The server daemon of the iodine DNS tunnel, a documented open-source tool.
+- glewlwyd (race; debian:service-unit): A long-running OAuth2 and SSO authorization server with its own project and documentation.
+- iiod (race; debian:service-unit): The Linux Industrial I/O network daemon shipped with libiio.
+- ngetty (race; debian:debtags): A getty replacement daemon that handles terminal logins on Linux.
+- prometheus-apache-exporter (race; debian:service-unit): A long-running metrics exporter daemon for Apache, with its own project.
+- direvent (heisenbug; debian:service-unit): GNU Direvent, a daemon that watches filesystem events and runs commands.
+- gnupg-pkcs11-scd-proxy (heisenbug; debian:service-unit): GnuPG's PKCS#11 smart-card daemon proxy, which gpg-agent runs as a long-lived helper.
+- afpd (heisenbug; debian:service-unit): Apple Filing Protocol daemon in netatalk.
+- cnid_dbd (heisenbug; debian:service-unit): netatalk's CNID database daemon.
+- cnid_metad (heisenbug; debian:service-unit): netatalk's CNID metadata daemon.
+- mako (heisenbug; debian:service-unit): Mako, a lightweight Wayland notification daemon on Linux.
+- yppasswdd (heisenbug; debian:service-unit): The NIS password-change daemon, which runs on the NIS master.
+- ypxfrd (heisenbug; debian:service-unit): The NIS map-transfer daemon.
+- parsec (heisenbug; debian:service-unit): The Parsec security service, a daemon that serves clients over a Unix socket.
+- ampr-ripd (heisenbug; debian:service-unit): The AMPRnet RIP routing daemon for Linux.
+- solid-pop3d (heisenbug; debian:debtags): Solid POP3D, a POP3 mail server daemon.
+- i8kmon (heisenbug; debian:service-unit): The i8kutils fan and temperature monitor daemon for Dell laptops.
+- dicod (heisenbug; debian:debtags): GNU Dico's DICT protocol server daemon.
+- ipmiseld (heisenbug; debian:service-unit): FreeIPMI's daemon that logs IPMI System Event Log entries.
+- lomiri-url-dispatcher (heisenbug; debian:service-unit): Lomiri's (Ubuntu Touch) URL dispatcher daemon, a fork of url-dispatcher.
+- mailutils-comsatd (heisenbug; debian:debtags): GNU Mailutils' comsat daemon, the same role as comsat.
+- powermand (heisenbug; debian:service-unit): The PowerMan power-control daemon from LLNL.
+- budgie-extras-daemon (heisenbug; debian:debtags): A daemon from the Budgie desktop extras.
+- connman-vpnd (heisenbug; debian:service-unit): ConnMan's VPN daemon.
+- nfcapd (heisenbug; debian:debtags): The nfdump NetFlow capture daemon.
+- nfpcapd (heisenbug; debian:debtags): Long-running NetFlow capture daemon from the nfdump suite.
+- approx (heisenbug; debian:debtags): Caching proxy daemon for Debian package repositories.
+- slurmrestd (heisenbug; debian:service-unit): Slurm's long-running REST API daemon, alongside slurmd and slurmctld.
+- sogod (heisenbug; debian:service-unit): The SOGo groupware server daemon.
+- mtail (heisenbug; debian:service-unit): Google's log-to-metrics daemon, run as a long-lived service.
+- prometheus-haproxy-exporter (heisenbug; debian:service-unit): Long-running Prometheus exporter daemon for HAProxy, packaged under this name.
+- hfaxd (heisenbug; debian:debtags): HylaFAX server daemon that handles client fax requests.
+- renderd (heisenbug; debian:service-unit): mod_tile's long-running daemon that renders OpenStreetMap tiles.
+- lttng-sessiond (heisenbug; debian:service-unit): LTTng's session daemon, which manages tracing sessions.
+- sbd (heisenbug; debian:service-unit): The Storage-Based Death daemon used for fencing in Pacemaker clusters.
+- crossfire-server (heisenbug; debian:debtags): The Crossfire multiplayer game server, run as a daemon.
+- systemd-homed (heisenbug; debian:service-unit): systemd's home-directory management daemon.
+- webfsd (heisenbug; debian:debtags): A small standalone web server daemon, webfs.
+- contactsd (heisenbug; debian:service-unit, macos:LaunchAgents): macOS background daemon for the Contacts framework, shipped in /usr/libexec.
+- fwknopd (heisenbug; debian:service-unit): The server daemon of the fwknop single-packet-authorization firewall project.
+- ckb-next-daemon (heisenbug; debian:service-unit): The background daemon of the ckb-next driver for Corsair keyboards and peripherals on Linux and macOS.
+- chasquid (heisenbug; debian:service-unit): A small SMTP server daemon from the chasquid mail project.
+- pgagroal (heisenbug; debian:service-unit): A PostgreSQL connection pool that runs as a long-lived server process.
+- prometheus-dnsmasq-exporter (heisenbug; debian:service-unit): A long-running metrics exporter daemon for dnsmasq, part of the Prometheus ecosystem.
+- logid (heisenbug; debian:service-unit): The background daemon of the logiops project, which configures Logitech input devices on Linux.
+- yubihsm-connector (heisenbug; debian:service-unit): The Yubico HTTP connector daemon that brokers access to a YubiHSM.
+- imap4d (heisenbug; debian:debtags): The IMAP server daemon shipped with GNU Mailutils.
+- nutcracker (heisenbug; debian:service-unit): The binary of twemproxy (nutcracker), a long-running Redis and Memcached proxy daemon.
+- clamsmtpd (heisenbug; debian:debtags): An SMTP filter daemon that scans mail with ClamAV.
+- isnsdd (heisenbug; debian:service-unit): The iSNS (Internet Storage Name Service) server daemon from the isns-utils package on Linux; moderate confidence.
+- pmcd (heisenbug; debian:service-unit): The Performance Co-Pilot collector daemon that serves metrics to PCP clients.
+- pmie (heisenbug; debian:service-unit): Performance Co-Pilot's Performance Metrics Inference Engine, a long-running monitoring daemon.
+- pmlogger (heisenbug; debian:service-unit): Performance Co-Pilot's archive logging daemon, a long-running service.
+- systemd-journal-gatewayd (heisenbug; debian:service-unit): systemd's HTTP gateway daemon for the journal, socket-activated and long-running.
+- partimaged (heisenbug; debian:service-unit): The partimage server daemon for remote partition imaging.
+- smcrouted (heisenbug; debian:debtags): The smcroute daemon that manages static multicast routes.
+- argus (heisenbug; debian:debtags): The Argus network audit daemon that generates flow records.
+- shibd (heisenbug; debian:service-unit): The Shibboleth Service Provider daemon.
+- afsd (heisenbug; debian:service-unit): The AFS cache manager daemon, which runs as a long-lived service.
+- couriertcpd (heisenbug; debian:debtags): The Courier mail suite's TCP server daemon that accepts connections.
+- gotd (heisenbug; debian:service-unit): OpenBSD's Game of Trees (got) server daemon.
+- receptor (heisenbug; debian:service-unit): The Receptor mesh networking daemon from Ansible Automation Platform.
+- srcpd (heisenbug; debian:service-unit): The SRCP server daemon for model railway control.
+- isnsd (heisenbug; debian:service-unit): The iSNS server daemon used with iSCSI.
+- amidxtaped (heisenbug; debian:debtags): AMANDA's tape index daemon, which serves tape-restore requests.
+- amindexd (heisenbug; debian:debtags): AMANDA's index server daemon.
+- smsd (heisenbug; debian:debtags): The SMS gateway daemon from the Gammu project, run as a long-lived service on Unix systems.
+- prometheus-squid-exporter (heisenbug; debian:service-unit): A long-running metrics exporter daemon for the Squid proxy, packaged under this name on Debian-based systems.
+- garbd (heisenbug; debian:service-unit): The Galera Arbitrator daemon, a cluster member that runs as a background service in MariaDB/Galera deployments.
+- ksmbd.mountd (heisenbug; debian:debtags): The userspace management daemon for the Linux kernel SMB server (ksmbd-tools).
+- nfacctd (heisenbug; debian:service-unit): The NetFlow/IPFIX collection daemon in the pmacct accounting suite.
+- pmacctd (heisenbug; debian:service-unit): The libpcap-based traffic accounting daemon in the pmacct suite.
+- pmbgpd (heisenbug; debian:service-unit): The BGP daemon in the pmacct suite.
+- pmbmpd (heisenbug; debian:service-unit): The BMP (BGP Monitoring Protocol) daemon in the pmacct suite.
+- pmtelemetryd (heisenbug; debian:service-unit): The streaming telemetry daemon in the pmacct suite.
+- sfacctd (heisenbug; debian:service-unit): The sFlow collection daemon in the pmacct suite.
+- uacctd (heisenbug; debian:service-unit): The Linux ULOG/NFLOG accounting daemon in the pmacct suite.
+- ns-slapd (heisenbug; debian:service-unit): The LDAP directory server daemon of 389 Directory Server (formerly Fedora Directory Server).
+- onak (heisenbug; debian:debtags): An open-source OpenPGP keyserver that runs as a network server daemon.
+- atheme-services (heisenbug; debian:service-unit): The Atheme IRC services daemon that provides channel and nickname services on IRC networks.
+- swayosd-libinput-backend (heisenbug; debian:service-unit): The privileged backend daemon of SwayOSD that listens to libinput events, run as its own systemd service.
+- Orthanc (heisenbug; debian:service-unit): A DICOM medical imaging server that runs as a background service under its project name.
+- ergochat (heisenbug; debian:service-unit): The Ergo IRC server (the ergo daemon), a long-running IRC network server.
+- gobgpd (heisenbug; debian:service-unit): The BGP routing daemon from the GoBGP project.
+- robustirc-bridge (heisenbug; debian:service-unit): A long-running local bridge daemon that lets standard IRC clients connect to a RobustIRC network.
+- in.fingerd (heisenbug; debian:debtags): The classic finger protocol daemon, run from inetd on BSD and Linux netkit systems.
+- dibbler-server (heisenbug; debian:service-unit): The server daemon of the Dibbler DHCPv6 implementation, a real Unix daemon, but very few would name it.
+- sympa-archived (heisenbug; debian:service-unit): Sympa's archived daemon (archived.pl, installed as sympa_archived), a long-running mailing-list helper.
+- sympa-bounced (heisenbug; debian:service-unit): Sympa's bounced daemon (bounced.pl, installed as sympa_bounced), which processes mailing-list bounces.
+- comsatd (heisenbug; debian:debtags): Alias of comsat, the mail-arrival notification daemon; the d suffix is the usual daemon spelling.
+- curvedns (heisenbug; debian:service-unit): A DNSCurve-capable DNS server daemon named curvedns, though obscure.
+- mon (heisenbug; debian:debtags): Mon, the Perl service-monitoring daemon by Jim Trocki, a real Unix daemon, though obscure.
+- fwcheck_psad (heisenbug; debian:debtags): A component of the psad port-scan detector that checks firewall rules as a background process.
+- kmsgsd (heisenbug; debian:debtags): psad's kernel-message daemon, which reads kernel log messages for psad.
+- psadwatchd (heisenbug; debian:debtags): The watchdog daemon of the psad port-scan detector.
+- remctld (heisenbug; debian:debtags): The remctl server daemon, a real network service, though obscure.
+- corosync-notifyd (heisenbug; debian:service-unit): Corosync's notification daemon, which sends alerts for cluster events.
+- serf (heisenbug; debian:service-unit): HashiCorp's Serf, a cluster membership agent that runs as a long-lived daemon.
+- ixfrdist (heisenbug; debian:service-unit): BIND's IXFR distribution server, a real DNS daemon, though obscure.
+- efingerd (heisenbug; debian:debtags): A real finger server daemon from the efingerd project, obscure outside its niche.
+- LCDd (heisenbug; debian:debtags): The LCDproc server daemon that drives LCD displays.
+- atmarpd (heisenbug; debian:debtags): The ATM ARP server daemon in Linux ATM (linux-atm).
+- atmsigd (heisenbug; debian:debtags): The ATM signalling daemon in Linux ATM (linux-atm).
+- ilmid (heisenbug; debian:debtags): The ATM ILMI daemon in Linux ATM (linux-atm).
+- mpcd (heisenbug; debian:debtags): The MPOA client daemon in Linux ATM (linux-atm).
+- ukui-settings-daemon (heisenbug; debian:debtags): The settings daemon of the UKUI desktop on Kylin Linux.
+- dnsproxy (heisenbug; debian:debtags): AdGuard's dnsproxy, a long-running DNS proxy server.
+- mimedefang-multiplexor (heisenbug; debian:service-unit): The multiplexor daemon of the MIMEDefang mail filter.
+- opennds (heisenbug; debian:debtags): The openNDS captive portal daemon used on OpenWrt.
+- tlshd (heisenbug; debian:service-unit): The Linux kernel TLS handshake daemon from ktls-utils.
+- alertmanager-irc-relay (heisenbug; debian:service-unit): A long-running relay that forwards Prometheus Alertmanager alerts to IRC.
+- mirrorbits (heisenbug; debian:service-unit): A long-running mirror redirector server.
+- cyclades-serial-client (heisenbug; debian:debtags): A Debian package whose daemon serves Cyclades serial console terminal servers; I'm fairly but not fully sure.
+- axfrdns (heisenbug; debian:service-unit): Dan Bernstein's zone-transfer DNS server from djbdns.
+- varnishd (heisenbug; debian:debtags): The Varnish HTTP cache daemon, well known to sysadmins but not to most players.
+- prometheus-mqtt-exporter (heisenbug; debian:service-unit): A long-running MQTT-to-Prometheus exporter service packaged by name in Debian and other distributions.
+- tcpsvd (heisenbug; debian:debtags): Listens on a TCP port and spawns a service per connection, from Dan Bernstein's ucspi-tcp suite.
+- udpsvd (heisenbug; debian:debtags): The UDP counterpart of tcpsvd in the ucspi-tcp suite, a long-running server.
+- wdmd (heisenbug; debian:service-unit): The watchdog multiplexing daemon from the sanlock project, used in Linux cluster fencing.
+- anytun (heisenbug; debian:service-unit): A secure tunnel project whose server runs as a background VPN daemon.
+- batmand (heisenbug; debian:service-unit): The original user-space routing daemon for the B.A.T.M.A.N. mesh protocol.
+- vzlogger (heisenbug; debian:service-unit): A daemon that continuously reads smart meters and logs their data, from the volkszaehler project.
+- mactelnetd (heisenbug; debian:debtags): The server daemon of the MAC-telnet project, for reaching MikroTik devices over layer 2.
+- natd (heisenbug; freebsd:rc.d): FreeBSD's user-mode NAT daemon, a long-running service that does network address translation.
+- timed (heisenbug; macos:LaunchDaemons): The 4.3BSD time synchronisation daemon, documented in its own man page.
+- dlm_controld (heisenbug; debian:service-unit): The Linux distributed lock manager control daemon used in cluster stacks.
+- icegridnode (heisenbug; debian:service-unit): The IceGrid node daemon from ZeroC's Ice middleware, which runs as a server.
+- icegridregistry (heisenbug; debian:service-unit): The IceGrid registry daemon from ZeroC's Ice middleware, a long-running server.
+- ovn-controller (heisenbug; debian:service-unit): The per-hypervisor daemon of Open Virtual Network that programs local flows.
+- glacier2router (heisenbug; debian:service-unit): The firewall-traversal router daemon from ZeroC's Ice middleware.
+- in.nnrpd (heisenbug; debian:debtags): The NNTP reader daemon of the INN Usenet server, installed as in.nnrpd on Debian.
+- innd (heisenbug; debian:debtags): The core news-transit daemon of the INN Usenet server.
+- in.ntalkd (heisenbug; debian:debtags): The ntalk daemon from the netkit talk suite, run from inetd as in.ntalkd.
+- in.talkd (heisenbug; debian:debtags): The classic talk-protocol daemon, run from inetd as in.talkd.
+- ovn-northd (heisenbug; debian:service-unit): The Open Virtual Network northbound-to-logical-flow daemon.
+- osmo-stp (heisenbug; debian:service-unit): The Osmocom SS7 signalling transfer point daemon.
+- rtpengine-recording (heisenbug; debian:debtags): The recording daemon shipped with the rtpengine media proxy.
+- courieresmtpd (heisenbug; debian:debtags): The SMTP server script of the Courier mail server, run under couriertcpd.
+- qrtr-ns (heisenbug; debian:service-unit): The Qualcomm IPC Router name service daemon in the Linux qrtr tools.
+- conmand (heisenbug; debian:service-unit): The console-management daemon of the ConMan project.
+- netplugd (heisenbug; debian:debtags): The Netplug network hotplug daemon.
+- ovn-controller-vtep (heisenbug; debian:service-unit): The OVN daemon that connects logical switches to VTEP hardware gateways.
+- tiny-dfr (heisenbug; debian:service-unit): The Asahi Linux daemon that drives the MacBook Touch Bar display.
+- acpi_fakekeyd (heisenbug; debian:service-unit): The acpi-fakekeyd daemon that turns ACPI events into synthetic key presses.
+- farpd (heisenbug; debian:debtags): The farpd proxy-ARP daemon.
+- l2tpns (heisenbug; debian:debtags): The L2TP network server daemon.
+- fence_virtd (heisenbug; debian:service-unit): The fence_virt daemon that services fencing requests for virtual machines in clusters.
+- blahpd_daemon (heisenbug; debian:service-unit): The BLAH daemon (blahpd) used by HTCondor-CE and CREAM batch systems; the guess adds a suffix to its real name.
+- condor_credd (heisenbug; debian:service-unit): HTCondor's credential-manager daemon, started by condor_master.
+- condor_had (heisenbug; debian:service-unit): HTCondor's High Availability daemon.
+- condor_procd (heisenbug; debian:service-unit): HTCondor's process-controller daemon.
+- condor_schedd (heisenbug; debian:service-unit): HTCondor's schedule daemon, which holds the job queue on submit hosts.
+- condor_startd (heisenbug; debian:service-unit): HTCondor's start daemon, which runs on execute hosts.
+- udevmon (heisenbug; debian:service-unit): The background interception daemon from the interception-tools package.
+- pacemaker-remoted (heisenbug; debian:service-unit): Pacemaker's remote-node daemon, documented in its project docs.
+- mailfromd (heisenbug; debian:debtags): GNU Mailfromd, a mail-filtering daemon.
+- lomiri-history-daemon (heisenbug; debian:service-unit): The history daemon of the Lomiri desktop shell on Ubuntu Touch.
+- lomiri-telephony-service-approver (heisenbug; debian:service-unit): A telephony-service daemon in the Lomiri/Ubuntu Touch stack.
+- lomiri-telephony-service-handler (heisenbug; debian:service-unit): A telephony-service daemon in the Lomiri/Ubuntu Touch stack.
+- nextcloud-spreed-signaling-proxy (heisenbug; debian:service-unit): The proxy component of the Nextcloud Spreed signaling server, run as a daemon.
+- ktimers (heisenbug; kernel:kthread): The per-CPU ktimers kernel threads on PREEMPT_RT kernels, named like ksoftirqd.
+- rngd (heisenbug; debian:service-unit): The rng-tools daemon that feeds hardware random-number output into the kernel entropy pool.
+- rbldns (heisenbug; debian:service-unit): djbdns's DNS blocklist (RBL) server, run as a service.
+- walldns (heisenbug; debian:service-unit): djbdns's wildcard DNS server, run as a service.
+- ulogd (heisenbug; debian:service-unit): Netfilter's userspace packet-logging daemon, named in its own project and man pages.
+- prometheus-phpfpm-exporter (heisenbug; debian:service-unit): Prometheus exporter daemon for PHP-FPM, packaged under this name in Debian.
+- courierldapaliasd (heisenbug; debian:debtags): LDAP alias lookup daemon shipped with the Courier mail server suite.
+- openvpn3-autoload (heisenbug; debian:service-unit): Background service in the openvpn3-linux project that autoloads VPN configurations.
+- bbstored (heisenbug; debian:service-unit): Box Backup's server-side storage daemon.
+- sackd (heisenbug; debian:service-unit): Slurm's authentication daemon for compute nodes.
+- bbackupd (heisenbug; debian:service-unit): Box Backup's client-side backup daemon.
+- mcstransd (heisenbug; debian:service-unit): SELinux MCS label translation daemon.
+- miredo-server (heisenbug; debian:debtags): Teredo IPv6 tunnelling server daemon from the Miredo project, packaged under this name in Debian.
+- lomiri-location-service-trust-stored (heisenbug; debian:service-unit): Trust-store daemon of the Lomiri location service on Ubuntu Touch.
+- ovn-ic (heisenbug; debian:service-unit): OVN interconnection controller daemon.
+- prometheus-pgbouncer-exporter (heisenbug; debian:service-unit): Prometheus exporter daemon for PgBouncer, packaged under this name in Debian.
+- stenographer (heisenbug; debian:service-unit): Google's packet-capture daemon that keeps a rolling record of traffic.
+- ircd-ircu (heisenbug; debian:debtags): IRC server daemon from the ircu project, packaged as ircd-ircu.
+- dnssec-triggerd (heisenbug; debian:service-unit): Background daemon of the dnssec-trigger project from NLnet Labs.
+- speakersafetyd (heisenbug; debian:service-unit): Apple ships this speaker-protection daemon in macOS and iOS.
+- iked (heisenbug; debian:service-unit): OpenBSD's IKEv2/IPsec key-exchange daemon, documented in its man page.
+- yadifad (heisenbug; debian:service-unit): The YADIFA authoritative DNS server daemon.
+- deepin-log-viewer-daemon (heisenbug; debian:service-unit): The background D-Bus service of the Deepin log viewer, in its project source.
+- in.telnetd (heisenbug; debian:debtags): The telnet server daemon from BSD and netkit, normally started by inetd and documented in its man page.
+- prometheus-mongodb-exporter (heisenbug; debian:service-unit): A long-running Prometheus exporter daemon for MongoDB, from the Percona project.
+- inputlircd (heisenbug; debian:debtags): The input-device daemon from the LIRC infrared remote-control project.
+- ha_cluster_exporter (heisenbug; debian:service-unit): A Prometheus exporter daemon for Pacemaker high-availability clusters, from the ClusterLabs project.
+- tcmu-runner (heisenbug; debian:service-unit): The userspace daemon that backs TCMU devices for the Linux LIO iSCSI target.
+- globus-gatekeeper (heisenbug; debian:service-unit): The Globus GRAM gatekeeper server daemon, documented in the Globus Toolkit.
+- goiardi (heisenbug; debian:service-unit): A Chef-compatible server written in Go that runs as a background service.
+- rpc.bootparamd (heisenbug; debian:debtags): The Sun RPC boot parameter daemon shipped on Linux and Solaris.
+- pkcs11-daemon (heisenbug; debian:debtags): A PKCS#11 smartcard proxy daemon for Unix-like systems.
+- bcron-sched (heisenbug; debian:debtags): The scheduling daemon of the bcron cron implementation.
+- dibbler-relay (heisenbug; debian:service-unit): The DHCPv6 relay daemon of the Dibbler project.
+- hexagonrpcd (heisenbug; debian:service-unit): A Linux daemon that serves the Qualcomm Hexagon DSP over RPC.
+- rplayd (heisenbug; debian:debtags): The server daemon of the rplay network audio system.
+- zephyrd (heisenbug; debian:debtags): The server daemon of the Zephyr messaging system.
+- siridb-server (heisenbug; debian:service-unit): SiriDB's long-running time-series database server process, a daemon in the same class as redis-server.
+- sxmo_daemons.sh (heisenbug; debian:service-unit): Sxmo's long-running background script that starts its helper daemons on mobile Linux.
+- dlt-dbus (heisenbug; debian:service-unit): A long-running DLT daemon that bridges D-Bus messages into Diagnostic Log and Trace.
+- dlt-system (heisenbug; debian:service-unit): The DLT daemon that brings system logs into Diagnostic Log and Trace.
+- osmo-gtphub (heisenbug; debian:service-unit): Osmocom's long-running GTP hub server for GPRS core networks.
+- oar-server (heisenbug; debian:service-unit): The central scheduler daemon of the OAR batch system, shipped as a service in its packages.
+- tirex-backend-manager (heisenbug; debian:service-unit): A long-running process in the Tirex OpenStreetMap tile-rendering system that manages rendering backends.
+- tirex-master (heisenbug; debian:service-unit): The master daemon of the Tirex tile-rendering system, which schedules render requests.
+- pd-mapper (heisenbug; debian:service-unit): The protection domain mapper daemon used on Qualcomm-based Linux devices, run as a system service.
+- garagemq (heisenbug; debian:service-unit): A message-queue (AMQP) broker written in Go, run as a long-lived server process like other message brokers.
+- gfmd (heisenbug; debian:debtags): The Gfarm file system's metadata server daemon.
+- oar_meta_sched (heisenbug; debian:service-unit): The meta-scheduler daemon of the OAR batch resource manager.
+- myproxy-server (heisenbug; debian:service-unit): The MyProxy credential server daemon from the Globus toolkit.
+- lyskomd (heisenbug; debian:debtags): The LysKOM conferencing server daemon.
+- accountsd (heisenbug; macos:LaunchAgents): The macOS accounts daemon that manages user account data.
+- AirPlayXPCHelper (heisenbug; macos:LaunchDaemons): An on-demand XPC background helper for AirPlay on macOS.
+- airportd (heisenbug; macos:LaunchDaemons): The macOS Wi-Fi (AirPort) management daemon.
+- akd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): The macOS AuthKit daemon, which handles Apple ID authentication.
+- alwaysonexclavesd (heisenbug; macos:LaunchDaemons): A macOS daemon for the always-on exclaves subsystem on Apple silicon.
+- amfid (heisenbug; macos:LaunchDaemons): The Apple Mobile File Integrity daemon that enforces code-signing checks on macOS.
+- amsaccountsd (heisenbug; macos:LaunchAgents): The Apple Media Services accounts daemon on macOS and iOS.
+- amsengagementd (heisenbug; macos:LaunchAgents): The Apple Media Services engagement daemon on macOS and iOS.
+- amsondevicestoraged (heisenbug; macos:LaunchAgents): The Apple Media Services on-device storage daemon on macOS and iOS.
+- analyticsd (heisenbug; macos:LaunchDaemons): The macOS analytics daemon that collects and uploads diagnostic data.
+- apfsd (heisenbug; macos:LaunchDaemons): The APFS daemon on macOS that handles filesystem snapshot and space management work.
+- appinstalld (heisenbug; macos:LaunchDaemons): The macOS app installation daemon.
+- AppleCredentialManagerDaemon (heisenbug; macos:LaunchDaemons): A macOS background daemon for Apple's credential manager (the Passwords stack).
+- appleeventsd (heisenbug; macos:LaunchDaemons): The macOS Apple Events daemon that routes inter-application events.
+- appleh13camerad (heisenbug; macos:LaunchDaemons): The Apple camera daemon for the H13 image signal processor on iOS (Darwin).
+- appleh16camerad (heisenbug; macos:LaunchDaemons): The Apple camera daemon for the H16 image signal processor on iOS (Darwin).
+- appleidsetupd (heisenbug; macos:LaunchAgents): The macOS daemon that runs Apple ID setup.
+- applekeystored (heisenbug; macos:LaunchDaemons): The macOS keystore daemon that manages the Apple keystore.
+- applessdstatistics (heisenbug; macos:LaunchDaemons): A macOS helper that collects SSD statistics for the storage stack.
+- appstorecomponentsd (heisenbug; macos:LaunchAgents): A macOS launchd daemon for App Store component updates, obscure to most players.
+- apsd (heisenbug; macos:LaunchDaemons): Apple Push Notification service daemon on macOS, known to Mac admins but not to most players.
+- askpermissiond (heisenbug; macos:LaunchAgents): A macOS daemon that handles permission requests (Screen Time style); I'm moderately confident it exists.
+- AssetCache (heisenbug; macos:LaunchDaemons): The macOS Content Caching service, which runs as a background daemon.
+- AssetCacheLocatorService (heisenbug; macos:LaunchDaemons): A macOS Content Caching background service; I'm moderately confident of the name.
+- AssetCacheManagerService (heisenbug; macos:LaunchDaemons): A macOS Content Caching background service; I'm moderately confident of the name.
+- AssetCacheTetheratorService (heisenbug; macos:LaunchDaemons): A macOS Content Caching background service; I'm moderately confident of the name.
+- assistant_cdmd (heisenbug; macos:LaunchAgents): A macOS Siri assistant daemon; I'm moderately confident it exists.
+- assistantd (heisenbug; macos:LaunchAgents): The macOS Siri assistant daemon, known to some macOS users.
+- attentionawarenessd (heisenbug; macos:LaunchDaemons): An Apple daemon for attention awareness (Face ID attention checks); I'm moderately confident it exists.
+- audioaccessoryd (heisenbug; macos:LaunchAgents): An Apple audio accessory daemon (AirPods and similar); I'm moderately confident it exists.
+- AudioComponentRegistrar (heisenbug; macos:LaunchDaemons): macOS helper that registers audio components for CoreAudio, launched on demand as a background service.
+- audiomxd (heisenbug; macos:LaunchDaemons): macOS audio media extension daemon that serves audio decoding and processing for apps.
+- autofsd (heisenbug; macos:LaunchDaemons): macOS automounter daemon that mounts filesystems on demand, the autofs counterpart to automountd.
+- automountd (heisenbug; freebsd:man8, freebsd:rc.d, macos:LaunchDaemons): Solaris and Unix NFS automounter daemon that mounts filesystems on access.
+- autounmountd (heisenbug; freebsd:man8, freebsd:rc.d): Solaris daemon paired with automountd that unmounts idle automounted filesystems.
+- avatarsd (heisenbug; macos:LaunchAgents): macOS daemon that generates and caches contact avatar images for Messages and other apps.
+- avbdeviced (heisenbug; macos:LaunchDaemons): macOS daemon that manages Audio Video Bridging devices.
+- avconferenced (heisenbug; macos:LaunchAgents): macOS daemon that handles audio and video conferencing for FaceTime and related apps.
+- axassetsd (heisenbug; macos:LaunchAgents): macOS daemon that manages accessibility assets such as voices and sound packs.
+- backgroundtaskmanagementd (heisenbug; macos:LaunchDaemons): macOS daemon that manages background login items and launch agents for Background Task Management.
+- backupd (heisenbug; macos:LaunchDaemons): macOS Time Machine daemon that runs scheduled backups.
+- betaenrollmentd (heisenbug; macos:LaunchDaemons): macOS daemon that handles enrollment in Apple's beta software programs.
+- biomesyncd (heisenbug; macos:LaunchAgents): macOS daemon that syncs Biome behavioural data stores across a user's devices.
+- biometrickitd (heisenbug; macos:LaunchDaemons): macOS daemon behind BiometricKit, which handles Touch ID and biometric authentication.
+- bluetoothaudiod (heisenbug; macos:LaunchAgents): macOS daemon that manages Bluetooth audio connections and profiles.
+- BluetoothUIService (heisenbug; macos:LaunchDaemons): macOS background service that shows the Bluetooth pairing and status UI.
+- bluetoothuserd (heisenbug; macos:LaunchAgents): macOS daemon that runs Bluetooth services in the user session.
+- bookassetd (heisenbug; macos:LaunchAgents): macOS daemon that downloads and manages assets for the Books app.
+- bookdatastored (heisenbug; macos:LaunchAgents): macOS daemon that stores and manages the data behind the Books app.
+- bootinstalld (heisenbug; macos:LaunchDaemons): A macOS system daemon that installs boot-time components, obscure outside Apple's own launchd setup.
+- bthidd (heisenbug; freebsd:man8, freebsd:rc.d): The FreeBSD Bluetooth HID daemon, documented in bthidd(8).
+- BTLEServer (heisenbug; macos:LaunchDaemons): A macOS Bluetooth Low Energy server daemon.
+- btpand (heisenbug; freebsd:man8): A Bluetooth personal area networking daemon in BSD-family and pkgsrc trees.
+- businessservicesd (heisenbug; macos:LaunchAgents): A macOS system daemon for business services, run under launchd.
+- calaccessd (heisenbug; macos:LaunchAgents): A macOS daemon that mediates calendar access for apps.
+- callhistoryd (heisenbug; macos:LaunchAgents): A macOS and iOS daemon that stores call history for sync.
+- callintelligenced (heisenbug; macos:LaunchAgents): An Apple call-intelligence daemon on macOS and iOS, very obscure.
+- callservicesd (heisenbug; macos:LaunchAgents): A macOS daemon for call services.
+- cameracaptured (heisenbug; macos:LaunchDaemons): A macOS daemon that handles camera capture for apps.
+- captiveagent (heisenbug; macos:LaunchDaemons): A macOS captive-portal agent daemon that I'm fairly but not fully sure of.
+- cdpd (heisenbug; macos:LaunchAgents): The Cisco Discovery Protocol daemon, available on Linux and BSD systems.
+- CFNetworkAgent (heisenbug; macos:LaunchDaemons): A macOS networking helper daemon in the CFNetwork stack.
+- chronod (heisenbug; macos:LaunchAgents): A macOS daemon that manages widget timelines.
+- ckdiscretionaryd (heisenbug; macos:LaunchAgents): A macOS CloudKit daemon, very obscure.
+- cloudd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): The macOS CloudKit daemon, a well-known iCloud sync service.
+- cloudphotod (heisenbug; macos:LaunchAgents): A macOS daemon for iCloud Photos.
+- colorsyncd (heisenbug; macos:LaunchDaemons): macOS ColorSync daemon that manages colour profiles for display and image pipelines.
+- com.apple.cmio.registerassistantservice (heisenbug; macos:LaunchDaemons): macOS launchd label for the CoreMediaIO assistant that registers camera and video drivers.
+- com.apple.ifdreader (heisenbug; macos:LaunchDaemons): macOS smart-card reader service label, from the CCID/IFD reader stack.
+- com.apple.speech.speechsynthesisd (heisenbug; macos:LaunchAgents): macOS speech synthesis daemon that serves text-to-speech to apps.
+- communicationtrustd (heisenbug; macos:LaunchAgents): macOS daemon that handles trust and verification for communications such as Messages and calls.
+- companiond (heisenbug; macos:LaunchAgents): macOS daemon that manages pairing and communication with companion devices such as Apple Watch.
+- containermanagerd (heisenbug; macos:LaunchAgents): macOS daemon that creates and manages app sandbox container directories.
+- containermanagerd_system (heisenbug; macos:LaunchDaemons): macOS system-level counterpart of containermanagerd for system containers.
+- contentlinkingd (heisenbug; macos:LaunchAgents): macOS daemon that resolves universal links so content opens in the right app.
+- contextstored (heisenbug; macos:LaunchDaemons): macOS daemon that stores user context used by Siri and Spotlight suggestions.
+- coreauthd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): macOS daemon that handles local authentication for system services.
+- corebrightnessd (heisenbug; macos:LaunchDaemons): macOS daemon behind display features such as Night Shift and True Tone.
+- corecaptured (heisenbug; macos:LaunchDaemons): macOS daemon that captures and records core system diagnostics for CoreCapture.
+- coredatad (heisenbug; macos:LaunchAgents): macOS daemon that runs Core Data store work on behalf of apps.
+- coreduetd (heisenbug; macos:LaunchDaemons): macOS daemon for the Duet/Biome knowledge and prediction system.
+- coreidvd (heisenbug; macos:LaunchAgents): macOS identity verification daemon for Apple's IDV framework.
+- coreimportd (heisenbug; macos:LaunchAgents): macOS daemon that handles device import, such as copying photos from cameras and phones.
+- coreservicesd (heisenbug; macos:LaunchDaemons): macOS daemon behind Launch Services, which tracks app registration and file type associations.
+- corespeechd (heisenbug; macos:LaunchAgents): Apple's speech-framework daemon on macOS and iOS.
+- corespotlightd (heisenbug; macos:LaunchAgents): Apple's CoreSpotlight indexing daemon on macOS and iOS.
+- corestoraged (heisenbug; macos:LaunchDaemons): Apple's CoreStorage daemon for logical volume management on macOS.
+- coresymbolicationd (heisenbug; macos:LaunchDaemons): Apple's symbolication daemon used for crash reports on macOS.
+- countryd (heisenbug; macos:LaunchDaemons): Apple's country-detection daemon on macOS and iOS.
+- cryptexd (heisenbug; macos:LaunchDaemons): Apple's daemon for mounting Cryptex system volumes (Rapid Security Response).
+- ctkahp (heisenbug; macos:LaunchDaemons): CryptoTokenKit authentication helper process on macOS.
+- ctkd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): The CryptoTokenKit daemon on macOS.
+- cups-lpd (heisenbug; macos:LaunchDaemons): CUPS's lpd-protocol server, run from inetd on Unix-like systems.
+- dasd (heisenbug; macos:LaunchDaemons): Apple's Duet Activity Scheduler daemon on macOS and iOS.
+- dataaccessd (heisenbug; macos:LaunchAgents): Apple's data access daemon on macOS and iOS.
+- DataDetectorsSourceAccess (heisenbug; macos:LaunchDaemons): A background XPC service in macOS DataDetectorsCore.
+- devicecheckd (heisenbug; macos:LaunchAgents): Apple's DeviceCheck daemon on macOS and iOS.
+- digest-service (heisenbug; macos:LaunchDaemons): macOS's digest-service helper, used by Directory Services for digest authentication.
+- dirhelper (heisenbug; macos:LaunchDaemons): macOS's dirhelper daemon, which cleans up per-user cache directories.
+- diskarbitrationd (heisenbug; macos:LaunchDaemons): macOS's Disk Arbitration daemon, which manages disk mounting and events.
+- diskimagesiod (heisenbug; macos:LaunchDaemons): macOS's disk image I/O helper daemon for mounting disk images.
+- distnoted (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): macOS's distributed notification daemon, which relays notifications between processes.
+- dlm_recoverd (heisenbug; kernel:kthread): Linux DLM's recovery kernel thread, named like a daemon.
+- donotdisturbd (heisenbug; macos:LaunchAgents): macOS's Do Not Disturb daemon.
+- dprivacyd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): macOS's differential privacy daemon.
+- duetexpertd (heisenbug; macos:LaunchAgents): macOS's Duet Expert daemon, part of Siri and proactive suggestions.
+- dynamic_pager (heisenbug; macos:LaunchDaemons): The Mach dynamic_pager daemon, which manages swap files on macOS and historical Unix.
+- ecryptfs-kthread (heisenbug; kernel:kthread): A Linux kernel thread for the eCryptfs filesystem, named like a daemon in the kernel source.
+- endpointsecurityd (heisenbug; macos:LaunchDaemons): macOS system daemon behind the EndpointSecurity framework.
+- enhancedloggingd (heisenbug; macos:LaunchAgents): macOS system daemon for enhanced logging.
+- exchangesyncd (heisenbug; macos:LaunchAgents): macOS daemon that syncs Exchange accounts.
+- f2fs_discard (heisenbug; kernel:kthread): Linux F2FS kernel thread family (one per device), named like a daemon in the kernel source.
+- facetimemessagestored (heisenbug; macos:LaunchAgents): macOS daemon that stores FaceTime messages.
+- fairplayd (heisenbug; macos:LaunchDaemons): macOS system daemon for FairPlay content protection.
+- familycircled (heisenbug; macos:LaunchAgents): macOS daemon for Family Sharing.
+- familynotificationd (heisenbug; macos:LaunchAgents): macOS daemon for Family Sharing notifications.
+- filecoordinationd (heisenbug; macos:LaunchDaemons): macOS daemon that coordinates file access.
+- fileproviderd (heisenbug; macos:LaunchAgents): macOS daemon behind File Provider (iCloud Drive and similar).
+- filevaultd (heisenbug; macos:LaunchAgents): macOS daemon for FileVault disk encryption.
+- financed (heisenbug; macos:LaunchAgents): macOS daemon for Apple Card and Wallet finance features.
+- findmybeaconingd (heisenbug; macos:LaunchDaemons): macOS daemon for Find My beaconing.
+- findmydeviced (heisenbug; macos:LaunchDaemons): Apple's Find My device daemon on macOS, a named background service.
+- firmwaresyncd (heisenbug; macos:LaunchDaemons): A macOS firmware-sync background service.
+- followupd (heisenbug; macos:LaunchAgents): A macOS background service for follow-up notifications.
+- frauddefensed (heisenbug; macos:LaunchAgents): A macOS fraud-defence background service.
+- fseventsd (heisenbug; macos:LaunchDaemons): The macOS FSEvents file-change notification daemon.
+- fskitd (heisenbug; macos:LaunchDaemons): The macOS FSKit filesystem-extension daemon.
+- gamecontrolleragentd (heisenbug; macos:LaunchAgents): A macOS GameController framework agent daemon.
+- gamecontrollerd (heisenbug; macos:LaunchDaemons): The macOS GameController framework daemon.
+- gamed (heisenbug; macos:LaunchAgents): A GameKit/Game Center background daemon on Apple systems.
+- gamepolicyd (heisenbug; macos:LaunchDaemons): A macOS game-policy background service.
+- generativeexperiencesd (heisenbug; macos:LaunchAgents): A macOS Apple Intelligence background service.
+- geoanalyticsd (heisenbug; macos:LaunchAgents): A macOS location-analytics background service.
+- gfs2_logd (heisenbug; kernel:kthread): The Linux GFS2 journal daemon kernel thread.
+- gfs2_quotad (heisenbug; kernel:kthread): The Linux GFS2 quota daemon kernel thread.
+- ggated (heisenbug; freebsd:rc.d): The FreeBSD GEOM gate network daemon.
+- gputoolsserviced (heisenbug; macos:LaunchAgents): An Apple GPU developer-tools service daemon.
+- GSSCred (heisenbug; macos:LaunchDaemons): The macOS Kerberos credential-cache daemon.
+- hastd (heisenbug; freebsd:rc.d): FreeBSD's HAST (Highly Available Storage) daemon, documented in hastd(8).
+- hcsecd (heisenbug; freebsd:rc.d): FreeBSD's Bluetooth HCI security daemon, documented in hcsecd(8).
+- helpd (heisenbug; macos:LaunchAgents): macOS helpd, the background service behind the Help Viewer.
+- hidd (heisenbug; macos:LaunchDaemons): BlueZ's hidd, a daemon for Bluetooth HID devices.
+- homed (heisenbug; macos:LaunchAgents): macOS homed, which manages home directories; its name also matches systemd-homed's family.
+- homeenergyd (heisenbug; macos:LaunchAgents): macOS HomeEnergyD, a background service for the Home app's energy data.
+- homeeventsd (heisenbug; macos:LaunchAgents): macOS homeeventsd, a background service for HomeKit events.
+- iCloudUserNotificationsd (heisenbug; macos:LaunchAgents): macOS iCloudUserNotificationsd, a background service for iCloud notifications.
+- iconservicesd (heisenbug; macos:LaunchDaemons): macOS iconservicesd, the background service that manages icon caches for the system.
+- identityservicesd (heisenbug; macos:LaunchAgents): macOS identityservicesd, the background service behind iMessage and FaceTime identity.
+- inputanalyticsd (heisenbug; macos:LaunchAgents): macOS inputanalyticsd, a background service that collects input analytics.
+- installcoordinationd (heisenbug; macos:LaunchDaemons): macOS installcoordinationd, the background service that coordinates software installs.
+- installd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): macOS installd, the daemon that performs package installs, named in Apple's system docs and launchd plists.
+- jffs2_gcd_mtd (heisenbug; kernel:kthread): The Linux kernel's JFFS2 garbage-collection kernel thread, named as a gc daemon (the instance number is dropped).
+- kauditd (heisenbug; kernel:kthread): A long-running Linux kernel thread in kernel/audit.c that feeds the audit daemon, named like a daemon.
+- kbnepd (heisenbug; kernel:kthread): The Linux Bluetooth BNEP kernel thread (net/bluetooth/bnep), named like a daemon.
+- KernelEventAgent (heisenbug; macos:LaunchDaemons): A macOS launchd-managed agent that handles kernel events, though I can't cite its docs here.
+- kernelmanagerd (heisenbug; macos:LaunchDaemons): A macOS daemon for kernel extension management, launched by launchd.
+- keyboardservicesd (heisenbug; macos:LaunchAgents): A macOS system daemon for keyboard services, and the name is a real process on current Macs.
+- keychainsharingmessagingd (heisenbug; macos:LaunchAgents): A macOS daemon that carries Keychain sharing messages between devices.
+- khidpd (heisenbug; kernel:kthread): The Linux kernel thread (khidpd_<device>) that services Bluetooth HIDP input sessions, named like kswapd.
+- khungtaskd (heisenbug; kernel:kthread): The Linux kernel's hung-task detector thread, documented in the kernel's hung_task sysctl docs.
+- kmmpd (heisenbug; kernel:kthread): The ext4 multi-mount-protection kernel thread (kmmpd-<dev>) in fs/ext4/mmp.c.
+- knowledgeconstructiond (heisenbug; macos:LaunchAgents): A macOS system daemon for building Siri and Spotlight knowledge, present on current macOS.
+- kpasswdd (heisenbug; macos:LaunchDaemons): The Kerberos kpasswd daemon that handles remote password changes in MIT and Heimdal Kerberos.
+- kpktgend (heisenbug; kernel:kthread): The Linux pktgen kernel thread (kpktgend_<n>) in net/core/pktgen.c.
+- krfcommd (heisenbug; kernel:kthread): The Linux Bluetooth RFCOMM kernel thread in net/bluetooth/rfcomm/core.c.
+- krxrpcio (heisenbug; kernel:kthread): The Linux rxrpc I/O kernel thread in net/rxrpc/io_thread.c.
+- ksmbd-durable-scavenger (heisenbug; kernel:kthread): A kernel thread of the Linux ksmbd SMB server that cleans up durable file handles.
+- kupdated (heisenbug; curated): The Linux 2.4-era kernel thread that periodically flushed dirty buffers, the predecessor to bdflush and update.
+- languageassetd (heisenbug; macos:LaunchAgents): A macOS system daemon that manages downloadable language assets.
+- launchservicesd (heisenbug; macos:LaunchDaemons): The macOS LaunchServices daemon that maintains the app registration database.
+- localizationswitcherd (heisenbug; macos:LaunchAgents): A macOS system daemon that switches localization settings.
+- locationaccessstored (heisenbug; macos:LaunchAgents): A macOS system daemon that stores per-app location access decisions.
+- locationd (heisenbug; macos:LaunchDaemons): macOS daemon that manages location services for CoreLocation.
+- lockdownmoded (heisenbug; macos:LaunchAgents): Apple daemon that enforces Lockdown Mode on iOS and macOS.
+- logd_helper (heisenbug; macos:LaunchDaemons): macOS helper process that works with the logd logging daemon.
+- loginitemregisterd (heisenbug; macos:LaunchAgents): macOS daemon that registers login items for apps.
+- loginwindow (heisenbug; macos:LaunchDaemons): The long-running macOS process that runs the login window and session.
+- managedappdistributiond (heisenbug; macos:LaunchDaemons): macOS daemon for managed app distribution under MDM.
+- ManagedClient (heisenbug; macos:LaunchDaemons): macOS MDM client agent that manages device policy in the background.
+- mapspushd (heisenbug; macos:LaunchAgents): macOS daemon that handles Maps push updates.
+- mapssyncd (heisenbug; macos:LaunchAgents): macOS daemon that syncs Maps data.
+- master (heisenbug; macos:LaunchDaemons): The bare name refers to Postfix's master daemon, which supervises the other Postfix services.
+- mdmclient (heisenbug; macos:LaunchDaemons): macOS MDM client daemon that talks to device-management servers.
+- mDNSResponderHelper (heisenbug; macos:LaunchDaemons): Helper process that works alongside the mDNSResponder daemon on macOS.
+- mds_stores (heisenbug; macos:LaunchDaemons): Spotlight's background daemon that maintains index stores on macOS.
+- mdworker (heisenbug; macos:LaunchDaemons): Spotlight's background indexing worker on macOS.
+- mdworker_shared (heisenbug; macos:LaunchAgents): Shared Spotlight indexing worker on macOS.
+- mediaanalysisd (heisenbug; macos:LaunchAgents): macOS daemon that analyses photos and media in the background.
+- mediacontinuityd (heisenbug; macos:LaunchAgents): Apple's macOS/iOS Continuity media daemon, named in system process lists.
+- mediaremoted (heisenbug; macos:LaunchDaemons): Apple's macOS daemon behind the MediaRemote framework for Now Playing and media keys.
+- mediasharingd (heisenbug; macos:LaunchAgents): Apple's macOS daemon for media sharing such as Home Sharing and Photos sharing.
+- misagent (heisenbug; macos:LaunchDaemons): Apple's iOS/macOS Mobile Installation Agent daemon that manages provisioning profiles.
+- mlhostd (heisenbug; macos:LaunchAgents): Apple's macOS machine-learning host daemon.
+- mobile_obliterator (heisenbug; macos:LaunchDaemons): Apple's iOS service that erases device data, a real system binary.
+- mobile_storage_proxy (heisenbug; macos:LaunchDaemons): Apple's iOS storage proxy service that mediates access to device storage.
+- mobileactivationd (heisenbug; macos:LaunchDaemons): Apple's iOS daemon that handles device activation.
+- mobileassetd (heisenbug; macos:LaunchDaemons): Apple's iOS/macOS daemon that manages downloadable system assets.
+- MobileGestaltHelper (heisenbug; macos:LaunchDaemons): Apple's iOS helper process serving the MobileGestalt device-property service.
+- MobileStorageMounter (heisenbug; macos:LaunchDaemons): Apple's iOS helper that mounts device storage images, a real system binary.
+- mobiletimerd (heisenbug; macos:LaunchAgents): Apple's iOS daemon behind the Clock app's alarms and timers.
+- naturallanguaged (heisenbug; macos:LaunchAgents): Apple's NaturalLanguage framework service daemon on macOS and iOS.
+- nearbyd (heisenbug; macos:LaunchDaemons): Apple's Nearby Interaction daemon on macOS and iOS.
+- nehelper (heisenbug; macos:LaunchDaemons): Apple's Network Extension helper daemon on macOS.
+- nesessionmanager (heisenbug; macos:LaunchDaemons): Apple's Network Extension session manager daemon on macOS.
+- NetAuthAgent (heisenbug; macos:LaunchDaemons): Apple's background network authentication agent on macOS.
+- NetAuthSysAgent (heisenbug; macos:LaunchDaemons): Apple's system-level network authentication daemon on macOS.
+- nfcd (heisenbug; macos:LaunchDaemons): Apple's NFC daemon on iOS, which is Darwin-based.
+- notifyd (heisenbug; macos:LaunchDaemons): The notification daemon behind notify(3) on macOS and BSD.
+- nsurlsessiond (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): Apple's background NSURLSession transfer daemon on macOS and iOS.
+- ntalkd (heisenbug; macos:LaunchDaemons): The BSD talk server daemon for the talk(1) protocol.
+- oahd (heisenbug; macos:LaunchDaemons): Apple's Rosetta 2 (Open Architecture Assistant) daemon on macOS.
+- oahd-root-helper (heisenbug; macos:LaunchDaemons): The privileged helper companion to Apple's oahd on macOS.
+- ocspd (heisenbug; macos:LaunchDaemons): macOS daemon that checks certificate revocation status via OCSP.
+- odproxyd (heisenbug; macos:LaunchDaemons): Apple's OpenDirectory proxy daemon on macOS.
+- online-auth-agent (heisenbug; macos:LaunchDaemons): Apple's macOS agent for online authentication, launched by launchd (the process is named OnlineAuthAgent).
+- opendirectoryd (heisenbug; macos:LaunchDaemons): macOS directory services daemon that serves Open Directory lookups and authentication.
+- osanalyticshelper (heisenbug; macos:LaunchDaemons): macOS daemon that helps the OS collect and submit analytics data.
+- ospredictiond (heisenbug; macos:LaunchDaemons): macOS daemon for OS-level predictive behaviour, launched by launchd.
+- parentalcontrolsd (heisenbug; macos:LaunchDaemons): macOS daemon that enforces parental controls and Screen Time limits.
+- parsecd (heisenbug; macos:LaunchAgents): macOS daemon behind Spotlight and Siri search (parsec) query handling.
+- passd (heisenbug; macos:LaunchAgents): Apple's PassKit daemon on macOS that manages Wallet passes.
+- pboard (heisenbug; macos:LaunchAgents): The pasteboard server on macOS (and NeXTSTEP lineage), which manages copy and paste data.
+- pcapd (heisenbug; macos:LaunchDaemons): macOS packet capture daemon used by Remote Virtual Interface (rvictl) to expose device traffic.
+- peakpowermanagerd (heisenbug; macos:LaunchDaemons): macOS daemon that manages peak power and thermal limits, launched by launchd.
+- peopled (heisenbug; macos:LaunchAgents): macOS daemon that backs the Contacts and People data stores.
+- perfpowermetricd (heisenbug; macos:LaunchDaemons): macOS daemon that collects performance and power metrics for the system.
+- PerfPowerServices (heisenbug; macos:LaunchDaemons): macOS performance and power services daemon, managed by launchd.
+- PerfPowerServicesExtended (heisenbug; macos:LaunchDaemons): The companion extended service to PerfPowerServices on macOS, run as its own launchd job.
+- pflogd (heisenbug; freebsd:rc.d): The packet filter logging daemon on OpenBSD, FreeBSD and macOS that writes pf logs to pflog.
+- photoanalysisd (heisenbug; macos:LaunchAgents): macOS daemon that runs machine-learning analysis on the Photos library.
+- photolibraryd (heisenbug; macos:LaunchAgents): macOS daemon that manages the Photos library database.
+- powerexperienced (heisenbug; macos:LaunchDaemons): macOS daemon that manages power-experience and battery-related behaviour, run by launchd.
+- powerlogHelperd (heisenbug; macos:LaunchDaemons): A background helper daemon on macOS that services the power-logging subsystem.
+- PowerUIAgent (heisenbug; macos:LaunchDaemons): A macOS background agent that shows power and battery UI; it runs unattended in the background.
+- proactived (heisenbug; macos:LaunchAgents): A macOS background daemon for Apple's proactive suggestions and event tracking.
+- proactiveeventtrackerd (heisenbug; macos:LaunchAgents): A macOS background daemon that records events for proactive suggestions.
+- progressd (heisenbug; macos:LaunchAgents): A macOS background daemon that reports progress for system tasks.
+- promotedcontentd (heisenbug; macos:LaunchAgents): A macOS background daemon that handles promoted content for Spotlight and suggestions.
+- ptpcamerad (heisenbug; macos:LaunchAgents): A macOS daemon that handles PTP camera connections, such as image import from cameras.
+- quicklookd (heisenbug; macos:LaunchAgents): The macOS Quick Look background service that generates file previews.
+- racoon (heisenbug; macos:LaunchDaemons): The IKE key-exchange daemon for IPsec, from ipsec-tools on BSD and Linux.
+- rapportd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): A macOS background daemon for Apple's Rapport device-to-device features such as Handoff.
+- recentsd (heisenbug; macos:LaunchAgents): A macOS background daemon that manages recent-items data.
+- remindd (heisenbug; macos:LaunchAgents): The macOS background daemon behind Reminders sync and storage.
+- remotemanagementd (heisenbug; macos:LaunchDaemons): A macOS background daemon that handles Apple Remote Management.
+- replayd (heisenbug; macos:LaunchAgents): The macOS daemon that handles screen capture and ReplayKit recording.
+- ReportCrash (heisenbug; macos:LaunchDaemons): The macOS crash-reporting daemon that launchd starts when a process crashes.
+- ReportMemoryException (heisenbug; macos:LaunchDaemons): A macOS background process that reports memory exceptions.
+- revisiond (heisenbug; macos:LaunchDaemons): macOS's document versions daemon, which I believe ships in /usr/libexec, though I'm not fully certain of the name.
+- routined (heisenbug; macos:LaunchAgents): Apple's location routing daemon on macOS and iOS, which handles significant locations.
+- rtcreportingd (heisenbug; macos:LaunchDaemons): A macOS daemon for real-time communications (FaceTime/RTC) reporting.
+- runningboardd (heisenbug; macos:LaunchDaemons): macOS's process lifecycle and assertion management daemon.
+- sandboxd (heisenbug; macos:LaunchDaemons): macOS's sandbox profile daemon, which enforces sandbox rules for processes.
+- screensharingd (heisenbug; macos:LaunchDaemons): macOS's Screen Sharing server daemon.
+- sdpd (heisenbug; freebsd:man8, freebsd:rc.d): The Bluetooth Service Discovery Protocol daemon, historically in BlueZ.
+- searchpartyd (heisenbug; macos:LaunchDaemons): macOS's daemon behind Find My offline finding over the Bluetooth network.
+- secd (heisenbug; macos:LaunchAgents): macOS's security daemon for Keychain and iCloud Keychain syncing.
+- secinitd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): A macOS security initialization daemon that I believe ships in /usr/libexec, though I'm not fully certain.
+- securityd (heisenbug; macos:LaunchDaemons): macOS's Security Server, which handles Keychain and authorization requests.
+- securityuploadd (heisenbug; macos:LaunchAgents): A macOS security-uploads daemon that I believe ships in /usr/libexec, though I'm not fully certain.
+- sharedfilelistd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): macOS daemon that manages shared file lists (the Finder sidebar and recent items).
+- sharingd (heisenbug; macos:LaunchAgents): macOS daemon behind AirDrop and Handoff sharing features.
+- siriactionsd (heisenbug; macos:LaunchAgents): macOS daemon that handles Siri action requests.
+- siriinferenced (heisenbug; macos:LaunchAgents): macOS daemon that runs Siri's on-device inference work.
+- siriknowledged (heisenbug; macos:LaunchAgents): macOS daemon that manages Siri's knowledge store.
+- sirittsd (heisenbug; macos:LaunchAgents): macOS daemon that handles Siri text-to-speech.
+- softwareupdated (heisenbug; macos:LaunchDaemons): macOS daemon that checks for and installs software updates.
+- sportsd (heisenbug; macos:LaunchAgents): macOS daemon that supports the Sports app and its data.
+- spotlightknowledged (heisenbug; macos:LaunchAgents): macOS daemon that maintains Spotlight's knowledge and suggestions index.
+- srp-mdns-proxy (heisenbug; macos:LaunchDaemons): Apple's Thread border-router daemon that proxies SRP service registrations to mDNS.
+- storagekitd (heisenbug; macos:LaunchDaemons): macOS daemon for storage-device management, part of StorageKit.
+- storeaccountd (heisenbug; macos:LaunchAgents): macOS daemon handling App Store account state.
+- storeassetd (heisenbug; macos:LaunchAgents): macOS daemon that manages App Store asset downloads and storage.
+- storedownloadd (heisenbug; macos:LaunchAgents): macOS daemon for App Store download handling.
+- suggestd (heisenbug; macos:LaunchAgents): macOS background daemon behind Siri and Spotlight suggestions.
+- svc.configd (heisenbug; curated): The SMF configuration repository daemon on Solaris and illumos, alongside svc.startd.
+- swcd (heisenbug; macos:LaunchAgents): macOS Software Catalog daemon.
+- swtransparencyd (heisenbug; macos:LaunchAgents): macOS daemon for Software Transparency and certificate verification.
+- symptomsd (heisenbug; macos:LaunchDaemons): macOS daemon that monitors system symptoms and diagnostics.
+- sysdiagnosed (heisenbug; macos:LaunchDaemons): macOS daemon that collects sysdiagnose diagnostic data.
+- sysextd (heisenbug; macos:LaunchDaemons): macOS daemon that manages system extensions.
+- sysmond (heisenbug; macos:LaunchDaemons): macOS system-monitoring daemon (com.apple.sysmond) launched by launchd.
+- syspolicyd (heisenbug; macos:LaunchDaemons): macOS daemon that evaluates code-signing and Gatekeeper policy.
+- system_installd (heisenbug; macos:LaunchDaemons): macOS daemon that performs package installations for installer and softwareupdate.
+- systemsoundserverd (heisenbug; macos:LaunchDaemons): macOS daemon that plays system sounds (com.apple.systemsoundserver).
+- taskgated (heisenbug; macos:LaunchDaemons): macOS daemon that checks code signatures and entitlements for tasks at launch.
+- taskgated-helper (heisenbug; macos:LaunchDaemons): Helper daemon that runs with taskgated on macOS for code-signing checks.
+- tccd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): macOS Transparency, Consent and Control daemon that enforces privacy permissions.
+- testmanagerd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): Apple daemon used by Xcode to run tests on macOS and iOS devices.
+- thermalmonitord (heisenbug; macos:LaunchDaemons): macOS daemon that monitors temperature and throttles hardware for thermal management.
+- threadradiod (heisenbug; macos:LaunchDaemons): macOS daemon that manages the Thread networking radio.
+- TouchBarServer (heisenbug; macos:LaunchDaemons): macOS daemon that drives the Touch Bar on MacBook Pro models.
+- translationd (heisenbug; macos:LaunchAgents): macOS daemon behind the Translation framework; I'm fairly confident but can't cite its man page.
+- transparencyd (heisenbug; macos:LaunchAgents): macOS daemon for Certificate Transparency checks in the Security framework; I'm fairly confident but can't cite a doc.
+- triald (heisenbug; macos:LaunchAgents): macOS daemon that manages feature-trial (experiment) assignments; I'm fairly confident but can't cite a doc.
+- trustd (heisenbug; macos:LaunchAgents, macos:LaunchDaemons): macOS daemon for certificate trust evaluation, documented in Apple's Security framework references.
+- trustevaluationagent (heisenbug; macos:LaunchDaemons): macOS agent that runs certificate trust evaluation under the Security framework; I'm fairly confident it's a real daemon.
+- uarpassetmanagerd (heisenbug; macos:LaunchDaemons): macOS daemon for Universal Accessory Routing Protocol (UARP) asset management; I'm fairly confident it's real.
+- uarpd (heisenbug; macos:LaunchDaemons): macOS daemon in the UARP accessory-update family; I'm fairly confident but can't cite a doc.
+- universalaccessd (heisenbug; macos:LaunchAgents): macOS daemon that handles Universal Access (accessibility) settings; I'm fairly confident it's real.
+- update (heisenbug; curated): The historical Unix sync daemon `update`, listed as a kernel daemon in the scope spec.
+- usbsmartcardreaderd (heisenbug; macos:LaunchDaemons): macOS daemon for USB smart-card readers under CryptoTokenKit; I'm moderately confident it's real.
+- useractivityd (heisenbug; macos:LaunchAgents): macOS daemon behind NSUserActivity and Handoff; I'm fairly confident it's real.
+- UserEventAgent (heisenbug; macos:LaunchDaemons): A per-user macOS background agent that handles user events, launched by launchd.
+- usernoted (heisenbug; macos:LaunchAgents): The macOS user notification daemon, which delivers notifications to the desktop.
+- VDCAssistant (heisenbug; macos:LaunchDaemons): A macOS background helper that manages camera device access for video apps.
+- videosubscriptionsd (heisenbug; macos:LaunchAgents): A macOS background daemon for video subscription services used by the TV app.
+- virtual_oss (heisenbug; freebsd:man8, freebsd:rc.d): A FreeBSD daemon that provides a virtual OSS sound device by sharing a sound card.
+- webinspectord (heisenbug; macos:LaunchAgents): A macOS/iOS daemon that backs Safari's Web Inspector.
+- WindowServer (heisenbug; macos:LaunchDaemons): macOS's display server, a long-running background process named in the scope's macOS list.
+- xartstorageremoted (heisenbug; macos:LaunchDaemons): An Apple XPC daemon in macOS and iOS, though I'm not certain of its exact spelling in their docs.
+- xfsaild (heisenbug; kernel:kthread): The XFS log-push kernel thread on Linux, named like a daemon by the kernel's own XFS docs.
+- xpcroleaccountd (heisenbug; macos:LaunchDaemons): An Apple XPC role-account daemon on macOS, though I'm not certain of its exact spelling in their docs.
+- xprotectd (heisenbug; macos:LaunchDaemons): The XProtect malware-scanning daemon on macOS.
+- xsand (heisenbug; macos:LaunchDaemons): The Xsan file-system daemon on macOS Server, though I'm not certain of the exact spelling in their docs.
+- xscertd (heisenbug; macos:LaunchDaemons): The Xsan certificate daemon on macOS Server, though I'm not certain of its exact spelling in their docs.
+- zfsd (heisenbug; freebsd:rc.d): FreeBSD's ZFS fault-management daemon.
+
+## Left out
+- sudo (off-by-one; debian:service-unit): A one-shot privilege-escalation command, not a background program.
+- rsync (off-by-one; debian:debtags): The client program; its daemon is rsyncd, which is not what the name refers to.
+- mdadm (off-by-one; debian:debtags): An administration tool for RAID arrays; its monitor mode is a side function, not what the name denotes.
+- podman (off-by-one; debian:service-unit): A daemonless container CLI; it runs no persistent background service of its own.
+- logrotate (off-by-one; debian:service-unit): A one-shot log-rotation command, normally run from cron or a timer.
+- onedrive (off-by-one; debian:service-unit): Usually called a sync client; the Linux client's daemon mode is ambiguous, so I'm not counting it.
+- quota (npe; debian:service-unit): The quota command is a client utility; the related daemon is rquotad.
+- lvm (npe; debian:service-unit): A suite of command-line tools; its daemons (lvmetad, lvmpolld) are named separately.
+- start-stop-daemon (npe; debian:service-unit): A tool that starts and stops daemons; it is not a daemon itself.
+- xen (npe; debian:service-unit): The Xen hypervisor project; its daemons (xenstored, xl devd) are named separately.
+- systemd-bsod (npe; debian:debtags): Not a daemon; it is a joke name for systemd's blue-screen-style error display.
+- iperf3 (npe; debian:service-unit): iperf3 is a network benchmarking client/tool run on demand, not a background daemon.
+- ssmtp (npe; debian:debtags): ssmtp is a send-only sendmail replacement that runs per message, not as a daemon.
+- systemd-random-seed (npe; debian:debtags): It is a one-shot service unit that saves and restores the random seed, not a long-running daemon.
+- nasd (npe; debian:debtags): I cannot name a specific, documented Unix daemon called nasd, so I am not confident it is real.
+- powertop (npe; debian:service-unit): powertop is an interactive power-analysis tool, not a background daemon.
+- fluidsynth (npe; debian:service-unit): A software synthesizer, not a background service; it runs in the foreground as a one-shot program.
+- fetchmail (npe; debian:debtags): Mainly a mail-retrieval client run from cron or by hand; its daemon mode is optional, so this is a judgement call.
+- nvme (npe; debian:service-unit): NVMe is a storage protocol specification; the nvme-cli tool is a one-shot command.
+- fio (npe; debian:service-unit): The Flexible I/O Tester, a one-shot benchmarking tool rather than a daemon.
+- vpnc (npe; debian:debtags): A VPN client invoked to connect, not a background service.
+- dmd (npe; macos:LaunchAgents): Known as the D language compiler; no Unix daemon of this name that I can cite.
+- dconf (npe; debian:service-unit): The settings system and its client tool; the daemon is dconf-service, which is not what was named.
+- trojan (npe; debian:service-unit): Usually means malware; the Trojan proxy is a niche project and too unsure to count.
+- mrtg (npe; debian:service-unit): Normally run one-shot from cron to draw graphs; daemon mode is not its usual use.
+- zfs (npe; debian:service-unit): A filesystem and its command-line client; the daemon zfsd is a different name.
+- drbd (npe; debian:service-unit): A kernel block-device module with userspace tools; it has no daemon of its own.
+- chkrootkit (npe; debian:service-unit): A one-shot security scanner, not a background service.
+- schroot (npe; debian:service-unit): A client tool for running commands in chroots, not a daemon.
+- tripwire (npe; debian:debtags): Mainly a one-shot integrity checker run from cron, not a daemon.
+- multipath (npe; debian:service-unit): A one-shot command (multipath -ll); the daemon is multipathd.
+- kmemleak (npe; kernel:kthread): A kernel debugging facility; its docs do not call it a daemon.
+- kworker (npe; kernel:kthread): A per-instance family name (kworker/N:M) for kernel worker threads, not a named daemon.
+- pgbackrest (npe; debian:service-unit): Primarily a one-shot backup command run from cron; its server mode is optional.
+- vnstat (npe; debian:service-unit): The client command that reads the database; the daemon is vnstatd.
+- systemd-boot-random-seed (npe; debian:service-unit): A one-shot unit that seeds the random seed, not a long-running daemon.
+- mklost+found (npe; debian:service-unit): A typo of lost+found, a directory created by mkfs and fsck, not a daemon.
+- ipvsadm (npe; debian:service-unit): A one-shot admin tool for configuring IPVS, not a daemon.
+- blkid (npe; debian:service-unit): A command-line tool that reads block device attributes, not a daemon.
+- rcd (npe; macos:LaunchAgents): No known daemon by this name; rc.d is only a directory of rc scripts.
+- swd (npe; macos:LaunchDaemons): No Unix daemon of this name; SWD is the Serial Wire Debug hardware interface.
+- authbind (npe; debian:debtags): A wrapper utility that lets a program bind privileged ports; it is not a daemon.
+- nvi (npe; debian:service-unit): A vi-compatible text editor, not a background program.
+- lsd (npe; macos:LaunchAgents, macos:LaunchDaemons): Known as a client `ls` replacement, not a named daemon.
+- waybar (npe; debian:service-unit): A Wayland status-bar GUI client, not a background service.
+- hardinfo2 (npe; debian:service-unit): A hardware-profiling GUI and report tool, not a daemon.
+- atop (npe; debian:service-unit): An interactive system monitor; the daemon-like piece is atopacctd, so the name alone is not a daemon.
+- setserial (npe; debian:service-unit): A one-shot command for configuring serial ports, not a daemon.
+- smd (npe; macos:LaunchDaemons): No Unix daemon by this name that I can cite; unsure, so not counted.
+- icmd (npe; debian:service-unit): I cannot name a known Unix daemon by this name, so I am unsure it is real.
+- a2enmod (leak; debian:service-unit): A helper script that enables Apache modules and exits, so it is a command rather than a daemon.
+- system-tools-backends (leak; debian:debtags): A GNOME backend package for system tools, and I am unsure it is a daemon in its own right.
+- callisto (leak; debian:debtags): I cannot cite a Unix daemon of this name, so I am not sure it exists as one.
+- daemon (leak; debian:debtags): A generic word for the category, not a named program; the BSD daemon(8) utility is a one-shot wrapper.
+- pesign (leak; debian:service-unit): A PE-file signing tool for Secure Boot, not a background service, and unsure it has a daemon of its own.
+- direwolf (leak; debian:service-unit): A software modem and packet TNC for amateur radio, usually run interactively rather than as a named daemon.
+- adjtimex (leak; debian:service-unit): A command-line clock-adjustment utility and the adjtimex(2) system call, not a daemon.
+- squidGuard (leak; debian:debtags): A URL-filter helper that Squid spawns as a redirector, not a standalone daemon.
+- rmail (leak; debian:debtags): A one-shot mail delivery command invoked by UUCP or sendmail, not a daemon.
+- nfdump (leak; debian:debtags): A NetFlow reader command; its collector daemon is nfcapd.
+- cpupower-gui (leak; debian:service-unit): A graphical front end for cpupower, not a daemon.
+- user-session-migration (leak; debian:service-unit): Not a recognised daemon or program name in standard Unix service lists.
+- blkdiscard (leak; debian:service-unit): A one-shot util-linux command that discards device blocks.
+- cryptmount (leak; debian:service-unit): A command-line tool for mounting encrypted devices, not a daemon.
+- slappasswd (leak; debian:debtags): A one-shot OpenLDAP command that generates password hashes, not a long-running daemon.
+- webhook (leak; debian:service-unit): A generic term for an HTTP callback, not a named daemon; the adnanh/webhook project is too ambiguous to credit from this word alone.
+- soundmodem (leak; debian:service-unit): A Linux AX.25 kernel driver, not a daemon.
+- systemd-repart (leak; debian:service-unit): A oneshot systemd service that runs at boot and exits; it is not a long-running daemon.
+- iwgtk (leak; debian:service-unit): A GTK front-end GUI client for iwd, not a background service.
+- htpdate (leak; debian:service-unit): A one-shot time-setting tool; I can't confirm it is a daemon in normal use.
+- unix_chkpwd (leak; debian:service-unit): A helper binary PAM runs per login check, not a long-running service.
+- ddccontrol (leak; debian:service-unit): A command-line tool that sets monitor settings once per run, not a daemon.
+- ata_id (leak; debian:debtags): A udev helper that runs once per device, not a daemon.
+- cdrom_id (leak; debian:debtags): A udev helper that runs once per device, not a daemon.
+- dmi_memory_id (leak; debian:debtags): A udev helper that runs once per device, not a daemon.
+- fido_id (leak; debian:debtags): A udev helper that runs once per device, not a daemon.
+- scsi_id (leak; debian:debtags): A udev helper that runs once per device, not a daemon.
+- v4l_id (leak; debian:debtags): A udev helper that runs once per device, not a daemon.
+- kmod (leak; debian:debtags): A package of one-shot module tools (modprobe, insmod), not a daemon.
+- systemd-ask-password (leak; debian:debtags): One-shot password prompt helper, not a long-running daemon.
+- systemd-confext (leak; debian:debtags): One-shot command-line tool for configuration extensions.
+- systemd-firstboot (leak; debian:debtags): One-shot first-boot setup tool, not a daemon.
+- systemd-modules-load (leak; debian:debtags): Boot-time oneshot that loads kernel modules, not a daemon.
+- systemd-pcrextend (leak; debian:debtags): One-shot TPM PCR measurement tool.
+- systemd-pcrlock-machine-id (leak; debian:debtags): One-shot tool that manages a TPM lock, not a daemon.
+- systemd-pcrphase-initrd (leak; debian:debtags): One-shot boot-phase measurement unit, not a daemon.
+- systemd-reply-password (leak; debian:debtags): Helper that passes a password reply, not a long-running daemon.
+- systemd-suspend (leak; debian:debtags): Sleep-target oneshot, not a daemon.
+- systemd-sysext (leak; debian:debtags): Command-line tool for system extension images.
+- systemd-sysusers (leak; debian:debtags): One-shot tool that creates system users at boot.
+- netperf (leak; debian:service-unit): The netperf benchmark is a client; its daemon is netserver.
+- a2dismod (leak; debian:service-unit): A one-shot Apache helper command that disables modules, not a long-running daemon.
+- lvextend (leak; debian:service-unit): An LVM command that runs once to grow a logical volume, not a daemon.
+- lvm2-lvmpolld (leak; debian:service-unit): A systemd unit name; the daemon it runs is lvmpolld, which is a separate guess.
+- mumble-server (leak; debian:service-unit): A distro package name; the daemon it installs is Murmur (murmurd), and this spelling is not a program name.
+- vgextend (leak; debian:service-unit): An LVM command that adds a physical volume to a volume group, not a daemon.
+- spdsend (leak; debian:debtags): A client command that sends text to Speech Dispatcher, not the daemon itself.
+- kbdd (race; debian:debtags): I can't confirm this as a named daemon I can cite, so I'm marking it unsure.
+- xdg-desktop-portal-validate-sound (race; debian:service-unit): A test or validation utility, not a long-running daemon.
+- ifrename (race; debian:service-unit): ifrename is a one-shot tool that renames interfaces, not a long-running daemon.
+- tmpreaper (race; debian:debtags): tmpreaper is a cleanup utility run periodically by cron, not a background daemon.
+- aa-load (race; debian:service-unit): I don't recognise aa-load as an AppArmor daemon; AppArmor's real tools are apparmor_parser and the aa-* helpers.
+- profile-load (race; debian:service-unit): I don't recognise profile-load as a named daemon on any Unix-like system.
+- nbd-client (race; debian:service-unit): nbd-client is a client tool that attaches a network block device, not a daemon.
+- irtt (race; debian:service-unit): irtt is a network measurement client/server tool, not normally called a daemon.
+- chrootuid (race; debian:debtags): chrootuid is a wrapper that runs a command under a chroot and uid, not a daemon.
+- nfsrahead (race; debian:debtags): A udev-invoked tool that sets NFS readahead, not a long-running daemon.
+- start-statd (race; debian:debtags): A helper script that launches rpc.statd, not the daemon itself.
+- poweralertd (race; debian:service-unit): Unsure whether this is a real named daemon, so not counted.
+- plasma-kscreen-osd (race; debian:service-unit): A KDE on-screen display component, not a named background daemon.
+- floppyd (race; debian:debtags): Unsure whether this is a real, named daemon, so not counted.
+- uftp (race; debian:service-unit): UFTP is a file-transfer client and sender; its server daemon is uftpd, which is not the guess.
+- plasma-kwin_wayland (race; debian:service-unit): This is the KWin Wayland compositor and window manager, not a daemon by usual usage.
+- exim_dbmbuild (race; debian:debtags): A one-shot Exim utility that builds DBM lookup files, not a daemon.
+- consolation (race; debian:service-unit): I can't confirm it is a named Unix daemon, so I'm not counting it.
+- msktutil (race; debian:service-unit): A one-shot command-line tool for managing Kerberos keytabs, not a daemon.
+- fsidd (race; debian:debtags): I can't confirm it is a named Unix daemon, so I'm not counting it.
+- gnome-remote-desktop-configuration-daemon (race; debian:service-unit): I can't confirm this as a separate daemon name in GNOME Remote Desktop, so I'm not counting it.
+- nfs-mountd (race; debian:debtags): A systemd unit name for the NFS mount service; the daemon itself is rpc.mountd.
+- slapadd (race; debian:debtags): A one-shot OpenLDAP offline tool for loading entries; the daemon is slapd.
+- rpki-client (race; debian:debtags): Normally run as a one-shot validator from cron, not as a long-running daemon.
+- zcfan (race; debian:service-unit): I can't place a daemon by this name, so I'm not sure it is one.
+- testsaslauthd (race; debian:service-unit): It is Cyrus SASL's test client for saslauthd, a one-shot utility rather than the daemon.
+- downtimed (race; debian:service-unit): I can't identify a known daemon by this name, so I'm not sure it exists.
+- netavark-firewalld-reload (race; debian:service-unit): It reads as a helper script or unit name for reloading firewalld, not a daemon in its own right.
+- and (race; debian:debtags): A conjunction, not a program.
+- kpatch (race; debian:service-unit): A command-line live-patching tool, not a background daemon.
+- msmtpd (race; debian:service-unit): I'm not confident a daemon by this name exists, so I won't count it.
+- plocate-build (race; debian:service-unit): A one-shot program that builds the plocate database, run from a timer rather than as a daemon.
+- gnome-ponytail-daemon (race; debian:debtags): I can't confirm this as a named daemon in a codebase or its docs, so I'm not counting it.
+- mysecureshell (race; debian:service-unit): An SFTP server that sshd invokes per connection, not a standalone background daemon.
+- snapclient (race; debian:service-unit): The Snapcast client, which is a client program; the daemon in that project is snapserver.
+- lprint (race; debian:service-unit): An IPP printing command-line tool, not a daemon.
+- micro-httpd (race; debian:debtags): I'm not confident this is a named daemon with a documented long-running service, so I'm not counting it.
+- csd-background (race; debian:debtags): A plugin inside gnome-settings-daemon, not a separate daemon program.
+- csd-clipboard (race; debian:debtags): A plugin inside gnome-settings-daemon, not a separate daemon program.
+- csd-keyboard (race; debian:debtags): A plugin inside gnome-settings-daemon, not a separate daemon program.
+- csd-smartcard (race; debian:debtags): A plugin inside gnome-settings-daemon, not a separate daemon program.
+- certspotter (race; debian:service-unit): A certificate transparency monitor usually run as a scheduled or one-shot tool, and I'm not sure it counts as a daemon.
+- integrit (race; debian:debtags): A file integrity checker run as a tool, not a daemon.
+- sysrqd (race; debian:debtags): I know of no daemon by this name; sysrq is a kernel key feature, not a service.
+- macipgw (race; debian:service-unit): I am not sure this is a real named daemon, so I am ruling it out.
+- timelord (race; debian:service-unit): I cannot place a Unix daemon by this name, so I am ruling it out.
+- a2boot (race; debian:service-unit): I cannot place a Unix daemon by this name, so I am ruling it out.
+- chronyd-restricted (race; debian:debtags): A variant unit or instance name, not the name of a daemon; the daemon is chronyd.
+- upssched (race; debian:service-unit): NUT's helper that upsmon invokes for timers, not a standalone named daemon.
+- remotetrx (race; debian:service-unit): I cannot place a Unix daemon by this name, so I am ruling it out.
+- deepin-boot-maker (race; debian:service-unit): A GUI application for making boot media, not a daemon.
+- snapd.seeded (race; debian:service-unit): A systemd unit name, not a daemon name; the daemon is snapd.
+- log_db_daemon (race; debian:service-unit): I cannot place a named Unix daemon by this name, so I am ruling it out.
+- log_file_daemon (race; debian:service-unit): I cannot place a named Unix daemon by this name, so I am ruling it out.
+- apcsmart-old (race; debian:debtags): A UPS hardware driver run by NUT's upsdrvctl, not a named daemon, and I can't confirm it from a source.
+- ivtscd (race; debian:debtags): I can't cite a Unix daemon by this name, so I'm unsure it exists.
+- masterguard (race; debian:debtags): I can't cite a Unix daemon by this name, so I'm unsure it exists.
+- owfs (race; debian:service-unit): OWFS's owfs is a FUSE mount program; its daemon is owserver, so this is ambiguous and I say no.
+- btrfsd (race; debian:service-unit): I can't cite a btrfs daemon by this name, so I'm unsure it exists.
+- ttysnoop (race; debian:debtags): A client tool for snooping a terminal session, not a daemon.
+- rbdmap (race; debian:service-unit): A one-shot script that maps Ceph RBD devices at boot, not a long-running daemon.
+- checkrad (race; debian:debtags): I can't cite a Unix daemon by this name, so I'm unsure it exists.
+- frr-reload (race; debian:service-unit): A one-shot reload script that applies config to FRR daemons, not a daemon itself.
+- lighttpd-disable-mod (race; debian:debtags): A Debian helper script that disables modules, not a daemon.
+- lighttpd-enable-mod (race; debian:debtags): A Debian helper script that enables modules, not a daemon.
+- lighty-disable-mod (race; debian:debtags): An alias of the lighttpd module-disable helper script, not a daemon.
+- lighty-enable-mod (race; debian:debtags): An alias of the lighttpd module-enable helper script, not a daemon.
+- dnss (race; debian:service-unit): I can't name a specific, citable Unix daemon called dnss, so I'm not sure it exists.
+- qbootctl (race; debian:service-unit): It is a one-shot Qualcomm boot-control command-line tool, not a long-running daemon.
+- irexec (race; debian:service-unit): It is a LIRC client that runs commands on IR events, not a daemon itself.
+- mumudvb (race; debian:service-unit): It is a DVB-to-IP streaming tool that can daemonize, not a named system daemon, so I'm unsure.
+- ethumb (race; debian:service-unit): Ethumb is a thumbnail library and client; its daemon is ethumbd, so the guess is not the daemon.
+- ffproxy (race; debian:service-unit): I cannot identify a known Unix daemon by this name, so I am unsure.
+- log2ram (race; debian:service-unit): It is a script run by systemd and cron that syncs a RAM-backed log directory, not a long-running daemon.
+- sxid (race; debian:debtags): A SUID-file checker run as a periodic job, not a long-running daemon.
+- psi-notify (race; debian:service-unit): I cannot confirm it as a Unix daemon, so I am unsure.
+- mbmon (race; debian:service-unit): A sensor-reading tool, and I am unsure it runs as a daemon.
+- jool (race; debian:service-unit): A NAT64 kernel module with a userspace control tool, not a daemon.
+- bootpc (race; debian:debtags): A BOOTP client that runs at boot and exits, not a daemon.
+- rlinetd (race; debian:debtags): I cannot identify a known Unix daemon by this name, so I am unsure.
+- lomiri-keyboard (race; debian:service-unit): An on-screen keyboard UI component, not a named background service, and I am unsure it runs as a daemon.
+- courier (race; debian:debtags): Courier is a mail server suite with several separate daemons, so the name does not pick out one daemon; I am unsure.
+- ipband (race; debian:debtags): I cannot identify a real Unix daemon by this name.
+- x2gormforward (race; debian:service-unit): I cannot confirm a real X2Go daemon by this name.
+- blueman-applet (race; debian:service-unit): A desktop tray applet and client, not the daemon (the daemon is blued or bluetoothd).
+- blueman-manager (race; debian:service-unit): A graphical client for managing Bluetooth, not a daemon.
+- bluemon (race; debian:debtags): I can't confirm a named Bluetooth daemon by this name, so I won't count it.
+- bwild (race; debian:service-unit): I can't confirm a named Unix daemon by this name, so I won't count it.
+- bluealsa-aplay (race; debian:service-unit): A one-shot client that plays audio from BlueALSA, not a daemon.
+- authpasswd (race; debian:debtags): I can't confirm a named Unix daemon by this name, so I won't count it.
+- autolog (race; debian:debtags): I can't confirm a named Unix daemon by this name, so I won't count it.
+- vvmd (race; debian:service-unit): I cannot confirm a daemon by this name, so I am not certain it is real.
+- zvbid (race; debian:debtags): I cannot confirm a daemon by this name, so I am not certain it is real.
+- memlockd (race; debian:debtags): I cannot confirm a daemon by this name, so I am not certain it is real.
+- iksd (race; debian:debtags): Not confident it is a real, documented daemon name, so not counted.
+- rtpengine-daemon (race; debian:debtags): A package name; the daemon itself is called rtpengine.
+- rtpengine-recording-daemon (race; debian:debtags): Not a daemon name in the rtpengine project; recording is a mode of the rtpengine daemon.
+- cifsd (race; kernel:kthread): The in-kernel SMB server is ksmbd; cifsd was only an early patch-set name.
+- canbusload (race; debian:debtags): A one-shot can-utils command-line tool, not a daemon.
+- cansend (race; debian:debtags): A one-shot can-utils command for sending a frame, not a daemon.
+- isotpsend (race; debian:debtags): A one-shot can-utils command for sending ISO-TP data, not a daemon.
+- 81voltd (race; debian:service-unit): Not confident this is a real, documented Unix daemon, so it is treated as unverified.
+- snmptrapfmt (race; debian:debtags): A one-shot filter program that net-snmp's trap handler calls, not a long-running daemon.
+- ident2 (race; debian:debtags): Not confident this is a documented Unix daemon, so it is treated as unverified.
+- calls-daemon (heisenbug; debian:service-unit): Not confident this is a documented Unix daemon, so it is treated as unverified.
+- pure-ftpd-postgresql (heisenbug; debian:debtags): A build variant of the pure-ftpd daemon (PostgreSQL auth), not a separately named daemon.
+- systemd-netlogd (heisenbug; debian:service-unit): No such systemd daemon; systemd's network daemon is systemd-networkd.
+- mknetid (heisenbug; debian:service-unit): A one-shot NIS map-building command, not a daemon.
+- nsncd (heisenbug; debian:service-unit): Unsure it's a named daemon; the standard name service cache daemon is nscd.
+- prometheus-sql-exporter (heisenbug; debian:service-unit): A descriptive name; the project and program are sql_exporter.
+- esekeyd (heisenbug; debian:debtags): Not confident it is a real named daemon, so ruled out when unsure.
+- minicoredumper (heisenbug; debian:service-unit): A core-dump handler invoked per crash by the kernel, not a long-running daemon.
+- nss-tlsd (heisenbug; debian:service-unit): Not confident it is a real named daemon, so ruled out when unsure.
+- penlogd (heisenbug; debian:debtags): Not confident it is a real named daemon, so ruled out when unsure.
+- sogo-slapd-sockd (heisenbug; debian:service-unit): Not a daemon I can confirm; SOGo's daemon is sogod.
+- faxsend (heisenbug; debian:debtags): HylaFAX client command that sends one fax and exits.
+- ocpasswd (heisenbug; debian:debtags): Password-file utility for the ocserv VPN server, not a daemon.
+- pagesend (heisenbug; debian:debtags): HylaFAX client command for sending pages, one-shot.
+- rshim (heisenbug; debian:service-unit): Host-side BlueField driver component; not confirmed as a named daemon.
+- add-sg-to-squid (heisenbug; debian:debtags): A helper script run once to change configuration, not a daemon.
+- del-sg-from-squid (heisenbug; debian:debtags): A helper script run once to change configuration, not a daemon.
+- update-squidguard (heisenbug; debian:debtags): A script that updates blocklists and exits, not a daemon.
+- envuidgid (heisenbug; debian:debtags): A one-shot djbtools helper that sets environment variables from a uid/gid, not a long-running daemon.
+- setuidgid (heisenbug; debian:debtags): A one-shot djbtools command that drops privileges and then execs a program; it is not a daemon.
+- dibbler-client (heisenbug; debian:service-unit): The DHCPv6 client program from the Dibbler project; client programs are Out under this scope.
+- dqcache (heisenbug; debian:service-unit): I cannot confirm this as a named Unix daemon in any codebase or reference, so I am not treating it as a member.
+- autodir (heisenbug; debian:service-unit): I cannot confirm this as a named Unix daemon in any codebase or reference, so I am not treating it as a member.
+- ample (heisenbug; debian:debtags): Not a named Unix daemon that I can identify.
+- didiwiki (heisenbug; debian:service-unit): A wiki program, not a background service daemon.
+- ctlinnd (heisenbug; debian:debtags): A one-shot control client that sends commands to the INN news daemon innd; clients are Out.
+- th-cmd (heisenbug; debian:service-unit): I cannot confirm this as a named Unix daemon, so I am not treating it as a member.
+- thd (heisenbug; debian:service-unit): Too ambiguous to identify as a named Unix daemon, so I am not treating it as a member.
+- gnunet-did (heisenbug; debian:debtags): I cannot confirm this as a named GNUnet daemon, so I am not treating it as a member.
+- gnunet-download (heisenbug; debian:debtags): A GNUnet command-line client for downloading files, not a daemon.
+- rlprd (heisenbug; debian:debtags): Unsure it is a real Unix daemon, so not counted.
+- xymoncmd (heisenbug; debian:debtags): Unsure whether it is a long-running daemon or a helper command, so not counted.
+- partimaged-passwd (heisenbug; debian:service-unit): A helper tool that sets the partimaged password, not a daemon.
+- dde-calendar (heisenbug; debian:service-unit): A desktop calendar client application, not a daemon.
+- kamcmd (heisenbug; debian:service-unit): A command-line control client for Kamailio, not a daemon.
+- rmtsysd (heisenbug; debian:service-unit): Unsure it is a real Unix daemon, so not counted.
+- dbeacon (heisenbug; debian:service-unit): Unsure it is a real Unix daemon, so not counted.
+- gnss-share (heisenbug; debian:service-unit): Unsure it is a real Unix daemon, so not counted.
+- isatapd (heisenbug; debian:service-unit): Unsure whether it is a real, named daemon, so not counted.
+- jesred (heisenbug; debian:debtags): Unsure it is a real Unix daemon, so not counted.
+- faxrunqd (heisenbug; debian:service-unit): I can't confirm a daemon by this name in HylaFAX or any other source I know, so I can't cite it.
+- tcpspy (heisenbug; debian:debtags): I can't confirm a named Unix daemon by this name, so I can't cite one.
+- ufoded (heisenbug; debian:service-unit): I can't confirm a daemon by this name, so I can't cite one.
+- pkcsslotd (heisenbug; debian:debtags): I'm not confident enough of a citable daemon by this name to mark it as a member.
+- crowdsec-custom-bouncer (heisenbug; debian:service-unit): This reads as a generic template name for a user-built bouncer, not a named daemon.
+- group-admin-daemon (heisenbug; debian:service-unit): I don't know of a real Unix program by this name.
+- vbladed (heisenbug; debian:service-unit): I can't confirm a real daemon by this name; vblade is an AoE server, but I don't know of a vbladed.
+- razerd (heisenbug; debian:service-unit): I can't confirm a real Razer daemon by this name; the known one is openrazer-daemon.
+- mdns-reflector (heisenbug; debian:service-unit): I'm not sure enough that this is a named, real daemon rather than a generic description.
+- legiond (heisenbug; debian:service-unit): I don't know of a real Unix daemon by this name.
+- ostree-finalize-staged (heisenbug; debian:service-unit): A systemd unit (service file name), which the scope excludes.
+- ostree-finalize-staged-hold (heisenbug; debian:service-unit): A systemd unit (service file name), which the scope excludes.
+- pop3d (heisenbug; debian:debtags): A generic protocol-based name rather than a specific named program.
+- ngtcp2d (heisenbug; debian:service-unit): I don't know of a real daemon by this name; ngtcp2 is a QUIC library.
+- ipip (heisenbug; debian:debtags): IP-in-IP is a tunnelling protocol and kernel module, not a daemon.
+- prometheus-frr-exporter (heisenbug; debian:service-unit): The exporter is usually called frr_exporter, and I'm not sure this spelling names a specific program.
+- dhcp_probe (heisenbug; debian:service-unit): A generic description, not a specific named daemon I can confirm.
+- aread (heisenbug; debian:debtags): I can't identify it as a named daemon, so I'm not counting it.
+- svc_send (heisenbug; debian:debtags): I can't identify it as a named daemon, so I'm not counting it.
+- mergeword (heisenbug; debian:debtags): Not a daemon I know of; it reads like a made-up word.
+- splitword (heisenbug; debian:debtags): Not a daemon I know of; it reads like a made-up word.
+- nield (heisenbug; debian:service-unit): I can't identify it as a named daemon, so I'm not counting it.
+- hpsockd (heisenbug; debian:debtags): I can't confirm it as a named daemon, so I'm not counting it.
+- nss_updatedb (heisenbug; debian:debtags): A one-shot database builder run from cron, not a long-running daemon.
+- fwlw_respond (heisenbug; debian:debtags): I can't identify it as a named daemon, so I'm not counting it.
+- rastream (heisenbug; debian:service-unit): I can't identify it as a named daemon, so I'm not counting it.
+- systemd-wdmd (heisenbug; debian:service-unit): This is a systemd unit name for the wdmd daemon, not a program name, so it falls under unit files.
+- lomiri-download-manager-systemd (heisenbug; debian:service-unit): A packaging or systemd-integration name, not the daemon's own program name.
+- foolsm (heisenbug; debian:service-unit): I cannot confirm it as a named Unix daemon, so I am not sure enough to mark it a member.
+- jool_siit (heisenbug; debian:service-unit): A configuration or control tool for the Jool translation module, not a daemon.
+- rapiddisk (heisenbug; debian:service-unit): A kernel RAM-disk module and its tool, not a background service program.
+- w1retap (heisenbug; debian:service-unit): I cannot confirm it as a named Unix daemon, so I am not sure enough to mark it a member.
+- mgmt (heisenbug; debian:service-unit): A configuration-management tool that runs continuously, not clearly a Unix daemon by its own name, so I am unsure.
+- ftpasswd (heisenbug; debian:service-unit): A utility for managing FTP password files, not a background service.
+- in.proftpd (heisenbug; debian:service-unit): I can't cite a standard in.proftpd binary; ProFTPD's daemon is proftpd, so I'm not confident this is a real named daemon.
+- trawld (heisenbug; debian:service-unit): I can't cite a Unix daemon by this name.
+- iptotal (heisenbug; debian:debtags): I can't cite iptotal as a daemon.
+- dotforward (heisenbug; debian:debtags): qmail's dot-forward is a delivery program run per message, not a daemon.
+- esmtpd (heisenbug; debian:debtags): I can't cite esmtpd as a named mail daemon.
+- imapproxyd (heisenbug; debian:debtags): I can't cite imapproxyd as a specific named daemon with confidence.
+- lenovolegionlinux-sound (heisenbug; debian:service-unit): I can't cite this as a named daemon.
+- cubemap (heisenbug; debian:service-unit): I can't cite Cubemap as a Unix daemon.
+- dns-flood-detector (heisenbug; debian:service-unit): I can't cite a named daemon by this name.
+- condor_c-gahp_worker_thread (heisenbug; debian:service-unit): An internal helper spawned by HTCondor's C-GAHP, not a daemon the standard service list names.
+- condor_store_cred (heisenbug; debian:service-unit): A one-shot command-line tool for storing credentials, not a daemon.
+- hugo-mx-gateway (heisenbug; debian:service-unit): I cannot identify a known Unix daemon by this name.
+- lomiri-indicator-telephony-service (heisenbug; debian:service-unit): I am not sure this exact binary exists; it may be a renamed indicator, so I am not counting it.
+- kprobe-optimizer (heisenbug; kernel:kthread): A kernel work function for optimising kprobes, not a kernel thread documented as a daemon.
+- dhcpoptinj (heisenbug; debian:debtags): I cannot identify it as a Unix daemon.
+- wys (heisenbug; debian:service-unit): I cannot identify a known Unix daemon by this name.
+- gthd (heisenbug; debian:service-unit): I cannot identify a known Unix daemon by this name.
+- webmaild (heisenbug; debian:service-unit): I cannot confidently identify a known Unix daemon by this name.
+- asahi-btsync (heisenbug; debian:service-unit): Not confident this is a named daemon in a codebase or docs I can cite.
+- rigid (heisenbug; debian:service-unit): No daemon by this name that I can cite.
+- opafmcmd (heisenbug; debian:service-unit): Looks like a command-line client for the Omni-Path fabric manager, not a daemon.
+- cvsd-passwd (heisenbug; debian:debtags): A password-management helper for cvsd, not the daemon itself.
+- pcapdump (heisenbug; debian:service-unit): A one-shot capture-dump utility, not a long-running daemon.
+- booth (heisenbug; debian:service-unit): The ticket-manager daemon is boothd; I am not confident 'booth' is the daemon's name.
+- bgplgd (heisenbug; debian:service-unit): No BGP looking-glass daemon by this name that I can cite.
+- filetea (heisenbug; debian:service-unit): No daemon by this name that I can cite.
+- natlog (heisenbug; debian:service-unit): No daemon by this name that I can cite.
+- inetd2rlinetd (heisenbug; debian:debtags): Not a recognisable daemon name; looks invented.
+- update-inetd (heisenbug; debian:debtags): It is a Debian helper script that edits inetd.conf, not a running daemon.
+- biometric-authenticationd (heisenbug; debian:service-unit): I cannot cite a real Unix daemon by this name.
+- bibledit-cloud (heisenbug; debian:service-unit): It is a Bible-translation web application, not a named Unix background service.
+- sanlk-reset (heisenbug; debian:service-unit): I cannot cite a real Unix daemon by this name.
+- sanlk-resetd (heisenbug; debian:service-unit): I cannot cite a real Unix daemon by this name.
+- radioclkd (heisenbug; debian:debtags): I am unsure this is a documented, named daemon rather than a local tool.
+- canid (heisenbug; debian:service-unit): It is a biological family name, not a program.
+- yaku-ns (heisenbug; debian:debtags): I cannot cite a real Unix daemon by this name.
+- yakeyrolld (heisenbug; debian:service-unit): I cannot cite a real Unix daemon by this name.
+- msyncd (heisenbug; debian:service-unit): I cannot cite a real Unix daemon by this name.
+- hdcpd (heisenbug; debian:service-unit): I cannot cite a real Unix daemon by this name.
+- boothd (heisenbug; debian:service-unit): I cannot cite a real Unix daemon by this name.
+- hddemux (heisenbug; debian:service-unit): I cannot cite a real Unix daemon by this name.
+- ums2net (heisenbug; debian:service-unit): I cannot cite a real Unix daemon by this name.
+- calloutd (heisenbug; debian:debtags): I cannot cite a real Unix daemon by this name.
+- pollen (heisenbug; debian:service-unit): Pollen is a Racket publishing system, not a background service.
+- shishid (heisenbug; debian:debtags): Not a daemon I can confirm; unsure, so not a member.
+- lomiri-upload-manager-systemd (heisenbug; debian:service-unit): A unit-style name with a systemd suffix; the daemon is lomiri-upload-manager, and unit names don't count.
+- webmlmd (heisenbug; debian:debtags): No daemon by this name that I can confirm.
+- ncpd (heisenbug; debian:debtags): Unsure whether a daemon by this name exists, so not a member.
+- plpprintd (heisenbug; debian:debtags): No daemon by this name that I can confirm.
+- kafs-preload (heisenbug; debian:service-unit): Not a daemon I can confirm; kafs is a kernel AFS client, and this name is unverified.
+- minicoredumper_regd (heisenbug; debian:service-unit): Unsure whether this daemon exists, so not a member.
+- moncmd (heisenbug; debian:debtags): Unsure whether this is a daemon or a client command, so not a member.
+- fever (heisenbug; debian:service-unit): Fever is a web-based RSS application, not a Unix daemon.
+- prometheus-pgbackrest-exporter (heisenbug; debian:service-unit): A package-style name; the exporter is real, but I can't confirm this is how the daemon is named.
+- prometheus-tplink-plug-exporter (heisenbug; debian:service-unit): A package-style name I can't confirm as the daemon's name.
+- regolith-init-powerd (heisenbug; debian:service-unit): Unsure whether this daemon exists, so not a member.
+- shoelaces (heisenbug; debian:service-unit): Not a Unix daemon I can confirm.
+- slinkwatch (heisenbug; debian:service-unit): A link-monitoring tool, not a confirmed background daemon.
+- tua (heisenbug; debian:debtags): No Unix daemon by this name that I can confirm.
+- Mailsound (heisenbug; debian:debtags): Not a daemon I can confirm.
+- erbium (heisenbug; debian:service-unit): I can't confirm a Unix daemon by this name, so I'm not counting it.
+- proxsmtpd (heisenbug; debian:service-unit): I can't confirm a mail daemon by this name.
+- grossd (heisenbug; debian:debtags): I can't confirm a daemon by this name.
+- avr-evtd (heisenbug; debian:debtags): I can't confirm a daemon by this name.
+- blockdomains (heisenbug; debian:service-unit): Not a daemon I can confirm, and it reads like a script or tool name.
+- hexagonrpcd-suspend (heisenbug; debian:service-unit): This is a suspend-hook or unit variant; the daemon itself is hexagonrpcd.
+- kxd (heisenbug; debian:service-unit): I can't confirm a daemon by this name.
+- prometheus-homeplug-exporter (heisenbug; debian:service-unit): I can't confirm this exporter exists as a named daemon.
+- xringd (heisenbug; debian:service-unit): I can't confirm a daemon by this name.
+- ircd-mkpasswd (heisenbug; debian:debtags): A one-shot password utility for ircd, not the daemon itself.
+- nacctd (heisenbug; debian:debtags): I can't confirm a daemon by this name.
+- droid-juicer (heisenbug; debian:service-unit): A tool for unpacking Android images, not a daemon.
+- kylin-process-manager-daemon (heisenbug; debian:debtags): I can't confirm this distribution-specific daemon exists.
+- sinfod (heisenbug; debian:service-unit): I can't confirm a daemon by this name.
+- xteld (heisenbug; debian:debtags): I can't confirm a daemon by this name.
+- globus-gridftp-password (heisenbug; debian:service-unit): A password-file or config name, not a daemon; the server is globus-gridftp-server.
+- sxmo_hook_lisgd (heisenbug; debian:service-unit): A hook script for the lisgd gesture daemon, not a daemon itself.
+- gld (heisenbug; debian:debtags): gld is a Solaris LAN driver framework, not a daemon.
+- altos-mapd (heisenbug; debian:service-unit): I can't confirm a daemon by this name.
+- rapiddiskd (heisenbug; debian:service-unit): I can't confirm a daemon by this name; RapidDisk is a RAM-disk project I can't tie to it.
+- iptotald (heisenbug; debian:debtags): I could not confirm a named Unix daemon by this name, so it is not accepted.
+- fort (heisenbug; debian:debtags): I could not confirm that it names a daemon rather than a validator tool or ordinary word, so it is not accepted.
+- swupdate-progress (heisenbug; debian:service-unit): A client program that displays SWUpdate's progress, not a daemon, so it falls under client programs (Out).
+- gfsd (heisenbug; debian:debtags): I could not confirm a named Unix daemon by this name, so it is not accepted.
+- arccandypond (heisenbug; debian:service-unit): I know of no Unix daemon by this name, so it is not accepted.
+- arched (heisenbug; debian:service-unit): I could not confirm a named Unix daemon by this name, so it is not accepted.
+- balboa (heisenbug; debian:service-unit): I could not confirm a named Unix daemon by this name, so it is not accepted.
+- lbcd (heisenbug; debian:service-unit): I could not confirm a named Unix daemon by this name, so it is not accepted.
+- rawdns (heisenbug; debian:service-unit): I could not confirm that this names a Unix daemon rather than a DNS project under another name, so it is not accepted.
+- smtp-send (heisenbug; debian:service-unit): A one-shot client for sending mail, not a daemon, so it falls under client programs (Out).
+- eb_client_egd (heisenbug; debian:service-unit): An Entropy Broker client program and a per-source instance name, not a daemon (Out).
+- eb_client_file (heisenbug; debian:service-unit): An Entropy Broker client program and a per-source instance name, not a daemon (Out).
+- eb_client_kernel_generic (heisenbug; debian:service-unit): An Entropy Broker client program and a per-source instance name, not a daemon (Out).
+- eb_client_linux_kernel (heisenbug; debian:service-unit): An Entropy Broker client program and a per-source instance name, not a daemon (Out).
+- eb_proxy_knuth_b (heisenbug; debian:service-unit): A proxy program and per-instance name in the Entropy Broker tooling, not a named daemon (Out).
+- eb_proxy_knuth_m (heisenbug; debian:service-unit): A proxy program and per-instance name in the Entropy Broker tooling, not a named daemon (Out).
+- eb_server_Araneus_Alea (heisenbug; debian:service-unit): A per-device source instance name in the Entropy Broker tooling, not a named daemon (Out).
+- eb_server_audio (heisenbug; debian:service-unit): A per-source instance name in the Entropy Broker tooling, not a named daemon (Out).
+- eb_server_ComScire_R2000KU (heisenbug; debian:service-unit): A per-device source instance name in the Entropy Broker tooling, not a named daemon (Out).
+- eb_server_egd (heisenbug; debian:service-unit): A per-source instance name in the Entropy Broker tooling, not a named daemon (Out).
+- eb_server_ext_proc (heisenbug; debian:service-unit): Could not confirm this as a named Unix daemon.
+- eb_server_linux_kernel (heisenbug; debian:service-unit): Could not confirm this as a named Unix daemon.
+- eb_server_push_file (heisenbug; debian:service-unit): Could not confirm this as a named Unix daemon.
+- eb_server_smartcard (heisenbug; debian:service-unit): Could not confirm this as a named Unix daemon.
+- eb_server_stream (heisenbug; debian:service-unit): Could not confirm this as a named Unix daemon.
+- eb_server_timers (heisenbug; debian:service-unit): Could not confirm this as a named Unix daemon.
+- eb_server_usb (heisenbug; debian:service-unit): Could not confirm this as a named Unix daemon.
+- eb_server_v4l (heisenbug; debian:service-unit): Could not confirm this as a named Unix daemon.
+- debiman-auxserver (heisenbug; debian:service-unit): A Debian manpage-tool component, but I could not confirm it as a named daemon.
+- finaud (heisenbug; debian:service-unit): Could not confirm this as a named Unix daemon.
+- oar_resources_add (heisenbug; debian:service-unit): A one-shot OAR administration command, not a daemon.
+- q6voiced (heisenbug; debian:service-unit): Probably a Qualcomm voice component on Android, but I could not confirm it as a Unix daemon.
+- qcom-modem-setup (heisenbug; debian:service-unit): Sounds like a one-shot setup script, not a daemon.
+- config-gfsd (heisenbug; debian:debtags): A Gfarm configuration command for gfsd, not the daemon itself.
+- accessoryd (heisenbug; macos:LaunchDaemons): Probably an Apple accessory daemon, but I could not confirm it.
+- accessorysensormgrd (heisenbug; macos:LaunchAgents): Probably an Apple accessory daemon, but I could not confirm it.
+- accessoryupdaterd (heisenbug; macos:LaunchDaemons): Probably an Apple accessory daemon, but I could not confirm it.
+- adid (heisenbug; macos:LaunchDaemons): Could not confirm this as a named Unix daemon.
+- adprivacyd (heisenbug; macos:LaunchAgents): Probably an Apple ad-privacy daemon, but I could not confirm it.
+- AEServer (heisenbug; macos:LaunchDaemons): Apple Event Server is a classic Mac OS name; I could not confirm it as a Unix daemon.
+- afpLoad (heisenbug; macos:LaunchDaemons): A one-shot loader tool for the AFP filesystem, not a long-running background service.
+- aned (heisenbug; macos:LaunchDaemons): Not confident it is a named daemon, so the rule says no.
+- aneuserd (heisenbug; macos:LaunchDaemons): Not confident it is a named daemon, so the rule says no.
+- appleaccountd (heisenbug; macos:LaunchAgents): Not confident this is a named daemon; the macOS account daemon is accountsd.
+- appleaccounttransparencyd (heisenbug; macos:LaunchAgents): Not confident this is a named daemon, so the rule says no.
+- AppleQEMUGuestAgent (heisenbug; macos:LaunchDaemons): Not confident this is a named Apple daemon; the QEMU guest agent is qemu-ga.
+- AppleVirtualPlatformHIDBridge (heisenbug; macos:LaunchDaemons): Not confident this is a named daemon, so the rule says no.
+- appplaceholdersyncd (heisenbug; macos:LaunchAgents): I can't confirm this is a real Unix daemon, so I can't cite it.
+- appsleepd (heisenbug; macos:LaunchAgents): I can't confirm this is a real Unix daemon, so I can't cite it.
+- AppSSOAgent (heisenbug; macos:LaunchDaemons): Possibly a macOS SSO agent, but I can't cite it and it may be an agent rather than a daemon.
+- AppSSODaemon (heisenbug; macos:LaunchDaemons): I can't confirm this name for a real daemon, so I can't cite it.
+- appstored (heisenbug; macos:LaunchDaemons): I can't confirm this is a real daemon, so I can't cite it.
+- arkitd (heisenbug; macos:LaunchAgents): I can't confirm this is a real daemon, so I can't cite it.
+- asktod (heisenbug; macos:LaunchAgents): I can't confirm this is a real daemon, so I can't cite it.
+- aslmanager (heisenbug; macos:LaunchDaemons): A real macOS tool, but a periodic one-shot job launched by launchd, not a long-running daemon.
+- ASPCarryLog (heisenbug; macos:LaunchDaemons): I can't confirm this is a real daemon, so I can't cite it.
+- asr (heisenbug; macos:LaunchDaemons): A macOS command-line tool (Apple Software Restore), not a daemon.
+- assetsubscriptiond (heisenbug; macos:LaunchDaemons): I can't confirm this is a real daemon, so I can't cite it.
+- atrun (heisenbug; macos:LaunchDaemons): A helper program run by cron to execute at jobs, not a long-running daemon; the daemon is atd.
+- audioanalyticsd (heisenbug; macos:LaunchDaemons): I can't confirm this is a real daemon, so I can't cite it.
+- audioclocksyncd (heisenbug; macos:LaunchDaemons): I can't confirm this is a real daemon, so I can't cite it.
+- authorizationhost (heisenbug; macos:LaunchDaemons): Unsure whether this is a long-running daemon or a per-request XPC helper, so not counted.
+- authtrampoline (heisenbug; macos:LaunchDaemons): A short-lived helper that runs one authorized command, not a long-running background service.
+- automationmode-writer (heisenbug; macos:LaunchDaemons): Unsure it exists as a daemon; it reads as a one-shot tool that writes a setting.
+- backupd-helper (heisenbug; macos:LaunchDaemons): Unsure it is a standalone daemon; it may be a helper bundled with backupd.
+- biomed (heisenbug; macos:LaunchDaemons): Not confident it is a named macOS daemon, so not counted.
+- BlueTool (heisenbug; macos:LaunchDaemons): Apple's Bluetooth test or utility tool, not a long-running background daemon.
+- bosreporter (heisenbug; macos:LaunchDaemons): I can't confirm it is a named Unix daemon, so I'm ruling it out rather than guessing.
+- bosUpdateProxy (heisenbug; macos:LaunchDaemons): I can't confirm it is a named Unix daemon, so I'm ruling it out rather than guessing.
+- boswatcher (heisenbug; macos:LaunchDaemons): I can't confirm it is a named Unix daemon, so I'm ruling it out rather than guessing.
+- btrfs-uuid (heisenbug; kernel:kthread): A one-shot btrfs administration tool, not a long-running daemon.
+- centaurid (heisenbug; macos:LaunchDaemons): I can't confirm it is a named Unix daemon, so I'm ruling it out rather than guessing.
+- check_afp (heisenbug; macos:LaunchDaemons): A one-shot AFP check tool, not a long-running daemon.
+- ciphermld (heisenbug; macos:LaunchAgents): I can't confirm it is a named Unix daemon, so I'm ruling it out rather than guessing.
+- colorsync.displayservices (heisenbug; macos:LaunchDaemons): This reads as a launchd service label, not a named daemon program.
+- com.apple.cmio.videodriverkithostextension (heisenbug; macos:LaunchDaemons): Not confident this is a named macOS daemon; it looks like a DriverKit extension identifier.
+- com.apple.sbd (heisenbug; macos:LaunchAgents): Not confident this is a real named daemon; the bundle-style prefix alone does not establish one.
+- configureLocalKDC (heisenbug; macos:LaunchDaemons): A one-shot macOS configuration tool for Kerberos, not a long-running daemon.
+- ContainerMigrationService (heisenbug; macos:LaunchDaemons): Not confident this is a named macOS daemon; it reads as a generic service description.
+- corekdld (heisenbug; macos:LaunchDaemons): Not confident this is a named macOS daemon.
+- corercd (heisenbug; macos:LaunchDaemons): Not confident this is a named macOS daemon.
+- corerepaird (heisenbug; macos:LaunchDaemons): Not confident this is a named macOS daemon.
+- corespeechd_system (heisenbug; macos:LaunchDaemons): Not a daemon I can confirm; it reads as a launchd label or variant of corespeechd.
+- corestoragehelperd (heisenbug; macos:LaunchDaemons): Cannot confirm it as a named daemon.
+- CoreThreadCommissionerServiced (heisenbug; macos:LaunchAgents): Cannot confirm it as a real Apple daemon.
+- CrashReporterSupportHelper (heisenbug; macos:LaunchDaemons): Cannot confirm it as a named daemon rather than an internal helper.
+- CSCSupportd (heisenbug; macos:LaunchDaemons): Cannot confirm it as a real daemon.
+- ctkbind (heisenbug; macos:LaunchAgents): Cannot confirm it as a named daemon.
+- CVMServer (heisenbug; macos:LaunchDaemons): Cannot confirm it as a named daemon (the media service I know is cvmsServ).
+- datastored (heisenbug; macos:LaunchDaemons): Cannot confirm it as a named daemon.
+- deleted (heisenbug; macos:LaunchAgents): A word, not a named daemon.
+- deleted_helper (heisenbug; macos:LaunchDaemons): Not a named daemon.
+- DesktopServicesHelper (heisenbug; macos:LaunchDaemons): Cannot confirm it as a named daemon.
+- destinationd (heisenbug; macos:LaunchAgents): Cannot confirm it as a named daemon.
+- devicerecoveryd (heisenbug; macos:LaunchDaemons): Not a daemon I can confidently cite from a macOS or Unix source.
+- dhcp6d (heisenbug; macos:LaunchDaemons): The WIDE DHCPv6 daemons I know are dhcp6s and dhcp6c, not dhcp6d.
+- diagnosticd (heisenbug; macos:LaunchDaemons): Not confidently recalled as a macOS daemon.
+- diagnosticextensionsd (heisenbug; macos:LaunchAgents): I believe macOS ships this daemon, but I cannot cite it confidently, so I am ruling it out.
+- diagnosticservicesd (heisenbug; macos:LaunchDaemons): Not confidently recalled as a real daemon.
+- diagnosticspushd (heisenbug; macos:LaunchAgents): Not confidently recalled as a real daemon.
+- diskmanagementstartup (heisenbug; macos:LaunchDaemons): Not a daemon I can confidently cite.
+- diskspaced (heisenbug; macos:LaunchAgents): Not confidently recalled as a real daemon.
+- displaypolicyd (heisenbug; macos:LaunchDaemons): Not confidently recalled as a real daemon.
+- doubleagentd (heisenbug; macos:LaunchDaemons): Not a real daemon I can cite.
+- dspluginhelperd (heisenbug; macos:LaunchDaemons): I am not confident this is a real daemon, so I am ruling it out.
+- dtfetchsymbolsd (heisenbug; macos:LaunchDaemons): I am not confident this is a real daemon, so I am ruling it out.
+- DumpGPURestart (heisenbug; macos:LaunchDaemons): A GPU restart diagnostic tool, not a daemon I can cite.
+- DumpPanic (heisenbug; macos:LaunchDaemons): A panic-dump diagnostic tool, not a daemon I can cite.
+- DumpPanicRecoveryOS (heisenbug; macos:LaunchDaemons): A panic-dump diagnostic tool, not a daemon I can cite.
+- eapolcfg_auth (heisenbug; macos:LaunchDaemons): Unsure it is a long-running daemon; it may be an on-demand 802.1X helper.
+- ecosystemanalyticsd (heisenbug; macos:LaunchDaemons): Unsure whether this macOS helper exists as named.
+- ecosystemd (heisenbug; macos:LaunchDaemons): No known Unix daemon by this name.
+- efilogin-helper (heisenbug; macos:LaunchDaemons): Unsure whether this is a daemon rather than a login helper.
+- eligibilityd (heisenbug; macos:LaunchDaemons): Unsure whether this macOS daemon exists as named.
+- eoshostd (heisenbug; macos:LaunchDaemons): No known Unix daemon by this name.
+- erasecontentsettingshelperd (heisenbug; macos:LaunchDaemons): Unsure whether this exists as a daemon.
+- exchangenotesd (heisenbug; macos:LaunchAgents): Unsure whether this macOS daemon exists as named.
+- fairplaydeviceidentityd (heisenbug; macos:LaunchDaemons): Unsure whether this exists as a daemon.
+- fbahelperd (heisenbug; macos:LaunchDaemons): No known Unix daemon by this name.
+- FDERecoveryAgent (heisenbug; macos:LaunchDaemons): A FileVault recovery agent that runs on demand, not a long-running daemon.
+- FindMyMacd (heisenbug; macos:LaunchDaemons): I can't identify a named daemon by this exact name, so I'm treating it as unsure.
+- FindMyMacMessenger (heisenbug; macos:LaunchDaemons): I can't confirm this as a named background service, so I'm treating it as unsure.
+- fontd (heisenbug; macos:LaunchAgents): I can't confirm this as a named background service, so I'm treating it as unsure.
+- fontmover (heisenbug; macos:LaunchDaemons): This sounds like a helper process, not a named daemon I can cite.
+- fskit_helper (heisenbug; macos:LaunchDaemons): This sounds like a helper binary, not a named daemon I can cite.
+- gamesaved (heisenbug; macos:LaunchAgents): I can't confirm this as a named background service, so I'm treating it as unsure.
+- gkreport (heisenbug; macos:LaunchDaemons): I can't confirm this as a named background service, so I'm treating it as unsure.
+- griddatad (heisenbug; macos:LaunchDaemons): I can't confirm this as a named background service, so I'm treating it as unsure.
+- handwritingd (heisenbug; macos:LaunchDaemons): Not confident this is a real named macOS daemon, so ruled out as unsure.
+- hdiejectd (heisenbug; macos:LaunchDaemons): Not confident this is a real named daemon, so ruled out as unsure.
+- heard (heisenbug; macos:LaunchAgents): Not confident this is a real named daemon, so ruled out as unsure.
+- historicalaudiod (heisenbug; macos:LaunchDaemons): Not confident this is a real named daemon, so ruled out as unsure.
+- httpd-wrapper (heisenbug; macos:LaunchDaemons): A wrapper script name, not a named daemon, so not a member.
+- icdd (heisenbug; macos:LaunchAgents): Not confident this is a real named daemon, so ruled out as unsure.
+- icloudwebd (heisenbug; macos:LaunchAgents): Not confident this is a real named daemon, so ruled out as unsure.
+- iconservicesagent (heisenbug; macos:LaunchDaemons): A per-user launchd agent rather than a system daemon; ruled out as unsure under the scope.
+- ifcstart (heisenbug; macos:LaunchDaemons): Not a recognised daemon name, so not a member.
+- inboxupdaterd (heisenbug; macos:LaunchDaemons): Not confident this is a real named daemon, so ruled out as unsure.
+- installcoordination_proxy (heisenbug; macos:LaunchDaemons): A helper for installcoordinationd; not confident it is a named daemon, so ruled out as unsure.
+- installerdiagd (heisenbug; macos:LaunchDaemons): Not confident this is a real named daemon, so ruled out as unsure.
+- installerdiagwatcher (heisenbug; macos:LaunchDaemons): I can't verify this as a named daemon, so I'm not counting it.
+- intelligencecontextd (heisenbug; macos:LaunchAgents): It looks like an Apple Intelligence-era macOS daemon, but I can't cite a source, so I'm not counting it.
+- intelligenceflowd (heisenbug; macos:LaunchAgents): It looks like an Apple Intelligence-era macOS daemon, but I can't cite a source, so I'm not counting it.
+- intelligenceplatformd (heisenbug; macos:LaunchAgents): It looks like an Apple Intelligence-era macOS daemon, but I can't cite a source, so I'm not counting it.
+- intelligencetasksd (heisenbug; macos:LaunchAgents): It looks like an Apple Intelligence-era macOS daemon, but I can't cite a source, so I'm not counting it.
+- intelligentroutingd (heisenbug; macos:LaunchAgents): It looks like an Apple Intelligence-era macOS daemon, but I can't cite a source, so I'm not counting it.
+- IOAccelMemoryInfoCollector (heisenbug; macos:LaunchDaemons): It reads as an IOKit driver class name, not a daemon.
+- IOMFB_bics_daemon (heisenbug; macos:LaunchDaemons): It may be a real display-subsystem daemon, but I can't cite a source, so I'm not counting it.
+- ionodecache (heisenbug; macos:LaunchDaemons): I can't identify it as a named daemon.
+- iOSScreenCaptureAssistant (heisenbug; macos:LaunchDaemons): It is an iOS component, not a Unix-like system daemon I can cite.
+- ioupsd (heisenbug; macos:LaunchDaemons): I can't verify it as a UPS daemon, so I'm not counting it.
+- itunescloudd (heisenbug; macos:LaunchAgents): It may be a real Apple daemon, but I can't cite a source, so I'm not counting it.
+- jetpackassetd (heisenbug; macos:LaunchAgents): I can't verify it as a named daemon.
+- kbatadv_tp_meter (heisenbug; kernel:kthread): It is a short-lived batman-adv throughput-test thread, not a daemon.
+- kcgend (heisenbug; macos:LaunchDaemons): I can't verify it as a named daemon.
+- kcm (heisenbug; macos:LaunchDaemons): It is the Linux Kernel Connection Multiplexor, a protocol facility, not a daemon.
+- kcproxy (heisenbug; macos:LaunchDaemons): I can't verify it as a named daemon.
+- kdumpd (heisenbug; macos:LaunchDaemons): I can't verify it as a named daemon; the kdump service is usually called kdump.
+- kernelmanager_helper (heisenbug; macos:LaunchDaemons): It is a helper binary, not a daemon in its own right, and I can't confirm it.
+- keybagd (heisenbug; macos:LaunchDaemons): It may be a real Apple daemon, but I can't cite a source, so I'm not counting it.
+- ksmbd-smbdirect-listener (heisenbug; kernel:kthread): Unsure whether ksmbd runs a kernel thread by this name, so not counted.
+- kuncd (heisenbug; macos:LaunchDaemons): No Unix daemon or kernel thread by this name is known to me.
+- kwatchdog (heisenbug; kernel:kthread): Unsure a Unix daemon or kernel thread by this name exists.
+- lightsoutmanagementd (heisenbug; macos:LaunchDaemons): Unsure a daemon by this name exists on a Unix-like system.
+- linkd (heisenbug; macos:LaunchAgents): No known Unix daemon by this name, and the bare word is too generic to count.
+- liquiddetectiond (heisenbug; macos:LaunchDaemons): Unsure whether this is a real named daemon, so not counted.
+- liveactivitiesd (heisenbug; macos:LaunchAgents): Unsure whether this is a real daemon on a Unix-like system.
+- local-unbound (heisenbug; freebsd:rc.d): A FreeBSD rc service name for the local unbound resolver, so it names a service and configuration rather than the daemon, which is unbound.
+- locate.updatedb (heisenbug; macos:LaunchDaemons): A one-shot script that rebuilds the locate database, not a long-running daemon.
+- logd_reporter (heisenbug; macos:LaunchDaemons): Not confident this is a real named macOS daemon.
+- logkextloadsd (heisenbug; macos:LaunchDaemons): Not a name I can confirm as a real macOS or Unix daemon.
+- lskdd (heisenbug; macos:LaunchDaemons): Not a name I can confirm as a real daemon.
+- maild (heisenbug; macos:LaunchAgents): Not confident a daemon by this name exists on a Unix-like system.
+- managedcorespotlightd (heisenbug; macos:LaunchAgents): Not confident this is a real named daemon.
+- managedeventsd (heisenbug; macos:LaunchDaemons): Not confident this is a real named daemon.
+- mbsystemadministration (heisenbug; macos:LaunchDaemons): Not confident this is a real named daemon.
+- mbusertrampoline (heisenbug; macos:LaunchDaemons): Not confident this is a real named daemon.
+- mdsync (heisenbug; macos:LaunchDaemons): Not confident this is a real named daemon.
+- metrickitd (heisenbug; macos:LaunchAgents): Unsure it is a real daemon name; MetricKit is a framework, not a confirmed process.
+- micactivityd (heisenbug; macos:LaunchDaemons): Unsure it is a real daemon name.
+- microstackshot (heisenbug; macos:LaunchDaemons): A stackshot or diagnostic data artifact, not a named background service.
+- milod (heisenbug; macos:LaunchAgents): Unsure it is a real daemon name.
+- mlruntimed (heisenbug; macos:LaunchAgents): Unsure it is a real daemon name.
+- mmaintenanced (heisenbug; macos:LaunchDaemons): Unsure it is a real daemon name.
+- mobilerepaird (heisenbug; macos:LaunchAgents): Unsure it is a real daemon name.
+- modelcatalogd (heisenbug; macos:LaunchDaemons): Unsure it is a real daemon name.
+- modelmanagerd (heisenbug; macos:LaunchDaemons): Unsure it is a real daemon name.
+- mount_nfs (heisenbug; macos:LaunchDaemons): A one-shot mount command, not a daemon; the daemon is nfsd.
+- msconvd (heisenbug; freebsd:man8, freebsd:rc.d): Unsure it is a real daemon name.
+- mstreamd (heisenbug; macos:LaunchAgents): Unsure it is a real daemon name.
+- multiversed (heisenbug; macos:LaunchDaemons): Unsure it is a real daemon name.
+- musicd (heisenbug; macos:LaunchDaemons): I can't cite a documented Apple or Unix daemon by this name.
+- NANDTaskScheduler (heisenbug; macos:LaunchDaemons): A driver-level scheduler class name, not a background daemon.
+- navd (heisenbug; macos:LaunchAgents): I can't cite a documented daemon by this name.
+- nbstated (heisenbug; macos:LaunchDaemons): I can't cite a documented daemon by this name.
+- netbiosd (heisenbug; macos:LaunchDaemons): I can't cite a documented daemon by this name; Samba's is nmbd.
+- newsd (heisenbug; macos:LaunchAgents): I'm not confident a documented Unix daemon by this name exists.
+- newsyslog (heisenbug; macos:LaunchDaemons): A log-rotation utility run from cron, not a long-running daemon.
+- nexusd (heisenbug; macos:LaunchAgents): I can't cite a documented daemon by this name.
+- nlcd (heisenbug; macos:LaunchDaemons): NLCD is a land-cover dataset, not a daemon.
+- notification_proxy (heisenbug; macos:LaunchDaemons): A lockdown service name, and I'm not confident it names a standalone daemon.
+- NRDUpdated (heisenbug; macos:LaunchDaemons): I can't cite a documented daemon by this name.
+- otherbsd (heisenbug; macos:LaunchAgents): Not a program or daemon; it reads as a generic reference to 'some other BSD'.
+- PasswordService (heisenbug; macos:LaunchDaemons): Not a recognised Unix daemon; it reads like a Windows-style service name, which is out of scope.
+- pfd (heisenbug; macos:LaunchDaemons): No known Unix daemon by this name; packet filtering on BSD is pf in the kernel plus pflogd.
+- pkd (heisenbug; macos:LaunchAgents): Not a confirmed Unix daemon; unsure of a real macOS or BSD program by this name.
+- postersyncd (heisenbug; macos:LaunchAgents): Not a confirmed daemon; unsure this is a real named program.
+- postupgraded (heisenbug; macos:LaunchDaemons): Not a confirmed daemon; unsure this is a real named program.
+- powerdatad (heisenbug; macos:LaunchDaemons): Not a confirmed daemon; unsure this is a real named program.
+- previewsd (heisenbug; macos:LaunchAgents): Not confident this is a real macOS daemon, so ruled out.
+- printtool (heisenbug; macos:LaunchDaemons): An interactive printer configuration tool, not a long-running daemon.
+- privatecloudcomputed (heisenbug; macos:LaunchAgents): Not confident this is a real daemon, so ruled out.
+- ReceiptInstaller (heisenbug; macos:LaunchDaemons): An installer helper tool, not a long-running daemon.
+- relatived (heisenbug; macos:LaunchDaemons): Not confident this is a real daemon, so ruled out.
+- remotecompositorclientd (heisenbug; macos:LaunchAgents): Not confident this is a real daemon, so ruled out.
+- remoted (heisenbug; macos:LaunchDaemons): Not confident this is a real daemon, so ruled out.
+- RemotePairTool (heisenbug; macos:LaunchDaemons): A developer pairing utility for Apple TV remotes, not a daemon.
+- replicatord (heisenbug; macos:LaunchAgents): Not confident this is a real daemon, so ruled out.
+- ReportSystemMemory (heisenbug; macos:LaunchDaemons): I can't place this as a named Unix daemon, so I'm marking it false.
+- retimerd (heisenbug; macos:LaunchDaemons): I can't place this as a named Unix daemon, so I'm marking it false.
+- reversetemplated (heisenbug; macos:LaunchAgents): I can't place this as a named Unix daemon, so I'm marking it false.
+- RFBEventHelperd (heisenbug; macos:LaunchDaemons): I can't confirm this as a real macOS screen-sharing helper daemon, so I'm marking it false.
+- rfcomm_pppd (heisenbug; freebsd:man8, freebsd:rc.d): Not a known daemon; rfcomm and pppd are separate tools and this combined name isn't a standard service.
+- rpcsvchost (heisenbug; macos:LaunchDaemons): A Windows-style host process name, not a Unix daemon.
+- SafeEjectGPUStartupDaemon (heisenbug; macos:LaunchDaemons): I can't confirm this as a named daemon, so I'm marking it false.
+- SCHelper (heisenbug; macos:LaunchDaemons): I can't place this as a named Unix daemon, so I'm marking it false.
+- scrod (heisenbug; macos:LaunchAgents): Not a known Unix daemon; it is a fish name and a word.
+- scsid (heisenbug; macos:LaunchDaemons): I can't confirm a named SCSI daemon of this name; scsi_id is a utility, not a daemon.
+- searchtoold (heisenbug; macos:LaunchAgents): I can't confirm this as a named daemon, so I'm marking it false.
+- SecurityAgent (heisenbug; macos:LaunchDaemons): A GUI authorization dialog agent launched on demand, not a long-running daemon.
+- securityd_system (heisenbug; macos:LaunchDaemons): I can't confirm this as a named daemon, so I'm marking it false.
+- seedusaged (heisenbug; macos:LaunchAgents): I can't confirm it as a named macOS daemon, so I'm ruling it out under the unsure rule.
+- segctord (heisenbug; kernel:kthread): Not a daemon I can identify; no known Unix service by this name.
+- seld (heisenbug; macos:LaunchDaemons): No Unix daemon I can identify by this name.
+- seputil (heisenbug; macos:LaunchDaemons): A command-line client for the Secure Enclave, not a daemon.
+- seserviced (heisenbug; macos:LaunchAgents): Not a daemon I can identify by this name.
+- sessionlogoutd (heisenbug; macos:LaunchDaemons): Not a daemon I can identify by this name.
+- shazamd (heisenbug; macos:LaunchAgents): I can't confirm it as a named Unix daemon, so I'm ruling it out under the unsure rule.
+- signpost_reporter (heisenbug; macos:LaunchDaemons): A reporting tool for os_signpost data, not a long-running daemon I can confirm.
+- smb-sync-preferences (heisenbug; macos:LaunchDaemons): Not a daemon I can identify by this name.
+- sntpd (heisenbug; macos:LaunchDaemons): I can't confirm a standard sntpd daemon, so I'm ruling it out under the unsure rule.
+- sociallayerd (heisenbug; macos:LaunchAgents): I think it exists as a macOS daemon, but I can't confirm it, so I'm ruling it out under the unsure rule.
+- socketfilterfw (heisenbug; macos:LaunchDaemons): Mainly the command-line tool for the macOS Application Firewall, and I can't confirm a separate daemon by this name.
+- SpeechDataInstallerd (heisenbug; macos:LaunchAgents): I think it's a macOS speech-data daemon, but I can't confirm it, so I'm ruling it out under the unsure rule.
+- spindump (heisenbug; macos:LaunchDaemons): A command-line tool for sampling hung processes, not a daemon.
+- SpotlightHelper (heisenbug; macos:LaunchDaemons): Not a daemon I can identify by this name.
+- sshd-keygen-wrapper (heisenbug; macos:LaunchDaemons): A one-shot host-key helper script run by a systemd unit, not a long-running daemon.
+- startupdiskhelper (heisenbug; macos:LaunchDaemons): Not a recognised named daemon; unsure, so not counted.
+- stickersd (heisenbug; macos:LaunchAgents): Not a recognised named daemon; unsure, so not counted.
+- StorageDEHelper (heisenbug; macos:LaunchDaemons): Not a recognised named daemon; unsure, so not counted.
+- storeuid (heisenbug; macos:LaunchAgents): Not a recognised named daemon; unsure, so not counted.
+- studentd (heisenbug; macos:LaunchAgents): Possibly an Apple education daemon, but not confident enough to count it.
+- SubmitDiagInfo (heisenbug; macos:LaunchDaemons): A one-shot diagnostics submission tool, not a background daemon.
+- suhelperd (heisenbug; macos:LaunchDaemons): Not a recognised named daemon; unsure, so not counted.
+- swiftuitraced (heisenbug; macos:LaunchDaemons): Not a recognised named daemon; unsure, so not counted.
+- symptomsd-diag (heisenbug; macos:LaunchDaemons): A diagnostic helper tool for symptomsd, not the daemon itself.
+- symptomsd-distributed (heisenbug; macos:LaunchAgents): Not a recognised named daemon; unsure, so not counted.
+- syncdefaultsd (heisenbug; macos:LaunchAgents): Not a recognised named daemon; unsure, so not counted.
+- syncuid (heisenbug; macos:LaunchAgents): Not a recognised named daemon; unsure, so not counted.
+- sysdiagnose_helper (heisenbug; macos:LaunchDaemons): A helper, not the named daemon; unsure, so not counted.
+- systemkeychain (heisenbug; macos:LaunchDaemons): Not a daemon I can confirm; the keychain daemon is keychaind.
+- systemmigrationd (heisenbug; macos:LaunchDaemons): Not a daemon I can confirm exists.
+- systemstats (heisenbug; macos:LaunchDaemons): Not a daemon I can confirm; the name refers to a scheduled stats job, not a named service.
+- systemstatusd (heisenbug; macos:LaunchDaemons): Not a daemon I can confirm exists.
+- tailspind (heisenbug; macos:LaunchDaemons): Not a recognised Unix daemon.
+- talagentd (heisenbug; macos:LaunchAgents): Not a daemon I can confirm exists.
+- teslad (heisenbug; macos:LaunchDaemons): Not a Unix daemon; it is a car-brand name, not a service.
+- textcomposerd (heisenbug; macos:LaunchAgents): Not a daemon I can confirm exists.
+- textunderstandingd (heisenbug; macos:LaunchAgents): Not a daemon I can confirm exists.
+- timemachinehelper (heisenbug; macos:LaunchDaemons): Not a daemon I can confirm; Time Machine's services are backupd and related helpers.
+- TimeZoneAdminTool (heisenbug; macos:LaunchDaemons): An admin tool, not a background daemon.
+- tipsd (heisenbug; macos:LaunchAgents): Not a daemon I can confirm exists.
+- tmp_cleaner (heisenbug; macos:LaunchDaemons): A generic script name, not a named daemon.
+- toolkitd (heisenbug; macos:LaunchAgents): Not a daemon I can confirm exists.
+- triald_system (heisenbug; macos:LaunchDaemons): Looks like a launchd label or instance of triald, not a daemon of its own that I can confirm.
+- trustdFileHelper (heisenbug; macos:LaunchDaemons): Helper process spawned by trustd rather than a standalone daemon in its own right.
+- tzd (heisenbug; macos:LaunchDaemons): I don't know of a Unix daemon by this name, so I'm unsure and rule it out.
+- tzlinkd (heisenbug; macos:LaunchDaemons): Unsure whether this is a real daemon, so I rule it out.
+- uarphidd (heisenbug; macos:LaunchDaemons): Plausible-sounding but unconfirmed as a real daemon, so I rule it out.
+- uarppersonalizationd (heisenbug; macos:LaunchAgents): Unconfirmed as a real daemon, so I rule it out.
+- UASysAgent (heisenbug; macos:LaunchDaemons): Unsure of any Unix daemon by this name.
+- ucupdate (heisenbug; macos:LaunchDaemons): Unsure of any Unix daemon by this name.
+- uncd (heisenbug; macos:LaunchDaemons): Unsure of any Unix daemon by this name.
+- uninstalld (heisenbug; macos:LaunchDaemons): Unsure of any Unix daemon by this name.
+- UpdateSettingsTool (heisenbug; macos:LaunchDaemons): A tool name, not a daemon I can confirm.
+- usbaudiod (heisenbug; macos:LaunchDaemons): Unsure whether this is a real daemon, so I rule it out.
+- usbctelemetryd (heisenbug; macos:LaunchDaemons): Unsure whether this is a real daemon, so I rule it out.
+- usbpowerd (heisenbug; macos:LaunchDaemons): Unsure whether this is a real daemon, so I rule it out.
+- userauthd (heisenbug; macos:LaunchDaemons): I can't place this as a named Unix daemon, so I'm treating it as unrecognised.
+- userfs_helper (heisenbug; macos:LaunchDaemons): I can't place this as a named Unix daemon, so I'm treating it as unrecognised.
+- userfsd (heisenbug; macos:LaunchDaemons): I can't place this as a named Unix daemon, so I'm treating it as unrecognised.
+- usermanagerd (heisenbug; macos:LaunchDaemons): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- usernotificationsd (heisenbug; macos:LaunchAgents): I'm not confident this is a distinct real daemon from usernoted, so I'm treating it as unrecognised.
+- uucico (heisenbug; macos:LaunchDaemons): It is the UUCP transfer program run per call from cron, not a long-running daemon; the daemon is uucpd.
+- UVCAssistant (heisenbug; macos:LaunchDaemons): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- VNCPrivilegeProxy (heisenbug; macos:LaunchDaemons): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- voicebankingd (heisenbug; macos:LaunchAgents): I can't place this as a named Unix daemon, so I'm treating it as unrecognised.
+- voicememod (heisenbug; macos:LaunchAgents): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- vsdbutil (heisenbug; macos:LaunchDaemons): I can't place this as a named Unix daemon, so I'm treating it as unrecognised.
+- wallpaperexportd (heisenbug; macos:LaunchDaemons): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- warmd (heisenbug; macos:LaunchDaemons): I can't place this as a named Unix daemon, so I'm treating it as unrecognised.
+- watchlistd (heisenbug; macos:LaunchAgents): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- weatherd (heisenbug; macos:LaunchAgents): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- webprivacyd (heisenbug; macos:LaunchAgents): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- webpushd (heisenbug; macos:LaunchAgents): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- wifianalyticsd (heisenbug; macos:LaunchDaemons): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- wifiFirmwareLoader (heisenbug; macos:LaunchDaemons): I'm not confident this is a real named daemon, so I'm treating it as unrecognised.
+- wifip2pd (heisenbug; macos:LaunchDaemons): I can't confirm this is a named Unix daemon, so I'm treating it as unverified.
+- wifivelocityd (heisenbug; macos:LaunchDaemons): I can't confirm this is a named Unix daemon, so I'm treating it as unverified.
+- WirelessRadioManagerd (heisenbug; macos:LaunchDaemons): I can't confirm this name from a source, so I'm treating it as unverified.
+- xscertadmin (heisenbug; macos:LaunchDaemons): A client command for managing Xsan certificates, not a daemon.
+- xscertd-helper (heisenbug; macos:LaunchDaemons): A helper binary that the certificate daemon launches, not a named daemon of its own, and I'm not sure of it.
